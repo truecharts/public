@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: self-service-password/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-self-service-password&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,11 +52,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -84,11 +84,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -116,11 +116,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/self-service-password:v5.2.1@sha256:3b0a77651ba87ed0b09caec33d2b7c4beb54ac8428e02309a92459c2cdc875a1 (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | expat         |    CVE-2022-25235   |   CRITICAL  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://blog.hartwork.org/posts/expat-2-4-5-released/">https://blog.hartwork.org/posts/expat-2-4-5-released/</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235</a><br><a href="https://github.com/libexpat/libexpat/pull/562">https://github.com/libexpat/libexpat/pull/562</a><br><a href="https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)">https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)</a><br><a href="https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)">https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)</a><br><a href="https://linux.oracle.com/cve/CVE-2022-25235.html">https://linux.oracle.com/cve/CVE-2022-25235.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0850.html">https://linux.oracle.com/errata/ELSA-2022-0850.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00007.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00007.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UFRBA3UQVIQKXTBUQXDWQOVWNBKLERU/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y27XO3JMKAOMQZVPS3B4MJGEAHCZF5OM/</a><br><a href="https://security.netapp.com/advisory/ntap-20220303-0008/">https://security.netapp.com/advisory/ntap-20220303-0008/</a><br><a href="https://ubuntu.com/security/notices/USN-5288-1">https://ubuntu.com/security/notices/USN-5288-1</a><br><a href="https://www.debian.org/security/2022/dsa-5085">https://www.debian.org/security/2022/dsa-5085</a><br></details>  |
@@ -191,4 +191,3 @@ hide:
 | php7-xmlwriter         |    CVE-2021-21708   |   CRITICAL  |  7.4.27-r0 | 7.4.28-r0 | <details><summary>Expand...</summary><a href="https://bugs.php.net/bug.php?id=81708">https://bugs.php.net/bug.php?id=81708</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708</a><br><a href="https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/">https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/</a><br><a href="https://ubuntu.com/security/notices/USN-5303-1">https://ubuntu.com/security/notices/USN-5303-1</a><br><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br><a href="https://www.php.net/ChangeLog-8.php#PHP_8_1">https://www.php.net/ChangeLog-8.php#PHP_8_1</a><br></details>  |
 | php7-xsl         |    CVE-2021-21708   |   CRITICAL  |  7.4.27-r0 | 7.4.28-r0 | <details><summary>Expand...</summary><a href="https://bugs.php.net/bug.php?id=81708">https://bugs.php.net/bug.php?id=81708</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708</a><br><a href="https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/">https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/</a><br><a href="https://ubuntu.com/security/notices/USN-5303-1">https://ubuntu.com/security/notices/USN-5303-1</a><br><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br><a href="https://www.php.net/ChangeLog-8.php#PHP_8_1">https://www.php.net/ChangeLog-8.php#PHP_8_1</a><br></details>  |
 | php7-zip         |    CVE-2021-21708   |   CRITICAL  |  7.4.27-r0 | 7.4.28-r0 | <details><summary>Expand...</summary><a href="https://bugs.php.net/bug.php?id=81708">https://bugs.php.net/bug.php?id=81708</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21708</a><br><a href="https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/">https://nakedsecurity.sophos.com/2022/02/18/irony-alert-php-fixes-security-flaw-in-input-validation-code/</a><br><a href="https://ubuntu.com/security/notices/USN-5303-1">https://ubuntu.com/security/notices/USN-5303-1</a><br><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br><a href="https://www.php.net/ChangeLog-8.php#PHP_8_1">https://www.php.net/ChangeLog-8.php#PHP_8_1</a><br></details>  |
-

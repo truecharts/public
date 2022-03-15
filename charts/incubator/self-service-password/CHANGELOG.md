@@ -7,4 +7,3 @@
 #### Feat
 
 * add selfservicepassword ([#2160](https://github.com/truecharts/apps/issues/2160))
-

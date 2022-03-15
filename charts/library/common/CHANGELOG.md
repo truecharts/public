@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="common-9.1.3"></a>
+### [common-9.1.3](https://github.com/truecharts/apps/compare/common-test-3.3.8...common-9.1.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2108](https://github.com/truecharts/apps/issues/2108))
+
+#### Docs
+
+* add BirdBare as a contributor for bug ([#2080](https://github.com/truecharts/apps/issues/2080))
+
+#### Fix
+
+* remove `or` when only one argument ([#2166](https://github.com/truecharts/apps/issues/2166))
+
+
+
 <a name="common-9.1.2"></a>
 ### [common-9.1.2](https://github.com/truecharts/apps/compare/common-9.1.1...common-9.1.2) (2022-03-07)
 
