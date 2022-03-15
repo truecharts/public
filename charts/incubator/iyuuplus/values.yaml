@@ -22,3 +22,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/IYUU/db"
+  torrents:
+    enabled: true
+    mountPath: "/torrents"
+  btbackup:
+    enabled: true
+    mountPath: "/BT_backup"        
