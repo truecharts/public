@@ -8,22 +8,24 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 7.0.2
-description: Airsonic is a Free and Open Source community driven media server
-home: https://github.com/truecharts/apps/tree/master/charts/stable/airsonic
-icon: https://truecharts.org/_static/img/appicons/airsonic.png
+description: Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/koel
+icon: https://truecharts.org/_static/img/appicons/koel.png
 keywords:
-- airsonic
+- koel
+- music
+- stream
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: airsonic
+name: koel
 sources:
-- https://github.com/airsonic/airsonic
-- https://github.com/linuxserver/docker-airsonic
-- https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
-version: 5.0.1
+- https://github.com/koel/docker
+- https://hub.docker.com/r/hyzual/koel
+- https://github.com/koel/koel
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
     - media

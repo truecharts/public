@@ -14,7 +14,7 @@ data:
   APP_KEY: {{ index $koelprevious.data "APP_KEY" }}
   {{- else }}
   {{- $app_key := randAlphaNum 32 }}
-  APP_KEY: {{ $static_cron_token | b64enc }}
+  APP_KEY: {{ $app_key | b64enc }}
   {{- end }}
 
 {{- end -}}
