@@ -19,7 +19,7 @@ env:
   FB_DATABASE: "/database"
   FB_CONFIG: "/config"
   FB_ROOT: "/data"
-  FB_PORT: "{{ .Values.services.main.ports.main.port }}"
+  FB_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
   config:
