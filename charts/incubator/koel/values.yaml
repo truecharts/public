@@ -38,7 +38,7 @@ envValueFrom:
       key: postgresql-password
   APP_KEY:
     secretKeyRef:
-      name: fireflyiii-secrets
+      name: koel-secrets
       key: APP_KEY
 
 persistence:
@@ -55,5 +55,5 @@ persistence:
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
-  postgresqlUsername: firefly
-  postgresqlDatabase: firefly
+  postgresqlUsername: koel
+  postgresqlDatabase: koel
