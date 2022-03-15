@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ubooquity
-version: 2.0.2
+version: 2.0.3
 appVersion: "2.1.2"
 description: Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 9.1.2
+  version: 9.1.4
   # condition:
 maintainers:
 - email: info@truecharts.org
