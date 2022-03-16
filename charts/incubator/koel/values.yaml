@@ -11,9 +11,9 @@ podSecurityContext:
   runAsGroup: 33
 
 env:
-  DB_CONNECTION: "pgsql"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_CONNECTION: "mysql"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   FORCE_HTTPS: false
   MEMORY_LIMIT: 2048
   LASTFM_API_KEY: ""
@@ -30,12 +30,12 @@ service:
 envValueFrom:
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: mariadbcreds
       key: plainhost
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
+      name: mariadbcreds
+      key: mariadb-password
   APP_KEY:
     secretKeyRef:
       name: koel-secrets
@@ -55,21 +55,21 @@ installContainers:
       - name: DB_CONNECTION
         value: "pgsql"
       - name: DB_USERNAME
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
+        value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_USERNAME
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
+        value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_DATABASE
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+        value: "{{ .Values.mariadb.mariadbDatabase }}"
       - name: DB_HOST
         valueFrom:
           secretKeyRef:
-            name: dbcreds
+            name: mariadbcreds
             key: plainhost
       - name: DB_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
+            name: mariadbcreds
+            key: mariadb-password
       - name: APP_KEY
         valueFrom:
           secretKeyRef:
@@ -88,8 +88,8 @@ persistence:
     enabled: true
     mountPath: "/var/www/html/storage/search-indexes"
 
-postgresql:
+mariadb:
   enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: koel
-  postgresqlDatabase: koel
+  mariadbUsername: koel
+  mariadbDatabase: koel
+  existingSecret: "mariadbcreds"
