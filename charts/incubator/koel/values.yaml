@@ -8,7 +8,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 33
-  runAsGroup: 33
+  runAsGroup: 0
 
 env:
   DB_CONNECTION: "mysql"
