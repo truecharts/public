@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-7.0.0"></a>
+### [jdownloader2-7.0.0](https://github.com/truecharts/apps/compare/jdownloader2-6.0.2...jdownloader2-7.0.0) (2022-03-16)
+
+#### Feat
+
+* make gui easier - Breaking Change ([#2154](https://github.com/truecharts/apps/issues/2154))
+
+
+
 <a name="jdownloader2-6.0.1"></a>
 ### [jdownloader2-6.0.1](https://github.com/truecharts/apps/compare/jdownloader2-6.0.0...jdownloader2-6.0.1) (2022-03-07)
 

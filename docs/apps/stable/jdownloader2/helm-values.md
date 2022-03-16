@@ -11,17 +11,23 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.CLEAN_TMP_DIR | int | `1` |  |
-| env.DISPLAY_HEIGHT | int | `768` |  |
-| env.DISPLAY_WIDTH | int | `1280` |  |
-| env.KEEP_APP_RUNNING | int | `0` |  |
-| env.SECURE_CONNECTION | int | `0` |  |
-| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
+| configmap.jdownloader.data.DISPLAY_HEIGHT | string | `"{{ .Values.jdownloader.DISPLAY_HEIGHT }}"` |  |
+| configmap.jdownloader.data.DISPLAY_WIDTH | string | `"{{ .Values.jdownloader.DISPLAY_WIDTH }}"` |  |
+| configmap.jdownloader.data.KEEP_APP_RUNNING | string | `"{{ ternary \"1\" \"0\" .Values.jdownloader.KEEP_APP_RUNNING }}"` |  |
+| configmap.jdownloader.data.SECURE_CONNECTION | string | `"{{ ternary \"1\" \"0\" .Values.jdownloader.SECURE_CONNECTION }}"` |  |
+| configmap.jdownloader.enabled | bool | `true` |  |
+| envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-jdownloader"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/jdownloader-2"` |  |
 | image.tag | string | `"v1.7.1@sha256:ba37e3a795f6e64466de3e81152af78c5fe8f6c3beeeee5a2bc948c41a631b16"` |  |
+| jdownloader.DISPLAY_HEIGHT | int | `768` |  |
+| jdownloader.DISPLAY_WIDTH | int | `1280` |  |
+| jdownloader.KEEP_APP_RUNNING | bool | `false` |  |
+| jdownloader.SECURE_CONNECTION | bool | `false` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| persistence.output.enabled | bool | `true` |  |
+| persistence.output.mountPath | string | `"/output"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | secret.VNC_PASSWORD | string | `""` |  |
