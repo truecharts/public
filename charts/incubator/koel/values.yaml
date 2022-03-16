@@ -42,7 +42,7 @@ envValueFrom:
       key: APP_KEY
 
 installContainers:
-  initDB:
+  initdb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: music
@@ -54,8 +54,6 @@ installContainers:
     env:
       - name: DB_CONNECTION
         value: "mysql"
-      - name: DB_USERNAME
-        value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_USERNAME
         value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_DATABASE
