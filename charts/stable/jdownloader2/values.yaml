@@ -32,18 +32,34 @@ service:
         port: 10056
         targetPort: 5900
 
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-jdownloader'
+
 secret:
   VNC_PASSWORD: ""
-env:
+
+jdownloader:
   # General Settings
-  KEEP_APP_RUNNING: 0
-  CLEAN_TMP_DIR: 1
+  KEEP_APP_RUNNING: false
   # GUI Settings
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
-  SECURE_CONNECTION: 0
+  SECURE_CONNECTION: false
+
+configmap:
+  jdownloader:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.jdownloader.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.jdownloader.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.jdownloader.DISPLAY_HEIGHT }}"
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+  output:
+    enabled: true
+    mountPath: "/output"
