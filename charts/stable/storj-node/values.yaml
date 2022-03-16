@@ -3,8 +3,16 @@ image:
   tag: v1.50.2@sha256:0e864b2acfeadf798a85bc2233b779be9bd69010cff005ab4911bb6eacb11c2e
   pullPolicy: IfNotPresent
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 secret:
   WALLET: "walletaddress"
+
 
 env:
   SETUP: true
