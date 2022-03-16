@@ -15,6 +15,7 @@ env:
   DB_CONNECTION: "mysql"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_PORT: "3306"
   FORCE_HTTPS: false
   MEMORY_LIMIT: 2048
   LASTFM_API_KEY: ""
@@ -55,6 +56,8 @@ installContainers:
     env:
       - name: DB_CONNECTION
         value: "mysql"
+      - name: DB_PORT
+        value: "3306"
       - name: DB_USERNAME
         value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_DATABASE
