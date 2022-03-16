@@ -11,16 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| envValueFrom.JWT_SECRET.secretKeyRef.key | string | `"JWT_SECRET"` |  |
-| envValueFrom.JWT_SECRET.secretKeyRef.name | string | `"hammond-secrets"` |  |
+| env.LRR_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
+| env.LRR_UID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/hammond"` |  |
-| image.tag | string | `"1.0.0@sha256:a38f0455634f15a38535b6f067f0cd6b62770df51d0c40c5f09ad19cbe066702"` |  |
-| persistence.assets.enabled | bool | `true` |  |
-| persistence.assets.mountPath | string | `"/assets"` |  |
+| image.repository | string | `"tccr.io/truecharts/lanraragi"` |  |
+| image.tag | string | `"v0.8.4@sha256:e41603c23afbb27544cdef8cf30f4e568eb499bd3221f81953e6cd60c469ab25"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| service.main.ports.main.port | int | `10186` |  |
+| persistence.config.mountPath | string | `"/home/koyomi/lanraragi/database"` |  |
+| persistence.content.enabled | bool | `true` |  |
+| persistence.content.mountPath | string | `"/home/koyomi/lanraragi/content"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
+| service.main.ports.main.port | int | `10177` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -14431,6 +14431,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.21.1
+    created: "2022-03-16T19:49:37.420030625Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Filebrowser provides a file managing interface within a specified
+      directory
+    digest: 5d5549097dbc6889408f04cba713eeee677189a5d66d1a32a0a80d4bdd6e8b94
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/filebrowser
+    icon: https://truecharts.org/_static/img/appicons/filebrowser.png
+    keywords:
+    - filebrowser
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: filebrowser
+    sources:
+    - https://github.com/filebrowser/filebrowser
+    - https://filebrowser.org/cli/filebrowser
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/filebrowser-1.0.0/filebrowser-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.21.1
     created: "2022-03-15T22:20:27.037585411Z"
     dependencies:
     - name: common
@@ -22062,6 +22095,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2022-03-16T19:49:37.656161044Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: A self-hosted vehicle expense tracking system with support for multiple
+      users.
+    digest: 529dfee43dd54556399d7ba39db225ba3fe84947f505f0e8f235bf9fe66c794f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/hammond
+    icon: https://truecharts.org/_static/img/appicons/hammond.png
+    keywords:
+    - hammond
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: hammond
+    sources:
+    - https://github.com/akhilrex/hammond
+    - https://hub.docker.com/r/akhilrex/hammond
+    urls:
+    - https://github.com/truecharts/apps/releases/download/hammond-1.0.0/hammond-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2022-03-15T15:30:52.999823558Z"
     dependencies:
     - name: common
@@ -25122,6 +25186,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ipfs-0.0.1/ipfs-0.0.1.tgz
     version: 0.0.1
   ispy-agent-dvr:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - security
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.8.8.0
+    created: "2022-03-16T19:49:37.898358893Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: iSpy's Agent DVR, a standalone DVR service to manage IP cameras.
+    digest: c6e306a11b8c6844d0752fd28d804ebefe0a0ff4a5c1fe0d6d8663ee50d51e0e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ispy-agent-dvr
+    icon: https://truecharts.org/_static/img/appicons/ispy-agent-dvr.png
+    keywords:
+    - dvr
+    - ispy
+    - agent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ispy-agent-dvr
+    sources:
+    - https://hub.docker.com/r/doitandbedone/ispyagentdvr
+    - https://github.com/doitandbedone/ispyagentdvr-docker
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ispy-agent-dvr-1.0.0/ispy-agent-dvr-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -28285,6 +28381,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/lanraragi-5.0.1/lanraragi-5.0.1.tgz
     version: 5.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.8.4
+    created: "2022-03-16T19:49:38.110157593Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Open source server for archival of comics/manga.
+    digest: 2a9b56c0358cbe4c678080a8eec7d6bca7efab2886afe763d0246a12ae0f894d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lanraragi
+    icon: https://truecharts.org/_static/img/appicons/lanraragi.png
+    keywords:
+    - lanraragi
+    - comics
+    - manga
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lanraragi
+    sources:
+    - https://github.com/Difegue/LANraragi
+    - https://hub.docker.com/r/difegue/lanraragi
+    - https://sugoi.gitbook.io/lanraragi/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lanraragi-1.0.0/lanraragi-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -32668,6 +32797,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lychee-9.0.20/lychee-9.0.20.tgz
     version: 9.0.20
   makemkv:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.21.3
+    created: "2022-03-16T19:49:38.346549723Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: MakeMKV is your one-click solution to convert video that you own
+      into free and patents-unencumbered format that can be played everywhere.
+    digest: 211efe53b8a5fc8ec63093475ef543393693e836456fc192badbf38a7176273d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/makemkv
+    icon: https://truecharts.org/_static/img/appicons/makemkv.png
+    keywords:
+    - mkv
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: makemkv
+    sources:
+    - https://github.com/jlesage/docker-makemkv
+    - https://hub.docker.com/r/jlesage/makemkv
+    urls:
+    - https://github.com/truecharts/apps/releases/download/makemkv-1.0.0/makemkv-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -42542,6 +42702,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/nextcloud-11.0.0/nextcloud-11.0.0.tgz
     version: 11.0.0
   nextpvr:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-16T19:49:38.604902482Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: NextPVR is a personal video recorder application, with the goal making
+      it easy to watch or record live TV.
+    digest: 2178b1f6e9343a2693f05854d851a92de0e397373ae9107cf395c94ec2405191
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/nextpvr
+    icon: https://truecharts.org/_static/img/appicons/nextpvr.png
+    keywords:
+    - pvr
+    - recorder
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: nextpvr
+    sources:
+    - https://hub.docker.com/r/nextpvr/nextpvr_amd64
+    - https://github.com/sub3/NextPVR/wiki/Install-Docker
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextpvr-1.0.0/nextpvr-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -70478,6 +70670,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.2.7
+    created: "2022-03-16T19:49:38.855648253Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: TinyMediaManager is a full featured media manager to organize and
+      clean up your media library.
+    digest: 81399e93c8a740b85f7aa468cdd395e85c15298aa6962019d50b88009ec78261
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/tinymediamanager
+    icon: https://truecharts.org/_static/img/appicons/tinymediamanager.png
+    keywords:
+    - tiny
+    - media
+    - manager
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: tinymediamanager
+    sources:
+    - https://hub.docker.com/r/tinymediamanager/tinymediamanager
+    - https://gitlab.com/tinyMediaManager/tinyMediaManager
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tinymediamanager-1.0.0/tinymediamanager-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.2.7
     created: "2022-03-14T15:54:52.065034783Z"
     dependencies:
     - name: common
@@ -76999,4 +77224,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-16T17:16:59.96331263Z"
+generated: "2022-03-16T19:49:38.864419085Z"

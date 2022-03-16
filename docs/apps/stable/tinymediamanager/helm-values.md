@@ -11,21 +11,21 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.FB_ADDRESS | string | `""` |  |
-| env.FB_BASEURL | string | `""` |  |
-| env.FB_CONFIG | string | `"/config/filebrowser.json"` |  |
-| env.FB_DATABASE | string | `"/database/filebrowser.db"` |  |
-| env.FB_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
-| env.FB_ROOT | string | `"/data"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/filebrowser"` |  |
-| image.tag | string | `"v2.21.1@sha256:cc3a61d4ce3dc9be992c2d05044f6a55aa9d6e38c84871314dda77712630a10c"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
+| image.repository | string | `"tccr.io/truecharts/tinymediamanager"` |  |
+| image.tag | string | `"v4.2.7@sha256:ed1883ca3a17969f12810143bed84eb94998e8bf1e65bc9d4717d1605ee03ef5"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.database.enabled | bool | `true` |  |
-| persistence.database.mountPath | string | `"/database"` |  |
-| service.main.ports.main.port | int | `10187` |  |
+| persistence.movies.enabled | bool | `true` |  |
+| persistence.movies.mountPath | string | `"/media/movies"` |  |
+| persistence.tvshows.enabled | bool | `true` |  |
+| persistence.tvshows.mountPath | string | `"/media/tvshows"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| secret.PASSWORD | string | `""` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
+| service.main.ports.main.port | int | `10179` |  |
+| service.main.ports.main.targetPort | int | `4000` |  |
 
 All Rights Reserved - The TrueCharts Project

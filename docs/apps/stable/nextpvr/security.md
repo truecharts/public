@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: nextpvr/templates/common.yaml
+    
 
-
-
+      
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-nextpvr&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-
+    
 
 **alpine**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -84,11 +84,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-
+    
 
 **alpine**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -118,11 +118,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/nextpvr:latest@sha256:376eadecab56535b4e15e7b75278b1e5bc8040e33041c07b884d90021ed86b2b (ubuntu 18.04)
-
+    
 
 **ubuntu**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2020-27350   |   MEDIUM  |  1.6.12ubuntu0.1 | 1.6.12ubuntu0.2 | <details><summary>Expand...</summary><a href="https://bugs.launchpad.net/bugs/1899193">https://bugs.launchpad.net/bugs/1899193</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350</a><br><a href="https://security.netapp.com/advisory/ntap-20210108-0005/">https://security.netapp.com/advisory/ntap-20210108-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-4667-1">https://ubuntu.com/security/notices/USN-4667-1</a><br><a href="https://ubuntu.com/security/notices/USN-4667-2">https://ubuntu.com/security/notices/USN-4667-2</a><br><a href="https://usn.ubuntu.com/usn/usn-4667-1">https://usn.ubuntu.com/usn/usn-4667-1</a><br><a href="https://www.debian.org/security/2020/dsa-4808">https://www.debian.org/security/2020/dsa-4808</a><br></details>  |
@@ -1155,3 +1155,4 @@ hide:
 | tar         |    CVE-2019-9923   |   LOW  |  1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | <details><summary>Expand...</summary><a href="http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120">http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html">http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html</a><br><a href="http://savannah.gnu.org/bugs/?55369">http://savannah.gnu.org/bugs/?55369</a><br><a href="https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241">https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923</a><br><a href="https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://ubuntu.com/security/notices/USN-4692-1">https://ubuntu.com/security/notices/USN-4692-1</a><br></details>  |
 | tar         |    CVE-2021-20193   |   LOW  |  1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.3 | <details><summary>Expand...</summary><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917565">https://bugzilla.redhat.com/show_bug.cgi?id=1917565</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193</a><br><a href="https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777">https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777</a><br><a href="https://savannah.gnu.org/bugs/?59897">https://savannah.gnu.org/bugs/?59897</a><br><a href="https://security.gentoo.org/glsa/202105-29">https://security.gentoo.org/glsa/202105-29</a><br><a href="https://ubuntu.com/security/notices/USN-5329-1">https://ubuntu.com/security/notices/USN-5329-1</a><br></details>  |
 | x11-common         |    CVE-2012-1093   |   LOW  |  1:7.7+19ubuntu7.1 |  | <details><summary>Expand...</summary><a href="http://vladz.devzero.fr/012_x11-common-vuln.html">http://vladz.devzero.fr/012_x11-common-vuln.html</a><br><a href="http://www.openwall.com/lists/oss-security/2012/02/29/1">http://www.openwall.com/lists/oss-security/2012/02/29/1</a><br><a href="http://www.openwall.com/lists/oss-security/2012/03/01/1">http://www.openwall.com/lists/oss-security/2012/03/01/1</a><br><a href="https://access.redhat.com/security/cve/cve-2012-1093">https://access.redhat.com/security/cve/cve-2012-1093</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1093">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1093</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2012-1093">https://security-tracker.debian.org/tracker/CVE-2012-1093</a><br></details>  |
+

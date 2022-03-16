@@ -1,14 +1,15 @@
 # Introduction
 
-MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere.
+Filebrowser provides a file managing interface within a specified directory
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/jlesage/docker-makemkv>
-* <https://hub.docker.com/r/jlesage/makemkv>
+* <https://github.com/filebrowser/filebrowser>
+* <https://filebrowser.org/cli/filebrowser>
+* <https://hub.docker.com/r/filebrowser/filebrowser>
 
 ## Requirements
 
@@ -18,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 9.1.4 |
+| https://truecharts.org | common | 9.1.2 |
 
 ## Installing the Chart
 
