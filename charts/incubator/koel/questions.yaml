@@ -87,9 +87,15 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: LASTFM_API_KEY
+        - variable: LASTFM_API_SECRET
           label: "LASTFM_API_SECRET"
           description: "Enable scrobbling to Last.fm. See https://docs.koel.dev/3rd-party.html#last-fm"
+          schema:
+            type: string
+            default: ""
+        - variable: YOUTUBE_API_KEY
+          label: "YOUTUBE_API_KEY"
+          description: "Enable YouTube integration. See https://docs.koel.dev/3rd-party.html#youtube"
           schema:
             type: string
             default: ""
@@ -396,7 +402,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -411,13 +417,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 33
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 33
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

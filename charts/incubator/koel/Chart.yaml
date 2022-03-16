@@ -4,10 +4,10 @@ dependencies:
 - name: common
   repository: https://truecharts.org
   version: 9.1.2
-- condition: postgresql.enabled
-  name: postgresql
+- condition: mariadb.enabled
+  name: mariadb
   repository: https://truecharts.org/
-  version: 7.0.2
+  version: 2.0.4
 description: Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/koel
 icon: https://truecharts.org/_static/img/appicons/koel.png
@@ -25,7 +25,7 @@ sources:
 - https://github.com/koel/docker
 - https://hub.docker.com/r/hyzual/koel
 - https://github.com/koel/koel
-version: 0.0.1
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - media
