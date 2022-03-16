@@ -7,4 +7,3 @@
 #### Feat
 
 * Add filebrowser ([#2170](https://github.com/truecharts/apps/issues/2170))
-

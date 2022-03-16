@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.3"></a>
+### [storj-node-1.0.3](https://github.com/truecharts/apps/compare/storj-node-1.0.2...storj-node-1.0.3) (2022-03-16)
+
+#### Fix
+
+* run as root so migrations can complete ([#2187](https://github.com/truecharts/apps/issues/2187))
+
+
+
 <a name="storj-node-1.0.1"></a>
 ### [storj-node-1.0.1](https://github.com/truecharts/apps/compare/storj-node-1.0.0...storj-node-1.0.1) (2022-03-15)
 

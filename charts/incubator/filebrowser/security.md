@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: filebrowser/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-filebrowser&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -82,11 +82,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -114,22 +114,21 @@ hide:
 
 
 #### Container: filebrowser/filebrowser:v2.21.1@sha256:fc69202b56e8a883a152f54467e4d8e5a3ed75b7ffb78a33aef63e222b46f773 (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/miekg/dns         |    CVE-2019-19794   |   MEDIUM  |  v1.1.3 | 1.1.25-0.20191211073109-8ebf2e419df7 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-44r7-7p62-q3fr">https://github.com/advisories/GHSA-44r7-7p62-q3fr</a><br><a href="https://github.com/coredns/coredns/issues/3519">https://github.com/coredns/coredns/issues/3519</a><br><a href="https://github.com/coredns/coredns/issues/3547">https://github.com/coredns/coredns/issues/3547</a><br><a href="https://github.com/miekg/dns/commit/8ebf2e419df7857ac8919baa05248789a8ffbf33">https://github.com/miekg/dns/commit/8ebf2e419df7857ac8919baa05248789a8ffbf33</a><br><a href="https://github.com/miekg/dns/compare/v1.1.24...v1.1.25">https://github.com/miekg/dns/compare/v1.1.24...v1.1.25</a><br><a href="https://github.com/miekg/dns/issues/1043">https://github.com/miekg/dns/issues/1043</a><br><a href="https://github.com/miekg/dns/pull/1044">https://github.com/miekg/dns/pull/1044</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-19794">https://nvd.nist.gov/vuln/detail/CVE-2019-19794</a><br></details>  |
 | golang.org/x/text         |    CVE-2020-14040   |   HIGH  |  v0.3.2 | 0.3.3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14040">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14040</a><br><a href="https://github.com/advisories/GHSA-5rcv-m4m3-hfh7">https://github.com/advisories/GHSA-5rcv-m4m3-hfh7</a><br><a href="https://github.com/golang/go/issues/39491">https://github.com/golang/go/issues/39491</a><br><a href="https://github.com/golang/text/commit/23ae387dee1f90d29a23c0e87ee0b46038fbed0e">https://github.com/golang/text/commit/23ae387dee1f90d29a23c0e87ee0b46038fbed0e</a><br><a href="https://groups.google.com/forum/#!topic/golang-announce/bXVeAmGOqz0">https://groups.google.com/forum/#!topic/golang-announce/bXVeAmGOqz0</a><br><a href="https://linux.oracle.com/cve/CVE-2020-14040.html">https://linux.oracle.com/cve/CVE-2020-14040.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2020-4694.html">https://linux.oracle.com/errata/ELSA-2020-4694.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TACQFZDPA7AUR6TRZBCX2RGRFSDYLI7O/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TACQFZDPA7AUR6TRZBCX2RGRFSDYLI7O/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-14040">https://nvd.nist.gov/vuln/detail/CVE-2020-14040</a><br></details>  |
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.2 | 0.3.7 | <details><summary>Expand...</summary></details>  |
-

@@ -22,7 +22,11 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.identity.mountPath | string | `"/app/identity"` |  |
 | persistence.storage.enabled | bool | `true` |  |
 | persistence.storage.mountPath | string | `"/app/config"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | secret.WALLET | string | `"walletaddress"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.coretcp.enabled | bool | `true` |  |
 | service.coretcp.ports.coretcp.enabled | bool | `true` |  |
 | service.coretcp.ports.coretcp.port | int | `28967` |  |
