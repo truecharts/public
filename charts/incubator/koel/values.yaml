@@ -53,7 +53,7 @@ installContainers:
         mountPath: "/var/www/html/storage/search-indexes"
     env:
       - name: DB_CONNECTION
-        value: "pgsql"
+        value: "mysql"
       - name: DB_USERNAME
         value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_USERNAME
