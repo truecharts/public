@@ -42,39 +42,39 @@ envValueFrom:
       name: koel-secrets
       key: APP_KEY
 
-installContainers:
-  initdb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: music
-        mountPath: "/music"
-      - name: covers
-        mountPath: "/var/www/html/public/img/covers"
-      - name: searchindex
-        mountPath: "/var/www/html/storage/search-indexes"
-    env:
-      - name: DB_CONNECTION
-        value: "mysql"
-      - name: DB_USERNAME
-        value: "{{ .Values.mariadb.mariadbUsername }}"
-      - name: DB_DATABASE
-        value: "{{ .Values.mariadb.mariadbDatabase }}"
-      - name: DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: plainhost
-      - name: DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: mariadb-password
-      - name: APP_KEY
-        valueFrom:
-          secretKeyRef:
-            name: koel-secrets
-            key: APP_KEY
-    command: ["php", "artisan", "koel:init", "--no-assets"]
+# installContainers:
+#   99-initdb:
+#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#     volumeMounts:
+#       - name: music
+#         mountPath: "/music"
+#       - name: covers
+#         mountPath: "/var/www/html/public/img/covers"
+#       - name: searchindex
+#         mountPath: "/var/www/html/storage/search-indexes"
+#     env:
+#       - name: DB_CONNECTION
+#         value: "mysql"
+#       - name: DB_USERNAME
+#         value: "{{ .Values.mariadb.mariadbUsername }}"
+#       - name: DB_DATABASE
+#         value: "{{ .Values.mariadb.mariadbDatabase }}"
+#       - name: DB_HOST
+#         valueFrom:
+#           secretKeyRef:
+#             name: mariadbcreds
+#             key: plainhost
+#       - name: DB_PASSWORD
+#         valueFrom:
+#           secretKeyRef:
+#             name: mariadbcreds
+#             key: mariadb-password
+#       - name: APP_KEY
+#         valueFrom:
+#           secretKeyRef:
+#             name: koel-secrets
+#             key: APP_KEY
+#     command: ["php", "artisan", "koel:init", "--no-assets"]
 
 persistence:
   music:
