@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | postgresql | 7.0.2 |
+| https://truecharts.org/ | mariadb | 2.0.4 |
 | https://truecharts.org | common | 9.1.2 |
 
 ## Installing the Chart
