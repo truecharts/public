@@ -13,6 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.DB_CONNECTION | string | `"mysql"` |  |
 | env.DB_DATABASE | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
+| env.DB_PORT | string | `"3306"` |  |
 | env.DB_USERNAME | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
 | env.FORCE_HTTPS | bool | `false` |  |
 | env.LASTFM_API_KEY | string | `""` |  |
@@ -34,19 +35,21 @@ You will, however, be able to use all values referenced in the common chart here
 | installContainers.initdb.command[3] | string | `"--no-assets"` |  |
 | installContainers.initdb.env[0].name | string | `"DB_CONNECTION"` |  |
 | installContainers.initdb.env[0].value | string | `"mysql"` |  |
-| installContainers.initdb.env[1].name | string | `"DB_USERNAME"` |  |
-| installContainers.initdb.env[1].value | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
-| installContainers.initdb.env[2].name | string | `"DB_DATABASE"` |  |
-| installContainers.initdb.env[2].value | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
-| installContainers.initdb.env[3].name | string | `"DB_HOST"` |  |
-| installContainers.initdb.env[3].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| installContainers.initdb.env[3].valueFrom.secretKeyRef.name | string | `"mariadbcreds"` |  |
-| installContainers.initdb.env[4].name | string | `"DB_PASSWORD"` |  |
-| installContainers.initdb.env[4].valueFrom.secretKeyRef.key | string | `"mariadb-password"` |  |
+| installContainers.initdb.env[1].name | string | `"DB_PORT"` |  |
+| installContainers.initdb.env[1].value | string | `"3306"` |  |
+| installContainers.initdb.env[2].name | string | `"DB_USERNAME"` |  |
+| installContainers.initdb.env[2].value | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
+| installContainers.initdb.env[3].name | string | `"DB_DATABASE"` |  |
+| installContainers.initdb.env[3].value | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
+| installContainers.initdb.env[4].name | string | `"DB_HOST"` |  |
+| installContainers.initdb.env[4].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
 | installContainers.initdb.env[4].valueFrom.secretKeyRef.name | string | `"mariadbcreds"` |  |
-| installContainers.initdb.env[5].name | string | `"APP_KEY"` |  |
-| installContainers.initdb.env[5].valueFrom.secretKeyRef.key | string | `"APP_KEY"` |  |
-| installContainers.initdb.env[5].valueFrom.secretKeyRef.name | string | `"koel-secrets"` |  |
+| installContainers.initdb.env[5].name | string | `"DB_PASSWORD"` |  |
+| installContainers.initdb.env[5].valueFrom.secretKeyRef.key | string | `"mariadb-password"` |  |
+| installContainers.initdb.env[5].valueFrom.secretKeyRef.name | string | `"mariadbcreds"` |  |
+| installContainers.initdb.env[6].name | string | `"APP_KEY"` |  |
+| installContainers.initdb.env[6].valueFrom.secretKeyRef.key | string | `"APP_KEY"` |  |
+| installContainers.initdb.env[6].valueFrom.secretKeyRef.name | string | `"koel-secrets"` |  |
 | installContainers.initdb.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | installContainers.initdb.volumeMounts[0].mountPath | string | `"/music"` |  |
 | installContainers.initdb.volumeMounts[0].name | string | `"music"` |  |
