@@ -15,6 +15,7 @@ env:
   DB_CONNECTION: "mysql"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_PORT: "3306"
   FORCE_HTTPS: false
   MEMORY_LIMIT: 2048
   LASTFM_API_KEY: ""
@@ -42,8 +43,8 @@ envValueFrom:
       name: koel-secrets
       key: APP_KEY
 
-initContainers:
-  1-initdb:
+installContainers:
+  initdb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: music
@@ -55,38 +56,8 @@ initContainers:
     env:
       - name: DB_CONNECTION
         value: "mysql"
-      - name: DB_USERNAME
-        value: "{{ .Values.mariadb.mariadbUsername }}"
-      - name: DB_DATABASE
-        value: "{{ .Values.mariadb.mariadbDatabase }}"
-      - name: DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: plainhost
-      - name: DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: mariadb-password
-      - name: APP_KEY
-        valueFrom:
-          secretKeyRef:
-            name: koel-secrets
-            key: APP_KEY
-    command: ["php", "artisan", "koel:init", "--no-assets"]
-  2-initdb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: music
-        mountPath: "/music"
-      - name: covers
-        mountPath: "/var/www/html/public/img/covers"
-      - name: searchindex
-        mountPath: "/var/www/html/storage/search-indexes"
-    env:
-      - name: DB_CONNECTION
-        value: "mysql"
+      - name: DB_PORT
+        value: "3306"
       - name: DB_USERNAME
         value: "{{ .Values.mariadb.mariadbUsername }}"
       - name: DB_DATABASE
