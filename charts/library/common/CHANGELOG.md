@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.6"></a>
+### [common-9.1.6](https://github.com/truecharts/apps/compare/common-9.1.5...common-9.1.6) (2022-03-17)
+
+#### Chore
+
+* force common chart rerelease
+
+
+
 <a name="common-9.1.5"></a>
 ### [common-9.1.5](https://github.com/truecharts/apps/compare/common-9.1.4...common-9.1.5) (2022-03-17)
 
