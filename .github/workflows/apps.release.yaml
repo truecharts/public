@@ -41,14 +41,6 @@ jobs:
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit and Push new Helm Charts and docs
-        run: |
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
-          git push
-
       - name: Commit and Push new App releases
         run: |
           cd catalog
@@ -70,3 +62,11 @@ jobs:
           git push
           cd -
           rm -rf dh_catalog
+
+      - name: Commit and Push new Helm Charts and docs
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+          git push
