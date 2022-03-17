@@ -34,8 +34,8 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-For more information:
-https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) for more infotmation.
+
 
 ### Support
 
