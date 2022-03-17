@@ -65,8 +65,9 @@ main() {
         pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
-        release_charts
-        update_index
+          gen_dh_cat
+          release_charts
+          update_index
         fi
         for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
@@ -272,6 +273,16 @@ clean_catalog() {
     cd -
     }
 export -f clean_catalog
+
+gen_dh_cat() {
+    rm -rf dh_catalog/*.*
+    rm -rf dh_catalog/*
+    cp -rf catalog/* dh_catalog
+    cd dh_catalog
+    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \
+    cd -
+   }
+export -f gen_dh_cat
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
