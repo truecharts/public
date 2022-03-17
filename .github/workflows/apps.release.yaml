@@ -57,6 +57,8 @@ jobs:
           git add --all
           git commit -sm "Commit new App releases for TrueCharts" || exit 0
           git push
+          cd -
+          rm -rf catalog
 
       - name: Commit and Push new Docker-hub-locked App releases
         run: |
@@ -66,3 +68,5 @@ jobs:
           git add --all
           git commit -sm "Commit new App releases for TrueCharts" || exit 0
           git push
+          cd -
+          rm -rf dh_catalog
