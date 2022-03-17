@@ -279,7 +279,7 @@ gen_dh_cat() {
     rm -rf dh_catalog/*
     cp -rf catalog/* dh_catalog
     cd dh_catalog
-    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \
+    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \;
     cd -
    }
 export -f gen_dh_cat
