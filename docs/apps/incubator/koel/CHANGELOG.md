@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="koel-0.0.5"></a>
+### [koel-0.0.5](https://github.com/truecharts/apps/compare/koel-0.0.4...koel-0.0.5) (2022-03-17)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2186](https://github.com/truecharts/apps/issues/2186))
+
+
+
 <a name="koel-0.0.4"></a>
 ### [koel-0.0.4](https://github.com/truecharts/apps/compare/koel-0.0.3...koel-0.0.4) (2022-03-16)
 
