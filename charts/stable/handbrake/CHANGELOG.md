@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-12.0.0"></a>
+### [handbrake-12.0.0](https://github.com/truecharts/apps/compare/handbrake-11.0.2...handbrake-12.0.0) (2022-03-17)
+
+#### Feat
+
+* make gui easier - Breaking Change ([#2153](https://github.com/truecharts/apps/issues/2153))
+
+
+
 <a name="handbrake-11.0.1"></a>
 ### [handbrake-11.0.1](https://github.com/truecharts/apps/compare/handbrake-11.0.0...handbrake-11.0.1) (2022-03-07)
 
