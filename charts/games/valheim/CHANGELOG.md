@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.33"></a>
+### [valheim-2.0.33](https://github.com/truecharts/apps/compare/valheim-2.0.32...valheim-2.0.33) (2022-03-17)
+
+#### Chore
+
+* update helm chart common to v9.1.6 ([#2200](https://github.com/truecharts/apps/issues/2200))
+
+
+
 <a name="valheim-2.0.32"></a>
 ### [valheim-2.0.32](https://github.com/truecharts/apps/compare/valheim-2.0.31...valheim-2.0.32) (2022-03-15)
 

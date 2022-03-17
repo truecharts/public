@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.24"></a>
+### [minecraft-java-0.0.24](https://github.com/truecharts/apps/compare/minecraft-java-0.0.23...minecraft-java-0.0.24) (2022-03-17)
+
+#### Chore
+
+* update helm chart common to v9.1.6 ([#2200](https://github.com/truecharts/apps/issues/2200))
+
+
+
 <a name="minecraft-java-0.0.23"></a>
 ### [minecraft-java-0.0.23](https://github.com/truecharts/apps/compare/minecraft-java-0.0.22...minecraft-java-0.0.23) (2022-03-15)
 

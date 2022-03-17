@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.17"></a>
+### [minecraft-bedrock-0.0.17](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.16...minecraft-bedrock-0.0.17) (2022-03-17)
+
+#### Chore
+
+* update helm chart common to v9.1.6 ([#2200](https://github.com/truecharts/apps/issues/2200))
+
+
+
 <a name="minecraft-bedrock-0.0.16"></a>
 ### [minecraft-bedrock-0.0.16](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.15...minecraft-bedrock-0.0.16) (2022-03-15)
 
