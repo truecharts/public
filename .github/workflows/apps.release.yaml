@@ -59,7 +59,7 @@ jobs:
           git push
 
       - name: Commit and Push new Docker-hub-locked App releases
-          run: |
+        run: |
           cd dh_catalog
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
