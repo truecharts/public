@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/prowlarr"` | image repository |
-| image.tag | string | `"v0.2.0.1560@sha256:ad71ecbfbce1f10d9b6107800e45ba7befcc6b0eec5d660af6b17a3cb289e7e1"` | image tag |
+| image.tag | string | `"v0.2.0.1588@sha256:3c7677ec962654f56456bebec0973ef74ea7c4b68aad702c7512ff678bd6762e"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

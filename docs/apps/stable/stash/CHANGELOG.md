@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="stash-6.0.3"></a>
+### [stash-6.0.3](https://github.com/truecharts/apps/compare/stash-6.0.2...stash-6.0.3) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
 <a name="stash-6.0.1"></a>
 ### [stash-6.0.1](https://github.com/truecharts/apps/compare/stash-6.0.0...stash-6.0.1) (2022-03-07)
 

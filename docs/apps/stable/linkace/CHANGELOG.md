@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="linkace-2.0.5"></a>
+### [linkace-2.0.5](https://github.com/truecharts/apps/compare/linkace-2.0.4...linkace-2.0.5) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
 <a name="linkace-2.0.3"></a>
 ### [linkace-2.0.3](https://github.com/truecharts/apps/compare/linkace-2.0.2...linkace-2.0.3) (2022-03-08)
 

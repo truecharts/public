@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="owncast-5.0.3"></a>
+### [owncast-5.0.3](https://github.com/truecharts/apps/compare/owncast-5.0.2...owncast-5.0.3) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
 <a name="owncast-5.0.1"></a>
 ### [owncast-5.0.1](https://github.com/truecharts/apps/compare/owncast-5.0.0...owncast-5.0.1) (2022-03-07)
 

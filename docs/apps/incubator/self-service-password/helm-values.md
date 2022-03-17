@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SETUP_MODE | string | `"manual"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/self-service-password"` |  |
-| image.tag | string | `"v5.2.1@sha256:3b0a77651ba87ed0b09caec33d2b7c4beb54ac8428e02309a92459c2cdc875a1"` |  |
+| image.tag | string | `"v5.2.1@sha256:32d3cfbac6d3d53bcab5f2e17fc6f02be22c80eded2e6b79c24184f3f618f804"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/assets/custom"` |  |
 | persistence.logs.enabled | bool | `true` |  |

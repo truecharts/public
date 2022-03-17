@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/owncast"` | image repository |
-| image.tag | string | `"v0.0.10@sha256:7fe3fdf3caea1808b8e0bc163bcaf28e6aacb6df65940c692f9209e2cf765f3e"` | image tag |
+| image.tag | string | `"v0.0.11@sha256:bebcb90cae79b4dddd7222d002052a9b3eb6f4a20dc7386df28617120f3fe53c"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

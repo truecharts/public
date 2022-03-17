@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unmanic"` |  |
-| image.tag | string | `"v0.1.4@sha256:572692adb8b8a04225e8225886ee3cc69087fa141abeb5c44cf793b139a90ddc"` |  |
+| image.tag | string | `"v0.2.0@sha256:8803a54504f699d45197b51866e9bdbb1f7bd543e0183aa8c055bfb3dacef04f"` |  |
 | persistence.cache.enabled | bool | `true` |  |
 | persistence.cache.mountPath | string | `"/tmp/unmanic"` |  |
 | persistence.cache.type | string | `"emptyDir"` |  |

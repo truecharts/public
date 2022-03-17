@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/medusa"` |  |
-| image.tag | string | `"v0.5.24@sha256:8676cdbb729a474486b06038008ce5e1d0c366c919c2f95d306110db770cff42"` |  |
+| image.tag | string | `"v0.5.25@sha256:ed3f08a7dcfbf2907df155997e1c95d7d23c5c7d1465523e43e37b70191fcfcf"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
