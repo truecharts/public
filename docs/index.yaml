@@ -4580,46 +4580,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 22.02.2022
-    created: "2022-03-17T06:18:15.092260903Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 9.1.4
-    - condition: mariadb.enabled
-      name: mariadb
-      repository: https://truecharts.org/
-      version: 2.0.4
-    description: A simple, self-hosted, easy-to-use platform for organising and storing
-      information.
-    digest: df81d6e3919944fd879b61da0d36ef4aa73756c23ca6fa25943ac62d77fb3ffe
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/bookstack
-    icon: https://truecharts.org/_static/img/appicons/bookstack.png
-    keywords:
-    - bookstack
-    - book
-    - stack
-    - organizer
-    - server
-    - hosted
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: bookstack
-    sources:
-    - https://www.bookstackapp.com/
-    - https://hub.docker.com/r/linuxserver/bookstack
-    urls:
-    - https://github.com/truecharts/apps/releases/download/bookstack-1.1.0/bookstack-1.1.0.tgz
-    version: 1.1.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 22.02.2022
     created: "2022-03-08T21:11:04.019229284Z"
     dependencies:
     - name: common
@@ -25355,6 +25315,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ispy-agent-dvr-0.0.1/ispy-agent-dvr-0.0.1.tgz
     version: 0.0.1
   iyuuplus:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-17T07:51:37.751314961Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: The IYUU automatic seeding tool can automatically seed most PT sites
+      in China, support downloader clusters, multiple disks, multiple download directories,
+      connecting to remote downloaders, etc.
+    digest: d4490f712590f19275ec0928ce01802af6dcdd66a0cdf0e5f0db305195b1d581
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/iyuuplus
+    icon: https://truecharts.org/_static/img/appicons/iyuuplus.png
+    keywords:
+    - iyuuplus
+    - pt
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: iyuuplus
+    sources:
+    - https://hub.docker.com/r/iyuucn/iyuuplus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/iyuuplus-1.0.0/iyuuplus-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -77337,4 +77330,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-17T06:18:15.098935638Z"
+generated: "2022-03-17T07:51:37.763302039Z"
