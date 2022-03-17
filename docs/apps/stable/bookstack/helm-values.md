@@ -11,7 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [bookstack documentation](https://hub.docker.com/r/linuxserver/bookstack) |
+| env.DB_DATABASE | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
+| env.DB_USER | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
+| envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
+| envValueFrom.APP_KEY.secretKeyRef.name | string | `"bookstack-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"mariadb-password"` |  |
@@ -23,11 +26,14 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"bookstack"` |  |
 | mariadb.mariadbUsername | string | `"bookstack"` |  |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `10112` |  |
+| service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project
