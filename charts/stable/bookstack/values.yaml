@@ -3,11 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v22.02.20220226@sha256:835888c1a466075efd5326a1c52d182c0c37558f60e34fa2a8dd54def8d22e45
 
-# -- environment variables. See more environment variables in the [bookstack documentation](https://hub.docker.com/r/linuxserver/bookstack)
-# @default -- See below
 env:
-  DB_USER: bookstack
-  DB_DATABASE: bookstack
+  DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -17,8 +15,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -26,8 +22,6 @@ service:
         port: 10112
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   varrun:
     enabled: true
@@ -44,6 +38,10 @@ envValueFrom:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: bookstack-secrets
+      key: APP_KEY
 
 mariadb:
   enabled: true
