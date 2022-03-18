@@ -2,4 +2,4 @@
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/dfWCREdTHnY)
+![type:video](https://www.youtube.com/embed/hDdFKE5-c44)
