@@ -66,4 +66,4 @@ Ofcoarse only enter the version number in the GUI or CLI, not the name
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/fs9Psx626Gs)
+![type:video](https://www.youtube.com/embed/ONbMhQJPQwc)
