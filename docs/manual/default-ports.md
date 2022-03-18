@@ -160,6 +160,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tvheadend                  |      main       |      main       | 9981  |   TCP    |                                         |
 | tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |                                         |
 | teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |                                         |
+| zerotier                   |      main       |      main       | 9993  |   UDP    |                                         |
 | guacamole-client           |      main       |      main       | 9998  |   TCP    |                                         |
 | stash                      |      main       |      main       | 9999  |   TCP    |                                         |
 | ser2sock                   |      main       |      main       | 10000 |   TCP    |                                         |

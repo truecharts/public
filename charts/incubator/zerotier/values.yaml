@@ -1,0 +1,35 @@
+image:
+  repository: zerotier/zerotier
+  pullPolicy: IfNotPresent
+  tag: 1.8.4@sha256:b57e76e4291fbc26e1c75df07bc3534e9180457343c7ceff5d7ac8c4e25f6f44
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 9993
+        port: 9993
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/zerotier-one"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
