@@ -3,6 +3,9 @@ image:
   tag: v1.24.0@sha256:2574cbd6af36d0305c8034804e2c64f672757133d71b14f87f36913a9b97e754
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 env:
   ZIGBEE2MQTT_DATA: "/data"
 
