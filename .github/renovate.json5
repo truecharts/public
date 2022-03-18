@@ -72,7 +72,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/general/major"],
       "groupName": ["helm general major"],
-      "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/incubator/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 3pm and before 4pm on tuesday"
       ],
@@ -87,7 +87,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major"],
       "groupName": "helm general non-major",
-      "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/incubator/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 3pm and before 4pm on tuesday"
       ],
@@ -98,7 +98,7 @@
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
-      "bumpVersion": "minor",
+      "bumpVersion": "major",
       "labels": ["update/docker/enterprise/major"],
       "paths": ["charts/enterprise/"],
       "schedule": [
@@ -107,7 +107,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
       ],
@@ -163,25 +163,6 @@
       "paths": ["charts/dependency/",  "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ],
-    },
-    //
-    // Version strategies
-    //
-    // Versioning for linuxserver two-three digit container versions
-    {
-      "packagePatterns": ["^linuxserver\\/","^deepquestai\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
-    },
-    // Versioning for slightly problematic container versions
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "loose",
-      "matchPackageNames": [
-        "ghcr.io/k8s-at-home/plex",
-        "ghcr.io/linuxserver/calibre",
-        "ghcr.io/k8s-at-home/qbittorrent",
-        "sirfragalot/hyperion.ng",
       ],
     },
   ]
