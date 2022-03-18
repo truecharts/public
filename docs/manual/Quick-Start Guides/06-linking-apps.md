@@ -100,7 +100,7 @@ To reach an app named "sab" (name does NOT contain catalog app name) within Sona
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/6Kg_aEKp7Yg)
+![type:video](https://www.youtube.com/embed/mWJL-XDgH98)
 
 ##### Additional Documentation
 
