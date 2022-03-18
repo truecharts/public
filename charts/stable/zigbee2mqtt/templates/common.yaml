@@ -7,7 +7,6 @@ enabled: "true"
 mountPath: "/data/configuration.yaml"
 subPath: "configuration.yaml"
 type: "custom"
-readonly: false
 volumeSpec:
   configMap:
     name: {{ include "common.names.fullname" . }}-settings
