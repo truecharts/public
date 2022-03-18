@@ -3,14 +3,6 @@ image:
   tag: v1.24.0@sha256:2574cbd6af36d0305c8034804e2c64f672757133d71b14f87f36913a9b97e754
   pullPolicy: IfNotPresent
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 env:
   ZIGBEE2MQTT_DATA: "/data"
   ZIGBEE2MQTT_CONFIG_SERIAL_PORT: "/dev/ttyACM0"
@@ -62,7 +54,7 @@ config:
   # USB / Serial settings
   serial:
     # Location of your zigbee device
-
+    port: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
     # Optional: adapter type, not needed unless you are experiencing problems (options: zstack, deconz)
     # adapter: deconz
 

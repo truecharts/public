@@ -82,11 +82,11 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ZIGBEE2MQTT_DATA
-          label: "ZIGBEE2MQTT_DATA"
+        - variable: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
+          label: "ZIGBEE2MQTT_CONFIG_SERIAL_PORT"
           schema:
             type: string
-            default: "/data"
+            default: "/dev/ttyUSB0"
 
 # Include{containerConfig}
 
