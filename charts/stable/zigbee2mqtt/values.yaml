@@ -6,6 +6,8 @@ image:
 env:
   ZIGBEE2MQTT_DATA: "/data"
   ZIGBEE2MQTT_CONFIG_SERIAL_PORT: "/dev/ttyACM0"
+  ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://localhost"
+  ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC: "zigbee2mqtt"
 
 service:
   main:
@@ -38,9 +40,9 @@ config:
   # MQTT settings
   mqtt:
     # MQTT base topic for zigbee2mqtt MQTT messages
-    base_topic: zigbee2mqtt
+    base_topic: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC }}"
     # MQTT server URL
-    server: "mqtt://localhost"
+    server: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_SERVER }}"
     # MQTT server authentication, uncomment if required:
     # user: my_user
     # password: my_password
