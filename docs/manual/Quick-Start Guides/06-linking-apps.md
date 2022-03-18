@@ -11,22 +11,22 @@ Instead we need to use their internal(!) domain name. Please beware: this name i
 The format for internal domain name for the main service is explained bellow.
 Please replace `$NAME` with the name you gave your App when installing and `$APP` with the name the app has on the catalog where is needed.
 
-**If your app has the _same_ name as in the catalog, the format is as follows.**
+**If your app name __contains__ the name of the app as in the catalog, the format is as follows.**
 
 - `$NAME.ix-$NAME.svc.cluster.local`
 
-**If your app has _different_ name than in the catalog, the format is as follows**
+**If your app name __does NOT contain__ the name of the app as in the catalog, the format is as follows.**
 
 - `$NAME-$APP.ix-$NAME.svc.cluster.local`
 
 
 If you need to reach a different service (which is not often the case!), you need a slightly different format, where `$SVCNAME` is the name of the service you want to reach:
 
-**If your app has the _same_ name as in the catalog, the format is as follows.**
+**If your app name __contains__ the name of the app as in the catalog, the format is as follows.**
 
 - `$NAME-$SVCNAME.ix-$NAME.svc.cluster.local`
 
-**If your app has _different_ name than in the catalog, the format is as follows**
+**If your app name __does NOT contain__ the name of the app as in the catalog, the format is as follows.**
 
 - `$NAME-$APPNAME-$SVCNAME.ix-$NAME.svc.cluster.local`
 
@@ -35,16 +35,16 @@ If you need to reach a different service (which is not often the case!), you nee
 <link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
 <FORM id="frameform"><BR>
 <div class="form">
-  <div class="subtitle">Generate Internal DNS Name:</div>
+  <div class="subtitle">Generate Internal DNS Name</div>
   <div class="input-container ic1">
     <input required id="name" class="input" type="text" placeholder=" " />
     <div class="cut cut-short-name"></div>
-    <label for="name" class="placeholder">Name</label>
+    <label for="name" class="placeholder">Name (e.g. my-plex-app)</label>
   </div>
   <div class="input-container ic2">
     <input required id="app" class="input" type="text" placeholder=" " />
     <div class="cut cut-short-app"></div>
-    <label for="app" class="placeholder">App</label>
+    <label for="app" class="placeholder">App (e.g. plex)</label>
   </div>
   <div class="input-container ic2">
     <input id="service" class="input" type="text" placeholder=" " />
@@ -67,7 +67,7 @@ function submit(event) {
 
 
     var svcname = ""
-    if (name.value == app.value) {
+    if (name.value.includes(app.value)) {
       svcname = name.value ;
     } else {
       svcname = name.value + "-" + app.value ;
@@ -75,7 +75,8 @@ function submit(event) {
     if (service.value) {
       svcname = svcname + "-" + service.value ;
     }
-    let svcdns = svcname + "." + "ix-" + name.value + ".svc.cluster.local" ;
+    let svcdns = svcname + ".ix-" + name.value + ".svc.cluster.local" ;
+
     alert ("Service DNS Name: " + svcdns);
      console.log(svcdns)
     return false;
@@ -84,16 +85,22 @@ function submit(event) {
 
 ##### Example
 
-To reach an app named "sabnzbd" (same name as the catalog app name) within Sonarr, we can use the following internal domain name:
+To reach an app named "my-sabnzbd-app" or "sabnzbd' (name contains the catalog app name) within Sonarr, we can use the following internal domain name:
 
 - `sabnzbd.ix-sabnzbd.svc.cluster.local` or
 - `sabnzbd.ix-sabnzbd`
+
+To reach an app named "sab" (name does NOT contain catalog app name) within Sonarr, we can use the following internal domain name:
+
+- `sab-sabnzbd.ix-sab.svc.cluster.local` or
+- `sab-sabnzbd.ix-sab`
+
 
 <a href="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png"><img src="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png" width="100%"/></a>
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/6Kg_aEKp7Yg)
+![type:video](https://www.youtube.com/embed/mWJL-XDgH98)
 
 ##### Additional Documentation
 

@@ -53,4 +53,4 @@ For clearity, it's advicable to use the same Authenticator for all domain names.
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/KC7wGqusSxE)
+![type:video](https://www.youtube.com/embed/TJ5fDiDRcbU)

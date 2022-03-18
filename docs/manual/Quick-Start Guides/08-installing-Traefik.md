@@ -4,4 +4,4 @@ Within TrueCharts our aim is to make it as easy as possible to secure your Apps.
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/NMpUjbGNLUo)
+![type:video](https://www.youtube.com/embed/bWNPfrKjawIo)
