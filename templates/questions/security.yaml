@@ -6,8 +6,8 @@
       additional_attrs: true
       attrs:
         - variable: editsecurity
-          label: "Enable Security and Permission Settings"
-          description: "By enabling this you override predefined set values."
+          label: "Change PUID / UMASK values"
+          description: "By enabling this you override default set values."
           schema:
             type: boolean
             default: false
