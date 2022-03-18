@@ -7,4 +7,3 @@
 #### Feat
 
 * Add kavita ([#2208](https://github.com/truecharts/apps/issues/2208))
-

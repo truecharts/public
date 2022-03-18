@@ -76912,6 +76912,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.24.0
+    created: "2022-03-18T21:34:30.098082473Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: Bridges events and allows you to control your Zigbee devices via
+      MQTT
+    digest: 09123883a4bc34a74245a880ae816ccbb1442385c9886a8be5ec7453869be92e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zigbee2mqtt
+    icon: https://truecharts.org/_static/img/appicons/zigbee2mqtt.png
+    keywords:
+    - zigbee
+    - mqtt
+    - home-assistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zigbee2mqtt
+    sources:
+    - https://github.com/Koenkk/zigbee2mqtt
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zigbee2mqtt-2.0.5/zigbee2mqtt-2.0.5.tgz
+    version: 2.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.24.0
     created: "2022-03-07T01:24:32.05907941Z"
     dependencies:
     - name: common
@@ -77671,4 +77703,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-18T11:41:37.51084449Z"
+generated: "2022-03-18T21:34:30.109521142Z"

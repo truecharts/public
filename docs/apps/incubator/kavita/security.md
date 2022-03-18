@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: kavita/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-kavita&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,11 +52,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -86,11 +86,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -120,11 +120,11 @@ hide:
 
 
 #### Container: kizaing/kavita:0.5.1@sha256:0ff3de9957f837b86f7eadc608498dc8b0c577d1ec522b77f8d5a13a719fc57d (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -324,4 +324,3 @@ hide:
 | tar         |    CVE-2021-20193   |   LOW  |  1.30+dfsg-7ubuntu0.20.04.1 | 1.30+dfsg-7ubuntu0.20.04.2 | <details><summary>Expand...</summary><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917565">https://bugzilla.redhat.com/show_bug.cgi?id=1917565</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193</a><br><a href="https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777">https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777</a><br><a href="https://savannah.gnu.org/bugs/?59897">https://savannah.gnu.org/bugs/?59897</a><br><a href="https://security.gentoo.org/glsa/202105-29">https://security.gentoo.org/glsa/202105-29</a><br><a href="https://ubuntu.com/security/notices/USN-5329-1">https://ubuntu.com/security/notices/USN-5329-1</a><br></details>  |
 | util-linux         |    CVE-2021-3995   |   MEDIUM  |  2.34-0.1ubuntu9.1 | 2.34-0.1ubuntu9.3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://ubuntu.com/security/notices/USN-5279-1">https://ubuntu.com/security/notices/USN-5279-1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
 | util-linux         |    CVE-2021-3996   |   MEDIUM  |  2.34-0.1ubuntu9.1 | 2.34-0.1ubuntu9.3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://ubuntu.com/security/notices/USN-5279-1">https://ubuntu.com/security/notices/USN-5279-1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-
