@@ -31,11 +31,9 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
 
 ---
-
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
 Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) for more infotmation.
-
 
 ### Support
 
@@ -131,7 +129,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-69-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-70-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -229,6 +227,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/bodly2"><img src="https://avatars.githubusercontent.com/u/21004768?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jim Russell</b></sub></a><br /><a href="#financial-bodly2" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/TheGovnah"><img src="https://avatars.githubusercontent.com/u/1300101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TheGovnah</b></sub></a><br /><a href="#financial-TheGovnah" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/famewolf"><img src="https://avatars.githubusercontent.com/u/4558832?v=4?s=100" width="100px;" alt=""/><br /><sub><b>famewolf</b></sub></a><br /><a href="#financial-famewolf" title="Financial">💵</a> <a href="https://github.com/truecharts/apps/issues?q=author%3Afamewolf" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/konradbjk"><img src="https://avatars.githubusercontent.com/u/31480935?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konrad Bujak</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=konradbjk" title="Documentation">📖</a></td>
   </tr>
 </table>
 
