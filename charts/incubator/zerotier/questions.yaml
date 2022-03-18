@@ -212,19 +212,6 @@ questions:
 # Include{persistenceAdvanced}
 # Include{persistenceList}
 
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
 # Include{ingressList}
 
 # Include{security}
