@@ -17,6 +17,11 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  usb:
+    enabled: true
+    type: hostPath
+    mountPath: /dev/ttyUSB0
+
 
 # -- zigbee2mqtt configuration settings.
 # This will be copied into the container's persistent storage at first run only.
