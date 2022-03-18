@@ -103,7 +103,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9993
+                              default: 10190
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -225,14 +225,6 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
-
 # Include{ingressList}
 
 # Include{security}

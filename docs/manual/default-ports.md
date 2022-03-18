@@ -160,7 +160,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tvheadend                  |      main       |      main       | 9981  |   TCP    |                                         |
 | tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |                                         |
 | teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |                                         |
-| zerotier                   |      main       |      main       | 9993  |   UDP    |                                         |
 | guacamole-client           |      main       |      main       | 9998  |   TCP    |                                         |
 | stash                      |      main       |      main       | 9999  |   TCP    |                                         |
 | ser2sock                   |      main       |      main       | 10000 |   TCP    |                                         |
@@ -348,6 +347,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | filebrowser                |      main       |      main       | 10187 |   HTTP   |                                         |
 | iyuuplus                   |      main       |      main       | 10188 |   HTTP   |                                         |
 | kavita                     |      main       |      main       | 10189 |   HTTP   |                                         |
+| zerotier                   |      main       |      main       | 10190 |   UDP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
