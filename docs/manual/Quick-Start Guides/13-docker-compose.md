@@ -35,6 +35,6 @@ Our docker-compose solution works almost like using it on the host, but without 
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/watch?v=QXooywQSfJY)
+![type:video](https://www.youtube.com/embed/QXooywQSfJY)
 
 ##### Additional Documentation
