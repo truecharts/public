@@ -82,11 +82,24 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ZIGBEE2MQTT_DATA
-          label: "ZIGBEE2MQTT_DATA"
+        - variable: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
+          label: "ZIGBEE2MQTT_CONFIG_SERIAL_PORT"
+          description: "This overrides config file"
           schema:
             type: string
-            default: "/data"
+            default: "/dev/ttyUSB0"
+        - variable: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
+          label: "MQTT Server"
+          description: "This overrides config file"
+          schema:
+            type: string
+            default: "mqtt://mqtt.ix-mqtt.svc.cluster.local"
+        - variable: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
+          label: "MQTT Base Topic"
+          description: "This overrides config file"
+          schema:
+            type: string
+            default: "zigbee2mqtt"
 
 # Include{containerConfig}
 
@@ -283,7 +296,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -298,13 +311,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
