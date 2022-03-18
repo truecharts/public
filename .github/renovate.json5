@@ -5,10 +5,11 @@
   "assigneesFromCodeOwners": true,
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "auto",
   "prConcurrentLimit": 7,
   "pinDigests": true,
   "timezone":"Europe/Amsterdam",
+  "gitAuthor": "bot@truecharts.org",
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
