@@ -27482,6 +27482,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/kanboard-5.0.12/kanboard-5.0.12.tgz
     version: 5.0.12
+  kavita:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.5.1
+    created: "2022-03-18T11:41:37.501809014Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: Kavita is a rocket fueled self-hosted digital library which supports
+      a vast array of file formats
+    digest: ca621647ea52a2b51c3de88b02a8806be13c5c9027409002752a706aa45ea601
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kavita
+    icon: https://truecharts.org/_static/img/appicons/kavita.png
+    keywords:
+    - kavita
+    - manga
+    - library
+    - book
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kavita
+    sources:
+    - https://www.kavitareader.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kavita-0.0.1/kavita-0.0.1.tgz
+    version: 0.0.1
   kms:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -77636,4 +77671,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-17T13:31:36.955614427Z"
+generated: "2022-03-18T11:41:37.51084449Z"

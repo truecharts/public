@@ -1,0 +1,27 @@
+image:
+  repository: kizaing/kavita
+  pullPolicy: IfNotPresent
+  tag: 0.5.1@sha256:fa4186a20dbd061a9936c4f48eef1ebcd81ec84caf62aab285f39f1a0aa8c5b6
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5000
+        port: 10189
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/kavita/config"
+  manga:
+    enabled: true
+    mountPath: "/manga"
