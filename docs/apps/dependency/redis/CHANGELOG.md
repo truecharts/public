@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.6"></a>
+### [redis-2.0.6](https://github.com/truecharts/apps/compare/redis-2.0.5...redis-2.0.6) (2022-03-18)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
 <a name="redis-2.0.5"></a>
 ### [redis-2.0.5](https://github.com/truecharts/apps/compare/redis-2.0.4...redis-2.0.5) (2022-03-17)
 
