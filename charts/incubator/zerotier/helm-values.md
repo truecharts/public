@@ -12,16 +12,23 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/mysql-workbench"` |  |
-| image.tag | string | `"v8.0.28"` |  |
+| image.repository | string | `"zerotier/zerotier"` |  |
+| image.tag | string | `"1.8.4@sha256:b57e76e4291fbc26e1c75df07bc3534e9180457343c7ceff5d7ac8c4e25f6f44"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| persistence.varrun.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/var/lib/zerotier-one"` |  |
+| persistence.tun.enabled | bool | `true` |  |
+| persistence.tun.hostPath | string | `"/dev/net/tun"` |  |
+| persistence.tun.hostPathType | string | `""` |  |
+| persistence.tun.mountPath | string | `"/dev/net/tun"` |  |
+| persistence.tun.readOnly | bool | `false` |  |
+| persistence.tun.type | string | `"hostPath"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.capabilities.add[0] | string | `"NET_ADMIN"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `10134` |  |
-| service.main.ports.main.targetPort | int | `3000` |  |
+| service.main.ports.main.port | int | `10190` |  |
+| service.main.ports.main.protocol | string | `"UDP"` |  |
+| service.main.ports.main.targetPort | int | `9993` |  |
 
 All Rights Reserved - The TrueCharts Project

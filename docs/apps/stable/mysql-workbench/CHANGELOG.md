@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mysql-workbench-1.0.4"></a>
+### [mysql-workbench-1.0.4](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.3...mysql-workbench-1.0.4) (2022-03-19)
+
+#### Fix
+
+* rofs false ([#2214](https://github.com/truecharts/apps/issues/2214))
+
+
+
 <a name="mysql-workbench-1.0.1"></a>
 ### [mysql-workbench-1.0.1](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.0...mysql-workbench-1.0.1) (2022-03-07)
 

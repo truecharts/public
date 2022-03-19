@@ -10310,6 +10310,39 @@ entries:
         - AI
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2022.01.1
+    created: "2022-03-19T10:16:05.090620715Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: 5e8c8c846dc1af358a0f6845c1a5c047faa406df42de52654eceed3f1ba9fd63
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deepstack
+    icon: https://truecharts.org/_static/img/appicons/deepstack.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deepstack
+    sources:
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-3.0.4/deepstack-3.0.4.tgz
+    version: 3.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - AI
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2021.09.1
     created: "2022-01-24T10:12:16.884242505Z"
     dependencies:
@@ -41379,6 +41412,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/mylar-4.0.21/mylar-4.0.21.tgz
     version: 4.0.21
   mysql-workbench:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 8.0.28
+    created: "2022-03-19T10:16:05.33388327Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: MySQL Workbench is a unified visual tool for database architects,
+      developers and DBAs.
+    digest: fe3d79cb3bd661ba8d05017e930f23acffd0b43273537a4dfde7d96c0efa7019
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/mysql-workbench
+    icon: https://truecharts.org/_static/img/appicons/mysql-workbench.png
+    keywords:
+    - mysql-workbench
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mysql-workbench
+    sources:
+    - https://hub.docker.com/r/linuxserver/mysql-workbench
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mysql-workbench-1.0.4/mysql-workbench-1.0.4.tgz
+    version: 1.0.4
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -74370,6 +74434,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.12.1
+    created: "2022-03-19T10:16:05.570832087Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: A fancy self-hosted monitoring tool
+    digest: 05e22e59df3f2a4d1551c266ffddbe89c73c274313c1d544690d74419739a6c6
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://truecharts.org/_static/img/appicons/uptime-kuma.png
+    keywords:
+    - monitoring
+    - uptime
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/uptime-kuma-2.0.5/uptime-kuma-2.0.5.tgz
+    version: 2.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - monitoring
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.12.1
     created: "2022-03-07T01:24:31.812416297Z"
     dependencies:
     - name: common
@@ -77050,7 +77145,71 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/xteve-4.0.21/xteve-4.0.21.tgz
     version: 4.0.21
+  zerotier:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.8.4
+    created: "2022-03-19T10:16:05.809674916Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: ZeroTier is a smart programmable Ethernet switch for planet Earth
+    digest: d9b19c088694423dc21138de3286373ba0ea8b65cbabd3a386927f4a1b475e43
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zerotier
+    icon: https://truecharts.org/_static/img/appicons/zerotier.png
+    keywords:
+    - zerotier
+    - network
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zerotier
+    sources:
+    - https://hub.docker.com/r/zerotier/zerotier
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zerotier-0.0.1/zerotier-0.0.1.tgz
+    version: 0.0.1
   zigbee2mqtt:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.24.0
+    created: "2022-03-19T10:16:06.019520972Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: Bridges events and allows you to control your Zigbee devices via
+      MQTT
+    digest: 9191c4ab7d00b52c17cb0ae415249ccc87c6e992e7bb761654e8576c3c05b908
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zigbee2mqtt
+    icon: https://truecharts.org/_static/img/appicons/zigbee2mqtt.png
+    keywords:
+    - zigbee
+    - mqtt
+    - home-assistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zigbee2mqtt
+    sources:
+    - https://github.com/Koenkk/zigbee2mqtt
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zigbee2mqtt-2.0.6/zigbee2mqtt-2.0.6.tgz
+    version: 2.0.6
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -77849,4 +78008,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-19T00:44:23.557378391Z"
+generated: "2022-03-19T10:16:06.027385819Z"

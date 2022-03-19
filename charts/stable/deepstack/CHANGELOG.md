@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-3.0.4"></a>
+### [deepstack-3.0.4](https://github.com/truecharts/apps/compare/deepstack-3.0.3...deepstack-3.0.4) (2022-03-19)
+
+#### Chore
+
+* update container image tccr.io/truecharts/deepstack-cpu to v2022.01.1 ([#2217](https://github.com/truecharts/apps/issues/2217))
+
+
+
 <a name="deepstack-3.0.1"></a>
 ### [deepstack-3.0.1](https://github.com/truecharts/apps/compare/deepstack-3.0.0...deepstack-3.0.1) (2022-03-07)
 

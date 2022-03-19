@@ -22,11 +22,10 @@ You will, however, be able to use all values referenced in the common chart here
 | deepstack.vision_scene | bool | `true` |  |
 | env.MODE | string | `"High"` |  |
 | env.MODELSTORE-DETECTION | string | `"{{ .Values.persistence.modelstore.mountPath }}"` |  |
-| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
 | envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-deepstack"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deepstack-cpu"` |  |
-| image.tag | string | `"v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28"` |  |
+| image.tag | string | `"v2022.01.1@sha256:6fce090c739d25c3bfafdcc06bdd56e72641351597975fac6dfa9d99149615ef"` |  |
 | imageGPU.pullPolicy | string | `"IfNotPresent"` |  |
 | imageGPU.repository | string | `"tccr.io/truecharts/deepstack-gpu"` |  |
 | imageGPU.tag | string | `"v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28"` |  |

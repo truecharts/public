@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-2.0.5"></a>
+### [uptime-kuma-2.0.5](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.4...uptime-kuma-2.0.5) (2022-03-19)
+
+#### Fix
+
+* make security questions overridable in values ([#2211](https://github.com/truecharts/apps/issues/2211))
+
+
+
 <a name="uptime-kuma-2.0.2"></a>
 ### [uptime-kuma-2.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.1...uptime-kuma-2.0.2) (2022-03-07)
 

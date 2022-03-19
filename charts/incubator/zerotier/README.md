@@ -1,13 +1,13 @@
 # Introduction
 
-MySQL Workbench is a unified visual tool for database architects, developers and DBAs.
+ZeroTier is a smart programmable Ethernet switch for planet Earth
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/linuxserver/mysql-workbench>
+* <https://hub.docker.com/r/zerotier/zerotier>
 
 ## Requirements
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-2.0.6"></a>
+### [zigbee2mqtt-2.0.6](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.5...zigbee2mqtt-2.0.6) (2022-03-19)
+
+#### Fix
+
+* Add more basic options in gui ([#2215](https://github.com/truecharts/apps/issues/2215))
+
+
+
 <a name="zigbee2mqtt-2.0.5"></a>
 ### [zigbee2mqtt-2.0.5](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.4...zigbee2mqtt-2.0.5) (2022-03-18)
 
