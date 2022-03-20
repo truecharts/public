@@ -1,0 +1,41 @@
+image:
+  repository: jonnyan404/verysync
+  tag: 2.13.0@sha256:a6f4fe60d6e95f8b925701cd1c3ec702ccfb39d8da58441ec6e7e9c749a0692c
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 10193
+  bt-udp1:
+    enabled: true
+    ports:
+      bt-udp1:
+        enabled: true
+        port: 22037
+        targetPort: 22037
+        protocol: UDP
+  bt-udp2:
+    enabled: true
+    ports:
+      bt-udp2:
+        enabled: true
+        port: 22027
+        targetPort: 22027
+        protocol: UDP
+  data:
+    enabled: true
+    ports:
+      data:
+        enabled: true
+        port: 22330
+        targetPort: 22330
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data"
