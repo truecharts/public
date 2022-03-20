@@ -11,11 +11,13 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| config | object | See values.yaml | zigbee2mqtt configuration settings. This will be copied into the container's persistent storage at first run only. Further configuration should be done in the application itself! See [project documentation](https://www.zigbee2mqtt.io/information/configuration.html) for more information. these are mostly just defaults and any further tweaking should be done using env-vars |
+| env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API | bool | `true` |  |
+| env.ZIGBEE2MQTT_CONFIG_FRONTEND_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | env.ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC | string | `"zigbee2mqtt"` |  |
 | env.ZIGBEE2MQTT_CONFIG_MQTT_SERVER | string | `"mqtt://localhost"` |  |
-| env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER | string | `"null"` |  |
-| env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT | string | `"/dev/ttyACM0"` |  |
+| env.ZIGBEE2MQTT_CONFIG_PERMIT_JOIN | bool | `true` |  |
+| env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER | string | `"auto"` |  |
+| env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT | string | `"/dev/ttyUSB0"` |  |
 | env.ZIGBEE2MQTT_DATA | string | `"/data"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/zigbee2mqtt"` |  |
@@ -24,10 +26,9 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| secret.ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD | string | `"password"` |  |
-| secret.ZIGBEE2MQTT_CONFIG_MQTT_USER | string | `"admin"` |  |
+| secret.ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD | string | `""` |  |
+| secret.ZIGBEE2MQTT_CONFIG_MQTT_USER | string | `""` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10103` |  |
-| service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project
