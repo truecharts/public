@@ -1,0 +1,73 @@
+image:
+  # -- image repository
+  repository:  wangqiru/ttrss
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+  # -- image tag
+  tag: latest@sha256:3cfb6596ba60eded1078f7888b85defef32d3143da123227578671c4a4cde760
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+# -- See more environment variables in the tt-rss documentation
+# https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9
+# @default -- See below.
+env:
+  # -- External URL you use to connect to the RSS (the one you enter in your browser)
+  TTRSS_SELF_URL_PATH: ""
+  TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  TTRSS_DB_PORT: "5432"
+
+envValueFrom:
+  TTRSS_DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  TTRSS_DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configure the services for the chart here.
+# @default -- See below.
+service:
+  main:
+    ports:
+      main:
+        port: 10192
+        targetPort: 80
+
+# @default -- see bellow
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  # -- Postgres database user name
+  postgresqlUsername: tt-rss
+  # -- Postgres database password
+  postgresqlDatabase: tt-rss
+
+service.mercury:
+  enabled: true
+  image: 
+    repository:  wangqiru/mercury-parser-api
+    pullPolicy: IfNotPresent
+    tag: latest@sha256:e150c1d477c008012ed4a74cddf12571475dbf7080c6b0012e8e49d9eaba5e5f
+
+service.opencc:
+  enabled: true
+  image: 
+    repository:  wangqiru/opencc-api-server
+    pullPolicy: IfNotPresent
+    tag: latest@sha256:df6c992935d0afee2ed1226ddf82079c19f6ee77cd8332ec82721a6d62aad97e
