@@ -12260,6 +12260,36 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/domoticz-0.0.1/domoticz-0.0.1.tgz
     version: 0.0.1
+  doplarr:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.3.0
+    created: "2022-03-20T16:49:59.126108928Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: An *arr Request Bot for Discord
+    digest: 229474a8fd70095d07361ce85c29103f430a7b3a9b407353cea996b662d90294
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/doplarr
+    icon: https://truecharts.org/_static/img/appicons/doplarr.png
+    keywords:
+    - doplarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: doplarr
+    sources:
+    - https://github.com/kiranshila/Doplarr
+    urls:
+    - https://github.com/truecharts/apps/releases/download/doplarr-0.0.1/doplarr-0.0.1.tgz
+    version: 0.0.1
   doublecommander:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -78674,4 +78704,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-20T16:15:39.517738376Z"
+generated: "2022-03-20T16:49:59.134161474Z"

@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: verysync/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-verysync&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -84,11 +84,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -118,11 +118,11 @@ hide:
 
 
 #### Container: jonnyan404/verysync:2.13.0@sha256:a6f4fe60d6e95f8b925701cd1c3ec702ccfb39d8da58441ec6e7e9c749a0692c (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | libcrypto1.1         |    CVE-2022-0778   |   HIGH  |  1.1.1l-r7 | 1.1.1n-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246</a><br><a href="https://linux.oracle.com/cve/CVE-2022-0778.html">https://linux.oracle.com/cve/CVE-2022-0778.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9237.html">https://linux.oracle.com/errata/ELSA-2022-9237.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html</a><br><a href="https://ubuntu.com/security/notices/USN-5328-1">https://ubuntu.com/security/notices/USN-5328-1</a><br><a href="https://ubuntu.com/security/notices/USN-5328-2">https://ubuntu.com/security/notices/USN-5328-2</a><br><a href="https://www.debian.org/security/2022/dsa-5103">https://www.debian.org/security/2022/dsa-5103</a><br><a href="https://www.openssl.org/news/secadv/20220315.txt">https://www.openssl.org/news/secadv/20220315.txt</a><br></details>  |
@@ -131,8 +131,7 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/mholt/archiver         |    CVE-2019-10743   |   MEDIUM  |  v3.1.1+incompatible | 3.3.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-h74j-692g-48mq">https://github.com/advisories/GHSA-h74j-692g-48mq</a><br><a href="https://github.com/mholt/archiver/commit/8217ed3a206c0473b4ec1aff51375b398838073a">https://github.com/mholt/archiver/commit/8217ed3a206c0473b4ec1aff51375b398838073a</a><br><a href="https://github.com/mholt/archiver/pull/169">https://github.com/mholt/archiver/pull/169</a><br><a href="https://github.com/mholt/archiver/pull/203">https://github.com/mholt/archiver/pull/203</a><br><a href="https://github.com/snyk/zip-slip-vulnerability">https://github.com/snyk/zip-slip-vulnerability</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-10743">https://nvd.nist.gov/vuln/detail/CVE-2019-10743</a><br><a href="https://snyk.io/research/zip-slip-vulnerability">https://snyk.io/research/zip-slip-vulnerability</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMMHOLTARCHIVERCMDARC-174728">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMMHOLTARCHIVERCMDARC-174728</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMMHOLTARCHIVERCMDARC-174728,">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMMHOLTARCHIVERCMDARC-174728,</a><br></details>  |
-

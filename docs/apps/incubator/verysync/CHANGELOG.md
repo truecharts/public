@@ -7,4 +7,3 @@
 #### Feat
 
 * Add verysync ([#2228](https://github.com/truecharts/apps/issues/2228))
-
