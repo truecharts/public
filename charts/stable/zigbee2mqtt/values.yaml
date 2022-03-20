@@ -3,9 +3,11 @@ image:
   tag: v1.24.0@sha256:2574cbd6af36d0305c8034804e2c64f672757133d71b14f87f36913a9b97e754
   pullPolicy: IfNotPresent
 
+command: ["sh", "-c", "cat /data/configuration.yaml"]
+
 secret:
-  ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
-  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
+  ZIGBEE2MQTT_CONFIG_MQTT_USER: "test1"
+  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: "test2"
 
 env:
   ZIGBEE2MQTT_DATA: "/data"
@@ -20,6 +22,7 @@ env:
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -35,3 +38,66 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+initContainer:
+  init-config:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    env:
+      - name: ZIGBEE2MQTT_CONFIG_FRONTEND_PORT
+        value: "{{ .Values.service.main.ports.main.port }}"
+      - name: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
+      - name: ZIGBEE2MQTT_CONFIG_PERMIT_JOIN
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_PERMIT_JOIN }}"
+      - name: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
+      - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_SERVER }}"
+      - name: ZIGBEE2MQTT_CONFIG_MQTT_USER
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_USER }}"
+      - name: ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD }}"
+      - name: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC }}"
+      - name: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
+      - name: ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER
+        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER }}"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        if [ -f /data/configuration.yaml ];
+        then
+          echo "Initial configuration exists. Skipping";
+        else
+          echo "Creating initial configuration";
+          touch /data/configuration.yaml;
+          echo "# Configuration bellow will be always be overridden" >> /data/configuration.yaml;
+          echo "# from environment settings on the Scale Apps UI." >> /data/configuration.yaml;
+          echo "# You however will not see this values change in the file." >> /data/configuration.yaml;
+          echo "##########################################################" >> /data/configuration.yaml;
+          echo "experimental:" >> /data/configuration.yaml;
+          echo "  new_api: $ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API" >> /data/configuration.yaml;
+          echo "frontend:" >> /data/configuration.yaml;
+          echo "  port: $ZIGBEE2MQTT_CONFIG_FRONTEND_PORT" >> /data/configuration.yaml;
+          echo "permit_join: $ZIGBEE2MQTT_CONFIG_PERMIT_JOIN" >> /data/configuration.yaml;
+          echo "mqtt:" >> /data/configuration.yaml;
+          echo "  server: $ZIGBEE2MQTT_CONFIG_MQTT_SERVER" >> /data/configuration.yaml;
+          echo "  base_topic: $ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC" >> /data/configuration.yaml;
+          if [ ! -z "$ZIGBEE2MQTT_CONFIG_MQTT_USER" ];
+          then
+            echo "  user: $ZIGBEE2MQTT_CONFIG_MQTT_USER" >> /data/configuration.yaml;
+          fi;
+          if [ ! -z "$ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD" ];
+          then
+            echo "  password: $ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD" >> /data/configuration.yaml;
+          fi;
+          echo "serial:" >> /data/configuration.yaml;
+          echo "  port: $ZIGBEE2MQTT_CONFIG_SERIAL_PORT" >> /data/configuration.yaml;
+          echo "  adapter: $ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER" >> /data/configuration.yaml;
+          echo "##########################################################" >> /data/configuration.yaml;
+          echo 'Initial configuration file created at "/data/configuration.yaml"';
+        fi;
