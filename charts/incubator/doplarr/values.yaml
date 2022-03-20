@@ -3,13 +3,6 @@ image:
   tag: v3.3.0@sha256:e50953500a73b4dc2670790f8c3f178387eee1a70819aefe4f2c8d9b8d17c116
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
 secret:
   OVERSEERR__API: ""
   OVERSEERR__DEFAULT_ID: ""
@@ -37,7 +30,10 @@ service:
       main:
         enabled: false
 
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
