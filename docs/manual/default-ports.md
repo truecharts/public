@@ -348,6 +348,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | iyuuplus                   |      main       |      main       | 10188 |   HTTP   |                                         |
 | kavita                     |      main       |      main       | 10189 |   HTTP   |                                         |
 | zerotier                   |      main       |      main       | 10190 |   UDP    |                                         |
+| verysync                   |      main       |      main       | 10193 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
@@ -362,7 +363,10 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                                         |
 | impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
+| verysync                   |    bt-udp1      |    bt-udp1      | 22027 |   UDP    |                                         |
+| verysync                   |    bt-udp2      |    bt-udp2      | 22037 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
+| verysync                   |      data       |      data       | 22330 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
 | storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |                                         |
 | storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |                                         |
