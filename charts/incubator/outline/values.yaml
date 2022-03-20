@@ -47,7 +47,7 @@ env:
   TEAM_LOGO: ""
   MAXIMUM_IMPORT_SIZE: "5120000"
   ALLOWED_DOMAINS: ""
-  URL: ""
+  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   COLLABORATION_URL: ""
 
 envValueFrom:
@@ -100,5 +100,57 @@ additionalContainers:
         name: main
     volumeMounts:
     - name: data
-      mountPath: "/data"
-    command: ["sh", "-c", "minio server"]
+      mountPath: "/minio_data"
+    args: ["server", "/minio_data"]
+
+installContainers:
+  initdb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DATABASE_URL
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: url
+      - name: REDIS_URL
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: url
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: SECRET_KEY
+      - name: UTILS_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: UTILS_SECRET
+    command: ["sh", "-c", "outline yarn sequelize db:create --env=production-ssl-disabled"]
+
+upgradeContainers:
+  upgradedb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DATABASE_URL
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: url
+      - name: REDIS_URL
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: url
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: SECRET_KEY
+      - name: UTILS_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: UTILS_SECRET
+    command: ["sh", "-c", "outline yarn sequelize db:migrate --env=production-ssl-disabled"]
