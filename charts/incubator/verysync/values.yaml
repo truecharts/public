@@ -36,6 +36,6 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/data"
