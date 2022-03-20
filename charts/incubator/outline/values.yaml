@@ -5,18 +5,31 @@ image:
 
 minioImage:
   repository: tccr.io/truecharts/minio
-  tag: vRELEASE.2022-02-17T23-22@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24
+  tag: latest@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24
 
+# Needs check
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
+# Needs check
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
-  # One provider of those are required, or you won't have an authentication method
+env:
+  FORCE_HTTPS: false
+  PGSSLMODE: "disable"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User defined
+  SLACK_MESSAGE_ACTIONS: true
+  ENABLE_UPDATES: true
+  WEB_CONCURRENCY: 1
+  DEFAULT_LANGUAGE: "en_US"
+  TEAM_LOGO: ""
+  MAXIMUM_IMPORT_SIZE: 5120000
+  ALLOWED_DOMAINS: ""
+  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  COLLABORATION_URL: ""
   SLACK_KEY: ""
   SLACK_SECRET: ""
   SLACK_VERIFICATION_TOKEN: ""
@@ -36,37 +49,21 @@ secret:
   OIDC_DISPLAY_NAME: ""
   OIDC_SCOPES: ""
   SENTRY_DSN: ""
-
-
-# AWS_ACCESS_KEY_ID: get_a_key_from_aws
-# AWS_SECRET_ACCESS_KEY: get_the_secret_of_above_key
-# AWS_REGION: xx-xxxx-x
-# AWS_S3_ACCELERATE_URL:
-# AWS_S3_UPLOAD_BUCKET_URL: http://s3:4569
-# AWS_S3_UPLOAD_BUCKET_NAME: bucket_name_here
-# AWS_S3_UPLOAD_MAX_SIZE: 26214400
-# AWS_S3_FORCE_PATH_STYLE: true
-# AWS_S3_ACL: private
-
-env:
-  FORCE_HTTPS: false
-  PGSSLMODE: "disable"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  ENABLE_UPDATES: true
-  SLACK_MESSAGE_ACTIONS: true
-  WEB_CONCURRENCY: 1
-  DEFAULT_LANGUAGE: en_US
-  TEAM_LOGO: ""
-  MAXIMUM_IMPORT_SIZE: "5120000"
-  ALLOWED_DOMAINS: ""
-  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-  COLLABORATION_URL: ""
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  AWS_REGION: ""
+  AWS_S3_ACCELERATE_URL: ""
+  AWS_S3_UPLOAD_BUCKET_URL: ""
+  AWS_S3_UPLOAD_BUCKET_NAME: ""
+  AWS_S3_UPLOAD_MAX_SIZE: 26214400
+  AWS_S3_FORCE_PATH_STYLE: true
+  AWS_S3_ACL: ""
 
 envValueFrom:
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
-      key: url
+      key: url-noql
   REDIS_URL:
     secretKeyRef:
       name: rediscreds
@@ -106,7 +103,7 @@ installContainers:
         valueFrom:
           secretKeyRef:
             name: dbcreds
-            key: url
+            key: url-noql
       - name: REDIS_URL
         valueFrom:
           secretKeyRef:
@@ -132,7 +129,7 @@ upgradeContainers:
         valueFrom:
           secretKeyRef:
             name: dbcreds
-            key: url
+            key: url-noql
       - name: REDIS_URL
         valueFrom:
           secretKeyRef:
