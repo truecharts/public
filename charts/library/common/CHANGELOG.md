@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.9"></a>
+### [common-9.1.9](https://github.com/truecharts/apps/compare/common-9.1.8...common-9.1.9) (2022-03-20)
+
+#### Fix
+
+* Wait for init ([#2226](https://github.com/truecharts/apps/issues/2226))
+
+
+
 <a name="common-9.1.8"></a>
 ### [common-9.1.8](https://github.com/truecharts/apps/compare/common-9.1.6...common-9.1.8) (2022-03-20)
 
