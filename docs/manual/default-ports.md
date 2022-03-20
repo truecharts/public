@@ -363,8 +363,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                                         |
 | impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
-| verysync                   |    bt-udp2      |    bt-udp2      | 22027 |   UDP    |                                         |
-| verysync                   |    bt-udp1      |    bt-udp1      | 22037 |   UDP    |                                         |
+| verysync                   |    bt-udp1      |    bt-udp1      | 22027 |   UDP    |                                         |
+| verysync                   |    bt-udp2      |    bt-udp2      | 22037 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | verysync                   |      data       |      data       | 22330 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
