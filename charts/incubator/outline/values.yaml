@@ -74,11 +74,6 @@ service:
       main:
         port: 10196
 
-persistence:
-  data:
-    enabled: true
-    mountPath: /minio_data
-
 # Enabled redis
 redis:
   enabled: true
@@ -90,18 +85,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: outline
   postgresqlDatabase: outline
-
-additionalContainers:
-  minio:
-    name: minio
-    image: "{{ .Values.minioImage.repository }}:{{ .Values.minioImage.tag }}"
-    ports:
-      - containerPort: 9000
-        name: main
-    volumeMounts:
-    - name: data
-      mountPath: "/minio_data"
-    args: ["server", "/minio_data"]
 
 installContainers:
   initdb:
@@ -127,7 +110,7 @@ installContainers:
           secretKeyRef:
             name: outline-secrets
             key: UTILS_SECRET
-    command: ["sh", "-c", "outline yarn sequelize db:create --env=production-ssl-disabled"]
+    command: ["sh", "-c", "yarn sequelize db:create --env=production-ssl-disabled"]
 
 upgradeContainers:
   upgradedb:
@@ -153,4 +136,4 @@ upgradeContainers:
           secretKeyRef:
             name: outline-secrets
             key: UTILS_SECRET
-    command: ["sh", "-c", "outline yarn sequelize db:migrate --env=production-ssl-disabled"]
+    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
