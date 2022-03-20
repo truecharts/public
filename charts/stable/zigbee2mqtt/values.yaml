@@ -6,8 +6,8 @@ image:
 command: ["sh", "-c", "cat /data/configuration.yaml"]
 
 secret:
-  ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
-  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
+  ZIGBEE2MQTT_CONFIG_MQTT_USER: "test1"
+  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: "test2"
 
 env:
   ZIGBEE2MQTT_DATA: "/data"
