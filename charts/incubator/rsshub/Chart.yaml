@@ -18,7 +18,10 @@ dependencies:
 - name: common
   repository: https://truecharts.org
   version: 9.1.6
-    # condition:
+- condition: redis.enabled
+  name: redis
+  repository: https://truecharts.org
+  version: 2.0.5
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
