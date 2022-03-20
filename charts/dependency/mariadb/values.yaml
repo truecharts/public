@@ -62,7 +62,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -79,7 +79,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -94,7 +94,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
 mariadbPassword: "testpass"
 mariadbUsername: "test"
