@@ -39,7 +39,7 @@ persistence:
     enabled: true
     mountPath: "/data"
 
-initContainer:
+initContainers:
   init-config:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
