@@ -7202,6 +7202,27 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-03-20T19:24:58.893542435Z"
+    description: Function library for TrueCharts
+    digest: ab2e7624196350cd430b295aa189f1024076aed77ce64e26772b7465c5f93739
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-9.1.8/common-9.1.8.tgz
+    version: 9.1.8
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-03-17T11:57:20.131541523Z"
     description: Function library for TrueCharts
     digest: 3655d8ff3eecff91e52f3be32748c47447f7c37b7e7782405cf8df731101d4c1
@@ -28226,6 +28247,44 @@ entries:
     - https://github.com/truecharts/apps/releases/download/kodi-headless-0.0.1/kodi-headless-0.0.1.tgz
     version: 0.0.1
   koel:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-20T20:28:28.24895705Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.6
+    description: Koel is a simple web-based personal audio streaming service written
+      in Vue on the client side and Laravel on the server side.
+    digest: 038d0126d76ba3378b360d9ac06a51845a202ed51b38f0017f91738b1c9f88ce
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/koel
+    icon: https://truecharts.org/_static/img/appicons/koel.png
+    keywords:
+    - koel
+    - music
+    - stream
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: koel
+    sources:
+    - https://github.com/koel/docker
+    - https://hub.docker.com/r/hyzual/koel
+    - https://github.com/koel/koel
+    urls:
+    - https://github.com/truecharts/apps/releases/download/koel-1.0.0/koel-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -77817,6 +77876,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.8.4
+    created: "2022-03-20T20:28:28.471056896Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: ZeroTier is a smart programmable Ethernet switch for planet Earth
+    digest: b0e4bfd488071a746f9067bc04a6f68518b0b81572b5190fff0b06a3728d1943
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zerotier
+    icon: https://truecharts.org/_static/img/appicons/zerotier.png
+    keywords:
+    - zerotier
+    - network
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zerotier
+    sources:
+    - https://hub.docker.com/r/zerotier/zerotier
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zerotier-1.0.0/zerotier-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.8.4
     created: "2022-03-19T10:16:05.809674916Z"
     dependencies:
     - name: common
@@ -78704,4 +78794,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-20T16:49:59.134161474Z"
+generated: "2022-03-20T20:28:28.479756182Z"

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-9.1.8"></a>
+### [common-9.1.8](https://github.com/truecharts/apps/compare/common-9.1.6...common-9.1.8) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* add url without ql as some app does not like it ([#2231](https://github.com/truecharts/apps/issues/2231))
+
+
+
 <a name="common-9.1.6"></a>
 ### [common-9.1.6](https://github.com/truecharts/apps/compare/common-9.1.5...common-9.1.6) (2022-03-17)
 
