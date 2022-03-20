@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: rsshub
+version: 1.0.5
+appVersion: "2.2.0"
+description: RSSHub can generate RSS feeds from pretty much everything
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rsshub
+icon: https://truecharts.org/_static/img/appicons/rsshub.png
+keywords:
+  - rsshub
+  - rss
+sources:
+  - https://docs.rsshub.app/en/install/
+  - https://github.com/DIYgod/RSSHub
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 9.1.6
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

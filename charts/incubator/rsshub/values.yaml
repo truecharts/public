@@ -1,0 +1,37 @@
+image:
+  repository: diygod/rsshub
+  pullPolicy: IfNotPresent
+  tag: 2022-03-19@sha256:53f7237edf291c7f2b3343161245ed658b43faff07ac260dec280f42681003fe
+
+env: 
+  - NODE_ENV: production
+  - CACHE_TYPE: redis
+  - PUPPETEER_WS_ENDPOINT: 'ws://browserless:3000'
+
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_URL_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 1200
+        port: 10191
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+browserless:
+  enabled: true
+  image: 
+    repository: browserless/chrome
+    pullPolicy: IfNotPresent
+    tag: latest@sha256:751dedb5701648844b2b91077cf4bb027efc1a4e0bec053f8d8a6b81802dfe86
