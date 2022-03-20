@@ -1,4 +1,4 @@
-{{- if .Values.mercuryParser.enabled }}
+{{- if .Values.browserless.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,15 +6,15 @@ metadata:
   labels:
   {{- include "rsshub.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.mercuryParser.autoscaling.enabled }}
-  replicas: {{ .Values.mercuryParser.replicaCount }}
+  {{- if not .Values.browserless.autoscaling.enabled }}
+  replicas: {{ .Values.browserless.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
       {{- include "rsshub.browserless.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with (mergeOverwrite (deepCopy .Values.global.podAnnotations) .Values.mercuryParser.podAnnotations) }}
+      {{- with (mergeOverwrite (deepCopy .Values.global.podAnnotations) .Values.browserless.podAnnotations) }}
       annotations:
       {{- toYaml . | nindent 8 }}
       {{- end }}
