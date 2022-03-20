@@ -1,15 +1,13 @@
 # Introduction
 
-Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
+ZeroTier is a smart programmable Ethernet switch for planet Earth
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/koel/docker>
-* <https://hub.docker.com/r/hyzual/koel>
-* <https://github.com/koel/koel>
+* <https://hub.docker.com/r/zerotier/zerotier>
 
 ## Requirements
 
@@ -19,7 +17,6 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | mariadb | 2.0.6 |
 | https://truecharts.org | common | 9.1.6 |
 
 ## Installing the Chart
