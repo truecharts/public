@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.32"></a>
+### [minetest-0.0.32](https://github.com/truecharts/apps/compare/minetest-0.0.31...minetest-0.0.32) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="minetest-0.0.31"></a>
 ### [minetest-0.0.31](https://github.com/truecharts/apps/compare/minetest-0.0.30...minetest-0.0.31) (2022-03-17)
 

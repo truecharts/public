@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STORAGE | string | `"500GB"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/storj-node"` |  |
-| image.tag | string | `"v1.50.2@sha256:0e864b2acfeadf798a85bc2233b779be9bd69010cff005ab4911bb6eacb11c2e"` |  |
+| image.tag | string | `"v1.50.4@sha256:6882b3de77f10bacda397267c2885479a590b6282ba25b058f7b0ec55304ec34"` |  |
 | persistence.identity.enabled | bool | `true` |  |
 | persistence.identity.mountPath | string | `"/app/identity"` |  |
 | persistence.storage.enabled | bool | `true` |  |
