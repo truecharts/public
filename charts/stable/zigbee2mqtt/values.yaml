@@ -3,8 +3,6 @@ image:
   tag: v1.24.0@sha256:2574cbd6af36d0305c8034804e2c64f672757133d71b14f87f36913a9b97e754
   pullPolicy: IfNotPresent
 
-command: ["sh", "-c", "cat /data/configuration.yaml"]
-
 secret:
   ZIGBEE2MQTT_CONFIG_MQTT_USER: "testnonempty"
   ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: "asdf"
