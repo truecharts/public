@@ -1,0 +1,43 @@
+image:
+  repository: ghcr.io/kiranshila/doplarr
+  tag: v3.3.0@sha256:e50953500a73b4dc2670790f8c3f178387eee1a70819aefe4f2c8d9b8d17c116
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+secret:
+  OVERSEERR__API: ""
+  OVERSEERR__DEFAULT_ID: ""
+  SONARR__API: ""
+  RADARR__API: ""
+  DISCORD__ROLE_ID: ""
+
+env:
+  OVERSEERR__URL: ""
+  DISCORD__TOKEN: ""
+  DISCORD__MAX_RESULTS: 25
+  DISCORD__REQUESTED_MSG_STYLE: ":plain"
+  SONARR__URL: ""
+  SONARR__QUALITY_PROFILE: ""
+  SONARR__LANGUAGE_PROFILE: ""
+  RADARR__URL: ""
+  RADARR__QUALITY_PROFILE: ""
+  PARTIAL_SEASONS: true
+  LOG_LEVEL: ":info"
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
