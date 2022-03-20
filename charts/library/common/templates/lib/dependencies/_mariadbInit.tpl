@@ -17,7 +17,7 @@ This template ensures pods with postgresql dependency have a delayed start
   command:
     - "bash"
     - "-ec"
-    - "/opt/bitnami/scripts/mariadb/healthcheck.sh"
+    - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
   imagePullPolicy: IfNotPresent
 {{- end }}
 {{- end -}}
