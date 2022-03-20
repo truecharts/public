@@ -1,0 +1,104 @@
+image:
+  repository: outlinewiki/outline
+  pullPolicy: IfNotPresent
+  tag: 0.62.0@sha256:9b53b86f9488618e3d5ed0017ee1ff460d48063bd6d81270807bd9cf026580e1
+
+minioImage:
+  repository: tccr.io/truecharts/minio
+  tag: vRELEASE.2022-02-17T23-22@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  # One provider of those are required, or you won't have an authentication method
+  SLACK_KEY: ""
+  SLACK_SECRET: ""
+  SLACK_VERIFICATION_TOKEN: ""
+  SLACK_APP_ID: ""
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+  GOOGLE_ANALYTICS_ID: ""
+  AZURE_CLIENT_ID: ""
+  AZURE_CLIENT_SECRET: ""
+  AZURE_RESOURCE_APP_ID: ""
+  OIDC_CLIENT_ID: ""
+  OIDC_CLIENT_SECRET: ""
+  OIDC_AUTH_URI: ""
+  OIDC_TOKEN_URI: ""
+  OIDC_USERINFO_URI: ""
+  OIDC_USERNAME_CLAIM: ""
+  OIDC_DISPLAY_NAME: ""
+  OIDC_SCOPES: ""
+  SENTRY_DSN: ""
+
+env:
+  FORCE_HTTPS: false
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  ENABLE_UPDATES: true
+  SLACK_MESSAGE_ACTIONS: true
+  WEB_CONCURRENCY: 1
+  DEFAULT_LANGUAGE: en_US
+  TEAM_LOGO: ""
+  MAXIMUM_IMPORT_SIZE: "5120000"
+  ALLOWED_DOMAINS: ""
+  URL: ""
+  COLLABORATION_URL: ""
+
+envValueFrom:
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: url
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+  SECRET_KEY:
+    secretKeyRef:
+      name: outline-secrets
+      key: SECRET_KEY
+  UTILS_SECRET:
+    secretKeyRef:
+      name: outline-secrets
+      key: UTILS_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10196
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /minio_data
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: outline
+  postgresqlDatabase: outline
+
+additionalContainers:
+  minio:
+    name: minio
+    image: "{{ .Values.minioImage.repository }}:{{ .Values.minioImage.tag }}"
+    ports:
+      - containerPort: 9000
+        name: main
+    volumeMounts:
+    - name: data
+      mountPath: "/data"
+    command: ["sh", "-c", "minio server"]
