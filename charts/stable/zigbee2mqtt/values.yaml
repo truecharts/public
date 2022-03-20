@@ -4,8 +4,8 @@ image:
   pullPolicy: IfNotPresent
 
 secret:
-  ZIGBEE2MQTT_CONFIG_MQTT_USER: "testnonempty"
-  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: "asdf"
+  ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
+  ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
 
 env:
   ZIGBEE2MQTT_DATA: "/data"
