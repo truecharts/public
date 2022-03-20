@@ -1,0 +1,28 @@
+{{- if and .Values.mercuryParser.enabled .Values.mercuryParser.autoscaling.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "awesome-ttrss.mercuryParser.fullname" . }}
+  labels:
+  {{- include "awesome-ttrss.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "awesome-ttrss.mercuryParser.fullname" . }}
+  minReplicas: {{ .Values.mercuryParser.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.mercuryParser.autoscaling.maxReplicas }}
+  metrics:
+    {{- if .Values.mercuryParser.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.mercuryParser.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.mercuryParser.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.mercuryParser.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+  {{- end }}
