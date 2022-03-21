@@ -19,6 +19,7 @@ secret:
   GOOGLE_SAFE_BROWSING_KEY: ""
   GOOGLE_ANALYTICS: ""
   GOOGLE_ANALYTICS_UNIVERSAL: ""
+
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_NAME: kutt
