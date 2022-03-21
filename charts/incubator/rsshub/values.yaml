@@ -25,6 +25,11 @@ service:
       main:
         port: 10191
 
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
 additionalContainers:
   browserless:
     name: browserless
