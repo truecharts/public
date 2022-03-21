@@ -6,7 +6,12 @@ image:
 browserlessimage:
   repository: browserless/chrome
   tag: latest@sha256:751dedb5701648844b2b91077cf4bb027efc1a4e0bec053f8d8a6b81802dfe86
-
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+      
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   NODE_ENV: production
