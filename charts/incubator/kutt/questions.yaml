@@ -139,7 +139,7 @@ questions:
           label: "DEFAULT_DOMAIN"
           schema:
             type: string
-            default: "localhost:10196"
+            default: "localhost:10195"
         - variable: LINK_LENGTH
           label: "LINK_LENGTH"
           schema:
@@ -239,7 +239,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10196
+                              default: 10195
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -274,7 +274,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10196
+                                    default: 10195
 
   - variable: serviceexpert
     group: "Networking and Services"
