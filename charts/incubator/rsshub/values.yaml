@@ -28,8 +28,8 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   NODE_ENV: production
   CACHE_TYPE: "redis"
-  PUPPETEER_WS_ENDPOINT: "ws://browserless:3000"
-  NODE_NAME: "{{ include "common.names.fullname" . }}"
+  PUPPETEER_WS_ENDPOINT: "ws://test:3000"
+  NODE_NAME: "{{ .Release.Name }}"
   # User  defined
   # ALLOW_ORIGIN: ""
   DISALLOW_ROBOT: false
