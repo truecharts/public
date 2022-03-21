@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Cache helm repo cache
         id: cache
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2
+        uses: actions/cache@4b0cf6cc4619e737324ddfcec08fff2413359514 # tag=v3
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
@@ -58,7 +58,7 @@ jobs:
     steps:
       - name: Cache helm repo cache
         id: cache
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2
+        uses: actions/cache@4b0cf6cc4619e737324ddfcec08fff2413359514 # tag=v3
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
