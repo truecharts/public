@@ -47506,6 +47506,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.0.0/onlyoffice-document-server-3.0.0.tgz
     version: 3.0.0
+  openhab:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.2.0
+    created: "2022-03-21T16:49:16.563081603Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: OpenHab is a home-automation application
+    digest: 2c75c437cdf4aa460820be03986c3597a8d5677460f19daf0db18069cd544ad8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/openhab
+    icon: https://truecharts.org/_static/img/appicons/openhab.png
+    keywords:
+    - openhab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: openhab
+    sources:
+    - https://hub.docker.com/r/openhab/openhab
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openhab-1.0.3/openhab-1.0.3.tgz
+    version: 1.0.3
   openkm:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -78857,4 +78889,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-21T04:49:07.004858451Z"
+generated: "2022-03-21T16:49:16.573759401Z"
