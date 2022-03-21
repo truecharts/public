@@ -14,7 +14,11 @@ image:
 secret:
   RECAPTCHA_SITE_KEY: ""
   RECAPTCHA_SECRET_KEY: ""
-
+  GOOGLE_SAFE_BROWSING_KEY: ""
+  GOOGLE_ANALYTICS: ""
+  GOOGLE_ANALYTICS_UNIVERSAL: ""
+  MAIL_USER:
+  MAIL_PASSWORD: ""
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_NAME: kutt
@@ -25,7 +29,19 @@ env:
   SITE_NAME: "My Kutt Instance"
   DEFAULT_DOMAIN: "localhost:{{ .Values.service.main.ports.main.port }}"
   LINK_LENGTH: 6
-
+  USER_LIMIT_PER_DAY: 50
+  NON_USER_COOLDOWN: 0
+  DEFAULT_MAX_STATS_PER_LINK: 5000
+  DISALLOW_REGISTRATION: false
+  DISALLOW_ANONYMOUS_LINKS: false
+  CUSTOM_DOMAIN_USE_HTTPS: false
+  ADMIN_EMAILS: "admin@example.com,admin@exampleagian.com"
+  REPORT_EMAIL: ""
+  CONTACT_EMAIL: ""
+  MAIL_HOST: ""
+  MAIL_PORT: ""
+  MAIL_FROM: ""
+  MAIL_SECURE: true
 envValueFrom:
   DB_HOST:
     secretKeyRef:
@@ -42,7 +58,7 @@ envValueFrom:
   REDIS_PASSWORD:
     secretKeyRef:
       name: rediscreds
-      key: password
+      key: redis-password
   JWT_SECRET:
     secretKeyRef:
       name: kutt-secrets
