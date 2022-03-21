@@ -421,7 +421,7 @@ prometheus:
   ## @param prometheus.livenessProbe.initialDelaySeconds Delay before liveness probe is initiated
   ## @param prometheus.livenessProbe.periodSeconds How often to perform the probe
   ## @param prometheus.livenessProbe.timeoutSeconds When the probe times out
-  ## @param prometheus.livenessProbe.failureThreshold Minimum consecutive failures for the
+  ## @param prometheus.livenessProbe.failureThreshold Minimum consecutive failures for the probe
   ## @param prometheus.livenessProbe.successThreshold Minimum consecutive successes for the probe
   ##
   livenessProbe:
