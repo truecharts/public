@@ -7,4 +7,3 @@
 #### Feat
 
 * Add kutt ([#2239](https://github.com/truecharts/apps/issues/2239))
-
