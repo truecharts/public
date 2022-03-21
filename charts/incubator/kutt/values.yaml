@@ -12,7 +12,8 @@ image:
 #   runAsGroup: 0
 
 secret:
-  RECAPTCHA_:
+  RECAPTCHA_SITE_KEY: ""
+  RECAPTCHA_SECRET_KEY: ""
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
