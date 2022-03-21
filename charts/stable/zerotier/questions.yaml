@@ -52,6 +52,35 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ZEROTIER_API_SECRET
+          label: "ZEROTIER_API_SECRET"
+          description: "Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: ZEROTIER_IDENTITY_PUBLIC
+          label: "ZEROTIER_IDENTITY_PUBLIC"
+          description: "The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you."
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: ZEROTIER_IDENTITY_SECRET
+          label: "ZEROTIER_IDENTITY_SECRET"
+          description: "The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you."
+          schema:
+            type: string
+            default: ""
+            private: true
+
 
 # Include{containerConfig}
 
