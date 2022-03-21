@@ -118,8 +118,7 @@ questions:
           label: "HOST"
           schema:
             type: string
-            $ref:
-              - "definitions/nodeIP"
+            default: ""
         - variable: WORKSPACE_DELETE_EXPIRED
           label: "WORKSPACE_DELETE_EXPIRED"
           description: "This will have browserless delete files older than 30 days in the workspace, checking once a day"
@@ -434,7 +433,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -444,7 +443,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -459,13 +458,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
