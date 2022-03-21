@@ -13,11 +13,27 @@ envValueFrom:
       name: rediscreds
       key: url
 
+secret:
+  HTTP_BASIC_AUTH_NAME: ""
+  HTTP_BASIC_AUTH_PASS: ""
+  BITBUCKET_USERNAME: ""
+  BITBUCKET_PASSWORD: ""
+  GITHUB_ACCESS_TOKEN: ""
+  GOOGLE_FONTS_API_KEY: ""
+  YOUTUBE_KEY: ""
+  TELEGRAM_TOKEN: ""
+  LASTFM_API_KEY: ""
+
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   NODE_ENV: production
   CACHE_TYPE: "redis"
   PUPPETEER_WS_ENDPOINT: 'ws://localhost:3000'
+  NODE_NAME: "{{ include "common.names.fullname" . }}"
+  # User  defined
+  # ALLOW_ORIGIN: ""
+  DISALLOW_ROBOT: false
+  TITLE_LENGTH_LIMIT: 150
 
 service:
   main:

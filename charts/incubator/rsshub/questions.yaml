@@ -74,7 +74,80 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: HTTP_BASIC_AUTH_NAME
+          label: "HTTP_BASIC_AUTH_NAME"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: HTTP_BASIC_AUTH_PASS
+          label: "HTTP_BASIC_AUTH_PASS"
+          schema:
+            type: string
+            private: true            
+            default: ""
+        - variable: BITBUCKET_USERNAME
+          label: "BITBUCKET_USERNAME"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: BITBUCKET_PASSWORD
+          label: "BITBUCKET_PASSWORD"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: GITHUB_ACCESS_TOKEN
+          label: "GITHUB_ACCESS_TOKEN"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: GOOGLE_FONTS_API_KEY
+          label: "GOOGLE_FONTS_API_KEY"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: YOUTUBE_KEY
+          label: "YOUTUBE_KEY"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: TELEGRAM_TOKEN
+          label: "TELEGRAM_TOKEN"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: LASTFM_API_KEY
+          label: "LASTFM_API_KEY"
+          schema:
+            type: string
+            private: true
+            default: ""
+            
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DISALLOW_ROBOT
+          label: "DISALLOW_ROBOT"
+          schema:
+            type: boolean
+            default: false                  
 # Include{containerConfig}
 
   - variable: service
