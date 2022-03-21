@@ -7,7 +7,14 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/metrics"
+  metrics:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/metrics"    
 questions:
   - variable: portal
     group: "Container Image"
