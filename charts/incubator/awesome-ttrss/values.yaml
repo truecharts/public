@@ -63,7 +63,7 @@ additionalContainers:
     image: "{{ .Values.mercuryParserImage.repository }}:{{ .Values.mercuryParserImage.tag }}"
     ports:
       - containerPort: 3001
-        name: main    
+        name: main
   opencc:
     name: opencc-api-server
     image: "{{ .Values.openccImage.repository }}:{{ .Values.openccImage.tag }}"
