@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zerotier-1.0.2"></a>
+### [zerotier-1.0.2](https://github.com/truecharts/apps/compare/zerotier-1.0.1...zerotier-1.0.2) (2022-03-21)
+
+#### Chore
+
+* Add some gui options ([#2237](https://github.com/truecharts/apps/issues/2237))
+
+
+
 <a name="zerotier-1.0.1"></a>
 ### [zerotier-1.0.1](https://github.com/truecharts/apps/compare/zerotier-1.0.0...zerotier-1.0.1) (2022-03-21)
 

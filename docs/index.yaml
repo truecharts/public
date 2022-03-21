@@ -77945,6 +77945,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.8.4
+    created: "2022-03-21T18:26:43.762590359Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: ZeroTier is a smart programmable Ethernet switch for planet Earth
+    digest: 3ddee6e8cdd70a95379d203e6276fb0c9bdd2ded9a3819deaf0bb2fc8fab2240
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zerotier
+    icon: https://truecharts.org/_static/img/appicons/zerotier.png
+    keywords:
+    - zerotier
+    - network
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zerotier
+    sources:
+    - https://hub.docker.com/r/zerotier/zerotier
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zerotier-1.0.2/zerotier-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.8.4
     created: "2022-03-21T04:49:06.993888665Z"
     dependencies:
     - name: common
@@ -78926,4 +78957,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-21T17:47:11.404500873Z"
+generated: "2022-03-21T18:26:43.771653373Z"

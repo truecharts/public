@@ -7,4 +7,3 @@
 #### Feat
 
 * Add rsshub ([#2223](https://github.com/truecharts/apps/issues/2223))
-
