@@ -23,6 +23,3 @@ additionalContainers:
   browserless:
     name: browserless
     image: "{{ .Values.browserlessimage.repository }}:{{ .Values.browserlessimage.tag }}"
-    ports:
-      - containerPort: 3000
-        name: main
