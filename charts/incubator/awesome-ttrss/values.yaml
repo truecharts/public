@@ -20,10 +20,14 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  TTRSS_SELF_URL_PATH: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"
+  # User Defined
+  TTRSS_SELF_URL_PATH: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  SESSION_COOKIE_LIFETIME: 24
+  DISABLE_USER_IN_DAYS: 15
+  FEED_LOG_QUIET: true
 
 envValueFrom:
   TTRSS_DB_PASS:

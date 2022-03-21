@@ -84,10 +84,35 @@ questions:
       attrs:
         - variable: TTRSS_SELF_URL_PATH
           label: "TTRSS_SELF_URL_PATH"
-          description: "Sets the TTRSS_SELF_URL_PATH env var"
+          description: "The url to your TTRSS instance."
           schema:
             type: string
             default: ""
+        - variable: TTRSS_SELF_URL_PATH
+          label: "TTRSS_SELF_URL_PATH"
+          description: "The url to your TTRSS instance."
+          schema:
+            type: string
+            default: ""
+        - variable: SESSION_COOKIE_LIFETIME
+          label: "SESSION_COOKIE_LIFETIME"
+          description: "The expiry time in hours for your login session cookie in hours."
+          schema:
+            type: int
+            default: 24
+        - variable: DISABLE_USER_IN_DAYS
+          label: "DISABLE_USER_IN_DAYS"
+          description: "Disable feed update for inactive users after X days without login, until the user performs a login."
+          schema:
+            type: int
+            default: 10
+        - variable: FEED_LOG_QUIET
+          label: "FEED_LOG_QUIET"
+          description: "Checking it will disable the printing of feed updating logs"
+          schema:
+            type: boolean
+            default: true
+
 # Include{containerConfig}
 
   - variable: service
