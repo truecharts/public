@@ -19,10 +19,6 @@ service:
         targetPort: 1200
         port: 10191
 
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
-
 additionalContainers:
   browserless:
     name: browserless
