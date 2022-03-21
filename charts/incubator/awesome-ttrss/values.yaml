@@ -24,7 +24,7 @@ env:
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"
   # User Defined
-  TTRSS_SELF_URL_PATH: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  TTRSS_SELF_URL_PATH: "http://localhost:80"
   SESSION_COOKIE_LIFETIME: 24
   DISABLE_USER_IN_DAYS: 15
   FEED_LOG_QUIET: true
