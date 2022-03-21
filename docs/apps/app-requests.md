@@ -44,7 +44,6 @@ _This is the old list that was used to track `App Requests` from one place._
 - [ ] AriaNG #1224
 - [ ] FileBrowser #1278
 - [ ] powerdns
-- [ ] Self Service Password  #1482
 - [ ] rTorrent #1485
 - [ ] MediaElch #1456
 - [ ] Mysterium #1436

@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/minetest"` |  |
-| image.tag | string | `"v5.4.1"` |  |
+| image.tag | string | `"v5.5.0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config/.minetest"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/koel"` |  |
-| image.tag | string | `"latest@sha256:4fdc640e5b7d3fd6dd32e61f70bd9d9ac9f59b43d553064a19453b04de0251f1"` |  |
+| image.tag | string | `"latest@sha256:1b84c90e846d0dab98bc14d413a9de1fd357679022795456d27ff4c75869fd9d"` |  |
 | installContainers.initdb.command[0] | string | `"php"` |  |
 | installContainers.initdb.command[1] | string | `"artisan"` |  |
 | installContainers.initdb.command[2] | string | `"koel:init"` |  |

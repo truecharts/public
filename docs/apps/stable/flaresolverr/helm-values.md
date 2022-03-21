@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. See more environment variables in the [flaresolverr documentation](https://github.com/FlareSolverr/FlareSolverr#environment-variables). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/flaresolverr"` | image repository |
-| image.tag | string | `"v2.2.1@sha256:de719161a96db4901f6fc7e3bd29ae1c424a66d40676b59653af267eaf254cfd"` | image tag |
+| image.tag | string | `"v2.2.2@sha256:3f1a0122013b2463f573726fd64d84dcf27cd7ce2d8fca783dd2e49980c03dd9"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

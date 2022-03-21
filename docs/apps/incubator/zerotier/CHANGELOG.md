@@ -7,4 +7,3 @@
 #### Feat
 
 * Add zerotier ([#2204](https://github.com/truecharts/apps/issues/2204))
-
