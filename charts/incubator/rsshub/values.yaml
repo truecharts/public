@@ -10,7 +10,7 @@ browserlessimage:
 env:
   NODE_ENV: production
   CACHE_TYPE: memory
-  PUPPETEER_WS_ENDPOINT: 'ws://browserless:3000'
+  PUPPETEER_WS_ENDPOINT: 'ws://localhost:3000'
 
 service:
   main:
