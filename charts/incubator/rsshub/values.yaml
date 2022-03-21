@@ -9,18 +9,8 @@ browserlessimage:
 
 env:
   - NODE_ENV: production
-  - CACHE_TYPE: redis
+  - CACHE_TYPE: memory
   - PUPPETEER_WS_ENDPOINT: 'ws://browserless:3000'
-
-envValueFrom:
-  REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_URL_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 service:
   main:
@@ -37,3 +27,6 @@ additionalContainers:
   browserless:
     name: browserless
     image: "{{ .Values.browserlessimage.repository }}:{{ .Values.browserlessimage.tag }}"
+    ports:
+      - containerPort: 3000
+        name: main
