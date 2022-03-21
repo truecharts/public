@@ -10,13 +10,13 @@ imagePuppeteer:
 
 imageSelector: "image"
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secret:
   TOKEN: ""
@@ -43,7 +43,7 @@ env:
   EXIT_ON_HEALTH_FAILURE: true
   DISABLE_AUTO_SET_DOWNLOAD_BEHAVIOR: false
   ENABLE_DEBUGGER: true
-  ENABLE_CORS: true
+  ENABLE_CORS: false
   ENABLE_XVBF: true
 
 service:
@@ -52,6 +52,17 @@ service:
       main:
         port: 10194
         targetPort: 3000
+
+probes:
+  liveness:
+    path: "/metrics"
+
+  readiness:
+    path: "/metrics"
+
+  startup:
+    path: "/metrics"
+
 
 persistence:
   downloads:
