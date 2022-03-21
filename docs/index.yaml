@@ -65004,6 +65004,43 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/rsnapshot-0.0.1/rsnapshot-0.0.1.tgz
     version: 0.0.1
+  rsshub:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022-03
+    created: "2022-03-21T17:47:11.395553557Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.5
+    description: RSSHub can generate RSS feeds from pretty much everything
+    digest: d474592adf3b00f4b6b938e140d1602b9f208747951f6f3d3f74aec4d2309349
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/rsshub
+    icon: https://truecharts.org/_static/img/appicons/rsshub.png
+    keywords:
+    - rsshub
+    - rss
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: rsshub
+    sources:
+    - https://docs.rsshub.app/en/install/
+    - https://github.com/DIYgod/RSSHub
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/rsshub-0.0.1/rsshub-0.0.1.tgz
+    version: 0.0.1
   sabnzbd:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -78889,4 +78926,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-21T16:49:16.573759401Z"
+generated: "2022-03-21T17:47:11.404500873Z"
