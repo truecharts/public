@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.8"></a>
+### [mariadb-2.0.8](https://github.com/truecharts/apps/compare/mariadb-2.0.7...mariadb-2.0.8) (2022-03-20)
+
+#### Fix
+
+* Wait for init ([#2226](https://github.com/truecharts/apps/issues/2226))
+
+
+
+<a name="mariadb-2.0.7"></a>
+### [mariadb-2.0.7](https://github.com/truecharts/apps/compare/mariadb-2.0.6...mariadb-2.0.7) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
 <a name="mariadb-2.0.6"></a>
 ### [mariadb-2.0.6](https://github.com/truecharts/apps/compare/mariadb-2.0.5...mariadb-2.0.6) (2022-03-17)
 

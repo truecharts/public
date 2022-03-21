@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-2.0.8"></a>
+### [zigbee2mqtt-2.0.8](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.7...zigbee2mqtt-2.0.8) (2022-03-20)
+
+#### Fix
+
+* create an initial file ([#2233](https://github.com/truecharts/apps/issues/2233))
+
+
+
+<a name="zigbee2mqtt-2.0.7"></a>
+### [zigbee2mqtt-2.0.7](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.6...zigbee2mqtt-2.0.7) (2022-03-20)
+
+#### Fix
+
+* Remove configmap and provide questions for basic setup to get up and running ([#2225](https://github.com/truecharts/apps/issues/2225))
+
+
+
 <a name="zigbee2mqtt-2.0.6"></a>
 ### [zigbee2mqtt-2.0.6](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.5...zigbee2mqtt-2.0.6) (2022-03-19)
 

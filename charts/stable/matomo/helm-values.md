@@ -41,7 +41,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MATOMO_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/matomo"` |  |
-| image.tag | string | `"v4.7.1@sha256:e1c2f58b8a6717be444c775a6975ad6e2089a331f562a029ac9bfa5f73cdf108"` |  |
+| image.tag | string | `"v4.8.0@sha256:848e4efa9d9ce01b4dfc476a694d5a99b472d356b25cc592a1bacf5518e89643"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"matomo"` |  |

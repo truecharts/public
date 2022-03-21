@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/mariadb
   pullPolicy: IfNotPresent
-  tag: v10.6.7@sha256:a6569ed88a1f8fc39cc9fbb6a21a532108b75a78123f2651032948610544913b
+  tag: v10.7.3@sha256:3c81159b4d5315a5e35fd5b288a13ea409ccd256f43d94b8975df89b85aed003
 
 controller:
   # -- Set the controller type.
@@ -62,7 +62,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -79,7 +79,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -94,7 +94,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - mysqladmin status -uroot -p"${MARIADB_ROOT_PASSWORD}"
+          - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
 mariadbPassword: "testpass"
 mariadbUsername: "test"

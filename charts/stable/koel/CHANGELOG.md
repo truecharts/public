@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="koel-1.0.0"></a>
+### [koel-1.0.0](https://github.com/truecharts/apps/compare/koel-0.0.6...koel-1.0.0) (2022-03-20)
+
+#### Feat
+
+* move koel and zerotier to stable ([#2232](https://github.com/truecharts/apps/issues/2232))
+
+
+
 <a name="koel-0.0.5"></a>
 ### [koel-0.0.5](https://github.com/truecharts/apps/compare/koel-0.0.4...koel-0.0.5) (2022-03-17)
 

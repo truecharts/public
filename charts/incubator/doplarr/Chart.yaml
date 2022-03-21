@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "3.3.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 9.1.6
+description: An *arr Request Bot for Discord
+home: https://github.com/truecharts/apps/tree/master/charts/stable/doplarr
+icon: https://truecharts.org/_static/img/appicons/doplarr.png
+keywords:
+- doplarr
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: doplarr
+sources:
+- https://github.com/kiranshila/Doplarr
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
