@@ -91,7 +91,7 @@ questions:
           label: "HTTP_BASIC_AUTH_PASS"
           schema:
             type: string
-            private: true            
+            private: true
             default: ""
         - variable: BITBUCKET_USERNAME
           label: "BITBUCKET_USERNAME"
@@ -135,7 +135,7 @@ questions:
             type: string
             private: true
             default: ""
-            
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -147,7 +147,7 @@ questions:
           label: "DISALLOW_ROBOT"
           schema:
             type: boolean
-            default: false                  
+            default: false
 # Include{containerConfig}
 
   - variable: service
