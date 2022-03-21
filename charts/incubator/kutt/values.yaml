@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.7.4@sha256:2fa9480755229bd9a14ea03fb2129eb80412600f3c5dabc8f9f9fbf35ff88fce
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secret:
   MAIL_USER: ""
