@@ -24,6 +24,9 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.tun.type | string | `"hostPath"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.ZEROTIER_API_SECRET | string | `""` |  |
+| secret.ZEROTIER_IDENTITY_PUBLIC | string | `""` |  |
+| secret.ZEROTIER_IDENTITY_SECRET | string | `""` |  |
 | securityContext.capabilities.add[0] | string | `"NET_ADMIN"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
