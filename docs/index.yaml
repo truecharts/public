@@ -28895,6 +28895,47 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/komga-4.0.24/komga-4.0.24.tgz
     version: 4.0.24
+  kutt:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.4
+    created: "2022-03-21T20:18:05.69732764Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.5
+    description: A free and open source personal finance manager
+    digest: 43dd5a6dc7e03005d531e743a6838aedad7a3297b3adb5f5d6a0c93652f8dfeb
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
+    icon: https://truecharts.org/_static/img/appicons/kutt.png
+    keywords:
+    - kutt
+    - link
+    - short
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kutt
+    sources:
+    - https://github.com/thedevs-network/kutt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kutt-0.0.1/kutt-0.0.1.tgz
+    version: 0.0.1
   lanraragi:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -78957,4 +78998,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-21T18:26:43.771653373Z"
+generated: "2022-03-21T20:18:05.704323347Z"
