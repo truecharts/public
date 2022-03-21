@@ -12,13 +12,13 @@ image:
 #   runAsGroup: 0
 
 secret:
+  MAIL_USER: ""
+  MAIL_PASSWORD: ""
   RECAPTCHA_SITE_KEY: ""
   RECAPTCHA_SECRET_KEY: ""
   GOOGLE_SAFE_BROWSING_KEY: ""
   GOOGLE_ANALYTICS: ""
   GOOGLE_ANALYTICS_UNIVERSAL: ""
-  MAIL_USER:
-  MAIL_PASSWORD: ""
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_NAME: kutt
@@ -35,13 +35,14 @@ env:
   DISALLOW_REGISTRATION: false
   DISALLOW_ANONYMOUS_LINKS: false
   CUSTOM_DOMAIN_USE_HTTPS: false
-  ADMIN_EMAILS: "admin@example.com,admin@exampleagian.com"
-  REPORT_EMAIL: ""
-  CONTACT_EMAIL: ""
+  ADMIN_EMAILS: "admin@example.com,admin@example2.com"
+  REPORT_EMAIL: "admin@example.com"
+  CONTACT_EMAIL: "admin@example.com"
   MAIL_HOST: ""
-  MAIL_PORT: ""
+  MAIL_PORT: 567
   MAIL_FROM: ""
   MAIL_SECURE: true
+
 envValueFrom:
   DB_HOST:
     secretKeyRef:

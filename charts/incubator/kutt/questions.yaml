@@ -74,6 +74,55 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: MAIL_USER
+          label: "MAIL_USER"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_PASSWORD
+          label: "MAIL_PASSWORD"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: RECAPTCHA_SITE_KEY
+          label: "RECAPTCHA_SITE_KEY"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: RECAPTCHA_SECRET_KEY
+          label: "RECAPTCHA_SECRET_KEY"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: GOOGLE_SAFE_BROWSING_KEY
+          label: "GOOGLE_SAFE_BROWSING_KEY"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: GOOGLE_ANALYTICS
+          label: "GOOGLE_ANALYTICS"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: GOOGLE_ANALYTICS_UNIVERSAL
+          label: "GOOGLE_ANALYTICS_UNIVERSAL"
+          schema:
+            type: string
+            default: ""
+            private: true
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -81,18 +130,86 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: APP_URL
-          label: "APP_URL"
-          description: "Application URL eg. https://fireflyiii.mydomain.com"
+        - variable: SITE_NAME
+          label: "SITE_NAME"
           schema:
             type: string
-            default: "http://localhost:10082"
-        - variable: TRUSTED_PROXIES
-          label: "TRUSTED_PROXIES"
-          description: "TRUSTED_PROXIES"
+            default: "My Kutt Instance"
+        - variable: DEFAULT_DOMAIN
+          label: "DEFAULT_DOMAIN"
           schema:
             type: string
-            default: "172.16.0.0/16"
+            default: "localhost:10195"
+        - variable: LINK_LENGTH
+          label: "LINK_LENGTH"
+          schema:
+            type: int
+            default: 6
+        - variable: USER_LIMIT_PER_DAY
+          label: "USER_LIMIT_PER_DAY"
+          schema:
+            type: int
+            default: 50
+        - variable: NON_USER_COOLDOWN
+          label: "NON_USER_COOLDOWN"
+          schema:
+            type: int
+            default: 0
+        - variable: DEFAULT_MAX_STATS_PER_LINK
+          label: "DEFAULT_MAX_STATS_PER_LINK"
+          schema:
+            type: int
+            default: 5000
+        - variable: DISALLOW_REGISTRATION
+          label: "DISALLOW_REGISTRATION"
+          schema:
+            type: boolean
+            default: false
+        - variable: DISALLOW_ANONYMOUS_LINKS
+          label: "DISALLOW_ANONYMOUS_LINKS"
+          schema:
+            type: boolean
+            default: false
+        - variable: CUSTOM_DOMAIN_USE_HTTPS
+          label: "CUSTOM_DOMAIN_USE_HTTPS"
+          schema:
+            type: boolean
+            default: false
+        - variable: ADMIN_EMAILS
+          label: "ADMIN_EMAILS"
+          schema:
+            type: string
+            default: "admin@example.com,admin@example2.com"
+        - variable: REPORT_EMAIL
+          label: "REPORT_EMAIL"
+          schema:
+            type: string
+            default: "admin@example.com"
+        - variable: CONTACT_EMAIL
+          label: "CONTACT_EMAIL"
+          schema:
+            type: string
+            default: "admin@example.com"
+        - variable: MAIL_HOST
+          label: "MAIL_HOST"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_PORT
+          label: "MAIL_PORT"
+          schema:
+            type: int
+            default: 567
+        - variable: MAIL_FROM
+          label: "MAIL_FROM"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_SECURE
+          label: "MAIL_SECURE"
+          schema:
+            type: boolean
+            default: true
 
 # Include{containerConfig}
 
@@ -122,7 +239,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10082
+                              default: 10195
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -157,7 +274,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 10195
 
   - variable: serviceexpert
     group: "Networking and Services"
