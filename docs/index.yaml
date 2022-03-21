@@ -7202,27 +7202,6 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-03-20T23:02:46.461557355Z"
-    description: Function library for TrueCharts
-    digest: a9ff8a21263c44b66b20ee558a27c77653ce8c0fb3e8c91dba27f0a8397fa994
-    home: https://github.com/truecharts/apps/tree/master/charts/common
-    icon: https://avatars.githubusercontent.com/u/76400755
-    keywords:
-    - truecharts
-    - library-chart
-    - common
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: common
-    type: library
-    urls:
-    - https://github.com/truecharts/apps/releases/download/common-9.1.9/common-9.1.9.tgz
-    version: 9.1.9
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-03-20T19:24:58.893542435Z"
     description: Function library for TrueCharts
     digest: ab2e7624196350cd430b295aa189f1024076aed77ce64e26772b7465c5f93739
@@ -33533,42 +33512,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 10.7.3
-    created: "2022-03-20T23:02:46.693805963Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 9.1.6
-    description: Fast, reliable, scalable, and easy to use open-source relational
-      database system.
-    digest: ad1edb2dfb26c19e4edefd65ed2bbc66e1445b7e3407a5743db30ad8055f4cc4
-    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
-    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
-    keywords:
-    - mariadb
-    - mysql
-    - database
-    - sql
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: mariadb
-    sources:
-    - https://github.com/bitnami/bitnami-docker-mariadb
-    - https://github.com/prometheus/mysqld_exporter
-    - https://mariadb.org
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/mariadb-2.0.8/mariadb-2.0.8.tgz
-    version: 2.0.8
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - database
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 10.7.3
     created: "2022-03-20T03:55:44.997565609Z"
     dependencies:
     - name: common
@@ -47563,6 +47506,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.0.0/onlyoffice-document-server-3.0.0.tgz
     version: 3.0.0
+  openhab:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.2.0
+    created: "2022-03-21T16:49:16.563081603Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: OpenHab is a home-automation application
+    digest: 2c75c437cdf4aa460820be03986c3597a8d5677460f19daf0db18069cd544ad8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/openhab
+    icon: https://truecharts.org/_static/img/appicons/openhab.png
+    keywords:
+    - openhab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: openhab
+    sources:
+    - https://hub.docker.com/r/openhab/openhab
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openhab-1.0.3/openhab-1.0.3.tgz
+    version: 1.0.3
   openkm:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -77933,6 +77908,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.8.4
+    created: "2022-03-21T04:49:06.993888665Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.6
+    description: ZeroTier is a smart programmable Ethernet switch for planet Earth
+    digest: c1c75a11770b72800fc66bbb9eade15ce51bf920ce03d9e4aca892b9e080d3a7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zerotier
+    icon: https://truecharts.org/_static/img/appicons/zerotier.png
+    keywords:
+    - zerotier
+    - network
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: zerotier
+    sources:
+    - https://hub.docker.com/r/zerotier/zerotier
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zerotier-1.0.1/zerotier-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.8.4
     created: "2022-03-20T20:28:28.471056896Z"
     dependencies:
     - name: common
@@ -78883,4 +78889,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-20T23:02:46.705192601Z"
+generated: "2022-03-21T16:49:16.573759401Z"

@@ -1,0 +1,55 @@
+image:
+  repository: diygod/rsshub
+  pullPolicy: IfNotPresent
+  tag: 2022-03-19@sha256:53f7237edf291c7f2b3343161245ed658b43faff07ac260dec280f42681003fe
+
+browserlessImage:
+  repository: browserless/chrome
+  tag: latest@sha256:751dedb5701648844b2b91077cf4bb027efc1a4e0bec053f8d8a6b81802dfe86
+
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+secret:
+  HTTP_BASIC_AUTH_NAME: ""
+  HTTP_BASIC_AUTH_PASS: ""
+  BITBUCKET_USERNAME: ""
+  BITBUCKET_PASSWORD: ""
+  GITHUB_ACCESS_TOKEN: ""
+  GOOGLE_FONTS_API_KEY: ""
+  YOUTUBE_KEY: ""
+  TELEGRAM_TOKEN: ""
+  LASTFM_API_KEY: ""
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  NODE_ENV: production
+  CACHE_TYPE: "redis"
+  PUPPETEER_WS_ENDPOINT: "ws://localhost:3000"
+  NODE_NAME: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+  # User  defined
+  # ALLOW_ORIGIN: ""
+  DISALLOW_ROBOT: false
+  TITLE_LENGTH_LIMIT: 150
+
+service:
+  main:
+    ports:
+      main:
+        port: 10191
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+additionalContainers:
+  browserless:
+    name: browserless
+    image: "{{ .Values.browserlessImage.repository }}:{{ .Values.browserlessImage.tag }}"
+    ports:
+      - containerPort: 3000
+        name: main

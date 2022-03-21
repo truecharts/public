@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-1.0.3"></a>
+### [openhab-1.0.3](https://github.com/truecharts/apps/compare/openhab-1.0.2...openhab-1.0.3) (2022-03-21)
+
+#### Fix
+
+* sync security values to questions ([#2236](https://github.com/truecharts/apps/issues/2236))
+
+
+
 <a name="openhab-1.0.0"></a>
 ### [openhab-1.0.0](https://github.com/truecharts/apps/compare/openhab-0.0.2...openhab-1.0.0) (2022-03-15)
 

@@ -348,6 +348,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | iyuuplus                   |      main       |      main       | 10188 |   HTTP   |                                         |
 | kavita                     |      main       |      main       | 10189 |   HTTP   |                                         |
 | zerotier                   |      main       |      main       | 10190 |   UDP    |                                         |
+| rsshub                     |      main       |      main       | 10191 |   HTTP   |                                         |
 | awesome-ttrss              |      main       |      main       | 10192 |   HTTP   |                                         |
 | verysync                   |      main       |      main       | 10193 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
