@@ -32,8 +32,6 @@ env:
   MAX_CONCURRENT_SESSIONS: 5
   MAX_QUEUE_LENGTH: 5
   CONNECTION_TIMEOUT: 30000
-  # KEEP_ALIVE: true
-  PREBOOT_CHROME: true
   DEFAULT_BLOCK_ADS: true
   DEFAULT_HEADLESS: false
   DEFAULT_IGNORE_HTTPS_ERRORS: true
@@ -45,6 +43,9 @@ env:
   ENABLE_DEBUGGER: true
   ENABLE_CORS: false
   ENABLE_XVBF: true
+  # Enabling this, makes probe fail
+  KEEP_ALIVE: true
+  # PREBOOT_CHROME: true
 
 service:
   main:
