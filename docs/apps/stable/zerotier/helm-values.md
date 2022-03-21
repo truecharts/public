@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"zerotier/zerotier"` |  |
-| image.tag | string | `"1.8.4@sha256:b57e76e4291fbc26e1c75df07bc3534e9180457343c7ceff5d7ac8c4e25f6f44"` |  |
+| image.repository | string | `"tccr.io/truecharts/zerotier"` |  |
+| image.tag | string | `"v1.8.4@sha256:5cb03159f98b7dd0a4b77d803585f9142a33c1c354be600cce8ff10a76074dfc"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/zerotier-one"` |  |
 | persistence.tun.enabled | bool | `true` |  |
