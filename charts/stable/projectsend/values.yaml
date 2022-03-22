@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.12.10
 
+command: ["cat", "/config/projectsend/sys.config.php"]
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -13,6 +15,8 @@ podSecurityContext:
 
 env:
   MAX_UPLOAD: 5000
+  PHP_MEMORY_LIMIT: "512M"
+  PHP_MAX_FILE_UPLOAD: 200
 
 service:
   main:
@@ -25,5 +29,38 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
   varrun:
     enabled: true
+
+installContainers:
+  initconfig:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: config
+        mountPath: "/config"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        $config-file="/config/projectsend/sys.config.php"
+        if [ ! -f $config-file ];
+        then
+          echo "Creating initial file...";
+          touch $config-file;
+          echo '# This is generated on initial setup of this TrueCharts App' >> $config-file;
+          echo 'define('DB_DRIVER', 'mysql');' >> $config-file;
+          echo 'define('DB_NAME', 'database');' >> $config-file;
+          echo 'define('DB_HOST', 'localhost');' >> $config-file;
+          echo 'define('DB_USER', 'username');' >> $config-file;
+          echo 'define('DB_PASSWORD', 'password');' >> $config-file;
+          echo 'define('TABLES_PREFIX', 'tbl_');' >> $config-file;
+          echo 'define('SITE_LANG','en');' >> $config-file;
+          echo 'define('MAX_FILESIZE',2048);' >> $config-file;
+          echo 'define('EMAIL_ENCODING', 'utf-8');' >> $config-file;
+          echo 'define('DEBUG', false);' >> $config-file;
+          echo '# End of generated config values' >> $config-file;
+        fi;
+        else
+          echo "Config file already exists. Skipping...";
