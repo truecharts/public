@@ -66,7 +66,7 @@ installContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        config-file="/config/projectsend/sys.config.php";
+        export config-file="/config/projectsend/sys.config.php";
         if [ ! -f $config-file ];
         then
           echo "Creating initial config file...";
