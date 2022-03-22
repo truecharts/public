@@ -54,7 +54,7 @@ installContainers:
         valueFrom:
           secretKeyRef:
             name: mariadbcreds
-            key: passmariadb-password
+            key: mariadb-password
       - name: DBHOST
         valueFrom:
           secretKeyRef:
