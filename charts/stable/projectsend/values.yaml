@@ -85,6 +85,6 @@ installContainers:
           echo 'define('EMAIL_ENCODING', 'utf-8');' >> $config-file;
           echo 'define('DEBUG', false);' >> $config-file;
           echo '# End of generated config values.' >> $config-file;
-        fi;
         else
           echo "Initial config file already exists. Skipping...";
+        fi;
