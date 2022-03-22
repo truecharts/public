@@ -3,6 +3,14 @@ image:
   tag: latest@sha256:53bfd69c7d3ebf26d31ce9cda86f9b1575177c80f176258d74ef347666f28b1b
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   FR_DB_NAME: "filerun"
   FR_DB_USER: "filerun"
