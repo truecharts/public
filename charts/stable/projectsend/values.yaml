@@ -80,7 +80,7 @@ installContainers:
           echo "define('DB_PASSWORD', '$DBPASS');" >> $configFile;
           echo "define('TABLES_PREFIX', 'tbl_');" >> $configFile;
           echo "# You can manually change below values if you like." >> $configFile
-          echo "define('SITE_LANG','en');" >> $configFile;
+          echo "define('SITE_LANG', 'en');" >> $configFile;
           echo "define('MAX_FILESIZE',2048);" >> $configFile;
           echo "define('EMAIL_ENCODING', 'utf-8');" >> $configFile;
           echo "define('DEBUG', false);" >> $configFile;
