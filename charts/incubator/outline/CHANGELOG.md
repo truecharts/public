@@ -7,4 +7,3 @@
 #### Feat
 
 * Add outline ([#2230](https://github.com/truecharts/apps/issues/2230))
-
