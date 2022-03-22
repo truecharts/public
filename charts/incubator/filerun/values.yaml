@@ -1,0 +1,40 @@
+image:
+  repository: filerun/filerun
+  tag: latest@sha256:53bfd69c7d3ebf26d31ce9cda86f9b1575177c80f176258d74ef347666f28b1b
+  pullPolicy: IfNotPresent
+
+env:
+  FR_DB_NAME: "filerun"
+  FR_DB_USER: "filerun"
+  FR_DB_PORT: "3306"
+
+envValueFrom:
+  FR_DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainporthost
+  FR_DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10196
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/www/html"
+  userfile:
+    enabled: true
+    mountPath: "/user-files"
+
+mariadb:
+  enabled: true
+  mariadbUsername: filerun
+  mariadbDatabase: filerun
+  existingSecret: "mariadbcreds"
