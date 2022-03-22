@@ -72,7 +72,7 @@ installContainers:
           echo "Creating initial config file...";
           touch $config-file;
           echo "# This is generated on initial setup of this TrueCharts App" >> $config-file;
-          echo "# Don't change below values, or DB connection will fail." >> $config-file
+          echo "# Do not change below values, or DB connection will fail." >> $config-file
           echo "define(\'DB_DRIVER\', \'mysql\')\;" >> $config-file;
           echo "define(\'DB_NAME\', \'$DBNAME\')\;" >> $config-file;
           echo "define(\'DB_HOST\', \'$DBHOST\')\;" >> $config-file;
