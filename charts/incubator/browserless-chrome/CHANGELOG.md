@@ -7,4 +7,3 @@
 #### Feat
 
 * Add browserless-chrome ([#2238](https://github.com/truecharts/apps/issues/2238))
-

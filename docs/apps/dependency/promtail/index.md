@@ -19,19 +19,19 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 9.1.6 |
+| https://truecharts.org | common | 9.1.8 |
 
 ## Installing the Chart
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/03-Installing-an-App/).
+To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/02-Installing-an-App/).
 
-## Uninstalling the Chart
+## Upgrading, Rolling Back and Uninstalling the Chart
 
-To remove this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/07-Deleting-an-App/).
+To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
 
 ## Support
 
-- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Open-Apps/) first.
+- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) first.
 - See the [Wiki](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)

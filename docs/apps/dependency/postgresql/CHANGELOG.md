@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.7"></a>
+### [postgresql-7.0.7](https://github.com/truecharts/apps/compare/postgresql-7.0.6...postgresql-7.0.7) (2022-03-22)
+
+#### Chore
+
+* update helm chart common to v9.1.8
+* update docker general non-major
+
+
+
 <a name="postgresql-7.0.6"></a>
 ### [postgresql-7.0.6](https://github.com/truecharts/apps/compare/postgresql-7.0.5...postgresql-7.0.6) (2022-03-17)
 
