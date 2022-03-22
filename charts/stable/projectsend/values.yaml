@@ -70,6 +70,7 @@ installContainers:
         if [ ! -f $configFile ];
         then
           echo "Creating initial config file...";
+          mkdir -p /config/projectsend
           touch $configFile;
           echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
           echo "# Do not change below values, or DB connection will fail." >> $configFile
