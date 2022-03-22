@@ -1,20 +1,20 @@
 image:
-  repository: outlinewiki/outline
+  repository: tccr.io/truecharts/outline
   pullPolicy: IfNotPresent
-  tag: 0.62.0@sha256:9b53b86f9488618e3d5ed0017ee1ff460d48063bd6d81270807bd9cf026580e1
+  tag: v0.62.0@sha256:9350ace6f88ae314620ab32e9990481d0e89895409b171fa0545b8ef9f7ede65
 
 minioImage:
   repository: tccr.io/truecharts/minio
   tag: latest@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24
 
-# Needs check
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-# Needs check
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# # Needs check
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+# # Needs check
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
   FORCE_HTTPS: false
@@ -94,32 +94,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: outline
   postgresqlDatabase: outline
-
-# installContainers:
-#   initdb:
-#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#     env:
-#       - name: DATABASE_URL
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: url-noql
-#       - name: REDIS_URL
-#         valueFrom:
-#           secretKeyRef:
-#             name: rediscreds
-#             key: url
-#       - name: SECRET_KEY
-#         valueFrom:
-#           secretKeyRef:
-#             name: outline-secrets
-#             key: SECRET_KEY
-#       - name: UTILS_SECRET
-#         valueFrom:
-#           secretKeyRef:
-#             name: outline-secrets
-#             key: UTILS_SECRET
-#     command: ["sh", "-c", "yarn sequelize db:create --env=production-ssl-disabled"]
 
 installContainers:
   initdb:
