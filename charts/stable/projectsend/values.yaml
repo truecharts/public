@@ -74,17 +74,17 @@ installContainers:
           touch $configFile;
           echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
           echo "# Do not change below values, or DB connection will fail." >> $configFile
-          echo "define(\'DB_DRIVER\', \'mysql\')\;" >> $configFile;
-          echo "define(\'DB_NAME\', \'$DBNAME\')\;" >> $configFile;
-          echo "define(\'DB_HOST\', \'$DBHOST\')\;" >> $configFile;
-          echo "define(\'DB_USER\', \'$DBUSER\')\;" >> $configFile;
-          echo "define(\'DB_PASSWORD\', \'$DBPASS\')\;" >> $configFile;
-          echo "define(\'TABLES_PREFIX\', \'tbl_\')\;" >> $configFile;
+          echo "define('DB_DRIVER', 'mysql');" >> $configFile;
+          echo "define('DB_NAME', '$DBNAME');" >> $configFile;
+          echo "define('DB_HOST', '$DBHOST');" >> $configFile;
+          echo "define('DB_USER', '$DBUSER');" >> $configFile;
+          echo "define('DB_PASSWORD', '$DBPASS');" >> $configFile;
+          echo "define('TABLES_PREFIX', 'tbl_');" >> $configFile;
           echo "# You can manually change below values if you like." >> $configFile
-          echo "define(\'SITE_LANG\',\'en\')\;" >> $configFile;
-          echo "define(\'MAX_FILESIZE\',2048)\;" >> $configFile;
-          echo "define(\'EMAIL_ENCODING\', \'utf-8\')\;" >> $configFile;
-          echo "define(\'DEBUG\', false)\;" >> $configFile;
+          echo "define('SITE_LANG','en');" >> $configFile;
+          echo "define('MAX_FILESIZE',2048);" >> $configFile;
+          echo "define('EMAIL_ENCODING', 'utf-8');" >> $configFile;
+          echo "define('DEBUG', false);" >> $configFile;
           echo "# End of generated config values." >> $configFile;
         else
           echo "Initial config file already exists. Skipping...";
