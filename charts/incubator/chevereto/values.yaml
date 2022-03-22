@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.6.2@sha256:6f9c2d7a86d97d4de70995ac258441a07806a328d7ba7b0ae65a965d590dae43
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
   CHEVERETO_DB_DRIVER: mysql
@@ -51,8 +51,8 @@ persistence:
   content:
     enabled: true
     mountPath: "/var/www/html/content/"
-  varrun:
-    enabled: true
+  # varrun:
+  #   enabled: true
 
 mariadb:
   enabled: true
