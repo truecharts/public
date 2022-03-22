@@ -90,6 +90,20 @@ questions:
             type: int
             required: true
             default: 5000
+        - variable: PHP_MEMORY_LIMIT
+          label: "PHP_MEMORY_LIMIT"
+          description: "PHP_MEMORY_LIMIT"
+          schema:
+            type: string
+            required: true
+            default: "512M"
+        - variable: PHP_MAX_FILE_UPLOAD
+          label: "PHP_MAX_FILE_UPLOAD"
+          description: "PHP_MAX_FILE_UPLOAD"
+          schema:
+            type: int
+            required: true
+            default: 200
 # Include{containerConfig}
 
   - variable: service
