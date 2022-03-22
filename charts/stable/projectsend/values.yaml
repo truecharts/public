@@ -35,32 +35,56 @@ persistence:
   varrun:
     enabled: true
 
+mariadb:
+  enabled: true
+  mariadbUsername: projectsend
+  mariadbDatabase: projectsend
+  existingSecret: "mariadbcreds"
+
+
 installContainers:
   initconfig:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DBNAME
+        value: "{{ .Values.mariadb.mariadbDatabase }}"
+      - name: DBUSER
+        value: "{{ .Values.mariadb.mariadbUsername }}"
+      - name: DBPASS
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: passmariadb-passwordword
+      - name: DBHOST
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: plainhost
     volumeMounts:
       - name: config
         mountPath: "/config"
     command: ["/bin/sh", "-c"]
     args:
       - >
-        $config-file="/config/projectsend/sys.config.php"
+        config-file="/config/projectsend/sys.config.php";
         if [ ! -f $config-file ];
         then
-          echo "Creating initial file...";
+          echo "Creating initial config file...";
           touch $config-file;
           echo '# This is generated on initial setup of this TrueCharts App' >> $config-file;
+          echo '# Don't change below values, or DB connection will fail. >> $config-file
           echo 'define('DB_DRIVER', 'mysql');' >> $config-file;
-          echo 'define('DB_NAME', 'database');' >> $config-file;
-          echo 'define('DB_HOST', 'localhost');' >> $config-file;
-          echo 'define('DB_USER', 'username');' >> $config-file;
-          echo 'define('DB_PASSWORD', 'password');' >> $config-file;
+          echo 'define('DB_NAME', '$DBNAME');' >> $config-file;
+          echo 'define('DB_HOST', '$DBHOST');' >> $config-file;
+          echo 'define('DB_USER', '$DBUSER');' >> $config-file;
+          echo 'define('DB_PASSWORD', '$DBPASS');' >> $config-file;
           echo 'define('TABLES_PREFIX', 'tbl_');' >> $config-file;
+          echo '# You can manually change this values if you like.' >> $config-file
           echo 'define('SITE_LANG','en');' >> $config-file;
           echo 'define('MAX_FILESIZE',2048);' >> $config-file;
           echo 'define('EMAIL_ENCODING', 'utf-8');' >> $config-file;
           echo 'define('DEBUG', false);' >> $config-file;
-          echo '# End of generated config values' >> $config-file;
+          echo '# End of generated config values.' >> $config-file;
         fi;
         else
-          echo "Config file already exists. Skipping...";
+          echo "Initial config file already exists. Skipping...";
