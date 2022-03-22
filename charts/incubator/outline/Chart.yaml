@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2.7.4"
+appVersion: "0.62.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -11,25 +11,24 @@ dependencies:
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 2.0.6
+  version: 2.0.5
 deprecated: false
-description: A free and open source personal finance manager
-home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
-icon: https://truecharts.org/_static/img/appicons/kutt.png
+description: A fast, collaborative, knowledge base for your team built using React and Node.js.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/outline
+icon: https://truecharts.org/_static/img/appicons/outline.png
 keywords:
-- kutt
-- link
-- short
+- outline
+- knowledge
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: kutt
+name: outline
 sources:
-- https://github.com/thedevs-network/kutt
+- https://github.com/outline/outline
 type: application
-version: 0.0.3
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity

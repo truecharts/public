@@ -1,0 +1,148 @@
+image:
+  repository: tccr.io/truecharts/outline
+  pullPolicy: IfNotPresent
+  tag: v0.62.0@sha256:9350ace6f88ae314620ab32e9990481d0e89895409b171fa0545b8ef9f7ede65
+
+minioImage:
+  repository: tccr.io/truecharts/minio
+  tag: latest@sha256:b18261a8e8ca554f274cc076631c9c5898224843a86202a93f44c8dbbe60d6cc
+
+# # Needs check
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+# # Needs check
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  FORCE_HTTPS: false
+  PGSSLMODE: "disable"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User defined
+  SLACK_MESSAGE_ACTIONS: true
+  ENABLE_UPDATES: true
+  WEB_CONCURRENCY: 1
+  DEFAULT_LANGUAGE: "en_US"
+  TEAM_LOGO: ""
+  MAXIMUM_IMPORT_SIZE: 5120000
+  ALLOWED_DOMAINS: ""
+  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  COLLABORATION_URL: ""
+  SLACK_KEY: ""
+  SLACK_SECRET: ""
+  SLACK_VERIFICATION_TOKEN: ""
+  SLACK_APP_ID: ""
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+  GOOGLE_ANALYTICS_ID: ""
+  AZURE_CLIENT_ID: ""
+  AZURE_CLIENT_SECRET: ""
+  AZURE_RESOURCE_APP_ID: ""
+  OIDC_CLIENT_ID: ""
+  OIDC_CLIENT_SECRET: ""
+  OIDC_AUTH_URI: ""
+  OIDC_TOKEN_URI: ""
+  OIDC_USERINFO_URI: ""
+  OIDC_USERNAME_CLAIM: ""
+  OIDC_DISPLAY_NAME: ""
+  OIDC_SCOPES: ""
+  SENTRY_DSN: ""
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  AWS_REGION: ""
+  AWS_S3_ACCELERATE_URL: ""
+  AWS_S3_UPLOAD_BUCKET_URL: ""
+  AWS_S3_UPLOAD_BUCKET_NAME: ""
+  AWS_S3_UPLOAD_MAX_SIZE: 26214400
+  AWS_S3_FORCE_PATH_STYLE: true
+  AWS_S3_ACL: ""
+
+envValueFrom:
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: url-noql
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+  SECRET_KEY:
+    secretKeyRef:
+      name: outline-secrets
+      key: SECRET_KEY
+  UTILS_SECRET:
+    secretKeyRef:
+      name: outline-secrets
+      key: UTILS_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10196
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: outline
+  postgresqlDatabase: outline
+
+installContainers:
+  initdb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DATABASE_URL
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: url-noql
+      - name: REDIS_URL
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: url
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: SECRET_KEY
+      - name: UTILS_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: UTILS_SECRET
+    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+
+upgradeContainers:
+  upgradedb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DATABASE_URL
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: url-noql
+      - name: REDIS_URL
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: url
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: SECRET_KEY
+      - name: UTILS_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: outline-secrets
+            key: UTILS_SECRET
+    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
