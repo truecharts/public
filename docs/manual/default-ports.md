@@ -352,6 +352,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | verysync                   |      main       |      main       | 10193 |   HTTP   |                                         |
 | browserless                |      main       |      main       | 10194 |   TCP    |                                         |
 | kutt                       |      main       |      main       | 10195 |   TCP    |                                         |
+| outline                    |      main       |      main       | 10196 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
