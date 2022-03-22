@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.12.10
 
-command: ["cat", "/config/projectsend/sys.config.php"]
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
