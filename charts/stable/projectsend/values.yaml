@@ -72,6 +72,7 @@ installContainers:
           echo "Creating initial config file...";
           mkdir -p /config/projectsend
           touch $configFile;
+          echo "<?php" >> $configFile
           echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
           echo "# Do not change below values, or DB connection will fail." >> $configFile
           echo "define('DB_DRIVER', 'mysql');" >> $configFile;
