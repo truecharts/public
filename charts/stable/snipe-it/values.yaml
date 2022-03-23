@@ -14,12 +14,11 @@ env:
   MYSQL_PORT_3306_TCP_PORT: "3306"
   REDIS_PORT: "6379"
   APP_TIMEZONE: "{{ .Values.TZ }}"
+  FILESYSTEM_DISK: "local"
   # User Defined
   APP_URL: "http://localhost:80"
   APP_LOCALE: "en"
   MAX_RESULTS: 500
-  PRIVATE_FILESYSTEM_DISK: "local"
-  PUBLIC_FILESYSTEM_DISK: "local_public"
   IMAGE_LIB: "gd"     # or "imagick"
   # Session
   SESSION_LIFETIME: 30
@@ -67,13 +66,13 @@ envValueFrom:
       name: snipeit-secrets
       key: APP_KEY
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 service:
   main:
