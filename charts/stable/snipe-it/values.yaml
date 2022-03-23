@@ -1,17 +1,71 @@
 image:
-  repository: tccr.io/truecharts/snipe-it
+  repository: snipe/snipe-it
   pullPolicy: IfNotPresent
-  tag: v5.4.1@sha256:8c4dd0e7cd888cf57958e76b56d03b94c6eb0f701f26bc63a618dcba1b55be82
+  tag: v5.4.1@sha256:7dad733bdad9d47833356c522927b0eec7b14976583d55506fbe714b23ba6b7f
 
 secret: {}
 
-# See more environment variables in the snipe documentation
-# https://github.com/linuxserver/docker-snipe-it#parameters
 env:
-  NGINX_APP_URL: '{{ include "common.names.fullname" . }}:8080'
-  MYSQL_USER: snipe-it
-  MYSQL_DATABASE: "snipe-it"
+  APP_ENV: "production"
+  APP_DEBUG: false
+  DB_CONNECTION: "mysql"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   MYSQL_PORT_3306_TCP_PORT: "3306"
+  REDIS_PORT: "6379"
+  APP_TIMEZONE: "{{ .Values.TZ }}"
+  # User Defined
+  APP_URL: "http://localhost:80"
+  APP_LOCALE: "en"
+  MAX_RESULTS: 500
+  PRIVATE_FILESYSTEM_DISK: "local"
+  PUBLIC_FILESYSTEM_DISK: "local_public"
+  IMAGE_LIB: "gd" # or "imagick"
+  # Session
+  SESSION_LIFETIME: 30
+  EXPIRE_ON_CLOSE: false
+  ENCRYPT: false
+  COOKIE_NAME: "snipeit_session"
+  COOKIE_DOMAIN: null
+  SECURE_COOKIES: false
+  API_TOKEN_EXPIRATION_YEARS: 40
+  # Login
+  LOGIN_MAX_ATTEMPTS: 5
+  LOGIN_LOCKOUT_DURATION: 60
+  # Mail
+  MAIL_DRIVER: "smtp"
+  MAIL_HOST: "email-smtp.us-west-2.amazonaws.com"
+  MAIL_PORT: 587
+  MAIL_USERNAME: "YOURUSERNAME"
+  MAIL_PASSWORD: "YOURPASSWORD"
+  MAIL_ENCRYPTION: "null"
+  MAIL_FROM_ADDR: "you@example.com"
+  MAIL_FROM_NAME: "Snipe-IT"
+  MAIL_REPLYTO_ADDR: "you@example.com"
+  MAIL_REPLYTO_NAME: "Snipe-IT"
+  MAIL_BACKUP_NOTIFICATION_ADDRESS: "you@example.com"
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: snipeit-secrets
+      key: APP_KEY
 
 securityContext:
   runAsNonRoot: false
@@ -29,24 +83,17 @@ service:
         targetPort: 80
 
 persistence:
-  varrun:
+  data:
     enabled: true
-  config:
-    enabled: true
-    mountPath: "/config"
-
-envValueFrom:
-  MYSQL_PORT_3306_TCP_ADDR:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+    mountPath: "/var/lib/snipeit"
 
 mariadb:
   enabled: true
   mariadbUsername: snipe-it
   mariadbDatabase: snipe-it
   existingSecret: "mariadbcreds"
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
