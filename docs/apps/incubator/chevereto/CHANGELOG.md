@@ -11,4 +11,3 @@
 #### Fix
 
 * use a tag that does not exist ([#2251](https://github.com/truecharts/apps/issues/2251))
-

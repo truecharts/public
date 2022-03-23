@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.26"></a>
+### [minecraft-java-0.0.26](https://github.com/truecharts/apps/compare/minecraft-java-0.0.25...minecraft-java-0.0.26) (2022-03-23)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
 <a name="minecraft-java-0.0.24"></a>
 ### [minecraft-java-0.0.24](https://github.com/truecharts/apps/compare/minecraft-java-0.0.23...minecraft-java-0.0.24) (2022-03-17)
 
