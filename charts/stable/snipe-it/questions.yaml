@@ -89,6 +89,13 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: APP_TRUSTED_PROXIES
+          label: "APP_TRUSTED_PROXIES"
+          description: "APP_TRUSTED_PROXIES"
+          schema:
+            type: string
+            default: "172.16.0.0/16"
+            required: true
         - variable: APP_LOCALE
           label: "APP_LOCALE"
           description: "Set this to reflect the two-letter or 5-letter abbreviation for the language you'd like to use for Snipe-IT"
@@ -314,7 +321,7 @@ questions:
                   default: ""
               - variable: LDAP_MEM_LIM
                 label: "LDAP_MEM_LIM"
-                description: "	Memory limit for LDAP execution"
+                description: "Memory limit for LDAP execution"
                 schema:
                   type: string
                   default: "500M"
@@ -339,6 +346,23 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: ENABLE_CSP
+                label: "ENABLE_CSP"
+                description: "Disable the content security policy that restricts what scripts, images and styles can load."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: CORS_ALLOWED_ORIGINS
+                label: "CORS_ALLOWED_ORIGINS"
+                schema:
+                  type: string
+                  default: "null"
+              - variable: REFERRER_POLICY
+                label: "REFERRER_POLICY"
+                description: "This is an additional security header that browsers use to determine whether they should report back URL referrer information."
+                schema:
+                  type: string
+                  default: "same-origin"
         - variable: mailsettings
           label: "Mail Settings"
           schema:
