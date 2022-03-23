@@ -5343,6 +5343,40 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 0.6.17
+    created: "2022-03-23T09:07:42.549370649Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Calibre-Web is a web app providing a clean interface for browsing,
+      reading and downloading eBooks using an existing Calibre database.
+    digest: 420ea778f3b07d6a2cfbbdcbe2ca1e2a410ed7af3374861a615ea08d7dab1679
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/calibre-web
+    icon: https://truecharts.org/_static/img/appicons/calibre-web.png
+    keywords:
+    - calibre-web
+    - calibre
+    - ebook
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: calibre-web
+    sources:
+    - https://hub.docker.com/r/linuxserver/calibre-web/
+    - https://github.com/janeczku/calibre-web
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-web-10.0.5/calibre-web-10.0.5.tgz
+    version: 10.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 0.6.12
     created: "2022-01-04T20:48:56.171111032Z"
     dependencies:
@@ -79285,4 +79319,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-23T05:31:29.554362313Z"
+generated: "2022-03-23T09:07:42.55921239Z"
