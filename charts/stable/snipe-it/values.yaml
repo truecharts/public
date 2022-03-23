@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.4.1@sha256:7dad733bdad9d47833356c522927b0eec7b14976583d55506fbe714b23ba6b7f
 
-secret: {}
-
 env:
   APP_ENV: "production"
   APP_DEBUG: false
@@ -19,30 +17,17 @@ env:
   APP_URL: "http://localhost:80"
   APP_LOCALE: "en"
   MAX_RESULTS: 500
-  IMAGE_LIB: "gd"     # or "imagick"
+  IMAGE_LIB: "gd"
   # Session
   SESSION_LIFETIME: 30
   EXPIRE_ON_CLOSE: false
   ENCRYPT: false
   COOKIE_NAME: "snipeit_session"
-  COOKIE_DOMAIN: null
   SECURE_COOKIES: false
   API_TOKEN_EXPIRATION_YEARS: 40
   # Login
   LOGIN_MAX_ATTEMPTS: 5
   LOGIN_LOCKOUT_DURATION: 60
-  # Mail
-  # MAIL_DRIVER: "smtp"
-  # MAIL_HOST: "email-smtp.us-west-2.amazonaws.com"
-  # MAIL_PORT: 587
-  # MAIL_USERNAME: "YOURUSERNAME"
-  # MAIL_PASSWORD: "YOURPASSWORD"
-  # MAIL_ENCRYPTION: "null"
-  # MAIL_FROM_ADDR: "you@example.com"
-  # MAIL_FROM_NAME: "Snipe-IT"
-  # MAIL_REPLYTO_ADDR: "you@example.com"
-  # MAIL_REPLYTO_NAME: "Snipe-IT"
-  # MAIL_BACKUP_NOTIFICATION_ADDRESS: "you@example.com"
 
 envValueFrom:
   DB_HOST:
