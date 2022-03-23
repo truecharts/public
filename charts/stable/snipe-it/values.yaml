@@ -11,6 +11,9 @@ env:
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   MYSQL_PORT_3306_TCP_PORT: "3306"
   REDIS_PORT: "6379"
+  SESSION_DRIVER: "redis"
+  CACHE_DRIVER: "redis"
+  QUEUE_DRIVER: "redis"
   APP_TIMEZONE: "{{ .Values.TZ }}"
   FILESYSTEM_DISK: "local"
   # User Defined
@@ -51,9 +54,9 @@ envValueFrom:
       name: snipeit-secrets
       key: APP_KEY
 
-# securityContext:
+securityContext:
 #   runAsNonRoot: false
-#   readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: false
 
 # podSecurityContext:
 #   runAsUser: 0
