@@ -270,7 +270,7 @@ questions:
                   required: true
               - variable: LOGIN_LOCKOUT_DURATION
                 label: "LOGIN_LOCKOUT_DURATION"
-                description: "	The duration (in seconds) that the user should be blocked from attempting to authenticate again."
+                description: "    The duration (in seconds) that the user should be blocked from attempting to authenticate again."
                 schema:
                   type: int
                   default: 60
@@ -437,7 +437,7 @@ questions:
                   default: ""
               - variable: MAIL_REPLYTO_ADDR
                 label: "MAIL_REPLYTO_ADDR"
-                description: "	Specify the address that should be the reply:to on emails from your Snipe-IT instance. This can be the same as your MAIL_FROM_ADDR, but it is required."
+                description: "    Specify the address that should be the reply:to on emails from your Snipe-IT instance. This can be the same as your MAIL_FROM_ADDR, but it is required."
                 schema:
                   type: string
                   default: ""
