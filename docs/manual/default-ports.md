@@ -354,6 +354,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | kutt                       |      main       |      main       | 10195 |   TCP    |                                         |
 | outline                    |      main       |      main       | 10196 |   TCP    |                                         |
 | chevereto                  |      main       |      main       | 10197 |   TCP    |                                         |
+| kimai                      |      main       |      main       | 10198 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
