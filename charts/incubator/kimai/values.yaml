@@ -1,0 +1,43 @@
+image:
+  repository: kimai/kimai2
+  tag: apache-1.19-prod@sha256:e4a92b3a87c782a8ad75fcb8468c654232ea8043efe5409877e1b06c7562f95b
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secret:
+  ADMINMAIL: "admin@example.com"
+  ADMINPASS: "supersecret"
+
+env:
+  TRUSTED_HOSTS: "172.16.0.0/12"
+
+envValueFrom:
+  DATABASE_URL:
+    secretKeyRef:
+      name: mariadbcreds
+      key: complete
+
+service:
+  main:
+    ports:
+      main:
+        port: 10198
+        targetPort: 8001
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/kimai/public"
+
+mariadb:
+  enabled: true
+  mariadbUsername: kimai
+  mariadbDatabase: kimai
+  existingSecret: "mariadbcreds"
