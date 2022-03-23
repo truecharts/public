@@ -86,7 +86,7 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
 
-upgradeContainers:
+initContainers:
   migratedb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
