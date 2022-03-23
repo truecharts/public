@@ -1,10 +1,17 @@
 image:
-  repository: snipe/snipe-it
+  repository: tccr.io/truecharts/snipe-it
   pullPolicy: IfNotPresent
-  tag: v5.4.1@sha256:7dad733bdad9d47833356c522927b0eec7b14976583d55506fbe714b23ba6b7f
+  tag: v5.4.1@sha256:392cd5a87a094675702b2f81a84213624851d2c4adec2dbad207a91f7d39d3d4
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
-  user: "root"
   APP_ENV: "production"
   APP_DEBUG: false
   DB_CONNECTION: "mysql"
@@ -55,14 +62,6 @@ envValueFrom:
       name: snipeit-secrets
       key: APP_KEY
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -86,7 +85,7 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
 
-initContainers:
+upgradeContainers:
   migratedb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
