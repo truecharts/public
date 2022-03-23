@@ -22,7 +22,7 @@ envValueFrom:
   DATABASE_URL:
     secretKeyRef:
       name: mariadbcreds
-      key: complete
+      key: url
 
 service:
   main:
