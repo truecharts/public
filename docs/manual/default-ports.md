@@ -373,6 +373,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | verysync                   |      data       |      data       | 22330 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
+| minecraft-java             |      rcon       |      rcon       | 25575 |   TCP    |                                         |
 | storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |                                         |
 | storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |

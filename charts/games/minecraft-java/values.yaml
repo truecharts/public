@@ -68,3 +68,10 @@ service:
       main:
         port: 25565
         targetPort: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
