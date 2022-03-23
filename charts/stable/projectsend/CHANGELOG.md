@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-1.0.5"></a>
+### [projectsend-1.0.5](https://github.com/truecharts/apps/compare/projectsend-1.0.4...projectsend-1.0.5) (2022-03-23)
+
+#### Fix
+
+* init db ([#2248](https://github.com/truecharts/apps/issues/2248))
+
+
+
 <a name="projectsend-1.0.1"></a>
 ### [projectsend-1.0.1](https://github.com/truecharts/apps/compare/projectsend-1.0.0...projectsend-1.0.1) (2022-03-07)
 

@@ -55197,6 +55197,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.12.10
+    created: "2022-03-23T05:31:29.544548292Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.7
+    description: Projectsend is a self-hosted application that lets you upload files
+      and assign them to specific clients that you create yourself.
+    digest: 49b118bb5b22e52e6fb8a1ba25a4abf0094d6331f89508dfeca43d12391b3478
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/projectsend
+    icon: https://truecharts.org/_static/img/appicons/projectsend.png - projectsend
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: projectsend
+    sources:
+    - https://hub.docker.com/r/linuxserver/projectsend
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/projectsend-1.0.5/projectsend-1.0.5.tgz
+    version: 1.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.12.10
     created: "2022-01-04T20:49:16.525193749Z"
     dependencies:
     - name: common
@@ -79252,4 +79285,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-23T01:43:45.235064865Z"
+generated: "2022-03-23T05:31:29.554362313Z"
