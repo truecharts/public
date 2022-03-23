@@ -33,17 +33,17 @@ env:
   LOGIN_MAX_ATTEMPTS: 5
   LOGIN_LOCKOUT_DURATION: 60
   # Mail
-  MAIL_DRIVER: "smtp"
-  MAIL_HOST: "email-smtp.us-west-2.amazonaws.com"
-  MAIL_PORT: 587
-  MAIL_USERNAME: "YOURUSERNAME"
-  MAIL_PASSWORD: "YOURPASSWORD"
-  MAIL_ENCRYPTION: "null"
-  MAIL_FROM_ADDR: "you@example.com"
-  MAIL_FROM_NAME: "Snipe-IT"
-  MAIL_REPLYTO_ADDR: "you@example.com"
-  MAIL_REPLYTO_NAME: "Snipe-IT"
-  MAIL_BACKUP_NOTIFICATION_ADDRESS: "you@example.com"
+  # MAIL_DRIVER: "smtp"
+  # MAIL_HOST: "email-smtp.us-west-2.amazonaws.com"
+  # MAIL_PORT: 587
+  # MAIL_USERNAME: "YOURUSERNAME"
+  # MAIL_PASSWORD: "YOURPASSWORD"
+  # MAIL_ENCRYPTION: "null"
+  # MAIL_FROM_ADDR: "you@example.com"
+  # MAIL_FROM_NAME: "Snipe-IT"
+  # MAIL_REPLYTO_ADDR: "you@example.com"
+  # MAIL_REPLYTO_NAME: "Snipe-IT"
+  # MAIL_BACKUP_NOTIFICATION_ADDRESS: "you@example.com"
 
 envValueFrom:
   DB_HOST:
