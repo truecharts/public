@@ -27901,6 +27901,45 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/kavita-0.0.1/kavita-0.0.1.tgz
     version: 0.0.1
+  kimai:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: apache-1.1
+    created: "2022-03-23T21:08:46.913996315Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.7
+    description: Kimai is a free, open source and online time-tracking software designed
+      for small businesses and freelancers.
+    digest: 58938412852fd1b804f89ead16564ecbc9f27a7eb4975cba7df46c5c33cad43f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kimai
+    icon: https://truecharts.org/_static/img/appicons/kimai.png
+    keywords:
+    - kimai
+    - time
+    - tracking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kimai
+    sources:
+    - https://github.com/kevinpapst/kimai2
+    - https://github.com/tobybatch/kimai2
+    - https://hub.docker.com/r/kimai/kimai2
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kimai-0.0.1/kimai-0.0.1.tgz
+    version: 0.0.1
   kms:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -79360,4 +79399,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-23T19:15:30.909099418Z"
+generated: "2022-03-23T21:08:46.922711585Z"
