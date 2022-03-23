@@ -16,13 +16,22 @@ secret:
   ADMINPASS: "supersecret"
 
 env:
+  DB_TYPE: "mysql"
+  DB_PORT: "3306"
+  DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
+  # User Defined
   TRUSTED_HOSTS: "172.16.0.0/12"
 
 envValueFrom:
-  DATABASE_URL:
+  DB_PASS:
     secretKeyRef:
       name: mariadbcreds
-      key: url
+      key: mariadb-password
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
 
 service:
   main:
