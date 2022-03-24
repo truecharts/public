@@ -10,6 +10,17 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+  fsGroup: 1000
+
+probes:
+  liveness:
+    path: "/setup"
+
+  readiness:
+    path: "/setup"
+
+  startup:
+    path: "/setup"
 
 env:
   APP_ENV: "production"
