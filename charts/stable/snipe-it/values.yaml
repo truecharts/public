@@ -9,8 +9,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 50
-  fsGroup: 50
+  runAsGroup: 0
 
 env:
   APP_ENV: "production"
@@ -68,11 +67,6 @@ service:
       main:
         port: 10120
         targetPort: 80
-
-persistence:
-  logs:
-    enabled: true
-    mountPath: "/var/www/html/storage/logs"
 
 mariadb:
   enabled: true
