@@ -7,4 +7,3 @@
 #### Feat
 
 * Add kimai ([#2258](https://github.com/truecharts/apps/issues/2258))
-

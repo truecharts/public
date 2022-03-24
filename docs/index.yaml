@@ -12418,6 +12418,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/doplarr-0.0.1/doplarr-0.0.1.tgz
     version: 0.0.1
+  double-take:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.7.0
+    created: "2022-03-24T05:06:47.401863698Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Unified UI and API for processing and training images for facial
+      recognition
+    digest: b5bfff7b7127da276ac4767c44af2a4fce33424985a92ec18f3c40a364027c2d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/double-take
+    icon: https://truecharts.org/_static/img/appicons/double-take.png
+    keywords:
+    - ai
+    - double-take
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: double-take
+    sources:
+    - https://github.com/jakowenko/double-take
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/double-take-0.0.1/double-take-0.0.1.tgz
+    version: 0.0.1
   doublecommander:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -79399,4 +79432,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-23T21:08:46.922711585Z"
+generated: "2022-03-24T05:06:47.410855856Z"
