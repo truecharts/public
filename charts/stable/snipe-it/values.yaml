@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.4.1@sha256:392cd5a87a094675702b2f81a84213624851d2c4adec2dbad207a91f7d39d3d4
 
-command: ["ls", "-la", "/var/www/html/storage/logs"]
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -12,7 +10,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 33
 
 env:
   APP_ENV: "production"
@@ -22,8 +19,6 @@ env:
   DB_PORT: "3306"
   REDIS_PORT: "6379"
   SESSION_DRIVER: "redis"
-  CACHE_DRIVER: "file"
-  QUEUE_DRIVER: "sync"
   APP_TIMEZONE: "{{ .Values.TZ }}"
   FILESYSTEM_DISK: "local"
   # User Defined
