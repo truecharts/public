@@ -4909,6 +4909,39 @@ entries:
         - productivity
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 1.51.1
+    created: "2022-03-24T23:03:16.310111999Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Browserless is a web-service that allows for remote clients to connect,
+      drive, and execute headless work
+    digest: 336cb080710bd37b5f18de7d24d047d37f9ec0806a43e4eb9b51bc31ef8192ef
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/browserless-chrome
+    icon: https://truecharts.org/_static/img/appicons/browserless-chrome.png
+    keywords:
+    - browserless
+    - chrome
+    - puppeteer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: browserless-chrome
+    sources:
+    - https://docs.browserless.io/docs/docker.html
+    - https://hub.docker.com/r/browserless/chrome/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/browserless-chrome-0.0.4/browserless-chrome-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 10.6.2
     created: "2022-03-21T21:10:52.979364093Z"
     dependencies:
@@ -11027,6 +11060,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/deepstack-gpu-3.0.0/deepstack-gpu-3.0.0.tgz
     version: 3.0.0
   deluge:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.0.3
+    created: "2022-03-24T23:03:16.451686149Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Deluge App for TrueNAS SCALE
+    digest: 22fb1d7b0be96e079432f3900d8fd3c14bbc93d7b03fff61a7335ef73ab6cf36
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deluge
+    icon: https://truecharts.org/_static/img/appicons/deluge.png
+    keywords:
+    - transmission
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deluge
+    sources:
+    - https://github.com/deluge-torrent/deluge
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deluge-10.0.5/deluge-10.0.5.tgz
+    version: 10.0.5
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -24397,6 +24462,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 22.02.1
+    created: "2022-03-24T23:03:16.608378072Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: A dead simple static homepage for your server to keep your services
+      on hand.
+    digest: df9146608c9597250be2b08b7a667f9a9eee4de864aaeac4cd18622c6c6b1bf5
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/homer
+    icon: https://truecharts.org/_static/img/appicons/homer.png
+    keywords:
+    - homer
+    - dashboard
+    - launcher
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    - https://hub.docker.com/r/b4bz/homer
+    urls:
+    - https://github.com/truecharts/apps/releases/download/homer-1.0.0/homer-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 22.02.1
     created: "2022-03-13T21:02:17.327063983Z"
     dependencies:
     - name: common
@@ -28074,6 +28172,44 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: apache-1.1
+    created: "2022-03-24T23:03:16.78093558Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.7
+    description: Kimai is a free, open source and online time-tracking software designed
+      for small businesses and freelancers.
+    digest: 317205f6b547309b61e613ebf7bb28b0efc1a97169b3cc5253aa9558e9a5fcc6
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kimai
+    icon: https://truecharts.org/_static/img/appicons/kimai.png
+    keywords:
+    - kimai
+    - time
+    - tracking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kimai
+    sources:
+    - https://github.com/kevinpapst/kimai2
+    - https://github.com/tobybatch/kimai2
+    - https://hub.docker.com/r/kimai/kimai2
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kimai-0.0.2/kimai-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: apache-1.1
     created: "2022-03-23T21:08:46.913996315Z"
     dependencies:
     - name: common
@@ -29207,6 +29343,46 @@ entries:
     - https://github.com/truecharts/apps/releases/download/komga-4.0.24/komga-4.0.24.tgz
     version: 4.0.24
   kutt:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.4
+    created: "2022-03-24T23:03:16.950884841Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.6
+    description: A free and open source personal finance manager
+    digest: 083c13bd6f4358b736ce53541d5955a2d75ace4d1fb6b09f844964882a20a101
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
+    icon: https://truecharts.org/_static/img/appicons/kutt.png
+    keywords:
+    - kutt
+    - link
+    - short
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kutt
+    sources:
+    - https://github.com/thedevs-network/kutt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kutt-0.0.4/kutt-0.0.4.tgz
+    version: 0.0.4
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -49269,6 +49445,46 @@ entries:
     - https://github.com/truecharts/apps/releases/download/oscam-4.0.21/oscam-4.0.21.tgz
     version: 4.0.21
   outline:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.62.0
+    created: "2022-03-24T23:03:17.125302483Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.5
+    description: A fast, collaborative, knowledge base for your team built using React
+      and Node.js.
+    digest: 784b6488d4f28ac0fb768c25f92edaf3878179fbfc473f4f983570a6ec1276a4
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/outline
+    icon: https://truecharts.org/_static/img/appicons/outline.png
+    keywords:
+    - outline
+    - knowledge
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: outline
+    sources:
+    - https://github.com/outline/outline
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/outline-1.0.0/outline-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -79856,4 +80072,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-24T21:58:26.602914055Z"
+generated: "2022-03-24T23:03:17.133554432Z"

@@ -1,13 +1,13 @@
 # Introduction
 
-Deluge App for TrueNAS SCALE
+A fast, collaborative, knowledge base for your team built using React and Node.js.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/deluge-torrent/deluge>
+* <https://github.com/outline/outline>
 
 ## Requirements
 
@@ -17,7 +17,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
+| https://truecharts.org/ | postgresql | 7.0.6 |
 | https://truecharts.org | common | 9.1.8 |
+| https://truecharts.org | redis | 2.0.5 |
 
 ## Installing the Chart
 

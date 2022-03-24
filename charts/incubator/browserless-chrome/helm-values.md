@@ -32,11 +32,11 @@ You will, however, be able to use all values referenced in the common chart here
 | env.WORKSPACE_DIR | string | `"/downloads"` |  |
 | env.WORKSPACE_EXPIRE_DAYS | int | `30` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"browserless/chrome"` |  |
-| image.tag | string | `"version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030"` |  |
+| image.repository | string | `"tccr.io/truecharts/browserless-chrome"` |  |
+| image.tag | string | `"v1.51.1-chrome@sha256:39b1e2641af7fb437a8dbe886dc8cb1f613835338f2d8f9c57516f97716d5467"` |  |
 | imagePuppeteer.pullPolicy | string | `"IfNotPresent"` |  |
-| imagePuppeteer.repository | string | `"browserless/chrome"` |  |
-| imagePuppeteer.tag | string | `"1.51.1-puppeteer-13.1.3@sha256:1a36d1f4f7646ec3c40a15b8150f1202fc66720e38c7001ab21018737ec04937"` |  |
+| imagePuppeteer.repository | string | `"tccr.io/truecharts/browserless-chrome-puppeteer13"` |  |
+| imagePuppeteer.tag | string | `"v1.51.1-puppeteer@sha256:ff3893628a3662a011d37cbaf30c414af53deeb44a56f9c5e73f8f1317d74ffe"` |  |
 | imageSelector | string | `"image"` |  |
 | persistence.downloads.enabled | bool | `true` |  |
 | persistence.downloads.mountPath | string | `"/downloads"` |  |
