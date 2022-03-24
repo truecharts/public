@@ -103,9 +103,10 @@ questions:
       attrs:
         - variable: TRUSTED_HOSTS
           label: "TRUSTED_HOSTS"
+          description: "Comma separated list of trusted hosts."
           schema:
             type: string
-            default: ""
+            default: "172.16.0.0/12"
 
 # Include{containerConfig}
 
