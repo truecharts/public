@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.12"></a>
+### [common-9.1.12](https://github.com/truecharts/apps/compare/common-9.1.11...common-9.1.12) (2022-03-24)
+
+#### Fix
+
+* Add mariadbImage to values.yaml ([#2272](https://github.com/truecharts/apps/issues/2272))
+
+
+
 <a name="common-9.1.11"></a>
 ### [common-9.1.11](https://github.com/truecharts/apps/compare/common-9.1.10...common-9.1.11) (2022-03-24)
 
