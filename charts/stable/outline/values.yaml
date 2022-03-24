@@ -7,14 +7,13 @@ minioImage:
   repository: tccr.io/truecharts/minio
   tag: latest@sha256:b18261a8e8ca554f274cc076631c9c5898224843a86202a93f44c8dbbe60d6cc
 
-# # Needs check
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-# # Needs check
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   FORCE_HTTPS: false

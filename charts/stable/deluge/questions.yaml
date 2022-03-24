@@ -75,21 +75,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Australia/Hobart"
-            $ref:
-              - "definitions/timezone"
-
 
 # Include{containerConfig}
 
