@@ -20,7 +20,7 @@ env:
   DB_PORT: "3306"
   REDIS_PORT: "6379"
   SESSION_DRIVER: "redis"
-  CACHE_DRIVER: "redis"
+  CACHE_DRIVER: "file"
   QUEUE_DRIVER: "sync"
   APP_TIMEZONE: "{{ .Values.TZ }}"
   FILESYSTEM_DISK: "local"
