@@ -48,7 +48,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | alpineImage | object | See below | alpine specific configuration |
 | alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the Alpine image pull policy |
 | alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the Alpine image |
-| alpineImage.tag | string | `"v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c"` | Specify the Alpine image tag |
+| alpineImage.tag | string | `"v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583"` | Specify the Alpine image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
 | codeserverImage | object | See below | codeserver specific configuration |
@@ -203,7 +203,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.2.0@sha256:19f0c21fcfe99603ca70e8552d740ed20106382977c5e1806f71ae7954786de9"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.2.0@sha256:844d1005f09aec53a4006d9ebe9b460ab9b97614ab196a7fa1d8fad26acaec7e"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` | Custom priority class for different treatment by the scheduler |
 | probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

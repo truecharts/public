@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/omada-controller"` |  |
-| image.tag | string | `"v5.0@sha256:0a73e49fde844f861b32b1f256eb001ca2340f725be6f7b80c81c77eb8e6ee65"` |  |
+| image.tag | string | `"v5.1@sha256:6ec3f010466a6f72ef862d7f22cfec6e7b293a903bf52749acb644590c329255"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/opt/tplink/EAPController/data"` |  |
 | persistence.work.enabled | bool | `true` |  |

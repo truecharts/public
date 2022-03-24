@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.8"></a>
+### [ombi-10.0.8](https://github.com/truecharts/apps/compare/ombi-10.0.7...ombi-10.0.8) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major ([#2259](https://github.com/truecharts/apps/issues/2259))
+
+
+
 <a name="ombi-10.0.6"></a>
 ### [ombi-10.0.6](https://github.com/truecharts/apps/compare/ombi-10.0.5...ombi-10.0.6) (2022-03-20)
 

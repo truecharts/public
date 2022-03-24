@@ -7,4 +7,3 @@
 #### Feat
 
 * Add double-take ([#2263](https://github.com/truecharts/apps/issues/2263))
-
