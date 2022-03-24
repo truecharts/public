@@ -12,10 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.API_TOKEN_EXPIRATION_YEARS | int | `40` |  |
-| env.APP_DEBUG | bool | `true` |  |
 | env.APP_ENV | string | `"production"` |  |
 | env.APP_LOCALE | string | `"en"` |  |
-| env.APP_LOG_LEVEL | string | `"debug"` |  |
 | env.APP_TIMEZONE | string | `"{{ .Values.TZ }}"` |  |
 | env.APP_URL | string | `"http://localhost:80"` |  |
 | env.COOKIE_NAME | string | `"snipeit_session"` |  |
@@ -32,7 +30,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MAX_RESULTS | int | `500` |  |
 | env.REDIS_PORT | string | `"6379"` |  |
 | env.SECURE_COOKIES | bool | `false` |  |
-| env.SESSION_DRIVER | string | `"redis"` |  |
 | env.SESSION_LIFETIME | int | `30` |  |
 | envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.name | string | `"snipeit-secrets"` |  |
@@ -51,10 +48,14 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"snipe-it"` |  |
 | mariadb.mariadbUsername | string | `"snipe-it"` |  |
+| persistence.backups.enabled | bool | `true` |  |
+| persistence.backups.mountPath | string | `"/var/lib/snipeit/dumps"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/var/lib/snipeit/data"` |  |
 | persistence.logs.enabled | bool | `true` |  |
 | persistence.logs.mountPath | string | `"/var/www/html/storage/logs"` |  |
 | podSecurityContext.fsGroup | int | `50` |  |
-| podSecurityContext.runAsGroup | int | `50` |  |
+| podSecurityContext.runAsGroup | int | `1000` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |

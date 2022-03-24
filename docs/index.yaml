@@ -67574,6 +67574,47 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 5.4.1
+    created: "2022-03-24T18:37:41.176861706Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.7
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.6
+    description: Open source asset management
+    digest: 308f2896651650c57ff40918d187822354d1274845c9af88c9a5e2ae81b9e198
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/snipe-it
+    icon: https://truecharts.org/_static/img/appicons/snipe-it.png
+    keywords:
+    - snipeit
+    - snipe
+    - asset
+    - management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: snipe-it
+    sources:
+    - https://snipeitapp.com/
+    - https://hub.docker.com/r/linuxserver/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/snipe-it-2.0.2/snipe-it-2.0.2.tgz
+    version: 2.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - management
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.4.1
     created: "2022-03-24T15:16:51.656078777Z"
     dependencies:
     - name: common
@@ -79773,4 +79814,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-24T16:24:17.805866227Z"
+generated: "2022-03-24T18:37:41.184999926Z"
