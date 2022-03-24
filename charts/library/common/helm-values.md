@@ -117,6 +117,10 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
 | mariadb | object | See below | mariadb dependency configuration |
 | mariadb.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
+| mariadbImage | object | See below | mariadb specific configuration |
+| mariadbImage.pullPolicy | string | `"IfNotPresent"` | Specify the mariadb image pull policy |
+| mariadbImage.repository | string | `"ghcr.io/truecharts/mariadb"` | Specify the mariadb image |
+| mariadbImage.tag | string | `"v10.7.3@sha256:a449af8351ad73fb2807057028ddc2f25c350a59b89686c6ac0e6170f6787005"` | Specify the mariadb image tag |
 | netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"ghcr.io/truecharts/netshoot"` | Specify the netshoot image |

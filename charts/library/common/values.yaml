@@ -68,6 +68,15 @@ postgresqlImage:
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
+# -- mariadb specific configuration
+# @default -- See below
+mariadbImage:
+  # -- Specify the mariadb image
+  repository: ghcr.io/truecharts/mariadb
+  # -- Specify the mariadb image tag
+  tag: v10.7.3@sha256:a449af8351ad73fb2807057028ddc2f25c350a59b89686c6ac0e6170f6787005
+  # -- Specify the mariadb image pull policy
+  pullPolicy: IfNotPresent
 
 global:
   # -- Set an override for the prefix of the fullname
