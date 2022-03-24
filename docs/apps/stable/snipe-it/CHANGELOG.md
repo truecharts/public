@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.1"></a>
+### [snipe-it-2.0.1](https://github.com/truecharts/apps/compare/snipe-it-2.0.0...snipe-it-2.0.1) (2022-03-24)
+
+#### Fix
+
+* permissions ([#2267](https://github.com/truecharts/apps/issues/2267))
+
+
+
 <a name="snipe-it-2.0.0"></a>
 ### [snipe-it-2.0.0](https://github.com/truecharts/apps/compare/snipe-it-1.0.8...snipe-it-2.0.0) (2022-03-23)
 
