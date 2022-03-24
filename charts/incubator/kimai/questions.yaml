@@ -94,6 +94,19 @@ questions:
             default: ""
             required: true
             private: true
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: TRUSTED_HOSTS
+          label: "TRUSTED_HOSTS"
+          schema:
+            type: string
+            default: ""
+
 # Include{containerConfig}
 
   - variable: service
