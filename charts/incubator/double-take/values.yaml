@@ -1,0 +1,16 @@
+image:
+  repository: jakowenko/double-take
+  pullPolicy: IfNotPresent
+  tag: 1.7.0@sha256:6960ec3f20ae224badb2c3826198286227edd5c5af7edb2c95b5e9eff182fb9a
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10200
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/.storage"
