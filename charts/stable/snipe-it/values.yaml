@@ -1,17 +1,7 @@
 image:
   repository: tccr.io/truecharts/snipe-it
   pullPolicy: IfNotPresent
-  tag: v5.4.1@sha256:8c4dd0e7cd888cf57958e76b56d03b94c6eb0f701f26bc63a618dcba1b55be82
-
-secret: {}
-
-# See more environment variables in the snipe documentation
-# https://github.com/linuxserver/docker-snipe-it#parameters
-env:
-  NGINX_APP_URL: '{{ include "common.names.fullname" . }}:8080'
-  MYSQL_USER: snipe-it
-  MYSQL_DATABASE: "snipe-it"
-  MYSQL_PORT_3306_TCP_PORT: "3306"
+  tag: v5.4.1@sha256:392cd5a87a094675702b2f81a84213624851d2c4adec2dbad207a91f7d39d3d4
 
 securityContext:
   runAsNonRoot: false
@@ -21,6 +11,57 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  APP_ENV: "production"
+  APP_DEBUG: false
+  DB_CONNECTION: "mysql"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_PORT: "3306"
+  REDIS_PORT: "6379"
+  SESSION_DRIVER: "redis"
+  CACHE_DRIVER: "redis"
+  QUEUE_DRIVER: "redis"
+  APP_TIMEZONE: "{{ .Values.TZ }}"
+  FILESYSTEM_DISK: "local"
+  # User Defined
+  APP_URL: "http://localhost:80"
+  APP_LOCALE: "en"
+  MAX_RESULTS: 500
+  IMAGE_LIB: "gd"
+  # Session
+  SESSION_LIFETIME: 30
+  EXPIRE_ON_CLOSE: false
+  ENCRYPT: false
+  COOKIE_NAME: "snipeit_session"
+  SECURE_COOKIES: false
+  API_TOKEN_EXPIRATION_YEARS: 40
+  # Login
+  LOGIN_MAX_ATTEMPTS: 5
+  LOGIN_LOCKOUT_DURATION: 60
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: snipeit-secrets
+      key: APP_KEY
+
 service:
   main:
     ports:
@@ -29,24 +70,69 @@ service:
         targetPort: 80
 
 persistence:
-  varrun:
+  logs:
     enabled: true
-  config:
-    enabled: true
-    mountPath: "/config"
-
-envValueFrom:
-  MYSQL_PORT_3306_TCP_ADDR:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+    mountPath: "/var/www/html/storage/logs"
 
 mariadb:
   enabled: true
   mariadbUsername: snipe-it
   mariadbDatabase: snipe-it
   existingSecret: "mariadbcreds"
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+upgradeContainers:
+  migratedb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: logs
+        mountPath: "/var/www/html/storage/logs"
+    env:
+      - name: APP_ENV
+        value: "production"
+      - name: REDIS_PORT
+        value: "6379"
+      - name: SESSION_DRIVER
+        value: "redis"
+      - name: QUEUE_DRIVER
+        value: "redis"
+      - name: APP_ENV
+        value: "redis"
+      - name: DB_CONNECTION
+        value: "mysql"
+      - name: DB_PORT
+        value: "3306"
+      - name: DB_USERNAME
+        value: "{{ .Values.mariadb.mariadbUsername }}"
+      - name: DB_DATABASE
+        value: "{{ .Values.mariadb.mariadbDatabase }}"
+      - name: DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: plainhost
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: mariadb-password
+      - name: REDIS_HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhost
+      - name: REDIS_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: redis-password
+      - name: APP_KEY
+        valueFrom:
+          secretKeyRef:
+            name: snipeit-secrets
+            key: APP_KEY
+    command: ["php", "artisan", "migrate"]

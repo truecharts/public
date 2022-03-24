@@ -1,0 +1,52 @@
+image:
+  repository: kimai/kimai2
+  tag: apache-1.19-prod@sha256:e4a92b3a87c782a8ad75fcb8468c654232ea8043efe5409877e1b06c7562f95b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  ADMINMAIL: "admin@mysecretdomain.com"
+  ADMINPASS: "MvvTfjagiaqDprGNVA"
+
+env:
+  DB_TYPE: "mysql"
+  DB_PORT: "3306"
+  DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
+  # User Defined
+  TRUSTED_HOSTS: "172.16.0.0/12"
+
+envValueFrom:
+  DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+
+service:
+  main:
+    ports:
+      main:
+        port: 10198
+        targetPort: 8001
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/kimai/public"
+
+mariadb:
+  enabled: true
+  mariadbUsername: kimai
+  mariadbDatabase: kimai
+  existingSecret: "mariadbcreds"

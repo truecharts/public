@@ -13,6 +13,8 @@ podSecurityContext:
 
 env:
   MAX_UPLOAD: 5000
+  PHP_MEMORY_LIMIT: "512M"
+  PHP_MAX_FILE_UPLOAD: 200
 
 service:
   main:
@@ -25,5 +27,65 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
   varrun:
     enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: projectsend
+  mariadbDatabase: projectsend
+  existingSecret: "mariadbcreds"
+
+
+installContainers:
+  initconfig:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: DBNAME
+        value: "{{ .Values.mariadb.mariadbDatabase }}"
+      - name: DBUSER
+        value: "{{ .Values.mariadb.mariadbUsername }}"
+      - name: DBPASS
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: mariadb-password
+      - name: DBHOST
+        valueFrom:
+          secretKeyRef:
+            name: mariadbcreds
+            key: plainhost
+    volumeMounts:
+      - name: config
+        mountPath: "/config"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        export configFile="/config/projectsend/sys.config.php";
+        if [ ! -f $configFile ];
+        then
+          echo "Creating initial config file...";
+          mkdir -p /config/projectsend
+          touch $configFile;
+          echo "<?php" >> $configFile
+          echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
+          echo "# Do not change below values, or DB connection will fail." >> $configFile
+          echo "define('DB_DRIVER', 'mysql');" >> $configFile;
+          echo "define('DB_NAME', '$DBNAME');" >> $configFile;
+          echo "define('DB_HOST', '$DBHOST');" >> $configFile;
+          echo "define('DB_USER', '$DBUSER');" >> $configFile;
+          echo "define('DB_PASSWORD', '$DBPASS');" >> $configFile;
+          echo "define('TABLES_PREFIX', 'tbl_');" >> $configFile;
+          echo "# You can manually change below values if you like." >> $configFile
+          echo "define('SITE_LANG', 'en');" >> $configFile;
+          echo "define('MAX_FILESIZE',2048);" >> $configFile;
+          echo "define('EMAIL_ENCODING', 'utf-8');" >> $configFile;
+          echo "define('DEBUG', false);" >> $configFile;
+          echo "# End of generated config values." >> $configFile;
+          echo "Done!";
+        else
+          echo "Initial config file already exists. Skipping...";
+        fi;

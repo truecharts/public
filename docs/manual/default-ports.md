@@ -352,7 +352,10 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | verysync                   |      main       |      main       | 10193 |   HTTP   |                                         |
 | browserless                |      main       |      main       | 10194 |   TCP    |                                         |
 | kutt                       |      main       |      main       | 10195 |   TCP    |                                         |
-| filerun                    |      main       |      main       | 10196 |   TCP    |                                         |
+| outline                    |      main       |      main       | 10196 |   TCP    |                                         |
+| chevereto                  |      main       |      main       | 10197 |   TCP    |                                         |
+| kimai                      |      main       |      main       | 10198 |   TCP    |                                         |
+| filerun                    |      main       |      main       | 10199 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
@@ -372,6 +375,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | verysync                   |      data       |      data       | 22330 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
+| minecraft-java             |      rcon       |      rcon       | 25575 |   TCP    |                                         |
 | storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |                                         |
 | storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |

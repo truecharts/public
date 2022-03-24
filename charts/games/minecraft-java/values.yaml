@@ -4,7 +4,7 @@ image:
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:d90a715aeab237ebeeb3c3a3338afd0c9cefec5f1bedc07278b13a596e825612
+  tag: latest@sha256:58c4c048bd4fbfd1be3e50de1d59fb4c29c63fa49fe19a78aab038256d615439
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
@@ -12,11 +12,11 @@ j11j9Image:
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:43b44165f18b5d5709d0607a72166648c1ad924934830d7dd532fe7a1af38f1a
+  tag: latest@sha256:b27741e5a5422d8739ef060b0095ea2b88018a2c7afa288a1abbda1aa4c64978
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:43b44165f18b5d5709d0607a72166648c1ad924934830d7dd532fe7a1af38f1a
+  tag: latest@sha256:b27741e5a5422d8739ef060b0095ea2b88018a2c7afa288a1abbda1aa4c64978
   pullPolicy: Always
 
 portal:
@@ -68,3 +68,10 @@ service:
       main:
         port: 25565
         targetPort: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575

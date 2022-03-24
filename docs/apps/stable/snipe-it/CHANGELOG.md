@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.0"></a>
+### [snipe-it-2.0.0](https://github.com/truecharts/apps/compare/snipe-it-1.0.8...snipe-it-2.0.0) (2022-03-23)
+
+#### Feat
+
+* Use official image ([#2257](https://github.com/truecharts/apps/issues/2257))
+
+
+
 <a name="snipe-it-1.0.6"></a>
 ### [snipe-it-1.0.6](https://github.com/truecharts/apps/compare/snipe-it-1.0.5...snipe-it-1.0.6) (2022-03-17)
 
