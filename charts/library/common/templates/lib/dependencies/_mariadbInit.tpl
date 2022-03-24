@@ -5,7 +5,7 @@ This template ensures pods with postgresql dependency have a delayed start
 {{- $pghost := printf "%v-%v" .Release.Name "mariadb" }}
 {{- if .Values.mariadb.enabled }}
 - name: mariadb-init
-  image: "{{ .Values.mariadblImage.repository}}:{{ .Values.mariadblImage.tag }}"
+  image: "{{ .Values.mariadbImage.repository}}:{{ .Values.mariadbImage.tag }}"
   env:
   - name: MARIADB_HOST
     valueFrom:
