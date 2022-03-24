@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.11"></a>
+### [common-9.1.11](https://github.com/truecharts/apps/compare/common-9.1.10...common-9.1.11) (2022-03-24)
+
+#### Fix
+
+* typo in mariadb repo ([#2271](https://github.com/truecharts/apps/issues/2271))
+
+
+
 <a name="common-9.1.10"></a>
 ### [common-9.1.10](https://github.com/truecharts/apps/compare/common-9.1.9...common-9.1.10) (2022-03-24)
 
