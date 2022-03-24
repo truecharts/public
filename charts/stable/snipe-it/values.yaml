@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.4.1@sha256:392cd5a87a094675702b2f81a84213624851d2c4adec2dbad207a91f7d39d3d4
 
+command: ["ls -la", "/var/www/html/storage/logs"]
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
