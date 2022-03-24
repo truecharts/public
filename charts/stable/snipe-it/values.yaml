@@ -79,6 +79,11 @@ service:
         port: 10120
         targetPort: 80
 
+persistence:
+  logs:
+    enabled: true
+    mountPath: "/var/www/html/storage/logs"
+
 mariadb:
   enabled: true
   mariadbUsername: snipe-it
