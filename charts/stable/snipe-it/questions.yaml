@@ -282,25 +282,6 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: LOG
-                label: "LOG"
-                description: "Whether to use a single log file, or multiple date-based log files for your app error logs."
-                schema:
-                  type: string
-                  default: "daily"
-                  required: true
-                  enum:
-                    - value: "single"
-                      description: "Single File"
-                    - value: "daily"
-                      description: "Daily Files"
-              - variable: APP_LOG_MAX_FILES
-                label: "APP_LOG_MAX_FILES"
-                description: "Max number of daily app log files to retain."
-                schema:
-                  type: int
-                  default: 10
-                  required: true
               - variable: ALLOW_IFRAMING
                 label: "ALLOW_IFRAMING"
                 description: "Set this to true if you need to run Snipe-IT within an iframe."
@@ -542,6 +523,62 @@ questions:
                 schema:
                   type: string
                   default: ""
+        - variable: loggingsettings
+          label: "Logging Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: LOG
+                label: "LOG"
+                description: "Whether to use a single log file, or multiple date-based log files for your app error logs."
+                schema:
+                  type: string
+                  default: "daily"
+                  required: true
+                  enum:
+                    - value: "single"
+                      description: "Single File"
+                    - value: "daily"
+                      description: "Daily Files"
+              - variable: APP_LOG_MAX_FILES
+                label: "APP_LOG_MAX_FILES"
+                description: "Max number of daily app log files to retain."
+                schema:
+                  type: int
+                  default: 10
+                  required: true
+              - variable: APP_DEBUG
+                label: "APP_DEBUG"
+                description: "Enables App Debug."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: APP_LOG_LEVEL
+                label: "APP_LOG_LEVEL"
+                description: "Laravel will log all levels greater than or equal to the specified severity."
+                schema:
+                  type: string
+                  default: "error"
+                  required: true
+                  enum:
+                    - value: "debug"
+                      description: "debug"
+                    - value: "info"
+                      description: "info"
+                    - value: "notice"
+                      description: "notice"
+                    - value: "warning"
+                      description: "warning"
+                    - value: "error"
+                      description: "error"
+                    - value: "critical"
+                      description: "critical"
+                    - value: "alert"
+                      description: "alert"
+                    - value: "emergency"
+                      description: "emergency"
 # Include{containerConfig}
 
   - variable: service
