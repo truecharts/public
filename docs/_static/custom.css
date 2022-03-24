@@ -4,3 +4,11 @@
   --md-primary-fg-color--dark:  #000000;
   --md-footer-bg-color--dark:   #000000;
 }
+
+:root > * {
+  --md-typeset-a-color: var(--md-accent-fg-color);
+}
+
+a {
+  text-decoration: underline;
+}
