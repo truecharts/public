@@ -9,7 +9,8 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 1000
-  runAsGroup: 50
+  runAsGroup: 0
+  fsGroup: 0
 
 env:
   APP_ENV: "production"
