@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/calibre-web"` |  |
-| image.tag | string | `"v0.6.17@sha256:37fd75314a6c5719996a143a2b47ce95068cf0fe688519f8bd1a7aadf7520781"` |  |
+| image.tag | string | `"v0.6.17@sha256:f7573b8ee21d0c69c6afb3ea0e2491154e2b042d3e944b886646f2d3c788367f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
