@@ -1,15 +1,18 @@
 image:
-  repository: kimai/kimai2
-  tag: apache-1.19-prod@sha256:e4a92b3a87c782a8ad75fcb8468c654232ea8043efe5409877e1b06c7562f95b
+  repository: tccr.io/truecharts/kimai
+  tag: v1.19@sha256:d5347792e4f8ff0e747e3bc2a98a07f1665d4ca96a92742d60ef4ed16d84a3aa
   pullPolicy: IfNotPresent
+
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 33
+  runAsGroup: 33
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
@@ -21,7 +24,7 @@ env:
   DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
   # User Defined
-  TRUSTED_HOSTS: "172.16.0.0/12"
+  TRUSTED_HOSTS: "nginx"
 
 envValueFrom:
   DB_PASS:
@@ -38,11 +41,22 @@ service:
     ports:
       main:
         port: 10198
-        targetPort: 8001
+        targetPort: 80
+
+probes:
+  liveness:
+    path: "/health"
+
+  readiness:
+    path: "/health"
+
+  startup:
+    path: "/health"
 
 persistence:
-  data:
+  public:
     enabled: true
+    type: emptyDir
     mountPath: "/opt/kimai/public"
 
 mariadb:
@@ -50,3 +64,18 @@ mariadb:
   mariadbUsername: kimai
   mariadbDatabase: kimai
   existingSecret: "mariadbcreds"
+
+additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+    - name: kimai-config
+      mountPath: "/etc/nginx/nginx.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: public
+      mountPath: "/opt/kimai/public"

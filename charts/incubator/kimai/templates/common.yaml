@@ -1,1 +1,21 @@
-{{ include "common.all" . }}
+{{- include "common.setup" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "kimai.harcodedValues" -}}
+persistence:
+  kimai-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "kimai.harcodedValues" . | fromYaml) -}}
+
+{{/* Render secrets for kimai */}}
+{{- include "kimai.secrets" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}
