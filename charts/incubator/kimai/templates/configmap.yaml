@@ -32,7 +32,7 @@ data:
 
         location ~ ^/index\.php(/|$) {
             fastcgi_hide_header X-Powered-By;
-            fastcgi_pass kimai:9000;
+            fastcgi_pass localhost:9000;
             fastcgi_split_path_info ^(.+\.php)(/.*)$;
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
