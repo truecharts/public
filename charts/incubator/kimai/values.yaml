@@ -12,8 +12,8 @@ securityContext:
   readOnlyRootFilesystem: false
 
 podSecurityContext:
-  runAsUser: 33
-  runAsGroup: 0
+  runAsUser: 0
+  runAsGroup: 33
   fsGroup: 0
 
 secret:
