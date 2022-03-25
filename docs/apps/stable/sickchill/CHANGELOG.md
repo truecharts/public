@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-2.0.5"></a>
+### [sickchill-2.0.5](https://github.com/truecharts/apps/compare/sickchill-2.0.4...sickchill-2.0.5) (2022-03-25)
+
+#### Chore
+
+* update image ref ([#2280](https://github.com/truecharts/apps/issues/2280))
+
+
+
 <a name="sickchill-2.0.1"></a>
 ### [sickchill-2.0.1](https://github.com/truecharts/apps/compare/sickchill-2.0.0...sickchill-2.0.1) (2022-03-07)
 
