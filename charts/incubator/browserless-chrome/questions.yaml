@@ -105,7 +105,7 @@ questions:
           description: "You can optionally apply a TOKEN param that will restrict calls without a token query-string parameter"
           schema:
             type: string
-            default: "admin"
+            default: ""
             private: true
   - variable: env
     group: "Container Configuration"
