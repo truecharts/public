@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: double-take/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-double-take&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -85,11 +85,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -120,11 +120,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/double-take:v1.7.0@sha256:9872c84e9aa6bf9eeed65452a1590ef7595a0a3d759719af4539708b69fd7567 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -469,7 +469,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | engine.io         |    CVE-2022-21676   |   HIGH  |  6.1.0 | 6.1.1, 5.2.1, 4.1.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-273r-mgr4-v34f">https://github.com/advisories/GHSA-273r-mgr4-v34f</a><br><a href="https://github.com/socketio/engine.io/commit/66f889fc1d966bf5bfa0de1939069153643874ab">https://github.com/socketio/engine.io/commit/66f889fc1d966bf5bfa0de1939069153643874ab</a><br><a href="https://github.com/socketio/engine.io/commit/a70800d7e96da32f6e6622804ef659ebc58659db">https://github.com/socketio/engine.io/commit/a70800d7e96da32f6e6622804ef659ebc58659db</a><br><a href="https://github.com/socketio/engine.io/commit/c0e194d44933bd83bf9a4b126fca68ba7bf5098c">https://github.com/socketio/engine.io/commit/c0e194d44933bd83bf9a4b126fca68ba7bf5098c</a><br><a href="https://github.com/socketio/engine.io/releases/tag/4.1.2">https://github.com/socketio/engine.io/releases/tag/4.1.2</a><br><a href="https://github.com/socketio/engine.io/releases/tag/5.2.1">https://github.com/socketio/engine.io/releases/tag/5.2.1</a><br><a href="https://github.com/socketio/engine.io/releases/tag/6.1.1">https://github.com/socketio/engine.io/releases/tag/6.1.1</a><br><a href="https://github.com/socketio/engine.io/security/advisories/GHSA-273r-mgr4-v34f">https://github.com/socketio/engine.io/security/advisories/GHSA-273r-mgr4-v34f</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-21676">https://nvd.nist.gov/vuln/detail/CVE-2022-21676</a><br></details>  |
@@ -479,4 +479,3 @@ hide:
 | node-fetch         |    CVE-2022-0235   |   MEDIUM  |  2.6.6 | 2.6.7, 3.1.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-r683-j2x4-v87g">https://github.com/advisories/GHSA-r683-j2x4-v87g</a><br><a href="https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10">https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10</a><br><a href="https://github.com/node-fetch/node-fetch/commit/5c32f002fdd65b1c6a8f1e3620210813d45c7e60">https://github.com/node-fetch/node-fetch/commit/5c32f002fdd65b1c6a8f1e3620210813d45c7e60</a><br><a href="https://github.com/node-fetch/node-fetch/pull/1453">https://github.com/node-fetch/node-fetch/pull/1453</a><br><a href="https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7">https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7</a><br><a href="https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7/">https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0235">https://nvd.nist.gov/vuln/detail/CVE-2022-0235</a><br></details>  |
 | simple-get         |    CVE-2022-0355   |   HIGH  |  3.1.0 | 2.8.2, 3.1.1, 4.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-wpg7-2c88-r8xv">https://github.com/advisories/GHSA-wpg7-2c88-r8xv</a><br><a href="https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f">https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f</a><br><a href="https://github.com/feross/simple-get/pull/75#issuecomment-1027755026">https://github.com/feross/simple-get/pull/75#issuecomment-1027755026</a><br><a href="https://github.com/feross/simple-get/pull/76#issuecomment-1027754710">https://github.com/feross/simple-get/pull/76#issuecomment-1027754710</a><br><a href="https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31">https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0355">https://nvd.nist.gov/vuln/detail/CVE-2022-0355</a><br></details>  |
 | simple-get         |    CVE-2022-0355   |   HIGH  |  4.0.0 | 2.8.2, 3.1.1, 4.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-wpg7-2c88-r8xv">https://github.com/advisories/GHSA-wpg7-2c88-r8xv</a><br><a href="https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f">https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f</a><br><a href="https://github.com/feross/simple-get/pull/75#issuecomment-1027755026">https://github.com/feross/simple-get/pull/75#issuecomment-1027755026</a><br><a href="https://github.com/feross/simple-get/pull/76#issuecomment-1027754710">https://github.com/feross/simple-get/pull/76#issuecomment-1027754710</a><br><a href="https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31">https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0355">https://nvd.nist.gov/vuln/detail/CVE-2022-0355</a><br></details>  |
-
