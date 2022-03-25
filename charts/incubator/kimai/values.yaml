@@ -14,7 +14,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 33
   runAsGroup: 33
-  fsGroup: 33
+  fsGroup: 0
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
