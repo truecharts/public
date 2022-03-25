@@ -7,6 +7,7 @@ nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e
 
+command: ["ls", "-la", "/opt/kimai/var"]
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -14,7 +15,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 33
-  fsGroup: 33
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
