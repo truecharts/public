@@ -53,7 +53,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:80/health"
 
   readiness:
     enabled: true
@@ -63,7 +63,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:80/health"
 
   startup:
     enabled: true
@@ -73,7 +73,8 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:80/health"
+
 persistence:
   public:
     enabled: true
