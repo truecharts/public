@@ -38,7 +38,7 @@ service:
     ports:
       main:
         port: 10198
-        targetPort: 80
+        targetPort: 8001
 
 probes:
   liveness:
@@ -49,7 +49,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:8001/en/login"
 
   readiness:
     enabled: true
@@ -59,7 +59,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:8001/en/login"
 
   startup:
     enabled: true
@@ -69,14 +69,10 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/en/login"
+        - curl --fail "http://localhost:8001/en/login"
 
 persistence:
-  # public:
-  #   enabled: true
-  #   type: emptyDir
-  #   mountPath: "/opt/kimai/public"
-  datai:
+  data:
     enabled: true
     mountPath: "/opt/kimai/var"
 
@@ -85,18 +81,3 @@ mariadb:
   mariadbUsername: kimai
   mariadbDatabase: kimai
   existingSecret: "mariadbcreds"
-
-# additionalContainers:
-#   nginx:
-#     name: nginx
-#     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-#     ports:
-#       - containerPort: 80
-#         name: main
-#     volumeMounts:
-#     - name: kimai-config
-#       mountPath: "/etc/nginx/conf.d/default.conf"
-#       subPath: nginx-config
-#       readOnly: true
-#     - name: public
-#       mountPath: "/opt/kimai/public"
