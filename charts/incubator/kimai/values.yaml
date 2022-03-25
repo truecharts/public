@@ -99,9 +99,9 @@ additionalContainers:
       - containerPort: 80
         name: main
     volumeMounts:
-    # - name: kimai-config
-    #   mountPath: "/etc/nginx/conf.d/default.conf"
-    #   subPath: nginx-config
-    #   readOnly: true
+    - name: kimai-config
+      mountPath: "/etc/nginx/conf.d/default.conf"
+      subPath: nginx-config
+      readOnly: true
     - name: public
       mountPath: "/opt/kimai/public"
