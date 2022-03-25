@@ -1,14 +1,13 @@
 # Introduction
 
-RSSHub can generate RSS feeds from pretty much everything
+Unified UI and API for processing and training images for facial recognition
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://docs.rsshub.app/en/install/>
-* <https://github.com/DIYgod/RSSHub>
+* <https://github.com/jakowenko/double-take>
 
 ## Requirements
 
@@ -19,7 +18,6 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://truecharts.org | common | 9.1.8 |
-| https://truecharts.org | redis | 2.0.6 |
 
 ## Installing the Chart
 

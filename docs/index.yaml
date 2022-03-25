@@ -12734,6 +12734,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.7.0
+    created: "2022-03-25T17:53:48.688752931Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Unified UI and API for processing and training images for facial
+      recognition
+    digest: 09e55602bdd1bf53d4ad92d16813af6ba0d76a602938f74d0547707c9c92be36
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/double-take
+    icon: https://truecharts.org/_static/img/appicons/double-take.png
+    keywords:
+    - ai
+    - double-take
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: double-take
+    sources:
+    - https://github.com/jakowenko/double-take
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/double-take-1.0.0/double-take-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.7.0
     created: "2022-03-25T02:32:16.383182143Z"
     dependencies:
     - name: common
@@ -67152,6 +67184,42 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: "2022"
+    created: "2022-03-25T17:53:48.843974011Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.6
+    description: RSSHub can generate RSS feeds from pretty much everything
+    digest: d92c81eb5d70c14a8322603bb635969c63731f96b187f7f8725f113d1a6aafcf
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/rsshub
+    icon: https://truecharts.org/_static/img/appicons/rsshub.png
+    keywords:
+    - rsshub
+    - rss
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: rsshub
+    sources:
+    - https://docs.rsshub.app/en/install/
+    - https://github.com/DIYgod/RSSHub
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/rsshub-1.0.0/rsshub-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2022-03
     created: "2022-03-21T17:47:11.395553557Z"
     dependencies:
@@ -81456,4 +81524,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-25T17:15:07.640999347Z"
+generated: "2022-03-25T17:53:48.851124623Z"
