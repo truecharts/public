@@ -42,34 +42,11 @@ service:
 
 probes:
   liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-        - bash
-        - -c
-        - curl --fail "http://localhost:8001/en/login"
-
+    path: "/en/login"
   readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-        - bash
-        - -c
-        - curl --fail "http://localhost:8001/en/login"
-
+    path: "/en/login"
   startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-        - bash
-        - -c
-        - curl --fail "http://localhost:8001/en/login"
+    path: "/en/login"
 
 persistence:
   data:
