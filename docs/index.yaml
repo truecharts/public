@@ -4974,6 +4974,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.51.1
+    created: "2022-03-25T23:23:50.659425509Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: Browserless is a web-service that allows for remote clients to connect,
+      drive, and execute headless work
+    digest: b020396131b0168fc46ec77a0b9d29406bf546aba2a501504174fd89cf72a256
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/browserless-chrome
+    icon: https://truecharts.org/_static/img/appicons/browserless-chrome.png
+    keywords:
+    - browserless
+    - chrome
+    - puppeteer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: browserless-chrome
+    sources:
+    - https://docs.browserless.io/docs/docker.html
+    - https://hub.docker.com/r/browserless/chrome/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/browserless-chrome-0.0.5/browserless-chrome-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.51.1
     created: "2022-03-24T23:03:16.310111999Z"
     dependencies:
     - name: common
@@ -12697,6 +12730,35 @@ entries:
     - https://github.com/truecharts/apps/releases/download/domoticz-0.0.1/domoticz-0.0.1.tgz
     version: 0.0.1
   doplarr:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.3.0
+    created: "2022-03-25T23:23:50.890703104Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.8
+    description: An *arr Request Bot for Discord
+    digest: 8b7c7510d1658c49499ab96b41095397b77a1a88d04b6d0eabbe58414115edbb
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/doplarr
+    icon: https://truecharts.org/_static/img/appicons/doplarr.png
+    keywords:
+    - doplarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: doplarr
+    sources:
+    - https://github.com/kiranshila/Doplarr
+    urls:
+    - https://github.com/truecharts/apps/releases/download/doplarr-0.0.4/doplarr-0.0.4.tgz
+    version: 0.0.4
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -81560,4 +81622,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-25T20:54:27.526219576Z"
+generated: "2022-03-25T23:23:50.900104177Z"

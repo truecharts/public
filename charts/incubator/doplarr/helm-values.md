@@ -13,7 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.DISCORD__MAX_RESULTS | int | `25` |  |
 | env.DISCORD__REQUESTED_MSG_STYLE | string | `":plain"` |  |
-| env.DISCORD__TOKEN | string | `""` |  |
 | env.LOG_LEVEL | string | `":info"` |  |
 | env.OVERSEERR__URL | string | `""` |  |
 | env.PARTIAL_SEASONS | bool | `true` |  |
@@ -23,12 +22,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SONARR__QUALITY_PROFILE | string | `""` |  |
 | env.SONARR__URL | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/kiranshila/doplarr"` |  |
-| image.tag | string | `"v3.3.0@sha256:e50953500a73b4dc2670790f8c3f178387eee1a70819aefe4f2c8d9b8d17c116"` |  |
+| image.repository | string | `"tccr.io/truecharts/doplarr"` |  |
+| image.tag | string | `"v3.3.0@sha256:d08ec284876852d664fc6565c9a7fc823eceb78dc583d0323b280717732d13cc"` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
 | secret.DISCORD__ROLE_ID | string | `""` |  |
+| secret.DISCORD__TOKEN | string | `""` |  |
 | secret.OVERSEERR__API | string | `""` |  |
 | secret.OVERSEERR__DEFAULT_ID | string | `""` |  |
 | secret.RADARR__API | string | `""` |  |

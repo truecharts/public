@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-0.0.5"></a>
+### [browserless-chrome-0.0.5](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.4...browserless-chrome-0.0.5) (2022-03-25)
+
+#### Fix
+
+* small fixes ([#2282](https://github.com/truecharts/apps/issues/2282))
+
+
+
 <a name="browserless-chrome-0.0.4"></a>
 ### [browserless-chrome-0.0.4](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.3...browserless-chrome-0.0.4) (2022-03-24)
 
