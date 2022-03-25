@@ -12,9 +12,9 @@ securityContext:
   readOnlyRootFilesystem: false
 
 podSecurityContext:
-  runAsUser: 82
+  runAsUser: 0
   runAsGroup: 82
-  fsGroup: 82
+  fsGroup: 0
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
