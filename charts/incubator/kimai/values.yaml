@@ -7,8 +7,6 @@ nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e
 
-command: ["curl", "http://localhost:80/en/login"]
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -55,7 +53,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/health"
+        - curl --fail "http://localhost:80/en/login"
 
   readiness:
     enabled: true
@@ -65,7 +63,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/health"
+        - curl --fail "http://localhost:80/en/login"
 
   startup:
     enabled: true
@@ -75,7 +73,7 @@ probes:
         command:
         - bash
         - -c
-        - curl --fail "http://localhost:80/health"
+        - curl --fail "http://localhost:80/en/login"
 
 persistence:
   public:
