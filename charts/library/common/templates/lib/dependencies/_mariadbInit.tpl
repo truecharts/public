@@ -24,12 +24,12 @@ This template ensures pods with postgresql dependency have a delayed start
   {{- with .Values.resources }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  command:
-    - "bash"
-    - "-ec"
-    - |
+  command: ["bash", "-ec"]
+  args:
+    - >
       until
-        mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" ping && mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" status;
+        mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" ping \
+        && mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" status;
         do sleep 2;
       done
   imagePullPolicy: IfNotPresent
