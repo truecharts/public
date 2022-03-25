@@ -46,13 +46,13 @@ service:
 
 probes:
   liveness:
-    path: "/health"
+    path: "/en/login"
 
   readiness:
-    path: "/health"
+    path: "/en/login"
 
   startup:
-    path: "/health"
+    path: "/en/login"
 
 persistence:
   public:
