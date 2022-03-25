@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/zwavejs2mqtt"` |  |
-| image.tag | string | `"v6.5.2@sha256:3cd8e650865bcc8b16adfceb4e51dfd185f3f910ce5b428e165d23229296d6ea"` |  |
+| image.tag | string | `"v6.6.0@sha256:7798e9afa46b4fda8eadf271efd01e4a0c7bf131c43c9e0ab00334b0df2f35a3"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/usr/src/app/store"` |  |
 | probes.liveness.enabled | bool | `true` |  |

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | git.deployKeyBase64 | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/home-assistant"` |  |
-| image.tag | string | `"v2022.3.5@sha256:5f77adab8dbe09fa138a06fc4a5999d6bc8de8dedfb55833a0b0a5b8451f641d"` |  |
+| image.tag | string | `"v2022.3.7@sha256:410f020210cc2bc0c279f82cf765647a7b1a99ffe8bd59150b6baaa762386d46"` |  |
 | influxdb.architecture | string | `"standalone"` |  |
 | influxdb.authEnabled | bool | `false` |  |
 | influxdb.database | string | `"home_assistant"` |  |

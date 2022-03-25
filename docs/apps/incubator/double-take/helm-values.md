@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"jakowenko/double-take"` |  |
-| image.tag | string | `"1.7.0@sha256:6960ec3f20ae224badb2c3826198286227edd5c5af7edb2c95b5e9eff182fb9a"` |  |
+| image.tag | string | `"1.7.0@sha256:7d05d0e36833583ed8ca3dfdcebc8dbe08757a32970d6dbd982f4284184460e4"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/.storage"` |  |
 | service.main.ports.main.port | int | `10200` |  |

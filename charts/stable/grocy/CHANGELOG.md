@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-10.0.7"></a>
+### [grocy-10.0.7](https://github.com/truecharts/apps/compare/grocy-10.0.6...grocy-10.0.7) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="grocy-10.0.3"></a>
 ### [grocy-10.0.3](https://github.com/truecharts/apps/compare/grocy-10.0.2...grocy-10.0.3) (2022-03-15)
 

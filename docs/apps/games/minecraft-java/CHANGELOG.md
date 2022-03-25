@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.27"></a>
+### [minecraft-java-0.0.27](https://github.com/truecharts/apps/compare/minecraft-java-0.0.26...minecraft-java-0.0.27) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* Open rcon port ([#2252](https://github.com/truecharts/apps/issues/2252))
+
+
+
 <a name="minecraft-java-0.0.26"></a>
 ### [minecraft-java-0.0.26](https://github.com/truecharts/apps/compare/minecraft-java-0.0.25...minecraft-java-0.0.26) (2022-03-23)
 

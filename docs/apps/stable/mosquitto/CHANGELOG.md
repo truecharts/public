@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-5.0.9"></a>
+### [mosquitto-5.0.9](https://github.com/truecharts/apps/compare/mosquitto-5.0.8...mosquitto-5.0.9) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="mosquitto-5.0.7"></a>
 ### [mosquitto-5.0.7](https://github.com/truecharts/apps/compare/mosquitto-5.0.6...mosquitto-5.0.7) (2022-03-20)
 

@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/readarr"` |  |
-| image.tag | string | `"v0.1.1.1278@sha256:9f8bfd5e857a7d80db1c644afc594f9548ed116305fc1510d6e5dfd0d68871b7"` |  |
+| image.tag | string | `"v0.1.1.1287@sha256:ad38c27d36f0f648f669824e76bec97e3f2e114a8ce0b391c7eaec298cd04c80"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

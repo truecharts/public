@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MQTT_PORT | int | `1883` | Port used to connect to the MQTT broker |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/amcrest2mqtt"` | image repository |
-| image.tag | string | `"v1.0.15@sha256:e7063369671a95bea72866ca07d0b9e45ed1b204ca1df6f6e64532ed018cffa0"` | image tag |
+| image.tag | string | `"v1.0.16@sha256:64d7a2487a2622ed163ff0dd9d518b9564f29c11438801a953da1d1bf931f18e"` | image tag |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
