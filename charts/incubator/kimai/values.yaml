@@ -1,15 +1,15 @@
 image:
-  repository: kimai/kimai2
-  tag: apache-1.19-prod@sha256:e4a92b3a87c782a8ad75fcb8468c654232ea8043efe5409877e1b06c7562f95b
+  repository: tccr.io/truecharts/kimai
+  tag: v1.19@sha256:c397c8f343f90c7997cf524d9b05636571c017db8d9e6db3c6328abfe3cd3b81
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 33
+  runAsGroup: 33
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
@@ -21,7 +21,7 @@ env:
   DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
   # User Defined
-  TRUSTED_HOSTS: "172.16.0.0/12"
+  TRUSTED_HOSTS: "localhost"
 
 envValueFrom:
   DB_PASS:
@@ -40,10 +40,18 @@ service:
         port: 10198
         targetPort: 8001
 
+probes:
+  liveness:
+    path: "/en/login"
+  readiness:
+    path: "/en/login"
+  startup:
+    path: "/en/login"
+
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/kimai/public"
+    mountPath: "/opt/kimai/var"
 
 mariadb:
   enabled: true
