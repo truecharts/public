@@ -4,8 +4,8 @@ image:
   pullPolicy: IfNotPresent
 
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e
+  repository: tobybatch/nginx-fpm-reverse-proxy
+  tag: latest@sha256:ba7e8c9bc8f3e181c5f2dfd449c9e193a3655d5b1c0f7ff30925b439810323af
 
 securityContext:
   runAsNonRoot: false
@@ -14,7 +14,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 82
 
 secret:
   ADMINMAIL: "admin@mysecretdomain.com"
@@ -81,10 +80,10 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: "/opt/kimai/public"
-  kimai:
-    enabled: true
-    type: emptyDir
-    mountPath: "/opt/kimai/"
+  # kimai:
+  #   enabled: true
+  #   type: emptyDir
+  #   mountPath: "/opt/kimai/"
 
 mariadb:
   enabled: true
@@ -100,9 +99,9 @@ additionalContainers:
       - containerPort: 80
         name: main
     volumeMounts:
-    - name: kimai-config
-      mountPath: "/etc/nginx/conf.d/default.conf"
-      subPath: nginx-config
-      readOnly: true
+    # - name: kimai-config
+    #   mountPath: "/etc/nginx/conf.d/default.conf"
+    #   subPath: nginx-config
+    #   readOnly: true
     - name: public
       mountPath: "/opt/kimai/public"
