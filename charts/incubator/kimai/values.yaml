@@ -7,6 +7,8 @@ nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e
 
+command: ["cat", "/etc/passwd"]
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
