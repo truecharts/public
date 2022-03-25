@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.11"></a>
+### [mariadb-2.0.11](https://github.com/truecharts/apps/compare/mariadb-2.0.10...mariadb-2.0.11) (2022-03-25)
+
+#### Fix
+
+* try to fix "did not find expected "-" indicator ([#2275](https://github.com/truecharts/apps/issues/2275))
+
+
+
 <a name="mariadb-2.0.10"></a>
 ### [mariadb-2.0.10](https://github.com/truecharts/apps/compare/mariadb-2.0.9...mariadb-2.0.10) (2022-03-24)
 
