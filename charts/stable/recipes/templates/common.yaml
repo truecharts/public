@@ -5,8 +5,8 @@
 persistence:
   recipes-config:
     enabled: "true"
-    mountPath: "/app/config.json"
-    subPath: "config.json"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx.conf"
     type: "custom"
     volumeSpec:
       configMap:
