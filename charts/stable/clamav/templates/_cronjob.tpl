@@ -27,7 +27,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
-              image: "{{ .Values.iamge.repository }}:{{ .Values.iamge.tag }}"
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               command: ["sh", "-c"]
               args:
                 - >
