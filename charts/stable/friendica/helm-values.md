@@ -46,9 +46,9 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| probes.liveness.path | string | `"/friendica"` |  |
-| probes.readiness.path | string | `"/friendica"` |  |
-| probes.startup.path | string | `"/friendica"` |  |
+| probes.liveness.path | string | `"/ping"` |  |
+| probes.readiness.path | string | `"/ping"` |  |
+| probes.startup.path | string | `"/ping"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

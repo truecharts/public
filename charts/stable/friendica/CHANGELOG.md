@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-2.0.10"></a>
+### [friendica-2.0.10](https://github.com/truecharts/apps/compare/friendica-2.0.9...friendica-2.0.10) (2022-03-26)
+
+#### Fox
+
+* update probe path ([#2293](https://github.com/truecharts/apps/issues/2293))
+
+
+
 <a name="friendica-2.0.9"></a>
 ### [friendica-2.0.9](https://github.com/truecharts/apps/compare/friendica-2.0.8...friendica-2.0.9) (2022-03-26)
 
