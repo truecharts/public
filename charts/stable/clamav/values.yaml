@@ -69,6 +69,11 @@ env:
   cronschedule: "* * * * *"
   cronenabled: true
 
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
 persistence:
   sigdatabase:
     enabled: true
