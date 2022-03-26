@@ -44,13 +44,21 @@ spec:
               command: ["sh", "-c"]
               args:
                 - >
+                  export databasePath=/var/lib/clamav;
+                  if [ "$(ls -A $databasePath)" ];
+                    then
+                      echo "Virus database exists...";
+                  else
+                      echo "Virus database does not exist yet...";
+                      echo "Exiting...";
+                      exit 1;
+                  fi;
                   export status=99;
                   export now=$(date ${date_format});
                   export log_file=$report_path/${log_file_name}_${now};
                   touch $log_file;
-                  ls -la /var/lib/clamav;
                   echo "Starting scan of \"/scandir\"";
-                  clamscan --log=$log_file --recursive ${extra_args} /scandir;
+                  clamscan --database=${databasePath} --log=$log_file --recursive ${extra_args} /scandir;
                   status=$?;
                   if [ $status -eq 0 ];
                     then
