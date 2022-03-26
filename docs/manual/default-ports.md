@@ -355,6 +355,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | outline                    |      main       |      main       | 10196 |   TCP    |                                         |
 | chevereto                  |      main       |      main       | 10197 |   TCP    |                                         |
 | kimai                      |      main       |      main       | 10198 |   TCP    |                                         |
+| filerun                    |      main       |      main       | 10199 |   TCP    |                                         |
 | double-take                |      main       |      main       | 10200 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
