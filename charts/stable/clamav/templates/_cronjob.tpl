@@ -31,6 +31,16 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
+              securityContext:
+                privileged: false
+                readOnlyRootFilesystem: false
+                allowPrivilegeEscalation: false
+                runAsNonRoot: false
+                capabilities:
+                  drop:
+                    - ALL
+                runAsUser: 0
+                runAsGroup: 0
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               env:
                 - name: date_format
@@ -42,10 +52,11 @@ spec:
                 - >
                   export now=$(date ${date_format});
                   export report_file=$report_path/clamdscan_report_${now};
+                  export status=1;
                   touch $report_file;
                   echo "Starting scan of \"/scandir\"";
                   clamdscan /scandir --log=$report_file;
-                  export status=$?;
+                  status=$?;
                   if [ $status -eq 0 ];
                     then
                       echo "Exit Status: $status No Virus found!";
