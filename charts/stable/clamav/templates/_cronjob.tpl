@@ -63,9 +63,18 @@ spec:
                   status=$?;
                   if [ $status -eq 0 ];
                     then
-                      echo "Exit Status: $status No Virus found!";
+                      echo "Exit Status: $status";
+                      echo "No Virus found!";
+                  elif [ $status -eq 1];
+                    then
+                      echo "Exit Status: $status.";
+                      echo "Virus(es) found. Check \"${log_file}\".";
+                  elif [ $status -eq 2];
+                    then
+                      echo "Exit Status: $status.";
+                      echo "Some error(s) occured.";
                   else
-                    echo "Exit Status: $status. Check \"${log_file}\".";
+                    echo "Exit Status: $status.";
                   fi;
               {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:

@@ -34,21 +34,21 @@ probes:
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
   readiness:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
   startup:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
 
 service:
   main:
