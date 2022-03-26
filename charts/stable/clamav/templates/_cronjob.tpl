@@ -33,15 +33,14 @@ spec:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               env:
-                # - name: date_format
-                #   value: {{ .Values.clamav.date_format }}
+                - name: date_format
+                  value: {{ .Values.clamav.date_format }}
                 - name: report_path
                   value: {{ .Values.clamav.report_path | trimSuffix "/" }}
               command: ["sh", "-c"]
               args:
                 - >
-                  export date_format="%m-%d-%Y"
-                  export now=$(date +"%m-%d-%Y");
+                  export now=$(date ${date_format});
                   export report_file=$report_path/clamdscan_report_${now};
                   touch $report_file;
                   echo "Starting scan of \"/scandir\"";

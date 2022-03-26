@@ -21,7 +21,7 @@ env:
 clamav:
   report_path: "/scandir"
   # User Defined
-  # date_format: "%m-%d-%Y"
+  date_format: "+%m-%d-%Y"
   cron_enabled: true
   cron_schedule: "* * * * *"
 
