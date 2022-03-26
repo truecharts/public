@@ -34,7 +34,6 @@ jobs:
     - name: Run chart-releaser
       uses: helm/chart-releaser-action@v1.3.0
       with:
-        charts_dir: charts/*
         charts_repo_url: https://library-charts.truecharts.org
       env:
         CR_TOKEN: "${{ secrets.BOT_TOKEN }}"

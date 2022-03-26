@@ -1,6 +1,78 @@
 # Changelog<br>
 
 
+<a name="common-9.1.14"></a>
+### [common-9.1.14](https://github.com/truecharts/apps/compare/common-9.1.13...common-9.1.14) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* try to fix "did not find expected "-" indicator ([#2275](https://github.com/truecharts/apps/issues/2275))
+
+
+
+<a name="common-9.1.13"></a>
+### [common-9.1.13](https://github.com/truecharts/apps/compare/common-9.1.12...common-9.1.13) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="common-9.1.12"></a>
+### [common-9.1.12](https://github.com/truecharts/apps/compare/common-9.1.11...common-9.1.12) (2022-03-24)
+
+#### Fix
+
+* Add mariadbImage to values.yaml ([#2272](https://github.com/truecharts/apps/issues/2272))
+
+
+
+<a name="common-9.1.11"></a>
+### [common-9.1.11](https://github.com/truecharts/apps/compare/common-9.1.10...common-9.1.11) (2022-03-24)
+
+#### Fix
+
+* typo in mariadb repo ([#2271](https://github.com/truecharts/apps/issues/2271))
+
+
+
+<a name="common-9.1.10"></a>
+### [common-9.1.10](https://github.com/truecharts/apps/compare/common-9.1.9...common-9.1.10) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major ([#2259](https://github.com/truecharts/apps/issues/2259))
+* update docker general non-major
+
+
+
+<a name="common-9.1.9"></a>
+### [common-9.1.9](https://github.com/truecharts/apps/compare/common-9.1.8...common-9.1.9) (2022-03-20)
+
+#### Fix
+
+* Wait for init ([#2226](https://github.com/truecharts/apps/issues/2226))
+
+
+
+<a name="common-9.1.8"></a>
+### [common-9.1.8](https://github.com/truecharts/apps/compare/common-9.1.6...common-9.1.8) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* add url without ql as some app does not like it ([#2231](https://github.com/truecharts/apps/issues/2231))
+
+
+
 <a name="common-9.1.6"></a>
 ### [common-9.1.6](https://github.com/truecharts/apps/compare/common-9.1.5...common-9.1.6) (2022-03-17)
 
