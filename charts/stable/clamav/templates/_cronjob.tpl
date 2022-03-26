@@ -51,6 +51,7 @@ spec:
                   else
                     echo "Failed to connect...";
                     exit 1;
+                  fi;
                   export now=$(date ${date_format});
                   export log_file=$report_path/${log_file_name}_${now};
                   touch $log_file;
