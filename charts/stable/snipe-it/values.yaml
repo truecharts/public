@@ -61,6 +61,14 @@ envValueFrom:
       name: snipeit-secrets
       key: APP_KEY
 
+probes:
+  liveness:
+    path: "/health"
+  readiness:
+    path: "/health"
+  startup:
+    path: "/health"
+
 service:
   main:
     ports:
@@ -85,7 +93,6 @@ mariadb:
   mariadbDatabase: snipe-it
   existingSecret: "mariadbcreds"
 
-# Enabled redis
 redis:
   enabled: true
   existingSecret: "rediscreds"
