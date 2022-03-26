@@ -92,6 +92,27 @@ questions:
           schema:
             type: int
             default: 1
+  - variable: clamav
+    group: "Container Configuration"
+    label: "ClamAV Cron Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cron_enabled
+          label: "Enable cronjob"
+          description: "Enables automatic scan for /scandir"
+          schema:
+            type: boolean
+            default: false
+              show_subquestions_if: true
+              subquestions:
+                - variable: cron_schedule
+                  label: "Cron Schedule"
+                  description: "Enter a valid cron schedule"
+                  schema:
+                    type: string
+                    default: ""
 
 # Include{containerConfig}
 

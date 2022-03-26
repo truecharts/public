@@ -42,9 +42,17 @@ spec:
               command: ["sh", "-c"]
               args:
                 - >
+                  export status=99;
+                  echo "Trying to connect to clamd...";
+                  clamdscan --ping 100:1;
+                  if [ $status -eq 0 ];
+                    then
+                      echo "Connected!";
+                  else
+                    echo "Failed to connect...";
+                    exit 1;
                   export now=$(date ${date_format});
                   export log_file=$report_path/${log_file_name}_${now};
-                  export status=99;
                   touch $log_file;
                   echo "Starting scan of \"/scandir\"";
                   clamdscan /scandir --log=$log_file;
