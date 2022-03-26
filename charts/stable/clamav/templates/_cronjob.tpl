@@ -44,7 +44,7 @@ spec:
                 - >
                   export status=99;
                   echo "Trying to connect to clamd...";
-                  clamdscan --wait;
+                  clamdscan --ping 100;
                   if [ $status -eq 0 ];
                     then
                       echo "Connected!";
@@ -55,7 +55,7 @@ spec:
                   export log_file=$report_path/${log_file_name}_${now};
                   touch $log_file;
                   echo "Starting scan of \"/scandir\"";
-                  clamdscan /scandir --log=$log_file;
+                  clamdscan /scandir --wait --log=$log_file;
                   status=$?;
                   if [ $status -eq 0 ];
                     then
