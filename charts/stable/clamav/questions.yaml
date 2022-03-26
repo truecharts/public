@@ -347,7 +347,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: scandir
           label: "App Scan Dir Storage"
-          description: "Stores the Application Scan Directory."
+          description: "Stores the Application Scan Directory. (By default set to readOnly)"
           schema:
             additional_attrs: true
             type: dict
