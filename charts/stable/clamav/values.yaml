@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.104.2@sha256:eb816a62ce0b7c331d893e8d51e54fe96b1cb5878c7394e935a48468b0b44f6d
 
+command: ["sleep", "50"]
+
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
