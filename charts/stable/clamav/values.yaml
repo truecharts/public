@@ -22,7 +22,7 @@ clamav:
   report_path: "/logs"
   # User Defined
   cron_enabled: true
-  cron_schedule: "*/10 * * * * *"
+  cron_schedule: "* * * * * *"
   date_format: "+%m-%d-%Y"
   log_file_name: "clamdscan_report"
   extra_args: "--verbose"
