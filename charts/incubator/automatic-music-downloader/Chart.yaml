@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: A Lidarr companion script to automatically download music for Lidarr.
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/automatic-music-downloader
@@ -23,7 +23,7 @@ sources:
 - https://github.com/RandomNinjaAtk/docker-amd
 - https://hub.docker.com/r/randomninjaatk/amd
 type: application
-version: 1.0.4
+version: 1.0.5
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: minetest
-version: 0.0.33
+version: 0.0.34
 appVersion: "5.5.0"
 description: Minetest (server) is a near-infinite-world block sandbox game and a game engine.
 type: application
@@ -14,8 +14,8 @@ sources:
   - https://hub.docker.com/r/linuxserver/minetest
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
   # condition:
 maintainers:
 - email: info@truecharts.org

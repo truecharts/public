@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "21.11.3.3"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: "Collabora Online Development Edition \u2013 an awesome, Online Office\
   \ suite image suitable for home use."
@@ -22,7 +22,7 @@ sources:
 - https://sdk.collaboraonline.com/contents.html
 - https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm
 type: application
-version: 11.0.7
+version: 11.0.8
 annotations:
   truecharts.org/catagories: |
     - office
