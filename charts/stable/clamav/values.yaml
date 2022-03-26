@@ -25,7 +25,7 @@ clamav:
   cron_schedule: "* * * * *"
   date_format: "+%m-%d-%Y"
   log_file_name: "clamdscan_report"
-  extra_args: "--verbose"
+  extra_args: ""
 
 probes:
   liveness:
