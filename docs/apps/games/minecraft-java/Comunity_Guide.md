@@ -1,6 +1,6 @@
 # Minecraft Java Community Guide
 
-\*Warning This guide contains information that uses Advanced/Expert settings. As a result this will be outside the scope of support!
+⚠️ **Warning This guide contains information that uses Advanced/Expert settings. As a result this will be outside the scope of support!** ⚠️
 
 # Running Multiple MC-Java Servers
 
