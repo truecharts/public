@@ -80,7 +80,7 @@ hide:
           tccr.io/truecharts/spotweb:v1.5.1@sha256:75fe32474598f89d7b0741c3b96eeebd6b346da5219e1eabf8ed9e769f7a98f5
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.2.0@sha256:35f3249e070949e6b694346fb7395b47fcfdf604d138aadfbab42619406110cf
+          tccr.io/truecharts/postgresql:v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3
 
 ##### Scan Results
 
@@ -439,7 +439,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| guzzlehttp/psr7         |    CVE-2022-24775   |   UNKNOWN  |  1.6.1 | 1.8.4, 2.1.1 | <details><summary>Expand...</summary><a href="https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1">https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1</a><br><a href="https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc">https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc</a><br><a href="https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96">https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96</a><br><a href="https://www.drupal.org/sa-core-2022-006">https://www.drupal.org/sa-core-2022-006</a><br></details>  |
+| guzzlehttp/psr7         |    CVE-2022-24775   |   UNKNOWN  |  1.6.1 | 2.1.1, 1.8.4 | <details><summary>Expand...</summary><a href="https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1">https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1</a><br><a href="https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc">https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc</a><br><a href="https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96">https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96</a><br><a href="https://www.drupal.org/sa-core-2022-006">https://www.drupal.org/sa-core-2022-006</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
@@ -512,7 +512,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:35f3249e070949e6b694346fb7395b47fcfdf604d138aadfbab42619406110cf (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3 (debian 10.11)
 
 
 **debian**

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kimai-0.0.6"></a>
+### [kimai-0.0.6](https://github.com/truecharts/apps/compare/kimai-0.0.5...kimai-0.0.6) (2022-03-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
+
+
+
 <a name="kimai-0.0.5"></a>
 ### [kimai-0.0.5](https://github.com/truecharts/apps/compare/kimai-0.0.4...kimai-0.0.5) (2022-03-26)
 

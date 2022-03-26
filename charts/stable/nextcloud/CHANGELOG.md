@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.11"></a>
+### [nextcloud-12.0.11](https://github.com/truecharts/apps/compare/nextcloud-12.0.10...nextcloud-12.0.11) (2022-03-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
+
+
+
 <a name="nextcloud-12.0.10"></a>
 ### [nextcloud-12.0.10](https://github.com/truecharts/apps/compare/nextcloud-12.0.9...nextcloud-12.0.10) (2022-03-26)
 
