@@ -42,9 +42,9 @@ spec:
                     then
                       echo "Exit Status: $status No Virus found!";
                   else
-                    echo "Exit Status: $status. Check scan \"clamdscan_report_${now}\".";
+                    echo "Exit Status: $status. Check scan \"/scandir/clamdscan_report_${now}\".";
                   fi;
-
+                  cat /scandir/clamdscan_report_${now};
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 {{- end -}}
