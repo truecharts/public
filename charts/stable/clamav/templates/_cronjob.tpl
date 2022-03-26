@@ -42,6 +42,7 @@ spec:
               command: ["sh", "-c"]
               args:
                 - >
+                  clamd;
                   export status=99;
                   echo "Trying to connect to clamd...";
                   clamdscan --ping 100;
