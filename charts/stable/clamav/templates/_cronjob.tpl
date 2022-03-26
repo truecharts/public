@@ -66,7 +66,6 @@ spec:
                   else
                     echo "Exit Status: $status. Check \"${log_file}\".";
                   fi;
-                  cat $log_file;
               {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:
                 {{ nindent 16 . }}
