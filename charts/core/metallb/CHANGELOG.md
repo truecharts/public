@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="metallb-1.0.5"></a>
+### [metallb-1.0.5](https://github.com/truecharts/apps/compare/metallb-1.0.4...metallb-1.0.5) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="metallb-1.0.4"></a>
 ### [metallb-1.0.4](https://github.com/truecharts/apps/compare/metallb-1.0.3...metallb-1.0.4) (2022-02-21)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-8.0.6"></a>
+### [appdaemon-8.0.6](https://github.com/truecharts/apps/compare/appdaemon-8.0.5...appdaemon-8.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="appdaemon-8.0.1"></a>
 ### [appdaemon-8.0.1](https://github.com/truecharts/apps/compare/appdaemon-8.0.0...appdaemon-8.0.1) (2022-03-07)
 

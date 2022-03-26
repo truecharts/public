@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.20"></a>
+### [minecraft-bedrock-0.0.20](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.19...minecraft-bedrock-0.0.20) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="minecraft-bedrock-0.0.17"></a>
 ### [minecraft-bedrock-0.0.17](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.16...minecraft-bedrock-0.0.17) (2022-03-17)
 

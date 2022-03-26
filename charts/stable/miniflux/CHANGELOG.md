@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-5.0.8"></a>
+### [miniflux-5.0.8](https://github.com/truecharts/apps/compare/miniflux-5.0.7...miniflux-5.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="miniflux-5.0.4"></a>
 ### [miniflux-5.0.4](https://github.com/truecharts/apps/compare/miniflux-5.0.3...miniflux-5.0.4) (2022-03-17)
 

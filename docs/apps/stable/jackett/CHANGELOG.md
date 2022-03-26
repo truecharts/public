@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.10"></a>
+### [jackett-10.0.10](https://github.com/truecharts/apps/compare/jackett-10.0.9...jackett-10.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="jackett-10.0.8"></a>
 ### [jackett-10.0.8](https://github.com/truecharts/apps/compare/jackett-10.0.7...jackett-10.0.8) (2022-03-26)
 

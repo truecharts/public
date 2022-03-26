@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-5.0.7"></a>
+### [traccar-5.0.7](https://github.com/truecharts/apps/compare/traccar-5.0.6...traccar-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="traccar-5.0.2"></a>
 ### [traccar-5.0.2](https://github.com/truecharts/apps/compare/traccar-5.0.1...traccar-5.0.2) (2022-03-08)
 

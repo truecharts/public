@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-2.0.6"></a>
+### [sqlitebrowser-2.0.6](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.5...sqlitebrowser-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="sqlitebrowser-2.0.1"></a>
 ### [sqlitebrowser-2.0.1](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.0...sqlitebrowser-2.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-1.0.7"></a>
+### [emulatorjs-1.0.7](https://github.com/truecharts/apps/compare/emulatorjs-1.0.6...emulatorjs-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="emulatorjs-1.0.2"></a>
 ### [emulatorjs-1.0.2](https://github.com/truecharts/apps/compare/emulatorjs-1.0.1...emulatorjs-1.0.2) (2022-03-07)
 

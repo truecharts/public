@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-2.0.9"></a>
+### [weblate-2.0.9](https://github.com/truecharts/apps/compare/weblate-2.0.8...weblate-2.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="weblate-2.0.4"></a>
 ### [weblate-2.0.4](https://github.com/truecharts/apps/compare/weblate-2.0.3...weblate-2.0.4) (2022-03-15)
 

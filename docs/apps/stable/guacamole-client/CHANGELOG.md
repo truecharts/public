@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-2.0.7"></a>
+### [guacamole-client-2.0.7](https://github.com/truecharts/apps/compare/guacamole-client-2.0.6...guacamole-client-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="guacamole-client-2.0.2"></a>
 ### [guacamole-client-2.0.2](https://github.com/truecharts/apps/compare/guacamole-client-2.0.1...guacamole-client-2.0.2) (2022-03-08)
 

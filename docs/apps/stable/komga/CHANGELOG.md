@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-5.0.8"></a>
+### [komga-5.0.8](https://github.com/truecharts/apps/compare/komga-5.0.7...komga-5.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="komga-5.0.3"></a>
 ### [komga-5.0.3](https://github.com/truecharts/apps/compare/komga-5.0.2...komga-5.0.3) (2022-03-15)
 

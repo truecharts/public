@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="budge-1.0.9"></a>
+### [budge-1.0.9](https://github.com/truecharts/apps/compare/budge-1.0.8...budge-1.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="budge-1.0.4"></a>
 ### [budge-1.0.4](https://github.com/truecharts/apps/compare/budge-1.0.3...budge-1.0.4) (2022-03-15)
 

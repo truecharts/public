@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-11.0.6"></a>
+### [tvheadend-11.0.6](https://github.com/truecharts/apps/compare/tvheadend-11.0.5...tvheadend-11.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="tvheadend-11.0.1"></a>
 ### [tvheadend-11.0.1](https://github.com/truecharts/apps/compare/tvheadend-11.0.0...tvheadend-11.0.1) (2022-03-07)
 

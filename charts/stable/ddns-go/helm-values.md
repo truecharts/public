@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ddns-go"` |  |
-| image.tag | string | `"v3.5.0@sha256:58e341b102ea4ae6d7ab554cbd0727b41accf1175d9113edeacd3275c9e90550"` |  |
+| image.tag | string | `"v3.5.1@sha256:5068348e0ee000bb0bbee5163cc49aa9a78ff5e83b38be3b7c279b13264491b7"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/root"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

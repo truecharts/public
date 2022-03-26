@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-5.0.6"></a>
+### [freeradius-5.0.6](https://github.com/truecharts/apps/compare/freeradius-5.0.5...freeradius-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="freeradius-5.0.1"></a>
 ### [freeradius-5.0.1](https://github.com/truecharts/apps/compare/freeradius-5.0.0...freeradius-5.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.13"></a>
+### [recipes-6.0.13](https://github.com/truecharts/apps/compare/recipes-6.0.12...recipes-6.0.13) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="recipes-6.0.11"></a>
 ### [recipes-6.0.11](https://github.com/truecharts/apps/compare/recipes-6.0.10...recipes-6.0.11) (2022-03-26)
 

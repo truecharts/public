@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="requestrr-1.0.6"></a>
+### [requestrr-1.0.6](https://github.com/truecharts/apps/compare/requestrr-1.0.5...requestrr-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="requestrr-1.0.1"></a>
 ### [requestrr-1.0.1](https://github.com/truecharts/apps/compare/requestrr-1.0.0...requestrr-1.0.1) (2022-03-07)
 

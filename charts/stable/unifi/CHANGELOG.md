@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-10.0.7"></a>
+### [unifi-10.0.7](https://github.com/truecharts/apps/compare/unifi-10.0.6...unifi-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="unifi-10.0.2"></a>
 ### [unifi-10.0.2](https://github.com/truecharts/apps/compare/unifi-10.0.1...unifi-10.0.2) (2022-03-07)
 

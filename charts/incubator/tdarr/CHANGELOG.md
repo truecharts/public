@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-2.0.8"></a>
+### [tdarr-2.0.8](https://github.com/truecharts/apps/compare/tdarr-node-2.0.7...tdarr-2.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="tdarr-2.0.4"></a>
 ### [tdarr-2.0.4](https://github.com/truecharts/apps/compare/tdarr-node-2.0.3...tdarr-2.0.4) (2022-03-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="foldingathome-1.0.6"></a>
+### [foldingathome-1.0.6](https://github.com/truecharts/apps/compare/foldingathome-1.0.5...foldingathome-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="foldingathome-1.0.1"></a>
 ### [foldingathome-1.0.1](https://github.com/truecharts/apps/compare/foldingathome-1.0.0...foldingathome-1.0.1) (2022-03-07)
 

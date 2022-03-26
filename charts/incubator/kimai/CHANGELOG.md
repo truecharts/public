@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kimai-0.0.5"></a>
+### [kimai-0.0.5](https://github.com/truecharts/apps/compare/kimai-0.0.4...kimai-0.0.5) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="kimai-0.0.3"></a>
 ### [kimai-0.0.3](https://github.com/truecharts/apps/compare/kimai-0.0.2...kimai-0.0.3) (2022-03-26)
 

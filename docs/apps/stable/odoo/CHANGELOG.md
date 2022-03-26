@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-6.0.12"></a>
+### [odoo-6.0.12](https://github.com/truecharts/apps/compare/odoo-6.0.11...odoo-6.0.12) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="odoo-6.0.10"></a>
 ### [odoo-6.0.10](https://github.com/truecharts/apps/compare/odoo-6.0.9...odoo-6.0.10) (2022-03-26)
 

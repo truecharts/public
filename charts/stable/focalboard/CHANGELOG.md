@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-6.0.8"></a>
+### [focalboard-6.0.8](https://github.com/truecharts/apps/compare/focalboard-6.0.7...focalboard-6.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="focalboard-6.0.3"></a>
 ### [focalboard-6.0.3](https://github.com/truecharts/apps/compare/focalboard-6.0.2...focalboard-6.0.3) (2022-03-15)
 

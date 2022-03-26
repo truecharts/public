@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="iyuuplus-1.0.4"></a>
+### [iyuuplus-1.0.4](https://github.com/truecharts/apps/compare/iyuuplus-1.0.3...iyuuplus-1.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="iyuuplus-1.0.0"></a>
 ### [iyuuplus-1.0.0](https://github.com/truecharts/apps/compare/iyuuplus-0.0.2...iyuuplus-1.0.0) (2022-03-17)
 

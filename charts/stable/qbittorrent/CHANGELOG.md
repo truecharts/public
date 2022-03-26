@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-10.0.7"></a>
+### [qbittorrent-10.0.7](https://github.com/truecharts/apps/compare/qbittorrent-10.0.6...qbittorrent-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="qbittorrent-10.0.5"></a>
 ### [qbittorrent-10.0.5](https://github.com/truecharts/apps/compare/qbittorrent-10.0.4...qbittorrent-10.0.5) (2022-03-26)
 

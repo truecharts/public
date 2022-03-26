@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-9.0.6"></a>
+### [podgrab-9.0.6](https://github.com/truecharts/apps/compare/podgrab-9.0.5...podgrab-9.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="podgrab-9.0.1"></a>
 ### [podgrab-9.0.1](https://github.com/truecharts/apps/compare/podgrab-9.0.0...podgrab-9.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.3"></a>
+### [outline-1.0.3](https://github.com/truecharts/apps/compare/outline-1.0.2...outline-1.0.3) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="outline-1.0.1"></a>
 ### [outline-1.0.1](https://github.com/truecharts/apps/compare/outline-1.0.0...outline-1.0.1) (2022-03-24)
 

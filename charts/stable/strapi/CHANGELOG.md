@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="strapi-2.0.7"></a>
+### [strapi-2.0.7](https://github.com/truecharts/apps/compare/strapi-2.0.6...strapi-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="strapi-2.0.2"></a>
 ### [strapi-2.0.2](https://github.com/truecharts/apps/compare/strapi-2.0.1...strapi-2.0.2) (2022-03-08)
 

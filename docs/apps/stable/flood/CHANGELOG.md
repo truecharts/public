@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-5.0.6"></a>
+### [flood-5.0.6](https://github.com/truecharts/apps/compare/flood-5.0.5...flood-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="flood-5.0.1"></a>
 ### [flood-5.0.1](https://github.com/truecharts/apps/compare/flood-5.0.0...flood-5.0.1) (2022-03-07)
 

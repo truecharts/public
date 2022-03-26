@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-0.0.7"></a>
+### [browserless-chrome-0.0.7](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.6...browserless-chrome-0.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="browserless-chrome-0.0.5"></a>
 ### [browserless-chrome-0.0.5](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.4...browserless-chrome-0.0.5) (2022-03-25)
 

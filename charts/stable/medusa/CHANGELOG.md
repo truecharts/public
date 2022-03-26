@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-2.0.8"></a>
+### [medusa-2.0.8](https://github.com/truecharts/apps/compare/medusa-2.0.7...medusa-2.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="medusa-2.0.4"></a>
 ### [medusa-2.0.4](https://github.com/truecharts/apps/compare/medusa-2.0.3...medusa-2.0.4) (2022-03-17)
 

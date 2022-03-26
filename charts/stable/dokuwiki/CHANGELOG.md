@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-1.0.6"></a>
+### [dokuwiki-1.0.6](https://github.com/truecharts/apps/compare/dokuwiki-1.0.5...dokuwiki-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="dokuwiki-1.0.1"></a>
 ### [dokuwiki-1.0.1](https://github.com/truecharts/apps/compare/dokuwiki-1.0.0...dokuwiki-1.0.1) (2022-03-07)
 

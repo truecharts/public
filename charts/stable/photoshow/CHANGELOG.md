@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-2.0.6"></a>
+### [photoshow-2.0.6](https://github.com/truecharts/apps/compare/photoshow-2.0.5...photoshow-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="photoshow-2.0.1"></a>
 ### [photoshow-2.0.1](https://github.com/truecharts/apps/compare/photoshow-2.0.0...photoshow-2.0.1) (2022-03-07)
 

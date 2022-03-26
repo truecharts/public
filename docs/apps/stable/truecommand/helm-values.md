@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/truecommand"` |  |
 | image.tag | string | `"v2.1@sha256:a77bf1fc06391fde502270b4e7a39798f4f84e6d97735402b86cb6464b3fa2dd"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-3.0.6"></a>
+### [icantbelieveitsnotvaletudo-3.0.6](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-3.0.5...icantbelieveitsnotvaletudo-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="icantbelieveitsnotvaletudo-3.0.1"></a>
 ### [icantbelieveitsnotvaletudo-3.0.1](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-3.0.0...icantbelieveitsnotvaletudo-3.0.1) (2022-03-07)
 

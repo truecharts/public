@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-3.0.6"></a>
+### [uptimerobot-prometheus-3.0.6](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.5...uptimerobot-prometheus-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="uptimerobot-prometheus-3.0.1"></a>
 ### [uptimerobot-prometheus-3.0.1](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.0...uptimerobot-prometheus-3.0.1) (2022-03-07)
 

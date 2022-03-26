@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-1.0.7"></a>
+### [clarkson-1.0.7](https://github.com/truecharts/apps/compare/clarkson-1.0.6...clarkson-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="clarkson-1.0.2"></a>
 ### [clarkson-1.0.2](https://github.com/truecharts/apps/compare/clarkson-1.0.1...clarkson-1.0.2) (2022-03-08)
 

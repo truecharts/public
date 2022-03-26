@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-6.0.8"></a>
+### [dsmr-reader-6.0.8](https://github.com/truecharts/apps/compare/dsmr-reader-6.0.7...dsmr-reader-6.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="dsmr-reader-6.0.3"></a>
 ### [dsmr-reader-6.0.3](https://github.com/truecharts/apps/compare/dsmr-reader-6.0.2...dsmr-reader-6.0.3) (2022-03-08)
 

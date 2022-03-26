@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ispy-agent-dvr-1.0.4"></a>
+### [ispy-agent-dvr-1.0.4](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.3...ispy-agent-dvr-1.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="ispy-agent-dvr-1.0.0"></a>
 ### [ispy-agent-dvr-1.0.0](https://github.com/truecharts/apps/compare/ispy-agent-dvr-0.0.4...ispy-agent-dvr-1.0.0) (2022-03-16)
 

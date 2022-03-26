@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duckdns-1.0.6"></a>
+### [duckdns-1.0.6](https://github.com/truecharts/apps/compare/duckdns-1.0.5...duckdns-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="duckdns-1.0.1"></a>
 ### [duckdns-1.0.1](https://github.com/truecharts/apps/compare/duckdns-1.0.0...duckdns-1.0.1) (2022-03-07)
 

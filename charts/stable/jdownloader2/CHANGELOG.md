@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-7.0.4"></a>
+### [jdownloader2-7.0.4](https://github.com/truecharts/apps/compare/jdownloader2-7.0.3...jdownloader2-7.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="jdownloader2-7.0.0"></a>
 ### [jdownloader2-7.0.0](https://github.com/truecharts/apps/compare/jdownloader2-6.0.2...jdownloader2-7.0.0) (2022-03-16)
 

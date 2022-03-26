@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-1.0.9"></a>
+### [docker-compose-1.0.9](https://github.com/truecharts/apps/compare/docker-compose-1.0.8...docker-compose-1.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="docker-compose-1.0.7"></a>
 ### [docker-compose-1.0.7](https://github.com/truecharts/apps/compare/docker-compose-1.0.6...docker-compose-1.0.7) (2022-03-24)
 

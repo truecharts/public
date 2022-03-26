@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-5.0.6"></a>
+### [haste-server-5.0.6](https://github.com/truecharts/apps/compare/haste-server-5.0.5...haste-server-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="haste-server-5.0.1"></a>
 ### [haste-server-5.0.1](https://github.com/truecharts/apps/compare/haste-server-5.0.0...haste-server-5.0.1) (2022-03-07)
 

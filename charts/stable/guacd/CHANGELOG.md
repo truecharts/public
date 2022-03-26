@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-1.0.6"></a>
+### [guacd-1.0.6](https://github.com/truecharts/apps/compare/guacd-1.0.5...guacd-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="guacd-1.0.1"></a>
 ### [guacd-1.0.1](https://github.com/truecharts/apps/compare/guacd-1.0.0...guacd-1.0.1) (2022-03-07)
 

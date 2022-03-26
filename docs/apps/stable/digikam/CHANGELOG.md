@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-3.0.6"></a>
+### [digikam-3.0.6](https://github.com/truecharts/apps/compare/digikam-3.0.5...digikam-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="digikam-3.0.1"></a>
 ### [digikam-3.0.1](https://github.com/truecharts/apps/compare/digikam-3.0.0...digikam-3.0.1) (2022-03-07)
 

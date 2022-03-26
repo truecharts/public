@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-2.0.9"></a>
+### [uptime-kuma-2.0.9](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.8...uptime-kuma-2.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="uptime-kuma-2.0.7"></a>
 ### [uptime-kuma-2.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.6...uptime-kuma-2.0.7) (2022-03-26)
 

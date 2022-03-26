@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-13.0.10"></a>
+### [home-assistant-13.0.10](https://github.com/truecharts/apps/compare/home-assistant-13.0.9...home-assistant-13.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="home-assistant-13.0.8"></a>
 ### [home-assistant-13.0.8](https://github.com/truecharts/apps/compare/home-assistant-13.0.7...home-assistant-13.0.8) (2022-03-24)
 

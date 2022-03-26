@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-5.0.7"></a>
+### [openkm-5.0.7](https://github.com/truecharts/apps/compare/openkm-5.0.6...openkm-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="openkm-5.0.2"></a>
 ### [openkm-5.0.2](https://github.com/truecharts/apps/compare/openkm-5.0.1...openkm-5.0.2) (2022-03-08)
 

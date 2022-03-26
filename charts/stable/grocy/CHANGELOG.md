@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-10.0.9"></a>
+### [grocy-10.0.9](https://github.com/truecharts/apps/compare/grocy-10.0.8...grocy-10.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="grocy-10.0.7"></a>
 ### [grocy-10.0.7](https://github.com/truecharts/apps/compare/grocy-10.0.6...grocy-10.0.7) (2022-03-24)
 

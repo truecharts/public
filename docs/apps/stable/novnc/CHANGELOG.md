@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-2.0.6"></a>
+### [novnc-2.0.6](https://github.com/truecharts/apps/compare/novnc-2.0.5...novnc-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="novnc-2.0.1"></a>
 ### [novnc-2.0.1](https://github.com/truecharts/apps/compare/novnc-2.0.0...novnc-2.0.1) (2022-03-07)
 

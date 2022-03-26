@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-10.0.6"></a>
+### [heimdall-10.0.6](https://github.com/truecharts/apps/compare/heimdall-10.0.5...heimdall-10.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="heimdall-10.0.1"></a>
 ### [heimdall-10.0.1](https://github.com/truecharts/apps/compare/heimdall-10.0.0...heimdall-10.0.1) (2022-03-07)
 

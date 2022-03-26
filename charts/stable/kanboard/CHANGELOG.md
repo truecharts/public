@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-6.0.8"></a>
+### [kanboard-6.0.8](https://github.com/truecharts/apps/compare/kanboard-6.0.7...kanboard-6.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="kanboard-6.0.3"></a>
 ### [kanboard-6.0.3](https://github.com/truecharts/apps/compare/kanboard-6.0.2...kanboard-6.0.3) (2022-03-08)
 

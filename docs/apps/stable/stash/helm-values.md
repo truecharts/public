@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STASH_PORT | int | `9999` | Set the container port |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/stash"` | image repository |
-| image.tag | string | `"v0.13.0@sha256:7d0fefa89e4332350cea40611f1a67c5c7f3cb42124613bd4126e7f2f7ef1393"` | image tag |
+| image.tag | string | `"v0.13.1@sha256:2b8c605b04f4c16d822a978990909a916b96aefc9bad93b25219fe241969aec5"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

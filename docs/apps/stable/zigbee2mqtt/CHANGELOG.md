@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-2.0.11"></a>
+### [zigbee2mqtt-2.0.11](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.10...zigbee2mqtt-2.0.11) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="zigbee2mqtt-2.0.8"></a>
 ### [zigbee2mqtt-2.0.8](https://github.com/truecharts/apps/compare/zigbee2mqtt-2.0.7...zigbee2mqtt-2.0.8) (2022-03-20)
 

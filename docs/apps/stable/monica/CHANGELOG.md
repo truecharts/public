@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-1.0.11"></a>
+### [monica-1.0.11](https://github.com/truecharts/apps/compare/monica-1.0.10...monica-1.0.11) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="monica-1.0.9"></a>
 ### [monica-1.0.9](https://github.com/truecharts/apps/compare/monica-1.0.8...monica-1.0.9) (2022-03-24)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-10.0.7"></a>
+### [organizr-10.0.7](https://github.com/truecharts/apps/compare/organizr-10.0.6...organizr-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="organizr-10.0.5"></a>
 ### [organizr-10.0.5](https://github.com/truecharts/apps/compare/organizr-10.0.4...organizr-10.0.5) (2022-03-24)
 

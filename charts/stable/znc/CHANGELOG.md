@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="znc-1.0.6"></a>
+### [znc-1.0.6](https://github.com/truecharts/apps/compare/znc-1.0.5...znc-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="znc-1.0.1"></a>
 ### [znc-1.0.1](https://github.com/truecharts/apps/compare/znc-1.0.0...znc-1.0.1) (2022-03-07)
 

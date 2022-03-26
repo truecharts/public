@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-10.0.7"></a>
+### [sabnzbd-10.0.7](https://github.com/truecharts/apps/compare/sabnzbd-10.0.6...sabnzbd-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="sabnzbd-10.0.3"></a>
 ### [sabnzbd-10.0.3](https://github.com/truecharts/apps/compare/sabnzbd-10.0.2...sabnzbd-10.0.3) (2022-03-17)
 

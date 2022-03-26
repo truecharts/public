@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dillinger-1.0.6"></a>
+### [dillinger-1.0.6](https://github.com/truecharts/apps/compare/dillinger-1.0.5...dillinger-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="dillinger-1.0.1"></a>
 ### [dillinger-1.0.1](https://github.com/truecharts/apps/compare/dillinger-1.0.0...dillinger-1.0.1) (2022-03-07)
 

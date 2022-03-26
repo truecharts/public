@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statisfactory-0.0.19"></a>
+### [statisfactory-0.0.19](https://github.com/truecharts/apps/compare/statisfactory-0.0.18...statisfactory-0.0.19) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="statisfactory-0.0.16"></a>
 ### [statisfactory-0.0.16](https://github.com/truecharts/apps/compare/statisfactory-0.0.15...statisfactory-0.0.16) (2022-03-17)
 

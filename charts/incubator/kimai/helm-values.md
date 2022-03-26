@@ -11,11 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.APP_ENV | string | `"prod"` |  |
 | env.DB_BASE | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
 | env.DB_PORT | string | `"3306"` |  |
 | env.DB_TYPE | string | `"mysql"` |  |
 | env.DB_USER | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
-| env.TRUSTED_HOSTS | string | `"localhost"` |  |
+| env.TRUSTED_HOSTS | string | `"{{ .Values.env.trust_hosts }},localhost"` |  |
+| env.trust_hosts | string | `"127.0.0.1"` |  |
+| envValueFrom.APP_SECRET.secretKeyRef.key | string | `"APP_SECRET"` |  |
+| envValueFrom.APP_SECRET.secretKeyRef.name | string | `"kimai-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"mariadb-password"` |  |
@@ -28,7 +32,9 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.mariadbDatabase | string | `"kimai"` |  |
 | mariadb.mariadbUsername | string | `"kimai"` |  |
 | persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountPath | string | `"/opt/kimai/var"` |  |
+| persistence.data.mountPath | string | `"/opt/kimai/var/data"` |  |
+| persistence.plugins.enabled | bool | `true` |  |
+| persistence.plugins.mountPath | string | `"/opt/kimai/var/plugins"` |  |
 | podSecurityContext.runAsGroup | int | `33` |  |
 | podSecurityContext.runAsUser | int | `33` |  |
 | probes.liveness.path | string | `"/en/login"` |  |

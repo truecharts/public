@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-5.0.6"></a>
+### [librespeed-5.0.6](https://github.com/truecharts/apps/compare/librespeed-5.0.5...librespeed-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="librespeed-5.0.1"></a>
 ### [librespeed-5.0.1](https://github.com/truecharts/apps/compare/librespeed-5.0.0...librespeed-5.0.1) (2022-03-07)
 

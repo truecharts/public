@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-2.0.8"></a>
+### [friendica-2.0.8](https://github.com/truecharts/apps/compare/friendica-2.0.7...friendica-2.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="friendica-2.0.6"></a>
 ### [friendica-2.0.6](https://github.com/truecharts/apps/compare/friendica-2.0.5...friendica-2.0.6) (2022-03-24)
 
