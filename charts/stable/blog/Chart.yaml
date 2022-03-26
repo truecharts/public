@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -26,7 +26,7 @@ name: blog
 sources:
   - https://github.com/m1k1o/blog
   - https://github.com/nicholaswilde/docker-blog
-version: 1.0.5
+version: 1.0.6
 annotations:
   truecharts.org/catagories: |
     - hosting

@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "4.34.5"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -38,7 +38,7 @@ sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 9.0.7
+version: 9.0.8
 annotations:
   truecharts.org/catagories: |
     - security

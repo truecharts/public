@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "0.62.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -28,7 +28,7 @@ name: outline
 sources:
 - https://github.com/outline/outline
 type: application
-version: 1.0.1
+version: 1.0.2
 annotations:
   truecharts.org/catagories: |
     - productivity
