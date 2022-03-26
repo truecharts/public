@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "1.8.0"
 dependencies:
 - name: common
-  repository: file://../common
+  repository: file://../../charts/common
   version: '>=0.0.1'
 deprecated: false
 description: Helper chart to test different use cases of the common library
@@ -22,4 +22,4 @@ name: common-test
 sources:
 - https://github.com/truecharts/apps/tree/master/charts/library/common-test
 type: application
-version: 3.3.8
+version: 3.3.9
