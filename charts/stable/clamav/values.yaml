@@ -25,7 +25,7 @@ clamav:
   cron_schedule: "@daily"
   date_format: "+%m-%d-%Y"
   log_file_name: "clamscan_report"
-  extra_args: ""
+  extra_args: "--debug"
 
 probes:
   liveness:
@@ -34,21 +34,21 @@ probes:
     spec:
       exec:
         command:
-          - clamdcheck.sh
+          - clamdchecks.sh
   readiness:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdcheck.sh
+          - clamdchecks.sh
   startup:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdcheck.sh
+          - clamdchecks.sh
 
 service:
   main:
