@@ -119,7 +119,7 @@ questions:
                 description: "Log file name for the scan report. You will find this report in /logs/FILENAME_DATEFORMAT"
                 schema:
                   type: string
-                  default: "clamdscan_report"
+                  default: "clamscan_report"
                   required: true
               - variable: date_format
                 label: "Date Format"

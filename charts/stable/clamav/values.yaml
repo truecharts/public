@@ -22,9 +22,9 @@ clamav:
   report_path: "/logs"
   # User Defined
   cron_enabled: true
-  cron_schedule: "* * * * *"
+  cron_schedule: "@daily"
   date_format: "+%m-%d-%Y"
-  log_file_name: "clamdscan_report"
+  log_file_name: "clamscan_report"
   extra_args: ""
 
 probes:
@@ -34,21 +34,21 @@ probes:
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
   readiness:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
   startup:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - clamdchecks.sh
+          - clamdcheck.sh
 
 service:
   main:
