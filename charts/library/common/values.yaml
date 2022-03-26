@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v4.1.0@sha256:f96a1fab826dda8f8e0c2050baafe2572c13b2502ac80c412e9bed2171f9869e
+  tag: v4.2.0@sha256:82e2d802e59b26954096529aa08e83bebd2004da664fee9ab6c911e4f5ab6c48
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.2.0@sha256:f52cd63f0199cd7a9375a9ff139d51efdb94a3b85d834adb84058f21469464ea
+  tag: v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.3@sha256:a449af8351ad73fb2807057028ddc2f25c350a59b89686c6ac0e6170f6787005
+  tag: v10.7.3@sha256:63743b10ac562b8f63abd3dfa246298c6678cfeb9e7559c65265f5066385fcf6
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
