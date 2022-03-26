@@ -31,9 +31,20 @@ spec:
               command: ["sh", "-c"]
               args:
                 - >
+                  echo "Reloading virus database...";
+                  clamdscan --reload;
+                  echo $?;
                   echo "Starting scan of \"/scandir\"";
-                  clamdscan /scandir;
-                  echo "Scan finished!";
+                  now=$(date +"%m-%d-%Y")
+                  clamdscan /scandir --log=/scandir/clamdscan_report_${now};
+                  export status = $?;
+                  if [ $status -eq 0 ];
+                    then
+                      echo "Exit Status: $status No Virus found!";
+                  else
+                    echo "Exit Status: $status. Check scan \"clamdscan_report_${now}\".";
+                  fi;
+
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 {{- end -}}
