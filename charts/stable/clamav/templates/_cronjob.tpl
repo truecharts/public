@@ -37,14 +37,14 @@ spec:
                 #   value: {{ .Values.clamav.date_format }}
                 - name: report_path
                   value: {{ .Values.clamav.report_path | trimSuffix "/" }}
-              command: ["bash", "-c"]
+              command: ["sh", "-c"]
               args:
                 - >
                   export date_format="%m-%d-%Y"
-                  echo "Starting scan of \"/scandir\"";
                   export now=$(date +"%m-%d-%Y");
                   export report_file=$report_path/clamdscan_report_${now};
                   touch $report_file;
+                  echo "Starting scan of \"/scandir\"";
                   clamdscan /scandir --log=$report_file;
                   export status=$?;
                   if [ $status -eq 0 ];
