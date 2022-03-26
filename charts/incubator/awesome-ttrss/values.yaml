@@ -24,7 +24,7 @@ env:
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"
   # User Defined
-  # TTRSS_SELF_URL_PATH: "http://localhost:80"
+  TTRSS_SELF_URL_PATH: "http://localhost:80"
   SESSION_COOKIE_LIFETIME: 24
   DISABLE_USER_IN_DAYS: 15
   FEED_LOG_QUIET: true
@@ -62,7 +62,7 @@ additionalContainers:
     name: mercury-parser-api
     image: "{{ .Values.mercuryParserImage.repository }}:{{ .Values.mercuryParserImage.tag }}"
     ports:
-      - containerPort: 3001
+      - containerPort: 3000
         name: main
   opencc:
     name: opencc-api-server
