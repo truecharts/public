@@ -11,6 +11,17 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
+env:
+  CLAMAV_NO_CLAMD: false
+  CLAMAV_NO_FRESHCLAMD: false
+  CLAMAV_NO_MILTERD: true
+  CLAMD_STARTUP_TIMEOUT: 1800
+  FRESHCLAM_CHECKS: 1
+
+clamav:
+  cron_schedule: "* * * * *"
+  cron_enabled: true
+
 probes:
   liveness:
     enabled: true
@@ -59,15 +70,6 @@ service:
         enabled: true
         port: 7357
         targetPort: 7357
-
-env:
-  CLAMAV_NO_CLAMD: false
-  CLAMAV_NO_FRESHCLAMD: false
-  CLAMAV_NO_MILTERD: true
-  CLAMD_STARTUP_TIMEOUT: 1800
-  FRESHCLAM_CHECKS: 1
-  cronschedule: "* * * * *"
-  cronenabled: true
 
 cronjob:
   annotations: {}

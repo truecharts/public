@@ -10,7 +10,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
-  schedule: "{{ .Values.env.cronschedule }}"
+  schedule: "{{ .Values.clamav.cron_schedule }}"
   concurrencyPolicy: Forbid
   {{- with .Values.cronjob.failedJobsHistoryLimit }}
   failedJobsHistoryLimit: {{ . }}
@@ -31,7 +31,7 @@ spec:
               command: ["sh", "-c"]
               args:
                 - >
-                  echo "Starting scan of "/scandir";
+                  echo "Starting scan of \"/scandir\"";
                   clamdscan /scandir;
                   echo "Scan finished!";
               resources:
