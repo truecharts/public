@@ -57,6 +57,9 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.fsGroup | int | `50` |  |
 | podSecurityContext.runAsGroup | int | `1000` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| probes.liveness.path | string | `"/health"` |  |
+| probes.readiness.path | string | `"/health"` |  |
+| probes.startup.path | string | `"/health"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -1,14 +1,14 @@
 # Introduction
 
-Open source asset management
+FileRun is a full featured web based file manager with an easy to use user interface
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://snipeitapp.com/>
-* <https://hub.docker.com/r/linuxserver/>
+* <https://hub.docker.com/r/filerun/filerun>
+* <https://github.com/filerun/docker>
 
 ## Requirements
 
@@ -20,7 +20,6 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://library-charts.truecharts.org | common | 9.1.15 |
 | https://truecharts.org/ | mariadb | 2.0.11 |
-| https://truecharts.org | redis | 2.0.6 |
 
 ## Installing the Chart
 

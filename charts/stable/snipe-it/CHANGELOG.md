@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.5"></a>
+### [snipe-it-2.0.5](https://github.com/truecharts/apps/compare/snipe-it-2.0.4...snipe-it-2.0.5) (2022-03-26)
+
+#### Feat
+
+* Add filerun ([#2242](https://github.com/truecharts/apps/issues/2242))
+
+#### Fix
+
+* adjust probe ([#2270](https://github.com/truecharts/apps/issues/2270))
+
+
+
 <a name="snipe-it-2.0.4"></a>
 ### [snipe-it-2.0.4](https://github.com/truecharts/apps/compare/snipe-it-2.0.3...snipe-it-2.0.4) (2022-03-26)
 
