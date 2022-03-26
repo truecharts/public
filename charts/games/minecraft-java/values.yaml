@@ -30,8 +30,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  RCON_PASSWORD: "secretrconpass"
+
 env:
   EULA: "TRUE"
+  OVERRIDE_SERVER_PROPERTIES: true
   VERSION: "LATEST"
   TYPE: "VANILLA"
   DIFFICULTY: easy

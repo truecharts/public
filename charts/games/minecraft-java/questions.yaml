@@ -92,7 +92,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: RCON_PASSWORD
+          label: "RCON_PASSWORD"
+          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -105,6 +118,12 @@ questions:
           schema:
             type: boolean
             required: true
+            default: false
+        - variable: OVERRIDE_SERVER_PROPERTIES
+          label: "OVERRIDE_SERVER_PROPERTIES"
+          description: "Enable this so RCON_PASSWORD will always have effect."
+          schema:
+            type: boolean
             default: false
         - variable: VERSION
           label: "Minecraft Version - LATEST, SNAPSHOT, or verison"
