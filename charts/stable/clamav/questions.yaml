@@ -137,6 +137,12 @@ questions:
                       description: "HH.MM.SS_MM-DD-YYYY"
                     - value: "+%H.%M.%S_%Y-%m-%d"
                       description: "HH.MM.SS_YYYY-MM-DD"
+              - variable: extra_args
+                label: "Extra Args"
+                description: "Set extra args for clamscan here. (https://linux.die.net/man/1/clamscan). We already set --log, --database and --recursive. Do not add those here."
+                schema:
+                  type: string
+                  default: ""
 
 
 # Include{containerConfig}
