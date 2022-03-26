@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.36"></a>
+### [valheim-2.0.36](https://github.com/truecharts/apps/compare/valheim-2.0.35...valheim-2.0.36) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="valheim-2.0.33"></a>
 ### [valheim-2.0.33](https://github.com/truecharts/apps/compare/valheim-2.0.32...valheim-2.0.33) (2022-03-17)
 

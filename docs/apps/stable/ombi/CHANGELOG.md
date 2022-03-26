@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.10"></a>
+### [ombi-10.0.10](https://github.com/truecharts/apps/compare/ombi-10.0.9...ombi-10.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="ombi-10.0.8"></a>
 ### [ombi-10.0.8](https://github.com/truecharts/apps/compare/ombi-10.0.7...ombi-10.0.8) (2022-03-24)
 

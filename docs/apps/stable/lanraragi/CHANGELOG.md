@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lanraragi-1.0.4"></a>
+### [lanraragi-1.0.4](https://github.com/truecharts/apps/compare/lanraragi-1.0.3...lanraragi-1.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="lanraragi-1.0.0"></a>
 ### [lanraragi-1.0.0](https://github.com/truecharts/apps/compare/lanraragi-0.0.5...lanraragi-1.0.0) (2022-03-16)
 

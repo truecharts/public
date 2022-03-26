@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unmanic-2.0.7"></a>
+### [unmanic-2.0.7](https://github.com/truecharts/apps/compare/unmanic-2.0.6...unmanic-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="unmanic-2.0.3"></a>
 ### [unmanic-2.0.3](https://github.com/truecharts/apps/compare/unmanic-2.0.2...unmanic-2.0.3) (2022-03-17)
 

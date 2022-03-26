@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wireshark-1.0.7"></a>
+### [wireshark-1.0.7](https://github.com/truecharts/apps/compare/wireshark-1.0.6...wireshark-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="wireshark-1.0.5"></a>
 ### [wireshark-1.0.5](https://github.com/truecharts/apps/compare/wireshark-1.0.4...wireshark-1.0.5) (2022-03-26)
 

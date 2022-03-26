@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-advanced-2.0.7"></a>
+### [airsonic-advanced-2.0.7](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.6...airsonic-advanced-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="airsonic-advanced-2.0.2"></a>
 ### [airsonic-advanced-2.0.2](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.1...airsonic-advanced-2.0.2) (2022-03-08)
 

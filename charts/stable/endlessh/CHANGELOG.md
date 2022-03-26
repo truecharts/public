@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="endlessh-1.0.6"></a>
+### [endlessh-1.0.6](https://github.com/truecharts/apps/compare/endlessh-1.0.5...endlessh-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="endlessh-1.0.1"></a>
 ### [endlessh-1.0.1](https://github.com/truecharts/apps/compare/endlessh-1.0.0...endlessh-1.0.1) (2022-03-07)
 

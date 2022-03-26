@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-6.0.7"></a>
+### [etherpad-6.0.7](https://github.com/truecharts/apps/compare/etherpad-6.0.6...etherpad-6.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="etherpad-6.0.2"></a>
 ### [etherpad-6.0.2](https://github.com/truecharts/apps/compare/etherpad-6.0.1...etherpad-6.0.2) (2022-03-08)
 

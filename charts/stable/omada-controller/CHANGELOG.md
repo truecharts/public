@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-5.0.10"></a>
+### [omada-controller-5.0.10](https://github.com/truecharts/apps/compare/omada-controller-5.0.9...omada-controller-5.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="omada-controller-5.0.8"></a>
 ### [omada-controller-5.0.8](https://github.com/truecharts/apps/compare/omada-controller-5.0.7...omada-controller-5.0.8) (2022-03-24)
 

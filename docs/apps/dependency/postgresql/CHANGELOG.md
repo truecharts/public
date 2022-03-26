@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.12"></a>
+### [postgresql-7.0.12](https://github.com/truecharts/apps/compare/postgresql-7.0.11...postgresql-7.0.12) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="postgresql-7.0.10"></a>
 ### [postgresql-7.0.10](https://github.com/truecharts/apps/compare/postgresql-7.0.9...postgresql-7.0.10) (2022-03-26)
 

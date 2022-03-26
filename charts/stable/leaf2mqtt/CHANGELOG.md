@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-3.0.6"></a>
+### [leaf2mqtt-3.0.6](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.5...leaf2mqtt-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="leaf2mqtt-3.0.1"></a>
 ### [leaf2mqtt-3.0.1](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.0...leaf2mqtt-3.0.1) (2022-03-07)
 

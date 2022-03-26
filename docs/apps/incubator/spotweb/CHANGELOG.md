@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="spotweb-1.0.7"></a>
+### [spotweb-1.0.7](https://github.com/truecharts/apps/compare/spotweb-1.0.6...spotweb-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="spotweb-1.0.2"></a>
 ### [spotweb-1.0.2](https://github.com/truecharts/apps/compare/spotweb-1.0.1...spotweb-1.0.2) (2022-03-08)
 

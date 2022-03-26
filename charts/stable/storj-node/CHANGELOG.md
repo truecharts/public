@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.9"></a>
+### [storj-node-1.0.9](https://github.com/truecharts/apps/compare/storj-node-1.0.8...storj-node-1.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="storj-node-1.0.7"></a>
 ### [storj-node-1.0.7](https://github.com/truecharts/apps/compare/storj-node-1.0.6...storj-node-1.0.7) (2022-03-24)
 

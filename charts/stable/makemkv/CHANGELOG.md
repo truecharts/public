@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="makemkv-1.0.4"></a>
+### [makemkv-1.0.4](https://github.com/truecharts/apps/compare/makemkv-1.0.3...makemkv-1.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="makemkv-1.0.0"></a>
 ### [makemkv-1.0.0](https://github.com/truecharts/apps/compare/makemkv-0.0.4...makemkv-1.0.0) (2022-03-16)
 

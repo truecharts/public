@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-10.0.10"></a>
+### [lazylibrarian-10.0.10](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.9...lazylibrarian-10.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="lazylibrarian-10.0.8"></a>
 ### [lazylibrarian-10.0.8](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.7...lazylibrarian-10.0.8) (2022-03-23)
 

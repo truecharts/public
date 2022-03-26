@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.10"></a>
+### [nextcloud-12.0.10](https://github.com/truecharts/apps/compare/nextcloud-12.0.9...nextcloud-12.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="nextcloud-12.0.8"></a>
 ### [nextcloud-12.0.8](https://github.com/truecharts/apps/compare/nextcloud-12.0.7...nextcloud-12.0.8) (2022-03-24)
 

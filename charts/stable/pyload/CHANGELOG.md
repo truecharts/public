@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-5.0.6"></a>
+### [pyload-5.0.6](https://github.com/truecharts/apps/compare/pyload-5.0.5...pyload-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="pyload-5.0.1"></a>
 ### [pyload-5.0.1](https://github.com/truecharts/apps/compare/pyload-5.0.0...pyload-5.0.1) (2022-03-07)
 

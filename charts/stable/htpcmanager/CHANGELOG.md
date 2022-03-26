@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="htpcmanager-1.0.6"></a>
+### [htpcmanager-1.0.6](https://github.com/truecharts/apps/compare/htpcmanager-1.0.5...htpcmanager-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="htpcmanager-1.0.1"></a>
 ### [htpcmanager-1.0.1](https://github.com/truecharts/apps/compare/htpcmanager-1.0.0...htpcmanager-1.0.1) (2022-03-07)
 

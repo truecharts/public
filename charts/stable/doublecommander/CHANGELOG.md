@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-3.0.6"></a>
+### [doublecommander-3.0.6](https://github.com/truecharts/apps/compare/doublecommander-3.0.5...doublecommander-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="doublecommander-3.0.1"></a>
 ### [doublecommander-3.0.1](https://github.com/truecharts/apps/compare/doublecommander-3.0.0...doublecommander-3.0.1) (2022-03-07)
 

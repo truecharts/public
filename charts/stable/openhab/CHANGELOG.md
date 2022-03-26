@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-1.0.6"></a>
+### [openhab-1.0.6](https://github.com/truecharts/apps/compare/openhab-1.0.5...openhab-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="openhab-1.0.3"></a>
 ### [openhab-1.0.3](https://github.com/truecharts/apps/compare/openhab-1.0.2...openhab-1.0.3) (2022-03-21)
 

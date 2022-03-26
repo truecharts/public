@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mysql-workbench-1.0.7"></a>
+### [mysql-workbench-1.0.7](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.6...mysql-workbench-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="mysql-workbench-1.0.4"></a>
 ### [mysql-workbench-1.0.4](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.3...mysql-workbench-1.0.4) (2022-03-19)
 

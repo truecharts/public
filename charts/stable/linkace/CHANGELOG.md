@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-2.0.9"></a>
+### [linkace-2.0.9](https://github.com/truecharts/apps/compare/linkace-2.0.8...linkace-2.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="linkace-2.0.5"></a>
 ### [linkace-2.0.5](https://github.com/truecharts/apps/compare/linkace-2.0.4...linkace-2.0.5) (2022-03-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-6.0.10"></a>
+### [gitea-6.0.10](https://github.com/truecharts/apps/compare/gitea-6.0.9...gitea-6.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="gitea-6.0.8"></a>
 ### [gitea-6.0.8](https://github.com/truecharts/apps/compare/gitea-6.0.7...gitea-6.0.8) (2022-03-24)
 

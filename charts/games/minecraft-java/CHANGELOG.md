@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.29"></a>
+### [minecraft-java-0.0.29](https://github.com/truecharts/apps/compare/minecraft-java-0.0.28...minecraft-java-0.0.29) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="minecraft-java-0.0.27"></a>
 ### [minecraft-java-0.0.27](https://github.com/truecharts/apps/compare/minecraft-java-0.0.26...minecraft-java-0.0.27) (2022-03-24)
 

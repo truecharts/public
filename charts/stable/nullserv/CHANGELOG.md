@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nullserv-5.0.6"></a>
+### [nullserv-5.0.6](https://github.com/truecharts/apps/compare/nullserv-5.0.5...nullserv-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="nullserv-5.0.1"></a>
 ### [nullserv-5.0.1](https://github.com/truecharts/apps/compare/nullserv-5.0.0...nullserv-5.0.1) (2022-03-07)
 

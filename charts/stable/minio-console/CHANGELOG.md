@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-2.0.9"></a>
+### [minio-console-2.0.9](https://github.com/truecharts/apps/compare/minio-console-2.0.8...minio-console-2.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="minio-console-2.0.7"></a>
 ### [minio-console-2.0.7](https://github.com/truecharts/apps/compare/minio-console-2.0.6...minio-console-2.0.7) (2022-03-26)
 

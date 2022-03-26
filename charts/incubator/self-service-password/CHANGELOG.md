@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="self-service-password-0.0.7"></a>
+### [self-service-password-0.0.7](https://github.com/truecharts/apps/compare/self-service-password-0.0.6...self-service-password-0.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="self-service-password-0.0.3"></a>
 ### [self-service-password-0.0.3](https://github.com/truecharts/apps/compare/self-service-password-0.0.2...self-service-password-0.0.3) (2022-03-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-11.0.6"></a>
+### [transmission-11.0.6](https://github.com/truecharts/apps/compare/transmission-11.0.5...transmission-11.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="transmission-11.0.1"></a>
 ### [transmission-11.0.1](https://github.com/truecharts/apps/compare/transmission-11.0.0...transmission-11.0.1) (2022-03-07)
 

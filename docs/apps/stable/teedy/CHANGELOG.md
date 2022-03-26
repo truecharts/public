@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-5.0.7"></a>
+### [teedy-5.0.7](https://github.com/truecharts/apps/compare/teedy-5.0.6...teedy-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="teedy-5.0.2"></a>
 ### [teedy-5.0.2](https://github.com/truecharts/apps/compare/teedy-5.0.1...teedy-5.0.2) (2022-03-08)
 

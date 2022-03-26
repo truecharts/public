@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickgear-2.0.6"></a>
+### [sickgear-2.0.6](https://github.com/truecharts/apps/compare/sickgear-2.0.5...sickgear-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="sickgear-2.0.1"></a>
 ### [sickgear-2.0.1](https://github.com/truecharts/apps/compare/sickgear-2.0.0...sickgear-2.0.1) (2022-03-07)
 

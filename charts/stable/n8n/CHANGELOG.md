@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-2.0.10"></a>
+### [n8n-2.0.10](https://github.com/truecharts/apps/compare/n8n-2.0.9...n8n-2.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="n8n-2.0.5"></a>
 ### [n8n-2.0.5](https://github.com/truecharts/apps/compare/n8n-2.0.4...n8n-2.0.5) (2022-03-15)
 

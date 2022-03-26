@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.7"></a>
+### [deluge-10.0.7](https://github.com/truecharts/apps/compare/deluge-10.0.6...deluge-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="deluge-10.0.5"></a>
 ### [deluge-10.0.5](https://github.com/truecharts/apps/compare/deluge-10.0.4...deluge-10.0.5) (2022-03-24)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.9"></a>
+### [synapse-2.0.9](https://github.com/truecharts/apps/compare/synapse-2.0.8...synapse-2.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="synapse-2.0.7"></a>
 ### [synapse-2.0.7](https://github.com/truecharts/apps/compare/synapse-2.0.6...synapse-2.0.7) (2022-03-24)
 

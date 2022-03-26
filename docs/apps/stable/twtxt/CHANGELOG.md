@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-2.0.6"></a>
+### [twtxt-2.0.6](https://github.com/truecharts/apps/compare/twtxt-2.0.5...twtxt-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="twtxt-2.0.1"></a>
 ### [twtxt-2.0.1](https://github.com/truecharts/apps/compare/twtxt-2.0.0...twtxt-2.0.1) (2022-03-07)
 

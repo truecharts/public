@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-7.0.9"></a>
+### [anonaddy-7.0.9](https://github.com/truecharts/apps/compare/anonaddy-7.0.8...anonaddy-7.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="anonaddy-7.0.5"></a>
 ### [anonaddy-7.0.5](https://github.com/truecharts/apps/compare/anonaddy-7.0.4...anonaddy-7.0.5) (2022-03-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-8.0.11"></a>
+### [photoprism-8.0.11](https://github.com/truecharts/apps/compare/photoprism-8.0.10...photoprism-8.0.11) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="photoprism-8.0.6"></a>
 ### [photoprism-8.0.6](https://github.com/truecharts/apps/compare/photoprism-8.0.5...photoprism-8.0.6) (2022-03-08)
 

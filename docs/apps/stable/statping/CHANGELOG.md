@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.7"></a>
+### [statping-5.0.7](https://github.com/truecharts/apps/compare/statping-5.0.6...statping-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="statping-5.0.2"></a>
 ### [statping-5.0.2](https://github.com/truecharts/apps/compare/statping-5.0.1...statping-5.0.2) (2022-03-08)
 

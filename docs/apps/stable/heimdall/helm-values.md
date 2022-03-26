@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/heimdall"` |  |
 | image.tag | string | `"version-2.2.2@sha256:eedb3180caf7388b206238120405d53baf9783692b14766ffed7bb388fadd6ce"` |  |

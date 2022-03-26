@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-10.0.6"></a>
+### [emby-10.0.6](https://github.com/truecharts/apps/compare/emby-10.0.5...emby-10.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="emby-10.0.1"></a>
 ### [emby-10.0.1](https://github.com/truecharts/apps/compare/embystat-1.0.0...emby-10.0.1) (2022-03-07)
 

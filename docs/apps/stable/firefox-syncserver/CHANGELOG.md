@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-6.0.7"></a>
+### [firefox-syncserver-6.0.7](https://github.com/truecharts/apps/compare/firefox-syncserver-6.0.6...firefox-syncserver-6.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="firefox-syncserver-6.0.2"></a>
 ### [firefox-syncserver-6.0.2](https://github.com/truecharts/apps/compare/firefox-syncserver-6.0.1...firefox-syncserver-6.0.2) (2022-03-08)
 

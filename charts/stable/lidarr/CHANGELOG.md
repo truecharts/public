@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-10.0.8"></a>
+### [lidarr-10.0.8](https://github.com/truecharts/apps/compare/lidarr-10.0.7...lidarr-10.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="lidarr-10.0.6"></a>
 ### [lidarr-10.0.6](https://github.com/truecharts/apps/compare/lidarr-10.0.5...lidarr-10.0.6) (2022-03-24)
 

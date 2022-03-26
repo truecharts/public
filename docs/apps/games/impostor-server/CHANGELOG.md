@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.22"></a>
+### [impostor-server-0.0.22](https://github.com/truecharts/apps/compare/impostor-server-0.0.21...impostor-server-0.0.22) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="impostor-server-0.0.19"></a>
 ### [impostor-server-0.0.19](https://github.com/truecharts/apps/compare/impostor-server-0.0.18...impostor-server-0.0.19) (2022-03-17)
 

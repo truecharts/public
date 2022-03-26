@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-3.0.7"></a>
+### [deepstack-3.0.7](https://github.com/truecharts/apps/compare/deepstack-3.0.6...deepstack-3.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="deepstack-3.0.4"></a>
 ### [deepstack-3.0.4](https://github.com/truecharts/apps/compare/deepstack-3.0.3...deepstack-3.0.4) (2022-03-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.35"></a>
+### [minetest-0.0.35](https://github.com/truecharts/apps/compare/minetest-0.0.34...minetest-0.0.35) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="minetest-0.0.32"></a>
 ### [minetest-0.0.32](https://github.com/truecharts/apps/compare/minetest-0.0.31...minetest-0.0.32) (2022-03-20)
 

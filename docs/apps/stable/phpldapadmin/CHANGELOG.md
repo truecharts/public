@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-5.0.6"></a>
+### [phpldapadmin-5.0.6](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.5...phpldapadmin-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="phpldapadmin-5.0.1"></a>
 ### [phpldapadmin-5.0.1](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.0...phpldapadmin-5.0.1) (2022-03-07)
 

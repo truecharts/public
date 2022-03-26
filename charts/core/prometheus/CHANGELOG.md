@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.17"></a>
+### [prometheus-2.0.17](https://github.com/truecharts/apps/compare/prometheus-2.0.16...prometheus-2.0.17) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="prometheus-2.0.15"></a>
 ### [prometheus-2.0.15](https://github.com/truecharts/apps/compare/prometheus-2.0.14...prometheus-2.0.15) (2022-03-26)
 

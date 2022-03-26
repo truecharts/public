@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-2.0.7"></a>
+### [speedtest-exporter-2.0.7](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.6...speedtest-exporter-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="speedtest-exporter-2.0.2"></a>
 ### [speedtest-exporter-2.0.2](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.1...speedtest-exporter-2.0.2) (2022-03-07)
 

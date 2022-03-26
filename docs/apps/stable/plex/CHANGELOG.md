@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.7"></a>
+### [plex-9.0.7](https://github.com/truecharts/apps/compare/plex-9.0.6...plex-9.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="plex-9.0.5"></a>
 ### [plex-9.0.5](https://github.com/truecharts/apps/compare/plex-9.0.4...plex-9.0.5) (2022-03-24)
 

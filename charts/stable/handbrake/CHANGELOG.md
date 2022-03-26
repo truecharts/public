@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-12.0.4"></a>
+### [handbrake-12.0.4](https://github.com/truecharts/apps/compare/handbrake-12.0.3...handbrake-12.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="handbrake-12.0.0"></a>
 ### [handbrake-12.0.0](https://github.com/truecharts/apps/compare/handbrake-11.0.2...handbrake-12.0.0) (2022-03-17)
 

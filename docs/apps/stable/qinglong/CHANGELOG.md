@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qinglong-1.0.8"></a>
+### [qinglong-1.0.8](https://github.com/truecharts/apps/compare/qinglong-1.0.7...qinglong-1.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="qinglong-1.0.6"></a>
 ### [qinglong-1.0.6](https://github.com/truecharts/apps/compare/qinglong-1.0.5...qinglong-1.0.6) (2022-03-26)
 

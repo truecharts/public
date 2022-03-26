@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-9.0.9"></a>
+### [authelia-9.0.9](https://github.com/truecharts/apps/compare/authelia-9.0.8...authelia-9.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="authelia-9.0.6"></a>
 ### [authelia-9.0.6](https://github.com/truecharts/apps/compare/authelia-9.0.5...authelia-9.0.6) (2022-03-18)
 

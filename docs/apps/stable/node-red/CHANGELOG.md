@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-10.0.6"></a>
+### [node-red-10.0.6](https://github.com/truecharts/apps/compare/node-red-10.0.5...node-red-10.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="node-red-10.0.1"></a>
 ### [node-red-10.0.1](https://github.com/truecharts/apps/compare/node-red-10.0.0...node-red-10.0.1) (2022-03-07)
 

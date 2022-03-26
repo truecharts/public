@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-5.0.6"></a>
+### [duplicati-5.0.6](https://github.com/truecharts/apps/compare/duplicati-5.0.5...duplicati-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="duplicati-5.0.1"></a>
 ### [duplicati-5.0.1](https://github.com/truecharts/apps/compare/duplicati-5.0.0...duplicati-5.0.1) (2022-03-07)
 

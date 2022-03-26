@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-3.0.6"></a>
+### [fossil-3.0.6](https://github.com/truecharts/apps/compare/fossil-3.0.5...fossil-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="fossil-3.0.1"></a>
 ### [fossil-3.0.1](https://github.com/truecharts/apps/compare/fossil-3.0.0...fossil-3.0.1) (2022-03-07)
 

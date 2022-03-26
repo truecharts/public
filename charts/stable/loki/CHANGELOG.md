@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-3.0.7"></a>
+### [loki-3.0.7](https://github.com/truecharts/apps/compare/loki-3.0.6...loki-3.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="loki-3.0.2"></a>
 ### [loki-3.0.2](https://github.com/truecharts/apps/compare/loki-3.0.1...loki-3.0.2) (2022-03-08)
 

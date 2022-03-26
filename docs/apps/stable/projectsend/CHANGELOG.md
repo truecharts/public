@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-1.0.7"></a>
+### [projectsend-1.0.7](https://github.com/truecharts/apps/compare/projectsend-1.0.6...projectsend-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="projectsend-1.0.5"></a>
 ### [projectsend-1.0.5](https://github.com/truecharts/apps/compare/projectsend-1.0.4...projectsend-1.0.5) (2022-03-23)
 

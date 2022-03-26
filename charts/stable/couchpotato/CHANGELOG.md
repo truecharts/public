@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="couchpotato-1.0.6"></a>
+### [couchpotato-1.0.6](https://github.com/truecharts/apps/compare/couchpotato-1.0.4...couchpotato-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+* update common lib referece ([#2288](https://github.com/truecharts/apps/issues/2288))
+
+
+
 <a name="couchpotato-1.0.1"></a>
 ### [couchpotato-1.0.1](https://github.com/truecharts/apps/compare/couchpotato-1.0.0...couchpotato-1.0.1) (2022-03-07)
 

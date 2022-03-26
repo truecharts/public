@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-4.0.7"></a>
+### [onlyoffice-document-server-4.0.7](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.6...onlyoffice-document-server-4.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="onlyoffice-document-server-4.0.2"></a>
 ### [onlyoffice-document-server-4.0.2](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.1...onlyoffice-document-server-4.0.2) (2022-03-08)
 

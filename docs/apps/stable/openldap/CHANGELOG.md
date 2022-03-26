@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-6.0.6"></a>
+### [openldap-6.0.6](https://github.com/truecharts/apps/compare/openldap-6.0.5...openldap-6.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="openldap-6.0.1"></a>
 ### [openldap-6.0.1](https://github.com/truecharts/apps/compare/openldap-6.0.0...openldap-6.0.1) (2022-03-07)
 

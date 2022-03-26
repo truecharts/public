@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.9"></a>
+### [logitech-media-server-3.0.9](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.8...logitech-media-server-3.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="logitech-media-server-3.0.6"></a>
 ### [logitech-media-server-3.0.6](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.5...logitech-media-server-3.0.6) (2022-03-20)
 

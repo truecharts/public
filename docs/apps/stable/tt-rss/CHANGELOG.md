@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.10"></a>
+### [tt-rss-5.0.10](https://github.com/truecharts/apps/compare/tt-rss-5.0.9...tt-rss-5.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="tt-rss-5.0.8"></a>
 ### [tt-rss-5.0.8](https://github.com/truecharts/apps/compare/tt-rss-5.0.7...tt-rss-5.0.8) (2022-03-24)
 

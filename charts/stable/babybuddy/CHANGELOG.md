@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-6.0.9"></a>
+### [babybuddy-6.0.9](https://github.com/truecharts/apps/compare/babybuddy-6.0.8...babybuddy-6.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="babybuddy-6.0.5"></a>
 ### [babybuddy-6.0.5](https://github.com/truecharts/apps/compare/babybuddy-6.0.4...babybuddy-6.0.5) (2022-03-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-5.0.7"></a>
+### [shiori-5.0.7](https://github.com/truecharts/apps/compare/shiori-5.0.6...shiori-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="shiori-5.0.2"></a>
 ### [shiori-5.0.2](https://github.com/truecharts/apps/compare/shiori-5.0.1...shiori-5.0.2) (2022-03-08)
 
