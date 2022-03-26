@@ -2,7 +2,7 @@
 require_relative '../../test_helper'
 
 class Test < ChartTest
-  @@chart = Chart.new('charts/library/common-test')
+  @@chart = Chart.new('helper-charts/common-test')
 
   describe @@chart.name do
     describe 'pvc' do
