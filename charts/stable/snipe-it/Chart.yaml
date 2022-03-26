@@ -7,11 +7,11 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 2.0.11
+  version: 2.0.12
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 2.0.6
+  version: 2.0.8
 description: "Open source asset management"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/snipe-it
 icon: https://truecharts.org/_static/img/appicons/snipe-it.png
@@ -29,7 +29,7 @@ name: snipe-it
 sources:
   - https://snipeitapp.com/
   - https://hub.docker.com/r/linuxserver/
-version: 2.0.5
+version: 2.0.6
 annotations:
   truecharts.org/catagories: |
     - management
