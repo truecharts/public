@@ -19,7 +19,7 @@ env:
   FRESHCLAM_CHECKS: 1
 
 clamav:
-  report_path: "/scandir"
+  report_path: "/logs"
   # User Defined
   cron_enabled: true
   cron_schedule: "* * * * *"
@@ -88,3 +88,6 @@ persistence:
     enabled: true
     mountPath: "/scandir"
     readOnly: true
+  logs:
+    enabled: true
+    mountPath: "/logs"

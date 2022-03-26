@@ -24,9 +24,6 @@ spec:
       template:
         metadata:
         spec:
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
           restartPolicy: Never
           {{- with (include "common.controller.volumes" . | trim) }}
           volumes:
@@ -34,14 +31,6 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
-              securityContext:
-                privileged: false
-                readOnlyRootFilesystem: false
-                allowPrivilegeEscalation: false
-                runAsNonRoot: false
-                capabilities:
-                  drop:
-                    - ALL
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               env:
                 - name: date_format
@@ -64,7 +53,7 @@ spec:
                     then
                       echo "Exit Status: $status No Virus found!";
                   else
-                    echo "Exit Status: $status. Check scan \"log_file\".";
+                    echo "Exit Status: $status. Check \"${log_file}\".";
                   fi;
                   cat $log_file;
               {{- with (include "common.controller.volumeMounts" . | trim) }}
