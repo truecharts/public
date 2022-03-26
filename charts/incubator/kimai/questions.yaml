@@ -82,13 +82,13 @@ questions:
       type: dict
       attrs:
         - variable: ADMINMAIL
-          label: "Admin Mail"
+          label: "Admin E-mail"
           schema:
             type: string
             default: ""
             required: true
         - variable: ADMINPASS
-          label: "Admin Pass"
+          label: "Admin Password"
           schema:
             type: string
             default: ""
@@ -101,12 +101,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TRUSTED_HOSTS
+        - variable: trust_hosts
           label: "TRUSTED_HOSTS"
           description: "Comma separated list of trusted hosts."
           schema:
             type: string
-            default: "localhost"
+            default: "YOUR.FQDN or YOUR.NAS.IP"
 
 # Include{containerConfig}
 
