@@ -1,1 +1,10 @@
-{{ include "common.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{- if and .Values.clamav.cron_enabled .Values.clamav.cron_schedule}}
+{{/* Render cronjob for clamav */}}
+{{- include "clamav.cronjob" . }}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

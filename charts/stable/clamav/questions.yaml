@@ -92,6 +92,58 @@ questions:
           schema:
             type: int
             default: 1
+  - variable: clamav
+    group: "Container Configuration"
+    label: "ClamAV Cron Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cron_enabled
+          label: "Enable cronjob"
+          description: "Enables automatic scan for /scandir"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: cron_schedule
+                label: "Cron Schedule"
+                description: "Enter a valid cron schedule"
+                schema:
+                  type: string
+                  default: "@daily"
+                  required: true
+              - variable: log_file_name
+                label: "Log File Name"
+                description: "Log file name for the scan report. You will find this report in /logs/FILENAME_DATEFORMAT"
+                schema:
+                  type: string
+                  default: "clamscan_report"
+                  required: true
+              - variable: date_format
+                label: "Date Format"
+                description: "Date format for the log file"
+                schema:
+                  type: string
+                  default: "MM-DD-YYYY_HH.MM.SS"
+                  required: true
+                  enum:
+                    - value: "+%m-%d-%Y_%H.%M.%S"
+                      description: "MM-DD-YYYY_HH.MM.SS"
+                    - value: "+%Y-%m-%d_%H.%M.%S"
+                      description: "YYYY-MM-DD_HH.MM.SS"
+                    - value: "+%H.%M.%S_%m-%d-%Y"
+                      description: "HH.MM.SS_MM-DD-YYYY"
+                    - value: "+%H.%M.%S_%Y-%m-%d"
+                      description: "HH.MM.SS_YYYY-MM-DD"
+              - variable: extra_args
+                label: "Extra Args"
+                description: "Set extra args for clamscan here. (https://linux.die.net/man/1/clamscan). We already set --log, --database and --recursive. Do not add those here."
+                schema:
+                  type: string
+                  default: ""
+
 
 # Include{containerConfig}
 
@@ -295,7 +347,50 @@ questions:
 # Include{persistenceAdvanced}
         - variable: scandir
           label: "App Scan Dir Storage"
-          description: "Stores the Application Scan Directory."
+          description: "Stores the Application Scan Directory. (By default set to readOnly)"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
           schema:
             additional_attrs: true
             type: dict
