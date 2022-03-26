@@ -20,6 +20,7 @@ env:
   FRIENDICA_TZ: "{{ .Values.TZ }}"
   FRIENDICA_DATA_DIR: "/data"
   FRIENDICA_CONFIG_DIR: "/config"
+  # User Defined
   FRIENDICA_ADMIN_MAIL: "my@domain.com"
   FRIENDICA_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   FRIENDICA_UPGRADE: false
@@ -35,11 +36,11 @@ service:
 
 probes:
   liveness:
-    path: "/friendica"
+    path: "/ping"
   readiness:
-    path: "/friendica"
+    path: "/ping"
   startup:
-    path: "/friendica"
+    path: "/ping"
 
 persistence:
   varrun:
