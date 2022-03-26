@@ -19,26 +19,6 @@ service:
         port: 10176
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/ql/config"
-
-  log:
-    enabled: true
-    mountPath: "/ql/log"
-
-  db:
-    enabled: true
-    mountPath: "/ql/db"
-
-  repo:
-    enabled: true
-    mountPath: "/ql/repo"
-
-  raw:
-    enabled: true
-    mountPath: "/ql/raw"
-
-  scripts:
-    enabled: true
-    mountPath: "/ql/scripts"
+    mountPath: "/ql/data"
