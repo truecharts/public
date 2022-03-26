@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-5.0.6"></a>
+### [unpackerr-5.0.6](https://github.com/truecharts/apps/compare/unpackerr-5.0.5...unpackerr-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="unpackerr-5.0.1"></a>
 ### [unpackerr-5.0.1](https://github.com/truecharts/apps/compare/unpackerr-5.0.0...unpackerr-5.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-2.0.8"></a>
+### [shlink-2.0.8](https://github.com/truecharts/apps/compare/shlink-2.0.7...shlink-2.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="shlink-2.0.3"></a>
 ### [shlink-2.0.3](https://github.com/truecharts/apps/compare/shlink-2.0.2...shlink-2.0.3) (2022-03-08)
 

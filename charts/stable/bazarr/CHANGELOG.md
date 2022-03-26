@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-10.0.7"></a>
+### [bazarr-10.0.7](https://github.com/truecharts/apps/compare/bazarr-10.0.6...bazarr-10.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="bazarr-10.0.2"></a>
 ### [bazarr-10.0.2](https://github.com/truecharts/apps/compare/bazarr-10.0.1...bazarr-10.0.2) (2022-03-15)
 

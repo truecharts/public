@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.10"></a>
+### [grist-1.0.10](https://github.com/truecharts/apps/compare/grist-1.0.9...grist-1.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="grist-1.0.6"></a>
 ### [grist-1.0.6](https://github.com/truecharts/apps/compare/grist-1.0.5...grist-1.0.6) (2022-03-17)
 

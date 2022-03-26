@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-6.0.7"></a>
+### [gotify-6.0.7](https://github.com/truecharts/apps/compare/gotify-6.0.6...gotify-6.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="gotify-6.0.2"></a>
 ### [gotify-6.0.2](https://github.com/truecharts/apps/compare/gotify-6.0.1...gotify-6.0.2) (2022-03-08)
 

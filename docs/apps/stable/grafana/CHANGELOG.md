@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.13"></a>
+### [grafana-3.0.13](https://github.com/truecharts/apps/compare/grafana-3.0.12...grafana-3.0.13) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="grafana-3.0.11"></a>
 ### [grafana-3.0.11](https://github.com/truecharts/apps/compare/grafana-3.0.10...grafana-3.0.11) (2022-03-26)
 

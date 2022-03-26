@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-1.0.7"></a>
+### [webgrabplus-1.0.7](https://github.com/truecharts/apps/compare/webgrabplus-1.0.6...webgrabplus-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="webgrabplus-1.0.5"></a>
 ### [webgrabplus-1.0.5](https://github.com/truecharts/apps/compare/webgrabplus-1.0.4...webgrabplus-1.0.5) (2022-03-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-6.0.7"></a>
+### [mealie-6.0.7](https://github.com/truecharts/apps/compare/mealie-6.0.6...mealie-6.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="mealie-6.0.2"></a>
 ### [mealie-6.0.2](https://github.com/truecharts/apps/compare/mealie-6.0.1...mealie-6.0.2) (2022-03-08)
 

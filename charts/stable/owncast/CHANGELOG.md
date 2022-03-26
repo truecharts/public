@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-5.0.7"></a>
+### [owncast-5.0.7](https://github.com/truecharts/apps/compare/owncast-5.0.6...owncast-5.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="owncast-5.0.3"></a>
 ### [owncast-5.0.3](https://github.com/truecharts/apps/compare/owncast-5.0.2...owncast-5.0.3) (2022-03-17)
 

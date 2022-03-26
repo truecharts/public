@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-1.0.6"></a>
+### [kodi-headless-1.0.6](https://github.com/truecharts/apps/compare/kodi-headless-1.0.5...kodi-headless-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="kodi-headless-1.0.1"></a>
 ### [kodi-headless-1.0.1](https://github.com/truecharts/apps/compare/kodi-headless-1.0.0...kodi-headless-1.0.1) (2022-03-07)
 

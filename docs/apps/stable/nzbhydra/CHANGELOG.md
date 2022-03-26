@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-10.0.9"></a>
+### [nzbhydra-10.0.9](https://github.com/truecharts/apps/compare/nzbhydra-10.0.8...nzbhydra-10.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="nzbhydra-10.0.7"></a>
 ### [nzbhydra-10.0.7](https://github.com/truecharts/apps/compare/nzbhydra-10.0.6...nzbhydra-10.0.7) (2022-03-24)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-3.0.7"></a>
+### [promcord-3.0.7](https://github.com/truecharts/apps/compare/promcord-3.0.6...promcord-3.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="promcord-3.0.2"></a>
 ### [promcord-3.0.2](https://github.com/truecharts/apps/compare/promcord-3.0.1...promcord-3.0.2) (2022-03-07)
 

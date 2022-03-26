@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-10.0.9"></a>
+### [zwavejs2mqtt-10.0.9](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.8...zwavejs2mqtt-10.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="zwavejs2mqtt-10.0.7"></a>
 ### [zwavejs2mqtt-10.0.7](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.6...zwavejs2mqtt-10.0.7) (2022-03-26)
 

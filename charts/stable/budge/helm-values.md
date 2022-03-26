@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.NODE_ENV | string | `"production"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/budge"` |  |
-| image.tag | string | `"v0.0.4@sha256:4797d78ea6ff53252e514be5bd8476bbb8794d74cfcb3374406da82848e66d4a"` |  |
+| image.tag | string | `"v0.0.4@sha256:7094947fab51c0d3217de4337bec2b8d3ddae9b52bcfb0b0b8de2762462f4e48"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

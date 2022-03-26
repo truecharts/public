@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-5.0.6"></a>
+### [pretend-youre-xyzzy-5.0.6](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.5...pretend-youre-xyzzy-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="pretend-youre-xyzzy-5.0.1"></a>
 ### [pretend-youre-xyzzy-5.0.1](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.0...pretend-youre-xyzzy-5.0.1) (2022-03-07)
 

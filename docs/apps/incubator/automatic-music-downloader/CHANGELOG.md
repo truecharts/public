@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="automatic-music-downloader-1.0.6"></a>
+### [automatic-music-downloader-1.0.6](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.0.5...automatic-music-downloader-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="automatic-music-downloader-1.0.1"></a>
 ### [automatic-music-downloader-1.0.1](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.0.0...automatic-music-downloader-1.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-3.0.6"></a>
+### [grav-3.0.6](https://github.com/truecharts/apps/compare/grav-3.0.5...grav-3.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="grav-3.0.1"></a>
 ### [grav-3.0.1](https://github.com/truecharts/apps/compare/grav-3.0.0...grav-3.0.1) (2022-03-07)
 

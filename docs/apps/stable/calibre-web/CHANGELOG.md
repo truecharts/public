@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.8"></a>
+### [calibre-web-10.0.8](https://github.com/truecharts/apps/compare/calibre-web-10.0.7...calibre-web-10.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="calibre-web-10.0.6"></a>
 ### [calibre-web-10.0.6](https://github.com/truecharts/apps/compare/calibre-web-10.0.5...calibre-web-10.0.6) (2022-03-24)
 

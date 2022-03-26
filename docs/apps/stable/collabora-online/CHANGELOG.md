@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-11.0.9"></a>
+### [collabora-online-11.0.9](https://github.com/truecharts/apps/compare/collabora-online-11.0.8...collabora-online-11.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="collabora-online-11.0.7"></a>
 ### [collabora-online-11.0.7](https://github.com/truecharts/apps/compare/collabora-online-11.0.6...collabora-online-11.0.7) (2022-03-26)
 

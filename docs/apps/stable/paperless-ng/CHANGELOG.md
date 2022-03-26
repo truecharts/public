@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.12"></a>
+### [paperless-ng-2.0.12](https://github.com/truecharts/apps/compare/paperless-ng-2.0.11...paperless-ng-2.0.12) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="paperless-ng-2.0.7"></a>
 ### [paperless-ng-2.0.7](https://github.com/truecharts/apps/compare/paperless-ng-2.0.6...paperless-ng-2.0.7) (2022-03-15)
 

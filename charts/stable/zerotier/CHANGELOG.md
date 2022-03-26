@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zerotier-1.0.5"></a>
+### [zerotier-1.0.5](https://github.com/truecharts/apps/compare/zerotier-1.0.4...zerotier-1.0.5) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="zerotier-1.0.2"></a>
 ### [zerotier-1.0.2](https://github.com/truecharts/apps/compare/zerotier-1.0.1...zerotier-1.0.2) (2022-03-21)
 

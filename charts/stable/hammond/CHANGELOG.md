@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hammond-1.0.4"></a>
+### [hammond-1.0.4](https://github.com/truecharts/apps/compare/hammond-1.0.3...hammond-1.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="hammond-1.0.0"></a>
 ### [hammond-1.0.0](https://github.com/truecharts/apps/compare/hammond-0.0.3...hammond-1.0.0) (2022-03-16)
 

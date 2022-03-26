@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsnapshot-1.0.6"></a>
+### [rsnapshot-1.0.6](https://github.com/truecharts/apps/compare/rsnapshot-1.0.5...rsnapshot-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="rsnapshot-1.0.1"></a>
 ### [rsnapshot-1.0.1](https://github.com/truecharts/apps/compare/rsnapshot-1.0.0...rsnapshot-1.0.1) (2022-03-07)
 

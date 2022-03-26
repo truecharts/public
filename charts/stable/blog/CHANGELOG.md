@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-1.0.7"></a>
+### [blog-1.0.7](https://github.com/truecharts/apps/compare/blog-1.0.6...blog-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="blog-1.0.2"></a>
 ### [blog-1.0.2](https://github.com/truecharts/apps/compare/blog-1.0.1...blog-1.0.2) (2022-03-08)
 

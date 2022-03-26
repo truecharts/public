@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"kizaing/kavita"` |  |
-| image.tag | string | `"0.5.1@sha256:0ff3de9957f837b86f7eadc608498dc8b0c577d1ec522b77f8d5a13a719fc57d"` |  |
+| image.repository | string | `"tccr.io/truecharts/kavita"` |  |
+| image.tag | string | `"v0.5.1@sha256:e584e22d7382b98b0b49fbc6ec97115f82d57ca556c943268c0ced5bd567b25e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/kavita/config"` |  |
 | persistence.manga.enabled | bool | `true` |  |

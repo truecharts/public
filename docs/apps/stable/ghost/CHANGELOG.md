@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.12"></a>
+### [ghost-1.0.12](https://github.com/truecharts/apps/compare/ghost-1.0.11...ghost-1.0.12) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="ghost-1.0.10"></a>
 ### [ghost-1.0.10](https://github.com/truecharts/apps/compare/ghost-1.0.9...ghost-1.0.10) (2022-03-26)
 

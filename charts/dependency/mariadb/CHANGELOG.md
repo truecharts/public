@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.14"></a>
+### [mariadb-2.0.14](https://github.com/truecharts/apps/compare/mariadb-2.0.13...mariadb-2.0.14) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="mariadb-2.0.12"></a>
 ### [mariadb-2.0.12](https://github.com/truecharts/apps/compare/mariadb-2.0.11...mariadb-2.0.12) (2022-03-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-1.0.7"></a>
+### [syslog-ng-1.0.7](https://github.com/truecharts/apps/compare/syslog-ng-1.0.6...syslog-ng-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="syslog-ng-1.0.2"></a>
 ### [syslog-ng-1.0.2](https://github.com/truecharts/apps/compare/syslog-ng-1.0.1...syslog-ng-1.0.2) (2022-03-15)
 

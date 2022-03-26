@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-2.0.6"></a>
+### [smokeping-2.0.6](https://github.com/truecharts/apps/compare/smokeping-2.0.5...smokeping-2.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="smokeping-2.0.1"></a>
 ### [smokeping-2.0.1](https://github.com/truecharts/apps/compare/smokeping-2.0.0...smokeping-2.0.1) (2022-03-07)
 

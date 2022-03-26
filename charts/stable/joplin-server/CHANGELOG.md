@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-6.0.7"></a>
+### [joplin-server-6.0.7](https://github.com/truecharts/apps/compare/joplin-server-6.0.6...joplin-server-6.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="joplin-server-6.0.2"></a>
 ### [joplin-server-6.0.2](https://github.com/truecharts/apps/compare/joplin-server-6.0.1...joplin-server-6.0.2) (2022-03-08)
 

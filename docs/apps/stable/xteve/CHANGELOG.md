@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-5.0.6"></a>
+### [xteve-5.0.6](https://github.com/truecharts/apps/compare/xteve-5.0.5...xteve-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="xteve-5.0.1"></a>
 ### [xteve-5.0.1](https://github.com/truecharts/apps/compare/xteve-5.0.0...xteve-5.0.1) (2022-03-07)
 

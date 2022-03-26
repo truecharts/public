@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-1.0.7"></a>
+### [openvscode-server-1.0.7](https://github.com/truecharts/apps/compare/openvscode-server-1.0.6...openvscode-server-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="openvscode-server-1.0.2"></a>
 ### [openvscode-server-1.0.2](https://github.com/truecharts/apps/compare/openvscode-server-1.0.1...openvscode-server-1.0.2) (2022-03-15)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xbackbone-1.0.7"></a>
+### [xbackbone-1.0.7](https://github.com/truecharts/apps/compare/xbackbone-1.0.6...xbackbone-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="xbackbone-1.0.2"></a>
 ### [xbackbone-1.0.2](https://github.com/truecharts/apps/compare/xbackbone-1.0.1...xbackbone-1.0.2) (2022-03-08)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="double-take-1.0.2"></a>
+### [double-take-1.0.2](https://github.com/truecharts/apps/compare/double-take-1.0.1...double-take-1.0.2) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="double-take-1.0.0"></a>
 ### [double-take-1.0.0](https://github.com/truecharts/apps/compare/double-take-0.0.2...double-take-1.0.0) (2022-03-25)
 

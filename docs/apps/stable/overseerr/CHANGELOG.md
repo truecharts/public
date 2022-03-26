@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-5.0.6"></a>
+### [overseerr-5.0.6](https://github.com/truecharts/apps/compare/overseerr-5.0.5...overseerr-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="overseerr-5.0.1"></a>
 ### [overseerr-5.0.1](https://github.com/truecharts/apps/compare/overseerr-5.0.0...overseerr-5.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-5.0.6"></a>
+### [k8s-gateway-5.0.6](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.5...k8s-gateway-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="k8s-gateway-5.0.1"></a>
 ### [k8s-gateway-5.0.1](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.0...k8s-gateway-5.0.1) (2022-03-07)
 

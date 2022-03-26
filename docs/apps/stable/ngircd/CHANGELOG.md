@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ngircd-1.0.6"></a>
+### [ngircd-1.0.6](https://github.com/truecharts/apps/compare/ngircd-1.0.5...ngircd-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="ngircd-1.0.1"></a>
 ### [ngircd-1.0.1](https://github.com/truecharts/apps/compare/ngircd-1.0.0...ngircd-1.0.1) (2022-03-07)
 

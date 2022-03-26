@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-5.0.6"></a>
+### [ser2sock-5.0.6](https://github.com/truecharts/apps/compare/ser2sock-5.0.5...ser2sock-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="ser2sock-5.0.1"></a>
 ### [ser2sock-5.0.1](https://github.com/truecharts/apps/compare/ser2sock-5.0.0...ser2sock-5.0.1) (2022-03-07)
 

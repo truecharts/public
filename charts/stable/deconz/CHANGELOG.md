@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.7"></a>
+### [deconz-7.0.7](https://github.com/truecharts/apps/compare/deconz-7.0.6...deconz-7.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="deconz-7.0.5"></a>
 ### [deconz-7.0.5](https://github.com/truecharts/apps/compare/deconz-7.0.4...deconz-7.0.5) (2022-03-26)
 

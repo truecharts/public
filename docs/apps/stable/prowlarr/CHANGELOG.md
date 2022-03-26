@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-5.0.11"></a>
+### [prowlarr-5.0.11](https://github.com/truecharts/apps/compare/prowlarr-5.0.10...prowlarr-5.0.11) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="prowlarr-5.0.9"></a>
 ### [prowlarr-5.0.9](https://github.com/truecharts/apps/compare/prowlarr-5.0.8...prowlarr-5.0.9) (2022-03-26)
 

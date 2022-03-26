@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-3.0.9"></a>
+### [beets-3.0.9](https://github.com/truecharts/apps/compare/beets-3.0.8...beets-3.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="beets-3.0.7"></a>
 ### [beets-3.0.7](https://github.com/truecharts/apps/compare/beets-3.0.6...beets-3.0.7) (2022-03-24)
 

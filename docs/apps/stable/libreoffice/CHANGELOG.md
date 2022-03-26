@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreoffice-1.0.7"></a>
+### [libreoffice-1.0.7](https://github.com/truecharts/apps/compare/libreoffice-1.0.6...libreoffice-1.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="libreoffice-1.0.2"></a>
 ### [libreoffice-1.0.2](https://github.com/truecharts/apps/compare/libreoffice-1.0.1...libreoffice-1.0.2) (2022-03-12)
 

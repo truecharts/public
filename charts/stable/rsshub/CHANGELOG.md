@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.2"></a>
+### [rsshub-1.0.2](https://github.com/truecharts/apps/compare/rsshub-1.0.1...rsshub-1.0.2) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="rsshub-1.0.0"></a>
 ### [rsshub-1.0.0](https://github.com/truecharts/apps/compare/rsshub-0.0.3...rsshub-1.0.0) (2022-03-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pydio-cells-2.0.8"></a>
+### [pydio-cells-2.0.8](https://github.com/truecharts/apps/compare/pydio-cells-2.0.7...pydio-cells-2.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="pydio-cells-2.0.3"></a>
 ### [pydio-cells-2.0.3](https://github.com/truecharts/apps/compare/pydio-cells-2.0.2...pydio-cells-2.0.3) (2022-03-08)
 

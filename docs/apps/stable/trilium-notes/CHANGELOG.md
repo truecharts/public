@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-2.0.7"></a>
+### [trilium-notes-2.0.7](https://github.com/truecharts/apps/compare/trilium-notes-2.0.6...trilium-notes-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="trilium-notes-2.0.5"></a>
 ### [trilium-notes-2.0.5](https://github.com/truecharts/apps/compare/trilium-notes-2.0.4...trilium-notes-2.0.5) (2022-03-24)
 

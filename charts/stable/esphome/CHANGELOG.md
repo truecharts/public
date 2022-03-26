@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-10.0.9"></a>
+### [esphome-10.0.9](https://github.com/truecharts/apps/compare/esphome-10.0.8...esphome-10.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="esphome-10.0.7"></a>
 ### [esphome-10.0.7](https://github.com/truecharts/apps/compare/esphome-10.0.6...esphome-10.0.7) (2022-03-24)
 

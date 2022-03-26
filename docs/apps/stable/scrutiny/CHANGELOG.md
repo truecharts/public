@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-1.0.6"></a>
+### [scrutiny-1.0.6](https://github.com/truecharts/apps/compare/scrutiny-1.0.5...scrutiny-1.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="scrutiny-1.0.1"></a>
 ### [scrutiny-1.0.1](https://github.com/truecharts/apps/compare/scrutiny-1.0.0...scrutiny-1.0.1) (2022-03-07)
 

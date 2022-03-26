@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-3.0.7"></a>
+### [amcrest2mqtt-3.0.7](https://github.com/truecharts/apps/compare/amcrest2mqtt-3.0.6...amcrest2mqtt-3.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="amcrest2mqtt-3.0.5"></a>
 ### [amcrest2mqtt-3.0.5](https://github.com/truecharts/apps/compare/amcrest2mqtt-3.0.4...amcrest2mqtt-3.0.5) (2022-03-24)
 

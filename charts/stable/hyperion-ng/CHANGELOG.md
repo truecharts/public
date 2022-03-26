@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-5.0.6"></a>
+### [hyperion-ng-5.0.6](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.5...hyperion-ng-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="hyperion-ng-5.0.1"></a>
 ### [hyperion-ng-5.0.1](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.0...hyperion-ng-5.0.1) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-5.0.6"></a>
+### [reg-5.0.6](https://github.com/truecharts/apps/compare/reg-5.0.5...reg-5.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="reg-5.0.1"></a>
 ### [reg-5.0.1](https://github.com/truecharts/apps/compare/reg-5.0.0...reg-5.0.1) (2022-03-07)
 

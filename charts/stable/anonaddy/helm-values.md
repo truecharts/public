@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/anonaddy"` |  |
-| image.tag | string | `"v0.11.0@sha256:f78350b5a03a68057f2f4c01b19bc5175d3c2d987a4d1f87c01134c075d7a84d"` |  |
+| image.tag | string | `"v0.11.1@sha256:e4312494b11c9de4437c3980841545ce6c9687afe59e24cd53cf5ae14dd44b9e"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"anonaddy"` |  |

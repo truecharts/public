@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-6.0.6"></a>
+### [dizquetv-6.0.6](https://github.com/truecharts/apps/compare/dizquetv-6.0.5...dizquetv-6.0.6) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="dizquetv-6.0.1"></a>
 ### [dizquetv-6.0.1](https://github.com/truecharts/apps/compare/dizquetv-6.0.0...dizquetv-6.0.1) (2022-03-07)
 

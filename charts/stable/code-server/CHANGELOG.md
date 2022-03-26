@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-3.0.8"></a>
+### [code-server-3.0.8](https://github.com/truecharts/apps/compare/openvscode-server-1.0.6...code-server-3.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="code-server-3.0.6"></a>
 ### [code-server-3.0.6](https://github.com/truecharts/apps/compare/code-server-3.0.5...code-server-3.0.6) (2022-03-26)
 

@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jonnyan404/verysync"` |  |
-| image.tag | string | `"2.13.0@sha256:a6f4fe60d6e95f8b925701cd1c3ec702ccfb39d8da58441ec6e7e9c749a0692c"` |  |
+| image.repository | string | `"tccr.io/truecharts/verysync"` |  |
+| image.tag | string | `"v2.13.0@sha256:2ee334d635b2cc984818ae3afe108c8fb6741289be6e8faac11c1bad3b83502b"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | service.bt-udp1.enabled | bool | `true` |  |

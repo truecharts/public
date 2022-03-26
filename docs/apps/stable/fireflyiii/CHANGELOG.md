@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.8"></a>
+### [fireflyiii-14.0.8](https://github.com/truecharts/apps/compare/fireflyiii-14.0.7...fireflyiii-14.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="fireflyiii-14.0.3"></a>
 ### [fireflyiii-14.0.3](https://github.com/truecharts/apps/compare/fireflyiii-14.0.2...fireflyiii-14.0.3) (2022-03-15)
 

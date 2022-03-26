@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.9"></a>
+### [piaware-5.0.9](https://github.com/truecharts/apps/compare/piaware-5.0.8...piaware-5.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="piaware-5.0.6"></a>
 ### [piaware-5.0.6](https://github.com/truecharts/apps/compare/piaware-5.0.5...piaware-5.0.6) (2022-03-18)
 

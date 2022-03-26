@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.4"></a>
+### [snipe-it-2.0.4](https://github.com/truecharts/apps/compare/snipe-it-2.0.3...snipe-it-2.0.4) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
 <a name="snipe-it-2.0.2"></a>
 ### [snipe-it-2.0.2](https://github.com/truecharts/apps/compare/snipe-it-2.0.1...snipe-it-2.0.2) (2022-03-24)
 
