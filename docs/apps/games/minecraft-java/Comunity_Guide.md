@@ -4,7 +4,7 @@
 
 # Running Multiple MC-Java Servers
 
-You can easily run Multiple MC Servers. You simply need to change the external ports, Be sure not to use a unused port. There is no need to change the Minecraft port or RCON port in the server.properties
+You can easily run Multiple MC Servers. You simply need to change the external ports, Be sure to use an unused port. There is no need to change the Minecraft port or RCON port in the server.properties
 
 MC Server 1
 
