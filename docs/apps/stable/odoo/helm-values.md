@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/odoo"` |  |
-| image.tag | string | `"v15.0@sha256:6b86de1c7b3b5836c3a91e9bb88eaf59fb97d8f0493b5aef79201a626e915d45"` |  |
+| image.tag | string | `"v15.0@sha256:f2dfcec92495ee630f3b67fd24a5f65caa5245eaaff0d84eb33229745637e280"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |
 | persistence.odoo.enabled | bool | `true` |  |

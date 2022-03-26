@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FG_LOG_LEVEL | string | `"info"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/flexget"` |  |
-| image.tag | string | `"v3.3.3@sha256:2f18ced88f1451626c59174b55236325f3da20ec4d6be362090cf861798b2233"` |  |
+| image.tag | string | `"v3.3.4@sha256:1937479e0b9e68d8fd46f0b80f8a1601435d95b1e008caeaabb66e261e5d5030"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

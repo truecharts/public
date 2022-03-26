@@ -54,7 +54,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v4.1.0@sha256:f96a1fab826dda8f8e0c2050baafe2572c13b2502ac80c412e9bed2171f9869e"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v4.2.0@sha256:82e2d802e59b26954096529aa08e83bebd2004da664fee9ab6c911e4f5ab6c48"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
@@ -120,7 +120,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | mariadbImage | object | See below | mariadb specific configuration |
 | mariadbImage.pullPolicy | string | `"IfNotPresent"` | Specify the mariadb image pull policy |
 | mariadbImage.repository | string | `"ghcr.io/truecharts/mariadb"` | Specify the mariadb image |
-| mariadbImage.tag | string | `"v10.7.3@sha256:a449af8351ad73fb2807057028ddc2f25c350a59b89686c6ac0e6170f6787005"` | Specify the mariadb image tag |
+| mariadbImage.tag | string | `"v10.7.3@sha256:63743b10ac562b8f63abd3dfa246298c6678cfeb9e7559c65265f5066385fcf6"` | Specify the mariadb image tag |
 | netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"ghcr.io/truecharts/netshoot"` | Specify the netshoot image |
@@ -207,7 +207,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.2.0@sha256:f52cd63f0199cd7a9375a9ff139d51efdb94a3b85d834adb84058f21469464ea"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` | Custom priority class for different treatment by the scheduler |
 | probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
