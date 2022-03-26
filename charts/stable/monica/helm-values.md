@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/monica"` |  |
-| image.tag | string | `"v3.7.0@sha256:b7bbfc59f542d00557d4cae1f2a5b65a6e1d4d38d9fad662c179dbb197f79c2f"` |  |
+| image.tag | string | `"v3.7.0@sha256:3d3796b68c0e4f34e429950f9529b4a06ad28ceed85d994ce9275b119a57bc0c"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"monica"` |  |

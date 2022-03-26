@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "6.5.2"
+appVersion: "6.6.2"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS
   and Vue
@@ -24,7 +24,7 @@ sources:
 - https://github.com/zwave-js/zwavejs2mqtt
 - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
 type: application
-version: 10.0.5
+version: 10.0.8
 annotations:
   truecharts.org/catagories: |
     - tools

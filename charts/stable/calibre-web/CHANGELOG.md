@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.6"></a>
+### [calibre-web-10.0.6](https://github.com/truecharts/apps/compare/calibre-web-10.0.5...calibre-web-10.0.6) (2022-03-24)
+
+#### Fix
+
+* Update digest ([#2268](https://github.com/truecharts/apps/issues/2268))
+
+
+
 <a name="calibre-web-10.0.5"></a>
 ### [calibre-web-10.0.5](https://github.com/truecharts/apps/compare/calibre-web-10.0.4...calibre-web-10.0.5) (2022-03-23)
 

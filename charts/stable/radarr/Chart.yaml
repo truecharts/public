@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "4.0.5.5981"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: "A fork of Sonarr to work with movies \xE0 la Couchpotato"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/radarr
@@ -21,7 +21,7 @@ name: radarr
 sources:
 - https://github.com/Radarr/Radarr
 type: application
-version: 10.0.5
+version: 10.0.6
 annotations:
   truecharts.org/catagories: |
     - media

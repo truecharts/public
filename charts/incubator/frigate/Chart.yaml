@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "idia"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: NVR With Realtime Object Detection for IP Cameras
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/frigate
@@ -23,7 +23,7 @@ sources:
 - https://github.com/blakeblackshear/frigate
 - https://hub.docker.com/r/blakeblackshear/frigate
 type: application
-version: 1.0.4
+version: 1.0.5
 annotations:
   truecharts.org/catagories: |
     - nvr

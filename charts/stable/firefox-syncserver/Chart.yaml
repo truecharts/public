@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "1.8.0"
-version: 6.0.5
+version: 6.0.6
 kubeVersion: '>=1.16.0-0'
 name: firefox-syncserver
 description: This is an all-in-one package for running a self-hosted Firefox Sync server.
@@ -17,8 +17,8 @@ sources:
   - https://hub.docker.com/r/crazymax/firefox-syncserver
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/

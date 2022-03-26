@@ -9,19 +9,16 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 0
+  runAsGroup: 1000
+  fsGroup: 50
 
 env:
   APP_ENV: "production"
-  APP_DEBUG: false
   DB_CONNECTION: "mysql"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_PORT: "3306"
   REDIS_PORT: "6379"
-  SESSION_DRIVER: "redis"
-  CACHE_DRIVER: "redis"
-  QUEUE_DRIVER: "redis"
   APP_TIMEZONE: "{{ .Values.TZ }}"
   FILESYSTEM_DISK: "local"
   # User Defined
@@ -29,6 +26,8 @@ env:
   APP_LOCALE: "en"
   MAX_RESULTS: 500
   IMAGE_LIB: "gd"
+  # APP_DEBUG: true
+  # APP_LOG_LEVEL: "debug"
   # Session
   SESSION_LIFETIME: 30
   EXPIRE_ON_CLOSE: false
@@ -73,6 +72,12 @@ persistence:
   logs:
     enabled: true
     mountPath: "/var/www/html/storage/logs"
+  data:
+    enabled: true
+    mountPath: "/var/lib/snipeit/data"
+  backups:
+    enabled: true
+    mountPath: "/var/lib/snipeit/dumps"
 
 mariadb:
   enabled: true
@@ -84,55 +89,3 @@ mariadb:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
-upgradeContainers:
-  migratedb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: logs
-        mountPath: "/var/www/html/storage/logs"
-    env:
-      - name: APP_ENV
-        value: "production"
-      - name: REDIS_PORT
-        value: "6379"
-      - name: SESSION_DRIVER
-        value: "redis"
-      - name: QUEUE_DRIVER
-        value: "redis"
-      - name: APP_ENV
-        value: "redis"
-      - name: DB_CONNECTION
-        value: "mysql"
-      - name: DB_PORT
-        value: "3306"
-      - name: DB_USERNAME
-        value: "{{ .Values.mariadb.mariadbUsername }}"
-      - name: DB_DATABASE
-        value: "{{ .Values.mariadb.mariadbDatabase }}"
-      - name: DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: plainhost
-      - name: DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: mariadbcreds
-            key: mariadb-password
-      - name: REDIS_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
-      - name: REDIS_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: redis-password
-      - name: APP_KEY
-        valueFrom:
-          secretKeyRef:
-            name: snipeit-secrets
-            key: APP_KEY
-    command: ["php", "artisan", "migrate"]

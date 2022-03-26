@@ -492,10 +492,12 @@ copy_docs() {
 prep_helm() {
     if [[ -z "$standalone" ]]; then
     helm repo add truecharts https://truecharts.org
+    helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo add metallb https://metallb.github.io/metallb
     helm repo add grafana https://grafana.github.io/helm-charts
     helm repo add prometheus https://prometheus-community.github.io/helm-charts
+    helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
     helm repo update
     fi
     }

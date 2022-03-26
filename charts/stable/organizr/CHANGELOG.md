@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-10.0.5"></a>
+### [organizr-10.0.5](https://github.com/truecharts/apps/compare/organizr-10.0.4...organizr-10.0.5) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="organizr-10.0.1"></a>
 ### [organizr-10.0.1](https://github.com/truecharts/apps/compare/organizr-10.0.0...organizr-10.0.1) (2022-03-07)
 

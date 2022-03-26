@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-2.0.5"></a>
+### [trilium-notes-2.0.5](https://github.com/truecharts/apps/compare/trilium-notes-2.0.4...trilium-notes-2.0.5) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="trilium-notes-2.0.1"></a>
 ### [trilium-notes-2.0.1](https://github.com/truecharts/apps/compare/trilium-notes-2.0.0...trilium-notes-2.0.1) (2022-03-07)
 

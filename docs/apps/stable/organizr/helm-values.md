@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"tccr.io/truecharts/organizr"` |  |
-| image.tag | string | `"latest@sha256:ca1794e822f705b63c5753d56c7eecfd23e1ae77ddffb5a66b13c2ec7f587ad3"` |  |
+| image.tag | string | `"latest@sha256:545941f882098256a41f81f75fab9bb84f331e32f6836877e51799b1244b7c3e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ALLOWED_NETWORKS | string | `"172.16.0.0/16"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/plex"` |  |
-| image.tag | string | `"v1.25.6.5577@sha256:b72fb9cdbe4e280500d2606bc1a293fdda548860654389d464be0b4464e470fc"` |  |
+| image.tag | string | `"v1.25.8.5663@sha256:8f26eed9c289630978b894322d8233f6c6c212e4c92a3fcc35c03b36a1c466bb"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `32400` |  |

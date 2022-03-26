@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.8"></a>
+### [tt-rss-5.0.8](https://github.com/truecharts/apps/compare/tt-rss-5.0.7...tt-rss-5.0.8) (2022-03-24)
+
+#### Chore
+
+* replace code with includes on some apps that was skipped ([#2250](https://github.com/truecharts/apps/issues/2250))
+* update docker general non-major
+* update docker general non-major
+
+
+
 <a name="tt-rss-5.0.4"></a>
 ### [tt-rss-5.0.4](https://github.com/truecharts/apps/compare/tt-rss-5.0.3...tt-rss-5.0.4) (2022-03-15)
 

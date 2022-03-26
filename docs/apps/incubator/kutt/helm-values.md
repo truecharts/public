@@ -43,8 +43,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.key | string | `"redis-password"` |  |
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"kutt/kutt"` |  |
-| image.tag | string | `"v2.7.4@sha256:2fa9480755229bd9a14ea03fb2129eb80412600f3c5dabc8f9f9fbf35ff88fce"` |  |
+| image.repository | string | `"tccr.io/truecharts/kutt"` |  |
+| image.tag | string | `"v2.7.4@sha256:7b89481d467e1c1dc75e672bdac18dd00fdb4a3f0b60d90518acbf8eddfe8615"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

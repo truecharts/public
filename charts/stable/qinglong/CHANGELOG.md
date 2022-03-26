@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="qinglong-1.0.6"></a>
+### [qinglong-1.0.6](https://github.com/truecharts/apps/compare/qinglong-1.0.5...qinglong-1.0.6) (2022-03-26)
+
+
+
+<a name="qinglong-1.0.5"></a>
+### [qinglong-1.0.5](https://github.com/truecharts/apps/compare/qinglong-1.0.4...qinglong-1.0.5) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="qinglong-1.0.1"></a>
 ### [qinglong-1.0.1](https://github.com/truecharts/apps/compare/qinglong-1.0.0...qinglong-1.0.1) (2022-03-15)
 

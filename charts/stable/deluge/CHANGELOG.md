@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.5"></a>
+### [deluge-10.0.5](https://github.com/truecharts/apps/compare/deluge-10.0.4...deluge-10.0.5) (2022-03-24)
+
+#### Fix
+
+* small fixes ([#2274](https://github.com/truecharts/apps/issues/2274))
+
+
+
 <a name="deluge-10.0.1"></a>
 ### [deluge-10.0.1](https://github.com/truecharts/apps/compare/deluge-10.0.0...deluge-10.0.1) (2022-03-07)
 

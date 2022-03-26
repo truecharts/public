@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "1.5.0"
-version: 5.0.5
+version: 5.0.6
 kubeVersion: '>=1.16.0-0'
 name: shiori
 description: A simple bookmark manager built with Go
@@ -17,8 +17,8 @@ sources:
   - https://github.com/nicholaswilde/docker-shiori
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/

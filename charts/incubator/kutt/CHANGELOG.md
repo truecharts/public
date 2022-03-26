@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kutt-0.0.4"></a>
+### [kutt-0.0.4](https://github.com/truecharts/apps/compare/kutt-0.0.3...kutt-0.0.4) (2022-03-24)
+
+#### Fix
+
+* small fixes ([#2274](https://github.com/truecharts/apps/issues/2274))
+
+
+
 <a name="kutt-0.0.1"></a>
 ### kutt-0.0.1 (2022-03-21)
 

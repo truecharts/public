@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2022.2.6"
+appVersion: "2022.3.1"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
   configuration files and control them remotely through Home Automation systems.
@@ -21,7 +21,7 @@ sources:
 - https://github.com/esphome/esphome
 - https://hub.docker.com/u/esphome
 type: application
-version: 10.0.6
+version: 10.0.8
 annotations:
   truecharts.org/catagories: |
     - tools

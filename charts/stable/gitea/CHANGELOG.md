@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-6.0.8"></a>
+### [gitea-6.0.8](https://github.com/truecharts/apps/compare/gitea-6.0.7...gitea-6.0.8) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="gitea-6.0.5"></a>
 ### [gitea-6.0.5](https://github.com/truecharts/apps/compare/gitea-6.0.4...gitea-6.0.5) (2022-03-17)
 

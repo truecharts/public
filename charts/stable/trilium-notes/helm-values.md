@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TRILIUM_DATA_DIR | string | `"/trilium-data"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/trilium-notes"` |  |
-| image.tag | string | `"v0.50.2@sha256:0c733b047ed2bda057719bc065d33676ef4223dfc3284026a65fd0c584c5c3f0"` |  |
+| image.tag | string | `"v0.50.3@sha256:821dba1159411b65ffa89a404ab64ccabdb958dd35dc99a9a81420c2c5980012"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/trilium-data"` |  |
 | service.main.ports.main.port | int | `10156` |  |

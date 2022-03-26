@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/qinglong
   pullPolicy: IfNotPresent
-  tag: v2.11.3@sha256:4f57c35169a7ecb0aa266c1282d494d53ada1f0cdbfba218a216bce7680de51c
+  tag: v2.12.0@sha256:832ccc78c2c2989ae4ea3789eafd37a04afb759b1269ae8e43ae0dadf840853c
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -19,26 +19,6 @@ service:
         port: 10176
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/ql/config"
-
-  log:
-    enabled: true
-    mountPath: "/ql/log"
-
-  db:
-    enabled: true
-    mountPath: "/ql/db"
-
-  repo:
-    enabled: true
-    mountPath: "/ql/repo"
-
-  raw:
-    enabled: true
-    mountPath: "/ql/raw"
-
-  scripts:
-    enabled: true
-    mountPath: "/ql/scripts"
+    mountPath: "/ql/data"

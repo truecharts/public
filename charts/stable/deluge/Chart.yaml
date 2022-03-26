@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "2.0.3"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Deluge App for TrueNAS SCALE
 home: https://github.com/truecharts/apps/tree/master/charts/stable/deluge
@@ -21,7 +21,7 @@ name: deluge
 sources:
 - https://github.com/deluge-torrent/deluge
 type: application
-version: 10.0.4
+version: 10.0.6
 annotations:
   truecharts.org/catagories: |
     - media

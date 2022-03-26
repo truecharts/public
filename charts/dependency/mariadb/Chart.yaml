@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "10.7.3"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 9.1.8
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Fast, reliable, scalable, and easy to use open-source relational database system.
 home: https://github.com/truecharts/apps/tree/master/stable/mariadb
-icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+icon: https://truecharts.org/_static/img/appicons/mariadb.png
 keywords:
   - mariadb
   - mysql
@@ -24,7 +24,7 @@ sources:
   - https://github.com/prometheus/mysqld_exporter
   - https://mariadb.org
 type: application
-version: 2.0.9
+version: 2.0.13
 annotations:
   truecharts.org/catagories: |
     - database

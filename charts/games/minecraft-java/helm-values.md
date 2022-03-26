@@ -38,19 +38,19 @@ You will, however, be able to use all values referenced in the common chart here
 | env.VIEW_DISTANCE | int | `16` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"tccr.io/truecharts/minecraft-java"` |  |
-| image.tag | string | `"v2022.4.1@sha256:24cdde2584fbc5c5ff0428147f89ab57d7c96a08a703521a4e3657cabd281a1c"` |  |
+| image.tag | string | `"v2022.5.0@sha256:06f4d4c559a827927195a8b4692633fa8c15f1401d65a6b395adb601c4f7273c"` |  |
 | j11Image.pullPolicy | string | `"Always"` |  |
 | j11Image.repository | string | `"tccr.io/truecharts/minecraft-java11"` |  |
-| j11Image.tag | string | `"latest@sha256:58c4c048bd4fbfd1be3e50de1d59fb4c29c63fa49fe19a78aab038256d615439"` |  |
+| j11Image.tag | string | `"latest@sha256:049429008ff816f1675e8914f94852a9a3cac3dfa2ad8fd26e8bc4d5cddce06f"` |  |
 | j11j9Image.pullPolicy | string | `"Always"` |  |
 | j11j9Image.repository | string | `"tccr.io/truecharts/minecraft-java11-openj9"` |  |
 | j11j9Image.tag | string | `"latest@sha256:248ecbdca94efa8ab7c0b0437a0b59ba82ca9dabe6cd1f90a8cbd43319f15b82"` |  |
 | j8Image.pullPolicy | string | `"Always"` |  |
 | j8Image.repository | string | `"tccr.io/truecharts/minecraft-java8-openj9"` |  |
-| j8Image.tag | string | `"latest@sha256:b27741e5a5422d8739ef060b0095ea2b88018a2c7afa288a1abbda1aa4c64978"` |  |
+| j8Image.tag | string | `"latest@sha256:44937cf02381e41f82b3651c628123085ad11ee63c3e1bb5b909c09947a3fe3f"` |  |
 | j8j9Image.pullPolicy | string | `"Always"` |  |
 | j8j9Image.repository | string | `"tccr.io/truecharts/minecraft-java8-openj9"` |  |
-| j8j9Image.tag | string | `"latest@sha256:b27741e5a5422d8739ef060b0095ea2b88018a2c7afa288a1abbda1aa4c64978"` |  |
+| j8j9Image.tag | string | `"latest@sha256:44937cf02381e41f82b3651c628123085ad11ee63c3e1bb5b909c09947a3fe3f"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
@@ -60,5 +60,9 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `25565` |  |
 | service.main.ports.main.targetPort | int | `25565` |  |
+| service.rcon.enabled | bool | `true` |  |
+| service.rcon.ports.rcon.enabled | bool | `true` |  |
+| service.rcon.ports.rcon.port | int | `25575` |  |
+| service.rcon.ports.rcon.targetPort | int | `25575` |  |
 
 All Rights Reserved - The TrueCharts Project

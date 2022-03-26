@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.11"></a>
+### [recipes-6.0.11](https://github.com/truecharts/apps/compare/recipes-6.0.10...recipes-6.0.11) (2022-03-26)
+
+#### Chore
+
+* correct path for nginx ([#2284](https://github.com/truecharts/apps/issues/2284))
+
+
+
+<a name="recipes-6.0.10"></a>
+### [recipes-6.0.10](https://github.com/truecharts/apps/compare/recipes-6.0.9...recipes-6.0.10) (2022-03-24)
+
+#### Chore
+
+* replace code with includes on some apps that was skipped ([#2250](https://github.com/truecharts/apps/issues/2250))
+* update docker general non-major
+
+
+
 <a name="recipes-6.0.8"></a>
 ### [recipes-6.0.8](https://github.com/truecharts/apps/compare/recipes-6.0.7...recipes-6.0.8) (2022-03-20)
 

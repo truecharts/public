@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-3.0.5"></a>
+### [amcrest2mqtt-3.0.5](https://github.com/truecharts/apps/compare/amcrest2mqtt-3.0.4...amcrest2mqtt-3.0.5) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="amcrest2mqtt-3.0.1"></a>
 ### [amcrest2mqtt-3.0.1](https://github.com/truecharts/apps/compare/amcrest2mqtt-3.0.0...amcrest2mqtt-3.0.1) (2022-03-07)
 

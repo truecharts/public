@@ -1,0 +1,39 @@
+image:
+  repository: tccr.io/truecharts/doplarr
+  tag: v3.3.0@sha256:d08ec284876852d664fc6565c9a7fc823eceb78dc583d0323b280717732d13cc
+  pullPolicy: IfNotPresent
+
+secret:
+  OVERSEERR__API: ""
+  OVERSEERR__DEFAULT_ID: ""
+  SONARR__API: ""
+  RADARR__API: ""
+  DISCORD__ROLE_ID: ""
+  DISCORD__TOKEN: ""
+
+env:
+  OVERSEERR__URL: ""
+  DISCORD__MAX_RESULTS: 25
+  DISCORD__REQUESTED_MSG_STYLE: ":plain"
+  SONARR__URL: ""
+  SONARR__QUALITY_PROFILE: ""
+  SONARR__LANGUAGE_PROFILE: ""
+  RADARR__URL: ""
+  RADARR__QUALITY_PROFILE: ""
+  PARTIAL_SEASONS: true
+  LOG_LEVEL: ":info"
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false

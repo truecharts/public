@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-11.0.7"></a>
+### [collabora-online-11.0.7](https://github.com/truecharts/apps/compare/collabora-online-11.0.6...collabora-online-11.0.7) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="collabora-online-11.0.4"></a>
 ### [collabora-online-11.0.4](https://github.com/truecharts/apps/compare/collabora-online-11.0.3...collabora-online-11.0.4) (2022-03-17)
 
