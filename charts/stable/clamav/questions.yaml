@@ -112,7 +112,32 @@ questions:
                   description: "Enter a valid cron schedule"
                   schema:
                     type: string
-                    default: ""
+                    default: "0 0 * * *"
+                    required: true
+                - variable: log_file_name
+                  label: "Log File Name"
+                  description: "Log file name for the scan report. You will find this report in /logs/FILENAME_DATEFORMAT"
+                  schema:
+                    type: string
+                    default: "clamdscan_report"
+                    required: true
+                - variable: date_format
+                  label: "Date Format"
+                  description: "Date format for the log file"
+                  schema:
+                    type: string
+                    default: "MM-DD-YYYY_HH.MM.SS"
+                    required: true
+                    enum:
+                      - value: "+%m-%d-%Y_%H.%M.%S"
+                        description: "MM-DD-YYYY_HH.MM.SS"
+                      - value: "+%Y-%m-%d_%H.%M.%S"
+                        description: "YYYY-MM-DD_HH.MM.SS"
+                      - value: "+%H.%M.%S_%m-%d-%Y"
+                        description: "HH.MM.SS_MM-DD-YYYY"
+                      - value: "+%H.%M.%S_%Y-%m-%d"
+                        description: "HH.MM.SS_YYYY-MM-DD"
+
 
 # Include{containerConfig}
 

@@ -44,7 +44,7 @@ spec:
                 - >
                   export status=99;
                   echo "Trying to connect to clamd...";
-                  clamdscan --ping 100:1;
+                  clamdscan --wait;
                   if [ $status -eq 0 ];
                     then
                       echo "Connected!";
