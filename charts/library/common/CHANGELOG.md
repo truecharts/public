@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-9.1.14"></a>
+### [common-9.1.14](https://github.com/truecharts/apps/compare/common-9.1.13...common-9.1.14) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* try to fix "did not find expected "-" indicator ([#2275](https://github.com/truecharts/apps/issues/2275))
+
+
+
 <a name="common-9.1.13"></a>
 ### [common-9.1.13](https://github.com/truecharts/apps/compare/common-9.1.12...common-9.1.13) (2022-03-24)
 

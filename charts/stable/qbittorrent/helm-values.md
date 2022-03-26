@@ -15,10 +15,9 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalVolumeMounts[0].name | string | `"qbittorrent-scripts"` |  |
 | additionalVolumes[0].emptyDir | object | `{}` |  |
 | additionalVolumes[0].name | string | `"qbittorrent-scripts"` |  |
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/qbittorrent"` |  |
-| image.tag | string | `"v4.4.1@sha256:5e5aa2ae4de322c47b8a48770a811e45e5c783ef234b7102b80e6fcd6f887515"` |  |
+| image.tag | string | `"v4.4.2@sha256:193ce0b3040737aaa3f2275d4615442d775f1b39cbcf4ffc11552b54734f6204"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

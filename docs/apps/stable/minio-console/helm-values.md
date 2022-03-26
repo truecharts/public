@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CONSOLE_MINIO_SERVER | string | `""` | Required: Minio server URL Example: https://minio.server:9000 |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/minio-console"` | image repository |
-| image.tag | string | `"v0.15.2@sha256:5ab5bc69817fd1a05d2a9dcdfcbbb039d5ed5f14e290cc728ee3654082ef6b3c"` | image tag |
+| image.tag | string | `"v0.15.6@sha256:9cdd199bd7be3aae7c5154083cfb8e6fad10ae6bd713aafdc46ba7b83c88be97"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

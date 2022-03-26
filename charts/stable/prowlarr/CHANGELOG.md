@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-5.0.9"></a>
+### [prowlarr-5.0.9](https://github.com/truecharts/apps/compare/prowlarr-5.0.8...prowlarr-5.0.9) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="prowlarr-5.0.8"></a>
 ### [prowlarr-5.0.8](https://github.com/truecharts/apps/compare/prowlarr-5.0.7...prowlarr-5.0.8) (2022-03-24)
 

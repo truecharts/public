@@ -44,7 +44,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/memcached:v1.6.14@sha256:004c555b4b5235729ac6b5502c9a187787337a0ed0c25bb9b75342b8f4c97952
+          tccr.io/truecharts/memcached:v1.6.14@sha256:15de7dc3a8464f26d7f7d14ebf54fb492f28bf41ce3a7fb33377cfdb2757d9d6
 
 ##### Scan Results
 
@@ -119,7 +119,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/memcached:v1.6.14@sha256:004c555b4b5235729ac6b5502c9a187787337a0ed0c25bb9b75342b8f4c97952 (debian 10.11)
+#### Container: tccr.io/truecharts/memcached:v1.6.14@sha256:15de7dc3a8464f26d7f7d14ebf54fb492f28bf41ce3a7fb33377cfdb2757d9d6 (debian 10.11)
 
 
 **debian**
@@ -289,6 +289,7 @@ hide:
 | tar         |    CVE-2021-20193   |   LOW  |  1.30+dfsg-6 |  | <details><summary>Expand...</summary><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917565">https://bugzilla.redhat.com/show_bug.cgi?id=1917565</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20193</a><br><a href="https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777">https://git.savannah.gnu.org/cgit/tar.git/commit/?id=d9d4435692150fa8ff68e1b1a473d187cc3fd777</a><br><a href="https://savannah.gnu.org/bugs/?59897">https://savannah.gnu.org/bugs/?59897</a><br><a href="https://security.gentoo.org/glsa/202105-29">https://security.gentoo.org/glsa/202105-29</a><br><a href="https://ubuntu.com/security/notices/USN-5329-1">https://ubuntu.com/security/notices/USN-5329-1</a><br></details>  |
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 | util-linux         |    CVE-2022-0563   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
+| zlib1g         |    CVE-2018-25032   |   MEDIUM  |  1:1.2.11.dfsg-1 |  | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br></details>  |
 
 **gobinary**
 
