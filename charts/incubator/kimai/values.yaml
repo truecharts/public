@@ -20,8 +20,9 @@ env:
   DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
   APP_ENV: "prod"
+  TRUSTED_HOSTS: "{{ .Values.env.trust_hosts }},localhost"
   # User Defined
-  TRUSTED_HOSTS: "localhost"
+  trust_hosts: "127.0.0.1"
 
 envValueFrom:
   DB_PASS:
