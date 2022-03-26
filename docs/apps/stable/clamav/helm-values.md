@@ -11,6 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| clamav.cron_enabled | bool | `true` |  |
+| clamav.cron_schedule | string | `"* * * * *"` |  |
+| clamav.date_format | string | `"+%m-%d-%Y_%H.%M.%S"` |  |
+| clamav.extra_args | string | `""` |  |
+| clamav.log_file_name | string | `"clamscan_report"` |  |
+| clamav.report_path | string | `"/logs"` |  |
+| cronjob.annotations | object | `{}` |  |
+| cronjob.failedJobsHistoryLimit | int | `5` |  |
+| cronjob.successfulJobsHistoryLimit | int | `2` |  |
 | env.CLAMAV_NO_CLAMD | bool | `false` |  |
 | env.CLAMAV_NO_FRESHCLAMD | bool | `false` |  |
 | env.CLAMAV_NO_MILTERD | bool | `true` |  |
@@ -19,6 +28,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/clamav"` |  |
 | image.tag | string | `"v0.104.2@sha256:eb816a62ce0b7c331d893e8d51e54fe96b1cb5878c7394e935a48468b0b44f6d"` |  |
+| persistence.logs.enabled | bool | `true` |  |
+| persistence.logs.mountPath | string | `"/logs"` |  |
 | persistence.scandir.enabled | bool | `true` |  |
 | persistence.scandir.mountPath | string | `"/scandir"` |  |
 | persistence.scandir.readOnly | bool | `true` |  |
@@ -29,24 +40,12 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.custom | bool | `true` |  |
 | probes.liveness.enabled | bool | `true` |  |
 | probes.liveness.spec.exec.command[0] | string | `"clamdcheck.sh"` |  |
-| probes.liveness.spec.failureThreshold | int | `10` |  |
-| probes.liveness.spec.initialDelaySeconds | int | `15` |  |
-| probes.liveness.spec.periodSeconds | int | `30` |  |
-| probes.liveness.spec.timeoutSeconds | int | `1` |  |
 | probes.readiness.custom | bool | `true` |  |
 | probes.readiness.enabled | bool | `true` |  |
 | probes.readiness.spec.exec.command[0] | string | `"clamdcheck.sh"` |  |
-| probes.readiness.spec.failureThreshold | int | `10` |  |
-| probes.readiness.spec.initialDelaySeconds | int | `15` |  |
-| probes.readiness.spec.periodSeconds | int | `30` |  |
-| probes.readiness.spec.timeoutSeconds | int | `1` |  |
 | probes.startup.custom | bool | `true` |  |
 | probes.startup.enabled | bool | `true` |  |
 | probes.startup.spec.exec.command[0] | string | `"clamdcheck.sh"` |  |
-| probes.startup.spec.failureThreshold | int | `10` |  |
-| probes.startup.spec.initialDelaySeconds | int | `15` |  |
-| probes.startup.spec.periodSeconds | int | `30` |  |
-| probes.startup.spec.timeoutSeconds | int | `1` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `3310` |  |

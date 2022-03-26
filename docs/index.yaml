@@ -6171,6 +6171,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.104.2
+    created: "2022-03-26T23:19:12.393643424Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: ClamAV® is an open source antivirus engine for detecting trojans,
+      viruses, malware & other malicious threats.
+    digest: b7bd031d09712efa3626b18b4011fbeb2c59bac135bc7c34b79a9ea089963a80
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/clamav
+    icon: https://truecharts.org/_static/img/appicons/clamav.png
+    keywords:
+    - clamav
+    - antivirus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: clamav
+    sources:
+    - https://github.com/Cisco-Talos/clamav
+    - https://hub.docker.com/r/clamav/clamav
+    - https://docs.clamav.net/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/clamav-2.1.0/clamav-2.1.0.tgz
+    version: 2.1.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.104.2
     created: "2022-03-07T01:24:24.294035748Z"
     dependencies:
     - name: common
@@ -85145,4 +85179,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-26T19:56:07.391845812Z"
+generated: "2022-03-26T23:19:12.403899037Z"
