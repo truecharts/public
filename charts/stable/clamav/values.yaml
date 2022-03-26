@@ -22,7 +22,7 @@ clamav:
   report_path: "/logs"
   # User Defined
   cron_enabled: true
-  cron_schedule: "* * * * * *"
+  cron_schedule: "* * * * *"
   date_format: "+%m-%d-%Y"
   log_file_name: "clamdscan_report"
   extra_args: "--verbose"
@@ -35,10 +35,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
   readiness:
     enabled: true
     custom: true
@@ -46,10 +42,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
   startup:
     enabled: true
     custom: true
@@ -57,10 +49,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
 
 service:
   main:
