@@ -39,24 +39,17 @@ spec:
                   value: {{ .Values.clamav.log_file_name }}
                 - name: report_path
                   value: {{ .Values.clamav.report_path | trimSuffix "/" }}
+                - name: extra_args
+                  value: {{ .Values.clamav.extra_args }}
               command: ["sh", "-c"]
               args:
                 - >
-                  clamd;
                   export status=99;
-                  echo "Trying to connect to clamd...";
-                  clamdscan --ping 100;
-                  if [ $status -eq 0 ];
-                    then
-                      echo "Connected!";
-                  else
-                    echo "Failed to connect...";
-                    exit 1;
-                  fi;
                   export now=$(date ${date_format});
                   export log_file=$report_path/${log_file_name}_${now};
                   touch $log_file;
                   echo "Starting scan of \"/scandir\"";
+                  clamscan --database=/var/lib/clamav --log=$log_file --recursive ${extra_args};
                   clamdscan /scandir --wait --log=$log_file;
                   status=$?;
                   if [ $status -eq 0 ];
