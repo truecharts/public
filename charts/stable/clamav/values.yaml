@@ -19,7 +19,7 @@ env:
   FRESHCLAM_CHECKS: 1
 
 clamav:
-  cron_schedule: ""
+  cron_schedule: "* * * * *"
   cron_enabled: true
 
 probes:
