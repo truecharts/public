@@ -66,6 +66,8 @@ env:
   CLAMAV_NO_MILTERD: true
   CLAMD_STARTUP_TIMEOUT: 1800
   FRESHCLAM_CHECKS: 1
+  cronschedule: "* * * * *"
+  cronenabled: true
 
 persistence:
   sigdatabase:
