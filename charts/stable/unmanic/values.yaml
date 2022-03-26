@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/unmanic
+  tag: v0.2.0@sha256:8803a54504f699d45197b51866e9bdbb1f7bd543e0183aa8c055bfb3dacef04f
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10157
+        targetPort: 8888
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  library:
+    enabled: true
+    mountPath: "/library"
+  remote:
+    enabled: true
+    mountPath: "/tmp/unmanic/remote_library"
+  cache:
+    enabled: true
+    mountPath: "/tmp/unmanic"
+    type: emptyDir
+  varrun:
+    enabled: true

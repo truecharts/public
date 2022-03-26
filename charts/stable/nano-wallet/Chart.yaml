@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: nano-wallet
+version: 1.0.6
+appVersion: "2021.12.16"
+description: Nano-wallet is a digital payment protocol designed to be accessible and lightweight.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/nano-wallet
+icon: https://truecharts.org/_static/img/appicons/nano-wallet.png
+keywords:
+  - nano-wallet
+sources:
+  - https://hub.docker.com/r/linuxserver/nano-wallet
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

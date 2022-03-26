@@ -1,40 +1,32 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
-  # -- image repository
-  repository: ghcr.io/truecharts/focalboard
-  # -- image pull policy
+  repository: tccr.io/truecharts/focalboard
   pullPolicy: IfNotPresent
-  # -- image tag
-  tag: v0.8.0@sha256:c8a81de85722b1d8ce728222cd5b77ea9f8e4ca33c91787a8a3eb0a49f6fa432
+  tag: v0.15.0@sha256:81fcf2a97f980c5b7f41c64e752794bc33fe4b0762a31694a88062ac39ce92d7
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables. See more environment variables in the [image entrypoint script](https://github.com/FlipEnergy/container-images/blob/main/focalboard/entrypoint.sh)
-# @default -- See below
 env: {}
-  # SERVER_ROOT:
-  # DBTYPE:
-  # DBCONFIG:
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+focalboard:
+  serverRoot: "http://localhost:10072"
+  telemetry: false
+  localOnly: false
+  enableLocalMode: true
+
 service:
   main:
     ports:
       main:
         port: 10072
-        targetPort: 8000
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
-  data:
+  uploads:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/uploads"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: focalboard
+  postgresqlDatabase: focalboard

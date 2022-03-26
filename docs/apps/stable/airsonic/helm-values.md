@@ -14,11 +14,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details. |
 | env.CONTEXT_PATH | string | `nil` | Used to set the base path for reverse proxies eg. /booksonic, /books, etc. |
 | env.JAVA_OPTS | string | `nil` | For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/airsonic"` | image repository |
-| image.tag | string | `"version-v10.6.2@sha256:0a0e49be383db9340c0a8258bb31c5916281ec18c8c3fb56006866d18f8e63e0"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/airsonic"` | image repository |
+| image.tag | string | `"version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

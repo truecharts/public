@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/hammond
+  tag: 1.0.0@sha256:a38f0455634f15a38535b6f067f0cd6b62770df51d0c40c5f09ad19cbe066702
+  pullPolicy: IfNotPresent
+
+envValueFrom:
+  JWT_SECRET:
+    secretKeyRef:
+      name: hammond-secrets
+      key: JWT_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10186
+        targetPort: 3000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  assets:
+    enabled: true
+    mountPath: "/assets"

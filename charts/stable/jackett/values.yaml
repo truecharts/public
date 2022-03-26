@@ -1,9 +1,7 @@
-# Default values for Jackett.
-
 image:
-  repository: ghcr.io/k8s-at-home/jackett
+  repository: tccr.io/truecharts/jackett
   pullPolicy: IfNotPresent
-  tag: v0.20.53@sha256:6f82922f155dfd72b23e1ce9ec84de8bbc2a12a362bfbd62d81bc3c3f58ac515
+  tag: v0.20.761@sha256:b07f8a49d9b2bdfd4370abe765b3c1f71d494e0f3a69c6cd6a9e64a318d55e14
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -26,9 +24,6 @@ probes:
   startup:
     path: "/UI/Login"
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true

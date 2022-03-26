@@ -1,9 +1,7 @@
-# Default values for Ombi.
-
 image:
-  repository: ghcr.io/truecharts/ombi
+  repository: tccr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: v4.0.1482@sha256:0fa4e81029d9adef9d773ce99db13ff3039fd087d58d7266cbcfd7462e7afc56
+  tag: v4.15.2@sha256:207cea1812d92e56e31c62630cb9d81409be971bd2a7ac816e381f857a4f6af1
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -15,17 +13,13 @@ service:
         port: 3579
         targetPort: 3579
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true
     mountPath: "/config"
 
-
 # Enabled mariadb
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/mariadb
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb
 mariadb:
   enabled: false
   architecture: standalone

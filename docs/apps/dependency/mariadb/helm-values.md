@@ -26,14 +26,14 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MARIADB_ROOT_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/mariadb"` |  |
-| image.tag | string | `"10.6.5@sha256:e94d13bb2d6315ce9f970daafbd2e331ebd166de3148055d8b6c6f24bea41d6b"` |  |
+| image.repository | string | `"ghcr.io/truecharts/mariadb"` |  |
+| image.tag | string | `"v10.7.3@sha256:63743b10ac562b8f63abd3dfa246298c6678cfeb9e7559c65265f5066385fcf6"` |  |
 | mariadbDatabase | string | `"test"` |  |
 | mariadbPassword | string | `"testpass"` |  |
 | mariadbRootPassword | string | `"testroot"` |  |
 | mariadbUsername | string | `"test"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |

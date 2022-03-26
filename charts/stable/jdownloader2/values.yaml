@@ -1,9 +1,7 @@
-# Default values for jdownloader2.
-
 image:
-  repository: ghcr.io/truecharts/jdownloader-2
+  repository: tccr.io/truecharts/jdownloader-2
   pullPolicy: IfNotPresent
-  tag: v1.7.1@sha256:ed3299aa7037a99aed5978c30e504ce3daa470d11b6af9533355592c64c3cced
+  tag: v1.7.1@sha256:ba37e3a795f6e64466de3e81152af78c5fe8f6c3beeeee5a2bc948c41a631b16
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -34,23 +32,34 @@ service:
         port: 10056
         targetPort: 5900
 
-# All values here are set as the docker defaults.
-envTpl:
-  # Permissions Settings
-  USER_ID: "{{ .Values.env.PUID }}"
-env:
-  # Permissions Settings
-  PUID: 568
-  # General Settings
-  KEEP_APP_RUNNING: "0"
-  CLEAN_TMP_DIR: "1"
-  # GUI Settings
-  DISPLAY_WIDTH: "1280"
-  DISPLAY_HEIGHT: "768"
-  SECURE_CONNECTION: "0"
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-jdownloader'
+
+secret:
   VNC_PASSWORD: ""
+
+jdownloader:
+  # General Settings
+  KEEP_APP_RUNNING: false
+  # GUI Settings
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+
+configmap:
+  jdownloader:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.jdownloader.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.jdownloader.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.jdownloader.DISPLAY_HEIGHT }}"
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+  output:
+    enabled: true
+    mountPath: "/output"

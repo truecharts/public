@@ -15,6 +15,15 @@ data:
   {{- if .Values.littlelink.meta_author }}
   META_AUTHOR: {{ .Values.littlelink.meta_author | quote }}
   {{- end }}
+  {{- if .Values.littlelink.lang }}
+  LANG: {{ .Values.littlelink.lang | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.meta_index_status }}
+  META_INDEX_STATUS: {{ .Values.littlelink.meta_index_status | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.ga_tracking_id }}
+  GA_TRACKING_ID: {{ .Values.littlelink.ga_tracking_id | quote }}
+  {{- end }}
   {{- if .Values.littlelink.theme }}
   THEME: {{ .Values.littlelink.theme | quote }}
   {{- end }}
@@ -90,8 +99,14 @@ data:
   {{- if .Values.littlelink.email }}
   EMAIL: {{ .Values.littlelink.email | quote }}
   {{- end }}
+  {{- if .Values.littlelink.email_text }}
+  EMAIL_TEXT: {{ .Values.littlelink.email_text | quote }}
+  {{- end }}
   {{- if .Values.littlelink.email_alt }}
   EMAIL_ALT: {{ .Values.littlelink.email_alt | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.email_alt_text }}
+  EMAIL_ALT_TEXT: {{ .Values.littlelink.email_alt_text | quote }}
   {{- end }}
   {{- if .Values.littlelink.sound_cloud }}
   SOUND_CLOUD: {{ .Values.littlelink.sound_cloud | quote }}
@@ -119,6 +134,63 @@ data:
   {{- end }}
   {{- if .Values.littlelink.skoob }}
   SKOOB: {{ .Values.littlelink.skoob | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.letterboxd }}
+  LETTERBOXD: {{ .Values.littlelink.letterboxd | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.mastodon }}
+  MASTODON: {{ .Values.littlelink.mastodon | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.micro_blog }}
+  MICRO_BLOG: {{ .Values.littlelink.micro_blog | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.whatsapp }}
+  WHATSAPP: {{ .Values.littlelink.whatsapp | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.strava }}
+  STRAVA: {{ .Values.littlelink.strava | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.buymeacoffee }}
+  BUYMEACOFFEE: {{ .Values.littlelink.buymeacoffee | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.gitlab }}
+  GITLAB: {{ .Values.littlelink.gitlab | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.patreon }}
+  PATREON: {{ .Values.littlelink.patreon | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.devto }}
+  DEVTO: {{ .Values.littlelink.devto | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.umami_website_id }}
+  UMAMI_WEBSITE_ID: {{ .Values.littlelink.umami_website_id | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.umami_app_url }}
+  UMAMI_APP_URL: {{ .Values.littlelink.umami_app_url | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.paypal }}
+  PAYPAL: {{ .Values.littlelink.paypal | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.slack }}
+  SLACK: {{ .Values.littlelink.slack | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.lastfm }}
+  LASTFM: {{ .Values.littlelink.lastfm | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.untappd }}
+  UNTAPPD: {{ .Values.littlelink.untappd | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.stackoverflow }}
+  STACKOVERFLOW: {{ .Values.littlelink.stackoverflow | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.gitea }}
+  GITEA: {{ .Values.littlelink.gitea | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.polywork }}
+  POLYWORK: {{ .Values.littlelink.polywork | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.signal }}
+  SIGNAL: {{ .Values.littlelink.signal | quote }}
   {{- end }}
   {{- if .Values.littlelink.footer }}
   FOOTER: {{ .Values.littlelink.footer | quote }}

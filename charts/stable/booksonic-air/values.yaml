@@ -1,17 +1,10 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/booksonic-air
+  repository: tccr.io/truecharts/booksonic-air
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: version-v2009.1.0@sha256:ca74f3d0f0a4165f9ffaa3733274b5c14817ff977d04426ba71435c51b110d19
+  tag: v2201.1.0@sha256:cdf3f284ba8883e5898a176cefb3081bf8a8b73302aee8400976f810f26d6cce
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -23,11 +16,7 @@ podSecurityContext:
 
 # See more environment variables in the [booksonic-air documentation](https://github.com/linuxserver/docker-booksonic-air#parameters)
 # @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
-  # -- Specify the user ID the application will run as
-  PUID: 568
+env: {}
   # -- Used to set the base path for reverse proxies eg. /booksonic, /books, etc.
   # CONTEXT_PATH=url-base
 

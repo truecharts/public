@@ -11,15 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
-| envTpl.USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.PORT | int | `5432` |  |
+| env.USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/odoo"` |  |
-| image.tag | string | `"version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d"` |  |
+| image.repository | string | `"tccr.io/truecharts/odoo"` |  |
+| image.tag | string | `"v15.0@sha256:f2dfcec92495ee630f3b67fd24a5f65caa5245eaaff0d84eb33229745637e280"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |
 | persistence.odoo.enabled | bool | `true` |  |
@@ -28,15 +28,14 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"postgres"` |  |
 | postgresql.postgresqlUsername | string | `"odoo"` |  |
-| secret | object | `{}` |  |
 | service.main.ports.main.port | int | `8069` |  |
 | service.main.ports.main.targetPort | int | `8069` |  |
 | service.odoo.enabled | bool | `true` |  |
-| service.odoo.ports.odoo-1.enabled | bool | `true` |  |
-| service.odoo.ports.odoo-1.port | int | `8071` |  |
-| service.odoo.ports.odoo-1.targetPort | int | `8071` |  |
-| service.odoo.ports.odoo-2.enabled | bool | `true` |  |
-| service.odoo.ports.odoo-2.port | int | `8072` |  |
-| service.odoo.ports.odoo-2.targetPort | int | `8072` |  |
+| service.odoo.ports.longpolling.enabled | bool | `true` |  |
+| service.odoo.ports.longpolling.port | int | `8072` |  |
+| service.odoo.ports.longpolling.targetPort | int | `8072` |  |
+| service.odoo.ports.xmlrpcs.enabled | bool | `true` |  |
+| service.odoo.ports.xmlrpcs.port | int | `8071` |  |
+| service.odoo.ports.xmlrpcs.targetPort | int | `8071` |  |
 
 All Rights Reserved - The TrueCharts Project

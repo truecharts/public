@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: firefox
+version: 1.0.6
+appVersion: "78.15.0"
+description: Firefox Browser, also known as Mozilla Firefox or simply Firefox,
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/firefox
+icon: https://truecharts.org/_static/img/appicons/firefox.png
+keywords:
+  - firefox
+sources:
+  - https://hub.docker.com/r/linuxserver/firefox
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

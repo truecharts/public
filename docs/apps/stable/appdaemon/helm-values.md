@@ -15,10 +15,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ELEVATION | int | `1217` |  |
 | env.LATITUDE | int | `46` |  |
 | env.LONGITUDE | int | `-94` |  |
-| env.TZ | string | `"America/Chicago"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
-| image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
+| image.repository | string | `"tccr.io/truecharts/appdaemon"` |  |
+| image.tag | string | `"v4.2.1@sha256:4f3c06b9cd453f65e9e13b600b96a31bba25346e961d570b48881d4f63da3d60"` |  |
 | persistence.conf.enabled | bool | `true` |  |
 | persistence.conf.mountPath | string | `"/conf"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

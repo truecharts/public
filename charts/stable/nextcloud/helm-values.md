@@ -15,12 +15,10 @@ You will, however, be able to use all values referenced in the common chart here
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
 | cronjob.schedule | string | `"*/5 * * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
-| env.NEXTCLOUD_ADMIN_PASSWORD | string | `"adminpass"` |  |
-| env.NEXTCLOUD_ADMIN_USER | string | `"admin"` |  |
+| env.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.TRUSTED_PROXIES | string | `"172.16.0.0/16"` |  |
 | envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainporthost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
@@ -30,8 +28,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.key | string | `"redis-password"` |  |
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"docker.io/nextcloud"` |  |
-| image.tag | string | `"22.2.3@sha256:5512b02fca6533626ed0a1799b2090255357de9b269d0a04d8f7a6d582438ccc"` |  |
+| image.repository | string | `"tccr.io/truecharts/nextcloud"` |  |
+| image.tag | string | `"v23.0.3@sha256:00d4d935dbb96e30b3927f73f91616b09cb67e951b95ec798aa5c58fb4c967c2"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
@@ -41,22 +39,32 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"nextcloud"` |  |
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
-| probes.liveness | object | See below | Liveness probe configuration |
-| probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| probes.readiness | object | See below | Redainess probe configuration |
-| probes.readiness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| probes.startup | object | See below | Startup probe configuration |
-| probes.startup.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
+| probes.liveness.custom | bool | `true` |  |
+| probes.liveness.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.liveness.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.liveness.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.liveness.spec.httpGet.port | int | `80` |  |
+| probes.readiness.custom | bool | `true` |  |
+| probes.readiness.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.readiness.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.readiness.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.readiness.spec.httpGet.port | int | `80` |  |
+| probes.startup.custom | bool | `true` |  |
+| probes.startup.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.startup.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.startup.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.startup.spec.httpGet.port | int | `80` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
+| secret.NEXTCLOUD_ADMIN_PASSWORD | string | `"adminpass"` |  |
+| secret.NEXTCLOUD_ADMIN_USER | string | `"admin"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.port | int | `7867` |  |
 | service.hpb.ports.hpb.targetPort | int | `7867` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10020` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

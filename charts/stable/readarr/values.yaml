@@ -1,9 +1,7 @@
-# Default values for Radarr.
-
 image:
-  repository: ghcr.io/k8s-at-home/readarr
+  repository: tccr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: v0.1.0.1053@sha256:2fe90df84cf7007ca4e7fb6699f4aa383b72346240dd7570acbcd0c331d990f7
+  tag: v0.1.1.1287@sha256:ad38c27d36f0f648f669824e76bec97e3f2e114a8ce0b391c7eaec298cd04c80
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -15,9 +13,6 @@ service:
         port: 8787
         targetPort: 8787
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 probes:
   liveness:
     enabled: true

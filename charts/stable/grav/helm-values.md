@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/grav"` |  |
-| image.tag | string | `"version-1.7.18@sha256:e4fc1032fd78c0a6772cf141669449fdd4d0f5e6ad4646d6ebaf0b6015631738"` |  |
+| image.repository | string | `"tccr.io/truecharts/grav"` |  |
+| image.tag | string | `"version-1.7.18@sha256:709e672ef2cbe1235d896ed9bac213d773abfe70b37925f5870a8a925a047e16"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10012` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

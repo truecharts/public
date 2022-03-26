@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -74,21 +75,33 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
+  - variable: secret
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+              - variable: VNC_PASSWORD
+                label: "VNC_PASSWORD"
+                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+  - variable: handbrake
+    group: "Container Configuration"
+    label: "HandBrake Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: KEEP_APP_RUNNING
+          label: "KEEP_APP_RUNNING"
+          description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
           schema:
-            type: int
-            default: 568
-
-
+            type: boolean
+            default: false
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -101,30 +114,22 @@ questions:
                 label: "DISPLAY_WIDTH"
                 description: "Width (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "1280"
+                  type: int
+                  default: 1280
                   required: true
               - variable: DISPLAY_HEIGHT
                 label: "DISPLAY_HEIGHT"
                 description: "Height (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "768"
+                  type: int
+                  default: 768
                   required: true
               - variable: SECURE_CONNECTION
                 label: "SECURE_CONNECTION"
                 description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
                 schema:
-                  type: string
-                  default: "0"
-                  required: true
-              - variable: VNC_PASSWORD
-                label: "VNC_PASSWORD"
-                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
-                schema:
-                  private: true
-                  type: string
-                  default: ""
+                  type: boolean
+                  default: false
         - variable: autoconv
           label: "Automated Conversion Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -151,9 +156,8 @@ questions:
                 label: "AUTOMATED_CONVERSION_KEEP_SOURCE"
                 description: "When set to 0, a video that has been successfully converted is removed from the watch folder."
                 schema:
-                  type: string
-                  default: "1"
-                  required: true
+                  type: boolean
+                  default: false
               - variable: AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION
                 label: "AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION"
                 description: "When set to ignore, a non-video file found in the watch folder is ignored. If set to copy, a non-video file is copied as-is to the output folder."
@@ -167,18 +171,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -187,7 +194,6 @@ questions:
                             schema:
                               type: int
                               default: 10053
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -224,17 +230,18 @@ questions:
                                     type: int
                                     default: 5800
 
-
         - variable: vnc
           label: "VNC Service"
           description: "VNC Service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: vnc
                       label: "TCP Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -243,7 +250,6 @@ questions:
                             schema:
                               type: int
                               default: 10055
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -304,20 +310,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -342,14 +344,92 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: storage
+          label: "App Storage"
+          description: "Application Storage."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "/config"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: output
+          label: "App Output Storage"
+          description: "Stores the Application Output."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -368,11 +448,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -385,6 +467,8 @@ questions:
 
 # Include{ingressList}
 
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -396,6 +480,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -418,11 +503,13 @@ questions:
                 schema:
                   type: boolean
                   default: false
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -443,26 +530,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

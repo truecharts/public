@@ -2,11 +2,11 @@ apiVersion: v2
 appVersion: "4.7.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: Flood is a monitoring service for various torrent clients
-home: https://github.com/truechartsapps/tree/master/charts/stable/flood
-icon: https://raw.githubusercontent.com/jesec/flood/master/flood.svg
+home: https://github.com/truecharts/apps/tree/master/charts/stable/flood
+icon: https://truecharts.org/_static/img/appicons/flood.png
 keywords:
 - flood
 - rtorrent
@@ -21,7 +21,7 @@ name: flood
 sources:
 - https://github.com/jesec/flood
 - https://hub.docker.com/r/jesec/flood
-version: 4.0.12
+version: 5.0.6
 annotations:
   truecharts.org/catagories: |
     - media

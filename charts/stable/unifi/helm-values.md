@@ -11,18 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
-| envTpl.UNIFI_GID | string | `"{{ .Values.env.PUID }}"` |  |
-| envTpl.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
+| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/unifi"` |  |
-| image.tag | string | `"v6.5.53@sha256:c6cf26dcd8e73e95503a9a8fb5ab36458c05c724b33add8dc1a6152648f33d3d"` |  |
+| image.repository | string | `"tccr.io/truecharts/unifi"` |  |
+| image.tag | string | `"v7.0.23@sha256:3efebda4cef8e75b97689b57d8d8797413b9e765e77c0d339fa68ebdf5434873"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.runAsGroup | int | `999` |  |
+| podSecurityContext.runAsUser | int | `999` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.port | int | `8080` |  |

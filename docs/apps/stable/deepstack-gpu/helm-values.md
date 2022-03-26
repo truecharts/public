@@ -12,22 +12,24 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.MODE | string | `"High"` |  |
-| env.MODELSTORE-DETECTION | string | `"/modelstore/detection"` |  |
+| env.MODELSTORE-DETECTION | string | `"{{ .Values.persistence.modelstore.mountPath }}"` |  |
 | env.PUID | int | `568` |  |
+| env.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | env.VISION-DETECTION | string | `"True"` |  |
 | env.VISION-FACE | string | `"True"` |  |
 | env.VISION-SCENE | string | `"True"` |  |
-| envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"deepquestai/deepstack"` |  |
-| image.tag | string | `"gpu-2021.09.1@sha256:e71f54392c9b1199f9142d7ffcd8f0c3a6e91fe69c02a44fd76f906dd88849cb"` |  |
+| image.repository | string | `"tccr.io/truecharts/deepstack-gpu"` |  |
+| image.tag | string | `"v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/datastore"` |  |
+| persistence.modelstore.enabled | bool | `true` |  |
+| persistence.modelstore.mountPath | string | `"/modelstore/detection"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `5000` |  |
+| service.main.ports.main.port | int | `10050` |  |
 | service.main.ports.main.targetPort | int | `5000` |  |
 
 All Rights Reserved - The TrueCharts Project

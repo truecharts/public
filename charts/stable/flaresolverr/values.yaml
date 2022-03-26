@@ -1,17 +1,10 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/flaresolverr/flaresolverr
+  repository: tccr.io/truecharts/flaresolverr
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: v2.0.2@sha256:f08e3442bc6d6f6328d98f2cebafd36c7442339c1f12cb6e531928a60d6dde3f
+  tag: v2.2.2@sha256:3f1a0122013b2463f573726fd64d84dcf27cd7ce2d8fca783dd2e49980c03dd9
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,7 +17,6 @@ podSecurityContext:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

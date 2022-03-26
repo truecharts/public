@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/syslog-ng
+  pullPolicy: IfNotPresent
+  tag: v3.36.1@sha256:7b8d18e31faad631d519c5a8f10bd711ff4fd5862830a6a61b3f1c47ab05da0f
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env: {}
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 601
+        port: 6601
+  syslog-udp:
+    enabled: true
+    ports:
+      syslog-udp:
+        enabled: true
+        protocol: UDP
+        targetPort: 514
+        port: 5514
+  syslog-tls:
+    enabled: true
+    ports:
+      syslog-tls:
+        enabled: true
+        targetPort: 6514
+        port: 6514
+
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+    mountPath: "/config"

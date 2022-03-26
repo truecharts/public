@@ -1,4 +1,4 @@
-# 05 - Upgrading, Rollback and Delete
+# 04 - Upgrading, Rollback and Delete
 
 With TrueCharts we always push new versions of an App for any change. Even for the containers.
 This ensures upgrading the App always gives you the Latest-and-Greatest from TrueCharts
@@ -66,4 +66,4 @@ Ofcoarse only enter the version number in the GUI or CLI, not the name
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/fs9Psx626Gs)
+![type:video](https://www.youtube.com/embed/ONbMhQJPQwc)

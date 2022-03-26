@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "0.9.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Web-based LDAP browser to manage your LDAP server
 home: https://github.com/truecharts/apps/tree/master/charts/stable/phpldapadmin
-icon: https://repository-images.githubusercontent.com/3665191/dd213f80-766c-11e9-8117-6b639095ef99
+icon: https://truecharts.org/_static/img/appicons/phpldapadmin.png
 keywords:
 - phpldapadmin
 - openldap
@@ -21,7 +21,7 @@ name: phpldapadmin
 sources:
 - https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
 type: application
-version: 4.0.12
+version: 5.0.6
 annotations:
   truecharts.org/catagories: |
     - management

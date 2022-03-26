@@ -1,9 +1,7 @@
-# Default values for emby.
-
 image:
-  repository: ghcr.io/k8s-at-home/emby
+  repository: tccr.io/truecharts/emby
   pullPolicy: IfNotPresent
-  tag: v4.6.5.0@sha256:11b1f306d6309b60f16bf4292f9737c0a4a0020e93cfc1c0b36bc10b2680da40
+  tag: v4.6.7.0@sha256:f2c60cee28b40d6eeeff72cda847eced2d069b410e63a5b0bdbab7783f34ec1b
 
 securityContext:
   readOnlyRootFilesystem: false

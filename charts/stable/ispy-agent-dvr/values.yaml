@@ -1,0 +1,95 @@
+image:
+  repository: tccr.io/truecharts/ispy-agent-dvr
+  tag: v3.8.9.0@sha256:8e4836cd87e2efd6d9dba2e172d5dc78cb7ca61c316f7c6b55ee99952b1c6ebc
+  pullPolicy: IfNotPresent
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10184
+        targetPort: 8090
+  turn:
+    enabled: true
+    ports:
+      turn:
+        enabled: true
+        protocol: UDP
+        port: 3478
+        targetPort: 3478
+  webrtc:
+    enabled: true
+    ports:
+      webrtc0:
+        enabled: true
+        protocol: UDP
+        port: 50000
+        targetPort: 50000
+      webrtc1:
+        enabled: true
+        protocol: UDP
+        port: 50001
+        targetPort: 50001
+      webrtc2:
+        enabled: true
+        protocol: UDP
+        port: 50002
+        targetPort: 50002
+      webrtc3:
+        enabled: true
+        protocol: UDP
+        port: 50003
+        targetPort: 50003
+      webrtc4:
+        enabled: true
+        protocol: UDP
+        port: 50004
+        targetPort: 50004
+      webrtc5:
+        enabled: true
+        protocol: UDP
+        port: 50005
+        targetPort: 50005
+      webrtc6:
+        enabled: true
+        protocol: UDP
+        port: 50006
+        targetPort: 60005
+      webrtc7:
+        enabled: true
+        protocol: UDP
+        port: 50007
+        targetPort: 50007
+      webrtc8:
+        enabled: true
+        protocol: UDP
+        port: 50008
+        targetPort: 50008
+      webrtc9:
+        enabled: true
+        protocol: UDP
+        port: 50009
+        targetPort: 50009
+      webrtc10:
+        enabled: true
+        protocol: UDP
+        port: 50010
+        targetPort: 50010
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/agent/Media/XML"
+  media:
+    enabled: true
+    mountPath: "/agent/Media/WebServerRoot/Media"
+  commands:
+    enabled: true
+    mountPath: "/agent/Commands"

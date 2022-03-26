@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/couchpotato
+  pullPolicy: IfNotPresent
+  tag: v2021.11.22
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5050
+        port: 10139
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

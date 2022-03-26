@@ -1,14 +1,14 @@
 apiVersion: v2
-appVersion: "0.8.8"
+appVersion: "0.9.12"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Gaps searches through your Plex Server or local folders for all movies,
   then queries for known movies in the same collection.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/gaps
-icon: https://raw.githubusercontent.com/JasonHHouse/gaps/master/images/Final-Black.png
+icon: https://truecharts.org/_static/img/appicons/gaps.png
 keywords:
 - gaps
 - plex
@@ -22,7 +22,7 @@ name: gaps
 sources:
 - https://github.com/JasonHHouse/gaps
 type: application
-version: 9.0.12
+version: 10.0.6
 annotations:
   truecharts.org/catagories: |
     - media

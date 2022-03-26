@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: qinglong
+version: 1.0.8
+appVersion: "2.12.0"
+description: A timed task management panel that supports typescript, javaScript, python3, and shell
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/qinglong
+icon: https://truecharts.org/_static/img/appicons/qinglong.png
+keywords:
+  - qinglong
+  - task
+sources:
+  - https://hub.docker.com/r/whyour/qinglong
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -11,11 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/prowlarr"` | image repository |
-| image.tag | string | `"v0.1.4.1133@sha256:8c56a6d63f64509d247ec6140dcd4e4d3fdc5fb4170db76f1094836afa0c0ff0"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/prowlarr"` | image repository |
+| image.tag | string | `"v0.2.0.1617@sha256:54f8ce9e343c8a183d135aa56b2b2198a8802cc0db1e2405dd92c6149428ea25"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Easy platform to combine all your social links
 home: https://github.com/truecharts/apps/tree/master/charts/stable/littlelink
-icon: https://littlelink.io/images/avatar@2x.png
+icon: https://truecharts.org/_static/img/appicons/littlelink.png
 keywords:
 - littlelink
 kubeVersion: '>=1.16.0-0'
@@ -20,7 +20,7 @@ sources:
 - https://github.com/techno-tim/littlelink-server
 - https://github.com/sethcottle/littlelink
 type: application
-version: 4.0.18
+version: 5.0.9
 annotations:
   truecharts.org/catagories: |
     - social

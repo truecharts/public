@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/zwavejs2mqtt"` |  |
-| image.tag | string | `"v5.12.0@sha256:1d1870e8ccbb1cd2f6417e0f4879e8923e7ac56c88a1215bdc14eaeb69751a0c"` |  |
+| image.repository | string | `"tccr.io/truecharts/zwavejs2mqtt"` |  |
+| image.tag | string | `"v6.6.2@sha256:868ccbcd90a1b38cfadec87ca933b3bf613ccb08df17d2a26b2baf7e743294bc"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/usr/src/app/store"` |  |
 | probes.liveness.enabled | bool | `true` |  |
@@ -25,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.targetPort | int | `8091` |  |
 | service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
-| service.ws.ports.ws.port | int | `3000` |  |
+| service.ws.ports.ws.port | int | `10046` |  |
 | service.ws.ports.ws.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

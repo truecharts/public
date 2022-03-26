@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/quassel-web
+  pullPolicy: IfNotPresent
+  tag: v2021.12.16
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  URL_BASE: ""
+  QUASSEL_CORE: "0.0.0.0"
+  QUASSEL_PORT: 4242
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 64080
+        port: 64080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

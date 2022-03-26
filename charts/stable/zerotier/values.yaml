@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/zerotier
+  pullPolicy: IfNotPresent
+  tag: v1.8.4@sha256:5cb03159f98b7dd0a4b77d803585f9142a33c1c354be600cce8ff10a76074dfc
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  ZEROTIER_API_SECRET: ""
+  ZEROTIER_IDENTITY_PUBLIC: ""
+  ZEROTIER_IDENTITY_SECRET: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 9993
+        port: 10190
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/zerotier-one"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false

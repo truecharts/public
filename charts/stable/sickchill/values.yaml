@@ -1,9 +1,7 @@
 image:
-  repository: ghcr.io/linuxserver/sickchill
+  repository: tccr.io/truecharts/sickchill
   pullPolicy: IfNotPresent
-  tag: 2021.5.10-1-ls63@sha256:a607452a692a008eb397051c90603eb618c616855553dbde9a98675ca5043bd7
-env:
-  PUID: 568
+  tag: v2022.2.20@sha256:972e9526e989b526c81aa567c66663b0f5ec4b9256f520785eb3d6aea1df0369
 
 securityContext:
   readOnlyRootFilesystem: false

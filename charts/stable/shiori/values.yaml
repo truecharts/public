@@ -1,10 +1,9 @@
 image:
-  repository: ghcr.io/nicholaswilde/shiori
+  repository: tccr.io/truecharts/shiori
   pullPolicy: IfNotPresent
-  tag: version-v1.5.0@sha256:e0645abe677786f79bde80ac81f8d79c915e05cba2991c4cecd335f54335431c
+  tag: version-v1.5.0@sha256:6c6331888c9a5162def49b6212327242f7f5c96e2d5a1bb031f79321cc1c0549
 
 securityContext:
-  readOnlyRootFilesystem: true
   allowPrivilegeEscalation: true
   runAsNonRoot: false
 
@@ -15,10 +14,6 @@ podSecurityContext:
 # See more environment variables in the shiori documentation
 # https://github.com/go-shiori/shiori/wiki/Configuration#database
 env:
-  # TZ:
-  PUID: 568
-
-envTpl:
   SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 

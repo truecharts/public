@@ -1,33 +1,12 @@
 # Include{groups}
-portals:
-  web_portal:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
+portals: {}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
   - variable: controller
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -73,18 +52,12 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
-# Include{fixedEnv}
 
   - variable: auth
     group: "App Configuration"
     label: "Authentication"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -99,18 +72,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -119,7 +95,6 @@ questions:
                             schema:
                               type: int
                               default: 1883
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -180,20 +155,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -218,14 +189,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/mosquitto/data"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -242,14 +205,9 @@ questions:
           label: "App config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -274,14 +232,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/mosquitto/configinc"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -300,11 +250,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -317,6 +269,8 @@ questions:
 
 # Include{ingressList}
 
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -328,6 +282,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -350,11 +305,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -375,26 +332,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

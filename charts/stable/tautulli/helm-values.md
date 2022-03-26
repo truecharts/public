@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/tautulli"` |  |
-| image.tag | string | `"v2.7.7@sha256:4ea617c30397c4651c3e5ac850d4f4d2d7bfc5d37ac6dec44c5d109258d4f03f"` |  |
+| image.repository | string | `"tccr.io/truecharts/tautulli"` |  |
+| image.tag | string | `"v2.9.4@sha256:943cdca2440bd06dd5d25735910cfa0be7221b981396c389c561bea7ab1081c2"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `8181` |  |

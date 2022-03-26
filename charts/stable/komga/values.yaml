@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/truecharts/komga
+  repository: tccr.io/truecharts/komga
   # -- image tag
-  tag: v0.132.3@sha256:9aa69be8e6a77447f1c7b787c7667d9bb51f076942cb1eda1195bcac640b3416
+  tag: v0.153.1@sha256:4c6a79a3c63d87631ecf9237d5857e0ef0fb7c8b80b9a26f5f483aeccb9abb15
   # -- image pull policy
   pullPolicy: IfNotPresent
 

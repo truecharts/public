@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/heimdall"` |  |
-| image.tag | string | `"version-2.2.2@sha256:e829e0aded2ba5f44b46723d73aa8daf8a23a0235cbbe9971524380f9141f0f8"` |  |
+| image.repository | string | `"tccr.io/truecharts/heimdall"` |  |
+| image.tag | string | `"version-2.2.2@sha256:eedb3180caf7388b206238120405d53baf9783692b14766ffed7bb388fadd6ce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.enabled | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10014` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

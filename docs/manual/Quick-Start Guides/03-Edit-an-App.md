@@ -1,4 +1,4 @@
-# 04 - Editing Apps
+# 03 - Editing Apps
 
 Editing Apps is possible since 21.08, although it has a slightly different GUI it exposes the same setting as installing an App.
 
@@ -23,7 +23,7 @@ The process popup disapears, it might take a few minutes to actually deploy your
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/3ki2AlBYwsc)
+![type:video](https://www.youtube.com/embed/UyqM798Arbo)
 
 ##### Notes
 

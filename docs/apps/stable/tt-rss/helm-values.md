@@ -13,16 +13,13 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below. | See more environment variables in the tt-rss documentation https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9 |
 | env.TTRSS_SELF_URL_PATH | string | `""` | External URL you use to connect to the RSS (the one you enter in your browser) |
-| envTpl.TTRSS_DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.TTRSS_DB_PORT | string | `"5432"` |  |
-| envTpl.TTRSS_DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.TTRSS_DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.TTRSS_DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/tt-rss"` | image repository |
-| image.tag | string | `"v1.9063.0@sha256:53e84ba1beaa012b6343115c03e2c3a3848965938bc42c8d7413d24aeb082c25"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/tt-rss"` | image repository |
+| image.tag | string | `"v1.9109.0@sha256:b76af1f4d552431f693c4bf11615d4511dd69e40eb67f0928067a8b1618f6c9e"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

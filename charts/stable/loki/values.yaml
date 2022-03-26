@@ -1,7 +1,7 @@
 image:
-  repository: grafana/loki
+  repository: tccr.io/truecharts/loki
   pullPolicy: IfNotPresent
-  tag: 2.4.1@sha256:1d802d29cf041601895ce16439757baf4dac71a21069957616ee7988746bf59c
+  tag: v2.4.2@sha256:72adb0e2891b3dc41bd40e9ba8445ffc60309d36ed391eab26d9dec10b4e1c88
 
 controller:
   # -- Set the controller type.
@@ -44,11 +44,6 @@ probes:
 
   startup:
     path: "/ready"
-
-env: {}
-  # TZ: UTC
-  # PUID: 1001
-
 
 config:
   # existingSecret:
@@ -137,7 +132,7 @@ persistence:
     # -- Specify the name of the configmap object to be mounted
     objectName: '{{ include "common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
-    mountPath: /etc/loki
+    mountPath: "/etc/loki"
 
 volumeClaimTemplates:
   data:

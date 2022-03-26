@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.1.4.1133"
+appVersion: "0.2.0.1617"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: Indexer manager/proxy built on the popular arr net base stack to integrate
   with your various PVR apps.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/prowlarr
-icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+icon: https://truecharts.org/_static/img/appicons/prowlarr.png
 keywords:
 - prowlarr
 - torrent
@@ -21,7 +21,7 @@ name: prowlarr
 sources:
 - https://github.com/Prowlarr/Prowlarr
 - https://github.com/k8s-at-home/container-images
-version: 4.0.19
+version: 5.0.11
 annotations:
   truecharts.org/catagories: |
     - media

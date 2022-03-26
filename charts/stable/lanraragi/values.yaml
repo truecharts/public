@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/lanraragi
+  tag: v0.8.4@sha256:e41603c23afbb27544cdef8cf30f4e568eb499bd3221f81953e6cd60c469ab25
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  LRR_UID: "{{ .Values.security.PUID }}"
+  LRR_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10177
+        targetPort: 3000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/home/koyomi/lanraragi/database"
+  content:
+    enabled: true
+    mountPath: "/home/koyomi/lanraragi/content"

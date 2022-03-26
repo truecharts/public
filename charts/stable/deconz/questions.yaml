@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -73,14 +74,28 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DECONZ_VNC_PASSWORD
+          label: "DECONZ_VNC_PASSWORD"
+          description: "If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: DECONZ_DEVICE
           label: "DECONZ_DEVICE"
           description: "Override the location where deCONZ looks for the RaspBee/Conbee device"
@@ -91,51 +106,42 @@ questions:
           label: "DECONZ_VNC_MODE"
           description: "Enable VNC access to the container to view the deCONZ ZigBee mesh"
           schema:
-            type: string
-            default: "1"
-        - variable: DECONZ_WEB_PORT
-          label: "DECONZ_WEB_PORT"
-          description: "Web UI listen port"
+            type: int
+            default: 1
+        - variable: DECONZ_UPNP
+          label: "DECONZ_UPNP"
+          description: "Set this option to 0 to disable uPNP"
           schema:
-            type: string
-            default: "80"
-        - variable: DECONZ_WS_PORT
-          label: "DECONZ_WS_PORT"
-          description: "Websocket listen port"
+            type: int
+            default: 0
+        - variable: DECONZ_START_VERBOSE
+          label: "DECONZ_START_VERBOSE"
+          description: "Set this option to 0 to disable verbose of start script, set to 1 to enable set -x logging"
           schema:
-            type: string
-            default: "443"
-        - variable: DECONZ_VNC_PORT
-          label: "DECONZ_VNC_PORT"
-          description: " VNC server listen port"
-          schema:
-            type: string
-            default: "5900"
-        - variable: DECONZ_VNC_PASSWORD
-          label: "DECONZ_VNC_PASSWORD"
-          description: "If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password"
-          schema:
-            type: string
-            required: true
-            default: ""
+            type: int
+            default: 0
+
 # Include{containerConfig}
 
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -144,7 +150,6 @@ questions:
                             schema:
                               type: int
                               default: 10008
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -179,34 +184,29 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 10008
 
 
         - variable: websocket
           label: "websocket Service"
           description: "The websocket service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: websocket
                       label: "websocket Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 10001
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -241,34 +241,29 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 443
+                                    default: 10001
 
 
         - variable: vnc
           label: "vnc Service"
           description: "The vnc service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: vnc
                       label: "vnc Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 10002
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -303,7 +298,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 5900
+                                    default: 10002
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -329,20 +324,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -367,14 +358,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/root/.local/share/dresden-elektronik/deCONZ"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -393,11 +376,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -410,6 +395,8 @@ questions:
 
 # Include{ingressList}
 
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -421,6 +408,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -443,11 +431,13 @@ questions:
                 schema:
                   type: boolean
                   default: false
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -468,26 +458,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

@@ -12,11 +12,9 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/librespeed"` | image repository |
-| image.tag | string | `"version-5.2.4@sha256:e93c747b991071f73fa66d95b837b28bc370395b5d229141c8141a970bbfacfb"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/librespeed"` | image repository |
+| image.tag | string | `"version-5.2.4@sha256:c441bc4d4d086a95966e93b4dea82674d1a258774f97084b02e87c0bc38deb2a"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

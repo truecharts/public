@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "3.2.2.5080"
+appVersion: "4.0.5.5981"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: "A fork of Sonarr to work with movies \xE0 la Couchpotato"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/radarr
-icon: https://nzbusenet.com/wp-content/uploads/2017/10/radarr-logo.png
+icon: https://truecharts.org/_static/img/appicons/radarr.png
 keywords:
 - radarr
 - torrent
@@ -21,7 +21,7 @@ name: radarr
 sources:
 - https://github.com/Radarr/Radarr
 type: application
-version: 9.0.12
+version: 10.0.7
 annotations:
   truecharts.org/catagories: |
     - media

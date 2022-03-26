@@ -1,34 +1,29 @@
 image:
-  repository: ghcr.io/linuxserver/code-server
+  repository: tccr.io/truecharts/code-server
   pullPolicy: IfNotPresent
-  tag: version-v3.11.1@sha256:a385ba5cb16136b14ae4cd99ca95c20ac77f9831ac3fb63937a1998e1d31be2a
+  tag: v4.2.0@sha256:82e2d802e59b26954096529aa08e83bebd2004da664fee9ab6c911e4f5ab6c48
 
-# PASSWORD: password
-# SUDO_PASSWORD: password
-# HASHED_PASSWORD
+args:
+  - --user-data-dir
+  - "/config/.vscode"
+  - --auth
+  - none
 
-env:
-  PUID: 568
+env: {}
   # PROXY_DOMAIN: code-server.my.domain
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  allowPrivilegeEscalation: true
 
 service:
   main:
     ports:
       main:
         port: 10063
-        targetPort: 8443
+        targetPort: 8080
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true

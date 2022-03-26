@@ -12,12 +12,13 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"louislam/uptime-kuma"` |  |
-| image.tag | string | `"1.10.2-debian@sha256:5e63ecc267f7a4bdc4a38cc6afb53e454a22c14d7f64b74aea4dfab83a648817"` |  |
+| image.repository | string | `"tccr.io/truecharts/uptime-kuma"` |  |
+| image.tag | string | `"v1.13.1@sha256:85304746a5c0e1b90bdd20d6c7fdee756ab159edf758fc0bf8d9ba8528d2aa5a"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/app/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| security.PUID | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `3001` |  |
 | service.main.ports.main.targetPort | int | `3001` |  |

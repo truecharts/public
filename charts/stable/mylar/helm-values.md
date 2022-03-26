@@ -11,16 +11,16 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-mylar3#environment-variables-e) for more details. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/mylar3"` | image repository |
-| image.tag | string | `"version-v0.5.3@sha256:b96f0e97ab3f4bf4e4320670aa932d0f7df39d1ddce0bbf62808bd509209d78f"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/mylar3"` |  |
+| image.tag | string | `"v0.6.3@sha256:2735700c6150206e0419c2036432b83018a53fb5797dad3dc80f4800988a18d2"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `8090` |  |
+| service.main.ports.main.targetPort | int | `8090` |  |
 
 All Rights Reserved - The TrueCharts Project

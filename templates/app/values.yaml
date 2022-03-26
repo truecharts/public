@@ -1,29 +1,13 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/charts/tree/master/charts/common/values.yaml
-#
-
 image:
-  repository: ${CHARTNAME}/${CHARTNAME}
+  repository: tccr.io/truecharts/CHARTNAME
   pullPolicy: IfNotPresent
-  tag: 1.0.0@sha256:42
+  tag: CHARTTAG
 
-# See more environment variables in the ${CHARTNAME} documentation
-# https://${CHARTNAME}.org/docs
 env: {}
-  # TZ:
 
 service:
-  port:
-    port: 1880
-
-ingress:
-  enabled: false
-
-# persistence:
-#   data:
-#     enabled: false
-#     emptyDir: false
-#     mountPath: /data
+  main:
+    ports:
+      main:
+        targetPort: CHARTPORT
+        port: CHARTPORT

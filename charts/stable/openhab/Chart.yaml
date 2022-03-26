@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "3.2.0"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+deprecated: false
+description: OpenHab is a home-automation application
+home: https://github.com/truecharts/apps/tree/master/charts/stable/openhab
+icon: https://truecharts.org/_static/img/appicons/openhab.png
+keywords:
+- openhab
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: openhab
+sources:
+- https://hub.docker.com/r/openhab/openhab
+type: application
+version: 1.0.6
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - test
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

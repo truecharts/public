@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.7.6"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+description: Grist is a modern relational spreadsheet. It combine the flexibility of a spreadsheet with the robustness of a database to organize your data.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/grist
+icon: https://truecharts.org/_static/img/appicons/grist.png
+keywords:
+- grist
+- spreadsheet
+- database
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: grist
+sources:
+- https://hub.docker.com/r/gristlabs/grist
+- https://github.com/gristlabs/grist-core
+- https://support.getgrist.com/
+version: 1.0.10
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

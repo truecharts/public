@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
-
-# Copyright The Helm Authors
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -45,6 +30,7 @@ main() {
     local production=
     local charts_repo_url=
     local token=${CR_TOKEN:-false}
+    local parthreads=$(($(nproc) * 2))
 
     parse_command_line "$@"
     if [ "${token}" == "false" ]; then
@@ -73,39 +59,14 @@ main() {
         mkdir -p .cr-index
 
         prep_helm
-        for chart in "${changed_charts[@]}"; do
-            if [[ -d "$chart" ]]; then
-                echo "Start processing $chart ..."
-                chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                train=$(basename $(dirname "$chart"))
-                SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-                sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
-                create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
-                generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
-                copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
-                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
-                package_chart "$chart"
-                if [[ "${SCALESUPPORT}" == "true" ]]; then
-                  clean_apps "$chart" "$chartname" "$train" "$chartversion"
-                  copy_apps "$chart" "$chartname" "$train" "$chartversion"
-                  patch_apps "$chart" "$chartname" "$train" "$chartversion"
-                  include_questions "$chart" "$chartname" "$train" "$chartversion"
-                  clean_catalog "$chart" "$chartname" "$train" "$chartversion"
-                else
-                  echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-                fi
-            else
-                echo "Chart '$chart' no longer exists in repo. Skipping it..."
-            fi
-            echo "Done processing $chart ..."
-        done
+
+        parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
-        validate_catalog
         if [ "${production}" == "true" ]; then
-        release_charts
-        update_index
+          gen_dh_cat
+          release_charts
+          update_index
         fi
         for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
@@ -115,12 +76,45 @@ main() {
                 edit_release "$chart" "$chartname" "$train" "$chartversion"
             fi
         done
+        validate_catalog
     else
         echo "Nothing to do. No chart changes detected."
     fi
 
     popd > /dev/null
 }
+
+chart_runner(){
+  if [[ -d "${1}" ]]; then
+      echo "Start processing ${1} ..."
+      chartversion=$(cat ${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+      chartname=$(basename ${1})
+      train=$(basename $(dirname "${1}"))
+      SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+      helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
+      helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+      container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+      sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+      sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
+      create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
+      generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
+      copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
+      package_chart "${1}"
+      if [[ "${SCALESUPPORT}" == "true" ]]; then
+        clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        patch_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        include_questions "${1}" "${chartname}" "$train" "${chartversion}"
+        clean_catalog "${1}" "${chartname}" "$train" "${chartversion}"
+      else
+        echo "Skipping chart ${1}, no correct SCALE compatibility layer detected"
+      fi
+  else
+      echo "Chart '${1}' no longer exists in repo. Skipping it..."
+  fi
+  echo "Done processing ${1} ..."
+}
+export -f chart_runner
 
 include_questions(){
     local chart="$1"
@@ -133,119 +127,135 @@ include_questions(){
     # Replace # Include{global} with the standard global codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/global.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/global.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{groups} with the standard groups codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/groups.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/groups.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{fixedEnv} with the standard fixedEnv codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{containerConfig} with the standard containerConfig codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/containerConfig.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/containerConfig.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceSelector} with the standard serviceSelector codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceBasic} with the standard persistenceBasic codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceBasic}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceAdvanced} with the standard persistenceAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{security} with the standard security codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{security}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/security.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{securityContextAdvanced} with the standard securityContextAdvanced codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{securityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/securityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{podSecurityContextAdvanced} with the standard podSecurityContextAdvanced codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{podSecurityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/podSecurityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTLS} with the standard ingressTLS codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTLS}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTraefik} with the standard ingressTraefik codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTraefik}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressExpert} with the standard ingressExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{addons} with the standard addons codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{addons}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/addons.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/addons.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics} with the standard metrics codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics3m} with the standard metrics3m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics3m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics60m} with the standard metrics60m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics60m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{prometheusRule} with the standard prometheusRule codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{prometheusRule}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/prometheusRule.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/prometheusRule.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{advanced} with the standard advanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{advanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/advanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/advanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{resources} with the standard resources codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{resources}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/resources.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     }
+export -f include_questions
 
 clean_catalog() {
     local chart="$1"
@@ -262,6 +272,17 @@ clean_catalog() {
     done
     cd -
     }
+export -f clean_catalog
+
+gen_dh_cat() {
+    rm -rf dh_catalog/*.*
+    rm -rf dh_catalog/*
+    cp -rf catalog/* dh_catalog
+    cd dh_catalog
+    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \;
+    cd -
+   }
+export -f gen_dh_cat
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
@@ -287,6 +308,62 @@ sync_tag() {
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
+export -f sync_tag
+
+helm_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Scanning helm security for ${chartname}"
+    mkdir -p ${chart}/render
+    rm -rf ${chart}/security.md || echo "removing old security.md file failed..."
+    cat templates/security.tpl >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    helm template ${chart} --output-dir ${chart}/render > /dev/null
+    trivy config -f template --template "@./templates/trivy-config.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
+    cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
+    rm -rf ${chart}/render/tmpsec${chartname}.md || true
+    echo "" >> ${chart}/security.md
+    }
+    export -f helm_sec_scan
+
+container_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Scanning container security for ${chartname}"
+    echo "## Containers" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "##### Detected Containers" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    find ./${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+    cat ${chart}/render/containers.tmp >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "##### Scan Results" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    for container in $(cat ${chart}/render/containers.tmp); do
+      echo "processing container: ${container}"
+      echo "" >> ${chart}/security.md
+      trivy image -f template --template "@./templates/trivy-container.tpl" -o ${chart}/render/tmpsec${chartname}.md "${container}"
+      cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
+      rm -rf ${chart}/render/tmpsec${chartname}.md || true
+      echo "" >> ${chart}/security.md
+    done
+
+    }
+    export -f container_sec_scan
+
+sec_scan_cleanup() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    rm -rf ${chart}/render
+    sed -i 's/ghcr.io/tccr.io/g' ${chart}/security.md
+    }
+    export -f sec_scan_cleanup
 
 pre_commit() {
     if [[ -z "$standalone" ]]; then
@@ -296,6 +373,7 @@ pre_commit() {
       find . -name '*.sh' | xargs chmod +x
     fi
     }
+    export -f pre_commit
 
 edit_release() {
     local chart="$1"
@@ -305,6 +383,7 @@ edit_release() {
     # In here we can in the future add code to edit the release notes of the github releases
     # For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
     }
+    export -f edit_release
 
 create_changelog() {
     local chart="$1"
@@ -329,6 +408,7 @@ create_changelog() {
         rm ${chart}/app-changelog.md || echo "changelog not found..."
     fi
     }
+    export -f create_changelog
 
 copy_general_docs() {
     yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
@@ -343,6 +423,7 @@ copy_general_docs() {
     yes | cp -rf NOTICE docs/about/legal/NOTICE.md 2>/dev/null || :
     sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
     }
+    export -f copy_general_docs
 
 generate_docs() {
     local chart="$1"
@@ -381,6 +462,7 @@ generate_docs() {
          fi
     fi
     }
+    export -f generate_docs
 
 
 copy_docs() {
@@ -397,6 +479,7 @@ copy_docs() {
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
         yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/security.md docs/apps/${train}/${chartname}/security.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
@@ -404,17 +487,21 @@ copy_docs() {
         sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
     fi
     }
+    export -f copy_docs
 
 prep_helm() {
     if [[ -z "$standalone" ]]; then
     helm repo add truecharts https://truecharts.org
+    helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo add metallb https://metallb.github.io/metallb
     helm repo add grafana https://grafana.github.io/helm-charts
     helm repo add prometheus https://prometheus-community.github.io/helm-charts
+    helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
     helm repo update
     fi
     }
+    export -f prep_helm
 
 clean_apps() {
     local chart="$1"
@@ -425,6 +512,7 @@ clean_apps() {
     rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
     rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
+export -f clean_apps
 
 patch_apps() {
     local chart="$1"
@@ -452,6 +540,7 @@ patch_apps() {
     echo "" >> ${target}/app-readme.md
     echo "This App is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
 }
+export -f patch_apps
 
 copy_apps() {
     local chart="$1"
@@ -463,6 +552,7 @@ copy_apps() {
     cp -Rf ${chart}/* catalog/${train}/${chartname}/${chartversion}/
 
 }
+export -f copy_apps
 
 validate_catalog() {
     if [[ -z "$standalone" ]]; then
@@ -470,6 +560,7 @@ validate_catalog() {
     /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
     fi
 }
+export -f validate_catalog
 
 
 parse_command_line() {
@@ -566,6 +657,7 @@ parse_command_line() {
         charts_repo_url="https://$owner.github.io/$repo"
     fi
 }
+export -f parse_command_line
 
 lookup_latest_tag() {
     git fetch --tags > /dev/null 2>&1
@@ -574,6 +666,7 @@ lookup_latest_tag() {
         git rev-list --max-parents=0 --first-parent HEAD
     fi
 }
+export -f lookup_latest_tag
 
 filter_charts() {
     while read -r chart; do
@@ -585,6 +678,7 @@ filter_charts() {
         fi
     done
 }
+export -f filter_charts
 
 lookup_changed_charts() {
     local commit="$1"
@@ -597,6 +691,7 @@ lookup_changed_charts() {
 
     cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
 }
+export -f lookup_changed_charts
 
 package_chart() {
     local chart="$1"
@@ -610,6 +705,7 @@ package_chart() {
     cr package "${args[@]}"
     fi
 }
+export -f package_chart
 
 release_charts() {
     local args=(-o "$owner" -r "$repo" -c "$(git rev-parse HEAD)")
@@ -622,6 +718,7 @@ release_charts() {
     cr upload "${args[@]}"
     fi
 }
+export -f release_charts
 
 update_index() {
     local args=(-o "$owner" -r "$repo" -c "$charts_repo_url")
@@ -634,5 +731,6 @@ update_index() {
     cr index "${args[@]}"
     fi
 }
+export -f update_index
 
 main "$@"

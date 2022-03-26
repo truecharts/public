@@ -1,0 +1,63 @@
+image:
+  repository: tccr.io/truecharts/deepstack-cpu
+  pullPolicy: IfNotPresent
+  tag: v2022.01.1@sha256:6fce090c739d25c3bfafdcc06bdd56e72641351597975fac6dfa9d99149615ef
+
+imageGPU:
+  repository: tccr.io/truecharts/deepstack-gpu
+  pullPolicy: IfNotPresent
+  tag: v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28
+
+imageSelector: "image"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10049
+        targetPort: 5000
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  API-KEY: ""
+  ADMIN-KEY: ""
+
+env:
+  # Path to custom models (needs to be on documentation)
+  MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
+  # High|Medium|Low
+  MODE: "High"
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-deepstack'
+
+deepstack:
+  vision_face: true
+  vision_detection: true
+  vision_scene: true
+  vision_enhance: true
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/datastore"
+  modelstore:
+    enabled: true
+    mountPath: "/modelstore/detection"
+
+configmap:
+  deepstack:
+    enabled: true
+    data:
+      VISION-FACE: "{{ ternary \"True\" \"False\" .Values.deepstack.vision_face }}"
+      VISION-DETECTION: "{{ ternary \"True\" \"False\" .Values.deepstack.vision_detection }}"
+      VISION-SCENE: "{{ ternary \"True\" \"False\" .Values.deepstack.vision_scene }}"
+      VISION-ENHANCE: "{{ ternary \"True\" \"False\" .Values.deepstack.vision_enhance }}"

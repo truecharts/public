@@ -11,26 +11,41 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details. |
-| env.GID | string | `nil` | Sets GID Photoprism runs under. |
-| env.PHOTOPRISM_ADMIN_PASSWORD | string | `"please-change"` | Initial admin password. **BE SURE TO CHANGE THIS!** |
-| env.PHOTOPRISM_CACHE_PATH | string | `"/assets/cache"` | Photoprism cache path |
-| env.PHOTOPRISM_CONFIG_PATH | string | `"/assets/config"` | Photoprism config path |
-| env.PHOTOPRISM_IMPORT_PATH | string | `"/photoprism/import"` | Photoprism import path |
-| env.PHOTOPRISM_ORIGINALS_PATH | string | `"/photoprism/originals"` | Photoprism originals path |
-| env.PHOTOPRISM_PUBLIC | string | `"false"` | Disable authentication / password protection |
-| env.PHOTOPRISM_SIDECAR_PATH | string | `"/assets/sidecar"` | Photoprism sidecar path |
-| env.PHOTOPRISM_STORAGE_PATH | string | `"/assets/storage"` | Photoprism storage path |
-| env.PHOTOPRISM_TEMP_PATH | string | `"/photoprism/temp"` | Photoprism temp path |
-| env.PROTOPRISM_BACKUP_PATH | string | `"/assets/backup"` | Photoprism backup path |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| env.UID | string | `nil` | Sets UID Photoprism runs under. |
-| env.UMASK | string | `nil` | Sets UMASK. |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
-| image.tag | string | `"20211018@sha256:f61fb623187faa33d1e3f4d86e384cdf401442d4ba6bec96897f42fa4fbb84b4"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| env.HOME | string | `"/photoprism"` |  |
+| env.PHOTOPRISM_CACHE_PATH | string | `"/assets/cache"` |  |
+| env.PHOTOPRISM_CONFIG_PATH | string | `"/assets/config"` |  |
+| env.PHOTOPRISM_DATABASE_DRIVER | string | `"mysql"` |  |
+| env.PHOTOPRISM_DATABASE_NAME | string | `"photoprism"` |  |
+| env.PHOTOPRISM_DATABASE_USER | string | `"photoprism"` |  |
+| env.PHOTOPRISM_GID | string | `"{{ .Values.podSecurityContext.runAsGroup }}"` |  |
+| env.PHOTOPRISM_IMPORT_PATH | string | `"/photoprism/import"` |  |
+| env.PHOTOPRISM_ORIGINALS_PATH | string | `"/photoprism/originals"` |  |
+| env.PHOTOPRISM_PUBLIC | bool | `false` |  |
+| env.PHOTOPRISM_SIDECAR_PATH | string | `"/assets/sidecar"` |  |
+| env.PHOTOPRISM_STORAGE_PATH | string | `"/assets/storage"` |  |
+| env.PHOTOPRISM_TEMP_PATH | string | `"/photoprism/temp"` |  |
+| env.PHOTOPRISM_UID | string | `"{{ .Values.podSecurityContext.runAsUser }}"` |  |
+| env.PHOTOPRISM_UMASK | string | `"{{ .Values.env.UMASK }}"` |  |
+| env.PROTOPRISM_BACKUP_PATH | string | `"/assets/backup"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/photoprism"` |  |
+| image.tag | string | `"v220302@sha256:f05558b5266dfa3a1612be2de98099e864a6b554a9df6df2409b4a2b32804848"` |  |
+| mariadb.enabled | bool | `true` |  |
+| mariadb.existingSecret | string | `"mariadbcreds"` |  |
+| mariadb.mariadbDatabase | string | `"photoprism"` |  |
+| mariadb.mariadbUsername | string | `"photoprism"` |  |
+| persistence.storage.enabled | bool | `true` |  |
+| persistence.storage.mountPath | string | `"/assets"` |  |
+| persistence.temp.enabled | bool | `true` |  |
+| persistence.temp.mountPath | string | `"/photoprism/temp"` |  |
+| persistence.temp.type | string | `"emptyDir"` |  |
+| secret.PHOTOPRISM_ADMIN_PASSWORD | string | `"please-change"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `2342` |  |
+| service.main.ports.main.targetPort | int | `2342` |  |
 
 All Rights Reserved - The TrueCharts Project

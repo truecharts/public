@@ -11,17 +11,16 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/freshrss"` |  |
-| image.tag | string | `"version-1.18.1@sha256:8840d00e2f8d4d4d894707bc482b78ee4d4530c3967da82ace8a046ec73cd428"` |  |
+| image.repository | string | `"tccr.io/truecharts/freshrss"` |  |
+| image.tag | string | `"version-1.18.1@sha256:3fc8ef788681ba2c5026453131603fa4dda3b23f855ce2a6c467004eb38a09ec"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10010` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

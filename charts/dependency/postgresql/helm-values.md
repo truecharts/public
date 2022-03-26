@@ -27,8 +27,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.1.0@sha256:9ba99644cbad69d08a9ad96656add5b498a57e692975878208d6ab32752eaa3c"` |  |
+| image.repository | string | `"ghcr.io/truecharts/postgresql"` |  |
+| image.tag | string | `"v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |

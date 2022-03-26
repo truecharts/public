@@ -11,19 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.serverIP | string | `"localhost"` |  |
 | env.serverPort | int | `8266` |  |
 | env.webUIPort | int | `8265` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"haveagitgat/tdarr"` |  |
-| image.tag | string | `"2.00.10@sha256:63b95a5897f7be1841f4f4e192ab978ec4afc2d81d6fcc150f4785071560ed86"` |  |
+| image.repository | string | `"tccr.io/truecharts/tdarr"` |  |
+| image.tag | string | `"v2.00.16@sha256:cb06a5d50de3c7ea209d9d853dfea9d75bc7347002ef60762e27729382c29946"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |
 | persistence.logs.mountPath | string | `"/app/logs"` |  |
 | persistence.server.enabled | bool | `true` |  |
 | persistence.server.mountPath | string | `"/app/server"` |  |
+| persistence.transcode-cache.enabled | bool | `true` |  |
+| persistence.transcode-cache.mountPath | string | `"/temp"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

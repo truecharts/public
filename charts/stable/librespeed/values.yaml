@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/librespeed
+  repository: tccr.io/truecharts/librespeed
   # -- image tag
-  tag: version-5.2.4@sha256:e93c747b991071f73fa66d95b837b28bc370395b5d229141c8141a970bbfacfb
+  tag: version-5.2.4@sha256:c441bc4d4d086a95966e93b4dea82674d1a258774f97084b02e87c0bc38deb2a
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -23,11 +16,9 @@ podSecurityContext:
 
 # -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
 # @default -- See below
-env:
+env: {}
   # -- Set the container timezone
-  TZ: UTC
   # -- Specify the user ID the application will run as
-  PUID: 568
   # PASSWORD:
   # CUSTOM_RESULTS:
   # DB_TYPE:

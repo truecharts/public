@@ -87,8 +87,8 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.tolerations | list | `[]` |  |
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
-| alertmanagerImage.repository | string | `"bitnami/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"0.23.0@sha256:05eb2af9f119d8a77111e07602c1a14fc22b29d72a01eca4847999266f7b0e44"` |  |
+| alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
+| alertmanagerImage.tag | string | `"v0.24.0@sha256:be381f500fa63a4ee629c7ec9e02fd3acaf2b7301a701a39204ffead0de09b77"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -103,8 +103,8 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.kube-state-metrics.enabled | bool | `true` |  |
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
-| image.repository | string | `"bitnami/prometheus-operator"` |  |
-| image.tag | string | `"0.52.1@sha256:d817d3d6f60abe81dbbd923ce8212f0d0e6fef2bedecf3a65f31743ef034e539"` |  |
+| image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
+| image.tag | string | `"v0.55.0@sha256:b90168dc26262593a6f8a2ed309fdd1d722ab788fdcee6c200d65b39943a2744"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |
@@ -152,6 +152,8 @@ You will, however, be able to use all values referenced in the common chart here
 | node-exporter.extraArgs."collector.filesystem.ignored-fs-types" | string | `"^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"` |  |
 | node-exporter.extraArgs."collector.filesystem.ignored-mount-points" | string | `"^/(dev|proc|sys|var/lib/docker/.+)($|/)"` |  |
 | node-exporter.service.labels.jobLabel | string | `"node-exporter"` |  |
+| node-exporter.service.port | int | `9910` |  |
+| node-exporter.service.targetPort | int | `9910` |  |
 | node-exporter.serviceMonitor.enabled | bool | `true` |  |
 | node-exporter.serviceMonitor.jobLabel | string | `"jobLabel"` |  |
 | operator.configReloaderResources | object | `{}` |  |
@@ -316,8 +318,8 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumeMounts | list | `[]` |  |
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
-| prometheusImage.repository | string | `"bitnami/prometheus"` |  |
-| prometheusImage.tag | string | `"2.31.1@sha256:72952cbfe2a9ecfbbf89404705629e9e8ce405ad5ae331c17d3aad6ca2875966"` |  |
+| prometheusImage.repository | string | `"tccr.io/truecharts/prometheus"` |  |
+| prometheusImage.tag | string | `"v2.33.5@sha256:305fd96608b77c8a4f45078062a2469350f38b2c2c214a6095bdfb229f06d09a"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.alertmanager.enabled | bool | `true` |  |
@@ -345,7 +347,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.thanos.selector."app.kubernetes.io/name" | string | `"prometheus"` |  |
 | service.thanos.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
-| thanosImage.repository | string | `"bitnami/thanos"` |  |
-| thanosImage.tag | string | `"0.23.1@sha256:944daebae0849d2c1e163e52227df0579d2c2fe6ba3f726a1c0a929e48797681"` |  |
+| thanosImage.repository | string | `"tccr.io/truecharts/thanos"` |  |
+| thanosImage.tag | string | `"v0.25.2@sha256:3985e904d45b38b6f89fa4821456ed6583f11c7067a1ce7ebf70125add0f7fcc"` |  |
 
 All Rights Reserved - The TrueCharts Project

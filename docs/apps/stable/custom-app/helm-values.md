@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.20.53@sha256:6f82922f155dfd72b23e1ce9ec84de8bbc2a12a362bfbd62d81bc3c3f58ac515"` |  |
+| image.repository | string | `"tccr.io/truecharts/jackett"` |  |
+| image.tag | string | `"v0.20.761@sha256:b07f8a49d9b2bdfd4370abe765b3c1f71d494e0f3a69c6cd6a9e64a318d55e14"` |  |
 
 All Rights Reserved - The TrueCharts Project

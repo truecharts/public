@@ -3,23 +3,21 @@ portals: {}
 
 questions:
 # Include{global}
-
-  - variable: env
+  - variable: secret
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: UPTIMEROBOT_API_KEY
           label: "UptimeRobot API Key"
           description: "UptimeRobot.com API Key"
           schema:
             type: string
-            default: ""
             required: true
-
+            private: true
+            default: "REPLACETHIS"
 # Include{containerConfig}
 
   - variable: serviceexpert
@@ -45,6 +43,8 @@ questions:
 
 # Include{ingressList}
 
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -56,6 +56,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -78,11 +79,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -103,26 +106,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

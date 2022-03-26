@@ -1,0 +1,98 @@
+image:
+  repository: tccr.io/truecharts/snipe-it
+  pullPolicy: IfNotPresent
+  tag: v5.4.1@sha256:392cd5a87a094675702b2f81a84213624851d2c4adec2dbad207a91f7d39d3d4
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 1000
+  fsGroup: 50
+
+env:
+  APP_ENV: "production"
+  DB_CONNECTION: "mysql"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_PORT: "3306"
+  REDIS_PORT: "6379"
+  APP_TIMEZONE: "{{ .Values.TZ }}"
+  FILESYSTEM_DISK: "local"
+  # User Defined
+  APP_URL: "http://localhost:80"
+  APP_LOCALE: "en"
+  MAX_RESULTS: 500
+  IMAGE_LIB: "gd"
+  # APP_DEBUG: true
+  # APP_LOG_LEVEL: "debug"
+  # Session
+  SESSION_LIFETIME: 30
+  EXPIRE_ON_CLOSE: false
+  ENCRYPT: false
+  COOKIE_NAME: "snipeit_session"
+  SECURE_COOKIES: false
+  API_TOKEN_EXPIRATION_YEARS: 40
+  # Login
+  LOGIN_MAX_ATTEMPTS: 5
+  LOGIN_LOCKOUT_DURATION: 60
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: snipeit-secrets
+      key: APP_KEY
+
+probes:
+  liveness:
+    path: "/health"
+  readiness:
+    path: "/health"
+  startup:
+    path: "/health"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10120
+        targetPort: 80
+
+persistence:
+  logs:
+    enabled: true
+    mountPath: "/var/www/html/storage/logs"
+  data:
+    enabled: true
+    mountPath: "/var/lib/snipeit/data"
+  backups:
+    enabled: true
+    mountPath: "/var/lib/snipeit/dumps"
+
+mariadb:
+  enabled: true
+  mariadbUsername: snipe-it
+  mariadbDatabase: snipe-it
+  existingSecret: "mariadbcreds"
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"

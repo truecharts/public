@@ -1,6 +1,532 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.9"></a>
+### [piaware-5.0.9](https://github.com/truecharts/apps/compare/piaware-5.0.8...piaware-5.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="piaware-5.0.6"></a>
+### [piaware-5.0.6](https://github.com/truecharts/apps/compare/piaware-5.0.5...piaware-5.0.6) (2022-03-18)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="piaware-5.0.3"></a>
+### [piaware-5.0.3](https://github.com/truecharts/apps/compare/piaware-5.0.2...piaware-5.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
+<a name="piaware-5.0.2"></a>
+### [piaware-5.0.2](https://github.com/truecharts/apps/compare/piaware-5.0.1...piaware-5.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="piaware-5.0.1"></a>
+### [piaware-5.0.1](https://github.com/truecharts/apps/compare/piaware-5.0.0...piaware-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="piaware-5.0.0"></a>
+### [piaware-5.0.0](https://github.com/truecharts/apps/compare/piaware-4.0.60...piaware-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="piaware-4.0.60"></a>
+### [piaware-4.0.60](https://github.com/truecharts/apps/compare/piaware-4.0.59...piaware-4.0.60) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="piaware-4.0.59"></a>
+### [piaware-4.0.59](https://github.com/truecharts/apps/compare/piaware-4.0.58...piaware-4.0.59) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="piaware-4.0.58"></a>
+### [piaware-4.0.58](https://github.com/truecharts/apps/compare/piaware-4.0.57...piaware-4.0.58) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="piaware-4.0.57"></a>
+### [piaware-4.0.57](https://github.com/truecharts/apps/compare/piaware-4.0.56...piaware-4.0.57) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
+<a name="piaware-4.0.56"></a>
+### [piaware-4.0.56](https://github.com/truecharts/apps/compare/piaware-4.0.55...piaware-4.0.56) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="piaware-4.0.55"></a>
+### [piaware-4.0.55](https://github.com/truecharts/apps/compare/piaware-4.0.54...piaware-4.0.55) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
+<a name="piaware-4.0.54"></a>
+### [piaware-4.0.54](https://github.com/truecharts/apps/compare/piaware-4.0.53...piaware-4.0.54) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
+<a name="piaware-4.0.53"></a>
+### [piaware-4.0.53](https://github.com/truecharts/apps/compare/piaware-4.0.52...piaware-4.0.53) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="piaware-4.0.52"></a>
+### [piaware-4.0.52](https://github.com/truecharts/apps/compare/piaware-4.0.51...piaware-4.0.52) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
+
+
+
+<a name="piaware-4.0.51"></a>
+### [piaware-4.0.51](https://github.com/truecharts/apps/compare/piaware-4.0.50...piaware-4.0.51) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
+<a name="piaware-4.0.50"></a>
+### [piaware-4.0.50](https://github.com/truecharts/apps/compare/piaware-4.0.49...piaware-4.0.50) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
+<a name="piaware-4.0.49"></a>
+### [piaware-4.0.49](https://github.com/truecharts/apps/compare/piaware-4.0.48...piaware-4.0.49) (2022-02-03)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1835](https://github.com/truecharts/apps/issues/1835))
+
+
+
+<a name="piaware-4.0.48"></a>
+### [piaware-4.0.48](https://github.com/truecharts/apps/compare/piaware-4.0.47...piaware-4.0.48) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="piaware-4.0.47"></a>
+### [piaware-4.0.47](https://github.com/truecharts/apps/compare/piaware-4.0.46...piaware-4.0.47) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="piaware-4.0.46"></a>
+### [piaware-4.0.46](https://github.com/truecharts/apps/compare/piaware-4.0.45...piaware-4.0.46) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="piaware-4.0.45"></a>
+### [piaware-4.0.45](https://github.com/truecharts/apps/compare/piaware-4.0.44...piaware-4.0.45) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="piaware-4.0.44"></a>
+### [piaware-4.0.44](https://github.com/truecharts/apps/compare/piaware-4.0.43...piaware-4.0.44) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="piaware-4.0.43"></a>
+### [piaware-4.0.43](https://github.com/truecharts/apps/compare/piaware-4.0.42...piaware-4.0.43) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
+<a name="piaware-4.0.42"></a>
+### [piaware-4.0.42](https://github.com/truecharts/apps/compare/piaware-4.0.41...piaware-4.0.42) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="piaware-4.0.41"></a>
+### [piaware-4.0.41](https://github.com/truecharts/apps/compare/piaware-4.0.40...piaware-4.0.41) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="piaware-4.0.40"></a>
+### [piaware-4.0.40](https://github.com/truecharts/apps/compare/piaware-4.0.39...piaware-4.0.40) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+* update docker general non-major docker tags ([#1691](https://github.com/truecharts/apps/issues/1691))
+
+
+
+<a name="piaware-4.0.39"></a>
+### [piaware-4.0.39](https://github.com/truecharts/apps/compare/piaware-4.0.38...piaware-4.0.39) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1687](https://github.com/truecharts/apps/issues/1687))
+
+
+
+<a name="piaware-4.0.38"></a>
+### [piaware-4.0.38](https://github.com/truecharts/apps/compare/piaware-4.0.37...piaware-4.0.38) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="piaware-4.0.37"></a>
+### [piaware-4.0.37](https://github.com/truecharts/apps/compare/piaware-4.0.36...piaware-4.0.37) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="piaware-4.0.36"></a>
+### [piaware-4.0.36](https://github.com/truecharts/apps/compare/piaware-4.0.35...piaware-4.0.36) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="piaware-4.0.35"></a>
+### [piaware-4.0.35](https://github.com/truecharts/apps/compare/piaware-4.0.34...piaware-4.0.35) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="piaware-4.0.34"></a>
+### [piaware-4.0.34](https://github.com/truecharts/apps/compare/piaware-4.0.33...piaware-4.0.34) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="piaware-4.0.33"></a>
+### [piaware-4.0.33](https://github.com/truecharts/apps/compare/piaware-4.0.32...piaware-4.0.33) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="piaware-4.0.32"></a>
+### [piaware-4.0.32](https://github.com/truecharts/apps/compare/piaware-4.0.31...piaware-4.0.32) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
+<a name="piaware-4.0.31"></a>
+### [piaware-4.0.31](https://github.com/truecharts/apps/compare/piaware-4.0.30...piaware-4.0.31) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="piaware-4.0.30"></a>
+### [piaware-4.0.30](https://github.com/truecharts/apps/compare/piaware-4.0.29...piaware-4.0.30) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="piaware-4.0.29"></a>
+### [piaware-4.0.29](https://github.com/truecharts/apps/compare/piaware-4.0.28...piaware-4.0.29) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="piaware-4.0.28"></a>
+### [piaware-4.0.28](https://github.com/truecharts/apps/compare/piaware-4.0.27...piaware-4.0.28) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="piaware-4.0.27"></a>
+### [piaware-4.0.27](https://github.com/truecharts/apps/compare/piaware-4.0.26...piaware-4.0.27) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
+<a name="piaware-4.0.26"></a>
+### [piaware-4.0.26](https://github.com/truecharts/apps/compare/piaware-4.0.25...piaware-4.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
+<a name="piaware-4.0.25"></a>
+### [piaware-4.0.25](https://github.com/truecharts/apps/compare/piaware-4.0.24...piaware-4.0.25) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="piaware-4.0.24"></a>
+### [piaware-4.0.24](https://github.com/truecharts/apps/compare/piaware-4.0.23...piaware-4.0.24) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
+<a name="piaware-4.0.23"></a>
+### [piaware-4.0.23](https://github.com/truecharts/apps/compare/piaware-4.0.22...piaware-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="piaware-4.0.22"></a>
+### [piaware-4.0.22](https://github.com/truecharts/apps/compare/piaware-4.0.21...piaware-4.0.22) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
+<a name="piaware-4.0.21"></a>
+### [piaware-4.0.21](https://github.com/truecharts/apps/compare/piaware-4.0.20...piaware-4.0.21) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="piaware-4.0.20"></a>
+### [piaware-4.0.20](https://github.com/truecharts/apps/compare/piaware-4.0.19...piaware-4.0.20) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
+<a name="piaware-4.0.19"></a>
+### [piaware-4.0.19](https://github.com/truecharts/apps/compare/piaware-4.0.18...piaware-4.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="piaware-4.0.18"></a>
+### piaware-4.0.18 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="piaware-4.0.17"></a>
+### [piaware-4.0.17](https://github.com/truecharts/apps/compare/piaware-4.0.16...piaware-4.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="piaware-4.0.16"></a>
+### [piaware-4.0.16](https://github.com/truecharts/apps/compare/piaware-4.0.15...piaware-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="piaware-4.0.15"></a>
+### [piaware-4.0.15](https://github.com/truecharts/apps/compare/piaware-4.0.14...piaware-4.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="piaware-4.0.14"></a>
+### [piaware-4.0.14](https://github.com/truecharts/apps/compare/piaware-4.0.13...piaware-4.0.14) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="piaware-4.0.13"></a>
+### [piaware-4.0.13](https://github.com/truecharts/apps/compare/piaware-4.0.12...piaware-4.0.13) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="piaware-4.0.12"></a>
 ### [piaware-4.0.12](https://github.com/truecharts/apps/compare/piaware-4.0.11...piaware-4.0.12) (2021-11-23)
 

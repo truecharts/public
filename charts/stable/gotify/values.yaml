@@ -1,7 +1,7 @@
 image:
-  repository: gotify/server
+  repository: tccr.io/truecharts/gotify-server
   pullPolicy: IfNotPresent
-  tag: 2.1.0@sha256:57aa2aabac035c16118f625dd6d3d2c3ca421b43b28cb27512f3212193d65771
+  tag: v2.1.4@sha256:3f568cbc18808a8d138b07073233411a1077676e28a468b7e345fffae639fa32
 
 secret:
   user: "admin"
@@ -10,8 +10,6 @@ secret:
 # See more environment variables in the gotify documentation
 # https://gotify.net/docs/config#environment-variables
 env:
-  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  TZ: "America/Los_Angeles"
   GOTIFY_SERVER_PORT: 8080
   GOTIFY_SERVER_KEEPALIVEPERIODSECONDS: 0
   GOTIFY_SERVER_LISTENADDR: ""

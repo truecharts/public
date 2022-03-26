@@ -11,17 +11,18 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"organizr/organizr"` |  |
-| image.tag | string | `"latest@sha256:d8b03b33ea1c65023ef7085bf06d13b0045a099e82fc833c9ac35c071b3e88a8"` |  |
+| image.repository | string | `"tccr.io/truecharts/organizr"` |  |
+| image.tag | string | `"latest@sha256:545941f882098256a41f81f75fab9bb84f331e32f6836877e51799b1244b7c3e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10022` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

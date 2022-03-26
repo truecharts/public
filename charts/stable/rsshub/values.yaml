@@ -1,0 +1,55 @@
+image:
+  repository: tccr.io/truecharts/rsshub
+  pullPolicy: IfNotPresent
+  tag: v2022-03@sha256:7b08f8f30371f62a30f09ce6a86f2ce8cdc03b485ed61568f90abf30106dfa41
+
+browserlessImage:
+  repository: tccr.io/truecharts/browserless-chrome
+  tag: v1.51.1-chrome@sha256:39b1e2641af7fb437a8dbe886dc8cb1f613835338f2d8f9c57516f97716d5467
+
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+secret:
+  HTTP_BASIC_AUTH_NAME: ""
+  HTTP_BASIC_AUTH_PASS: ""
+  BITBUCKET_USERNAME: ""
+  BITBUCKET_PASSWORD: ""
+  GITHUB_ACCESS_TOKEN: ""
+  GOOGLE_FONTS_API_KEY: ""
+  YOUTUBE_KEY: ""
+  TELEGRAM_TOKEN: ""
+  LASTFM_API_KEY: ""
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  NODE_ENV: production
+  CACHE_TYPE: "redis"
+  PUPPETEER_WS_ENDPOINT: "ws://localhost:3000"
+  NODE_NAME: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+  # User  defined
+  # ALLOW_ORIGIN: ""
+  DISALLOW_ROBOT: false
+  TITLE_LENGTH_LIMIT: 150
+
+service:
+  main:
+    ports:
+      main:
+        port: 10191
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+additionalContainers:
+  browserless:
+    name: browserless
+    image: "{{ .Values.browserlessImage.repository }}:{{ .Values.browserlessImage.tag }}"
+    ports:
+      - containerPort: 3000
+        name: main

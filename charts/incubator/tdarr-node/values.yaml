@@ -1,9 +1,7 @@
-# Default values for tdarr_node.
-
 image:
-  repository: haveagitgat/tdarr_node
+  repository: tccr.io/truecharts/tdarr_node
   pullPolicy: IfNotPresent
-  tag: 2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c
+  tag: v2.00.16@sha256:88acc09d8be5b89d0f0edf2e0d5e00fc2f885f6d9b81f402cb68ba2b38c4cb56
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -14,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PUID: 568
   nodeID: "myFirstTdarrNode"
   nodeIP: "0.0.0.0"
   nodePort: 8267
@@ -25,8 +22,8 @@ service:
   main:
     ports:
       main:
-        targetPort: 8267
         port: 8267
+        targetPort: 8267
 
 persistence:
   configs:
@@ -35,5 +32,8 @@ persistence:
   logs:
     enabled: true
     mountPath: "/app/logs"
+  transcode-cache:
+    enabled: true
+    mountPath: "/temp"
   varrun:
     enabled: true

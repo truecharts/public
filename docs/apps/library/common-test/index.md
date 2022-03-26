@@ -17,7 +17,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../common | common | latest |
+| file://../common | common | >=0.0.1 |
 
 ## Installing the Chart
 

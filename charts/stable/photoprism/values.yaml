@@ -1,55 +1,41 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
-  # -- image repository
-  repository: docker.io/photoprism/photoprism
-  # -- image tag
-  tag: 20211018@sha256:f61fb623187faa33d1e3f4d86e384cdf401442d4ba6bec96897f42fa4fbb84b4
-  # -- image pull policy
+  repository: tccr.io/truecharts/photoprism
+  tag: v220302@sha256:f05558b5266dfa3a1612be2de98099e864a6b554a9df6df2409b4a2b32804848
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
-  # -- Photoprism originals path
-  PHOTOPRISM_ORIGINALS_PATH: /photoprism/originals
-  # -- Photoprism import path
-  PHOTOPRISM_IMPORT_PATH: /photoprism/import
-  # -- Photoprism temp path
-  PHOTOPRISM_TEMP_PATH: /photoprism/temp
-  # -- Photoprism storage path
-  PHOTOPRISM_STORAGE_PATH: /assets/storage
-  # -- Photoprism sidecar path
-  PHOTOPRISM_SIDECAR_PATH: /assets/sidecar
-  # -- Photoprism cache path
-  PHOTOPRISM_CACHE_PATH: /assets/cache
-  # -- Photoprism config path
-  PHOTOPRISM_CONFIG_PATH: /assets/config
-  # -- Photoprism backup path
-  PROTOPRISM_BACKUP_PATH: /assets/backup
-  # -- Initial admin password. **BE SURE TO CHANGE THIS!**
+secret:
   PHOTOPRISM_ADMIN_PASSWORD: "please-change"
-  # -- Disable authentication / password protection
-  PHOTOPRISM_PUBLIC: "false"
-  # -- Sets UID Photoprism runs under.
-  UID:  # 1000
-  # -- Sets GID Photoprism runs under.
-  GID:  # 1000
-  # -- Sets UMASK.
-  UMASK:  # 0000
+env:
+  HOME: "/photoprism"
+  PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
+  PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
+  PHOTOPRISM_TEMP_PATH: "/photoprism/temp"
+  PHOTOPRISM_STORAGE_PATH: "/assets/storage"
+  PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
+  PHOTOPRISM_CACHE_PATH: "/assets/cache"
+  PHOTOPRISM_CONFIG_PATH: "/assets/config"
+  PROTOPRISM_BACKUP_PATH: "/assets/backup"
+  PHOTOPRISM_PUBLIC: false
+  PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PHOTOPRISM_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
+  PHOTOPRISM_UMASK: "{{ .Values.env.UMASK }}"
+  PHOTOPRISM_DATABASE_DRIVER: "mysql"
+  PHOTOPRISM_DATABASE_NAME: "photoprism"
+  PHOTOPRISM_DATABASE_USER: "photoprism"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+envValueFrom:
+  PHOTOPRISM_DATABASE_SERVER:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainporthost
+  PHOTOPRISM_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
 service:
   main:
     ports:
@@ -57,8 +43,6 @@ service:
         port: 2342
         targetPort: 2342
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   storage:
     enabled: true
@@ -67,3 +51,9 @@ persistence:
     enabled: true
     mountPath: "/photoprism/temp"
     type: emptyDir
+
+mariadb:
+  enabled: true
+  mariadbUsername: photoprism
+  mariadbDatabase: photoprism
+  existingSecret: "mariadbcreds"

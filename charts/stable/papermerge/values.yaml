@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/papermerge
+  pullPolicy: IfNotPresent
+  tag: v2.0.1
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8000
+        port: 10141
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: papermerge

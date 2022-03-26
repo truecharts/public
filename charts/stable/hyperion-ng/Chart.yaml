@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "2.0.0-alph"
+appVersion: "2.0.12"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: Hyperion is an opensource Bias or Ambient Lighting implementation
-home: https://github.com/truechartsapps/tree/master/charts/stable/hyperion-ng
-icon: https://avatars.githubusercontent.com/u/17778452?s=200&v=4
+home: https://github.com/truecharts/apps/tree/master/charts/stable/hyperion-ng
+icon: https://truecharts.org/_static/img/appicons/hyperion-ng.png
 keywords:
 - hyperion-ng
 - hyperion
@@ -19,7 +19,7 @@ name: hyperion-ng
 sources:
 - https://github.com/hyperion-project/hyperion.ng
 - https://hub.docker.com/r/sirfragalot/hyperion.ng
-version: 4.0.12
+version: 5.0.6
 annotations:
   truecharts.org/catagories: |
     - media

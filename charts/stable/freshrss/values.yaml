@@ -1,9 +1,7 @@
-# Default values for FreshRSS.
-
 image:
-  repository: ghcr.io/linuxserver/freshrss
+  repository: tccr.io/truecharts/freshrss
   pullPolicy: IfNotPresent
-  tag: version-1.18.1@sha256:8840d00e2f8d4d4d894707bc482b78ee4d4530c3967da82ace8a046ec73cd428
+  tag: version-1.18.1@sha256:3fc8ef788681ba2c5026453131603fa4dda3b23f855ce2a6c467004eb38a09ec
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -20,9 +18,6 @@ service:
         port: 10010
         targetPort: 80
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true

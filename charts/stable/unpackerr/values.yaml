@@ -1,9 +1,7 @@
-# Default values for Sonarr.
-
 image:
-  repository: ghcr.io/truecharts/unpackerr
+  repository: tccr.io/truecharts/unpackerr
   pullPolicy: IfNotPresent
-  tag: v0.9.8@sha256:2bf65067fea86c36438b741bfea1cec69faeea02dd4811c0d58e12243a263b24
+  tag: v0.9.9@sha256:4515e53001efe2112f254c305000be003b11f957f7ee551e9388a0d10862f672
 
 service:
   main:
@@ -15,9 +13,6 @@ service:
 portal:
   enabled: false
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 probes:
   liveness:
     enabled: false

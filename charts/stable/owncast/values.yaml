@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
 # -- image repository
-  repository: ghcr.io/truecharts/owncast
+  repository: tccr.io/truecharts/owncast
   # -- image tag
-  tag: v0.0.10@sha256:59e455798cacf118a74184755b060f48bcc05dc56bb9d4f696bcc77f411f1ad0
+  tag: v0.0.11@sha256:bebcb90cae79b4dddd7222d002052a9b3eb6f4a20dc7386df28617120f3fe53c
   # -- image pull policy
   pullPolicy: IfNotPresent
 

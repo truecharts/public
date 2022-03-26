@@ -11,20 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalArguments[0] | string | `"--metrics.prometheus"` |  |
-| additionalArguments[1] | string | `"--ping"` |  |
-| additionalArguments[2] | string | `"--serverstransport.insecureskipverify=true"` |  |
-| additionalArguments[3] | string | `"--providers.kubernetesingress.allowexternalnameservices=true"` |  |
+| additionalArguments | list | `["--metrics.prometheus","--ping","--serverstransport.insecureskipverify=true","--providers.kubernetesingress.allowexternalnameservices=true"]` | Additional arguments to be passed at Traefik's binary All available options available on https://docs.traefik.io/reference/static-configuration/cli/ |
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"traefik"` |  |
-| image.tag | string | `"v2.5.4@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633"` |  |
+| image.repository | string | `"tccr.io/truecharts/traefik"` |  |
+| image.tag | string | `"v2.6.2@sha256:e6ea25601aa31e3761d205867acd72bdacdf7911b39b2e2f746048a822a70b86"` |  |
 | ingressClass | object | `{"enabled":false,"fallbackApiVersion":"","isDefaultClass":false}` | Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x |
 | ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
 | logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |
 | metrics.prometheus.entryPoint | string | `"metrics"` |  |
 | middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
+| podAnnotations."prometheus.io/path" | string | `"/metrics"` |  |
+| podAnnotations."prometheus.io/port" | string | `"9180"` |  |
+| podAnnotations."prometheus.io/scrape" | string | `"true"` |  |
 | portalhook.enabled | bool | `true` |  |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
@@ -35,14 +35,10 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup | object | See below | Startup probe configuration |
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
-| providers.kubernetesCRD.enabled | bool | `true` |  |
-| providers.kubernetesCRD.namespaces | list | `[]` |  |
-| providers.kubernetesIngress.enabled | bool | `true` |  |
-| providers.kubernetesIngress.namespaces | list | `[]` |  |
-| providers.kubernetesIngress.publishedService.enabled | bool | `true` |  |
+| providers | object | `{"kubernetesCRD":{"enabled":true,"namespaces":[]},"kubernetesIngress":{"enabled":true,"namespaces":[],"publishedService":{"enabled":true}}}` | Configure providers |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":[""],"resources":["services","endpoints","secrets"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses","ingressclasses"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses/status"],"verbs":["update"]},{"apiGroups":["traefik.containo.us"],"resources":["ingressroutes","ingressroutetcps","ingressrouteudps","middlewares","middlewaretcps","tlsoptions","tlsstores","traefikservices","serverstransports"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
-| service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9100,"protocol":"HTTP","targetPort":9100}},"type":"LoadBalancer"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
+| service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9180,"protocol":"HTTP","targetPort":9180}},"type":"ClusterIP"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
-| tlsOptions | object | `{"default":{"cipherSuites":["TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305","TLS_AES_128_GCM_SHA256","TLS_AES_256_GCM_SHA384","TLS_CHACHA20_POLY1305_SHA256"],"curvePreferences":["CurveP521","CurveP384"],"minVersion":"VersionTLS12","sniStrict":false}}` | TLS Options to be created as TLSOption CRDs https://doc.traefik.io/traefik/https/tls/#tls-options Example: |
+| tlsOptions | object | `{"default":{"cipherSuites":["TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305","TLS_AES_128_GCM_SHA256","TLS_AES_256_GCM_SHA384","TLS_CHACHA20_POLY1305_SHA256"],"curvePreferences":["CurveP521","CurveP384"],"minVersion":"VersionTLS12","sniStrict":false}}` | TLS Options to be created as TLSOption CRDs https://doc.traefik.io/tccr.io/truecharts/https/tls/#tls-options Example: |
 
 All Rights Reserved - The TrueCharts Project

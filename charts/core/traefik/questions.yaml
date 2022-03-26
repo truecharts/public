@@ -1,10 +1,10 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "http"
     host:
-      - "$kubernetes-resource_configmap_portal_host"
+        - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
     path: "/dashboard/"
@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -75,20 +76,13 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
-# Include{fixedEnv}
-
 # Include{containerConfig}
 
   - variable: pilot
     label: "Traefik Pilot"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -113,6 +107,7 @@ questions:
     label: "ingressClass"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -132,11 +127,13 @@ questions:
     label: "Logs"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: general
           label: "General Logs"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: level
@@ -160,6 +157,7 @@ questions:
         - variable: access
           label: "Access Logs"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -179,6 +177,7 @@ questions:
                           - variable: filters
                             label: "Filters"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                               - variable: statuscodes
@@ -199,11 +198,13 @@ questions:
                     - variable: fields
                       label: "Fields"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: general
                             label: "General"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: defaultmode
@@ -219,6 +220,7 @@ questions:
                           - variable: headers
                             label: "Headers"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: defaultmode
@@ -236,6 +238,7 @@ questions:
     label: ""
     group: "Middlewares"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: basicAuth
@@ -247,6 +250,7 @@ questions:
               - variable: basicAuthEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -264,6 +268,7 @@ questions:
                           - variable: usersEntry
                             label: ""
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: username
@@ -288,6 +293,7 @@ questions:
               - variable: basicAuthEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -343,6 +349,7 @@ questions:
               - variable: chainEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -372,6 +379,7 @@ questions:
               - variable: redirectSchemeEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -406,6 +414,7 @@ questions:
               - variable: rateLimitEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -434,6 +443,7 @@ questions:
               - variable: redirectRegexEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -469,6 +479,7 @@ questions:
               - variable: ipWhiteListEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -492,6 +503,7 @@ questions:
                     - variable: ipStrategy
                       label: "IP Strategy"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: depth
@@ -517,18 +529,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Entrypoint Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: advanced
@@ -571,20 +586,27 @@ questions:
                             schema:
                               type: int
                               default: 9000
-                              editable: true
                               required: true
         - variable: tcp
           label: "TCP Service"
           description: "The tcp Entrypoint service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: web
                       label: "web Entrypoint Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9080
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -618,24 +640,27 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9080
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
+                                  schema:
+                                    type: string
+                                    default: "websecure"
+                    - variable: websecure
+                      label: "websecure Entrypoints Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9080
-                              editable: true
+                              default: 9443
                               required: true
-                          - variable: redirectTo
-                            label: "Redirect to"
-                            schema:
-                              type: string
-                              default: "websecure"
-                    - variable: websecure
-                      label: "websecure Entrypoints Configuration"
-                      schema:
-                        type: dict
-                        attrs:
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -669,14 +694,14 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9443
-                          - variable: port
-                            label: "Entrypoints Port"
-                            schema:
-                              type: int
-                              default: 9443
-                              editable: true
-                              required: true
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
+                                  schema:
+                                    type: string
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
@@ -698,6 +723,7 @@ questions:
                     - variable: portsListEntry
                       label: "Custom Entrypoints"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: enabled
@@ -732,6 +758,7 @@ questions:
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: enabled
@@ -739,61 +766,27 @@ questions:
                                   schema:
                                     type: boolean
                                     default: true
-        - variable: metrics
-          label: "metrics Service"
-          description: "The metrics Entrypoint service"
-          schema:
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: metrics
-                      label: "metrics Entrypoints Configurations"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9100
-                              editable: true
-                              required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
                                   schema:
                                     type: string
-                                    default: "HTTP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9100
-
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{ingressDefault}
 
 # Include{ingressTLS}
@@ -803,6 +796,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
@@ -815,6 +810,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -837,11 +833,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -862,26 +860,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

@@ -13,10 +13,18 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/esphome"` |  |
-| image.tag | string | `"v2021.11.1@sha256:7d1352a61ae5c41dde8922e093b2249badd0f3b4213a1acf90d9be716808201e"` |  |
+| image.repository | string | `"tccr.io/truecharts/esphome"` |  |
+| image.tag | string | `"v2022.3.1@sha256:238e47a1e1e2e687d4adc98d6bc6353437d205dac58641fdf3f2bdda314d4aae"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| persistence.platformio.enabled | bool | `true` |  |
+| persistence.platformio.mountPath | string | `"/.platformio"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `true` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `6052` |  |
 | service.main.ports.main.targetPort | int | `6052` |  |
 

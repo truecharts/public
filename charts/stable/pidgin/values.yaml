@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/pidgin
+  pullPolicy: IfNotPresent
+  tag: v2.14.8
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10136
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

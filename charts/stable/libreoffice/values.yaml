@@ -1,0 +1,26 @@
+image:
+  repository: tccr.io/truecharts/libreoffice
+  pullPolicy: IfNotPresent
+  tag: v7.2.2
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10133
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

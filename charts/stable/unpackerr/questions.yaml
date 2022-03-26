@@ -1,11 +1,12 @@
 # Include{groups}
-
+portals: {}
 questions:
 # Include{global}
   - variable: controller
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -51,14 +52,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
-# Include{fixedEnv}
-
 # Include{containerConfig}
 
   - variable: serviceexpert
@@ -85,26 +78,22 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: downloads
           label: "App downloads Storage"
-          description: "Stores the Application Configuration."
+          description: "Path to (/downloads)."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simplePVC"
+                  default: "simpleHP"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -123,14 +112,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/downloads"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -145,26 +126,9 @@ questions:
 # Include{persistenceAdvanced}
 # Include{persistenceList}
 
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            type: dict
-            attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
-
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
@@ -177,6 +141,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -199,11 +164,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -224,26 +191,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

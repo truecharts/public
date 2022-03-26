@@ -11,24 +11,23 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.DB_CONN | string | `"postgres"` |  |
+| env.DB_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.DB_PORT | string | `"5432"` |  |
+| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DESCRIPTION | string | `"This is a Statping instance deployed as Helm chart"` | Description of the Statping instance |
 | env.DISABLE_LOGS | bool | `false` | Disable logs from appearing and writing to disk |
 | env.NAME | string | `"Statping Example"` | Name of the Statping instance |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env.POSTGRES_SSLMODE | string | `"disable"` |  |
 | env.USE_CDN | bool | `false` | Use CDN for static context from third-parties |
 | env.VIRTUAL_HOST | string | `""` | External URL you use to connect to the statping (the one you enter in your browser) |
-| envTpl.DB_CONN | string | `"postgres"` |  |
-| envTpl.DB_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.POSTGRES_SSLMODE | string | `"disable"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"statping/statping"` | image repository |
-| image.tag | string | `"v0.90.74@sha256:e874da513a5cf0375fc8e7e8cde533934b57804760c9e2d745a584fc26a664cb"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/statping"` | image repository |
+| image.tag | string | `"v0.90.74@sha256:1c7e6cf35253668dd55ab20dde3c3e10d2fefd31416963b81d63846b672f38ce"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |
 | secret | object | See below | environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details. |

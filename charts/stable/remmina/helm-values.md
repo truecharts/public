@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/remmina"` |  |
-| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:d45c3ba938709a161dc6d0e9d72db82db71142684dcf6738dcb15d06f130e02b"` |  |
+| image.repository | string | `"tccr.io/truecharts/remmina"` |  |
+| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:c7795b9222063e436c77a94436da5e1bcdc1b13891f936673369588830a5ae8d"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10042` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

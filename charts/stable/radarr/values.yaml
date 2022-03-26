@@ -1,9 +1,7 @@
-# Default values for Radarr.
-
 image:
-  repository: ghcr.io/k8s-at-home/radarr
+  repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: v3.2.2.5080@sha256:b03562bacb117ab654dca5c6bcc61d013a40fe54e9fa1f563cd1c72899f77137
+  tag: v4.0.5.5981@sha256:8c1fbd32bc795b88e92db8c0e9c369880adee72807997566a9244fff0b67975c
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -15,9 +13,6 @@ service:
         port: 7878
         targetPort: 7878
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 probes:
   liveness:
     enabled: true

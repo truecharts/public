@@ -48,7 +48,7 @@ args:
   {{- end }}
   {{- if .Values.providers.kubernetesIngress.enabled }}
   - "--providers.kubernetesingress"
-  {{- if and .Values.providers.kubernetesIngress.publishedService.enabled }}
+  {{- if .Values.providers.kubernetesIngress.publishedService.enabled }}
   - "--providers.kubernetesingress.ingressendpoint.publishedservice={{ template "providers.kubernetesIngress.publishedServicePath" . }}"
   {{- end }}
   {{- if .Values.providers.kubernetesIngress.labelSelector }}
@@ -68,6 +68,11 @@ args:
   {{- $toPort := index $ports $config.redirectTo }}
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $toPort.port }}"
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
+  {{- else if $config.redirectPort }}
+  {{ if gt $config.redirectPort 0.0 }}
+  - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $config.redirectPort }}"
+  - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
+  {{- end }}
   {{- end }}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
   {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) }}

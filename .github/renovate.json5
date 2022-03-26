@@ -7,6 +7,9 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 7,
+  "pinDigests": true,
+  "timezone":"Europe/Amsterdam",
+  "gitAuthor": "TrueCharts-Bot <bot@truecharts.org>",
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
@@ -28,14 +31,7 @@
       "pinDigests": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-      "matchUpdateTypes": ["major", "minor", "patch"],
-      "postUpgradeTasks": {
-      "commands": [
-        "sed -i \"s/^version:.*/version: $(grep '^version:' Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" Chart.yaml",
-      ],
-      "fileFilters": ["Chart.yaml"],
-      "executionMode": "branch"
-      },
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
     },
     //
     // helm deps
@@ -43,12 +39,14 @@
     {
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
+      "automerge": false,
       "bumpVersion": "major",
-      "labels": ["dependency/major"],
-      "groupName": ["major deps"],
+      "labels": ["update/helm/dependency/major"],
+      "groupName": ["helm dependency major"],
+      "paths": ["charts/dependency/"],
       "schedule": [
-        "on tuesday"
-      ]
+        "after 5am and before 7am  on tuesday"
+      ],
     },
     {
       "matchDatasources": ["helm"],
@@ -58,57 +56,113 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["dependency/non-major"],
-      "groupName": "non-major deps",
+      "labels": ["update/helm/dependency/non-major"],
+      "paths": ["charts/dependency/"],
       "schedule": [
-        "on tuesday"
-      ]
+        "after 5am and before 7am  on tuesday"
+      ],
+      "groupName": "helm dependency non-major",
     },
     //
-    // Tag updates for semantic tags
+    // helm charts
+    //
+    {
+      "matchDatasources": ["helm"],
+      "updateTypes": ["major"],
+      "bumpVersion": "major",
+      "labels": ["update/helm/general/major"],
+      "groupName": ["helm general major"],
+      "paths": ["charts/incubator/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "schedule": [
+        "after 3pm and before 4pm on tuesday"
+      ],
+    },
+    {
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "bumpVersion": "patch",
+      "labels": ["update/helm/general/non-major"],
+      "groupName": "helm general non-major",
+      "paths": ["charts/incubator/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "schedule": [
+        "after 3pm and before 4pm on tuesday"
+      ],
+    },
+    //
+    // Tag updates for semantic tags on enterprise Apps
     //
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
-      "bumpVersion": "patch",
-      "labels": ["tag/major"],
-      "groupName": ["major"],
+      "bumpVersion": "major",
+      "labels": ["update/docker/enterprise/major"],
+      "paths": ["charts/enterprise/"],
       "schedule": [
-        "on tuesday"
-      ]
+        "before 2am"
+      ],
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+      ],
+      "bumpVersion": "patch",
+      "labels": ["update/docker/enterprise/minor"],
+      "groupName": ["docker enterprise  minor"],
+      "paths": ["charts/enterprise/"],
+      "schedule": [
+        "before 2am"
+      ],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "matchUpdateTypes": [
+        "patch",
+        "digest",
+        "pin",
+      ],
+      "bumpVersion": "patch",
+      "labels": ["update/docker/enterprise/patch"],
+      "groupName": ["docker enterprise patch"],
+      "paths": ["charts/enterprise/"],
+      "schedule": [
+        "before 2am"
+      ],
+    },
+    //
+    // Tag updates for semantic tags on all but enterprise Apps
+    //
+    {
+      "matchDatasources": ["docker"],
+      "updateTypes": ["major"],
+      "bumpVersion": "minor",
+      "labels": ["update/docker/general/major"],
+      "paths": ["charts/dependency/", "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "schedule": [
+        "before 2am"
+      ],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
         "patch",
-        "digest"
+        "digest",
+        "pin",
       ],
       "bumpVersion": "patch",
-      "labels": ["tag/non-major"],
-      "groupName": ["non-major"],
+      "labels": ["update/docker/general/non-major"],
+      "groupName": ["docker general non-major"],
+      "paths": ["charts/dependency/",  "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
-        "on tuesday"
-      ]
-    },
-    //
-    // Version strategies
-    //
-    // Versioning for linuxserver two-three digit container versions
-    {
-      "packagePatterns": ["^linuxserver\\/","^deepquestai\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
-    },
-    // Versioning for slightly problematic container versions
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "loose",
-      "matchPackageNames": [
-        "ghcr.io/k8s-at-home/plex",
-        "ghcr.io/linuxserver/calibre",
-        "ghcr.io/k8s-at-home/qbittorrent",
-        "sirfragalot/hyperion.ng",
+        "before 2am"
       ],
     },
   ]

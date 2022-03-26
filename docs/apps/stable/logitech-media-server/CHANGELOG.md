@@ -1,6 +1,531 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.9"></a>
+### [logitech-media-server-3.0.9](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.8...logitech-media-server-3.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="logitech-media-server-3.0.6"></a>
+### [logitech-media-server-3.0.6](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.5...logitech-media-server-3.0.6) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="logitech-media-server-3.0.3"></a>
+### [logitech-media-server-3.0.3](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.2...logitech-media-server-3.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
+* make some fields required ([#2155](https://github.com/truecharts/apps/issues/2155))
+
+
+
+<a name="logitech-media-server-3.0.2"></a>
+### [logitech-media-server-3.0.2](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.1...logitech-media-server-3.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="logitech-media-server-3.0.1"></a>
+### [logitech-media-server-3.0.1](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.0...logitech-media-server-3.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="logitech-media-server-3.0.0"></a>
+### [logitech-media-server-3.0.0](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.67...logitech-media-server-3.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="logitech-media-server-2.0.67"></a>
+### [logitech-media-server-2.0.67](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.66...logitech-media-server-2.0.67) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="logitech-media-server-2.0.66"></a>
+### [logitech-media-server-2.0.66](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.65...logitech-media-server-2.0.66) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="logitech-media-server-2.0.65"></a>
+### [logitech-media-server-2.0.65](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.64...logitech-media-server-2.0.65) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="logitech-media-server-2.0.64"></a>
+### [logitech-media-server-2.0.64](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.63...logitech-media-server-2.0.64) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
+<a name="logitech-media-server-2.0.63"></a>
+### [logitech-media-server-2.0.63](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.62...logitech-media-server-2.0.63) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="logitech-media-server-2.0.62"></a>
+### [logitech-media-server-2.0.62](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.61...logitech-media-server-2.0.62) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
+<a name="logitech-media-server-2.0.61"></a>
+### [logitech-media-server-2.0.61](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.60...logitech-media-server-2.0.61) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="logitech-media-server-2.0.60"></a>
+### [logitech-media-server-2.0.60](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.59...logitech-media-server-2.0.60) (2022-02-08)
+
+#### Chore
+
+* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
+
+
+
+<a name="logitech-media-server-2.0.59"></a>
+### [logitech-media-server-2.0.59](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.58...logitech-media-server-2.0.59) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
+<a name="logitech-media-server-2.0.58"></a>
+### [logitech-media-server-2.0.58](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.57...logitech-media-server-2.0.58) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
+<a name="logitech-media-server-2.0.57"></a>
+### [logitech-media-server-2.0.57](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.56...logitech-media-server-2.0.57) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="logitech-media-server-2.0.56"></a>
+### [logitech-media-server-2.0.56](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.55...logitech-media-server-2.0.56) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="logitech-media-server-2.0.55"></a>
+### [logitech-media-server-2.0.55](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.54...logitech-media-server-2.0.55) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
+<a name="logitech-media-server-2.0.54"></a>
+### [logitech-media-server-2.0.54](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.53...logitech-media-server-2.0.54) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="logitech-media-server-2.0.53"></a>
+### [logitech-media-server-2.0.53](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.52...logitech-media-server-2.0.53) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
+<a name="logitech-media-server-2.0.52"></a>
+### [logitech-media-server-2.0.52](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.51...logitech-media-server-2.0.52) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="logitech-media-server-2.0.51"></a>
+### [logitech-media-server-2.0.51](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.50...logitech-media-server-2.0.51) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="logitech-media-server-2.0.50"></a>
+### [logitech-media-server-2.0.50](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.49...logitech-media-server-2.0.50) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
+<a name="logitech-media-server-2.0.49"></a>
+### [logitech-media-server-2.0.49](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.48...logitech-media-server-2.0.49) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="logitech-media-server-2.0.48"></a>
+### [logitech-media-server-2.0.48](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.47...logitech-media-server-2.0.48) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="logitech-media-server-2.0.47"></a>
+### [logitech-media-server-2.0.47](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.46...logitech-media-server-2.0.47) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
+<a name="logitech-media-server-2.0.46"></a>
+### [logitech-media-server-2.0.46](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.45...logitech-media-server-2.0.46) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="logitech-media-server-2.0.45"></a>
+### [logitech-media-server-2.0.45](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.44...logitech-media-server-2.0.45) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="logitech-media-server-2.0.44"></a>
+### [logitech-media-server-2.0.44](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.43...logitech-media-server-2.0.44) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="logitech-media-server-2.0.43"></a>
+### [logitech-media-server-2.0.43](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.42...logitech-media-server-2.0.43) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1687](https://github.com/truecharts/apps/issues/1687))
+
+
+
+<a name="logitech-media-server-2.0.42"></a>
+### [logitech-media-server-2.0.42](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.41...logitech-media-server-2.0.42) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="logitech-media-server-2.0.41"></a>
+### [logitech-media-server-2.0.41](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.40...logitech-media-server-2.0.41) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="logitech-media-server-2.0.40"></a>
+### [logitech-media-server-2.0.40](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.39...logitech-media-server-2.0.40) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="logitech-media-server-2.0.39"></a>
+### [logitech-media-server-2.0.39](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.38...logitech-media-server-2.0.39) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="logitech-media-server-2.0.38"></a>
+### [logitech-media-server-2.0.38](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.37...logitech-media-server-2.0.38) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
+<a name="logitech-media-server-2.0.37"></a>
+### [logitech-media-server-2.0.37](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.36...logitech-media-server-2.0.37) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="logitech-media-server-2.0.36"></a>
+### [logitech-media-server-2.0.36](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.35...logitech-media-server-2.0.36) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
+<a name="logitech-media-server-2.0.35"></a>
+### [logitech-media-server-2.0.35](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.34...logitech-media-server-2.0.35) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="logitech-media-server-2.0.34"></a>
+### [logitech-media-server-2.0.34](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.33...logitech-media-server-2.0.34) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
+<a name="logitech-media-server-2.0.33"></a>
+### [logitech-media-server-2.0.33](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.32...logitech-media-server-2.0.33) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
+<a name="logitech-media-server-2.0.32"></a>
+### [logitech-media-server-2.0.32](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.31...logitech-media-server-2.0.32) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="logitech-media-server-2.0.31"></a>
+### [logitech-media-server-2.0.31](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.30...logitech-media-server-2.0.31) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="logitech-media-server-2.0.30"></a>
+### [logitech-media-server-2.0.30](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.29...logitech-media-server-2.0.30) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="logitech-media-server-2.0.29"></a>
+### [logitech-media-server-2.0.29](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.28...logitech-media-server-2.0.29) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
+<a name="logitech-media-server-2.0.28"></a>
+### [logitech-media-server-2.0.28](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.27...logitech-media-server-2.0.28) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="logitech-media-server-2.0.27"></a>
+### logitech-media-server-2.0.27 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="logitech-media-server-2.0.26"></a>
+### [logitech-media-server-2.0.26](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.25...logitech-media-server-2.0.26) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="logitech-media-server-2.0.25"></a>
+### [logitech-media-server-2.0.25](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.24...logitech-media-server-2.0.25) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
+<a name="logitech-media-server-2.0.24"></a>
+### [logitech-media-server-2.0.24](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.23...logitech-media-server-2.0.24) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="logitech-media-server-2.0.23"></a>
+### [logitech-media-server-2.0.23](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.22...logitech-media-server-2.0.23) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="logitech-media-server-2.0.22"></a>
+### [logitech-media-server-2.0.22](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.21...logitech-media-server-2.0.22) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="logitech-media-server-2.0.21"></a>
+### [logitech-media-server-2.0.21](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.20...logitech-media-server-2.0.21) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
+<a name="logitech-media-server-2.0.20"></a>
+### [logitech-media-server-2.0.20](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.19...logitech-media-server-2.0.20) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases
+
+
+
 <a name="logitech-media-server-2.0.18"></a>
 ### [logitech-media-server-2.0.18](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.17...logitech-media-server-2.0.18) (2021-11-23)
 

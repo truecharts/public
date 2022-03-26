@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/filezilla"` |  |
-| image.tag | string | `"version-3.51.0-r1@sha256:5103cdd266ceb61cebabae6629e418570a5094e3f61ef2f405f6e24d4fc7f6a4"` |  |
+| image.repository | string | `"tccr.io/truecharts/filezilla"` |  |
+| image.tag | string | `"v3.55.1@sha256:b72ced768d529580923b26520af922a8c6d8fb154560ad7f02c980b418fbfeb2"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10035` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

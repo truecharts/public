@@ -1,16 +1,14 @@
 image:
-  repository: ghcr.io/nicholaswilde/etherpad
+  repository: tccr.io/truecharts/etherpad
   pullPolicy: IfNotPresent
-  tag: version-1.8.14@sha256:26bbd45110d5b4d70246fafe40d4c4a7047b7b4fde409763a125324fa93b2d73
+  tag: version-1.8.14@sha256:4900f0e787ca22cf93090ae44ecceb5689d4427c739e1eb637a6e3a913161bf8
 
 secret: {}
 
 # See more environment variables in the etherpad documentation
 # https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md
 # For Mariadb, use DB_TYPE: mysql https://github.com/ether/etherpad-lite/issues/4214
-env: {}
-
-envTpl:
+env:
   DB_TYPE: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"

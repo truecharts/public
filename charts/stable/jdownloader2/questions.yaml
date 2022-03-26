@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -74,27 +75,33 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
+  - variable: secret
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for jdownloader2 containers"
-          schema:
-            type: int
-            default: 568
-
-
+              - variable: VNC_PASSWORD
+                label: "VNC_PASSWORD"
+                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
+                schema:
+                  type: string
+                  private: true
+                  default: "REPLACETHIS"
+  - variable: jdownloader
+    group: "Container Configuration"
+    label: "jDownloader2 Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to 1, the application will be automatically restarted if it crashes or if a user quits it."
           schema:
-            type: int
-            default: 0
+            type: boolean
+            default: false
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -107,48 +114,43 @@ questions:
                 label: "DISPLAY_WIDTH"
                 description: "Width (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "1280"
+                  type: int
+                  default: 1280
                   required: true
               - variable: DISPLAY_HEIGHT
                 label: "DISPLAY_HEIGHT"
                 description: "Height (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "768"
+                  type: int
+                  default: 768
                   required: true
               - variable: SECURE_CONNECTION
                 label: "SECURE_CONNECTION"
                 description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
                 schema:
-                  type: string
-                  default: "0"
-                  required: true
-              - variable: VNC_PASSWORD
-                label: "VNC_PASSWORD"
-                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
-                schema:
-                  private: true
-                  type: string
-                  default: ""
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -157,7 +159,6 @@ questions:
                             schema:
                               type: int
                               default: 10054
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -199,12 +200,14 @@ questions:
           label: "MyJDownloader"
           description: "Port used by MyJDownloader mobile applications and browser extensions to establish a direct connect to the JDownloader"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: myjd
                       label: "myjd Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -213,7 +216,6 @@ questions:
                             schema:
                               type: int
                               default: 3129
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -254,12 +256,14 @@ questions:
           label: "VNC Service"
           description: "The VNC service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: vnc
                       label: "VNC Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -268,7 +272,6 @@ questions:
                             schema:
                               type: int
                               default: 10056
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -329,20 +332,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -367,14 +366,49 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: output
+          label: "App Output Storage"
+          description: "Stores the Application Output."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "/config"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -392,11 +426,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -408,6 +444,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -419,6 +457,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -441,11 +480,13 @@ questions:
                 schema:
                   type: boolean
                   default: false
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -466,26 +507,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

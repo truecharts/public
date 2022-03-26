@@ -114,6 +114,7 @@ They are called general options, because they affect the basic functionalities o
     group: "Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: TZ
@@ -173,6 +174,7 @@ They are called general options, because they affect the basic functionalities o
     group: "Security"
     label: "Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: privileged
@@ -185,6 +187,7 @@ They are called general options, because they affect the basic functionalities o
     group: "Security"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsNonRoot

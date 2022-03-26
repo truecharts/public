@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/sonarr"` |  |
-| image.tag | string | `"v3.0.6.1342@sha256:9b1aee75dba21a1ddd347700e852d6e1cdcaaf6f163c79c80901af089a9a9ce1"` |  |
+| image.repository | string | `"tccr.io/truecharts/sonarr"` |  |
+| image.tag | string | `"v3.0.7.1477@sha256:a14027b732b5abe71854d48f76872e8bd0ff25d2b640e5f025bb30d96dfa73ec"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

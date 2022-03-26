@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/piwigo"` |  |
-| image.tag | string | `"version-11.5.0@sha256:13aa1206583cf5ff5d20c6d9b0738bcf5de6907b27e96c334ff5e3b716e959d9"` |  |
+| image.repository | string | `"tccr.io/truecharts/piwigo"` |  |
+| image.tag | string | `"version-11.5.0@sha256:8f8bb5d28b930edfded154d71dd2eab4ffe5631d2e4f21773bf33b220ab76f05"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10027` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

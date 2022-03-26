@@ -1,4 +1,4 @@
-# 18 - VPN Addon Setup
+# 12 - VPN Addon Setup
 
 
 #### Video Guide

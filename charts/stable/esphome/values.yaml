@@ -1,9 +1,18 @@
-# Default values for esphome.
-
 image:
-  repository: ghcr.io/truecharts/esphome
+  repository: tccr.io/truecharts/esphome
   pullPolicy: IfNotPresent
-  tag: v2021.11.1@sha256:7d1352a61ae5c41dde8922e093b2249badd0f3b4213a1acf90d9be716808201e
+  tag: v2022.3.1@sha256:238e47a1e1e2e687d4adc98d6bc6353437d205dac58641fdf3f2bdda314d4aae
+
+# App needs to run as root because of this: https://github.com/esphome/issues/issues/2752
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+  privileged: true
+  allowPrivilegeEscalation: true
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -25,3 +34,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  platformio:
+    enabled: true
+    mountPath: "/.platformio"

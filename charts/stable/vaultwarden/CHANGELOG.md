@@ -1,6 +1,385 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-14.0.8"></a>
+### [vaultwarden-14.0.8](https://github.com/truecharts/apps/compare/vaultwarden-14.0.7...vaultwarden-14.0.8) (2022-03-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
+
+
+
+<a name="vaultwarden-14.0.7"></a>
+### [vaultwarden-14.0.7](https://github.com/truecharts/apps/compare/vaultwarden-14.0.6...vaultwarden-14.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="vaultwarden-14.0.2"></a>
+### [vaultwarden-14.0.2](https://github.com/truecharts/apps/compare/vaultwarden-14.0.1...vaultwarden-14.0.2) (2022-03-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
+
+
+
+<a name="vaultwarden-14.0.1"></a>
+### [vaultwarden-14.0.1](https://github.com/truecharts/apps/compare/vaultwarden-14.0.0...vaultwarden-14.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="vaultwarden-14.0.0"></a>
+### [vaultwarden-14.0.0](https://github.com/truecharts/apps/compare/vaultwarden-13.0.37...vaultwarden-14.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="vaultwarden-13.0.37"></a>
+### [vaultwarden-13.0.37](https://github.com/truecharts/apps/compare/vaultwarden-13.0.36...vaultwarden-13.0.37) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="vaultwarden-13.0.36"></a>
+### [vaultwarden-13.0.36](https://github.com/truecharts/apps/compare/vaultwarden-13.0.35...vaultwarden-13.0.36) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="vaultwarden-13.0.35"></a>
+### [vaultwarden-13.0.35](https://github.com/truecharts/apps/compare/vaultwarden-13.0.34...vaultwarden-13.0.35) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="vaultwarden-13.0.34"></a>
+### [vaultwarden-13.0.34](https://github.com/truecharts/apps/compare/vaultwarden-13.0.33...vaultwarden-13.0.34) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="vaultwarden-13.0.33"></a>
+### [vaultwarden-13.0.33](https://github.com/truecharts/apps/compare/vaultwarden-13.0.32...vaultwarden-13.0.33) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
+<a name="vaultwarden-13.0.32"></a>
+### [vaultwarden-13.0.32](https://github.com/truecharts/apps/compare/vaultwarden-13.0.31...vaultwarden-13.0.32) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
+<a name="vaultwarden-13.0.31"></a>
+### [vaultwarden-13.0.31](https://github.com/truecharts/apps/compare/vaultwarden-13.0.30...vaultwarden-13.0.31) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="vaultwarden-13.0.30"></a>
+### [vaultwarden-13.0.30](https://github.com/truecharts/apps/compare/vaultwarden-13.0.29...vaultwarden-13.0.30) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
+<a name="vaultwarden-13.0.29"></a>
+### [vaultwarden-13.0.29](https://github.com/truecharts/apps/compare/vaultwarden-13.0.28...vaultwarden-13.0.29) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="vaultwarden-13.0.28"></a>
+### [vaultwarden-13.0.28](https://github.com/truecharts/apps/compare/vaultwarden-13.0.27...vaultwarden-13.0.28) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="vaultwarden-13.0.27"></a>
+### [vaultwarden-13.0.27](https://github.com/truecharts/apps/compare/vaultwarden-13.0.26...vaultwarden-13.0.27) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="vaultwarden-13.0.26"></a>
+### [vaultwarden-13.0.26](https://github.com/truecharts/apps/compare/vaultwarden-13.0.25...vaultwarden-13.0.26) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="vaultwarden-13.0.25"></a>
+### [vaultwarden-13.0.25](https://github.com/truecharts/apps/compare/vaultwarden-13.0.24...vaultwarden-13.0.25) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="vaultwarden-13.0.24"></a>
+### [vaultwarden-13.0.24](https://github.com/truecharts/apps/compare/vaultwarden-13.0.23...vaultwarden-13.0.24) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="vaultwarden-13.0.23"></a>
+### [vaultwarden-13.0.23](https://github.com/truecharts/apps/compare/vaultwarden-13.0.22...vaultwarden-13.0.23) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="vaultwarden-13.0.22"></a>
+### [vaultwarden-13.0.22](https://github.com/truecharts/apps/compare/vaultwarden-13.0.21...vaultwarden-13.0.22) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="vaultwarden-13.0.21"></a>
+### [vaultwarden-13.0.21](https://github.com/truecharts/apps/compare/vaultwarden-13.0.20...vaultwarden-13.0.21) (2022-01-10)
+
+#### Feat
+
+* Add admin portal button ([#1673](https://github.com/truecharts/apps/issues/1673))
+
+
+
+<a name="vaultwarden-13.0.20"></a>
+### [vaultwarden-13.0.20](https://github.com/truecharts/apps/compare/vaultwarden-13.0.19...vaultwarden-13.0.20) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="vaultwarden-13.0.19"></a>
+### [vaultwarden-13.0.19](https://github.com/truecharts/apps/compare/vaultwarden-13.0.18...vaultwarden-13.0.19) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="vaultwarden-13.0.18"></a>
+### [vaultwarden-13.0.18](https://github.com/truecharts/apps/compare/vaultwarden-13.0.17...vaultwarden-13.0.18) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="vaultwarden-13.0.17"></a>
+### [vaultwarden-13.0.17](https://github.com/truecharts/apps/compare/vaultwarden-13.0.16...vaultwarden-13.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
+<a name="vaultwarden-13.0.16"></a>
+### [vaultwarden-13.0.16](https://github.com/truecharts/apps/compare/vaultwarden-13.0.15...vaultwarden-13.0.16) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="vaultwarden-13.0.15"></a>
+### [vaultwarden-13.0.15](https://github.com/truecharts/apps/compare/vaultwarden-13.0.14...vaultwarden-13.0.15) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
+<a name="vaultwarden-13.0.14"></a>
+### [vaultwarden-13.0.14](https://github.com/truecharts/apps/compare/vaultwarden-13.0.13...vaultwarden-13.0.14) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="vaultwarden-13.0.13"></a>
+### [vaultwarden-13.0.13](https://github.com/truecharts/apps/compare/vaultwarden-13.0.12...vaultwarden-13.0.13) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="vaultwarden-13.0.12"></a>
+### [vaultwarden-13.0.12](https://github.com/truecharts/apps/compare/vaultwarden-13.0.11...vaultwarden-13.0.12) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="vaultwarden-13.0.11"></a>
+### [vaultwarden-13.0.11](https://github.com/truecharts/apps/compare/vaultwarden-13.0.10...vaultwarden-13.0.11) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
+<a name="vaultwarden-13.0.10"></a>
+### [vaultwarden-13.0.10](https://github.com/truecharts/apps/compare/vaultwarden-13.0.9...vaultwarden-13.0.10) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="vaultwarden-13.0.9"></a>
+### vaultwarden-13.0.9 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="vaultwarden-13.0.8"></a>
+### [vaultwarden-13.0.8](https://github.com/truecharts/apps/compare/vaultwarden-13.0.7...vaultwarden-13.0.8) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="vaultwarden-13.0.7"></a>
+### [vaultwarden-13.0.7](https://github.com/truecharts/apps/compare/vaultwarden-13.0.6...vaultwarden-13.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="vaultwarden-13.0.6"></a>
+### [vaultwarden-13.0.6](https://github.com/truecharts/apps/compare/vaultwarden-13.0.5...vaultwarden-13.0.6) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="vaultwarden-13.0.5"></a>
+### [vaultwarden-13.0.5](https://github.com/truecharts/apps/compare/vaultwarden-13.0.4...vaultwarden-13.0.5) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="vaultwarden-13.0.4"></a>
 ### [vaultwarden-13.0.4](https://github.com/truecharts/apps/compare/vaultwarden-13.0.3...vaultwarden-13.0.4) (2021-11-23)
 

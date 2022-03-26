@@ -1,11 +1,7 @@
-# Default values for zwavejs2mqtt.
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/charts/tree/master/charts/common
-
 image:
-  repository: ghcr.io/truecharts/zwavejs2mqtt
+  repository: tccr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: v5.12.0@sha256:1d1870e8ccbb1cd2f6417e0f4879e8923e7ac56c88a1215bdc14eaeb69751a0c
+  tag: v6.6.2@sha256:868ccbcd90a1b38cfadec87ca933b3bf613ccb08df17d2a26b2baf7e743294bc
 
 securityContext:
   readOnlyRootFilesystem: false

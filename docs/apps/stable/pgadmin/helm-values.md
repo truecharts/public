@@ -11,19 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
-| env.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
+| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"docker.io/dpage/pgadmin4"` |  |
-| image.tag | string | `"6.2@sha256:13e2208c50cb8666967e0396fa4898b555b41b507149dd468966d64caab7da76"` |  |
+| image.repository | string | `"tccr.io/truecharts/pgadmin4"` |  |
+| image.tag | string | `"v6.7@sha256:c187b358389e145be5c20b6773abbca1d86af7ff4c6406fb325a7373f1455326"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/pgadmin"` |  |
 | podSecurityContext.fsGroup | int | `5050` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
+| secret.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10024` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

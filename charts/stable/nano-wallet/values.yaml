@@ -1,0 +1,23 @@
+image:
+  repository: tccr.io/truecharts/nano-wallet
+  pullPolicy: IfNotPresent
+  tag: v2021.12.16
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 10126
+
+persistence:
+  varrun:
+    enabled: true

@@ -13,22 +13,21 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | database.type | string | `"postgresql"` |  |
 | database.wal | bool | `true` |  |
-| env | object | `{}` |  |
+| env.DOMAIN | string | `"https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"` |  |
 | envFrom[0].configMapRef.name | string | `"vaultwardenconfig"` |  |
 | envFrom[1].secretRef.name | string | `"vaultwardensecret"` |  |
-| envTpl.DOMAIN | string | `"https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/vaultwarden"` |  |
-| image.tag | string | `"v1.23.0@sha256:1e65dd23569e566576c3c80de76f711e0b9fc5e29a39d45f49f0a44d1282d869"` |  |
+| image.repository | string | `"tccr.io/truecharts/vaultwarden"` |  |
+| image.tag | string | `"v1.24.0@sha256:de9c2df3042be86e57c6e56bc1c7d6a72567527b25895836bdf4c6e7b899814d"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"vaultwarden"` |  |
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10102` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 | service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |

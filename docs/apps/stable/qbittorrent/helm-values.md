@@ -15,14 +15,13 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalVolumeMounts[0].name | string | `"qbittorrent-scripts"` |  |
 | additionalVolumes[0].emptyDir | object | `{}` |  |
 | additionalVolumes[0].name | string | `"qbittorrent-scripts"` |  |
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/qbittorrent"` |  |
-| image.tag | string | `"v4.3.9@sha256:eb6df32211ae3c7b7797dd4bc5e66161d9dfcb77e49475058743d502f4ceb0cc"` |  |
+| image.repository | string | `"tccr.io/truecharts/qbittorrent"` |  |
+| image.tag | string | `"v4.4.2@sha256:193ce0b3040737aaa3f2275d4615442d775f1b39cbcf4ffc11552b54734f6204"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10095` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.enabled | bool | `true` |  |

@@ -1,9 +1,7 @@
-# Default values for Organizr.
-
 image:
-  repository: organizr/organizr
+  repository: tccr.io/truecharts/organizr
   pullPolicy: Always
-  tag: latest@sha256:d8b03b33ea1c65023ef7085bf06d13b0045a099e82fc833c9ac35c071b3e88a8
+  tag: latest@sha256:545941f882098256a41f81f75fab9bb84f331e32f6836877e51799b1244b7c3e
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -20,10 +18,10 @@ service:
         port: 10022
         targetPort: 80
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"

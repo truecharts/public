@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/beets"` |  |
-| image.tag | string | `"version-1.5.0@sha256:5bdb3a8ed128aab4744825fd9657a754632baba5f6d9ae84fa88ac27ed0fa75f"` |  |
+| image.repository | string | `"tccr.io/truecharts/beets"` |  |
+| image.tag | string | `"v1.6.0@sha256:71cc66aae01425c8c4a0ec0638316e8999454fdf164da5cc5999e07dbfa7bb20"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | customConfig | list | `[]` |  |
 | envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"gitea/gitea"` |  |
-| image.tag | string | `"1.15.6-rootless"` |  |
+| image.repository | string | `"tccr.io/truecharts/gitea"` |  |
+| image.tag | string | `"v1.16.5@sha256:0f6cc532ccb61009492bd121fd37dd8c252687033c724ecc44b795ccf88b00f8"` |  |
 | initContainers.1-init-directories.command[0] | string | `"/usr/sbin/init_directory_structure.sh"` |  |
 | initContainers.1-init-directories.envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | initContainers.1-init-directories.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
@@ -60,7 +60,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"gitea"` |  |
 | postgresql.postgresqlUsername | string | `"gitea"` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10037` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 | service.ssh.enabled | bool | `true` |  |
 | service.ssh.ports.ssh.enabled | bool | `true` |  |

@@ -11,13 +11,27 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables). |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/truecharts/ocis"` | image repository |
-| image.tag | string | `"v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| env.ACCOUNTS_DEMO_USERS_AND_GROUPS | bool | `false` |  |
+| env.OCIS_INSECURE | bool | `true` |  |
+| env.OCIS_LOG_COLOR | bool | `true` |  |
+| env.OCIS_LOG_PRETTY | bool | `true` |  |
+| env.OCIS_URL | string | `"https://localhost:{{ .Values.service.main.ports.main.port }}"` |  |
+| env.PROXY_HTTP_ADDR | string | `"0.0.0.0:{{ .Values.service.main.ports.main.port }}"` |  |
+| env.PROXY_TLS | bool | `false` |  |
+| envValueFrom.OCIS_JWT_SECRET.secretKeyRef.key | string | `"OCIS_JWT_SECRET"` |  |
+| envValueFrom.OCIS_JWT_SECRET.secretKeyRef.name | string | `"ocis-secrets"` |  |
+| envValueFrom.OCIS_MACHINE_AUTH_API_KEY.secretKeyRef.key | string | `"OCIS_MACHINE_AUTH_API_KEY"` |  |
+| envValueFrom.OCIS_MACHINE_AUTH_API_KEY.secretKeyRef.name | string | `"ocis-secrets"` |  |
+| envValueFrom.STORAGE_TRANSFER_SECRET.secretKeyRef.key | string | `"STORAGE_TRANSFER_SECRET"` |  |
+| envValueFrom.STORAGE_TRANSFER_SECRET.secretKeyRef.name | string | `"ocis-secrets"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/ocis"` |  |
+| image.tag | string | `"v1.18.0@sha256:893f03f7f075fe370db8b1cb885618549e7d8ed7c8fbc0e2c2630a62bc597f81"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/var/lib/ocis"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `9200` |  |
+| service.main.ports.main.protocol | string | `"HTTPS"` |  |
+| service.main.ports.main.targetPort | int | `9200` |  |
 
 All Rights Reserved - The TrueCharts Project

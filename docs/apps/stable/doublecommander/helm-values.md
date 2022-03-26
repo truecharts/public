@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/doublecommander"` |  |
-| image.tag | string | `"version-0.8.2-1@sha256:61800aec4066ab01d10bebf8a06de3f6a1b1fe7f9bc0c198d9aaad8770f85ce0"` |  |
+| image.repository | string | `"tccr.io/truecharts/doublecommander"` |  |
+| image.tag | string | `"version-0.8.2-1@sha256:9c71e7178c24bdd646fa65e49fd9cef59ad9584eac2d60d59ea3e62ea53d47f9"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10034` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "4.0.1482"
+appVersion: "4.15.2"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
 home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
-icon: https://raw.githubusercontent.com/Ombi-app/Ombi/gh-pages/img/android-chrome-512x512.png
+icon: https://truecharts.org/_static/img/appicons/ombi.png
 keywords:
 - ombi
 - plex
@@ -24,7 +24,7 @@ name: ombi
 sources:
 - https://github.com/tidusjar/Ombi
 type: application
-version: 9.0.12
+version: 10.0.10
 annotations:
   truecharts.org/catagories: |
     - media

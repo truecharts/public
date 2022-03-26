@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/iyuuplus
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:f1cf293763be6a0c14e48566d1fc8ad14d7057c7f04191b8ddbd86409bc33e0c
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8787
+        port: 10188
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/IYUU/db"
+  torrents:
+    enabled: true
+    mountPath: "/torrents"
+  btbackup:
+    enabled: true
+    mountPath: "/BT_backup"

@@ -1,18 +1,10 @@
-# Default values for qbittorrent.
-
 image:
-  repository: ghcr.io/k8s-at-home/qbittorrent
+  repository: tccr.io/truecharts/qbittorrent
   pullPolicy: IfNotPresent
-  tag: v4.3.9@sha256:eb6df32211ae3c7b7797dd4bc5e66161d9dfcb77e49475058743d502f4ceb0cc
+  tag: v4.4.2@sha256:193ce0b3040737aaa3f2275d4615442d775f1b39cbcf4ffc11552b54734f6204
 
 securityContext:
   readOnlyRootFilesystem: false
-
-env: {}
-    # TZ: UTC
-  # PUID: 1001
-
-  # UMASK: 022
 
 service:
   main:

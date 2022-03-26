@@ -12,11 +12,10 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity constraint rules to place the Pod on a specific node. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
-| env | object | See below | environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/truecharts/piaware"` | image repository |
-| image.tag | string | `"v6.1@sha256:9e143490fbe9d5d9e0004ed4b5c08f1f83b56dbbc3920fa47db806b7fdcb1aad"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/piaware"` | image repository |
+| image.tag | string | `"v7.2@sha256:2353247fbbeee820a04cdbb03596f5e0bb273b74a3d00e3bf9db54c81c91bb5a"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

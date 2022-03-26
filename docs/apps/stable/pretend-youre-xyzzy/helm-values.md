@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"docker.io/emcniece/dockeryourxyzzy"` | image repository |
-| image.tag | string | `"4@sha256:04eccbccc15cb755bbdcdd277d7ceaefb776d22b1ca8de6a97cc97eccfc7cd17"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/pretend-youre-xyzzy"` | image repository |
+| image.tag | string | `"v4@sha256:d2b339819975c546a5360e160c793a615e86ab04e5aed91427ff1dd850205ace"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/headphones"` |  |
-| image.tag | string | `"version-58edc604@sha256:43f2d40be460ac59c6b80d6ea1307f14dad11379ac607b6752f84a758da6b118"` |  |
+| image.repository | string | `"tccr.io/truecharts/headphones"` |  |
+| image.tag | string | `"version-58edc604@sha256:f605d077d6d6023e3326421ce02eb81bd962163b68569f8e3953cb5ac2898344"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `8181` |  |
+| service.main.ports.main.port | int | `10064` |  |
 | service.main.ports.main.targetPort | int | `8181` |  |
 
 All Rights Reserved - The TrueCharts Project

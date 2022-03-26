@@ -36,6 +36,8 @@ volumeSpec:
       path: JWT_TOKEN
     - key: "SESSION_ENCRYPTION_KEY"
       path: SESSION_ENCRYPTION_KEY
+    - key: "ENCRYPTION_KEY"
+      path: ENCRYPTION_KEY
     - key: "STORAGE_PASSWORD"
       path: STORAGE_PASSWORD
       {{- if .Values.authentication_backend.ldap.enabled }}

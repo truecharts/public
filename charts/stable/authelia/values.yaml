@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/authelia/authelia
+  repository: tccr.io/truecharts/authelia
   pullPolicy: IfNotPresent
-  tag: 4.32.2@sha256:4c46e56d219424542349fee05b643d854ab74df7a10207dc247dd36366ecfc25
+  tag: v4.34.5@sha256:a42e81ed7a4f1714777e90602e62ae76fd8369c90240a3d0c7456cdf67ea6936
 
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
@@ -27,7 +27,7 @@ postgresql:
   postgresqlDatabase: authelia
 
 # Enabled redis
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
   existingSecret: "rediscreds"

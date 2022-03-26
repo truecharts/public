@@ -1,14 +1,14 @@
 apiVersion: v2
-appVersion: "1.27.0"
+appVersion: "1.28.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: Overseerr is a free and open source software application for managing
   requests for your media library. It integrates with your existing services such
   as Sonarr, Radarr and Plex!
-home: https://github.com/truechartsapps/tree/master/charts/stable/overseerr
-icon: https://i.imgur.com/TMoEG7g.png
+home: https://github.com/truecharts/apps/tree/master/charts/stable/overseerr
+icon: https://truecharts.org/_static/img/appicons/overseerr.png
 keywords:
 - overseerr
 - plex
@@ -23,7 +23,7 @@ name: overseerr
 sources:
 - https://github.com/sct/overseerr
 - https://hub.docker.com/r/sctx/overseerr
-version: 4.0.12
+version: 5.0.6
 annotations:
   truecharts.org/catagories: |
     - media

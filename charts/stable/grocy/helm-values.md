@@ -11,17 +11,16 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/grocy"` |  |
-| image.tag | string | `"version-v3.1.1@sha256:f67e4ce1c7498f5360d874955b0baf3b6b4ae88f5411094d32f7bfb93ddd4a5a"` |  |
+| image.repository | string | `"tccr.io/truecharts/grocy"` |  |
+| image.tag | string | `"v3.2.0@sha256:a29a42d3af33a58535ccdd34c2d48777e32b043aec1fc3520bb18f35a22c54b0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10013` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

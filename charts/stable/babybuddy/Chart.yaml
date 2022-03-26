@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "1.9.1"
+appVersion: "1.10.2"
 kubeVersion: '>=1.16.0-0'
-version: 5.0.4
+version: 6.0.10
 name: babybuddy
 description: Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
 type: application
 home: "https://github.com/truecharts/apps/tree/main/charts/babybuddy"
-icon: "https://github.com/babybuddy/babybuddy/raw/master/babybuddy/static_src/logo/icon.png"
+icon: https://truecharts.org/_static/img/appicons/babybuddy.png
 keywords:
   - baby
   - buddy
@@ -18,12 +18,12 @@ sources:
   - https://github.com/nicholaswilde/docker-babybuddy
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.10
+  version: 7.0.10
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts

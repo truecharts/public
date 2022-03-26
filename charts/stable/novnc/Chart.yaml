@@ -2,11 +2,11 @@ apiVersion: v2
 appVersion: "1.2.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: The open source VNC client
 home: https://github.com/truecharts/apps/tree/master/charts/stable/novnc
-icon: https://github.com/truecharts/apps/raw/main/images/novnc.png
+icon: https://truecharts.org/_static/img/appicons/novnc.png
 keywords:
 - novnc
 - vnc
@@ -21,7 +21,7 @@ name: novnc
 sources:
 - https://novnc.com/
 type: application
-version: 1.0.12
+version: 2.0.6
 annotations:
   truecharts.org/catagories: |
     - media

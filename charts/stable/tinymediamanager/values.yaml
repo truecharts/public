@@ -1,0 +1,33 @@
+image:
+  repository: tccr.io/truecharts/tinymediamanager
+  tag: v4.2.7@sha256:ed1883ca3a17969f12810143bed84eb94998e8bf1e65bc9d4717d1605ee03ef5
+  pullPolicy: IfNotPresent
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  PASSWORD: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 10179
+        targetPort: 4000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  movies:
+    enabled: true
+    mountPath: "/media/movies"
+  tvshows:
+    enabled: true
+    mountPath: "/media/tvshows"

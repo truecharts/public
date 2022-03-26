@@ -1,22 +1,21 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
-name: ${CHARTNAME}
-version: 1.0.12
-upstream_version: 1.1.0
+name: CHARTNAME
+version: 1.0.5
 appVersion: 1.0.0
-description: ${CHARTNAME} App for TrueNAS SCALE
+description: CHARTNAME App for TrueNAS SCALE
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/${CHARTNAME}
-icon: https://raw.githubusercontent.com/truecharts/apps/master/stable/${CHARTNAME}/icon.png?raw=true
+home: https://github.com/truecharts/apps/tree/master/charts/stable/CHARTNAME
+icon: https://raw.githubusercontent.com/truecharts/apps/master/stable/CHARTNAME/icon.png?raw=true
 keywords:
-  - ${CHARTNAME}
+  - CHARTNAME
 sources:
-  - https://github.com/truecharts/apps/tree/master/charts/${CHARTNAME}
+  - https://github.com/truecharts/apps/tree/master/charts/CHARTNAME
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
     # condition:
 maintainers:
 - email: info@truecharts.org

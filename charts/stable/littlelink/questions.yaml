@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -73,20 +74,13 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
-# Include{fixedEnv}
-
 # Include{containerConfig}
 
   - variable: littlelink
     label: ""
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: meta_title
@@ -101,6 +95,21 @@ questions:
             default: ""
         - variable: meta_author
           label: "meta_author"
+          schema:
+            type: string
+            default: ""
+        - variable: lang
+          label: "lang"
+          schema:
+            type: string
+            default: ""
+        - variable: meta_index_status
+          label: "meta_index_status"
+          schema:
+            type: string
+            default: ""
+        - variable: ga_tracking_id
+          label: "ga_tracking_id"
           schema:
             type: string
             default: ""
@@ -229,8 +238,18 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: email_text
+          label: "email_text"
+          schema:
+            type: string
+            default: ""
         - variable: email_alt
           label: "email_alt"
+          schema:
+            type: string
+            default: ""
+        - variable: email_alt_text
+          label: "email_alt_text"
           schema:
             type: string
             default: ""
@@ -279,6 +298,101 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: letterboxd
+          label: "letterboxd"
+          schema:
+            type: string
+            default: ""
+        - variable: mastodon
+          label: "mastodon"
+          schema:
+            type: string
+            default: ""
+        - variable: micro_blog
+          label: "micro_blog"
+          schema:
+            type: string
+            default: ""
+        - variable: whatsapp
+          label: "whatsapp"
+          schema:
+            type: string
+            default: ""
+        - variable: strava
+          label: "strava"
+          schema:
+            type: string
+            default: ""
+        - variable: buymeacoffee
+          label: "buymeacoffee"
+          schema:
+            type: string
+            default: ""
+        - variable: gitlab
+          label: "gitlab"
+          schema:
+            type: string
+            default: ""
+        - variable: patreon
+          label: "patreon"
+          schema:
+            type: string
+            default: ""
+        - variable: devto
+          label: "devto"
+          schema:
+            type: string
+            default: ""
+        - variable: umami_website_id
+          label: "umami_website_id"
+          schema:
+            type: string
+            default: ""
+        - variable: umami_app_url
+          label: "umami_app_url"
+          schema:
+            type: string
+            default: ""
+        - variable: paypal
+          label: "paypal"
+          schema:
+            type: string
+            default: ""
+        - variable: slack
+          label: "slack"
+          schema:
+            type: string
+            default: ""
+        - variable: lastfm
+          label: "lastfm"
+          schema:
+            type: string
+            default: ""
+        - variable: untappd
+          label: "untappd"
+          schema:
+            type: string
+            default: ""
+        - variable: stackoverflow
+          label: "stackoverflow"
+          schema:
+            type: string
+            default: ""
+        - variable: gitea
+          label: "gitea"
+          schema:
+            type: string
+            default: ""
+        - variable: polywork
+          label: "polywork"
+          schema:
+            type: string
+            default: ""
+        - variable: signal
+          label: "signal"
+          schema:
+            type: string
+            default: ""
         - variable: footer
           label: "footer"
           schema:
@@ -289,18 +403,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -309,7 +426,6 @@ questions:
                             schema:
                               type: int
                               default: 10040
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -371,11 +487,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -387,6 +505,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -398,6 +518,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -420,10 +541,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -444,26 +568,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

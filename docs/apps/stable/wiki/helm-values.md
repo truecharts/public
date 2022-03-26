@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/wiki"` |  |
-| image.tag | string | `"version-900b76a@sha256:6c4f261d8f5e5dadd5ec97465465d434dc6730a85ccf9af415c03d1c0e8d1afd"` |  |
+| image.repository | string | `"tccr.io/truecharts/wiki"` |  |
+| image.tag | string | `"version-900b76a@sha256:26548fe894831ba1fbd7b68da370583363be3f992bd99e71c8b678c2583df951"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `8000` |  |
+| service.main.ports.main.port | int | `10044` |  |
 | service.main.ports.main.targetPort | int | `8000` |  |
 
 All Rights Reserved - The TrueCharts Project

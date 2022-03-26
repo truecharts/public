@@ -1,12 +1,13 @@
-# Default values for jellyfin.
-
 image:
-  repository: ghcr.io/truecharts/jellyfin
+  repository: tccr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
-  tag: v10.7.7@sha256:2fa78e734903d95f8b530d2f3203f5ce5d9ff891cc8a70c0e80e828e336b4abb
+  tag: v10.7.7@sha256:0136db4677a2ee2ee8a6962d813d6e3b49aa86784a7cfdc3af76427db32c3470
 
 securityContext:
   readOnlyRootFilesystem: false
+
+env:
+  JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
 
 service:
   main:
@@ -19,3 +20,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  cache:
+    enabled: true
+    mountPath: "/cache"
+    type: "emptyDir"

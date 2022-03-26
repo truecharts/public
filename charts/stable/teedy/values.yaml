@@ -1,8 +1,8 @@
 image:
   # -- image repository
-  repository: sismics/docs
+  repository: tccr.io/truecharts/docs
   # -- image tag
-  tag: v1.9@sha256:bd52127b6509da4b07d7bbc48c7cc82dcbdc59ceab28d9239c591d0d0732f7af
+  tag: v1.10@sha256:da049548cc6e261fb09530de30b8856a5f45ec9be654fa8aba4b3dd4f6d091d7
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -19,7 +19,6 @@ secret:
   DOCS_SMTP_PASSWORD: ""
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- The language which will be used as default
   DOCS_DEFAULT_LANGUAGE: "eng"
   # -- The base url used by the application
@@ -28,7 +27,6 @@ env:
   DOCS_SMTP_HOSTNAME: ""
   # -- The port of the SMTP-Server which should be used
   DOCS_SMTP_PORT: 0
-envTpl:
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 
 envValueFrom:

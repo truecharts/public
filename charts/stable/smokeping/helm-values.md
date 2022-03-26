@@ -11,19 +11,19 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/smokeping"` |  |
-| image.tag | string | `"version-2.7.3-r5@sha256:a10ca4e48e053a1969e5256269e6d6aadcfb719f7b6cee444424028c74a6a008"` |  |
+| image.repository | string | `"tccr.io/truecharts/smokeping"` |  |
+| image.tag | string | `"version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10030` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 | strategy.type | string | `"Recreate"` |  |
 

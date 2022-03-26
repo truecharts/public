@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/node-red"` |  |
-| image.tag | string | `"v2.1.2@sha256:1bdc555a36417b165ed2ae1246a15321cdb476bfa1a0315c82d1931ad9beb04f"` |  |
+| image.repository | string | `"tccr.io/truecharts/node-red"` |  |
+| image.tag | string | `"v2.2.2@sha256:7c181ad1464aebe7e41401acbbb024a3dd1505ce687b0b049fc52a6affe98e54"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | service.main.ports.main.port | int | `1880` |  |

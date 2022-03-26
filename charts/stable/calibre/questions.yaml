@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -73,62 +74,54 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PASSWORD
+          label: "PASSWORD"
+          description: "Optionally set a password for the gui."
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the userID inside the container"
-          schema:
-            type: string
-            default: "568"
-
-        - variable: UMASK_SET
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
-        - variable: GUAC_USER
-          label: "GUAC_USER"
-          description: "Username for the calibre gui"
-          schema:
-            type: string
-            default: ""
-        - variable: GUAC_PASS
-          label: "GUAC_PASS"
-          description: "Password's md5 hash for the calibre gui"
-          schema:
-            type: string
-            default: ""
         - variable: CLI_ARGS
           label: "CLI_ARGS"
           description: "Optionally pass cli start arguments to calibre"
           schema:
             type: string
-            default: "002"
+            default: ""
 # Include{containerConfig}
 
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -136,8 +129,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10080
-                              editable: true
+                              default: 8084
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -179,27 +171,22 @@ questions:
           label: "webserver Service"
           description: "The webserver service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: webserver
                       label: "webserver Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8081
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -260,20 +247,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -298,14 +281,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/config"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -324,11 +299,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -341,6 +318,8 @@ questions:
 
 # Include{ingressList}
 
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -352,6 +331,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -374,11 +354,13 @@ questions:
                 schema:
                   type: boolean
                   default: false
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -399,26 +381,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

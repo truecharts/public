@@ -12,14 +12,14 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/nzbget"` |  |
-| image.tag | string | `"v21.1@sha256:a000653a171eb6779f2d87ddbf0cde5e0ed71a6bd89b35c1047fe67757b3ab1e"` |  |
+| image.repository | string | `"tccr.io/truecharts/nzbget"` |  |
+| image.tag | string | `"v21.1@sha256:6c33417ef2e13312379b5c8cecfc327092e95b472d85e955156bc402af80a338"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
-| service.main.ports.main.port | int | `6789` |  |
+| service.main.ports.main.port | int | `10057` |  |
 | service.main.ports.main.targetPort | int | `6789` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,8 +1,7 @@
-# Default values for Traefik
 image:
-  repository: traefik
+  repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: v2.5.4@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633
+  tag: v2.6.2@sha256:e6ea25601aa31e3761d205867acd72bdacdf7911b39b2e2f746048a822a70b86
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -28,6 +27,11 @@ ingressRoute:
     annotations: {}
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
     labels: {}
+
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/path: "/metrics"
+  prometheus.io/port: "9180"
 
 #
 # -- Configure providers
@@ -115,7 +119,7 @@ additionalArguments:
   - "--providers.kubernetesingress.allowexternalnameservices=true"
 
 # -- TLS Options to be created as TLSOption CRDs
-# https://doc.traefik.io/traefik/https/tls/#tls-options
+# https://doc.traefik.io/tccr.io/truecharts/https/tls/#tls-options
 # Example:
 tlsOptions:
   default:
@@ -151,6 +155,8 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # Options: Empty, 0 (ingore), or positive int
+        # redirectPort:
       websecure:
         enabled: true
         port: 9443
@@ -171,12 +177,12 @@ service:
 #          #     - bar.example.com
   metrics:
     enabled: true
-    type: LoadBalancer
+    type: ClusterIP
     ports:
       metrics:
         enabled: true
-        port: 9100
-        targetPort: 9100
+        port: 9180
+        targetPort: 9180
         protocol: HTTP
   udp:
     enabled: false

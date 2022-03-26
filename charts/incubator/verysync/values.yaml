@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/verysync
+  tag: v2.13.0@sha256:2ee334d635b2cc984818ae3afe108c8fb6741289be6e8faac11c1bad3b83502b
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 10193
+  bt-udp1:
+    enabled: true
+    ports:
+      bt-udp1:
+        enabled: true
+        port: 22037
+        targetPort: 22037
+        protocol: UDP
+  bt-udp2:
+    enabled: true
+    ports:
+      bt-udp2:
+        enabled: true
+        port: 22027
+        targetPort: 22027
+        protocol: UDP
+  data:
+    enabled: true
+    ports:
+      data:
+        enabled: true
+        port: 22330
+        targetPort: 22330
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"

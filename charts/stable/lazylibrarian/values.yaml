@@ -1,9 +1,7 @@
-# Default values for LazyLibrarian.
-
 image:
-  repository: ghcr.io/linuxserver/lazylibrarian
+  repository: tccr.io/truecharts/lazylibrarian
   pullPolicy: IfNotPresent
-  tag: latest@sha256:4dd1959efb36ab1268588a7663c960a69b01f0877cbd6a8c3e9088f705c2f0ec
+  tag: latest@sha256:ae3e8fae41564ecac61308e2722b855428dd16d38415e4bea333a818ca2dd2fb
 
 securityContext:
   runAsNonRoot: false
@@ -19,9 +17,6 @@ service:
         port: 5299
         targetPort: 5299
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true

@@ -12,12 +12,12 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/emby"` |  |
-| image.tag | string | `"v4.6.5.0@sha256:11b1f306d6309b60f16bf4292f9737c0a4a0020e93cfc1c0b36bc10b2680da40"` |  |
+| image.repository | string | `"tccr.io/truecharts/emby"` |  |
+| image.tag | string | `"v4.6.7.0@sha256:f2c60cee28b40d6eeeff72cda847eced2d069b410e63a5b0bdbab7783f34ec1b"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `8096` |  |
+| service.main.ports.main.port | int | `10079` |  |
 | service.main.ports.main.targetPort | int | `8096` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/nextpvr
+  tag: latest@sha256:376eadecab56535b4e15e7b75278b1e5bc8040e33041c07b884d90021ed86b2b
+  pullPolicy: IfNotPresent
+
+env:
+  HOST_IP: "localhost"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10183
+        targetPort: 8866
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  recordings:
+    enabled: true
+    mountPath: "/recordings"
+  buffer:
+    enabled: true
+    mountPath: "/buffer"

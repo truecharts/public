@@ -1,6 +1,508 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-10.0.10"></a>
+### [lazylibrarian-10.0.10](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.9...lazylibrarian-10.0.10) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="lazylibrarian-10.0.8"></a>
+### [lazylibrarian-10.0.8](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.7...lazylibrarian-10.0.8) (2022-03-23)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="lazylibrarian-10.0.5"></a>
+### [lazylibrarian-10.0.5](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.4...lazylibrarian-10.0.5) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
+<a name="lazylibrarian-10.0.3"></a>
+### [lazylibrarian-10.0.3](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.2...lazylibrarian-10.0.3) (2022-03-15)
+
+#### Chore
+
+* remove puid from values ([#2152](https://github.com/truecharts/apps/issues/2152))
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
+<a name="lazylibrarian-10.0.2"></a>
+### [lazylibrarian-10.0.2](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.1...lazylibrarian-10.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="lazylibrarian-10.0.1"></a>
+### [lazylibrarian-10.0.1](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.0...lazylibrarian-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="lazylibrarian-10.0.0"></a>
+### [lazylibrarian-10.0.0](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.61...lazylibrarian-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="lazylibrarian-9.0.61"></a>
+### [lazylibrarian-9.0.61](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.60...lazylibrarian-9.0.61) (2022-03-03)
+
+#### Chore
+
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
+<a name="lazylibrarian-9.0.60"></a>
+### [lazylibrarian-9.0.60](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.59...lazylibrarian-9.0.60) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="lazylibrarian-9.0.59"></a>
+### [lazylibrarian-9.0.59](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.58...lazylibrarian-9.0.59) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="lazylibrarian-9.0.58"></a>
+### [lazylibrarian-9.0.58](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.57...lazylibrarian-9.0.58) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="lazylibrarian-9.0.57"></a>
+### [lazylibrarian-9.0.57](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.56...lazylibrarian-9.0.57) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="lazylibrarian-9.0.56"></a>
+### [lazylibrarian-9.0.56](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.55...lazylibrarian-9.0.56) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
+<a name="lazylibrarian-9.0.55"></a>
+### [lazylibrarian-9.0.55](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.54...lazylibrarian-9.0.55) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
+<a name="lazylibrarian-9.0.54"></a>
+### [lazylibrarian-9.0.54](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.53...lazylibrarian-9.0.54) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="lazylibrarian-9.0.53"></a>
+### [lazylibrarian-9.0.53](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.52...lazylibrarian-9.0.53) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
+<a name="lazylibrarian-9.0.52"></a>
+### [lazylibrarian-9.0.52](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.51...lazylibrarian-9.0.52) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
+<a name="lazylibrarian-9.0.51"></a>
+### [lazylibrarian-9.0.51](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.50...lazylibrarian-9.0.51) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="lazylibrarian-9.0.50"></a>
+### [lazylibrarian-9.0.50](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.49...lazylibrarian-9.0.50) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="lazylibrarian-9.0.49"></a>
+### [lazylibrarian-9.0.49](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.48...lazylibrarian-9.0.49) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
+<a name="lazylibrarian-9.0.48"></a>
+### [lazylibrarian-9.0.48](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.47...lazylibrarian-9.0.48) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="lazylibrarian-9.0.47"></a>
+### [lazylibrarian-9.0.47](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.46...lazylibrarian-9.0.47) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1787](https://github.com/truecharts/apps/issues/1787))
+
+
+
+<a name="lazylibrarian-9.0.46"></a>
+### [lazylibrarian-9.0.46](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.45...lazylibrarian-9.0.46) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="lazylibrarian-9.0.45"></a>
+### [lazylibrarian-9.0.45](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.44...lazylibrarian-9.0.45) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="lazylibrarian-9.0.44"></a>
+### [lazylibrarian-9.0.44](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.43...lazylibrarian-9.0.44) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="lazylibrarian-9.0.43"></a>
+### [lazylibrarian-9.0.43](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.42...lazylibrarian-9.0.43) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
+<a name="lazylibrarian-9.0.42"></a>
+### [lazylibrarian-9.0.42](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.41...lazylibrarian-9.0.42) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="lazylibrarian-9.0.41"></a>
+### [lazylibrarian-9.0.41](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.40...lazylibrarian-9.0.41) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="lazylibrarian-9.0.40"></a>
+### [lazylibrarian-9.0.40](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.39...lazylibrarian-9.0.40) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="lazylibrarian-9.0.39"></a>
+### [lazylibrarian-9.0.39](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.38...lazylibrarian-9.0.39) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="lazylibrarian-9.0.38"></a>
+### [lazylibrarian-9.0.38](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.37...lazylibrarian-9.0.38) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="lazylibrarian-9.0.37"></a>
+### [lazylibrarian-9.0.37](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.36...lazylibrarian-9.0.37) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="lazylibrarian-9.0.36"></a>
+### [lazylibrarian-9.0.36](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.35...lazylibrarian-9.0.36) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="lazylibrarian-9.0.35"></a>
+### [lazylibrarian-9.0.35](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.34...lazylibrarian-9.0.35) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="lazylibrarian-9.0.34"></a>
+### [lazylibrarian-9.0.34](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.33...lazylibrarian-9.0.34) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
+<a name="lazylibrarian-9.0.33"></a>
+### [lazylibrarian-9.0.33](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.32...lazylibrarian-9.0.33) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="lazylibrarian-9.0.32"></a>
+### [lazylibrarian-9.0.32](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.31...lazylibrarian-9.0.32) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="lazylibrarian-9.0.31"></a>
+### [lazylibrarian-9.0.31](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.30...lazylibrarian-9.0.31) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
+<a name="lazylibrarian-9.0.30"></a>
+### [lazylibrarian-9.0.30](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.29...lazylibrarian-9.0.30) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
+<a name="lazylibrarian-9.0.29"></a>
+### [lazylibrarian-9.0.29](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.28...lazylibrarian-9.0.29) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="lazylibrarian-9.0.28"></a>
+### [lazylibrarian-9.0.28](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.27...lazylibrarian-9.0.28) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="lazylibrarian-9.0.27"></a>
+### [lazylibrarian-9.0.27](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.26...lazylibrarian-9.0.27) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="lazylibrarian-9.0.26"></a>
+### [lazylibrarian-9.0.26](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.25...lazylibrarian-9.0.26) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="lazylibrarian-9.0.25"></a>
+### [lazylibrarian-9.0.25](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.24...lazylibrarian-9.0.25) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1485](https://github.com/truecharts/apps/issues/1485))
+
+
+
+<a name="lazylibrarian-9.0.24"></a>
+### [lazylibrarian-9.0.24](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.23...lazylibrarian-9.0.24) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1479](https://github.com/truecharts/apps/issues/1479))
+
+
+
+<a name="lazylibrarian-9.0.23"></a>
+### lazylibrarian-9.0.23 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="lazylibrarian-9.0.22"></a>
+### [lazylibrarian-9.0.22](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.21...lazylibrarian-9.0.22) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="lazylibrarian-9.0.21"></a>
+### [lazylibrarian-9.0.21](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.20...lazylibrarian-9.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="lazylibrarian-9.0.20"></a>
+### [lazylibrarian-9.0.20](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.19...lazylibrarian-9.0.20) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="lazylibrarian-9.0.19"></a>
+### [lazylibrarian-9.0.19](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.18...lazylibrarian-9.0.19) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="lazylibrarian-9.0.18"></a>
+### [lazylibrarian-9.0.18](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.17...lazylibrarian-9.0.18) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
+<a name="lazylibrarian-9.0.17"></a>
+### [lazylibrarian-9.0.17](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.16...lazylibrarian-9.0.17) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases
+
+
+
 <a name="lazylibrarian-9.0.15"></a>
 ### [lazylibrarian-9.0.15](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.14...lazylibrarian-9.0.15) (2021-11-24)
 

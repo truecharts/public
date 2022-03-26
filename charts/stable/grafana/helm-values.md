@@ -20,10 +20,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GF_PATHS_LOGS | string | `"/opt/bitnami/grafana/logs"` |  |
 | env.GF_PATHS_PLUGINS | string | `"/opt/bitnami/grafana/data/plugins"` |  |
 | env.GF_PATHS_PROVISIONING | string | `"/opt/bitnami/grafana/conf/provisioning"` |  |
-| env.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/grafana"` |  |
-| image.tag | string | `"8.2.5@sha256:105ca819eb14dc773a3df6fd56f5e78e68bd2abdb1b5d9007ff803528a84be70"` |  |
+| image.repository | string | `"tccr.io/truecharts/grafana"` |  |
+| image.tag | string | `"v8.4.4@sha256:3e8bca932e10adbc034e30cbf006f52c6cad87462159dd2be4fa3bd821e30a87"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |
@@ -36,8 +35,9 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.path | string | `"/api/health"` |  |
 | probes.startup.path | string | `"/api/health"` |  |
 | secret.GF_SECURITY_ADMIN_PASSWORD | string | `"testpassword"` |  |
+| secret.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10038` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 | service.main.protocol | string | `"HTTP"` |  |
 

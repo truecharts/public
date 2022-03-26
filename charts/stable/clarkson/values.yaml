@@ -1,0 +1,49 @@
+image:
+  repository: tccr.io/truecharts/clarkson
+  pullPolicy: IfNotPresent
+  tag: v1.1.2@sha256:cfbc3aca546a36a74d62969511c0bbc1aad521867610faf502ee8abe0dbe3258
+
+strategy:
+  type: Recreate
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10113
+        targetPort: 3000
+
+# See more environment variables in the clarkson documentation
+# https://github.com/linuxserver/docker-clarkson#parameters
+env:
+  MYSQL_USERNAME: clarkson
+
+
+envValueFrom:
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+persistence:
+  varrun:
+    enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: clarkson
+  mariadbDatabase: clarkson
+  existingSecret: "mariadbcreds"

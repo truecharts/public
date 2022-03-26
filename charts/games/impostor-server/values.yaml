@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/impostor-server
+  pullPolicy: IfNotPresent
+  tag: v1.6.0@sha256:789dda6ea04417d5a7abb9f0373e53ecab7a2cd7b77fa7fc8d9620d977b0e863
+
+nightlyImage:
+  repository: tccr.io/truecharts/impostor-server-nightly
+  pullPolicy: IfNotPresent
+  tag: vnightly@sha256:84b80cfecae507b18c9a6cd2aae1aa9c0c74722a926f541dded9053954f13cdf
+
+env:
+  IMPOSTOR_Server__PublicIp: "127.0.0.1"
+  IMPOSTOR_Server__ListenIp: "0.0.0.0"
+  IMPOSTOR_AntiCheat__Enabled: true
+  IMPOSTOR_AntiCheat__BanIpFromGame: true
+  IMPOSTOR_Debug__GameRecorderEnabled: false
+  IMPOSTOR_Debug__GameRecorderPath: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        port: 22023
+        targetPort: 22023
+
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    enabled: false
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    enabled: false
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    enabled: false

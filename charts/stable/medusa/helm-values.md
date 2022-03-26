@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/medusa"` |  |
-| image.tag | string | `"0.5.20@sha256:24f43e0e6a46872b49f4713f0a8bf98f6b64bfa2a7ced1cb33d54adea26ed4e5"` |  |
+| image.repository | string | `"tccr.io/truecharts/medusa"` |  |
+| image.tag | string | `"v0.5.25@sha256:ed3f08a7dcfbf2907df155997e1c95d7d23c5c7d1465523e43e37b70191fcfcf"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `8081` |  |
+| service.main.ports.main.port | int | `10068` |  |
 | service.main.ports.main.targetPort | int | `8081` |  |
 
 All Rights Reserved - The TrueCharts Project

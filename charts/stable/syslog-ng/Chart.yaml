@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: syslog-ng
+version: 1.0.7
+appVersion: "3.36.1"
+description: syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/syslog-ng
+icon: https://truecharts.org/_static/img/appicons/syslog-ng.png
+keywords:
+  - syslog-ng
+sources:
+  - https://hub.docker.com/r/linuxserver/syslog-ng
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

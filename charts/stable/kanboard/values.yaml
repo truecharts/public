@@ -1,8 +1,8 @@
 image:
   # -- image repository
-  repository: kanboard/kanboard
+  repository: tccr.io/truecharts/kanboard
   # -- image tag
-  tag: v1.2.20@sha256:0b6d33dbbc16e86094b92ed8461659280773bd66a6ff5ee1a380c643aac4ef16
+  tag: v1.2.22@sha256:693507bec023dacc214fcb5bdcfc7004fd116befc8aed63b1617315bf2de8f9c
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -19,13 +19,10 @@ podSecurityContext:
 # @default -- See below (only deviations from the default settings are specified)
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Enable/disable email configuration from the user interface
   MAIL_CONFIGURATION: false
   # -- log driver: syslog, stderr, stdout or file
   LOG_DRIVER: stdout
-
-envTpl:
   DB_DRIVER: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"

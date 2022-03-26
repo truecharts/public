@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: synclounge
+version: 1.0.6
+appVersion: "5.1.112"
+description: Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/synclounge
+icon: https://truecharts.org/_static/img/appicons/synclounge.png
+keywords:
+  - synclounge
+sources:
+  - https://hub.docker.com/r/linuxserver/synclounge
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

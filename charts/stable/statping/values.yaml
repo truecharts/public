@@ -1,8 +1,8 @@
 image:
   # -- image repository
-  repository: statping/statping
+  repository: tccr.io/truecharts/statping
   # -- image tag
-  tag: v0.90.74@sha256:e874da513a5cf0375fc8e7e8cde533934b57804760c9e2d745a584fc26a664cb
+  tag: v0.90.74@sha256:1c7e6cf35253668dd55ab20dde3c3e10d2fefd31416963b81d63846b672f38ce
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -17,7 +17,6 @@ secret:
   ADMIN_EMAIL: "info@example.com"
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Name of the Statping instance
   NAME: "Statping Example"
   # -- Description of the Statping instance
@@ -28,7 +27,6 @@ env:
   USE_CDN: false
   # -- Disable logs from appearing and writing to disk
   DISABLE_LOGS: false
-envTpl:
   DB_CONN: "postgres"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"

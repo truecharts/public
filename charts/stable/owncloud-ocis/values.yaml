@@ -1,39 +1,43 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
-  # -- image repository
-  repository: ghcr.io/truecharts/ocis
-  # -- image tag
-  tag: v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4
-  # -- image pull policy
+  repository: tccr.io/truecharts/ocis
+  tag: v1.18.0@sha256:893f03f7f075fe370db8b1cb885618549e7d8ed7c8fbc0e2c2630a62bc597f81
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables).
-# @default -- See below
 env:
-  # -- Set the container timezone
-  TZ: UTC
+  OCIS_INSECURE: true
+  ACCOUNTS_DEMO_USERS_AND_GROUPS: false
+  OCIS_LOG_PRETTY: true
+  OCIS_LOG_COLOR: true
+  PROXY_TLS: false
+  PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+  OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+envValueFrom:
+  OCIS_JWT_SECRET:
+    secretKeyRef:
+      name: ocis-secrets
+      key: OCIS_JWT_SECRET
+  STORAGE_TRANSFER_SECRET:
+    secretKeyRef:
+      name: ocis-secrets
+      key: STORAGE_TRANSFER_SECRET
+  OCIS_MACHINE_AUTH_API_KEY:
+    secretKeyRef:
+      name: ocis-secrets
+      key: OCIS_MACHINE_AUTH_API_KEY
+
 service:
   main:
     ports:
       main:
+        protocol: HTTPS
         port: 9200
         targetPort: 9200
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/var/lib/ocis"

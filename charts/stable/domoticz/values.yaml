@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/domoticz
+  pullPolicy: IfNotPresent
+  tag: v2022.1.20220310
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  WEBROOT: "domoticz"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10144
+  comm1:
+    enabled: true
+    ports:
+      comm1:
+        enabled: true
+        targetPort: 6144
+        port: 6144
+  comm2:
+    enabled: true
+    ports:
+      comm2:
+        enabled: true
+        targetPort: 1443
+        port: 1443
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

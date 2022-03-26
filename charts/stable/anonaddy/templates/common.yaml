@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render appkey for anonaddy */}}
+{{- include "anonaddy.appkey" . }}
+
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

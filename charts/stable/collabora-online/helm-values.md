@@ -14,18 +14,17 @@ You will, however, be able to use all values referenced in the common chart here
 | env.dictionaries | string | `"de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"` |  |
 | env.domain | string | `"nextcloud\\.domain\\.tld"` |  |
 | env.extra_params | string | `"-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"` |  |
-| env.password | string | `"changeme"` |  |
 | env.server_name | string | `"collabora\\.domain\\.tld"` |  |
-| env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v6.4.14.3@sha256:d4a55425927736cb167a8df37ba6f2a60c0e3e0bacc0ee2496ecb5e535176f60"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
+| image.repository | string | `"tccr.io/truecharts/collabora"` |  |
+| image.tag | string | `"v21.11.3.3.1@sha256:9929ff93991ef738eca24801a260be592fe3d52e724a8f350e81aedddf2169a4"` |  |
+| podSecurityContext.runAsGroup | int | `106` |  |
 | podSecurityContext.runAsUser | int | `104` |  |
+| secret.password | string | `"changeme"` |  |
+| secret.username | string | `"admin"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `9980` |  |
+| service.main.ports.main.port | int | `10105` |  |
 | service.main.ports.main.targetPort | int | `9980` |  |
 
 All Rights Reserved - The TrueCharts Project

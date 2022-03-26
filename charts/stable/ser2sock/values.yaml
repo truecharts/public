@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: tenstartups/ser2sock
+  repository: tccr.io/truecharts/ser2sock
   # -- image tag
-  tag: latest@sha256:379d9338c720da30b63dc4cf2ecea07eb89dac7d62d5c79047294fffe97ae559
+  tag: latest@sha256:04d80516d8e352b1c8f82c28e130f1bc9af2862925c910fb9014a9b46c3473ae
   # -- image pull policy
   pullPolicy: Always
 
@@ -17,7 +10,6 @@ image:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Port where ser2sock listens
   LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
   # -- Path to the serial device

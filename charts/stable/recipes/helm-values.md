@@ -24,19 +24,17 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalContainers.nginx.volumeMounts[2].mountPath | string | `"/static"` |  |
 | additionalContainers.nginx.volumeMounts[2].name | string | `"static"` |  |
 | env | object | See below | environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details. |
-| envTpl.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_PORT | string | `"5432"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
+| envValueFrom.SECRET_KEY.secretKeyRef.key | string | `"SECRET_KEY"` |  |
+| envValueFrom.SECRET_KEY.secretKeyRef.name | string | `"recipes-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"vabene1111/recipes"` | image repository |
-| image.tag | string | `"1.0.2@sha256:e57ab6fd7bc93291ae79e8274f401b765183206aabd6033d18c6742066a9dead"` | image tag |
-| nginxImage.repository | string | `"nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"1.21.4@sha256:097c3a0913d7e3a5b01b6c685a60c03632fc7a2b50bc8e35bcaa3691d788226e"` | nginx sidecar image tag |
+| image.repository | string | `"tccr.io/truecharts/recipes"` | image repository |
+| image.tag | string | `"v1.1.3@sha256:c3647df7ce82ed48e3b0cff7da5ab02612c894ddffe40dc72bcf66bd67bc3d2b"` | image tag |
+| nginxImage.repository | string | `"tccr.io/truecharts/nginx"` | nginx sidecar image repository |
+| nginxImage.tag | string | `"v1.21.6@sha256:1de1a51a7a17d8036b4e926e6906d3784f45cf03ee1e33095efce1db631beb8e"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

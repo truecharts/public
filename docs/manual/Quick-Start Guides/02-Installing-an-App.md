@@ -1,11 +1,11 @@
-# 03 - Installing Apps
+# 02 - Installing Apps
 
 Here we will go over a basic install of Plex, to showcase how you can install a TrueNAS SCALE App from the TrueCharts Catalog with mostly default settings
 
 ##### Requirements
 
 - Make sure your storage-pool is created and working
-- Make Make sure you selected your storage-pool when you first opened the "Apps" interface, if not please refer to quick-start guide `01 - First time Apps setup`
+- Make sure you selected your storage-pool when you first opened the "Apps" interface, if not please refer to quick-start guide `01 - First time Apps setup`
 - Make sure you have a working internet connection and can reach github and truecharts.org from the host system.
 - Make sure you already added the TrueCharts catalog from guide 02
 
@@ -23,4 +23,4 @@ Here we will go over a basic install of Plex, to showcase how you can install a 
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/7d9Vjhxu5Po)
+![type:video](https://www.youtube.com/embed/9UDUMFiaXBM)

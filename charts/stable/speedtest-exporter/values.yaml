@@ -1,8 +1,8 @@
 image:
   # -- image repository
-  repository: ghcr.io/miguelndecarvalho/speedtest-exporter
+  repository: tccr.io/truecharts/speedtest-exporter
   # -- image tag
-  tag: v3.3.4
+  tag: v3.4.1
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -10,7 +10,6 @@ image:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
 
 securityContext:
   readOnlyRootFilesystem: false

@@ -14,18 +14,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below (only deviations from the default settings are specified) | environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables) and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details. |
 | env.LOG_DRIVER | string | `"stdout"` | log driver: syslog, stderr, stdout or file |
 | env.MAIL_CONFIGURATION | bool | `false` | Enable/disable email configuration from the user interface |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_DRIVER | string | `"postgres"` |  |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"kanboard/kanboard"` | image repository |
-| image.tag | string | `"v1.2.20@sha256:0b6d33dbbc16e86094b92ed8461659280773bd66a6ff5ee1a380c643aac4ef16"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/kanboard"` | image repository |
+| image.tag | string | `"v1.2.22@sha256:693507bec023dacc214fcb5bdcfc7004fd116befc8aed63b1617315bf2de8f9c"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

@@ -14,14 +14,14 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHPLDAPADMIN_HTTPS | string | `"false"` |  |
 | env.PHPLDAPADMIN_TRUST_PROXY_SSL | string | `"true"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/phpldapadmin"` |  |
-| image.tag | string | `"v0.9.0@sha256:e633aefd9a89e9c1492bef151eb81d718b5b9ecc7bf1bc80e64b36e5ac480158"` |  |
+| image.repository | string | `"tccr.io/truecharts/phpldapadmin"` |  |
+| image.tag | string | `"v0.9.0@sha256:aef331f060a7fff72d5f698c1fb164bfeba64ec9295bb82d5fa982a40f756d4e"` |  |
 | persistence.varrun.enabled | bool | `false` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `10026` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

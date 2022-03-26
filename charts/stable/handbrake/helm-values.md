@@ -11,33 +11,43 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.AUTOMATED_CONVERSION_FORMAT | string | `"mp4"` |  |
-| env.AUTOMATED_CONVERSION_KEEP_SOURCE | string | `"1"` |  |
-| env.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION | string | `"ignore"` |  |
-| env.AUTOMATED_CONVERSION_PRESET | string | `"General/Very Fast 1080p30"` |  |
-| env.CLEAN_TMP_DIR | string | `"1"` |  |
-| env.DISPLAY_HEIGHT | string | `"768"` |  |
-| env.DISPLAY_WIDTH | string | `"1280"` |  |
-| env.KEEP_APP_RUNNING | string | `"0"` |  |
-| env.PUID | int | `568` |  |
-| env.SECURE_CONNECTION | string | `"0"` |  |
-| env.VNC_PASSWORD | string | `""` |  |
-| envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
+| configmap.handbrake.data.AUTOMATED_CONVERSION_FORMAT | string | `"{{ .Values.handbrake.AUTOMATED_CONVERSION_FORMAT }}"` |  |
+| configmap.handbrake.data.AUTOMATED_CONVERSION_KEEP_SOURCE | string | `"{{ ternary \"1\" \"0\" .Values.handbrake.AUTOMATED_CONVERSION_KEEP_SOURCE }}"` |  |
+| configmap.handbrake.data.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION | string | `"{{ .Values.handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION }}"` |  |
+| configmap.handbrake.data.AUTOMATED_CONVERSION_PRESET | string | `"{{ .Values.handbrake.AUTOMATED_CONVERSION_PRESET }}"` |  |
+| configmap.handbrake.data.DISPLAY_HEIGHT | string | `"{{ .Values.handbrake.DISPLAY_HEIGHT }}"` |  |
+| configmap.handbrake.data.DISPLAY_WIDTH | string | `"{{ .Values.handbrake.DISPLAY_WIDTH }}"` |  |
+| configmap.handbrake.data.KEEP_APP_RUNNING | string | `"{{ ternary \"1\" \"0\" .Values.handbrake.KEEP_APP_RUNNING }}"` |  |
+| configmap.handbrake.data.SECURE_CONNECTION | string | `"{{ ternary \"1\" \"0\" .Values.handbrake.SECURE_CONNECTION }}"` |  |
+| configmap.handbrake.enabled | bool | `true` |  |
+| envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-handbrake"` |  |
+| handbrake.AUTOMATED_CONVERSION_FORMAT | string | `"mp4"` |  |
+| handbrake.AUTOMATED_CONVERSION_KEEP_SOURCE | bool | `true` |  |
+| handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION | string | `"ignore"` |  |
+| handbrake.AUTOMATED_CONVERSION_PRESET | string | `"General/Very Fast 1080p30"` |  |
+| handbrake.DISPLAY_HEIGHT | int | `768` |  |
+| handbrake.DISPLAY_WIDTH | int | `1280` |  |
+| handbrake.KEEP_APP_RUNNING | bool | `false` |  |
+| handbrake.SECURE_CONNECTION | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/handbrake"` |  |
-| image.tag | string | `"v1.24.2@sha256:312ddf5ec046fd0ca3f84015b55c8b4cbe1d6e8340ffcaf244489592a3fc92da"` |  |
+| image.repository | string | `"tccr.io/truecharts/handbrake"` |  |
+| image.tag | string | `"v1.24.2@sha256:7b5fa65f152910287ac3346b8e71b67d9d85987ae28aec0730542506b9b5780a"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| persistence.output.enabled | bool | `true` |  |
+| persistence.output.mountPath | string | `"/output"` |  |
+| persistence.storage.enabled | bool | `true` |  |
+| persistence.storage.mountPath | string | `"/storage"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.VNC_PASSWORD | string | `""` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `5800` |  |
+| service.main.ports.main.port | int | `10053` |  |
 | service.main.ports.main.targetPort | int | `5800` |  |
 | service.vnc.enabled | bool | `true` |  |
 | service.vnc.ports.vnc.enabled | bool | `true` |  |
-| service.vnc.ports.vnc.port | int | `5900` |  |
-| service.vnc.ports.vnc.protocol | string | `"TCP"` |  |
+| service.vnc.ports.vnc.port | int | `10055` |  |
 | service.vnc.ports.vnc.targetPort | int | `5900` |  |
 
 All Rights Reserved - The TrueCharts Project

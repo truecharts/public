@@ -1,6 +1,6 @@
 image:
-  repository: miniflux/miniflux
-  tag: 2.0.33@sha256:77726b617e71a046ea4d02890f7f4a5d43a3c774c7de073ad06bec521ae75f12
+  repository: tccr.io/truecharts/miniflux
+  tag: v2.0.36@sha256:ae3e5307812417bd9996abda27eb8d4a4dfec1dc6bede5d4a14e536319ba1817
   pullPolicy: IfNotPresent
 
 # -- environment variables. See [miniflux docs](https://miniflux.app/docs/configuration.html) for more details.
@@ -12,7 +12,6 @@ secret:
   ADMIN_PASSWORD: "changeme"
 env:
   # -- Set the container timezone.
-  TZ: UTC
   # -- Set to `1` to run database migrations during application startup.
   RUN_MIGRATIONS: 1
   # -- Set to `1` to create an admin user from environment variables.

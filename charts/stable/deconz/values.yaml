@@ -1,16 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
-  # -- image repository
-  repository: ghcr.io/truecharts/deconz
-    # -- image tag
-  tag: v2.13.01@sha256:92a7a439e6010e21265fa5beaa47b0172bc6b6682f4e2d26bcd43c772ff7ddbd
-  # -- image pull policy
+  repository: tccr.io/truecharts/deconz
+  tag: v2.15.00@sha256:bb7e3eca2229f68953a4284a4a09fa8b2725596815435bebfc660e7f4f6051bb
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -21,56 +11,44 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
-# @default -- See below
+secret:
+  DECONZ_VNC_PASSWORD: ""
+
 env:
-  # -- Set the container timezone
-  TZ: UTC
   # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
   DECONZ_DEVICE:  # /dev/ttyUSB0
+  DECONZ_UPNP: 0
+  DECONZ_START_VERBOSE: 0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
   DECONZ_VNC_MODE: 1
-  # -- Web UI listen port
-  DECONZ_WEB_PORT: 80
-  # -- Websocket listen port
-  DECONZ_WS_PORT: 443
-  # -- VNC server listen port
-  DECONZ_VNC_PORT: 5900
-  # -- If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret.
-  DECONZ_VNC_PASSWORD:
-    # secretKeyRef:
-    #   name: deconz-vnc-password
-    #   key: password
+  DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
+  DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
+  DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
+  DECONZ_UID: "{{ .Values.security.PUID }}"
+  DECONZ_GID: "{{ .Values.podSecurityContext.fsGroup }}"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
       main:
         port: 10008
-        targetPort: 80
   websocket:
     enabled: true
     ports:
       websocket:
         enabled: true
         port: 10001
-        targetPort: 443
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
         port: 10002
-        targetPort: 5900
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    mountPath: "/root/.local/share/dresden-elektronik/deCONZ"
+    mountPath: "/opt/deCONZ"
 
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)

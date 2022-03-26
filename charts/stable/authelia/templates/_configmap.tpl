@@ -9,6 +9,7 @@ data:
   AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
   AUTHELIA_JWT_SECRET_FILE: "/secrets/JWT_TOKEN"
   AUTHELIA_SESSION_SECRET_FILE: "/secrets/SESSION_ENCRYPTION_KEY"
+  AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE: "/secrets/ENCRYPTION_KEY"
   AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE: "/secrets/STORAGE_PASSWORD"
   {{- if .Values.authentication_backend.ldap.enabled }}
   AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE: "/secrets/LDAP_PASSWORD"
@@ -17,7 +18,7 @@ data:
   AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: "/secrets/SMTP_PASSWORD"
   {{- end }}
   AUTHELIA_SESSION_REDIS_PASSWORD_FILE: "/secrets/REDIS_PASSWORD"
-  {{- if and .Values.redisProvider.high_availability.enabled}}
+  {{- if .Values.redisProvider.high_availability.enabled }}
   AUTHELIA_SESSION_REDIS_HIGH_AVAILABILITY_SENTINEL_PASSWORD_FILE: "/secrets/REDIS_SENTINEL_PASSWORD"
   {{- end }}
   {{- if .Values.duo_api.enabled }}

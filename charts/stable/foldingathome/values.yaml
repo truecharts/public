@@ -1,0 +1,32 @@
+image:
+  repository: tccr.io/truecharts/foldingathome
+  pullPolicy: IfNotPresent
+  tag: v7.6.21
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 7396
+        port: 7396
+  control:
+    enabled: true
+    ports:
+      control:
+        enabled: true
+        targetPort: 36330
+        port: 36330
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

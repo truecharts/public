@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STORAGE_FILEPATH | string | `"/config"` | filepath for persistance |
 | env.STORAGE_TYPE | string | `"file"` | sets backend |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/haste-server"` | image repository |
-| image.tag | string | `"latest@sha256:827aa2f2389d94a522e333080fa8cbc0e0a487c5681173caca785b3b6b9e5b01"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/haste-server"` | image repository |
+| image.tag | string | `"latest@sha256:046b4d04aa5c23a7a4de10b678aad8f62932e2ae04b2db123107e753b7929f86"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |

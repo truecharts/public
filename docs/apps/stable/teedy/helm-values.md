@@ -11,19 +11,18 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.DATABASE_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DOCS_BASE_URL | string | `""` | The base url used by the application |
 | env.DOCS_DEFAULT_LANGUAGE | string | `"eng"` | The language which will be used as default |
 | env.DOCS_SMTP_HOSTNAME | string | `""` | Hostname of the SMTP-Server to be used by Teedy |
 | env.DOCS_SMTP_PORT | int | `0` | The port of the SMTP-Server which should be used |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DATABASE_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"jdbc"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"sismics/docs"` | image repository |
-| image.tag | string | `"v1.9@sha256:bd52127b6509da4b07d7bbc48c7cc82dcbdc59ceab28d9239c591d0d0732f7af"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/docs"` | image repository |
+| image.tag | string | `"v1.10@sha256:da049548cc6e261fb09530de30b8856a5f45ec9be654fa8aba4b3dd4f6d091d7"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |
 | secret | object | See below | environment variables. See [application docs](https://github.com/sismics/docs) for more details. |

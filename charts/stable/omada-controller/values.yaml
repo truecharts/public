@@ -1,0 +1,63 @@
+image:
+  repository: tccr.io/truecharts/omada-controller
+  tag: v5.1@sha256:6ec3f010466a6f72ef862d7f22cfec6e7b293a903bf52749acb644590c329255
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTPS
+        port: 8043
+        targetPort: 8043
+  comm:
+    enabled: true
+    ports:
+      comm:
+        protocol: HTTPS
+        enabled: true
+        port: 8843
+        targetPort: 8843
+  omada-tcp:
+    enabled: true
+    ports:
+      omada-tcp1:
+        enabled: true
+        port: 29811
+        targetPort: 29811
+      omada-tcp2:
+        enabled: true
+        port: 29812
+        targetPort: 29812
+      omada-tcp3:
+        enabled: true
+        port: 29813
+        targetPort: 29813
+      omada-tcp4:
+        enabled: true
+        port: 29814
+        targetPort: 29814
+  omada-udp:
+    enabled: true
+    ports:
+      omada-udp1:
+        enabled: true
+        protocol: UDP
+        port: 29810
+        targetPort: 29810
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/tplink/EAPController/data"
+  work:
+    enabled: true
+    mountPath: "/opt/tplink/EAPController/work"

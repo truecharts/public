@@ -1,0 +1,115 @@
+image:
+  repository: tccr.io/truecharts/docker-in-docker
+  pullPolicy: IfNotPresent
+  tag: v20.10.14@sha256:2a08b485a61c4518aa185ce9bc3556eaec7674da147eb530e958ca5df67aea0f
+
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: statefulset
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable: 1
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
+
+securityContext:
+  privileged: true
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+
+hostNetwork: true
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 2376
+        type: HTTPS
+
+env:
+  DOCKER_TLS_CERTDIR: "/certs"
+  COMPOSE_FILE: ""
+
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          if [ "${COMPOSE_FILE}" ]; then
+          counter=0;
+          while ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do
+          echo "docker not running yet. Waiting..." >> /proc/1/fd/1;
+          sleep 5;
+          counter=$((counter+1));
+          done
+          docker-compose -f "${COMPOSE_FILE}" up -d && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
+          else
+          echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
+          fi
+probes:
+  liveness:
+    spec:
+      initialDelaySeconds: 30
+  readiness:
+    spec:
+      initialDelaySeconds: 30
+  startup:
+    spec:
+      initialDelaySeconds: 30
+
+persistence:
+  varrun:
+    enabled: false
+  mnt:
+    enabled: true
+    type: hostPath
+    hostPath: /mnt
+    mountPath: /mnt
+    hostPathType: ""
+    readOnly: false
+  root:
+    enabled: true
+    type: hostPath
+    hostPath: /root
+    mountPath: /root
+    hostPathType: ""
+    readOnly: false
+  cluster:
+    enabled: true
+    type: hostPath
+    hostPath: /cluster
+    mountPath: /cluster
+    hostPathType: ""
+    readOnly: false
+  docker-certs-ca:
+    enabled: true
+    mountPath: "/config"
+
+volumeClaimTemplates:
+  docker-certs-client:
+    enabled: true
+    mountPath: "/certs/client"
+  docker:
+    enabled: true
+    mountPath: "/var/lib/docker"

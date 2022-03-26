@@ -1,9 +1,7 @@
 image:
-  repository: ghcr.io/linuxserver/remmina
+  repository: tccr.io/truecharts/remmina
   pullPolicy: IfNotPresent
-  tag: version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:d45c3ba938709a161dc6d0e9d72db82db71142684dcf6738dcb15d06f130e02b
-env:
-  PUID: 568
+  tag: version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:c7795b9222063e436c77a94436da5e1bcdc1b13891f936673369588830a5ae8d
 
 securityContext:
   readOnlyRootFilesystem: false

@@ -1,0 +1,58 @@
+image:
+  repository: tccr.io/truecharts/monica
+  tag: v3.7.0@sha256:3d3796b68c0e4f34e429950f9529b4a06ad28ceed85d994ce9275b119a57bc0c
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [monica documentation](https://raw.githubusercontent.com/monicahq/monica/master/.env.example) for more details.
+# @default -- See below
+env:
+  # -- Use `local` if you want to install Monica as a development version. Use `production` otherwise.
+  APP_ENV: production
+  # -- The URL of your application.
+  APP_URL: https://crm.k8s-at-home.com
+  DB_DATABASE: monica
+  DB_USERNAME: monica
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10119
+        targetPort: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/www/html/storage"
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: appkey
+      key: appkey
+
+mariadb:
+  enabled: true
+  mariadbUsername: monica
+  mariadbDatabase: monica
+  existingSecret: "mariadbcreds"

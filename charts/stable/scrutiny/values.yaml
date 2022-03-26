@@ -1,0 +1,42 @@
+image:
+  repository: tccr.io/truecharts/scrutiny
+  pullPolicy: IfNotPresent
+  tag: v2021.12.16
+
+securityContext:
+  runAsNonRoot: false
+  privileged: true
+  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  SCRUTINY_WEB: true
+  SCRUTINY_COLLECTOR: true
+  SCRUTINY_API_ENDPOINT: "http://localhost:8080"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10151
+
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+    mountPath: "/scrutiny/config"
+  data:
+    enabled: true
+    mountPath: "/config"
+  udev:
+    enabled: true
+    type: hostPath
+    hostPath: "/run/udev"
+    mountPath: "/run/udev"
+    readOnly: true

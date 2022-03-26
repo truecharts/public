@@ -5,14 +5,17 @@
 persistence:
   recipes-config:
     enabled: "true"
-    mountPath: "/app/config.json"
-    subPath: "config.json"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx.conf"
     type: "custom"
     volumeSpec:
       configMap:
         name: {{ printf "%v-config" (include "common.names.fullname" .) }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "recipes.harcodedValues" . | fromYaml) -}}
+
+{{/* Render secrets for recipes */}}
+{{- include "recipes.secrets" . }}
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}

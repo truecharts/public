@@ -1,6 +1,75 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.8"></a>
+### [common-test-3.3.8](https://github.com/truecharts/apps/compare/common-test-3.3.7...common-test-3.3.8) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+
+
+
+<a name="common-test-3.3.7"></a>
+### [common-test-3.3.7](https://github.com/truecharts/apps/compare/common-test-3.3.6...common-test-3.3.7) (2021-12-08)
+
+#### Fix
+
+* correct common version reference
+
+
+
+<a name="common-test-3.3.6"></a>
+### common-test-3.3.6 (2021-12-05)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* retrigger common release
+* bump common
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update common
+
+#### Fix
+
+* use version-range
+* move deps back to ghcr for now.
+
+
+
+<a name="common-test-3.3.4"></a>
+### [common-test-3.3.4](https://github.com/truecharts/apps/compare/common-test-3.3.2...common-test-3.3.4) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
+<a name="common-test-3.3.2"></a>
+### [common-test-3.3.2](https://github.com/truecharts/apps/compare/common-test-3.3.1...common-test-3.3.2) (2021-12-05)
+
+#### Fix
+
+* use version-range
+
+
+
+<a name="common-test-3.3.1"></a>
+### [common-test-3.3.1](https://github.com/truecharts/apps/compare/common-test-3.3.0...common-test-3.3.1) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="common-test-3.3.0"></a>
 ### [common-test-3.3.0](https://github.com/truecharts/apps/compare/common-test-3.2.0...common-test-3.3.0) (2021-10-20)
 

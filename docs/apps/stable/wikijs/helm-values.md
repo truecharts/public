@@ -11,27 +11,28 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-wikijs#environment-variables-e) for more details. |
-| env.PUID | int | `568` | Set the container timezone |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_TYPE | string | `"postgres"` |  |
-| envTpl.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.DB_PORT | string | `"5432"` |  |
+| env.DB_TYPE | string | `"postgres"` |  |
+| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"requarks/wiki"` | image repository |
-| image.tag | string | `"2.5@sha256:4241796c343106f89fdc585229993df05c0ae81bdbbfc13a6f6a5be9b23d662e"` | image tag |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/wikijs"` |  |
+| image.tag | string | `"v2.5.276@sha256:5caedcd71492d09be8272d754eb93c7b3eabfc8db30cf71ff00b2fd809549954"` |  |
+| persistence.wikicache.enabled | bool | `true` |  |
+| persistence.wikicache.mountPath | string | `"/wiki/data/"` |  |
+| persistence.wikicache.type | string | `"emptyDir"` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"wikijs"` |  |
 | postgresql.postgresqlUsername | string | `"wikijs"` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| probes.liveness.path | string | `"/healthz"` |  |
+| probes.readiness.path | string | `"/healthz"` |  |
+| probes.startup.path | string | `"/healthz"` |  |
+| service.main.ports.main.port | int | `10045` |  |
+| service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

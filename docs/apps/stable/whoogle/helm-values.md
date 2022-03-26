@@ -12,10 +12,10 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/benbusby/whoogle-search#environment-variables) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env.WHOOGLE_CONFIG_COUNTRY | string | `""` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"benbusby/whoogle-search"` | image repository |
-| image.tag | string | `"0.6.0@sha256:969fa0500d01b3759387fb779b8282c39676841e5e719c5396535f9f5eaf8d80"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/whoogle-search"` | image repository |
+| image.tag | string | `"v0.7.1@sha256:6f4178d1154128cdcd01171a2bc36f3ed9f2fd428cfc8c40eff9664669e7e907"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

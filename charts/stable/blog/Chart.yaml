@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 7.0.10
+description: "Lightweight self-hosted facebook-styled PHP blog."
+home: https://github.com/truecharts/apps/tree/master/charts/stable/blog
+icon: https://truecharts.org/_static/img/appicons/blog.png
+keywords:
+  - blog
+  - php
+  - self
+  - hosted
+  - facebook
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: blog
+sources:
+  - https://github.com/m1k1o/blog
+  - https://github.com/nicholaswilde/docker-blog
+version: 1.0.8
+annotations:
+  truecharts.org/catagories: |
+    - hosting
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -11,28 +11,33 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://github.com/laurent22/joplin) for more details. |
-| env.APP_BASE_URL | string | `"https://joplin.domain"` | joplin-server base URL |
-| env.APP_PORT | int | `22300` | joplin-server listening port (same as Service port) |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_CLIENT | string | `"pg"` |  |
-| envTpl.POSTGRES_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_PORT | string | `"5432"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.APP_BASE_URL | string | `"http://localhost:22300"` |  |
+| env.APP_PORT | int | `22300` |  |
+| env.DB_CLIENT | string | `"pg"` |  |
+| env.POSTGRES_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.POSTGRES_PORT | string | `"5432"` |  |
+| env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"joplin/server"` | image repository |
-| image.tag | string | `"2.5.1@sha256:5bd976f19f883352bacad74767237471941cb35b2ded96a1afeeb7168b1e08d8"` | image tag |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/joplin-server"` |  |
+| image.tag | string | `"v2.7.4@sha256:6832f3ed894279ba8a1ab03b4033d11dadc28e3f36364eed7b69eadb52f8e1e4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |
+| postgresql.enabled | bool | `true` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
+| postgresql.postgresqlDatabase | string | `"joplin"` |  |
+| postgresql.postgresqlUsername | string | `"joplin"` |  |
+| probes.liveness.path | string | `"/api/ping"` |  |
+| probes.readiness.path | string | `"/api/ping"` |  |
+| probes.startup.path | string | `"/api/ping"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `22300` |  |
+| service.main.ports.main.targetPort | int | `22300` |  |
 
 All Rights Reserved - The TrueCharts Project

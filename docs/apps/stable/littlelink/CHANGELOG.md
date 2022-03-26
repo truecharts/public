@@ -1,6 +1,522 @@
 # Changelog<br>
 
 
+<a name="littlelink-5.0.9"></a>
+### [littlelink-5.0.9](https://github.com/truecharts/apps/compare/littlelink-5.0.8...littlelink-5.0.9) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="littlelink-5.0.7"></a>
+### [littlelink-5.0.7](https://github.com/truecharts/apps/compare/littlelink-5.0.6...littlelink-5.0.7) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="littlelink-5.0.4"></a>
+### [littlelink-5.0.4](https://github.com/truecharts/apps/compare/littlelink-5.0.3...littlelink-5.0.4) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
+<a name="littlelink-5.0.2"></a>
+### [littlelink-5.0.2](https://github.com/truecharts/apps/compare/littlelink-5.0.1...littlelink-5.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="littlelink-5.0.1"></a>
+### [littlelink-5.0.1](https://github.com/truecharts/apps/compare/littlelink-5.0.0...littlelink-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="littlelink-5.0.0"></a>
+### [littlelink-5.0.0](https://github.com/truecharts/apps/compare/littlelink-4.0.66...littlelink-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="littlelink-4.0.66"></a>
+### [littlelink-4.0.66](https://github.com/truecharts/apps/compare/littlelink-4.0.65...littlelink-4.0.66) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="littlelink-4.0.65"></a>
+### [littlelink-4.0.65](https://github.com/truecharts/apps/compare/littlelink-4.0.64...littlelink-4.0.65) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="littlelink-4.0.64"></a>
+### [littlelink-4.0.64](https://github.com/truecharts/apps/compare/littlelink-4.0.63...littlelink-4.0.64) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="littlelink-4.0.63"></a>
+### [littlelink-4.0.63](https://github.com/truecharts/apps/compare/littlelink-4.0.62...littlelink-4.0.63) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
+<a name="littlelink-4.0.62"></a>
+### [littlelink-4.0.62](https://github.com/truecharts/apps/compare/littlelink-4.0.61...littlelink-4.0.62) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="littlelink-4.0.61"></a>
+### [littlelink-4.0.61](https://github.com/truecharts/apps/compare/littlelink-4.0.60...littlelink-4.0.61) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
+<a name="littlelink-4.0.60"></a>
+### [littlelink-4.0.60](https://github.com/truecharts/apps/compare/littlelink-4.0.59...littlelink-4.0.60) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="littlelink-4.0.59"></a>
+### [littlelink-4.0.59](https://github.com/truecharts/apps/compare/littlelink-4.0.58...littlelink-4.0.59) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
+<a name="littlelink-4.0.58"></a>
+### [littlelink-4.0.58](https://github.com/truecharts/apps/compare/littlelink-4.0.57...littlelink-4.0.58) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
+<a name="littlelink-4.0.57"></a>
+### [littlelink-4.0.57](https://github.com/truecharts/apps/compare/littlelink-4.0.56...littlelink-4.0.57) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="littlelink-4.0.56"></a>
+### [littlelink-4.0.56](https://github.com/truecharts/apps/compare/littlelink-4.0.55...littlelink-4.0.56) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
+<a name="littlelink-4.0.55"></a>
+### [littlelink-4.0.55](https://github.com/truecharts/apps/compare/littlelink-4.0.54...littlelink-4.0.55) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="littlelink-4.0.54"></a>
+### [littlelink-4.0.54](https://github.com/truecharts/apps/compare/littlelink-4.0.53...littlelink-4.0.54) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
+<a name="littlelink-4.0.53"></a>
+### [littlelink-4.0.53](https://github.com/truecharts/apps/compare/littlelink-4.0.52...littlelink-4.0.53) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
+<a name="littlelink-4.0.52"></a>
+### [littlelink-4.0.52](https://github.com/truecharts/apps/compare/littlelink-4.0.51...littlelink-4.0.52) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="littlelink-4.0.51"></a>
+### [littlelink-4.0.51](https://github.com/truecharts/apps/compare/littlelink-4.0.50...littlelink-4.0.51) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="littlelink-4.0.50"></a>
+### [littlelink-4.0.50](https://github.com/truecharts/apps/compare/littlelink-4.0.49...littlelink-4.0.50) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="littlelink-4.0.49"></a>
+### [littlelink-4.0.49](https://github.com/truecharts/apps/compare/littlelink-4.0.48...littlelink-4.0.49) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
+<a name="littlelink-4.0.48"></a>
+### [littlelink-4.0.48](https://github.com/truecharts/apps/compare/littlelink-4.0.47...littlelink-4.0.48) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="littlelink-4.0.47"></a>
+### [littlelink-4.0.47](https://github.com/truecharts/apps/compare/littlelink-4.0.46...littlelink-4.0.47) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="littlelink-4.0.46"></a>
+### [littlelink-4.0.46](https://github.com/truecharts/apps/compare/littlelink-4.0.45...littlelink-4.0.46) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="littlelink-4.0.45"></a>
+### [littlelink-4.0.45](https://github.com/truecharts/apps/compare/littlelink-4.0.44...littlelink-4.0.45) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="littlelink-4.0.44"></a>
+### [littlelink-4.0.44](https://github.com/truecharts/apps/compare/littlelink-4.0.43...littlelink-4.0.44) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="littlelink-4.0.43"></a>
+### [littlelink-4.0.43](https://github.com/truecharts/apps/compare/littlelink-4.0.42...littlelink-4.0.43) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="littlelink-4.0.42"></a>
+### [littlelink-4.0.42](https://github.com/truecharts/apps/compare/littlelink-4.0.41...littlelink-4.0.42) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="littlelink-4.0.41"></a>
+### [littlelink-4.0.41](https://github.com/truecharts/apps/compare/littlelink-4.0.40...littlelink-4.0.41) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
+<a name="littlelink-4.0.40"></a>
+### [littlelink-4.0.40](https://github.com/truecharts/apps/compare/littlelink-4.0.39...littlelink-4.0.40) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="littlelink-4.0.39"></a>
+### [littlelink-4.0.39](https://github.com/truecharts/apps/compare/littlelink-4.0.38...littlelink-4.0.39) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="littlelink-4.0.38"></a>
+### [littlelink-4.0.38](https://github.com/truecharts/apps/compare/littlelink-4.0.37...littlelink-4.0.38) (2021-12-19)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="littlelink-4.0.37"></a>
+### [littlelink-4.0.37](https://github.com/truecharts/apps/compare/littlelink-4.0.36...littlelink-4.0.37) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
+<a name="littlelink-4.0.36"></a>
+### [littlelink-4.0.36](https://github.com/truecharts/apps/compare/littlelink-4.0.35...littlelink-4.0.36) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
+<a name="littlelink-4.0.35"></a>
+### [littlelink-4.0.35](https://github.com/truecharts/apps/compare/littlelink-4.0.34...littlelink-4.0.35) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+#### Feat
+
+* add the new buttons ([#1532](https://github.com/truecharts/apps/issues/1532))
+
+
+
+<a name="littlelink-4.0.34"></a>
+### [littlelink-4.0.34](https://github.com/truecharts/apps/compare/littlelink-4.0.33...littlelink-4.0.34) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
+<a name="littlelink-4.0.33"></a>
+### [littlelink-4.0.33](https://github.com/truecharts/apps/compare/littlelink-4.0.32...littlelink-4.0.33) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="littlelink-4.0.32"></a>
+### [littlelink-4.0.32](https://github.com/truecharts/apps/compare/littlelink-4.0.31...littlelink-4.0.32) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
+<a name="littlelink-4.0.31"></a>
+### [littlelink-4.0.31](https://github.com/truecharts/apps/compare/littlelink-4.0.30...littlelink-4.0.31) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="littlelink-4.0.30"></a>
+### [littlelink-4.0.30](https://github.com/truecharts/apps/compare/littlelink-4.0.29...littlelink-4.0.30) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
+<a name="littlelink-4.0.29"></a>
+### [littlelink-4.0.29](https://github.com/truecharts/apps/compare/littlelink-4.0.28...littlelink-4.0.29) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="littlelink-4.0.28"></a>
+### [littlelink-4.0.28](https://github.com/truecharts/apps/compare/littlelink-4.0.27...littlelink-4.0.28) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1485](https://github.com/truecharts/apps/issues/1485))
+
+
+
+<a name="littlelink-4.0.27"></a>
+### [littlelink-4.0.27](https://github.com/truecharts/apps/compare/littlelink-4.0.26...littlelink-4.0.27) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
+<a name="littlelink-4.0.26"></a>
+### littlelink-4.0.26 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="littlelink-4.0.25"></a>
+### [littlelink-4.0.25](https://github.com/truecharts/apps/compare/littlelink-4.0.24...littlelink-4.0.25) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="littlelink-4.0.24"></a>
+### [littlelink-4.0.24](https://github.com/truecharts/apps/compare/littlelink-4.0.23...littlelink-4.0.24) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="littlelink-4.0.23"></a>
+### [littlelink-4.0.23](https://github.com/truecharts/apps/compare/littlelink-4.0.22...littlelink-4.0.23) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="littlelink-4.0.22"></a>
+### [littlelink-4.0.22](https://github.com/truecharts/apps/compare/littlelink-4.0.21...littlelink-4.0.22) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="littlelink-4.0.21"></a>
+### [littlelink-4.0.21](https://github.com/truecharts/apps/compare/littlelink-4.0.20...littlelink-4.0.21) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
+<a name="littlelink-4.0.20"></a>
+### [littlelink-4.0.20](https://github.com/truecharts/apps/compare/littlelink-4.0.19...littlelink-4.0.20) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major deps helm releases
+
+
+
 <a name="littlelink-4.0.18"></a>
 ### [littlelink-4.0.18](https://github.com/truecharts/apps/compare/littlelink-4.0.17...littlelink-4.0.18) (2021-11-23)
 

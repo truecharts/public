@@ -1,15 +1,8 @@
-# Default values for Jackett.
-
 image:
-  # -- image repository
-  repository: eclipse-mosquitto
-  # -- image tag
-  tag: 2.0.14@sha256:64b7c1729f7d1fff46b5e884fc389071686b2f7ed116c3fc7e17cbcb50fa147e
-  # -- image pull policy
+  repository: tccr.io/truecharts/eclipse-mosquitto
+  tag: v2.0.14@sha256:6e58ccce3eb94b213f5af2a7d969c1c39aea1ccc6f3e35a93d9dd4f961199c81
   pullPolicy: IfNotPresent
 
-# -- Configures service settings for the chart. Normally this does not need to be modified.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -22,15 +15,9 @@ auth:
   enabled: false
 
 persistence:
-  # -- Configure a persistent volume to place mosquitto data in.
-  # When enabled, this enables `persistence` and `persistence_location` in the mosquitto config.
-  # @default -- See values.yaml
   data:
     enabled: true
     mountPath: "/mosquitto/data"
-  # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
-  # When enabled, this gets set as `include_dir` in the mosquitto config.
-  # @default -- See values.yaml
   configinc:
     enabled: true
     mountPath: "/mosquitto/configinc"

@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: ddns-go
+version: 1.0.8
+appVersion: "3.5.1"
+description: Automatically obtain your public network IPv4 or IPv6 address and resolve it to the corresponding domain name service
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ddns-go
+icon: https://truecharts.org/_static/img/appicons/ddns-go.png
+keywords:
+  - ddns-go
+  - ddns
+sources:
+  - https://github.com/jeessy2/ddns-go
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

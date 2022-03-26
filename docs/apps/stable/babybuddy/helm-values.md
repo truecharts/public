@@ -11,18 +11,17 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
-| envTpl.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
+| env.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.DB_PORT | string | `"5432"` |  |
+| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/babybuddy"` |  |
-| image.tag | string | `"1.9.1@sha256:518a00e9752512ddbfae2e5f09f6561bcb3130bf891165960bd2a09a36306b59"` |  |
+| image.repository | string | `"tccr.io/truecharts/babybuddy"` |  |
+| image.tag | string | `"v1.10.2@sha256:e496893090c978f20512c7ccdfd6a23b67f1c50a2f18e51684d9a8290079afcc"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -33,9 +32,8 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlDatabase | string | `"babybuddy"` |  |
 | postgresql.postgresqlUsername | string | `"babybuddy"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `8000` |  |
+| service.main.ports.main.port | int | `10069` |  |
 | service.main.ports.main.targetPort | int | `8000` |  |
 
 All Rights Reserved - The TrueCharts Project

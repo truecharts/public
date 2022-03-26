@@ -64,6 +64,7 @@
                           - variable: labelItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -83,6 +84,7 @@
                           - variable: annotationItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name

@@ -48,10 +48,9 @@ You will, however, be able to use all values referenced in the common chart here
 | controller.rollingUpdate.unavailable | int | `1` | Set deployment RollingUpdate max unavailable |
 | controller.strategy | string | `"RollingUpdate"` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"statefulset"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"grafana/loki"` |  |
-| image.tag | string | `"2.4.1@sha256:1d802d29cf041601895ce16439757baf4dac71a21069957616ee7988746bf59c"` |  |
+| image.repository | string | `"tccr.io/truecharts/loki"` |  |
+| image.tag | string | `"v2.4.2@sha256:72adb0e2891b3dc41bd40e9ba8445ffc60309d36ed391eab26d9dec10b4e1c88"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/loki"` | Where to mount the volume in the main container. |
 | persistence.config.objectName | string | `"{{ include \"common.names.fullname\" . -}}-config"` | Specify the name of the configmap object to be mounted |

@@ -1,8 +1,8 @@
 image:
   # -- image repository
-  repository: minio/console
+  repository: tccr.io/truecharts/minio-console
   # -- image tag
-  tag: v0.12.4@sha256:d14878133c2de31fad0b590eb6f7cb6420abf8f1f4ebb1d4e9b804363ea3e658
+  tag: v0.15.6@sha256:9cdd199bd7be3aae7c5154083cfb8e6fad10ae6bd713aafdc46ba7b83c88be97
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -21,7 +21,6 @@ secret:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Required: Minio server URL
   # Example: https://minio.server:9000
   CONSOLE_MINIO_SERVER: ""
@@ -37,6 +36,7 @@ service:
 
 securityContext:
   readOnlyRootFilesystem: false
+
 persistence:
   config:
     enabled: true

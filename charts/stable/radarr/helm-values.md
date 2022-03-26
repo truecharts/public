@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/radarr"` |  |
-| image.tag | string | `"v3.2.2.5080@sha256:b03562bacb117ab654dca5c6bcc61d013a40fe54e9fa1f563cd1c72899f77137"` |  |
+| image.repository | string | `"tccr.io/truecharts/radarr"` |  |
+| image.tag | string | `"v4.0.5.5981@sha256:8c1fbd32bc795b88e92db8c0e9c369880adee72807997566a9244fff0b67975c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

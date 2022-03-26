@@ -1,9 +1,7 @@
-# Default values for Bazarr.
-
 image:
-  repository: ghcr.io/k8s-at-home/bazarr
+  repository: tccr.io/truecharts/bazarr
   pullPolicy: IfNotPresent
-  tag: v1.0.1@sha256:8b785e187aa9e74bb7ef6cecad8dc3fbd5c905a638d496a90aaeb0a1dcd80cc1
+  tag: v1.0.3@sha256:2e9bae8e040172731bae393b6711fa928d853311bf122494dbd5d4fe3c1aaddf
 
 service:
   main:
@@ -12,9 +10,6 @@ service:
         port: 6767
         targetPort: 6767
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
 persistence:
   config:
     enabled: true

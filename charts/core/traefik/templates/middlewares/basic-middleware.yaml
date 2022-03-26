@@ -21,8 +21,8 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   rateLimit:
-    average: 300
-    burst: 200
+    average: 600
+    burst: 400
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware

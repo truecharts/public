@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/habridge
+  pullPolicy: IfNotPresent
+  tag: v5.4.1
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  SEC_KEY: ""
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10146
+  comm:
+    enabled: true
+    ports:
+      comm:
+        enabled: true
+        targetPort: 50000
+        port: 50000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

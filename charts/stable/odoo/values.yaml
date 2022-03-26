@@ -1,19 +1,11 @@
 image:
-  repository: ghcr.io/nicholaswilde/odoo
+  repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
-  tag: version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d
+  tag: v15.0@sha256:f2dfcec92495ee630f3b67fd24a5f65caa5245eaaff0d84eb33229745637e280
 
-secret: {}
-  # USER: "odoo"
-  # PASSWORD: "myodoo"
-
-# See more environment variables in the odoo documentation
-# https://github.com/nicholaswilde/docker-odoo
-env: {}
-    # HOST: "odoo-db"
-
-envTpl:
+env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  PORT: 5432
 
 envValueFrom:
   PASSWORD:
@@ -34,11 +26,11 @@ service:
   odoo:
     enabled: true
     ports:
-      odoo-1:
+      xmlrpcs:
         enabled: true
         port: 8071
         targetPort: 8071
-      odoo-2:
+      longpolling:
         enabled: true
         port: 8072
         targetPort: 8072

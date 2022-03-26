@@ -1,0 +1,32 @@
+image:
+  repository: tccr.io/truecharts/openvscode-server
+  pullPolicy: IfNotPresent
+  tag: v1.65.2
+
+portal:
+  path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  CONNECTION_TOKEN: "somerandomstring"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10135
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

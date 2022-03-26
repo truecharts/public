@@ -13,11 +13,10 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.CREATE_ADMIN | int | `1` | Set to `1` to create an admin user from environment variables. |
 | env.RUN_MIGRATIONS | int | `1` | Set to `1` to run database migrations during application startup. |
-| env.TZ | string | `"UTC"` | Set the container timezone. |
 | envValueFrom.DATABASE_URL | object | `{"secretKeyRef":{"key":"urlnossl","name":"dbcreds"}}` | Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"miniflux/miniflux"` |  |
-| image.tag | string | `"2.0.33@sha256:77726b617e71a046ea4d02890f7f4a5d43a3c774c7de073ad06bec521ae75f12"` |  |
+| image.repository | string | `"tccr.io/truecharts/miniflux"` |  |
+| image.tag | string | `"v2.0.36@sha256:ae3e5307812417bd9996abda27eb8d4a4dfec1dc6bede5d4a14e536319ba1817"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | postgresql | object | Enabled (see values.yaml for more details) | Enable and configure postgresql database subchart under this key. |

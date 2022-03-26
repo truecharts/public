@@ -11,19 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.nodeID | string | `"myFirstTdarrNode"` |  |
 | env.nodeIP | string | `"0.0.0.0"` |  |
 | env.nodePort | int | `8267` |  |
 | env.serverIP | string | `"0.0.0.0"` |  |
 | env.serverPort | int | `8266` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"haveagitgat/tdarr_node"` |  |
-| image.tag | string | `"2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c"` |  |
+| image.repository | string | `"tccr.io/truecharts/tdarr_node"` |  |
+| image.tag | string | `"v2.00.16@sha256:88acc09d8be5b89d0f0edf2e0d5e00fc2f885f6d9b81f402cb68ba2b38c4cb56"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |
 | persistence.logs.mountPath | string | `"/app/logs"` |  |
+| persistence.transcode-cache.enabled | bool | `true` |  |
+| persistence.transcode-cache.mountPath | string | `"/temp"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

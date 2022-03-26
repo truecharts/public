@@ -1,0 +1,19 @@
+{{- include "common.setup" . }}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "librephotos.harcodedValues" -}}
+persistence:
+  librephotos-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "librephotos.harcodedValues" . | fromYaml) -}}
+
+{{- include "librephotos.secrets" . }}
+
+{{ include "common.postSetup" . }}

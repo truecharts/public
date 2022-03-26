@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/airsonic
+  repository: tccr.io/truecharts/airsonic
   # -- image tag
-  tag: version-v10.6.2@sha256:0a0e49be383db9340c0a8258bb31c5916281ec18c8c3fb56006866d18f8e63e0
+  tag: version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,10 +17,6 @@ podSecurityContext:
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
 # @default -- See below
 env:
-  # -- Set the container timezone
-  TZ: UTC
-  # -- Specify the user ID the application will run as
-  PUID: 568
   # -- Used to set the base path for reverse proxies eg. /booksonic, /books, etc.
   CONTEXT_PATH:  # "url-base"
   # -- For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.

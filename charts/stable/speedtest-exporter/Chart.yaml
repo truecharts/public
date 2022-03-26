@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "3.3.4"
+appVersion: "3.4.1"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: Speedtest Exporter made in python using the official speedtest bin
-icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+icon: https://truecharts.org/_static/img/appicons/speedtest-exporter.png
 home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/speedtest-exporter
 keywords:
 - speedtest-exporter
@@ -21,7 +21,7 @@ name: speedtest-exporter
 sources:
 - https://github.com/MiguelNdeCarvalho/speedtest-exporter/
 type: application
-version: 1.0.0
+version: 2.0.7
 annotations:
   truecharts.org/catagories: |
     - metrics

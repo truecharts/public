@@ -11,11 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
-| envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
+| env.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lmscommunity/logitechmediaserver"` |  |
-| image.tag | string | `"8.3.0@sha256:a035d06f8d57af2deb3de7ee9d5d22d894b17d31a1dbd46f45844af20e6cfc5a"` |  |
+| image.repository | string | `"tccr.io/truecharts/logitechmediaserver"` |  |
+| image.tag | string | `"v8.3.0@sha256:7290e85c0e0b9d2d4656624a48d5fa6659724b917a00aa14b3294c3e0e95dae9"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
@@ -24,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.cli.enabled | bool | `true` |  |
 | service.cli.ports.cli.enabled | bool | `true` |  |
-| service.cli.ports.cli.port | int | `9090` |  |
+| service.cli.ports.cli.port | int | `10059` |  |
 | service.cli.ports.cli.targetPort | int | `9090` |  |
 | service.main.ports.main.port | int | `7000` |  |
 | service.main.ports.main.targetPort | int | `7000` |  |
@@ -35,6 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.playerudp.enabled | bool | `true` |  |
 | service.playerudp.ports.slimprotoudp.enabled | bool | `true` |  |
 | service.playerudp.ports.slimprotoudp.port | int | `3483` |  |
+| service.playerudp.ports.slimprotoudp.protocol | string | `"UDP"` |  |
 | service.playerudp.ports.slimprotoudp.targetPort | int | `3483` |  |
 
 All Rights Reserved - The TrueCharts Project

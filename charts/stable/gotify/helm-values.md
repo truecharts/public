@@ -20,11 +20,10 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GOTIFY_SERVER_SSL_ENABLED | bool | `false` |  |
 | env.GOTIFY_SERVER_STREAM_PINGPERIODSECONDS | int | `45` |  |
 | env.GOTIFY_UPLOADEDIMAGESDIR | string | `"data/images"` |  |
-| env.TZ | string | `"America/Los_Angeles"` |  |
 | envFrom[0].configMapRef.name | string | `"gotifyenv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"gotify/server"` |  |
-| image.tag | string | `"2.1.0@sha256:57aa2aabac035c16118f625dd6d3d2c3ca421b43b28cb27512f3212193d65771"` |  |
+| image.repository | string | `"tccr.io/truecharts/gotify-server"` |  |
+| image.tag | string | `"v2.1.4@sha256:3f568cbc18808a8d138b07073233411a1077676e28a468b7e345fffae639fa32"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/app/data"` |  |
 | postgresql.enabled | bool | `true` |  |
@@ -33,7 +32,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"gotify"` |  |
 | secret.pass | string | `"admin"` |  |
 | secret.user | string | `"admin"` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10084` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

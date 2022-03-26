@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/homebridge
+  pullPolicy: IfNotPresent
+  tag: v2022-02@sha256:a6b5e77d71f6cf8ab608ec96a34342a038dd8b5d8ef799108455622ad68bb7e8
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 8581
+        port: 8581
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
+# -- environment variables. See [image docs](https://github.com/oznu/docker-homebridge#parameters) for more details.
+# @default -- See below
+env:
+  HOMEBRIDGE_CONFIG_UI: 1
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/homebridge"

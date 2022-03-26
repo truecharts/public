@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/sickchill"` |  |
-| image.tag | string | `"2021.5.10-1-ls63@sha256:a607452a692a008eb397051c90603eb618c616855553dbde9a98675ca5043bd7"` |  |
+| image.repository | string | `"tccr.io/truecharts/sickchill"` |  |
+| image.tag | string | `"v2022.2.20@sha256:972e9526e989b526c81aa567c66663b0f5ec4b9256f520785eb3d6aea1df0369"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `8081` |  |
+| service.main.ports.main.port | int | `10067` |  |
 | service.main.ports.main.targetPort | int | `8081` |  |
 
 All Rights Reserved - The TrueCharts Project

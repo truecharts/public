@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/apache-musicindex"` | image repository |
-| image.tag | string | `"v1.4.1-2@sha256:c8b5cf5fbf4bbf097fb516f82bfc3ecb1ad971e8059dc9722b4d10bb7d7faee7"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/apache-musicindex"` | image repository |
+| image.tag | string | `"v1.4.1-2@sha256:442d1edfbf89b8a2a42c0d649f53f091c39256c65f922078ad38ff60bdbdadf9"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext | object | See values.yaml | Allows to start web server on ports 80 and 443 |

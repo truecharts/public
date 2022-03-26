@@ -1,6 +1,464 @@
 # Changelog<br>
 
 
+<a name="traefik-11.0.8"></a>
+### [traefik-11.0.8](https://github.com/truecharts/apps/compare/traefik-11.0.7...traefik-11.0.8) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="traefik-11.0.6"></a>
+### [traefik-11.0.6](https://github.com/truecharts/apps/compare/traefik-11.0.5...traefik-11.0.6) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="traefik-11.0.2"></a>
+### [traefik-11.0.2](https://github.com/truecharts/apps/compare/traefik-11.0.1...traefik-11.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="traefik-11.0.1"></a>
+### [traefik-11.0.1](https://github.com/truecharts/apps/compare/traefik-11.0.0...traefik-11.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="traefik-11.0.0"></a>
+### [traefik-11.0.0](https://github.com/truecharts/apps/compare/traefik-10.0.59...traefik-11.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="traefik-10.0.59"></a>
+### [traefik-10.0.59](https://github.com/truecharts/apps/compare/traefik-10.0.58...traefik-10.0.59) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="traefik-10.0.58"></a>
+### [traefik-10.0.58](https://github.com/truecharts/apps/compare/traefik-10.0.57...traefik-10.0.58) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="traefik-10.0.57"></a>
+### [traefik-10.0.57](https://github.com/truecharts/apps/compare/traefik-10.0.56...traefik-10.0.57) (2022-02-15)
+
+#### Fix
+
+* fix errors rendering ingressroute
+
+
+
+<a name="traefik-10.0.56"></a>
+### [traefik-10.0.56](https://github.com/truecharts/apps/compare/traefik-10.0.55...traefik-10.0.56) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="traefik-10.0.55"></a>
+### [traefik-10.0.55](https://github.com/truecharts/apps/compare/traefik-10.0.54...traefik-10.0.55) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
+<a name="traefik-10.0.54"></a>
+### [traefik-10.0.54](https://github.com/truecharts/apps/compare/traefik-10.0.53...traefik-10.0.54) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
+<a name="traefik-10.0.53"></a>
+### [traefik-10.0.53](https://github.com/truecharts/apps/compare/traefik-10.0.52...traefik-10.0.53) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
+<a name="traefik-10.0.52"></a>
+### [traefik-10.0.52](https://github.com/truecharts/apps/compare/traefik-10.0.51...traefik-10.0.52) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
+<a name="traefik-10.0.51"></a>
+### [traefik-10.0.51](https://github.com/truecharts/apps/compare/traefik-10.0.50...traefik-10.0.51) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major ([#1824](https://github.com/truecharts/apps/issues/1824))
+
+
+
+<a name="traefik-10.0.50"></a>
+### [traefik-10.0.50](https://github.com/truecharts/apps/compare/traefik-10.0.49...traefik-10.0.50) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
+<a name="traefik-10.0.49"></a>
+### [traefik-10.0.49](https://github.com/truecharts/apps/compare/traefik-10.0.48...traefik-10.0.49) (2022-01-31)
+
+#### Fix
+
+* introduce two basic changes with different CORS policy
+
+
+
+<a name="traefik-10.0.48"></a>
+### [traefik-10.0.48](https://github.com/truecharts/apps/compare/traefik-10.0.47...traefik-10.0.48) (2022-01-31)
+
+
+
+<a name="traefik-10.0.47"></a>
+### [traefik-10.0.47](https://github.com/truecharts/apps/compare/traefik-10.0.46...traefik-10.0.47) (2022-01-31)
+
+#### Fix
+
+* replace depricated header references
+
+
+
+<a name="traefik-10.0.46"></a>
+### [traefik-10.0.46](https://github.com/truecharts/apps/compare/traefik-10.0.45...traefik-10.0.46) (2022-01-31)
+
+#### Fix
+
+* correct mistaken indentation on synapse middleware
+
+
+
+<a name="traefik-10.0.45"></a>
+### [traefik-10.0.45](https://github.com/truecharts/apps/compare/traefik-10.0.44...traefik-10.0.45) (2022-01-31)
+
+
+
+<a name="traefik-10.0.44"></a>
+### [traefik-10.0.44](https://github.com/truecharts/apps/compare/traefik-10.0.43...traefik-10.0.44) (2022-01-28)
+
+
+
+<a name="traefik-10.0.43"></a>
+### [traefik-10.0.43](https://github.com/truecharts/apps/compare/traefik-10.0.42...traefik-10.0.43) (2022-01-27)
+
+#### Fix
+
+* hide Traefik metrics port and enable prometheus metrics
+
+
+
+<a name="traefik-10.0.42"></a>
+### [traefik-10.0.42](https://github.com/truecharts/apps/compare/traefik-10.0.41...traefik-10.0.42) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
+<a name="traefik-10.0.41"></a>
+### [traefik-10.0.41](https://github.com/truecharts/apps/compare/traefik-10.0.40...traefik-10.0.41) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="traefik-10.0.40"></a>
+### [traefik-10.0.40](https://github.com/truecharts/apps/compare/traefik-10.0.39...traefik-10.0.40) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="traefik-10.0.39"></a>
+### [traefik-10.0.39](https://github.com/truecharts/apps/compare/traefik-10.0.38...traefik-10.0.39) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="traefik-10.0.38"></a>
+### [traefik-10.0.38](https://github.com/truecharts/apps/compare/traefik-10.0.37...traefik-10.0.38) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
+<a name="traefik-10.0.37"></a>
+### [traefik-10.0.37](https://github.com/truecharts/apps/compare/traefik-10.0.36...traefik-10.0.37) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="traefik-10.0.36"></a>
+### [traefik-10.0.36](https://github.com/truecharts/apps/compare/traefik-10.0.35...traefik-10.0.36) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="traefik-10.0.34"></a>
+### [traefik-10.0.34](https://github.com/truecharts/apps/compare/traefik-10.0.33...traefik-10.0.34) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
+<a name="traefik-10.0.33"></a>
+### [traefik-10.0.33](https://github.com/truecharts/apps/compare/traefik-10.0.32...traefik-10.0.33) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="traefik-10.0.32"></a>
+### [traefik-10.0.32](https://github.com/truecharts/apps/compare/traefik-10.0.31...traefik-10.0.32) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="traefik-10.0.31"></a>
+### [traefik-10.0.31](https://github.com/truecharts/apps/compare/traefik-10.0.30...traefik-10.0.31) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+#### Fix
+
+* fix default ingress on traefik ([#1614](https://github.com/truecharts/apps/issues/1614))
+
+
+
+<a name="traefik-10.0.30"></a>
+### [traefik-10.0.30](https://github.com/truecharts/apps/compare/traefik-10.0.29...traefik-10.0.30) (2021-12-22)
+
+#### Feat
+
+* allow port-based redirect and move redirect to advanced settings. ([#1601](https://github.com/truecharts/apps/issues/1601))
+
+
+
+<a name="traefik-10.0.29"></a>
+### [traefik-10.0.29](https://github.com/truecharts/apps/compare/traefik-10.0.28...traefik-10.0.29) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="traefik-10.0.28"></a>
+### [traefik-10.0.28](https://github.com/truecharts/apps/compare/traefik-10.0.27...traefik-10.0.28) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="traefik-10.0.27"></a>
+### [traefik-10.0.27](https://github.com/truecharts/apps/compare/traefik-10.0.26...traefik-10.0.27) (2021-12-19)
+
+#### Chore
+
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="traefik-10.0.26"></a>
+### [traefik-10.0.26](https://github.com/truecharts/apps/compare/traefik-10.0.25...traefik-10.0.26) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="traefik-10.0.25"></a>
+### [traefik-10.0.25](https://github.com/truecharts/apps/compare/traefik-10.0.24...traefik-10.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="traefik-10.0.24"></a>
+### [traefik-10.0.24](https://github.com/truecharts/apps/compare/traefik-10.0.23...traefik-10.0.24) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
+<a name="traefik-10.0.23"></a>
+### [traefik-10.0.23](https://github.com/truecharts/apps/compare/traefik-10.0.22...traefik-10.0.23) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="traefik-10.0.22"></a>
+### [traefik-10.0.22](https://github.com/truecharts/apps/compare/traefik-10.0.21...traefik-10.0.22) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="traefik-10.0.21"></a>
+### traefik-10.0.21 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="traefik-10.0.20"></a>
+### [traefik-10.0.20](https://github.com/truecharts/apps/compare/traefik-10.0.19...traefik-10.0.20) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="traefik-10.0.19"></a>
+### [traefik-10.0.19](https://github.com/truecharts/apps/compare/traefik-10.0.18...traefik-10.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="traefik-10.0.18"></a>
+### [traefik-10.0.18](https://github.com/truecharts/apps/compare/traefik-10.0.17...traefik-10.0.18) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="traefik-10.0.17"></a>
+### [traefik-10.0.17](https://github.com/truecharts/apps/compare/traefik-10.0.16...traefik-10.0.17) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="traefik-10.0.16"></a>
+### [traefik-10.0.16](https://github.com/truecharts/apps/compare/traefik-10.0.15...traefik-10.0.16) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* correct some ports mistakes ([#1416](https://github.com/truecharts/apps/issues/1416))
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="traefik-10.0.15"></a>
 ### [traefik-10.0.15](https://github.com/truecharts/apps/compare/traefik-10.0.14...traefik-10.0.15) (2021-11-23)
 

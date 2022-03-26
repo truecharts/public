@@ -14,6 +14,7 @@
                           - variable: hostEntry
                             label: "Host"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: host
@@ -31,6 +32,7 @@
                                       - variable: pathEntry
                                         label: "Host"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: path

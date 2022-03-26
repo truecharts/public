@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: pidgin
+version: 1.0.6
+appVersion: "2.14.8"
+description: Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/pidgin
+icon: https://truecharts.org/_static/img/appicons/pidgin.png
+keywords:
+  - pidgin
+sources:
+  - https://hub.docker.com/r/linuxserver/pidgin
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

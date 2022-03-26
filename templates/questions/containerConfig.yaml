@@ -1,3 +1,12 @@
+  - variable: TZ
+    label: "Timezone"
+    group: "Container Configuration"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
   - variable: envList
     label: "Image environment"
     group: "Container Configuration"
@@ -8,6 +17,7 @@
         - variable: envItem
           label: "Environment Variable"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: name
@@ -27,10 +37,25 @@
       default: false
       show_subquestions_if: true
       subquestions:
+        - variable: tty
+          label: "Enable TTY"
+          description: "Determines whether containers in a pod runs with TTY enabled. By default pod has it disabled."
+          group: "Workload Details"
+          schema:
+            type: boolean
+            default: false
+        - variable: stdin
+          label: "Enable STDIN"
+          description: "Determines whether containers in a pod runs with stdin enabled. By default pod has it disabled."
+          group: "Workload Details"
+          schema:
+            type: boolean
+            default: false
         - variable: termination
           group: "Container Configuration"
           label: "Termination settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: gracePeriodSeconds
@@ -48,6 +73,7 @@
               - variable: podLabelItem
                 label: "Label"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -69,6 +95,7 @@
               - variable: podAnnotationItem
                 label: "Label"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name

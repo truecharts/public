@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "3.00"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 deprecated: false
 description: API Support for your favorite torrent trackers.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/transmission
-icon: https://upload.wikimedia.org/wikipedia/commons/6/6d/Transmission_icon.png
+icon: https://truecharts.org/_static/img/appicons/transmission.png
 keywords:
 - transmission
 - torrent
@@ -22,7 +22,7 @@ sources:
 - https://github.com/transmission/transmission
 - https://hub.docker.com/r/linuxserver/transmission
 type: application
-version: 9.0.13
+version: 11.0.6
 annotations:
   truecharts.org/catagories: |
     - download-tools

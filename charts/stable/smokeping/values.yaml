@@ -1,10 +1,7 @@
 image:
-  repository: ghcr.io/linuxserver/smokeping
+  repository: tccr.io/truecharts/smokeping
   pullPolicy: IfNotPresent
-  tag: version-2.7.3-r5@sha256:a10ca4e48e053a1969e5256269e6d6aadcfb719f7b6cee444424028c74a6a008
-
-env:
-  PUID: 568
+  tag: version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4
 
 strategy:
   type: Recreate
@@ -19,10 +16,12 @@ service:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+  allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 persistence:
   config:
     enabled: true

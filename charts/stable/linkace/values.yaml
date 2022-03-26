@@ -1,0 +1,140 @@
+image:
+  repository: tccr.io/truecharts/linkace
+  tag: v1.9.2@sha256:48430fb0ed3cf3a2a5d056b26e502afc755bd4ba6606d99f7d69a7cf4ef74887
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  # Internal Envs
+  DB_CONNECTION: "mysql"
+  DB_PORT: "3306"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  REDIS_PORT: "6379"
+  CACHE_DRIVER: "redis"
+  SESSION_DRIVER: "redis"
+  APP_NAME: "LinkAce"
+  APP_ENV: "production"
+  APP_TIMEZONE: "{{ .Values.TZ }}"
+  # User Envs
+  APP_URL: "http://localhost"
+  APP_DEBUG: false
+  BACKUP_ENABLED: false
+  BACKUP_DISK: s3
+  BACKUP_NOTIFICATION_EMAIL: your@email.com
+  BACKUP_MAX_SIZE: 512
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: linkace-secrets
+      key: APP_KEY
+
+initContainers:
+# Copy app to a temp folder as we gonna need it, so we can create the ".env" file in there.
+  1-copy-app:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/tmp"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "Copying app...";
+        cp -R /app/* /tmp/;
+# App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
+# We create this file and set it to false if it doesn't exists.
+# If it exists, we let the app decide it's value (true|false) and how to proceed.
+  2-create-env-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/app"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        if [ ! -f "/app/.env" ];
+        then
+          echo "Preparing for initial installation";
+          echo "SETUP_COMPLETED=false" > /app/.env;
+          echo "File .env created.";
+        else
+          echo "Initial installation has already completed.";
+        fi;
+# App does not like 775 perms on dirs.. So we have to set 777
+  3-chmod:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/app"
+      - name: logs
+        mountPath: "/app/storage/logs"
+      - name: backups
+        mountPath: "/app/storage/app/backups"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "CHMOD-ing files...";
+        chmod -R 777 /app;
+        chmod -R 777 /app/storage/logs;
+        chmod -R 777 /app/storage/app/backups;
+        echo "CHMOD Complete";
+
+# Set cron every 15 min, official docs says every minute, but seems excesive.
+# It just checks for dead links and sends a request to WayBack Machine to archive.
+cronjob:
+  schedule: "*/15 * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
+service:
+  main:
+    ports:
+      main:
+        port: 10160
+        targetPort: 80
+
+persistence:
+  app:
+    enabled: true
+    mountPath: "/app"
+  logs:
+    enabled: true
+    mountPath: "/app/storage/logs"
+  backups:
+    enabled: true
+    mountPath: "/app/storage/app/backups"
+
+mariadb:
+  enabled: true
+  mariadbUsername: linkace
+  mariadbDatabase: linkace
+  existingSecret: "mariadbcreds"
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"

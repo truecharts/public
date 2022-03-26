@@ -2,11 +2,11 @@ apiVersion: v2
 appVersion: "latest"
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 description: Simple text sharing
 home: https://github.com/truecharts/apps/tree/master/charts/stable/haste
-icon: https://raw.githubusercontent.com/nicholaswilde/helm-charts/main/images/haste.png
+icon: https://truecharts.org/_static/img/appicons/haste-server.png
 keywords:
 - haste
 - hastebin
@@ -21,7 +21,7 @@ name: haste-server
 sources:
 - https://github.com/seejohnrun/haste-server
 - https://github.com/k8s-at-home/container-images
-version: 4.0.12
+version: 5.0.6
 annotations:
   truecharts.org/catagories: |
     - utilities

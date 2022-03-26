@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/filebrowser
+  pullPolicy: IfNotPresent
+  tag: v2.21.1@sha256:cc3a61d4ce3dc9be992c2d05044f6a55aa9d6e38c84871314dda77712630a10c
+
+service:
+  main:
+    ports:
+      main:
+        port: 10187
+
+env:
+  FB_ADDRESS: ""
+  FB_BASEURL: ""
+  FB_DATABASE: "/database/filebrowser.db"
+  FB_CONFIG: "/config/filebrowser.json"
+  FB_ROOT: "/data"
+  FB_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  database:
+    enabled: true
+    mountPath: "/database"
+  data:
+    enabled: true
+    mountPath: "/data"

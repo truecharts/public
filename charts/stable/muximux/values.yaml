@@ -1,10 +1,7 @@
 image:
-  repository: ghcr.io/linuxserver/muximux
+  repository: tccr.io/truecharts/muximux
   pullPolicy: IfNotPresent
-  tag: version-057352e8@sha256:592471f458c3c03b608bd2a827431dd77493644edf6638429349e7b6e0290e4c
-
-env:
-  PUID: 568
+  tag: version-057352e8@sha256:5942aa00a99c51a0d0fc9afda2f875450515a27a312572c0fcc62471131184e9
 
 securityContext:
   readOnlyRootFilesystem: false

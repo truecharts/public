@@ -11,21 +11,23 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-calibre#environment-variables-e) for more details. |
-| env.CLI_ARGS | string | `nil` | Optionally pass cli start arguments to calibre. |
-| env.GUAC_PASS | string | `nil` | Password's md5 hash for the calibre gui |
-| env.GUAC_USER | string | `nil` | Username for the calibre gui |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| env.UMASK_SET | string | `"022"` | for umask setting of Calibre, default if left unset is 022. |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/calibre"` | image repository |
-| image.tag | string | `"v5.32.0-ls137@sha256:4cb8869e6a88a4115cebd6a79f59b98fe985b8615dcd17b2207620254862779b"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| env.CLI_ARGS | string | `nil` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/calibre"` |  |
+| image.tag | string | `"v5.39.1@sha256:4da07b03f2344aeb8816dba01ca522512282afd2dc94f610e3a8c555bb668d17"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.PASSWORD | string | `""` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `8084` |  |
+| service.main.ports.main.targetPort | int | `8080` |  |
+| service.webserver.enabled | bool | `true` |  |
+| service.webserver.ports.webserver.enabled | bool | `true` |  |
+| service.webserver.ports.webserver.port | int | `8081` |  |
+| service.webserver.ports.webserver.targetPort | int | `8081` |  |
 
 All Rights Reserved - The TrueCharts Project

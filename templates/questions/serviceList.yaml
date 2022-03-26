@@ -8,6 +8,7 @@
               - variable: serviceListEntry
                 label: "Custom Service"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: enabled
@@ -64,6 +65,7 @@
                           - variable: portsListEntry
                             label: "Custom ports"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: enabled

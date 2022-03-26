@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -77,6 +78,7 @@ questions:
     group: "Container Configuration"
     label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: ADMIN_USER
@@ -101,9 +103,9 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: NAME
           label: "NAME"
           description: "Sets the NAME env var"
@@ -140,18 +142,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -160,7 +165,6 @@ questions:
                             schema:
                               type: int
                               default: 10099
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -221,20 +225,16 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -259,13 +259,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/app"
-                  hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -284,162 +277,24 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable Ingress"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hosts
-                      label: "Hosts"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: hostEntry
-                            label: "Host"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: host
-                                  label: "HostName"
-                                  schema:
-                                    type: string
-                                    default: ""
-                                    required: true
-                                - variable: paths
-                                  label: "Paths"
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: pathEntry
-                                        label: "Host"
-                                        schema:
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "Prefix"
-                    - variable: tls
-                      label: "TLS-Settings"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: tlsEntry
-                            label: "Host"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: hosts
-                                  label: "Certificate Hosts"
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: host
-                                        label: "Host"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                - variable: scaleCert
-                                  label: "Select TrueNAS SCALE Certificate"
-                                  schema:
-                                    type: int
-                                    $ref:
-                                      - "definitions/certificate"
-                    - variable: entrypoint
-                      label: "(Advanced) Traefik Entrypoint"
-                      description: "Entrypoint used by Traefik when using Traefik as Ingress Provider"
-                      schema:
-                        type: string
-                        default: "websecure"
-                        required: true
-                    - variable: middlewares
-                      label: "Traefik Middlewares"
-                      description: "Add previously created Traefik Middlewares to this Ingress"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                              default: ""
-                              required: true
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
 
-              - variable: expert
-                label: "Show Expert Configuration Options"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: ingressClassName
-                      label: "IngressClass Name"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: labelsList
-                      label: "Labels"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: labelItem
-                            label: "Label"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: name
-                                  label: "Name"
-                                  schema:
-                                    type: string
-                                - variable: value
-                                  label: "Value"
-                                  schema:
-                                    type: string
-                    - variable: annotationsList
-                      label: "Annotations"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: annotationItem
-                            label: "Label"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: name
-                                  label: "Name"
-                                  schema:
-                                    type: string
-                                - variable: value
-                                  label: "Value"
-                                  schema:
-                                    type: string
+# Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
@@ -452,6 +307,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -474,11 +330,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+# Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -499,26 +357,7 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
+# Include{podSecurityContextAdvanced}
 
 # Include{resources}
 

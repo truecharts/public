@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: "2.1.0"
-version: 5.0.3
+appVersion: "2.1.4"
+version: 6.0.8
 kubeVersion: '>=1.16.0-0'
 name: gotify
 description: a simple server for sending and receiving messages
@@ -10,19 +10,19 @@ keywords:
   - server
   - gotify
   - messages
-icon: https://gotify.net/img/logo.png
+icon: https://truecharts.org/_static/img/appicons/gotify.png
 sources:
   - https://gotify.net/
   - https://github.com/gotify/server
   - https://hub.docker.com/r/gotify/server
 dependencies:
 - name: common
-  repository: https://truecharts.org
-  version: 8.9.3
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.10
+  version: 7.0.10
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts

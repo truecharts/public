@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/tvheadend"` |  |
-| image.tag | string | `"version-63784405@sha256:ae47a3f6a7d2d7efefb68087da7cbed786f801cb87c7c93b1e6b989c0021aefa"` |  |
+| image.repository | string | `"tccr.io/truecharts/tvheadend"` |  |
+| image.tag | string | `"version-63784405@sha256:55617b2f0e1a9d9cefb853c5d52f3729da88c9662ad18813e688201dbe3aee9a"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
