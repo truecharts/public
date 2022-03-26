@@ -25,26 +25,38 @@ spec:
         metadata:
         spec:
           restartPolicy: Never
+          {{- with (include "common.controller.volumes" . | trim) }}
+          volumes:
+            {{- nindent 12 . }}
+          {{- end }}
           containers:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              command: ["sh", "-c"]
+              env:
+                - name: date_format
+                  value: {{ .Values.clamav.date_format }}
+                - name: report_path
+                  value: {{ .Values.clamav.report_path }}
+              command: ["bash", "-c"]
               args:
                 - >
-                  echo "Reloading virus database...";
-                  clamdscan --reload;
-                  echo $?;
                   echo "Starting scan of \"/scandir\"";
-                  now=$(date +"%m-%d-%Y")
-                  clamdscan /scandir --log=/scandir/clamdscan_report_${now};
-                  export status = $?;
+                  export now=$(date +"%m-%d-%Y");
+                  export report_file=$report_path/clamdscan_report_${now};
+                  touch $report_file;
+                  clamdscan /scandir --log=$report_file;
+                  export status=$?;
                   if [ $status -eq 0 ];
                     then
                       echo "Exit Status: $status No Virus found!";
                   else
                     echo "Exit Status: $status. Check scan \"/scandir/clamdscan_report_${now}\".";
                   fi;
-                  cat /scandir/clamdscan_report_${now};
+                  cat $report_file;
+              {{- with (include "common.controller.volumeMounts" . | trim) }}
+              volumeMounts:
+                {{ nindent 16 . }}
+              {{- end }}
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 {{- end -}}

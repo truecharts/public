@@ -19,8 +19,11 @@ env:
   FRESHCLAM_CHECKS: 1
 
 clamav:
-  cron_schedule: "* * * * *"
+  report_path: "/scandir"
+  # User Defined
+  date_format: "%m-%d-%Y"
   cron_enabled: true
+  cron_schedule: "* * * * *"
 
 probes:
   liveness:
