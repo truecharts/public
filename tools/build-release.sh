@@ -63,7 +63,6 @@ main() {
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
-        validate_catalog
         if [ "${production}" == "true" ]; then
           gen_dh_cat
           release_charts
@@ -77,6 +76,7 @@ main() {
                 edit_release "$chart" "$chartname" "$train" "$chartversion"
             fi
         done
+        validate_catalog
     else
         echo "Nothing to do. No chart changes detected."
     fi

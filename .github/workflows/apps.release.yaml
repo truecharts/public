@@ -39,7 +39,7 @@ jobs:
         run: |
           tools/build-release.sh -p --config .github/cr.yaml
         env:
-          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Commit and Push new App releases
         run: |
