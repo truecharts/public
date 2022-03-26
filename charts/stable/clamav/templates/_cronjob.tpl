@@ -24,6 +24,9 @@ spec:
       template:
         metadata:
         spec:
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
           restartPolicy: Never
           {{- with (include "common.controller.volumes" . | trim) }}
           volumes:
@@ -39,31 +42,31 @@ spec:
                 capabilities:
                   drop:
                     - ALL
-                runAsUser: 0
-                runAsGroup: 0
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               env:
                 - name: date_format
                   value: {{ .Values.clamav.date_format }}
+                - name: log_file_name
+                  value: {{ .Values.clamav.log_file_name }}
                 - name: report_path
                   value: {{ .Values.clamav.report_path | trimSuffix "/" }}
               command: ["sh", "-c"]
               args:
                 - >
                   export now=$(date ${date_format});
-                  export report_file=$report_path/clamdscan_report_${now};
-                  export status=1;
-                  touch $report_file;
+                  export log_file=$report_path/${log_file_name}_${now};
+                  export status=99;
+                  touch $log_file;
                   echo "Starting scan of \"/scandir\"";
-                  clamdscan /scandir --log=$report_file;
+                  clamdscan /scandir --log=$log_file;
                   status=$?;
                   if [ $status -eq 0 ];
                     then
                       echo "Exit Status: $status No Virus found!";
                   else
-                    echo "Exit Status: $status. Check scan \"/scandir/clamdscan_report_${now}\".";
+                    echo "Exit Status: $status. Check scan \"log_file\".";
                   fi;
-                  cat $report_file;
+                  cat $log_file;
               {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:
                 {{ nindent 16 . }}
