@@ -58,6 +58,7 @@ spec:
                   export log_file=$report_path/${log_file_name}_${now};
                   touch $log_file;
                   echo "Starting scan of \"/scandir\"";
+                  echo "Args for clamscan: --database=${databasePath} --log=$log_file --recursive ${extra_args}";
                   clamscan --database=${databasePath} --log=$log_file --recursive ${extra_args} /scandir;
                   status=$?;
                   if [ $status -eq 0 ];
