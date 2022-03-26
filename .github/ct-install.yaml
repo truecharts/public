@@ -1,0 +1,7 @@
+remote: origin
+target-branch: main
+helm-extra-args: --timeout 600s
+chart-dirs:
+- helper-charts
+chart-repos:
+- k8s-at-home-libraries=https://library-charts.truecharts.org
