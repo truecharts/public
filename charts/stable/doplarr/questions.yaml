@@ -79,16 +79,17 @@ questions:
             private: true
             default: ""
         - variable: RADARR__API
-          label: "RADARR__API "
+          label: "RADARR__API"
           schema:
             type: string
             private: true
             default: ""
         - variable: DISCORD__TOKEN
-          label: "DISCORD__TOKEN "
+          label: "DISCORD__TOKEN"
           schema:
             type: string
             private: true
+            required: true
             default: ""
         - variable: DISCORD__ROLE_ID
           label: "DISCORD__ROLE_ID"

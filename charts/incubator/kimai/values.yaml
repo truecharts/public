@@ -19,8 +19,10 @@ env:
   DB_PORT: "3306"
   DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
+  APP_ENV: "prod"
+  TRUSTED_HOSTS: "{{ .Values.env.trust_hosts }},localhost"
   # User Defined
-  TRUSTED_HOSTS: "localhost"
+  trust_hosts: "127.0.0.1"
 
 envValueFrom:
   DB_PASS:
@@ -31,6 +33,10 @@ envValueFrom:
     secretKeyRef:
       name: mariadbcreds
       key: plainhost
+  APP_SECRET:
+    secretKeyRef:
+      name: kimai-secrets
+      key: APP_SECRET
 
 service:
   main:
@@ -50,7 +56,10 @@ probes:
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/kimai/var"
+    mountPath: "/opt/kimai/var/data"
+  plugins:
+    enabled: true
+    mountPath: "/opt/kimai/var/plugins"
 
 mariadb:
   enabled: true
