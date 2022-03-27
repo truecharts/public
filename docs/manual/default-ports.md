@@ -358,6 +358,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | filerun                    |      main       |      main       | 10199 |   TCP    |                                         |
 | double-take                |      main       |      main       | 10200 |   TCP    |                                         |
 | ml-workspace               |      main       |      main       | 10201 |   TCP    |                                         |
+| meshcentral                |      main       |      main       | 10202 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
