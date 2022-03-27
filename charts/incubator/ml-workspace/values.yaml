@@ -8,6 +8,16 @@ imageGPU:
   pullPolicy: IfNotPresent
   tag: 0.13.2@sha256:ca83f64f4339344c96bb6491234008b972c1e64a1c1ef41522b8da601dfceb1e
 
+imageMinimal:
+  repository: mltooling/ml-workspace-minimal
+  pullPolicy: IfNotPresent
+  tag: 0.13.2@sha256:94206eadc4bcfd1d4af4c598f767da176ad898592b9dc54bf62ddd2d9f6d1be6
+
+imageLight:
+  repository: mltooling/ml-workspace-light
+  pullPolicy: IfNotPresent
+  tag: 0.13.2@sha256:cc0e1441702b49927a14d902c4530fa15ce9ad6796a61e41eaebf2e72cf77bc9
+
 imageSelector: "image"
 
 securityContext:
