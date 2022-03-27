@@ -11,7 +11,7 @@
   "timezone":"Europe/Amsterdam",
   "gitAuthor": "TrueCharts-Bot <bot@truecharts.org>",
   "helm-values": {
-    "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
+    "fileMatch": ["charts/.+/.*values\\.yaml$"]
   },
   "helmv3": {
     "fileMatch": ["charts/.+/Chart\\.yaml$"]
@@ -42,9 +42,6 @@
       "bumpVersion": "major",
       "labels": ["update/helm/general/major"],
       "groupName": ["helm general major"],
-      "schedule": [
-        "after 3pm and before 4pm on tuesday"
-      ],
     },
     {
       "matchDatasources": ["helm"],
@@ -56,9 +53,6 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major"],
       "groupName": "helm general non-major",
-      "schedule": [
-        "after 3pm and before 4pm on tuesday"
-      ],
     },
     //
     // Tag updates for semantic tags on all but enterprise Apps
@@ -68,9 +62,6 @@
       "updateTypes": ["major"],
       "bumpVersion": "minor",
       "labels": ["update/docker/general/major"],
-      "schedule": [
-        "before 2am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -84,9 +75,6 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major"],
       "groupName": ["docker general non-major"],
-      "schedule": [
-        "before 2am"
-      ],
     },
   ]
 }
