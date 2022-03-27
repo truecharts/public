@@ -11225,6 +11225,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-03-27T14:34:00.084189429Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: deemix is a deezer downloader built from the ashes of Deezloader
+      Remix.
+    digest: 64b54e99e20b863d2cdc92ac94f2a2dc7164da330f8358ead8677caaea63c714
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/deemix
+    icon: https://truecharts.org/_static/img/appicons/deemix.png
+    keywords:
+    - music
+    - deemix
+    - deezer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deemix
+    sources:
+    - https://gitlab.com/Bockiii/deemix-docker.git
+    - https://git.freezerapp.xyz/RemixDev/deemix-py
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deemix-2.0.0/deemix-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-03-15T16:55:26.793393472Z"
     dependencies:
     - name: common
@@ -85702,4 +85736,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T13:58:49.513199931Z"
+generated: "2022-03-27T14:34:00.091462518Z"
