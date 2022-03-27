@@ -44227,6 +44227,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.13.2
+    created: "2022-03-27T10:05:41.627500457Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: All-in-one web-based development environment for machine learning
+    digest: 9bc443d95aeb0f7de76b34d8e36ddca6b8b69957abc85c5de98667a5425c44c1
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ml-workspace
+    icon: https://truecharts.org/_static/img/appicons/ml-workspace.png
+    keywords:
+    - machine
+    - learning
+    - ai
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ml-workspace
+    sources:
+    - https://github.com/ml-tooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace-gpu
+    - https://hub.docker.com/r/mltooling/ml-workspace-light
+    - https://hub.docker.com/r/mltooling/ml-workspace-minimal
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ml-workspace-1.0.0/ml-workspace-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utility
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.13.2
     created: "2022-03-27T01:44:29.520446969Z"
     dependencies:
     - name: common
@@ -85523,4 +85558,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T05:19:36.783189045Z"
+generated: "2022-03-27T10:05:41.636741203Z"
