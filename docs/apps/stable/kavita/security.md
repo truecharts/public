@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: kavita/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-kavita&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,35 +52,35 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/kavita:v0.5.1@sha256:e584e22d7382b98b0b49fbc6ec97115f82d57ca556c943268c0ced5bd567b25e (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -307,4 +307,3 @@ hide:
 | util-linux         |    CVE-2021-3995   |   MEDIUM  |  2.34-0.1ubuntu9.1 | 2.34-0.1ubuntu9.3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://ubuntu.com/security/notices/USN-5279-1">https://ubuntu.com/security/notices/USN-5279-1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
 | util-linux         |    CVE-2021-3996   |   MEDIUM  |  2.34-0.1ubuntu9.1 | 2.34-0.1ubuntu9.3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://ubuntu.com/security/notices/USN-5279-1">https://ubuntu.com/security/notices/USN-5279-1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
 | zlib1g         |    CVE-2018-25032   |   MEDIUM  |  1:1.2.11.dfsg-2ubuntu1.2 |  | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br></details>  |
-

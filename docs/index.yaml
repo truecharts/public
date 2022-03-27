@@ -5212,6 +5212,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.51.1
+    created: "2022-03-27T19:27:10.711499635Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Browserless is a web-service that allows for remote clients to connect,
+      drive, and execute headless work
+    digest: 2d68478023751186908dc34ffcd12c2b5f6e895ebd377b16b6cfe36f80b7c19a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/browserless-chrome
+    icon: https://truecharts.org/_static/img/appicons/browserless-chrome.png
+    keywords:
+    - browserless
+    - chrome
+    - puppeteer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: browserless-chrome
+    sources:
+    - https://docs.browserless.io/docs/docker.html
+    - https://hub.docker.com/r/browserless/chrome/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/browserless-chrome-1.0.1/browserless-chrome-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.51.1
     created: "2022-03-27T15:56:20.673052561Z"
     dependencies:
     - name: common
@@ -14178,6 +14211,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/duckdns-0.0.1/duckdns-0.0.1.tgz
     version: 0.0.1
   duplicati:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-27T19:27:10.815999826Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Store securely encrypted backups on cloud storage services!
+    digest: 248bb6b1753634d24b304fd8ddadafc9d8924946acc1544b450c51a17e017504
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/duplicati
+    icon: https://truecharts.org/_static/img/appicons/duplicati.png
+    keywords:
+    - duplicati
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: duplicati
+    sources:
+    - https://hub.docker.com/r/linuxserver/duplicati/
+    - https://github.com/duplicati/duplicati
+    urls:
+    - https://github.com/truecharts/apps/releases/download/duplicati-5.0.8/duplicati-5.0.8.tgz
+    version: 5.0.8
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -31717,6 +31780,46 @@ entries:
     - https://github.com/truecharts/apps/releases/download/komga-4.0.24/komga-4.0.24.tgz
     version: 4.0.24
   kutt:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.4
+    created: "2022-03-27T19:27:10.965890075Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.10
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.8
+    description: A free and open source personal finance manager
+    digest: 1b8ca8b967f8af467a3a480ce9600bdba5649887ccc8129e926919956a3e1425
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
+    icon: https://truecharts.org/_static/img/appicons/kutt.png
+    keywords:
+    - kutt
+    - link
+    - short
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kutt
+    sources:
+    - https://github.com/thedevs-network/kutt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kutt-1.0.1/kutt-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -85951,4 +86054,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T18:31:03.792459957Z"
+generated: "2022-03-27T19:27:10.975324329Z"
