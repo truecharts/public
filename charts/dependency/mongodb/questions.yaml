@@ -69,21 +69,21 @@ questions:
 
 # Include{containerConfig}
 
-  - variable: MONGODB_DATABASE
+  - variable: mongodbDatabase
     group: "App Configuration"
     label: "Database Name"
     schema:
       type: string
       default: "mydatabase"
       required: true
-  - variable: MONGODB_USERNAME
+  - variable: mongodbUsername
     group: "App Configuration"
     label: "Database User"
     schema:
       type: string
       default: "mydatabaseuser"
       required: true
-  - variable: MONGODB_PASSWORD
+  - variable: mongodbPassword
     group: "App Configuration"
     label: "Database Password"
     schema:

@@ -31,11 +31,11 @@ service:
         port: 27017
         targetPort: 27017
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsGroup: 0
+podSecurityContext:
+  runAsGroup: 0
 
 volumeClaimTemplates:
   data:
