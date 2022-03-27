@@ -30257,44 +30257,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "1.19"
-    created: "2022-03-27T13:05:14.677070325Z"
-    dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 9.1.15
-    - condition: mariadb.enabled
-      name: mariadb
-      repository: https://truecharts.org/
-      version: 2.0.12
-    description: Kimai is a free, open source and online time-tracking software designed
-      for small businesses and freelancers.
-    digest: 9b59d05c4e4e55d3d0c80430ad60ed9389914aa51707ca880c6730c1ffb3b21a
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/kimai
-    icon: https://truecharts.org/_static/img/appicons/kimai.png
-    keywords:
-    - kimai
-    - time
-    - tracking
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: kimai
-    sources:
-    - https://github.com/kevinpapst/kimai2
-    - https://github.com/tobybatch/kimai2
-    - https://hub.docker.com/r/kimai/kimai2
-    urls:
-    - https://github.com/truecharts/apps/releases/download/kimai-1.0.0/kimai-1.0.0.tgz
-    version: 1.0.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - productivity
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: "1.19"
     created: "2022-03-26T17:50:08.214196433Z"
     dependencies:
     - name: common
@@ -44295,6 +44257,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minisatip-0.0.1/minisatip-0.0.1.tgz
     version: 0.0.1
   ml-workspace:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utility
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.13.2
+    created: "2022-03-27T13:20:40.811662534Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: All-in-one web-based development environment for machine learning
+    digest: 206e3feff70529fba6ca07cb968ecc213ef3bae225bfff0fc97a2b01a601ff1a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ml-workspace
+    icon: https://truecharts.org/_static/img/appicons/ml-workspace.png
+    keywords:
+    - machine
+    - learning
+    - ai
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ml-workspace
+    sources:
+    - https://github.com/ml-tooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace-gpu
+    - https://hub.docker.com/r/mltooling/ml-workspace-light
+    - https://hub.docker.com/r/mltooling/ml-workspace-minimal
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ml-workspace-1.0.1/ml-workspace-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -77675,6 +77672,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/teamspeak3-2.0.21/teamspeak3-2.0.21.tgz
     version: 2.0.21
+  technitium:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - networking
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "8.0"
+    created: "2022-03-27T13:20:40.913275323Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Technitium DNS Server is an open source authoritative as well as
+      recursive DNS server that can be used for self hosting a DNS server for privacy
+      & security.
+    digest: 1421c336113800a3b7e3d5bbe0ab67f41437fee98599b41a0d7baebe704b0798
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/technitium
+    icon: https://truecharts.org/_static/img/appicons/technitium.png
+    keywords:
+    - DNS
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: technitium
+    sources:
+    - https://github.com/TechnitiumSoftware/DnsServer
+    - https://technitium.com/
+    - https://hub.docker.com/r/technitium/dns-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/technitium-0.0.2/technitium-0.0.2.tgz
+    version: 0.0.2
   teedy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -85633,4 +85665,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T13:05:14.686202479Z"
+generated: "2022-03-27T13:20:40.924006885Z"

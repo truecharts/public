@@ -47,7 +47,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          technitium/dns-server:8.0@sha256:37edc3d3cc4521559f5738d5152926750a498294ccef9fe264369746be87febc
+          tccr.io/truecharts/technitium:v8.0@sha256:b59d697bde5613f3c183666e373f80dcf2578d310cd84920dcb1ce97748bf394
 
 ##### Scan Results
 
@@ -76,7 +76,7 @@ hide:
 
 
 
-#### Container: technitium/dns-server:8.0@sha256:37edc3d3cc4521559f5738d5152926750a498294ccef9fe264369746be87febc (debian 11.2)
+#### Container: tccr.io/truecharts/technitium:v8.0@sha256:b59d697bde5613f3c183666e373f80dcf2578d310cd84920dcb1ce97748bf394 (debian 11.2)
 
 
 **debian**
