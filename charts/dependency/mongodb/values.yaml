@@ -58,10 +58,10 @@ probes:
     # @default -- See below
     spec:
       exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo 'db.runCommand(\"ping\").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+        command: ["bash", "-ec"]
+        args:
+          - >
+          echo 'db.runCommand("ping").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -75,10 +75,10 @@ probes:
     # @default -- See below
     spec:
       exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo 'db.runCommand(\"ping\").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+        command: ["bash", "-ec"]
+        args:
+          - >
+          echo 'db.runCommand("ping").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -90,10 +90,10 @@ probes:
     # @default -- See below
     spec:
       exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo 'db.runCommand(\"ping\").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+        command: ["bash", "-ec"]
+        args:
+          - >
+          echo 'db.runCommand("ping").ok' | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
