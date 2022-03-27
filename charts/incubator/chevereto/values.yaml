@@ -22,6 +22,23 @@ env:
   CHEVERETO_DISABLE_UPDATE_HTTP: true
   CHEVERETO_DISABLE_UPDATE_CLI: true
 
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-chevereto'
+
+chevereto:
+  https: false
+  disable_update_http: true
+  disable_update_cli: true
+
+configmap:
+  chevereto:
+    enabled: true
+    data:
+      CHEVERETO_HTTPS: "{{ ternary \"1\" \"0\" .Values.chevereto.https }}"
+      CHEVERETO_DISABLE_UPDATE_HTTP: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_http }}"
+      CHEVERETO_DISABLE_UPDATE_CLI: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_cli }}"
+
 envValueFrom:
   CHEVERETO_DB_HOST:
     secretKeyRef:
