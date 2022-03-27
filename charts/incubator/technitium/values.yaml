@@ -56,6 +56,30 @@ service:
         protocol: TCP
         port: 853
         targetPort: 853
+  dns-cert:
+    enabled: true
+    ports:
+      dns-cert:
+        enabled: true
+        protocol: TCP
+        port: 10202
+        targetPort: 80
+  dns-https:
+    enabled: true
+    ports:
+      dns-https:
+        enabled: true
+        protocol: TCP
+        port: 10203
+        targetPort: 443
+  dns-https-proxy:
+    enabled: true
+    ports:
+      dns-https-proxy:
+        enabled: true
+        protocol: TCP
+        port: 10204
+        targetPort: 8053
 
 
 # Not sure if those will work on k8s
