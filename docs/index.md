@@ -129,7 +129,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-71-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-72-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -151,7 +151,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.cetic.be/Sebastien-Dupont?lang=en"><img src="https://avatars.githubusercontent.com/u/2684865?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sebastien Dupont</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=banzo" title="Documentation">📖</a> <a href="#financial-banzo" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/angelnu"><img src="https://avatars.githubusercontent.com/u/4406403?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vegetto</b></sub></a><br /><a href="https://github.com/truecharts/apps/pulls?q=is%3Apr+reviewed-by%3Aangelnu" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="http://nieuwdorp.me"><img src="https://avatars.githubusercontent.com/u/12896549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luuk Nieuwdorp</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=luuknieuwdorp" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ellienieuwdorp"><img src="https://avatars.githubusercontent.com/u/12896549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ellie Nieuwdorp</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ellienieuwdorp" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/natewalck"><img src="https://avatars.githubusercontent.com/u/867868?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nate Walck</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=natewalck" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/warllo54"><img src="https://avatars.githubusercontent.com/u/20650065?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lloyd</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=warllo54" title="Code">💻</a> <a href="#financial-warllo54" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/dwithnall"><img src="https://avatars.githubusercontent.com/u/5699800?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dave Withnall</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=dwithnall" title="Documentation">📖</a></td>
@@ -231,6 +231,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/190n"><img src="https://avatars.githubusercontent.com/u/7763597?v=4?s=100" width="100px;" alt=""/><br /><sub><b>190n</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=190n" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=190n" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://alexejk.io"><img src="https://avatars.githubusercontent.com/u/104794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexej Kubarev</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=alexejk" title="Documentation">📖</a></td>
   </tr>
 </table>
 

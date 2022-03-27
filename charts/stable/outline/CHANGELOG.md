@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.5"></a>
+### [outline-1.0.5](https://github.com/truecharts/apps/compare/outline-1.0.4...outline-1.0.5) (2022-03-27)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="outline-1.0.4"></a>
 ### [outline-1.0.4](https://github.com/truecharts/apps/compare/outline-1.0.3...outline-1.0.4) (2022-03-26)
 

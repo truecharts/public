@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.30"></a>
+### [minecraft-java-0.0.30](https://github.com/truecharts/apps/compare/minecraft-java-0.0.29...minecraft-java-0.0.30) (2022-03-26)
+
+#### Chore
+
+* Add rcon_password in gui ([#2297](https://github.com/truecharts/apps/issues/2297))
+
+
+
 <a name="minecraft-java-0.0.29"></a>
 ### [minecraft-java-0.0.29](https://github.com/truecharts/apps/compare/minecraft-java-0.0.28...minecraft-java-0.0.29) (2022-03-26)
 

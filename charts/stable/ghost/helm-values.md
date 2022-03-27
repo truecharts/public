@@ -51,7 +51,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.database__connection__password.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ghost"` |  |
-| image.tag | string | `"v4.41.2@sha256:578a77eae44cb7e388a63c46893dfeefd99e228622994c8c94ef241558cfcfa8"` |  |
+| image.tag | string | `"v4.41.3@sha256:2bf2e4c955ba6969bf0b9f1ffd5d299f3ad718dfde2fff6e8ee4435be0eff0d0"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"ghost"` |  |

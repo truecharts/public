@@ -44,7 +44,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/littlelink-server:latest@sha256:f6865f1205bf66da8832b2fb3b68355d1c02c571fc0849fb3915aead0ce970cd
+          tccr.io/truecharts/littlelink-server:latest@sha256:882f45dc6c5d7c3c262924d8421cb0818382b46d67e72c65a849c00d2857cad8
 
 ##### Scan Results
 
@@ -73,15 +73,16 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:f6865f1205bf66da8832b2fb3b68355d1c02c571fc0849fb3915aead0ce970cd (alpine 3.15.1)
+#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:882f45dc6c5d7c3c262924d8421cb0818382b46d67e72c65a849c00d2857cad8 (alpine 3.15.2)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libretls         |    CVE-2022-0778   |   HIGH  |  3.3.4-r2 | 3.3.4-r3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246</a><br><a href="https://linux.oracle.com/cve/CVE-2022-0778.html">https://linux.oracle.com/cve/CVE-2022-0778.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9246.html">https://linux.oracle.com/errata/ELSA-2022-9246.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/</a><br><a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002">https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002</a><br><a href="https://security.netapp.com/advisory/ntap-20220321-0002/">https://security.netapp.com/advisory/ntap-20220321-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5328-1">https://ubuntu.com/security/notices/USN-5328-1</a><br><a href="https://ubuntu.com/security/notices/USN-5328-2">https://ubuntu.com/security/notices/USN-5328-2</a><br><a href="https://www.debian.org/security/2022/dsa-5103">https://www.debian.org/security/2022/dsa-5103</a><br><a href="https://www.openssl.org/news/secadv/20220315.txt">https://www.openssl.org/news/secadv/20220315.txt</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **node-pkg**
 

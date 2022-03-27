@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.14"></a>
+### [ghost-1.0.14](https://github.com/truecharts/apps/compare/ghost-1.0.13...ghost-1.0.14) (2022-03-27)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="ghost-1.0.13"></a>
 ### [ghost-1.0.13](https://github.com/truecharts/apps/compare/ghost-1.0.12...ghost-1.0.13) (2022-03-26)
 

@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "2.13.0"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+description: very sync is an easy-to-use multi-platform file synchronization software
+home: https://github.com/truecharts/apps/tree/master/charts/stable/verysync
+icon: https://truecharts.org/_static/img/appicons/verysync.png
+keywords:
+- verysync
+- sync
+- btsync
+- bittorrent
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: verysync
+sources:
+- https://hub.docker.com/r/jonnyan404/verysync
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

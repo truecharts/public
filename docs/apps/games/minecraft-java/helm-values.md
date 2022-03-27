@@ -29,6 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MODE | string | `"survival"` |  |
 | env.MOTD | string | `"Welcome to Minecraft on TrueNAS Scale!"` |  |
 | env.ONLINE_MODE | bool | `true` |  |
+| env.OVERRIDE_SERVER_PROPERTIES | bool | `true` |  |
 | env.PVP | bool | `false` |  |
 | env.SPAWN_ANIMALS | bool | `true` |  |
 | env.SPAWN_MONSTERS | bool | `true` |  |
@@ -56,6 +57,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | portal.enabled | bool | `false` |  |
+| secret.RCON_PASSWORD | string | `"secretrconpass"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `25565` |  |

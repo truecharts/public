@@ -11,6 +11,22 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
+env:
+  CLAMAV_NO_CLAMD: false
+  CLAMAV_NO_FRESHCLAMD: false
+  CLAMAV_NO_MILTERD: true
+  CLAMD_STARTUP_TIMEOUT: 1800
+  FRESHCLAM_CHECKS: 1
+
+clamav:
+  report_path: "/logs"
+  # User Defined
+  cron_enabled: true
+  cron_schedule: "* * * * *"
+  date_format: "+%m-%d-%Y_%H.%M.%S"
+  log_file_name: "clamscan_report"
+  extra_args: ""
+
 probes:
   liveness:
     enabled: true
@@ -19,10 +35,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
   readiness:
     enabled: true
     custom: true
@@ -30,10 +42,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
   startup:
     enabled: true
     custom: true
@@ -41,10 +49,6 @@ probes:
       exec:
         command:
           - clamdcheck.sh
-      initialDelaySeconds: 15
-      periodSeconds: 30
-      failureThreshold: 10
-      timeoutSeconds: 1
 
 service:
   main:
@@ -60,12 +64,10 @@ service:
         port: 7357
         targetPort: 7357
 
-env:
-  CLAMAV_NO_CLAMD: false
-  CLAMAV_NO_FRESHCLAMD: false
-  CLAMAV_NO_MILTERD: true
-  CLAMD_STARTUP_TIMEOUT: 1800
-  FRESHCLAM_CHECKS: 1
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
 
 persistence:
   sigdatabase:
@@ -75,3 +77,6 @@ persistence:
     enabled: true
     mountPath: "/scandir"
     readOnly: true
+  logs:
+    enabled: true
+    mountPath: "/logs"
