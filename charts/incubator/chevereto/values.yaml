@@ -17,10 +17,6 @@ env:
   CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   CHEVERETO_DB_PORT: "3306"
   CHEVERETO_TAG: "free"
-  # User Defined
-  CHEVERETO_HTTPS: false
-  CHEVERETO_DISABLE_UPDATE_HTTP: true
-  CHEVERETO_DISABLE_UPDATE_CLI: true
 
 envFrom:
   - configMapRef:
