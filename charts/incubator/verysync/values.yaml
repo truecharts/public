@@ -3,6 +3,14 @@ image:
   tag: v2.13.0@sha256:2ee334d635b2cc984818ae3afe108c8fb6741289be6e8faac11c1bad3b83502b
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
@@ -39,3 +47,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  sync:
+    enabled: true
+    mountPath: "/Sync"
