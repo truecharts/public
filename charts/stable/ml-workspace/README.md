@@ -10,6 +10,8 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 * <https://github.com/ml-tooling/ml-workspace>
 * <https://hub.docker.com/r/mltooling/ml-workspace>
 * <https://hub.docker.com/r/mltooling/ml-workspace-gpu>
+* <https://hub.docker.com/r/mltooling/ml-workspace-light>
+* <https://hub.docker.com/r/mltooling/ml-workspace-minimal>
 
 ## Requirements
 
