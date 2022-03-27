@@ -43,6 +43,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | openldap                   |      main       |      main       |  389  |   TCP    |                                                 |
 | minisatip                  |      rtsp       |      rtsp       |  554  |   TCP    |                                                 |
 | openldap                   |      ldaps      |      ldaps      |  636  |   TCP    |                                                 |
+| technitium                 |     dns-tls     |     dns-tls     |  853  |   TCP    |                                                 |
 | strapi                     |      main       |      main       | 1337  |   TCP    |                                                 |
 | domoticz                   |      comm2      |      comm2      | 1443  |   TCP    |                                                 |
 | nntp2nntp                  |      main       |      main       | 1563  |   TCP    |                                                 |

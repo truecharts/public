@@ -13,29 +13,18 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  # DNS web console admin user password.
   DNS_SERVER_ADMIN_PASSWORD: "password"
 
 env:
-  # The primary domain name used by this DNS Server to identify itself.
   DNS_SERVER_DOMAIN: "dns-server"
-  # DNS Server will use IPv6 for querying whenever possible with this option enabled.
   DNS_SERVER_PREFER_IPV6: false
-  # Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx.
   DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP: false
-  # Recursion options: Allow, Deny, AllowOnlyForPrivateNetworks, UseSpecifiedNetworks.
   DNS_SERVER_RECURSION: "AllowOnlyForPrivateNetworks"
-  # Comma separated list of IP addresses or network addresses to deny recursion. Valid only for `UseSpecifiedNetworks` recursion option.
-  DNS_SERVER_RECURSION_DENIED_NETWORKS: "1.1.1.0/24 "
-  # Comma separated list of IP addresses or network addresses to allow recursion. Valid only for `UseSpecifiedNetworks` recursion option.
+  DNS_SERVER_RECURSION_DENIED_NETWORKS: "1.1.1.0/24"
   DNS_SERVER_RECURSION_ALLOWED_NETWORKS: "127.0.0.1, 192.168.1.0/24"
-  # Sets the DNS server to block domain names using Blocked Zone and Block List Zone.
   DNS_SERVER_ENABLE_BLOCKING: false
-  # Specifies if the DNS Server should respond with TXT records containing a blocked domain report for TXT type requests.
   DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT: false
-  # Comma separated list of forwarder addresses.
   DNS_SERVER_FORWARDERS: "1.1.1.1, 8.8.8.8"
-  # Forwarder protocol options: Udp, Tcp, Tls, Https, HttpsJson.
   DNS_SERVER_FORWARDER_PROTOCOL: "Tcp"
 
 service:
@@ -54,17 +43,26 @@ service:
   dns-udp:
     enabled: true
     ports:
-      dns:
+      dns-udp:
         enabled: true
         protocol: UDP
         port: 53
         targetPort: 53
+  dns-tls:
+    enabled: true
+    ports:
+      dns-tls:
+        enabled: true
+        protocol: TCP
+        port: 853
+        targetPort: 853
 
-      # - "67:67/udp" #DHCP service
-      # - "853:853/tcp" #DNS-over-TLS service
-      # - "443:443/tcp" #DNS-over-HTTPS service
-      # - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
-      # - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
+
+# Not sure if those will work on k8s
+  # - "443:443/tcp" #DNS-over-HTTPS service
+  # - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
+# Note sure if this will work with traefik
+  # - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
 
 persistence:
   config:

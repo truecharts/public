@@ -83,35 +83,113 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
-# Include{containerConfig}
-
-  - variable: pihole
-    group: "App Configuration"
-    label: "Pi-Hole Configuration"
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: WEBPASSWORD
-          label: "WEBPASSWORD"
-          description: "Sets admin password for the GUI"
+        - variable: DNS_SERVER_ADMIN_PASSWORD
+          label: "DNS_SERVER_ADMIN_PASSWORD"
+          description: "DNS web console admin user password."
           schema:
             type: string
             default: ""
+            private: true
             required: true
-        - variable: DNS1
-          label: "DNS1"
-          description: "Sets the first DNS server (use #port suffix for ports)"
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DNS_SERVER_DOMAIN
+          label: "DNS_SERVER_DOMAIN"
+          description: "The primary domain name used by this DNS Server to identify itself."
           schema:
             type: string
-            default: "9.9.9.9"
-        - variable: DNS2
-          label: "DNS2"
-          description: "Sets the second DNS server (use #port suffix for ports), only if DNS1 is entered"
+            default: "dns-server"
+            required: true
+        - variable: DNS_SERVER_PREFER_IPV6
+          label: "DNS_SERVER_PREFER_IPV6"
+          description: "DNS Server will use IPv6 for querying whenever possible with this option enabled."
+          schema:
+            type: boolean
+            default: false
+        - variable: DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP
+          label: "DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP"
+          description: "Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx."
+          schema:
+            type: boolean
+            default: false
+        - variable: DNS_SERVER_RECURSION
+          label: "DNS_SERVER_RECURSION"
           schema:
             type: string
-            default: "149.112.112.112"
+            default: "AllowOnlyForPrivateNetworks"
+            enum:
+              - value: "AllowOnlyForPrivateNetworks"
+                description: "AllowOnlyForPrivateNetworks"
+              - value: "UseSpecifiedNetworks"
+                description: "UseSpecifiedNetworks"
+              - value: "Allow"
+                description: "Allow"
+              - value: "Deny"
+                description: "Deny"
+        - variable: DNS_SERVER_RECURSION_DENIED_NETWORKS
+          label: "DNS_SERVER_RECURSION_DENIED_NETWORKS"
+          description: "Comma separated list of IP addresses or network addresses to deny recursion. Valid only for UseSpecifiedNetworks recursion option."
+          schema:
+            show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
+            type: string
+            default: "1.1.1.0/24"
+        - variable: DNS_SERVER_RECURSION_ALLOWED_NETWORKS
+          label: "DNS_SERVER_RECURSION_ALLOWED_NETWORKS"
+          description: "Comma separated list of IP addresses or network addresses to allow recursion. Valid only for `UseSpecifiedNetworks` recursion option."
+          schema:
+            show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
+            type: string
+            default: "127.0.0.1, 192.168.1.0/24"
+        - variable: DNS_SERVER_ENABLE_BLOCKING
+          label: "DNS_SERVER_ENABLE_BLOCKING"
+          description: "Sets the DNS server to block domain names using Blocked Zone and Block List Zone."
+          schema:
+            type: boolean
+            default: false
+        - variable: DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT
+          label: "DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT"
+          description: "Specifies if the DNS Server should respond with TXT records containing a blocked domain report for TXT type requests."
+          schema:
+            type: boolean
+            default: false
+        - variable: DNS_SERVER_FORWARDERS
+          label: "DNS_SERVER_FORWARDERS"
+          description: "Comma separated list of forwarder addresses."
+          schema:
+            type: string
+            default: "1.1.1.1, 8.8.8.8"
+        - variable: DNS_SERVER_FORWARDER_PROTOCOL
+          label: "DNS_SERVER_FORWARDER_PROTOCOL"
+          description: "Forwarder protocol options: Udp, Tcp, Tls, Https, HttpsJson."
+          schema:
+            type: string
+            default: "Tcp"
+            enum:
+              - value: "AllowOnlyForPrivateNetworks"
+                description: "AllowOnlyForPrivateNetworks"
+              - value: "Udp"
+                description: "Udp"
+              - value: "Tcp"
+                description: "Tcp"
+              - value: "Tls"
+                description: "Tls"
+              - value: "Https"
+                description: "Https"
+              - value: "HttpsJson"
+                description: "HttpsJson"
+# Include{containerConfig}
 
   - variable: service
     group: "Networking and Services"
@@ -139,7 +217,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9089
+                              default: 5380
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -174,19 +252,18 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 5380
 
-
-        - variable: dns
-          label: "DNS Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+        - variable: dns-udp
+          label: "DNS-UDP Service"
+          description: "DNS-UDP Service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: dns
-                      label: "DNS Service Port Configuration"
+                    - variable: dns-udp
+                      label: "DNS-UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -235,7 +312,7 @@ questions:
 
         - variable: dns-tcp
           label: "DNS-TCP Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          description: "DNS-TCP Service"
           schema:
             additional_attrs: true
             type: dict
@@ -288,6 +365,62 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
+
+        - variable: dns-tls
+          label: "DNS-TLS Service"
+          description: "DNS-TLS Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: dns-tls
+                      label: "DNS-TLS Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 853
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "TCP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 853
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -359,49 +492,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: dnsmasq
-          label: "App dnsmasq.d Storage"
-          description: "Stores the Application dnsmasq.d."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-# Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
   - variable: ingress
