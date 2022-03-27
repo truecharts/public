@@ -139,6 +139,7 @@ questions:
           label: "DEFAULT_DOMAIN"
           schema:
             type: string
+            required: true
             default: ""
         - variable: LINK_LENGTH
           label: "LINK_LENGTH"
@@ -194,12 +195,14 @@ questions:
           label: "MAIL_HOST"
           schema:
             type: string
+            required: true
             default: ""
         - variable: MAIL_PORT
           label: "MAIL_PORT"
           schema:
             type: int
             default: 567
+            required: true
         - variable: MAIL_FROM
           label: "MAIL_FROM"
           schema:
