@@ -10,6 +10,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+  fsGroup: 33
 
 env:
   CHEVERETO_DB_DRIVER: mysql
