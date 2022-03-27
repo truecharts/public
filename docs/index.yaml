@@ -5917,6 +5917,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.2
+    created: "2022-03-27T13:58:49.505092656Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.12
+    description: Chevereto is an image hosting software that allows you to create
+      a beautiful and full-featured image hosting website on your own server.
+    digest: bef9bfc69e38d48600e24f6c3589a6e7cf5d932d5915dd17b61af37172fd1b45
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/chevereto
+    icon: https://truecharts.org/_static/img/appicons/chevereto.png
+    keywords:
+    - chevereto
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: chevereto
+    sources:
+    - https://hub.docker.com/r/linuxserver/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/chevereto-0.0.30/chevereto-0.0.30.tgz
+    version: 0.0.30
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.2
     created: "2022-03-27T12:16:12.624548704Z"
     dependencies:
     - name: common
@@ -85665,4 +85702,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T13:20:40.924006885Z"
+generated: "2022-03-27T13:58:49.513199931Z"
