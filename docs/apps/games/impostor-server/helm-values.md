@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v1.6.0@sha256:789dda6ea04417d5a7abb9f0373e53ecab7a2cd7b77fa7fc8d9620d977b0e863"` |  |
 | nightlyImage.pullPolicy | string | `"IfNotPresent"` |  |
 | nightlyImage.repository | string | `"tccr.io/truecharts/impostor-server-nightly"` |  |
-| nightlyImage.tag | string | `"vnightly@sha256:84b80cfecae507b18c9a6cd2aae1aa9c0c74722a926f541dded9053954f13cdf"` |  |
+| nightlyImage.tag | string | `"vnightly@sha256:2a016fab8b732eff25a55fabe905c580f22cd228a91e826d97dda16a814f34f5"` |  |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.readiness | object | See below | Redainess probe configuration |
 | probes.startup | object | See below | Startup probe configuration |

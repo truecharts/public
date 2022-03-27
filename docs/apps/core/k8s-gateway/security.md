@@ -45,7 +45,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/k8s_gateway:v0.2.2@sha256:008cb572d83e84c74c554bf6e29614aee42d057f3e1fb09c37ec7ca1bc3ec7fd
+          tccr.io/truecharts/k8s_gateway:v0.2.4@sha256:cc621e57c73aab461b64e561d56181c9f67b59d006ab548fedfee660f08965f9
 
 ##### Scan Results
 
@@ -74,12 +74,7 @@ hide:
 
 
 
-#### Container: coredns
 
 
-**gobinary**
-
-
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

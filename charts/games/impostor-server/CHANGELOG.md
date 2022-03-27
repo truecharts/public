@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.23"></a>
+### [impostor-server-0.0.23](https://github.com/truecharts/apps/compare/impostor-server-0.0.22...impostor-server-0.0.23) (2022-03-27)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="impostor-server-0.0.22"></a>
 ### [impostor-server-0.0.22](https://github.com/truecharts/apps/compare/impostor-server-0.0.21...impostor-server-0.0.22) (2022-03-26)
 

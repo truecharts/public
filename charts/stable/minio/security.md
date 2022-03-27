@@ -45,7 +45,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/minio:latest@sha256:a31f22b3cac9931e4eebf306c358fd7ca1966432b5db98e755743e25c3bcbe7c
+          tccr.io/truecharts/minio:latest@sha256:48155f02fc4d506b034e87c92c145c7031f8ef1df8354a73d7b28d237fc1e403
 
 ##### Scan Results
 
@@ -74,7 +74,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/minio:latest@sha256:a31f22b3cac9931e4eebf306c358fd7ca1966432b5db98e755743e25c3bcbe7c (redhat 8.5)
+#### Container: tccr.io/truecharts/minio:latest@sha256:48155f02fc4d506b034e87c92c145c7031f8ef1df8354a73d7b28d237fc1e403 (redhat 8.5)
 
 
 **redhat**
