@@ -33,6 +33,7 @@ service:
 
 securityContext:
   readOnlyRootFilesystem: false
+  
 podSecurityContext:
   runAsGroup: 0
 
