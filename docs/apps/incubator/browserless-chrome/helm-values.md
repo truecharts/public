@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CHROME_REFRESH_TIME | int | `3600000` |  |
 | env.CONNECTION_TIMEOUT | int | `30000` |  |
 | env.DEFAULT_BLOCK_ADS | bool | `true` |  |
-| env.DEFAULT_HEADLESS | bool | `false` |  |
+| env.DEFAULT_HEADLESS | bool | `true` |  |
 | env.DEFAULT_IGNORE_DEFAULT_ARGS | bool | `true` |  |
 | env.DEFAULT_IGNORE_HTTPS_ERRORS | bool | `true` |  |
 | env.DISABLE_AUTO_SET_DOWNLOAD_BEHAVIOR | bool | `false` |  |

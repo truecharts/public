@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-1.0.0"></a>
+### [browserless-chrome-1.0.0](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.7...browserless-chrome-1.0.0) (2022-03-27)
+
+#### Feat
+
+* move to stable ([#2310](https://github.com/truecharts/apps/issues/2310))
+
+
+
 <a name="browserless-chrome-0.0.7"></a>
 ### [browserless-chrome-0.0.7](https://github.com/truecharts/apps/compare/browserless-chrome-0.0.6...browserless-chrome-0.0.7) (2022-03-26)
 
