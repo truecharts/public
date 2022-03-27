@@ -30363,6 +30363,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.5.1
+    created: "2022-03-27T18:31:03.426751237Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Kavita is a rocket fueled self-hosted digital library which supports
+      a vast array of file formats
+    digest: 4807aea3694d676b1dde381261b295a9f945ec7be80c444e97b09c9caf805a8a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kavita
+    icon: https://truecharts.org/_static/img/appicons/kavita.png
+    keywords:
+    - kavita
+    - manga
+    - library
+    - book
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kavita
+    sources:
+    - https://www.kavitareader.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kavita-1.0.0/kavita-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.5.1
     created: "2022-03-18T11:41:37.501809014Z"
     dependencies:
     - name: common
@@ -83147,6 +83181,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.13.0
+    created: "2022-03-27T18:31:03.782724845Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: very sync is an easy-to-use multi-platform file synchronization software
+    digest: fbda1bc891258dbffd1d97a331a02ff9abf4d0ceececcbf5beb1078e66a5ea20
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/verysync
+    icon: https://truecharts.org/_static/img/appicons/verysync.png
+    keywords:
+    - verysync
+    - sync
+    - btsync
+    - bittorrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: verysync
+    sources:
+    - https://hub.docker.com/r/jonnyan404/verysync
+    urls:
+    - https://github.com/truecharts/apps/releases/download/verysync-1.0.0/verysync-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.13.0
     created: "2022-03-20T16:15:39.509159586Z"
     dependencies:
     - name: common
@@ -85885,4 +85951,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T17:52:19.27918931Z"
+generated: "2022-03-27T18:31:03.792459957Z"
