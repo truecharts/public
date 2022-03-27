@@ -60,6 +60,12 @@ service:
         port: 53
         targetPort: 53
 
+      # - "67:67/udp" #DHCP service
+      # - "853:853/tcp" #DNS-over-TLS service
+      # - "443:443/tcp" #DNS-over-HTTPS service
+      # - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
+      # - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
+
 persistence:
   config:
     enabled: true
