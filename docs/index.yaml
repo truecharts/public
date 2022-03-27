@@ -5212,6 +5212,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.51.1
+    created: "2022-03-27T15:56:20.673052561Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Browserless is a web-service that allows for remote clients to connect,
+      drive, and execute headless work
+    digest: e6e6c47581f7c4b38f41dfc1080f9f6aac3dedc647bf4cfc35fcf97532f1a0da
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/browserless-chrome
+    icon: https://truecharts.org/_static/img/appicons/browserless-chrome.png
+    keywords:
+    - browserless
+    - chrome
+    - puppeteer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: browserless-chrome
+    sources:
+    - https://docs.browserless.io/docs/docker.html
+    - https://hub.docker.com/r/browserless/chrome/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/browserless-chrome-1.0.0/browserless-chrome-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.51.1
     created: "2022-03-25T23:23:50.659425509Z"
     dependencies:
     - name: common
@@ -85776,4 +85809,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T15:13:21.632186832Z"
+generated: "2022-03-27T15:56:20.680056552Z"
