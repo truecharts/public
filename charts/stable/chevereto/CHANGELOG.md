@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="chevereto-1.0.0"></a>
+### [chevereto-1.0.0](https://github.com/truecharts/apps/compare/chevereto-0.0.30...chevereto-1.0.0) (2022-03-27)
+
+#### Feat
+
+* move to stable ([#2315](https://github.com/truecharts/apps/issues/2315))
+
+
+
 <a name="chevereto-0.0.30"></a>
 ### [chevereto-0.0.30](https://github.com/truecharts/apps/compare/chevereto-0.0.29...chevereto-0.0.30) (2022-03-27)
 

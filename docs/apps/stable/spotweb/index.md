@@ -1,15 +1,15 @@
 # Introduction
 
-Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
+Spotweb is a decentralized usenet community based on the Spotnet protocol.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/linuxserver/chevereto>
-* <https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables>
-* <https://github.com/rodber/chevereto-free>
+* <https://github.com/spotweb/spotweb>
+* <https://hub.docker.com/r/jbaten/spotweb>
+* <https://github.com/joachimbaten/spotweb-docker>
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://library-charts.truecharts.org | common | 9.1.15 |
-| https://truecharts.org/ | mariadb | 2.0.12 |
+| https://truecharts.org/ | postgresql | 7.0.10 |
 
 ## Installing the Chart
 
