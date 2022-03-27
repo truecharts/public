@@ -60,5 +60,5 @@ envValueFrom:
       key: "mongodb-root-password"
 
 envTpl:
-  MARIADB_USER: "{{ .Values.MONGODB_USERNAME }}"
-  MARIADB_DATABASE: "{{ .Values.MONGODB_DATABASE }}"
+  MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
+  MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
