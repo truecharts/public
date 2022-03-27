@@ -43,10 +43,10 @@ volumeClaimTemplates:
 
   # @default -- See below
 
-MONGODB_PASSWORD: "testpass"
-MONGODB_USERNAME: "test"
-MONGODB_DATABASE: "test"
-MONGODB_ROOT_PASSWORD: "testroot"
+mongodbPassword: "testpass"
+mongodbUsername: "test"
+mongodbDatabase: "test"
+mongodbRootPassword: "testroot"
 existingSecret: ""
 
 envValueFrom:
