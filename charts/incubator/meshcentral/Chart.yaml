@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: meshcentral
+version: 0.0.1
+appVersion: "1.0.0"
+description: MeshCentral is a full computer management web site
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/meshcentral
+icon: https://truecharts.org/_static/img/appicons/meshcentral.png
+keywords:
+  - meshcentral
+  - teamviewer
+  - rdp
+sources:
+  - https://github.com/Ylianst/MeshCentral
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.1.15
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
