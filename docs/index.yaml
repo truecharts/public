@@ -77600,6 +77600,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/teamspeak3-2.0.21/teamspeak3-2.0.21.tgz
     version: 2.0.21
+  technitium:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - networking
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "8.0"
+    created: "2022-03-27T10:47:50.672935461Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Technitium DNS Server is an open source authoritative as well as
+      recursive DNS server that can be used for self hosting a DNS server for privacy
+      & security.
+    digest: ea8c2b615a4b1da53520cb980e4b8cbb6cce7bd2a0232841f56892329e77f17f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/technitium
+    icon: https://truecharts.org/_static/img/appicons/technitium.png
+    keywords:
+    - DNS
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: technitium
+    sources:
+    - https://github.com/TechnitiumSoftware/DnsServer
+    - https://technitium.com/
+    - https://hub.docker.com/r/technitium/dns-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/technitium-0.0.1/technitium-0.0.1.tgz
+    version: 0.0.1
   teedy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -85558,4 +85593,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T10:05:41.636741203Z"
+generated: "2022-03-27T10:47:50.685483303Z"
