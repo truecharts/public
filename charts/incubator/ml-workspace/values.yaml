@@ -10,13 +10,13 @@ imageGPU:
 
 imageSelector: "image"
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secret:
   WORKSPACE_AUTH_USER: "admin"
