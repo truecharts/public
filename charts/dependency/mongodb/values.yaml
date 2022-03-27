@@ -61,7 +61,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "echo 'db.runCommand("ping").ok' | mongo localhost:27017/mongodbDatabase --quiet"
+          - "echo 'db.runCommand(\"ping\").ok' | mongo \"localhost:27017/{{ .Values.mongodbDatabase }} --quiet\""
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -78,7 +78,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "echo 'db.runCommand("ping").ok' | mongo localhost:27017/mongodbDatabase --quiet"
+          - "echo 'db.runCommand(\"ping\").ok' | mongo \"localhost:27017/{{ .Values.mongodbDatabase }} --quiet\""
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -93,7 +93,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "echo 'db.runCommand("ping").ok' | mongo localhost:27017/mongodbDatabase --quiet"
+          - "echo 'db.runCommand(\"ping\").ok' | mongo \"localhost:27017/{{ .Values.mongodbDatabase }} --quiet\""
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
