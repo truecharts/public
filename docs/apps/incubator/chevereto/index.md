@@ -8,6 +8,8 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://hub.docker.com/r/linuxserver/chevereto>
+* <https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables>
+* <https://github.com/rodber/chevereto-free>
 
 ## Requirements
 
@@ -19,7 +21,6 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://library-charts.truecharts.org | common | 9.1.15 |
 | https://truecharts.org/ | mariadb | 2.0.12 |
-| https://truecharts.org | redis | 2.0.8 |
 
 ## Installing the Chart
 

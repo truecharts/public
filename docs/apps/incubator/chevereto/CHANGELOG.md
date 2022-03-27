@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="chevereto-0.0.29"></a>
+### [chevereto-0.0.29](https://github.com/truecharts/apps/compare/chevereto-0.0.28...chevereto-0.0.29) (2022-03-27)
+
+#### Fix
+
+* remove redis ([#2305](https://github.com/truecharts/apps/issues/2305))
+
+
+
 <a name="chevereto-0.0.28"></a>
 ### [chevereto-0.0.28](https://github.com/truecharts/apps/compare/chevereto-0.0.27...chevereto-0.0.28) (2022-03-26)
 

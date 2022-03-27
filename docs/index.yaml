@@ -5917,6 +5917,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.2
+    created: "2022-03-27T12:16:12.624548704Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.12
+    description: Chevereto is an image hosting software that allows you to create
+      a beautiful and full-featured image hosting website on your own server.
+    digest: 01363e58e1b371ef8791959d1ec48f314a03607e751d0fdca60dc48c41540e22
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/chevereto
+    icon: https://truecharts.org/_static/img/appicons/chevereto.png
+    keywords:
+    - chevereto
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: chevereto
+    sources:
+    - https://hub.docker.com/r/linuxserver/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/chevereto-0.0.29/chevereto-0.0.29.tgz
+    version: 0.0.29
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.2
     created: "2022-03-26T17:50:04.332658684Z"
     dependencies:
     - name: common
@@ -77600,41 +77637,6 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/teamspeak3-2.0.21/teamspeak3-2.0.21.tgz
     version: 2.0.21
-  technitium:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - networking
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: "8.0"
-    created: "2022-03-27T10:47:50.672935461Z"
-    dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 9.1.15
-    description: Technitium DNS Server is an open source authoritative as well as
-      recursive DNS server that can be used for self hosting a DNS server for privacy
-      & security.
-    digest: ea8c2b615a4b1da53520cb980e4b8cbb6cce7bd2a0232841f56892329e77f17f
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/technitium
-    icon: https://truecharts.org/_static/img/appicons/technitium.png
-    keywords:
-    - DNS
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: technitium
-    sources:
-    - https://github.com/TechnitiumSoftware/DnsServer
-    - https://technitium.com/
-    - https://hub.docker.com/r/technitium/dns-server
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/technitium-0.0.1/technitium-0.0.1.tgz
-    version: 0.0.1
   teedy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -85593,4 +85595,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T10:47:50.685483303Z"
+generated: "2022-03-27T12:16:12.634573062Z"

@@ -7,4 +7,3 @@
 #### Feat
 
 * add technitium ([#2299](https://github.com/truecharts/apps/issues/2299))
-
