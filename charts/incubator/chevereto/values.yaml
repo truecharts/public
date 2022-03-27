@@ -16,7 +16,6 @@ env:
   CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
   CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   CHEVERETO_DB_PORT: "3306"
-  CHEVERETO_SESSION_SAVE_HANDLER: "redis"
   CHEVERETO_TAG: "free"
   # User Defined
   CHEVERETO_HTTPS: false
@@ -24,10 +23,6 @@ env:
   CHEVERETO_DISABLE_UPDATE_CLI: true
 
 envValueFrom:
-  CHEVERETO_SESSION_SAVE_PATH:
-    secretKeyRef:
-      name: rediscreds
-      key: url
   CHEVERETO_DB_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -57,7 +52,3 @@ mariadb:
   mariadbUsername: chevereto
   mariadbDatabase: chevereto
   existingSecret: "mariadbcreds"
-
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
