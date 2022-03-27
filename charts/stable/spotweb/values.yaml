@@ -6,10 +6,10 @@ image:
 # See more environment variables in the babybuddy documentation
 # https://hub.docker.com/r/jgeusebroek/spotweb
 env:
-  SPOTWEB_SYSTEMTYPE: single
-  SPOTWEB_FIRSTNAME: demo
-  SPOTWEB_LASTNAME: spotweb
-  SPOTWEB_MAIL: demo@spotweb.com
+  SPOTWEB_SYSTEMTYPE: "single"
+  SPOTWEB_FIRSTNAME: "demo"
+  SPOTWEB_LASTNAME: "spotweb"
+  SPOTWEB_MAIL: "demo@spotweb.com"
   SPOTWEB_RETRIEVE: "15min"
   DB_ENGINE: "pdo_pgsql"
   DB_PORT: "5432"
@@ -28,8 +28,8 @@ envValueFrom:
       key: plainhost
 
 secret:
-  SPOTWEB_USERNAME: myawesomeuser
-  SPOTWEB_PASSWORD: changeme
+  SPOTWEB_USERNAME: "myawesomeuser"
+  SPOTWEB_PASSWORD: "changeme"
 
 securityContext:
   readOnlyRootFilesystem: false

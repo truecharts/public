@@ -86,7 +86,7 @@ questions:
           description: "Username to configure for the admin of this installation."
           schema:
             type: string
-            default: "myawesomeuser"
+            default: ""
             valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
             required: true
         - variable: SPOTWEB_PASSWORD
@@ -94,7 +94,8 @@ questions:
           description: "Password to configure for the admin of this installation."
           schema:
             type: string
-            default: "changeme"
+            default: ""
+            valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
             private: true
             required: true
 
