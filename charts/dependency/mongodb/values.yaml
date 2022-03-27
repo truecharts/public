@@ -41,9 +41,6 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/bitnami/mongodb"
-
-  # @default -- See below
-
 mongodbPassword: "testpass"
 mongodbUsername: "test"
 mongodbDatabase: "test"
