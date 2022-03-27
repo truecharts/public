@@ -1,0 +1,55 @@
+image:
+  repository: mltooling/ml-workspace
+  tag: 0.13.2@sha256:5dfc8928059eb9d6d2bc33d7947e99b6bb38c2beaa40029afb73596a9c08c134
+  pullPolicy: IfNotPresent
+
+imageGPU:
+  repository: mltooling/ml-workspace-gpu
+  pullPolicy: IfNotPresent
+  tag: 0.13.2@sha256:ca83f64f4339344c96bb6491234008b972c1e64a1c1ef41522b8da601dfceb1e
+
+imageSelector: "image"
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secret:
+  WORKSPACE_AUTH_USER: "admin"
+  WORKSPACE_AUTH_PASSWORD: "password"
+  # true, false, or a token
+  AUTHENTICATE_VIA_JUPYTER: "mytoken"
+
+env:
+  WORKSPACE_BASE_URL: "/"
+  WORKSPACE_SSL_ENABLED: false
+  WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  CONFIG_BACKUP_ENABLED: true
+  SHARED_LINKS_ENABLED: false
+  INCLUDE_TUTORIALS: true
+  MAX_NUM_THREADS: "auto"
+  # Jupyter Config
+  # true, false or timeout in seconds
+  SHUTDOWN_INACTIVE_KERNELS: "false"
+  NOTEBOOK_ARGS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 10201
+
+persistence:
+  workspace:
+    enabled: true
+    mountPath: "/workspace"
+  shm:
+    enabled: true
+    mountPath: "/dev/shm"
+    type: "emptyDir"
+    medium: "Memory"
