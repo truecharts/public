@@ -22,8 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DNS_SERVER_RECURSION_ALLOWED_NETWORKS | string | `"127.0.0.1, 192.168.1.0/24"` |  |
 | env.DNS_SERVER_RECURSION_DENIED_NETWORKS | string | `"1.1.1.0/24"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"technitium/dns-server"` |  |
-| image.tag | string | `"8.0@sha256:37edc3d3cc4521559f5738d5152926750a498294ccef9fe264369746be87febc"` |  |
+| image.repository | string | `"tccr.io/truecharts/technitium"` |  |
+| image.tag | string | `"v8.0@sha256:b59d697bde5613f3c183666e373f80dcf2578d310cd84920dcb1ce97748bf394"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/dns/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

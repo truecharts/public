@@ -5212,6 +5212,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.51.1
+    created: "2022-03-27T15:56:20.673052561Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: Browserless is a web-service that allows for remote clients to connect,
+      drive, and execute headless work
+    digest: e6e6c47581f7c4b38f41dfc1080f9f6aac3dedc647bf4cfc35fcf97532f1a0da
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/browserless-chrome
+    icon: https://truecharts.org/_static/img/appicons/browserless-chrome.png
+    keywords:
+    - browserless
+    - chrome
+    - puppeteer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: browserless-chrome
+    sources:
+    - https://docs.browserless.io/docs/docker.html
+    - https://hub.docker.com/r/browserless/chrome/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/browserless-chrome-1.0.0/browserless-chrome-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.51.1
     created: "2022-03-25T23:23:50.659425509Z"
     dependencies:
     - name: common
@@ -5910,6 +5943,117 @@ entries:
     - https://github.com/truecharts/apps/releases/download/calibre-web-9.0.21/calibre-web-9.0.21.tgz
     version: 9.0.21
   chevereto:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.2
+    created: "2022-03-27T17:52:19.168331204Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.12
+    description: Chevereto is an image hosting software that allows you to create
+      a beautiful and full-featured image hosting website on your own server.
+    digest: 974e09dcfeecad2abb5c980cf4d8cab386fbd45d6f93b20a35b812879bd52cbb
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/chevereto
+    icon: https://truecharts.org/_static/img/appicons/chevereto.png
+    keywords:
+    - chevereto
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: chevereto
+    sources:
+    - https://hub.docker.com/r/linuxserver/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/chevereto-1.0.0/chevereto-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.2
+    created: "2022-03-27T13:58:49.505092656Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.12
+    description: Chevereto is an image hosting software that allows you to create
+      a beautiful and full-featured image hosting website on your own server.
+    digest: bef9bfc69e38d48600e24f6c3589a6e7cf5d932d5915dd17b61af37172fd1b45
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/chevereto
+    icon: https://truecharts.org/_static/img/appicons/chevereto.png
+    keywords:
+    - chevereto
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: chevereto
+    sources:
+    - https://hub.docker.com/r/linuxserver/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/chevereto-0.0.30/chevereto-0.0.30.tgz
+    version: 0.0.30
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.2
+    created: "2022-03-27T12:16:12.624548704Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.12
+    description: Chevereto is an image hosting software that allows you to create
+      a beautiful and full-featured image hosting website on your own server.
+    digest: 01363e58e1b371ef8791959d1ec48f314a03607e751d0fdca60dc48c41540e22
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/chevereto
+    icon: https://truecharts.org/_static/img/appicons/chevereto.png
+    keywords:
+    - chevereto
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: chevereto
+    sources:
+    - https://hub.docker.com/r/linuxserver/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/chevereto-0.0.29/chevereto-0.0.29.tgz
+    version: 0.0.29
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -11144,6 +11288,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/deconz-5.0.7/deconz-5.0.7.tgz
     version: 5.0.7
   deemix:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-27T14:34:00.084189429Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: deemix is a deezer downloader built from the ashes of Deezloader
+      Remix.
+    digest: 64b54e99e20b863d2cdc92ac94f2a2dc7164da330f8358ead8677caaea63c714
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/deemix
+    icon: https://truecharts.org/_static/img/appicons/deemix.png
+    keywords:
+    - music
+    - deemix
+    - deezer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deemix
+    sources:
+    - https://gitlab.com/Bockiii/deemix-docker.git
+    - https://git.freezerapp.xyz/RemixDev/deemix-py
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deemix-2.0.0/deemix-2.0.0.tgz
+    version: 2.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -31512,6 +31690,46 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.7.4
+    created: "2022-03-27T15:13:21.622240762Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.10
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.8
+    description: A free and open source personal finance manager
+    digest: 04188fd940bf17b1514241886be42586a92f02a20a30cb764bd97b7858e6b1a9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
+    icon: https://truecharts.org/_static/img/appicons/kutt.png
+    keywords:
+    - kutt
+    - link
+    - short
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: kutt
+    sources:
+    - https://github.com/thedevs-network/kutt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kutt-1.0.0/kutt-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.4
     created: "2022-03-26T17:50:08.627004694Z"
     dependencies:
     - name: common
@@ -44220,6 +44438,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minisatip-0.0.1/minisatip-0.0.1.tgz
     version: 0.0.1
   ml-workspace:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utility
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.13.2
+    created: "2022-03-27T13:20:40.811662534Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: All-in-one web-based development environment for machine learning
+    digest: 206e3feff70529fba6ca07cb968ecc213ef3bae225bfff0fc97a2b01a601ff1a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ml-workspace
+    icon: https://truecharts.org/_static/img/appicons/ml-workspace.png
+    keywords:
+    - machine
+    - learning
+    - ai
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ml-workspace
+    sources:
+    - https://github.com/ml-tooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace-gpu
+    - https://hub.docker.com/r/mltooling/ml-workspace-light
+    - https://hub.docker.com/r/mltooling/ml-workspace-minimal
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ml-workspace-1.0.1/ml-workspace-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -73622,6 +73875,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.5.1
+    created: "2022-03-27T17:52:19.272073372Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.10
+    description: Spotweb is a decentralized usenet community based on the Spotnet
+      protocol.
+    digest: 098cc6d7aae103ef8735e662c102c99239523f638c34a20cd0527b333b88402d
+    home: https://github.com/truecharts/apps/master/charts/incubator/spotweb
+    icon: https://raw.githubusercontent.com/spotweb/spotweb/9af0ade0f618675206dcf1f744dbb3c1eae70e5a/images/spotnet.gif
+    keywords:
+    - usenet
+    - spotweb
+    - spotnet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: spotweb
+    sources:
+    - https://github.com/spotweb/spotweb
+    - https://hub.docker.com/r/jbaten/spotweb
+    - https://github.com/joachimbaten/spotweb-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/spotweb-2.0.0/spotweb-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.1
     created: "2022-03-26T17:50:14.161238505Z"
     dependencies:
     - name: common
@@ -77608,7 +77900,7 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "8.0"
-    created: "2022-03-27T10:47:50.672935461Z"
+    created: "2022-03-27T13:20:40.913275323Z"
     dependencies:
     - name: common
       repository: https://library-charts.truecharts.org
@@ -77616,7 +77908,7 @@ entries:
     description: Technitium DNS Server is an open source authoritative as well as
       recursive DNS server that can be used for self hosting a DNS server for privacy
       & security.
-    digest: ea8c2b615a4b1da53520cb980e4b8cbb6cce7bd2a0232841f56892329e77f17f
+    digest: 1421c336113800a3b7e3d5bbe0ab67f41437fee98599b41a0d7baebe704b0798
     home: https://github.com/truecharts/apps/tree/master/charts/stable/technitium
     icon: https://truecharts.org/_static/img/appicons/technitium.png
     keywords:
@@ -77633,8 +77925,8 @@ entries:
     - https://hub.docker.com/r/technitium/dns-server
     type: application
     urls:
-    - https://github.com/truecharts/apps/releases/download/technitium-0.0.1/technitium-0.0.1.tgz
-    version: 0.0.1
+    - https://github.com/truecharts/apps/releases/download/technitium-0.0.2/technitium-0.0.2.tgz
+    version: 0.0.2
   teedy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -85593,4 +85885,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T10:47:50.685483303Z"
+generated: "2022-03-27T17:52:19.27918931Z"

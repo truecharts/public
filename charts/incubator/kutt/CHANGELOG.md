@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kutt-1.0.0"></a>
+### [kutt-1.0.0](https://github.com/truecharts/apps/compare/kutt-0.0.7...kutt-1.0.0) (2022-03-27)
+
+#### Feat
+
+* move to stable and require smtp ([#2308](https://github.com/truecharts/apps/issues/2308))
+
+
+
 <a name="kutt-0.0.7"></a>
 ### [kutt-0.0.7](https://github.com/truecharts/apps/compare/kutt-0.0.6...kutt-0.0.7) (2022-03-26)
 

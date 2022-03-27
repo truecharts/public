@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: technitium/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-technitium&#39; of Deployment &#39;RELEASE-NAME-technitium&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -47,41 +47,41 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          technitium/dns-server:8.0@sha256:37edc3d3cc4521559f5738d5152926750a498294ccef9fe264369746be87febc
+          tccr.io/truecharts/technitium:v8.0@sha256:b59d697bde5613f3c183666e373f80dcf2578d310cd84920dcb1ce97748bf394
 
 ##### Scan Results
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
 
 
-#### Container: technitium/dns-server:8.0@sha256:37edc3d3cc4521559f5738d5152926750a498294ccef9fe264369746be87febc (debian 11.2)
-    
+
+#### Container: tccr.io/truecharts/technitium:v8.0@sha256:b59d697bde5613f3c183666e373f80dcf2578d310cd84920dcb1ce97748bf394 (debian 11.2)
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  2.2.4 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -165,4 +165,3 @@ hide:
 | tar         |    CVE-2005-2541   |   LOW  |  1.34+dfsg-1 |  | <details><summary>Expand...</summary><a href="http://marc.info/?l=bugtraq&amp;m=112327628230258&amp;w=2">http://marc.info/?l=bugtraq&amp;m=112327628230258&amp;w=2</a><br><a href="https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E">https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E</a><br></details>  |
 | util-linux         |    CVE-2022-0563   |   LOW  |  2.36.1-8+deb11u1 |  | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
 | zlib1g         |    CVE-2018-25032   |   MEDIUM  |  1:1.2.11.dfsg-2 |  | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br></details>  |
-
