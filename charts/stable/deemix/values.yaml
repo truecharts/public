@@ -5,6 +5,8 @@ image:
 
 env:
   INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  # User Defined
+  DEEMIX_SINGLE_USER: false
 
 securityContext:
   readOnlyRootFilesystem: false
