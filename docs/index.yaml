@@ -44022,6 +44022,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/minisatip-0.0.1/minisatip-0.0.1.tgz
     version: 0.0.1
+  ml-workspace:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utility
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.13.2
+    created: "2022-03-27T01:44:29.520446969Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 9.1.15
+    description: All-in-one web-based development environment for machine learning
+    digest: f392fb506567861775233a834aef81d047b713afa97835edf3514ee66f0df478
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ml-workspace
+    icon: https://truecharts.org/_static/img/appicons/ml-workspace.png
+    keywords:
+    - machine
+    - learning
+    - ai
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ml-workspace
+    sources:
+    - https://github.com/ml-tooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace
+    - https://hub.docker.com/r/mltooling/ml-workspace-gpu
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ml-workspace-0.0.1/ml-workspace-0.0.1.tgz
+    version: 0.0.1
   monica:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -85210,4 +85244,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-27T00:02:10.730051939Z"
+generated: "2022-03-27T01:44:29.533911882Z"
