@@ -1,0 +1,66 @@
+image:
+  repository: bitnami/mongodb
+  pullPolicy: IfNotPresent
+  tag: 4.4.13@sha256:c78b3d35adaae2efe74aa75be9ca31a9825bf43fd88ae50a674d8cf9915f4a45
+
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: statefulset
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable: 1
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
+
+service:
+  main:
+    ports:
+      main:
+        port: 27017
+        targetPort: 27017
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsGroup: 0
+
+volumeClaimTemplates:
+  data:
+    enabled: true
+    mountPath: "/bitnami/mongodb"
+
+  # @default -- See below
+
+MONGODB_PASSWORD: "testpass"
+MONGODB_USERNAME: "test"
+MONGODB_DATABASE: "test"
+MONGODB_ROOT_PASSWORD: "testroot"
+existingSecret: ""
+
+envValueFrom:
+  MONGODB_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "mongodb-password"
+  MONGODB_ROOT_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "mongodb-root-password"
+
+envTpl:
+  MARIADB_USER: "{{ .Values.MONGODB_USERNAME }}"
+  MARIADB_DATABASE: "{{ .Values.MONGODB_DATABASE }}"
