@@ -12,7 +12,7 @@ We currently require Traefik to be installed before you enable ingress on your A
 - Make sure you already added the TrueCharts catalog from guide 02
 - Make sure your App is installed and, preferably, working
 - Make sure you added your certificates in guide 07
-- Make sure you've setup traefik in guide 08 & 09
+- Make sure you've setup traefik in guide 08
 
 
 #### Video Guide
