@@ -87,6 +87,18 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: BROWSER_POLICY_ENABLED
+          label: "BROWSER_POLICY_ENABLED"
+          description: "Enable browser policy and allow one trusted URL that can have iframe that has Wekan embedded inside."
+          schema:
+            type: boolean
+            default: false
+        - variable: TRUSTED_URL
+          label: "TRUSTED_URL"
+          description: "When browser policy is enabled, HTML code at this Trusted URL can have iframe that embeds Wekan inside."
+          schema:
+            type: string
+            default: ""
         - variable: WITH_API
           label: "WITH_API"
           schema:
@@ -145,18 +157,39 @@ questions:
           label: "LOGOUT_IN (Days)"
           schema:
             type: int
-            default: 20
+            default: 0
         - variable: LOGOUT_ON_HOURS
           label: "LOGOUT_ON_HOURS"
           schema:
             type: int
-            default: 20
+            default: 0
         - variable: LOGOUT_ON_MINUTES
           label: "LOGOUT_ON_MINUTES"
           schema:
             type: int
-            default: 20
-
+            default: 0
+        - variable: WEBHOOKS_ATTRIBUTES
+          label: "WEBHOOKS_ATTRIBUTES"
+          description: "What to send to Outgoing Webhook."
+          schema:
+            type: string
+            default: "cardId,listId,oldListId,boardId,comment,user,card,commentId,swimlaneId,customerField,customFieldValue"
+        - variable: ACCOUNTS_COMMON_LOGIN_EXPIRATION_IN_DAYS
+          label: "ACCOUNTS_COMMON_LOGIN_EXPIRATION_IN_DAYS"
+          schema:
+            type: int
+            default: 90
+        - variable: BIGEVENTS_PATTERN
+          label: "BIGEVENTS_PATTERN"
+          schema:
+            type: string
+            default: "NONE"
+        - variable: NOTIFICATION_TRAY_AFTER_READ_DAYS_BEFORE_REMOVE
+          label: "NOTIFICATION_TRAY_AFTER_READ_DAYS_BEFORE_REMOVE"
+          description: "Number of days after a notification is read before we remove it."
+          schema:
+            type: int
+            default: 90
 # Include{containerConfig}
 
   - variable: service
