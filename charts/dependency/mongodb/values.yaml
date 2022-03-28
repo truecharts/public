@@ -61,7 +61,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "db.runCommand(\"ping\").ok" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -93,7 +93,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "db.runCommand(\"ping\").ok" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
