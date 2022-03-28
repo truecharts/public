@@ -26,8 +26,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MONGODB_ROOT_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/mongodb"` |  |
-| image.tag | string | `"4.4.13@sha256:c78b3d35adaae2efe74aa75be9ca31a9825bf43fd88ae50a674d8cf9915f4a45"` |  |
+| image.repository | string | `"ghcr.io/truecharts/mongodb"` |  |
+| image.tag | string | `"v5.0.6@sha256:c2c4d2883d1c90032e5990229a558d13ff1a0ab1854901442e0bb44a0e9b899c"` |  |
 | mongodbDatabase | string | `"test"` |  |
 | mongodbPassword | string | `"testpass"` |  |
 | mongodbRootPassword | string | `"testroot"` |  |
