@@ -1,78 +1,5 @@
 apiVersion: v1
 entries:
-  mariadb:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - database
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 10.7.3
-    created: "2022-03-28T17:13:57.844829403Z"
-    dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 9.1.15
-    description: Fast, reliable, scalable, and easy to use open-source relational
-      database system.
-    digest: 0b9ae9b6468e85fcc71975be19be7581e6ca11dbb8bf8515d6de2ea026eff193
-    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
-    icon: https://truecharts.org/_static/img/appicons/mariadb.png
-    keywords:
-    - mariadb
-    - mysql
-    - database
-    - sql
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: mariadb
-    sources:
-    - https://github.com/bitnami/bitnami-docker-mariadb
-    - https://github.com/prometheus/mysqld_exporter
-    - https://mariadb.org
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/mariadb-2.0.16/mariadb-2.0.16.tgz
-    version: 2.0.16
-  mongodb:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - database
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 5.0.6
-    created: "2022-03-28T17:13:57.984342221Z"
-    dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 9.2.0
-    description: Fast, reliable, scalable, and easy to use open-source no-sql database
-      system.
-    digest: a8722fc42c495d8d491f783c1db6791649809958fbf9dfa4839239ea972151b5
-    home: https://github.com/truecharts/apps/tree/master/stable/mongodb
-    icon: https://truecharts.org/_static/img/appicons/mongodb.png
-    keywords:
-    - mongodb
-    - database
-    - nosql
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: mongodb
-    sources:
-    - https://hub.docker.com/r/bitnami/mongodb
-    - https://github.com/bitnami/bitnami-docker-mongodb
-    - https://www.mongodb.com
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/mongodb-0.0.2/mongodb-0.0.2.tgz
-    version: 0.0.2
   postgresql:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -81,13 +8,13 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 14.2.0
-    created: "2022-03-28T17:13:58.145588483Z"
+    created: "2022-03-28T19:06:24.282067942Z"
     dependencies:
     - name: common
       repository: https://library-charts.truecharts.org
       version: 9.1.15
     description: PostgresSQL
-    digest: 5acf9db846278288d8b01697bd8ff5d654b1dbaef9d927ed159c21efba59fa96
+    digest: abf9e65ffd67deda3e1635cdcb7c0d288e24565e7104d91410d5692f4fe96e43
     home: https://github.com/truecharts/apps/tree/master/stable/postgres
     icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
     keywords:
@@ -105,6 +32,6 @@ entries:
     - https://www.postgresql.org/
     type: application
     urls:
-    - https://github.com/truecharts/apps/releases/download/postgresql-7.0.14/postgresql-7.0.14.tgz
-    version: 7.0.14
-generated: "2022-03-28T17:13:58.145601083Z"
+    - https://github.com/truecharts/apps/releases/download/postgresql-7.0.15/postgresql-7.0.15.tgz
+    version: 7.0.15
+generated: "2022-03-28T19:06:24.282080743Z"
