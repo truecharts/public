@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-5.0.9"></a>
+### [duplicati-5.0.9](https://github.com/truecharts/apps/compare/duplicati-5.0.8...duplicati-5.0.9) (2022-03-28)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="duplicati-5.0.8"></a>
 ### [duplicati-5.0.8](https://github.com/truecharts/apps/compare/duplicati-5.0.6...duplicati-5.0.8) (2022-03-27)
 

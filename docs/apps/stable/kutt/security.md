@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: kutt/charts/postgresql/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of StatefulSet &#39;RELEASE-NAME-postgresql&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -39,7 +39,7 @@ hide:
 | Kubernetes Security Check         |    KSV023   |   hostPath volumes mounted  |  MEDIUM | <details><summary>Expand...</summary> HostPath volumes must be forbidden. <br> <hr> <br> StatefulSet &#39;RELEASE-NAME-postgresql&#39; should not set &#39;spec.template.volumes.hostPath&#39; </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline">https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline</a><br><a href="https://avd.aquasec.com/appshield/ksv023">https://avd.aquasec.com/appshield/ksv023</a><br></details>  |
 | Kubernetes Security Check         |    KSV029   |   A root primary or supplementary GID set  |  LOW | <details><summary>Expand...</summary> Containers should be forbidden from running with a root primary or supplementary GID. <br> <hr> <br> StatefulSet &#39;RELEASE-NAME-postgresql&#39; should set &#39;spec.securityContext.runAsGroup&#39;, &#39;spec.securityContext.supplementalGroups[*]&#39; and &#39;spec.securityContext.fsGroup&#39; to integer greater than 0 </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv029">https://avd.aquasec.com/appshield/ksv029</a><br></details>  |
 
-      
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of StatefulSet &#39;RELEASE-NAME-redis&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -64,7 +64,7 @@ hide:
 | Kubernetes Security Check         |    KSV023   |   hostPath volumes mounted  |  MEDIUM | <details><summary>Expand...</summary> HostPath volumes must be forbidden. <br> <hr> <br> StatefulSet &#39;RELEASE-NAME-redis&#39; should not set &#39;spec.template.volumes.hostPath&#39; </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline">https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline</a><br><a href="https://avd.aquasec.com/appshield/ksv023">https://avd.aquasec.com/appshield/ksv023</a><br></details>  |
 | Kubernetes Security Check         |    KSV029   |   A root primary or supplementary GID set  |  LOW | <details><summary>Expand...</summary> Containers should be forbidden from running with a root primary or supplementary GID. <br> <hr> <br> StatefulSet &#39;RELEASE-NAME-redis&#39; should set &#39;spec.securityContext.runAsGroup&#39;, &#39;spec.securityContext.supplementalGroups[*]&#39; and &#39;spec.securityContext.fsGroup&#39; to integer greater than 0 </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv029">https://avd.aquasec.com/appshield/ksv029</a><br></details>  |
 
-      
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-kutt&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -114,35 +114,35 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3 (debian 10.11)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -369,26 +369,26 @@ hide:
 
 **jar**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/kutt:v2.7.4@sha256:7b89481d467e1c1dc75e672bdac18dd00fdb4a3f0b60d90518acbf8eddfe8615 (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | libcrypto1.1         |    CVE-2022-0778   |   HIGH  |  1.1.1l-r7 | 1.1.1n-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246</a><br><a href="https://linux.oracle.com/cve/CVE-2022-0778.html">https://linux.oracle.com/cve/CVE-2022-0778.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9246.html">https://linux.oracle.com/errata/ELSA-2022-9246.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/</a><br><a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002">https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002</a><br><a href="https://security.netapp.com/advisory/ntap-20220321-0002/">https://security.netapp.com/advisory/ntap-20220321-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5328-1">https://ubuntu.com/security/notices/USN-5328-1</a><br><a href="https://ubuntu.com/security/notices/USN-5328-2">https://ubuntu.com/security/notices/USN-5328-2</a><br><a href="https://www.debian.org/security/2022/dsa-5103">https://www.debian.org/security/2022/dsa-5103</a><br><a href="https://www.openssl.org/news/secadv/20220315.txt">https://www.openssl.org/news/secadv/20220315.txt</a><br></details>  |
@@ -397,7 +397,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ajv         |    CVE-2020-15366   |   MEDIUM  |  5.5.2 | 6.12.3 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-v88g-cgmw-v5xw">https://github.com/advisories/GHSA-v88g-cgmw-v5xw</a><br><a href="https://github.com/ajv-validator/ajv/commit/65b2f7d76b190ac63a0d4e9154c712d7aa37049f">https://github.com/ajv-validator/ajv/commit/65b2f7d76b190ac63a0d4e9154c712d7aa37049f</a><br><a href="https://github.com/ajv-validator/ajv/releases/tag/v6.12.3">https://github.com/ajv-validator/ajv/releases/tag/v6.12.3</a><br><a href="https://github.com/ajv-validator/ajv/tags">https://github.com/ajv-validator/ajv/tags</a><br><a href="https://hackerone.com/bugs?subject=user&amp;report_id=894259">https://hackerone.com/bugs?subject=user&amp;report_id=894259</a><br><a href="https://linux.oracle.com/cve/CVE-2020-15366.html">https://linux.oracle.com/cve/CVE-2020-15366.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0551.html">https://linux.oracle.com/errata/ELSA-2021-0551.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-15366">https://nvd.nist.gov/vuln/detail/CVE-2020-15366</a><br><a href="https://snyk.io/vuln/SNYK-JS-AJV-584908">https://snyk.io/vuln/SNYK-JS-AJV-584908</a><br></details>  |
@@ -485,11 +485,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -520,11 +520,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -555,11 +555,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3 (debian 10.11)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -786,26 +786,26 @@ hide:
 
 **jar**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -836,11 +836,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -871,11 +871,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/redis:v6.2.6@sha256:a4e38a55026c6e25655f0978b89faa80d48ec5eb39f10c2b4f6c16f8ed86cade (debian 10.11)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -1044,16 +1044,13 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

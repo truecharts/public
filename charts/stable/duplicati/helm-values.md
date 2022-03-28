@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | `nil` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/duplicati"` | image repository |
-| image.tag | string | `"latest@sha256:57f858f762b3ad0e84de21263a138d83d191b78192c5e680259dc8abb4e1de66"` | image tag |
+| image.tag | string | `"latest@sha256:9435ca54cf320b8f6b285e4bb6b304e285e828a2b97f29f3037ac604924d99a0"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
