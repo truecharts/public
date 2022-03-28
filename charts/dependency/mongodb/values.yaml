@@ -111,6 +111,6 @@ envValueFrom:
       name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "mongodb-root-password"
 
-envTpl:
+env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
