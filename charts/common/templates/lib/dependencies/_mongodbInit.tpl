@@ -25,7 +25,7 @@ This template ensures pods with mongodb dependency have a delayed start
   args:
     - >
       until
-        echo "db.runCommand(\"ping\").ok" | mongo --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
+        echo "db.runCommand(\"ping\")" | mongo --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
         do sleep 2;
       done
   imagePullPolicy: IfNotPresent
