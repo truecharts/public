@@ -15,20 +15,6 @@ env:
   WRITABLE_PATH: "/data"
   # User Defined
   ROOT_URL: "http://localhost"
-  WITH_API: true
-  RESULTS_PER_PAGE: 20
-  RICHER_CARD_COMMENT_EDITOR: false
-  CARD_OPENED_WEBHOOK_ENABLED: false
-  PASSWORD_LOGIN_ENABLED: true
-  WAIT_SPINNER: "Bounce"
-  LOGOUT_WITH_TIMER: false
-  LOGOUT_IN: 0
-  LOGOUT_ON_HOURS: 0
-  LOGOUT_ON_MINUTES: 0
-  WEBHOOKS_ATTRIBUTES: "cardId,listId,oldListId,boardId,comment,user,card,commentId,swimlaneId,customerField,customFieldValue"
-  ACCOUNTS_COMMON_LOGIN_EXPIRATION_IN_DAYS: 90
-  BIGEVENTS_PATTERN: "NONE"
-  NOTIFICATION_TRAY_AFTER_READ_DAYS_BEFORE_REMOVE: 2
 
 envValueFrom:
   MONGO_URL:
