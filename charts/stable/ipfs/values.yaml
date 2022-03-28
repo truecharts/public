@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  NODE_IP: "*"
+  NODE_IP: "localhost"
 
 service:
   main:
@@ -67,7 +67,21 @@ persistence:
     mountPath: "/ipns"
 
 installContainers:
-  1-set-api-httpheaders-cors:
+  1-first_run_init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: NODE_IP
+        value: "{{ .Values.env.NODE_IP }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data/ipfs"
+      - name: staging
+        mountPath: "/export"
+      - name: ipfs
+        mountPath: "/ipfs"
+      - name: ipns
+        mountPath: "/ipns"
+  2-set-api-httpheaders-cors:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: NODE_IP
