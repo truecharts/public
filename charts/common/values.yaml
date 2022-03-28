@@ -78,6 +78,16 @@ mariadbImage:
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
+# -- mongodb specific configuration
+# @default -- See below
+mongodbImage:
+  # -- Specify the mongodb image
+  repository: ghcr.io/truecharts/mongodb
+  # -- Specify the mongodb image tag
+  tag: v4.4.13@sha256:UPDATEDIGEST
+  # -- Specify the mongodb image pull policy
+  pullPolicy: IfNotPresent
+
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
@@ -1114,5 +1124,13 @@ redis:
 mariadb:
   enabled: false
   existingSecret: "mariadbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
+
+# -- mongodb dependency configuration
+# @default -- See below
+mongodb:
+  enabled: false
+  existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}

@@ -11,4 +11,7 @@
 
 {{- /* Autogenerate mariadb passwords if needed */ -}}
 {{- include "common.dependencies.mariadb.injector" . }}
+
+{{- /* Autogenerate mongodb passwords if needed */ -}}
+{{- include "common.dependencies.mongodb.injector" . }}
 {{- end -}}
