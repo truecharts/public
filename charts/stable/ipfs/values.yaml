@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  NODE_IP: "localhost"
+  NODE_IP: "*"
 
 service:
   main:
