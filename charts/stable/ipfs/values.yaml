@@ -67,7 +67,7 @@ persistence:
     mountPath: "/ipns"
 
 installContainers:
-  1-first_run_init:
+  1-first-run-init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: NODE_IP
