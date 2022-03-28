@@ -29,10 +29,9 @@ service:
 
 mongodb:
   enabled: true
-  mongodbUsername: filerun
-  mongodbDatabase: filerun
+  mongodbUsername: wekan
+  mongodbDatabase: wekan
   existingSecret: "mongodbcreds"
-
 
 persistence:
   data:
