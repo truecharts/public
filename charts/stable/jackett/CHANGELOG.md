@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.11"></a>
+### [jackett-10.0.11](https://github.com/truecharts/apps/compare/jackett-10.0.10...jackett-10.0.11) (2022-03-28)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="jackett-10.0.10"></a>
 ### [jackett-10.0.10](https://github.com/truecharts/apps/compare/jackett-10.0.9...jackett-10.0.10) (2022-03-26)
 

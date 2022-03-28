@@ -129,7 +129,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-72-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -232,6 +232,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/190n"><img src="https://avatars.githubusercontent.com/u/7763597?v=4?s=100" width="100px;" alt=""/><br /><sub><b>190n</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=190n" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=190n" title="Documentation">📖</a></td>
     <td align="center"><a href="https://alexejk.io"><img src="https://avatars.githubusercontent.com/u/104794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexej Kubarev</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=alexejk" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/r-vanooyen"><img src="https://avatars.githubusercontent.com/u/45106123?v=4?s=100" width="100px;" alt=""/><br /><sub><b>r-vanooyen</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=r-vanooyen" title="Documentation">📖</a></td>
   </tr>
 </table>
 
