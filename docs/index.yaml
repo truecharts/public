@@ -1,37 +1,39 @@
 apiVersion: v1
 entries:
-  postgresql:
+  mongodb:
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
         - database
       truecharts.org/grade: U
     apiVersion: v2
-    appVersion: 14.2.0
-    created: "2022-03-28T19:06:24.282067942Z"
+    appVersion: 5.0.6
+    created: "2022-03-28T20:42:31.133516983Z"
     dependencies:
     - name: common
       repository: https://library-charts.truecharts.org
-      version: 9.1.15
-    description: PostgresSQL
-    digest: abf9e65ffd67deda3e1635cdcb7c0d288e24565e7104d91410d5692f4fe96e43
-    home: https://github.com/truecharts/apps/tree/master/stable/postgres
-    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+      version: 9.2.0
+    description: Fast, reliable, scalable, and easy to use open-source no-sql database
+      system.
+    digest: 3adf72313c483e18795bdbfe30f0d0ba75383c814554dc0aa60cbc53c8c5dc3c
+    home: https://github.com/truecharts/apps/tree/master/stable/mongodb
+    icon: https://truecharts.org/_static/img/appicons/mongodb.png
     keywords:
-    - postgres
-    - postgressql
-    - dtabase
-    - sql
+    - mongodb
+    - database
+    - nosql
     kubeVersion: '>=1.16.0-0'
     maintainers:
     - email: info@truecharts.org
       name: TrueCharts
       url: https://truecharts.org
-    name: postgresql
+    name: mongodb
     sources:
-    - https://www.postgresql.org/
+    - https://hub.docker.com/r/bitnami/mongodb
+    - https://github.com/bitnami/bitnami-docker-mongodb
+    - https://www.mongodb.com
     type: application
     urls:
-    - https://github.com/truecharts/apps/releases/download/postgresql-7.0.15/postgresql-7.0.15.tgz
-    version: 7.0.15
-generated: "2022-03-28T19:06:24.282080743Z"
+    - https://github.com/truecharts/apps/releases/download/mongodb-0.0.3/mongodb-0.0.3.tgz
+    version: 0.0.3
+generated: "2022-03-28T20:42:31.133594581Z"
