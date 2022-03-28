@@ -1,0 +1,40 @@
+image:
+  repository: wekanteam/wekan
+  tag: v6.11@sha256:32528bac59be3f24e64866fd42d21daa30c67fb5e5d1522eacb1b7f886a45747
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  ROOT_URL: http://localhost
+
+envValueFrom:
+  MONGO_URL:
+    secretKeyRef:
+      name: mongodbcreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        port: 10204
+        targetPort: 8080
+
+mongodb:
+  enabled: true
+  mongodbUsername: filerun
+  mongodbDatabase: filerun
+  existingSecret: "mongodbcreds"
+
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
