@@ -90,6 +90,13 @@ questions:
       type: string
       default: ""
       required: true
+  - variable: postgrespassword
+    group: "App Configuration"
+    label: "Root Password"
+    schema:
+      type: string
+      default: ""
+      required: true
 
   - variable: service
     group: "Networking and Services"

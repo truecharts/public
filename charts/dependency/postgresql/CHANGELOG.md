@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.14"></a>
+### [postgresql-7.0.14](https://github.com/truecharts/apps/compare/postgresql-7.0.13...postgresql-7.0.14) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
 <a name="postgresql-7.0.13"></a>
 ### [postgresql-7.0.13](https://github.com/truecharts/apps/compare/postgresql-7.0.12...postgresql-7.0.13) (2022-03-28)
 

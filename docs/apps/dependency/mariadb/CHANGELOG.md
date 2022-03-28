@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.16"></a>
+### [mariadb-2.0.16](https://github.com/truecharts/apps/compare/mariadb-2.0.15...mariadb-2.0.16) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
 <a name="mariadb-2.0.15"></a>
 ### [mariadb-2.0.15](https://github.com/truecharts/apps/compare/mariadb-2.0.14...mariadb-2.0.15) (2022-03-28)
 
