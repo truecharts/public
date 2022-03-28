@@ -74,7 +74,89 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ROOT_URL
+          label: "ROOT_URL"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: WITH_API
+          label: "WITH_API"
+          schema:
+            type: boolean
+            default: true
+        - variable: RESULTS_PER_PAGE
+          label: "RESULTS_PER_PAGE"
+          schema:
+            type: int
+            default: 20
+            required: true
+        - variable: RICHER_CARD_COMMENT_EDITOR
+          label: "RICHER_CARD_COMMENT_EDITOR"
+          schema:
+            type: boolean
+            default: false
+        - variable: CARD_OPENED_WEBHOOK_ENABLED
+          label: "CARD_OPENED_WEBHOOK_ENABLED"
+          schema:
+            type: boolean
+            default: false
+        - variable: PASSWORD_LOGIN_ENABLED
+          label: "PASSWORD_LOGIN_ENABLED"
+          schema:
+            type: boolean
+            default: false
+        - variable: WAIT_SPINNER
+          label: "WAIT_SPINNER"
+          description: "Sets the Wait Spinner animation"
+          schema:
+            type: string
+            default: "Bounce"
+            enum:
+              - value: "Bounce"
+                description: "Bounce"
+              - value: "Cube"
+                description: "Cube"
+              - value: "Cube-Grid"
+                description: "Cube-Grid"
+              - value: "Dot"
+                description: "Dot"
+              - value: "Double-Bounce"
+                description: "Double-Bounce"
+              - value: "Rotateplane"
+                description: "Rotateplane"
+              - value: "Scaleout"
+                description: "Scaleout"
+              - value: "Wave"
+                description: "Wave"
+        - variable: LOGOUT_WITH_TIMER
+          label: "LOGOUT_WITH_TIMER"
+          schema:
+            type: boolean
+            default: false
+        - variable: LOGOUT_IN
+          label: "LOGOUT_IN (Days)"
+          schema:
+            type: int
+            default: 20
+        - variable: LOGOUT_ON_HOURS
+          label: "LOGOUT_ON_HOURS"
+          schema:
+            type: int
+            default: 20
+        - variable: LOGOUT_ON_MINUTES
+          label: "LOGOUT_ON_MINUTES"
+          schema:
+            type: int
+            default: 20
+
 # Include{containerConfig}
 
   - variable: service

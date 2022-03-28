@@ -12,7 +12,19 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  ROOT_URL: http://localhost
+  WRITABLE_PATH: "/data"
+  # User Defined
+  ROOT_URL: "http://localhost"
+  WITH_API: true
+  RESULTS_PER_PAGE: 20
+  RICHER_CARD_COMMENT_EDITOR: false
+  CARD_OPENED_WEBHOOK_ENABLED: false
+  PASSWORD_LOGIN_ENABLED: true
+  WAIT_SPINNER: "Bounce"
+  LOGOUT_WITH_TIMER: false
+  LOGOUT_IN: 1
+  LOGOUT_ON_HOURS: 1
+  LOGOUT_ON_MINUTES: 1
 
 envValueFrom:
   MONGO_URL:
