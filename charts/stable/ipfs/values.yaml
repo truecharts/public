@@ -87,6 +87,12 @@ installContainers:
         value: "{{ .Values.env.IPFS_PROFILE }}"
       - name: IPFS_SWARM_KEY
         value: "{{ .Values.env.IPFS_SWARM_KEY }}"
+    command: ["sh","-c"]
+    args:
+      - >
+        echo "Running entrypoint command";
+        /usr/local/bin/start_ipfs;
+        echo "Done";
   2-cors-headers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
