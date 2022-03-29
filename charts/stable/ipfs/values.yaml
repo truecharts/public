@@ -80,6 +80,13 @@ installContainers:
         mountPath: "/export"
       - name: data
         mountPath: "/data/ipfs"
+    env:
+      - name: NODE_IP
+        value: "{{ .Values.env.NODE_IP }}"
+      - name: IPFS_PROFILE
+        value: "{{ .Values.env.IPFS_PROFILE }}"
+      - name: IPFS_SWARM_KEY
+        value: "{{ .Values.env.IPFS_SWARM_KEY }}"
   2-cors-headers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
