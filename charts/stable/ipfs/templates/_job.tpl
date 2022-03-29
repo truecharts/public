@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
-  backoffLimit: 2
+  backoffLimit: 10
   completions: 1
   template:
     spec:
@@ -30,11 +30,17 @@ spec:
           args:
             - >
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
-              ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]';
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
-              ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
-              echo "Done!";
-              exit 0;
+              ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' \
+              && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
+              export status = $?;
+              if [ $status -eq 0 ]; then
+                echo "Done! Status: $status ";
+                exit 0;
+              else;
+                echo "Failed! Status: $status ";
+                exit 1;
+              fi;
           {{- with (include "common.controller.volumeMounts" . | trim) }}
           volumeMounts:
             {{ nindent 16 . }}
