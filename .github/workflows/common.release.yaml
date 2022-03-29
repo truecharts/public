@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
       with:
         token: ${{ secrets.BOT_TOKEN }}
         ref: main
@@ -27,12 +27,12 @@ jobs:
         git config user.email "bot@truecharts.org"
 
     - name: Install Helm
-      uses: azure/setup-helm@v1
+      uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # tag=v1
       with:
         version: v3.5.4
 
     - name: Run chart-releaser
-      uses: helm/chart-releaser-action@v1.3.0
+      uses: helm/chart-releaser-action@62088055651dab7087de02051b5601b15e3772a0 # tag=v1.3.0
       with:
         charts_repo_url: https://library-charts.truecharts.org
       env:

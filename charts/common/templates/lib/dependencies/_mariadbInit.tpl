@@ -1,5 +1,5 @@
 {{/*
-This template ensures pods with postgresql dependency have a delayed start
+This template ensures pods with mariadb dependency have a delayed start
 */}}
 {{- define "common.dependencies.mariadb.init" -}}
 {{- if .Values.mariadb.enabled }}

@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3
+  tag: v14.2.0@sha256:eb90150f58096c4539cf194233b55136fddf2e5c34acddb891f897510ae01baa
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,8 +74,18 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.3@sha256:63743b10ac562b8f63abd3dfa246298c6678cfeb9e7559c65265f5066385fcf6
+  tag: v10.7.3@sha256:a84416a353477c3c27f98a130f4d11c99e2cab9a98f162d06a60449f0cdb57bb
   # -- Specify the mariadb image pull policy
+  pullPolicy: IfNotPresent
+
+# -- mongodb specific configuration
+# @default -- See below
+mongodbImage:
+  # -- Specify the mongodb image
+  repository: ghcr.io/truecharts/mongodb
+  # -- Specify the mongodb image tag
+  tag: v5.0.6@sha256:c2c4d2883d1c90032e5990229a558d13ff1a0ab1854901442e0bb44a0e9b899c
+  # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
 global:
@@ -1114,5 +1124,13 @@ redis:
 mariadb:
   enabled: false
   existingSecret: "mariadbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
+
+# -- mongodb dependency configuration
+# @default -- See below
+mongodb:
+  enabled: false
+  existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
