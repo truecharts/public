@@ -29,7 +29,7 @@ spec:
           command: ["sh", "-c"]
           args:
             - >
-              sleep 30;
+              sleep 10;
               export status=99;
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
