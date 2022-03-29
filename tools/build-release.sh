@@ -476,7 +476,8 @@ copy_docs() {
 
 prep_helm() {
     if [[ -z "$standalone" ]]; then
-    helm repo add truecharts https://truecharts.org
+    helm repo add truecharts-old https://truecharts.org
+    helm repo add truecharts https://charts.truecharts.org
     helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo add metallb https://metallb.github.io/metallb
