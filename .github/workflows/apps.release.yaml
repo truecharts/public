@@ -48,39 +48,6 @@ jobs:
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-      - name: Commit and Push new App releases
-        run: |
-          cd catalog
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          git push
-          cd -
-          rm -rf catalog
-
-      - name: Commit and Push new Chart releases
-        run: |
-          cd chartsrepo
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
-          git push
-          cd -
-          rm -rf chartsrepo
-
-      - name: Commit and Push new Docker-hub-locked App releases
-        run: |
-          cd dh_catalog
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          git push
-          cd -
-          rm -rf dh_catalog
-
       - name: Commit and Push new docs
         run: |
           git config user.name "TrueCharts-Bot"
