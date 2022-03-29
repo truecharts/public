@@ -64,6 +64,7 @@ main() {
           gen_dh_cat
           release_charts
           update_index
+          upload_index
         fi
         validate_catalog
         upload_catalog
@@ -728,7 +729,7 @@ release_charts() {
 export -f release_charts
 
 update_index() {
-    local args=(-o "$owner" -r "$repo" -c "$charts_repo_url --push")
+    local args=(-o "$owner" -r "$repo" -c "$charts_repo_url"
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
     fi
@@ -739,5 +740,17 @@ update_index() {
     fi
 }
 export -f update_index
+
+upload_index() {
+  cd .cr-index
+  git config user.name "TrueCharts-Bot"
+  git config user.email "bot@truecharts.org"
+  git add --all
+  git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+  git push
+  cd -
+  rm .cr-index
+}
+export -f upload_index
 
 main "$@"
