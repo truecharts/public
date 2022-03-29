@@ -18,7 +18,10 @@ dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 9.1.15
-    # condition:
+- condition: mongodb.enabled
+  name: mongodb
+  repository: https://truecharts.org/
+  version: 0.0.3
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts

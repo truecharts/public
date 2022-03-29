@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:b9cb18a54d610a6b0b43442f1d05f0a05a9e6fa4ad52e2394240c85434c5f35e
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   HOSTNAME: "my.domain.com"
   # your hostname
@@ -28,6 +36,23 @@ service:
       main:
         targetPort: 443
         port: 10205
+
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/opt/meshcentral/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: "/opt/meshcentral"
+      - name: config
+        mountPath: "/opt/meshcentral/meshcentral-data"
+
+
+mongodb:
+  enabled: true
+  mongodbUsername: meshcentral
+  mongodbDatabase: meshcentral
+  existingSecret: "mongodbcreds"
 
 persistence:
   data:
