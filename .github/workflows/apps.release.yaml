@@ -44,7 +44,7 @@ jobs:
 
       - name: build-and-run
         run: |
-          tools/build-release.sh -p --config .github/cr.yaml SkipExisting: true
+          tools/build-release.sh -p --config .github/cr.yaml --skip-existing
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
