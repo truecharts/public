@@ -24,6 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
+          repository: truecharts/charts
+          token: ${{ secrets.BOT_TOKEN }}
+          path: chartsrepo
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
           repository: truecharts/catalog
           token: ${{ secrets.BOT_TOKEN }}
           path: catalog
@@ -37,7 +44,7 @@ jobs:
 
       - name: build-and-run
         run: |
-          tools/build-release.sh -p --config .github/cr.yaml
+          tools/build-release.sh -p --config .github/cr.yaml SkipExisting: true
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
@@ -51,6 +58,17 @@ jobs:
           git push
           cd -
           rm -rf catalog
+
+      - name: Commit and Push new App releases
+        run: |
+          cd chartsrepo
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
+          git push
+          cd -
+          rm -rf chartsrepo
 
       - name: Commit and Push new Docker-hub-locked App releases
         run: |
