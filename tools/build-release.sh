@@ -729,7 +729,7 @@ release_charts() {
 export -f release_charts
 
 update_index() {
-    local args=(-o "$owner" -r "$repo" -c "$charts_repo_url"
+    local args=(-o "$owner" -r "$repo" -c "$charts_repo_url")
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
     fi
