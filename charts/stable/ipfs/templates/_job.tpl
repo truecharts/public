@@ -26,7 +26,6 @@ spec:
               env:
                 - name: NODE_IP
                   value: {{ .Values.env.NODE_IP }}
-                  value: {{ .Values.clamav.extra_args }}
               command: ["sh", "-c"]
               args:
                 - >
