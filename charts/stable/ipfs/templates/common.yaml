@@ -1,7 +1,9 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "common.setup" . }}
 
+{{- if .Release.IsInstall }}
 {{- include "ipfs.job" . }}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}

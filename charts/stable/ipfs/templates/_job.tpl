@@ -1,5 +1,5 @@
-{{/* Define the cronjob */}}
-{{- if .Release.IsInstall }}
+{{/* Define the job */}}
+
 {{- define "ipfs.job" -}}
 {{- $jobName := include "common.names.fullname" . }}
 
@@ -42,5 +42,4 @@ spec:
               {{- end }}
               resources:
 {{ toYaml .Values.resources | indent 16 }}
-{{- end -}}
 {{- end -}}
