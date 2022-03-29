@@ -67,7 +67,6 @@ main() {
           gen_dh_cat
           release_charts
           update_index
-          upload_index
         fi
         validate_catalog
         upload_catalog
@@ -743,18 +742,5 @@ update_index() {
     fi
 }
 export -f update_index
-
-upload_index() {
-  cd chartsrepo
-  echo "uploading index.yaml..."
-  git config user.name "TrueCharts-Bot"
-  git config user.email "bot@truecharts.org"
-  git add --all
-  git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
-  git push
-  cd -
-  rm -rf chartsrepo
-}
-export -f upload_index
 
 main "$@"
