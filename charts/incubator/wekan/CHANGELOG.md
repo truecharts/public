@@ -7,4 +7,3 @@
 #### Feat
 
 * add wekan ([#2328](https://github.com/truecharts/apps/issues/2328))
-

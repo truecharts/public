@@ -15,7 +15,7 @@ MC Server 1
 MC Server 2
 
 <div>
-<a href="https://truecharts.org/_static/img/communityguide/apps/games/minecraft-java/mc-server2.png"><img src="https://truecharts.org/_static/img/communityguide/apps/games/minecraft-java/mc-server2.png" width="100%"/></a>    
+<a href="https://truecharts.org/_static/img/communityguide/apps/games/minecraft-java/mc-server2.png"><img src="https://truecharts.org/_static/img/communityguide/apps/games/minecraft-java/mc-server2.png" width="100%"/></a>
 </div>
 
 # Plugins DIR
