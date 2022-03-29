@@ -90,27 +90,7 @@ installContainers:
         value: "{{ .Values.env.IPFS_SWARM_KEY }}"
       - name: IPFS_SWARM_KEY_FILE
         value: "{{ .Values.env.IPFS_SWARM_KEY_FILE }}"
-    command: ["sh", "-c"]
-    args:
-      - >
-        export status=99;
-        echo "Init IPFS";
-        ipfs init --profile=${IPFS_PROFILE} && ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001 && ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080;
-        status=$?;
-        if [ $? -eq 0 ]; then
-          export SWARM_KEY_PERM=0400;
-          if [ ! -z "$IPFS_SWARM_KEY" ]; then
-            echo "Copying swarm key from variable...";
-            echo -e "$IPFS_SWARM_KEY" >"$SWARM_KEY_FILE" || exit 1;
-            chmod $SWARM_KEY_PERM "$SWARM_KEY_FILE";
-          fi;
-          unset IPFS_SWARM_KEY;
-          if [ ! -z "$IPFS_SWARM_KEY_FILE" ]; then
-            echo "Copying swarm key from file...";
-            install -m $SWARM_KEY_PERM "$IPFS_SWARM_KEY_FILE" "$SWARM_KEY_FILE" || exit 1;
-          fi;
-          unset IPFS_SWARM_KEY_FILE;
-        fi;
+    command: ["/sbin/tini", "--", "/usr/local/bin/start_ipfs"]
   2-cors-headers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
