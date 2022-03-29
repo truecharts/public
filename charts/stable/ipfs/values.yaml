@@ -14,6 +14,8 @@ podSecurityContext:
 env:
   NODE_IP: "localhost"
   IPFS_PROFILE: "server"
+  IPFS_SWARM_KEY: ""
+  IPFS_SWARM_KEY_FILE: ""
 
 service:
   main:
@@ -66,3 +68,75 @@ persistence:
   ipns:
     enabled: true
     mountPath: "/ipns"
+
+installContainers:
+  1-init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: ipfs
+        mountPath: "/ipfs"
+      - name: ipns
+        mountPath: "/ipns"
+      - name: staging
+        mountPath: "/export"
+      - name: data
+        mountPath: "/data/ipfs"
+    env:
+      - name: NODE_IP
+        value: "{{ .Values.env.NODE_IP }}"
+      - name: IPFS_PROFILE
+        value: "{{ .Values.env.IPFS_PROFILE }}"
+      - name: IPFS_SWARM_KEY
+        value: "{{ .Values.env.IPFS_SWARM_KEY }}"
+      - name: IPFS_SWARM_KEY_FILE
+        value: "{{ .Values.env.IPFS_SWARM_KEY_FILE }}"
+    command: ["sh", "-c"]
+    args:
+      - >
+        export status=99;
+        echo "Init IPFS";
+        ipfs init --profile=${IPFS_PROFILE} && ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001 && ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080;
+        status=$?;
+        if [ $? -eq 0 ]; then
+          export SWARM_KEY_PERM=0400;
+          if [ ! -z "$IPFS_SWARM_KEY" ]; then
+            echo "Copying swarm key from variable...";
+            echo -e "$IPFS_SWARM_KEY" >"$SWARM_KEY_FILE" || exit 1;
+            chmod $SWARM_KEY_PERM "$SWARM_KEY_FILE";
+          fi;
+          unset IPFS_SWARM_KEY;
+          if [ ! -z "$IPFS_SWARM_KEY_FILE" ]; then
+            echo "Copying swarm key from file...";
+            install -m $SWARM_KEY_PERM "$IPFS_SWARM_KEY_FILE" "$SWARM_KEY_FILE" || exit 1;
+          fi;
+          unset IPFS_SWARM_KEY_FILE;
+        fi;
+  2-cors-headers:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: ipfs
+        mountPath: "/ipfs"
+      - name: ipns
+        mountPath: "/ipns"
+      - name: staging
+        mountPath: "/export"
+      - name: data
+        mountPath: "/data/ipfs"
+    env:
+      - name: NODE_IP
+        value: "{{ .Values.env.NODE_IP }}"
+    command: ["sh", "-c"]
+    args:
+      - >
+        export status=99;
+        echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
+        echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
+        status=$?;
+        if [ $status -eq 0 ]; then
+          echo "Done! Status: $status";
+          exit 0;
+        else
+          echo "Failed! Status: $status";
+          exit 1;
+        fi;
