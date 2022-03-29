@@ -13,6 +13,8 @@ podSecurityContext:
 
 env:
   NODE_IP: "localhost"
+  IPFS_PROFILE: "server"
+  IPFS_SWARM_KEY: "randomstring"
 
 service:
   main:
