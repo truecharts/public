@@ -14,7 +14,6 @@ podSecurityContext:
 env:
   NODE_IP: "localhost"
   IPFS_PROFILE: "server"
-  # IPFS_SWARM_KEY: "randomstring"
 
 service:
   main:
@@ -85,7 +84,7 @@ installContainers:
         value: "{{ .Values.env.NODE_IP }}"
       - name: IPFS_PROFILE
         value: "{{ .Values.env.IPFS_PROFILE }}"
-    command: ["sh","-c"]
+    command: ["sh", "-c"]
     args:
       - >
         echo "Running entrypoint command";
@@ -110,7 +109,7 @@ installContainers:
       - >
         echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
         ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]';
-        echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\",\"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001","http://localhost:3000", "http://127.0.0.1:5001"]';
+        echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
         echo "Done!";
         exit 0;
