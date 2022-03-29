@@ -65,25 +65,3 @@ persistence:
   ipns:
     enabled: true
     mountPath: "/ipns"
-
-installContainers:
-  1-set-api-httpheaders-cors:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: NODE_IP
-        value: "{{ .Values.env.NODE_IP }}"
-    volumeMounts:
-      - name: data
-        mountPath: "/data/ipfs"
-      - name: staging
-        mountPath: "/export"
-      - name: ipfs
-        mountPath: "/ipfs"
-      - name: ipns
-        mountPath: "/ipns"
-    command: ["sh", "-c"]
-    args:
-      - >
-        /sbin/tini -- /usr/local/bin/start_ipfs;
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]';
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://$NODE_IP:5001","http://localhost:3000", "http://127.0.0.1:5001"]';
