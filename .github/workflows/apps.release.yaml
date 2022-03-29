@@ -59,7 +59,7 @@ jobs:
           cd -
           rm -rf catalog
 
-      - name: Commit and Push new App releases
+      - name: Commit and Push new Chart releases
         run: |
           cd chartsrepo
           git config user.name "TrueCharts-Bot"
@@ -81,7 +81,7 @@ jobs:
           cd -
           rm -rf dh_catalog
 
-      - name: Commit and Push new Helm Charts and docs
+      - name: Commit and Push new docs
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
