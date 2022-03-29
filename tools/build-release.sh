@@ -559,7 +559,7 @@ upload_catalog() {
 }
 export -f upload_catalog
 
-upload_upload_dhcatalog() {
+upload_dhcatalog() {
     cd dh_catalog
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
