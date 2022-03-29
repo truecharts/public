@@ -55,9 +55,6 @@ main() {
         rm -rf .cr-release-packages
         mkdir -p .cr-release-packages
 
-        rm -rf .cr-index
-        mkdir -p .cr-index
-
         prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
