@@ -31,8 +31,8 @@ spec:
             - >
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
-              ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' \
-              && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
+              ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \'[\"PUT\", \"POST\"]\' \
+              && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \'[\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]\';
               export status = $?;
               if [ $status -eq 0 ]; then
                 echo "Done! Status: $status";
