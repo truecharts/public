@@ -660,7 +660,7 @@ parse_command_line() {
 
     if [[ -z "$repo" ]]; then
         echo "No repo configured, defaulting to apps" >&2
-        repo="apps"
+        repo="charts"
     fi
 
     if [[ -z "$charts_repo_url" ]]; then
