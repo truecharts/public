@@ -14,7 +14,7 @@ podSecurityContext:
 env:
   NODE_IP: "localhost"
   IPFS_PROFILE: "server"
-  IPFS_SWARM_KEY: "randomstring"
+  # IPFS_SWARM_KEY: "randomstring"
 
 service:
   main:
@@ -85,8 +85,6 @@ installContainers:
         value: "{{ .Values.env.NODE_IP }}"
       - name: IPFS_PROFILE
         value: "{{ .Values.env.IPFS_PROFILE }}"
-      - name: IPFS_SWARM_KEY
-        value: "{{ .Values.env.IPFS_SWARM_KEY }}"
     command: ["sh","-c"]
     args:
       - >
