@@ -749,7 +749,7 @@ upload_index() {
   git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
   git push
   cd -
-  rm .cr-index
+  rm -rf .cr-index
 }
 export -f upload_index
 
