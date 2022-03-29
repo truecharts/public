@@ -35,7 +35,7 @@ spec:
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
               ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \'["PUT","POST"]\' && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \'["http://${NODE_IP}:5001","http://localhost:3000","http://127.0.0.1:5001"]\';
               status=$?;
-              until [ ! $status -eq 0 ]; do
+              until [ $status -eq 0 ]; do
                 sleep 2;
                 echo "Retrying...";
                 ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \'["PUT","POST"]\' && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \'["http://${NODE_IP}:5001","http://localhost:3000","http://127.0.0.1:5001"]\';
