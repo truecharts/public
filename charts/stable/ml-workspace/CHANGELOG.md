@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ml-workspace-1.1.0"></a>
+### [ml-workspace-1.1.0](https://github.com/truecharts/apps/compare/ml-workspace-1.0.1...ml-workspace-1.1.0) (2022-03-29)
+
+#### Feat
+
+* Add more image options and fix tags ([#2330](https://github.com/truecharts/apps/issues/2330))
+
+
+
 <a name="ml-workspace-1.0.1"></a>
 ### [ml-workspace-1.0.1](https://github.com/truecharts/apps/compare/ml-workspace-1.0.0...ml-workspace-1.0.1) (2022-03-27)
 
