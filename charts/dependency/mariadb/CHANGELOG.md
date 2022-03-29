@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.22"></a>
+### [mariadb-2.0.22](https://github.com/truecharts/apps/compare/mariadb-2.0.21...mariadb-2.0.22) (2022-03-29)
+
+
+
 <a name="mariadb-2.0.20"></a>
 ### [mariadb-2.0.20](https://github.com/truecharts/apps/compare/mariadb-2.0.19...mariadb-2.0.20) (2022-03-29)
 
