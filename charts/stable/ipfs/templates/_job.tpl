@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
-  backoffLimit: 10
+  backoffLimit: 1
   completions: 1
   template:
     spec:
@@ -35,6 +35,12 @@ spec:
               echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
               ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \'["PUT","POST"]\' && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \'["http://${NODE_IP}:5001","http://localhost:3000","http://127.0.0.1:5001"]\';
               status=$?;
+              until [ ! $status -eq 0 ]; do
+                sleep 2;
+                echo "Retrying...";
+                ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \'["PUT","POST"]\' && ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \'["http://${NODE_IP}:5001","http://localhost:3000","http://127.0.0.1:5001"]\';
+                status=$?;
+              done;
               if [ $status -eq 0 ]; then
                 echo "Done! Status: $status";
                 exit 0;
