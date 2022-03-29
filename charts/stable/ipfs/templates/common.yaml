@@ -1,1 +1,7 @@
-{{ include "common.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{- include "ipfs.job" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}
