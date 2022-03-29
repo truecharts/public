@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/tautulli"` |  |
-| image.tag | string | `"v2.9.4@sha256:943cdca2440bd06dd5d25735910cfa0be7221b981396c389c561bea7ab1081c2"` |  |
+| image.tag | string | `"v2.9.5@sha256:8ecaffdd56ad192dccbb9d3240d1abfa304ab236d0ee0e217ab504bddd0ccae3"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `8181` |  |

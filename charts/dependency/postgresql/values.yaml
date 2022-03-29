@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/postgresql
   pullPolicy: IfNotPresent
-  tag: v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3
+  tag: v14.2.0@sha256:69e5e06e652b0282451de085d886c562b67fd305beaeabee022e14d917e018cf
 
 controller:
   # -- Set the controller type.
@@ -45,6 +45,58 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/postgresql"
 
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    # -- Enable the liveness probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own livenessProbe
+    custom: true
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - sh
+          - -c
+          - "until pg_isready -U ${POSTGRES_USER} -h localhost; do sleep 2 ; done"
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    # -- Enable the readiness probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own readinessProbe
+    custom: true
+    # -- The spec field contains the values for the default readinessProbe.
+    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - sh
+          - -c
+          - "until pg_isready -U ${POSTGRES_USER} -h localhost; do sleep 2 ; done"
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- Enable the startup probe
+    enabled: true
+    custom: true
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - sh
+          - -c
+          - "until pg_isready -U ${POSTGRES_USER} -h localhost; do sleep 2 ; done"
 
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"

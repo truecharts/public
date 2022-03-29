@@ -1,0 +1,68 @@
+image:
+  repository: tccr.io/truecharts/chevereto
+  pullPolicy: IfNotPresent
+  tag: v1.6.2@sha256:6f9c2d7a86d97d4de70995ac258441a07806a328d7ba7b0ae65a965d590dae43
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 33
+
+env:
+  CHEVERETO_DB_DRIVER: mysql
+  CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
+  CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+  CHEVERETO_DB_PORT: "3306"
+  CHEVERETO_TAG: "free"
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-chevereto'
+
+chevereto:
+  https: false
+  disable_update_http: true
+  disable_update_cli: true
+
+configmap:
+  chevereto:
+    enabled: true
+    data:
+      CHEVERETO_HTTPS: "{{ ternary \"1\" \"0\" .Values.chevereto.https }}"
+      CHEVERETO_DISABLE_UPDATE_HTTP: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_http }}"
+      CHEVERETO_DISABLE_UPDATE_CLI: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_cli }}"
+
+envValueFrom:
+  CHEVERETO_DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainporthost
+  CHEVERETO_DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 10197
+
+persistence:
+  storage:
+    enabled: true
+    mountPath: "/var/www/html/images/"
+  content:
+    enabled: true
+    mountPath: "/var/www/html/content/"
+
+mariadb:
+  enabled: true
+  mariadbUsername: chevereto
+  mariadbDatabase: chevereto
+  existingSecret: "mariadbcreds"

@@ -28,12 +28,24 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/postgresql"` |  |
-| image.tag | string | `"v14.2.0@sha256:1461d3ab670fcc41923c92f330c932082f6653e031eefd1cc12123adb120f0c3"` |  |
+| image.tag | string | `"v14.2.0@sha256:69e5e06e652b0282451de085d886c562b67fd305beaeabee022e14d917e018cf"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
 | postgresqlPassword | string | `"testpass"` |  |
 | postgresqlUsername | string | `"test"` |  |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes.liveness | object | See below | Liveness probe configuration |
+| probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
+| probes.liveness.enabled | bool | `true` | Enable the liveness probe |
+| probes.liveness.spec | object | See below | The spec field contains the values for the default livenessProbe. If you selected `custom: true`, this field holds the definition of the livenessProbe. |
+| probes.readiness | object | See below | Redainess probe configuration |
+| probes.readiness.custom | bool | `true` | Set this to `true` if you wish to specify your own readinessProbe |
+| probes.readiness.enabled | bool | `true` | Enable the readiness probe |
+| probes.readiness.spec | object | See below | The spec field contains the values for the default readinessProbe. If you selected `custom: true`, this field holds the definition of the readinessProbe. |
+| probes.startup | object | See below | Startup probe configuration |
+| probes.startup.enabled | bool | `true` | Enable the startup probe |
+| probes.startup.spec | object | See below | The spec field contains the values for the default livenessProbe. If you selected `custom: true`, this field holds the definition of the livenessProbe. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |

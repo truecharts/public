@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.16"></a>
+### [postgresql-7.0.16](https://github.com/truecharts/apps/compare/postgresql-7.0.15...postgresql-7.0.16) (2022-03-29)
+
+#### Chore
+
+* update helm chart common to v9.2.3 ([#2335](https://github.com/truecharts/apps/issues/2335))
+
+
+
+<a name="postgresql-7.0.15"></a>
+### [postgresql-7.0.15](https://github.com/truecharts/apps/compare/postgresql-7.0.14...postgresql-7.0.15) (2022-03-28)
+
+#### Feat
+
+* Add probes on standalone aswell ([#2318](https://github.com/truecharts/apps/issues/2318))
+
+
+
+<a name="postgresql-7.0.14"></a>
+### [postgresql-7.0.14](https://github.com/truecharts/apps/compare/postgresql-7.0.13...postgresql-7.0.14) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
+<a name="postgresql-7.0.13"></a>
+### [postgresql-7.0.13](https://github.com/truecharts/apps/compare/postgresql-7.0.12...postgresql-7.0.13) (2022-03-28)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="postgresql-7.0.12"></a>
 ### [postgresql-7.0.12](https://github.com/truecharts/apps/compare/postgresql-7.0.11...postgresql-7.0.12) (2022-03-26)
 

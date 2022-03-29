@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: ml-workspace/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-ml-workspace&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -46,41 +46,41 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          mltooling/ml-workspace:0.13.2@sha256:5dfc8928059eb9d6d2bc33d7947e99b6bb38c2beaa40029afb73596a9c08c134
+          tccr.io/truecharts/ml-workspace:0.13.2@sha256:fd0195f1d7dc85c14c554a04e7e969201fa9ed8d3448943ca235142f8b2c2ea4
 
 ##### Scan Results
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
 
 
-#### Container: mltooling/ml-workspace:0.13.2@sha256:5dfc8928059eb9d6d2bc33d7947e99b6bb38c2beaa40029afb73596a9c08c134 (ubuntu 20.04)
-    
+
+#### Container: tccr.io/truecharts/ml-workspace:0.13.2@sha256:fd0195f1d7dc85c14c554a04e7e969201fa9ed8d3448943ca235142f8b2c2ea4 (ubuntu 20.04)
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2-utils         |    CVE-2019-17567   |   MEDIUM  |  2.4.41-4ubuntu3.3 |  | <details><summary>Expand...</summary><a href="http://httpd.apache.org/security/vulnerabilities_24.html">http://httpd.apache.org/security/vulnerabilities_24.html</a><br><a href="http://www.openwall.com/lists/oss-security/2021/06/10/2">http://www.openwall.com/lists/oss-security/2021/06/10/2</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17567">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17567</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html">https://httpd.apache.org/security/vulnerabilities_24.html</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-17567">https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-17567</a><br><a href="https://lists.apache.org/thread.html/r7f2b70b621651548f4b6f027552f1dd91705d7111bb5d15cda0a68dd@%3Cdev.httpd.apache.org%3E">https://lists.apache.org/thread.html/r7f2b70b621651548f4b6f027552f1dd91705d7111bb5d15cda0a68dd@%3Cdev.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r90f693a5c9fb75550ef1412436d5e682a5f845beb427fa6f23419a3c@%3Cannounce.httpd.apache.org%3E">https://lists.apache.org/thread.html/r90f693a5c9fb75550ef1412436d5e682a5f845beb427fa6f23419a3c@%3Cannounce.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/re026d3da9d7824bd93b9f871c0fdda978d960c7e62d8c43cba8d0bf3%40%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/re026d3da9d7824bd93b9f871c0fdda978d960c7e62d8c43cba8d0bf3%40%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPBR6WUYBJNACHKE65SPL7TJOHX7RHWD/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPBR6WUYBJNACHKE65SPL7TJOHX7RHWD/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNCYSR3BXT36FFF4XTCPL3HDQK4VP45R/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNCYSR3BXT36FFF4XTCPL3HDQK4VP45R/</a><br><a href="https://security.gentoo.org/glsa/202107-38">https://security.gentoo.org/glsa/202107-38</a><br><a href="https://security.netapp.com/advisory/ntap-20210702-0001/">https://security.netapp.com/advisory/ntap-20210702-0001/</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
@@ -1076,15 +1076,15 @@ hide:
 
 **jar**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | @npmcli/arborist         |    CVE-2021-39134   |   HIGH  |  2.6.4 | 2.8.2 | <details><summary>Expand...</summary><a href="https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf">https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf</a><br><a href="https://github.com/advisories/GHSA-2h3h-q99f-3fhc">https://github.com/advisories/GHSA-2h3h-q99f-3fhc</a><br><a href="https://github.com/npm/arborist/security/advisories/GHSA-2h3h-q99f-3fhc">https://github.com/npm/arborist/security/advisories/GHSA-2h3h-q99f-3fhc</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-39134">https://nvd.nist.gov/vuln/detail/CVE-2021-39134</a><br><a href="https://www.npmjs.com/package/@npmcli/arborist">https://www.npmjs.com/package/@npmcli/arborist</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
@@ -1132,7 +1132,7 @@ hide:
 
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Glances         |    CVE-2021-23418   |   CRITICAL  |  3.1.7 | 3.2.1 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23418">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23418</a><br><a href="https://github.com/advisories/GHSA-r2mj-8wgq-73m6">https://github.com/advisories/GHSA-r2mj-8wgq-73m6</a><br><a href="https://github.com/nicolargo/glances/commit/4b87e979afdc06d98ed1b48da31e69eaa3a9fb94">https://github.com/nicolargo/glances/commit/4b87e979afdc06d98ed1b48da31e69eaa3a9fb94</a><br><a href="https://github.com/nicolargo/glances/commit/85d5a6b4af31fcf785d5a61086cbbd166b40b07a">https://github.com/nicolargo/glances/commit/85d5a6b4af31fcf785d5a61086cbbd166b40b07a</a><br><a href="https://github.com/nicolargo/glances/commit/9d6051be4a42f692392049fdbfc85d5dfa458b32">https://github.com/nicolargo/glances/commit/9d6051be4a42f692392049fdbfc85d5dfa458b32</a><br><a href="https://github.com/nicolargo/glances/issues/1025">https://github.com/nicolargo/glances/issues/1025</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23418">https://nvd.nist.gov/vuln/detail/CVE-2021-23418</a><br><a href="https://snyk.io/vuln/SNYK-PYTHON-GLANCES-1311807">https://snyk.io/vuln/SNYK-PYTHON-GLANCES-1311807</a><br></details>  |
@@ -1348,22 +1348,22 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/prometheus/prometheus         |    CVE-2019-3826   |   MEDIUM  |  v2.5.0+incompatible | v2.7.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHBA-2019:0327">https://access.redhat.com/errata/RHBA-2019:0327</a><br><a href="https://advisory.checkmarx.net/advisory/CX-2019-4297">https://advisory.checkmarx.net/advisory/CX-2019-4297</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826</a><br><a href="https://github.com/prometheus/prometheus/commit/62e591f9">https://github.com/prometheus/prometheus/commit/62e591f9</a><br><a href="https://github.com/prometheus/prometheus/pull/5163">https://github.com/prometheus/prometheus/pull/5163</a><br><a href="https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-3826">https://nvd.nist.gov/vuln/detail/CVE-2019-3826</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/dgrijalva/jwt-go         |    CVE-2020-26160   |   HIGH  |  v3.2.0+incompatible |  | <details><summary>Expand...</summary><a href="https://github.com/dgrijalva/jwt-go/pull/426">https://github.com/dgrijalva/jwt-go/pull/426</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-26160">https://nvd.nist.gov/vuln/detail/CVE-2020-26160</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMDGRIJALVAJWTGO-596515">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMDGRIJALVAJWTGO-596515</a><br></details>  |
@@ -1376,17 +1376,14 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

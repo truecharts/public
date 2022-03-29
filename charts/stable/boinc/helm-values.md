@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/boinc"` |  |
-| image.tag | string | `"latest@sha256:75b9f5e37449c2c9974b763352192bdcf64f472a563ee07dee056fa1eff83b16"` |  |
+| image.tag | string | `"latest@sha256:3d9de6dca96767f47e1fef6ba0324d20c4248181f4a3b1fcd6718795604fb038"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
