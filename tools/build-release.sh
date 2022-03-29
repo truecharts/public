@@ -745,6 +745,7 @@ export -f update_index
 
 upload_index() {
   cd chartsrepo
+  echo "uploading index.yaml..."
   git config user.name "TrueCharts-Bot"
   git config user.email "bot@truecharts.org"
   git add --all
