@@ -90,7 +90,8 @@ installContainers:
         value: "{{ .Values.env.IPFS_SWARM_KEY }}"
       - name: IPFS_SWARM_KEY_FILE
         value: "{{ .Values.env.IPFS_SWARM_KEY_FILE }}"
-    command: ["/sbin/tini", "--", "/usr/local/bin/start_ipfs"]
+    command: ["/sbin/tini"]
+    args: ["/usr/local/bin/start_ipfs"]
   2-cors-headers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
