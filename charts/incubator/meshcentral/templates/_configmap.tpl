@@ -61,6 +61,6 @@ data:
         "_names": "myserver.mydomain.com",
       "production": false
       }
-    }
+      }
 
 {{- end -}}
