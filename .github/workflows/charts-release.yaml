@@ -76,6 +76,7 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
+          pip install yq
           tools/build-release.sh -p
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
