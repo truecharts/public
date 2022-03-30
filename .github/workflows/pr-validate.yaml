@@ -52,7 +52,6 @@ jobs:
       - pr-metadata
     #  - charts-changelog
       - charts-lint
-      - charts-test
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
