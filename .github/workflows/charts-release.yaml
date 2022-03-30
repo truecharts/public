@@ -18,7 +18,7 @@ jobs:
     concurrency: gitpush
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
@@ -40,7 +40,7 @@ jobs:
           path: dh_catalog
 
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.8.0
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
           setup-tools: |
             helmv3
@@ -81,7 +81,7 @@ jobs:
 
       - name: Create commit
         id: create-commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
         with:
           file_pattern: charts/**/
           commit_message: "chore: Auto-update chart README [skip ci]"
@@ -99,7 +99,7 @@ jobs:
           fi
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
@@ -111,7 +111,7 @@ jobs:
           git config user.email "bot@truecharts.org"
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.3.0
+        uses: helm/chart-releaser-action@62088055651dab7087de02051b5601b15e3772a0 # tag=v1.3.0
         with:
           charts_dir: charts/*
           charts_repo_url: https://charts.truecharts.org
