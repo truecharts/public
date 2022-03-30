@@ -8,13 +8,13 @@ concurrency:
   # cancel-in-progress: true
 
 jobs:
-  #pr-metadata:
-  #  uses: truecharts/.github/workflows/pr-metadata.yaml@master
-  #
+  pr-metadata:
+    uses: truecharts/.github/workflows/pr-metadata.yaml@master
+
   pre-commit-check:
     uses: truecharts/.github/workflows/pre-commit-check.yaml@master
-  #  needs:
-  #    - pr-metadata
+    needs:
+      - pr-metadata
     with:
       modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
 
@@ -29,8 +29,8 @@ jobs:
 
   charts-lint:
     uses: truecharts/.github/workflows/charts-lint.yaml@master
-    #needs:
-    #  - pr-metadata
+    needs:
+      - pr-metadata
     #  - charts-changelog
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
@@ -39,7 +39,7 @@ jobs:
   charts-test:
     uses: truecharts/.github/workflows/charts-test.yaml@master
     needs:
-    #  - pr-metadata
+      - pr-metadata
     #  - charts-changelog
       - charts-lint
     with:
