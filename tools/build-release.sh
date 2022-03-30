@@ -49,7 +49,7 @@ main() {
     echo "Discovering changed charts since '$latest_tag'..."
     local changed_charts=()
     readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-    copy_general_docs
+    # copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
 
         prep_helm
@@ -57,14 +57,9 @@ main() {
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
-        if [ "${production}" == "true" ]; then
-          gen_dh_cat
-          #release_charts
-          #update_index
-          #upload_index
-        fi
         validate_catalog
         if [ "${production}" == "true" ]; then
+        gen_dh_cat
         upload_catalog
         upload_dhcatalog
         fi
@@ -83,9 +78,9 @@ chart_runner(){
       train=$(basename $(dirname "${1}"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-          helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
-          container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
-          sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+      helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+      container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+      sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
       sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
       create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
       generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
@@ -545,6 +540,7 @@ validate_catalog() {
 export -f validate_catalog
 
 upload_catalog() {
+    echo "Uploading Catalog..."
     cd catalog
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
@@ -557,6 +553,7 @@ upload_catalog() {
 export -f upload_catalog
 
 upload_dhcatalog() {
+    echo "Uploading DH-Catalog..."
     cd dh_catalog
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
