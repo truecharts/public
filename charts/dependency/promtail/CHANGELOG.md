@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.15"></a>
+### [promtail-2.0.15](https://github.com/truecharts/apps/compare/promtail-2.0.14...promtail-2.0.15) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
 <a name="promtail-2.0.14"></a>
 ### [promtail-2.0.14](https://github.com/truecharts/apps/compare/promtail-2.0.13...promtail-2.0.14) (2022-03-30)
 
