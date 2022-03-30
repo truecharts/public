@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.20"></a>
+### [memcached-2.0.20](https://github.com/truecharts/apps/compare/memcached-2.0.19...memcached-2.0.20) (2022-03-29)
+
+
+
 <a name="memcached-2.0.17"></a>
 ### [memcached-2.0.17](https://github.com/truecharts/apps/compare/memcached-2.0.16...memcached-2.0.17) (2022-03-29)
 

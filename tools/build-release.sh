@@ -55,9 +55,6 @@ main() {
         rm -rf .cr-release-packages
         mkdir -p .cr-release-packages
 
-        rm -rf .cr-index
-        mkdir -p .cr-index
-
         prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
@@ -67,6 +64,7 @@ main() {
           gen_dh_cat
           release_charts
           update_index
+          upload_index
         fi
         validate_catalog
         upload_catalog
@@ -742,5 +740,17 @@ update_index() {
     fi
 }
 export -f update_index
+
+upload_index() {
+  cd .cr-index
+  git config user.name "TrueCharts-Bot"
+  git config user.email "bot@truecharts.org"
+  git add --all
+  git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+  git push
+  cd -
+  rm -rf .cr-index
+}
+export -f upload_index
 
 main "$@"
