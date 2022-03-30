@@ -1,7 +1,16 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 600s
 chart-yaml-schema: .github/chart_schema.yaml
+helm-extra-args: --timeout 600s
+chart-dirs:
+- charts/incubator
+- charts/stable
+- charts/dependency
+- charts/core
+- charts/dev
+- charts/games
+- charts/enterprise
+excluded-charts:
 chart-repos:
 - truecharts-old=https://truecharts.org
 - truecharts=https://charts.truecharts.org
@@ -11,4 +20,6 @@ chart-repos:
 - metallb=https://metallb.github.io/metallb
 - grafana=https://grafana.github.io/helm-charts
 - prometheus=https://prometheus-community.github.io/helm-charts
-SkipExisting: true
+- k8s-at-home-libraries=https://library-charts.k8s-at-home.com
+- k8s-at-home=https://k8s-at-home.com/charts
+- jetstack=https://charts.jetstack.io
