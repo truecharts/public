@@ -52,9 +52,6 @@ main() {
     copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
 
-rm -rf .cr-release-packages
-        mkdir -p .cr-release-packages
-
         prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
@@ -86,18 +83,14 @@ chart_runner(){
       train=$(basename $(dirname "${1}"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-      if [ "${production}" == "true" ]; then
           helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
           container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
           sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
-      fi
       sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
-      if [ "${production}" == "true" ]; then
       create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
       generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
       #copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
       #package_chart "${1}"
-      fi
       if [[ "${SCALESUPPORT}" == "true" ]]; then
         clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
         copy_apps "${1}" "${chartname}" "$train" "${chartversion}"

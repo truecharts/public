@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.24"></a>
+### [postgresql-7.0.24](https://github.com/truecharts/apps/compare/postgresql-7.0.23...postgresql-7.0.24) (2022-03-30)
+
+
+
 <a name="postgresql-7.0.22"></a>
 ### [postgresql-7.0.22](https://github.com/truecharts/apps/compare/postgresql-7.0.21...postgresql-7.0.22) (2022-03-30)
 
