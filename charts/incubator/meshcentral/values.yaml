@@ -44,9 +44,6 @@ initContainers:
     volumeMounts:
       - name: init
         mountPath: "/opt/meshcentral"
-      - name: config
-        mountPath: "/opt/meshcentral/meshcentral-data"
-
 
 mongodb:
   enabled: true
