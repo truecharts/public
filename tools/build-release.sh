@@ -34,7 +34,7 @@ main() {
 
     parse_command_line "$@"
     if [ "${token}" == "false" ]; then
-        echo "env #cr_TOKEN not found, defaulting to production=false"
+        echo "env #CR_TOKEN not found, defaulting to production=false"
         production="false"
     fi
 

@@ -77,6 +77,8 @@ jobs:
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           tools/build-release.sh -p
+        env:
+          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Create commit
         id: create-commit
