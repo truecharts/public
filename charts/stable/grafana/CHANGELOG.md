@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.17"></a>
+### [grafana-3.0.17](https://github.com/truecharts/apps/compare/grafana-3.0.16...grafana-3.0.17) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="grafana-3.0.16"></a>
 ### [grafana-3.0.16](https://github.com/truecharts/apps/compare/grafana-3.0.15...grafana-3.0.16) (2022-03-30)
 

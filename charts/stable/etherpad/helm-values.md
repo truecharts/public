@@ -11,10 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| env.DB_PORT | string | `"5432"` |  |
-| env.DB_TYPE | string | `"postgres"` |  |
-| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env | object | `{"DB_NAME":"{{ .Values.postgresql.postgresqlDatabase }}","DB_PORT":"5432","DB_TYPE":"postgres","DB_USER":"{{ .Values.postgresql.postgresqlUsername }}"}` |  https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md For Mariadb, use DB_TYPE: mysql https://github.com/ether/etherpad-lite/issues/4214 |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |

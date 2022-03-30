@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.21"></a>
+### [minecraft-bedrock-0.0.21](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.20...minecraft-bedrock-0.0.21) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="minecraft-bedrock-0.0.20"></a>
 ### [minecraft-bedrock-0.0.20](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.19...minecraft-bedrock-0.0.20) (2022-03-26)
 

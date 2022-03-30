@@ -57,10 +57,9 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
@@ -69,10 +68,9 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: Node.js
@@ -92,7 +90,7 @@ hide:
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | enshrined/svg-sanitize         |    CVE-2022-23638   |   MEDIUM  |  0.14.0 | 0.15.0 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-fqx8-v33p-4qcc">https://github.com/advisories/GHSA-fqx8-v33p-4qcc</a><br><a href="https://github.com/darylldoyle/svg-sanitizer/commit/17e12ba9c2881caa6b167d0fbea555c11207fbb0">https://github.com/darylldoyle/svg-sanitizer/commit/17e12ba9c2881caa6b167d0fbea555c11207fbb0</a><br><a href="https://github.com/darylldoyle/svg-sanitizer/issues/71">https://github.com/darylldoyle/svg-sanitizer/issues/71</a><br><a href="https://github.com/darylldoyle/svg-sanitizer/security/advisories/GHSA-fqx8-v33p-4qcc">https://github.com/darylldoyle/svg-sanitizer/security/advisories/GHSA-fqx8-v33p-4qcc</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-23638">https://nvd.nist.gov/vuln/detail/CVE-2022-23638</a><br></details>  |
-| guzzlehttp/psr7         |    CVE-2022-24775   |   UNKNOWN  |  1.8.2 | 1.8.4, 2.1.1 | <details><summary>Expand...</summary><a href="https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1">https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1</a><br><a href="https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc">https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc</a><br><a href="https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96">https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96</a><br><a href="https://www.drupal.org/sa-core-2022-006">https://www.drupal.org/sa-core-2022-006</a><br></details>  |
+| guzzlehttp/psr7         |    CVE-2022-24775   |   HIGH  |  1.8.2 | 2.1.1, 1.8.4 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-q7rv-6hp3-vh96">https://github.com/advisories/GHSA-q7rv-6hp3-vh96</a><br><a href="https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1">https://github.com/guzzle/psr7/pull/485/commits/e55afaa3fc138c89adf3b55a8ba20dc60d17f1f1</a><br><a href="https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc">https://github.com/guzzle/psr7/pull/486/commits/9a96d9db668b485361ed9de7b5bf1e54895df1dc</a><br><a href="https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96">https://github.com/guzzle/psr7/security/advisories/GHSA-q7rv-6hp3-vh96</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24775">https://nvd.nist.gov/vuln/detail/CVE-2022-24775</a><br><a href="https://www.drupal.org/sa-core-2022-006">https://www.drupal.org/sa-core-2022-006</a><br></details>  |
 
 **composer**
 

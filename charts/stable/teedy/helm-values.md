@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.DATABASE_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DOCS_BASE_URL | string | `""` | The base url used by the application |
-| env.DOCS_DEFAULT_LANGUAGE | string | `"eng"` | The language which will be used as default |
+| env.DOCS_DEFAULT_LANGUAGE | string | `"eng"` | Set the container timezone -- The language which will be used as default |
 | env.DOCS_SMTP_HOSTNAME | string | `""` | Hostname of the SMTP-Server to be used by Teedy |
 | env.DOCS_SMTP_PORT | int | `0` | The port of the SMTP-Server which should be used |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

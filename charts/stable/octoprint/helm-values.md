@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. |
 | env.CAMERA_DEV | string | `nil` | MJPG Streamer camera device |
-| env.ENABLE_MJPG_STREAMER | string | `"true"` | Enable MJPG Streamer Enable this to ensure camera streaming is enabled you add a video device. |
+| env.ENABLE_MJPG_STREAMER | string | `"true"` | Set the container timezone -- Enable MJPG Streamer Enable this to ensure camera streaming is enabled you add a video device. |
 | env.MJPG_STREAMER_INPUT | string | `nil` | MJPG Streamer input parameters |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/octoprint"` | image repository |

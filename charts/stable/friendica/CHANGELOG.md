@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="friendica-2.0.13"></a>
+### [friendica-2.0.13](https://github.com/truecharts/apps/compare/friendica-2.0.12...friendica-2.0.13) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="friendica-2.0.12"></a>
 ### [friendica-2.0.12](https://github.com/truecharts/apps/compare/friendica-2.0.11...friendica-2.0.12) (2022-03-30)
 

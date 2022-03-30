@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.CREATE_ADMIN | int | `1` | Set to `1` to create an admin user from environment variables. |
-| env.RUN_MIGRATIONS | int | `1` | Set to `1` to run database migrations during application startup. |
+| env.RUN_MIGRATIONS | int | `1` | Set the container timezone. -- Set to `1` to run database migrations during application startup. |
 | envValueFrom.DATABASE_URL | object | `{"secretKeyRef":{"key":"urlnossl","name":"dbcreds"}}` | Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/miniflux"` |  |

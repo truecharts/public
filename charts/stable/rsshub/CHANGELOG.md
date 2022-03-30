@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.4"></a>
+### [rsshub-1.0.4](https://github.com/truecharts/apps/compare/rsshub-1.0.3...rsshub-1.0.4) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="rsshub-1.0.3"></a>
 ### [rsshub-1.0.3](https://github.com/truecharts/apps/compare/rsshub-1.0.2...rsshub-1.0.3) (2022-03-26)
 

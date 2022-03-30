@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-3.0.10"></a>
+### [filezilla-3.0.10](https://github.com/truecharts/apps/compare/filezilla-3.0.9...filezilla-3.0.10) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="filezilla-3.0.9"></a>
 ### [filezilla-3.0.9](https://github.com/truecharts/apps/compare/filezilla-3.0.8...filezilla-3.0.9) (2022-03-28)
 

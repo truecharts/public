@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kavita-1.0.1"></a>
+### [kavita-1.0.1](https://github.com/truecharts/apps/compare/kavita-1.0.0...kavita-1.0.1) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="kavita-1.0.0"></a>
 ### [kavita-1.0.0](https://github.com/truecharts/apps/compare/kavita-0.0.5...kavita-1.0.0) (2022-03-27)
 

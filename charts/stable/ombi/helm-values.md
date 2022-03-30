@@ -14,12 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ombi"` |  |
 | image.tag | string | `"v4.15.2@sha256:207cea1812d92e56e31c62630cb9d81409be971bd2a7ac816e381f857a4f6af1"` |  |
-| mariadb.architecture | string | `"standalone"` |  |
-| mariadb.auth.database | string | `"ombi"` |  |
-| mariadb.auth.password | string | `"ombi"` |  |
-| mariadb.auth.username | string | `"ombi"` |  |
-| mariadb.enabled | bool | `false` |  |
-| mariadb.primary.persistence.enabled | bool | `false` |  |
+| mariadb | object | `{"architecture":"standalone","auth":{"database":"ombi","password":"ombi","username":"ombi"},"enabled":false,"primary":{"persistence":{"enabled":false}}}` |  ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

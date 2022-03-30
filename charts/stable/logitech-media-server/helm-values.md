@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.cli.ports.cli.port | int | `10059` |  |
 | service.cli.ports.cli.targetPort | int | `9090` |  |
 | service.main.ports.main.port | int | `7000` |  |
-| service.main.ports.main.targetPort | int | `7000` |  |
+| service.main.ports.main.targetPort | int | `7000` |  You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect. Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable |
 | service.playertcp.enabled | bool | `true` |  |
 | service.playertcp.ports.slimprototcp.enabled | bool | `true` |  |
 | service.playertcp.ports.slimprototcp.port | int | `3483` |  |

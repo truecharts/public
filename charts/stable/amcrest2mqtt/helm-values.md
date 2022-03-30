@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [amcrest2mqtt repo](https://github.com/dchesterton/amcrest2mqtt). |
-| env.AMCREST_HOST | string | `"localhost"` | Host name used to connect to the Amcrest device |
+| env.AMCREST_HOST | string | `"localhost"` | Set the container timezone -- Host name used to connect to the Amcrest device |
 | env.AMCREST_PORT | int | `80` | Port used to connect to the Amcrest device |
 | env.HOME_ASSISTANT | string | `"false"` | Enable Home Assistant autodiscovery |
 | env.HOME_ASSISTANT_PREFIX | string | `"homeassistant"` | Home Assistant autodiscovery prefix |

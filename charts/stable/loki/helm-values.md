@@ -11,7 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| alerting_groups | list | `[]` |  |
+| alerting_groups | list | `[]` |  When specified, you also need to add a ruler config section above. An example is shown in the alerting docs. |
 | args[0] | string | `"-config.file=/etc/loki/loki.yaml"` |  |
 | config.auth_enabled | bool | `false` |  |
 | config.chunk_store_config.max_look_back_period | string | `"0s"` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="bookstack-1.1.6"></a>
+### [bookstack-1.1.6](https://github.com/truecharts/apps/compare/bookstack-1.1.5...bookstack-1.1.6) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="bookstack-1.1.5"></a>
 ### [bookstack-1.1.5](https://github.com/truecharts/apps/compare/bookstack-1.1.4...bookstack-1.1.5) (2022-03-26)
 

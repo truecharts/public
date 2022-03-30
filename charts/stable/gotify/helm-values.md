@@ -11,15 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.GOTIFY_PASSSTRENGTH | int | `10` |  |
-| env.GOTIFY_PLUGINSDIR | string | `"data/plugins"` |  |
-| env.GOTIFY_SERVER_KEEPALIVEPERIODSECONDS | int | `0` |  |
-| env.GOTIFY_SERVER_LISTENADDR | string | `""` |  |
-| env.GOTIFY_SERVER_PORT | int | `8080` |  |
-| env.GOTIFY_SERVER_RESPONSEHEADERS | string | `"X-Custom-Header: \"custom value\""` |  |
-| env.GOTIFY_SERVER_SSL_ENABLED | bool | `false` |  |
-| env.GOTIFY_SERVER_STREAM_PINGPERIODSECONDS | int | `45` |  |
-| env.GOTIFY_UPLOADEDIMAGESDIR | string | `"data/images"` |  |
+| env | object | `{"GOTIFY_PASSSTRENGTH":10,"GOTIFY_PLUGINSDIR":"data/plugins","GOTIFY_SERVER_KEEPALIVEPERIODSECONDS":0,"GOTIFY_SERVER_LISTENADDR":"","GOTIFY_SERVER_PORT":8080,"GOTIFY_SERVER_RESPONSEHEADERS":"X-Custom-Header: \"custom value\"","GOTIFY_SERVER_SSL_ENABLED":false,"GOTIFY_SERVER_STREAM_PINGPERIODSECONDS":45,"GOTIFY_UPLOADEDIMAGESDIR":"data/images"}` |  https://gotify.net/docs/config#environment-variables |
+| env.GOTIFY_SERVER_RESPONSEHEADERS | string | `"X-Custom-Header: \"custom value\""` |  GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS: "- mydomain.tld\n- myotherdomain.tld" |
+| env.GOTIFY_SERVER_STREAM_PINGPERIODSECONDS | int | `45` |  GOTIFY_SERVER_CORS_ALLOWMETHODS: "- \"GET\"\n- \"POST\"" GOTIFY_SERVER_CORS_ALLOWHEADERS: "- \"Authorization\"\n- \"content-type\"" GOTIFY_SERVER_STREAM_ALLOWEDORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\"" |
 | envFrom[0].configMapRef.name | string | `"gotifyenv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/gotify-server"` |  |

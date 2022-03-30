@@ -19,8 +19,17 @@ You will, however, be able to use all values referenced in the common chart here
 | ingressClass | object | `{"enabled":false,"fallbackApiVersion":"","isDefaultClass":false}` | Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x |
 | ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
 | logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |
-| metrics.prometheus.entryPoint | string | `"metrics"` |  |
+| logs.access.fields | object | `{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}}` |  retryattempts: true minduration: 10ms Fields https://docs.traefik.io/observability/access-logs/#limiting-the-fieldsincluding-headers |
+| logs.access.filters | object | `{}` |  To write logs in JSON, use json in the format option. If the given format is unsupported, the default (CLF) is used instead. format: json To write the logs in an asynchronous fashion, specify a bufferingSize option. This option represents the number of log lines Traefik will keep in memory before writing them to the selected output. In some cases, this option can greatly help performances. bufferingSize: 100 Filtering https://docs.traefik.io/observability/access-logs/#filtering |
+| logs.general.level | string | `"ERROR"` |  also ask for the json format in the format option format: json By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO. |
+| metrics.prometheus | object | `{"entryPoint":"metrics"}` |    address: 127.0.0.1:8125 influxdb:   address: localhost:8089   protocol: udp |
 | middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
+| middlewares.chain | list | `[]` |    address: https://auth.example.com/   authResponseHeaders:     - X-Secret     - X-Auth-User   authRequestHeaders:     - "Accept"     - "X-CustomHeader"   authResponseHeadersRegex: "^X-"   trustForwardHeader: true |
+| middlewares.forwardAuth | list | `[]` |    users:     - username: testuser       password: testpassword |
+| middlewares.ipWhiteList | list | `[]` |    regex: putregexhere   replacement: replacementurlhere   permanent: false |
+| middlewares.rateLimit | list | `[]` |    scheme: https   permanent: true |
+| middlewares.redirectRegex | list | `[]` |    average: 300   burst: 200 |
+| middlewares.redirectScheme | list | `[]` |    middlewares:    - name: compress |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
 | podAnnotations."prometheus.io/path" | string | `"/metrics"` |  |
 | podAnnotations."prometheus.io/port" | string | `"9180"` |  |
@@ -36,6 +45,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
 | providers | object | `{"kubernetesCRD":{"enabled":true,"namespaces":[]},"kubernetesIngress":{"enabled":true,"namespaces":[],"publishedService":{"enabled":true}}}` | Configure providers |
+| providers.kubernetesIngress.publishedService | object | `{"enabled":true}` |  IP used for Kubernetes Ingress endpoints |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":[""],"resources":["services","endpoints","secrets"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses","ingressclasses"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses/status"],"verbs":["update"]},{"apiGroups":["traefik.containo.us"],"resources":["ingressroutes","ingressroutetcps","ingressrouteudps","middlewares","middlewaretcps","tlsoptions","tlsstores","traefikservices","serverstransports"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9180,"protocol":"HTTP","targetPort":9180}},"type":"ClusterIP"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |

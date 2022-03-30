@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-4.0.13"></a>
+### [custom-app-4.0.13](https://github.com/truecharts/apps/compare/custom-app-4.0.12...custom-app-4.0.13) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="custom-app-4.0.12"></a>
 ### [custom-app-4.0.12](https://github.com/truecharts/apps/compare/custom-app-4.0.11...custom-app-4.0.12) (2022-03-30)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-2.0.7"></a>
+### [remmina-2.0.7](https://github.com/truecharts/apps/compare/remmina-2.0.6...remmina-2.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="remmina-2.0.6"></a>
 ### [remmina-2.0.6](https://github.com/truecharts/apps/compare/remmina-2.0.5...remmina-2.0.6) (2022-03-26)
 

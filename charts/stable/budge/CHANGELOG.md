@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="budge-1.0.11"></a>
+### [budge-1.0.11](https://github.com/truecharts/apps/compare/budge-1.0.10...budge-1.0.11) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="budge-1.0.10"></a>
 ### [budge-1.0.10](https://github.com/truecharts/apps/compare/budge-1.0.9...budge-1.0.10) (2022-03-30)
 

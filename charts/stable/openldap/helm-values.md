@@ -18,22 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | controller.rollingUpdate.unavailable | int | `1` | Set deployment RollingUpdate max unavailable |
 | controller.strategy | string | `"RollingUpdate"` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"statefulset"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
-| env.CONTAINER_LOG_LEVEL | int | `4` |  |
-| env.KEEP_EXISTING_CONFIG | bool | `false` |  |
-| env.LDAP_BACKEND | string | `"mdb"` |  |
-| env.LDAP_DOMAIN | string | `"example.org"` |  |
-| env.LDAP_LOG_LEVEL | int | `256` |  |
-| env.LDAP_ORGANISATION | string | `"Example Inc."` |  |
-| env.LDAP_READONLY_USER | bool | `false` |  |
-| env.LDAP_REMOVE_CONFIG_AFTER_SETUP | bool | `true` |  |
-| env.LDAP_RFC2307BIS_SCHEMA | bool | `false` |  |
-| env.LDAP_SSL_HELPER_PREFIX | string | `"ldap"` |  |
-| env.LDAP_TLS | bool | `true` |  |
-| env.LDAP_TLS_CIPHER_SUITE | string | `"NORMAL"` |  |
-| env.LDAP_TLS_ENFORCE | bool | `false` |  |
-| env.LDAP_TLS_PROTOCOL_MIN | string | `"3.0"` |  |
-| env.LDAP_TLS_REQCERT | string | `"never"` |  |
-| env.LDAP_TLS_VERIFY_CLIENT | string | `"never"` |  |
+| env | object | `{"CONTAINER_LOG_LEVEL":4,"KEEP_EXISTING_CONFIG":false,"LDAP_BACKEND":"mdb","LDAP_DOMAIN":"example.org","LDAP_LOG_LEVEL":256,"LDAP_ORGANISATION":"Example Inc.","LDAP_READONLY_USER":false,"LDAP_REMOVE_CONFIG_AFTER_SETUP":true,"LDAP_RFC2307BIS_SCHEMA":false,"LDAP_SSL_HELPER_PREFIX":"ldap","LDAP_TLS":true,"LDAP_TLS_CIPHER_SUITE":"NORMAL","LDAP_TLS_ENFORCE":false,"LDAP_TLS_PROTOCOL_MIN":"3.0","LDAP_TLS_REQCERT":"never","LDAP_TLS_VERIFY_CLIENT":"never"}` |  Use the env variables from https://github.com/osixia/docker-openldap#beginner-guide |
 | envFrom[0].configMapRef.name | string | `"openldapconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/openldap"` |  |

@@ -16,6 +16,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"tccr.io/truecharts/duplicati"` | image repository |
 | image.tag | string | `"latest@sha256:9435ca54cf320b8f6b285e4bb6b304e285e828a2b97f29f3037ac604924d99a0"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

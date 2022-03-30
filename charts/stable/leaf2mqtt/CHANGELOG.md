@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-3.0.7"></a>
+### [leaf2mqtt-3.0.7](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.6...leaf2mqtt-3.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="leaf2mqtt-3.0.6"></a>
 ### [leaf2mqtt-3.0.6](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.5...leaf2mqtt-3.0.6) (2022-03-26)
 

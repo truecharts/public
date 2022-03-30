@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.11"></a>
+### [synapse-2.0.11](https://github.com/truecharts/apps/compare/synapse-2.0.10...synapse-2.0.11) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="synapse-2.0.10"></a>
 ### [synapse-2.0.10](https://github.com/truecharts/apps/compare/synapse-2.0.9...synapse-2.0.10) (2022-03-26)
 
