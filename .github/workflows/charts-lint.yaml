@@ -54,7 +54,7 @@ jobs:
     needs:
       - generate-lint-matrix
     if: needs.generate-lint-matrix.outputs.detected == 'true'
-    name: lint charts
+    name: Lint charts Part 1
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix1) }}
       fail-fast: true
@@ -88,7 +88,7 @@ jobs:
     needs:
       - generate-lint-matrix
     if: needs.generate-lint-matrix.outputs.detected == 'true'
-    name: lint charts
+    name: Lint charts Part 2
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix2) }}
       fail-fast: true
@@ -130,6 +130,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check lint matrix status
-        if: ${{ (needs.generate-lint-matrix.outputs.detected == 'true') && (needs.lint-charts1.result != 'success') }}
+        if: ${{ (needs.generate-lint-matrix.outputs.detected == 'true') && (needs.lint-charts1.result != 'success') && (needs.lint-charts2.result != 'success') }}
         run: exit 1
 
