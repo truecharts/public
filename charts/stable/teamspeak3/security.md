@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/teamspeak:v3.13.6@sha256:5de10cc5953c908ca92fb7662f16b9a88e8dd6b2f7d54705f2126df0bd595688
+          tccr.io/truecharts/teamspeak:v3.13.6@sha256:0f90dc90bd7ae2408f0073287e64e8b2160b33f598ecd3298ef9fb9f98e01ca8
 
 ##### Scan Results
 
@@ -57,10 +57,9 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
@@ -69,18 +68,16 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
-
-
-#### Container: tccr.io/truecharts/teamspeak:v3.13.6@sha256:5de10cc5953c908ca92fb7662f16b9a88e8dd6b2f7d54705f2126df0bd595688 (alpine 3.13.8)
+#### Container: tccr.io/truecharts/teamspeak:v3.13.6@sha256:0f90dc90bd7ae2408f0073287e64e8b2160b33f598ecd3298ef9fb9f98e01ca8 (alpine 3.13.9)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libsasl         |    CVE-2022-24407   |   HIGH  |  2.1.27-r10 | 2.1.28-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/23/4">http://www.openwall.com/lists/oss-security/2022/02/23/4</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24407">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24407</a><br><a href="https://github.com/cyrusimap/cyrus-sasl/blob/fdcd13ceaef8de684dc69008011fa865c5b4a3ac/docsrc/sasl/release-notes/2.1/index.rst">https://github.com/cyrusimap/cyrus-sasl/blob/fdcd13ceaef8de684dc69008011fa865c5b4a3ac/docsrc/sasl/release-notes/2.1/index.rst</a><br><a href="https://linux.oracle.com/cve/CVE-2022-24407.html">https://linux.oracle.com/cve/CVE-2022-24407.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9239.html">https://linux.oracle.com/errata/ELSA-2022-9239.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00002.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00002.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/H26R4SMGM3WHXX4XYNNJB4YGFIL5UNF4/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/H26R4SMGM3WHXX4XYNNJB4YGFIL5UNF4/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZZC6BMPI3V3MC2IGNLN377ETUWO7QBIH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZZC6BMPI3V3MC2IGNLN377ETUWO7QBIH/</a><br><a href="https://ubuntu.com/security/notices/USN-5301-1">https://ubuntu.com/security/notices/USN-5301-1</a><br><a href="https://ubuntu.com/security/notices/USN-5301-2">https://ubuntu.com/security/notices/USN-5301-2</a><br><a href="https://www.cyrusimap.org/sasl/sasl/release-notes/2.1/index.html#new-in-2-1-28">https://www.cyrusimap.org/sasl/sasl/release-notes/2.1/index.html#new-in-2-1-28</a><br><a href="https://www.debian.org/security/2022/dsa-5087">https://www.debian.org/security/2022/dsa-5087</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

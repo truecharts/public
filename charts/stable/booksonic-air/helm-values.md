@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/booksonic-air"` | image repository |
-| image.tag | string | `"v2201.1.0@sha256:cdf3f284ba8883e5898a176cefb3081bf8a8b73302aee8400976f810f26d6cce"` | image tag |
+| image.tag | string | `"v2201.1.0@sha256:e7b93a5bdce7a71f0e717dcc0fffd6830d292eaf2f0b85b9aedbf8d56d229905"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

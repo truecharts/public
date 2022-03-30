@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redmine-1.0.10"></a>
+### [redmine-1.0.10](https://github.com/truecharts/apps/compare/redmine-1.0.9...redmine-1.0.10) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="redmine-1.0.9"></a>
 ### [redmine-1.0.9](https://github.com/truecharts/apps/compare/redmine-1.0.8...redmine-1.0.9) (2022-03-28)
 

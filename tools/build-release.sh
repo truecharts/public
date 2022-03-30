@@ -67,8 +67,10 @@ main() {
           upload_index
         fi
         validate_catalog
+        if [ "${production}" == "true" ]; then
         upload_catalog
         upload_dhcatalog
+        fi
     else
         echo "Nothing to do. No chart changes detected."
     fi

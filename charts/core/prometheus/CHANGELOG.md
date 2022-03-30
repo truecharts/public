@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.20"></a>
+### [prometheus-2.0.20](https://github.com/truecharts/apps/compare/prometheus-2.0.19...prometheus-2.0.20) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="prometheus-2.0.19"></a>
 ### [prometheus-2.0.19](https://github.com/truecharts/apps/compare/prometheus-2.0.18...prometheus-2.0.19) (2022-03-28)
 

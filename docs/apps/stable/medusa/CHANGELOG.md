@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-2.0.9"></a>
+### [medusa-2.0.9](https://github.com/truecharts/apps/compare/medusa-2.0.8...medusa-2.0.9) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="medusa-2.0.8"></a>
 ### [medusa-2.0.8](https://github.com/truecharts/apps/compare/medusa-2.0.7...medusa-2.0.8) (2022-03-26)
 

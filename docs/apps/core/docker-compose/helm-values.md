@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | hostNetwork | bool | `true` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/docker-in-docker"` |  |
-| image.tag | string | `"v20.10.14@sha256:2a08b485a61c4518aa185ce9bc3556eaec7674da147eb530e958ca5df67aea0f"` |  |
+| image.tag | string | `"v20.10.14@sha256:1dd9600364aab4d23c332ef72045d30c21270a429946cf261b790d1d783bef78"` |  |
 | lifecycle.postStart.exec.command[0] | string | `"/bin/bash"` |  |
 | lifecycle.postStart.exec.command[1] | string | `"-c"` |  |
 | lifecycle.postStart.exec.command[2] | string | `"if [ \"${COMPOSE_FILE}\" ]; then\ncounter=0;\nwhile ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do\necho \"docker not running yet. Waiting...\" >> /proc/1/fd/1;\nsleep 5;\ncounter=$((counter+1));\ndone\ndocker-compose -f \"${COMPOSE_FILE}\" up -d && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\" >> /proc/1/fd/1;\nelse\necho \"COMPOSE_FILE not set, not auto-loading compose-file\" >> /proc/1/fd/1;\nfi\n"` |  |
