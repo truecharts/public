@@ -3,15 +3,15 @@ appVersion: "5.4.1"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.1.15
+  version: 9.2.4
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 2.0.23
+  version: 2.0.26
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.17
+  version: 2.0.21
 description: "Open source asset management"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/snipe-it
 icon: https://truecharts.org/_static/img/appicons/snipe-it.png
@@ -29,7 +29,7 @@ name: snipe-it
 sources:
   - https://snipeitapp.com/
   - https://hub.docker.com/r/linuxserver/
-version: 2.0.6
+version: 2.0.7
 annotations:
   truecharts.org/catagories: |
     - management
