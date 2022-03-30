@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MATOMO_HOST | string | `"127.0.0.1"` |  |
 | env.MATOMO_PASSWORD | string | `"password"` |  |
 | env.MATOMO_SMTP_AUTH | string | `"Plain"` |  |
-| env.MATOMO_SMTP_HOST | string | `""` |  |
+| env.MATOMO_SMTP_HOST | string | `""` |  MATOMO_PROXY_CLIENT_HEADER: "HTTP_X_FORWARDED_FOR" SMTP Config |
 | env.MATOMO_SMTP_PASSWORD | string | `""` |  |
 | env.MATOMO_SMTP_PORT | string | `""` |  |
 | env.MATOMO_SMTP_PROTOCOL | string | `""` |  |
@@ -41,7 +41,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MATOMO_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/matomo"` |  |
-| image.tag | string | `"v4.8.0@sha256:0157684fb88d315c3075d231e89dd7cbfa9f23eaf163a86940c712c30c249b90"` |  |
+| image.tag | string | `"v4.8.0@sha256:6570e6a2a908e14cc268717c97965216421d1ab049860fb3ae752b556e46d4d3"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"matomo"` |  |

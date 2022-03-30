@@ -22,7 +22,7 @@ runs:
   using: "composite"
   steps:
     - name: Label success
-      uses: andymckay/labeler@1.0.4
+      uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90 # tag=1.0.4
       if: ${{ inputs.job-status == 'success' }}
       with:
         repo-token: ${{ inputs.token }}
@@ -31,7 +31,7 @@ runs:
         remove-labels: "${{ inputs.prefix }}:failed"
 
     - name: Label failure
-      uses: andymckay/labeler@1.0.4
+      uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90 # tag=1.0.4
       if: ${{ inputs.job-status == 'failure' }}
       with:
         repo-token: ${{ inputs.token }}
@@ -40,7 +40,7 @@ runs:
         remove-labels: "${{ inputs.prefix }}:ok"
 
     - name: Remove label
-      uses: andymckay/labeler@1.0.4
+      uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90 # tag=1.0.4
       if: ${{ (inputs.job-status == 'skipped') && (inputs.remove-on-skipped == 'true') }}
       with:
         repo-token: ${{ inputs.token }}
