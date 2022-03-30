@@ -7,11 +7,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.19
+  version: 7.0.21
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.15
+  version: 2.0.17
 deprecated: false
 description: A free and open source personal finance manager
 home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
