@@ -92,7 +92,7 @@ questions:
           description: "set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy"
           schema:
             type: string
-            default: "false"
+            default: ""
         - variable: REVERSE_PROXY_TLS_PORT
           label: "REVERSE_PROXY_TLS_PORT"
           description: "REVERSE_PROXY_TLS_PORT"
