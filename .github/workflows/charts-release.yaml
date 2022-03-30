@@ -58,17 +58,19 @@ jobs:
         uses: ./.github/actions/collect-changes
 
       - name: Generate README for changed charts
-
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
-          chart_runner(){
-              IFS='/' read -r -a chart_parts <<< "${1}"
-              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-                ./.github/scripts/gen-helm-docs.sh "${chart_parts[0]}" "${chart_parts[1]}"
-              fi
-          }
-          export -f chart_runner
-          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
-          parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
+         # To be done, we should splitreadme generation from catalog generation
+         #  chart_runner(){
+         #      IFS='/' read -r -a chart_parts <<< "${1}"
+         #      if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+         #        ./.github/scripts/gen-helm-docs.sh "${chart_parts[0]}" "${chart_parts[1]}"
+         #      fi
+         #  }
+         #  export -f chart_runner
+         #  CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+         #  parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
 
       - name: build catalogs and docs
         if: |
