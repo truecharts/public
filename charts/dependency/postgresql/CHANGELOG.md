@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.25"></a>
+### [postgresql-7.0.25](https://github.com/truecharts/apps/compare/postgresql-7.0.24...postgresql-7.0.25) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.2.4 ([#2352](https://github.com/truecharts/apps/issues/2352))
+
+
+
 <a name="postgresql-7.0.24"></a>
 ### [postgresql-7.0.24](https://github.com/truecharts/apps/compare/postgresql-7.0.23...postgresql-7.0.24) (2022-03-30)
 

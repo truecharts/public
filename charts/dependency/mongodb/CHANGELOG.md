@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.0.12"></a>
+### [mongodb-0.0.12](https://github.com/truecharts/apps/compare/mongodb-0.0.11...mongodb-0.0.12) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.2.4 ([#2352](https://github.com/truecharts/apps/issues/2352))
+
+
+
 <a name="mongodb-0.0.11"></a>
 ### [mongodb-0.0.11](https://github.com/truecharts/apps/compare/mongodb-0.0.10...mongodb-0.0.11) (2022-03-30)
 
