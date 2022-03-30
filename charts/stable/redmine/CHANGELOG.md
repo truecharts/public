@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redmine-1.0.11"></a>
+### [redmine-1.0.11](https://github.com/truecharts/apps/compare/redmine-1.0.10...redmine-1.0.11) (2022-03-30)
+
+#### Chore
+
+* update container image tccr.io/truecharts/redmine to v5.0.0 ([#2348](https://github.com/truecharts/apps/issues/2348))
+
+
+
 <a name="redmine-1.0.10"></a>
 ### [redmine-1.0.10](https://github.com/truecharts/apps/compare/redmine-1.0.9...redmine-1.0.10) (2022-03-30)
 
