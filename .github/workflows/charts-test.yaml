@@ -111,14 +111,14 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20.6+k3s1
+          version: v1.20
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config .github/ct-install.yaml --charts ${{ matrix.chart }}
+        run: ct install --config .github/ct-install.yaml --charts ${{ matrix.chart }} --upgrade
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:

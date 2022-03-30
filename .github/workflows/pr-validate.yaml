@@ -45,3 +45,13 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+
+  catalog-test:
+    uses: ./.github/workflows/catalog-test.yaml
+    needs:
+      - pr-metadata
+    #  - charts-changelog
+      - charts-lint
+    with:
+      checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
+      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
