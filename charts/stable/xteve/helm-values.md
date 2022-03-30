@@ -14,10 +14,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/xteve"` | image repository |
-| image.tag | string | `"v2.2.0.200@sha256:77a1e4d934da1361c349fc3b9548e4e01b421df078759e5d11b4cc552c50bd7e"` | image tag |
+| image.tag | string | `"v2.2.0.200@sha256:8eca3bbc32d97ec1e86fce6d94057d8db6597c91ad15ac4f33b1a336cb645222"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `34400` |  |
-| service.main.ports.main.targetPort | int | `34400` |  |
+| service | object | `{"main":{"ports":{"main":{"port":34400,"targetPort":34400}}}}` | Set the container timezone |
 
 All Rights Reserved - The TrueCharts Project

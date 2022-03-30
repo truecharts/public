@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-5.0.8"></a>
+### [xteve-5.0.8](https://github.com/truecharts/apps/compare/xteve-5.0.7...xteve-5.0.8) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2349](https://github.com/truecharts/apps/issues/2349))
+
+
+
 <a name="xteve-5.0.7"></a>
 ### [xteve-5.0.7](https://github.com/truecharts/apps/compare/xteve-5.0.6...xteve-5.0.7) (2022-03-30)
 

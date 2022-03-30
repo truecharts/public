@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/truecommand"` |  |
-| image.tag | string | `"v2.1@sha256:a77bf1fc06391fde502270b4e7a39798f4f84e6d97735402b86cb6464b3fa2dd"` |  |
+| image.tag | string | `"v2.1@sha256:e0da54deb8f12300977a78353f0c56a82ea93b413f3cf2225072704830ab664b"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

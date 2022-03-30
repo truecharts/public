@@ -104,7 +104,7 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
 | image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
-| image.tag | string | `"v0.55.1@sha256:b62e46ea520331962bdd5ba2cf12b3cb929570e8f45b7a15244075d3f1725bf0"` |  |
+| image.tag | string | `"v0.55.1@sha256:0a90d4a2abe323cda484adb51ee824483805c03234d41b28b4a374ce806c16d6"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |

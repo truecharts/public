@@ -15,12 +15,12 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/piaware"` | image repository |
-| image.tag | string | `"v7.2@sha256:087f5e1d2e1ca8de4cb928dde268469077aff921ee800beefe27680355710164"` | image tag |
+| image.tag | string | `"v7.2@sha256:c33efc2745a5b1a4ef6bab60498dcb77f2f123e5829393547d7f5d9a23363ffd"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project
