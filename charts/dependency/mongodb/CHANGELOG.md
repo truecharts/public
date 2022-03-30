@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.0.11"></a>
+### [mongodb-0.0.11](https://github.com/truecharts/apps/compare/mongodb-0.0.10...mongodb-0.0.11) (2022-03-30)
+
+
+
 <a name="mongodb-0.0.10"></a>
 ### [mongodb-0.0.10](https://github.com/truecharts/apps/compare/mongodb-0.0.9...mongodb-0.0.10) (2022-03-30)
 
