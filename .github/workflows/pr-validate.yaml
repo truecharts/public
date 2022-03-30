@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
   pr-metadata:
-    uses: truecharts/apps/.github/workflows/pr-metadata.yaml@master
+    uses: ./.github/workflows/pr-metadata.yaml@master
 
   pre-commit-check:
     uses: truecharts/.github/.github/workflows/pre-commit-check.yaml@master
@@ -19,7 +19,7 @@ jobs:
       modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
 
   #charts-changelog:
-  #  uses: truecharts/apps/.github/workflows/charts-changelog.yaml@master
+  #  uses: ./.github/workflows/charts-changelog.yaml@master
   #  needs:
   #    - pr-metadata
   #    - pre-commit-check
@@ -28,7 +28,7 @@ jobs:
   #    modifiedCharts: ${{ needs.pr-metadata.outputs.addedOrModifiedCharts }}
 
   charts-lint:
-    uses: truecharts/apps/.github/workflows/charts-lint.yaml@master
+    uses: ./.github/workflows/charts-lint.yaml@master
     needs:
       - pr-metadata
     #  - charts-changelog
@@ -37,7 +37,7 @@ jobs:
       chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
 
   charts-test:
-    uses: truecharts/apps/.github/workflows/charts-test.yaml@master
+    uses: ./.github/workflows/charts-test.yaml@master
     needs:
       - pr-metadata
     #  - charts-changelog
