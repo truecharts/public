@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix1) }}
       fail-fast: true
-      max-parallel: 15
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -92,7 +92,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix2) }}
       fail-fast: true
-      max-parallel: 15
+      max-parallel: 5
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
