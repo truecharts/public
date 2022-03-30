@@ -1,13 +1,13 @@
 name: "Docs: Deploy"
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'docs/**'
-      - '.github/workflows/docs.deploy.yaml'
-      - 'mkdocs.yml'
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'docs/**'
+  #     - '.github/workflows/docs.deploy.yaml'
+  #     - 'mkdocs.yml'
 
 jobs:
   build:

@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: gitpush
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.2.1
+      image: ghcr.io/truecharts/devcontainer:v2.2.1@sha256:4ace13c049bf00f85c63e0070f86b71656a7c3b2113aa3e21c3107f3d1f7bf87
     steps:
 
       - uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
@@ -20,10 +20,18 @@ jobs:
         with:
           fetch-depth: 100
           token: ${{ secrets.BOT_TOKEN }}
+      - uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        name: Checkout
+        with:
+          fetch-depth: 1
+          ref: gh-pages
+          token: ${{ secrets.BOT_TOKEN }}
+          path: .cr-index
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
+          fetch-depth: 1
           repository: truecharts/catalog
           token: ${{ secrets.BOT_TOKEN }}
           path: catalog
@@ -31,39 +39,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
+          fetch-depth: 1
           repository: truecharts/dh_catalog
           token: ${{ secrets.BOT_TOKEN }}
           path: dh_catalog
 
       - name: build-and-run
         run: |
-          tools/build-release.sh -p --config .github/cr.yaml
+          tools/build-release.sh -p --config .github/cr.yaml --skip-existing
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-      - name: Commit and Push new App releases
-        run: |
-          cd catalog
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          git push
-          cd -
-          rm -rf catalog
-
-      - name: Commit and Push new Docker-hub-locked App releases
-        run: |
-          cd dh_catalog
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-          git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          git push
-          cd -
-          rm -rf dh_catalog
-
-      - name: Commit and Push new Helm Charts and docs
+      - name: Commit and Push new docs
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
