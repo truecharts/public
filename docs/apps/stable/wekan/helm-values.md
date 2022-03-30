@@ -11,15 +11,20 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| auth.enabled | bool | `false` | By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config. |
+| env.ROOT_URL | string | `"http://localhost"` |  |
+| env.WRITABLE_PATH | string | `"/data"` |  |
+| envValueFrom.MONGO_URL.secretKeyRef.key | string | `"url"` |  |
+| envValueFrom.MONGO_URL.secretKeyRef.name | string | `"mongodbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/eclipse-mosquitto"` |  |
-| image.tag | string | `"v2.0.14@sha256:a102c37865fea828c7000847774f35a16cbb183681ef56a955266d553317709e"` |  |
-| persistence.configinc.enabled | bool | `true` |  |
-| persistence.configinc.mountPath | string | `"/mosquitto/configinc"` |  |
+| image.repository | string | `"tccr.io/truecharts/wekan"` |  |
+| image.tag | string | `"v6.11@sha256:4d36ca29c2bf2775903d94e72b5ed55dc2893331ecced6a7ffd01164633e8df4"` |  |
+| mongodb.enabled | bool | `true` |  |
+| mongodb.existingSecret | string | `"mongodbcreds"` |  |
+| mongodb.mongodbDatabase | string | `"wekan"` |  |
+| mongodb.mongodbUsername | string | `"wekan"` |  |
 | persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountPath | string | `"/mosquitto/data"` |  |
-| service.main.ports.main.port | int | `1883` |  |
-| service.main.ports.main.targetPort | int | `1883` |  |
+| persistence.data.mountPath | string | `"/data"` |  |
+| service.main.ports.main.port | int | `10204` |  |
+| service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project
