@@ -42,8 +42,9 @@ jobs:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@v0.8.0
         with:
-          setup-tools: helmv3
-          helm: "3.8.0
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
 
       - name: Install helm-docs
         run: |
