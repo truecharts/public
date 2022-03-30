@@ -34,7 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresqlDatabase | string | `"test"` |  |
 | postgresqlPassword | string | `"testpass"` |  |
 | postgresqlUsername | string | `"test"` |  |
-| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |
