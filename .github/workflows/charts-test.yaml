@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.8.0
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
           setup-tools: |
             helmv3
@@ -56,13 +56,13 @@ jobs:
       detected: ${{ steps.list-changed.outputs.detected }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
       - name: Run chart-testing (list-changed)
         id: list-changed
@@ -89,24 +89,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.8.0
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
           setup-tools: |
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
