@@ -74,7 +74,116 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: APP_URL
+          label: "APP_URL"
+          description: "Specify the URL of the Ferdi-server, including http:// or https:// as relevant."
+          schema:
+            type: string
+            required: true
+        - variable: IS_CREATION_ENABLED
+          label: "IS_CREATION_ENABLED"
+          description: "Specify whether to enable the creation of custom recipes."
+          schema:
+            type: boolean
+        - variable: IS_DASHBOARD_ENABLED
+          label: "IS_DASHBOARD_ENABLED"
+          description: "Specify whether to enable the Ferdi-server dashboard."
+          schema:
+            type: boolean
+        - variable: IS_REGISTRATION_ENABLED
+          label: "IS_REGISTRATION_ENABLED"
+          description: "Specify whether to allow user registration."
+          schema:
+            type: boolean
+        - variable: CONNECT_WITH_FRANZ
+          label: "CONNECT_WITH_FRANZ"
+          description: "Specify whether to enable connections to the Franz server."
+          schema:
+            type: boolean
+        - variable: mailsettings
+          label: "Mail Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: MAIL_CONNECTION
+                label: "MAIL_CONNECTION"
+                description: "Specify the mail sender to be used."
+                schema:
+                  type: string
+                  default: "smtp"
+              - variable: SMTP_HOST
+                label: "SMTP_HOST"
+                description: "Specify the mail host to be used"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SMTP_PORT
+                label: "SMTP_PORT"
+                description: "Specify the mail port to be used."
+                schema:
+                  type: int
+                  default: 587
+              - variable: MAIL_SSL
+                label: "MAIL_SSL"
+                description: "Specify SMTP mail security."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: MAIL_USERNAME
+                label: "MAIL_USERNAME"
+                description: "Specify your mail username to be used."
+                schema:
+                  type: string
+                  default: ""
+              - variable: MAIL_PASSWORD
+                label: "MAIL_PASSWORD"
+                description: "Specify your mail password to be used."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: MAIL_SENDER
+                label: "MAIL_SENDER"
+                description: "Specify the mail sender address to be used."
+                schema:
+                  type: string
+                  default: ""
+              - variable: SPARKPOST_API_KEY
+                label: "SPARKPOST_API_KEY"
+                description: "Specify SparkPost API Key to be used."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: MAILGUN_DOMAIN
+                label: "MAILGUN_DOMAIN"
+                description: "Specify Mailgun domain to be used."
+                schema:
+                  type: string
+                  default: ""
+              - variable: MAILGUN_API_REGION
+                label: "MAILGUN_API_REGION"
+                description: "Specify Mailgun API Region to be used."
+                schema:
+                  type: string
+                  default: ""
+              - variable: MAILGUN_API_KEY
+                label: "MAILGUN_API_KEY"
+                description: "Specify Mailgun API Key to be used."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +212,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10206
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +247,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 3333
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -167,9 +276,52 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: recipes
+          label: "App Recipes Storage"
+          description: "Stores the Application Recipes."
           schema:
             additional_attrs: true
             type: dict
