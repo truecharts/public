@@ -43,9 +43,9 @@ jobs:
                 return
               fi
               echo "Comparing versions for ${chart}"
-              master=$(cat ./master/charts/${chart}/Chart.yaml | grep "^version")
+              main=$(cat ./main/charts/${chart}/Chart.yaml | grep "^version")
               current=$(cat ./charts/${chart}/Chart.yaml | grep "^version")
-              echo "master version: ${master}"
+              echo "master version: ${main}"
               echo "current version: ${current}"
               if [[ "${master}" != "${current}" ]]; then
                 echo "Version does not have to be bumped"
