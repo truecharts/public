@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.22"></a>
+### [redis-2.0.22](https://github.com/truecharts/apps/compare/redis-2.0.21...redis-2.0.22) (2022-03-31)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.2.6 ([#2358](https://github.com/truecharts/apps/issues/2358))
+
+
+
 <a name="redis-2.0.21"></a>
 ### [redis-2.0.21](https://github.com/truecharts/apps/compare/redis-2.0.20...redis-2.0.21) (2022-03-30)
 
