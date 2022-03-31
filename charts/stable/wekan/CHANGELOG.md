@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-1.0.4"></a>
+### [wekan-1.0.4](https://github.com/truecharts/apps/compare/wekan-1.0.3...wekan-1.0.4) (2022-03-31)
+
+#### Chore
+
+* use other port and fix docs ([#2363](https://github.com/truecharts/apps/issues/2363))
+
+
+
 <a name="wekan-1.0.3"></a>
 ### [wekan-1.0.3](https://github.com/truecharts/apps/compare/wekan-1.0.2...wekan-1.0.3) (2022-03-31)
 

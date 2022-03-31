@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/ipfs
+  repository: ipfs/go-ipfs
   pullPolicy: IfNotPresent
-  tag: v2.14.0
+  tag: v0.12.1
 
 securityContext:
   runAsNonRoot: false
@@ -11,37 +11,59 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  IPFS_PROFILE: "server"
+  IPFS_SWARM_KEY: ""
+  IPFS_SWARM_KEY_FILE: ""
+
 service:
   main:
     ports:
       main:
-        targetPort: 80
         port: 10125
-  peer:
+        targetPort: 5001
+  peer-tcp:
     enabled: true
     ports:
-      peer:
+      peer-tcp:
         enabled: true
         targetPort: 4001
         port: 4001
-  api:
+  peer-udp:
     enabled: true
     ports:
-      api:
+      peer-udp:
+        protocol: UDP
         enabled: true
-        targetPort: 5001
-        port: 5001
+        targetPort: 4001
+        port: 4001
   gateway:
     enabled: true
+    type: ClusterIP
     ports:
       gateway:
         enabled: true
         targetPort: 8080
         port: 10147
 
+probes:
+  liveness:
+    path: "/webui"
+  readiness:
+    path: "/webui"
+  startup:
+    path: "/webui"
+
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
-  varrun:
+    mountPath: "/data/ipfs"
+  staging:
     enabled: true
+    mountPath: "/export"
+  ipfs:
+    enabled: true
+    mountPath: "/ipfs"
+  ipns:
+    enabled: true
+    mountPath: "/ipns"

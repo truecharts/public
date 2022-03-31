@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Check for stale issues and PRs
-        uses: actions/stale@v5
+        uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358 # tag=v5
         with:
           repo-token: ${{ secrets.BOT_TOKEN }}
           days-before-issue-stale: 180

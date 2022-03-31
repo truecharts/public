@@ -56,6 +56,9 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varlib.enabled | bool | `true` |  |
 | persistence.varlib.mountPath | string | `"/var/lib/gitea"` |  |
 | persistence.varlib.type | string | `"emptyDir"` |  |
+| podSecurityContext.fsGroup | int | `1000` |  |
+| podSecurityContext.runAsGroup | int | `1000` |  |
+| podSecurityContext.runAsUser | int | `1000` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"gitea"` |  |

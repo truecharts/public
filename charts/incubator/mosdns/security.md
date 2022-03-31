@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: mosdns/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-mosdns&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,35 +52,32 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
+| zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-25032">https://nvd.nist.gov/vuln/detail/CVE-2018-25032</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
+| zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-25032">https://nvd.nist.gov/vuln/detail/CVE-2018-25032</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: 601096721/mosdns:v3.5.2@sha256:f256b3e1326add0fb128a7aa2fef2116a977abb2158b90a7a8d9c250fb003973 (alpine 3.15.3)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-
