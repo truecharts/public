@@ -13,6 +13,7 @@ image:
 
 env:
   WEBUI_TOKEN: "somevalue"
+  HASH: "{{ sha256sum .Values.env.WEBUI_TOKEN }}"
 
 service:
   main:
@@ -26,13 +27,13 @@ persistence:
     enabled: true
     mountPath: "/opt/xml"
 
-initContainer:
-  1-test:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: webmap-config
-        mountPath: "/root/token.sha256"
-    command: ["sh", "-c"]
-    args:
-      - >
-        cat "/root/token.sha256"
+# initContainer:
+#   1-test:
+#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#     volumeMounts:
+#       - name: webmap-config
+#         mountPath: "/root/token.sha256"
+#     command: ["sh", "-c"]
+#     args:
+#       - >
+#         cat "/root/token.sha256"
