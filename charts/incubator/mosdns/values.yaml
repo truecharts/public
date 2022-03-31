@@ -4,7 +4,7 @@ image:
   tag: v3.5.2@sha256:a68e164189291b5f5981203af8f1e466fc54dfe46bdec0abfd78b68c7ff0c9a5
 
 service:
-  main:
+  dns-udp:
     ports:
       dns-udp:
         protocol: UDP
