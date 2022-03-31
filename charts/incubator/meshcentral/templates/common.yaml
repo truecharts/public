@@ -4,19 +4,7 @@
 {{/* Render configmap for meshcentral */}}
 {{- include "meshcentral.configmap" . }}
 
-{{/* Append the general secret volumes to the volumes */}}
-{{- define "meshcentral.initvolume" -}}
-enabled: "true"
-mountPath: "/opt/meshcentral"
-readOnly: true
-type: "custom"
-volumeSpec:
-  configMap:
-    name: {{ include "common.names.fullname" . }}-init
-    defaultMode: 0777
-{{- end -}}
 
-{{- $_ := set .Values.persistence "init" (include "meshcentral.initvolume" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
