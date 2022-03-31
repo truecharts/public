@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="medusa-2.0.12"></a>
+### [medusa-2.0.12](https://github.com/truecharts/apps/compare/medusa-2.0.10...medusa-2.0.12) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="medusa-2.0.10"></a>
+### [medusa-2.0.10](https://github.com/truecharts/apps/compare/medusa-2.0.9...medusa-2.0.10) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="medusa-2.0.9"></a>
+### [medusa-2.0.9](https://github.com/truecharts/apps/compare/medusa-2.0.8...medusa-2.0.9) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="medusa-2.0.8"></a>
 ### [medusa-2.0.8](https://github.com/truecharts/apps/compare/medusa-2.0.7...medusa-2.0.8) (2022-03-26)
 

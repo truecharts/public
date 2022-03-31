@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | credentials | object | `{}` |  |
-| deployment.N8N_HOST | string | `"localhost"` |  |
+| deployment | object | `{"N8N_HOST":"localhost"}` |  CREDENTIALS_OVERWRITE_ENDPOINT: "" CREDENTIALS_DEFAULT_NAME: "My credentials" |
 | endpoints | object | `{}` |  |
 | env.DB_POSTGRESDB_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.DB_POSTGRESDB_PORT | int | `5432` |  |
@@ -30,11 +30,12 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.QUEUE_BULL_REDIS_HOST.secretKeyRef.name | string | `"rediscreds"` |  |
 | envValueFrom.QUEUE_BULL_REDIS_PASSWORD.secretKeyRef.key | string | `"redis-password"` |  |
 | envValueFrom.QUEUE_BULL_REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
-| executions | object | `{}` |  |
+| executions | object | `{}` |  N8N_PAYLOAD_SIZE_MAX: 16 N8N_METRICS: false N8N_METRICS_PREFIX: "n8n_" N8N_ENDPOINT_REST: "rest" N8N_ENDPOINT_WEBHOOK: "webhook" N8N_ENDPOINT_WEBHOOK_TEST: "webhook-test" N8N_ENDPOINT_WEBHOOK_WAIT: "webhook-waiting" N8N_DISABLE_PRODUCTION_MAIN_PROCESS: false N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: false |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/n8n"` |  |
-| image.tag | string | `"v0.169.0@sha256:c82c462357e6db043beb88adcd6721d335e18065ad8055484121a928a547f579"` |  |
-| logs.N8N_LOG_FILE_LOCATION | string | `"/data/logs"` |  |
+| image.tag | string | `"v0.170.0@sha256:bd1df50c3319a47bb5323b6d83ee1da50eea5717a4621d15c07ecfc97ab99cd5"` |  |
+| logs | object | `{"N8N_LOG_FILE_LOCATION":"/data/logs"}` |  EXECUTIONS_MODE: "regular" EXECUTIONS_TIMEOUT: "-1" EXECUTIONS_TIMEOUT_MAX: 3600 EXECUTIONS_DATA_SAVE_ON_ERROR: "all" EXECUTIONS_DATA_SAVE_ON_SUCCESS: "all" EXECUTIONS_DATA_SAVE_ON_PROGRESS: false EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: false EXECUTIONS_DATA_PRUNE: false EXECUTIONS_DATA_MAX_AGE: 336 EXECUTIONS_DATA_PRUNE_TIMEOUT: 3600 |
+| logs.N8N_LOG_FILE_LOCATION | string | `"/data/logs"` |  N8N_LOG_OUTPUT: "console" N8N_LOG_FILE_COUNT_MAX: 100 N8N_LOG_FILE_SIZE_MAX: 16 |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | podSecurityContext.fsGroup | int | `1000` |  |
@@ -53,6 +54,6 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5678` |  |
 | service.main.ports.main.targetPort | int | `5678` |  |
-| workflows | object | `{}` |  |
+| workflows | object | `{}` |  N8N_BASIC_AUTH_ACTIVE: false N8N_BASIC_AUTH_USER: "" N8N_BASIC_AUTH_PASSWORD: "" N8N_BASIC_AUTH_HASH: false N8N_JWT_AUTH_ACTIVE: false N8N_JWT_AUTH_HEADER: "" N8N_JWT_AUTH_HEADER_VALUE_PREFIX: "" N8N_JWKS_URI: "" N8N_JWT_ISSUER: "" N8N_JWT_NAMESPACE: "" N8N_JWT_ALLOWED_TENANT: "" N8N_JWT_ALLOWED_TENANT_KEY: "" |
 
 All Rights Reserved - The TrueCharts Project

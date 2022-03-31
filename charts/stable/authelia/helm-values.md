@@ -63,7 +63,7 @@ You will, however, be able to use all values referenced in the common chart here
 | identity_providers.oidc.refresh_token_lifespan | string | `"90m"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/authelia"` |  |
-| image.tag | string | `"v4.34.5@sha256:a42e81ed7a4f1714777e90602e62ae76fd8369c90240a3d0c7456cdf67ea6936"` |  |
+| image.tag | string | `"v4.34.6@sha256:a05f37c57e8f73a1c1421c3c184585fae9a9b191e9d07e3dd1986f40fcf9e901"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
 | notifier.disable_startup_check | bool | `false` |  |
@@ -97,8 +97,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.type | string | `"HTTP"` |  |
 | probes.startup.path | string | `"/api/health"` |  |
 | probes.startup.type | string | `"HTTP"` |  |
-| redis.enabled | bool | `true` |  |
-| redis.existingSecret | string | `"rediscreds"` |  |
+| redis | object | `{"enabled":true,"existingSecret":"rediscreds"}` |  ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis |
 | redisProvider.database_index | int | `0` |  |
 | redisProvider.high_availability.enabled | bool | `false` |  |
 | redisProvider.high_availability.enabledSecret | bool | `false` |  |
@@ -113,12 +112,12 @@ You will, however, be able to use all values referenced in the common chart here
 | redisProvider.tls.minimum_version | string | `"TLS1.2"` |  |
 | redisProvider.tls.server_name | string | `""` |  |
 | redisProvider.tls.skip_verify | bool | `false` |  |
-| redisProvider.username | string | `""` |  |
+| redisProvider.username | string | `""` |  username: authelia |
 | regulation.ban_time | string | `"5m"` |  |
 | regulation.find_time | string | `"2m"` |  |
 | regulation.max_retries | int | `3` |  |
 | resources.limits | object | `{}` |  |
-| resources.requests | object | `{}` |  |
+| resources.requests | object | `{}` |    cpu: "4.00"   memory: 125Mi |
 | server.path | string | `""` |  |
 | server.port | int | `9091` |  |
 | server.read_buffer_size | int | `4096` |  |

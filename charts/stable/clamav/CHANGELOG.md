@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="clamav-2.1.4"></a>
+### [clamav-2.1.4](https://github.com/truecharts/apps/compare/clamav-2.1.3...clamav-2.1.4) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="clamav-2.1.3"></a>
+### [clamav-2.1.3](https://github.com/truecharts/apps/compare/clamav-2.1.2...clamav-2.1.3) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="clamav-2.1.2"></a>
+### [clamav-2.1.2](https://github.com/truecharts/apps/compare/clamav-2.1.1...clamav-2.1.2) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2349](https://github.com/truecharts/apps/issues/2349))
+
+
+
+<a name="clamav-2.1.1"></a>
+### [clamav-2.1.1](https://github.com/truecharts/apps/compare/clamav-2.1.0...clamav-2.1.1) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="clamav-2.1.0"></a>
 ### [clamav-2.1.0](https://github.com/truecharts/apps/compare/clamav-2.0.7...clamav-2.1.0) (2022-03-26)
 

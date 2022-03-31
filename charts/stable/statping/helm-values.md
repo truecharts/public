@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DESCRIPTION | string | `"This is a Statping instance deployed as Helm chart"` | Description of the Statping instance |
 | env.DISABLE_LOGS | bool | `false` | Disable logs from appearing and writing to disk |
-| env.NAME | string | `"Statping Example"` | Name of the Statping instance |
+| env.NAME | string | `"Statping Example"` | Set the container timezone -- Name of the Statping instance |
 | env.POSTGRES_SSLMODE | string | `"disable"` |  |
 | env.USE_CDN | bool | `false` | Use CDN for static context from third-parties |
 | env.VIRTUAL_HOST | string | `""` | External URL you use to connect to the statping (the one you enter in your browser) |

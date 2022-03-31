@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.16"></a>
+### [tt-rss-5.0.16](https://github.com/truecharts/apps/compare/tt-rss-5.0.15...tt-rss-5.0.16) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="tt-rss-5.0.15"></a>
+### [tt-rss-5.0.15](https://github.com/truecharts/apps/compare/tt-rss-5.0.14...tt-rss-5.0.15) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="tt-rss-5.0.14"></a>
+### [tt-rss-5.0.14](https://github.com/truecharts/apps/compare/tt-rss-5.0.13...tt-rss-5.0.14) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="tt-rss-5.0.13"></a>
+### [tt-rss-5.0.13](https://github.com/truecharts/apps/compare/tt-rss-5.0.12...tt-rss-5.0.13) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="tt-rss-5.0.12"></a>
 ### [tt-rss-5.0.12](https://github.com/truecharts/apps/compare/tt-rss-5.0.11...tt-rss-5.0.12) (2022-03-28)
 

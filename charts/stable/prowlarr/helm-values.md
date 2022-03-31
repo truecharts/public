@@ -14,10 +14,10 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/prowlarr"` | image repository |
-| image.tag | string | `"v0.2.0.1617@sha256:54f8ce9e343c8a183d135aa56b2b2198a8802cc0db1e2405dd92c6149428ea25"` | image tag |
+| image.tag | string | `"v0.2.0.1628@sha256:5b668f910de45e0dcf64e8cd902842919e6ef22189a6a179b6b729f939747210"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

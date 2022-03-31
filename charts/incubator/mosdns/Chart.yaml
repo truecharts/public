@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: mosdns
+version: 0.0.2
+appVersion: "3.5.2"
+description: A location-based pluggable DNS forwarder/splitter.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/mosdns
+icon: https://truecharts.org/_static/img/appicons/mosdns.png
+keywords:
+  - mosdns
+  - dns
+sources:
+  - https://hub.docker.com/r/601096721/mosdns
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

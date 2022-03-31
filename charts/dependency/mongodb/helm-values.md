@@ -27,13 +27,13 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/mongodb"` |  |
-| image.tag | string | `"v5.0.6@sha256:c2c4d2883d1c90032e5990229a558d13ff1a0ab1854901442e0bb44a0e9b899c"` |  |
+| image.tag | string | `"v5.0.6@sha256:cf0b4ed307d1dd99646f940e87abee73d7d78cc1bb8b151ec3afe0b0221fbb9f"` |  |
 | mongodbDatabase | string | `"test"` |  |
 | mongodbPassword | string | `"testpass"` |  |
 | mongodbRootPassword | string | `"testroot"` |  |
 | mongodbUsername | string | `"test"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
-| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |

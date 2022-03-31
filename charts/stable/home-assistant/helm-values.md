@@ -11,16 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| git.deployKey | string | `""` |  |
-| git.deployKeyBase64 | string | `""` |  |
+| git | object | `{"deployKey":"","deployKeyBase64":""}` |  hostNetwork: true # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet dnsPolicy: ClusterFirstWithHostNet Allow access a Git repository by passing in a private SSH key |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/home-assistant"` |  |
-| image.tag | string | `"v2022.3.7@sha256:410f020210cc2bc0c279f82cf765647a7b1a99ffe8bd59150b6baaa762386d46"` |  |
-| influxdb.architecture | string | `"standalone"` |  |
-| influxdb.authEnabled | bool | `false` |  |
-| influxdb.database | string | `"home_assistant"` |  |
-| influxdb.enabled | bool | `false` |  |
-| influxdb.persistence.enabled | bool | `false` |  |
+| image.tag | string | `"v2022.3.8@sha256:404205528a5f76255381cc04e89849796e25028205d494b664088e9e22054b66"` |  |
+| influxdb | object | `{"architecture":"standalone","authEnabled":false,"database":"home_assistant","enabled":false,"persistence":{"enabled":false}}` |  ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/influxdb |
 | initContainers.init.command[0] | string | `"/config/init/init.sh"` |  |
 | initContainers.init.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | initContainers.init.volumeMounts[0].mountPath | string | `"/config/init"` |  |

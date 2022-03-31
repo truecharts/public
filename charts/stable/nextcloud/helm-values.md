@@ -29,7 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nextcloud"` |  |
-| image.tag | string | `"v23.0.3@sha256:00d4d935dbb96e30b3927f73f91616b09cb67e951b95ec798aa5c58fb4c967c2"` |  |
+| image.tag | string | `"v23.0.3@sha256:c8d8684edb42934ffc0140dc71bb97d4d0f691d5823a662a777898141e4c0827"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |

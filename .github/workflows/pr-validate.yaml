@@ -1,0 +1,57 @@
+name: "Pull Request: Validate"
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.head_ref }}-pr-validate
+  # cancel-in-progress: true
+
+jobs:
+  pr-metadata:
+    uses: ./.github/workflows/pr-metadata.yaml
+
+  pre-commit-check:
+    uses: truecharts/.github/.github/workflows/pre-commit-check.yaml@main
+    needs:
+      - pr-metadata
+    with:
+      modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
+
+  #charts-changelog:
+  #  uses: ./.github/workflows/charts-changelog.yaml
+  #  needs:
+  #    - pr-metadata
+  #    - pre-commit-check
+  #  with:
+  #    isRenovatePR: ${{ needs.pr-metadata.outputs.isRenovatePR }}
+  #    modifiedCharts: ${{ needs.pr-metadata.outputs.addedOrModifiedCharts }}
+
+  charts-lint:
+    uses: ./.github/workflows/charts-lint.yaml
+    needs:
+      - pr-metadata
+    #  - charts-changelog
+    with:
+      checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
+      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+
+  charts-test:
+    uses: ./.github/workflows/charts-test.yaml
+    needs:
+      - pr-metadata
+    #  - charts-changelog
+      - charts-lint
+    with:
+      checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
+      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+
+  catalog-test:
+    uses: ./.github/workflows/catalog-test.yaml
+    needs:
+      - pr-metadata
+    #  - charts-changelog
+      - charts-lint
+    with:
+      checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
+      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}

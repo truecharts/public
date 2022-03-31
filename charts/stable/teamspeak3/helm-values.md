@@ -14,23 +14,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TS3SERVER_LICENSE | string | `"accept"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/teamspeak"` |  |
-| image.tag | string | `"v3.13.6@sha256:5de10cc5953c908ca92fb7662f16b9a88e8dd6b2f7d54705f2126df0bd595688"` |  |
+| image.tag | string | `"v3.13.6@sha256:0f90dc90bd7ae2408f0073287e64e8b2160b33f598ecd3298ef9fb9f98e01ca8"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/ts3server"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.files.enabled | bool | `true` |  |
-| service.files.ports.files.enabled | bool | `true` |  |
-| service.files.ports.files.port | int | `30033` |  |
-| service.files.ports.files.targetPort | int | `30033` |  |
-| service.main.ports.main.port | int | `10011` |  |
-| service.main.ports.main.targetPort | int | `10011` |  |
-| service.voice.enabled | bool | `true` |  |
-| service.voice.ports.voice.enabled | bool | `true` |  |
-| service.voice.ports.voice.port | int | `9987` |  |
-| service.voice.ports.voice.protocol | string | `"UDP"` |  |
-| service.voice.ports.voice.targetPort | int | `9987` |  |
+| service | object | `{"files":{"enabled":true,"ports":{"files":{"enabled":true,"port":30033,"targetPort":30033}}},"main":{"ports":{"main":{"port":10011,"targetPort":10011}}},"voice":{"enabled":true,"ports":{"voice":{"enabled":true,"port":9987,"protocol":"UDP","targetPort":9987}}}}` |  10011 server query 30033 file transport |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,0 +1,120 @@
+name: "Charts: Release"
+
+concurrency: helm-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "charts/**"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.2.1@sha256:4ace13c049bf00f85c63e0070f86b71656a7c3b2113aa3e21c3107f3d1f7bf87
+    concurrency: gitpush
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/dh_catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: dh_catalog
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - name: Install helm-docs
+        run: |
+          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
+          sudo dpkg -i /tmp/helm-docs.deb
+
+      - name: Collect changes
+        id: collect-changes
+        uses: ./.github/actions/collect-changes
+
+      - name: Generate README for changed charts
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+         # To be done, we should splitreadme generation from catalog generation
+         #  chart_runner(){
+         #      IFS='/' read -r -a chart_parts <<< "${1}"
+         #      if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+         #        ./.github/scripts/gen-helm-docs.sh "${chart_parts[0]}" "${chart_parts[1]}"
+         #      fi
+         #  }
+         #  export -f chart_runner
+         #  CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+         #  parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
+
+      - name: build catalogs and docs
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          pip install yq
+          tools/build-release.sh -p
+        env:
+          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: Create commit
+        id: create-commit
+        uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
+        with:
+          file_pattern: charts/**/
+          commit_message: "chore: Auto-update chart README [skip ci]"
+          commit_user_name: truecharts-bot
+          commit_user_email: bot@truecharts.org
+          commit_author: truecharts-bot <bot@truecharts.org>
+
+      - name: Save commit hash
+        id: save-commit-hash
+        run: |
+          if [ "${{ steps.create-commit.outputs.changes_detected || 'unknown' }}" = "true" ]; then
+            echo '::set-output name=commit_hash::${{ steps.create-commit.outputs.commit_hash }}'
+          else
+            echo "::set-output name=commit_hash::${GITHUB_SHA}"
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "truecharts-bot"
+          git config user.email "bot@truecharts.org"
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@62088055651dab7087de02051b5601b15e3772a0 # tag=v1.3.0
+        with:
+          charts_dir: charts/*
+          charts_repo_url: https://charts.truecharts.org
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"

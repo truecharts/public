@@ -1,20 +1,46 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 240s
+helm-extra-args: --timeout 600s
 chart-yaml-schema: .github/chart_schema.yaml
+chart-dirs:
+- charts/incubator
+- charts/stable
+- charts/dependency
+- charts/core
+- charts/dev
+- charts/games
+- charts/enterprise
 excluded-charts:
-#- alertmanager-bot
+- charts/incubator/sdtd
+- charts/stable/alertmanager-bot
+- charts/stable/alertmanager-discord
+- charts/stable/amcrest2mqtt
+- charts/stable/facebox
+- charts/stable/foundryvtt
+- charts/stable/heimdall
+- charts/stable/multus
+- charts/stable/pod-gateway
+- charts/stable/promcord
+- charts/stable/reg
+- charts/stable/ser2sock
+- charts/stable/zalando-postgres-cluster
+- charts/stable/zigbee2mqtt
+- charts/stable/wireguard
+- charts/stable/alertmanager-bot
 - charts/incubator/amcrest2mqtt
 - charts/library/common
-#- foundryvtt
-- promcord
+- charts/stable/foundryvtt
+- charts/stable/promcord
 - charts/incubator/zigbee2mqtt
 chart-repos:
-- truecharts=https://truecharts.org
+- truecharts-old=https://truecharts.org
+- truecharts=https://charts.truecharts.org
+- truecharts-library=https://library-charts.truecharts.org
 - bitnami=https://charts.bitnami.com/bitnami
 - amd-gpu-helm=https://radeonopencompute.github.io/k8s-device-plugin/
-- truecharts-library=https://library-charts.truecharts.org
 - metallb=https://metallb.github.io/metallb
 - grafana=https://grafana.github.io/helm-charts
 - prometheus=https://prometheus-community.github.io/helm-charts
-SkipExisting: true
+- k8s-at-home-libraries=https://library-charts.k8s-at-home.com
+- k8s-at-home=https://k8s-at-home.com/charts
+- jetstack=https://charts.jetstack.io

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="piwigo-2.0.8"></a>
+### [piwigo-2.0.8](https://github.com/truecharts/apps/compare/piwigo-2.0.7...piwigo-2.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="piwigo-2.0.7"></a>
+### [piwigo-2.0.7](https://github.com/truecharts/apps/compare/piwigo-2.0.6...piwigo-2.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="piwigo-2.0.6"></a>
 ### [piwigo-2.0.6](https://github.com/truecharts/apps/compare/piwigo-2.0.5...piwigo-2.0.6) (2022-03-26)
 

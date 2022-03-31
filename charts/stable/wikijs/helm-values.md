@@ -22,9 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/wikijs"` |  |
 | image.tag | string | `"v2.5.276@sha256:5caedcd71492d09be8272d754eb93c7b3eabfc8db30cf71ff00b2fd809549954"` |  |
-| persistence.wikicache.enabled | bool | `true` |  |
-| persistence.wikicache.mountPath | string | `"/wiki/data/"` |  |
-| persistence.wikicache.type | string | `"emptyDir"` |  |
+| persistence | object | `{"wikicache":{"enabled":true,"mountPath":"/wiki/data/","type":"emptyDir"}}` |  https://docs.requarks.io/en/install/config#data-paths |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"wikijs"` |  |

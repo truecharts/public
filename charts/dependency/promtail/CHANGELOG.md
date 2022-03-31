@@ -1,6 +1,52 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.16"></a>
+### [promtail-2.0.16](https://github.com/truecharts/apps/compare/promtail-2.0.15...promtail-2.0.16) (2022-03-31)
+
+#### Chore
+
+* update helm chart common to v9.2.6 ([#2358](https://github.com/truecharts/apps/issues/2358))
+
+
+
+<a name="promtail-2.0.15"></a>
+### [promtail-2.0.15](https://github.com/truecharts/apps/compare/promtail-2.0.14...promtail-2.0.15) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
+<a name="promtail-2.0.14"></a>
+### [promtail-2.0.14](https://github.com/truecharts/apps/compare/promtail-2.0.13...promtail-2.0.14) (2022-03-30)
+
+#### Chore
+
+* update helm chart common to v9.2.4 ([#2352](https://github.com/truecharts/apps/issues/2352))
+
+
+
+<a name="promtail-2.0.12"></a>
+### [promtail-2.0.12](https://github.com/truecharts/apps/compare/promtail-2.0.11...promtail-2.0.12) (2022-03-29)
+
+
+
+<a name="promtail-2.0.9"></a>
+### [promtail-2.0.9](https://github.com/truecharts/apps/compare/promtail-2.0.8...promtail-2.0.9) (2022-03-29)
+
+
+
+<a name="promtail-2.0.8"></a>
+### [promtail-2.0.8](https://github.com/truecharts/apps/compare/promtail-2.0.7...promtail-2.0.8) (2022-03-29)
+
+#### Fix
+
+* try to push dependencies to new helm repo ([#2336](https://github.com/truecharts/apps/issues/2336))
+
+
+
 <a name="promtail-2.0.7"></a>
 ### [promtail-2.0.7](https://github.com/truecharts/apps/compare/promtail-2.0.6...promtail-2.0.7) (2022-03-29)
 

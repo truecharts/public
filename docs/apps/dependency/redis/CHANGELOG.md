@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.18"></a>
+### [redis-2.0.18](https://github.com/truecharts/apps/compare/redis-2.0.17...redis-2.0.18) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
+<a name="redis-2.0.17"></a>
+### [redis-2.0.17](https://github.com/truecharts/apps/compare/redis-2.0.15...redis-2.0.17) (2022-03-29)
+
+
+
+<a name="redis-2.0.14"></a>
+### [redis-2.0.14](https://github.com/truecharts/apps/compare/redis-2.0.13...redis-2.0.14) (2022-03-29)
+
+
+
+<a name="redis-2.0.13"></a>
+### [redis-2.0.13](https://github.com/truecharts/apps/compare/redis-2.0.12...redis-2.0.13) (2022-03-29)
+
+#### Fix
+
+* try to push dependencies to new helm repo ([#2336](https://github.com/truecharts/apps/issues/2336))
+
+
+
 <a name="redis-2.0.12"></a>
 ### [redis-2.0.12](https://github.com/truecharts/apps/compare/redis-2.0.11...redis-2.0.12) (2022-03-29)
 

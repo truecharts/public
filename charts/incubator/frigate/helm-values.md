@@ -13,11 +13,11 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | frigate.birdseye.enabled | bool | `true` |  |
 | frigate.birdseye.mode | string | `"motion"` |  |
-| frigate.cameras[0].best_image_timeout | int | `60` |  |
+| frigate.cameras[0].best_image_timeout | int | `60` |  to be replaced by a newer image. (default: shown below) |
 | frigate.cameras[0].detect.height | int | `720` |  |
 | frigate.cameras[0].detect.width | int | `1280` |  |
-| frigate.cameras[0].inputs[0].path | string | `"rtsp://username:password@highres.url"` |  |
-| frigate.cameras[0].inputs[0].roles[0] | string | `"record"` |  |
+| frigate.cameras[0].inputs[0] | object | `{"path":"rtsp://username:password@highres.url","roles":["record"]}` |  NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {} |
+| frigate.cameras[0].inputs[0].roles | list | `["record"]` |  NOTICE: In addition to assigning the record, and rtmp roles, they must also be enabled in the camera config. |
 | frigate.cameras[0].inputs[1].path | string | `"rtsp://username:password@lowres.url"` |  |
 | frigate.cameras[0].inputs[1].roles[0] | string | `"detect"` |  |
 | frigate.cameras[0].inputs[1].roles[1] | string | `"rtmp"` |  |

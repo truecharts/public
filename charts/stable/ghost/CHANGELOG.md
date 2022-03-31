@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.17"></a>
+### [ghost-1.0.17](https://github.com/truecharts/apps/compare/ghost-1.0.16...ghost-1.0.17) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="ghost-1.0.16"></a>
+### [ghost-1.0.16](https://github.com/truecharts/apps/compare/ghost-1.0.15...ghost-1.0.16) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="ghost-1.0.15"></a>
+### [ghost-1.0.15](https://github.com/truecharts/apps/compare/ghost-1.0.14...ghost-1.0.15) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="ghost-1.0.14"></a>
 ### [ghost-1.0.14](https://github.com/truecharts/apps/compare/ghost-1.0.13...ghost-1.0.14) (2022-03-27)
 

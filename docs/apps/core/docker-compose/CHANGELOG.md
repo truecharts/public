@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-1.0.10"></a>
+### [docker-compose-1.0.10](https://github.com/truecharts/apps/compare/docker-compose-1.0.9...docker-compose-1.0.10) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="docker-compose-1.0.9"></a>
 ### [docker-compose-1.0.9](https://github.com/truecharts/apps/compare/docker-compose-1.0.8...docker-compose-1.0.9) (2022-03-26)
 

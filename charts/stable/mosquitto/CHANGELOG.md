@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="mosquitto-5.0.15"></a>
+### [mosquitto-5.0.15](https://github.com/truecharts/apps/compare/mosquitto-5.0.14...mosquitto-5.0.15) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="mosquitto-5.0.14"></a>
+### [mosquitto-5.0.14](https://github.com/truecharts/apps/compare/mosquitto-5.0.13...mosquitto-5.0.14) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="mosquitto-5.0.13"></a>
+### [mosquitto-5.0.13](https://github.com/truecharts/apps/compare/mosquitto-5.0.12...mosquitto-5.0.13) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2349](https://github.com/truecharts/apps/issues/2349))
+
+
+
+<a name="mosquitto-5.0.12"></a>
+### [mosquitto-5.0.12](https://github.com/truecharts/apps/compare/mosquitto-5.0.11...mosquitto-5.0.12) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="mosquitto-5.0.11"></a>
 ### [mosquitto-5.0.11](https://github.com/truecharts/apps/compare/mosquitto-5.0.10...mosquitto-5.0.11) (2022-03-26)
 

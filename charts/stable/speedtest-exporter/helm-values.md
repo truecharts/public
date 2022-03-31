@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. See [application docs](https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/speedtest-exporter"` | image repository |
-| image.tag | string | `"v3.4.2"` | image tag |
+| image.tag | string | `"v3.4.3"` | image tag |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.downloadLimit | int | `400` | Download speed you want alerts to be triggered in Mbps |
@@ -25,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | metrics.serviceMonitor.interval | string | `"60m"` | The interval field must use minutes for the padding to calculate properly. |
 | metrics.serviceMonitor.labels | object | `{}` |  |
 | metrics.serviceMonitor.scrapeTimeout | string | `"1m"` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext | object | `{"readOnlyRootFilesystem":false}` | Set the container timezone |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

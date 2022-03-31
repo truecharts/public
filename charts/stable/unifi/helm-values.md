@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unifi"` |  |
-| image.tag | string | `"v7.0.23@sha256:3efebda4cef8e75b97689b57d8d8797413b9e765e77c0d339fa68ebdf5434873"` |  |
+| image.tag | string | `"v7.0.25@sha256:7e7779fccbfe6930d4feaed7671b369fd6b65d561903d3eecec302ca68a9ee80"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
 | podSecurityContext.runAsGroup | int | `999` |  |

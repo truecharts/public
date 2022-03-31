@@ -11,16 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.DB_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| env.DB_ENGINE | string | `"pdo_pgsql"` |  |
-| env.DB_PORT | string | `"5432"` |  |
-| env.DB_SCHEMA | string | `"public"` |  |
-| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| env.SPOTWEB_FIRSTNAME | string | `"demo"` |  |
-| env.SPOTWEB_LASTNAME | string | `"spotweb"` |  |
-| env.SPOTWEB_MAIL | string | `"demo@spotweb.com"` |  |
-| env.SPOTWEB_RETRIEVE | string | `"15min"` |  |
-| env.SPOTWEB_SYSTEMTYPE | string | `"single"` |  |
+| env | object | `{"DB_DATABASE":"{{ .Values.postgresql.postgresqlDatabase }}","DB_ENGINE":"pdo_pgsql","DB_PORT":"5432","DB_SCHEMA":"public","DB_USER":"{{ .Values.postgresql.postgresqlUsername }}","SPOTWEB_FIRSTNAME":"demo","SPOTWEB_LASTNAME":"spotweb","SPOTWEB_MAIL":"demo@spotweb.com","SPOTWEB_RETRIEVE":"15min","SPOTWEB_SYSTEMTYPE":"single"}` |  https://hub.docker.com/r/jgeusebroek/spotweb |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

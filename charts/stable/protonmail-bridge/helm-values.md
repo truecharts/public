@@ -20,6 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

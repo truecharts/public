@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-5.0.7"></a>
+### [xteve-5.0.7](https://github.com/truecharts/apps/compare/xteve-5.0.6...xteve-5.0.7) (2022-03-30)
+
+#### Fix
+
+* Fix webui path ([#2341](https://github.com/truecharts/apps/issues/2341))
+
+
+
 <a name="xteve-5.0.6"></a>
 ### [xteve-5.0.6](https://github.com/truecharts/apps/compare/xteve-5.0.5...xteve-5.0.6) (2022-03-26)
 

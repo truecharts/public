@@ -11,10 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| cronjob.annotations | object | `{}` |  |
-| cronjob.failedJobsHistoryLimit | int | `5` |  |
-| cronjob.schedule | string | `"*/15 * * * *"` |  |
-| cronjob.successfulJobsHistoryLimit | int | `2` |  |
+| cronjob | object | `{"annotations":{},"failedJobsHistoryLimit":5,"schedule":"*/15 * * * *","successfulJobsHistoryLimit":2}` |  It just checks for dead links and sends a request to WayBack Machine to archive. |
 | env.APP_DEBUG | bool | `false` |  |
 | env.APP_ENV | string | `"production"` |  |
 | env.APP_NAME | string | `"LinkAce"` |  |

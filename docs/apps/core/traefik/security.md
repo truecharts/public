@@ -68,7 +68,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/traefik:v2.6.2@sha256:e6ea25601aa31e3761d205867acd72bdacdf7911b39b2e2f746048a822a70b86
+          tccr.io/truecharts/traefik:v2.6.2@sha256:ffccf087a71262da67f6c2f68d28d33f3637367eba4214ef4802d95df6c36e44
 
 ##### Scan Results
 
@@ -79,10 +79,9 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
@@ -91,21 +90,21 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| zlib         |    CVE-2018-25032   |   MEDIUM  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
-
-
-#### Container: tccr.io/truecharts/traefik:v2.6.2@sha256:e6ea25601aa31e3761d205867acd72bdacdf7911b39b2e2f746048a822a70b86 (alpine 3.14.4)
+#### Container: tccr.io/truecharts/traefik:v2.6.2@sha256:ffccf087a71262da67f6c2f68d28d33f3637367eba4214ef4802d95df6c36e44 (alpine 3.14.5)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libretls         |    CVE-2022-0778   |   HIGH  |  3.3.3p1-r2 | 3.3.3p1-r3 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0778</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3118eb64934499d93db3230748a452351d1d9a65</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=380085481c64de749a6dd25cdf0bcf4360b30f83</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=a466912611aa6cbdf550cd10601390e587451246</a><br><a href="https://linux.oracle.com/cve/CVE-2022-0778.html">https://linux.oracle.com/cve/CVE-2022-0778.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9246.html">https://linux.oracle.com/errata/ELSA-2022-9246.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00023.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00024.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GDB3GQVJPXJE7X5C5JN6JAA4XUDWD6E6/</a><br><a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002">https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2022-0002</a><br><a href="https://security.netapp.com/advisory/ntap-20220321-0002/">https://security.netapp.com/advisory/ntap-20220321-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5328-1">https://ubuntu.com/security/notices/USN-5328-1</a><br><a href="https://ubuntu.com/security/notices/USN-5328-2">https://ubuntu.com/security/notices/USN-5328-2</a><br><a href="https://www.debian.org/security/2022/dsa-5103">https://www.debian.org/security/2022/dsa-5103</a><br><a href="https://www.openssl.org/news/secadv/20220315.txt">https://www.openssl.org/news/secadv/20220315.txt</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **gobinary**
 
@@ -113,4 +112,5 @@ hide:
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/docker/distribution         |    GMS-2022-20   |   UNKNOWN  |  v2.7.1+incompatible | v2.8.0 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-qq97-vm5h-rrhg">https://github.com/advisories/GHSA-qq97-vm5h-rrhg</a><br><a href="https://github.com/distribution/distribution/commit/b59a6f827947f9e0e67df0cfb571046de4733586">https://github.com/distribution/distribution/commit/b59a6f827947f9e0e67df0cfb571046de4733586</a><br><a href="https://github.com/distribution/distribution/security/advisories/GHSA-qq97-vm5h-rrhg">https://github.com/distribution/distribution/security/advisories/GHSA-qq97-vm5h-rrhg</a><br><a href="https://github.com/opencontainers/image-spec/pull/411">https://github.com/opencontainers/image-spec/pull/411</a><br></details>  |
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
+| github.com/hashicorp/consul         |    CVE-2022-24687   |   MEDIUM  |  v1.10.4 | 1.9.15, 1.10.8, 1.11.3 | <details><summary>Expand...</summary><a href="https://discuss.hashicorp.com">https://discuss.hashicorp.com</a><br><a href="https://discuss.hashicorp.com/t/hcsec-2022-05-consul-ingress-gateway-panic-can-shutdown-servers/">https://discuss.hashicorp.com/t/hcsec-2022-05-consul-ingress-gateway-panic-can-shutdown-servers/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24687">https://nvd.nist.gov/vuln/detail/CVE-2022-24687</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |

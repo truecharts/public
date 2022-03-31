@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-1.0.8"></a>
+### [nntp2nntp-1.0.8](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.7...nntp2nntp-1.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="nntp2nntp-1.0.7"></a>
+### [nntp2nntp-1.0.7](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.6...nntp2nntp-1.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="nntp2nntp-1.0.6"></a>
 ### [nntp2nntp-1.0.6](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.5...nntp2nntp-1.0.6) (2022-03-26)
 

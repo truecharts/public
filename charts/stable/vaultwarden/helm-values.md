@@ -35,20 +35,20 @@ You will, however, be able to use all values referenced in the common chart here
 | service.ws.ports.ws.targetPort | int | `3012` |  |
 | vaultwarden.admin.disableAdminToken | bool | `false` |  |
 | vaultwarden.admin.enabled | bool | `false` |  |
-| vaultwarden.allowInvitation | bool | `true` |  |
+| vaultwarden.allowInvitation | bool | `true` |  emailAttempts: 3 emailTokenExpiration: 600 Allow invited users to sign-up even feature is disabled: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-invitations |
 | vaultwarden.allowSignups | bool | `true` |  |
 | vaultwarden.enableWebVault | bool | `true` |  |
-| vaultwarden.enableWebsockets | bool | `true` |  |
+| vaultwarden.enableWebsockets | bool | `true` |  Redirect HTTP path "/notifications/hub" to port 3012. Ingress/IngressRoute controllers are automatically configured. |
 | vaultwarden.icons.disableDownload | bool | `false` |  |
 | vaultwarden.log.file | string | `""` |  |
 | vaultwarden.log.level | string | `"trace"` |  |
 | vaultwarden.orgCreationUsers | string | `"all"` |  |
 | vaultwarden.requireEmail | bool | `false` |  |
-| vaultwarden.showPasswordHint | bool | `true` |  |
+| vaultwarden.showPasswordHint | bool | `true` |  defaultInviteName: "" |
 | vaultwarden.smtp.enabled | bool | `false` |  |
 | vaultwarden.smtp.from | string | `""` |  |
 | vaultwarden.smtp.host | string | `""` |  |
-| vaultwarden.verifySignup | bool | `false` |  |
+| vaultwarden.verifySignup | bool | `false` |  signupDomains:  - domain.tld Verify e-mail before login is enabled. SMTP must be enabled. |
 | vaultwarden.yubico.enabled | bool | `false` |  |
 
 All Rights Reserved - The TrueCharts Project

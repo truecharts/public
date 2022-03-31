@@ -34,7 +34,7 @@ main() {
 
     parse_command_line "$@"
     if [ "${token}" == "false" ]; then
-        echo "env #cr_TOKEN not found, defaulting to production=false"
+        echo "env #CR_TOKEN not found, defaulting to production=false"
         production="false"
     fi
 
@@ -49,34 +49,20 @@ main() {
     echo "Discovering changed charts since '$latest_tag'..."
     local changed_charts=()
     readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-    copy_general_docs
+    # copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
-
-        rm -rf .cr-release-packages
-        mkdir -p .cr-release-packages
-
-        rm -rf .cr-index
-        mkdir -p .cr-index
 
         prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
-        if [ "${production}" == "true" ]; then
-          gen_dh_cat
-          release_charts
-          update_index
-        fi
-        for chart in "${changed_charts[@]}"; do
-            if [[ -d "$chart" ]]; then
-                chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                train=$(basename $(dirname "$chart"))
-                edit_release "$chart" "$chartname" "$train" "$chartversion"
-            fi
-        done
         validate_catalog
+        if [ "${production}" == "true" ]; then
+        gen_dh_cat
+        upload_catalog
+        upload_dhcatalog
+        fi
     else
         echo "Nothing to do. No chart changes detected."
     fi
@@ -98,8 +84,8 @@ chart_runner(){
       sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
       create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
       generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
-      copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
-      package_chart "${1}"
+      #copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
+      #package_chart "${1}"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
         clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
         copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
@@ -375,16 +361,6 @@ pre_commit() {
     }
     export -f pre_commit
 
-edit_release() {
-    local chart="$1"
-    local chartname="$2"
-    local train="$3"
-    local chartversion="$4"
-    # In here we can in the future add code to edit the release notes of the github releases
-    # For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
-    }
-    export -f edit_release
-
 create_changelog() {
     local chart="$1"
     local chartname="$2"
@@ -491,7 +467,8 @@ copy_docs() {
 
 prep_helm() {
     if [[ -z "$standalone" ]]; then
-    helm repo add truecharts https://truecharts.org
+    helm repo add truecharts-old https://truecharts.org
+    helm repo add truecharts https://charts.truecharts.org
     helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo add metallb https://metallb.github.io/metallb
@@ -561,6 +538,33 @@ validate_catalog() {
     fi
 }
 export -f validate_catalog
+
+upload_catalog() {
+    echo "Uploading Catalog..."
+    cd catalog
+    git config user.name "TrueCharts-Bot"
+    git config user.email "bot@truecharts.org"
+    git add --all
+    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git push
+    cd -
+    rm -rf catalog
+}
+export -f upload_catalog
+
+upload_dhcatalog() {
+    echo "Uploading DH-Catalog..."
+    cd dh_catalog
+    git config user.name "TrueCharts-Bot"
+    git config user.email "bot@truecharts.org"
+    git add --all
+    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git push
+    cd -
+    rm -rf dh_catalog
+}
+export -f upload_dhcatalog
+
 
 
 parse_command_line() {
@@ -732,5 +736,17 @@ update_index() {
     fi
 }
 export -f update_index
+
+upload_index() {
+  cd .cr-index
+  git config user.name "TrueCharts-Bot"
+  git config user.email "bot@truecharts.org"
+  git add --all
+  git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+  git push
+  cd -
+  rm -rf .cr-index
+}
+export -f upload_index
 
 main "$@"

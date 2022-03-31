@@ -50,24 +50,24 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `10158` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
-| weblate.auth.azure | object | `{}` |  |
-| weblate.auth.azuretenant | object | `{}` |  |
-| weblate.auth.bitbucket | object | `{}` |  |
-| weblate.auth.facebook | object | `{}` |  |
-| weblate.auth.github | object | `{}` |  |
-| weblate.auth.gitlab | object | `{}` |  |
-| weblate.auth.google | object | `{}` |  |
-| weblate.auth.keycloak | object | `{}` |  |
-| weblate.auth.ldap | object | `{}` |  |
-| weblate.auth.linux | object | `{}` |  |
-| weblate.auth.saml | object | `{}` |  |
-| weblate.auth.slack | object | `{}` |  |
+| weblate.auth | object | `{"azure":{},"azuretenant":{},"bitbucket":{},"facebook":{},"github":{},"gitlab":{},"google":{},"keycloak":{},"ldap":{},"linux":{},"saml":{},"slack":{}}` |  WEBLATE_MT_AWS_REGION: "" WEBLATE_MT_AWS_ACCESS_KEY_ID: "" WEBLATE_MT_AWS_SECRET_ACCESS_KEY: "" WEBLATE_MT_DEEPL_KEY: "" WEBLATE_MT_DEEPL_API_URL: "" WEBLATE_MT_LIBRETRANSLATE_KEY: "" WEBLATE_MT_LIBRETRANSLATE_API_URL: "" WEBLATE_MT_GOOGLE_KEY: "" WEBLATE_MT_GOOGLE_CREDENTIALS: "" WEBLATE_MT_GOOGLE_PROJECT: "" WEBLATE_MT_GOOGLE_LOCATION: "" WEBLATE_MT_MICROSOFT_COGNITIVE_KEY: "" WEBLATE_MT_MICROSOFT_ENDPOINT_URL: "" WEBLATE_MT_MICROSOFT_REGION: "" WEBLATE_MT_MICROSOFT_BASE_URL: "" WEBLATE_MT_MODERNMT_KEY: "" WEBLATE_MT_MYMEMORY_ENABLED: false WEBLATE_MT_GLOSBE_ENABLED: false WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: false WEBLATE_MT_SAP_BASE_URL: "" WEBLATE_MT_SAP_SANDBOX_APIKEY: "" WEBLATE_MT_SAP_USERNAME: "" WEBLATE_MT_SAP_PASSWORD: "" WEBLATE_MT_SAP_USE_MT: false |
+| weblate.auth.azure | object | `{}` |  WEBLATE_SOCIAL_AUTH_GITLAB_SECRET: "" WEBLATE_SOCIAL_AUTH_GITLAB_API_URL: "" |
+| weblate.auth.azuretenant | object | `{}` |  WEBLATE_SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET: "" |
+| weblate.auth.bitbucket | object | `{}` |  WEBLATE_SOCIAL_AUTH_GITHUB_SECRET: "" WEBLATE_SOCIAL_AUTH_GITHUB_ORG_KEY: "" WEBLATE_SOCIAL_AUTH_GITHUB_ORG_SECRET: "" WEBLATE_SOCIAL_AUTH_GITHUB_ORG_NAME: "" WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_KEY: "" WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_SECRET: "" WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_ID: "" |
+| weblate.auth.facebook | object | `{}` |  WEBLATE_SOCIAL_AUTH_BITBUCKET_SECRET: "" |
+| weblate.auth.github | object | `{}` |  WEBLATE_AUTH_LDAP_USER_DN_TEMPLATE: "" WEBLATE_AUTH_LDAP_USER_ATTR_MAP: "" WEBLATE_AUTH_LDAP_BIND_DN: "" WEBLATE_AUTH_LDAP_BIND_PASSWORD: "" WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: "" WEBLATE_AUTH_LDAP_USER_SEARCH: "" WEBLATE_AUTH_LDAP_USER_SEARCH_FILTER: "" WEBLATE_AUTH_LDAP_USER_SEARCH_UNION: "" WEBLATE_AUTH_LDAP_USER_SEARCH_UNION_DELIMITER: "" |
+| weblate.auth.gitlab | object | `{}` |  WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET: "" WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS: "" WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_EMAILS: "" |
+| weblate.auth.google | object | `{}` |  WEBLATE_SOCIAL_AUTH_FACEBOOK_SECRET: "" |
+| weblate.auth.keycloak | object | `{}` |  WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET: "" WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID: "" |
+| weblate.auth.linux | object | `{}` |  WEBLATE_SOCIAL_AUTH_KEYCLOAK_SECRET: "" WEBLATE_SOCIAL_AUTH_KEYCLOAK_PUBLIC_KEY: "" WEBLATE_SOCIAL_AUTH_KEYCLOAK_ALGORITHM: "" WEBLATE_SOCIAL_AUTH_KEYCLOAK_AUTHORIZATION_URL: "" WEBLATE_SOCIAL_AUTH_KEYCLOAK_ACCESS_TOKEN_URL: "" |
+| weblate.auth.saml | object | `{}` |  SOCIAL_AUTH_SLACK_SECRET: "" |
+| weblate.auth.slack | object | `{}` |  WEBLATE_SOCIAL_AUTH_OPENSUSE: "" WEBLATE_SOCIAL_AUTH_UBUNTU: "" |
 | weblate.email | object | `{}` |  |
-| weblate.errorreport | object | `{}` |  |
+| weblate.errorreport | object | `{}` |  WEBLATE_STATUS_URL: "" WEBLATE_LEGAL_URL: "" WEBLATE_PRIVACY_URL: "" |
 | weblate.general.WEBLATE_SITE_DOMAIN | string | `"weblate.example.com"` |  |
 | weblate.general.WEBLATE_SITE_TITLE | string | `"My Project's Weblate"` |  |
-| weblate.localization | object | `{}` |  |
+| weblate.localization | object | `{}` |  ROLLBAR_ENVIRONMENT: "" SENTRY_DSN: "" SENTRY_ENVIRONMENT: "" |
 | weblate.machinetranslate | object | `{}` |  |
-| weblate.siteintegration | object | `{}` |  |
+| weblate.siteintegration | object | `{}` |  WEBLATE_EMAIL_HOST: "" WEBLATE_EMAIL_HOST_USER: "" WEBLATE_EMAIL_HOST_PASSWORD: "" WEBLATE_EMAIL_USE_SSL: false WEBLATE_EMAIL_USE_TLS: false WEBLATE_EMAIL_BACKEND: "" |
 
 All Rights Reserved - The TrueCharts Project

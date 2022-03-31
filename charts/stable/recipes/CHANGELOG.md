@@ -1,6 +1,44 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.19"></a>
+### [recipes-6.0.19](https://github.com/truecharts/apps/compare/recipes-6.0.18...recipes-6.0.19) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="recipes-6.0.18"></a>
+### [recipes-6.0.18](https://github.com/truecharts/apps/compare/recipes-6.0.16...recipes-6.0.18) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="recipes-6.0.16"></a>
+### [recipes-6.0.16](https://github.com/truecharts/apps/compare/recipes-6.0.15...recipes-6.0.16) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="recipes-6.0.15"></a>
+### [recipes-6.0.15](https://github.com/truecharts/apps/compare/recipes-6.0.14...recipes-6.0.15) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="recipes-6.0.14"></a>
 ### [recipes-6.0.14](https://github.com/truecharts/apps/compare/recipes-6.0.13...recipes-6.0.14) (2022-03-26)
 

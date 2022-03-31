@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDMINE_SECRET_KEY_BASE.secretKeyRef.name | string | `"redmine-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/redmine"` |  |
-| image.tag | string | `"v4.2.4@sha256:25792f53a99d2391b33547154ae27939375dd6086f66b2569d9af7e2268cdb9e"` |  |
+| image.tag | string | `"v5.0.0@sha256:c621fdb87880922626406219affa53f79fec8891737b89d6a5dd7e4d72e83345"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/usr/src/redmine/files"` |  |
 | postgresql.enabled | bool | `true` |  |

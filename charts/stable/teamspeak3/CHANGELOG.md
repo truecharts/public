@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-3.0.9"></a>
+### [teamspeak3-3.0.9](https://github.com/truecharts/apps/compare/teamspeak3-3.0.8...teamspeak3-3.0.9) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="teamspeak3-3.0.8"></a>
+### [teamspeak3-3.0.8](https://github.com/truecharts/apps/compare/teamspeak3-3.0.7...teamspeak3-3.0.8) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="teamspeak3-3.0.7"></a>
+### [teamspeak3-3.0.7](https://github.com/truecharts/apps/compare/teamspeak3-3.0.6...teamspeak3-3.0.7) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
 <a name="teamspeak3-3.0.6"></a>
 ### [teamspeak3-3.0.6](https://github.com/truecharts/apps/compare/teamspeak3-3.0.5...teamspeak3-3.0.6) (2022-03-26)
 
