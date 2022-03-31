@@ -19,7 +19,7 @@ env:
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   # User Defined
-  APP_URL: ""
+  APP_URL: "http://localhost:3333"
   IS_CREATION_ENABLED: true
   IS_DASHBOARD_ENABLED: true
   IS_REGISTRATION_ENABLED: true
