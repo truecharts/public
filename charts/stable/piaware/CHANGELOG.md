@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.13"></a>
+### [piaware-5.0.13](https://github.com/truecharts/apps/compare/piaware-5.0.12...piaware-5.0.13) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="piaware-5.0.12"></a>
+### [piaware-5.0.12](https://github.com/truecharts/apps/compare/piaware-5.0.11...piaware-5.0.12) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="piaware-5.0.11"></a>
 ### [piaware-5.0.11](https://github.com/truecharts/apps/compare/piaware-5.0.10...piaware-5.0.11) (2022-03-30)
 

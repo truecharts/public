@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="dizquetv-6.0.8"></a>
+### [dizquetv-6.0.8](https://github.com/truecharts/apps/compare/dizquetv-6.0.7...dizquetv-6.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="dizquetv-6.0.7"></a>
+### [dizquetv-6.0.7](https://github.com/truecharts/apps/compare/dizquetv-6.0.6...dizquetv-6.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="dizquetv-6.0.6"></a>
 ### [dizquetv-6.0.6](https://github.com/truecharts/apps/compare/dizquetv-6.0.5...dizquetv-6.0.6) (2022-03-26)
 

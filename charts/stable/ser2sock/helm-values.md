@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | affinity | object | `{}` | Affinity constraint rules to place the Pod on a specific node. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
 | env | object | See below | environment variables. See [image docs](https://github.com/tenstartups/ser2sock) for more details. |
 | env.BAUD_RATE | int | `115200` | Serial device baud rate |
-| env.LISTENER_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` | Port where ser2sock listens |
+| env.LISTENER_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` | Set the container timezone -- Port where ser2sock listens |
 | env.SERIAL_DEVICE | string | `"{{ .Values.persistence.usb.mountPath }}"` | Path to the serial device |
 | image.pullPolicy | string | `"Always"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/ser2sock"` | image repository |

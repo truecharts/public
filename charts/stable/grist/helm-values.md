@@ -23,11 +23,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.api.enabled | bool | `true` |  |
-| service.api.ports.api.enabled | bool | `true` |  |
-| service.api.ports.api.port | int | `10164` |  |
-| service.api.ports.api.targetPort | int | `10164` |  |
-| service.main.ports.main.port | int | `10163` |  |
-| service.main.ports.main.targetPort | int | `10163` |  |
+| service | object | `{"api":{"enabled":true,"ports":{"api":{"enabled":true,"port":10164,"targetPort":10164}}},"main":{"ports":{"main":{"port":10163,"targetPort":10163}}}}` |  envValueFrom:   REDIS_URL:     secretKeyRef:       name: rediscreds       key: url |
 
 All Rights Reserved - The TrueCharts Project

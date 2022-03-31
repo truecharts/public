@@ -17,8 +17,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 9.1.15 |
-| https://truecharts.org | promtail | 2.0.3 |
+| https://charts.truecharts.org | promtail | 2.0.16 |
+| https://library-charts.truecharts.org | common | 9.2.6 |
 
 ## Installing the Chart
 

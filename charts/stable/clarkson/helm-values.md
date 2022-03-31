@@ -11,7 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.MYSQL_USERNAME | string | `"clarkson"` |  |
+| env | object | `{"MYSQL_USERNAME":"clarkson"}` |  https://github.com/linuxserver/docker-clarkson#parameters |
 | envValueFrom.MYSQL_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |

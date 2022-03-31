@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="heimdall-10.0.8"></a>
+### [heimdall-10.0.8](https://github.com/truecharts/apps/compare/heimdall-10.0.7...heimdall-10.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="heimdall-10.0.7"></a>
+### [heimdall-10.0.7](https://github.com/truecharts/apps/compare/heimdall-10.0.6...heimdall-10.0.7) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="heimdall-10.0.6"></a>
 ### [heimdall-10.0.6](https://github.com/truecharts/apps/compare/heimdall-10.0.5...heimdall-10.0.6) (2022-03-26)
 

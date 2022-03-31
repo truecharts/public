@@ -97,8 +97,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.type | string | `"HTTP"` |  |
 | probes.startup.path | string | `"/api/health"` |  |
 | probes.startup.type | string | `"HTTP"` |  |
-| redis.enabled | bool | `true` |  |
-| redis.existingSecret | string | `"rediscreds"` |  |
+| redis | object | `{"enabled":true,"existingSecret":"rediscreds"}` |  ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis |
 | redisProvider.database_index | int | `0` |  |
 | redisProvider.high_availability.enabled | bool | `false` |  |
 | redisProvider.high_availability.enabledSecret | bool | `false` |  |
@@ -113,12 +112,12 @@ You will, however, be able to use all values referenced in the common chart here
 | redisProvider.tls.minimum_version | string | `"TLS1.2"` |  |
 | redisProvider.tls.server_name | string | `""` |  |
 | redisProvider.tls.skip_verify | bool | `false` |  |
-| redisProvider.username | string | `""` |  |
+| redisProvider.username | string | `""` |  username: authelia |
 | regulation.ban_time | string | `"5m"` |  |
 | regulation.find_time | string | `"2m"` |  |
 | regulation.max_retries | int | `3` |  |
 | resources.limits | object | `{}` |  |
-| resources.requests | object | `{}` |  |
+| resources.requests | object | `{}` |    cpu: "4.00"   memory: 125Mi |
 | server.path | string | `""` |  |
 | server.port | int | `9091` |  |
 | server.read_buffer_size | int | `4096` |  |

@@ -1,0 +1,25 @@
+image:
+  repository: 601096721/mosdns
+  pullPolicy: IfNotPresent
+  tag: v3.5.2@sha256:f256b3e1326add0fb128a7aa2fef2116a977abb2158b90a7a8d9c250fb003973
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 53
+        port: 53
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/etc/mosdns"

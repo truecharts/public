@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below (only deviations from the default settings are specified) | environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables) and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details. |
 | env.LOG_DRIVER | string | `"stdout"` | log driver: syslog, stderr, stdout or file |
-| env.MAIL_CONFIGURATION | bool | `false` | Enable/disable email configuration from the user interface |
+| env.MAIL_CONFIGURATION | bool | `false` | Set the container timezone -- Enable/disable email configuration from the user interface |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

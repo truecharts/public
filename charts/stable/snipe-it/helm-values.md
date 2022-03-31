@@ -30,7 +30,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MAX_RESULTS | int | `500` |  |
 | env.REDIS_PORT | string | `"6379"` |  |
 | env.SECURE_COOKIES | bool | `false` |  |
-| env.SESSION_LIFETIME | int | `30` |  |
+| env.SESSION_LIFETIME | int | `30` |  APP_LOG_LEVEL: "debug" Session |
 | envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.name | string | `"snipeit-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.SHIORI_PG_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| env.SHIORI_PG_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env | object | `{"SHIORI_PG_NAME":"{{ .Values.postgresql.postgresqlDatabase }}","SHIORI_PG_USER":"{{ .Values.postgresql.postgresqlUsername }}"}` |  https://github.com/go-shiori/shiori/wiki/Configuration#database |
 | envValueFrom.SHIORI_PG_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.SHIORI_PG_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.SHIORI_PG_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
