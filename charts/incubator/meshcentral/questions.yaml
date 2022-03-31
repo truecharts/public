@@ -104,37 +104,37 @@ questions:
           description: "set to true if you wish to enable iframe support"
           schema:
             type: boolean
-            default: "false"
+            default: false
         - variable: ALLOW_NEW_ACCOUNTS
           label: "ALLOW_NEW_ACCOUNTS"
           description: "set to false if you want disable self-service creation of new accounts besides the first (admin)"
           schema:
             type: boolean
-            default: "true"
+            default: true
         - variable: WEBRTC
           label: "WEBRTC"
           description: "set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution"
           schema:
             type: boolean
-            default: "false"
+            default: false
         - variable: ALLOWPLUGINS
           label: "ALLOWPLUGINS"
           description: "et to true to allow plugins"
           schema:
             type: boolean
-            default: "false"
+            default: false
         - variable: LOCALSESSIONRECORDING
           label: "LOCALSESSIONRECORDING"
           description: "set to true to allow session recording"
           schema:
             type: boolean
-            default: "false"
+            default: false
         - variable: MINIFY
           label: "MINIFY"
           description: "set to enable or disable minification of json, reduces traffic"
           schema:
             type: boolean
-            default: "true"
+            default: true
 # Include{containerConfig}
 
   - variable: service
