@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grocy-10.0.12"></a>
+### [grocy-10.0.12](https://github.com/truecharts/apps/compare/grocy-10.0.10...grocy-10.0.12) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="grocy-10.0.10"></a>
 ### [grocy-10.0.10](https://github.com/truecharts/apps/compare/grocy-10.0.9...grocy-10.0.10) (2022-03-30)
 

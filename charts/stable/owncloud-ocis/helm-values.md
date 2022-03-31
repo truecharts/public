@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.STORAGE_TRANSFER_SECRET.secretKeyRef.name | string | `"ocis-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ocis"` |  |
-| image.tag | string | `"v1.18.0@sha256:893f03f7f075fe370db8b1cb885618549e7d8ed7c8fbc0e2c2630a62bc597f81"` |  |
+| image.tag | string | `"v1.19.1@sha256:d50b70ffad1a8e30adaef88e3f703679cff0b14a31a1ac60f6bd55aeb6f6f8ae"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/lib/ocis"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

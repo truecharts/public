@@ -3,15 +3,15 @@ appVersion: "0.11.1"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.4
+  version: 9.2.6
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 2.0.26
+  version: 2.0.28
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.21
+  version: 2.0.23
 description: "Protect your email from spam using disposable addresses."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/anonaddy
 icon: https://truecharts.org/_static/img/appicons/anonaddy.png
@@ -25,7 +25,7 @@ maintainers:
 name: anonaddy
 sources:
 - https://github.com/anonaddy/docker
-version: 7.0.11
+version: 7.0.13
 annotations:
   truecharts.org/catagories: |
     - email

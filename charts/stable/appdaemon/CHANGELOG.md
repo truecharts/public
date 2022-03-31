@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-8.0.8"></a>
+### [appdaemon-8.0.8](https://github.com/truecharts/apps/compare/appdaemon-8.0.7...appdaemon-8.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="appdaemon-8.0.7"></a>
 ### [appdaemon-8.0.7](https://github.com/truecharts/apps/compare/appdaemon-8.0.6...appdaemon-8.0.7) (2022-03-30)
 

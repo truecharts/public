@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="monica-1.0.17"></a>
+### [monica-1.0.17](https://github.com/truecharts/apps/compare/monica-1.0.16...monica-1.0.17) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="monica-1.0.16"></a>
+### [monica-1.0.16](https://github.com/truecharts/apps/compare/monica-1.0.14...monica-1.0.16) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="monica-1.0.14"></a>
 ### [monica-1.0.14](https://github.com/truecharts/apps/compare/monica-1.0.13...monica-1.0.14) (2022-03-30)
 

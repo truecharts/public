@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-1.0.8"></a>
+### [guacd-1.0.8](https://github.com/truecharts/apps/compare/guacd-1.0.7...guacd-1.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="guacd-1.0.7"></a>
 ### [guacd-1.0.7](https://github.com/truecharts/apps/compare/guacd-1.0.6...guacd-1.0.7) (2022-03-30)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="znc-1.0.8"></a>
+### [znc-1.0.8](https://github.com/truecharts/apps/compare/znc-1.0.7...znc-1.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="znc-1.0.7"></a>
 ### [znc-1.0.7](https://github.com/truecharts/apps/compare/znc-1.0.6...znc-1.0.7) (2022-03-30)
 

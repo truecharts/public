@@ -40,6 +40,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pihole                     |       dns       |       dns       |  53   |   UDP    | Potential conflict with k8s-gateway, technitium |
 | technitium                 |     dns-tcp     |     dns-tcp     |  53   |   TCP    |   Potential conflict with k8s-gateway, pihole   |
 | technitium                 |     dns-udp     |     dns-udp     |  53   |   UDP    |   Potential conflict with k8s-gateway, pihole   |
+| mosdns                     |     dns-udp     |     dns-udp     |  53   |   UDP    |Potential conflict with k8s-gateway, pihole, technitium|
 | openldap                   |      main       |      main       |  389  |   TCP    |                                                 |
 | minisatip                  |      rtsp       |      rtsp       |  554  |   TCP    |                                                 |
 | openldap                   |      ldaps      |      ldaps      |  636  |   TCP    |                                                 |
@@ -366,6 +367,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | technitium                 |    dns-https    |    dns-https    | 10203 |   TCP    |                                                 |
 | technitium                 | dns-https-proxy | dns-https-proxy | 10204 |   TCP    |                                                 |
 | wekan                      |      main       |      main       | 10204 |   TCP    |                                                 |
+| meshcentral                |      main       |      main       | 10205 |   TCP    |                                                 |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                                 |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                                 |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                                 |

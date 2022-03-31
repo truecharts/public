@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-5.0.8"></a>
+### [resilio-sync-5.0.8](https://github.com/truecharts/apps/compare/resilio-sync-5.0.7...resilio-sync-5.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="resilio-sync-5.0.7"></a>
 ### [resilio-sync-5.0.7](https://github.com/truecharts/apps/compare/resilio-sync-5.0.6...resilio-sync-5.0.7) (2022-03-30)
 

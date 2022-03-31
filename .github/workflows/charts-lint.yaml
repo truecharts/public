@@ -23,16 +23,17 @@ jobs:
         {
           "chart": ${{ steps.list-changed.outputs.charts2 }}
         }
-      detected: ${{ steps.list-changed.outputs.detected }}
+      detected1: ${{ steps.list-changed.outputs.detected1 }}
+      detected2: ${{ steps.list-changed.outputs.detected2 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
       - name: Collect changes
         id: list-changed
@@ -46,77 +47,80 @@ jobs:
           OUTPUT_JSON2=$(echo $CHARTS_JSON | jq -r -c '.[254:500]')
           echo ::set-output name=charts1::${OUTPUT_JSON1}
           echo ::set-output name=charts2::${OUTPUT_JSON2}
-          if [[ $(echo ${OUTPUT_JSON} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected::true"
+          if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected1::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON2} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected2::true"
           fi
 
   lint-charts1:
     needs:
       - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected == 'true'
+    if: needs.generate-lint-matrix.outputs.detected1 == 'true'
     name: Lint charts Part 1
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix1) }}
-      fail-fast: true
+      fail-fast: false
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.8.0
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
           setup-tools: |
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
       - name: Run chart-testing (lint)
-        run: ct lint --config .github/ct-lint.yaml --charts ${{ matrix.chart }}
+        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
         
   lint-charts2:
     needs:
       - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected == 'true'
+    if: needs.generate-lint-matrix.outputs.detected2 == 'true'
     name: Lint charts Part 2
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix2) }}
-      fail-fast: true
+      fail-fast: false
       max-parallel: 5
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.8.0
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
           setup-tools: |
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.2.1
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
       - name: Run chart-testing (lint)
-        run: ct lint --config .github/ct-lint.yaml --charts ${{ matrix.chart }}
+        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   lint_success:
@@ -130,6 +134,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check lint matrix status
-        if: ${{ (needs.generate-lint-matrix.outputs.detected == 'true') && (needs.lint-charts1.result != 'success') && (needs.lint-charts2.result != 'success') }}
+        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) }}
         run: exit 1
 
