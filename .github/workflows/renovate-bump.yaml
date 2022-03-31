@@ -34,7 +34,7 @@ jobs:
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
         run: |
-            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json  |  jq -r '.[]')
+            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json  |  jq -r '.[]')
             echo "changed apps: ${APPS[*]}"
             for chart in ${APPS[*]}
             do
