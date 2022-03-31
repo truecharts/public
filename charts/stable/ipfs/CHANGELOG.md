@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-2.0.0"></a>
+### [ipfs-2.0.0](https://github.com/truecharts/apps/compare/ipfs-1.0.8...ipfs-2.0.0) (2022-03-31)
+
+#### Feat
+
+* Use official image BREAKING CHANGE ([#2331](https://github.com/truecharts/apps/issues/2331))
+
+
+
 <a name="ipfs-1.0.8"></a>
 ### [ipfs-1.0.8](https://github.com/truecharts/apps/compare/ipfs-1.0.7...ipfs-1.0.8) (2022-03-31)
 

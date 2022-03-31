@@ -7,4 +7,3 @@
 #### Feat
 
 * Add meshcentral ([#2303](https://github.com/truecharts/apps/issues/2303))
-
