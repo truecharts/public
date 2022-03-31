@@ -7,6 +7,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
+    path: "/webui"
 questions:
   - variable: portal
     group: "Container Image"
@@ -75,7 +76,18 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+        - variable: IPFS_SWARM_KEY
+          label: "IPFS_SWARM_KEY"
+          description: "The IPFS_SWARM_KEY creates swarm.key with the contents of the variable itself."
+          schema:
+            type: string
+            default: ""
+        - variable: IPFS_PROFILE
+          label: "IPFS_PROFILE (Initial install only)"
+          description: "When starting a container running ipfs for the first time with an empty data directory, it will call ipfs init to initialize configuration files and generate a new keypair. At this time, you can choose which profile to apply using the IPFS_PROFILE."
+          schema:
+            type: string
+            default: "server"
 # Include{containerConfig}
 
   - variable: service
@@ -144,17 +156,17 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
-        - variable: peer
-          label: "peer Service"
-          description: "The peer service."
+                                    default: 5001
+        - variable: peer-tcp
+          label: "Peer-TCP Service"
+          description: "The Peer-TCP service."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: peer
-                      label: "peer Service Port Configuration"
+                    - variable: peer-tcp
+                      label: "Peer-TCP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -182,7 +194,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "TCP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -205,16 +217,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 4001
-        - variable: api
-          label: "api Service"
-          description: "The api service."
+        - variable: peer-udp
+          label: "Peer-UDP Service"
+          description: "The Peer-udp service."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: api
-                      label: "api Service Port Configuration"
+                    - variable: peer-udp
+                      label: "Peer-UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -224,7 +236,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5001
+                              default: 4001
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -242,7 +254,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "UDP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -264,17 +276,17 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 5001
+                                    default: 4001
         - variable: gateway
-          label: "gateway Service"
-          description: "The gateway service."
+          label: "Gateway Service"
+          description: "The Gateway Service."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: gateway
-                      label: "gateway Service Port Configuration"
+                      label: "Gateway Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -353,9 +365,162 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: staging
+          label: "App Staging Storage"
+          description: "Stores the Application Staging."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ipfs
+          label: "App IPFS Storage"
+          description: "Stores the Application IPFS."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ipns
+          label: "App IPNS Storage"
+          description: "Stores the Application IPNS."
           schema:
             additional_attrs: true
             type: dict

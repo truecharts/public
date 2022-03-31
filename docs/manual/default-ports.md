@@ -20,6 +20,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Stable, Games and Incubator Apps
 
+
 | App                        |     Service     |    Port Name    | Port  | Protocol |                          Note                           |
 | :------------------------- | :-------------: | :-------------: | :---: | :------: | :-----------------------------------------------------: |
 | amcrest2mqtt               |      main       |      main       |   -   |    -     |                    Service disabled                     |
@@ -76,13 +77,13 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | logitech-media-server      |    playertcp    |  slimprototcp   | 3483  |   TCP    |                                                         |
 | logitech-media-server      |    playerudp    |  slimprotoudp   | 3483  |   UDP    |                                                         |
 | ombi                       |      main       |      main       | 3579  |   TCP    |                                                         |
-| ipfs                       |      peer       |      peer       | 4001  |   TCP    |                                                         |
+| ipfs                       |    peer-tcp     |    peer-tcp     | 4001  |   TCP    |                                                 |
+| ipfs                       |    peer-udp     |    peer-udp     | 4001  |   UDP    |                                                 |
 | quassel-core               |      main       |      main       | 4242  |   TCP    |                                                         |
 | navidrome                  |      main       |      main       | 4533  |   TCP    |                                                         |
 | requestrr                  |      main       |      main       | 4545  |   TCP    |                                                         |
 | guacd                      |      main       |      main       | 4822  |   TCP    |                                                         |
 | frigate                    |      main       |      main       | 5000  |   TCP    |                                                         |
-| ipfs                       |       api       |       api       | 5001  |   TCP    |                                                         |
 | appdaemon                  |      main       |      main       | 5050  |   TCP    |                                                         |
 | overseer                   |      main       |      main       | 5055  |   TCP    |                                                         |
 | nzbhydra                   |      main       |      main       | 5076  |   TCP    |                                                         |
@@ -423,6 +424,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                                                         |
 | resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                                                         |
 | quassel-web                |      main       |      main       | 64080 |   TCP    |                                                         |
+
 
 ## Dependency Apps
 
