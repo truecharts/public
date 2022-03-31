@@ -19,10 +19,11 @@ data:
         sed -i "s/\"minify\": true/\"minify\": \"$MINIFY\"/" /opt/meshcentral/meshcentral-data/config.json
         sed -i "s/\"WebRTC\": false/\"WebRTC\": \"$WEBRTC\"/" /opt/meshcentral/meshcentral-data/config.json
         sed -i "s/\"AllowFraming\": false/\"AllowFraming\": \"$IFRAME\"/" /opt/meshcentral/meshcentral-data/config.json
-        if [ "$REVERSE_PROXY" != "false" ]
-            then
+        if [ "$REVERSE_PROXY" != "false" ];  then
                 sed -i "s/\"_certUrl\": \"my\.reverse\.proxy\"/\"certUrl\": \"https:\/\/$REVERSE_PROXY:$REVERSE_PROXY_TLS_PORT\"/" /opt/meshcentral/meshcentral-data/config.json
                 exit
+        fi
+    fi
   config.json.template: |-
       {
       "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",
