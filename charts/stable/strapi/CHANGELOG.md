@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="strapi-2.0.9"></a>
+### [strapi-2.0.9](https://github.com/truecharts/apps/compare/strapi-2.0.8...strapi-2.0.9) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="strapi-2.0.8"></a>
 ### [strapi-2.0.8](https://github.com/truecharts/apps/compare/strapi-2.0.7...strapi-2.0.8) (2022-03-26)
 

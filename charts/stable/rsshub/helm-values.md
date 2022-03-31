@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | browserlessImage.repository | string | `"tccr.io/truecharts/browserless-chrome"` |  |
 | browserlessImage.tag | string | `"v1.51.1-chrome@sha256:39b1e2641af7fb437a8dbe886dc8cb1f613835338f2d8f9c57516f97716d5467"` |  |
 | env.CACHE_TYPE | string | `"redis"` |  |
-| env.DISALLOW_ROBOT | bool | `false` |  |
+| env.DISALLOW_ROBOT | bool | `false` |  ALLOW_ORIGIN: "" |
 | env.NODE_ENV | string | `"production"` |  |
 | env.NODE_NAME | string | `"{{ .Release.Name }}-{{ randAlphaNum 5 }}"` |  |
 | env.PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |

@@ -42,41 +42,33 @@ You will, however, be able to use all values referenced in the common chart here
 | installContainers.generate-signing-key.volumeMounts[1].name | string | `"secret"` |  |
 | installContainers.generate-signing-key.volumeMounts[2].mountPath | string | `"/data/keys"` |  |
 | installContainers.generate-signing-key.volumeMounts[2].name | string | `"key"` |  |
-| mail.enabled | bool | `false` |  |
+| mail.enabled | bool | `false` |  NOTE: If enabled, either enable the Exim relay or configure an external mail server below |
 | mail.from | string | `"Matrix <matrix@example.com>"` |  |
 | mail.host | string | `""` |  |
 | mail.password | string | `""` |  |
 | mail.port | int | `25` |  |
 | mail.requireTransportSecurity | bool | `true` |  |
-| mail.riotUrl | string | `""` |  |
+| mail.riotUrl | string | `""` |  If the ingress is enabled, this is unnecessary. If the ingress is disabled and this is left unspecified, emails will contain a link to https://app.element.io |
 | mail.username | string | `""` |  |
 | matrix.adminEmail | string | `"admin@example.com"` |  |
 | matrix.blockNonAdminInvites | bool | `false` |  |
 | matrix.disabled | bool | `false` |  |
 | matrix.disabledMessage | string | `""` |  |
-| matrix.encryptByDefault | string | `"invite"` |  |
+| matrix.encryptByDefault | string | `"invite"` |  off: none invite: private messages, or rooms created with the private_chat or trusted_private_chat room preset all: all rooms |
 | matrix.federation.allowPublicRooms | bool | `true` |  |
-| matrix.federation.blacklist[0] | string | `"127.0.0.0/8"` |  |
-| matrix.federation.blacklist[1] | string | `"10.0.0.0/8"` |  |
-| matrix.federation.blacklist[2] | string | `"172.16.0.0/12"` |  |
-| matrix.federation.blacklist[3] | string | `"192.168.0.0/16"` |  |
-| matrix.federation.blacklist[4] | string | `"100.64.0.0/10"` |  |
-| matrix.federation.blacklist[5] | string | `"169.254.0.0/16"` |  |
-| matrix.federation.blacklist[6] | string | `"::1/128"` |  |
-| matrix.federation.blacklist[7] | string | `"fe80::/64"` |  |
-| matrix.federation.blacklist[8] | string | `"fc00::/7"` |  |
+| matrix.federation.blacklist | list | `["127.0.0.0/8","10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","100.64.0.0/10","169.254.0.0/16","::1/128","fe80::/64","fc00::/7"]` |  whitelist: [] IP addresses to blacklist federation requests to |
 | matrix.federation.enabled | bool | `true` |  |
-| matrix.logging.rootLogLevel | string | `"WARNING"` |  |
-| matrix.logging.sqlLogLevel | string | `"WARNING"` |  |
+| matrix.logging.rootLogLevel | string | `"WARNING"` |  specific settings. |
+| matrix.logging.sqlLogLevel | string | `"WARNING"` |  information such as access tokens. |
 | matrix.logging.synapseLogLevel | string | `"WARNING"` |  |
-| matrix.presence | bool | `true` |  |
-| matrix.registration.allowGuests | bool | `false` |  |
-| matrix.registration.autoJoinRooms | list | `[]` |  |
+| matrix.presence | bool | `true` |  This is *optional* if an Ingress is configured below. If hostname is unspecified, the Synapse hostname of the Ingress will be used hostname: "matrix.example.com" Set to false to disable presence (online/offline indicators) |
+| matrix.registration.allowGuests | bool | `false` |  has the shared secret, even if registration is otherwise disabled. sharedSecret: <PRIVATE STRING> Allow users to join rooms as a guest |
+| matrix.registration.autoJoinRooms | list | `[]` |  required3Pids:   - email   - msisdn Rooms to automatically join all new users to |
 | matrix.registration.enabled | bool | `false` |  |
 | matrix.retentionPeriod | string | `"7d"` |  |
 | matrix.search | bool | `true` |  |
-| matrix.security.surpressKeyServerWarning | bool | `true` |  |
-| matrix.serverName | string | `"example.com"` |  |
+| matrix.security.surpressKeyServerWarning | bool | `true` |  trustedKeyServers include 'matrix.org'. See below. Set to false to re-enable the warning. |
+| matrix.serverName | string | `"example.com"` |  If homeserverOverride is set, the entirety of homeserver.yaml will be replaced with the contents. If homeserverExtra is set, the contents will be appended to the end of the default configuration. It is highly recommended that you take a look at the defaults in templates/synapse/_homeserver.yaml, to get a sense of the requirements and default configuration options to use other services in this chart. homeserverOverride: {} homeserverExtra: {} Domain name of the server This is not necessarily the host name where the service is reachable. In fact, you may want to omit any subdomains from this value as the server name set here will be the name of your homeserver in the fediverse, and will be the domain name at the end of every user's username |
 | matrix.uploads.maxPixels | string | `"32M"` |  |
 | matrix.uploads.maxSize | string | `"10M"` |  |
 | matrix.urlPreviews.enabled | bool | `false` |  |
@@ -122,8 +114,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.replication.ports.replication.targetPort | int | `9092` |  |
 | synapse.appConfig | list | `[]` | List of application config .yaml files to be loaded from /appConfig |
 | synapse.loadCustomConfig | bool | `false` |  |
-| synapse.metrics.annotations | bool | `true` |  |
-| synapse.metrics.enabled | bool | `true` |  |
-| synapse.metrics.port | int | `9092` |  |
+| synapse.metrics | object | `{"annotations":true,"enabled":true,"port":9092}` |  https://github.com/matrix-org/synapse/blob/master/docs/metrics-howto.md |
 
 All Rights Reserved - The TrueCharts Project

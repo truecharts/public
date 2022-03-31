@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redmine-1.0.12"></a>
+### [redmine-1.0.12](https://github.com/truecharts/apps/compare/redmine-1.0.11...redmine-1.0.12) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="redmine-1.0.11"></a>
 ### [redmine-1.0.11](https://github.com/truecharts/apps/compare/redmine-1.0.10...redmine-1.0.11) (2022-03-30)
 

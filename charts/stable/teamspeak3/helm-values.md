@@ -21,16 +21,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.files.enabled | bool | `true` |  |
-| service.files.ports.files.enabled | bool | `true` |  |
-| service.files.ports.files.port | int | `30033` |  |
-| service.files.ports.files.targetPort | int | `30033` |  |
-| service.main.ports.main.port | int | `10011` |  |
-| service.main.ports.main.targetPort | int | `10011` |  |
-| service.voice.enabled | bool | `true` |  |
-| service.voice.ports.voice.enabled | bool | `true` |  |
-| service.voice.ports.voice.port | int | `9987` |  |
-| service.voice.ports.voice.protocol | string | `"UDP"` |  |
-| service.voice.ports.voice.targetPort | int | `9987` |  |
+| service | object | `{"files":{"enabled":true,"ports":{"files":{"enabled":true,"port":30033,"targetPort":30033}}},"main":{"ports":{"main":{"port":10011,"targetPort":10011}}},"voice":{"enabled":true,"ports":{"voice":{"enabled":true,"port":9987,"protocol":"UDP","targetPort":9987}}}}` |  10011 server query 30033 file transport |
 
 All Rights Reserved - The TrueCharts Project

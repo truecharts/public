@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homer-1.0.3"></a>
+### [homer-1.0.3](https://github.com/truecharts/apps/compare/homer-1.0.2...homer-1.0.3) (2022-03-30)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="homer-1.0.2"></a>
 ### [homer-1.0.2](https://github.com/truecharts/apps/compare/homer-1.0.1...homer-1.0.2) (2022-03-26)
 

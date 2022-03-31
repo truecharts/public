@@ -19,6 +19,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone GONIC_MUSIC_PATH: GONIC_PODCAST_PATH: GONIC_CACHE_PATH: -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

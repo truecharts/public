@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/linuxserver/docker-healthchecks#parameters) for more details. |
-| env.REGENERATE_SETTINGS | string | `"True"` | Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file. |
+| env.REGENERATE_SETTINGS | string | `"True"` | Set the container timezone -- Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file. |
 | env.SITE_NAME | int | `8265` | The site's name (e.g., "Example Corp HealthChecks") |
 | env.SITE_ROOT | string | `"https://healthchecks.domain"` | The site's top-level URL and the port it listens to |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |

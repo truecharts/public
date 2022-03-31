@@ -18,6 +18,6 @@ You will, however, be able to use all values referenced in the common chart here
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service | object | See values.yaml | Set the container timezone -- Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

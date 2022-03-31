@@ -11,7 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
+| env | object | `{}` |  https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/zwavejs2mqtt"` |  |
 | image.tag | string | `"v6.6.2@sha256:868ccbcd90a1b38cfadec87ca933b3bf613ccb08df17d2a26b2baf7e743294bc"` |  |

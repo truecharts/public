@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.14"></a>
+### [paperless-ng-2.0.14](https://github.com/truecharts/apps/compare/paperless-ng-2.0.13...paperless-ng-2.0.14) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
 <a name="paperless-ng-2.0.13"></a>
 ### [paperless-ng-2.0.13](https://github.com/truecharts/apps/compare/paperless-ng-2.0.12...paperless-ng-2.0.13) (2022-03-26)
 

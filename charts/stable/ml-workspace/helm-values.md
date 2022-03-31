@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MAX_NUM_THREADS | string | `"auto"` |  |
 | env.NOTEBOOK_ARGS | string | `""` |  |
 | env.SHARED_LINKS_ENABLED | bool | `false` |  |
-| env.SHUTDOWN_INACTIVE_KERNELS | string | `"false"` |  |
+| env.SHUTDOWN_INACTIVE_KERNELS | string | `"false"` |  true, false or timeout in seconds |
 | env.WORKSPACE_BASE_URL | string | `"/"` |  |
 | env.WORKSPACE_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | env.WORKSPACE_SSL_ENABLED | bool | `false` |  |

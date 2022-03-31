@@ -11,13 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.BLOG_DB_CONNECTION | string | `"postgres"` |  |
-| env.BLOG_DB_NAME | string | `"blog"` |  |
-| env.BLOG_LANG | string | `"en"` |  |
-| env.BLOG_NAME | string | `"Max Musermann"` |  |
-| env.BLOG_POSTGRES_PORT | int | `5432` |  |
-| env.BLOG_POSTGRES_USER | string | `"blog"` |  |
-| env.BLOG_TITLE | string | `"Blog"` |  |
+| env | object | `{"BLOG_DB_CONNECTION":"postgres","BLOG_DB_NAME":"blog","BLOG_LANG":"en","BLOG_NAME":"Max Musermann","BLOG_POSTGRES_PORT":5432,"BLOG_POSTGRES_USER":"blog","BLOG_TITLE":"Blog"}` |  https://github.com/nicholaswilde/docker-blog |
 | envValueFrom.BLOG_POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.BLOG_POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.BLOG_POSTGRES_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
