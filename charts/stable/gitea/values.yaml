@@ -3,6 +3,11 @@ image:
   tag: v1.16.5@sha256:0f6cc532ccb61009492bd121fd37dd8c252687033c724ecc44b795ccf88b00f8
   pullPolicy: IfNotPresent
 
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
 service:
   main:
     ports:
