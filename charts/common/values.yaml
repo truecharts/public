@@ -649,7 +649,7 @@ configmap:
 persistence:
   # -- Default persistence for configuration files.
   # @default -- See below
-  config:
+  pvc-example:
     # -- Enables or disables the persistence item
     enabled: false
     annotationsList: []
@@ -687,7 +687,7 @@ persistence:
     # If set to `-`, dynamic provisioning is disabled.
     # If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used.
     # If set to something else, the given storageClass is used.
-    # If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
+    # If undefined (the default), no storageClassName spec is set, choosing the default provisioner.
     storageClass:  # "-"
 
     # -- If you want to reuse an existing claim, the name of the existing PVC can be passed here.
