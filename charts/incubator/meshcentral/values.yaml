@@ -1,0 +1,70 @@
+image:
+  repository: einar/meshcentral
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b9cb18a54d610a6b0b43442f1d05f0a05a9e6fa4ad52e2394240c85434c5f35e
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  HOSTNAME: "my.domain.com"
+  # your hostname
+  REVERSE_PROXY: false
+  # set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy
+  REVERSE_PROXY_TLS_PORT: ""
+  IFRAME: false
+  # set to true if you wish to enable iframe support
+  ALLOW_NEW_ACCOUNTS: true
+  # set to false if you want disable self-service creation of new accounts besides the first (admin)
+  WEBRTC: false
+  # set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution
+  ALLOWPLUGINS: false
+  # set to true to allow plugins
+  LOCALSESSIONRECORDING: false
+  # set to true to allow session recording
+  MINIFY: true
+  # set to enable or disable minification of json, reduces traffic
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 443
+        port: 10205
+
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/init/meshcentral/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: "/init/meshcentral"
+
+mongodb:
+  enabled: true
+  mongodbUsername: meshcentral
+  mongodbDatabase: meshcentral
+  existingSecret: "mongodbcreds"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/meshcentral/meshcentral-data"
+  user:
+    enabled: true
+    mountPath: "/opt/meshcentral/meshcentral-files"
+  init:
+    enabled: "true"
+    mountPath: "/init/meshcentral"
+    noMount: true
+    readOnly: true
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: meshcentral-init
+        defaultMode: 0777
