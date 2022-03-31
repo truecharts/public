@@ -1,0 +1,11 @@
+---
+name: "Mark or close stale issues and PRs"
+on:
+  workflow_dispatch:
+  schedule:
+    # Run the stalebot every day at 8pm UTC
+    - cron: "00 20 * * *"
+
+jobs:
+  stale:
+    uses: truecharts/.github/.github/workflows/stale.yaml@main

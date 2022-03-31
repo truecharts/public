@@ -1,0 +1,11 @@
+---
+name: "Schedule: Sync labels"
+
+on: # yamllint disable-line rule:truthy
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  labels:
+    uses: truecharts/.github/.github/workflows/schedule-sync-labels.yaml@main

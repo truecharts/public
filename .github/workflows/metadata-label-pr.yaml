@@ -1,0 +1,16 @@
+---
+name: "Metadata: Label pull requests"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - closed
+      - reopened
+      - ready_for_review
+      - synchronize
+
+jobs:
+  label-size:
+    uses: truecharts/.github/.github/workflows/metadata-label-pr.yaml@main

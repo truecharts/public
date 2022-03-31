@@ -1,0 +1,21 @@
+---
+name: "Metadata: Label Commenter"
+
+on:
+  issues:
+    types:
+      - labeled
+      - unlabeled
+  pull_request_target:
+    types:
+      - labeled
+      - unlabeled
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  comment:
+    uses: truecharts/.github/.github/workflows/metadata-label-commenter.yaml@main
