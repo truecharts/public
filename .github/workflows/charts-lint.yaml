@@ -134,6 +134,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check lint matrix status
-        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) }}
+        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) }}
         run: exit 1
 
