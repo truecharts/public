@@ -57,7 +57,8 @@ jobs:
         {
           "chart": ${{ steps.list-changed.outputs.charts2 }}
         }
-      detected: ${{ steps.list-changed.outputs.detected }}
+      detected1: ${{ steps.list-changed.outputs.detected1 }}
+      detected2: ${{ steps.list-changed.outputs.detected2 }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -80,14 +81,17 @@ jobs:
           OUTPUT_JSON2=$(echo $CHARTS_JSON | jq -r -c '.[254:500]')
           echo ::set-output name=charts1::${OUTPUT_JSON1}
           echo ::set-output name=charts2::${OUTPUT_JSON2}
-          if [[ $(echo ${OUTPUT_JSON} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected::true"
+          if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected1::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON2} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected2::true"
           fi
 
   install-charts1:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected == 'true'
+    if: needs.generate-install-matrix.outputs.detected1 == 'true'
     name: Install charts  Part 1
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
@@ -130,10 +134,10 @@ jobs:
   install-charts2:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected == 'true'
+    if: needs.generate-install-matrix.outputs.detected2 == 'true'
     name: Install charts Part 2
     strategy:
-      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
       fail-fast: false
       max-parallel: 5
     runs-on: ubuntu-latest
@@ -182,5 +186,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check install matrix status
-        if: ${{ (needs.generate-install-matrix.outputs.detected == 'true') && (needs.install-charts1.result != 'success') && (needs.install-charts2.result != 'success') }}
+        if: ${{ ( (needs.generate-install-matrix.outputs.detected1 == 'true') && (needs.install-charts1.result != 'success') ) && ( (needs.generate-install-matrix.outputs.detected2 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts2.result != 'skipped' ) ) ) }}
         run: exit 1
