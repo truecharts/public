@@ -58,3 +58,12 @@ persistence:
   user:
     enabled: true
     mountPath: "/opt/meshcentral/meshcentral-files"
+  init:
+    enabled: "true"
+    mountPath: "/opt/meshcentral"
+    readOnly: true
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: meshcentral-init
+        defaultMode: 0777
