@@ -12,9 +12,9 @@ podSecurityContext:
   runAsGroup: 0
 
 service:
-  dns-udp:
+  main:
     ports:
-      dns-udp:
+      main:
         protocol: UDP
         targetPort: 53
         port: 53
