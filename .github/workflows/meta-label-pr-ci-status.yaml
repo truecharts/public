@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v2.17.0
+        uses: dawidd6/action-download-artifact@575b1e4167df67acf7e692af784566618b23c71e # tag=v2.17.0
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
           workflow: pr-validate.yaml
@@ -29,12 +29,12 @@ jobs:
 
       - name: Read the pr_number file
         id: pr_num_reader
-        uses: juliangruber/read-file-action@v1.1.4
+        uses: juliangruber/read-file-action@ebfa650188272343fef925480eb4d18c5d49b925 # tag=v1.1.4
         with:
           path: ./pr_metadata/pr_number.txt
 
       - name: "Get workflow job status"
-        uses: actions/github-script@v6
+        uses: actions/github-script@9ac08808f993958e9de277fe43a64532a609130e # tag=v6
         id: get-workflow-jobs
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
