@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/airsonic
+  tag: version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  WEBUI_TOKEN:
+
+service:
+  main:
+    ports:
+      main:
+        port: 10206
+        targetPort: 8000
+
+persistence:
+  xml:
+    enabled: true
+    mountPath: "/opt/xml"
+
+initContainer:
+  1-test:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: webmap-config
+        mountPath: "/root/token.sha256"
+    command: ["sh", "-c"]
+    args:
+      - >
+        cat "/root/token.sha256"
