@@ -1,7 +1,6 @@
 ---
 name: "Mark or close stale issues and PRs"
 on:
-  workflow_call:
   workflow_dispatch:
   schedule:
     # Run the stalebot every day at 8pm UTC

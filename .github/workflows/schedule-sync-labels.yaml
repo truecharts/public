@@ -2,7 +2,6 @@
 name: "Schedule: Sync labels"
 
 on: # yamllint disable-line rule:truthy
-  workflow_call:
   workflow_dispatch:
   schedule:
     - cron: "0 * * * *"

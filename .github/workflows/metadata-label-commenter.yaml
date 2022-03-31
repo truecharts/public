@@ -2,7 +2,7 @@
 name: "Metadata: Label Commenter"
 
 on:
-  workflow_call:
+  workflow_dispatch:
   issues:
     types:
       - labeled
