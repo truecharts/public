@@ -86,7 +86,7 @@ jobs:
         uses: helm/chart-testing-action@v2.2.1
 
       - name: Run chart-testing (lint)
-        run: ct lint --config .github/ct-lint.yaml --charts ${{ matrix.chart }}
+        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
         
   lint-charts2:
     needs:
@@ -120,7 +120,7 @@ jobs:
         uses: helm/chart-testing-action@v2.2.1
 
       - name: Run chart-testing (lint)
-        run: ct lint --config .github/ct-lint.yaml --charts ${{ matrix.chart }}
+        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   lint_success:
