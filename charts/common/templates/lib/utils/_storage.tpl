@@ -10,15 +10,17 @@ Return  the proper Storage Class
 
 {{- if ( hasKey .persistence "storageClass" ) -}}
   {{- if $storageClass -}}
-  {{- if (eq "-" $storageClass) -}}
-    {{- $output = "\"\"" -}}
-  {{- else if (eq "SCALE-ZFS" $storageClass ) }}
-    {{- $output = ( printf "ix-storage-class-%s"  .global.Release.Name ) -}}
-  {{- else }}
-    {{- $output = $storageClass -}}
+    {{- if (eq "-" $storageClass) -}}
+      {{- $output = "\"\"" -}}
+    {{- else if (eq "SCALE-ZFS" $storageClass ) }}
+      {{- $output = ( printf "ix-storage-class-%s"  .global.Release.Name ) -}}
+    {{- else }}
+      {{- $output = $storageClass -}}
+    {{- end -}}
+    {{- printf "storageClassName: %s" $output -}}
+  {{- else -}}
+    {{- printf "%s" "storageClassName: " -}}
   {{- end -}}
-  {{- end -}}
-{{- printf "storageClassName: %s" $output -}}
 {{- else if .global }}
   {{- if .global.Values.storageClass -}}
     {{- $output = .global.Values.storageClass -}}
@@ -32,7 +34,8 @@ Return  the proper Storage Class
       {{- $output = ( printf "ix-storage-class-%s"  .global.Release.Name ) -}}
     {{- end }}
   {{- end -}}
-{{- printf "storageClassName: %s" $output -}}
+  {{- if $output -}}
+    {{- printf "storageClassName: %s" $output -}}
+  {{- end -}}
 {{- end -}}
-
 {{- end -}}

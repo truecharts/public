@@ -115,6 +115,23 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
+  pvc-sc-empty:
+    enabled: true
+    annotationsList: []
+    annotations: {}
+    labelsList: []
+    labels: {}
+    type: pvc
+    forceName: ""
+    mountPath:
+    readOnly: false
+    nameOverride:
+    storageClass: ""
+    existingClaim:
+    subPath:
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: false
 
   emptydir:
     enabled: true
