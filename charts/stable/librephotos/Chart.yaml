@@ -7,11 +7,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.26
+  version: 7.0.27
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.22
+  version: 2.0.23
 description: "A self-hosted open source photo management service."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
 icon: https://truecharts.org/_static/img/appicons/librephotos.png
@@ -27,7 +27,7 @@ name: librephotos
 sources:
 - https://github.com/LibrePhotos/librephotos
 - https://hub.docker.com/r/reallibrephotos/librephotos
-version: 2.0.10
+version: 2.0.11
 annotations:
   truecharts.org/catagories: |
     - media
