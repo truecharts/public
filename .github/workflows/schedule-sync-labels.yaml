@@ -20,7 +20,6 @@ jobs:
         uses: EndBug/label-sync@v2
         with:
           config-file: |
-              https://raw.githubusercontent.com/truecharts/.github/main/.github/labels.yml
-              .github/labels.yml
+              https://raw.githubusercontent.com/truecharts/.github/main/.github/labels.yaml
           token: "${{ secrets.BOT_TOKEN }}"
           delete-other-labels: true
