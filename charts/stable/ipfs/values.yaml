@@ -92,32 +92,3 @@ installContainers:
         value: "{{ .Values.env.IPFS_SWARM_KEY_FILE }}"
     command: ["/sbin/tini"]
     args: ["/usr/local/bin/start_ipfs"]
-  2-cors-headers:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: ipfs
-        mountPath: "/ipfs"
-      - name: ipns
-        mountPath: "/ipns"
-      - name: staging
-        mountPath: "/export"
-      - name: data
-        mountPath: "/data/ipfs"
-    env:
-      - name: NODE_IP
-        value: "{{ .Values.env.NODE_IP }}"
-    command: ["sh", "-c"]
-    args:
-      - >
-        export status=99;
-        echo "Setting API.HTTPHeaders.Access-Control-Allow-Methods to [\"PUT\", \"POST\"]...";
-        echo "Setting API.HTTPHeaders.Access-Control-Allow-Origin [\"http://${NODE_IP}:5001\", \"http://localhost:3000\", \"http://127.0.0.1:5001\"]...";
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://${NODE_IP}:5001", "http://localhost:3000", "http://127.0.0.1:5001"]';
-        status=$?;
-        if [ $status -eq 0 ]; then
-          echo "Done! Status: $status";
-          exit 0;
-        else
-          echo "Failed! Status: $status";
-          exit 1;
-        fi;
