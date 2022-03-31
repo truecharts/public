@@ -61,6 +61,7 @@ persistence:
   init:
     enabled: "true"
     mountPath: "/opt/meshcentral"
+    noMount: true
     readOnly: true
     type: "custom"
     volumeSpec:
