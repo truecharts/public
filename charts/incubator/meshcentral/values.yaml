@@ -40,10 +40,10 @@ service:
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/opt/meshcentral/init.sh"]
+    command: ["/init/meshcentral/init.sh"]
     volumeMounts:
       - name: init
-        mountPath: "/opt/meshcentral"
+        mountPath: "/init/meshcentral"
 
 mongodb:
   enabled: true
@@ -60,7 +60,7 @@ persistence:
     mountPath: "/opt/meshcentral/meshcentral-files"
   init:
     enabled: "true"
-    mountPath: "/opt/meshcentral"
+    mountPath: "/init/meshcentral"
     noMount: true
     readOnly: true
     type: "custom"

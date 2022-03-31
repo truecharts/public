@@ -11,7 +11,7 @@ data:
     if test -f "/opt/meshcentral/meshcentral-data/config.json"; then
       echo "config.json exists."
     else
-        cp /opt/meshcentral/config.json.template /opt/meshcentral/meshcentral-data/config.json
+        cp /init/meshcentral/config.json.template /opt/meshcentral/meshcentral-data/config.json
         sed -i "s/\"cert\": \"myserver.mydomain.com\"/\"cert\": \"$HOSTNAME\"/" /opt/meshcentral/meshcentral-data/config.json
         sed -i "s/\"NewAccounts\": true/\"NewAccounts\": \"$ALLOW_NEW_ACCOUNTS\"/" /opt/meshcentral/meshcentral-data/config.json
         sed -i "s/\"enabled\": false/\"enabled\": \"$ALLOWPLUGINS\"/" /opt/meshcentral/meshcentral-data/config.json
