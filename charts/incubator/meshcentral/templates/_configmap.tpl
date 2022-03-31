@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-init
+  name: meshcentral-init
 data:
   init.sh: |-
     #!/bin/sh
