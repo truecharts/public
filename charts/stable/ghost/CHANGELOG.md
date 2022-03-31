@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.17"></a>
+### [ghost-1.0.17](https://github.com/truecharts/apps/compare/ghost-1.0.16...ghost-1.0.17) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
 <a name="ghost-1.0.16"></a>
 ### [ghost-1.0.16](https://github.com/truecharts/apps/compare/ghost-1.0.15...ghost-1.0.16) (2022-03-31)
 

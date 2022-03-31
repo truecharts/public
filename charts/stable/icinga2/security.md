@@ -80,7 +80,7 @@ hide:
           tccr.io/truecharts/icinga2:v2.13.2@sha256:53095afc1ac7deb65f9c49342ca417bd6f90df03d465863fb0b150e96b16005c
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/mariadb:v10.7.3@sha256:6e919e0e150c26c9472dd9689c2d5c56741de9795ed0202108038831f654542e
+          tccr.io/truecharts/mariadb:v10.7.3@sha256:e17c635d51b9dfc766539d2dab85c5737f1464c39f313e9e7cadda32d00cc6a9
 
 ##### Scan Results
 
@@ -1812,7 +1812,7 @@ hide:
 | zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.3@sha256:6e919e0e150c26c9472dd9689c2d5c56741de9795ed0202108038831f654542e (debian 10.12)
+#### Container: tccr.io/truecharts/mariadb:v10.7.3@sha256:e17c635d51b9dfc766539d2dab85c5737f1464c39f313e9e7cadda32d00cc6a9 (debian 10.12)
 
 
 **debian**

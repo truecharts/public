@@ -78,7 +78,7 @@ hide:
           tccr.io/truecharts/photoview:2.3.12@sha256:84a2a71f6efdf659bbe127dc017cc4ef5fab34a20ba1d5c9c75321c2a75b9531
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/postgresql:v14.2.0@sha256:f3be169e9257f6c516723874e8bed1e07f5af4ee555009fef6e481e740a4343b
+          tccr.io/truecharts/postgresql:v14.2.0@sha256:29d271601a53989aa4d6d0350f00ed36c7d20e920a9c744d6c01b81aee6638a1
 
 ##### Scan Results
 
@@ -391,7 +391,7 @@ hide:
 | zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:f3be169e9257f6c516723874e8bed1e07f5af4ee555009fef6e481e740a4343b (debian 10.12)
+#### Container: tccr.io/truecharts/postgresql:v14.2.0@sha256:29d271601a53989aa4d6d0350f00ed36c7d20e920a9c744d6c01b81aee6638a1 (debian 10.12)
 
 
 **debian**

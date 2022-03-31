@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-5.0.12"></a>
+### [wikijs-5.0.12](https://github.com/truecharts/apps/compare/wikijs-5.0.11...wikijs-5.0.12) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
 <a name="wikijs-5.0.11"></a>
 ### [wikijs-5.0.11](https://github.com/truecharts/apps/compare/wikijs-5.0.10...wikijs-5.0.11) (2022-03-31)
 
