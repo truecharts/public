@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  NODE_IP: "localhost"
   IPFS_PROFILE: "server"
   IPFS_SWARM_KEY: ""
   IPFS_SWARM_KEY_FILE: ""
@@ -68,4 +67,3 @@ persistence:
   ipns:
     enabled: true
     mountPath: "/ipns"
-

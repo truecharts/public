@@ -76,14 +76,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-        - variable: NODE_IP
-          label: "NODE_IP"
-          description: "Sets the API.HTTPHeaders.Access-Control-Allow-Origin to this IP, plus localhost:3000 and 127.0.0.1:5001."
-          schema:
-            type: string
-            required: true
-            $ref:
-              - "definitions/nodeIP"
         - variable: IPFS_SWARM_KEY
           label: "IPFS_SWARM_KEY"
           description: "The IPFS_SWARM_KEY creates swarm.key with the contents of the variable itself."
