@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-3.0.8"></a>
+### [grav-3.0.8](https://github.com/truecharts/apps/compare/grav-3.0.7...grav-3.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="grav-3.0.7"></a>
 ### [grav-3.0.7](https://github.com/truecharts/apps/compare/grav-3.0.6...grav-3.0.7) (2022-03-30)
 

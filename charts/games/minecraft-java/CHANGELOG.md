@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.32"></a>
+### [minecraft-java-0.0.32](https://github.com/truecharts/apps/compare/minecraft-java-0.0.31...minecraft-java-0.0.32) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="minecraft-java-0.0.31"></a>
 ### [minecraft-java-0.0.31](https://github.com/truecharts/apps/compare/minecraft-java-0.0.30...minecraft-java-0.0.31) (2022-03-30)
 

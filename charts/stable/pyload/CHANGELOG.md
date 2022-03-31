@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-5.0.8"></a>
+### [pyload-5.0.8](https://github.com/truecharts/apps/compare/pyload-5.0.7...pyload-5.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="pyload-5.0.7"></a>
 ### [pyload-5.0.7](https://github.com/truecharts/apps/compare/pyload-5.0.6...pyload-5.0.7) (2022-03-30)
 

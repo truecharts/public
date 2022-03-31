@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-1.0.13"></a>
+### [docker-compose-1.0.13](https://github.com/truecharts/apps/compare/docker-compose-1.0.12...docker-compose-1.0.13) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="docker-compose-1.0.12"></a>
 ### [docker-compose-1.0.12](https://github.com/truecharts/apps/compare/docker-compose-1.0.11...docker-compose-1.0.12) (2022-03-30)
 

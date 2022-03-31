@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-5.0.8"></a>
+### [unpackerr-5.0.8](https://github.com/truecharts/apps/compare/unpackerr-5.0.7...unpackerr-5.0.8) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="unpackerr-5.0.7"></a>
 ### [unpackerr-5.0.7](https://github.com/truecharts/apps/compare/unpackerr-5.0.6...unpackerr-5.0.7) (2022-03-30)
 

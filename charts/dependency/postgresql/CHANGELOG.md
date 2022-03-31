@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.27"></a>
+### [postgresql-7.0.27](https://github.com/truecharts/apps/compare/postgresql-7.0.26...postgresql-7.0.27) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+
+
+
 <a name="postgresql-7.0.26"></a>
 ### [postgresql-7.0.26](https://github.com/truecharts/apps/compare/postgresql-7.0.25...postgresql-7.0.26) (2022-03-31)
 

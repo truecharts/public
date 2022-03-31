@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-1.0.3"></a>
+### [browserless-chrome-1.0.3](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.2...browserless-chrome-1.0.3) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="browserless-chrome-1.0.2"></a>
 ### [browserless-chrome-1.0.2](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.1...browserless-chrome-1.0.2) (2022-03-30)
 

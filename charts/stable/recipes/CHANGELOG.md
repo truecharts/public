@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.18"></a>
+### [recipes-6.0.18](https://github.com/truecharts/apps/compare/recipes-6.0.16...recipes-6.0.18) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="recipes-6.0.16"></a>
 ### [recipes-6.0.16](https://github.com/truecharts/apps/compare/recipes-6.0.15...recipes-6.0.16) (2022-03-30)
 

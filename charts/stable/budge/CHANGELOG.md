@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="budge-1.0.12"></a>
+### [budge-1.0.12](https://github.com/truecharts/apps/compare/budge-1.0.11...budge-1.0.12) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
 <a name="budge-1.0.11"></a>
 ### [budge-1.0.11](https://github.com/truecharts/apps/compare/budge-1.0.10...budge-1.0.11) (2022-03-30)
 
