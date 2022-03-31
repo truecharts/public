@@ -45,6 +45,10 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  APP_KEY:
+    secretKeyRef:
+      name: appkey
+      key: appkey
 
 service:
   main:
