@@ -1,7 +1,7 @@
 name: "Charts: Update README"
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       modifiedCharts:
         required: true
