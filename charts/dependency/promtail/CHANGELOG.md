@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.20"></a>
+### [promtail-2.0.20](https://github.com/truecharts/apps/compare/promtail-2.0.19...promtail-2.0.20) (2022-04-01)
+
+#### Feat
+
+* ensure docs and automatic changes get pushed-back to the repo as soon as possible
+
+
+
 <a name="promtail-2.0.19"></a>
 ### [promtail-2.0.19](https://github.com/truecharts/apps/compare/promtail-2.0.17...promtail-2.0.19) (2022-04-01)
 
