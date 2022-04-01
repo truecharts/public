@@ -3,64 +3,24 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-DEFAULT_CHART_RELEASER_VERSION=v1.2.1
-
-show_help() {
-cat << EOF
-Usage: $(basename "$0") <options>
-    -h, --help               Display help
-    -d, --charts-dir         The charts directory (default: charts)
-EOF
-}
-
-main() {
-    local charts_dir=charts/**
-    local token=${CR_TOKEN:-false}
-    local parthreads=$(($(nproc) * 2))
-
-    parse_command_line "$@"
-
-    local repo_root
-    repo_root=$(git rev-parse --show-toplevel)
-    pushd "$repo_root" > /dev/null
-
-    echo 'Looking up latest tag...'
-    local latest_tag
-    latest_tag=$(lookup_latest_tag)
-
-    echo "Discovering changed charts since '$latest_tag'..."
-    local changed_charts=()
-    readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-    if [[ -n "${changed_charts[*]}" ]]; then
-        prep_helm
-        parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
-        echo "Starting post-processing"
-        pre_commit
-    else
-        echo "Nothing to do. No chart changes detected."
-    fi
-
-    popd > /dev/null
-}
-
 chart_runner(){
-  if [[ -d "${1}" ]]; then
-      echo "Start processing ${1} ..."
-      chartversion=$(cat ${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-      chartname=$(basename ${1})
-      train=$(basename $(dirname "${1}"))
-      SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-      helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-      helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
-      container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
-      sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
-      sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
-      create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
-      generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
+  if [[ -d "charts/${1}" ]]; then
+      echo "Start processing charts/${1} ..."
+      chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+      chartname=$(basename charts/${1})
+      train=$(basename $(dirname "charts/${1}"))
+      SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+      helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
+      helm_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+      container_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+      sec_scan_cleanup "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+      sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
+      create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
+      generate_docs "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
   else
-      echo "Chart '${1}' no longer exists in repo. Skipping it..."
+      echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
   fi
-  echo "Done processing ${1} ..."
+  echo "Done processing charts/${1} ..."
 }
 export -f chart_runner
 
@@ -213,65 +173,8 @@ generate_docs() {
     }
     export -f generate_docs
 
-parse_command_line() {
-    while :; do
-        case "${1:-}" in
-            -h|--help)
-                show_help
-                exit
-                ;;
-            -d|--charts-dir)
-                if [[ -n "${2:-}" ]]; then
-                    charts_dir="$2"
-                    shift
-                else
-                    echo "ERROR: '-d|--charts-dir' cannot be empty." >&2
-                    show_help
-                    exit 1
-                fi
-                ;;
-            *)
-                break
-                ;;
-        esac
-
-        shift
-    done
-}
-export -f parse_command_line
-
-lookup_latest_tag() {
-    git fetch --tags > /dev/null 2>&1
-
-    if ! git describe --tags --abbrev=0 2> /dev/null; then
-        git rev-list --max-parents=0 --first-parent HEAD
-    fi
-}
-export -f lookup_latest_tag
-
-filter_charts() {
-    while read -r chart; do
-        [[ ! -d "$chart" ]] && continue
-        if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
-            echo "$chart"
-        else
-           echo "Version not bumped. Skipping." 1>&2
-        fi
-    done
-}
-export -f filter_charts
-
-lookup_changed_charts() {
-    local commit="$1"
-
-    local changed_files
-    changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir" | grep "Chart.yaml")
-
-    local depth=$(( $(tr "/" "\n" <<< "$charts_dir" | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
-    local fields="1-${depth}"
-
-    cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
-}
-export -f lookup_changed_charts
-
-main "$@"
+parthreads=$(($(nproc) * 2))
+prep_helm
+parallel -j ${parthreads} chart_runner '2>&1' ::: ${1}
+echo "Starting post-processing"
+pre_commit
