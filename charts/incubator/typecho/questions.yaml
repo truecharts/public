@@ -123,14 +123,14 @@ questions:
           schema:
             type: string
             required: true
-            default: "100M" 
+            default: "100M"
         - variable: MAX_POST_BODY
           label: "MAX_POST_BODY"
           description: "MAX_POST_BODY"
           schema:
             type: string
             required: true
-            default: "50M"                  
+            default: "50M"
 # Include{containerConfig}
 
   - variable: service
