@@ -24,19 +24,6 @@ chart_runner(){
 }
 export -f chart_runner
 
-prep_helm() {
-    helm repo add truecharts-old https://truecharts.org
-    helm repo add truecharts https://charts.truecharts.org
-    helm repo add truecharts-library https://library-charts.truecharts.org
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-    helm repo add metallb https://metallb.github.io/metallb
-    helm repo add grafana https://grafana.github.io/helm-charts
-    helm repo add prometheus https://prometheus-community.github.io/helm-charts
-    helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
-    helm repo update
-    }
-export -f prep_helm
-
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
     local chart="$1"
@@ -118,14 +105,6 @@ sec_scan_cleanup() {
     }
     export -f sec_scan_cleanup
 
-pre_commit() {
-      echo "Running pre-commit test-and-cleanup..."
-       pre-commit run --all ||:
-      # Fix sh files to always be executable
-      find . -name '*.sh' | xargs chmod +x
-    }
-    export -f pre_commit
-
 create_changelog() {
     local chart="$1"
     local chartname="$2"
@@ -174,7 +153,5 @@ generate_docs() {
     export -f generate_docs
 
 parthreads=$(($(nproc) * 2))
-prep_helm
 parallel -j ${parthreads} chart_runner '2>&1' ::: ${1}
 echo "Starting post-processing"
-pre_commit
