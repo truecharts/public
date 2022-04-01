@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.19"></a>
+### [promtail-2.0.19](https://github.com/truecharts/apps/compare/promtail-2.0.17...promtail-2.0.19) (2022-04-01)
+
+#### Feat
+
+* use central change detector for release catalog builder and split catalog-validation
+
+#### Fix
+
+* use bash for release catalog building
+
+
+
 <a name="promtail-2.0.17"></a>
 ### [promtail-2.0.17](https://github.com/truecharts/apps/compare/promtail-2.0.16...promtail-2.0.17) (2022-04-01)
 
