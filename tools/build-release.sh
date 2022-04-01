@@ -52,11 +52,11 @@ main() {
     # copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
 
-        #prep_helm
+        prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
-        #pre_commit
+        pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
         gen_dh_cat
@@ -78,12 +78,12 @@ chart_runner(){
       train=$(basename $(dirname "${1}"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-      #helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
-      #container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
-      #sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
-      #sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
-      #create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
-      #generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
+      helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+      container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+      sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+      sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
+      create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
+      generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
       #copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
       #package_chart "${1}"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
