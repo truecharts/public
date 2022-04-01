@@ -69,7 +69,15 @@ jobs:
          #  export -f chart_runner
          #  CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
          #  parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
-
+         
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/website
+          token: ${{ secrets.BOT_TOKEN }}
+          path: website
+          
       - name: build catalogs and docs
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
@@ -78,6 +86,43 @@ jobs:
           tools/build-release.sh -p
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
+          
+      - name: Copy docs to website
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          docs_copy(){
+            IFS='/' read -r -a chart_parts <<< "${1}"
+            if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+              mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+              yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
+              yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+              yes | cp -rf ${chart}/security.md docs/apps/${train}/${chartname}/security.md 2>/dev/null || :
+              yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
+              yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
+              rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+              yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+              sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+            fi
+          }
+          export -f docs_copy
+          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+          parallel -j 8 docs_copy '2>&1' ::: ${CHARTS[@]}
+
+         
+      - name: Commit Website Changes
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          cd website
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released docs for TrueCharts" || exit 0
+          ## TODO: actually push the content
+          # git push
+          cd -
+          rm -rf website
 
       - name: Create commit
         id: create-commit
