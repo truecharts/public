@@ -77,12 +77,11 @@ runs:
 
         lookup_changed_charts() {
             local commit="$1"
-            local $charts_dir="charts/**"
 
             local changed_files
-            changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir" | grep "Chart.yaml")
+            changed_files=$(git diff --find-renames --name-only "$commit" -- 'charts/**' | grep "Chart.yaml")
 
-            local depth=$(( $(tr "/" "\n" <<< "$charts_dir" | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
+            local depth=$(( $(tr "/" "\n" <<< 'charts/**' | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
             local fields="1-${depth}"
 
             cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
