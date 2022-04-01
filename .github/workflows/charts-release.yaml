@@ -120,6 +120,7 @@ jobs:
           path: dh_catalog
 
       - name: build catalogs
+        shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
