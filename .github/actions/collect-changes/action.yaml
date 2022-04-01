@@ -54,6 +54,41 @@ runs:
       id: filter-bumped-charts
       shell: bash
       run: |
+        lookup_latest_tag() {
+            git fetch --tags > /dev/null 2>&1
+
+            if ! git describe --tags --abbrev=0 2> /dev/null; then
+                git rev-list --max-parents=0 --first-parent HEAD
+            fi
+        }
+        export -f lookup_latest_tag
+
+        filter_charts() {
+            while read -r chart; do
+                [[ ! -d "$chart" ]] && continue
+                if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
+                    echo "$chart"
+                else
+                   echo "Version not bumped. Skipping." 1>&2
+                fi
+            done
+        }
+        export -f filter_charts
+
+        lookup_changed_charts() {
+            local commit="$1"
+            local $charts_dir="charts/**"
+
+            local changed_files
+            changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir" | grep "Chart.yaml")
+
+            local depth=$(( $(tr "/" "\n" <<< "$charts_dir" | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
+            local fields="1-${depth}"
+
+            cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
+        }
+        export -f lookup_changed_charts
+
         repo_root=$(git rev-parse --show-toplevel)
         pushd "$repo_root" > /dev/null
 
