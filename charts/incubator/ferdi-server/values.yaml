@@ -96,13 +96,15 @@ installContainers:
         keyfile="/app/data/FERDI_APP_KEY.txt";
         if [ ! -f ${keyfile} ];
         then
-          echo "Creating app key file...";
-          echo "${APP_KEY}" >> ${keyfile};
+          echo "No APP_KEY File...";
+          echo "Creating APP_KEY file...";
+          echo "${APP_KEY}" > ${keyfile};
           if [ -f ${keyfile} ];
           then
             echo "Success!";
           else
             echo "Failed.";
           fi;
+        else
+          echo "APP_KEY File exists. Skipping...";
         fi;
-        cat ${keyfile};
