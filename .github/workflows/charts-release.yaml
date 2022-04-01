@@ -40,6 +40,7 @@ jobs:
         uses: ./.github/actions/collect-changes
 
       - name: Generate README for changed charts
+        shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
