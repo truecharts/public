@@ -86,25 +86,15 @@ questions:
           description: "Your Typecho Site URL"
           schema:
             type: string
-            default: "https://your-domain.com"
-        - variable: TYPECHO_USER_NAME
-          label: "TYPECHO_USER_NAME"
-          description: "USER NAME"
-          schema:
-            type: string
-            default: "typecho"
-        - variable: TYPECHO_USER_PASSWORD
-          label: "TYPECHO_USER_PASSWORD"
-          description: "USER PASSWORD"
-          schema:
-            type: string
-            default: "testtypecho"
+            required: true
+            default: ""
         - variable: TYPECHO_USER_MAIL
           label: "TYPECHO_USER_MAIL"
           description: "USER EMAIL"
           schema:
             type: string
-            default: "test@truecharts.org"
+            required: true
+            default: ""
 # Include{containerConfig}
 
   - variable: service
