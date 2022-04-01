@@ -117,6 +117,20 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: MEMORY_LIMIT
+          label: "MEMORY_LIMIT"
+          description: "MEMORY_LIMIT"
+          schema:
+            type: string
+            required: true
+            default: "100M" 
+        - variable: MAX_POST_BODY
+          label: "MAX_POST_BODY"
+          description: "MAX_POST_BODY"
+          schema:
+            type: string
+            required: true
+            default: "50M"                  
 # Include{containerConfig}
 
   - variable: service
