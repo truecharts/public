@@ -7,6 +7,14 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
+  admin:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/admin"
 questions:
   - variable: portal
     group: "Container Image"
@@ -83,16 +91,22 @@ questions:
       attrs:
         - variable: LD_DISABLE_BACKGROUND_TASKS
           label: "Disable Background Tasks"
-          description: "Option to disable background tasks"
+          description: "Disables background tasks, such as creating snapshots for bookmarks on the web archive. Enabling this flag will prevent the background task processor from starting up, and prevents scheduling tasks. This might be useful if you are experiencing performance issues or other problematic behaviour due to background task processing."
           schema:
             type: boolean
             default: false
         - variable: LD_DISABLE_URL_VALIDATION
           label: "Disable URL Validation"
-          description: "Option to disable URL validation for bookmarks completely"
+          description: "Completely disables URL validation for bookmarks. This can be useful if you intend to store non fully qualified domain name URLs, such as network paths, or you want to store URLs that use another protocol than http or https."
           schema:
             type: boolean
             default: false
+        - variable: LD_REQUEST_TIMEOUT
+          label: "Request Timeout"
+          description: "Configures the request timeout in the uwsgi application server. This can be useful if you want to import a bookmark file with a high number of bookmarks and run into request timeouts."
+          schema:
+            type: int
+            default: 60
 
 # Include{containerConfig}
 
@@ -157,7 +171,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9090
+                                    default: 10210
 
   - variable: serviceexpert
     group: "Networking and Services"

@@ -3,15 +3,18 @@ image:
   tag: 1.8.8@sha256:d8d90a253cfe2bb1087492169c8e98ad20644f079c4890bdb9a7ac874488313d
   pullPolicy: IfNotPresent
 
-# securityContext:
+securityContext:
 #   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
+  LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  LD_REQUEST_TIMEOUT: 60
   LD_DISABLE_BACKGROUND_TASKS: false
   LD_DISABLE_URL_VALIDATION: false
 
@@ -20,7 +23,6 @@ service:
     ports:
       main:
         port: 10210
-        targetPort: 9090
 
 persistence:
   data:
