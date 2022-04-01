@@ -7,4 +7,3 @@
 #### Feat
 
 * Add ferdi-server ([#2367](https://github.com/truecharts/apps/issues/2367))
-
