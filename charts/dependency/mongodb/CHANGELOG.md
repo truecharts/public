@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.0.16"></a>
+### [mongodb-0.0.16](https://github.com/truecharts/apps/compare/mongodb-0.0.14...mongodb-0.0.16) (2022-04-01)
+
+#### Fix
+
+* use bash for gen-docs shell
+
+
+
 <a name="mongodb-0.0.14"></a>
 ### [mongodb-0.0.14](https://github.com/truecharts/apps/compare/mongodb-0.0.13...mongodb-0.0.14) (2022-03-31)
 
