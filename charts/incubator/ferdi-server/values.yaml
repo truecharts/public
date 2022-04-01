@@ -16,6 +16,7 @@ env:
   DATA_DIR: "/app/data"
   DB_CONNECTION: "pg"
   DB_PORT: "5432"
+  DB_SSL: false
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   # User Defined
