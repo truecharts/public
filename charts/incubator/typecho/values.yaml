@@ -18,8 +18,8 @@ env:
   TYPECHO_INSTALL: 1
   TYPECHO_DB_ADAPTER: "Pdo_Mysql"
   TYPECHO_DB_PORT: "3306"
-  TYPECHO_DB_USER: "typecho"
-  TYPECHO_DB_DATABASE: "typecho"
+  TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  TYPECHO_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   TYPECHO_DB_PREFIX: "typecho_"
   TYPECHO_DB_ENGINE: "InnoDB"
   TYPECHO_DB_CHARSET: "utf8mb4"
