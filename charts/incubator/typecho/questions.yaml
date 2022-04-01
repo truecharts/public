@@ -74,6 +74,28 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: TYPECHO_USER_NAME
+          label: "TYPECHO_USER_NAME"
+          description: "USER NAME"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: TYPECHO_USER_PASSWORD
+          label: "TYPECHO_USER_PASSWORD"
+          description: "USER PASSWORD"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
