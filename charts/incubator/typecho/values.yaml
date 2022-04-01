@@ -13,8 +13,6 @@ podSecurityContext:
 
 env:
   TIMEZONE: "{{ .Values.TZ }}"
-  MEMORY_LIMIT: "100M"
-  MAX_POST_BODY: "50M"
   TYPECHO_INSTALL: 1
   TYPECHO_DB_ADAPTER: "Pdo_Mysql"
   TYPECHO_DB_PORT: "3306"
@@ -24,6 +22,9 @@ env:
   TYPECHO_DB_ENGINE: "InnoDB"
   TYPECHO_DB_CHARSET: "utf8mb4"
   TYPECHO_DB_NEXT: "none"
+  # User Defined
+  MEMORY_LIMIT: "100M"
+  MAX_POST_BODY: "50M"  
   TYPECHO_SITE_URL: "https://your-domain.com"
   TYPECHO_USER_NAME: "typecho"
   TYPECHO_USER_PASSWORD: "testtypecho"
