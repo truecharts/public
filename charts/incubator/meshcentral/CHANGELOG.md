@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-0.0.4"></a>
+### [meshcentral-0.0.4](https://github.com/truecharts/apps/compare/meshcentral-0.0.3...meshcentral-0.0.4) (2022-04-01)
+
+#### Fix
+
+* HTTPS for main service ([#2377](https://github.com/truecharts/apps/issues/2377))
+
+
+
 <a name="meshcentral-0.0.3"></a>
 ### [meshcentral-0.0.3](https://github.com/truecharts/apps/compare/meshcentral-0.0.2...meshcentral-0.0.3) (2022-04-01)
 
