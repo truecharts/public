@@ -90,6 +90,7 @@ jobs:
       - name: Copy docs to website
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
+        shell: bash
         run: |
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
