@@ -65,7 +65,6 @@ chart_runner(){
 export -f chart_runner
 
 prep_helm() {
-    if [[ -z "$standalone" ]]; then
     helm repo add truecharts-old https://truecharts.org
     helm repo add truecharts https://charts.truecharts.org
     helm repo add truecharts-library https://library-charts.truecharts.org
@@ -75,7 +74,6 @@ prep_helm() {
     helm repo add prometheus https://prometheus-community.github.io/helm-charts
     helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
     helm repo update
-    fi
     }
 export -f prep_helm
 
@@ -161,12 +159,10 @@ sec_scan_cleanup() {
     export -f sec_scan_cleanup
 
 pre_commit() {
-    if [[ -z "$standalone" ]]; then
       echo "Running pre-commit test-and-cleanup..."
        pre-commit run --all ||:
       # Fix sh files to always be executable
       find . -name '*.sh' | xargs chmod +x
-    fi
     }
     export -f pre_commit
 
@@ -176,22 +172,20 @@ create_changelog() {
     local train="$3"
     local chartversion="$4"
     local prevversion="$(git tag -l "${chartname}-*" --sort=-v:refname  | head -n 1)"
-    if [[ -z "$standalone" ]]; then
-        echo "Generating changelogs for: ${chartname}"
-        # SCALE "Changelog" containing only last change
-        git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/app-changelog.md ${chartname}-${chartversion}
-        # Append SCALE changelog to actual changelog
+    echo "Generating changelogs for: ${chartname}"
+    # SCALE "Changelog" containing only last change
+    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/app-changelog.md ${chartname}-${chartversion}
+    # Append SCALE changelog to actual changelog
 
-        if [[ -f "${chart}/CHANGELOG.md" ]]; then
-           true
-        else
-           touch ${chart}/CHANGELOG.md
-        fi
-        sed -i '1d' ${chart}/CHANGELOG.md
-        cat ${chart}/app-changelog.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
-        sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
-        rm ${chart}/app-changelog.md || echo "changelog not found..."
+    if [[ -f "${chart}/CHANGELOG.md" ]]; then
+       true
+    else
+       touch ${chart}/CHANGELOG.md
     fi
+    sed -i '1d' ${chart}/CHANGELOG.md
+    cat ${chart}/app-changelog.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+    sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
+    rm ${chart}/app-changelog.md || echo "changelog not found..."
     }
     export -f create_changelog
 
@@ -200,37 +194,22 @@ generate_docs() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    if [[ -z "$standalone" ]]; then
-         echo "Generating Docs"
-         if [ "${chartname}" == "common" ]; then
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="README.md" \
-                 --template-files="/__w/apps/apps/templates/docs/common-README.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="helm-values.md" \
-                 --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
-                 --chart-search-root="${chart}"
-         else
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="README.md" \
-                 --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="CONFIG.md" \
-                 --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="helm-values.md" \
-                 --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
-                 --chart-search-root="${chart}"
-         fi
-    fi
+    echo "Generating Docs"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="README.md" \
+            --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
+            --chart-search-root="${chart}"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="CONFIG.md" \
+            --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
+            --chart-search-root="${chart}"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="helm-values.md" \
+            --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
+            --chart-search-root="${chart}"
     }
     export -f generate_docs
 
