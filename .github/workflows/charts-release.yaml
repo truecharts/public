@@ -17,28 +17,6 @@ jobs:
       image: ghcr.io/truecharts/devcontainer:v2.2.1@sha256:4ace13c049bf00f85c63e0070f86b71656a7c3b2113aa3e21c3107f3d1f7bf87
     concurrency: gitpush
     steps:
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
-
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          fetch-depth: 1
-          repository: truecharts/catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          path: catalog
-
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          fetch-depth: 1
-          repository: truecharts/dh_catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          path: dh_catalog
-
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
@@ -51,34 +29,46 @@ jobs:
           wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
           sudo dpkg -i /tmp/helm-docs.deb
 
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts-old https://truecharts.org
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
+          helm repo update
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+
       - name: Collect changes
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
       - name: Generate README for changed charts
+        shell: bash
         if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-         # To be done, we should splitreadme generation from catalog generation
-         #  chart_runner(){
-         #      IFS='/' read -r -a chart_parts <<< "${1}"
-         #      if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-         #        ./.github/scripts/gen-helm-docs.sh "${chart_parts[0]}" "${chart_parts[1]}"
-         #      fi
-         #  }
-         #  export -f chart_runner
-         #  CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
-         #  parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
-          
-      - name: build catalogs and docs
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          .github/scripts/gen-docs.sh ${CHARTS}
+
+      - name: Fix Pre-Commit issues
+        shell: bash
         if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-          pip install yq
-          tools/build-release.sh -p
-        env:
-          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
-          
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
@@ -86,14 +76,14 @@ jobs:
           repository: truecharts/pub
           token: ${{ secrets.BOT_TOKEN }}
           path: pub
-          
+
       - name: Copy docs to website
         if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         shell: bash
         run: |
           #!/bin/bash
-          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -113,20 +103,66 @@ jobs:
               fi
           done
 
-         
-      - name: Commit Website Changes
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/dh_catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: dh_catalog
+
+      - name: build catalogs
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          pip install yq
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          .github/scripts/build-catalog.sh ${CHARTS}
+
+      - name: Validate catalogs
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          echo "Starting Catalog Validation"
+          /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
+
+
+      - name: Commit Catalog
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
-          cd pub
+          cd catalog
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
-          git commit -sm "Commit released docs for TrueCharts" || exit 0
+          git commit -sm "Commit new App releases for TrueCharts" || exit 0
           ## TODO: actually push the content
           # git push
           cd -
-          rm -rf pub
+          rm -rf catalog
+
+      - name: Commit DH Catalog
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          cd dh_catalog
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit new App releases for TrueCharts" || exit 0
+          ## TODO: actually push the content
+          # git push
+          cd -
+          rm -rf dh_catalog
 
       - name: Create commit
         id: create-commit
@@ -146,6 +182,20 @@ jobs:
           else
             echo "::set-output name=commit_hash::${GITHUB_SHA}"
           fi
+
+      - name: Commit Website Changes
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          cd pub
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released docs for TrueCharts" || exit 0
+          ## TODO: actually push the content
+          # git push
+          cd -
+          rm -rf pub
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3

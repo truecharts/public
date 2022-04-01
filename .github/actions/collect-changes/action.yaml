@@ -11,6 +11,12 @@ outputs:
   addedOrModifiedCharts:
     description: "A list of the charts changed"
     value: ${{ steps.filter-charts.outputs.addedOrModified }}
+  changesDetectedAfterTag:
+    description: "Flag if there are any modified and bump Charts after last tag"
+    value: ${{ steps.filter-bumped-charts.outputs.changesDetectedAfterTag }}
+  modifiedChartsAfterTag:
+    description: "A list of the charts changed and bumped after last Tag"
+    value: ${{ steps.filter-bumped-charts.outputs.modifiedChartsAfterTag }}
 
 runs:
   using: "composite"
@@ -43,3 +49,72 @@ runs:
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
+
+    - name: Collect changed charts
+      id: filter-bumped-charts
+      shell: bash
+      run: |
+        lookup_latest_tag() {
+            git fetch --tags > /dev/null 2>&1
+
+            if ! git describe --tags --abbrev=0 2> /dev/null; then
+                git rev-list --max-parents=0 --first-parent HEAD
+            fi
+        }
+        export -f lookup_latest_tag
+
+        filter_charts() {
+            while read -r chart; do
+                [[ ! -d "$chart" ]] && continue
+                if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
+                    echo "$chart"
+                else
+                   echo "Version not bumped. Skipping." 1>&2
+                fi
+            done
+        }
+        export -f filter_charts
+
+        lookup_changed_charts() {
+            local commit="$1"
+
+            local changed_files
+            changed_files=$(git diff --find-renames --name-only "$commit" -- 'charts/**' | grep "Chart.yaml")
+
+            local depth=$(( $(tr "/" "\n" <<< 'charts/**' | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
+            local fields="1-${depth}"
+
+            cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
+        }
+        export -f lookup_changed_charts
+
+        repo_root=$(git rev-parse --show-toplevel)
+        pushd "$repo_root" > /dev/null
+
+        echo 'Looking up latest tag...'
+        latest_tag=$(lookup_latest_tag)
+
+        echo "Discovering changed charts since '$latest_tag'..."
+        changed_charts=()
+        readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
+
+        if [ ${#changed_charts[@]} -eq 0 ]; then
+            echo "No Changed Charts detected since latest tag..."
+        printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
+        else
+            echo "Changed Charts detected since latest tag, parsing..."
+            printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
+        CHARTS=()
+
+        # Get only the chart paths
+        for CHARTPATH in "${changed_charts[@]}"
+        do
+          IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
+          CHARTS+=("${path_parts[1]}/${path_parts[2]}")
+        done
+
+        # Remove duplicates
+        CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
+        # Set output to changed charts
+        printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
+        fi

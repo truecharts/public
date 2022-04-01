@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.17"></a>
+### [promtail-2.0.17](https://github.com/truecharts/apps/compare/promtail-2.0.16...promtail-2.0.17) (2022-04-01)
+
+#### Feat
+
+* split-off helm-prep and precommit
+
+
+
 <a name="promtail-2.0.16"></a>
 ### [promtail-2.0.16](https://github.com/truecharts/apps/compare/promtail-2.0.15...promtail-2.0.16) (2022-03-31)
 
