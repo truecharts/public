@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="meshcentral-0.0.3"></a>
+### [meshcentral-0.0.3](https://github.com/truecharts/apps/compare/meshcentral-0.0.2...meshcentral-0.0.3) (2022-04-01)
+
+#### Fix
+
+* Fix port type ([#2373](https://github.com/truecharts/apps/issues/2373))
+
+
+
+<a name="meshcentral-0.0.2"></a>
+### [meshcentral-0.0.2](https://github.com/truecharts/apps/compare/meshcentral-0.0.1...meshcentral-0.0.2) (2022-04-01)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major
+
+
+
 <a name="meshcentral-0.0.1"></a>
 ### meshcentral-0.0.1 (2022-03-31)
 

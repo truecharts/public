@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"601096721/mosdns"` |  |
-| image.tag | string | `"v3.5.2@sha256:f256b3e1326add0fb128a7aa2fef2116a977abb2158b90a7a8d9c250fb003973"` |  |
+| image.tag | string | `"v3.5.2@sha256:a9493f81c691aacd2c5f443e0e476fd839417ea2d256165807913d36cca63533"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/etc/mosdns"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

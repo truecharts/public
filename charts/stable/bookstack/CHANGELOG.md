@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-1.1.9"></a>
+### [bookstack-1.1.9](https://github.com/truecharts/apps/compare/bookstack-1.1.8...bookstack-1.1.9) (2022-04-01)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="bookstack-1.1.8"></a>
 ### [bookstack-1.1.8](https://github.com/truecharts/apps/compare/bookstack-1.1.7...bookstack-1.1.8) (2022-03-31)
 

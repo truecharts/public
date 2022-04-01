@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/tt-rss"` | image repository |
-| image.tag | string | `"v1.9111.0@sha256:cfdfc3be577b3eaf8660d8410afbb07a69e0e4f5c86500f8691f0cbdea099a43"` | image tag |
+| image.tag | string | `"v1.9112.0@sha256:a5c04d600473eb046d4e1bd7eea39fa4c0e068d4b581757d136824602727591f"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

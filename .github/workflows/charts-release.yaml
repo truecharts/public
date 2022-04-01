@@ -69,7 +69,7 @@ jobs:
          #  export -f chart_runner
          #  CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
          #  parallel -j 8 chart_runner '2>&1' ::: ${CHARTS[@]}
-
+          
       - name: build catalogs and docs
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
@@ -78,6 +78,53 @@ jobs:
           tools/build-release.sh -p
         env:
           CR_TOKEN: ${{ secrets.BOT_TOKEN }}
+          
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/pub
+          token: ${{ secrets.BOT_TOKEN }}
+          path: pub
+          
+      - name: Copy docs to website
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+          for i in "${CHARTS[@]}"
+          do
+              IFS='/' read -r -a chart_parts <<< "$i"
+              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+                train=${chart_parts[0]}
+                chart=${chart_parts[1]}
+                echo "copying docs to website for ${chart}"
+                mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf charts/${train}/${chart}/README.md pub/website/apps/${train}/${chart}/index.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md pub/website/apps/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/security.md pub/website/apps/${train}/${chart}/security.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/CONFIG.md pub/website/apps/${train}/${chart}/CONFIG.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/helm-values.md pub/website/apps/${train}/${chart}/helm-values.md 2>/dev/null || :
+                rm pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/LICENSE pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+                sed -i '1s/^/# License<br>\n\n/' pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+              fi
+          done
+
+         
+      - name: Commit Website Changes
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          cd pub
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released docs for TrueCharts" || exit 0
+          ## TODO: actually push the content
+          # git push
+          cd -
+          rm -rf pub
 
       - name: Create commit
         id: create-commit

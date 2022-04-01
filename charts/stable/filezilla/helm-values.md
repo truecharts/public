@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/filezilla"` |  |
-| image.tag | string | `"v3.55.1@sha256:b5a24f2ca9f38628633c80f06a3655a05674790833e339d8073fc5b1a6aee9b1"` |  |
+| image.tag | string | `"v3.55.1@sha256:1bc88f1a8552f6ad13cb97475afd05d65c0e25d7e764d9f5706f30f9bdaf4418"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

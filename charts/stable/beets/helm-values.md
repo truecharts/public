@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/beets"` |  |
-| image.tag | string | `"v1.6.0@sha256:71cc66aae01425c8c4a0ec0638316e8999454fdf164da5cc5999e07dbfa7bb20"` |  |
+| image.tag | string | `"v1.6.0@sha256:55653cfa2f62e4002c5f2a1ce262cc63a6600d7f6c2780853753c60d769ba518"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

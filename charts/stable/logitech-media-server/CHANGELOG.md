@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.13"></a>
+### [logitech-media-server-3.0.13](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.12...logitech-media-server-3.0.13) (2022-04-01)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="logitech-media-server-3.0.12"></a>
 ### [logitech-media-server-3.0.12](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.11...logitech-media-server-3.0.12) (2022-03-31)
 
