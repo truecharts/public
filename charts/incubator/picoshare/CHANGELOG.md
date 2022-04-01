@@ -7,4 +7,3 @@
 #### Feat
 
 * add picoshare ([#2381](https://github.com/truecharts/apps/issues/2381))
-
