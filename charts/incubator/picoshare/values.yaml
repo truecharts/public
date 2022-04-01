@@ -3,14 +3,6 @@ image:
   tag: v1.0.5@sha256:abccdd7d31a61788859b926a9eacbcd18494e996269f03dc4ff32d07f0b6a576
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 secret:
   LITESTREAM_BUCKET: ""
   LITESTREAM_ENDPOINT: ""

@@ -74,7 +74,39 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: LITESTREAM_BUCKET
+          label: "LITESTREAM_BUCKET"
+          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+          schema:
+            type: string
+            default: ""
+        - variable: LITESTREAM_ENDPOINT
+          label: "LITESTREAM_ENDPOINT"
+          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+          schema:
+            type: string
+            default: ""
+        - variable: LITESTREAM_ACCESS_KEY_ID
+          label: "LITESTREAM_ACCESS_KEY_ID"
+          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: LITESTREAM_SECRET_ACCESS_KEY
+          label: "LITESTREAM_SECRET_ACCESS_KEY"
+          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+          schema:
+            type: string
+            private: true
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +135,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10209
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +170,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 10209
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -261,7 +293,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -271,7 +303,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -286,13 +318,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
