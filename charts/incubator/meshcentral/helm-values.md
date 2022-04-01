@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.WEBRTC | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"einar/meshcentral"` |  |
-| image.tag | string | `"latest@sha256:b9cb18a54d610a6b0b43442f1d05f0a05a9e6fa4ad52e2394240c85434c5f35e"` |  |
+| image.tag | string | `"latest@sha256:3a80bced48bdb0fa5b9043cfe51553d72ec01290f456b328c9e3921d19e472a5"` |  |
 | initContainers.init.command[0] | string | `"/init/meshcentral/init.sh"` |  |
 | initContainers.init.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | initContainers.init.volumeMounts[0].mountPath | string | `"/init/meshcentral"` |  |

@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/alist"` |  |
-| image.tag | string | `"v2.2.0@sha256:d0d149fa86bcdff30ad468b2a96bac3efabbecfbde0f6adf6c0a9250a59bd83a"` |  |
+| image.tag | string | `"v2.3.0@sha256:b608781edf0c31112a186e2d759dab0824c67ec93e35f7e13f12b54cb8d00d9c"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/opt/alist/data"` |  |
 | service.main.ports.main.port | int | `10167` |  |

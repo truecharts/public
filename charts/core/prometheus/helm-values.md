@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"v0.24.0@sha256:43b598977851ff6123b1ec9943aeda2bc8650cae8cf7b5f88f79d1ae0f2c6cce"` |  |
+| alertmanagerImage.tag | string | `"v0.24.0@sha256:660b72658c8aec696dbddbfdec6221fc29895331573929bda5b205771ce95c23"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |

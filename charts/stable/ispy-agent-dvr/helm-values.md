@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ispy-agent-dvr"` |  |
-| image.tag | string | `"v3.8.9.0@sha256:8e4836cd87e2efd6d9dba2e172d5dc78cb7ca61c316f7c6b55ee99952b1c6ebc"` |  |
+| image.tag | string | `"v3.9.0.0@sha256:72d5a30ae36e83b8fe0ea7a4ce2bcc470a45a08181606df78e45944f9080e23b"` |  |
 | persistence.commands.enabled | bool | `true` |  |
 | persistence.commands.mountPath | string | `"/agent/Commands"` |  |
 | persistence.config.enabled | bool | `true` |  |

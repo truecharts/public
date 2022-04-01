@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/sickchill"` |  |
-| image.tag | string | `"v2022.2.20@sha256:972e9526e989b526c81aa567c66663b0f5ec4b9256f520785eb3d6aea1df0369"` |  |
+| image.tag | string | `"v2022.2.20@sha256:85d0b02d839f4abdbcf2184962fa03886eedc25a22a256971c53d9ed999b16e4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
