@@ -91,6 +91,7 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
+          #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
           for i in "${CHARTS[@]}"
           do
@@ -99,7 +100,7 @@ jobs:
                 train=${chart_parts[0]}
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
-                mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+                mkdir -p docs/apps/${train}/${chart} || echo "app path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/README.md pub/website/apps/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md pub/website/apps/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/security.md pub/website/apps/${train}/${chart}/security.md 2>/dev/null || :
