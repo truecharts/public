@@ -93,6 +93,15 @@ jobs:
               fi
           done
 
+      - name: build catalogs
+        if: |
+          steps.collect-changes.outputs.changesDetected == 'true'
+        run: |
+          pip install yq
+          tools/build-release.sh -p
+        env:
+          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
+
       - name: Create commit
         id: create-commit
         uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
@@ -125,15 +134,6 @@ jobs:
           # git push
           cd -
           rm -rf pub
-
-      - name: build catalogs
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
-        run: |
-          pip install yq
-          tools/build-release.sh -p
-        env:
-          CR_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
