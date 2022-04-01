@@ -12,28 +12,29 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  HOSTNAME: "my.domain.com"
   # your hostname
-  REVERSE_PROXY: false
+  HOSTNAME: "my.domain.com"
   # set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy
+  REVERSE_PROXY: false
   REVERSE_PROXY_TLS_PORT: ""
-  IFRAME: false
   # set to true if you wish to enable iframe support
-  ALLOW_NEW_ACCOUNTS: true
+  IFRAME: false
   # set to false if you want disable self-service creation of new accounts besides the first (admin)
-  WEBRTC: false
+  ALLOW_NEW_ACCOUNTS: true
   # set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution
-  ALLOWPLUGINS: false
+  WEBRTC: false
   # set to true to allow plugins
-  LOCALSESSIONRECORDING: false
+  ALLOWPLUGINS: false
   # set to true to allow session recording
-  MINIFY: true
+  LOCALSESSIONRECORDING: false
   # set to enable or disable minification of json, reduces traffic
+  MINIFY: true
 
 service:
   main:
     ports:
       main:
+        protocol: "HTTPS"
         targetPort: 443
         port: 10205
 
