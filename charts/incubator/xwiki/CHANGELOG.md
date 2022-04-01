@@ -7,4 +7,3 @@
 #### Feat
 
 * add xwiki ([#2379](https://github.com/truecharts/apps/issues/2379))
-
