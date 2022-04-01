@@ -91,23 +91,25 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
-          docs_copy(){
-            IFS='/' read -r -a chart_parts <<< "${1}"
-            if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-              mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
-              yes | cp -rf ${chart}/README.md pub/website/apps/${train}/${chartname}/index.md 2>/dev/null || :
-              yes | cp -rf ${chart}/CHANGELOG.md pub/website/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
-              yes | cp -rf ${chart}/security.md pub/website/apps/${train}/${chartname}/security.md 2>/dev/null || :
-              yes | cp -rf ${chart}/CONFIG.md pub/website/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
-              yes | cp -rf ${chart}/helm-values.md pub/website/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
-              rm pub/website/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-              yes | cp -rf ${chart}/LICENSE pub/website/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-              sed -i '1s/^/# License<br>\n\n/' pub/website/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-            fi
-          }
-          export -f docs_copy
           CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
-          parallel -j 8 docs_copy '2>&1' ::: ${CHARTS[@]}
+          for i in "${CHARTS[@]}"
+          do
+              IFS='/' read -r -a chart_parts <<< "$i"
+              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+                train=${chart_parts[0]}
+                chart=${chart_parts[1]}
+                echo "copying docs to website for ${chart}"
+                mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf charts/${train}/${chart}/README.md pub/website/apps/${train}/${chart}/index.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md pub/website/apps/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/security.md pub/website/apps/${train}/${chart}/security.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/CONFIG.md pub/website/apps/${train}/${chart}/CONFIG.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/helm-values.md pub/website/apps/${train}/${chart}/helm-values.md 2>/dev/null || :
+                rm pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/LICENSE pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+                sed -i '1s/^/# License<br>\n\n/' pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+              fi
+          done
 
          
       - name: Commit Website Changes
