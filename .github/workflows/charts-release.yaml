@@ -131,8 +131,7 @@ jobs:
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
-          ## TODO: actually push the content
-          # git push
+          git push
           cd -
           rm -rf pub
 
