@@ -45,10 +45,6 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
-  APP_KEY:
-    secretKeyRef:
-      name: ferdi-server-secrets
-      key: APP_KEY
 
 probes:
   liveness:
@@ -80,3 +76,28 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: ferdi-server
   postgresqlDatabase: ferdi-server
+
+installContainer:
+  1-create-key-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/app/data"
+    env:
+      - name: APP_KEY
+        valueFrom:
+          secretKeyRef:
+            name: ferdi-server-secrets
+            key: APP_KEY
+    command: ["sh", "-c"]
+    args:
+      - >
+        echo "Creating app key file...";
+        echo "${APP_KEY}" >> /app/data/FERDI_APP_KEY.txt;
+        if [ -f /app/data/FERDI_APP_KEY.txt ];
+        then
+          echo "Success!";
+        else
+          echo "Failed.";
+        fi;
+        cat /app/data/FERDI_APP_KEY.txt;
