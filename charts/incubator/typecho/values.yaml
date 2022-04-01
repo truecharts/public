@@ -3,6 +3,14 @@ image:
   tag: 1.2.0-php8.0-apache@sha256:ef5b30b60f0bb51321c51b99514e09b4aa012764d5ae2ce03abf6b6b7584b6e6
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   MEMORY_LIMIT: "100M"
   MAX_POST_BODY: "50M"
