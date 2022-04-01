@@ -74,7 +74,18 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: JAVA_OPTS
+          label: "JAVA_OPTS"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +114,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10208
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +149,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 8080
 
   - variable: serviceexpert
     group: "Networking and Services"
