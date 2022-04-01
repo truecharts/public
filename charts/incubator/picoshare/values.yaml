@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/picoshare
+  tag: v1.0.5@sha256:abccdd7d31a61788859b926a9eacbcd18494e996269f03dc4ff32d07f0b6a576
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secret:
+  LITESTREAM_BUCKET: ""
+  LITESTREAM_ENDPOINT: ""
+  LITESTREAM_ACCESS_KEY_ID: ""
+  LITESTREAM_SECRET_ACCESS_KEY: ""
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+
+envValueFrom:
+  PS_SHARED_SECRET:
+    secretKeyRef:
+      name: picoshare-secrets
+      key: PS_SHARED_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10209
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
