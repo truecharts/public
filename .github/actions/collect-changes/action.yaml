@@ -54,16 +54,14 @@ runs:
       id: filter-bumped-charts
       shell: bash
       run: |
-        local repo_root
         repo_root=$(git rev-parse --show-toplevel)
         pushd "$repo_root" > /dev/null
 
         echo 'Looking up latest tag...'
-        local latest_tag
         latest_tag=$(lookup_latest_tag)
 
         echo "Discovering changed charts since '$latest_tag'..."
-        local changed_charts=()
+        changed_charts=()
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
 
         if [ ${#changed_charts[@]} -eq 0 ]; then

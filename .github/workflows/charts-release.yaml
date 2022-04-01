@@ -17,28 +17,6 @@ jobs:
       image: ghcr.io/truecharts/devcontainer:v2.2.1@sha256:4ace13c049bf00f85c63e0070f86b71656a7c3b2113aa3e21c3107f3d1f7bf87
     concurrency: gitpush
     steps:
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
-
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          fetch-depth: 1
-          repository: truecharts/catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          path: catalog
-
-      - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
-        with:
-          fetch-depth: 1
-          repository: truecharts/dh_catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          path: dh_catalog
-
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
         with:
@@ -51,13 +29,19 @@ jobs:
           wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
           sudo dpkg -i /tmp/helm-docs.deb
 
-      - name: Generate README for changed charts
-        run: |
-          .github/scripts/gen-docs.sh
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
 
       - name: Collect changes
         id: collect-changes
         uses: ./.github/actions/collect-changes
+
+      - name: Generate README for changed charts
+        run: |
+          .github/scripts/gen-docs.sh
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
@@ -92,6 +76,22 @@ jobs:
                 sed -i '1s/^/# License<br>\n\n/' pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
               fi
           done
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/dh_catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: dh_catalog
 
       - name: build catalogs
         if: |
