@@ -11,29 +11,42 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.IPFS_PROFILE | string | `"server"` |  |
+| env.IPFS_SWARM_KEY | string | `""` |  |
+| env.IPFS_SWARM_KEY_FILE | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/ipfs"` |  |
-| image.tag | string | `"v2.14.0"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| persistence.varrun.enabled | bool | `true` |  |
+| image.repository | string | `"ipfs/go-ipfs"` |  |
+| image.tag | string | `"v0.12.1"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/data/ipfs"` |  |
+| persistence.ipfs.enabled | bool | `true` |  |
+| persistence.ipfs.mountPath | string | `"/ipfs"` |  |
+| persistence.ipns.enabled | bool | `true` |  |
+| persistence.ipns.mountPath | string | `"/ipns"` |  |
+| persistence.staging.enabled | bool | `true` |  |
+| persistence.staging.mountPath | string | `"/export"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| probes.liveness.path | string | `"/webui"` |  |
+| probes.readiness.path | string | `"/webui"` |  |
+| probes.startup.path | string | `"/webui"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.api.enabled | bool | `true` |  |
-| service.api.ports.api.enabled | bool | `true` |  |
-| service.api.ports.api.port | int | `5001` |  |
-| service.api.ports.api.targetPort | int | `5001` |  |
 | service.gateway.enabled | bool | `true` |  |
 | service.gateway.ports.gateway.enabled | bool | `true` |  |
 | service.gateway.ports.gateway.port | int | `10147` |  |
 | service.gateway.ports.gateway.targetPort | int | `8080` |  |
+| service.gateway.type | string | `"ClusterIP"` |  |
 | service.main.ports.main.port | int | `10125` |  |
-| service.main.ports.main.targetPort | int | `80` |  |
-| service.peer.enabled | bool | `true` |  |
-| service.peer.ports.peer.enabled | bool | `true` |  |
-| service.peer.ports.peer.port | int | `4001` |  |
-| service.peer.ports.peer.targetPort | int | `4001` |  |
+| service.main.ports.main.targetPort | int | `5001` |  |
+| service.peer-tcp.enabled | bool | `true` |  |
+| service.peer-tcp.ports.peer-tcp.enabled | bool | `true` |  |
+| service.peer-tcp.ports.peer-tcp.port | int | `4001` |  |
+| service.peer-tcp.ports.peer-tcp.targetPort | int | `4001` |  |
+| service.peer-udp.enabled | bool | `true` |  |
+| service.peer-udp.ports.peer-udp.enabled | bool | `true` |  |
+| service.peer-udp.ports.peer-udp.port | int | `4001` |  |
+| service.peer-udp.ports.peer-udp.protocol | string | `"UDP"` |  |
+| service.peer-udp.ports.peer-udp.targetPort | int | `4001` |  |
 
 All Rights Reserved - The TrueCharts Project

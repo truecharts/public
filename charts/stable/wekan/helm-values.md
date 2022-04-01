@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | mongodb.mongodbUsername | string | `"wekan"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| service.main.ports.main.port | int | `10204` |  |
+| service.main.ports.main.port | int | `10192` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project
