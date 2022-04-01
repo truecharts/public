@@ -47,7 +47,7 @@ envValueFrom:
       key: postgresql-password
   APP_KEY:
     secretKeyRef:
-      name: ferdi-server
+      name: ferdi-server-secrets
       key: APP_KEY
 
 probes:
