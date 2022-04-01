@@ -77,7 +77,7 @@ postgresql:
   postgresqlUsername: ferdi-server
   postgresqlDatabase: ferdi-server
 
-installContainer:
+installContainers:
   1-create-key-file:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
@@ -92,12 +92,16 @@ installContainer:
     command: ["sh", "-c"]
     args:
       - >
-        echo "Creating app key file...";
-        echo "${APP_KEY}" >> /app/data/FERDI_APP_KEY.txt;
-        if [ -f /app/data/FERDI_APP_KEY.txt ];
+        keyfile="/app/data/FERDI_APP_KEY.txt";
+        if [ ! -f ${keyfile} ];
         then
-          echo "Success!";
-        else
-          echo "Failed.";
+          echo "Creating app key file...";
+          echo "${APP_KEY}" >> ${keyfile};
+          if [ -f ${keyfile} ];
+          then
+            echo "Success!";
+          else
+            echo "Failed.";
+          fi;
         fi;
-        cat /app/data/FERDI_APP_KEY.txt;
+        cat ${keyfile};
