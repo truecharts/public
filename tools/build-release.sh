@@ -52,11 +52,11 @@ main() {
     # copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
 
-        prep_helm
+        #prep_helm
 
         parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
-        pre_commit
+        #pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
         gen_dh_cat
