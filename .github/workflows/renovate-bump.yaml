@@ -57,7 +57,7 @@ jobs:
       - name: Cleanup
         run: |
           rm -rf changes.json
-          rm -rf master
+          rm -rf main
       - name: Commit and Push new version
         run: |
           git config user.name "TrueCharts-Bot"
