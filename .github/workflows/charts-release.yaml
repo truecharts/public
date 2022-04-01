@@ -69,11 +69,11 @@ jobs:
 
       - name: Copy docs to website
         if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         shell: bash
         run: |
           #!/bin/bash
-          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -95,7 +95,7 @@ jobs:
 
       - name: build catalogs
         if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           pip install yq
           tools/build-release.sh -p

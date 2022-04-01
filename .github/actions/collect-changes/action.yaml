@@ -11,6 +11,12 @@ outputs:
   addedOrModifiedCharts:
     description: "A list of the charts changed"
     value: ${{ steps.filter-charts.outputs.addedOrModified }}
+  changesDetectedAfterTag:
+    description: "Flag if there are any modified and bump Charts after last tag"
+    value: ${{ steps.filter-bumped-charts.outputs.changesDetectedAfterTag }}
+  modifiedChartsAfterTag:
+    description: "A list of the charts changed and bumped after last Tag"
+    value: ${{ steps.filter-bumped-charts.outputs.modifiedChartsAfterTag }}
 
 runs:
   using: "composite"
@@ -43,3 +49,40 @@ runs:
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
+
+    - name: Collect changed charts
+      id: filter-bumped-charts
+      shell: bash
+      run: |
+        local repo_root
+        repo_root=$(git rev-parse --show-toplevel)
+        pushd "$repo_root" > /dev/null
+
+        echo 'Looking up latest tag...'
+        local latest_tag
+        latest_tag=$(lookup_latest_tag)
+
+        echo "Discovering changed charts since '$latest_tag'..."
+        local changed_charts=()
+        readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
+
+        if [ ${#changed_charts[@]} -eq 0 ]; then
+            echo "No Changed Charts detected since latest tag..."
+        printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
+        else
+            echo "Changed Charts detected since latest tag, parsing..."
+            printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
+        CHARTS=()
+
+        # Get only the chart paths
+        for CHARTPATH in "${changed_charts[@]}"
+        do
+          IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
+          CHARTS+=("${path_parts[1]}/${path_parts[2]}")
+        done
+
+        # Remove duplicates
+        CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
+        # Set output to changed charts
+        printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
+        fi
