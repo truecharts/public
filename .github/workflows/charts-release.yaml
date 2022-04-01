@@ -52,8 +52,6 @@ jobs:
           sudo dpkg -i /tmp/helm-docs.deb
 
       - name: Generate README for changed charts
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           .github/scripts/gen-docs.sh
 
