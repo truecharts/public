@@ -41,8 +41,8 @@ data:
         "SelfUpdate": false,
         "AllowFraming": false,
         "WebRTC": false,
-        "mongodbcol": "meshcentral",
-        "mongodb": {{ ( printf "%s?client_encoding=utf8" ( .Values.mongodb.url.complete | trimAll "\"" ) ) | quote }}
+        "mongodb": {{ ( printf "%s?client_encoding=utf8" ( .Values.mongodb.url.complete | trimAll "\"" ) ) | quote }},
+        "mongodbcol": "meshcentral"
       },
       "domains": {
       "": {
