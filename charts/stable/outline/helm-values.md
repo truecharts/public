@@ -11,44 +11,13 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.ALLOWED_DOMAINS | string | `""` |  |
-| env.AWS_ACCESS_KEY_ID | string | `""` |  |
-| env.AWS_REGION | string | `""` |  |
-| env.AWS_S3_ACCELERATE_URL | string | `""` |  |
-| env.AWS_S3_ACL | string | `""` |  |
-| env.AWS_S3_FORCE_PATH_STYLE | bool | `true` |  |
-| env.AWS_S3_UPLOAD_BUCKET_NAME | string | `""` |  |
-| env.AWS_S3_UPLOAD_BUCKET_URL | string | `""` |  |
-| env.AWS_S3_UPLOAD_MAX_SIZE | int | `26214400` |  |
-| env.AWS_SECRET_ACCESS_KEY | string | `""` |  |
-| env.AZURE_CLIENT_ID | string | `""` |  |
-| env.AZURE_CLIENT_SECRET | string | `""` |  |
-| env.AZURE_RESOURCE_APP_ID | string | `""` |  |
-| env.COLLABORATION_URL | string | `""` |  |
 | env.DEFAULT_LANGUAGE | string | `"en_US"` |  |
 | env.ENABLE_UPDATES | bool | `true` |  |
 | env.FORCE_HTTPS | bool | `false` |  |
-| env.GOOGLE_ANALYTICS_ID | string | `""` |  |
-| env.GOOGLE_CLIENT_ID | string | `""` |  |
-| env.GOOGLE_CLIENT_SECRET | string | `""` |  |
 | env.MAXIMUM_IMPORT_SIZE | int | `5120000` |  |
-| env.OIDC_AUTH_URI | string | `""` |  |
-| env.OIDC_CLIENT_ID | string | `""` |  |
-| env.OIDC_CLIENT_SECRET | string | `""` |  |
-| env.OIDC_DISPLAY_NAME | string | `""` |  |
-| env.OIDC_SCOPES | string | `""` |  |
-| env.OIDC_TOKEN_URI | string | `""` |  |
-| env.OIDC_USERINFO_URI | string | `""` |  |
-| env.OIDC_USERNAME_CLAIM | string | `""` |  |
 | env.PGSSLMODE | string | `"disable"` |  |
 | env.PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
-| env.SENTRY_DSN | string | `""` |  |
-| env.SLACK_APP_ID | string | `""` |  |
-| env.SLACK_KEY | string | `""` |  |
 | env.SLACK_MESSAGE_ACTIONS | bool | `true` |  |
-| env.SLACK_SECRET | string | `""` |  |
-| env.SLACK_VERIFICATION_TOKEN | string | `""` |  |
-| env.TEAM_LOGO | string | `""` |  |
 | env.URL | string | `"http://localhost:{{ .Values.service.main.ports.main.port }}"` |  |
 | env.WEB_CONCURRENCY | int | `1` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"url-noql"` |  |
@@ -62,50 +31,35 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/outline"` |  |
 | image.tag | string | `"v0.62.0@sha256:9350ace6f88ae314620ab32e9990481d0e89895409b171fa0545b8ef9f7ede65"` |  |
-| installContainers.initdb.command[0] | string | `"sh"` |  |
-| installContainers.initdb.command[1] | string | `"-c"` |  |
-| installContainers.initdb.command[2] | string | `"yarn sequelize db:migrate --env=production-ssl-disabled"` |  |
-| installContainers.initdb.env[0].name | string | `"DATABASE_URL"` |  |
-| installContainers.initdb.env[0].valueFrom.secretKeyRef.key | string | `"url-noql"` |  |
-| installContainers.initdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| installContainers.initdb.env[1].name | string | `"REDIS_URL"` |  |
-| installContainers.initdb.env[1].valueFrom.secretKeyRef.key | string | `"url"` |  |
-| installContainers.initdb.env[1].valueFrom.secretKeyRef.name | string | `"rediscreds"` |  |
-| installContainers.initdb.env[2].name | string | `"SECRET_KEY"` |  |
-| installContainers.initdb.env[2].valueFrom.secretKeyRef.key | string | `"SECRET_KEY"` |  |
-| installContainers.initdb.env[2].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
-| installContainers.initdb.env[3].name | string | `"UTILS_SECRET"` |  |
-| installContainers.initdb.env[3].valueFrom.secretKeyRef.key | string | `"UTILS_SECRET"` |  |
-| installContainers.initdb.env[3].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
-| installContainers.initdb.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
-| minioImage.repository | string | `"tccr.io/truecharts/minio"` |  |
-| minioImage.tag | string | `"latest@sha256:70816dc5a2b67795a0583e54d31f96e17fb8fcf436ac17e47b47fdfd7b9660a5"` |  |
+| initContainers.1-migratedb.command[0] | string | `"sh"` |  |
+| initContainers.1-migratedb.command[1] | string | `"-c"` |  |
+| initContainers.1-migratedb.command[2] | string | `"yarn sequelize db:migrate --env=production-ssl-disabled"` |  |
+| initContainers.1-migratedb.env[0].name | string | `"DATABASE_URL"` |  |
+| initContainers.1-migratedb.env[0].valueFrom.secretKeyRef.key | string | `"url-noql"` |  |
+| initContainers.1-migratedb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
+| initContainers.1-migratedb.env[1].name | string | `"REDIS_URL"` |  |
+| initContainers.1-migratedb.env[1].valueFrom.secretKeyRef.key | string | `"url"` |  |
+| initContainers.1-migratedb.env[1].valueFrom.secretKeyRef.name | string | `"rediscreds"` |  |
+| initContainers.1-migratedb.env[2].name | string | `"SECRET_KEY"` |  |
+| initContainers.1-migratedb.env[2].valueFrom.secretKeyRef.key | string | `"SECRET_KEY"` |  |
+| initContainers.1-migratedb.env[2].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
+| initContainers.1-migratedb.env[3].name | string | `"UTILS_SECRET"` |  |
+| initContainers.1-migratedb.env[3].valueFrom.secretKeyRef.key | string | `"UTILS_SECRET"` |  |
+| initContainers.1-migratedb.env[3].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
+| initContainers.1-migratedb.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"outline"` |  |
 | postgresql.postgresqlUsername | string | `"outline"` |  |
+| probes.liveness.path | string | `"/_health"` |  |
+| probes.readiness.path | string | `"/_health"` |  |
+| probes.startup.path | string | `"/_health"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10196` |  |
-| upgradeContainers.upgradedb.command[0] | string | `"sh"` |  |
-| upgradeContainers.upgradedb.command[1] | string | `"-c"` |  |
-| upgradeContainers.upgradedb.command[2] | string | `"yarn sequelize db:migrate --env=production-ssl-disabled"` |  |
-| upgradeContainers.upgradedb.env[0].name | string | `"DATABASE_URL"` |  |
-| upgradeContainers.upgradedb.env[0].valueFrom.secretKeyRef.key | string | `"url-noql"` |  |
-| upgradeContainers.upgradedb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| upgradeContainers.upgradedb.env[1].name | string | `"REDIS_URL"` |  |
-| upgradeContainers.upgradedb.env[1].valueFrom.secretKeyRef.key | string | `"url"` |  |
-| upgradeContainers.upgradedb.env[1].valueFrom.secretKeyRef.name | string | `"rediscreds"` |  |
-| upgradeContainers.upgradedb.env[2].name | string | `"SECRET_KEY"` |  |
-| upgradeContainers.upgradedb.env[2].valueFrom.secretKeyRef.key | string | `"SECRET_KEY"` |  |
-| upgradeContainers.upgradedb.env[2].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
-| upgradeContainers.upgradedb.env[3].name | string | `"UTILS_SECRET"` |  |
-| upgradeContainers.upgradedb.env[3].valueFrom.secretKeyRef.key | string | `"UTILS_SECRET"` |  |
-| upgradeContainers.upgradedb.env[3].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
-| upgradeContainers.upgradedb.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 
 All Rights Reserved - The TrueCharts Project
