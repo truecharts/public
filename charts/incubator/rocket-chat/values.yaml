@@ -13,7 +13,7 @@ image:
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
-  USE_NATIVE_OPLOG: true
+  BYPASS_OPLOG_VALIDATION: true
   # User Defined
   ROOT_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   REG_TOKEN: ""
