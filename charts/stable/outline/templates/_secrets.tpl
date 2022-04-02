@@ -15,8 +15,8 @@ data:
   SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}
   UTILS_SECRET: {{ index $outlineprevious.data "UTILS_SECRET" }}
   {{- else }}
-  {{- $secret_key := randAlphaNum 32 }}
-  {{- $utils_secret := randAlphaNum 32 }}
+  {{- $secret_key := randAlphaNum 64 }}
+  {{- $utils_secret := randAlphaNum 64 }}
   SECRET_KEY: {{ $secret_key | b64enc }}
   UTILS_SECRET: {{ $utils_secret | b64enc }}
   {{- end }}

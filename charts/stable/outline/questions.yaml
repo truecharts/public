@@ -87,6 +87,7 @@ questions:
           description: "URL should point to the fully qualified, publicly accessible URL."
           schema:
             type: string
+            required: true
             default: ""
         - variable: COLLABORATION_URL
           label: "COLLABORATION_URL"
