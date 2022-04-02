@@ -10,7 +10,7 @@ metadata:
 {{- $outlineprevious := lookup "v1" "Secret" .Release.Namespace "outline-secrets" }}
 {{- $secret_key := "" }}
 {{- $utils_secret := "" }}
-data:
+stringData:
   {{- if $outlineprevious}}
   SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}
   UTILS_SECRET: {{ index $outlineprevious.data "UTILS_SECRET" }}
