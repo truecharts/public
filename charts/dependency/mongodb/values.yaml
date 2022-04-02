@@ -119,7 +119,7 @@ envValueFrom:
       key: "mongodb-replicaset-key"
 
 env:
-  MONGODB_EXTRA_USERNAMES: "{{ printf %v,%v .Values.mongodbUsername .Values.mongodbUsername }}"
-  MONGODB_EXTRA_DATABASES: "{{ printf %v,%v .Values.mongodbDatabase \"local\" }}"
+  MONGODB_EXTRA_USERNAMES: "{{ printf \"%v,%v\" .Values.mongodbUsername .Values.mongodbUsername }}"
+  MONGODB_EXTRA_DATABASES: "{{ printf \"%v,%v\" .Values.mongodbDatabase \"local\" }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName | default \"rs0\" }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode | default \"primary\" }}"
