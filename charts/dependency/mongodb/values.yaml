@@ -102,7 +102,7 @@ mongodbRootPassword: "testroot"
 mongodbReplicasetName: "rs0"
 mongodbReplicasetMode: "primary"
 mongodbReplicasetKey: "replicakey"
-mongodbAdvertisedHostname: "{{ printf \"%v-%v\" .Release.Name .Values.mongodbReplicasetMode }}"
+mongodbAdvertisedHostname: "rs0-primary"
 existingSecret: ""
 
 envValueFrom:
