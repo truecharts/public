@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.12"></a>
+### [outline-1.0.12](https://github.com/truecharts/apps/compare/outline-1.0.11...outline-1.0.12) (2022-04-02)
+
+#### Fix
+
+* use stringData ([#2396](https://github.com/truecharts/apps/issues/2396))
+
+
+
 <a name="outline-1.0.11"></a>
 ### [outline-1.0.11](https://github.com/truecharts/apps/compare/outline-1.0.10...outline-1.0.11) (2022-04-02)
 
