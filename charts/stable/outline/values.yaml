@@ -91,7 +91,7 @@ postgresql:
   postgresqlDatabase: outline
 
 initContainers:
-  migratedb:
+  1-migratedb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: DATABASE_URL
