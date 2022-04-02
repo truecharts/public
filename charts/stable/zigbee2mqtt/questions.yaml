@@ -127,24 +127,28 @@ questions:
                 description: "This will override the specific value of config file"
                 schema:
                   type: string
+                  required: true
                   default: "mqtt://mqtt.ix-mqtt.svc.cluster.local"
               - variable: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
                 label: "MQTT Base Topic"
                 description: "This will override the specific value of config file"
                 schema:
                   type: string
+                  required: true
                   default: "zigbee2mqtt"
               - variable: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
                 label: "ZIGBEE2MQTT_CONFIG_SERIAL_PORT"
                 description: "This will override the specific value of config file"
                 schema:
                   type: string
+                  required: true
                   default: "/dev/ttyUSB0"
               - variable: ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER
                 label: "Serial Adapter Type"
                 description: "This will override the specific value of config file"
                 schema:
                   type: string
+                  required: true
                   default: "auto"
                   enum:
                     - value: "auto"
