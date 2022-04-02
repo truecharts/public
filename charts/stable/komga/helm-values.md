@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [komga documentation](https://komga.org/installation/configuration.html#optional-configuration). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/komga"` | image repository |
-| image.tag | string | `"v0.153.1@sha256:4c6a79a3c63d87631ecf9237d5857e0ef0fb7c8b80b9a26f5f483aeccb9abb15"` | image tag |
+| image.tag | string | `"v0.153.2@sha256:6650e8aa6008329395b620ec48cceed16ef3000010fe8932d8d7750f64f5d32e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
