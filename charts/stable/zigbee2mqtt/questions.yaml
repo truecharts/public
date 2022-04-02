@@ -83,13 +83,13 @@ questions:
       attrs:
         - variable: ZIGBEE2MQTT_CONFIG_MQTT_USER
           label: "MQTT User"
-          description: "This will override the specific value of config file"
+          description: "This will override the specific value of config file. Leave empty if you plan to use custom config or you don't have set a user on your MQTT broker."
           schema:
             type: string
             default: ""
         - variable: ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD
           label: "MQTT Password"
-          description: "This will override the specific value of config file"
+          description: "This will override the specific value of config file. Leave empty if you plan to use custom config or you don't have set a password on your MQTT broker."
           schema:
             type: string
             private: true
