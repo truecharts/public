@@ -79,7 +79,7 @@ You will, however, be able to use all values referenced in the common chart here
 | installContainers.initdb.env[3].valueFrom.secretKeyRef.name | string | `"outline-secrets"` |  |
 | installContainers.initdb.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | minioImage.repository | string | `"tccr.io/truecharts/minio"` |  |
-| minioImage.tag | string | `"latest@sha256:48155f02fc4d506b034e87c92c145c7031f8ef1df8354a73d7b28d237fc1e403"` |  |
+| minioImage.tag | string | `"latest@sha256:70816dc5a2b67795a0583e54d31f96e17fb8fcf436ac17e47b47fdfd7b9660a5"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

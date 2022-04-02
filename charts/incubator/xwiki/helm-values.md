@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"xwiki"` |  |
-| image.tag | string | `"14.2.1-postgres-tomcat@sha256:506e2e0d7c46265df1f054960c1957acd92f262ba4a97dc539b1d6ed5a5557ba"` |  |
+| image.tag | string | `"14.2.1-postgres-tomcat@sha256:88c7aaf61dc3022009b90804e59adaa3c3a7b1bc8f7918c718d60a3882a961e0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/usr/local/xwiki"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

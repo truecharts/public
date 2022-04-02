@@ -29,7 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"getferdi/ferdi-server"` |  |
-| image.tag | string | `"1.3.2@sha256:b94315a20480e8c47f960590279766c8636c53f9deaaa7697499a51028e33dec"` |  |
+| image.tag | string | `"1.3.2@sha256:6e620b85afaa186f883336dc2672cc4a3a7b132eda94d160886d232d20d4335f"` |  |
 | installContainers.1-create-key-file.args[0] | string | `"keyfile=\"/app/data/FERDI_APP_KEY.txt\"; if [ ! -f ${keyfile} ]; then\n  echo \"No APP_KEY File...\";\n  echo \"Creating APP_KEY file...\";\n  echo \"${APP_KEY}\" > ${keyfile};\n  if [ -f ${keyfile} ];\n  then\n    echo \"Success!\";\n  else\n    echo \"Failed.\";\n  fi;\nelse\n  echo \"APP_KEY File exists. Skipping...\";\nfi;\n"` |  |
 | installContainers.1-create-key-file.command[0] | string | `"sh"` |  |
 | installContainers.1-create-key-file.command[1] | string | `"-c"` |  |
