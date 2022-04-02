@@ -107,7 +107,7 @@ existingSecret: ""
 envValueFrom:
   MONGODB_EXTRA_PASSWORDS:
     secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }},{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "mongodb-password"
   MONGODB_ROOT_PASSWORD:
     secretKeyRef:
@@ -119,7 +119,7 @@ envValueFrom:
       key: "mongodb-replicaset-key"
 
 env:
-  MONGODB_EXTRA_USERNAMES: "{{ .Values.mongodbUsername }},{{ .Values.mongodbUsername }}"
-  MONGODB_EXTRA_DATABASES: "{{ .Values.mongodbDatabase }},local"
+  MONGODB_EXTRA_USERNAMES: "{{ printf %v,%v .Values.mongodbUsername .Values.mongodbUsername }}"
+  MONGODB_EXTRA_DATABASES: "{{ printf %v,%v .Values.mongodbDatabase \"local\" }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName | default \"rs0\" }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode | default \"primary\" }}"
