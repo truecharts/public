@@ -102,7 +102,6 @@ mongodbRootPassword: "testroot"
 mongodbReplicasetName: "rs0"
 mongodbReplicasetMode: "primary"
 mongodbReplicasetKey: "replicakey"
-mongodbAdvertisedHostname: "rs0-primary"
 existingSecret: ""
 
 envValueFrom:
@@ -122,6 +121,5 @@ envValueFrom:
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
-  MONGODB_ADVERTISED_HOSTNAME: "{{ .Values.mongodbAdvertisedHostname }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName | default \"rs0\" }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode | default \"primary\" }}"
