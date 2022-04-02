@@ -78,6 +78,15 @@ service:
       main:
         port: 10196
 
+probes:
+  liveness:
+    path: "/_health"
+  readiness:
+    path: "/_health"
+  startup:
+    path: "/_health"
+
+
 # Enabled redis
 redis:
   enabled: true
