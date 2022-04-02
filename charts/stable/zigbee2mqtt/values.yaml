@@ -70,9 +70,9 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        if [ -f /data/configuration.yaml || ${USE_CUSTOM_CONFIG_FILE} ];
+        if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} ];
         then
-          echo "Initial configuration exists. Skipping";
+          echo "Initial configuration exists or user selected to use custom config. Skipping";
         else
           echo "Creating initial configuration";
           touch /data/configuration.yaml;
