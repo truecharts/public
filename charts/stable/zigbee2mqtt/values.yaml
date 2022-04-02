@@ -11,7 +11,7 @@ env:
   ZIGBEE2MQTT_DATA: "/data"
   ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: "{{ .Values.service.main.ports.main.port }}"
   # User defined
-  USE_CUSTOM_CONFIG_FILE: true
+  USE_CUSTOM_CONFIG_FILE: false
   # ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API: true
   # ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: true
   # ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://localhost"
