@@ -10,9 +10,9 @@ secret:
 env:
   ZIGBEE2MQTT_DATA: "/data"
   ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: "{{ .Values.service.main.ports.main.port }}"
-  ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API: true
   # User defined
-  USE_CUSTOM_CONFIG_FILE: true
+  USE_CUSTOM_CONFIG_FILE: false
+  ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API: true
   ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: true
   ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://localhost"
   ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC: "zigbee2mqtt"
@@ -79,6 +79,7 @@ initContainers:
           echo "# Configuration bellow will be always be overridden" >> /data/configuration.yaml;
           echo "# from environment settings on the Scale Apps UI." >> /data/configuration.yaml;
           echo "# You however will not see this values change in the file." >> /data/configuration.yaml;
+          echo "# It's a generated file based on the values provided on initial install." >> /data/configuration.yaml;
           echo "##########################################################" >> /data/configuration.yaml;
           echo "experimental:" >> /data/configuration.yaml;
           echo "  new_api: $ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API" >> /data/configuration.yaml;
