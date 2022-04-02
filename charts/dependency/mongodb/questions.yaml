@@ -97,6 +97,39 @@ questions:
       type: string
       default: ""
       required: true
+  - variable: mongodbReplicasetName
+    group: "App Configuration"
+    label: "Replicaset Name"
+    schema:
+      type: string
+      default: ""
+  - variable: mongodbReplicasetMode
+    group: "App Configuration"
+    label: "Replicaset Mode"
+    schema:
+      type: string
+      default: ""
+      enum:
+        - value: "primary"
+          description: "primary"
+        - value: "secondary"
+          description: "secondary"
+        - value: "arbiter"
+          description: "arbiter"
+        - value: "hidden"
+          description: "hidden"
+  - variable: mongodbReplicasetKey
+    group: "App Configuration"
+    label: "Replicaset Key"
+    schema:
+      type: string
+      default: ""
+  - variable: mongodbAdvertisedHostname
+    group: "App Configuration"
+    label: "Advertised Hostname"
+    schema:
+      type: string
+      default: ""
 
   - variable: service
     group: "Networking and Services"
