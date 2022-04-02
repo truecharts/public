@@ -4,7 +4,13 @@ image:
   tag: v3.4.13
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+
+hostNetwork: true
 
 podSecurityContext:
   runAsUser: 0
