@@ -17,8 +17,9 @@ data:
   {{- else }}
   {{- $secret_key := randAlphaNum 64 }}
   {{- $utils_secret := randAlphaNum 64 }}
-  SECRET_KEY: {{ $secret_key | b64enc }}
-  UTILS_SECRET: {{ $utils_secret | b64enc }}
+  {{/* Outline does the b64enc itself, so we pass them clear */}}
+  SECRET_KEY: {{ $secret_key }}
+  UTILS_SECRET: {{ $utils_secret }}
   {{- end }}
 
 {{- end -}}
