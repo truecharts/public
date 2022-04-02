@@ -35,7 +35,7 @@ securityContext:
   readOnlyRootFilesystem: false
 
 podSecurityContext:
-  runAsGroup: 0
+  runAsGroup: 1001
 
 volumeClaimTemplates:
   data:
