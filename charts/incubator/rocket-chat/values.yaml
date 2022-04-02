@@ -13,7 +13,6 @@ image:
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
-  BYPASS_OPLOG_VALIDATION: true
   # User Defined
   ROOT_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   REG_TOKEN: ""
@@ -23,6 +22,10 @@ env:
 
 envValueFrom:
   MONGO_URL:
+    secretKeyRef:
+      name: mongodbcreds
+      key: url
+  MONGO_OPLOG_URL:
     secretKeyRef:
       name: mongodbcreds
       key: url
