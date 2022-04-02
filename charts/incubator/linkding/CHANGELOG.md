@@ -7,4 +7,3 @@
 #### Feat
 
 * Add linkding ([#2382](https://github.com/truecharts/apps/issues/2382))
-

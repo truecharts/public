@@ -14,6 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"placeholder"` |  |
 | image.tag | string | `"upstream"` |  |
-| metallb.configInline | object | `{}` |  |
+| metallb.configInline | object | `{}` |  format. When configInline is used, Helm manages MetalLB's configuration ConfigMap as part of the release, and existingConfigMap is ignored. Refer to https://metallb.universe.tf/configuration/ for available options. |
 
 All Rights Reserved - The TrueCharts Project
