@@ -70,7 +70,7 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} ];
+        if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ];
         then
           echo "Initial configuration exists or User selected to use custom configuration file. Skipping...";
         else
