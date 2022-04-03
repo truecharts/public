@@ -57,7 +57,9 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          .github/scripts/gen-docs.sh ${CHARTS[@]}
+          parthreads=$(($(nproc) * 2))
+          parallel -j ${parthreads} .github/scripts/gen-docs.sh ${CHARTS[@]} '2>&1' ::: ${1[@]}
+
 
       - name: Fix Pre-Commit issues
         shell: bash
