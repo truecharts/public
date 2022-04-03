@@ -113,5 +113,6 @@ runs:
             CHARTS+=("${path_parts[1]}/${path_parts[2]}")
           done
           # Set output to changed charts
+          echo "Changed charts: ${CHARTS[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
