@@ -50,7 +50,7 @@ runs:
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
 
-    - name: Collect changed charts
+    - name: Collect bumped charts after last tag
       id: filter-bumped-charts
       shell: bash
       run: |
@@ -65,6 +65,7 @@ runs:
 
         filter_charts() {
             while read -r chart; do
+                echo "test ${chart}"
                 [[ ! -d "$chart" ]] && continue
                 if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
                     echo "$chart"
@@ -73,7 +74,7 @@ runs:
                 fi
             done
         }
-        export -f filter_charts
+        export -f 
 
         lookup_changed_charts() {
             local commit="$1"
@@ -121,3 +122,4 @@ runs:
           echo "Changed charts with short paths: ${changed_charts[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
+        popd > /dev/null
