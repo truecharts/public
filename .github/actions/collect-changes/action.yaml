@@ -98,14 +98,8 @@ runs:
         changed_charts=()
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
 
-        if [ ${#changed_charts[@]} -eq 0 ]; then
+        if [ ${#changed_charts[@]} -eq 0 ] || [ ((${#changed_charts[@]})) ] || "${changed_charts[0]}" = "\"; then
           echo "No Changed Charts detected since latest tag..."
-          printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
-        elif ((${#changed_charts[@]})); then
-          echo "No Changed Charts detected since latest tag...."
-          printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
-        elif ${changed_charts[0]} == "\"; then
-          echo "No Changed Charts detected since latest tag....."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
           echo "Changed Charts detected since latest tag, parsing..."
