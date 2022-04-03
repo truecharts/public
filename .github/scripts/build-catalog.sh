@@ -3,30 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-chart_runner(){
-  if [[ -d "charts/${1}" ]]; then
-      echo "Start processing charts/${1} ..."
-      chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-      chartname=$(basename charts/${1})
-      train=$(basename $(dirname "charts/${1}"))
-      SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-      helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
-      if [[ "${SCALESUPPORT}" == "true" ]]; then
-        clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-        copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-        patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-        include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
-        clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      else
-        echo "Skipping chart charts/${1}, no correct SCALE compatibility layer detected"
-      fi
-  else
-      echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
-  fi
-  echo "Done processing charts/${1} ..."
-}
-export -f chart_runner
-
 include_questions(){
     local chart="$1"
     local chartname="$2"
@@ -185,16 +161,6 @@ clean_catalog() {
     }
 export -f clean_catalog
 
-gen_dh_cat() {
-    rm -rf dh_catalog/*.*
-    rm -rf dh_catalog/*
-    cp -rf catalog/* dh_catalog
-    cd dh_catalog
-    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \;
-    cd -
-   }
-export -f gen_dh_cat
-
 prep_helm() {
     if [[ -z "$standalone" ]]; then
     helm repo add truecharts-old https://truecharts.org
@@ -261,7 +227,23 @@ copy_apps() {
 }
 export -f copy_apps
 
-parthreads=$(($(nproc) * 2))
-parallel -j ${parthreads} chart_runner '2>&1' ::: ${1[@]}
-echo "Starting post-processing"
-gen_dh_cat
+if [[ -d "charts/${1}" ]]; then
+    echo "Start processing charts/${1} ..."
+    chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+    chartname=$(basename charts/${1})
+    train=$(basename $(dirname "charts/${1}"))
+    SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+    helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
+    if [[ "${SCALESUPPORT}" == "true" ]]; then
+      clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
+    else
+      echo "Skipping chart charts/${1}, no correct SCALE compatibility layer detected"
+    fi
+else
+    echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
+fi
+echo "Done processing charts/${1} ..."
