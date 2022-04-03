@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.62.0@sha256:9350ace6f88ae314620ab32e9990481d0e89895409b171fa0545b8ef9f7ede65
 
-command: ["/bin/sh", "-c"]
-args: "env"
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
