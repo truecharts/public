@@ -77,7 +77,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:f3be169e9257f6c516723874e8bed1e07f5af4ee555009fef6e481e740a4343b
-          xwiki:14.2.1-postgres-tomcat@sha256:88c7aaf61dc3022009b90804e59adaa3c3a7b1bc8f7918c718d60a3882a961e0
+          tccr.io/truecharts/xwiki:v14.2.1-postgres@sha256:54a3c6e5376f95e0da0cf03eac4fa8370d780a9f8afa4a2336d5afe096f9ac61
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:29d271601a53989aa4d6d0350f00ed36c7d20e920a9c744d6c01b81aee6638a1
@@ -351,7 +351,7 @@ hide:
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-43784">https://access.redhat.com/security/cve/CVE-2021-43784</a><br><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 
-#### Container: xwiki:14.2.1-postgres-tomcat@sha256:88c7aaf61dc3022009b90804e59adaa3c3a7b1bc8f7918c718d60a3882a961e0 (debian 11.3)
+#### Container: tccr.io/truecharts/xwiki:v14.2.1-postgres@sha256:54a3c6e5376f95e0da0cf03eac4fa8370d780a9f8afa4a2336d5afe096f9ac61 (debian 11.3)
 
 
 **debian**

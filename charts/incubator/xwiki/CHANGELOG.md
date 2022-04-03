@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xwiki-0.0.5"></a>
+### [xwiki-0.0.5](https://github.com/truecharts/apps/compare/xwiki-0.0.4...xwiki-0.0.5) (2022-04-03)
+
+#### Chore
+
+* update image refs ([#2411](https://github.com/truecharts/apps/issues/2411))
+
+
+
 <a name="xwiki-0.0.4"></a>
 ### [xwiki-0.0.4](https://github.com/truecharts/apps/compare/xwiki-0.0.3...xwiki-0.0.4) (2022-04-03)
 

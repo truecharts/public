@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="heimdall-10.0.9"></a>
+### [heimdall-10.0.9](https://github.com/truecharts/apps/compare/heimdall-10.0.8...heimdall-10.0.9) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Update digest ([#2385](https://github.com/truecharts/apps/issues/2385))
+
+#### Fix
+
+* rw root fs / hostnet ([#2389](https://github.com/truecharts/apps/issues/2389))
+
+
+
 <a name="heimdall-10.0.8"></a>
 ### [heimdall-10.0.8](https://github.com/truecharts/apps/compare/heimdall-10.0.7...heimdall-10.0.8) (2022-03-31)
 

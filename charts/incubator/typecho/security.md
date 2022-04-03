@@ -77,7 +77,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:6e919e0e150c26c9472dd9689c2d5c56741de9795ed0202108038831f654542e
-          joyqi/typecho:1.2.0-php8.0-apache@sha256:090f5aad01ff81ecb6272368612d2b7d0887065da850ae8d094a137b231bdd84
+          tccr.io/truecharts/typecho:v1.2.0-php8.0@sha256:c76e48508cf2f66d1b427a9f43fd218797ce984235d5da7dcdaa75ebdbdb0b73
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:e17c635d51b9dfc766539d2dab85c5737f1464c39f313e9e7cadda32d00cc6a9
@@ -296,7 +296,7 @@ hide:
 
 
 
-#### Container: joyqi/typecho:1.2.0-php8.0-apache@sha256:090f5aad01ff81ecb6272368612d2b7d0887065da850ae8d094a137b231bdd84 (debian 11.3)
+#### Container: tccr.io/truecharts/typecho:v1.2.0-php8.0@sha256:c76e48508cf2f66d1b427a9f43fd218797ce984235d5da7dcdaa75ebdbdb0b73 (debian 11.3)
 
 
 **debian**

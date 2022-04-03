@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"xwiki"` |  |
-| image.tag | string | `"14.2.1-postgres-tomcat@sha256:88c7aaf61dc3022009b90804e59adaa3c3a7b1bc8f7918c718d60a3882a961e0"` |  |
+| image.repository | string | `"tccr.io/truecharts/xwiki"` |  |
+| image.tag | string | `"v14.2.1-postgres@sha256:54a3c6e5376f95e0da0cf03eac4fa8370d780a9f8afa4a2336d5afe096f9ac61"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/usr/local/xwiki"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
