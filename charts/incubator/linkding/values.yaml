@@ -50,4 +50,5 @@ installContainers:
     command: ["sh", "-c"]
     args:
       - >
-        python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput
+        echo "Creating superuser...";
+        python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;
