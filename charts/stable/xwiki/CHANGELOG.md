@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xwiki-1.0.0"></a>
+### [xwiki-1.0.0](https://github.com/truecharts/apps/compare/xwiki-0.0.6...xwiki-1.0.0) (2022-04-03)
+
+#### Fix
+
+* create initial user ([#2417](https://github.com/truecharts/apps/issues/2417))
+
+
+
 <a name="xwiki-0.0.6"></a>
 ### [xwiki-0.0.6](https://github.com/truecharts/apps/compare/xwiki-0.0.5...xwiki-0.0.6) (2022-04-03)
 
