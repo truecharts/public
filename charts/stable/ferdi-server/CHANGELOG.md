@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="ferdi-server-1.0.0"></a>
+### [ferdi-server-1.0.0](https://github.com/truecharts/apps/compare/ferdi-server-0.0.3...ferdi-server-1.0.0) (2022-04-03)
+
+#### Feat
+
+* move to stable ([#2415](https://github.com/truecharts/apps/issues/2415))
+
+
+
+<a name="ferdi-server-1.0.0"></a>
+### [ferdi-server-1.0.0](https://github.com/truecharts/apps/compare/ferdi-server-0.0.3...ferdi-server-1.0.0) (2022-04-03)
+
+#### Feat
+
+* move to stable ([#2415](https://github.com/truecharts/apps/issues/2415))
+
+
+
 <a name="ferdi-server-0.0.3"></a>
 ### [ferdi-server-0.0.3](https://github.com/truecharts/apps/compare/ferdi-server-0.0.2...ferdi-server-0.0.3) (2022-04-03)
 

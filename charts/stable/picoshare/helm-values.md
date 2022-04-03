@@ -12,8 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
-| envValueFrom.PS_SHARED_SECRET.secretKeyRef.key | string | `"PS_SHARED_SECRET"` |  |
-| envValueFrom.PS_SHARED_SECRET.secretKeyRef.name | string | `"picoshare-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/picoshare"` |  |
 | image.tag | string | `"v1.0.5@sha256:abccdd7d31a61788859b926a9eacbcd18494e996269f03dc4ff32d07f0b6a576"` |  |
@@ -23,6 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | secret.LITESTREAM_BUCKET | string | `""` |  |
 | secret.LITESTREAM_ENDPOINT | string | `""` |  |
 | secret.LITESTREAM_SECRET_ACCESS_KEY | string | `""` |  |
+| secret.PS_SHARED_SECRET | string | `"somesecretcode"` |  |
 | service.main.ports.main.port | int | `10209` |  |
 
 All Rights Reserved - The TrueCharts Project

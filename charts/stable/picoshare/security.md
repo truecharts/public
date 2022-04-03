@@ -11,7 +11,7 @@ hide:
 
 ##### Scan Results
 
-#### Chart Object: picoshare/templates/common copy.yaml
+#### Chart Object: picoshare/templates/common.yaml
 
 
 
