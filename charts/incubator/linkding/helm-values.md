@@ -18,10 +18,16 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/linkding"` |  |
 | image.tag | string | `"v1.8.8@sha256:c5a15b48ef46e409d6d0fe0552280611bcbb148e5311f4ed0e9e12d2360e6578"` |  |
+| lifecycle.postStart.exec.command[0] | string | `"/bin/bash"` |  |
+| lifecycle.postStart.exec.command[1] | string | `"-c"` |  |
+| lifecycle.postStart.exec.command[2] | string | `"if [ -f /etc/linkding/data/.superuser_exists ]; then\n  echo \"Superuser has been created before. Skipping...\";\nelse\n  echo \"Creating superuser...\";\n  export status=99;\n  until [ $status -eq 0 ];\n  do\n    python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;\n    status=$?;\n    sleep 3;\n  done;\n  echo \"This file is to ensure that init script won't try to create a superuser again and fail because it already exsits\" > /etc/linkding/data/.superuser_exists;\n  echo \"Superuser Created!\";\nfi;\n"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/etc/linkding/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.DJANGO_SUPERUSER_EMAIL | string | `"super@example.com"` |  |
+| secret.DJANGO_SUPERUSER_PASSWORD | string | `"somesecret"` |  |
+| secret.DJANGO_SUPERUSER_USERNAME | string | `"superuser"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10210` |  |

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="linkding-0.0.6"></a>
+### [linkding-0.0.6](https://github.com/truecharts/apps/compare/linkding-0.0.5...linkding-0.0.6) (2022-04-03)
+
+#### Chore
+
+* bump ([#2420](https://github.com/truecharts/apps/issues/2420))
+
+#### Fix
+
+* create initial user ([#2417](https://github.com/truecharts/apps/issues/2417))
+
+
+
 <a name="linkding-0.0.5"></a>
 ### [linkding-0.0.5](https://github.com/truecharts/apps/compare/linkding-0.0.4...linkding-0.0.5) (2022-04-03)
 
