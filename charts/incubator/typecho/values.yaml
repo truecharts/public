@@ -34,7 +34,7 @@ envValueFrom:
   TYPECHO_DB_HOST:
     secretKeyRef:
       name: mariadbcreds
-      key: plainporthost
+      key: plainhost
   TYPECHO_DB_PASSWORD:
     secretKeyRef:
       name: mariadbcreds
