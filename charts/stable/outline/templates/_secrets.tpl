@@ -10,7 +10,7 @@ metadata:
 {{- $outlineprevious := lookup "v1" "Secret" .Release.Namespace "outline-secrets" }}
 {{- $secret_key := "" }}
 {{- $utils_secret := "" }}
-stringData:
+data:
   {{- if $outlineprevious}}
   SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}
   UTILS_SECRET: {{ index $outlineprevious.data "UTILS_SECRET" }}
@@ -18,8 +18,8 @@ stringData:
   {{- $secret_key := randAlphaNum 64 }}
   {{- $utils_secret := randAlphaNum 64 }}
   {{/* Outline does the b64enc itself, so we pass them clear */}}
-  SECRET_KEY: {{ $secret_key }}
-  UTILS_SECRET: {{ $utils_secret }}
+  SECRET_KEY: {{ printf "%x" $secret_key | b64enc }}
+  UTILS_SECRET: {{ printf "%x" $utils_secret | b64enc}}
   {{- end }}
 
 {{- end -}}
