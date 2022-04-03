@@ -83,7 +83,7 @@ questions:
       attrs:
         - variable: PS_SHARED_SECRET
           label: "PS_SHARED_SECRET"
-          description: "Secret to access web console."
+          description: "Secret Key for Web Console."
           schema:
             type: string
             required: true
@@ -207,9 +207,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
