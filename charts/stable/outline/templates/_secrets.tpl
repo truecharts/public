@@ -15,11 +15,11 @@ data:
   SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}
   UTILS_SECRET: {{ index $outlineprevious.data "UTILS_SECRET" }}
   {{- else }}
-  {{- $secret_key := randAlphaNum 64 }}
-  {{- $utils_secret := randAlphaNum 64 }}
+  {{- $secret_key := randAlphaNum 32 }}
+  {{- $utils_secret := randAlphaNum 32 }}
   {{/* Outline does the b64enc itself, so we pass them clear */}}
-  SECRET_KEY: {{ printf "%x" $secret_key }}
-  UTILS_SECRET: {{ printf "%x" $utils_secret }}
+  SECRET_KEY: {{ printf "%x" $secret_key | b64dec }}
+  UTILS_SECRET: {{ printf "%x" $utils_secret | b64dec }}
   {{- end }}
 
 {{- end -}}
