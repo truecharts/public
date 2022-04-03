@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.20"></a>
+### [ghost-1.0.20](https://github.com/truecharts/apps/compare/ghost-1.0.19...ghost-1.0.20) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="ghost-1.0.18"></a>
 ### [ghost-1.0.18](https://github.com/truecharts/apps/compare/ghost-1.0.17...ghost-1.0.18) (2022-04-01)
 

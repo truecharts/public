@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosdns-1.0.1"></a>
+### [mosdns-1.0.1](https://github.com/truecharts/apps/compare/mosdns-1.0.0...mosdns-1.0.1) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="mosdns-1.0.0"></a>
 ### [mosdns-1.0.0](https://github.com/truecharts/apps/compare/mosdns-0.0.4...mosdns-1.0.0) (2022-04-03)
 

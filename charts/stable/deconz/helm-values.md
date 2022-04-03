@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DECONZ_WS_PORT | string | `"{{ .Values.service.websocket.ports.websocket.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deconz"` |  |
-| image.tag | string | `"v2.15.00@sha256:bb7e3eca2229f68953a4284a4a09fa8b2725596815435bebfc660e7f4f6051bb"` |  |
+| image.tag | string | `"v2.15.00@sha256:a7ae55543d881432f412253f167b3e057b60ea1db0211ebac7bb5d420c3c17e7"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/opt/deCONZ"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

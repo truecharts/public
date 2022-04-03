@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-2.0.11"></a>
+### [sickchill-2.0.11](https://github.com/truecharts/apps/compare/sickchill-2.0.10...sickchill-2.0.11) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="sickchill-2.0.10"></a>
 ### [sickchill-2.0.10](https://github.com/truecharts/apps/compare/sickchill-2.0.9...sickchill-2.0.10) (2022-04-01)
 

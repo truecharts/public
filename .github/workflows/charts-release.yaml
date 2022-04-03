@@ -73,6 +73,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
           repository: truecharts/pub
@@ -107,6 +109,8 @@ jobs:
 
       - name: Create commit
         id: create-commit
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
         with:
           file_pattern: charts/**/
@@ -117,6 +121,8 @@ jobs:
 
       - name: Save commit hash
         id: save-commit-hash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           if [ "${{ steps.create-commit.outputs.changes_detected || 'unknown' }}" = "true" ]; then
             echo '::set-output name=commit_hash::${{ steps.create-commit.outputs.commit_hash }}'
@@ -139,6 +145,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true' 
         with:
           fetch-depth: 1
           repository: truecharts/catalog
@@ -147,6 +155,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
           repository: truecharts/dh_catalog
@@ -212,18 +222,24 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           token: ${{ secrets.BOT_TOKEN }}
           ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
           fetch-depth: 0
 
       - name: Configure Git
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           git config user.name "truecharts-bot"
           git config user.email "bot@truecharts.org"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@a3454e46a6f5ac4811069a381e646961dda2e1bf # tag=v1.4.0
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           charts_dir: charts/*
           charts_repo_url: https://charts.truecharts.org

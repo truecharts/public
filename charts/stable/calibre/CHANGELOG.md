@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="calibre-6.0.13"></a>
+### [calibre-6.0.13](https://github.com/truecharts/apps/compare/calibre-6.0.12...calibre-6.0.13) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="calibre-6.0.11"></a>
 ### [calibre-6.0.11](https://github.com/truecharts/apps/compare/calibre-web-10.0.10...calibre-6.0.11) (2022-03-31)
 

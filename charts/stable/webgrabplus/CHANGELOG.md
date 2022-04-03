@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-1.0.10"></a>
+### [webgrabplus-1.0.10](https://github.com/truecharts/apps/compare/webgrabplus-1.0.9...webgrabplus-1.0.10) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="webgrabplus-1.0.9"></a>
 ### [webgrabplus-1.0.9](https://github.com/truecharts/apps/compare/webgrabplus-1.0.8...webgrabplus-1.0.9) (2022-03-31)
 
