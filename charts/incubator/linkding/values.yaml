@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  DJANGO_SUPERUSER_USERNAME: "superuser"
+  DJANGO_SUPERUSER_EMAIL: "super@example.com"
+  DJANGO_SUPERUSER_PASSWORD: "somesecret"
+
 env:
   LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   # User Defined
@@ -28,3 +33,28 @@ persistence:
   data:
     enabled: true
     mountPath: "/etc/linkding/data"
+
+installContainers:
+  1-init-app:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/etc/linkding/data"
+  2-create-superuser:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/etc/linkding/data"
+    env:
+      - name: DJANGO_SUPERUSER_PASSWORD
+        value: "{{ .Values.env.DJANGO_SUPERUSER_PASSWORD }}"
+      - name: DJANGO_SUPERUSER_USERNAME
+        value: "{{ .Values.env.DJANGO_SUPERUSER_USERNAME }}"
+      - name: DJANGO_SUPERUSER_EMAIL
+        value: "{{ .Values.env.DJANGO_SUPERUSER_EMAIL }}"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "Creating superuser...";
+        python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;
+        echo "Superuser ${DJANGO_SUPERUSER_USERNAME} created!"

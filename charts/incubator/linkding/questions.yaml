@@ -82,6 +82,32 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DJANGO_SUPERUSER_USERNAME
+          label: "Superuser Username (Initial install only)"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: DJANGO_SUPERUSER_EMAIL
+          label: "Superuser Email (Initial install only)"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: DJANGO_SUPERUSER_PASSWORD
+          label: "Superuser Password (Initial install only)"
+          schema:
+            type: string
+            default: ""
+            private: true
+            required: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
