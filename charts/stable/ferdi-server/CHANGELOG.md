@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ferdi-server-1.0.1"></a>
+### [ferdi-server-1.0.1](https://github.com/truecharts/apps/compare/ferdi-server-1.0.0...ferdi-server-1.0.1) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="ferdi-server-1.0.0"></a>
 ### [ferdi-server-1.0.0](https://github.com/truecharts/apps/compare/ferdi-server-0.0.3...ferdi-server-1.0.0) (2022-04-03)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.29"></a>
+### [prometheus-2.0.29](https://github.com/truecharts/apps/compare/prometheus-2.0.28...prometheus-2.0.29) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
+
+
+
 <a name="prometheus-2.0.28"></a>
 ### [prometheus-2.0.28](https://github.com/truecharts/apps/compare/prometheus-2.0.27...prometheus-2.0.28) (2022-04-03)
 

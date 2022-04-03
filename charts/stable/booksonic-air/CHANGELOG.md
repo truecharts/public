@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-5.0.12"></a>
+### [booksonic-air-5.0.12](https://github.com/truecharts/apps/compare/booksonic-air-5.0.11...booksonic-air-5.0.12) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="booksonic-air-5.0.11"></a>
 ### [booksonic-air-5.0.11](https://github.com/truecharts/apps/compare/booksonic-air-5.0.10...booksonic-air-5.0.11) (2022-03-31)
 

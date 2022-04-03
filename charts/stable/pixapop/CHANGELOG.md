@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-2.0.9"></a>
+### [pixapop-2.0.9](https://github.com/truecharts/apps/compare/pixapop-2.0.8...pixapop-2.0.9) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="pixapop-2.0.8"></a>
 ### [pixapop-2.0.8](https://github.com/truecharts/apps/compare/pixapop-2.0.7...pixapop-2.0.8) (2022-03-31)
 

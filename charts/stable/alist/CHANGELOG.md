@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="alist-1.0.13"></a>
+### [alist-1.0.13](https://github.com/truecharts/apps/compare/alist-1.0.12...alist-1.0.13) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="alist-1.0.11"></a>
 ### [alist-1.0.11](https://github.com/truecharts/apps/compare/alist-1.0.10...alist-1.0.11) (2022-04-01)
 

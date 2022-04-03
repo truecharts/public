@@ -21,7 +21,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 9.2.6 |
+| https://library-charts.truecharts.org | common | 9.2.7 |
 
 ## Installing the Chart
 

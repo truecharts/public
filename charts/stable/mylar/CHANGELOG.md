@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mylar-5.0.10"></a>
+### [mylar-5.0.10](https://github.com/truecharts/apps/compare/mylar-5.0.9...mylar-5.0.10) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="mylar-5.0.8"></a>
 ### [mylar-5.0.8](https://github.com/truecharts/apps/compare/mylar-5.0.7...mylar-5.0.8) (2022-03-31)
 
