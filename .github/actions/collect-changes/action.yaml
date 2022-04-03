@@ -99,12 +99,13 @@ runs:
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
 
         if [ ${#changed_charts[@]} -eq 0 ]; then
-            echo "No Changed Charts detected since latest tag..."
-        printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
+          echo "No Changed Charts detected since latest tag..."
+          printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
-            echo "Changed Charts detected since latest tag, parsing..."
-            printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
+          echo "Changed Charts detected since latest tag, parsing..."
+          printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
           CHARTS=()
+          echo "Changed charts: ${changed_charts[*]}"
 
           # Get only the chart paths
           for CHARTPATH in "${changed_charts[@]}"
@@ -113,6 +114,6 @@ runs:
             CHARTS+=("${path_parts[1]}/${path_parts[2]}")
           done
           # Set output to changed charts
-          echo "Changed charts: ${CHARTS[*]}"
+          echo "Changed charts with short paths: ${changed_charts[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
