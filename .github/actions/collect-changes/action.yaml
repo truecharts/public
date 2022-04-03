@@ -50,7 +50,7 @@ runs:
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
 
-    - name: Collect changed charts
+    - name: Collect bumped charts after last tag
       id: filter-bumped-charts
       shell: bash
       run: |
@@ -80,7 +80,7 @@ runs:
 
             local changed_files
             changed_files=$(git diff --find-renames --name-only "$commit" -- 'charts/**' | grep "Chart.yaml")
-
+            echo "changed files: ${changed_files}"
             local depth=$(( $(tr "/" "\n" <<< 'charts/**' | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
             local fields="1-${depth}"
 
@@ -97,23 +97,28 @@ runs:
         echo "Discovering changed charts since '$latest_tag'..."
         changed_charts=()
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-        echo "Number of detected changed charts: ${#changed_charts[@]}"
-        if [ ${#changed_charts[@]} -eq 0 ] || [ ((${#changed_charts[@]})) ] || [ "${changed_charts[0]}" = "\" ]; then
+        
+        CHARTS=()
+        for CHARTPATH in "${changed_charts[@]}"
+        do
+          IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
+          CHARTS+=("${path_parts[1]}/${path_parts[2]}")
+        done
+        
+        echo "Number of detected changed charts: ${#CHARTS[@]}"
+        if [ ${#CHARTS[@]} -eq 0 ] || [ "${CHARTS[0]}" = " " ] || [ "${CHARTS[0]}" = "/" ]; then
           echo "No Changed Charts detected since latest tag..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
           echo "Changed Charts detected since latest tag, parsing..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
-          CHARTS=()
+
           echo "Changed charts: ${changed_charts[*]}"
 
           # Get only the chart paths
-          for CHARTPATH in "${changed_charts[@]}"
-          do
-            IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
-            CHARTS+=("${path_parts[1]}/${path_parts[2]}")
-          done
+
           # Set output to changed charts
           echo "Changed charts with short paths: ${changed_charts[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
+        popd > /dev/null
