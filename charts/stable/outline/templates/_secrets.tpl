@@ -18,8 +18,8 @@ data:
   {{- $secret_key := randAlphaNum 32 }}
   {{- $utils_secret := randAlphaNum 32 }}
   {{/* Outline wants a HEX 32 char string */}}
-  SECRET_KEY: {{ (printf "%x" $secret_key) | b64dec }}
-  UTILS_SECRET: {{ (printf "%x" $utils_secret) | b64dec }}
+  SECRET_KEY: {{ (printf "%x" $secret_key) | b64enc }}
+  UTILS_SECRET: {{ (printf "%x" $utils_secret) | b64enc }}
   {{- end }}
 
 {{- end -}}
