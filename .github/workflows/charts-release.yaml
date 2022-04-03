@@ -57,7 +57,9 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          .github/scripts/gen-docs.sh ${CHARTS}
+          parthreads=$(($(nproc) * 2))
+          parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
+
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -158,7 +160,21 @@ jobs:
         run: |
           pip install yq
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          .github/scripts/build-catalog.sh ${CHARTS}
+          parthreads=$(($(nproc) * 2))
+          parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
+
+
+      - name: Generate docker-hub Catalog
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          rm -rf dh_catalog/*.*
+          rm -rf dh_catalog/*
+          cp -rf catalog/* dh_catalog
+          cd dh_catalog
+          find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \;
+          cd -
 
       - name: Validate catalogs
         if: |
@@ -177,8 +193,7 @@ jobs:
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          ## TODO: actually push the content
-          # git push
+          git push
           cd -
           rm -rf catalog
 
@@ -191,8 +206,7 @@ jobs:
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit new App releases for TrueCharts" || exit 0
-          ## TODO: actually push the content
-          # git push
+          git push
           cd -
           rm -rf dh_catalog
 

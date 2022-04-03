@@ -3,10 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.62.0@sha256:9350ace6f88ae314620ab32e9990481d0e89895409b171fa0545b8ef9f7ede65
 
-minioImage:
-  repository: tccr.io/truecharts/minio
-  tag: latest@sha256:70816dc5a2b67795a0583e54d31f96e17fb8fcf436ac17e47b47fdfd7b9660a5
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -20,43 +16,43 @@ env:
   PGSSLMODE: "disable"
   PORT: "{{ .Values.service.main.ports.main.port }}"
   # User defined
+  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   SLACK_MESSAGE_ACTIONS: true
   ENABLE_UPDATES: true
   WEB_CONCURRENCY: 1
-  DEFAULT_LANGUAGE: "en_US"
-  TEAM_LOGO: ""
   MAXIMUM_IMPORT_SIZE: 5120000
-  ALLOWED_DOMAINS: ""
-  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-  COLLABORATION_URL: ""
-  SLACK_KEY: ""
-  SLACK_SECRET: ""
-  SLACK_VERIFICATION_TOKEN: ""
-  SLACK_APP_ID: ""
-  GOOGLE_CLIENT_ID: ""
-  GOOGLE_CLIENT_SECRET: ""
-  GOOGLE_ANALYTICS_ID: ""
-  AZURE_CLIENT_ID: ""
-  AZURE_CLIENT_SECRET: ""
-  AZURE_RESOURCE_APP_ID: ""
-  OIDC_CLIENT_ID: ""
-  OIDC_CLIENT_SECRET: ""
-  OIDC_AUTH_URI: ""
-  OIDC_TOKEN_URI: ""
-  OIDC_USERINFO_URI: ""
-  OIDC_USERNAME_CLAIM: ""
-  OIDC_DISPLAY_NAME: ""
-  OIDC_SCOPES: ""
-  SENTRY_DSN: ""
-  AWS_ACCESS_KEY_ID: ""
-  AWS_SECRET_ACCESS_KEY: ""
-  AWS_REGION: ""
-  AWS_S3_ACCELERATE_URL: ""
-  AWS_S3_UPLOAD_BUCKET_URL: ""
-  AWS_S3_UPLOAD_BUCKET_NAME: ""
-  AWS_S3_UPLOAD_MAX_SIZE: 26214400
-  AWS_S3_FORCE_PATH_STYLE: true
-  AWS_S3_ACL: ""
+  DEFAULT_LANGUAGE: "en_US"
+  # TEAM_LOGO: ""
+  # ALLOWED_DOMAINS: ""
+  # COLLABORATION_URL: ""
+  # SLACK_KEY: ""
+  # SLACK_SECRET: ""
+  # SLACK_VERIFICATION_TOKEN: ""
+  # SLACK_APP_ID: ""
+  # GOOGLE_CLIENT_ID: ""
+  # GOOGLE_CLIENT_SECRET: ""
+  # GOOGLE_ANALYTICS_ID: ""
+  # AZURE_CLIENT_ID: ""
+  # AZURE_CLIENT_SECRET: ""
+  # AZURE_RESOURCE_APP_ID: ""
+  # OIDC_CLIENT_ID: ""
+  # OIDC_CLIENT_SECRET: ""
+  # OIDC_AUTH_URI: ""
+  # OIDC_TOKEN_URI: ""
+  # OIDC_USERINFO_URI: ""
+  # OIDC_USERNAME_CLAIM: ""
+  # OIDC_DISPLAY_NAME: ""
+  # OIDC_SCOPES: ""
+  # SENTRY_DSN: ""
+  # AWS_ACCESS_KEY_ID: ""
+  # AWS_SECRET_ACCESS_KEY: ""
+  # AWS_REGION: ""
+  # AWS_S3_ACCELERATE_URL: ""
+  # AWS_S3_UPLOAD_BUCKET_URL: ""
+  # AWS_S3_UPLOAD_BUCKET_NAME: ""
+  # AWS_S3_UPLOAD_MAX_SIZE: 26214400
+  # AWS_S3_FORCE_PATH_STYLE: true
+  # AWS_S3_ACL: ""
 
 envValueFrom:
   DATABASE_URL:
@@ -82,6 +78,15 @@ service:
       main:
         port: 10196
 
+probes:
+  liveness:
+    path: "/_health"
+  readiness:
+    path: "/_health"
+  startup:
+    path: "/_health"
+
+
 # Enabled redis
 redis:
   enabled: true
@@ -94,34 +99,8 @@ postgresql:
   postgresqlUsername: outline
   postgresqlDatabase: outline
 
-installContainers:
-  initdb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: DATABASE_URL
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: url-noql
-      - name: REDIS_URL
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: url
-      - name: SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: outline-secrets
-            key: SECRET_KEY
-      - name: UTILS_SECRET
-        valueFrom:
-          secretKeyRef:
-            name: outline-secrets
-            key: UTILS_SECRET
-    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
-
-upgradeContainers:
-  upgradedb:
+initContainers:
+  1-migratedb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: DATABASE_URL

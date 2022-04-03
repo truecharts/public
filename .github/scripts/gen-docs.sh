@@ -3,27 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-chart_runner(){
-  if [[ -d "charts/${1}" ]]; then
-      echo "Start processing charts/${1} ..."
-      chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-      chartname=$(basename charts/${1})
-      train=$(basename $(dirname "charts/${1}"))
-      SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-      helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
-      helm_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
-      container_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
-      sec_scan_cleanup "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
-      sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
-      create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
-      generate_docs "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
-  else
-      echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
-  fi
-  echo "Done processing charts/${1} ..."
-}
-export -f chart_runner
-
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
     local chart="$1"
@@ -152,6 +131,21 @@ generate_docs() {
     }
     export -f generate_docs
 
-parthreads=$(($(nproc) * 2))
-parallel -j ${parthreads} chart_runner '2>&1' ::: ${1}
-echo "Starting post-processing"
+
+if [[ -d "charts/${1}" ]]; then
+    echo "Start processing charts/${1} ..."
+    chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+    chartname=$(basename charts/${1})
+    train=$(basename $(dirname "charts/${1}"))
+    SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+    helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
+    helm_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+    container_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+    sec_scan_cleanup "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+    sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
+    create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
+    generate_docs "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
+else
+    echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
+fi
+echo "Done processing charts/${1} ..."

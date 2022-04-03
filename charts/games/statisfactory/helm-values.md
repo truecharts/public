@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STEAMBETA | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"wolveix/satisfactory-server"` |  |
-| image.tag | string | `"v1.2.3@sha256:5860dbac9fc8cb2e6010b69e60e633d06e25e2a0152f8858a8f23acda7c3c719"` |  |
+| image.tag | string | `"v1.2.4@sha256:db00d63f479192fd085bf0cc6aa1c63c33911697164767c245e38920b737a425"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

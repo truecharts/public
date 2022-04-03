@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/mylar3"` |  |
-| image.tag | string | `"v0.6.3@sha256:2735700c6150206e0419c2036432b83018a53fb5797dad3dc80f4800988a18d2"` |  |
+| image.tag | string | `"v0.6.6@sha256:fc6e6e5f1df627fde2097f2818a8f3b9be873b6fda622561756493589c785702"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

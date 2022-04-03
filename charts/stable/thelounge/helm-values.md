@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://hub.docker.com/r/thelounge/thelounge/) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/thelounge"` | image repository |
-| image.tag | string | `"v4.3.0@sha256:470b9276da4520b0ad6078cf35c7d5b960c99aad74fe446533a7e1ca1fc51ce0"` | image tag |
+| image.tag | string | `"v4.3.0@sha256:7722ea6494a2141e9c24cccabeb89ef310b1395ee4f336b3227eb9b3469846a0"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

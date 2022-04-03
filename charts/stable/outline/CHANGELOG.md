@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.12"></a>
+### [outline-1.0.12](https://github.com/truecharts/apps/compare/outline-1.0.11...outline-1.0.12) (2022-04-02)
+
+#### Fix
+
+* use stringData ([#2396](https://github.com/truecharts/apps/issues/2396))
+
+
+
+<a name="outline-1.0.11"></a>
+### [outline-1.0.11](https://github.com/truecharts/apps/compare/outline-1.0.10...outline-1.0.11) (2022-04-02)
+
+#### Fix
+
+* don't b64enc secret ([#2394](https://github.com/truecharts/apps/issues/2394))
+
+
+
+<a name="outline-1.0.10"></a>
+### [outline-1.0.10](https://github.com/truecharts/apps/compare/outline-1.0.9...outline-1.0.10) (2022-04-02)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* Use correct secret length and reduce code for init ([#2388](https://github.com/truecharts/apps/issues/2388))
+
+
+
 <a name="outline-1.0.8"></a>
 ### [outline-1.0.8](https://github.com/truecharts/apps/compare/outline-1.0.7...outline-1.0.8) (2022-03-31)
 

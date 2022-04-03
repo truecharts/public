@@ -33,7 +33,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.TYPECHO_DB_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"joyqi/typecho"` |  |
-| image.tag | string | `"1.2.0-php8.0-apache@sha256:ef5b30b60f0bb51321c51b99514e09b4aa012764d5ae2ce03abf6b6b7584b6e6"` |  |
+| image.tag | string | `"1.2.0-php8.0-apache@sha256:090f5aad01ff81ecb6272368612d2b7d0887065da850ae8d094a137b231bdd84"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"typecho"` |  |
