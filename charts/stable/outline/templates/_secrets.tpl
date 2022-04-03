@@ -18,8 +18,8 @@ data:
   {{- $secret_key := randAlphaNum 64 }}
   {{- $utils_secret := randAlphaNum 64 }}
   {{/* Outline does the b64enc itself, so we pass them clear */}}
-  SECRET_KEY: {{ printf "%x" $secret_key | b64enc }}
-  UTILS_SECRET: {{ printf "%x" $utils_secret | b64enc}}
+  SECRET_KEY: {{ printf "%x" $secret_key }}
+  UTILS_SECRET: {{ printf "%x" $utils_secret }}
   {{- end }}
 
 {{- end -}}
