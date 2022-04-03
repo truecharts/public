@@ -17,9 +17,9 @@ data:
   {{- else }}
   {{- $secret_key := randAlphaNum 32 }}
   {{- $utils_secret := randAlphaNum 32 }}
-  {{/* Outline does the b64enc itself, so we pass them clear */}}
-  SECRET_KEY: {{ printf "%x" $secret_key | b64dec }}
-  UTILS_SECRET: {{ printf "%x" $utils_secret | b64dec }}
+  {{/* Outline wants a HEX 32 char string */}}
+  SECRET_KEY: {{ (printf "%x" $secret_key) | b64dec }}
+  UTILS_SECRET: {{ (printf "%x" $utils_secret) | b64dec }}
   {{- end }}
 
 {{- end -}}
