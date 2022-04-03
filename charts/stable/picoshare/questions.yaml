@@ -81,6 +81,14 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: PS_SHARED_SECRET
+          label: "PS_SHARED_SECRET"
+          description: "Secret to access web console."
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
         - variable: LITESTREAM_BUCKET
           label: "LITESTREAM_BUCKET"
           description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."

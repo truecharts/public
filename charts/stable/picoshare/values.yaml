@@ -4,6 +4,7 @@ image:
   pullPolicy: IfNotPresent
 
 secret:
+  PS_SHARED_SECRET: "somesecretcode"
   LITESTREAM_BUCKET: ""
   LITESTREAM_ENDPOINT: ""
   LITESTREAM_ACCESS_KEY_ID: ""
@@ -11,12 +12,6 @@ secret:
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
-
-envValueFrom:
-  PS_SHARED_SECRET:
-    secretKeyRef:
-      name: picoshare-secrets
-      key: PS_SHARED_SECRET
 
 service:
   main:
