@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  DJANGO_SUPERUSER_USERNAME: "superuser"
+  DJANGO_SUPERUSER_EMAIL: "super@example.com"
+  DJANGO_SUPERUSER_PASSWORD: "somesecret"
+
 env:
   LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   # User Defined
@@ -28,3 +33,25 @@ persistence:
   data:
     enabled: true
     mountPath: "/etc/linkding/data"
+
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          if [ -f /etc/linkding/data/.superuser_exists ]; then
+            echo "Superuser has been created before. Skipping...";
+          else
+            echo "Creating superuser...";
+            export status=99;
+            until [ $status -eq 0 ];
+            do
+              python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;
+              status=$?;
+              sleep 3;
+            done;
+            echo "This file is to ensure that init script won't try to create a superuser again and fail because it already exsits" > /etc/linkding/data/.superuser_exists;
+            echo "Superuser Created!";
+          fi;
