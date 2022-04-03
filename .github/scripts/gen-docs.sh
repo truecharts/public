@@ -153,5 +153,5 @@ generate_docs() {
     export -f generate_docs
 
 parthreads=$(($(nproc) * 2))
-parallel -j ${parthreads} chart_runner '2>&1' ::: ${1}
+parallel -j ${parthreads} chart_runner '2>&1' ::: ${1[@]}
 echo "Starting post-processing"
