@@ -104,13 +104,14 @@ runs:
         else
             echo "Changed Charts detected since latest tag, parsing..."
             printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
-        CHARTS=()
+          CHARTS=()
 
-        # Get only the chart paths
-        for CHARTPATH in "${changed_charts[@]}"
-        do
-          IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
-          CHARTS+=("${path_parts[1]}/${path_parts[2]}")
-        done
-
-        printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
+          # Get only the chart paths
+          for CHARTPATH in "${changed_charts[@]}"
+          do
+            IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
+            CHARTS+=("${path_parts[1]}/${path_parts[2]}")
+          done
+          # Set output to changed charts
+          printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
+        fi
