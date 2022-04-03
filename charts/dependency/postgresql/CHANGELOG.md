@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.36"></a>
+### [postgresql-7.0.36](https://github.com/truecharts/apps/compare/postgresql-7.0.35...postgresql-7.0.36) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
 <a name="postgresql-7.0.34"></a>
 ### [postgresql-7.0.34](https://github.com/truecharts/apps/compare/postgresql-7.0.28...postgresql-7.0.34) (2022-04-01)
 
