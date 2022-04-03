@@ -80,7 +80,6 @@ runs:
 
             local changed_files
             changed_files=$(git diff --find-renames --name-only "$commit" -- 'charts/**' | grep "Chart.yaml")
-            echo "changed files: ${changed_files}"
             local depth=$(( $(tr "/" "\n" <<< 'charts/**' | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
             local fields="1-${depth}"
 
@@ -118,12 +117,10 @@ runs:
           echo "Changed Charts detected since latest tag, parsing..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "true"
 
-          echo "Changed charts: ${changed_charts[*]}"
-
           # Get only the chart paths
 
           # Set output to changed charts
-          echo "Changed charts: ${changed_charts[*]}"
+          echo "Changed charts: ${CHARTS[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
         popd > /dev/null
