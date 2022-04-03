@@ -65,7 +65,6 @@ runs:
 
         filter_charts() {
             while read -r chart; do
-                echo "test ${chart}"
                 [[ ! -d "$chart" ]] && continue
                 if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
                     echo "$chart"
@@ -81,7 +80,7 @@ runs:
 
             local changed_files
             changed_files=$(git diff --find-renames --name-only "$commit" -- 'charts/**' | grep "Chart.yaml")
-
+            echo "changed files: ${changed_files}"
             local depth=$(( $(tr "/" "\n" <<< 'charts/**' | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
             local fields="1-${depth}"
 
