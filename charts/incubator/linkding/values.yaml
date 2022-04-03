@@ -52,9 +52,7 @@ installContainers:
         value: "{{ .Values.env.DJANGO_SUPERUSER_USERNAME }}"
       - name: DJANGO_SUPERUSER_EMAIL
         value: "{{ .Values.env.DJANGO_SUPERUSER_EMAIL }}"
-    command: ["/bin/sh", "-c"]
+    command: ["python"]
     args:
       - >
-        echo "Creating superuser...";
-        python manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput;
-        echo "Superuser ${DJANGO_SUPERUSER_USERNAME} created!"
+        manage.py createsuperuser --username=${DJANGO_SUPERUSER_USERNAME} --email=${DJANGO_SUPERUSER_EMAIL} --noinput
