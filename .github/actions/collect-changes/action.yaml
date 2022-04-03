@@ -101,11 +101,11 @@ runs:
         if [ ${#changed_charts[@]} -eq 0 ]; then
           echo "No Changed Charts detected since latest tag..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
-        elif ((${#changed_charts[@]})):
-          echo "No Changed Charts detected since latest tag..."
+        elif ((${#changed_charts[@]})); then
+          echo "No Changed Charts detected since latest tag...."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
-        elif ${changed_charts[0]} == "\":
-          echo "No Changed Charts detected since latest tag..."
+        elif ${changed_charts[0]} == "\"; then
+          echo "No Changed Charts detected since latest tag....."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
           echo "Changed Charts detected since latest tag, parsing..."
