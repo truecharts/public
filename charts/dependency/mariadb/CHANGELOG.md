@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.30"></a>
+### [mariadb-2.0.30](https://github.com/truecharts/apps/compare/mariadb-2.0.29...mariadb-2.0.30) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
 <a name="mariadb-2.0.28"></a>
 ### [mariadb-2.0.28](https://github.com/truecharts/apps/compare/mariadb-2.0.27...mariadb-2.0.28) (2022-03-31)
 
