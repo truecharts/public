@@ -262,6 +262,6 @@ copy_apps() {
 export -f copy_apps
 
 parthreads=$(($(nproc) * 2))
-parallel -j ${parthreads} chart_runner '2>&1' ::: ${1}
+parallel -j ${parthreads} chart_runner '2>&1' ::: ${1[@]}
 echo "Starting post-processing"
 gen_dh_cat
