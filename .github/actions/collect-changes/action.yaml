@@ -113,8 +113,4 @@ runs:
           CHARTS+=("${path_parts[1]}/${path_parts[2]}")
         done
 
-        # Remove duplicates
-        CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
-        # Set output to changed charts
         printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
-        fi
