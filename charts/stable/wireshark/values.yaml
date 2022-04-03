@@ -6,9 +6,6 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  capabilities:
-    add:
-      - NET_ADMIN
 
 hostNetwork: true
 
