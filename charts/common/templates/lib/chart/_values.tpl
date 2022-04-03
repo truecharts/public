@@ -234,7 +234,7 @@
   {{- end }}
   {{- end }}
 
-  {{- if $privPort }}
+  {{- if or ( $privPort ) ( .Values.hostNetwork ) }}
   {{- $dynamicCapAdd = list "NET_BIND_SERVICE" }}
   {{- end }}
 
