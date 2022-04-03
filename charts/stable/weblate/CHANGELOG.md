@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-2.0.14"></a>
+### [weblate-2.0.14](https://github.com/truecharts/apps/compare/weblate-2.0.13...weblate-2.0.14) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="weblate-2.0.13"></a>
 ### [weblate-2.0.13](https://github.com/truecharts/apps/compare/weblate-2.0.12...weblate-2.0.13) (2022-03-31)
 

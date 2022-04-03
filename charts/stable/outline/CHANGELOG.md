@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.14"></a>
+### [outline-1.0.14](https://github.com/truecharts/apps/compare/outline-1.0.13...outline-1.0.14) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="outline-1.0.13"></a>
 ### [outline-1.0.13](https://github.com/truecharts/apps/compare/outline-1.0.12...outline-1.0.13) (2022-04-03)
 

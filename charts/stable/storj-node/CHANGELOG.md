@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.12"></a>
+### [storj-node-1.0.12](https://github.com/truecharts/apps/compare/storj-node-1.0.11...storj-node-1.0.12) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="storj-node-1.0.11"></a>
 ### [storj-node-1.0.11](https://github.com/truecharts/apps/compare/storj-node-1.0.10...storj-node-1.0.11) (2022-03-31)
 

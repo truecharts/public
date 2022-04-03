@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="clamav-2.1.6"></a>
+### [clamav-2.1.6](https://github.com/truecharts/apps/compare/clamav-2.1.5...clamav-2.1.6) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+#### Fix
+
+* set cronjob to batch/v1beta1 ([#2387](https://github.com/truecharts/apps/issues/2387))
+
+
+
 <a name="clamav-2.1.4"></a>
 ### [clamav-2.1.4](https://github.com/truecharts/apps/compare/clamav-2.1.3...clamav-2.1.4) (2022-03-31)
 

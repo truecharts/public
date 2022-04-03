@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-3.0.9"></a>
+### [audacity-3.0.9](https://github.com/truecharts/apps/compare/audacity-3.0.8...audacity-3.0.9) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="audacity-3.0.8"></a>
 ### [audacity-3.0.8](https://github.com/truecharts/apps/compare/audacity-3.0.7...audacity-3.0.8) (2022-03-31)
 

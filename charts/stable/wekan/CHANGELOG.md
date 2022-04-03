@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-1.0.5"></a>
+### [wekan-1.0.5](https://github.com/truecharts/apps/compare/wekan-1.0.4...wekan-1.0.5) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="wekan-1.0.4"></a>
 ### [wekan-1.0.4](https://github.com/truecharts/apps/compare/wekan-1.0.3...wekan-1.0.4) (2022-03-31)
 

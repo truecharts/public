@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="typecho-0.0.6"></a>
+### [typecho-0.0.6](https://github.com/truecharts/apps/compare/typecho-0.0.5...typecho-0.0.6) (2022-04-03)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+
+
+
 <a name="typecho-0.0.5"></a>
 ### [typecho-0.0.5](https://github.com/truecharts/apps/compare/typecho-0.0.4...typecho-0.0.5) (2022-04-03)
 
