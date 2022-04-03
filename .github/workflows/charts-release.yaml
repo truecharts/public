@@ -57,7 +57,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          .github/scripts/gen-docs.sh ${CHARTS}
+          .github/scripts/gen-docs.sh ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -158,7 +158,7 @@ jobs:
         run: |
           pip install yq
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          .github/scripts/build-catalog.sh ${CHARTS}
+          .github/scripts/build-catalog.sh ${CHARTS[@]}
 
       - name: Validate catalogs
         if: |
