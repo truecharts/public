@@ -43,8 +43,8 @@ jobs:
           CHARTS=$(ct list-changed --config .github/ct-install.yaml)
           CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
-          OUTPUT_JSON1=$(echo $CHARTS_JSON | jq -r -c '.[:254]')
-          OUTPUT_JSON2=$(echo $CHARTS_JSON | jq -r -c '.[254:500]')
+          OUTPUT_JSON1=$(echo $OUTPUT_JSON | jq -r -c '.[:254]')
+          OUTPUT_JSON2=$(echo $OUTPUT_JSON | jq -r -c '.[254:500]')
           echo ::set-output name=charts1::${OUTPUT_JSON1}
           echo ::set-output name=charts2::${OUTPUT_JSON2}
           if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
