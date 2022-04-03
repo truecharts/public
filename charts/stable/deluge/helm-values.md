@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deluge"` |  |
-| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:ef71fa2986593ad6fe3d2c3f277f0340c28c0fbcdc8b91c3505b83be71784f08"` |  |
+| image.tag | string | `"v2.0.5@sha256:dabc0bc3ebf9e54ef2dc73df57e030099cfa35657cd6c7c8c6fb3f9c395ed668"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
