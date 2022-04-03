@@ -97,8 +97,8 @@ runs:
         echo "Discovering changed charts since '$latest_tag'..."
         changed_charts=()
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-
-        if [ ${#changed_charts[@]} -eq 0 ] || [ ((${#changed_charts[@]})) ] || "${changed_charts[0]}" = "\"; then
+        echo "Number of detected changed charts: ${#changed_charts[@]}"
+        if [ ${#changed_charts[@]} -eq 0 ] || [ ((${#changed_charts[@]})) ] || [ "${changed_charts[0]}" = "\" ]; then
           echo "No Changed Charts detected since latest tag..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
