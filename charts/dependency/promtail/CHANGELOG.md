@@ -4,6 +4,15 @@
 <a name="promtail-2.0.23"></a>
 ### [promtail-2.0.23](https://github.com/truecharts/apps/compare/promtail-2.0.21...promtail-2.0.23) (2022-04-03)
 
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
+<a name="promtail-2.0.23"></a>
+### [promtail-2.0.23](https://github.com/truecharts/apps/compare/promtail-2.0.21...promtail-2.0.23) (2022-04-03)
+
 
 
 <a name="promtail-2.0.21"></a>

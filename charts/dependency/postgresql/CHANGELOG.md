@@ -7,6 +7,16 @@
 #### Chore
 
 * Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+
+
+
+<a name="postgresql-7.0.36"></a>
+### [postgresql-7.0.36](https://github.com/truecharts/apps/compare/postgresql-7.0.35...postgresql-7.0.36) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
 
 
 

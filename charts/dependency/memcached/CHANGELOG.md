@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.33"></a>
+### [memcached-2.0.33](https://github.com/truecharts/apps/compare/memcached-2.0.32...memcached-2.0.33) (2022-04-03)
+
+#### Fix
+
+* try to also fix catalog build process
+
+
+
 <a name="memcached-2.0.29"></a>
 ### [memcached-2.0.29](https://github.com/truecharts/apps/compare/memcached-2.0.25...memcached-2.0.29) (2022-04-01)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.31"></a>
+### [mariadb-2.0.31](https://github.com/truecharts/apps/compare/mariadb-2.0.30...mariadb-2.0.31) (2022-04-03)
+
+#### Fix
+
+* try to also fix catalog build process
+
+
+
 <a name="mariadb-2.0.30"></a>
 ### [mariadb-2.0.30](https://github.com/truecharts/apps/compare/mariadb-2.0.29...mariadb-2.0.30) (2022-04-03)
 

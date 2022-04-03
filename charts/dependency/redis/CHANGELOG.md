@@ -7,6 +7,16 @@
 #### Chore
 
 * Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+
+
+
+<a name="redis-2.0.30"></a>
+### [redis-2.0.30](https://github.com/truecharts/apps/compare/redis-2.0.28...redis-2.0.30) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
 
 
 
