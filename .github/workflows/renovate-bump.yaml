@@ -45,9 +45,9 @@ jobs:
               echo "Comparing versions for ${chart}"
               main=$(cat ./main/charts/${chart}/Chart.yaml | grep "^version")
               current=$(cat ./charts/${chart}/Chart.yaml | grep "^version")
-              echo "master version: ${main}"
+              echo "main version: ${main}"
               echo "current version: ${current}"
-              if [[ "${master}" != "${current}" ]]; then
+              if [[ "${main}" != "${current}" ]]; then
                 echo "Version does not have to be bumped"
               else
                 echo "Bumping patch version for ${chart}"
