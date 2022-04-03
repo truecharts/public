@@ -74,7 +74,7 @@ runs:
                 fi
             done
         }
-        export -f 
+        export -f filter_charts
 
         lookup_changed_charts() {
             local commit="$1"
