@@ -4,7 +4,10 @@ image:
   tag: v3.4.13
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+hostNetwork: true
 
 podSecurityContext:
   runAsUser: 0
@@ -15,7 +18,7 @@ service:
     ports:
       main:
         targetPort: 3000
-        port: 10137
+        port: 3000
 
 persistence:
   varrun:

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosdns-1.0.0"></a>
+### [mosdns-1.0.0](https://github.com/truecharts/apps/compare/mosdns-0.0.4...mosdns-1.0.0) (2022-04-03)
+
+#### Chore
+
+* update image refs ([#2411](https://github.com/truecharts/apps/issues/2411))
+
+
+
 <a name="mosdns-0.0.3"></a>
 ### [mosdns-0.0.3](https://github.com/truecharts/apps/compare/mosdns-0.0.2...mosdns-0.0.3) (2022-04-01)
 

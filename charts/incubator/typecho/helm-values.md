@@ -27,13 +27,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TYPECHO_USER_MAIL | string | `"test@truecharts.org"` |  |
 | env.TYPECHO_USER_NAME | string | `"typecho"` |  |
 | env.TYPECHO_USER_PASSWORD | string | `"testtypecho"` |  |
-| envValueFrom.TYPECHO_DB_HOST.secretKeyRef.key | string | `"plainporthost"` |  |
+| envValueFrom.TYPECHO_DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.TYPECHO_DB_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.TYPECHO_DB_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.TYPECHO_DB_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"joyqi/typecho"` |  |
-| image.tag | string | `"1.2.0-php8.0-apache@sha256:090f5aad01ff81ecb6272368612d2b7d0887065da850ae8d094a137b231bdd84"` |  |
+| image.repository | string | `"tccr.io/truecharts/typecho"` |  |
+| image.tag | string | `"v1.2.0-php8.0@sha256:c76e48508cf2f66d1b427a9f43fd218797ce984235d5da7dcdaa75ebdbdb0b73"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"typecho"` |  |

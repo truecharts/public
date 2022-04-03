@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LD_REQUEST_TIMEOUT | int | `60` |  |
 | env.LD_SERVER_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"sissbruecker/linkding"` |  |
-| image.tag | string | `"1.8.8@sha256:3dad72eea9dd4fa775e38eee6b28972779fe269bbbd656b355935da67f0ddd85"` |  |
+| image.repository | string | `"tccr.io/truecharts/linkding"` |  |
+| image.tag | string | `"v1.8.8@sha256:c5a15b48ef46e409d6d0fe0552280611bcbb148e5311f4ed0e9e12d2360e6578"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/etc/linkding/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

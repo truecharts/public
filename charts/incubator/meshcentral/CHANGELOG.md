@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-0.0.9"></a>
+### [meshcentral-0.0.9](https://github.com/truecharts/apps/compare/meshcentral-0.0.8...meshcentral-0.0.9) (2022-04-03)
+
+#### Chore
+
+* update image refs ([#2411](https://github.com/truecharts/apps/issues/2411))
+
+
+
 <a name="meshcentral-0.0.8"></a>
 ### [meshcentral-0.0.8](https://github.com/truecharts/apps/compare/meshcentral-0.0.7...meshcentral-0.0.8) (2022-04-03)
 

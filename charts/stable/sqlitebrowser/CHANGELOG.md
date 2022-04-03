@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-2.0.9"></a>
+### [sqlitebrowser-2.0.9](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.8...sqlitebrowser-2.0.9) (2022-04-03)
+
+#### Fix
+
+* rw root fs / hostnet ([#2389](https://github.com/truecharts/apps/issues/2389))
+
+
+
 <a name="sqlitebrowser-2.0.8"></a>
 ### [sqlitebrowser-2.0.8](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.7...sqlitebrowser-2.0.8) (2022-03-31)
 
