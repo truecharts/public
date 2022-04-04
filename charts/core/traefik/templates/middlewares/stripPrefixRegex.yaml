@@ -15,5 +15,5 @@ spec:
     regex: 
      {{- range $middlewareData.regex }}
       - {{ . | quote }}
-      {{- end }}
+     {{- end }}
 {{ end }}
