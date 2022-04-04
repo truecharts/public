@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-75-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-76-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -230,6 +230,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/r-vanooyen"><img src="https://avatars.githubusercontent.com/u/45106123?v=4?s=100" width="100px;" alt=""/><br /><sub><b>r-vanooyen</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=r-vanooyen" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/shadofall"><img src="https://avatars.githubusercontent.com/u/9327622?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shadofall</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=shadofall" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/agreppin"><img src="https://avatars.githubusercontent.com/u/26579013?v=4?s=100" width="100px;" alt=""/><br /><sub><b>agreppin</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=agreppin" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/stdedos"><img src="https://avatars.githubusercontent.com/u/133706?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stavros Ntentos</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=stdedos" title="Code">💻</a> <a href="#ideas-stdedos" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
