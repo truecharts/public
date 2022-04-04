@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-3.0.12"></a>
+### [code-server-3.0.12](https://github.com/truecharts/apps/compare/code-server-3.0.11...code-server-3.0.12) (2022-04-04)
+
+#### Fix
+
+* correctly set the run-as-root things ([#2425](https://github.com/truecharts/apps/issues/2425))
+
+
+
 <a name="code-server-3.0.11"></a>
 ### [code-server-3.0.11](https://github.com/truecharts/apps/compare/openvscode-server-1.0.10...code-server-3.0.11) (2022-04-03)
 
