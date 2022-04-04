@@ -4,7 +4,6 @@
 {{- $namespace = "default" }}
 {{- end }}
 
-{{ range $index, $middlewareData := .Values.middlewares.stripPrefixRegex }}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
@@ -13,5 +12,8 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   stripPrefixRegex:
-    regex: {{ $middlewareData.regex | quote }}
+    regex: 
+      {{- range $index, $middlewareData := .Values.middlewares.stripPrefixRegex }}
+      - {{ $middlewareData }}
+      {{- end }}
 {{ end }}
