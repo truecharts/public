@@ -1,0 +1,11 @@
+{{ range $index, $middlewareData := .Values.middlewares.stripPrefixRegex }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  stripPrefixRegex:
+    regex: {{ $middlewareData.regex | quote }}
+{{ end }}
