@@ -489,9 +489,15 @@ questions:
                     - variable: regex
                       label: "Regex"
                       schema:
-                        type: string
-                        required: true
-                        default: ""
+                        type: list
+                        default: []
+                        items:
+                          - variable: regexEntry
+                            label: "Regex"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
 
         - variable: ipWhiteList
           label: "ipWhiteList"
