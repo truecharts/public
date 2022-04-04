@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[],"stripPrefixRegex":[]}` | SCALE Middleware Handlers |
 | middlewares.chain | list | `[]` |    address: https://auth.example.com/   authResponseHeaders:     - X-Secret     - X-Auth-User   authRequestHeaders:     - "Accept"     - "X-CustomHeader"   authResponseHeadersRegex: "^X-"   trustForwardHeader: true |
 | middlewares.forwardAuth | list | `[]` |    users:     - username: testuser       password: testpassword |
-| middlewares.ipWhiteList | list | `[]` |    regex: putregexhere |
+| middlewares.ipWhiteList | list | `[]` |    regex: [] |
 | middlewares.rateLimit | list | `[]` |    scheme: https   permanent: true |
 | middlewares.redirectRegex | list | `[]` |    average: 300   burst: 200 |
 | middlewares.redirectScheme | list | `[]` |    middlewares:    - name: compress |
