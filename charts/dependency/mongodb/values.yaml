@@ -102,7 +102,7 @@ mongodbRootPassword: "testroot"
 existingSecret: ""
 
 envValueFrom:
-  MONGODB_PASSWORD:
+  MONGODB_EXTRA_PASSWORDS:
     secretKeyRef:
       name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "mongodb-password"
@@ -112,5 +112,7 @@ envValueFrom:
       key: "mongodb-root-password"
 
 env:
-  MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
-  MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
+  MONGODB_EXTRA_USERNAMES: "{{ printf \"%v,%v\" .Values.mongodbUsername .Values.mongodbUsername }}"
+  MONGODB_EXTRA_DATABASES: "{{ printf \"%v,%v\" .Values.mongodbDatabase \"local\" }}"
+  MONGODB_REPLICA_SET_MODE: "primary"
+  MONGODB_REPLICA_SET_KEY: "somesecret"
