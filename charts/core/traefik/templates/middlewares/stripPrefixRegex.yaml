@@ -13,7 +13,7 @@ metadata:
 spec:
   stripPrefixRegex:
     regex: 
-      {{- range $index, $middlewareData := .Values.middlewares.stripPrefixRegex }}
-      - {{ $middlewareData }}
+     {{- range $middlewareData.regex }}
+      - {{ . | quote }}
       {{- end }}
 {{ end }}
