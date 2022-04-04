@@ -12,7 +12,7 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   stripPrefixRegex:
-    regex: 
+    regex:
      {{- range $middlewareData.regex }}
       - {{ . | quote }}
      {{- end }}
