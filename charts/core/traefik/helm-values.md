@@ -23,13 +23,14 @@ You will, however, be able to use all values referenced in the common chart here
 | logs.access.filters | object | `{}` |  To write logs in JSON, use json in the format option. If the given format is unsupported, the default (CLF) is used instead. format: json To write the logs in an asynchronous fashion, specify a bufferingSize option. This option represents the number of log lines Traefik will keep in memory before writing them to the selected output. In some cases, this option can greatly help performances. bufferingSize: 100 Filtering https://docs.traefik.io/observability/access-logs/#filtering |
 | logs.general.level | string | `"ERROR"` |  also ask for the json format in the format option format: json By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO. |
 | metrics.prometheus | object | `{"entryPoint":"metrics"}` |    address: 127.0.0.1:8125 influxdb:   address: localhost:8089   protocol: udp |
-| middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
+| middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[],"stripPrefixRegex":[]}` | SCALE Middleware Handlers |
 | middlewares.chain | list | `[]` |    address: https://auth.example.com/   authResponseHeaders:     - X-Secret     - X-Auth-User   authRequestHeaders:     - "Accept"     - "X-CustomHeader"   authResponseHeadersRegex: "^X-"   trustForwardHeader: true |
 | middlewares.forwardAuth | list | `[]` |    users:     - username: testuser       password: testpassword |
-| middlewares.ipWhiteList | list | `[]` |    regex: putregexhere   replacement: replacementurlhere   permanent: false |
+| middlewares.ipWhiteList | list | `[]` |    regex: putregexhere |
 | middlewares.rateLimit | list | `[]` |    scheme: https   permanent: true |
 | middlewares.redirectRegex | list | `[]` |    average: 300   burst: 200 |
 | middlewares.redirectScheme | list | `[]` |    middlewares:    - name: compress |
+| middlewares.stripPrefixRegex | list | `[]` |    regex: putregexhere   replacement: replacementurlhere   permanent: false |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
 | podAnnotations."prometheus.io/path" | string | `"/metrics"` |  |
 | podAnnotations."prometheus.io/port" | string | `"9180"` |  |

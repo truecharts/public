@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-11.1.0"></a>
+### [traefik-11.1.0](https://github.com/truecharts/apps/compare/traefik-11.0.13...traefik-11.1.0) (2022-04-04)
+
+#### Feat
+
+* Add stripPrefixRegex ([#2422](https://github.com/truecharts/apps/issues/2422))
+
+
+
 <a name="traefik-11.0.13"></a>
 ### [traefik-11.0.13](https://github.com/truecharts/apps/compare/traefik-11.0.12...traefik-11.0.13) (2022-04-03)
 
