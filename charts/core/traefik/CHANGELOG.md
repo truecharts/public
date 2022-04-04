@@ -1,15 +1,6 @@
 # Changelog<br>
 
 
-<a name="traefik-11.0.14"></a>
-### [traefik-11.0.14](https://github.com/truecharts/apps/compare/traefik-11.0.13...traefik-11.0.14) (2022-04-04)
-
-#### Feature
-
-* Add `stripPrefixRegex` Traefik middleware ([#2422](https://github.com/truecharts/apps/pull/2422), [documentation](https://doc.traefik.io/traefik/middlewares/http/stripprefixregex/))
-
-
-
 <a name="traefik-11.0.13"></a>
 ### [traefik-11.0.13](https://github.com/truecharts/apps/compare/traefik-11.0.12...traefik-11.0.13) (2022-04-03)
 
