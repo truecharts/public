@@ -15,6 +15,11 @@ env: {}
 securityContext:
   readOnlyRootFilesystem: false
   allowPrivilegeEscalation: true
+  runAsNonRoot: false
+  
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
