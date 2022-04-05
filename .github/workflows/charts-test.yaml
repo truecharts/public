@@ -218,7 +218,7 @@ jobs:
   install-charts3:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected1 == 'true'
+    if: needs.generate-install-matrix.outputs.detected3 == 'true'
     name: Install charts  Part 3
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix3) }}
@@ -261,7 +261,7 @@ jobs:
   install-charts4:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected2 == 'true'
+    if: needs.generate-install-matrix.outputs.detected4 == 'true'
     name: Install charts Part 4
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix4) }}
@@ -304,7 +304,7 @@ jobs:
   install-charts5:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected1 == 'true'
+    if: needs.generate-install-matrix.outputs.detected5 == 'true'
     name: Install charts  Part 5
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix5) }}
@@ -347,7 +347,7 @@ jobs:
   install-charts6:
     needs:
       - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected2 == 'true'
+    if: needs.generate-install-matrix.outputs.detected6 == 'true'
     name: Install charts Part 6
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix6) }}
