@@ -192,7 +192,7 @@ questions:
                                     default: 26900
 
         - variable: udp1-steammasterserver
-        - variable: udp1-steammasterserver
+          label: "udp1-steammasterserver service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -252,7 +252,7 @@ questions:
                                     type: int
                                     default: 26900
         - variable: udp2-steamcommunications
-        - variable: udp2-steamcommunications
+          label: "udp2-steamcommunications service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -312,7 +312,7 @@ questions:
                                     type: int
                                     default: 26901
         - variable: udp3-raknet
-        - variable: udp3-raknet
+          label: "udp3-raknet service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -372,7 +372,7 @@ questions:
                                     type: int
                                     default: 26902
         - variable: udp4-unet
-        - variable: udp4-unet
+          label: "udp4-unet service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -432,7 +432,7 @@ questions:
                                     type: int
                                     default: 26903
         - variable: tcp2-webbasecontrol
-        - variable: tcp2-webbasecontrol
+          label: "tcp2-webbasecontrol service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -492,7 +492,7 @@ questions:
                                     type: int
                                     default: 8080
         - variable: tcp3-webpanel
-        - variable: tcp3-webpanel
+          label: "tcp3-webpanel service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -552,7 +552,7 @@ questions:
                                     type: int
                                     default: 8082
         - variable: udp5-registeringatserverlist
-        - variable: udp5-registeringatserverlist
+          label: "udp5-registeringatserverlist service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -777,7 +777,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: readOnlyRootFilesystemExample
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
