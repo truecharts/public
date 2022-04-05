@@ -1,0 +1,25 @@
+env:
+  EXTRA_JAVA_OPTIONS: -Xms512m -Xmx4g
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.bintray.io/jfrog/artifactory-oss
+  tag: 6.23.7
+persistence:
+  varoptjfrogartifactory:
+    enabled: true
+    mountPath: /var/opt/jfrog/artifactory
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8181
+        protocol: TCP
+        targetPort: 8081

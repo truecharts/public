@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: gangefors/airdcpp-webclient
+  tag: latest
+persistence:
+  applicationdata:
+    enabled: true
+    mountPath: /.airdcpp
+  downloads:
+    enabled: true
+    mountPath: /Downloads
+  share:
+    enabled: true
+    mountPath: /Share
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

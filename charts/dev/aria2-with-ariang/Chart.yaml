@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: The aim for this project is to create the worlds best and hottest interface
+  to interact with aria2. Very simple to use, just download and open index.html in
+  any web browser.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/aria2-with-ariang
+icon: https://truecharts.org/_static/img/appicons/aria2-with-ariang.png
+keywords:
+- aria2-with-ariang
+- Downloaders
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: aria2-with-ariang
+sources:
+- https://registry.hub.docker.com/r/fanningert/aria2-with-ariang/
+type: application
+version: 0.0.1

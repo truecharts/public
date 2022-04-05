@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Aria2 Docker - Deamon only
+home: https://github.com/truecharts/apps/tree/master/charts/stable/aria2-daemon
+icon: https://truecharts.org/_static/img/appicons/aria2-daemon.png
+keywords:
+- aria2-daemon
+- Downloaders
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: aria2-daemon
+sources:
+- https://registry.hub.docker.com/r/fanningert/aria2-daemon/
+type: application
+version: 0.0.1

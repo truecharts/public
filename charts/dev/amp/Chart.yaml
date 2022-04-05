@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: CubeCoders AMP. Manage servers like Minecraft (McMyAdmin3, replaces McMyAdmin2),
+  TF2, and more. PLEASE READ SUPPORT THREAD ABOUT MAC ADDRESSES! More info on usage
+  in support thread.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/amp
+icon: https://truecharts.org/_static/img/appicons/amp.png
+keywords:
+- amp
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: amp
+sources:
+- https://github.com/MitchTalmadge/AMP-dockerized
+- https://hub.docker.com/r/mitchtalmadge/amp-dockerized/
+type: application
+version: 0.0.1

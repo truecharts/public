@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Management
+    - Network-Other
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "[h3]Apache Guacamole[/h3]Apache Guacamole is a clientless remote desktop\
+  \ gateway. It supports standard protocols like VNC and RDP.[br][br]\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/apacheguacamolenomariadb
+icon: https://truecharts.org/_static/img/appicons/apacheguacamolenomariadb.png
+keywords:
+- apacheguacamolenomariadb
+- Network-Management
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: apacheguacamolenomariadb
+sources:
+- https://guacamole.apache.org/
+- https://registry.hub.docker.com/r/jasonbean/guacamole/
+type: application
+version: 0.0.1

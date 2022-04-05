@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: appsmith/appsmith-ce
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /appsmith-stacks
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8182
+        protocol: TCP
+        targetPort: 80

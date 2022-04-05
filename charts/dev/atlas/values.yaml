@@ -1,0 +1,75 @@
+env:
+  ENA_REDIS: 'yes'
+  GAME_ID: '1006030'
+  GAME_PARAMS: ?ServerX=0?ServerY=0?AltSaveDirectoryName=00?MaxPlayers=50?ReservedPlayerSlots=10?QueryPort=57550?Port=5750
+  GAME_PARAMS_EXTRA: -log -server -NoBattlEye
+  MAP_NAME: Ocean
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: atlas
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  gameport1:
+    enabled: true
+    ports:
+      gameport1:
+        enabled: true
+        port: 5750
+        protocol: UDP
+        targetPort: 5750
+  gameporta2:
+    enabled: true
+    ports:
+      gameporta2:
+        enabled: true
+        port: 5751
+        protocol: UDP
+        targetPort: 5751
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 57550
+        protocol: UDP
+        targetPort: 57550
+  rconport:
+    enabled: true
+    ports:
+      rconport:
+        enabled: true
+        port: 32330
+        protocol: TCP
+        targetPort: 32330
+  redisserver:
+    enabled: true
+    ports:
+      redisserver:
+        enabled: true
+        port: 6379
+        protocol: TCP
+        targetPort: 6379
+  seamlessport:
+    enabled: true
+    ports:
+      seamlessport:
+        enabled: true
+        port: 27000
+        protocol: TCP
+        targetPort: 27000

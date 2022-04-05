@@ -1,0 +1,48 @@
+env:
+  WEBUI_PWD: admin
+  WEBUI_TEMPLATE: default
+image:
+  pullPolicy: IfNotPresent
+  repository: tchabaud/amule
+  tag: latest
+persistence:
+  storage(complete):
+    enabled: true
+    mountPath: /incoming
+  storage(config):
+    enabled: true
+    mountPath: /home/amule/.aMule
+  storage(incomplete):
+    enabled: true
+    mountPath: /temp
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4711
+        protocol: HTTP
+        targetPort: 4711
+  port(tcp):
+    enabled: true
+    ports:
+      port(tcp):
+        enabled: true
+        port: 4662
+        protocol: TCP
+        targetPort: 4662
+  port(udp):
+    enabled: true
+    ports:
+      port(udp):
+        enabled: true
+        port: 4672
+        protocol: UDP
+        targetPort: 4672

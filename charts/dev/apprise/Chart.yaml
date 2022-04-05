@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Apprise API - Push Notifications that work with just about every platform!
+home: https://github.com/truecharts/apps/tree/master/charts/stable/apprise
+icon: https://truecharts.org/_static/img/appicons/apprise.png
+keywords:
+- apprise
+- HomeAutomation
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: apprise
+sources:
+- https://github.com/caronc/apprise
+- https://hub.docker.com/r/caronc/apprise/
+type: application
+version: 0.0.1

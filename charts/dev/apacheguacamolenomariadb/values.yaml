@@ -1,0 +1,33 @@
+env:
+  OPT_CAS: N
+  OPT_DUO: N
+  OPT_HEADER: N
+  OPT_LDAP: N
+  OPT_MYSQL: Y
+  OPT_QUICKCONNECT: N
+  OPT_SAML: N
+  OPT_SQLSERVER: N
+  OPT_TOTP: N
+image:
+  pullPolicy: IfNotPresent
+  repository: jasonbean/guacamole
+  tag: latest-nomariadb
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

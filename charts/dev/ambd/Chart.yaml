@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaApp-Music
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: 'Automated MusicBrainz Downloader :: This script will automatically archive
+  music using a popular online DL Client'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ambd
+icon: https://truecharts.org/_static/img/appicons/ambd.png
+keywords:
+- ambd
+- Downloaders
+- MediaApp-Music
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: ambd
+sources:
+- https://github.com/RandomNinjaAtk/docker-ambd
+- https://hub.docker.com/r/randomninjaatk/ambd
+type: application
+version: 0.0.1

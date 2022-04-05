@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "This Docker will download and install SteamCMD. It will also install\
+  \ ArmA III and run it.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/arma3
+icon: https://truecharts.org/_static/img/appicons/arma3.png
+keywords:
+- arma3
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: arma3
+sources:
+- https://arma3.com/
+- https://hub.docker.com/r/ich777/steamcmd/
+type: application
+version: 0.0.1

@@ -1,0 +1,25 @@
+env:
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: jassycliq/android-studio-projector
+  tag: latest
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /home/projector-user
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8887
+        protocol: TCP
+        targetPort: 8887

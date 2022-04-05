@@ -1,0 +1,25 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: rudloff/alltube
+  tag: latest
+persistence:
+  storage(configfile):
+    enabled: true
+    mountPath: /var/www/html/config/config.yml
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8043
+        protocol: TCP
+        targetPort: 80

@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/alltube-download
+icon: https://truecharts.org/_static/img/appicons/alltube-download.png
+keywords:
+- alltube-download
+- Cloud
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: alltube-download
+sources:
+- https://github.com/Rudloff/alltube
+- https://hub.docker.com/r/rudloff/alltube
+type: application
+version: 0.0.1

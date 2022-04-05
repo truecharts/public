@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaApp-Music
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: 'Automated Music Downloader :: AMD is a Lidarr Companion script to automatically
+  download and tag music files for use in various media applications'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/amd
+icon: https://truecharts.org/_static/img/appicons/amd.png
+keywords:
+- amd
+- Downloaders
+- MediaApp-Music
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: amd
+sources:
+- https://github.com/RandomNinjaAtk/docker-amd
+- https://hub.docker.com/r/randomninjaatk/amd
+type: application
+version: 0.0.1
