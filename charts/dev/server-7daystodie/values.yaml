@@ -18,7 +18,6 @@ persistence:
     enabled: true
     mountPath: /serverdata/steamcmd
 podSecurityContext:
-  runAsGroup: 0
   runAsUser: 0
 securityContext:
   readOnlyRootFilesystem: false
