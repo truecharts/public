@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.66.0
 
-portal:
-  path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
+# portal:
+  # path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
 
 securityContext:
   runAsNonRoot: false
@@ -14,8 +14,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
-  CONNECTION_TOKEN: "somerandomstring"
+secret: {}
+  # CONNECTION_TOKEN: "somerandomstring"
 
 service:
   main:

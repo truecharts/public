@@ -84,13 +84,20 @@ questions:
       attrs:
         - variable: CONNECTION_TOKEN
           label: "CONNECTION_TOKEN"
+          description: "Optional security token for accessing the Web UI (ie. supersecrettoken)."
           schema:
             type: string
             private: true
-            required: true
+            default: ""
+        - variable: CONNECTION_SECRET
+          label: "CONNECTION_SECRET"
+          description: "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. /path/to/file). Overrides CONNECTION_TOKEN."
+          schema:
+            type: string
             default: ""
         - variable: SUDO_PASSWORD
           label: "SUDO_PASSWORD"
+          description: "If this optional variable is set, user will have sudo access in the openvscode-server terminal with the specified password."
           schema:
             type: string
             private: true
