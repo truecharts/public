@@ -263,8 +263,8 @@ jobs:
 
       - name: Add Apps user
         run: |
-          groupadd -g 568 apps
-          useradd -g 568 -u 568 apps
+          sudo groupadd -g 568 apps
+          sudo useradd -g 568 -u 568 apps
 
 
       - name: Create k3d cluster
