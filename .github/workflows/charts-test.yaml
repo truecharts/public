@@ -57,8 +57,28 @@ jobs:
         {
           "chart": ${{ steps.list-changed.outputs.charts2 }}
         }
+      matrix3: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts3 }}
+        }
+      matrix4: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts4 }}
+        }
+      matrix5: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts5 }}
+        }
+      matrix6: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts6 }}
+        }
       detected1: ${{ steps.list-changed.outputs.detected1 }}
       detected2: ${{ steps.list-changed.outputs.detected2 }}
+      detected3: ${{ steps.list-changed.outputs.detected3 }}
+      detected4: ${{ steps.list-changed.outputs.detected4 }}
+      detected5: ${{ steps.list-changed.outputs.detected5 }}
+      detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
         uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
@@ -77,15 +97,35 @@ jobs:
           CHARTS=$(ct list-changed --config .github/ct-install.yaml)
           CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
-          OUTPUT_JSON1=$(echo $OUTPUT_JSON | jq -r -c '.[:254]')
-          OUTPUT_JSON2=$(echo $OUTPUT_JSON | jq -r -c '.[254:500]')
+          OUTPUT_JSON1=$(echo $OUTPUT_JSON | jq -r -c '.[:250]')
+          OUTPUT_JSON2=$(echo $OUTPUT_JSON | jq -r -c '.[251:500]')
+          OUTPUT_JSON3=$(echo $OUTPUT_JSON | jq -r -c '.[501:750]')
+          OUTPUT_JSON4=$(echo $OUTPUT_JSON | jq -r -c '.[751:1000]')
+          OUTPUT_JSON5=$(echo $OUTPUT_JSON | jq -r -c '.[1001:1250]')
+          OUTPUT_JSON6=$(echo $OUTPUT_JSON | jq -r -c '.[1251:1500]')
           echo ::set-output name=charts1::${OUTPUT_JSON1}
           echo ::set-output name=charts2::${OUTPUT_JSON2}
+          echo ::set-output name=charts2::${OUTPUT_JSON3}
+          echo ::set-output name=charts2::${OUTPUT_JSON4}
+          echo ::set-output name=charts2::${OUTPUT_JSON5}
+          echo ::set-output name=charts2::${OUTPUT_JSON6}
           if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
             echo "::set-output name=detected1::true"
           fi
           if [[ $(echo ${OUTPUT_JSON2} | jq -c '. | length') -gt 0 ]]; then
             echo "::set-output name=detected2::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON3} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected3::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON4} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected4::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON5} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected5::true"
+          fi
+          if [[ $(echo ${OUTPUT_JSON6} | jq -c '. | length') -gt 0 ]]; then
+            echo "::set-output name=detected6::true"
           fi
 
   install-charts1:
@@ -96,7 +136,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 5
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -130,7 +170,7 @@ jobs:
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
-        
+
   install-charts2:
     needs:
       - generate-install-matrix
@@ -138,6 +178,179 @@ jobs:
     name: Install charts Part 2
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
+      fail-fast: false
+      max-parallel: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.checkoutCommit }}
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.20
+
+      - name: Remove node taints
+        run: |
+          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Run chart-testing (install)
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+
+
+  install-charts3:
+    needs:
+      - generate-install-matrix
+    if: needs.generate-install-matrix.outputs.detected3 == 'true'
+    name: Install charts  Part 3
+    strategy:
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix3) }}
+      fail-fast: false
+      max-parallel: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.checkoutCommit }}
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.20
+
+      - name: Remove node taints
+        run: |
+          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Run chart-testing (install)
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+
+  install-charts4:
+    needs:
+      - generate-install-matrix
+    if: needs.generate-install-matrix.outputs.detected4 == 'true'
+    name: Install charts Part 4
+    strategy:
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix4) }}
+      fail-fast: false
+      max-parallel: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.checkoutCommit }}
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.20
+
+      - name: Remove node taints
+        run: |
+          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Run chart-testing (install)
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+
+  install-charts5:
+    needs:
+      - generate-install-matrix
+    if: needs.generate-install-matrix.outputs.detected5 == 'true'
+    name: Install charts  Part 5
+    strategy:
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix5) }}
+      fail-fast: false
+      max-parallel: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.checkoutCommit }}
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.20
+
+      - name: Remove node taints
+        run: |
+          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Run chart-testing (install)
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+
+  install-charts6:
+    needs:
+      - generate-install-matrix
+    if: needs.generate-install-matrix.outputs.detected6 == 'true'
+    name: Install charts Part 6
+    strategy:
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix6) }}
       fail-fast: false
       max-parallel: 5
     runs-on: ubuntu-latest
@@ -186,5 +399,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check install matrix status
-        if: ${{ ( (needs.generate-install-matrix.outputs.detected1 == 'true') && (needs.install-charts1.result != 'success') ) && ( (needs.generate-install-matrix.outputs.detected2 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts2.result != 'skipped' ) ) ) }}
+        if: ${{ ( (needs.generate-install-matrix.outputs.detected1 == 'true') && (needs.install-charts1.result != 'success') ) && ( (needs.generate-install-matrix.outputs.detected2 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts2.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected3 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts3.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected4 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts4.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected5 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts5.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected6 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts6.result != 'skipped' ) ) ) }}
         run: exit 1
