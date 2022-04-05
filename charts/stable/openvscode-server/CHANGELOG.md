@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-1.0.12"></a>
+### [openvscode-server-1.0.12](https://github.com/truecharts/apps/compare/openvscode-server-1.0.11...openvscode-server-1.0.12) (2022-04-05)
+
+#### Chore
+
+* make connectionToken optional as it changed upstream ([#2428](https://github.com/truecharts/apps/issues/2428))
+
+
+
 <a name="openvscode-server-1.0.11"></a>
 ### [openvscode-server-1.0.11](https://github.com/truecharts/apps/compare/openvscode-server-1.0.10...openvscode-server-1.0.11) (2022-04-03)
 

@@ -19,10 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| portal.path | string | `"/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"` |  |
-| secret.CONNECTION_TOKEN | string | `"somerandomstring"` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
+| secret | object | `{}` |  |
+| securityContext | object | `{"readOnlyRootFilesystem":false,"runAsNonRoot":false}` |  path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}" |
 | service.main.ports.main.port | int | `10135` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
