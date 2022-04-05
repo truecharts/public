@@ -1,0 +1,90 @@
+env:
+  ENABLE_BEPINEX: 'false'
+  GAME_ID: '294420'
+  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
+  PASSWRD: ''
+  SERVERCONFIG: serverconfig.xml
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: 7dtd
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 26900
+        protocol: TCP
+        targetPort: 26900
+  tcp2-webbasecontrol:
+    enabled: true
+    ports:
+      tcp2-webbasecontrol:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+  tcp3-webpanel:
+    enabled: true
+    ports:
+      tcp3-webpanel:
+        enabled: true
+        port: 8082
+        protocol: TCP
+        targetPort: 8082
+  udp1-steammasterserver:
+    enabled: true
+    ports:
+      udp1-steammasterserver:
+        enabled: true
+        port: 26900
+        protocol: UDP
+        targetPort: 26900
+  udp2-steamcommunications:
+    enabled: true
+    ports:
+      udp2-steamcommunications:
+        enabled: true
+        port: 26901
+        protocol: UDP
+        targetPort: 26901
+  udp3-raknet:
+    enabled: true
+    ports:
+      udp3-raknet:
+        enabled: true
+        port: 26902
+        protocol: UDP
+        targetPort: 26902
+  udp4-unet:
+    enabled: true
+    ports:
+      udp4-unet:
+        enabled: true
+        port: 26903
+        protocol: UDP
+        targetPort: 26903
+  udp5-registeringatserverlist:
+    enabled: true
+    ports:
+      udp5-registeringatserverlist:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
