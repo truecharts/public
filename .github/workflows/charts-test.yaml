@@ -159,6 +159,13 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -201,6 +208,13 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -246,6 +260,13 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -288,6 +309,13 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -332,6 +360,13 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
+
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
@@ -374,6 +409,13 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+
+
+      - name: Add Apps user
+        run: |
+          groupadd -g 568 apps
+          useradd -g 568 -u 568 apps
+
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
