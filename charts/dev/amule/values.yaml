@@ -6,13 +6,13 @@ image:
   repository: tchabaud/amule
   tag: latest
 persistence:
-  storage(complete):
+  storagecomplete:
     enabled: true
     mountPath: /incoming
-  storage(config):
+  storageconfig:
     enabled: true
     mountPath: /home/amule/.aMule
-  storage(incomplete):
+  storageincomplete:
     enabled: true
     mountPath: /temp
 podSecurityContext:
@@ -30,18 +30,18 @@ service:
         port: 4711
         protocol: HTTP
         targetPort: 4711
-  port(tcp):
+  porttcp:
     enabled: true
     ports:
-      port(tcp):
+      porttcp:
         enabled: true
         port: 4662
         protocol: TCP
         targetPort: 4662
-  port(udp):
+  portudp:
     enabled: true
     ports:
-      port(udp):
+      portudp:
         enabled: true
         port: 4672
         protocol: UDP

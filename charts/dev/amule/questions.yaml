@@ -161,16 +161,16 @@ questions:
                                     type: int
                                     default: 4711
 
-        - variable: port(tcp)
-          label: "port(tcp) service"
+        - variable: porttcp
+          label: "porttcp service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: port(tcp)
-                      label: "port(tcp) Service Port Configuration"
+                    - variable: porttcp
+                      label: "porttcp Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -221,16 +221,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 4662
-        - variable: port(udp)
-          label: "port(udp) service"
+        - variable: portudp
+          label: "portudp service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: port(udp)
-                      label: "port(udp) Service Port Configuration"
+                    - variable: portudp
+                      label: "portudp Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -310,8 +310,8 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: storage(complete)
-          label: "storage(complete) Storage"
+        - variable: storagecomplete
+          label: "storagecomplete Storage"
           description: "This is the location for complete downloads."
           schema:
             additional_attrs: true
@@ -352,8 +352,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storage(incomplete)
-          label: "storage(incomplete) Storage"
+# Include{persistenceAdvanced}        - variable: storageincomplete
+          label: "storageincomplete Storage"
           description: "This is the location for incomplete downloads."
           schema:
             additional_attrs: true
@@ -394,8 +394,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storage(config)
-          label: "storage(config) Storage"
+# Include{persistenceAdvanced}        - variable: storageconfig
+          label: "storageconfig Storage"
           description: "This is the location for the internal data."
           schema:
             additional_attrs: true

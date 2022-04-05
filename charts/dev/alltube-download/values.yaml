@@ -4,7 +4,7 @@ image:
   repository: rudloff/alltube
   tag: latest
 persistence:
-  storage(configfile):
+  storageconfigfile:
     enabled: true
     mountPath: /var/www/html/config/config.yml
     readOnly: true
