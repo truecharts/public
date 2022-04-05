@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/mongodb"` |  |
-| image.tag | string | `"v5.0.6@sha256:c6ff92cae3448fa844c81252a1751ee8406aa5c55389d1da2aee069879f12ff3"` |  |
+| image.tag | string | `"v5.0.6@sha256:ee381fe55ccdc282d2b440fbcbd0bec89222df471678381a2bc64bacc76a3386"` |  |
 | mongodbDatabase | string | `"test"` |  |
 | mongodbPassword | string | `"testpass"` |  |
 | mongodbRootPassword | string | `"testroot"` |  |

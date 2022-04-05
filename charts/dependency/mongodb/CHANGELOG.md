@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.0.21"></a>
+### [mongodb-0.0.21](https://github.com/truecharts/apps/compare/mongodb-0.0.20...mongodb-0.0.21) (2022-04-04)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
+
+
+
 <a name="mongodb-0.0.20"></a>
 ### [mongodb-0.0.20](https://github.com/truecharts/apps/compare/mongodb-0.0.19...mongodb-0.0.20) (2022-04-03)
 
