@@ -32,59 +32,59 @@ service:
         port: 26900
         protocol: TCP
         targetPort: 26900
-  tcp2-webbasecontrol:
+  raknet:
     enabled: true
     ports:
-      tcp2-webbasecontrol:
-        enabled: true
-        port: 8080
-        protocol: TCP
-        targetPort: 8080
-  tcp3-webpanel:
-    enabled: true
-    ports:
-      tcp3-webpanel:
-        enabled: true
-        port: 8082
-        protocol: TCP
-        targetPort: 8082
-  udp1-steammasterserver:
-    enabled: true
-    ports:
-      udp1-steammasterserver:
-        enabled: true
-        port: 26900
-        protocol: UDP
-        targetPort: 26900
-  udp2-steamcommunications:
-    enabled: true
-    ports:
-      udp2-steamcommunications:
-        enabled: true
-        port: 26901
-        protocol: UDP
-        targetPort: 26901
-  udp3-raknet:
-    enabled: true
-    ports:
-      udp3-raknet:
+      raknet:
         enabled: true
         port: 26902
         protocol: UDP
         targetPort: 26902
-  udp4-unet:
+  registeringats:
     enabled: true
     ports:
-      udp4-unet:
-        enabled: true
-        port: 26903
-        protocol: UDP
-        targetPort: 26903
-  udp5-registeringatserverlist:
-    enabled: true
-    ports:
-      udp5-registeringatserverlist:
+      registeringats:
         enabled: true
         port: 27015
         protocol: UDP
         targetPort: 27015
+  steamcommunica:
+    enabled: true
+    ports:
+      steamcommunica:
+        enabled: true
+        port: 26901
+        protocol: UDP
+        targetPort: 26901
+  steammasterser:
+    enabled: true
+    ports:
+      steammasterser:
+        enabled: true
+        port: 26900
+        protocol: UDP
+        targetPort: 26900
+  unet:
+    enabled: true
+    ports:
+      unet:
+        enabled: true
+        port: 26903
+        protocol: UDP
+        targetPort: 26903
+  webbasecontrol:
+    enabled: true
+    ports:
+      webbasecontrol:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+  webpanel:
+    enabled: true
+    ports:
+      webpanel:
+        enabled: true
+        port: 8082
+        protocol: TCP
+        targetPort: 8082
