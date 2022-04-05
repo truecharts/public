@@ -191,16 +191,16 @@ questions:
                                     type: int
                                     default: 26900
 
-        - variable: udp1-steammasterserver
-          label: "udp1-steammasterserver service"
+        - variable: steammasterser
+          label: "steammasterser service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: udp1-steammasterserver
-                      label: "udp1-steammasterserver Service Port Configuration"
+                    - variable: steammasterser
+                      label: "steammasterser Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -251,16 +251,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 26900
-        - variable: udp2-steamcommunications
-          label: "udp2-steamcommunications service"
+        - variable: steamcommunica
+          label: "steamcommunica service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: udp2-steamcommunications
-                      label: "udp2-steamcommunications Service Port Configuration"
+                    - variable: steamcommunica
+                      label: "steamcommunica Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -311,16 +311,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 26901
-        - variable: udp3-raknet
-          label: "udp3-raknet service"
+        - variable: raknet
+          label: "raknet service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: udp3-raknet
-                      label: "udp3-raknet Service Port Configuration"
+                    - variable: raknet
+                      label: "raknet Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -371,16 +371,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 26902
-        - variable: udp4-unet
-          label: "udp4-unet service"
+        - variable: unet
+          label: "unet service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: udp4-unet
-                      label: "udp4-unet Service Port Configuration"
+                    - variable: unet
+                      label: "unet Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -431,16 +431,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 26903
-        - variable: tcp2-webbasecontrol
-          label: "tcp2-webbasecontrol service"
+        - variable: webbasecontrol
+          label: "webbasecontrol service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: tcp2-webbasecontrol
-                      label: "tcp2-webbasecontrol Service Port Configuration"
+                    - variable: webbasecontrol
+                      label: "webbasecontrol Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -491,16 +491,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-        - variable: tcp3-webpanel
-          label: "tcp3-webpanel service"
+        - variable: webpanel
+          label: "webpanel service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: tcp3-webpanel
-                      label: "tcp3-webpanel Service Port Configuration"
+                    - variable: webpanel
+                      label: "webpanel Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -551,16 +551,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 8082
-        - variable: udp5-registeringatserverlist
-          label: "udp5-registeringatserverlist service"
+        - variable: registeringats
+          label: "registeringats service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: udp5-registeringatserverlist
-                      label: "udp5-registeringatserverlist Service Port Configuration"
+                    - variable: registeringats
+                      label: "registeringats Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
