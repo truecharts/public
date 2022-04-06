@@ -86,13 +86,13 @@ questions:
 
         - variable: GAME_ID
           label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicated_Servers_List)"
+          description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "220070"
         - variable: MAP
           label: "MAP"
-          description: "Map name (eg 'aocffa-arena3_p', 'aocffa-hillside_p', 'aocffa-battlegrounds_v3_p')"
+          description: "Map name (eg 'aocffa-arena3p', 'aocffa-hillsidep', 'aocffa-battlegroundsv3p')"
           schema:
             type: string
             default: "aocffa-moor_p"

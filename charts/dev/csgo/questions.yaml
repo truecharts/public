@@ -86,13 +86,13 @@ questions:
 
         - variable: GAME_ID
           label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.If you want to install a static or beta version of the game change the value to '740 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to '740 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install)."
           schema:
             type: string
             default: "740"
         - variable: GAME_NAME
           label: "GAME_NAME"
-          description: "Game name to start (is connected to the GAME_PARAMS)."
+          description: "Game name to start (is connected to the GAMEPARAMS)."
           schema:
             type: string
             default: "csgo"
@@ -122,7 +122,7 @@ questions:
             default: ""
         - variable: GAME_PORT
           label: "GAME_PORT"
-          description: "Container Variable GAME_PORT"
+          description: "Container Variable GAMEPORT"
           schema:
             type: string
             default: "27015"

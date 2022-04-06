@@ -104,7 +104,7 @@ questions:
             default: ""
         - variable: APP_NICENESS
           label: "APP_NICENESS"
-          description: "Priority at which the application should run.  A niceness value of -20 is the highest priority and 19 is the lowest priority.&lt;br&gt;&lt;b&gt;NOTE&lt;b&gt; Setting a negative value requires additional permissions.  Thus, &lt;i&gt;&lt;b&gt;--cap-add=SYS_NICE&lt;b&gt;&lt;i&gt; must be added in &lt;i&gt;Extra Parameters&lt;i&gt; (shown when &lt;i&gt;Advanced View&lt;i&gt; is enabled)."
+          description: "Priority at which the application should run.  A niceness value of -20 is the highest priority and 19 is the lowest priority.&lt;br&gt;&lt;b&gt;NOTE&lt;b&gt; Setting a negative value requires additional permissions.  Thus, &lt;i&gt;&lt;b&gt;--cap-add=SYSNICE&lt;b&gt;&lt;i&gt; must be added in &lt;i&gt;Extra Parameters&lt;i&gt; (shown when &lt;i&gt;Advanced View&lt;i&gt; is enabled)."
           schema:
             type: string
             default: ""
