@@ -98,6 +98,9 @@ service:
         protocol: TCP
         targetPort: 8082
 
+command: ["/bin/bash"]
+args: ["-c", "groupadd -g ${GID} steam && /opt/scripts/start.sh"]
+
 command: ["/enter.sh"]
 configmap:
   enter:
@@ -105,8 +108,9 @@ configmap:
     data:
       enter.sh: |
         #!/bin/bash
-        GROUP="steam"
-        groupadd -g ${GID} ${GROUP}
+        #GROUP="steam"
+        #groupadd -g ${GID} ${GROUP}
+        #/opt/scripts/start.sh
         #groupmod -g ${GID} ${GROUP}
         #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
         #usermod -u ${UID} ${USER}
@@ -122,4 +126,3 @@ configmap:
         #chown -Rf ${UID}:${GID} ${DATA_DIR}
         #ls -l /opt/scripts
         #sudo -u steam id
-        /opt/scripts/start.sh
