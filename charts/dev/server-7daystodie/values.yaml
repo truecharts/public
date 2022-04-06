@@ -99,7 +99,7 @@ service:
         targetPort: 8082
 
 command: ["/bin/bash"]
-args: ["-c", "groupadd -g ${GID} steam && /opt/scripts/start.sh"]
+args: ["-c", "\"groupadd -g ${GID} steam && /opt/scripts/start.sh\""]
 
 configmap:
   enter:
