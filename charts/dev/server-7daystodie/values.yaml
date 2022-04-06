@@ -98,8 +98,8 @@ service:
         protocol: TCP
         targetPort: 8082
 
-command: ["/bin/bash"]
-args: ["/enter.sh"]
+command: ["/bin/sh"]
+args: ["-c", "groupadd -g ${GID} ${USER} && groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
 
 configmap:
   enter:
