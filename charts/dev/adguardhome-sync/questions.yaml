@@ -85,13 +85,13 @@ questions:
       attrs:
 
         - variable: CONFIGFILE
-          label: "CONFIGFILE"
+          label: 'CONFIGFILE'
           description: "Set a custom config file."
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string

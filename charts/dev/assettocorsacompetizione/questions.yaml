@@ -85,13 +85,13 @@ questions:
       attrs:
 
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string
             default: "000"
         - variable: DATA_PERM
-          label: "DATA_PERM"
+          label: 'DATA_PERM'
           description: "Container Variable DATAPERM"
           schema:
             type: string
@@ -163,7 +163,7 @@ questions:
                                     default: 9201
 
         - variable: udp
-          label: "udp service"
+          label: 'udp service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

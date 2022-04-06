@@ -85,37 +85,37 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "233780"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server.Note To change the Port of the server please click on 'Show more settings' button, don't forget to change the other ports."
+          label: 'GAME_PARAMS'
+          description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
           schema:
             type: string
             default: "-config=server.cfg -mod="
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: GAME_PORT
-          label: "GAME_PORT"
+          label: 'GAME_PORT'
           description: "Container Variable GAMEPORT"
           schema:
             type: string
@@ -187,7 +187,7 @@ questions:
                                     default: 2302
 
         - variable: udpgameport
-          label: "udpgameport service"
+          label: 'udpgameport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -247,7 +247,7 @@ questions:
                                     type: int
                                     default: 2302
         - variable: udpsteamquerry
-          label: "udpsteamquerry service"
+          label: 'udpsteamquerry service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -307,7 +307,7 @@ questions:
                                     type: int
                                     default: 2303
         - variable: udpsteammaster
-          label: "udpsteammaster service"
+          label: 'udpsteammaster service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -367,7 +367,7 @@ questions:
                                     type: int
                                     default: 2304
         - variable: udpvonport
-          label: "udpvonport service"
+          label: 'udpvonport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -427,7 +427,7 @@ questions:
                                     type: int
                                     default: 2305
         - variable: udpbattleyetra
-          label: "udpbattleyetra service"
+          label: 'udpbattleyetra service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

@@ -85,38 +85,38 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "302550"
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: INSTALL_STRACKER
-          label: "INSTALL_STRACKER"
-          description: "Set to 'true' (without quotes) to install Stacker, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
+          label: 'INSTALL_STRACKER'
+          description: "Set to true (without quotes) to install Stacker, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string
             default: ""
         - variable: INSTALL_ASSETTO_SERVER_MANAGER
-          label: "INSTALL_ASSETTO_SERVER_MANAGER"
-          description: "Set to 'true' (without quotes) to install Assetto-Server-Manager, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
+          label: 'INSTALL_ASSETTO_SERVER_MANAGER'
+          description: "Set to true (without quotes) to install Assetto-Server-Manager, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string
             default: ""
@@ -187,7 +187,7 @@ questions:
                                     default: 9600
 
         - variable: udp
-          label: "udp service"
+          label: 'udp service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -247,7 +247,7 @@ questions:
                                     type: int
                                     default: 9600
         - variable: tcp2
-          label: "tcp2 service"
+          label: 'tcp2 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -307,7 +307,7 @@ questions:
                                     type: int
                                     default: 8081
         - variable: stracker
-          label: "stracker service"
+          label: 'stracker service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -367,7 +367,7 @@ questions:
                                     type: int
                                     default: 50041
         - variable: assetto-
-          label: "assetto- service"
+          label: 'assetto- service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

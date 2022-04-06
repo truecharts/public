@@ -85,43 +85,43 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "565060"
         - variable: GALAXY_NAME
-          label: "GALAXY_NAME"
+          label: 'GALAXY_NAME'
           description: "Enter the Galaxy Name here (also the savepath will be the same as the Galaxy Name in the serverfiles folder, please use no spaces or special characters)."
           schema:
             type: string
             default: "AvorionDocker"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server (for example the server admin --admin [YOURsteamID64] e.g '--admin 123456789123456789' without quotes)."
+          label: 'GAME_PARAMS'
+          description: "Enter your start up commands for the server (for example the server admin --admin [YOURsteamID64] e.g --admin 123456789123456789 without quotes)."
           schema:
             type: string
             default: ""
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string
@@ -193,7 +193,7 @@ questions:
                                     default: 27000
 
         - variable: hostport2
-          label: "hostport2 service"
+          label: 'hostport2 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -253,7 +253,7 @@ questions:
                                     type: int
                                     default: 27000
         - variable: hostport3
-          label: "hostport3 service"
+          label: 'hostport3 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -313,7 +313,7 @@ questions:
                                     type: int
                                     default: 27003
         - variable: hostport4
-          label: "hostport4 service"
+          label: 'hostport4 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -373,7 +373,7 @@ questions:
                                     type: int
                                     default: 27020
         - variable: hostport5
-          label: "hostport5 service"
+          label: 'hostport5 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

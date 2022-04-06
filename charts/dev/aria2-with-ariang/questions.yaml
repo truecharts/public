@@ -85,127 +85,127 @@ questions:
       attrs:
 
         - variable: aria2Secret
-          label: "aria2Secret"
+          label: 'aria2Secret'
           description: "Aria2 RPC Secret"
           schema:
             type: string
             default: "YOUR_SECRET_CODE"
         - variable: aria2MaxConcurrentDownloads
-          label: "aria2MaxConcurrentDownloads"
+          label: 'aria2MaxConcurrentDownloads'
           description: "Set the maximum number of parallel downloads for every queue item."
           schema:
             type: string
             default: "5"
         - variable: aria2LogLevel
-          label: "aria2LogLevel"
+          label: 'aria2LogLevel'
           description: "Set log level to output."
           schema:
             type: string
             default: "warn"
         - variable: aria2ListenPort
-          label: "aria2ListenPort"
+          label: 'aria2ListenPort'
           description: "Set TCP port number for BitTorrent downloads. Multiple ports can be specified by using ,, for example 6881,6885. You can also use - to specify a range 6881-6999. , and - can be used together 6881-6889,6999."
           schema:
             type: string
             default: "6889"
         - variable: aria2EnableDht
-          label: "aria2EnableDht"
+          label: 'aria2EnableDht'
           description: "Enable IPv4 DHT functionality. It also enables UDP tracker support. If a private flag is set in a torrent, aria2 doesn’t use DHT for that download even if true is given."
           schema:
             type: string
             default: "true"
         - variable: aria2DhtListenPort
-          label: "aria2DhtListenPort"
+          label: 'aria2DhtListenPort'
           description: "Set UDP listening port used by DHT(IPv4, IPv6) and UDP tracker. Multiple ports can be specified by using ,, for example 6881,6885. You can also use - to specify a range 6881-6999. , and - can be used together."
           schema:
             type: string
             default: "6881"
         - variable: aria2SaveSessionInterval
-          label: "aria2SaveSessionInterval"
+          label: 'aria2SaveSessionInterval'
           description: "Save errorunfinished downloads to a file specified by --save-session option every SEC seconds. If 0 is given, file will be saved only when aria2 exits."
           schema:
             type: string
             default: "10"
         - variable: aria2BtRequireCrypto
-          label: "aria2BtRequireCrypto"
+          label: 'aria2BtRequireCrypto'
           description: "If true is given, aria2 doesn’t accept and establish connection with legacy BitTorrent handshake(19BitTorrent protocol). Thus aria2 always uses Obfuscation handshake."
           schema:
             type: string
             default: "false"
         - variable: aria2BtMinCryptoLevel
-          label: "aria2BtMinCryptoLevel"
+          label: 'aria2BtMinCryptoLevel'
           description: "Set minimum level of encryption method. If several encryption methods are provided by a peer, aria2 chooses the lowest one which satisfies the given level."
           schema:
             type: string
             default: "plain"
         - variable: aria2BtSaveMetadata
-          label: "aria2BtSaveMetadata"
+          label: 'aria2BtSaveMetadata'
           description: "Save meta data as “.torrent” file. This option has effect only when BitTorrent Magnet URI is used. The file name is hex encoded info hash with suffix “.torrent”. The directory to be saved is the same directory where download file is saved. If the same file already exists, meta data is not saved. See also --bt-metadata-only option."
           schema:
             type: string
             default: "false"
         - variable: aria2BtLoadSavedMetadata
-          label: "aria2BtLoadSavedMetadata"
+          label: 'aria2BtLoadSavedMetadata'
           description: "Before getting torrent metadata from DHT when downloading with magnet link, first try to read file saved by --bt-save-metadata option. If it is successful, then skip downloading metadata from DHT. "
           schema:
             type: string
             default: "false"
         - variable: aria2Continue
-          label: "aria2Continue"
+          label: 'aria2Continue'
           description: "If the previous transfer is made by a browser or wget like sequential download manager, then use --continue option to continue the transfer."
           schema:
             type: string
             default: "true"
         - variable: aria2MinSplitSize
-          label: "aria2MinSplitSize"
+          label: 'aria2MinSplitSize'
           description: "aria2 does not split less than 2SIZE byte range. For example, let’s consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split &gt;= 2, of course). If SIZE is 15M, since 215M &gt; 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values 1M -1024M"
           schema:
             type: string
             default: "10M"
         - variable: aria2Split
-          label: "aria2Split"
+          label: 'aria2Split'
           description: "Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by the --max-connection-per-server option. See also the --min-split-size option."
           schema:
             type: string
             default: "5"
         - variable: aria2MaxConnectionPerServer
-          label: "aria2MaxConnectionPerServer"
+          label: 'aria2MaxConnectionPerServer'
           description: "The maximum number of connections to one server for each download. "
           schema:
             type: string
             default: "10"
         - variable: aria2SeedRatio
-          label: "aria2SeedRatio"
+          label: 'aria2SeedRatio'
           description: "pecify share ratio. Seed completed torrents until share ratio reaches RATIO. You are strongly encouraged to specify equals or more than 1.0 here. Specify 0.0 if you intend to do seeding regardless of share ratio. If --seed-time option is specified along with this option, seeding ends when at least one of the conditions is satisfied."
           schema:
             type: string
             default: "1"
         - variable: aria2SeedTime
-          label: "aria2SeedTime"
+          label: 'aria2SeedTime'
           description: "Specify seeding time in (fractional) minutes. Also see the --seed-ratio option."
           schema:
             type: string
             default: "0"
         - variable: aria2DisableIpv6
-          label: "aria2DisableIpv6"
+          label: 'aria2DisableIpv6'
           description: "This is useful if you have to use broken DNS and want to avoid terribly slow AAAA record lookup. "
           schema:
             type: string
             default: "true"
         - variable: aria2ForceSave
-          label: "aria2ForceSave"
+          label: 'aria2ForceSave'
           description: "Save download with --save-session option even if the download is completed or removed. This option also saves control file in that situations. This may be useful to save BitTorrent seeding which is recognized as completed state."
           schema:
             type: string
             default: "true"
         - variable: aria2MaxDownloadLimit
-          label: "aria2MaxDownloadLimit"
+          label: 'aria2MaxDownloadLimit'
           description: "Set max download speed per each download in bytessec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the overall download speed, use --max-overall-download-limit."
           schema:
             type: string
             default: "0"
         - variable: aria2MaxOverallDownloadLimit
-          label: "aria2MaxOverallDownloadLimit"
+          label: 'aria2MaxOverallDownloadLimit'
           description: "Set max overall download speed in bytessec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the download speed per download, use --max-download-limit option."
           schema:
             type: string
@@ -277,7 +277,7 @@ questions:
                                     default: 80
 
         - variable: aria2rpc
-          label: "aria2rpc service"
+          label: 'aria2rpc service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -337,7 +337,7 @@ questions:
                                     type: int
                                     default: 6800
         - variable: aria2-listenpo
-          label: "aria2-listenpo service"
+          label: 'aria2-listenpo service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -397,7 +397,7 @@ questions:
                                     type: int
                                     default: 6889
         - variable: aria2-dhtliste
-          label: "aria2-dhtliste service"
+          label: 'aria2-dhtliste service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

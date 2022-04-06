@@ -85,50 +85,50 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "1006030"
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: MAP_NAME
-          label: "MAP_NAME"
+          label: 'MAP_NAME'
           description: "Standard Map Name"
           schema:
             type: string
             default: "Ocean"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
+          label: 'GAME_PARAMS'
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: "?ServerX=0?ServerY=0?AltSaveDirectoryName=00?MaxPlayers=50?ReservedPlayerSlots=10?QueryPort=57550?Port=5750"
         - variable: GAME_PARAMS_EXTRA
-          label: "GAME_PARAMS_EXTRA"
+          label: 'GAME_PARAMS_EXTRA'
           description: "Container Variable GAMEPARAMSEXTRA"
           schema:
             type: string
             default: "-log -server -NoBattlEye"
         - variable: ENA_REDIS
-          label: "ENA_REDIS"
-          description: "If you've set up a external Redis server leave this blank, to enable the built in Redis server enter 'yes' (without quotes)."
+          label: 'ENA_REDIS'
+          description: "If youve set up a external Redis server leave this blank, to enable the built in Redis server enter yes (without quotes)."
           schema:
             type: string
             default: "yes"
@@ -199,7 +199,7 @@ questions:
                                     default: 57550
 
         - variable: gameport1
-          label: "gameport1 service"
+          label: 'gameport1 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -259,7 +259,7 @@ questions:
                                     type: int
                                     default: 5750
         - variable: gameporta2
-          label: "gameporta2 service"
+          label: 'gameporta2 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -319,7 +319,7 @@ questions:
                                     type: int
                                     default: 5751
         - variable: rconport
-          label: "rconport service"
+          label: 'rconport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -379,7 +379,7 @@ questions:
                                     type: int
                                     default: 32330
         - variable: seamlessport
-          label: "seamlessport service"
+          label: 'seamlessport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -439,7 +439,7 @@ questions:
                                     type: int
                                     default: 27000
         - variable: redisserver
-          label: "redisserver service"
+          label: 'redisserver service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

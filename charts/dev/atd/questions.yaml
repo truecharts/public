@@ -78,85 +78,85 @@ questions:
       attrs:
 
         - variable: AutoStart
-          label: "AutoStart"
+          label: 'AutoStart'
           description: "true = Enabled  Runs script automatically on startup"
           schema:
             type: string
             default: ""
         - variable: ScriptInterval
-          label: "ScriptInterval"
+          label: 'ScriptInterval'
           description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
           schema:
             type: string
             default: ""
         - variable: MusicbrainzMirror
-          label: "MusicbrainzMirror"
+          label: 'MusicbrainzMirror'
           description: "OPTIONAL  Only change if using a different mirror"
           schema:
             type: string
             default: ""
         - variable: MusicbrainzRateLimit
-          label: "MusicbrainzRateLimit"
+          label: 'MusicbrainzRateLimit'
           description: "OPTIONAL musicbrainz rate limit, musicbrainz allows only 1 connection per second, max setting is 10  Set to 101 to disable limit"
           schema:
             type: string
             default: ""
         - variable: LidarrUrl
-          label: "LidarrUrl"
+          label: 'LidarrUrl'
           description: "REQUIRED Lidarr URL, Lidarr provides artist list for processing with ATD..."
           schema:
             type: string
             default: ""
         - variable: LidarrApiKey
-          label: "LidarrApiKey"
+          label: 'LidarrApiKey'
           description: "REQUIRED Lidarr API Key, enables ATD to connect to Lidarr..."
           schema:
             type: string
             default: ""
         - variable: ScriptMode
-          label: "ScriptMode"
+          label: 'ScriptMode'
           description: "REQUIRED set to music or video or both  both downloads music and videos, the others set the download to the desired media type"
           schema:
             type: string
             default: ""
         - variable: CountryCode
-          label: "CountryCode"
+          label: 'CountryCode'
           description: "Set to Tidal Region, same region as your account"
           schema:
             type: string
             default: ""
         - variable: Compilations
-          label: "Compilations"
+          label: 'Compilations'
           description: "false = disabled; true = enabled  Enabling this downloads compilations the Artist Appears On..."
           schema:
             type: string
             default: ""
         - variable: WantedQuality
-          label: "WantedQuality"
+          label: 'WantedQuality'
           description: "FLAC or 320 or 128  Maxium Quality  FLAC (CD quality 16bit), 320 (320 kbps AAC), 128 (128 kbps AAC)"
           schema:
             type: string
             default: ""
         - variable: RequireQuality
-          label: "RequireQuality"
+          label: 'RequireQuality'
           description: "false = disabled; true = enabled  Enabling requires the downloads to match the expected file type (.flac or .m4a)..."
           schema:
             type: string
             default: ""
         - variable: EnableReplayGain
-          label: "EnableReplayGain"
+          label: 'EnableReplayGain'
           description: "true = enabled  Scans and analyzes files to add replaygain tags to song metadata"
           schema:
             type: string
             default: ""
         - variable: FolderPermissions
-          label: "FolderPermissions"
+          label: 'FolderPermissions'
           description: "Folder Permissions (chmod)"
           schema:
             type: string
             default: ""
         - variable: FilePermisssions
-          label: "FilePermisssions"
+          label: 'FilePermisssions'
           description: "File Permissions (chmod)"
           schema:
             type: string

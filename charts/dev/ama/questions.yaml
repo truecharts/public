@@ -78,169 +78,169 @@ questions:
       attrs:
 
         - variable: AUTOSTART
-          label: "AUTOSTART"
+          label: 'AUTOSTART'
           description: "true = Enabled  Runs script automatically on startup"
           schema:
             type: string
             default: ""
         - variable: SCRIPTINTERVAL
-          label: "SCRIPTINTERVAL"
+          label: 'SCRIPTINTERVAL'
           description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
           schema:
             type: string
             default: ""
         - variable: ARL_TOKEN
-          label: "ARL_TOKEN"
-          description: "User token for dl client, for instructions to obtain token httpsnotabug.orgRemixDevsDeezloaderRemixwikiLogin+via+userToken"
+          label: 'ARL_TOKEN'
+          description: "User token for dl client, for instructions to obtain token httpsnotabug.orgRemixDevsDeezloaderRemixwikiLoginviauserToken"
           schema:
             type: string
             default: ""
         - variable: MODE
-          label: "MODE"
+          label: 'MODE'
           description: "artist or discography  artist mode downloads all albums listed as that artist, discography downloads all albums listed as that artist and featured in albums"
           schema:
             type: string
             default: ""
         - variable: RELATED_ARTIST
-          label: "RELATED_ARTIST"
+          label: 'RELATED_ARTIST'
           description: "true = enabled  Enabling this lets the script crawl your artist list for related artists and process them"
           schema:
             type: string
             default: ""
         - variable: RELATED_ARTIST_RELATED
-          label: "RELATED_ARTIST_RELATED"
+          label: 'RELATED_ARTIST_RELATED'
           description: "true = enabled  Enabling this lets the script crawl your related artists for additional related artists and process them accordingly  WARNING this will cause an endless loop (spider crawling) until no more are found..."
           schema:
             type: string
             default: ""
         - variable: RELATED_COUNT
-          label: "RELATED_COUNT"
+          label: 'RELATED_COUNT'
           description: "Maximum number of related artists to import per artist (20 is max)"
           schema:
             type: string
             default: ""
         - variable: FAN_COUNT
-          label: "FAN_COUNT"
+          label: 'FAN_COUNT'
           description: "Minimum number of fans required for processing"
           schema:
             type: string
             default: ""
         - variable: FORMAT
-          label: "FORMAT"
+          label: 'FORMAT'
           description: "SET TO ALAC or FLAC or AAC or MP3 or OPUS"
           schema:
             type: string
             default: ""
         - variable: BITRATE
-          label: "BITRATE"
+          label: 'BITRATE'
           description: "FLAC - OPUSAACMP3 will be converted using this bitrate"
           schema:
             type: string
             default: ""
         - variable: FORCECONVERT
-          label: "FORCECONVERT"
+          label: 'FORCECONVERT'
           description: "true = enabled  This will convert lossy MP3 to desired target format (exluding FLACALAC, ALAC setting will convert to AAC)"
           schema:
             type: string
             default: ""
         - variable: POSTPROCESSTHREADS
-          label: "POSTPROCESSTHREADS"
+          label: 'POSTPROCESSTHREADS'
           description: "Controls number of threads used for Format conversion and replaygain tagging"
           schema:
             type: string
             default: ""
         - variable: EMBEDDED_COVER_QUALITY
-          label: "EMBEDDED_COVER_QUALITY"
+          label: 'EMBEDDED_COVER_QUALITY'
           description: "Controls the quality of the cover image compression in percentage, 100 = no compression"
           schema:
             type: string
             default: ""
         - variable: ALBUM_TYPE_FILTER
-          label: "ALBUM_TYPE_FILTER"
-          description: "Filter Types COMPILE, SINGLE, ALBUM, EP (this is a ', ' separated list of Album Types to skip)"
+          label: 'ALBUM_TYPE_FILTER'
+          description: "Filter Types COMPILE, SINGLE, ALBUM, EP (this is a ,  separated list of Album Types to skip)"
           schema:
             type: string
             default: ""
         - variable: CONCURRENT_DOWNLOADS
-          label: "CONCURRENT_DOWNLOADS"
+          label: 'CONCURRENT_DOWNLOADS'
           description: "Controls download concurrency"
           schema:
             type: string
             default: ""
         - variable: REQUIRE_QUALITY
-          label: "REQUIRE_QUALITY"
+          label: 'REQUIRE_QUALITY'
           description: "true = enabled  Requires all downloaded files match target file extension (mp3 or flac) when enabled"
           schema:
             type: string
             default: ""
         - variable: FOLDER_PERMISSIONS
-          label: "FOLDER_PERMISSIONS"
+          label: 'FOLDER_PERMISSIONS'
           description: "Based on chmod linux permissions"
           schema:
             type: string
             default: ""
         - variable: FILE_PERMISSIONS
-          label: "FILE_PERMISSIONS"
+          label: 'FILE_PERMISSIONS'
           description: "Based on chmod linux permissions"
           schema:
             type: string
             default: ""
         - variable: REPLAYGAIN
-          label: "REPLAYGAIN"
+          label: 'REPLAYGAIN'
           description: "true = enabled  Scans and analyzes files to add replaygain tags to song metadata"
           schema:
             type: string
             default: ""
         - variable: IGNORE_ARTIST_WITHOUT_IMAGE
-          label: "IGNORE_ARTIST_WITHOUT_IMAGE"
+          label: 'IGNORE_ARTIST_WITHOUT_IMAGE'
           description: "true = enabled  Enabling this will prevent downloading albums from artists with default image (non-unique)"
           schema:
             type: string
             default: ""
         - variable: COMPLETE_MY_ARTISTS
-          label: "COMPLETE_MY_ARTISTS"
-          description: "true = enabled  Eanabling this will add artist id's found in the library directory that are currently not in your list. This will then allow the script archive them accordingly  !!!WARNING!!! Could cause an endless loop!"
+          label: 'COMPLETE_MY_ARTISTS'
+          description: "true = enabled  Eanabling this will add artist ids found in the library directory that are currently not in your list. This will then allow the script archive them accordingly  !!!WARNING!!! Could cause an endless loop!"
           schema:
             type: string
             default: ""
         - variable: LIDARR_LIST_IMPORT
-          label: "LIDARR_LIST_IMPORT"
+          label: 'LIDARR_LIST_IMPORT'
           description: "true = enabled  imports artist list from lidarr"
           schema:
             type: string
             default: ""
         - variable: LIDARR_URL
-          label: "LIDARR_URL"
+          label: 'LIDARR_URL'
           description: "ONLY used if Lidarr List Import is enabled..."
           schema:
             type: string
             default: ""
         - variable: LIDARR_API_KEY
-          label: "LIDARR_API_KEY"
+          label: 'LIDARR_API_KEY'
           description: "ONLY used if Lidarr List Import is enabled..."
           schema:
             type: string
             default: ""
         - variable: NOTIFYPLEX
-          label: "NOTIFYPLEX"
+          label: 'NOTIFYPLEX'
           description: "true = enabled  Plex must have a Music library added and also be configured with the downloads-ama directory"
           schema:
             type: string
             default: ""
         - variable: PLEXLIBRARYNAME
-          label: "PLEXLIBRARYNAME"
+          label: 'PLEXLIBRARYNAME'
           description: "This must exactly match the name of the Plex Library that contains the Lidarr Media Folder data"
           schema:
             type: string
             default: ""
         - variable: PLEXURL
-          label: "PLEXURL"
+          label: 'PLEXURL'
           description: "ONLY used if NOTIFYPLEX is enabled..."
           schema:
             type: string
             default: ""
         - variable: PLEXTOKEN
-          label: "PLEXTOKEN"
+          label: 'PLEXTOKEN'
           description: "ONLY used if NOTIFYPLEX is enabled..."
           schema:
             type: string

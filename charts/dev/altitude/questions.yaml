@@ -85,14 +85,14 @@ questions:
       attrs:
 
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
+          label: 'GAME_PARAMS'
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: ""
         - variable: DL_URL
-          label: "DL_URL"
-          description: "Don't change unless you know what you are doing."
+          label: 'DL_URL'
+          description: "Dont change unless you know what you are doing."
           schema:
             type: string
             default: "http://installer.altitudegame.com/0.0.1/altitude.sh"

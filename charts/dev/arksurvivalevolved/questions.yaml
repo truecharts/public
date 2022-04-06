@@ -85,61 +85,61 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to '376030 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+          label: 'GAME_ID'
+          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to 376030 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
           schema:
             type: string
             default: "376030"
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: MAP
-          label: "MAP"
+          label: 'MAP'
           description: "Container Variable MAP"
           schema:
             type: string
             default: "TheIsland"
         - variable: SERVER_NAME
-          label: "SERVER_NAME"
+          label: 'SERVER_NAME'
           description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
           schema:
             type: string
             default: ""
         - variable: SRV_PWD
-          label: "SRV_PWD"
+          label: 'SRV_PWD'
           description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
           schema:
             type: string
             default: ""
         - variable: SRV_ADMIN_PWD
-          label: "SRV_ADMIN_PWD"
+          label: 'SRV_ADMIN_PWD'
           description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
           schema:
             type: string
             default: ""
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)"
+          label: 'GAME_PARAMS'
+          description: "Enter your game parameters seperated with ? and start with a ? (dont put spaces in between eg ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)"
           schema:
             type: string
             default: ""
         - variable: GAME_PARAMS_EXTRA
-          label: "GAME_PARAMS_EXTRA"
+          label: 'GAME_PARAMS_EXTRA'
           description: "Type in your Extra Game Parameters seperated with a space and - (eg -DisableDeathSpectator -UseBattlEye)"
           schema:
             type: string
@@ -211,7 +211,7 @@ questions:
                                     default: 7777
 
         - variable: udp2
-          label: "udp2 service"
+          label: 'udp2 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -271,7 +271,7 @@ questions:
                                     type: int
                                     default: 7778
         - variable: udpsteam
-          label: "udpsteam service"
+          label: 'udpsteam service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -331,7 +331,7 @@ questions:
                                     type: int
                                     default: 27015
         - variable: rcontcp
-          label: "rcontcp service"
+          label: 'rcontcp service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

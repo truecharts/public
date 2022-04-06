@@ -78,85 +78,85 @@ questions:
       attrs:
 
         - variable: AUTOSTART
-          label: "AUTOSTART"
+          label: 'AUTOSTART'
           description: "true = Enabled  Runs script automatically on startup"
           schema:
             type: string
             default: ""
         - variable: SCRIPTINTERVAL
-          label: "SCRIPTINTERVAL"
+          label: 'SCRIPTINTERVAL'
           description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
           schema:
             type: string
             default: ""
         - variable: RadarrUrl
-          label: "RadarrUrl"
+          label: 'RadarrUrl'
           description: "Set domain or IP to your Radarr instance including port. If using reverse proxy, do not use a trailing slash. Ensure you specify https..."
           schema:
             type: string
             default: ""
         - variable: RadarrAPIkey
-          label: "RadarrAPIkey"
+          label: 'RadarrAPIkey'
           description: "Radarr API Key"
           schema:
             type: string
             default: ""
         - variable: extrastype
-          label: "extrastype"
+          label: 'extrastype'
           description: "all or trailers  all downloads all available videos (trailers, clips, featurettes, etc...)  trailers only downloads trailers"
           schema:
             type: string
             default: ""
         - variable: LANGUAGES
-          label: "LANGUAGES"
-          description: "Set the primary desired language, if not found, fallback to next langauge in the list... (this is a ',' separated list of ISO 639-1 language codes)"
+          label: 'LANGUAGES'
+          description: "Set the primary desired language, if not found, fallback to next langauge in the list... (this is a , separated list of ISO 639-1 language codes)"
           schema:
             type: string
             default: ""
         - variable: videoformat
-          label: "videoformat"
+          label: 'videoformat'
           description: "For guidence, please see youtube-dl documentation"
           schema:
             type: string
             default: ""
         - variable: subtitlelanguage
-          label: "subtitlelanguage"
+          label: 'subtitlelanguage'
           description: "Desired Language Code  For guidence, please see youtube-dl documentation"
           schema:
             type: string
             default: ""
         - variable: SINGLETRAILER
-          label: "SINGLETRAILER"
+          label: 'SINGLETRAILER'
           description: "true = enabled  Only downloads the first available trailer, does not apply to other extras type"
           schema:
             type: string
             default: ""
         - variable: PREFER_EXISTING
-          label: "PREFER_EXISTING"
+          label: 'PREFER_EXISTING'
           description: "true = enabled  Checks for existing trailer file, and skips it if found"
           schema:
             type: string
             default: ""
         - variable: USEFOLDERS
-          label: "USEFOLDERS"
+          label: 'USEFOLDERS'
           description: "true = enabled  Creates subfolders within the movie folder for extras"
           schema:
             type: string
             default: ""
         - variable: EndClient
-          label: "EndClient"
+          label: 'EndClient'
           description: "plex or emby or jellyfin  Select the appropriate client for maximum compatibility"
           schema:
             type: string
             default: ""
         - variable: FilePermissions
-          label: "FilePermissions"
+          label: 'FilePermissions'
           description: "Based on chmod linux permissions"
           schema:
             type: string
             default: ""
         - variable: FolderPermissions
-          label: "FolderPermissions"
+          label: 'FolderPermissions'
           description: "Based on chmod linux permissions"
           schema:
             type: string

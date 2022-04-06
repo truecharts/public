@@ -85,19 +85,19 @@ questions:
       attrs:
 
         - variable: bootwait
-          label: "bootwait"
+          label: 'bootwait'
           description: "Length of time in seconds to wait after the container has started before attempting to connect to devices."
           schema:
             type: string
             default: "10"
         - variable: devicelist
-          label: "devicelist"
+          label: 'devicelist'
           description: "Comma separated list of androidtvfiretv devices to connect to, each one listed as [iphostname][port],[iphostname][port]."
           schema:
             type: string
             default: "10.0.0.192:5555"
         - variable: checkfreq
-          label: "checkfreq"
+          label: 'checkfreq'
           description: "Length of time in seconds to wait between successive attempts to connect (or re-connect) to devices."
           schema:
             type: string

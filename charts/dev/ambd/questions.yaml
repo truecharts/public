@@ -78,73 +78,73 @@ questions:
       attrs:
 
         - variable: AUTOSTART
-          label: "AUTOSTART"
+          label: 'AUTOSTART'
           description: "true = Enabled  Runs script automatically on startup"
           schema:
             type: string
             default: ""
         - variable: SCRIPTINTERVAL
-          label: "SCRIPTINTERVAL"
+          label: 'SCRIPTINTERVAL'
           description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
           schema:
             type: string
             default: ""
         - variable: ARL_TOKEN
-          label: "ARL_TOKEN"
-          description: "User token for dl client, for instructions to obtain token httpsnotabug.orgRemixDevsDeezloaderRemixwikiLogin+via+userToken"
+          label: 'ARL_TOKEN'
+          description: "User token for dl client, for instructions to obtain token httpsnotabug.orgRemixDevsDeezloaderRemixwikiLoginviauserToken"
           schema:
             type: string
             default: ""
         - variable: QUALITY
-          label: "QUALITY"
+          label: 'QUALITY'
           description: "SET TO FLAC or 320 or 128"
           schema:
             type: string
             default: ""
         - variable: EMBEDDED_COVER_QUALITY
-          label: "EMBEDDED_COVER_QUALITY"
+          label: 'EMBEDDED_COVER_QUALITY'
           description: "Controls the quality of the cover image compression in percentage, 100 = no compression"
           schema:
             type: string
             default: ""
         - variable: CONCURRENT_DOWNLOADS
-          label: "CONCURRENT_DOWNLOADS"
+          label: 'CONCURRENT_DOWNLOADS'
           description: "Controls download concurrency"
           schema:
             type: string
             default: ""
         - variable: FOLDER_PERMISSIONS
-          label: "FOLDER_PERMISSIONS"
+          label: 'FOLDER_PERMISSIONS'
           description: "Based on chmod linux permissions"
           schema:
             type: string
             default: ""
         - variable: FILE_PERMISSIONS
-          label: "FILE_PERMISSIONS"
+          label: 'FILE_PERMISSIONS'
           description: "Based on chmod linux permissions"
           schema:
             type: string
             default: ""
         - variable: NOTIFYPLEX
-          label: "NOTIFYPLEX"
+          label: 'NOTIFYPLEX'
           description: "true = enabled  Plex must have a Music library added and also be configured with the downloads-ama directory"
           schema:
             type: string
             default: ""
         - variable: PLEXLIBRARYNAME
-          label: "PLEXLIBRARYNAME"
+          label: 'PLEXLIBRARYNAME'
           description: "This must exactly match the name of the Plex Library that contains the Lidarr Media Folder data"
           schema:
             type: string
             default: ""
         - variable: PLEXURL
-          label: "PLEXURL"
+          label: 'PLEXURL'
           description: "ONLY used if NOTIFYPLEX is enabled..."
           schema:
             type: string
             default: ""
         - variable: PLEXTOKEN
-          label: "PLEXTOKEN"
+          label: 'PLEXTOKEN'
           description: "ONLY used if NOTIFYPLEX is enabled..."
           schema:
             type: string
