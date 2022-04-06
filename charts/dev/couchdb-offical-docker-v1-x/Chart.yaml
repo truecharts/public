@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: 'CouchDB offical docker image[br][br]
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/couchdb-offical-docker-v1-x
+icon: https://truecharts.org/_static/img/appicons/couchdb-offical-docker-v1-x.png
+keywords:
+- couchdb-offical-docker-v1-x
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: couchdb-offical-docker-v1-x
+sources:
+- https://hub.docker.com/_/couchdb/
+type: application
+version: 0.0.1

@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+    - Network-Web
+    - Network-FTP
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or HTTPS
+  using CrushFTP 10. Built on Alpine 3.12. Size 234.8 MB. See dockerhub registry page
+  for more details.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/crushftp10
+icon: https://truecharts.org/_static/img/appicons/crushftp10.png
+keywords:
+- crushftp10
+- Backup
+- Cloud
+- Network-Web
+- Network-FTP
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: crushftp10
+sources:
+- https://www.crushftp.com/index.html
+- https://hub.docker.com/r/markusmcnugen/crushftp/
+type: application
+version: 0.0.1

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-DNS
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Cloudflare DDNS updates for both ipv4 and ipv6.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cloudflareddns
+icon: https://truecharts.org/_static/img/appicons/cloudflareddns.png
+keywords:
+- cloudflareddns
+- Network-DNS
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cloudflareddns
+sources:
+- https://hotio.dev/containers/cloudflareddns
+- https://hub.docker.com/r/hotio/cloudflareddns
+type: application
+version: 0.0.1

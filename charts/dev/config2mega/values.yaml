@@ -1,0 +1,28 @@
+env:
+  LOGIN: ''
+  PASS: ''
+  REMOTE: Unraid/flash/config
+image:
+  pullPolicy: IfNotPresent
+  repository: hussainalhaddad/config2mega
+  tag: latest
+persistence:
+  megaconfigfolder:
+    enabled: true
+    mountPath: /root/.megaCmd
+  unraidconfigfolder:
+    enabled: true
+    mountPath: /home/unraidconfig
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

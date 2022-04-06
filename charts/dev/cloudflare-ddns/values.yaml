@@ -1,0 +1,24 @@
+env:
+  API_KEY: ''
+  EMAIL: ''
+  PROXIED: ''
+  RRTYPE: ''
+  SUBDOMAIN: ''
+  ZONE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: oznu/cloudflare-ddns
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,40 @@
+env:
+  GAME_ID: '1670340'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: craftopia
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8787
+        protocol: TCP
+        targetPort: 8787
+  udp-gameport:
+    enabled: true
+    ports:
+      udp-gameport:
+        enabled: true
+        port: 8787
+        protocol: UDP
+        targetPort: 8787

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "This Docker will download and install CounterStrike 2D.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/counterstrike2d
+icon: https://truecharts.org/_static/img/appicons/counterstrike2d.png
+keywords:
+- counterstrike2d
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: counterstrike2d
+sources:
+- https://www.steampowered.com/
+- https://hub.docker.com/r/ich777/cs2dserver/
+type: application
+version: 0.0.1

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Official Confluence-Server Docker Image
+home: https://github.com/truecharts/apps/tree/master/charts/stable/confluence
+icon: https://truecharts.org/_static/img/appicons/confluence.png
+keywords:
+- confluence
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: confluence
+sources:
+- https://www.atlassian.com/software/confluence
+- https://hub.docker.com/r/atlassian/confluence-server
+type: application
+version: 0.0.1

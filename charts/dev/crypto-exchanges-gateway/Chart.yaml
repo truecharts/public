@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Crypto
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "&lt;p&gt;Your gateway to the world of crypto !&lt;/p&gt;\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/crypto-exchanges-gateway
+icon: https://truecharts.org/_static/img/appicons/crypto-exchanges-gateway.png
+keywords:
+- crypto-exchanges-gateway
+- Productivity
+- Crypto
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: crypto-exchanges-gateway
+sources:
+- https://github.com/aloysius-pgast/crypto-exchanges-gateway
+- https://hub.docker.com/r/apendergast/crypto-exchanges-gateway/
+type: application
+version: 0.0.1

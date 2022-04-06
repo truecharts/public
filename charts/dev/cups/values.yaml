@@ -1,0 +1,28 @@
+env:
+  ADMIN_PASSWORD: admin
+image:
+  pullPolicy: IfNotPresent
+  repository: ydkn/cups
+  tag: latest
+persistence:
+  configfile:
+    enabled: true
+    mountPath: /etc/cups/
+  usbmapping:
+    enabled: true
+    mountPath: /var/run/dbus
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 631
+        protocol: TCP
+        targetPort: 631

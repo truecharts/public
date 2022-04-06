@@ -1,0 +1,54 @@
+env:
+  APP_NICENESS: ''
+  CBB_WEB_INTERFACE_PASSWORD: ''
+  CBB_WEB_INTERFACE_USER: ''
+  DISPLAY_HEIGHT: ''
+  DISPLAY_WIDTH: ''
+  GROUP_ID: ''
+  SECURE_CONNECTION: ''
+  UMASK: ''
+  USER_ID: ''
+  X11VNC_EXTRA_OPTS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: jlesage/cloudberry-backup
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  cloudberryback:
+    enabled: true
+    ports:
+      cloudberryback:
+        enabled: true
+        port: 43211
+        protocol: TCP
+        targetPort: 43211
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  vncportforgui:
+    enabled: true
+    ports:
+      vncportforgui:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900

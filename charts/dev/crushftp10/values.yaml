@@ -1,0 +1,63 @@
+env:
+  CRUSH_ADMIN_PASSWORD: crushadmin
+  CRUSH_ADMIN_PORT: '8080'
+  CRUSH_ADMIN_PROTOCOL: http
+  CRUSH_ADMIN_USER: crushadmin
+image:
+  pullPolicy: IfNotPresent
+  repository: markusmcnugen/crushftp
+  tag: latest
+persistence:
+  configvolume:
+    enabled: true
+    mountPath: /var/opt/CrushFTP10
+  ftpfolder1:
+    enabled: true
+    mountPath: /mnt/FTP/Shared
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  ftppassiveport:
+    enabled: true
+    ports:
+      ftppassiveport:
+        enabled: true
+        port: 2000
+        protocol: TCP
+        targetPort: 2000
+  httpport:
+    enabled: true
+    ports:
+      httpport:
+        enabled: true
+        port: 9090
+        protocol: TCP
+        targetPort: 9090
+  httpsport:
+    enabled: true
+    ports:
+      httpsport:
+        enabled: true
+        port: 443
+        protocol: TCP
+        targetPort: 443
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 21
+        protocol: TCP
+        targetPort: 21
+  sftpport:
+    enabled: true
+    ports:
+      sftpport:
+        enabled: true
+        port: 2222
+        protocol: TCP
+        targetPort: 2222

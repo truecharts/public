@@ -1,0 +1,26 @@
+env:
+  CONTAINER_TIMEZONE: UTC
+  SET_CONTAINER_TIMEZONE: 'true'
+image:
+  pullPolicy: IfNotPresent
+  repository: technosoft2000/calibre-web
+  tag: latest
+persistence:
+  calibrelibrarypath:
+    enabled: true
+    mountPath: /books
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8083
+        protocol: TCP
+        targetPort: 8083

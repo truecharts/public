@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Security
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Contains the command-line client for Argo Tunnel, a tunneling daemon\
+  \ that proxies any local webserver through the Cloudflare network. Extensive documentation\
+  \ can be found in the Argo Tunnel section of the Cloudflare Docs.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cloudflared
+icon: https://truecharts.org/_static/img/appicons/cloudflared.png
+keywords:
+- cloudflared
+- Security
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cloudflared
+sources:
+- https://github.com/aeleos/cloudflared
+- https://hub.docker.com/r/cloudflare/cloudflared/
+type: application
+version: 0.0.1

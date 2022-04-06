@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: '[b]CloudCommander[/b] is a simple web file browser with a built in text
+  editor and archive compress/extract abilities.[br/]
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cloudcommander
+icon: https://truecharts.org/_static/img/appicons/cloudcommander.png
+keywords:
+- cloudcommander
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cloudcommander
+sources:
+- https://hub.docker.com/r/coderaiser/cloudcmd/
+type: application
+version: 0.0.1

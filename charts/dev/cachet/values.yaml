@@ -1,0 +1,43 @@
+env:
+  APP_DEBUG: 'false'
+  APP_KEY: base64:2iJWPWu9PWzkI4B2CcdVYQo0CPvtXIhS1vVi/GCGn5A=
+  DB_DATABASE: cachet
+  DB_DRIVER: mysql
+  DB_HOST: 192.168.1.100
+  DB_PASSWORD: password
+  DB_PORT: '3306'
+  DB_USERNAME: cachet
+  MAIL_ADDRESS: status@domain.com
+  MAIL_DRIVER: smtp
+  MAIL_ENCRYPTION: tls
+  MAIL_HOST: smtp.mailgun.org
+  MAIL_NAME: Status
+  MAIL_PASSWORD: password
+  MAIL_PORT: '587'
+  MAIL_USERNAME: postmaster@domain.com
+  REDIS_DATABASE: '0'
+  REDIS_HOST: 192.168.1.100
+  REDIS_PORT: '6379'
+image:
+  pullPolicy: IfNotPresent
+  repository: cachethq/docker
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /var/www/cachet/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+    - Network-Other
+    - Productivity
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "This Docker will install and download CSMM for 7DtD (CatalysmsServerManager).\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/csmm-7dtd
+icon: https://truecharts.org/_static/img/appicons/csmm-7dtd.png
+keywords:
+- csmm-7dtd
+- GameServers
+- Network-Other
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: csmm-7dtd
+sources:
+- https://www.csmm.app/
+- https://hub.docker.com/r/ich777/csmm-7dtd/
+type: application
+version: 0.0.1

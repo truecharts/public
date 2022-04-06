@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: apendergast/crypto-exchanges-gateway
+  tag: latest
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /root/crypto-exchanges-gateway/custom_config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: HTTP
+        targetPort: 8000
+  wsport:
+    enabled: true
+    ports:
+      wsport:
+        enabled: true
+        port: 8001
+        protocol: TCP
+        targetPort: 8001

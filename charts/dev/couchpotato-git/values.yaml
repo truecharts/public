@@ -1,0 +1,25 @@
+env:
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: binhex/arch-couchpotato-git
+  tag: latest
+persistence:
+  couchpotato-git:
+    enabled: true
+    mountPath: /media
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5050
+        protocol: TCP
+        targetPort: 5050

@@ -1,0 +1,51 @@
+env:
+  ADMIN_PWD: adminDocker
+  GAME_ID: '220070'
+  GAME_PARAMS: ?port=7000?queryport=7010
+  GAME_PARAMS_EXTRA: -seekfreeloadingserver
+  MAP: aocffa-moor_p
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: chivalrymw
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  gamequeryport:
+    enabled: true
+    ports:
+      gamequeryport:
+        enabled: true
+        port: 7010
+        protocol: UDP
+        targetPort: 7010
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7000
+        protocol: UDP
+        targetPort: 7000
+  steamqueryport:
+    enabled: true
+    ports:
+      steamqueryport:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015

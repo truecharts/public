@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Network-Web
+    - Network-Management
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: An open source, privacy focused discussion platform.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/commento
+icon: https://truecharts.org/_static/img/appicons/commento.png
+keywords:
+- commento
+- Productivity
+- Network-Web
+- Network-Management
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: commento
+sources:
+- https://commento.io
+- https://gitlab.com/commento/commento
+type: application
+version: 0.0.1

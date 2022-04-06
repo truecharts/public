@@ -1,0 +1,28 @@
+env:
+  EXTERNAL_DB: 'false'
+  POSTGRES_PASSWORD: corgan80982
+  POSTGRES_URL: jdbc:postgresql://192.168.2.254:5432/compreface
+  POSTGRES_USER: compreface
+image:
+  pullPolicy: IfNotPresent
+  repository: exadel/compreface
+  tag: 0.6.1-mobilenet-gpu
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/lib/postgresql/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8800
+        protocol: TCP
+        targetPort: 80

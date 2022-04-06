@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Cloud Database Manager (Official Docker Image)\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cloudbeaver
+icon: https://truecharts.org/_static/img/appicons/cloudbeaver.png
+keywords:
+- cloudbeaver
+- Cloud
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cloudbeaver
+sources:
+- https://github.com/dbeaver/cloudbeaver
+- https://hub.docker.com/r/dbeaver/cloudbeaver/
+type: application
+version: 0.0.1

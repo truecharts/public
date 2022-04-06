@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: dbeaver/cloudbeaver
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /opt/cloudbeaver/workspace
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8978
+        protocol: TCP
+        targetPort: 8978
