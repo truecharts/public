@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: UMASK
           label: "UMASK"
           description: "Container Variable UMASK"
@@ -250,6 +251,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path acc"
@@ -294,7 +296,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -316,7 +320,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

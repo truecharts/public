@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: aria2Secret
           label: "aria2Secret"
           description: "Aria2 RPC Secret"
@@ -484,6 +485,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: downloadstoragepath
           label: "downloadstoragepath Storage"
           description: "Container Path download"
@@ -526,7 +528,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configstoragepath
+# Include{persistenceAdvanced}
+        - variable: configstoragepath
           label: "configstoragepath Storage"
           description: "Container Path conf"
           schema:
@@ -570,7 +573,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -592,7 +597,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

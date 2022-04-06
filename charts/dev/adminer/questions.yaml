@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: ADMINER_DESIGN
           label: "ADMINER_DESIGN"
           description: "Container Variable ADMINER_DESIGN"
@@ -185,6 +186,7 @@ questions:
 
 # Include{persistenceList}
 
+
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -205,7 +207,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

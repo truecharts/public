@@ -71,7 +71,6 @@ questions:
 
 
 
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -99,6 +98,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: applicationdata
           label: "applicationdata Storage"
           description: "Container Path .airdcpp"
@@ -141,7 +141,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: downloads
+# Include{persistenceAdvanced}
+        - variable: downloads
           label: "downloads Storage"
           description: "Container Path Downloads"
           schema:
@@ -183,7 +184,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: share
+# Include{persistenceAdvanced}
+        - variable: share
           label: "share Storage"
           description: "Container Path Share"
           schema:
@@ -226,6 +228,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

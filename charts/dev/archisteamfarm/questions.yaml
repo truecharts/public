@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Place the ASF.json and other files here"
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: plugins
+# Include{persistenceAdvanced}
+        - variable: plugins
           label: "plugins Storage"
           description: "Place your plugin files here, it is safe to remove"
           schema:
@@ -255,7 +257,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: logs
+# Include{persistenceAdvanced}
+        - variable: logs
           label: "logs Storage"
           description: "Logs will be stored here, it is safe to remove"
           schema:
@@ -299,7 +302,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -321,7 +326,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

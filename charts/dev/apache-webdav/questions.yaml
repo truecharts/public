@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: SERVER_NAMES
           label: "SERVER_NAMES"
           description: "Comma-separated list of domains (eg, example.com,www.example.com). The first is set as the ServerName, and the rest (if any) are set as ServerAlias. The default is localhost."
@@ -232,6 +233,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: data
           label: "data Storage"
           description: "Container Path varlibdavdata"
@@ -274,7 +276,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: config
+# Include{persistenceAdvanced}
+        - variable: config
           label: "config Storage"
           description: "Container Path varlibdav"
           schema:
@@ -318,7 +321,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -340,7 +345,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

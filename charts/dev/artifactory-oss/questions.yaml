@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: EXTRA_JAVA_OPTIONS
           label: "EXTRA_JAVA_OPTIONS"
           description: "Container Variable EXTRA_JAVA_OPTIONS"
@@ -184,6 +185,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: varoptjfrogartifactory
           label: "varoptjfrogartifactory Storage"
           description: "varoptjfrogartifactory"
@@ -228,7 +230,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -250,7 +254,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

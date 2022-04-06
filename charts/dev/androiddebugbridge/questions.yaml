@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: bootwait
           label: "bootwait"
           description: "Length of time in seconds to wait after the container has started before attempting to connect to devices."
@@ -191,6 +192,7 @@ questions:
 
 # Include{persistenceList}
 
+
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -211,7 +213,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

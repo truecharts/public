@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: USER_ID
           label: "USER_ID"
           description: "ID of the user the application runs as."
@@ -286,6 +287,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "This is where the application stores its configuration, log and any files needing persistency.&lt;br&gt;Container path config"
@@ -328,7 +330,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storage
+# Include{persistenceAdvanced}
+        - variable: storage
           label: "storage Storage"
           description: "This location contains files from your host that need to be accessible by the application.&lt;br&gt;Container path storage"
           schema:
@@ -372,7 +375,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -394,7 +399,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

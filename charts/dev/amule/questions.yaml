@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: WEBUI_PWD
           label: "WEBUI_PWD"
           description: "Password for WebUI."
@@ -310,6 +311,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: storagecomplete
           label: "storagecomplete Storage"
           description: "This is the location for complete downloads."
@@ -352,7 +354,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storageincomplete
+# Include{persistenceAdvanced}
+        - variable: storageincomplete
           label: "storageincomplete Storage"
           description: "This is the location for incomplete downloads."
           schema:
@@ -394,7 +397,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storageconfig
+# Include{persistenceAdvanced}
+        - variable: storageconfig
           label: "storageconfig Storage"
           description: "This is the location for the internal data."
           schema:
@@ -438,7 +442,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -460,7 +466,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

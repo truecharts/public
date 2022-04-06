@@ -69,7 +69,6 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -77,6 +76,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: AUTOSTART
           label: "AUTOSTART"
           description: "true = Enabled  Runs script automatically on startup"
@@ -178,6 +178,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Container Path config"
@@ -220,7 +221,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: hostpathfordownloads-ambd
+# Include{persistenceAdvanced}
+        - variable: hostpathfordownloads-ambd
           label: "hostpathfordownloads-ambd Storage"
           description: "Container Path for downloads..."
           schema:
@@ -262,7 +264,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: hostpathforlibrary-ambd
+# Include{persistenceAdvanced}
+        - variable: hostpathforlibrary-ambd
           label: "hostpathforlibrary-ambd Storage"
           description: "Container Path for completed library..."
           schema:
@@ -305,6 +308,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

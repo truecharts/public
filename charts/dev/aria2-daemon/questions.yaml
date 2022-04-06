@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: aria2MaxConcurrentDownloads
           label: "aria2MaxConcurrentDownloads"
           description: "Set the maximum number of parallel downloads for every queue item."
@@ -424,6 +425,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: hostpath1
           label: "hostpath1 Storage"
           description: "Container Path download"
@@ -466,7 +468,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configstoragepath
+# Include{persistenceAdvanced}
+        - variable: configstoragepath
           label: "configstoragepath Storage"
           description: "Container Path conf"
           schema:
@@ -510,7 +513,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -532,7 +537,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

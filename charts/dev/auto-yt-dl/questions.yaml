@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: hostpath1
           label: "hostpath1 Storage"
           description: "This is the destination of the downloaded videos."
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: data
+# Include{persistenceAdvanced}
+        - variable: data
           label: "data Storage"
           description: "Used to store data (ex. monitored Channels)"
           schema:
@@ -257,7 +259,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -279,7 +283,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 
