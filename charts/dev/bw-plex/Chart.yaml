@@ -1,7 +1,8 @@
 annotations:
   truecharts.org/SCALE-support: 'true'
   truecharts.org/catagories: |
-    - Network-Web
+    - Tools-Utilities
+    - MediaServer-Other
   truecharts.org/grade: U
 apiVersion: v2
 appVersion: 0.0.1
@@ -10,20 +11,23 @@ dependencies:
   repository: https://library-charts.truecharts.org
   version: 9.2.6
 deprecated: false
-description: "Bibliogram is an alternative front-end for Instagram\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/bibliogram
-icon: https://truecharts.org/_static/img/appicons/bibliogram.png
+description: 'binge watching for plex
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/bw-plex
+icon: https://truecharts.org/_static/img/appicons/bw-plex.png
 keywords:
-- bibliogram
-- Network-Web
+- bw-plex
+- Tools-Utilities
+- MediaServer-Other
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: bibliogram
+name: bw-plex
 sources:
-- https://sr.ht/~cadence/bibliogram/
-- https://hub.docker.com/r/cloudrac3r/bibliogram/
+- https://github.com/Hellowlol/bw_plex
+- https://hub.docker.com/r/hellowlol/bw_plex
 type: application
 version: 0.0.1

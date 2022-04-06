@@ -2,7 +2,6 @@ annotations:
   truecharts.org/SCALE-support: 'true'
   truecharts.org/catagories: |
     - Tools-Utilities
-    - MediaServer-Other
   truecharts.org/grade: U
 apiVersion: v2
 appVersion: 0.0.1
@@ -11,23 +10,20 @@ dependencies:
   repository: https://library-charts.truecharts.org
   version: 9.2.6
 deprecated: false
-description: 'binge watching for plex
-
-  '
-home: https://github.com/truecharts/apps/tree/master/charts/stable/bw_plex
-icon: https://truecharts.org/_static/img/appicons/bw_plex.png
+description: "Unraid container to convert mp3 or wav to PC beep speaker music\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/beep-music-converter
+icon: https://truecharts.org/_static/img/appicons/beep-music-converter.png
 keywords:
-- bw_plex
+- beep-music-converter
 - Tools-Utilities
-- MediaServer-Other
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: bw_plex
+name: beep-music-converter
 sources:
-- https://github.com/Hellowlol/bw_plex
-- https://hub.docker.com/r/hellowlol/bw_plex
+- https://github.com/SpaceinvaderOne/Beep-Music-Converter
+- https://hub.docker.com/repository/docker/spaceinvaderone/wav2beep
 type: application
 version: 0.0.1
