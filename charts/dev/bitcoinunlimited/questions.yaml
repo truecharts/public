@@ -143,7 +143,7 @@ questions:
                                     default: 8332
 
         - variable: communicationp
-          label: "communicationp service"
+          label: 'communicationp service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -203,7 +203,7 @@ questions:
                                     type: int
                                     default: 8333
         - variable: testnetrpcport
-          label: "testnetrpcport service"
+          label: 'testnetrpcport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -263,7 +263,7 @@ questions:
                                     type: int
                                     default: 18332
         - variable: testnetcommuni
-          label: "testnetcommuni service"
+          label: 'testnetcommuni service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

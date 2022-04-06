@@ -143,7 +143,7 @@ questions:
                                     default: 8080
 
         - variable: vncserverport
-          label: "vncserverport service"
+          label: 'vncserverport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -203,7 +203,7 @@ questions:
                                     type: int
                                     default: 5900
         - variable: webserverport
-          label: "webserverport service"
+          label: 'webserverport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

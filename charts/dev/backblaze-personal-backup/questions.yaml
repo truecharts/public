@@ -85,37 +85,37 @@ questions:
       attrs:
 
         - variable: SECURE_CONNECTION
-          label: "SECURE_CONNECTION"
-          description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section  in the README for more details."
+          label: 'SECURE_CONNECTION'
+          description: "When set to 1, an encrypted connection is used to access the applications GUI (either via a web browser or VNC client). See the Security section  in the README for more details."
           schema:
             type: string
             default: "0"
         - variable: DISPLAY_WIDTH
-          label: "DISPLAY_WIDTH"
-          description: "Width (in pixels) of the virtual screen's window."
+          label: 'DISPLAY_WIDTH'
+          description: "Width (in pixels) of the virtual screens window."
           schema:
             type: string
             default: "657"
         - variable: DISPLAY_HEIGHT
-          label: "DISPLAY_HEIGHT"
-          description: "Height (in pixels) of the virtual screen's window."
+          label: 'DISPLAY_HEIGHT'
+          description: "Height (in pixels) of the virtual screens window."
           schema:
             type: string
             default: "473"
         - variable: VNC_PASSWORD
-          label: "VNC_PASSWORD"
-          description: "Password needed to connect to the application's GUI. See the VNC Password section in the README for more details."
+          label: 'VNC_PASSWORD'
+          description: "Password needed to connect to the applications GUI. See the VNC Password section in the README for more details."
           schema:
             type: string
             default: ""
         - variable: X11VNC_EXTRA_OPTS
-          label: "X11VNC_EXTRA_OPTS"
+          label: 'X11VNC_EXTRA_OPTS'
           description: "Extra options to pass to the x11vnc server running in the Docker container. WARNING For advanced users. Do not use unless you know what you are doing."
           schema:
             type: string
             default: ""
         - variable: ENABLE_CJK_FONT
-          label: "ENABLE_CJK_FONT"
+          label: 'ENABLE_CJK_FONT'
           description: "When set to 1, open-source computer font WenQuanYi Zen Hei is installed. This font contains a large range of ChineseJapaneseKorean characters.    "
           schema:
             type: string
@@ -187,7 +187,7 @@ questions:
                                     default: 5800
 
         - variable: vnc
-          label: "vnc service"
+          label: 'vnc service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

@@ -85,19 +85,19 @@ questions:
       attrs:
 
         - variable: VNC_PW
-          label: "VNC_PW"
+          label: 'VNC_PW'
           description: "Container Variable  VNCPW"
           schema:
             type: string
             default: "vncpassword"
         - variable: VNC_RESOLUTION
-          label: "VNC_RESOLUTION"
+          label: 'VNC_RESOLUTION'
           description: "Container Variable VNCRESOLUTION"
           schema:
             type: string
             default: "1280x1024"
         - variable: VNC_VIEW_ONLY
-          label: "VNC_VIEW_ONLY"
+          label: 'VNC_VIEW_ONLY'
           description: "Container Variable VNCVIEWONLY"
           schema:
             type: string
@@ -169,7 +169,7 @@ questions:
                                     default: 6901
 
         - variable: vncport
-          label: "vncport service"
+          label: 'vncport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

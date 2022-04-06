@@ -78,19 +78,19 @@ questions:
       attrs:
 
         - variable: custom
-          label: "custom"
+          label: 'custom'
           description: "Default or choose other for an example to be converted"
           schema:
             type: string
             default: "default"
         - variable: silent
-          label: "silent"
-          description: "Silent converts file without also playing through beep speaker. Default 'no'"
+          label: 'silent'
+          description: "Silent converts file without also playing through beep speaker. Default no"
           schema:
             type: string
             default: "no"
         - variable: time
-          label: "time"
+          label: 'time'
           description: "Time window for frequency analysis (in ms). Default 50 ms. Experiment with different values for individual tune to find best"
           schema:
             type: string

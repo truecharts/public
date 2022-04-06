@@ -85,19 +85,19 @@ questions:
       attrs:
 
         - variable: SUBFOLDER
-          label: "SUBFOLDER"
+          label: 'SUBFOLDER'
           description: "Specify a subfolder to use with reverse proxies, IE `subfolder`"
           schema:
             type: string
             default: ""
         - variable: KEYBOARD
-          label: "KEYBOARD"
+          label: 'KEYBOARD'
           description: "See the keyboard layouts section for more information and options."
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string
