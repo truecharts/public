@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: PLEX_BASE_URL
           label: "PLEX_BASE_URL"
           description: "(required) Plex Server Address (e.g. http192.169.1.10032400)"
@@ -202,6 +203,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Container Path frontend"
@@ -246,7 +248,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -268,7 +272,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

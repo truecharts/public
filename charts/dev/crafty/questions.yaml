@@ -231,6 +231,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: database
           label: "database Storage"
           description: "Crafty Database for Wrapper Data"
@@ -273,7 +274,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: server-files
+# Include{persistenceAdvanced}
+        - variable: server-files
           label: "server-files Storage"
           description: "Minecraft server FilesDo not use this path in the web UI only use minecraft_servers"
           schema:
@@ -315,7 +317,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: backups
+# Include{persistenceAdvanced}
+        - variable: backups
           label: "backups Storage"
           description: "Backup Folder (all of your backups and Crafty Controller Stuff)"
           schema:
@@ -359,7 +362,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -381,7 +386,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

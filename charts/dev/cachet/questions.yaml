@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: DB_DRIVER
           label: "DB_DRIVER"
           description: "Container Variable DB_DRIVER"
@@ -292,6 +293,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: appdata
           label: "appdata Storage"
           description: "Container Path varwwwCachet"
@@ -336,7 +338,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -358,7 +362,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

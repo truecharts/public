@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: homefolder
           label: "homefolder Storage"
           description: "Container Path homecura"
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: prints
+# Include{persistenceAdvanced}
+        - variable: prints
           label: "prints Storage"
           description: "3D Printing Folder"
           schema:
@@ -257,7 +259,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -279,7 +283,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: domain
           label: "domain"
           description: "Container Variable domain"
@@ -191,6 +192,7 @@ questions:
 
 # Include{persistenceList}
 
+
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -211,7 +213,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 
