@@ -21,12 +21,12 @@ persistence:
     enabled: true
     type: configMap
     # -- Specify the name of the configmap object to be mounted
-    objectName: '{{printf "%v-override" ( include "common.names.fullname" . )}}'
+    objectName: '{{printf "%v-enter" ( include "common.names.fullname" . )}}'
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: /user.sh
-    subPath: "user.sh"
+    mountPath: /enter.sh
+    subPath: "enter.sh"
 podSecurityContext:
   runAsUser: 0
 securityContext:
@@ -98,15 +98,15 @@ service:
         protocol: TCP
         targetPort: 8082
 
-command: ["/bin/bash", "-c", "\"groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh\""]
+command: ["/enter.sh"]
 configmap:
-  override:
+  enter:
     enabled: true
     data:
-      user.sh: |
+      enter.sh: |
         #!/bin/bash
-        #GROUP="steam"
-        #groupadd -g ${GID} ${GROUP}
+        GROUP="steam"
+        groupadd -g ${GID} ${GROUP}
         #groupmod -g ${GID} ${GROUP}
         #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
         #usermod -u ${UID} ${USER}
@@ -122,3 +122,4 @@ configmap:
         #chown -Rf ${UID}:${GID} ${DATA_DIR}
         #ls -l /opt/scripts
         #sudo -u steam id
+        /opt/scripts/start.sh
