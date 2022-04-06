@@ -98,7 +98,7 @@ service:
         protocol: TCP
         targetPort: 8082
 
-cmd: "groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh"
+command: "groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh"
 configmap:
   override:
     enabled: true
