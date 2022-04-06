@@ -113,3 +113,4 @@ configmap:
         chown -Rf ${UID}:${GID} /opt/scripts
         chown -Rf ${UID}:${GID} ${DATA_DIR}
         chmod -Rf 755 /opt/scripts
+        ls -l /opt/scripts
