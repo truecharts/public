@@ -113,5 +113,5 @@ configmap:
         groupmod -g ${GID} ${GROUP}
         usermod -g ${GID} ${USER}
         chown -Rf ${UID}:${GID} /opt/scripts
-        chmod -Rf 766 /opt/scripts
+        chmod -Rf 755 /opt/scripts
         chown -Rf ${UID}:${GID} ${DATA_DIR}
