@@ -104,14 +104,12 @@ configmap:
     data:
       user.sh: |
         #!/bin/bash
-        USER="apps"
-        GROUP="apps"
-        useradd -d ${DATA_DIR} -s /bin/bash ${USER}
-        groupadd ${GROUP}
-        chown -R ${USER} ${DATA_DIR}
-        usermod -u ${UID} ${USER}
+        GROUP="steam"
+        groupadd -g ${GID} ${GROUP}
         groupmod -g ${GID} ${GROUP}
+        useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
+        usermod -u ${UID} ${USER}
         usermod -g ${GID} ${USER}
         chown -Rf ${UID}:${GID} /opt/scripts
-        chmod -Rf 755 /opt/scripts
         chown -Rf ${UID}:${GID} ${DATA_DIR}
+        chmod -Rf 755 /opt/scripts
