@@ -85,25 +85,25 @@ questions:
       attrs:
 
         - variable: PLEX_BASE_URL
-          label: "PLEX_BASE_URL"
+          label: 'PLEX_BASE_URL'
           description: "(required) Plex Server Address (e.g. http192.169.1.10032400)"
           schema:
             type: string
             default: ""
         - variable: PLEX_TOKEN
-          label: "PLEX_TOKEN"
+          label: 'PLEX_TOKEN'
           description: "(required) A valid Plex token for your Plex Server "
           schema:
             type: string
             default: ""
         - variable: LIBRARY_NAMES
-          label: "LIBRARY_NAMES"
+          label: 'LIBRARY_NAMES'
           description: "(optional) Name(s) of your Plex Libraries to search. Separate multiple library names with "
           schema:
             type: string
             default: ""
         - variable: BYPASS_SSL_VERIFY
-          label: "BYPASS_SSL_VERIFY"
+          label: 'BYPASS_SSL_VERIFY'
           description: "(optional) Disable SSL certificate verification. Use this if your Plex Server has "
           schema:
             type: string

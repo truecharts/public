@@ -85,55 +85,55 @@ questions:
       attrs:
 
         - variable: HOSTNAME
-          label: "HOSTNAME"
-          description: "Must be in this exact format 'httpswww.server.org' (without quotes, no path or locations allowed only subdomains and with no trailing '')."
+          label: 'HOSTNAME'
+          description: "Must be in this exact format httpswww.server.org (without quotes, no path or locations allowed only subdomains and with no trailing )."
           schema:
             type: string
             default: ""
         - variable: STEAM_API_KEY
-          label: "STEAM_API_KEY"
+          label: 'STEAM_API_KEY'
           description: "Steam API Key goes here (you can get it from httpssteamcommunity.comdevapikey)."
           schema:
             type: string
             default: ""
         - variable: BOTTOKEN
-          label: "BOTTOKEN"
+          label: 'BOTTOKEN'
           description: "Your Discord Bot Token (you can get it from here httpsdiscordapp.comdevelopersapplications)"
           schema:
             type: string
             default: ""
         - variable: CLIENTSECRET
-          label: "CLIENTSECRET"
+          label: 'CLIENTSECRET'
           description: "Your Discord Client Secret (you can get it from here httpsdiscordapp.comdevelopersapplications)"
           schema:
             type: string
             default: ""
         - variable: CLIENTID
-          label: "CLIENTID"
+          label: 'CLIENTID'
           description: "Your Discord Client ID (you can get it from here httpsdiscordapp.comdevelopersapplications)"
           schema:
             type: string
             default: ""
         - variable: DB_BKP_INTERV
-          label: "DB_BKP_INTERV"
+          label: 'DB_BKP_INTERV'
           description: "Specify the database backup interval in seconds (saved to the ..Database7dtd.sql)."
           schema:
             type: string
             default: "90"
         - variable: FORCE_UPDATE
-          label: "FORCE_UPDATE"
-          description: "Set to 'true' to force an update."
+          label: 'FORCE_UPDATE'
+          description: "Set to true to force an update."
           schema:
             type: string
             default: ""
         - variable: CSMM_LOGLEVEL
-          label: "CSMM_LOGLEVEL"
+          label: 'CSMM_LOGLEVEL'
           description: "Log level (valid are ‘blank’, ‘error’, ‘warn’, ‘info’, ‘debug’, ‘verbose’, ‘silly’)"
           schema:
             type: string
             default: "info"
         - variable: CSMM_DL_URL
-          label: "CSMM_DL_URL"
+          label: 'CSMM_DL_URL'
           description: "Only change if you are know what you are doing."
           schema:
             type: string
@@ -205,7 +205,7 @@ questions:
                                     default: 1337
 
         - variable: mariadbport
-          label: "mariadbport service"
+          label: 'mariadbport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

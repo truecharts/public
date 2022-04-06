@@ -85,38 +85,38 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "443030"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
+          label: 'GAME_PARAMS'
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: ""
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: WS_CONTENT
-          label: "WS_CONTENT"
-          description: "Enter you Workshopcontent here, you can also enter multiple WS Content ID's sperated by SPACE"
+          label: 'WS_CONTENT'
+          description: "Enter you Workshopcontent here, you can also enter multiple WS Content IDs sperated by SPACE"
           schema:
             type: string
             default: ""
@@ -186,16 +186,16 @@ questions:
                                     type: int
                                     default: 7777
 
-        - variable: gameport+1
-          label: "gameport+1 service"
+        - variable: gameport1
+          label: 'gameport1 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: gameport+1
-                      label: "gameport+1 Service Port Configuration"
+                    - variable: gameport1
+                      label: "gameport1 Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -247,7 +247,7 @@ questions:
                                     type: int
                                     default: 7778
         - variable: steamport
-          label: "steamport service"
+          label: 'steamport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

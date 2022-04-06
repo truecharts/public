@@ -85,13 +85,13 @@ questions:
       attrs:
 
         - variable: SET_CONTAINER_TIMEZONE
-          label: "SET_CONTAINER_TIMEZONE"
+          label: 'SET_CONTAINER_TIMEZONE'
           description: "Container Variable SETCONTAINERTIMEZONE"
           schema:
             type: string
             default: "true"
         - variable: CONTAINER_TIMEZONE
-          label: "CONTAINER_TIMEZONE"
+          label: 'CONTAINER_TIMEZONE'
           description: "The possible container timezones can be found under the directory usrsharezoneinfo.UTC, EuropeBerlin, EuropeVienna, ..."
           schema:
             type: string

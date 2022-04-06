@@ -85,25 +85,25 @@ questions:
       attrs:
 
         - variable: CRUSH_ADMIN_USER
-          label: "CRUSH_ADMIN_USER"
+          label: 'CRUSH_ADMIN_USER'
           description: "Default admin user for CrushFTP administration"
           schema:
             type: string
             default: "crushadmin"
         - variable: CRUSH_ADMIN_PASSWORD
-          label: "CRUSH_ADMIN_PASSWORD"
+          label: 'CRUSH_ADMIN_PASSWORD'
           description: "Default admin password for CrushFTP administration"
           schema:
             type: string
             default: "crushadmin"
         - variable: CRUSH_ADMIN_PROTOCOL
-          label: "CRUSH_ADMIN_PROTOCOL"
+          label: 'CRUSH_ADMIN_PROTOCOL'
           description: "Protocol for health cecks"
           schema:
             type: string
             default: "http"
         - variable: CRUSH_ADMIN_PORT
-          label: "CRUSH_ADMIN_PORT"
+          label: 'CRUSH_ADMIN_PORT'
           description: "Port for health cecks"
           schema:
             type: string
@@ -175,7 +175,7 @@ questions:
                                     default: 21
 
         - variable: httpsport
-          label: "httpsport service"
+          label: 'httpsport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -235,7 +235,7 @@ questions:
                                     type: int
                                     default: 443
         - variable: ftppassiveport
-          label: "ftppassiveport service"
+          label: 'ftppassiveport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -295,7 +295,7 @@ questions:
                                     type: int
                                     default: 2000
         - variable: sftpport
-          label: "sftpport service"
+          label: 'sftpport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -355,7 +355,7 @@ questions:
                                     type: int
                                     default: 2222
         - variable: httpport
-          label: "httpport service"
+          label: 'httpport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

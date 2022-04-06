@@ -85,49 +85,49 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "90"
         - variable: GAME_NAME
-          label: "GAME_NAME"
+          label: 'GAME_NAME'
           description: "Game name to start (is connected to the GAMEPARAMS)."
           schema:
             type: string
             default: "cstrike"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
+          label: 'GAME_PARAMS'
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: "+maxplayers 32 +map de_dust"
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: GAME_MOD
-          label: "GAME_MOD"
+          label: 'GAME_MOD'
           description: "Only required for Goldsource Games"
           schema:
             type: string
             default: ""
         - variable: GAME_PORT
-          label: "GAME_PORT"
+          label: 'GAME_PORT'
           description: "Container Variable GAMEPORT"
           schema:
             type: string
@@ -199,7 +199,7 @@ questions:
                                     default: 27015
 
         - variable: tcprcon
-          label: "tcprcon service"
+          label: 'tcprcon service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

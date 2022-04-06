@@ -78,13 +78,13 @@ questions:
       attrs:
 
         - variable: CN_LOG_LEVEL
-          label: "CN_LOG_LEVEL"
-          description: "Sets the minimum log level. Log entries below this importance level won't be printed to the console. Defaults to info.Available values debug  info  warn  error"
+          label: 'CN_LOG_LEVEL'
+          description: "Sets the minimum log level. Log entries below this importance level wont be printed to the console. Defaults to info.Available values debug  info  warn  error"
           schema:
             type: string
             default: "info"
         - variable: CN_LOG_JSON
-          label: "CN_LOG_JSON"
+          label: 'CN_LOG_JSON'
           description: "If set to true all logging is done in a machine readable format (JSON). Defaults to false.Available values true  false"
           schema:
             type: string
