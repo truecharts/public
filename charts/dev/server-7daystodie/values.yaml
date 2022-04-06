@@ -25,7 +25,8 @@ persistence:
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: /opt/scripts/
+    mountPath: /opt/scripts/user.sh
+    subPath: "user.sh"
 podSecurityContext:
   runAsUser: 0
 securityContext:
