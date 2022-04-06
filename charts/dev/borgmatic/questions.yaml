@@ -71,7 +71,6 @@ questions:
 
 
 
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -99,6 +98,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: usersharesread-onlybackupsource
           label: "usersharesread-onlybackupsource Storage"
           description: "Container Path mntuser"
@@ -141,7 +141,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: flashdriveread-onlybackupsource
+# Include{persistenceAdvanced}
+        - variable: flashdriveread-onlybackupsource
           label: "flashdriveread-onlybackupsource Storage"
           description: "Container Path boot"
           schema:
@@ -183,7 +184,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: borgrepobackupdestination
+# Include{persistenceAdvanced}
+        - variable: borgrepobackupdestination
           label: "borgrepobackupdestination Storage"
           description: "Container Path mntborg-repository"
           schema:
@@ -225,7 +227,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: borgcache
+# Include{persistenceAdvanced}
+        - variable: borgcache
           label: "borgcache Storage"
           description: "Container Path root.cacheborg"
           schema:
@@ -267,7 +270,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: borgmaticconfig
+# Include{persistenceAdvanced}
+        - variable: borgmaticconfig
           label: "borgmaticconfig Storage"
           description: "Container Path etcborgmatic.d"
           schema:
@@ -309,7 +313,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: borgkeys
+# Include{persistenceAdvanced}
+        - variable: borgkeys
           label: "borgkeys Storage"
           description: "Container Path root.configborg"
           schema:
@@ -351,7 +356,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: sshkeys
+# Include{persistenceAdvanced}
+        - variable: sshkeys
           label: "sshkeys Storage"
           description: "Container Path root.ssh"
           schema:
@@ -393,7 +399,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: fusemountpoint
+# Include{persistenceAdvanced}
+        - variable: fusemountpoint
           label: "fusemountpoint Storage"
           description: "Container Path mntfuse"
           schema:
@@ -436,6 +443,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

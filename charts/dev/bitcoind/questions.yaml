@@ -231,6 +231,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: data
           label: "data Storage"
           description: "Blockchain and database storage. Requires at least 500 GiB free disk."
@@ -275,7 +276,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -297,7 +300,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

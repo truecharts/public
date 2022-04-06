@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: VNC_PW
           label: "VNC_PW"
           description: "The VNCnoVNC password."
@@ -250,6 +251,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: internalshare
           label: "internalshare Storage"
           description: "Path to a share from your host to be able to work within the container."
@@ -292,7 +294,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: storageprojects
+# Include{persistenceAdvanced}
+        - variable: storageprojects
           label: "storageprojects Storage"
           description: "Used to share projects with the host."
           schema:
@@ -336,7 +339,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -358,7 +363,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

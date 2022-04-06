@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Container Path varwwwbaikalconfig"
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: specific
+# Include{persistenceAdvanced}
+        - variable: specific
           label: "specific Storage"
           description: "Container Path varwwwbaikalSpecific"
           schema:
@@ -257,7 +259,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -279,7 +283,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

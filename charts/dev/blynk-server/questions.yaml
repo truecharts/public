@@ -291,6 +291,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: data
           label: "data Storage"
           description: "Container Path data"
@@ -333,7 +334,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: config
+# Include{persistenceAdvanced}
+        - variable: config
           label: "config Storage"
           description: "Container Path config"
           schema:
@@ -377,7 +379,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -399,7 +403,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

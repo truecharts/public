@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: SUBFOLDER
           label: "SUBFOLDER"
           description: "Specify a subfolder to use with reverse proxies, IE `subfolder`"
@@ -196,6 +197,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Users home directory in the container, stores local files and settings"
@@ -240,7 +242,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -262,7 +266,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

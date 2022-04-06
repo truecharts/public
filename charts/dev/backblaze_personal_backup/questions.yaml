@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: SECURE_CONNECTION
           label: "SECURE_CONNECTION"
           description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section  in the README for more details."
@@ -274,6 +275,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: storagetobackup
           label: "storagetobackup Storage"
           description: "This will be exposed to the Backblaze Client as drive D and therefore be backed up"
@@ -316,7 +318,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: config
+# Include{persistenceAdvanced}
+        - variable: config
           label: "config Storage"
           description: "Container Path config"
           schema:
@@ -360,7 +363,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -382,7 +387,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

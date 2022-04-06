@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: VNC_PW
           label: "VNC_PW"
           description: "Container Variable  VNC_PW"
@@ -256,6 +257,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: bitcoinblockchainpath
           label: "bitcoinblockchainpath Storage"
           description: "Container Path headless.zcash"
@@ -300,7 +302,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -322,7 +326,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

@@ -71,7 +71,6 @@ questions:
 
 
 
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -99,6 +98,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Container Path usrsrcappconfig"
@@ -141,7 +141,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: messurementlogs
+# Include{persistenceAdvanced}
+        - variable: messurementlogs
           label: "messurementlogs Storage"
           description: "Container Path export"
           schema:
@@ -184,6 +185,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

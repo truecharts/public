@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: backuplocation
           label: "backuplocation Storage"
           description: "Backup Location"
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configurationfiles
+# Include{persistenceAdvanced}
+        - variable: configurationfiles
           label: "configurationfiles Storage"
           description: "Configuration Files"
           schema:
@@ -255,7 +257,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: homedirectory
+# Include{persistenceAdvanced}
+        - variable: homedirectory
           label: "homedirectory Storage"
           description: "Home Directory for Backuppc (SSH Keys)"
           schema:
@@ -297,7 +300,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: logs
+# Include{persistenceAdvanced}
+        - variable: logs
           label: "logs Storage"
           description: "Logs"
           schema:
@@ -341,7 +345,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -363,7 +369,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

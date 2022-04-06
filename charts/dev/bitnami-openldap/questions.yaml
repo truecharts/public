@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: LDAP_ADMIN_USERNAME
           label: "LDAP_ADMIN_USERNAME"
           description: "Container Variable LDAP_ADMIN_USERNAME"
@@ -358,6 +359,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: certsfolderpath
           label: "certsfolderpath Storage"
           description: "Path to your certificates e.g. if you're using SWAG it would be mntuserappdataswagkeys"
@@ -400,7 +402,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: ldap_custom_ldif_dir
+# Include{persistenceAdvanced}
+        - variable: ldap_custom_ldif_dir
           label: "ldap_custom_ldif_dir Storage"
           description: "Location of a directory that contains LDIF files that should be used to bootstrap the database. Only files ending in .ldif will be used. Default LDAP tree based on the LDAP_USERS, LDAP_PASSWORDS, LDAP_USER_DC and LDAP_GROUP will be skipped when LDAP_CUSTOM_LDIF_DIR is used. When using this will override the usage of LDAP_ROOT,LDAP_USERS, LDAP_PASSWORDS, LDAP_USER_DC and LDAP_GROUP."
           schema:
@@ -442,7 +445,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: ldap_custom_schema_file
+# Include{persistenceAdvanced}
+        - variable: ldap_custom_schema_file
           label: "ldap_custom_schema_file Storage"
           description: "Location of a custom internal schema file that could not be added as custom ldif file (i.e. containing some structuralObjectClass). Default is mntuserappdatabitnami-openldapcustom.ldif"
           schema:
@@ -484,7 +488,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: appdata
+# Include{persistenceAdvanced}
+        - variable: appdata
           label: "appdata Storage"
           description: "Container Path bitnamiopenldapdata"
           schema:
@@ -528,7 +533,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -550,7 +557,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 
