@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: EXTRA_PARAMETERS
           label: "EXTRA_PARAMETERS"
           description: "If needed enter extra startup parameters here otherwise leave empty."
@@ -202,6 +203,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: datadir
           label: "datadir Storage"
           description: "Data Path"
@@ -246,7 +248,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -268,7 +272,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

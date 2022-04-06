@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: CRUSH_ADMIN_USER
           label: "CRUSH_ADMIN_USER"
           description: "Default admin user for CrushFTP administration"
@@ -442,6 +443,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: ftpfolder1
           label: "ftpfolder1 Storage"
           description: "Container Path mntFTPShared"
@@ -484,7 +486,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configvolume
+# Include{persistenceAdvanced}
+        - variable: configvolume
           label: "configvolume Storage"
           description: "Container Path varoptCrushFTP10"
           schema:
@@ -528,7 +531,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -550,7 +555,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

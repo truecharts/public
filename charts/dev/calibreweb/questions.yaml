@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: SET_CONTAINER_TIMEZONE
           label: "SET_CONTAINER_TIMEZONE"
           description: "Container Variable SET_CONTAINER_TIMEZONE"
@@ -190,6 +191,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: calibrelibrarypath
           label: "calibrelibrarypath Storage"
           description: "Container Path books"
@@ -234,7 +236,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -256,7 +260,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

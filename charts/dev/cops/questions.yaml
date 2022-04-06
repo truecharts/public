@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: UMASK
           label: "UMASK"
           description: "Container Variable UMASK"
@@ -184,6 +185,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "COPS Application Data."
@@ -226,7 +228,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: pathbooks
+# Include{persistenceAdvanced}
+        - variable: pathbooks
           label: "pathbooks Storage"
           description: "Calibre metadata.db location."
           schema:
@@ -270,7 +273,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -292,7 +297,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

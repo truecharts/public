@@ -231,6 +231,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: blobpath
           label: "blobpath Storage"
           description: "Blob Path"
@@ -273,7 +274,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: blockpath
+# Include{persistenceAdvanced}
+        - variable: blockpath
           label: "blockpath Storage"
           description: "Block Path"
           schema:
@@ -315,7 +317,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: customizepath
+# Include{persistenceAdvanced}
+        - variable: customizepath
           label: "customizepath Storage"
           description: "Customize Path"
           schema:
@@ -357,7 +360,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: data
+# Include{persistenceAdvanced}
+        - variable: data
           label: "data Storage"
           description: "Data Path"
           schema:
@@ -399,7 +403,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: datastorepath
+# Include{persistenceAdvanced}
+        - variable: datastorepath
           label: "datastorepath Storage"
           description: "Datastore Path"
           schema:
@@ -441,7 +446,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configpath
+# Include{persistenceAdvanced}
+        - variable: configpath
           label: "configpath Storage"
           description: "Config Path"
           schema:
@@ -485,7 +491,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -507,7 +515,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

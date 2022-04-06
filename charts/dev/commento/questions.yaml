@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: COMMENTO_ORIGIN
           label: "COMMENTO_ORIGIN"
           description: "Can be httpscommento.example.com or httpipport"
@@ -221,6 +222,7 @@ questions:
 
 # Include{persistenceList}
 
+
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -241,7 +243,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

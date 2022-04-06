@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: SECRET_KEY_BASE
           label: "SECRET_KEY_BASE"
           description: "Container Variable SECRET_KEY_BASE"
@@ -238,6 +239,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: databaselocation
           label: "databaselocation Storage"
           description: "Container Path appdbsqlite"
@@ -282,7 +284,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -304,7 +308,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

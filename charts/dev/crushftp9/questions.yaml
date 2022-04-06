@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: CRUSHADMIN
           label: "CRUSHADMIN"
           description: "Admin user for Crushftp "
@@ -430,6 +431,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: crushftp9configfiles
           label: "crushftp9configfiles Storage"
           description: "CrushFTP HomeInstallation Directory"
@@ -472,7 +474,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: unraidsharepath
+# Include{persistenceAdvanced}
+        - variable: unraidsharepath
           label: "unraidsharepath Storage"
           description: "Container Path unraid"
           schema:
@@ -516,7 +519,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -538,7 +543,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

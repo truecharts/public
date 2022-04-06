@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: BASE_URL
           label: "BASE_URL"
           description: "The URL this application will be accessed from your clients without trailing slash. Needed for notifications if you want to be linked to the diff page for example."
@@ -184,6 +185,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: appdata
           label: "appdata Storage"
           description: "Appdata"
@@ -228,7 +230,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -250,7 +254,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

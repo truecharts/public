@@ -69,7 +69,6 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -77,6 +76,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: CN_LOG_LEVEL
           label: "CN_LOG_LEVEL"
           description: "Sets the minimum log level. Log entries below this importance level won't be printed to the console. Defaults to info.Available values debug  info  warn  error"
@@ -118,6 +118,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "config Storage"
           description: "Where the config.yml file should be stored."
@@ -160,7 +161,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: dockersocket
+# Include{persistenceAdvanced}
+        - variable: dockersocket
           label: "dockersocket Storage"
           description: "Should point to varrundocker.sock to be able to control the docker instance."
           schema:
@@ -203,6 +205,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

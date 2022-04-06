@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: HOSTNAME
           label: "HOSTNAME"
           description: "Must be in this exact format 'httpswww.server.org' (without quotes, no path or locations allowed only subdomains and with no trailing '')."
@@ -292,6 +293,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path csmm-7dtd"
@@ -336,7 +338,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -358,7 +362,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

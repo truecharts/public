@@ -171,6 +171,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: rootfilesystem
           label: "rootfilesystem Storage"
           description: "Container Path rootfs"
@@ -213,7 +214,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: runtimevariabledata
+# Include{persistenceAdvanced}
+        - variable: runtimevariabledata
           label: "runtimevariabledata Storage"
           description: "Container Path varrun"
           schema:
@@ -255,7 +257,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: sysfilesystem
+# Include{persistenceAdvanced}
+        - variable: sysfilesystem
           label: "sysfilesystem Storage"
           description: "Container Path sys"
           schema:
@@ -297,7 +300,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: dockerstoragefilesystem
+# Include{persistenceAdvanced}
+        - variable: dockerstoragefilesystem
           label: "dockerstoragefilesystem Storage"
           description: "Container Path varlibdocker"
           schema:
@@ -341,7 +345,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -363,7 +369,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

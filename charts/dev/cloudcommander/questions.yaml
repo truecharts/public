@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: HOME
           label: "HOME"
           description: "Container Variable HOME"
@@ -184,6 +185,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: mountpath
           label: "mountpath Storage"
           description: "Container Path UNRAID"
@@ -226,7 +228,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: appdata
+# Include{persistenceAdvanced}
+        - variable: appdata
           label: "appdata Storage"
           description: "Container Path root"
           schema:
@@ -270,7 +273,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -292,7 +297,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 

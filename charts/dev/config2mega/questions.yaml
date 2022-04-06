@@ -69,7 +69,6 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -77,6 +76,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: LOGIN
           label: "LOGIN"
           description: "Container Variable LOGIN"
@@ -124,6 +124,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: unraidconfigfolder
           label: "unraidconfigfolder Storage"
           description: "Container Path homeunraidconfig"
@@ -166,7 +167,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: megaconfigfolder
+# Include{persistenceAdvanced}
+        - variable: megaconfigfolder
           label: "megaconfigfolder Storage"
           description: "Container Path root.megaCmd"
           schema:
@@ -209,6 +211,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 
 # Include{persistenceList}
 

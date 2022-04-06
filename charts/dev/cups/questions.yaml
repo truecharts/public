@@ -83,6 +83,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: ADMIN_PASSWORD
           label: "ADMIN_PASSWORD"
           description: "Customise admin password"
@@ -184,6 +185,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: usbmapping
           label: "usbmapping Storage"
           description: "Container Path varrundbus"
@@ -226,7 +228,8 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}        - variable: configfile
+# Include{persistenceAdvanced}
+        - variable: configfile
           label: "configfile Storage"
           description: "Cups appdata"
           schema:
@@ -270,7 +273,9 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
+
 # Include{persistenceList}
+
 
   - variable: ingress
     label: ""
@@ -292,7 +297,6 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
-
 
 # Include{ingressList}
 
