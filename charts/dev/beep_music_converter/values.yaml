@@ -1,0 +1,24 @@
+env:
+  custom: default
+  silent: 'no'
+  time: '98'
+image:
+  pullPolicy: IfNotPresent
+  repository: spaceinvaderone/beep_music_converter
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,61 @@
+env:
+  BITNAMI_DEBUG: ''
+  LDAP_ADMIN_PASSWORD: ''
+  LDAP_ADMIN_USERNAME: ''
+  LDAP_ALLOW_ANON_BINDING: ''
+  LDAP_CONFIG_ADMIN_ENABLED: ''
+  LDAP_CONFIG_ADMIN_PASSWORD: ''
+  LDAP_CONFIG_ADMIN_USERNAME: ''
+  LDAP_ENABLE_TLS: ''
+  LDAP_EXTRA_SCHEMAS: ''
+  LDAP_GROUP: ''
+  LDAP_PASSWORDS: ''
+  LDAP_ROOT: ''
+  LDAP_SKIP_DEFAULT_TREE: ''
+  LDAP_TLS_CA_FILE: ''
+  LDAP_TLS_CERT_FILE: ''
+  LDAP_TLS_DH_PARAMS_FILE: ''
+  LDAP_TLS_KEY_FILE: ''
+  LDAP_ULIMIT_NOFILES: ''
+  LDAP_USERS: ''
+  LDAP_USER_DC: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: bitnami/openldap
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /bitnami/openldap/
+  certsfolderpath:
+    enabled: true
+    mountPath: /opt/bitnami/openldap/certs/
+  ldap_custom_ldif_dir:
+    enabled: true
+    mountPath: /ldifs
+  ldap_custom_schema_file:
+    enabled: true
+    mountPath: /schema/custom.ldif
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  https_port:
+    enabled: true
+    ports:
+      https_port:
+        enabled: true
+        port: 1636
+        protocol: TCP
+        targetPort: 1636
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1389
+        protocol: TCP
+        targetPort: 1389

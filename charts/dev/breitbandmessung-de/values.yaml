@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: shneezin/breitbandmessung-node
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/src/app/config
+  messurementlogs:
+    enabled: true
+    mountPath: /export/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

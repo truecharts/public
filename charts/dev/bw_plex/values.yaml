@@ -1,0 +1,26 @@
+env:
+  token: ''
+  url: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: hellowlol/bw_plex
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  mediapath:
+    enabled: true
+    mountPath: /mnt/user/Media/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

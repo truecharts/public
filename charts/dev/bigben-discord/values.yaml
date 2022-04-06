@@ -1,0 +1,20 @@
+env:
+  BOT_TOKEN: ' '
+  DATABASE_URL: postgres://username:password@localhost:5432/database
+image:
+  pullPolicy: IfNotPresent
+  repository: kippenhof/bigbendiscord
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

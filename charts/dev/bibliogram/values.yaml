@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: cloudrac3r/bibliogram
+  tag: latest
+persistence:
+  config-js:
+    enabled: true
+    mountPath: /app/config.js
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 10407
+        protocol: TCP
+        targetPort: 10407

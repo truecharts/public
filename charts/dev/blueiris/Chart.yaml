@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Security
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Blue Iris video security software runs on a PC and can provide recording
+  and playback for up to 64 IP network cameras or webcams. Blue Iris is affordable
+  and powerful enough to safeguard your family, property and valuables at home or
+  work.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/blueiris
+icon: https://truecharts.org/_static/img/appicons/blueiris.png
+keywords:
+- blueiris
+- Security
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: blueiris
+sources:
+- https://hub.docker.com/r/jshridha/blueiris/
+- https://hub.docker.com/r/jshridha/blueiris/
+type: application
+version: 0.0.1

@@ -1,0 +1,40 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: jshridha/blueiris
+  tag: gpu
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /home/wineuser/prefix
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: HTTP
+        targetPort: 8080
+  vncserverport:
+    enabled: true
+    ports:
+      vncserverport:
+        enabled: true
+        port: 5950
+        protocol: TCP
+        targetPort: 5900
+  webserverport:
+    enabled: true
+    ports:
+      webserverport:
+        enabled: true
+        port: 8181
+        protocol: TCP
+        targetPort: 81

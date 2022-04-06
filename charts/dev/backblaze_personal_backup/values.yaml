@@ -1,0 +1,41 @@
+env:
+  DISPLAY_HEIGHT: '473'
+  DISPLAY_WIDTH: '657'
+  ENABLE_CJK_FONT: ''
+  SECURE_CONNECTION: '0'
+  VNC_PASSWORD: ''
+  X11VNC_EXTRA_OPTS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tessypowder/backblaze-personal-wine
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config/
+  storagetobackup:
+    enabled: true
+    mountPath: /drive_d/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900
