@@ -99,7 +99,7 @@ service:
         targetPort: 8082
 
 command: ["/bin/bash"]
-args: ["-c", "\"groupadd -g ${GID} steam && /opt/scripts/start.sh\""]
+args: ["/enter.sh"]
 
 configmap:
   enter:
@@ -107,9 +107,9 @@ configmap:
     data:
       enter.sh: |
         #!/bin/bash
-        #GROUP="steam"
-        #groupadd -g ${GID} ${GROUP}
-        #/opt/scripts/start.sh
+        GROUP="steam"
+        groupadd -g ${GID} ${GROUP}
+        /opt/scripts/start.sh
         #groupmod -g ${GID} ${GROUP}
         #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
         #usermod -u ${UID} ${USER}
