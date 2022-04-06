@@ -17,6 +17,15 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
+  configmap:
+    enabled: true
+    type: configMap
+    # -- Specify the name of the configmap object to be mounted
+    objectName: override
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: /opt/scripts/user.sh
 podSecurityContext:
   runAsUser: 0
 securityContext:
@@ -89,13 +98,15 @@ service:
         targetPort: 8082
 
 configmap:
-  override: |
-    #!/bin/bash
-    USER="apps"
-    GROUP="apps"
-    useradd -d ${DATA_DIR} -s /bin/bash ${USER}
-    groupadd ${GROUP}
-    chown -R ${USER} ${DATA_DIR}
-    usermod -u ${UID} ${USER}
-    groupmod -g ${GID} ${GROUP}
-    usermod -g ${GID} ${USER}
+  override:
+    enabled: true
+    data: |
+      #!/bin/bash
+      USER="apps"
+      GROUP="apps"
+      useradd -d ${DATA_DIR} -s /bin/bash ${USER}
+      groupadd ${GROUP}
+      chown -R ${USER} ${DATA_DIR}
+      usermod -u ${UID} ${USER}
+      groupmod -g ${GID} ${GROUP}
+      usermod -g ${GID} ${USER}
