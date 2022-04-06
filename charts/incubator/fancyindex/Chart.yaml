@@ -3,7 +3,7 @@ kubeVersion: ">=1.16.0-0"
 name: fancyindex
 version: 0.0.1
 appVersion: "latest"
-description: fancyindex App for TrueNAS SCALE
+description: Fancyindex provides a lightweight nginx directory listing with theming support
 type: application
 deprecated: false
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/fancyindex
@@ -12,6 +12,8 @@ keywords:
   - fancyindex
 sources:
   - https://github.com/truecharts/apps/tree/master/charts/incubator/fancyindex
+  - https://github.com/xal3xhx/fancyindex
+  - https://hub.docker.com/r/xal3xhx/fancy
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
