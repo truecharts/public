@@ -99,7 +99,7 @@ service:
         targetPort: 8082
 
 command: ["/bin/sh"]
-args: ["-c", "(groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
 
 configmap:
   enter:
