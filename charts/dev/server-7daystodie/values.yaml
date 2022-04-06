@@ -109,8 +109,9 @@ configmap:
         #!/bin/bash
         GROUP="steam"
         groupadd -g ${GID} ${GROUP}
+        groupmod -g ${GID} ${GROUP}
         /opt/scripts/start.sh
-        #groupmod -g ${GID} ${GROUP}
+        #
         #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
         #usermod -u ${UID} ${USER}
         #usermod -g ${GID} ${USER}
