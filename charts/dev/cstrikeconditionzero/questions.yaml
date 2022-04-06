@@ -86,13 +86,13 @@ questions:
 
         - variable: GAME_ID
           label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicated_Servers_List)"
+          description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "90 +app_set_config '90 mod dmc'"
         - variable: GAME_NAME
           label: "GAME_NAME"
-          description: "Game name to start (is connected to the GAME_PARAMS)."
+          description: "Game name to start (is connected to the GAMEPARAMS)."
           schema:
             type: string
             default: "czero"
@@ -128,7 +128,7 @@ questions:
             default: "90 mod czero"
         - variable: GAME_PORT
           label: "GAME_PORT"
-          description: "Container Variable GAME_PORT"
+          description: "Container Variable GAMEPORT"
           schema:
             type: string
             default: "27015"

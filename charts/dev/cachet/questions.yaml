@@ -86,115 +86,115 @@ questions:
 
         - variable: DB_DRIVER
           label: "DB_DRIVER"
-          description: "Container Variable DB_DRIVER"
+          description: "Container Variable DBDRIVER"
           schema:
             type: string
             default: "mysql"
         - variable: APP_KEY
           label: "APP_KEY"
-          description: "Container Variable APP_KEY. Some random string"
+          description: "Container Variable APPKEY. Some random string"
           schema:
             type: string
             default: "base64:2iJWPWu9PWzkI4B2CcdVYQo0CPvtXIhS1vVi/GCGn5A="
         - variable: DB_HOST
           label: "DB_HOST"
-          description: "Container Variable DB_HOST"
+          description: "Container Variable DBHOST"
           schema:
             type: string
             default: "192.168.1.100"
         - variable: DB_DATABASE
           label: "DB_DATABASE"
-          description: "Container Variable DB_DATABASE"
+          description: "Container Variable DBDATABASE"
           schema:
             type: string
             default: "cachet"
         - variable: DB_USERNAME
           label: "DB_USERNAME"
-          description: "Container Variable DB_USERNAME"
+          description: "Container Variable DBUSERNAME"
           schema:
             type: string
             default: "cachet"
         - variable: DB_PASSWORD
           label: "DB_PASSWORD"
-          description: "Container Variable DB_PASSWORD"
+          description: "Container Variable DBPASSWORD"
           schema:
             type: string
             default: "password"
         - variable: DB_PORT
           label: "DB_PORT"
-          description: "Container Variable DB_PORT"
+          description: "Container Variable DBPORT"
           schema:
             type: string
             default: "3306"
         - variable: MAIL_DRIVER
           label: "MAIL_DRIVER"
-          description: "Container Variable MAIL_DRIVER"
+          description: "Container Variable MAILDRIVER"
           schema:
             type: string
             default: "smtp"
         - variable: MAIL_HOST
           label: "MAIL_HOST"
-          description: "Container Variable MAIL_HOST"
+          description: "Container Variable MAILHOST"
           schema:
             type: string
             default: "smtp.mailgun.org"
         - variable: MAIL_PORT
           label: "MAIL_PORT"
-          description: "Container Variable MAIL_PORT"
+          description: "Container Variable MAILPORT"
           schema:
             type: string
             default: "587"
         - variable: MAIL_USERNAME
           label: "MAIL_USERNAME"
-          description: "Container Variable MAIL_USERNAME"
+          description: "Container Variable MAILUSERNAME"
           schema:
             type: string
             default: "postmaster@domain.com"
         - variable: MAIL_PASSWORD
           label: "MAIL_PASSWORD"
-          description: "Container Variable MAIL_PASSWORD"
+          description: "Container Variable MAILPASSWORD"
           schema:
             type: string
             default: "password"
         - variable: MAIL_ADDRESS
           label: "MAIL_ADDRESS"
-          description: "Container Variable MAIL_ADDRESS"
+          description: "Container Variable MAILADDRESS"
           schema:
             type: string
             default: "status@domain.com"
         - variable: MAIL_NAME
           label: "MAIL_NAME"
-          description: "Container Variable MAIL_NAME"
+          description: "Container Variable MAILNAME"
           schema:
             type: string
             default: "Status"
         - variable: MAIL_ENCRYPTION
           label: "MAIL_ENCRYPTION"
-          description: "Container Variable MAIL_ENCRYPTION"
+          description: "Container Variable MAILENCRYPTION"
           schema:
             type: string
             default: "tls"
         - variable: REDIS_HOST
           label: "REDIS_HOST"
-          description: "Container Variable REDIS_HOST"
+          description: "Container Variable REDISHOST"
           schema:
             type: string
             default: "192.168.1.100"
         - variable: REDIS_DATABASE
           label: "REDIS_DATABASE"
-          description: "Container Variable REDIS_DATABASE"
+          description: "Container Variable REDISDATABASE"
           schema:
             type: string
             default: "0"
         - variable: REDIS_PORT
           label: "REDIS_PORT"
-          description: "Container Variable REDIS_PORT"
+          description: "Container Variable REDISPORT"
           schema:
             type: string
             default: "6379"
         - variable: APP_DEBUG
           label: "APP_DEBUG"
-          description: "Container Variable APP_DEBUG"
+          description: "Container Variable APPDEBUG"
           schema:
             type: string
             default: "false"
