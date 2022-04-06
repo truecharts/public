@@ -98,10 +98,7 @@ service:
         protocol: TCP
         targetPort: 8082
 
-command:
-  - "/bin/bash"
-  - "-c"
-  - "groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh"
+command: ["/bin/bash", "-c", "\"groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh\""]
 configmap:
   override:
     enabled: true
