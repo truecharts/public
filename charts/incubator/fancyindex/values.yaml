@@ -1,0 +1,13 @@
+image:
+  repository: xal3xhx/fancy
+  pullPolicy: IfNotPresent
+  tag: latest
+
+env: {}
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 10081
