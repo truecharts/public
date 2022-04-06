@@ -101,7 +101,7 @@ service:
 configmap:
   override:
     enabled: true
-    data: |
+    data:
       user.sh: |
         #!/bin/bash
         USER="apps"
