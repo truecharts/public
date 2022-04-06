@@ -25,7 +25,7 @@ persistence:
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: /opt/scripts/user.sh
+    mountPath: /user.sh
     subPath: "user.sh"
 podSecurityContext:
   runAsUser: 0
@@ -98,26 +98,27 @@ service:
         protocol: TCP
         targetPort: 8082
 
+cmd: "groupadd -g ${GID} ${GROUP} && /opt/scripts/start.sh"
 configmap:
   override:
     enabled: true
     data:
       user.sh: |
         #!/bin/bash
-        GROUP="steam"
-        groupadd -g ${GID} ${GROUP}
-        groupmod -g ${GID} ${GROUP}
-        useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
-        usermod -u ${UID} ${USER}
-        usermod -g ${GID} ${USER}
-        for f in /opt/scripts/*
-        do
-          if "${f}" != "/opt/scripts/user.sh"
-            echo "Processing: ${f}"
-            chown -Rf ${UID}:${GID} ${f}
-            chmod -Rf 755 ${f}
-          fi
-        done
-        chown -Rf ${UID}:${GID} ${DATA_DIR}
-        ls -l /opt/scripts
-        sudo -u steam id
+        #GROUP="steam"
+        #groupadd -g ${GID} ${GROUP}
+        #groupmod -g ${GID} ${GROUP}
+        #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
+        #usermod -u ${UID} ${USER}
+        #usermod -g ${GID} ${USER}
+        #for f in /opt/scripts/*
+        #do
+        #  if "${f}" != "/opt/scripts/user.sh"
+        #    echo "Processing: ${f}"
+        #    chown -Rf ${UID}:${GID} ${f}
+        #    chmod -Rf 755 ${f}
+        #  fi
+        #done
+        #chown -Rf ${UID}:${GID} ${DATA_DIR}
+        #ls -l /opt/scripts
+        #sudo -u steam id
