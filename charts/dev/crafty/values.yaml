@@ -1,0 +1,38 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: freddy0/crafty-container
+  tag: latest
+persistence:
+  backups:
+    enabled: true
+    mountPath: /crafty_web/backups
+  database:
+    enabled: true
+    mountPath: /crafty_db
+  server-files:
+    enabled: true
+    mountPath: /minecraft_servers
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1800
+        protocol: HTTP
+        targetPort: 8000
+  minecraftports:
+    enabled: true
+    ports:
+      minecraftports:
+        enabled: true
+        port: 25500
+        protocol: TCP
+        targetPort: 25500

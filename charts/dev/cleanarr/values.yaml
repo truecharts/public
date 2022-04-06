@@ -1,0 +1,28 @@
+env:
+  BYPASS_SSL_VERIFY: ''
+  LIBRARY_NAMES: ''
+  PLEX_BASE_URL: ''
+  PLEX_TOKEN: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: selexin/cleanarr
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /frontend
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 80

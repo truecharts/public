@@ -1,0 +1,24 @@
+env:
+  CF_API: a1b2c3d4e5
+  CF_EMAIL: your@cloudflare_email.com
+  CF_HOST: sub.domain.com
+image:
+  pullPolicy: IfNotPresent
+  repository: mace/cloudflare-ddns
+  tag: latest
+persistence:
+  cloudflare:
+    enabled: true
+    mountPath: ''
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

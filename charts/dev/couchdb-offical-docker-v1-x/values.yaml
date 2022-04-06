@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: couchdb
+  tag: latest
+persistence:
+  couchdb-offical-docker-v1-x:
+    enabled: true
+    mountPath: /usr/local/var/lib/couchdb
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5984
+        protocol: TCP
+        targetPort: 5984

@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: 'Czkawka is written in Rust, simple, fast and easy to use app to remove
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/czkawka
+icon: https://truecharts.org/_static/img/appicons/czkawka.png
+keywords:
+- czkawka
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: czkawka
+sources:
+- https://github.com/qarmin/czkawka
+- https://hub.docker.com/r/jlesage/czkawka/
+type: application
+version: 0.0.1

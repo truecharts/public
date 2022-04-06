@@ -1,0 +1,41 @@
+env:
+  BOTTOKEN: ''
+  CLIENTID: ''
+  CLIENTSECRET: ''
+  CSMM_DL_URL: https://github.com/CatalysmsServerManager/7-days-to-die-server-manager/archive/master.zip
+  CSMM_LOGLEVEL: info
+  DB_BKP_INTERV: '90'
+  FORCE_UPDATE: ''
+  HOSTNAME: ''
+  STEAM_API_KEY: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/csmm-7dtd
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /csmm-7dtd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1337
+        protocol: HTTP
+        targetPort: 1337
+  mariadbport:
+    enabled: true
+    ports:
+      mariadbport:
+        enabled: true
+        port: 3306
+        protocol: TCP
+        targetPort: 3306

@@ -1,0 +1,24 @@
+env:
+  domain: cloud\\.yourdomain\\.com
+  password: yourpassword
+  username: admin
+image:
+  pullPolicy: IfNotPresent
+  repository: collabora/code
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9980
+        protocol: TCP
+        targetPort: 9980

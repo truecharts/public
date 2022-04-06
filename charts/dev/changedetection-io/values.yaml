@@ -1,0 +1,25 @@
+env:
+  BASE_URL: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: dgtlmoon/changedetection.io
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /datastore
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - MediaApp-Books
+    - MediaServer-Books
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by S\xE9\
+  bastien Lucas, stands for Calibre OPDS (and HTML) Php Server.\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cops
+icon: https://truecharts.org/_static/img/appicons/cops.png
+keywords:
+- cops
+- Cloud
+- MediaApp-Books
+- MediaServer-Books
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cops
+sources:
+- http://blog.slucas.fr/en/oss/calibre-opds-php-server
+- https://github.com/orgs/linuxserver/packages/container/package/cops
+- https://github.com/linuxserver/docker-cops#readme
+type: application
+version: 0.0.1

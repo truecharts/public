@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Unofficial image of Bitfocus companion, update to latest stable once\
+  \ a month.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/companion
+icon: https://truecharts.org/_static/img/appicons/companion.png
+keywords:
+- companion
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: companion
+sources:
+- https://bitfocus.io/companion/
+- https://hub.docker.com/r/marraz/companion
+type: application
+version: 0.0.1

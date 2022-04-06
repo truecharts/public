@@ -1,0 +1,45 @@
+env:
+  APP_NICENESS: ''
+  CRASHPLAN_SRV_MAX_MEM: ''
+  DISPLAY_HEIGHT: ''
+  DISPLAY_WIDTH: ''
+  GROUP_ID: ''
+  SECURE_CONNECTION: ''
+  UMASK: ''
+  USER_ID: ''
+  X11VNC_EXTRA_OPTS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: jlesage/crashplan-pro
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  vncportforgui:
+    enabled: true
+    ports:
+      vncportforgui:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900

@@ -1,0 +1,61 @@
+env:
+  CRUSHADMIN: crushadmin
+  CRUSHPASSWORD: crush9password
+image:
+  pullPolicy: IfNotPresent
+  repository: mdschaefer/crushftp9
+  tag: latest
+persistence:
+  crushftp9configfiles:
+    enabled: true
+    mountPath: /var/opt/CrushFTP9_PC
+  unraidsharepath:
+    enabled: true
+    mountPath: /unraid
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  ftpport:
+    enabled: true
+    ports:
+      ftpport:
+        enabled: true
+        port: 9921
+        protocol: TCP
+        targetPort: 9921
+  httpport2222:
+    enabled: true
+    ports:
+      httpport2222:
+        enabled: true
+        port: 2222
+        protocol: TCP
+        targetPort: 2222
+  httpport9090:
+    enabled: true
+    ports:
+      httpport9090:
+        enabled: true
+        port: 9090
+        protocol: TCP
+        targetPort: 9090
+  httpsport:
+    enabled: true
+    ports:
+      httpsport:
+        enabled: true
+        port: 9443
+        protocol: TCP
+        targetPort: 9443
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: HTTP
+        targetPort: 8080

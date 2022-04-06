@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: 'Cachet is a beautiful and powerful open source status page system, a
+  free replacement for services such as StatusPage.io, Status.io, and others. Docs:
+  https://docs.cachethq.io/docs/installing-cachet'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cachet
+icon: https://truecharts.org/_static/img/appicons/cachet.png
+keywords:
+- cachet
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cachet
+sources:
+- https://github.com/CachetHQ/Cachet
+- https://hub.docker.com/r/cachethq/docker
+type: application
+version: 0.0.1

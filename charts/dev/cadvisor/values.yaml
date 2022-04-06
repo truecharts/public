@@ -1,0 +1,37 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: gcr.io/cadvisor/cadvisor
+  tag: latest
+persistence:
+  dockerstoragefilesystem:
+    enabled: true
+    mountPath: /var/lib/docker/
+    readOnly: true
+  rootfilesystem:
+    enabled: true
+    mountPath: /rootfs
+    readOnly: true
+  runtimevariabledata:
+    enabled: true
+    mountPath: /var/run
+    readOnly: true
+  sysfilesystem:
+    enabled: true
+    mountPath: /sys
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

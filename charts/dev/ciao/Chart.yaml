@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Other
+    - Productivity
+    - Tools-System
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "ciao checks HTTP(S) URL endpoints for a HTTP status code (or errors\
+  \ on the lower TCP stack) and sends a notification on status change via E-Mail or\
+  \ Webhooks.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ciao
+icon: https://truecharts.org/_static/img/appicons/ciao.png
+keywords:
+- ciao
+- Network-Other
+- Productivity
+- Tools-System
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: ciao
+sources:
+- https://brotandgames.com/ciao/
+- https://hub.docker.com/r/brotandgames/ciao
+type: application
+version: 0.0.1
