@@ -110,8 +110,13 @@ configmap:
         useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
         usermod -u ${UID} ${USER}
         usermod -g ${GID} ${USER}
-        chown -Rf ${UID}:${GID} /opt/scripts
+        for f in /opt/scripts/*
+        do
+          if "${f}" != "user.sh"
+            chown -Rf ${UID}:${GID} ${f}
+            chmod -Rf 755 ${f}
+          fi
+        done
         chown -Rf ${UID}:${GID} ${DATA_DIR}
-        chmod -Rf 755 /opt/scripts
         ls -l /opt/scripts
         sudo -u steam id
