@@ -112,7 +112,8 @@ configmap:
         usermod -g ${GID} ${USER}
         for f in /opt/scripts/*
         do
-          if "${f}" != "user.sh"
+          if "${f}" != "/opt/scripts/user.sh"
+            echo "Processing: ${f}"
             chown -Rf ${UID}:${GID} ${f}
             chmod -Rf 755 ${f}
           fi
