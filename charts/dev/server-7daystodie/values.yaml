@@ -87,3 +87,15 @@ service:
         port: 8082
         protocol: TCP
         targetPort: 8082
+
+configmap:
+  override: |
+    #!/bin/bash
+    USER="apps"
+    GROUP="apps"
+    useradd -d ${DATA_DIR} -s /bin/bash ${USER}
+    groupadd ${GROUP}
+    chown -R ${USER} ${DATA_DIR}
+    usermod -u ${UID} ${USER}
+    groupmod -g ${GID} ${GROUP}
+    usermod -g ${GID} ${USER}
