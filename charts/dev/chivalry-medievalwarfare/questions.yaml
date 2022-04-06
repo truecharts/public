@@ -85,49 +85,49 @@ questions:
       attrs:
 
         - variable: GAME_ID
-          label: "GAME_ID"
+          label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
           schema:
             type: string
             default: "220070"
         - variable: MAP
-          label: "MAP"
-          description: "Map name (eg 'aocffa-arena3p', 'aocffa-hillsidep', 'aocffa-battlegroundsv3p')"
+          label: 'MAP'
+          description: "Map name (eg aocffa-arena3p, aocffa-hillsidep, aocffa-battlegroundsv3p)"
           schema:
             type: string
             default: "aocffa-moor_p"
         - variable: ADMIN_PWD
-          label: "ADMIN_PWD"
-          description: "Server Admin Password (can't be empty)"
+          label: 'ADMIN_PWD'
+          description: "Server Admin Password (cant be empty)"
           schema:
             type: string
             default: "adminDocker"
         - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your game parameters seperated with ? and start with a ? (don't put spaces in between eg ?port=7000?queryport=7010)"
+          label: 'GAME_PARAMS'
+          description: "Enter your game parameters seperated with ? and start with a ? (dont put spaces in between eg ?port=7000?queryport=7010)"
           schema:
             type: string
             default: "?port=7000?queryport=7010"
         - variable: GAME_PARAMS_EXTRA
-          label: "GAME_PARAMS_EXTRA"
+          label: 'GAME_PARAMS_EXTRA'
           description: "Type in your Extra Game Parameters seperated with a space and - (eg -seekfreeloadingserver)"
           schema:
             type: string
             default: "-seekfreeloadingserver"
         - variable: USERNAME
-          label: "USERNAME"
+          label: 'USERNAME'
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
         - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to 'true' if you want to validate the installation otherwise leave it blank."
+          label: 'VALIDATE'
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
         - variable: PASSWRD
-          label: "PASSWRD"
+          label: 'PASSWRD'
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -199,7 +199,7 @@ questions:
                                     default: 7000
 
         - variable: gamequeryport
-          label: "gamequeryport service"
+          label: 'gamequeryport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -259,7 +259,7 @@ questions:
                                     type: int
                                     default: 7010
         - variable: steamqueryport
-          label: "steamqueryport service"
+          label: 'steamqueryport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

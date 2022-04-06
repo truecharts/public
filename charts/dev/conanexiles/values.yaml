@@ -23,10 +23,10 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:
-  gameport+1:
+  gameport1:
     enabled: true
     ports:
-      gameport+1:
+      gameport1:
         enabled: true
         port: 7778
         protocol: UDP

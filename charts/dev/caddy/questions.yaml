@@ -85,7 +85,7 @@ questions:
       attrs:
 
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string
@@ -157,7 +157,7 @@ questions:
                                     default: 8080
 
         - variable: hostportfor844
-          label: "hostportfor844 service"
+          label: 'hostportfor844 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

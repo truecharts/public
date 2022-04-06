@@ -85,25 +85,25 @@ questions:
       attrs:
 
         - variable: EXTERNAL_DB
-          label: "EXTERNAL_DB"
+          label: 'EXTERNAL_DB'
           description: "Container Variable EXTERNALDB"
           schema:
             type: string
             default: "false"
         - variable: POSTGRES_URL
-          label: "POSTGRES_URL"
+          label: 'POSTGRES_URL'
           description: "Container Variable POSTGRESURL"
           schema:
             type: string
             default: "jdbc:postgresql://192.168.2.254:5432/compreface"
         - variable: POSTGRES_PASSWORD
-          label: "POSTGRES_PASSWORD"
+          label: 'POSTGRES_PASSWORD'
           description: "Container Variable POSTGRESPASSWORD"
           schema:
             type: string
             default: "corgan80982"
         - variable: POSTGRES_USER
-          label: "POSTGRES_USER"
+          label: 'POSTGRES_USER'
           description: "Container Variable POSTGRESUSER"
           schema:
             type: string

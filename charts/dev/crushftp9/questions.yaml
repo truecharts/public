@@ -85,13 +85,13 @@ questions:
       attrs:
 
         - variable: CRUSHADMIN
-          label: "CRUSHADMIN"
+          label: 'CRUSHADMIN'
           description: "Admin user for Crushftp "
           schema:
             type: string
             default: "crushadmin"
         - variable: CRUSHPASSWORD
-          label: "CRUSHPASSWORD"
+          label: 'CRUSHPASSWORD'
           description: "Password for Admin user "
           schema:
             type: string
@@ -163,7 +163,7 @@ questions:
                                     default: 8080
 
         - variable: httpsport
-          label: "httpsport service"
+          label: 'httpsport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -223,7 +223,7 @@ questions:
                                     type: int
                                     default: 9443
         - variable: ftpport
-          label: "ftpport service"
+          label: 'ftpport service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -283,7 +283,7 @@ questions:
                                     type: int
                                     default: 9921
         - variable: httpport9090
-          label: "httpport9090 service"
+          label: 'httpport9090 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -343,7 +343,7 @@ questions:
                                     type: int
                                     default: 9090
         - variable: httpport2222
-          label: "httpport2222 service"
+          label: 'httpport2222 service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true

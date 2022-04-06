@@ -78,73 +78,73 @@ questions:
       attrs:
 
         - variable: INTERVAL
-          label: "INTERVAL"
+          label: 'INTERVAL'
           description: "Container Variable INTERVAL"
           schema:
             type: string
             default: ""
         - variable: DETECTION_MODE
-          label: "DETECTION_MODE"
+          label: 'DETECTION_MODE'
           description: "Container Variable DETECTIONMODE"
           schema:
             type: string
             default: ""
         - variable: LOG_LEVEL
-          label: "LOG_LEVEL"
+          label: 'LOG_LEVEL'
           description: "Container Variable LOGLEVEL&lt;br&gt;3 - Debug logging&lt;br&gt;2 - Verbose logging&lt;br&gt;1 - Normal logging&lt;br&gt;0 - No logging"
           schema:
             type: string
             default: ""
         - variable: APPRISE
-          label: "APPRISE"
+          label: 'APPRISE'
           description: "Container Variable APPRISE&lt;br&gt;Send notifications with Apprise."
           schema:
             type: string
             default: ""
         - variable: CF_USER
-          label: "CF_USER"
+          label: 'CF_USER'
           description: "Container Variable CFUSER&lt;br&gt;Leave blank if you use CFAPITOKEN."
           schema:
             type: string
             default: ""
         - variable: CF_APIKEY
-          label: "CF_APIKEY"
+          label: 'CF_APIKEY'
           description: "Container Variable CFAPIKEY&lt;br&gt;Leave blank if you use CFAPITOKEN."
           schema:
             type: string
             default: ""
         - variable: CF_APITOKEN
-          label: "CF_APITOKEN"
+          label: 'CF_APITOKEN'
           description: "Container Variable CFAPITOKEN"
           schema:
             type: string
             default: ""
         - variable: CF_APITOKEN_ZONE
-          label: "CF_APITOKEN_ZONE"
+          label: 'CF_APITOKEN_ZONE'
           description: "Container Variable CFAPITOKENZONE"
           schema:
             type: string
             default: ""
         - variable: CF_HOSTS
-          label: "CF_HOSTS"
+          label: 'CF_HOSTS'
           description: "Container Variable CFHOSTS&lt;br&gt;Example test.example.com;test.foobar.com;test2.foobar.com"
           schema:
             type: string
             default: ""
         - variable: CF_ZONES
-          label: "CF_ZONES"
+          label: 'CF_ZONES'
           description: "Container Variable CFZONES&lt;br&gt;Example example.com;foobar.com;foobar.com"
           schema:
             type: string
             default: ""
         - variable: CF_RECORDTYPES
-          label: "CF_RECORDTYPES"
+          label: 'CF_RECORDTYPES'
           description: "Container Variable CFRECORDTYPES&lt;br&gt;Example A;A;AAAA"
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: "UMASK"
+          label: 'UMASK'
           description: "Container Variable UMASK"
           schema:
             type: string

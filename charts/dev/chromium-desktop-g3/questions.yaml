@@ -85,13 +85,13 @@ questions:
       attrs:
 
         - variable: VNC_PW
-          label: "VNC_PW"
+          label: 'VNC_PW'
           description: "The VNCnoVNC password."
           schema:
             type: string
             default: "unraid"
         - variable: VNC_RESOLUTION
-          label: "VNC_RESOLUTION"
+          label: 'VNC_RESOLUTION'
           description: "The VNCnoVNC resolution."
           schema:
             type: string
@@ -163,7 +163,7 @@ questions:
                                     default: 6901
 
         - variable: webuivnc
-          label: "webuivnc service"
+          label: 'webuivnc service'
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
