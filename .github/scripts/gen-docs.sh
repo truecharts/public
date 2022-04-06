@@ -118,16 +118,6 @@ generate_docs() {
             --output-file="README.md" \
             --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
             --chart-search-root="${chart}"
-        helm-docs \
-            --ignore-file=".helmdocsignore" \
-            --output-file="CONFIG.md" \
-            --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
-            --chart-search-root="${chart}"
-        helm-docs \
-            --ignore-file=".helmdocsignore" \
-            --output-file="helm-values.md" \
-            --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
-            --chart-search-root="${chart}"
     }
     export -f generate_docs
 
