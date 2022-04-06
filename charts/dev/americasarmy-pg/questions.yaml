@@ -86,13 +86,13 @@ questions:
 
         - variable: GAME_ID
           label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.If you want to install a static or beta version of the game change the value to '203300 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to '203300 -beta YOURBRANCH' (without quotes, replace YOURBRANCH with the branch or version you want to install)."
           schema:
             type: string
             default: "203300"
         - variable: SRV_NAME
           label: "SRV_NAME"
-          description: "Container Variable SRV_NAME"
+          description: "Container Variable SRVNAME"
           schema:
             type: string
             default: "Army Docker"

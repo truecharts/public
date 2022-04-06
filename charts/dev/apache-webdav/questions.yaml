@@ -128,7 +128,7 @@ questions:
             default: ""
         - variable: SSL_CERT
           label: "SSL_CERT"
-          description: "Set to selfsigned to generate a self-signed certificate and enable Apache's SSL module. If you specify SERVER_NAMES, the first domain is set as the Common Name."
+          description: "Set to selfsigned to generate a self-signed certificate and enable Apache's SSL module. If you specify SERVERNAMES, the first domain is set as the Common Name."
           schema:
             type: string
             default: ""
