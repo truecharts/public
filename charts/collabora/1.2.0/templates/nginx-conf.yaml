@@ -63,7 +63,7 @@ data:
             }
 
             # static files
-            location ^~ /loleaflet {
+            location ^~ /browser {
                 proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 # proxy_set_header Referer "http://nginx";
@@ -85,7 +85,7 @@ data:
             }
 
             # main websocket
-            location ~ ^/lool/(.*)/ws$ {
+            location ~ ^/cool/(.*)/ws$ {
                 proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
@@ -95,14 +95,14 @@ data:
             }
 
             # download, presentation and image upload
-            location ~ ^/lool {
+            location ~ ^/(c|l)ool {
                 proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Referer "http://nginx";
             }
 
             # Admin Console websocket
-            location ^~ /lool/adminws {
+            location ^~ /cool/adminws {
                 proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
