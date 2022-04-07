@@ -47,3 +47,5 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

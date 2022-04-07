@@ -24,3 +24,5 @@ service:
         port: 36963
         protocol: UDP
         targetPort: 36963
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

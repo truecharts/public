@@ -26,3 +26,5 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

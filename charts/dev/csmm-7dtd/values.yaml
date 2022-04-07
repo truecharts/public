@@ -39,3 +39,5 @@ service:
         port: 3306
         protocol: TCP
         targetPort: 3306
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
