@@ -17,16 +17,6 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-  configmap:
-    enabled: true
-    type: configMap
-    # -- Specify the name of the configmap object to be mounted
-    objectName: '{{printf "%v-enter" ( include "common.names.fullname" . )}}'
-    # -- Where to mount the volume in the main container.
-    # Defaults to `/<name_of_the_volume>`,
-    # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: /enter.sh
-    subPath: "enter.sh"
 podSecurityContext:
   runAsUser: 0
 securityContext:
@@ -101,28 +91,3 @@ service:
 command: ["/bin/sh"]
 args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
 
-configmap:
-  enter:
-    enabled: true
-    data:
-      enter.sh: |
-        #!/bin/bash
-        GROUP="steam"
-        groupadd -g ${GID} ${GROUP}
-        groupmod -g ${GID} ${GROUP}
-        /opt/scripts/start.sh
-        #
-        #useradd -u ${UID} -d ${DATA_DIR} -s /bin/bash ${USER}
-        #usermod -u ${UID} ${USER}
-        #usermod -g ${GID} ${USER}
-        #for f in /opt/scripts/*
-        #do
-        #  if "${f}" != "/opt/scripts/user.sh"
-        #    echo "Processing: ${f}"
-        #    chown -Rf ${UID}:${GID} ${f}
-        #    chmod -Rf 755 ${f}
-        #  fi
-        #done
-        #chown -Rf ${UID}:${GID} ${DATA_DIR}
-        #ls -l /opt/scripts
-        #sudo -u steam id
