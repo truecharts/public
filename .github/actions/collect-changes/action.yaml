@@ -96,19 +96,19 @@ runs:
         echo "Discovering changed charts since '$latest_tag'..."
         changed_charts=()
         readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-        
+
         CHARTS=()
         for CHARTPATH in "${changed_charts[@]}"
         do
           IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
           CHARTS+=("${path_parts[1]}/${path_parts[2]}")
         done
-        
+
         # Remove duplicates
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
-        
+
         echo "Number of detected changed charts: ${#CHARTS[@]}"
         if [ ${#CHARTS[@]} -eq 0 ] || [ "${CHARTS[0]}" = " " ] || [ "${CHARTS[0]}" = "/" ]; then
           echo "No Changed Charts detected since latest tag..."

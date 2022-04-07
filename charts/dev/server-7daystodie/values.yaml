@@ -90,4 +90,3 @@ service:
 
 command: ["/bin/sh"]
 args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
-
