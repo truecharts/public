@@ -38,3 +38,10 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
