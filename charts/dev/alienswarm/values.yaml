@@ -30,15 +30,22 @@ service:
       main:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: TCP
         targetPort: 27015
-  tcp-rconport:
+  gameport:
     enabled: true
     ports:
       tcp-rconport:
         enabled: true
         port: 27015
-        protocol: TCP
+        protocol: UDP
         targetPort: 27015
 command: ["/bin/sh"]
 args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
