@@ -5,7 +5,7 @@ env:
   UMASK: '000'
 image:
   pullPolicy: IfNotPresent
-  repository: ich777/chrome
+  repository: tccr.io/truecharts/chromium
   tag: latest
 persistence:
   datadir:

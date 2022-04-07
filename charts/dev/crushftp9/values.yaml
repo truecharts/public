@@ -3,7 +3,7 @@ env:
   CRUSHPASSWORD: crush9password
 image:
   pullPolicy: IfNotPresent
-  repository: mdschaefer/crushftp9
+  repository: tccr.io/truecharts/crushftp9
   tag: latest
 persistence:
   crushftp9configfiles:
