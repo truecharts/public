@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: bitcoinunlimited/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-bitcoinunlimited&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/bitcoinunlimited:latest (debian 9.3)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2019-3462   |   HIGH  |  1.4.8 | 1.4.9 | <details><summary>Expand...</summary><a href="http://www.securityfocus.com/bid/106690">http://www.securityfocus.com/bid/106690</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3462">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3462</a><br><a href="https://lists.apache.org/thread.html/8338a0f605bdbb3a6098bb76f666a95fc2b2f53f37fa1ecc89f1146f@%3Cdevnull.infra.apache.org%3E">https://lists.apache.org/thread.html/8338a0f605bdbb3a6098bb76f666a95fc2b2f53f37fa1ecc89f1146f@%3Cdevnull.infra.apache.org%3E</a><br><a href="https://lists.debian.org/debian-lts-announce/2019/01/msg00013.html">https://lists.debian.org/debian-lts-announce/2019/01/msg00013.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2019/01/msg00014.html">https://lists.debian.org/debian-lts-announce/2019/01/msg00014.html</a><br><a href="https://security.netapp.com/advisory/ntap-20190125-0002/">https://security.netapp.com/advisory/ntap-20190125-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-3863-1">https://ubuntu.com/security/notices/USN-3863-1</a><br><a href="https://ubuntu.com/security/notices/USN-3863-2">https://ubuntu.com/security/notices/USN-3863-2</a><br><a href="https://usn.ubuntu.com/3863-1/">https://usn.ubuntu.com/3863-1/</a><br><a href="https://usn.ubuntu.com/3863-2/">https://usn.ubuntu.com/3863-2/</a><br><a href="https://www.debian.org/security/2019/dsa-4371">https://www.debian.org/security/2019/dsa-4371</a><br></details>  |
@@ -536,4 +536,3 @@ hide:
 | wget         |    CVE-2018-0494   |   MEDIUM  |  1.18-5+deb9u1 | 1.18-5+deb9u2 | <details><summary>Expand...</summary><a href="http://www.securityfocus.com/bid/104129">http://www.securityfocus.com/bid/104129</a><br><a href="http://www.securitytracker.com/id/1040838">http://www.securitytracker.com/id/1040838</a><br><a href="https://access.redhat.com/errata/RHSA-2018:3052">https://access.redhat.com/errata/RHSA-2018:3052</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-0494">https://access.redhat.com/security/cve/CVE-2018-0494</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494</a><br><a href="https://git.savannah.gnu.org/cgit/wget.git/commit/?id=1fc9c95ec144499e69dc8ec76dbe07799d7d82cd">https://git.savannah.gnu.org/cgit/wget.git/commit/?id=1fc9c95ec144499e69dc8ec76dbe07799d7d82cd</a><br><a href="https://linux.oracle.com/cve/CVE-2018-0494.html">https://linux.oracle.com/cve/CVE-2018-0494.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2018-3052.html">https://linux.oracle.com/errata/ELSA-2018-3052.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2018/05/msg00006.html">https://lists.debian.org/debian-lts-announce/2018/05/msg00006.html</a><br><a href="https://lists.gnu.org/archive/html/bug-wget/2018-05/msg00020.html">https://lists.gnu.org/archive/html/bug-wget/2018-05/msg00020.html</a><br><a href="https://savannah.gnu.org/bugs/?53763">https://savannah.gnu.org/bugs/?53763</a><br><a href="https://security.gentoo.org/glsa/201806-01">https://security.gentoo.org/glsa/201806-01</a><br><a href="https://sintonen.fi/advisories/gnu-wget-cookie-injection.txt">https://sintonen.fi/advisories/gnu-wget-cookie-injection.txt</a><br><a href="https://ubuntu.com/security/notices/USN-3643-1">https://ubuntu.com/security/notices/USN-3643-1</a><br><a href="https://ubuntu.com/security/notices/USN-3643-2">https://ubuntu.com/security/notices/USN-3643-2</a><br><a href="https://usn.ubuntu.com/3643-1/">https://usn.ubuntu.com/3643-1/</a><br><a href="https://usn.ubuntu.com/3643-2/">https://usn.ubuntu.com/3643-2/</a><br><a href="https://www.debian.org/security/2018/dsa-4195">https://www.debian.org/security/2018/dsa-4195</a><br><a href="https://www.exploit-db.com/exploits/44601/">https://www.exploit-db.com/exploits/44601/</a><br></details>  |
 | wget         |    CVE-2021-31879   |   MEDIUM  |  1.18-5+deb9u1 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-31879">https://access.redhat.com/security/cve/CVE-2021-31879</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879</a><br><a href="https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html">https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31879">https://nvd.nist.gov/vuln/detail/CVE-2021-31879</a><br><a href="https://savannah.gnu.org/bugs/?56909">https://savannah.gnu.org/bugs/?56909</a><br><a href="https://security.netapp.com/advisory/ntap-20210618-0002/">https://security.netapp.com/advisory/ntap-20210618-0002/</a><br></details>  |
 | zlib1g         |    CVE-2018-25032   |   HIGH  |  1:1.2.8.dfsg-5 | 1:1.2.8.dfsg-5+deb9u1 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/04/msg00000.html">https://lists.debian.org/debian-lts-announce/2022/04/msg00000.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-25032">https://nvd.nist.gov/vuln/detail/CVE-2018-25032</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://ubuntu.com/security/notices/USN-5359-1">https://ubuntu.com/security/notices/USN-5359-1</a><br><a href="https://www.debian.org/security/2022/dsa-5111">https://www.debian.org/security/2022/dsa-5111</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
-

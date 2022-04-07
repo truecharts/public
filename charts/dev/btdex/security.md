@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: btdex/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-btdex&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/btdex:latest (debian 11.2)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  2.2.4 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -325,7 +325,7 @@ hide:
 
 **jar**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ch.qos.logback:logback-classic         |    CVE-2017-5929   |   CRITICAL  |  1.1.7 | 1.2.0 | <details><summary>Expand...</summary><a href="http://www.cvedetails.com/cve/CVE-2017-5929/">http://www.cvedetails.com/cve/CVE-2017-5929/</a><br><a href="https://access.redhat.com/errata/RHSA-2017:1675">https://access.redhat.com/errata/RHSA-2017:1675</a><br><a href="https://access.redhat.com/errata/RHSA-2017:1676">https://access.redhat.com/errata/RHSA-2017:1676</a><br><a href="https://access.redhat.com/errata/RHSA-2017:1832">https://access.redhat.com/errata/RHSA-2017:1832</a><br><a href="https://access.redhat.com/errata/RHSA-2018:2927">https://access.redhat.com/errata/RHSA-2018:2927</a><br><a href="https://access.redhat.com/security/cve/CVE-2017-5929">https://access.redhat.com/security/cve/CVE-2017-5929</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5929">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5929</a><br><a href="https://github.com/advisories/GHSA-vmfg-rjjm-rjrj">https://github.com/advisories/GHSA-vmfg-rjjm-rjrj</a><br><a href="https://github.com/qos-ch/logback/commit/f46044b805bca91efe5fd6afe52257cd02f775f8">https://github.com/qos-ch/logback/commit/f46044b805bca91efe5fd6afe52257cd02f775f8</a><br><a href="https://lists.apache.org/thread.html/18d509024d9aeb07f0e9579066f80bf5d4dcf20467b0c240043890d1@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/18d509024d9aeb07f0e9579066f80bf5d4dcf20467b0c240043890d1@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/a6db61616180d73711d6db25703085940026e2dbc40f153f9d22b203@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/a6db61616180d73711d6db25703085940026e2dbc40f153f9d22b203@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/fa4eaaa6ff41ac6f79811e053c152ee89b7c5da8a6ac848ae97df67f@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/fa4eaaa6ff41ac6f79811e053c152ee89b7c5da8a6ac848ae97df67f@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r0bb19330e48d5ad784fa20dacba9e5538d8d60f5cd9142e0f1432b4b@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r0bb19330e48d5ad784fa20dacba9e5538d8d60f5cd9142e0f1432b4b@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r2a08573ddee4a86dc96d469485a5843a01710ee0dc2078dfca410c79@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r2a08573ddee4a86dc96d469485a5843a01710ee0dc2078dfca410c79@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r2c2d57ca180e8173c90fe313ddf8eabbdcf8e3ae196f8b9f42599790@%3Ccommits.mnemonic.apache.org%3E">https://lists.apache.org/thread.html/r2c2d57ca180e8173c90fe313ddf8eabbdcf8e3ae196f8b9f42599790@%3Ccommits.mnemonic.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r397bf63783240fbb5713389d3f889d287ae0c11509006700ac720037@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r397bf63783240fbb5713389d3f889d287ae0c11509006700ac720037@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r4673642893562c58cbee60c151ded6c077e8a2d02296e862224a9161@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r4673642893562c58cbee60c151ded6c077e8a2d02296e862224a9161@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r632ec30791b441e2eb5a3129532bf1b689bf181d0ef7daf50bcf0fd6@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r632ec30791b441e2eb5a3129532bf1b689bf181d0ef7daf50bcf0fd6@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r718f27bed898008a8e037d9cc848cfc1df4d18abcbaee0cb0c142cfb@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/r718f27bed898008a8e037d9cc848cfc1df4d18abcbaee0cb0c142cfb@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r967953a14e05016bc4bcae9ef3dd92e770181158b4246976ed8295c9@%3Cdev.brooklyn.apache.org%3E">https://lists.apache.org/thread.html/r967953a14e05016bc4bcae9ef3dd92e770181158b4246976ed8295c9@%3Cdev.brooklyn.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra007cec726a3927c918ec94c4316d05d1829c49eae8dc3648adc35e2@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/ra007cec726a3927c918ec94c4316d05d1829c49eae8dc3648adc35e2@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbb4dfca2f7e3e8f3570eec21c79832d33a51dfde6762725660b60169@%3Cdev.mnemonic.apache.org%3E">https://lists.apache.org/thread.html/rbb4dfca2f7e3e8f3570eec21c79832d33a51dfde6762725660b60169@%3Cdev.mnemonic.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rc5f0cc2f3b153bdf15ee7389d78585829abc9c7af4d322ba1085dd3e@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/rc5f0cc2f3b153bdf15ee7389d78585829abc9c7af4d322ba1085dd3e@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rd2227af3c9ada2a72dc72ed05517f5857a34d487580e1f2803922ff9@%3Ccommits.cassandra.apache.org%3E">https://lists.apache.org/thread.html/rd2227af3c9ada2a72dc72ed05517f5857a34d487580e1f2803922ff9@%3Ccommits.cassandra.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/re9b787727291786dfe088e3cd078c7d195c0b5781e15d3cd24a3b2fc@%3Cdev.mnemonic.apache.org%3E">https://lists.apache.org/thread.html/re9b787727291786dfe088e3cd078c7d195c0b5781e15d3cd24a3b2fc@%3Cdev.mnemonic.apache.org%3E</a><br><a href="https://logback.qos.ch/news.html">https://logback.qos.ch/news.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2017-5929">https://nvd.nist.gov/vuln/detail/CVE-2017-5929</a><br></details>  |
@@ -348,9 +348,6 @@ hide:
 
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-
