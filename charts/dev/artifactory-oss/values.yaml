@@ -2,7 +2,7 @@ env:
   EXTRA_JAVA_OPTIONS: -Xms512m -Xmx4g
 image:
   pullPolicy: IfNotPresent
-  repository: docker.bintray.io/jfrog/artifactory-oss
+  repository: tccr.io/truecharts/artifactory-oss
   tag: 6.23.7
 persistence:
   varoptjfrogartifactory:

@@ -3,7 +3,7 @@ env:
   ADMINER_PLUGINS: ''
 image:
   pullPolicy: IfNotPresent
-  repository: adminer
+  repository: tccr.io/truecharts/adminer
   tag: latest
 persistence: {}
 podSecurityContext:

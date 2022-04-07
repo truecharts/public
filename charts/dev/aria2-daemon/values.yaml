@@ -22,7 +22,7 @@ env:
   aria2Split: '5'
 image:
   pullPolicy: IfNotPresent
-  repository: fanningert/aria2-daemon
+  repository: tccr.io/truecharts/aria2-daemon
   tag: latest
 persistence:
   configstoragepath:

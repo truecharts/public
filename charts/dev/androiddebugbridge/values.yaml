@@ -4,7 +4,7 @@ env:
   devicelist: 10.0.0.192:5555
 image:
   pullPolicy: IfNotPresent
-  repository: barnybbb/adb-hass-androidtv
+  repository: tccr.io/truecharts/androiddebugbridge
   tag: latest
 persistence: {}
 podSecurityContext:
