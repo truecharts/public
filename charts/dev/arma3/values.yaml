@@ -74,3 +74,5 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

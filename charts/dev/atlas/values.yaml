@@ -73,3 +73,5 @@ service:
         port: 27000
         protocol: TCP
         targetPort: 27000
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

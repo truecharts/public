@@ -60,7 +60,9 @@ service:
     enabled: true
     ports:
       main:
-        enabled: true
+          enabled: true
         port: 27000
         protocol: TCP
         targetPort: 27000
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]

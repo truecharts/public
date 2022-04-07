@@ -32,3 +32,5 @@ service:
         port: 9201
         protocol: UDP
         targetPort: 9201
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
