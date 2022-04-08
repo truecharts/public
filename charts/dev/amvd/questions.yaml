@@ -1,0 +1,369 @@
+# Include{groups}
+portals: {}
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: false
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: AUTOSTART
+          label: 'AUTOSTART'
+          description: "true = Enabled  Runs script automatically on startup"
+          schema:
+            type: string
+            default: ""
+        - variable: SCRIPTINTERVAL
+          label: 'SCRIPTINTERVAL'
+          description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
+          schema:
+            type: string
+            default: ""
+        - variable: MBRAINZMIRROR
+          label: 'MBRAINZMIRROR'
+          description: "OPTIONAL Only change if using a different mirror"
+          schema:
+            type: string
+            default: ""
+        - variable: MBRATELIMIT
+          label: 'MBRATELIMIT'
+          description: "OPTIONAL musicbrainz rate limit, musicbrainz allows only 1 connection per second, max setting is 10"
+          schema:
+            type: string
+            default: ""
+        - variable: SOURCE_CONNECTION
+          label: 'SOURCE_CONNECTION'
+          description: "lidarr or ama  ama requires the AMA config folder to be mounted as a volume ama"
+          schema:
+            type: string
+            default: ""
+        - variable: LidarrUrl
+          label: 'LidarrUrl'
+          description: "Set domain or IP to your Lidarr instance including port. If using reverse proxy, do not use a trailing slash. Ensure you specify https."
+          schema:
+            type: string
+            default: ""
+        - variable: LidarrAPIkey
+          label: 'LidarrAPIkey'
+          description: "Lidarr API key"
+          schema:
+            type: string
+            default: ""
+        - variable: CountryCode
+          label: 'CountryCode'
+          description: "Set the country code for preferred video matching, uses Musicbrainz Country Codes, lowercase only."
+          schema:
+            type: string
+            default: ""
+        - variable: RequireVideoMatch
+          label: 'RequireVideoMatch'
+          description: "true = enabled  Only keep videos that could be matched to a Musicbrainz music track."
+          schema:
+            type: string
+            default: ""
+        - variable: subtitlelanguage
+          label: 'subtitlelanguage'
+          description: "Desired Language Code  For guidence, please see youtube-dl documentation"
+          schema:
+            type: string
+            default: ""
+        - variable: videofilter
+          label: 'videofilter'
+          description: "This will filter out videos Matching MusicBrainz secondary release type and album disambiguation (single word only)"
+          schema:
+            type: string
+            default: ""
+        - variable: WriteNFOs
+          label: 'WriteNFOs'
+          description: "true = enabled  Create NFO and Local Thumbnail for use in applications such as Kodi"
+          schema:
+            type: string
+            default: ""
+        - variable: USEFOLDERS
+          label: 'USEFOLDERS'
+          description: "true = enabled  Creates subfolders using the Lidarr Artist folder name"
+          schema:
+            type: string
+            default: ""
+        - variable: USEVIDEOFOLDERS
+          label: 'USEVIDEOFOLDERS'
+          description: "true = enabled  Creates subfolders using Video File Name only, requires USEFOLDERS to be enabled"
+          schema:
+            type: string
+            default: ""
+        - variable: FolderPermissions
+          label: 'FolderPermissions'
+          description: "Based on chmod linux permissions"
+          schema:
+            type: string
+            default: ""
+        - variable: FilePermissions
+          label: 'FilePermissions'
+          description: "Based on chmod linux permissions"
+          schema:
+            type: string
+            default: ""
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: config
+          label: "config Storage"
+          description: "Container Path config"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: hostpathfordownloads-amvd
+          label: "hostpathfordownloads-amvd Storage"
+          description: "Container Path downloads-amvd"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+
+
+# Include{persistenceList}
+
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}
