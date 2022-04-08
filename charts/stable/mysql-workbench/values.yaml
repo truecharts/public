@@ -7,6 +7,10 @@ securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
 
+customCapabilities:
+  drop: []
+  add: ["IPC_LOCK"]
+
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
