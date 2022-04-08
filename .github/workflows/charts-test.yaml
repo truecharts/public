@@ -152,7 +152,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
         with:
           python-version: "3.10"
 
@@ -162,11 +162,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -195,7 +199,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
         with:
           python-version: "3.10"
 
@@ -205,11 +209,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -239,7 +247,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
         with:
           python-version: "3.10"
 
@@ -249,11 +257,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -282,7 +294,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
         with:
           python-version: "3.10"
 
@@ -292,11 +304,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -335,11 +351,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -368,7 +388,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@9c644ca2ab8e57ea0a487b5ec2f8290740378bfd # tag=v3
+      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
         with:
           python-version: "3.10"
 
@@ -378,11 +398,15 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.20
+          version: v1.23
 
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Remove node taints
+        run: |
+          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade

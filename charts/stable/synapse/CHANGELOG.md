@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.15"></a>
+### [synapse-2.0.15](https://github.com/truecharts/apps/compare/synapse-2.0.14...synapse-2.0.15) (2022-04-05)
+
+#### Chore
+
+* update container image matrixdotorg/synapse to v1.56.0
+
+
+
 <a name="synapse-2.0.14"></a>
 ### [synapse-2.0.14](https://github.com/truecharts/apps/compare/synapse-2.0.13...synapse-2.0.14) (2022-04-03)
 

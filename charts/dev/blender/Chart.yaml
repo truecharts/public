@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: Blender(https://www.blender.org/) is a free and open-source 3D computer
+  graphics software toolset used for creating animated films, visual effects, art,
+  3D printed models, motion graphics, interactive 3D applications, virtual reality,
+  and computer games. **This image does not support GPU rendering out of the box only
+  accelerated workspace experience**
+home: https://github.com/truecharts/apps/tree/master/charts/stable/blender
+icon: https://truecharts.org/_static/img/appicons/blender.png
+keywords:
+- blender
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: blender
+sources:
+- https://www.blender.org/
+- https://github.com/orgs/linuxserver/packages/container/package/blender
+- https://github.com/linuxserver/docker-blender#readme
+type: application
+version: 0.0.1

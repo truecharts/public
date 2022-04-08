@@ -1,6 +1,6 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 600s
+helm-extra-args: --timeout 240s
 chart-yaml-schema: .github/chart_schema.yaml
 chart-dirs:
 - charts/incubator
@@ -32,13 +32,12 @@ excluded-charts:
 - charts/stable/foundryvtt
 - charts/stable/promcord
 - charts/incubator/zigbee2mqtt
-- zigbee2mqtt
-- incubator/zigbee2mqtt
 - charts/dev/alienswarm-reactivedrop
 - charts/dev/arksurvivalevolved
 - charts/dev/arma3
 - charts/dev/arma3exilemod
 - charts/dev/assettocorsa
+- charts/dev/server-7daystodie
 chart-repos:
 - truecharts-old=https://truecharts.org
 - truecharts=https://charts.truecharts.org
