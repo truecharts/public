@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ispy-agent-dvr-1.0.9"></a>
+### [ispy-agent-dvr-1.0.9](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.8...ispy-agent-dvr-1.0.9) (2022-04-08)
+
+#### Fix
+
+* fix rofs ([#2452](https://github.com/truecharts/apps/issues/2452))
+
+
+
 <a name="ispy-agent-dvr-1.0.8"></a>
 ### [ispy-agent-dvr-1.0.8](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.7...ispy-agent-dvr-1.0.8) (2022-04-03)
 
