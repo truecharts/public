@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: androiddebugbridge/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-androiddebugbridge&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/androiddebugbridge:latest (alpine 3.4.6)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | libcrypto1.0         |    CVE-2018-0732   |   HIGH  |  1.0.2n-r0 | 1.0.2o-r1 | <details><summary>Expand...</summary><a href="http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html">http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html</a><br><a href="http://www.securityfocus.com/bid/104442">http://www.securityfocus.com/bid/104442</a><br><a href="http://www.securitytracker.com/id/1041090">http://www.securitytracker.com/id/1041090</a><br><a href="https://access.redhat.com/errata/RHSA-2018:2552">https://access.redhat.com/errata/RHSA-2018:2552</a><br><a href="https://access.redhat.com/errata/RHSA-2018:2553">https://access.redhat.com/errata/RHSA-2018:2553</a><br><a href="https://access.redhat.com/errata/RHSA-2018:3221">https://access.redhat.com/errata/RHSA-2018:3221</a><br><a href="https://access.redhat.com/errata/RHSA-2018:3505">https://access.redhat.com/errata/RHSA-2018:3505</a><br><a href="https://access.redhat.com/errata/RHSA-2019:1296">https://access.redhat.com/errata/RHSA-2019:1296</a><br><a href="https://access.redhat.com/errata/RHSA-2019:1297">https://access.redhat.com/errata/RHSA-2019:1297</a><br><a href="https://access.redhat.com/errata/RHSA-2019:1543">https://access.redhat.com/errata/RHSA-2019:1543</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-0732">https://access.redhat.com/security/cve/CVE-2018-0732</a><br><a href="https://cert-portal.siemens.com/productcert/pdf/ssa-419820.pdf">https://cert-portal.siemens.com/productcert/pdf/ssa-419820.pdf</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3984ef0b72831da8b3ece4745cac4f8575b19098">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=3984ef0b72831da8b3ece4745cac4f8575b19098</a><br><a href="https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=ea7abeeabf92b7aca160bdd0208636d4da69f4f4">https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=ea7abeeabf92b7aca160bdd0208636d4da69f4f4</a><br><a href="https://linux.oracle.com/cve/CVE-2018-0732.html">https://linux.oracle.com/cve/CVE-2018-0732.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2018-4249.html">https://linux.oracle.com/errata/ELSA-2018-4249.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2018/07/msg00043.html">https://lists.debian.org/debian-lts-announce/2018/07/msg00043.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EWC42UXL5GHTU5G77VKBF6JYUUNGSHOM/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EWC42UXL5GHTU5G77VKBF6JYUUNGSHOM/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y3IVFGSERAZLNJCK35TEM2R4726XIH3Z/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/Y3IVFGSERAZLNJCK35TEM2R4726XIH3Z/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZBEV5QGDRFUZDMNECFXUSN5FMYOZDE4V/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZBEV5QGDRFUZDMNECFXUSN5FMYOZDE4V/</a><br><a href="https://nodejs.org/en/blog/vulnerability/august-2018-security-releases/">https://nodejs.org/en/blog/vulnerability/august-2018-security-releases/</a><br><a href="https://security.gentoo.org/glsa/201811-03">https://security.gentoo.org/glsa/201811-03</a><br><a href="https://security.netapp.com/advisory/ntap-20181105-0001/">https://security.netapp.com/advisory/ntap-20181105-0001/</a><br><a href="https://security.netapp.com/advisory/ntap-20190118-0002/">https://security.netapp.com/advisory/ntap-20190118-0002/</a><br><a href="https://securityadvisories.paloaltonetworks.com/Home/Detail/133">https://securityadvisories.paloaltonetworks.com/Home/Detail/133</a><br><a href="https://ubuntu.com/security/notices/USN-3692-1">https://ubuntu.com/security/notices/USN-3692-1</a><br><a href="https://ubuntu.com/security/notices/USN-3692-2">https://ubuntu.com/security/notices/USN-3692-2</a><br><a href="https://usn.ubuntu.com/3692-1/">https://usn.ubuntu.com/3692-1/</a><br><a href="https://usn.ubuntu.com/3692-2/">https://usn.ubuntu.com/3692-2/</a><br><a href="https://www.debian.org/security/2018/dsa-4348">https://www.debian.org/security/2018/dsa-4348</a><br><a href="https://www.debian.org/security/2018/dsa-4355">https://www.debian.org/security/2018/dsa-4355</a><br><a href="https://www.openssl.org/news/secadv/20180612.txt">https://www.openssl.org/news/secadv/20180612.txt</a><br><a href="https://www.oracle.com/security-alerts/cpuapr2020.html">https://www.oracle.com/security-alerts/cpuapr2020.html</a><br><a href="https://www.oracle.com/security-alerts/cpujan2021.html">https://www.oracle.com/security-alerts/cpujan2021.html</a><br><a href="https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html">https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html</a><br><a href="https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html">https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html</a><br><a href="https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html">https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html</a><br><a href="https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html">https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html</a><br><a href="https://www.tenable.com/security/tns-2018-12">https://www.tenable.com/security/tns-2018-12</a><br><a href="https://www.tenable.com/security/tns-2018-13">https://www.tenable.com/security/tns-2018-13</a><br><a href="https://www.tenable.com/security/tns-2018-14">https://www.tenable.com/security/tns-2018-14</a><br><a href="https://www.tenable.com/security/tns-2018-17">https://www.tenable.com/security/tns-2018-17</a><br></details>  |
@@ -101,9 +101,6 @@ hide:
 
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: adguard-home/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-adguard-home&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/adguard-home:latest (alpine 3.13.7)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.32.1-r7 | 1.32.1-r8 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -94,11 +94,10 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/satori/go.uuid         |    CVE-2021-3538   |   CRITICAL  |  v1.2.0 | 1.2.1-0.20181016170032-d91630c85102 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-3538">https://access.redhat.com/security/cve/CVE-2021-3538</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1954376">https://bugzilla.redhat.com/show_bug.cgi?id=1954376</a><br><a href="https://github.com/satori/go.uuid/commit/d91630c8510268e75203009fe7daf2b8e1d60c45">https://github.com/satori/go.uuid/commit/d91630c8510268e75203009fe7daf2b8e1d60c45</a><br><a href="https://github.com/satori/go.uuid/issues/73">https://github.com/satori/go.uuid/issues/73</a><br><a href="https://github.com/satori/go.uuid/pull/75">https://github.com/satori/go.uuid/pull/75</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3538">https://nvd.nist.gov/vuln/detail/CVE-2021-3538</a><br><a href="https://pkg.go.dev/vuln/GO-2020-0018">https://pkg.go.dev/vuln/GO-2020-0018</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMSATORIGOUUID-72488">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMSATORIGOUUID-72488</a><br></details>  |
 | github.com/u-root/u-root         |    CVE-2020-7665   |   HIGH  |  v7.0.0+incompatible |  | <details><summary>Expand...</summary><a href="https://github.com/u-root/u-root/pull/1817">https://github.com/u-root/u-root/pull/1817</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7665">https://nvd.nist.gov/vuln/detail/CVE-2020-7665</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGUZIP-570441">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGUZIP-570441</a><br></details>  |
 | github.com/u-root/u-root         |    CVE-2020-7666   |   HIGH  |  v7.0.0+incompatible |  | <details><summary>Expand...</summary><a href="https://github.com/u-root/u-root/pull/1817">https://github.com/u-root/u-root/pull/1817</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7666">https://nvd.nist.gov/vuln/detail/CVE-2020-7666</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGCPIO-570440">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGCPIO-570440</a><br></details>  |
 | github.com/u-root/u-root         |    CVE-2020-7669   |   HIGH  |  v7.0.0+incompatible |  | <details><summary>Expand...</summary><a href="https://github.com/u-root/u-root/pull/1817">https://github.com/u-root/u-root/pull/1817</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7669">https://nvd.nist.gov/vuln/detail/CVE-2020-7669</a><br><a href="https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGTARUTIL-570428">https://snyk.io/vuln/SNYK-GOLANG-GITHUBCOMUROOTUROOTPKGTARUTIL-570428</a><br></details>  |
-

@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: appsmith/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-appsmith&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/appsmith:latest (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://access.redhat.com/security/cve/CVE-2019-18276">https://access.redhat.com/security/cve/CVE-2019-18276</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-18276">https://nvd.nist.gov/vuln/detail/CVE-2019-18276</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -310,7 +310,7 @@ hide:
 
 **jar**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | com.fasterxml.jackson.core:jackson-databind         |    CVE-2020-36518   |   HIGH  |  2.12.6 | 2.12.6.1, 2.13.2.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2020-36518">https://access.redhat.com/security/cve/CVE-2020-36518</a><br><a href="https://github.com/FasterXML/jackson-databind/commit/fcfc4998ec23f0b1f7f8a9521c2b317b6c25892b">https://github.com/FasterXML/jackson-databind/commit/fcfc4998ec23f0b1f7f8a9521c2b317b6c25892b</a><br><a href="https://github.com/FasterXML/jackson-databind/issues/2816">https://github.com/FasterXML/jackson-databind/issues/2816</a><br><a href="https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.12">https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.12</a><br><a href="https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.13">https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.13</a><br><a href="https://github.com/advisories/GHSA-57j2-w4cx-62h2">https://github.com/advisories/GHSA-57j2-w4cx-62h2</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36518">https://nvd.nist.gov/vuln/detail/CVE-2020-36518</a><br></details>  |
@@ -342,7 +342,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | engine.io         |    CVE-2022-21676   |   HIGH  |  5.1.1 | 6.1.1, 5.2.1, 4.1.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-273r-mgr4-v34f">https://github.com/advisories/GHSA-273r-mgr4-v34f</a><br><a href="https://github.com/socketio/engine.io/commit/66f889fc1d966bf5bfa0de1939069153643874ab">https://github.com/socketio/engine.io/commit/66f889fc1d966bf5bfa0de1939069153643874ab</a><br><a href="https://github.com/socketio/engine.io/commit/a70800d7e96da32f6e6622804ef659ebc58659db">https://github.com/socketio/engine.io/commit/a70800d7e96da32f6e6622804ef659ebc58659db</a><br><a href="https://github.com/socketio/engine.io/commit/c0e194d44933bd83bf9a4b126fca68ba7bf5098c">https://github.com/socketio/engine.io/commit/c0e194d44933bd83bf9a4b126fca68ba7bf5098c</a><br><a href="https://github.com/socketio/engine.io/releases/tag/4.1.2">https://github.com/socketio/engine.io/releases/tag/4.1.2</a><br><a href="https://github.com/socketio/engine.io/releases/tag/5.2.1">https://github.com/socketio/engine.io/releases/tag/5.2.1</a><br><a href="https://github.com/socketio/engine.io/releases/tag/6.1.1">https://github.com/socketio/engine.io/releases/tag/6.1.1</a><br><a href="https://github.com/socketio/engine.io/security/advisories/GHSA-273r-mgr4-v34f">https://github.com/socketio/engine.io/security/advisories/GHSA-273r-mgr4-v34f</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-21676">https://nvd.nist.gov/vuln/detail/CVE-2022-21676</a><br></details>  |
@@ -350,65 +350,64 @@ hide:
 
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
-

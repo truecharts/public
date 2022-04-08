@@ -1,6 +1,6 @@
 # Introduction
 
-This Docker will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it. (!!!This container will only run on systems with less than 32 CPU cores!!!) 
+This Docker will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it. (!!!This container will only run on systems with less than 32 CPU cores!!!)
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**

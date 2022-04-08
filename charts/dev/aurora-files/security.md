@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: aurora-files/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-aurora-files&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/aurora-files:latest (ubuntu 16.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2         |    CVE-2020-11985   |   LOW  |  2.4.18-2ubuntu3.14 | 2.4.18-2ubuntu3.15 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2020-11985">https://access.redhat.com/security/cve/CVE-2020-11985</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11985">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11985</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html">https://httpd.apache.org/security/vulnerabilities_24.html</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2020-11985">https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2020-11985</a><br><a href="https://lists.apache.org/thread.html/r03ee478b3dda3e381fd6189366fa7af97c980d2f602846eef935277d@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r03ee478b3dda3e381fd6189366fa7af97c980d2f602846eef935277d@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r09bb998baee74a2c316446bd1a41ae7f8d7049d09d9ff991471e8775@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r09bb998baee74a2c316446bd1a41ae7f8d7049d09d9ff991471e8775@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r3c5c3104813c1c5508b55564b66546933079250a46ce50eee90b2e36@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r3c5c3104813c1c5508b55564b66546933079250a46ce50eee90b2e36@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r476d175be0aaf4a17680ef98c5153b4d336eaef76fb2224cc94c463a@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r476d175be0aaf4a17680ef98c5153b4d336eaef76fb2224cc94c463a@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r76142b8c5119df2178be7c2dba88fde552eedeec37ea993dfce68d1d@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r76142b8c5119df2178be7c2dba88fde552eedeec37ea993dfce68d1d@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r9f93cf6dde308d42a9c807784e8102600d0397f5f834890708bf6920@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/r9f93cf6dde308d42a9c807784e8102600d0397f5f834890708bf6920@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rc998b18880df98bafaade071346690c2bc1444adaa1a1ea464b93f0a@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/rc998b18880df98bafaade071346690c2bc1444adaa1a1ea464b93f0a@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rcc44594d4d6579b90deccd4536b5d31f099ef563df39b094be286b9e@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/rcc44594d4d6579b90deccd4536b5d31f099ef563df39b094be286b9e@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rd336919f655b7ff309385e34a143e41c503e133da80414485b3abcc9@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/rd336919f655b7ff309385e34a143e41c503e133da80414485b3abcc9@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf6449464fd8b7437704c55f88361b66f12d5b5f90bcce66af4be4ba9@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/rf6449464fd8b7437704c55f88361b66f12d5b5f90bcce66af4be4ba9@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A2RN46PRBJE7E7OPD4YZX5SVWV5QKGV5/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A2RN46PRBJE7E7OPD4YZX5SVWV5QKGV5/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HYVYE2ZERFXDV6RMKK3I5SDSDQLPSEIQ/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HYVYE2ZERFXDV6RMKK3I5SDSDQLPSEIQ/</a><br><a href="https://security.gentoo.org/glsa/202008-04">https://security.gentoo.org/glsa/202008-04</a><br><a href="https://security.netapp.com/advisory/ntap-20200827-0002/">https://security.netapp.com/advisory/ntap-20200827-0002/</a><br><a href="https://www.openwall.com/lists/oss-security/2020/08/07/2">https://www.openwall.com/lists/oss-security/2020/08/07/2</a><br><a href="https://www.oracle.com/security-alerts/cpujan2021.html">https://www.oracle.com/security-alerts/cpujan2021.html</a><br></details>  |
@@ -328,9 +328,6 @@ hide:
 
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

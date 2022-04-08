@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: audiobookshelf/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-audiobookshelf&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -53,11 +53,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -66,11 +66,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -79,11 +79,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/audiobookshelf:latest (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   UNKNOWN  |  1.34.1-r3 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br></details>  |
@@ -103,7 +103,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   MEDIUM  |  3.0.0 | 3.0.1, 4.1.1, 5.0.1, 6.0.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-3807">https://access.redhat.com/security/cve/CVE-2021-3807</a><br><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://github.com/chalk/ansi-regex/releases/tag/v6.0.1">https://github.com/chalk/ansi-regex/releases/tag/v6.0.1</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3807.html">https://linux.oracle.com/cve/CVE-2021-3807.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0350.html">https://linux.oracle.com/errata/ELSA-2022-0350.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br></details>  |
@@ -113,4 +113,3 @@ hide:
 | follow-redirects         |    CVE-2022-0155   |   HIGH  |  1.14.1 | 1.14.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-0155">https://access.redhat.com/security/cve/CVE-2022-0155</a><br><a href="https://github.com/advisories/GHSA-74fj-2j2h-c42q">https://github.com/advisories/GHSA-74fj-2j2h-c42q</a><br><a href="https://github.com/follow-redirects/follow-redirects/commit/8b347cbcef7c7b72a6e9be20f5710c17d6163c22">https://github.com/follow-redirects/follow-redirects/commit/8b347cbcef7c7b72a6e9be20f5710c17d6163c22</a><br><a href="https://huntr.dev/bounties/fc524e4b-ebb6-427d-ab67-a64181020406">https://huntr.dev/bounties/fc524e4b-ebb6-427d-ab67-a64181020406</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0155">https://nvd.nist.gov/vuln/detail/CVE-2022-0155</a><br></details>  |
 | follow-redirects         |    CVE-2022-0536   |   MEDIUM  |  1.14.1 | 1.14.8 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-0536">https://access.redhat.com/security/cve/CVE-2022-0536</a><br><a href="https://github.com/advisories/GHSA-pw2r-vq6v-hr8c">https://github.com/advisories/GHSA-pw2r-vq6v-hr8c</a><br><a href="https://github.com/follow-redirects/follow-redirects/commit/62e546a99c07c3ee5e4e0718c84a6ca127c5c445">https://github.com/follow-redirects/follow-redirects/commit/62e546a99c07c3ee5e4e0718c84a6ca127c5c445</a><br><a href="https://huntr.dev/bounties/7cf2bf90-52da-4d59-8028-a73b132de0db">https://huntr.dev/bounties/7cf2bf90-52da-4d59-8028-a73b132de0db</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0536">https://nvd.nist.gov/vuln/detail/CVE-2022-0536</a><br></details>  |
 | minimist         |    CVE-2021-44906   |   CRITICAL  |  1.2.5 | 1.2.6 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-44906">https://access.redhat.com/security/cve/CVE-2021-44906</a><br><a href="https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip">https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip</a><br><a href="https://github.com/advisories/GHSA-xvch-5gv4-984h">https://github.com/advisories/GHSA-xvch-5gv4-984h</a><br><a href="https://github.com/substack/minimist/blob/master/index.js#L69">https://github.com/substack/minimist/blob/master/index.js#L69</a><br><a href="https://github.com/substack/minimist/issues/164">https://github.com/substack/minimist/issues/164</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44906">https://nvd.nist.gov/vuln/detail/CVE-2021-44906</a><br><a href="https://snyk.io/vuln/SNYK-JS-MINIMIST-559764">https://snyk.io/vuln/SNYK-JS-MINIMIST-559764</a><br><a href="https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068">https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068</a><br></details>  |
-
