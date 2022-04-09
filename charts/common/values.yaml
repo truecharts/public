@@ -24,7 +24,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.4.2@sha256:171e08dcdd1d6c09bff949c37ce4f4756b9ee0132f8d84631986faa223562a30
+  tag: v2.5.0@sha256:72efc7d761d8a34aba6625370d10170e3c1defffbe71a2d41ca9275ce229029d
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: ghcr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:505d3430ed7c1d43fed18dbd1177b76ecb6fc376113bc41d34da230c402a4855
+  tag: latest@sha256:044684bdd488ad5a129e57d915ee56c3ad2b450624414cb577d3292517ac45d4
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.2.0@sha256:49c0d62b3cc3984950f2765da39ef637f61def6229d0cef3171faa141d43d23e
+  tag: v14.2.0@sha256:d3090aff46c18cfad1b07396ced6bb41e21be50dde68757f65a1931be05efe2b
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.3@sha256:21110d6dfde8ffc61039eb5db94f52bb3326b4690a150b0a2377b7844ce2432b
+  tag: v10.7.3@sha256:abc4d04186ea8b08281fb24ac37992548c475b3500d5891faab665ff904e0459
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
@@ -84,7 +84,7 @@ mongodbImage:
   # -- Specify the mongodb image
   repository: ghcr.io/truecharts/mongodb
   # -- Specify the mongodb image tag
-  tag: v5.0.6@sha256:b60e8cb6722ad3b9e1da8e3e45349169ce6dcd6be9dc2e2405106bbc9b024044
+  tag: v5.0.6@sha256:be6c64406f21f288e23d888701765c3a5fcd74bfaf49e96ad7de92363641d4c1
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
