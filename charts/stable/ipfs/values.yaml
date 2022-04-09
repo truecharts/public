@@ -1,7 +1,11 @@
 image:
-  repository: ipfs/go-ipfs
+  repository: tccr.io/truecharts/ipfs
   pullPolicy: IfNotPresent
+<<<<<<< HEAD
   tag: v0.12.2
+=======
+  tag: v0.12.1@sha256:DIGEST
+>>>>>>> chore(ipfs): update image ref
 
 securityContext:
   runAsNonRoot: false
