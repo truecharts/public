@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-5.0.11"></a>
+### [pihole-5.0.11](https://github.com/truecharts/apps/compare/pihole-5.0.10...pihole-5.0.11) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="pihole-5.0.10"></a>
 ### [pihole-5.0.10](https://github.com/truecharts/apps/compare/pihole-5.0.9...pihole-5.0.10) (2022-04-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-2.0.15"></a>
+### [linkace-2.0.15](https://github.com/truecharts/apps/compare/linkace-2.0.14...linkace-2.0.15) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="linkace-2.0.14"></a>
 ### [linkace-2.0.14](https://github.com/truecharts/apps/compare/linkace-2.0.13...linkace-2.0.14) (2022-04-03)
 

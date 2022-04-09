@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-5.0.13"></a>
+### [booksonic-air-5.0.13](https://github.com/truecharts/apps/compare/booksonic-air-5.0.12...booksonic-air-5.0.13) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="booksonic-air-5.0.12"></a>
 ### [booksonic-air-5.0.12](https://github.com/truecharts/apps/compare/booksonic-air-5.0.11...booksonic-air-5.0.12) (2022-04-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.25"></a>
+### [promtail-2.0.25](https://github.com/truecharts/apps/compare/promtail-2.0.24...promtail-2.0.25) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="promtail-2.0.24"></a>
 ### [promtail-2.0.24](https://github.com/truecharts/apps/compare/promtail-2.0.23...promtail-2.0.24) (2022-04-03)
 

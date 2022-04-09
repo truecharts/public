@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-2.0.13"></a>
+### [uptime-kuma-2.0.13](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.12...uptime-kuma-2.0.13) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="uptime-kuma-2.0.12"></a>
 ### [uptime-kuma-2.0.12](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.11...uptime-kuma-2.0.12) (2022-04-03)
 

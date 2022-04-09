@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-5.0.10"></a>
+### [overseerr-5.0.10](https://github.com/truecharts/apps/compare/overseerr-5.0.9...overseerr-5.0.10) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="overseerr-5.0.9"></a>
 ### [overseerr-5.0.9](https://github.com/truecharts/apps/compare/overseerr-5.0.8...overseerr-5.0.9) (2022-04-03)
 

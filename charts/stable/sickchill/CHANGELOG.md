@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-2.0.12"></a>
+### [sickchill-2.0.12](https://github.com/truecharts/apps/compare/sickchill-2.0.11...sickchill-2.0.12) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="sickchill-2.0.11"></a>
 ### [sickchill-2.0.11](https://github.com/truecharts/apps/compare/sickchill-2.0.10...sickchill-2.0.11) (2022-04-03)
 

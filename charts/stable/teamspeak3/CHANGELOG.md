@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-3.0.11"></a>
+### [teamspeak3-3.0.11](https://github.com/truecharts/apps/compare/teamspeak3-3.0.10...teamspeak3-3.0.11) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="teamspeak3-3.0.10"></a>
 ### [teamspeak3-3.0.10](https://github.com/truecharts/apps/compare/teamspeak3-3.0.9...teamspeak3-3.0.10) (2022-04-03)
 

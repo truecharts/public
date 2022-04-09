@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-5.0.11"></a>
+### [mylar-5.0.11](https://github.com/truecharts/apps/compare/mylar-5.0.10...mylar-5.0.11) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="mylar-5.0.10"></a>
 ### [mylar-5.0.10](https://github.com/truecharts/apps/compare/mylar-5.0.9...mylar-5.0.10) (2022-04-03)
 

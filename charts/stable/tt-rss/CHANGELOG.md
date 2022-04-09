@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.19"></a>
+### [tt-rss-5.0.19](https://github.com/truecharts/apps/compare/tt-rss-5.0.18...tt-rss-5.0.19) (2022-04-09)
+
+#### Chore
+
+* update container image tccr.io/truecharts/tt-rss to v2.0.9113 ([#2459](https://github.com/truecharts/apps/issues/2459))
+
+
+
 <a name="tt-rss-5.0.18"></a>
 ### [tt-rss-5.0.18](https://github.com/truecharts/apps/compare/tt-rss-5.0.17...tt-rss-5.0.18) (2022-04-03)
 

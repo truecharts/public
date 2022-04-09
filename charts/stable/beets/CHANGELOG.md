@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-3.0.14"></a>
+### [beets-3.0.14](https://github.com/truecharts/apps/compare/beets-3.0.13...beets-3.0.14) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="beets-3.0.13"></a>
 ### [beets-3.0.13](https://github.com/truecharts/apps/compare/beets-3.0.12...beets-3.0.13) (2022-04-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.14"></a>
+### [grist-1.0.14](https://github.com/truecharts/apps/compare/grist-1.0.13...grist-1.0.14) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
 <a name="grist-1.0.13"></a>
 ### [grist-1.0.13](https://github.com/truecharts/apps/compare/grist-1.0.12...grist-1.0.13) (2022-04-03)
 
