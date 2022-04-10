@@ -3,11 +3,11 @@ image:
   tag: v0.90.78@sha256:e0f0270d7b2e793e4fb2790756bf44d3dd331fcf8c2fc6964e61e683df01aa6a
   pullPolicy: IfNotPresent
 
-secret:
-  ADMIN_USER: "admin"
-  ADMIN_PASSWORD: "changeme"
-  ADMIN_EMAIL: "info@example.com"
-  API_SECRET: "supersecret"
+secret: {}
+  # ADMIN_USER: "admin"
+  # ADMIN_PASSWORD: "changeme"
+  # ADMIN_EMAIL: "info@example.com"
+  # API_SECRET: "supersecret"
 
 env:
   DB_CONN: "postgres"
@@ -18,16 +18,16 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   STATPING_DIR: "/data"
   # User Defined
-  NAME: "Statping Example"
-  DESCRIPTION: "This is a Statping instance deployed as Helm chart"
-  DOMAIN: "http://localhost:10099"
-  USE_CDN: false
-  ALLOW_REPORTS: false
-  REMOVE_AFTER: "2160h"
-  CLEANUP_INTERVAL: "1h"
-  DISABLE_LOGS: false
-  DISABLE_COLORS: false
-  SAMPLE_DATA: true
+  # NAME: "Statping Example"
+  # DESCRIPTION: "This is a Statping instance deployed as Helm chart"
+  # DOMAIN: "http://localhost:10099"
+  # USE_CDN: false
+  # ALLOW_REPORTS: false
+  # REMOVE_AFTER: "2160h"
+  # CLEANUP_INTERVAL: "1h"
+  # DISABLE_LOGS: false
+  # DISABLE_COLORS: false
+  # SAMPLE_DATA: true
 
 envValueFrom:
   DB_PASS:
