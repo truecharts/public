@@ -127,7 +127,7 @@ questions:
           description: 'e.g. "--o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
           schema:
             type: string
-            default: "--o:welcome.enable=false --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false"
+            default: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false"
         - variable: DONT_GEN_SSL_CERT
           label: "DONT_GEN_SSL_CERT"
           description: "When set to true it does NOT generate an SSL cert, you have to use your own"
