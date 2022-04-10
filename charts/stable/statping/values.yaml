@@ -1,37 +1,33 @@
 image:
-  # -- image repository
-  repository: tccr.io/truecharts/statping
-  # -- image tag
-  tag: v0.90.74@sha256:1c7e6cf35253668dd55ab20dde3c3e10d2fefd31416963b81d63846b672f38ce
-  # -- image pull policy
+  repository: adamboutcher/statping-ng
+  tag: v0.90.78@sha256:222895591380e25a594a22e0ad0b8176d0a2747dd196252875e0b3e933c26ea3
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details.
-# @default -- See below
 secret:
-  # -- dashboard admin user (needed to edit)
   ADMIN_USER: "admin"
-  # -- dashboard admin password (needed to edit)
   ADMIN_PASSWORD: "changeme"
-  # -- dashboard admin email
   ADMIN_EMAIL: "info@example.com"
+  API_SECRET: "supersecret"
+
 env:
-  # -- Set the container timezone
-  # -- Name of the Statping instance
-  NAME: "Statping Example"
-  # -- Description of the Statping instance
-  DESCRIPTION: "This is a Statping instance deployed as Helm chart"
-  # -- External URL you use to connect to the statping (the one you enter in your browser)
-  VIRTUAL_HOST: ""
-  # -- Use CDN for static context from third-parties
-  USE_CDN: false
-  # -- Disable logs from appearing and writing to disk
-  DISABLE_LOGS: false
   DB_CONN: "postgres"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
   POSTGRES_SSLMODE: "disable"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  STATPING_DIR: "/data"
+  # User Defined
+  NAME: "Statping Example"
+  DESCRIPTION: "This is a Statping instance deployed as Helm chart"
+  DOMAIN: "http://localhost:10099"
+  USE_CDN: false
+  ALLOW_REPORTS: false
+  REMOVE_AFTER: "2160h"
+  CLEANUP_INTERVAL: "1h"
+  DISABLE_LOGS: false
+  DISABLE_COLORS: false
+  SAMPLE_DATA: true
 
 envValueFrom:
   DB_PASS:
@@ -42,25 +38,28 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+
+probes:
+  liveness:
+    path: "/health"
+  readiness:
+    path: "/health"
+  startup:
+    path: "/health"
+
 service:
   main:
     ports:
       main:
         port: 10099
-        targetPort: 8080
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
+
 persistence:
   data:
     enabled: true
-    mountPath: "/app"
+    mountPath: "/data"
 
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- See values.yaml
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
-  postgresqlUsername: postgres
-  postgresqlDatabase: postgres
+  postgresqlUsername: statping-ng
+  postgresqlDatabase: statping-ng

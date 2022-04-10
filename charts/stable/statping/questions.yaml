@@ -83,19 +83,26 @@ questions:
       attrs:
         - variable: ADMIN_USER
           label: "ADMIN_USER"
-          description: "Sets the ADMIN_USER env var"
+          description: "Username for administrator account"
           schema:
             type: string
-            default: "admin"
+            default: ""
         - variable: ADMIN_PASSWORD
           label: "ADMIN_PASSWORD"
-          description: "Sets the ADMIN_PASSWORD env var"
+          description: "Password for administrator account"
           schema:
             type: string
-            default: "changeme"
+            private: true
+            default: ""
         - variable: ADMIN_EMAIL
           label: "ADMIN_EMAIL"
           description: "Sets the ADMIN_EMAIL env var"
+          schema:
+            type: string
+            default: ""
+        - variable: API_SECRET
+          label: "API_SECRET"
+          description: "Set a custom API Secret for API Authentication"
           schema:
             type: string
             default: ""
@@ -108,19 +115,19 @@ questions:
       attrs:
         - variable: NAME
           label: "NAME"
-          description: "Sets the NAME env var"
+          description: "Set a name for the Statping status page"
           schema:
             type: string
-            default: "Statping Example"
+            default: "Statping status page"
         - variable: DESCRIPTION
           label: "DESCRIPTION"
-          description: "Sets the DESCRIPTION env var"
+          description: "Set a description for the Statping status page"
           schema:
             type: string
-            default: "This is a Statping instance deployed as Helm chart"
-        - variable: VIRTUAL_HOST
-          label: "VIRTUAL_HOST"
-          description: "Sets the VIRTUAL_HOST env var"
+            default: "Description of status page"
+        - variable: DOMAIN
+          label: "DOMAIN"
+          description: "Set a URL for the Statping status page"
           schema:
             type: string
             default: ""
@@ -130,9 +137,39 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: ALLOW_REPORTS
+          label: "ALLOW_REPORTS"
+          description: "Send Statping anonymous error reports"
+          schema:
+            type: boolean
+            default: false
+        - variable: REMOVE_AFTER
+          label: "REMOVE_AFTER"
+          description: "Automatically delete records after time"
+          schema:
+            type: string
+            default: "2160h"
+        - variable: CLEANUP_INTERVAL
+          label: "CLEANUP_INTERVAL"
+          description: "Interval to check for old records"
+          schema:
+            type: string
+            default: "1h"
         - variable: DISABLE_LOGS
           label: "DISABLE_LOGS"
-          description: "Sets the DISABLE_LOGS env var"
+          description: "Disable logs from appearing and writing to disk"
+          schema:
+            type: boolean
+            default: false
+        - variable: DISABLE_COLORS
+          label: "DISABLE_COLORS"
+          description: "Disable colors in terminal logs if set to true"
+          schema:
+            type: boolean
+            default: false
+        - variable: SAMPLE_DATA
+          label: "SAMPLE_DATA"
+          description: "Insert sample services, groups and more"
           schema:
             type: boolean
             default: false
@@ -199,7 +236,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 10099
 
   - variable: serviceexpert
     group: "Networking and Services"
