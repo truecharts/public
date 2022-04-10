@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flexget-1.0.14"></a>
+### [flexget-1.0.14](https://github.com/truecharts/apps/compare/flexget-1.0.13...flexget-1.0.14) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="flexget-1.0.13"></a>
 ### [flexget-1.0.13](https://github.com/truecharts/apps/compare/flexget-1.0.12...flexget-1.0.13) (2022-04-09)
 
