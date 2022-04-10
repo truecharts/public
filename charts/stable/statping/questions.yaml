@@ -82,29 +82,30 @@ questions:
       type: dict
       attrs:
         - variable: ADMIN_USER
-          label: "ADMIN_USER"
+          label: "Admin User"
           description: "Username for administrator account"
           schema:
             type: string
             default: ""
         - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
+          label: "Admin Password"
           description: "Password for administrator account"
           schema:
             type: string
             private: true
             default: ""
         - variable: ADMIN_EMAIL
-          label: "ADMIN_EMAIL"
-          description: "Sets the ADMIN_EMAIL env var"
+          label: "Admin E-mail"
+          description: "E-mail for administrator account"
           schema:
             type: string
             default: ""
         - variable: API_SECRET
-          label: "API_SECRET"
+          label: "API Secret"
           description: "Set a custom API Secret for API Authentication"
           schema:
             type: string
+            private: true
             default: ""
   - variable: env
     group: "Container Configuration"
@@ -114,19 +115,19 @@ questions:
       type: dict
       attrs:
         - variable: NAME
-          label: "NAME"
+          label: "Status Page Name"
           description: "Set a name for the Statping status page"
           schema:
             type: string
             default: "Statping status page"
         - variable: DESCRIPTION
-          label: "DESCRIPTION"
+          label: "Status Page Description"
           description: "Set a description for the Statping status page"
           schema:
             type: string
             default: "Description of status page"
         - variable: DOMAIN
-          label: "DOMAIN"
+          label: "Status Page Domain"
           description: "Set a URL for the Statping status page"
           schema:
             type: string
@@ -138,37 +139,37 @@ questions:
             type: boolean
             default: false
         - variable: ALLOW_REPORTS
-          label: "ALLOW_REPORTS"
+          label: "Allow Reports"
           description: "Send Statping anonymous error reports"
           schema:
             type: boolean
             default: false
         - variable: REMOVE_AFTER
-          label: "REMOVE_AFTER"
+          label: "Remove After"
           description: "Automatically delete records after time"
           schema:
             type: string
             default: "2160h"
         - variable: CLEANUP_INTERVAL
-          label: "CLEANUP_INTERVAL"
+          label: "Cleanup Interval"
           description: "Interval to check for old records"
           schema:
             type: string
             default: "1h"
         - variable: DISABLE_LOGS
-          label: "DISABLE_LOGS"
+          label: "Disable Logs"
           description: "Disable logs from appearing and writing to disk"
           schema:
             type: boolean
             default: false
         - variable: DISABLE_COLORS
-          label: "DISABLE_COLORS"
+          label: "Disable Colors in Logs"
           description: "Disable colors in terminal logs if set to true"
           schema:
             type: boolean
             default: false
         - variable: SAMPLE_DATA
-          label: "SAMPLE_DATA"
+          label: "Sample Data"
           description: "Insert sample services, groups and more"
           schema:
             type: boolean
