@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-11.0.15"></a>
+### [collabora-online-11.0.15](https://github.com/truecharts/apps/compare/collabora-online-11.0.14...collabora-online-11.0.15) (2022-04-10)
+
+#### Fix
+
+* remove domains var as it's no longer used. ([#2469](https://github.com/truecharts/apps/issues/2469))
+
+
+
 <a name="collabora-online-11.0.14"></a>
 ### [collabora-online-11.0.14](https://github.com/truecharts/apps/compare/collabora-online-11.0.13...collabora-online-11.0.14) (2022-04-09)
 
