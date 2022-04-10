@@ -111,6 +111,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: aliasgroup1
+          label: "aliasgroup1"
+          description: "Comma separated hosts list."
+          schema:
+            type: string
+            default: ""
         - variable: dictionaries
           label: "Dictionaries to use, leave empty to use all"
           schema:
