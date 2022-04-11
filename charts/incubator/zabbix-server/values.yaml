@@ -22,13 +22,20 @@ env:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   ZBX_LISTENPORT: 10051
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
+  # Needs additional container for snmptraps + shared volume
+  # ZBX_ENABLE_SNMP_TRAPS: true
+  # User Defined
+  ZBX_DEBUGLEVEL: 5
 
 frontendConfig:
   ZBX_SERVER_NAME: "My Zabbix Instance"
-  DB_DOUBLE_IEEE754: true
-  ENABLE_WEB_ACCESS_LOG:
   ZBX_MAXEXECUTIONTIME: 300
   ZBX_MEMORYLIMIT: "128M"
+  ZBX_POSTMAXSIZE: "16M"
+  ZBX_UPLOADMAXFILESIZE: "2M"
+  ZBX_MAXINPUTTIME: 300
+  ZBX_DENY_GUI_ACCESS: false
+  ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 envValueFrom:
   POSTGRES_PASSWORD:
@@ -86,14 +93,20 @@ additionalContainers:
       # User Defined
       - name: ZBX_SERVER_NAME
         value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
-      - name: DB_DOUBLE_IEEE754
-        value: "{{ .Values.frontendConfig.DB_DOUBLE_IEEE754 }}"
-      - name: ENABLE_WEB_ACCESS_LOG
-        value: "{{ .Values.frontendConfig.ENABLE_WEB_ACCESS_LOG }}"
       - name: ZBX_MAXEXECUTIONTIME
         value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
       - name: ZBX_MEMORYLIMIT
         value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
+      - name: ZBX_POSTMAXSIZE
+        value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
+      - name: ZBX_UPLOADMAXFILESIZE
+        value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
+      - name: ZBX_MAXINPUTTIME
+        value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
+      - name: ZBX_DENY_GUI_ACCESS
+        value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
+      - name: ZBX_GUI_WARNING_MSG
+        value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
 # persistence:
   # alertscripts:
