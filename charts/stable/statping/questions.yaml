@@ -86,6 +86,7 @@ questions:
           description: "Username for administrator account"
           schema:
             type: string
+            required: true
             default: ""
         - variable: ADMIN_PASSWORD
           label: "Admin Password"
@@ -93,12 +94,14 @@ questions:
           schema:
             type: string
             private: true
+            required: true
             default: ""
         - variable: ADMIN_EMAIL
           label: "Admin E-mail"
           description: "E-mail for administrator account"
           schema:
             type: string
+            required: true
             default: ""
         - variable: API_SECRET
           label: "API Secret"
@@ -119,18 +122,21 @@ questions:
           description: "Set a name for the Statping status page"
           schema:
             type: string
+            required: true
             default: "Statping status page"
         - variable: DESCRIPTION
           label: "Status Page Description"
           description: "Set a description for the Statping status page"
           schema:
             type: string
+            required: true
             default: "Description of status page"
         - variable: DOMAIN
           label: "Status Page Domain"
           description: "Set a URL for the Statping status page"
           schema:
             type: string
+            required: true
             default: ""
         - variable: USE_CDN
           label: "USE_CDN"
