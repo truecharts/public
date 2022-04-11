@@ -23,6 +23,13 @@ env:
   ZBX_LISTENPORT: 10051
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
 
+frontendConfig:
+  ZBX_SERVER_NAME: "My Zabbix Instance"
+  DB_DOUBLE_IEEE754: true
+  ENABLE_WEB_ACCESS_LOG:
+  ZBX_MAXEXECUTIONTIME: 300
+  ZBX_MEMORYLIMIT: "128M"
+
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
@@ -60,6 +67,12 @@ additionalContainers:
         value: "{{ .Values.env.DB_SERVER_PORT }}"
       - name: PHP_TZ
         value: "{{ .Values.TZ }}"
+      # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
+      # - name: ZBX_HISTORYSTORAGEURL
+      #   value: "ELASTICSEARCHURL"
+      # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
+      # - name: ZBX_HISTORYSTORAGETYPES
+      #   value: "['uint', 'dbl']"
       - name: DB_SERVER_HOST
         valueFrom:
           secretKeyRef:
@@ -70,8 +83,19 @@ additionalContainers:
           secretKeyRef:
             name: dbcreds
             key: postgresql-password
+      # User Defined
+      - name: ZBX_SERVER_NAME
+        value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
+      - name: DB_DOUBLE_IEEE754
+        value: "{{ .Values.frontendConfig.DB_DOUBLE_IEEE754 }}"
+      - name: ENABLE_WEB_ACCESS_LOG
+        value: "{{ .Values.frontendConfig.ENABLE_WEB_ACCESS_LOG }}"
+      - name: ZBX_MAXEXECUTIONTIME
+        value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
+      - name: ZBX_MEMORYLIMIT
+        value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
 
-persistence:
+# persistence:
   # alertscripts:
   #   enabled: true
   #   mountPath: "/usr/lib/zabbix/alertscripts"
