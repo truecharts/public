@@ -1,15 +1,11 @@
 image:
-  repository: zabbix/zabbix-server-mysql
-  tag: ubuntu-6.0.3@sha256:b831fa06cb8fac39a1e6bfa101158269e1d574fd6923f8a9074542d7f508be7e
-  # repository: zabbix/zabbix-server-pgsql
-  # tag: ubuntu-6.0.3@sha256:cef1152d9928a0d83223e42b264705b2d8079e49279a6c90f9f7758b3d0e3483
+  repository: zabbix/zabbix-server-pgsql
+  tag: ubuntu-6.0.3@sha256:cef1152d9928a0d83223e42b264705b2d8079e49279a6c90f9f7758b3d0e3483
   pullPolicy: IfNotPresent
 
 frontImage:
-  repository: zabbix/zabbix-web-nginx-mysql
-  tag: ubuntu-6.0.3@sha256:1ee0536c3c7d672a28593c8c46d71120faf29a536ad9a7adb85a6c34fa69e4cc
-  # repository: zabbix/zabbix-web-nginx-pgsql
-  # tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
+  repository: zabbix/zabbix-web-nginx-pgsql
+  tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -21,12 +17,9 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  DB_SERVER_PORT: 3306
-  # DB_SERVER_PORT: 5432
-  MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  # POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-  # POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_SERVER_PORT: 5432
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   ZBX_LISTENPORT: 10051
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
   # Needs additional container for snmptraps + shared volume
@@ -45,19 +38,14 @@ frontendConfig:
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 envValueFrom:
-  # POSTGRES_PASSWORD:
-  MYSQL_PASSWORD:
+  POSTGRES_PASSWORD:
     secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-      # name: dbcreds
-      # key: postgresql-password
+      name: dbcreds
+      key: postgresql-password
   DB_SERVER_HOST:
     secretKeyRef:
-      name: mariadbcreds
-      key: plainporthost
-      # name: dbcreds
-      # key: plainhost
+      name: dbcreds
+      key: plainhost
 
 service:
   main:
@@ -78,14 +66,10 @@ additionalContainers:
         value: "localhost"
       - name: ZBX_SERVER_PORT
         value: "{{ .Values.env.ZBX_LISTENPORT }}"
-      - name: MYSQL_DATABASE
-        value: "{{ .Values.mariadb.mariadbDatabase }}"
-      - name: MYSQL_USER
-        value: "{{ .Values.mariadb.mariadbUsername }}"
-      # - name: POSTGRES_DB
-        # value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      # - name: POSTGRES_USER
-        # value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: POSTGRES_DB
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: POSTGRES_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: DB_SERVER_PORT
         value: "{{ .Values.env.DB_SERVER_PORT }}"
       - name: PHP_TZ
@@ -99,18 +83,13 @@ additionalContainers:
       - name: DB_SERVER_HOST
         valueFrom:
           secretKeyRef:
-            name: mariadbcreds
-            key: plainporthost
-            # name: dbcreds
-            # key: plainhost
-      # - name: POSTGRES_PASSWORD
-      - name: MYSQL_PASSWORD
+            name: dbcreds
+            key: plainhost
+      - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: mariadbcreds
-            key: mariadb-password
-            # name: dbcreds
-            # key: postgresql-password
+            name: dbcreds
+            key: postgresql-password
       # User Defined
       - name: ZBX_SERVER_NAME
         value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
@@ -164,14 +143,8 @@ additionalContainers:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/export"
 
-# postgresql:
-#   enabled: true
-#   existingSecret: "dbcreds"
-#   postgresqlUsername: zabbix
-#   postgresqlDatabase: zabbix
-
-mariadb:
+postgresql:
   enabled: true
-  mariadbUsername: zabbix
-  mariadbDatabase: zabbix
-  existingSecret: "mariadbcreds"
+  existingSecret: "dbcreds"
+  postgresqlUsername: zabbix
+  postgresqlDatabase: zabbix
