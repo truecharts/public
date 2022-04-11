@@ -26,6 +26,8 @@ data:
         # maximum 3GB Upload File; change to fit your needs
         client_max_body_size 3G;
 
+        add_header Strict-Transport-Security "max-age=15552000; includeSubDomains; preload" always;
+
         location = /robots.txt {
           allow all;
           log_not_found off;
