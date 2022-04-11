@@ -51,7 +51,7 @@ jobs:
         with:
           version: v3.7.1
 
-      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
+      - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3
         if: ${{ matrix.app != '.gitkee' }}
         with:
           python-version: 3.7
@@ -64,7 +64,7 @@ jobs:
     # Chart-Testing Section
     ##
 
-      - uses: actions/setup-python@21c0493ecfd34b1217f0a90ec19a327f3cc0a048 # tag=v3
+      - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3
         if: ${{ matrix.app != '.gitkee' }}
         with:
           python-version: 3.7
