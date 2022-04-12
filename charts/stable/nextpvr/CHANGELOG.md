@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextpvr-1.0.8"></a>
+### [nextpvr-1.0.8](https://github.com/truecharts/apps/compare/nextpvr-1.0.7...nextpvr-1.0.8) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="nextpvr-1.0.7"></a>
 ### [nextpvr-1.0.7](https://github.com/truecharts/apps/compare/nextpvr-1.0.6...nextpvr-1.0.7) (2022-04-03)
 
