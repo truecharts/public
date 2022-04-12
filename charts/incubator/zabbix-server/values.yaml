@@ -107,7 +107,7 @@ additionalContainers:
       - name: ZBX_SERVER_HOST
         value: "localhost"
       - name: ZBX_SERVER_PORT
-        value: "{{ .Values.service.server.ports.server.targetPort }}"
+        value: "{{ .Values.service.server.ports.server.port }}"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
@@ -130,7 +130,7 @@ additionalContainers:
       - name: ZBX_SERVER_HOST
         value: "localhost"
       - name: ZBX_SERVER_PORT
-        value: "{{ .Values.service.server.ports.server.targetPort }}"
+        value: "{{ .Values.service.server.ports.server.port }}"
       - name: POSTGRES_DB
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
       - name: POSTGRES_USER
