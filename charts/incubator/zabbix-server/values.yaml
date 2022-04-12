@@ -63,11 +63,8 @@ service:
 
 lifecycle:
   postStart:
-    httpGet:
-      path: "/"
+    tcpSocket:
       port: 10051
-      host: localhost
-      scheme: HTTP
 
 additionalContainers:
   front:
