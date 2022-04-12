@@ -8,6 +8,8 @@ frontImage:
   tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
   pullPolicy: IfNotPresent
 
+tty: true
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -64,18 +66,27 @@ probes:
   liveness:
     custom: true
     spec:
-      tcpSocket:
-        port: 10212
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - "until zabbix_server -R ha_status; do sleep 2; done"
   readiness:
     custom: true
     spec:
-      tcpSocket:
-        port: 10212
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - "until zabbix_server -R ha_status; do sleep 2; done"
   startup:
     custom: true
     spec:
-      tcpSocket:
-        port: 10212
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - "until zabbix_server -R ha_status; do sleep 2; done"
 
 # initContainers:
 #   1-init-upgrade-db:
