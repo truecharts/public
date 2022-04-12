@@ -72,7 +72,7 @@ jobs:
       - name: Create commit
         id: create-commit
         if: inputs.isRenovatePR == 'true'
-        uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
+        uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # tag=v4
         with:
           file_pattern: charts/**/
           commit_message: "chore: Auto-update chart metadata [skip ci]"
