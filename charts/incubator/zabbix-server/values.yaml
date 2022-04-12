@@ -25,7 +25,7 @@ env:
   # Needs additional container for snmptraps + shared volume
   # ZBX_ENABLE_SNMP_TRAPS: true
   # User Defined
-  ZBX_DEBUGLEVEL: 5
+  # ZBX_DEBUGLEVEL: 5
 
 frontendConfig:
   ZBX_SERVER_NAME: "My Zabbix Instance"
@@ -48,11 +48,15 @@ envValueFrom:
       key: plainhost
 
 service:
+  # main:
+  #   ports:
+  #     main:
+  #       port: 10211
+  #       targetPort: 8080
   main:
     ports:
       main:
-        port: 10211
-        targetPort: 8080
+        port: 10212
   server:
     enabled: true
     ports:
@@ -60,82 +64,82 @@ service:
         enabled: true
         port: 10212
 
-initContainers:
-  1-init-upgrade-db:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: POSTGRES_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: DB_SERVER_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: DB_SERVER_PORT
-        value: "5432"
-      - name: POSTGRES_USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: POSTGRES_DB
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: ZBX_WEBSERVICEURL
-        value: "http://localhost:8080/report"
+# initContainers:
+#   1-init-upgrade-db:
+#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#     env:
+#       - name: POSTGRES_PASSWORD
+#         valueFrom:
+#           secretKeyRef:
+#             name: dbcreds
+#             key: postgresql-password
+#       - name: DB_SERVER_HOST
+#         valueFrom:
+#           secretKeyRef:
+#             name: dbcreds
+#             key: plainhost
+#       - name: DB_SERVER_PORT
+#         value: "5432"
+#       - name: POSTGRES_USER
+#         value: "{{ .Values.postgresql.postgresqlUsername }}"
+#       - name: POSTGRES_DB
+#         value: "{{ .Values.postgresql.postgresqlDatabase }}"
+#       - name: ZBX_WEBSERVICEURL
+#         value: "http://localhost:8080/report"
 
-additionalContainers:
-  front:
-    name: front
-    image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
-    ports:
-      - containerPort: 8080
-        name: main
-    env:
-      - name: ZBX_SERVER_HOST
-        value: "localhost"
-      - name: ZBX_SERVER_PORT
-        value: "{{ .Values.env.ZBX_LISTENPORT }}"
-      - name: POSTGRES_DB
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: POSTGRES_USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: DB_SERVER_PORT
-        value: "{{ .Values.env.DB_SERVER_PORT }}"
-      - name: PHP_TZ
-        value: "{{ .Values.TZ }}"
-      # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
-      # - name: ZBX_HISTORYSTORAGEURL
-      #   value: "ELASTICSEARCHURL"
-      # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
-      # - name: ZBX_HISTORYSTORAGETYPES
-      #   value: "['uint', 'dbl']"
-      - name: DB_SERVER_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: POSTGRES_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      # User Defined
-      - name: ZBX_SERVER_NAME
-        value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
-      - name: ZBX_MAXEXECUTIONTIME
-        value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
-      - name: ZBX_MEMORYLIMIT
-        value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
-      - name: ZBX_POSTMAXSIZE
-        value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
-      - name: ZBX_UPLOADMAXFILESIZE
-        value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
-      - name: ZBX_MAXINPUTTIME
-        value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
-      - name: ZBX_DENY_GUI_ACCESS
-        value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
-      - name: ZBX_GUI_WARNING_MSG
-        value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
+# additionalContainers:
+#   front:
+#     name: front
+#     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
+#     ports:
+#       - containerPort: 8080
+#         name: main
+#     env:
+#       - name: ZBX_SERVER_HOST
+#         value: "localhost"
+#       - name: ZBX_SERVER_PORT
+#         value: "{{ .Values.env.ZBX_LISTENPORT }}"
+#       - name: POSTGRES_DB
+#         value: "{{ .Values.postgresql.postgresqlDatabase }}"
+#       - name: POSTGRES_USER
+#         value: "{{ .Values.postgresql.postgresqlUsername }}"
+#       - name: DB_SERVER_PORT
+#         value: "{{ .Values.env.DB_SERVER_PORT }}"
+#       - name: PHP_TZ
+#         value: "{{ .Values.TZ }}"
+#       # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
+#       # - name: ZBX_HISTORYSTORAGEURL
+#       #   value: "ELASTICSEARCHURL"
+#       # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
+#       # - name: ZBX_HISTORYSTORAGETYPES
+#       #   value: "['uint', 'dbl']"
+#       - name: DB_SERVER_HOST
+#         valueFrom:
+#           secretKeyRef:
+#             name: dbcreds
+#             key: plainhost
+#       - name: POSTGRES_PASSWORD
+#         valueFrom:
+#           secretKeyRef:
+#             name: dbcreds
+#             key: postgresql-password
+#       # User Defined
+#       - name: ZBX_SERVER_NAME
+#         value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
+#       - name: ZBX_MAXEXECUTIONTIME
+#         value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
+#       - name: ZBX_MEMORYLIMIT
+#         value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
+#       - name: ZBX_POSTMAXSIZE
+#         value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
+#       - name: ZBX_UPLOADMAXFILESIZE
+#         value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
+#       - name: ZBX_MAXINPUTTIME
+#         value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
+#       - name: ZBX_DENY_GUI_ACCESS
+#         value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
+#       - name: ZBX_GUI_WARNING_MSG
+#         value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
 # persistence:
   # alertscripts:
