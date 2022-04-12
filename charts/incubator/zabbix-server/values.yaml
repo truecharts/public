@@ -27,17 +27,6 @@ env:
   # Needs additional container for snmptraps + shared volume
   # ZBX_ENABLE_SNMP_TRAPS: true
   # User Defined
-  # ZBX_DEBUGLEVEL: 5
-
-frontendConfig:
-  ZBX_SERVER_NAME: "My Zabbix Instance"
-  ZBX_MAXEXECUTIONTIME: 300
-  ZBX_MEMORYLIMIT: "128M"
-  ZBX_POSTMAXSIZE: "16M"
-  ZBX_UPLOADMAXFILESIZE: "2M"
-  ZBX_MAXINPUTTIME: 300
-  ZBX_DENY_GUI_ACCESS: false
-  ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 envValueFrom:
   POSTGRES_PASSWORD:
@@ -88,65 +77,64 @@ probes:
           - -ec
           - "until zabbix_server -R ha_status; do sleep 2; done"
 
-# initContainers:
-#   1-init-upgrade-db:
-#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#     env:
-#       - name: POSTGRES_PASSWORD
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: postgresql-password
-#       - name: DB_SERVER_HOST
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: plainhost
-#       - name: DB_SERVER_PORT
-#         value: "5432"
-#       - name: POSTGRES_USER
-#         value: "{{ .Values.postgresql.postgresqlUsername }}"
-#       - name: POSTGRES_DB
-#         value: "{{ .Values.postgresql.postgresqlDatabase }}"
-#       - name: ZBX_WEBSERVICEURL
-#         value: "http://localhost:8080/report"
+frontendConfig:
+  ZBX_SERVER_NAME: "My Zabbix Instance"
+  ZBX_MAXEXECUTIONTIME: 300
+  ZBX_MEMORYLIMIT: "128M"
+  ZBX_POSTMAXSIZE: "16M"
+  ZBX_UPLOADMAXFILESIZE: "2M"
+  ZBX_MAXINPUTTIME: 300
+  ZBX_DENY_GUI_ACCESS: false
+  ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
-# additionalContainers:
-#   front:
-#     name: front
-#     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
-#     ports:
-#       - containerPort: 8080
-#         name: main
-#     env:
-#       - name: ZBX_SERVER_HOST
-#         value: "localhost"
-#       - name: ZBX_SERVER_PORT
-#         value: "{{ .Values.env.ZBX_LISTENPORT }}"
-#       - name: POSTGRES_DB
-#         value: "{{ .Values.postgresql.postgresqlDatabase }}"
-#       - name: POSTGRES_USER
-#         value: "{{ .Values.postgresql.postgresqlUsername }}"
-#       - name: DB_SERVER_PORT
-#         value: "{{ .Values.env.DB_SERVER_PORT }}"
-#       - name: PHP_TZ
-#         value: "{{ .Values.TZ }}"
-#       # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
-#       # - name: ZBX_HISTORYSTORAGEURL
-#       #   value: "ELASTICSEARCHURL"
-#       # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
-#       # - name: ZBX_HISTORYSTORAGETYPES
-#       #   value: "['uint', 'dbl']"
-#       - name: DB_SERVER_HOST
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: plainhost
-#       - name: POSTGRES_PASSWORD
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: postgresql-password
+additionalContainers:
+  front:
+    name: front
+    image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
+    ports:
+      - containerPort: 8080
+        name: main
+    livenessProbe:
+      httpGet:
+        path: "/"
+        port: 8080
+    readinessProbe:
+      httpGet:
+        path: "/"
+        port: 8080
+    startupProbe:
+      httpGet:
+        path: "/"
+        port: 8080
+    env:
+      - name: ZBX_SERVER_HOST
+        value: "localhost"
+      - name: ZBX_SERVER_PORT
+        value: "{{ .Values.env.ZBX_LISTENPORT }}"
+      - name: POSTGRES_DB
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: POSTGRES_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: DB_SERVER_PORT
+        value: "{{ .Values.env.DB_SERVER_PORT }}"
+      - name: PHP_TZ
+        value: "{{ .Values.TZ }}"
+      # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
+      # - name: ZBX_HISTORYSTORAGEURL
+      #   value: "ELASTICSEARCHURL"
+      # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
+      # - name: ZBX_HISTORYSTORAGETYPES
+      #   value: "['uint', 'dbl']"
+      - name: DB_SERVER_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: POSTGRES_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
 #       # User Defined
 #       - name: ZBX_SERVER_NAME
 #         value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
