@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkding-0.0.8"></a>
+### [linkding-0.0.8](https://github.com/truecharts/apps/compare/linkding-0.0.7...linkding-0.0.8) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="linkding-0.0.7"></a>
 ### [linkding-0.0.7](https://github.com/truecharts/apps/compare/linkding-0.0.6...linkding-0.0.7) (2022-04-09)
 

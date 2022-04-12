@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="minio-2.0.15"></a>
+### [minio-2.0.15](https://github.com/truecharts/apps/compare/minio-2.0.14...minio-2.0.15) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="minio-2.0.14"></a>
+### [minio-2.0.14](https://github.com/truecharts/apps/compare/minio-2.0.13...minio-2.0.14) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="minio-2.0.13"></a>
 ### [minio-2.0.13](https://github.com/truecharts/apps/compare/minio-2.0.12...minio-2.0.13) (2022-04-09)
 

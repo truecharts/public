@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-2.0.12"></a>
+### [tdarr-2.0.12](https://github.com/truecharts/apps/compare/tdarr-2.0.11...tdarr-2.0.12) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="tdarr-2.0.11"></a>
 ### [tdarr-2.0.11](https://github.com/truecharts/apps/compare/tdarr-2.0.10...tdarr-2.0.11) (2022-04-03)
 

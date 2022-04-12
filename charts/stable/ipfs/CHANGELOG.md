@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="ipfs-2.0.4"></a>
+### [ipfs-2.0.4](https://github.com/truecharts/apps/compare/ipfs-2.0.3...ipfs-2.0.4) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="ipfs-2.0.3"></a>
+### [ipfs-2.0.3](https://github.com/truecharts/apps/compare/ipfs-2.0.2...ipfs-2.0.3) (2022-04-12)
+
+#### Chore
+
+* update image ref ([#2461](https://github.com/truecharts/apps/issues/2461))
+
+
+
 <a name="ipfs-2.0.2"></a>
 ### [ipfs-2.0.2](https://github.com/truecharts/apps/compare/ipfs-2.0.1...ipfs-2.0.2) (2022-04-09)
 

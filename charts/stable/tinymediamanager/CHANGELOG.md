@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tinymediamanager-1.0.8"></a>
+### [tinymediamanager-1.0.8](https://github.com/truecharts/apps/compare/tinymediamanager-1.0.7...tinymediamanager-1.0.8) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="tinymediamanager-1.0.7"></a>
 ### [tinymediamanager-1.0.7](https://github.com/truecharts/apps/compare/tinymediamanager-1.0.6...tinymediamanager-1.0.7) (2022-04-03)
 

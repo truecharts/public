@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.16"></a>
+### [boinc-1.0.16](https://github.com/truecharts/apps/compare/boinc-1.0.15...boinc-1.0.16) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="boinc-1.0.15"></a>
+### [boinc-1.0.15](https://github.com/truecharts/apps/compare/boinc-1.0.14...boinc-1.0.15) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="boinc-1.0.14"></a>
 ### [boinc-1.0.14](https://github.com/truecharts/apps/compare/boinc-1.0.13...boinc-1.0.14) (2022-04-07)
 

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.12"></a>
+### [snipe-it-2.0.12](https://github.com/truecharts/apps/compare/snipe-it-2.0.11...snipe-it-2.0.12) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="snipe-it-2.0.11"></a>
+### [snipe-it-2.0.11](https://github.com/truecharts/apps/compare/snipe-it-2.0.10...snipe-it-2.0.11) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="snipe-it-2.0.10"></a>
 ### [snipe-it-2.0.10](https://github.com/truecharts/apps/compare/snipe-it-2.0.9...snipe-it-2.0.10) (2022-04-03)
 

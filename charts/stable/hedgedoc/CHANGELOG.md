@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-1.0.14"></a>
+### [hedgedoc-1.0.14](https://github.com/truecharts/apps/compare/hedgedoc-1.0.13...hedgedoc-1.0.14) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="hedgedoc-1.0.13"></a>
+### [hedgedoc-1.0.13](https://github.com/truecharts/apps/compare/hedgedoc-1.0.12...hedgedoc-1.0.13) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="hedgedoc-1.0.12"></a>
 ### [hedgedoc-1.0.12](https://github.com/truecharts/apps/compare/hedgedoc-1.0.11...hedgedoc-1.0.12) (2022-04-03)
 

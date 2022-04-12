@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-1.0.14"></a>
+### [icinga2-1.0.14](https://github.com/truecharts/apps/compare/icinga2-1.0.13...icinga2-1.0.14) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="icinga2-1.0.13"></a>
 ### [icinga2-1.0.13](https://github.com/truecharts/apps/compare/icinga2-1.0.12...icinga2-1.0.13) (2022-04-03)
 

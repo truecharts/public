@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-6.0.11"></a>
+### [owncloud-ocis-6.0.11](https://github.com/truecharts/apps/compare/owncloud-ocis-6.0.10...owncloud-ocis-6.0.11) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="owncloud-ocis-6.0.10"></a>
 ### [owncloud-ocis-6.0.10](https://github.com/truecharts/apps/compare/owncloud-ocis-6.0.9...owncloud-ocis-6.0.10) (2022-04-03)
 

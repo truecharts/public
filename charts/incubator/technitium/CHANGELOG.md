@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="technitium-0.0.6"></a>
+### [technitium-0.0.6](https://github.com/truecharts/apps/compare/technitium-0.0.5...technitium-0.0.6) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="technitium-0.0.5"></a>
 ### [technitium-0.0.5](https://github.com/truecharts/apps/compare/technitium-0.0.4...technitium-0.0.5) (2022-04-03)
 

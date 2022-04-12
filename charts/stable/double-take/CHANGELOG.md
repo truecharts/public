@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="double-take-1.0.6"></a>
+### [double-take-1.0.6](https://github.com/truecharts/apps/compare/double-take-1.0.5...double-take-1.0.6) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="double-take-1.0.5"></a>
 ### [double-take-1.0.5](https://github.com/truecharts/apps/compare/double-take-1.0.4...double-take-1.0.5) (2022-04-03)
 
