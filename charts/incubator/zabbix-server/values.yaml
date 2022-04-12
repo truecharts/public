@@ -61,6 +61,14 @@ service:
         port: 10211
         targetPort: 10051
 
+lifecycle:
+  postStart:
+    httpGet:
+      path: "/"
+      port: 10051
+      host: localhost
+      scheme: HTTP
+
 additionalContainers:
   front:
     name: front
