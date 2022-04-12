@@ -48,20 +48,33 @@ envValueFrom:
       key: plainhost
 
 service:
-  # main:
-  #   ports:
-  #     main:
-  #       port: 10211
-  #       targetPort: 8080
   main:
     ports:
       main:
-        port: 10212
+        port: 10211
+        targetPort: 8080
   server:
     enabled: true
     ports:
       server:
         enabled: true
+        port: 10212
+
+probes:
+  liveness:
+    custom: true
+    spec:
+      tcpSocket:
+        port: 10212
+  readiness:
+    custom: true
+    spec:
+      tcpSocket:
+        port: 10212
+  startup:
+    custom: true
+    spec:
+      tcpSocket:
         port: 10212
 
 # initContainers:
