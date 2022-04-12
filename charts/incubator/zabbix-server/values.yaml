@@ -8,11 +8,6 @@ frontImage:
   tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
   pullPolicy: IfNotPresent
 
-# agentImage:
-#   repository: zabbix/zabbix-agent
-#   tag: ubuntu-6.0.3@sha256:7b1be279d1eaa87e9c10bf045b565789fa9ac75b3318be67bcd647725a0c1abe
-#   pullPolicy: IfNotPresent
-
 snmptrapsImage:
   repository: zabbix/zabbix-snmptraps
   tag: ubuntu-6.0.3@sha256:200e93d13d17bad124a84d79b761641a3ea4b5ef2cc38a5bb379cd260e99cfb4
@@ -104,7 +99,7 @@ frontendConfig:
   ZBX_DENY_GUI_ACCESS: false
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
-# additionalContainers:
+additionalContainers:
 #   agent:
 #     name: agent
 #     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
@@ -188,44 +183,44 @@ frontendConfig:
 
 persistence:
   # Server
-  alertscripts:
-    enabled: true
-    mountPath: "/usr/lib/zabbix/alertscripts"
-  externalscripts:
-    enabled: true
-    mountPath: "/usr/lib/zabbix/externalscripts"
-  modules:
-    enabled: true
-    mountPath: "/var/lib/zabbix/modules"
-  enc:
-    enabled: true
-    mountPath: "/var/lib/zabbix/enc"
-  ssh_keys:
-    enabled: true
-    mountPath: "/var/lib/zabbix/ssh_keys"
-  sslcerts:
-    enabled: true
-    mountPath: "/var/lib/zabbix/ssl/certs"
-  sslkeys:
-    enabled: true
-    mountPath: "/var/lib/zabbix/ssl/keys"
-  sslca:
-    enabled: true
-    mountPath: "/var/lib/zabbix/ssl/ssl_ca"
-  mibs:
-    enabled: true
-    mountPath: "/var/lib/zabbix/mibs"
-  export:
-    enabled: true
-    mountPath: "/var/lib/zabbix/export"
+  # alertscripts:
+  #   enabled: true
+  #   mountPath: "/usr/lib/zabbix/alertscripts"
+  # externalscripts:
+  #   enabled: true
+  #   mountPath: "/usr/lib/zabbix/externalscripts"
+  # modules:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/modules"
+  # enc:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/enc"
+  # ssh_keys:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/ssh_keys"
+  # sslcerts:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/ssl/certs"
+  # sslkeys:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/ssl/keys"
+  # sslca:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+  # mibs:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/mibs"
+  # export:
+  #   enabled: true
+  #   mountPath: "/var/lib/zabbix/export"
   # Shared
   snmptraps:
     enabled: true
     mountPath: "/var/lib/zabbix/snmptraps"
   # SNMP-Traps
-  snmp-mibs:
-      enabled: true
-      mountPath: "/var/lib/zabbix/mibs"
+  # snmp-mibs:
+  #     enabled: true
+  #     mountPath: "/var/lib/zabbix/mibs"
 
 postgresql:
   enabled: true
