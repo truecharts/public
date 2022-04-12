@@ -8,10 +8,10 @@ frontImage:
   tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
   pullPolicy: IfNotPresent
 
-agentImage:
-  repository: zabbix/zabbix-agent
-  tag: ubuntu-6.0.3@sha256:7b1be279d1eaa87e9c10bf045b565789fa9ac75b3318be67bcd647725a0c1abe
-  pullPolicy: IfNotPresent
+# agentImage:
+#   repository: zabbix/zabbix-agent
+#   tag: ubuntu-6.0.3@sha256:7b1be279d1eaa87e9c10bf045b565789fa9ac75b3318be67bcd647725a0c1abe
+#   pullPolicy: IfNotPresent
 
 snmptrapsImage:
   repository: zabbix/zabbix-snmptraps
@@ -33,8 +33,7 @@ env:
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
-  # Needs additional container for snmptraps + shared volume
-  # ZBX_ENABLE_SNMP_TRAPS: true
+  ZBX_ENABLE_SNMP_TRAPS: true
   # User Defined
 
 envValueFrom:
@@ -97,17 +96,23 @@ frontendConfig:
   ZBX_DENY_GUI_ACCESS: false
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
-additionalContainers:
-  agent:
-    name: agent
-    image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
-    env:
-      - name: ZBX_HOSTNAME
-        value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
-      - name: ZBX_SERVER_HOST
-        value: "localhost"
-      - name: ZBX_SERVER_PORT
-        value: "{{ .Values.service.server.ports.server.port }}"
+# additionalContainers:
+#   agent:
+#     name: agent
+#     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
+#     env:
+#       - name: ZBX_HOSTNAME
+#         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+#       - name: ZBX_SERVER_HOST
+#         value: "localhost"
+#       - name: ZBX_SERVER_PORT
+#         value: "{{ .Values.service.server.ports.server.port }}"
+  snmptraps:
+    name: snmptraps
+    image: "{{ .Values.snmptrapsImage.repository }}:{{ .Values.snmptrapsImage.tag }}"
+    volumeMounts:
+    - name: snmptraps
+      mountPath: "/var/lib/zabbix/snmptraps"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
@@ -173,7 +178,7 @@ additionalContainers:
 #       - name: ZBX_GUI_WARNING_MSG
 #         value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
-# persistence:
+persistence:
   # alertscripts:
   #   enabled: true
   #   mountPath: "/usr/lib/zabbix/alertscripts"
@@ -198,9 +203,9 @@ additionalContainers:
   # sslca:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/ssl/ssl_ca"
-  # snmptraps:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/snmptraps"
+  snmptraps:
+    enabled: true
+    mountPath: "/var/lib/zabbix/snmptraps"
   # mibs:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/mibs"
