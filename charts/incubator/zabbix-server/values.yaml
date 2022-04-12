@@ -8,6 +8,16 @@ frontImage:
   tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
   pullPolicy: IfNotPresent
 
+agentImage:
+  repository: zabbix/zabbix-agent
+  tag: ubuntu-6.0.3@sha256:7b1be279d1eaa87e9c10bf045b565789fa9ac75b3318be67bcd647725a0c1abe
+  pullPolicy: IfNotPresent
+
+snmptrapsImage:
+  repository: zabbix/zabbix-snmptraps
+  tag: ubuntu-6.0.3@sha256:200e93d13d17bad124a84d79b761641a3ea4b5ef2cc38a5bb379cd260e99cfb4
+  pullPolicy: IfNotPresent
+
 tty: true
 
 securityContext:
@@ -88,6 +98,16 @@ frontendConfig:
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 additionalContainers:
+  agent:
+    name: agent
+    image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
+    env:
+      - name: ZBX_HOSTNAME
+        value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+      - name: ZBX_SERVER_HOST
+        value: "localhost"
+      - name: ZBX_SERVER_PORT
+        value: "{{ .Values.env.ZBX_LISTENPORT }}"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
