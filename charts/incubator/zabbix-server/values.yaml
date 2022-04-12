@@ -59,6 +59,14 @@ service:
         enabled: true
         port: 10212
         targetPort: 10051
+  snmptraps:
+    enabled: true
+    ports:
+      snmptraps:
+        protocol: UDP
+        enabled: true
+        port: 162
+        targetPort: 1162
 
 probes:
   liveness:
@@ -160,58 +168,64 @@ frontendConfig:
           secretKeyRef:
             name: dbcreds
             key: postgresql-password
-#       # User Defined
-#       - name: ZBX_SERVER_NAME
-#         value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
-#       - name: ZBX_MAXEXECUTIONTIME
-#         value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
-#       - name: ZBX_MEMORYLIMIT
-#         value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
-#       - name: ZBX_POSTMAXSIZE
-#         value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
-#       - name: ZBX_UPLOADMAXFILESIZE
-#         value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
-#       - name: ZBX_MAXINPUTTIME
-#         value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
-#       - name: ZBX_DENY_GUI_ACCESS
-#         value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
-#       - name: ZBX_GUI_WARNING_MSG
-#         value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
+      # User Defined
+      - name: ZBX_SERVER_NAME
+        value: "{{ .Values.frontendConfig.ZBX_SERVER_NAME }}"
+      - name: ZBX_MAXEXECUTIONTIME
+        value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
+      - name: ZBX_MEMORYLIMIT
+        value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
+      - name: ZBX_POSTMAXSIZE
+        value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
+      - name: ZBX_UPLOADMAXFILESIZE
+        value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
+      - name: ZBX_MAXINPUTTIME
+        value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
+      - name: ZBX_DENY_GUI_ACCESS
+        value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
+      - name: ZBX_GUI_WARNING_MSG
+        value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
 persistence:
-  # alertscripts:
-  #   enabled: true
-  #   mountPath: "/usr/lib/zabbix/alertscripts"
-  # externalscripts:
-  #   enabled: true
-  #   mountPath: "/usr/lib/zabbix/externalscripts"
-  # modules:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/modules"
-  # enc:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/enc"
-  # ssh_keys:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssh_keys"
-  # sslcerts:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/certs"
-  # sslkeys:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/keys"
-  # sslca:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+  # Server
+  alertscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/alertscripts"
+  externalscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/externalscripts"
+  modules:
+    enabled: true
+    mountPath: "/var/lib/zabbix/modules"
+  enc:
+    enabled: true
+    mountPath: "/var/lib/zabbix/enc"
+  ssh_keys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssh_keys"
+  sslcerts:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/certs"
+  sslkeys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/keys"
+  sslca:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+  mibs:
+    enabled: true
+    mountPath: "/var/lib/zabbix/mibs"
+  export:
+    enabled: true
+    mountPath: "/var/lib/zabbix/export"
+  # Shared
   snmptraps:
     enabled: true
     mountPath: "/var/lib/zabbix/snmptraps"
-  # mibs:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/mibs"
-  # export:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/export"
+  # SNMP-Traps
+  snmp-mibs:
+      enabled: true
+      mountPath: "/var/lib/zabbix/mibs"
 
 postgresql:
   enabled: true
