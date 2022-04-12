@@ -62,7 +62,7 @@ service:
 
 initContainers:
  1-init-upgrade-db:
-  image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: POSTGRES_PASSWORD
         valueFrom:
