@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.36"></a>
+### [minecraft-java-0.0.36](https://github.com/truecharts/apps/compare/minecraft-java-0.0.35...minecraft-java-0.0.36) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="minecraft-java-0.0.35"></a>
 ### [minecraft-java-0.0.35](https://github.com/truecharts/apps/compare/minecraft-java-0.0.34...minecraft-java-0.0.35) (2022-04-12)
 

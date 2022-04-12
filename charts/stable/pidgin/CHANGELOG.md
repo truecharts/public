@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pidgin-1.0.10"></a>
+### [pidgin-1.0.10](https://github.com/truecharts/apps/compare/pidgin-1.0.9...pidgin-1.0.10) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="pidgin-1.0.9"></a>
 ### [pidgin-1.0.9](https://github.com/truecharts/apps/compare/pidgin-1.0.8...pidgin-1.0.9) (2022-04-03)
 
