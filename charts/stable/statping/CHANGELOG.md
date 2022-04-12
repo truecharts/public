@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.13"></a>
+### [statping-5.0.13](https://github.com/truecharts/apps/compare/statping-5.0.12...statping-5.0.13) (2022-04-11)
+
+#### Chore
+
+* update container image tccr.io/truecharts/statping to v0.90.78
+
+
+
 <a name="statping-5.0.12"></a>
 ### [statping-5.0.12](https://github.com/truecharts/apps/compare/statping-5.0.11...statping-5.0.12) (2022-04-03)
 
