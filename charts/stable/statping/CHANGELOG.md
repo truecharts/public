@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.15"></a>
+### [statping-5.0.15](https://github.com/truecharts/apps/compare/statping-5.0.14...statping-5.0.15) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="statping-5.0.14"></a>
+### [statping-5.0.14](https://github.com/truecharts/apps/compare/statping-5.0.13...statping-5.0.14) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
+<a name="statping-5.0.13"></a>
+### [statping-5.0.13](https://github.com/truecharts/apps/compare/statping-5.0.12...statping-5.0.13) (2022-04-11)
+
+#### Chore
+
+* update container image tccr.io/truecharts/statping to v0.90.78
+
+
+
 <a name="statping-5.0.12"></a>
 ### [statping-5.0.12](https://github.com/truecharts/apps/compare/statping-5.0.11...statping-5.0.12) (2022-04-03)
 

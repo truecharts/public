@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.16"></a>
+### [piaware-5.0.16](https://github.com/truecharts/apps/compare/piaware-5.0.15...piaware-5.0.16) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="piaware-5.0.15"></a>
+### [piaware-5.0.15](https://github.com/truecharts/apps/compare/piaware-5.0.14...piaware-5.0.15) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="piaware-5.0.14"></a>
 ### [piaware-5.0.14](https://github.com/truecharts/apps/compare/piaware-5.0.13...piaware-5.0.14) (2022-04-03)
 

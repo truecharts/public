@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.2.0.1673"
+appVersion: "0.3.0.1679"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.7
+  version: 9.2.8
 description: Indexer manager/proxy built on the popular arr net base stack to integrate
   with your various PVR apps.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/prowlarr
@@ -21,7 +21,7 @@ name: prowlarr
 sources:
 - https://github.com/Prowlarr/Prowlarr
 - https://github.com/k8s-at-home/container-images
-version: 5.0.18
+version: 5.0.20
 annotations:
   truecharts.org/catagories: |
     - media

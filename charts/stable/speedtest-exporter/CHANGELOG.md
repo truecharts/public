@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-2.0.14"></a>
+### [speedtest-exporter-2.0.14](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.13...speedtest-exporter-2.0.14) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="speedtest-exporter-2.0.13"></a>
+### [speedtest-exporter-2.0.13](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.12...speedtest-exporter-2.0.13) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="speedtest-exporter-2.0.12"></a>
 ### [speedtest-exporter-2.0.12](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.11...speedtest-exporter-2.0.12) (2022-04-03)
 

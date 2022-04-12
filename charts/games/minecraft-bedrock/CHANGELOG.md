@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.24"></a>
+### [minecraft-bedrock-0.0.24](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.23...minecraft-bedrock-0.0.24) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="minecraft-bedrock-0.0.23"></a>
 ### [minecraft-bedrock-0.0.23](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.22...minecraft-bedrock-0.0.23) (2022-04-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.12"></a>
+### [plex-9.0.12](https://github.com/truecharts/apps/compare/plex-9.0.11...plex-9.0.12) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="plex-9.0.11"></a>
 ### [plex-9.0.11](https://github.com/truecharts/apps/compare/plex-9.0.10...plex-9.0.11) (2022-04-09)
 

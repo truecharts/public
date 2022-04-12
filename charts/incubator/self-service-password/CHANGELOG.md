@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="self-service-password-0.0.11"></a>
+### [self-service-password-0.0.11](https://github.com/truecharts/apps/compare/self-service-password-0.0.10...self-service-password-0.0.11) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="self-service-password-0.0.10"></a>
 ### [self-service-password-0.0.10](https://github.com/truecharts/apps/compare/self-service-password-0.0.9...self-service-password-0.0.10) (2022-04-03)
 

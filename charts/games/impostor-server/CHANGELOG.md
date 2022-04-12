@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.28"></a>
+### [impostor-server-0.0.28](https://github.com/truecharts/apps/compare/impostor-server-0.0.27...impostor-server-0.0.28) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
+<a name="impostor-server-0.0.27"></a>
+### [impostor-server-0.0.27](https://github.com/truecharts/apps/compare/impostor-server-0.0.26...impostor-server-0.0.27) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="impostor-server-0.0.26"></a>
 ### [impostor-server-0.0.26](https://github.com/truecharts/apps/compare/impostor-server-0.0.25...impostor-server-0.0.26) (2022-04-03)
 
