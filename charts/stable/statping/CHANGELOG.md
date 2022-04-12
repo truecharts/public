@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.14"></a>
+### [statping-5.0.14](https://github.com/truecharts/apps/compare/statping-5.0.13...statping-5.0.14) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="statping-5.0.13"></a>
 ### [statping-5.0.13](https://github.com/truecharts/apps/compare/statping-5.0.12...statping-5.0.13) (2022-04-11)
 

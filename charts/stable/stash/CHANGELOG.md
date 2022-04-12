@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-6.0.11"></a>
+### [stash-6.0.11](https://github.com/truecharts/apps/compare/stash-6.0.10...stash-6.0.11) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
 <a name="stash-6.0.10"></a>
 ### [stash-6.0.10](https://github.com/truecharts/apps/compare/stash-6.0.9...stash-6.0.10) (2022-04-03)
 
