@@ -15,13 +15,13 @@ snmptrapsImage:
 
 tty: true
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
   DB_SERVER_PORT: 5432
@@ -182,6 +182,10 @@ additionalContainers:
         value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
 persistence:
+  # Shared
+  snmptraps:
+    enabled: true
+    mountPath: "/var/lib/zabbix/snmptraps"
   # Server
   # alertscripts:
   #   enabled: true
@@ -213,10 +217,6 @@ persistence:
   # export:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/export"
-  # Shared
-  snmptraps:
-    enabled: true
-    mountPath: "/var/lib/zabbix/snmptraps"
   # SNMP-Traps
   # snmp-mibs:
   #     enabled: true

@@ -74,7 +74,61 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: frontendConfig
+    group: "Container Configuration"
+    label: "Web Frontend Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ZBX_SERVER_NAME
+          label: "ZBX_SERVER_NAME"
+          description: "The variable is visible Zabbix installation name in right top corner of the web interface."
+          schema:
+            type: string
+            default: "Zabbix Instance"
+        - variable: ZBX_GUI_WARNING_MSG
+          label: "ZBX_GUI_WARNING_MSG"
+          description: "Zabbix instance is currently in maintenance."
+          schema:
+            type: string
+            default: "Zabbix Instance"
+        - variable: ZBX_DENY_GUI_ACCESS
+          label: "ZBX_DENY_GUI_ACCESS"
+          description: "Enable (true) maintenance mode for Zabbix web-interface."
+          schema:
+            type: boolean
+            default: false
+        - variable: ZBX_MEMORYLIMIT
+          label: "ZBX_MEMORYLIMIT"
+          description: "The varable is PHP memory_limit option. By default, value is 128M."
+          schema:
+            type: string
+            default: "128M"
+        - variable: ZBX_POSTMAXSIZE
+          label: "ZBX_POSTMAXSIZE"
+          description: "The varable is PHP post_max_size option. By default, value is 16M."
+          schema:
+            type: string
+            default: "16M"
+        - variable: ZBX_UPLOADMAXFILESIZE
+          label: "ZBX_UPLOADMAXFILESIZE"
+          description: "The varable is PHP upload_max_filesize option. By default, value is 2M."
+          schema:
+            type: string
+            default: "2M"
+        - variable: ZBX_MAXEXECUTIONTIME
+          label: "ZBX_MAXEXECUTIONTIME"
+          description: "The varable is PHP max_execution_time option. By default, value is 300."
+          schema:
+            type: int
+            default: 300
+        - variable: ZBX_MAXINPUTTIME
+          label: "ZBX_MAXINPUTTIME"
+          description: "he varable is PHP max_input_time option. By default, value is 300."
+          schema:
+            type: int
+            default: 300
 # Include{containerConfig}
 
   - variable: service
