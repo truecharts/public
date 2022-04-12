@@ -74,6 +74,26 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ZBX_LOADMODULE
+          label: "ZBX_LOADMODULE"
+          description: "The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules. The syntax of the variable is dummy1.so,dummy2.so."
+          schema:
+            type: string
+            default: ""
+        - variable: ZBX_TIMEOUT
+          label: "ZBX_TIMEOUT"
+          description: "The variable is used to specify timeout for processing checks. By default, value is 4."
+          schema:
+            type: int
+            default: 4
+
   - variable: frontendConfig
     group: "Container Configuration"
     label: "Web Frontend Environment"
@@ -99,6 +119,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: ZBX_GUI_ACCESS_IP_RANGE
+          label: "ZBX_GUI_ACCESS_IP_RANGE"
+          description: "Array of IP addresses which are allowed for accessing to Zabbix web-interface during maintenance period."
+          schema:
+            type: string
+            default: ""
         - variable: ZBX_MEMORYLIMIT
           label: "ZBX_MEMORYLIMIT"
           description: "The varable is PHP memory_limit option. By default, value is 128M."
@@ -125,7 +151,7 @@ questions:
             default: 300
         - variable: ZBX_MAXINPUTTIME
           label: "ZBX_MAXINPUTTIME"
-          description: "he varable is PHP max_input_time option. By default, value is 300."
+          description: "The varable is PHP max_input_time option. By default, value is 300."
           schema:
             type: int
             default: 300

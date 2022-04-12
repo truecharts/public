@@ -30,6 +30,8 @@ env:
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
   ZBX_ENABLE_SNMP_TRAPS: true
   # User Defined
+  ZBX_LOADMODULE: ""
+  ZBX_TIMEOUT: 4
 
 envValueFrom:
   POSTGRES_PASSWORD:
@@ -97,6 +99,7 @@ frontendConfig:
   ZBX_UPLOADMAXFILESIZE: "2M"
   ZBX_MAXINPUTTIME: 300
   ZBX_DENY_GUI_ACCESS: false
+  ZBX_GUI_ACCESS_IP_RANGE: ""
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 additionalContainers:
@@ -178,6 +181,8 @@ additionalContainers:
         value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
       - name: ZBX_DENY_GUI_ACCESS
         value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
+      - name: ZBX_GUI_ACCESS_IP_RANGE
+        value: "{{ .Values.frontendConfig.ZBX_GUI_ACCESS_IP_RANGE }}"
       - name: ZBX_GUI_WARNING_MSG
         value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
