@@ -61,7 +61,7 @@ service:
         port: 10212
 
 initContainers:
- 1-init-upgrade-db:
+  1-init-upgrade-db:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
       - name: POSTGRES_PASSWORD
