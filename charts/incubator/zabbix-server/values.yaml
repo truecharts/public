@@ -32,7 +32,6 @@ env:
   DB_SERVER_PORT: 5432
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  ZBX_LISTENPORT: "{{ .Values.service.server.ports.server.port }}"
   ZBX_WEBSERVICEURL: "http://localhost:8080/report"
   # Needs additional container for snmptraps + shared volume
   # ZBX_ENABLE_SNMP_TRAPS: true
@@ -60,6 +59,7 @@ service:
       server:
         enabled: true
         port: 10212
+        targetPort: 10051
 
 probes:
   liveness:
@@ -107,7 +107,7 @@ additionalContainers:
       - name: ZBX_SERVER_HOST
         value: "localhost"
       - name: ZBX_SERVER_PORT
-        value: "{{ .Values.service.server.ports.server.port }}"
+        value: "{{ .Values.service.server.ports.server.targetPort }}"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
@@ -130,7 +130,7 @@ additionalContainers:
       - name: ZBX_SERVER_HOST
         value: "localhost"
       - name: ZBX_SERVER_PORT
-        value: "{{ .Values.service.server.ports.server.port }}"
+        value: "{{ .Values.service.server.ports.server.targetPort }}"
       - name: POSTGRES_DB
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
       - name: POSTGRES_USER
