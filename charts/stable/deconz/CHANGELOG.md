@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.13"></a>
+### [deconz-7.0.13](https://github.com/truecharts/apps/compare/deconz-7.0.12...deconz-7.0.13) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="deconz-7.0.12"></a>
 ### [deconz-7.0.12](https://github.com/truecharts/apps/compare/deconz-7.0.11...deconz-7.0.12) (2022-04-12)
 

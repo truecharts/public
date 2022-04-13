@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-1.0.6"></a>
+### [browserless-chrome-1.0.6](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.5...browserless-chrome-1.0.6) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="browserless-chrome-1.0.5"></a>
 ### [browserless-chrome-1.0.5](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.4...browserless-chrome-1.0.5) (2022-04-12)
 
