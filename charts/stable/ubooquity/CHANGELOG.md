@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ubooquity-2.0.12"></a>
+### [ubooquity-2.0.12](https://github.com/truecharts/apps/compare/ubooquity-2.0.11...ubooquity-2.0.12) (2022-04-13)
+
+#### Fix
+
+* fix admin portal button ([#2485](https://github.com/truecharts/apps/issues/2485))
+
+
+
 <a name="ubooquity-2.0.11"></a>
 ### [ubooquity-2.0.11](https://github.com/truecharts/apps/compare/ubooquity-2.0.10...ubooquity-2.0.11) (2022-04-12)
 

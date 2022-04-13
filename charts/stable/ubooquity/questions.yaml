@@ -15,7 +15,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$variable-service.admin.ports.admin.port"
-    path: "/admin"
+    path: "/ubooquity/admin"
 questions:
   - variable: portal
     group: "Container Image"
