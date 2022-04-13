@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.15"></a>
+### [calibre-web-10.0.15](https://github.com/truecharts/apps/compare/calibre-web-10.0.14...calibre-web-10.0.15) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="calibre-web-10.0.14"></a>
 ### [calibre-web-10.0.14](https://github.com/truecharts/apps/compare/calibre-web-10.0.13...calibre-web-10.0.14) (2022-04-12)
 

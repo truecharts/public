@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-5.0.15"></a>
+### [thelounge-5.0.15](https://github.com/truecharts/apps/compare/thelounge-5.0.14...thelounge-5.0.15) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="thelounge-5.0.14"></a>
 ### [thelounge-5.0.14](https://github.com/truecharts/apps/compare/thelounge-5.0.13...thelounge-5.0.14) (2022-04-12)
 
