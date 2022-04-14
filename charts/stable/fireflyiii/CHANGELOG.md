@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.16"></a>
+### [fireflyiii-14.0.16](https://github.com/truecharts/apps/compare/fireflyiii-14.0.15...fireflyiii-14.0.16) (2022-04-13)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="fireflyiii-14.0.15"></a>
 ### [fireflyiii-14.0.15](https://github.com/truecharts/apps/compare/fireflyiii-14.0.14...fireflyiii-14.0.15) (2022-04-12)
 
