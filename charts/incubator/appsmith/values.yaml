@@ -1,6 +1,6 @@
 image:
   repository: appsmith/appsmith-ce
-  tag: v1.6.20@sha256:d2a1229da1d51a0383928dedb7175512dfd811715fec06a08c85fc1697b2c76d
+  tag: v1.6.20@sha256:4a93ef73ce12472f846f9c4a825f9bb2f7d7d42553fc04575a671bb918355075
   pullPolicy: IfNotPresent
 
 # securityContext:
@@ -45,8 +45,8 @@ envValueFrom:
 
 mongodb:
   enabled: true
-  mongodbUsername: wekan
-  mongodbDatabase: wekan
+  mongodbUsername: appsmith
+  mongodbDatabase: appsmith
   existingSecret: "mongodbcreds"
 
 redis:
