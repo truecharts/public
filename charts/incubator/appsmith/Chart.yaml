@@ -1,0 +1,33 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.8
+- condition: mongodb.enabled
+  name: mongodb
+  repository: https://charts.truecharts.org
+  version: 0.0.25
+- condition: redis.enabled
+  name: redis
+  repository: https://charts.truecharts.org
+  version: 2.0.34
+description: appsmith
+home: https://github.com/truecharts/apps/tree/master/charts/stable/appsmith
+icon: https://truecharts.org/_static/img/appicons/appsmith.png
+keywords:
+- appsmith
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: appsmith
+sources:
+- https://github.com/appsmithorg/appsmith
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
