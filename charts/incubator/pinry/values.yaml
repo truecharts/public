@@ -50,7 +50,6 @@ installContainers:
           echo "No ${keyfile} File...";
           echo "Creating ${keyfile} file...";
           echo "${SECRET_KEY}" > ${keyfile};
-          echo "DEBUG: KEY -> ${SECRET_KEY}"
           if [ -f ${keyfile} ];
           then
             echo "Success!";
