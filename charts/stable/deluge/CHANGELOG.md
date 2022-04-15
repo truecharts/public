@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.14"></a>
+### [deluge-10.0.14](https://github.com/truecharts/apps/compare/deluge-10.0.13...deluge-10.0.14) (2022-04-13)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="deluge-10.0.13"></a>
 ### [deluge-10.0.13](https://github.com/truecharts/apps/compare/deluge-10.0.12...deluge-10.0.13) (2022-04-12)
 
