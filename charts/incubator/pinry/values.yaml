@@ -28,3 +28,34 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+installContainers:
+  1-create-key-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    env:
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: pinry-secrets
+            key: SECRET_KEY
+    command: ["sh", "-c"]
+    args:
+      - >
+        keyfile="/data/production_secret_key.txt";
+        if [ ! -f ${keyfile} ];
+        then
+          echo "No ${keyfile} File...";
+          echo "Creating ${keyfile} file...";
+          echo "${SECRET_KEY}" > ${keyfile};
+          if [ -f ${keyfile} ];
+          then
+            echo "Success!";
+          else
+            echo "Failed.";
+          fi;
+        else
+          echo "${keyfile} File exists. Skipping...";
+        fi;
