@@ -3,14 +3,6 @@ image:
   tag: 2022-04-09@sha256:95b950b8733707b8584c1faf9d15aea6696acfb87a35ed89f6ec1af9025a250a
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   OUTPUT_TEMPLATE: "%(title)s.%(ext)s"
   YTDL_OPTIONS: "{}"
