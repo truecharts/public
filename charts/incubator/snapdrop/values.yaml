@@ -1,0 +1,24 @@
+image:
+  repository: linuxserver/snapdrop
+  tag: latest@sha256:20104fd4e103b9c070ca668253f16d73142669240c49e05d9c98a43c623e42b8
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10215
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
