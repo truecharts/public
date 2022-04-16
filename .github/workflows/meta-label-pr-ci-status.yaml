@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@575b1e4167df67acf7e692af784566618b23c71e # tag=v2.17.0
+        uses: dawidd6/action-download-artifact@1cf11afe3f1874cee82a8d5a2b45c0fd63f0fa22 # tag=v2.18.0
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
           workflow: pr-validate.yaml
