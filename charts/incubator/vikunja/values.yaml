@@ -58,7 +58,7 @@ envValueFrom:
   VIKUNJA_REDIS_HOST:
     secretKeyRef:
       name: rediscreds
-      key: plainporthost
+      key: url
   VIKUNJA_REDIS_PASSWORD:
     secretKeyRef:
       name: rediscreds
