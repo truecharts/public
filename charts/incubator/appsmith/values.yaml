@@ -33,12 +33,12 @@ persistence:
     enabled: true
     mountPath: "/appsmith-stacks"
 
-# envValueFrom:
-#   APPSMITH_REDIS_URL:
-#     secretKeyRef:
-#       name: rediscreds
-#       key: url
+envValueFrom:
+  APPSMITH_REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
-# redis:
-#   enabled: true
-#   existingSecret: "rediscreds"
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
