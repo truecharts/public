@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-10.0.12"></a>
+### [radarr-10.0.12](https://github.com/truecharts/apps/compare/radarr-10.0.11...radarr-10.0.12) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="radarr-10.0.11"></a>
 ### [radarr-10.0.11](https://github.com/truecharts/apps/compare/radarr-10.0.10...radarr-10.0.11) (2022-04-12)
 
