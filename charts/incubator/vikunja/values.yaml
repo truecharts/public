@@ -8,13 +8,13 @@ frontendImage:
   tag: 0.18.2@sha256:26ccd3b4d7c43c1e99d00924d2a76a630e03de690771aa48fb111875cec29f60
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   VIKUNJA_REDIS_ENABLED: 1
