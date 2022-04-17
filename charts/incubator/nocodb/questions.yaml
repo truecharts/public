@@ -74,6 +74,52 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: AWS_ACCESS_KEY_ID
+          label: "AWS Access Key ID"
+          description: "For Litestream - S3 access key id."
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: AWS_SECRET_ACCESS_KEY
+          label: "AWS Secret Access Key"
+          description: For Litestream - S3 secret access key."
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: AWS_BUCKET
+          label: "AWS Bucket"
+          description: "For Litestream - S3 bucket."
+          schema:
+            type: string
+            default: ""
+        - variable: AWS_BUCKET_PATH
+          label: "AWS Bucket Path"
+          description: "For Litestream - S3 bucket path (like folder within S3 bucket)."
+          schema:
+            type: string
+            default: ""
+        - variable: NC_GOOGLE_CLIENT_ID
+          label: "Google Client ID"
+          description: "Google client id to enable google authentication."
+          schema:
+            type: string
+            default: ""
+        - variable: NC_GOOGLE_CLIENT_SECRET
+          label: "Google Client Secret"
+          description: "Google client secret to enable google authentication."
+          schema:
+            type: string
+            default: ""
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

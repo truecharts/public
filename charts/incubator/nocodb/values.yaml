@@ -58,7 +58,7 @@ configmap:
     enabled: true
     data:
       # If a path is set, it enables this options. To disable set to emtpy path
-      NTFY_ATTACHMENT_CACHE_DIR: "{{ ternary \"true\" \"\" .Values.env.ENABLE_ATTACHMENT_CACHE_DIR }}"
+      NC_MIN: "{{ ternary \"true\" \"\" .Values.env.DISABLE_SPLASH_SCREEN }}"
 
 postgresql:
   enabled: true
