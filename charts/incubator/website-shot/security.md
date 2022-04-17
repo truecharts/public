@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: website-shot/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-website-shot&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -63,11 +63,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -76,18 +76,18 @@ hide:
 
 
 #### Container: flowko1/website-shot:latest@sha256:399cf0e97cbf2742a1ac362b2c69161c736fbe1b5a03584e2b3f4f36be2e6a33 (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | gdk-pixbuf         |    CVE-2021-44648   |   HIGH  |  2.42.6-r0 | 2.42.8-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-44648">https://access.redhat.com/security/cve/CVE-2021-44648</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44648">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44648</a><br><a href="https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/issues/136">https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/issues/136</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JEVTOGIJITK2N5AOOLKKMDIICZDQE6CH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JEVTOGIJITK2N5AOOLKKMDIICZDQE6CH/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PEKBMOO52RXONWKB6ZKKHTVPLF6WC3KF/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PEKBMOO52RXONWKB6ZKKHTVPLF6WC3KF/</a><br><a href="https://sahildhar.github.io/blogpost/GdkPixbuf-Heap-Buffer-Overflow-in-lzw_decoder_new/">https://sahildhar.github.io/blogpost/GdkPixbuf-Heap-Buffer-Overflow-in-lzw_decoder_new/</a><br></details>  |
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   MEDIUM  |  3.0.0 | 3.0.1, 4.1.1, 5.0.1, 6.0.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-3807">https://access.redhat.com/security/cve/CVE-2021-3807</a><br><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://github.com/chalk/ansi-regex/releases/tag/v6.0.1">https://github.com/chalk/ansi-regex/releases/tag/v6.0.1</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3807.html">https://linux.oracle.com/cve/CVE-2021-3807.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0350.html">https://linux.oracle.com/errata/ELSA-2022-0350.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br></details>  |
@@ -96,4 +96,3 @@ hide:
 | glob-parent         |    CVE-2020-28469   |   HIGH  |  3.1.0 | 5.1.2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2020-28469">https://access.redhat.com/security/cve/CVE-2020-28469</a><br><a href="https://github.com/advisories/GHSA-ww39-953v-wcq6">https://github.com/advisories/GHSA-ww39-953v-wcq6</a><br><a href="https://github.com/gulpjs/glob-parent/blob/6ce8d11f2f1ed8e80a9526b1dc8cf3aa71f43474/index.js%23L9">https://github.com/gulpjs/glob-parent/blob/6ce8d11f2f1ed8e80a9526b1dc8cf3aa71f43474/index.js%23L9</a><br><a href="https://github.com/gulpjs/glob-parent/pull/36">https://github.com/gulpjs/glob-parent/pull/36</a><br><a href="https://github.com/gulpjs/glob-parent/releases/tag/v5.1.2">https://github.com/gulpjs/glob-parent/releases/tag/v5.1.2</a><br><a href="https://linux.oracle.com/cve/CVE-2020-28469.html">https://linux.oracle.com/cve/CVE-2020-28469.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0350.html">https://linux.oracle.com/errata/ELSA-2022-0350.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28469">https://nvd.nist.gov/vuln/detail/CVE-2020-28469</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBES128-1059093">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBES128-1059093</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1059092">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1059092</a><br><a href="https://snyk.io/vuln/SNYK-JS-GLOBPARENT-1016905">https://snyk.io/vuln/SNYK-JS-GLOBPARENT-1016905</a><br><a href="https://www.oracle.com/security-alerts/cpujan2022.html">https://www.oracle.com/security-alerts/cpujan2022.html</a><br></details>  |
 | nth-check         |    CVE-2021-3803   |   MEDIUM  |  1.0.2 | 2.0.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-3803">https://access.redhat.com/security/cve/CVE-2021-3803</a><br><a href="https://github.com/advisories/GHSA-rp65-9cf3-cjxr">https://github.com/advisories/GHSA-rp65-9cf3-cjxr</a><br><a href="https://github.com/fb55/nth-check/commit/9894c1d2010870c351f66c6f6efcf656e26bb726">https://github.com/fb55/nth-check/commit/9894c1d2010870c351f66c6f6efcf656e26bb726</a><br><a href="https://huntr.dev/bounties/8cf8cc06-d2cf-4b4e-b42c-99fafb0b04d0">https://huntr.dev/bounties/8cf8cc06-d2cf-4b4e-b42c-99fafb0b04d0</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3803">https://nvd.nist.gov/vuln/detail/CVE-2021-3803</a><br></details>  |
 | puppeteer         |    CVE-2019-5786   |   MEDIUM  |  1.0.0 | 1.13.0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2019-5786">https://access.redhat.com/security/cve/CVE-2019-5786</a><br><a href="https://blog.exodusintel.com/2019/03/20/cve-2019-5786-analysis-and-exploitation/">https://blog.exodusintel.com/2019/03/20/cve-2019-5786-analysis-and-exploitation/</a><br><a href="https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html">https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html</a><br><a href="https://crbug.com/936448">https://crbug.com/936448</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5786">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5786</a><br><a href="https://electronjs.org/blog/filereader-fix">https://electronjs.org/blog/filereader-fix</a><br><a href="https://github.com/GoogleChrome/puppeteer/issues/4141">https://github.com/GoogleChrome/puppeteer/issues/4141</a><br><a href="https://github.com/advisories/GHSA-c2gp-86p4-5935">https://github.com/advisories/GHSA-c2gp-86p4-5935</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-5786">https://nvd.nist.gov/vuln/detail/CVE-2019-5786</a><br><a href="https://security.googleblog.com/2019/03/disclosing-vulnerabilities-to-protect.html">https://security.googleblog.com/2019/03/disclosing-vulnerabilities-to-protect.html</a><br><a href="https://snyk.io/vuln/SNYK-JS-PUPPETEER-174321">https://snyk.io/vuln/SNYK-JS-PUPPETEER-174321</a><br><a href="https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2019-026/">https://www.cisecurity.org/advisory/a-vulnerability-in-google-chrome-could-allow-for-arbitrary-code-execution_2019-026/</a><br><a href="https://www.npmjs.com/advisories/824">https://www.npmjs.com/advisories/824</a><br></details>  |
-

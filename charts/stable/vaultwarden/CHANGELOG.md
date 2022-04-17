@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-14.0.14"></a>
+### [vaultwarden-14.0.14](https://github.com/truecharts/apps/compare/vaultwarden-14.0.13...vaultwarden-14.0.14) (2022-04-17)
+
+#### Chore
+
+* replace UI code with tempalte (advanced) ([#2499](https://github.com/truecharts/apps/issues/2499))
+
+
+
 <a name="vaultwarden-14.0.13"></a>
 ### [vaultwarden-14.0.13](https://github.com/truecharts/apps/compare/vaultwarden-14.0.12...vaultwarden-14.0.13) (2022-04-12)
 
