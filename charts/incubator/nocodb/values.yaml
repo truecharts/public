@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PORT: "{{ .Values.service.main.ports.main.port }}"
   NC_MIN: ""
   # User Defined
   NC_PUBLIC_URL: "http://localhost:8080"
@@ -20,10 +19,6 @@ env:
   DISABLE_SPLASH_SCREEN: false
 
 envValueFrom:
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: url-noql
   NC_REDIS_URL:
     secretKeyRef:
       name: rediscreds
@@ -35,25 +30,18 @@ envValueFrom:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-nocodb'
-
+      name: nocodb-databaseurl
 service:
   main:
     ports:
       main:
         port: 10226
+        targetPort: 8080
 
 persistence:
   data:
     enabled: true
     mountPath: "/usr/app/data"
-
-configmap:
-  nocodb:
-    enabled: true
-    data:
-      # If a path is set, it enables this options. To disable set to emtpy path
-      NC_MIN: "{{ ternary \"true\" \"\" .Values.env.DISABLE_SPLASH_SCREEN }}"
 
 postgresql:
   enabled: true
