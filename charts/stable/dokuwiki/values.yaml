@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: 20200729.0.0@sha256:1b3d98dcc0a6f4866cb0107d637331922806fed8e295cb796a16b7552e77efae
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 secret:
   DOKUWIKI_USERNAME: "admin"
