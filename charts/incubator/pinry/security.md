@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: pinry/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;1-create-key-file&#39; of Deployment &#39;RELEASE-NAME-pinry&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -63,11 +63,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -76,11 +76,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -91,11 +91,11 @@ hide:
 
 
 #### Container: getpinry/pinry:2.1.7@sha256:1383191cd7e3466db5896246095c58aaff4dc3a316e239704ea5e2a2a88c551e (debian 10.8)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.2 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -853,15 +853,15 @@ hide:
 
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Pillow         |    CVE-2022-22815   |   CRITICAL  |  8.3.2 | 9.0.0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22815">https://access.redhat.com/security/cve/CVE-2022-22815</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22815">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22815</a><br><a href="https://github.com/advisories/GHSA-pw3c-h7wp-cvhx">https://github.com/advisories/GHSA-pw3c-h7wp-cvhx</a><br><a href="https://github.com/python-pillow/Pillow/blob/c5d9223a8b5e9295d15b5a9b1ef1dae44c8499f3/src/path.c#L331">https://github.com/python-pillow/Pillow/blob/c5d9223a8b5e9295d15b5a9b1ef1dae44c8499f3/src/path.c#L331</a><br><a href="https://github.com/python-pillow/Pillow/commit/c48271ab354db49cdbd740bc45e13be4f0f7993c">https://github.com/python-pillow/Pillow/commit/c48271ab354db49cdbd740bc45e13be4f0f7993c</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/01/msg00018.html">https://lists.debian.org/debian-lts-announce/2022/01/msg00018.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-22815">https://nvd.nist.gov/vuln/detail/CVE-2022-22815</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#fixed-imagepath-path-array-handling">https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#fixed-imagepath-path-array-handling</a><br><a href="https://ubuntu.com/security/notices/USN-5227-1">https://ubuntu.com/security/notices/USN-5227-1</a><br><a href="https://ubuntu.com/security/notices/USN-5227-2">https://ubuntu.com/security/notices/USN-5227-2</a><br><a href="https://www.debian.org/security/2022/dsa-5053">https://www.debian.org/security/2022/dsa-5053</a><br></details>  |
@@ -870,4 +870,3 @@ hide:
 | Pillow         |    CVE-2022-22816   |   MEDIUM  |  8.3.2 | 9.0.0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22816">https://access.redhat.com/security/cve/CVE-2022-22816</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22816">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22816</a><br><a href="https://github.com/advisories/GHSA-xrcv-f9gm-v42c">https://github.com/advisories/GHSA-xrcv-f9gm-v42c</a><br><a href="https://github.com/python-pillow/Pillow/blob/c5d9223a8b5e9295d15b5a9b1ef1dae44c8499f3/src/path.c#L331">https://github.com/python-pillow/Pillow/blob/c5d9223a8b5e9295d15b5a9b1ef1dae44c8499f3/src/path.c#L331</a><br><a href="https://linux.oracle.com/cve/CVE-2022-22816.html">https://linux.oracle.com/cve/CVE-2022-22816.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0643.html">https://linux.oracle.com/errata/ELSA-2022-0643.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/01/msg00018.html">https://lists.debian.org/debian-lts-announce/2022/01/msg00018.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-22816">https://nvd.nist.gov/vuln/detail/CVE-2022-22816</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#fixed-imagepath-path-array-handling">https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#fixed-imagepath-path-array-handling</a><br><a href="https://ubuntu.com/security/notices/USN-5227-1">https://ubuntu.com/security/notices/USN-5227-1</a><br><a href="https://ubuntu.com/security/notices/USN-5227-2">https://ubuntu.com/security/notices/USN-5227-2</a><br><a href="https://www.debian.org/security/2022/dsa-5053">https://www.debian.org/security/2022/dsa-5053</a><br></details>  |
 | Pillow         |    GHSA-4fx9-vc88-q2xc   |   LOW  |  8.3.2 | 9.0.0 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-4fx9-vc88-q2xc">https://github.com/advisories/GHSA-4fx9-vc88-q2xc</a><br><a href="https://github.com/python-pillow/Pillow/commit/baae9ec4b67c68e3adaf1208cf54e8de5e38a6fd">https://github.com/python-pillow/Pillow/commit/baae9ec4b67c68e3adaf1208cf54e8de5e38a6fd</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#ensure-jpegimageplugin-stops-at-the-end-of-a-truncated-file">https://pillow.readthedocs.io/en/stable/releasenotes/9.0.0.html#ensure-jpegimageplugin-stops-at-the-end-of-a-truncated-file</a><br></details>  |
 | pip         |    CVE-2021-3572   |   MEDIUM  |  21.0.1 | 21.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHSA-2021:3254">https://access.redhat.com/errata/RHSA-2021:3254</a><br><a href="https://access.redhat.com/security/cve/CVE-2021-3572">https://access.redhat.com/security/cve/CVE-2021-3572</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1962856">https://bugzilla.redhat.com/show_bug.cgi?id=1962856</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3572">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3572</a><br><a href="https://github.com/advisories/GHSA-5xp3-jfq3-5q8x">https://github.com/advisories/GHSA-5xp3-jfq3-5q8x</a><br><a href="https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b">https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b</a><br><a href="https://github.com/pypa/pip/issues/10042">https://github.com/pypa/pip/issues/10042</a><br><a href="https://github.com/pypa/pip/issues/10042#issuecomment-857452480">https://github.com/pypa/pip/issues/10042#issuecomment-857452480</a><br><a href="https://github.com/pypa/pip/pull/9827">https://github.com/pypa/pip/pull/9827</a><br><a href="https://github.com/skazi0/CVE-2021-3572/blob/master/CVE-2021-3572-v9.0.1.patch">https://github.com/skazi0/CVE-2021-3572/blob/master/CVE-2021-3572-v9.0.1.patch</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3572.html">https://linux.oracle.com/cve/CVE-2021-3572.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-4455.html">https://linux.oracle.com/errata/ELSA-2021-4455.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3572">https://nvd.nist.gov/vuln/detail/CVE-2021-3572</a><br><a href="https://packetstormsecurity.com/files/162712/USN-4961-1.txt">https://packetstormsecurity.com/files/162712/USN-4961-1.txt</a><br></details>  |
-

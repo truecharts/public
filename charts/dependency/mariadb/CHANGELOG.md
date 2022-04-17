@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.42"></a>
+### [mariadb-2.0.42](https://github.com/truecharts/apps/compare/mariadb-2.0.41...mariadb-2.0.42) (2022-04-17)
+
+#### Chore
+
+* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
+
+
+
 <a name="mariadb-2.0.41"></a>
 ### [mariadb-2.0.41](https://github.com/truecharts/apps/compare/mariadb-2.0.40...mariadb-2.0.41) (2022-04-16)
 
