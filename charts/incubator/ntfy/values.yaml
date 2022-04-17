@@ -23,6 +23,10 @@ env:
   ENABLE_ATTACHMENT_CACHE_DIR: true
   ENABLE_AUTH_FILE: true
 
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-ntfy'
+
 service:
   main:
     ports:
