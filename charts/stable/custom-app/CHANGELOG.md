@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="custom-app-4.0.26"></a>
+### [custom-app-4.0.26](https://github.com/truecharts/apps/compare/custom-app-4.0.25...custom-app-4.0.26) (2022-04-17)
+
+#### Chore
+
+* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
+
+
+
+<a name="custom-app-4.0.25"></a>
+### [custom-app-4.0.25](https://github.com/truecharts/apps/compare/custom-app-4.0.24...custom-app-4.0.25) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="custom-app-4.0.24"></a>
 ### [custom-app-4.0.24](https://github.com/truecharts/apps/compare/custom-app-4.0.23...custom-app-4.0.24) (2022-04-13)
 

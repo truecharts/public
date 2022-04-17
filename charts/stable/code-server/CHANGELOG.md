@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-3.0.14"></a>
+### [code-server-3.0.14](https://github.com/truecharts/apps/compare/code-server-3.0.13...code-server-3.0.14) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="code-server-3.0.13"></a>
 ### [code-server-3.0.13](https://github.com/truecharts/apps/compare/openvscode-server-1.0.13...code-server-3.0.13) (2022-04-12)
 

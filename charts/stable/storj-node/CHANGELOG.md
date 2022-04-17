@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.15"></a>
+### [storj-node-1.0.15](https://github.com/truecharts/apps/compare/storj-node-1.0.14...storj-node-1.0.15) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="storj-node-1.0.14"></a>
 ### [storj-node-1.0.14](https://github.com/truecharts/apps/compare/storj-node-1.0.13...storj-node-1.0.14) (2022-04-12)
 

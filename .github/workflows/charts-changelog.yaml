@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
         with:
           fetch-depth: 0
 
@@ -44,7 +44,7 @@ jobs:
       commitHash: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
       - name: Checkout
-        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
         with:
           fetch-depth: 0
 
@@ -72,7 +72,7 @@ jobs:
       - name: Create commit
         id: create-commit
         if: inputs.isRenovatePR == 'true'
-        uses: stefanzweifel/git-auto-commit-action@c4b132ec2c77a21fcab564bd3c92610cee84b894 # tag=v4
+        uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # tag=v4
         with:
           file_pattern: charts/**/
           commit_message: "chore: Auto-update chart metadata [skip ci]"

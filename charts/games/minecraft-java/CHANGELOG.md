@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.38"></a>
+### [minecraft-java-0.0.38](https://github.com/truecharts/apps/compare/minecraft-java-0.0.37...minecraft-java-0.0.38) (2022-04-17)
+
+#### Chore
+
+* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
+
+
+
+<a name="minecraft-java-0.0.37"></a>
+### [minecraft-java-0.0.37](https://github.com/truecharts/apps/compare/minecraft-java-0.0.36...minecraft-java-0.0.37) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="minecraft-java-0.0.36"></a>
 ### [minecraft-java-0.0.36](https://github.com/truecharts/apps/compare/minecraft-java-0.0.35...minecraft-java-0.0.36) (2022-04-12)
 
