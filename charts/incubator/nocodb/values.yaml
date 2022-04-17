@@ -3,23 +3,35 @@ image:
   tag: 0.90.2@sha256:cdcd01cf9d0748ed4ad18aded465728681ae059d38beffb287987881b861323e
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  NC_MIN: ""
+  # User Defined
   NC_PUBLIC_URL: "http://localhost:8080"
   NC_DISABLE_TELE: true
+  DISABLE_SPLASH_SCREEN: false
 
 envValueFrom:
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: jdbc
+  NC_REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-nocodb'
 
 probes:
   liveness:
@@ -41,8 +53,19 @@ persistence:
     enabled: true
     mountPath: "/usr/app/data"
 
+configmap:
+  nocodb:
+    enabled: true
+    data:
+      # If a path is set, it enables this options. To disable set to emtpy path
+      NTFY_ATTACHMENT_CACHE_DIR: "{{ ternary \"true\" \"\" .Values.env.ENABLE_ATTACHMENT_CACHE_DIR }}"
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: nocodb
   postgresqlDatabase: nocodb
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"

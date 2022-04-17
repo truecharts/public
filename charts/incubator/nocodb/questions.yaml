@@ -82,20 +82,62 @@ questions:
       type: dict
       attrs:
         - variable: NC_PUBLIC_URL
-          label: "NC_PUBLIC_URL"
-          description: "Used for sending Email invitations"
+          label: "Public URL"
+          description: "Used for sending Email invitations."
           schema:
             type: string
             default: ""
-        - variable: NC_DISABLE_TELE
-          label: "NC_DISABLE_TELE"
-          description: "Disable telemetry"
+        - variable: NC_JWT_EXPIRES_IN
+          label: "JWT Expires in"
+          description: "JWT token expiry time."
+          schema:
+            type: string
+            default: "10h"
+        - variable: DISABLE_SPLASH_SCREEN
+          label: "Disable Splash Screen"
+          description: "Disables the default splash screen(initial welcome animation) and matrix screensaver will disable."
           schema:
             type: boolean
             default: true
+        - variable: NC_INVITE_ONLY_SIGNUP
+          label: "Invite Only Signup"
+          description: "Allow users to signup only via invite url, value should be any non-empty string."
+          schema:
+            type: boolean
+            default: true
+        - variable: NC_DISABLE_CACHE
+          label: "Disable Cache"
+          description: "If it is set to true, then meta data will not be cached."
+          schema:
+            type: boolean
+            default: true
+        - variable: NC_DISABLE_TELE
+          label: "Disable Telemetry"
+          description: "Disable telemetry."
+          schema:
+            type: boolean
+            default: true
+        - variable: NC_DISABLE_ERR_REPORT
+          label: "Disable Error Report"
+          description: "Disable Error Reporting."
+          schema:
+            type: boolean
+            default: true
+        - variable: NC_REQUEST_BODY_SIZE
+          label: "Request Body Size"
+          description: "Request body size limit."
+          schema:
+            type: int
+            default: 1048576
+        - variable: NC_EXPORT_MAX_TIMEOUT
+          label: "Export Max Timeout"
+          description: "After timeout, csv gets downloaded in batches."
+          schema:
+            type: int
+            default: 5000
         - variable: NC_SENTRY_DSN
-          label: "NC_SENTRY_DSN"
-          description: "For Sentry monitoring"
+          label: "Sentry DSN"
+          description: "For Sentry monitoring."
           schema:
             type: string
             default: ""
