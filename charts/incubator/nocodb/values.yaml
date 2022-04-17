@@ -32,6 +32,7 @@ envValueFrom:
 envFrom:
   - configMapRef:
       name: nocodb-databaseurl
+
 service:
   main:
     ports:
