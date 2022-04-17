@@ -89,6 +89,12 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: APP_FORCE_TLS
+          label: "APP_FORCE_TLS"
+          description: "Force use of HTTPS"
+          schema:
+            type: boolean
+            default: false
         - variable: APP_TRUSTED_PROXIES
           label: "APP_TRUSTED_PROXIES"
           description: "APP_TRUSTED_PROXIES"
