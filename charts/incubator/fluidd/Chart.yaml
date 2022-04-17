@@ -4,19 +4,20 @@ dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 9.2.8
-description: TEMPLATEREPLACEME
-home: https://github.com/truecharts/apps/tree/master/charts/stable/TEMPLATEREPLACEME
-icon: https://truecharts.org/_static/img/appicons/TEMPLATEREPLACEME.png
+description: Fluidd is a free and open-source Klipper web interface for managing your 3d printer.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/fluidd
+icon: https://truecharts.org/_static/img/appicons/fluidd.png
 keywords:
-- TEMPLATEREPLACEME
+- fluidd
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: TEMPLATEREPLACEME
+name: fluidd
 sources:
-- TEMPLATEREPLACEME
+- https://github.com/fluidd-core/fluidd
+- https://hub.docker.com/r/cadriel/fluidd
 version: 0.0.1
 annotations:
   truecharts.org/catagories: |
