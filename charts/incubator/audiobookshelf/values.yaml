@@ -1,15 +1,15 @@
 image:
-  repository: advplyr/audiobookshelf
+  repository: tccr.io/truecharts/audiobookshelf
   tag: 1.7.2@sha256:919909525a991f9fb667f3fc05e1a4fec101a1d1b730a5e3e4fd630e967c6d1b
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   AUDIOBOOKSHELF_UID: "{{ .Values.security.PUID }}"
