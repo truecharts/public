@@ -1,0 +1,48 @@
+image:
+  repository: nocodb/nocodb
+  tag: 0.90.2@sha256:cdcd01cf9d0748ed4ad18aded465728681ae059d38beffb287987881b861323e
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  NC_PUBLIC_URL: "http://localhost:8080"
+  NC_DISABLE_TELE: true
+
+envValueFrom:
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: jdbc
+
+probes:
+  liveness:
+    path: "/health"
+  readiness:
+    path: "/health"
+  startup:
+    path: "/health"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10226
+        targetPort: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/app/data"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: nocodb
+  postgresqlDatabase: nocodb
