@@ -28,8 +28,7 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: url
-  NC_AUTH_JWT_SECRET:
-
+  # NC_AUTH_JWT_SECRET:
 
 envFrom:
   - configMapRef:
