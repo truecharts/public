@@ -20,7 +20,7 @@ env:
   DISABLE_SPLASH_SCREEN: false
 
 envValueFrom:
-  NC_DB:
+  DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: url-noql
@@ -42,7 +42,6 @@ service:
     ports:
       main:
         port: 10226
-        targetPort: 8080
 
 persistence:
   data:
