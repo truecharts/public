@@ -87,8 +87,8 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mongodb:v5.0.6@sha256:ff5b5f04b3239895252e292ad8ee6d1eae9bc01cae20c40088e0734d17bba7dc
-          'tccr.io/truecharts/meshcentral:latest@sha256:58736c1f6a513302d2f9010703f411c925b743497dfbf249c707668602e40b9b'
-          tccr.io/truecharts/meshcentral:latest@sha256:58736c1f6a513302d2f9010703f411c925b743497dfbf249c707668602e40b9b
+          'tccr.io/truecharts/meshcentral:latest@sha256:22d8c9b9c9b72a996c2f1a99fa79da7ab2b2059103a6360d138ec8d5a7254c4a'
+          tccr.io/truecharts/meshcentral:latest@sha256:22d8c9b9c9b72a996c2f1a99fa79da7ab2b2059103a6360d138ec8d5a7254c4a
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mongodb:v5.0.6@sha256:ff5b5f04b3239895252e292ad8ee6d1eae9bc01cae20c40088e0734d17bba7dc
@@ -375,7 +375,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/meshcentral:latest@sha256:58736c1f6a513302d2f9010703f411c925b743497dfbf249c707668602e40b9b (ubuntu 20.04)
+#### Container: tccr.io/truecharts/meshcentral:latest@sha256:22d8c9b9c9b72a996c2f1a99fa79da7ab2b2059103a6360d138ec8d5a7254c4a (ubuntu 20.04)
 
 
 **ubuntu**

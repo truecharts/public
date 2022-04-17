@@ -7,4 +7,3 @@
 #### Feat
 
 * Add apps ([#2493](https://github.com/truecharts/apps/issues/2493))
-
