@@ -5,23 +5,15 @@ image:
 
 extraArgs: ["serve"]
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
   # User Defined
   NTFY_BASE_URL: "http://localhost:10222"
   NTFY_BEHIND_PROXY: false
   ENABLE_FIREBASE_FILE: false
-  ENABLE_CACHE_FILE: true
-  ENABLE_ATTACHMENT_CACHE_DIR: true
-  ENABLE_AUTH_FILE: true
+  ENABLE_CACHE_FILE: false
+  ENABLE_ATTACHMENT_CACHE_DIR: false
+  ENABLE_AUTH_FILE: false
 
 envFrom:
   - configMapRef:

@@ -231,7 +231,7 @@ questions:
                   default: "3h"
         - variable: ENABLE_AUTH_FILE
           label: "Enable Auth File"
-          description: "If set to true, it enables the auth file by setting the NTFY_AUTH_FILE to \"/var/lib/ntfy/user.db\""
+          description: "If set to true, it enables the auth file by setting the NTFY_AUTH_FILE to \"/etc/ntfy/user.db\""
           schema:
             type: boolean
             default: false
@@ -534,7 +534,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -544,7 +544,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -559,13 +559,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
