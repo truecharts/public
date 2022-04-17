@@ -20,14 +20,16 @@ env:
   DISABLE_SPLASH_SCREEN: false
 
 envValueFrom:
-  DATABASE_URL:
+  NC_DB:
     secretKeyRef:
       name: dbcreds
-      key: jdbc
+      key: url
   NC_REDIS_URL:
     secretKeyRef:
       name: rediscreds
       key: url
+  NC_AUTH_JWT_SECRET:
+
 
 envFrom:
   - configMapRef:
