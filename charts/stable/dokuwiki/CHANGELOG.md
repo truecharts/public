@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-2.0.0"></a>
+### [dokuwiki-2.0.0](https://github.com/truecharts/apps/compare/dokuwiki-1.0.10...dokuwiki-2.0.0) (2022-04-17)
+
+#### Feat
+
+* BREAKING CHANGE - Switch to bitnami image ([#2500](https://github.com/truecharts/apps/issues/2500))
+
+
+
 <a name="dokuwiki-1.0.10"></a>
 ### [dokuwiki-1.0.10](https://github.com/truecharts/apps/compare/dokuwiki-1.0.9...dokuwiki-1.0.10) (2022-04-12)
 

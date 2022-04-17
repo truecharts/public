@@ -7,7 +7,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://hub.docker.com/r/linuxserver/dokuwiki>
+* <https://hub.docker.com/r/bitnami/dokuwiki>
 
 ## Requirements
 
