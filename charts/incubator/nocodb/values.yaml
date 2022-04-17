@@ -23,7 +23,7 @@ envValueFrom:
   NC_DB:
     secretKeyRef:
       name: dbcreds
-      key: url
+      key: url-noql
   NC_REDIS_URL:
     secretKeyRef:
       name: rediscreds
