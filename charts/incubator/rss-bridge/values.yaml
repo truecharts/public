@@ -3,13 +3,13 @@ image:
   tag: 2022-01-20@sha256:2bb513b247fcd630abc8ab982bf4dd970a4d281b78db3d1c8dc859a587ea9f77
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
