@@ -1,0 +1,72 @@
+image:
+  repository: binwiederhier/ntfy
+  tag: v1.20.0@sha256:f814bab7d9065ec5a30d4cf52f66c075dd39ae5e7f94e5d15b792f8cd0d8111a
+  pullPolicy: IfNotPresent
+
+command: ["serve"]
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+
+env:
+  NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  NTFY_BASE_URL: "http://localhost:10222"
+  NTFY_BEHIND_PROXY: false
+  ENABLE_FIREBASE_FILE: true
+  ENABLE_CACHE_FILE: true
+  NTFY_CACHE_DURATION: "12h"
+  NTFY_KEEPALIVE_INTERVAL: "45s"
+  NTFY_MANAGER_INTERVAL: "1m"
+  NTFY_GLOBAL_TOPIC_LIMIT: 15000
+  NTFY_VISITOR_SUBSCRIPTION_LIMIT: 30
+  NTFY_VISITOR_ATTACHMENT_TOTAL_SIZE_LIMIT: "100M"
+  NTFY_VISITOR_ATTACHMENT_DAILY_BANDWIDTH_LIMIT: "500M"
+  NTFY_VISITOR_REQUEST_LIMIT_BURST: 60
+  NTFY_VISITOR_REQUEST_LIMIT_REPLENISH: "5s"
+  NTFY_VISITOR_REQUEST_LIMIT_EXEMPT_HOSTS: ""
+  NTFY_VISITOR_EMAIL_LIMIT_BURST: 16
+  NTFY_VISITOR_EMAIL_LIMIT_REPLENISH: "1h"
+  ENABLE_ATTACHMENT_CACHE_DIR: true
+  NTFY_ATTACHMENT_TOTAL_SIZE_LIMIT: "5G"
+  NTFY_ATTACHMENT_FILE_SIZE_LIMIT: "15M"
+  NTFY_ATTACHMENT_EXPIRY_DURATION: "3h"
+  ENABLE_AUTH_FILE: true
+  NTFY_AUTH_DEFAULT_ACCESS: "read-write"
+  NTFY_SMTP_SENDER_ADDR: ""
+  NTFY_SMTP_SENDER_USER: ""
+  NTFY_SMTP_SENDER_PASS: ""
+  NTFY_SMTP_SENDER_FROM: ""
+  NTFY_SMTP_SERVER_LISTEN: ""
+  NTFY_SMTP_SERVER_DOMAIN: ""
+  NTFY_SMTP_SERVER_ADDR_PREFIX: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 10222
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/ntfy"
+  cache:
+    enabled: true
+    mountPath: "/var/cache/ntfy"
+
+configmap:
+  ntfy:
+    enabled: true
+    data:
+      # If a path is set, it enables this options. To disable set to emtpy path
+      NTFY_ATTACHMENT_CACHE_DIR: "{{ ternary \"/var/cache/ntfy/attachments\" \"\" .Values.env.ENABLE_ATTACHMENT_CACHE_DIR }}"
+      NTFY_CACHE_FILE: "{{ ternary \"/var/cache/ntfy/cache.db\" \"\" .Values.env.ENABLE_CACHE_FILE }}"
+      NTFY_AUTH_FILE: "{{ ternary \"/var/lib/ntfy/user.db\" \"\" .Values.env.ENABLE_AUTH_FILE }}"
+      NTFY_FIREBASE_KEY_FILE: "{{ ternary \"/etc/ntfy/firebase-key.json\" \"\" .Values.env.ENABLE_FIREBASE_FILE }}"
