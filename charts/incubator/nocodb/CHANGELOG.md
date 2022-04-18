@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nocodb-0.0.3"></a>
+### [nocodb-0.0.3](https://github.com/truecharts/apps/compare/nocodb-0.0.2...nocodb-0.0.3) (2022-04-18)
+
+#### Chore
+
+* bump 2 apps ([#2506](https://github.com/truecharts/apps/issues/2506))
+
+#### Feat
+
+* move some apps to stable ([#2504](https://github.com/truecharts/apps/issues/2504))
+
+
+
 <a name="nocodb-0.0.2"></a>
 ### [nocodb-0.0.2](https://github.com/truecharts/apps/compare/nocodb-0.0.1...nocodb-0.0.2) (2022-04-18)
 

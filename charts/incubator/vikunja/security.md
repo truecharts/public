@@ -112,8 +112,8 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:a5c260910866d65cef95aa623141abf4eb4241bb239d19b7d1cb769c6f2915c6
-          vikunja/api:0.18.1@sha256:78be185acc4fc41b860d4145ab1bc3ae175c7e7a9b66ad7a5cfd7ddc3773912d
-          'vikunja/frontend:0.18.2@sha256:1e28d7350a4cd938f1723a5e92ef3251fb45d65ca4079d41daa52ed1900d1535'
+          tccr.io/truecharts/vikunja-api:v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
+          'tccr.io/truecharts/vikunja-frontend:v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab'
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:797177c01e1b7f363278dd2ec7fa0e63bfe85a92e0cc785042b12c533a56737c
@@ -392,7 +392,7 @@ hide:
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-43784">https://access.redhat.com/security/cve/CVE-2021-43784</a><br><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 
-#### Container: vikunja/api:0.18.1@sha256:78be185acc4fc41b860d4145ab1bc3ae175c7e7a9b66ad7a5cfd7ddc3773912d (alpine 3.12.8)
+#### Container: tccr.io/truecharts/vikunja-api:v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389 (alpine 3.12.8)
 
 
 **alpine**
