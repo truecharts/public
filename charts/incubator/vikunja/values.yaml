@@ -63,10 +63,6 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: redis-password
-  VIKUNJA_SERVICE_JWT_SECRET:
-    secretKeyRef:
-      name: vikunja-secrets
-      key: VIKUNJA_SERVICE_JWT_SECRET
 
 service:
   main:
