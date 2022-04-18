@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-2.0.17"></a>
+### [medusa-2.0.17](https://github.com/truecharts/apps/compare/medusa-2.0.16...medusa-2.0.17) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="medusa-2.0.16"></a>
 ### [medusa-2.0.16](https://github.com/truecharts/apps/compare/medusa-2.0.15...medusa-2.0.16) (2022-04-12)
 

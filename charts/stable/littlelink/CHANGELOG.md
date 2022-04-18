@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-5.0.16"></a>
+### [littlelink-5.0.16](https://github.com/truecharts/apps/compare/littlelink-5.0.15...littlelink-5.0.16) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="littlelink-5.0.15"></a>
 ### [littlelink-5.0.15](https://github.com/truecharts/apps/compare/littlelink-5.0.14...littlelink-5.0.15) (2022-04-12)
 

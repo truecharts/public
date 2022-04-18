@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-2.0.14"></a>
+### [leantime-2.0.14](https://github.com/truecharts/apps/compare/leantime-2.0.13...leantime-2.0.14) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="leantime-2.0.13"></a>
 ### [leantime-2.0.13](https://github.com/truecharts/apps/compare/leantime-2.0.12...leantime-2.0.13) (2022-04-12)
 

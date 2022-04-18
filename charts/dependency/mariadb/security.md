@@ -45,7 +45,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/mariadb:v10.7.3@sha256:85bdae0688f4c6e65f15cc1cae67167a89a8069fcc42b0fecb8fc85102b93646
+          tccr.io/truecharts/mariadb:v10.7.3@sha256:26d797396841fee6a77bf2ab5854e0f6cb782f2bb77f78fb298833f2ead7f41e
 
 ##### Scan Results
 
@@ -76,7 +76,7 @@ hide:
 | zlib         |    CVE-2018-25032   |   HIGH  |  1.2.11-r3 | 1.2.12-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/03/25/2">http://www.openwall.com/lists/oss-security/2022/03/25/2</a><br><a href="http://www.openwall.com/lists/oss-security/2022/03/26/1">http://www.openwall.com/lists/oss-security/2022/03/26/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2018-25032">https://access.redhat.com/security/cve/CVE-2018-25032</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032</a><br><a href="https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531">https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531</a><br><a href="https://github.com/madler/zlib/compare/v1.2.11...v1.2.12">https://github.com/madler/zlib/compare/v1.2.11...v1.2.12</a><br><a href="https://github.com/madler/zlib/issues/605">https://github.com/madler/zlib/issues/605</a><br><a href="https://github.com/sparklemotion/nokogiri/releases/tag/v1.13.4">https://github.com/sparklemotion/nokogiri/releases/tag/v1.13.4</a><br><a href="https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-v6gp-9mmm-c6p5">https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-v6gp-9mmm-c6p5</a><br><a href="https://groups.google.com/g/ruby-security-ann/c/vX7qSjsvWis/m/TJWN4oOKBwAJ">https://groups.google.com/g/ruby-security-ann/c/vX7qSjsvWis/m/TJWN4oOKBwAJ</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/04/msg00000.html">https://lists.debian.org/debian-lts-announce/2022/04/msg00000.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-25032">https://nvd.nist.gov/vuln/detail/CVE-2018-25032</a><br><a href="https://ubuntu.com/security/notices/USN-5355-1">https://ubuntu.com/security/notices/USN-5355-1</a><br><a href="https://ubuntu.com/security/notices/USN-5355-2">https://ubuntu.com/security/notices/USN-5355-2</a><br><a href="https://ubuntu.com/security/notices/USN-5359-1">https://ubuntu.com/security/notices/USN-5359-1</a><br><a href="https://www.debian.org/security/2022/dsa-5111">https://www.debian.org/security/2022/dsa-5111</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/24/1">https://www.openwall.com/lists/oss-security/2022/03/24/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/1">https://www.openwall.com/lists/oss-security/2022/03/28/1</a><br><a href="https://www.openwall.com/lists/oss-security/2022/03/28/3">https://www.openwall.com/lists/oss-security/2022/03/28/3</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.3@sha256:85bdae0688f4c6e65f15cc1cae67167a89a8069fcc42b0fecb8fc85102b93646 (debian 10.12)
+#### Container: tccr.io/truecharts/mariadb:v10.7.3@sha256:26d797396841fee6a77bf2ab5854e0f6cb782f2bb77f78fb298833f2ead7f41e (debian 10.12)
 
 
 **debian**

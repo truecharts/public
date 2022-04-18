@@ -87,8 +87,8 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:797177c01e1b7f363278dd2ec7fa0e63bfe85a92e0cc785042b12c533a56737c
-          'tccr.io/truecharts/home-assistant:v2022.4.4@sha256:4da43bcd89b1a0dfebfdff59da5e27765854895ad1b0b7e4be30dca3ad9d183f'
-          tccr.io/truecharts/home-assistant:v2022.4.4@sha256:4da43bcd89b1a0dfebfdff59da5e27765854895ad1b0b7e4be30dca3ad9d183f
+          'tccr.io/truecharts/home-assistant:v2022.4.5@sha256:3779bf01c81f4e7ef423b2a6689bc5a8275833f9b7c2ee4e042b4296703e04ff'
+          tccr.io/truecharts/home-assistant:v2022.4.5@sha256:3779bf01c81f4e7ef423b2a6689bc5a8275833f9b7c2ee4e042b4296703e04ff
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:797177c01e1b7f363278dd2ec7fa0e63bfe85a92e0cc785042b12c533a56737c
@@ -366,7 +366,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/home-assistant:v2022.4.4@sha256:4da43bcd89b1a0dfebfdff59da5e27765854895ad1b0b7e4be30dca3ad9d183f (alpine 3.14.3)
+#### Container: tccr.io/truecharts/home-assistant:v2022.4.5@sha256:3779bf01c81f4e7ef423b2a6689bc5a8275833f9b7c2ee4e042b4296703e04ff (alpine 3.14.3)
 
 
 **alpine**

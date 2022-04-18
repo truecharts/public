@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-5.0.12"></a>
+### [flaresolverr-5.0.12](https://github.com/truecharts/apps/compare/flaresolverr-5.0.11...flaresolverr-5.0.12) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="flaresolverr-5.0.11"></a>
 ### [flaresolverr-5.0.11](https://github.com/truecharts/apps/compare/flaresolverr-5.0.10...flaresolverr-5.0.11) (2022-04-12)
 

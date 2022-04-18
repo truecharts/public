@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.31"></a>
+### [grafana-3.0.31](https://github.com/truecharts/apps/compare/grafana-3.0.30...grafana-3.0.31) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="grafana-3.0.30"></a>
 ### [grafana-3.0.30](https://github.com/truecharts/apps/compare/grafana-3.0.29...grafana-3.0.30) (2022-04-17)
 

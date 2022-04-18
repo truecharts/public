@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unmanic-2.0.12"></a>
+### [unmanic-2.0.12](https://github.com/truecharts/apps/compare/unmanic-2.0.11...unmanic-2.0.12) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
 <a name="unmanic-2.0.11"></a>
 ### [unmanic-2.0.11](https://github.com/truecharts/apps/compare/unmanic-2.0.10...unmanic-2.0.11) (2022-04-12)
 
