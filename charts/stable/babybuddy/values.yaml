@@ -20,7 +20,7 @@ envValueFrom:
       key: plainhost
 
 securityContext:
-  readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
