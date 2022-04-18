@@ -1,0 +1,61 @@
+image:
+  repository: tccr.io/truecharts/pinry
+  tag: v2.1.7@sha256:7fb1b31d32a2a306113079ccd7f261f05efcafbe7824f60a3a3c89d5b6715efb
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+envValueFrom:
+  SECRET_KEY:
+    secretKeyRef:
+      name: pinry-secrets
+      key: SECRET_KEY
+
+service:
+  main:
+    ports:
+      main:
+        port: 10213
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+installContainers:
+  1-create-key-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    env:
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: pinry-secrets
+            key: SECRET_KEY
+    command: ["sh", "-c"]
+    args:
+      - >
+        keyfile="/data/production_secret_key.txt";
+        if [ ! -f ${keyfile} ];
+        then
+          echo "No ${keyfile} File...";
+          echo "Creating ${keyfile} file...";
+          echo "${SECRET_KEY}" > ${keyfile};
+          if [ -f ${keyfile} ];
+          then
+            echo "Success!";
+          else
+            echo "Failed.";
+          fi;
+        else
+          echo "${keyfile} File exists. Skipping...";
+        fi;

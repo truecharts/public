@@ -1,0 +1,16 @@
+image:
+  repository: tccr.io/truecharts/website-shot
+  tag: latest@sha256:a68cf362beca8bce336627ee3b2f26555db4e25ea12e2d799442f6a3756973cc
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 10221
+        targetPort: 3000
+
+persistence:
+  screenshots:
+    enabled: true
+    mountPath: "/usr/src/website-shot/screenshots"

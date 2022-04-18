@@ -1,11 +1,11 @@
 image:
-  repository: vikunja/api
-  tag: 0.18.1@sha256:78be185acc4fc41b860d4145ab1bc3ae175c7e7a9b66ad7a5cfd7ddc3773912d
+  repository: tccr.io/truecharts/vikunja-api
+  tag: v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
   pullPolicy: IfNotPresent
 
 frontendImage:
-  repository: vikunja/frontend
-  tag: 0.18.2@sha256:1e28d7350a4cd938f1723a5e92ef3251fb45d65ca4079d41daa52ed1900d1535
+  repository: tccr.io/truecharts/vikunja-frontend
+  tag: v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -63,10 +63,6 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: redis-password
-  VIKUNJA_SERVICE_JWT_SECRET:
-    secretKeyRef:
-      name: vikunja-secrets
-      key: VIKUNJA_SERVICE_JWT_SECRET
 
 service:
   main:

@@ -24,10 +24,6 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: url
-  NC_AUTH_JWT_SECRET:
-    secretKeyRef:
-      name: nocodb-secrets
-      key: NC_AUTH_JWT_SECRET
 
 envFrom:
   - configMapRef:

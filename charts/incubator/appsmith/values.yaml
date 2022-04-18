@@ -46,6 +46,7 @@ envValueFrom:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: appsmith
 
 # mongodb:
 #   enabled: true

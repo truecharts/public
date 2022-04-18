@@ -1,0 +1,20 @@
+image:
+  repository: tccr.io/truecharts/metube
+  tag: v2022-04@sha256:d6bf0a91018131512573288fa6bcf2b86f9f97acb1ad975014eab5e91f5d0e9d
+  pullPolicy: IfNotPresent
+
+env:
+  OUTPUT_TEMPLATE: "%(title)s.%(ext)s"
+  YTDL_OPTIONS: "{}"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10216
+        targetPort: 8081
+
+persistence:
+  downloads:
+    enabled: true
+    mountPath: "/downloads"
