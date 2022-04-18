@@ -1,13 +1,13 @@
 # Introduction
 
-Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
+Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/bitnami/dokuwiki>
+* <https://github.com/Flowko/website-shot>
 
 ## Requirements
 

@@ -1,14 +1,13 @@
 # Introduction
 
-Quickly build any custom business software with pre-built UI widgets that connect to any data source. Control everything with JavaScript.
+ntfy is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://www.appsmith.com/>
-* <https://hub.docker.com/r/appsmith/appsmith-ce>
+* <https://github.com/binwiederhier/ntfy/>
 
 ## Requirements
 

@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -75,8 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
-
 # Include{containerConfig}
 
   - variable: service
@@ -105,7 +102,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8182
+                              default: 10221
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -118,7 +115,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: TCP
+                                    default: "HTTP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -140,9 +137,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
-
-
+                                    default: 3000
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -171,10 +166,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
-        - variable: data
-          label: "data Storage"
-          description: "Container Path appsmith-stacks"
+        - variable: screenshots
+          label: "App Screenshots Storage"
+          description: "Stores the Application Screenshots."
           schema:
             additional_attrs: true
             type: dict
@@ -216,9 +210,7 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 
-
 # Include{persistenceList}
-
 
   - variable: ingress
     label: ""
@@ -268,7 +260,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -278,7 +270,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -293,13 +285,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
@@ -307,7 +299,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 
 # Include{resources}
 
