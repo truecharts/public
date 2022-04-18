@@ -112,9 +112,12 @@ envValueFrom:
     secretKeyRef:
       name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "mongodb-root-password"
+  MONGODB_REPLICA_SET_KEY:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "mongodb-replicaset-key"
 
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
-  MONGODB_REPLICA_SET_KEY: "{{ .Values.mongodbReplicasetKey }}"
