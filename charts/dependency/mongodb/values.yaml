@@ -99,6 +99,8 @@ mongodbPassword: "testpass"
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
+mongodbReplicasetMode: "primary"
+mongodbReplicasetKey: "testreplicasetkey"
 existingSecret: ""
 
 envValueFrom:
@@ -114,3 +116,5 @@ envValueFrom:
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
+  MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
+  MONGODB_REPLICA_SET_KEY: "{{ .Values.mongodbReplicasetKey }}"
