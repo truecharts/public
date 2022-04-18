@@ -104,6 +104,13 @@ questions:
       type: string
       default: "primary"
       required: true
+  - variable: mongodbReplicasetName
+    group: "App Configuration"
+    label: "ReplicaSet Name"
+    schema:
+      type: string
+      default: "rs0"
+      required: true
   - variable: mongodbReplicasetKey
     group: "App Configuration"
     label: "ReplicaSet Key"
