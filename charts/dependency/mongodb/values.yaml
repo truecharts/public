@@ -100,6 +100,7 @@ mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
 mongodbReplicasetMode: "primary"
+mongodbReplicasetName: "rs0"
 mongodbReplicasetKey: "testreplicasetkey"
 existingSecret: ""
 
@@ -121,3 +122,4 @@ env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
+  MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
