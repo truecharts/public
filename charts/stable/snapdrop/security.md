@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          linuxserver/snapdrop:latest@sha256:2f95ee1fde36379cf56b4a0bda821d27286d30d9206702f79e52c21b2967abca
+          tccr.io/truecharts/snapdrop:latest@sha256:a57ce275830b48b7cb29b404a68e4958266eaf538a46442839451e77c7d19a41
 
 ##### Scan Results
 

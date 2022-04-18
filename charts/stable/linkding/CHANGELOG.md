@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkding-1.0.0"></a>
+### [linkding-1.0.0](https://github.com/truecharts/apps/compare/linkding-0.0.8...linkding-1.0.0) (2022-04-18)
+
+#### Feat
+
+* move some apps to stable ([#2504](https://github.com/truecharts/apps/issues/2504))
+
+
+
 <a name="linkding-0.0.8"></a>
 ### [linkding-0.0.8](https://github.com/truecharts/apps/compare/linkding-0.0.7...linkding-0.0.8) (2022-04-12)
 

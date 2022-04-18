@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-1.0.0"></a>
+### [cyberchef-1.0.0](https://github.com/truecharts/apps/compare/cyberchef-0.0.3...cyberchef-1.0.0) (2022-04-18)
+
+#### Feat
+
+* move some apps to stable ([#2504](https://github.com/truecharts/apps/issues/2504))
+
+
+
 <a name="cyberchef-0.0.3"></a>
 ### [cyberchef-0.0.3](https://github.com/truecharts/apps/compare/cyberchef-0.0.2...cyberchef-0.0.3) (2022-04-18)
 

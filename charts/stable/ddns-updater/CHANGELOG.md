@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-updater-1.0.0"></a>
+### [ddns-updater-1.0.0](https://github.com/truecharts/apps/compare/ddns-updater-0.0.2...ddns-updater-1.0.0) (2022-04-18)
+
+#### Feat
+
+* move some apps to stable ([#2504](https://github.com/truecharts/apps/issues/2504))
+
+
+
 <a name="ddns-updater-0.0.2"></a>
 ### [ddns-updater-0.0.2](https://github.com/truecharts/apps/compare/ddns-updater-0.0.1...ddns-updater-0.0.2) (2022-04-18)
 
