@@ -1,0 +1,19 @@
+image:
+  repository: cadriel/fluidd
+  tag: v1.17.2@sha256:d494da14703f260b273b2c87d50605c88ca286d143199e113e7b1934c1a8ecd8
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10224
+        targetPort: 80

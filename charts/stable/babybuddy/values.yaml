@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.10.2@sha256:d16aaf39d206365955dda896efdb59ef652fcd40efa99ddb82db09fecca8d8ee
 
-# See more environment variables in the babybuddy documentation
-# https://github.com/linuxserver/docker-babybuddy#parameters
 env:
   DB_ENGINE: "django.db.backends.postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -22,7 +20,7 @@ envValueFrom:
       key: plainhost
 
 securityContext:
-  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
@@ -43,7 +41,6 @@ persistence:
   varrun:
     enabled: true
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

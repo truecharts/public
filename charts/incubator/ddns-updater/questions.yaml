@@ -81,9 +81,107 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: CSRF_TRUSTED_ORIGINS
-          label: "CSRF_TRUSTED_ORIGINS"
-          description: "Add any address you'd like to access babybuddy at (comma separated, no spaces)"
+        - variable: CONFIG
+          label: "CONFIG"
+          description: "One line JSON object containing the entire config."
+          schema:
+            type: string
+            default: ""
+        - variable: PERIOD
+          label: "PERIOD"
+          description: "Default period of IP address check."
+          schema:
+            type: string
+            default: "5m"
+        - variable: IPV6_PREFIX
+          label: "IPV6_PREFIX"
+          description: "IPv6 prefix used to mask your public IPv6 address and your record IPv6 address. Ranges from /0 to /128 depending on your ISP."
+          schema:
+            type: string
+            default: "/128"
+        - variable: PUBLICIP_FETCHERS
+          label: "PUBLICIP_FETCHERS"
+          description: "Comma separated fetcher types to obtain the public IP address from http and dns."
+          schema:
+            type: string
+            default: "all"
+        - variable: PUBLICIP_HTTP_PROVIDERS
+          label: "PUBLICIP_HTTP_PROVIDERS"
+          description: "Comma separated providers to obtain the public IP address (ipv4 or ipv6)."
+          schema:
+            type: string
+            default: "all"
+        - variable: PUBLICIPV4_HTTP_PROVIDERS
+          label: "PUBLICIPV4_HTTP_PROVIDERS"
+          description: "Comma separated providers to obtain the public IPv4 address only."
+          schema:
+            type: string
+            default: "all"
+        - variable: PUBLICIPV6_HTTP_PROVIDERS
+          label: "PUBLICIPV6_HTTP_PROVIDERS"
+          description: "Comma separated providers to obtain the public IPv6 address only."
+          schema:
+            type: string
+            default: "all"
+        - variable: PUBLICIP_DNS_PROVIDERS
+          label: "PUBLICIP_DNS_PROVIDERS"
+          description: "Comma separated providers to obtain the public IP address (IPv4 and/or IPv6)."
+          schema:
+            type: string
+            default: "all"
+        - variable: PUBLICIP_DNS_TIMEOUT
+          label: "PUBLICIP_DNS_TIMEOUT"
+          description: "Public IP DNS query timeout."
+          schema:
+            type: string
+            default: "3s"
+        - variable: UPDATE_COOLDOWN_PERIOD
+          label: "UPDATE_COOLDOWN_PERIOD"
+          description: "Duration to cooldown between updates for each record. This is useful to avoid being rate limited or banned."
+          schema:
+            type: string
+            default: "5m"
+        - variable: HTTP_TIMEOUT
+          label: "HTTP_TIMEOUT"
+          description: "Timeout for all HTTP requests."
+          schema:
+            type: string
+            default: "10s"
+        - variable: BACKUP_PERIOD
+          label: "BACKUP_PERIOD"
+          description: "Set to a period (i.e. 72h15m) to enable zip backups of data/config.json and data/updates.json in a zip file."
+          schema:
+            type: string
+            default: "0"
+        - variable: LOG_LEVEL
+          label: "LOG_LEVEL"
+          description: "Level of logging, debug, info, warning or error."
+          schema:
+            type: string
+            default: "info"
+            enum:
+              - value: "info"
+                description: "info"
+              - value: "debug"
+                description: "debug"
+              - value: "warning"
+                description: "warning"
+              - value: "error"
+                description: "error"
+        - variable: LOG_CALLER
+          label: "LOG_CALLER"
+          description: "Show caller per log line, hidden or short."
+          schema:
+            type: string
+            default: "hidden"
+            enum:
+              - value: "hidden"
+                description: "hidden"
+              - value: "short"
+                description: "short"
+        - variable: SHOUTRRR_ADDRESSES
+          label: "SHOUTRRR_ADDRESSES"
+          description: "(optional) Comma separated list of Shoutrrr addresses (notification services)"
           schema:
             type: string
             default: ""
@@ -115,7 +213,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10069
+                              default: 10227
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -150,7 +248,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
+                                    default: 10227
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -179,9 +277,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
@@ -222,6 +320,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
   - variable: ingress
@@ -238,7 +337,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
+
 # Include{ingressTLS}
+
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
@@ -270,7 +371,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -280,7 +381,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -295,13 +396,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
