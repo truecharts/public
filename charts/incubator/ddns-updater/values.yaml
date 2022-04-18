@@ -3,14 +3,6 @@ image:
   tag: v2.4.1@sha256:7cfcb227e982b4fe835966503da77457537a9f9b6a3a699ae7b8994080b3857f
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   LISTENING_PORT: "{{ .Values.service.main.ports.main.port }}"
 

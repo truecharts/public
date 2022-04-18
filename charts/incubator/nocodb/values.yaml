@@ -31,7 +31,7 @@ envValueFrom:
 
 envFrom:
   - configMapRef:
-      name: nocodb-databaseurl
+      name: nocodb-configmap
 
 service:
   main:
