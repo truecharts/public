@@ -1,13 +1,13 @@
 # Introduction
 
-Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
+RSS-Bridge is a PHP project capable of generating RSS and Atom feeds for websites that don't have one.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/babybuddy/babybuddy>
+* <https://github.com/RSS-Bridge/rss-bridge>
 
 ## Requirements
 
@@ -17,7 +17,6 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 7.0.42 |
 | https://library-charts.truecharts.org | common | 9.2.8 |
 
 ## Installing the Chart
