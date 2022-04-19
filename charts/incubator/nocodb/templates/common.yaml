@@ -4,5 +4,8 @@
 {{/* Render configmap for nocodb */}}
 {{- include "nocodb.configmap" . }}
 
+{{/* Render secrets for nocodb */}}
+{{- include "nocodb.secrets" . }}
+
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
