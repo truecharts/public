@@ -8,10 +8,6 @@ frontendImage:
   tag: v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab
   pullPolicy: IfNotPresent
 
-nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: v1.21.6@sha256:e530cd55de35803870c5c54ff5140f79807137937f7cfd9841fba73bee83d554
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -47,6 +43,9 @@ env:
   VIKUNJA_RATELIMIT_PERIOD: 60
   VIKUNJA_RATELIMIT_LIMIT: 100
 
+frontendConfig:
+  VIKUNJA_API_URL: "http://localhost:3456/api/v1"
+
 envValueFrom:
   VIKUNJA_DATABASE_HOST:
     secretKeyRef:
@@ -74,25 +73,18 @@ service:
     ports:
       main:
         port: 10220
-        targetPort: 8080
+        targetPort: 80
 
 additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
-  proxy:
-    name: proxy
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    env:
+      - name: VIKUNJA_API_URL
+        value: "{{ .Values.frontendConfig.VIKUNJA_API_URL }}"
     ports:
-      - containerPort: 8080
+      - containerPort: 80
         name: main
-    volumeMounts:
-    - name: vikunja-config
-      mountPath: "/etc/nginx/conf.d/default.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: files
-      mountPath: "/app/vikunja/files"
 
 persistence:
   files:

@@ -74,6 +74,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: frontendConfig
+    group: "Container Configuration"
+    label: "front Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: VIKUNJA_API_URL
+          label: "VIKUNJA_API_URL"
+          description: "THIS IS ONLY FOR DEV TESTING FOR NOW"
+          schema:
+            type: string
+            required: true
+            default: "http://localhost:3456/api/v1"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
