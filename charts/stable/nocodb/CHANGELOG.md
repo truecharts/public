@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-1.0.0"></a>
+### [nocodb-1.0.0](https://github.com/truecharts/apps/compare/nocodb-0.0.5...nocodb-1.0.0) (2022-04-19)
+
+#### Feat
+
+* move apps to stable and update image refs ([#2517](https://github.com/truecharts/apps/issues/2517))
+
+
+
 <a name="nocodb-0.0.5"></a>
 ### [nocodb-0.0.5](https://github.com/truecharts/apps/compare/nocodb-0.0.4...nocodb-0.0.5) (2022-04-19)
 
