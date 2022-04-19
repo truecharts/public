@@ -173,8 +173,8 @@ questions:
           label: "Request Body Size"
           description: "Request body size limit."
           schema:
-            type: int
-            default: 1048576
+            type: string
+            default: "1MB"
         - variable: NC_EXPORT_MAX_TIMEOUT
           label: "Export Max Timeout"
           description: "After timeout, csv gets downloaded in batches."
