@@ -19,7 +19,7 @@ data:
     gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml;
 
     server {
-        listen       80;
+        listen       8080;
         server_name  localhost;
 
         location / {
