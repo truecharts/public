@@ -74,7 +74,7 @@ service:
     ports:
       main:
         port: 10220
-        targetPort: 8080
+        targetPort: 80
 
 additionalContainers:
   frontend:
@@ -84,15 +84,13 @@ additionalContainers:
     name: proxy
     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
     ports:
-      - containerPort: 8080
+      - containerPort: 80
         name: main
     volumeMounts:
     - name: vikunja-config
       mountPath: "/etc/nginx/conf.d/default.conf"
       subPath: nginx-config
       readOnly: true
-    - name: files
-      mountPath: "/app/vikunja/files"
 
 persistence:
   files:
