@@ -73,10 +73,10 @@ data:
   {{- if .Values.executions.EXECUTIONS_MODE }}
   EXECUTIONS_MODE: {{ .Values.executions.EXECUTIONS_MODE | quote }}
   {{- end }}
-  {{- if .Values.executions.EXECUTIONS_TIMEOUT }}
+  {{- if or .Values.executions.EXECUTIONS_TIMEOUT ( eq 0 .Values.executions.EXECUTIONS_TIMEOUT ) }}
   EXECUTIONS_TIMEOUT: {{ .Values.executions.EXECUTIONS_TIMEOUT | quote }}
   {{- end }}
-  {{- if .Values.executions.EXECUTIONS_TIMEOUT_MAX }}
+  {{- if or .Values.executions.EXECUTIONS_TIMEOUT_MAX ( eq 0 .Values.executions.EXECUTIONS_TIMEOUT_MAX ) }}
   EXECUTIONS_TIMEOUT_MAX: {{ .Values.executions.EXECUTIONS_TIMEOUT_MAX | quote }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_SAVE_ON_ERROR }}
@@ -94,10 +94,10 @@ data:
   {{- if .Values.executions.EXECUTIONS_DATA_PRUNE }}
   EXECUTIONS_DATA_PRUNE: {{ .Values.executions.EXECUTIONS_DATA_PRUNE | quote }}
   {{- end }}
-  {{- if .Values.executions.EXECUTIONS_DATA_MAX_AGE }}
+  {{- if or .Values.executions.EXECUTIONS_DATA_MAX_AGE ( eq 0 .Values.executions.EXECUTIONS_DATA_MAX_AGE ) }}
   EXECUTIONS_DATA_MAX_AGE: {{ .Values.executions.EXECUTIONS_DATA_MAX_AGE | quote }}
   {{- end }}
-  {{- if .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
+  {{- if or .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT ( eq 0 .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT ) }}
   EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT | quote }}
   {{- end }}
   {{/*  Endpoints */}}
