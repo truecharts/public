@@ -88,7 +88,7 @@ additionalContainers:
         name: main
     volumeMounts:
     - name: vikunja-config
-      mountPath: "/etc/nginx/nginx.conf"
+      mountPath: "/etc/nginx/conf.d/default.conf"
       subPath: nginx-config
       readOnly: true
     - name: files
