@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="vikunja-0.0.5"></a>
+### [vikunja-0.0.5](https://github.com/truecharts/apps/compare/vikunja-0.0.4...vikunja-0.0.5) (2022-04-19)
+
+#### Chore
+
+* bump ([#2519](https://github.com/truecharts/apps/issues/2519))
+
+#### Feat
+
+* move apps to stable and update image refs ([#2517](https://github.com/truecharts/apps/issues/2517))
+
+
+
 <a name="vikunja-0.0.4"></a>
 ### [vikunja-0.0.4](https://github.com/truecharts/apps/compare/vikunja-0.0.3...vikunja-0.0.4) (2022-04-19)
 
