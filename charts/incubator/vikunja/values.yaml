@@ -43,9 +43,6 @@ env:
   VIKUNJA_RATELIMIT_PERIOD: 60
   VIKUNJA_RATELIMIT_LIMIT: 100
 
-frontendConfig:
-  VIKUNJA_API_URL: "http://localhost:3456/api/v1"
-
 envValueFrom:
   VIKUNJA_DATABASE_HOST:
     secretKeyRef:
@@ -63,6 +60,10 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: redis-password
+  VIKUNJA_SERVICE_JWT_SECRET:
+    secretKeyRef:
+      name: vikunja-secrets
+      key: VIKUNJA_SERVICE_JWT_SECRET
 
 service:
   main:
@@ -75,12 +76,19 @@ additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
-    env:
-      - name: VIKUNJA_API_URL
-        value: "{{ .Values.frontendConfig.VIKUNJA_API_URL }}"
+  proxy:
+    name: proxy
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
     ports:
       - containerPort: 80
         name: main
+    volumeMounts:
+    - name: vikunja-config
+      mountPath: "/etc/nginx/nginx.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: files
+      mountPath: "/app/vikunja/files"
 
 persistence:
   files:
