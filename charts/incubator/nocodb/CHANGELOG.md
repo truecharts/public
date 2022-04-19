@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-0.0.4"></a>
+### [nocodb-0.0.4](https://github.com/truecharts/apps/compare/nocodb-0.0.3...nocodb-0.0.4) (2022-04-18)
+
+#### Chore
+
+* update container image nocodb/nocodb to v0.90.3
+
+
+
 <a name="nocodb-0.0.3"></a>
 ### [nocodb-0.0.3](https://github.com/truecharts/apps/compare/nocodb-0.0.2...nocodb-0.0.3) (2022-04-18)
 
