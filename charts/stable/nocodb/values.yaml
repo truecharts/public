@@ -1,6 +1,6 @@
 image:
-  repository: nocodb/nocodb
-  tag: 0.90.3@sha256:63158174ce8a88eecfa332e223cee8cd11c1670090324d1d4264348930cb43db
+  repository: tccr.io/truecharts/nocodb
+  tag: v0.90.2@sha256:cd67c84e510f4d913c439c2de01aaa294894da22a478ff3873b3cfd41dfadf60
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -32,6 +32,14 @@ envValueFrom:
 envFrom:
   - configMapRef:
       name: nocodb-configmap
+
+probes:
+  liveness:
+    path: "/dashboard"
+  readiness:
+    path: "/dashboard"
+  startup:
+    path: "/dashboard"
 
 service:
   main:
