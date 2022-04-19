@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-0.0.5"></a>
+### [nocodb-0.0.5](https://github.com/truecharts/apps/compare/nocodb-0.0.4...nocodb-0.0.5) (2022-04-19)
+
+#### Fix
+
+* use proxy on vikunja and fix nocodb request body size ([#2511](https://github.com/truecharts/apps/issues/2511))
+
+
+
 <a name="nocodb-0.0.4"></a>
 ### [nocodb-0.0.4](https://github.com/truecharts/apps/compare/nocodb-0.0.3...nocodb-0.0.4) (2022-04-18)
 
