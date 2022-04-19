@@ -16,6 +16,6 @@ data:
 
       location ~* ^/(api|dav|\.well-known)/ {
           proxy_pass http://localhost:3456;
-          client_max_body_size {{ .Values.VIKUNJA_FILES_MAXSIZE | upper | trimSuffix "B" }};
+          client_max_body_size {{ .Values.VIKUNJA_FILES_MAXSIZE | trimSuffix "b" | trimSuffix "B" }};
       }
     }
