@@ -245,7 +245,7 @@ questions:
       attrs:
         - variable: N8N_AUTH_EXCLUDE_ENDPOINTS
           label: "Additional Endpoints to Exclude Auth Checks (Leave empty for default)"
-          description: 'Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (":"). The endpoints should not start with a forward slash ("/")'
+          description: "Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (\":\"). The endpoints should not start with a forward slash (\"/\")"
           schema:
             type: string
             default: ""
