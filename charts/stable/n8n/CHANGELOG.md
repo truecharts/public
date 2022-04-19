@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-2.0.21"></a>
+### [n8n-2.0.21](https://github.com/truecharts/apps/compare/n8n-2.0.20...n8n-2.0.21) (2022-04-19)
+
+#### Chore
+
+* improve configmap ([#2516](https://github.com/truecharts/apps/issues/2516))
+
+
+
 <a name="n8n-2.0.20"></a>
 ### [n8n-2.0.20](https://github.com/truecharts/apps/compare/n8n-2.0.19...n8n-2.0.20) (2022-04-19)
 
