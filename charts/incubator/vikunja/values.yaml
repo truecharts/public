@@ -74,6 +74,21 @@ service:
       main:
         port: 10220
         targetPort: 80
+# THOSE ARE FOR DEV TEST ONLY WILL BE REMOVED
+  other:
+    enabled: true
+    ports:
+      other:
+        enabled: true
+        port: 10221
+        targetPort: 81
+  server:
+    enabled: true
+    ports:
+      server:
+        enabled: true
+        port: 3456
+        targetPort: 3456
 
 additionalContainers:
   frontend:
@@ -85,6 +100,8 @@ additionalContainers:
     ports:
       - containerPort: 80
         name: main
+      - containerPort: 81
+        name: other
 
 persistence:
   files:
