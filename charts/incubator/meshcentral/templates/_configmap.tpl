@@ -10,7 +10,7 @@
 {{- $local_session_recording := .Values.mesh.local_session_recording }}
 
 {{- if .Values.mesh.settings_domains_certUrl }}
-  {{- $settings_domains_certUrl := "\"certUrl\": \"%v\" .Values.mesh.settings_domains_certUrl" }}
+  {{- $settings_domains_certUrl := "\"certUrl\": \"%v\"" .Values.mesh.settings_domains_certUrl }}
 {{- else }}
   {{- $settings_domains_certUrl := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
 {{- end -}}
