@@ -80,9 +80,6 @@ additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
-    env:
-      - name: VIKUNJA_HTTP_PORT
-        value: "8081"
   proxy:
     name: proxy
     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
