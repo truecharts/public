@@ -1,22 +1,22 @@
 {{/* Define the configmap */}}
 {{- define "meshcentral.configmap" -}}
 
-{{- $settings_cert := .Values.mesh.settings_cert }}
-{{- $enable_webrtc := .Values.mesh.enable_webrtc }}
-{{- $allow_new_accounts := .Values.mesh.allow_new_accounts }}
-{{- $allow_plugins := .Values.mesh.allow_plugins }}
-{{- $iframe := .Values.mesh.iframe }}
-{{- $minify := .Values.mesh.minify }}
-{{- $local_session_recording := .Values.mesh.local_session_recording }}
+{{- $settings_mongoDB := .Values.mongodb.url }}
+{{- $settigns_port := .Values.service.main.ports.main.port }}
 
+{{- $settings_cert := .Values.mesh.settings_cert }}
+{{- $settings_webRTC := .Values.mesh.settings_webRTC }}
+{{- $settings_domains_newAccounts := .Values.mesh.settings_domains_newAccounts }}
+{{- $settings_plugins_enabled := .Values.mesh.settings_plugins_enabled }}
+{{- $settings_allowFraming := .Values.mesh.settings_allowFraming }}
+{{- $settings_domains_minify := .Values.mesh.settings_domains_minify }}
+{{- $settings_domains_localSessionRecording := .Values.mesh.settings_domains_localSessionRecording }}
 {{- if .Values.mesh.settings_domains_certUrl }}
   {{- $settings_domains_certUrl := "\"certUrl\": \"%v\"" .Values.mesh.settings_domains_certUrl }}
 {{- else }}
   {{- $settings_domains_certUrl := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
 {{- end -}}
 
-{{- $mongodbURL := .Values.mongodb.url }}
-{{- $port := .Values.service.main.ports.main.port }}
 
 ---
 apiVersion: v1
@@ -30,7 +30,7 @@ data:
         "__comment__": "This is a sample configuration file, all values and sections that start with underscore (_) are ignored. Edit a section and remove the _ in front of the name. Refer to the user's guide for details.",
         "settings": {
           "cert": "$settings_cert",
-          "mongoDb": "$mongodbURL",
+          "mongoDb": "$settings_mongoDB",
           "_mongoDbName": "meshcentral",
           "_mongoDbChangeStream": true,
           "_WANonly": true,
@@ -47,7 +47,7 @@ data:
             "powerevents": 864000,
             "statsevents": 2592000
           },
-          "port": $port,
+          "port": $settigns_port,
           "_portBind": "127.0.0.1",
           "_aliasPort": 444,
           "_redirPort": 80,
@@ -60,14 +60,14 @@ data:
           "_agentPortTls": true,
           "_exactPorts": true,
           "_allowLoginToken": true,
-          "allowFraming": $iframe,
+          "allowFraming": $settings_allowFraming,
           "_cookieIpCheck": false,
           "_cookieEncoding": "hex",
           "_compression": true,
           "_wscompression": false,
           "_agentwscompression": true,
           "_agentsInRam": false,
-          "webRTC": $enable_webrtc,
+          "webRTC": $settings_webRTC,
           "_nice404": false,
           "_selfUpdate": true,
           "_browserPing": 60,
@@ -157,7 +157,7 @@ data:
             "trustedFqdn": "sample.com",
             "ip": "192.168.1.1"
           },
-          "plugins": { "enabled": $allow_plugins }
+          "plugins": { "enabled": $settings_plugins_enabled }
         },
         "_domaindefaults": {
           "__comment__": "Any settings in this section is used as default setting for all domains",
@@ -174,13 +174,13 @@ data:
             "_loginPicture": "title-sample.png",
             "_userQuota": 1048576,
             "_meshQuota": 248576,
-            "minify": $minify,
+            "minify": $settings_domains_minify,
             "_guestDeviceSharing": false,
             "_AutoRemoveInactiveDevices": 37,
             "_DeviceSearchBarServerAndClientName": false,
             "_loginKey": ["abc", "123"],
             "_agentKey": ["abc", "123"],
-            "newAccounts": $allow_new_accounts,
+            "newAccounts": $settings_domains_newAccounts,
             "_newAccountsUserGroups": ["ugrp//xxxxxxxxxxxxxxxxx"],
             "_userNameIsEmail": true,
             "_newAccountEmailDomains": ["sample.com"],
@@ -377,7 +377,7 @@ data:
             },
             "_agentConfig": ["webSocketMaskOverride=1", "coreDumpEnabled=1"],
             "_assistantConfig": ["disableUpdate=1"],
-            "localSessionRecording": $local_session_recording,
+            "localSessionRecording": $settings_domains_localSessionRecording,
             "_sessionRecording": {
               "_onlySelectedUsers": true,
               "_onlySelectedUserGroups": true,

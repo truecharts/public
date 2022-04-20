@@ -16,12 +16,12 @@ podSecurityContext:
 mesh:
   settings_cert: "my.domain.com"
   settings_domains_certUrl: ""
-  allow_new_accounts: true
-  enable_webrtc: false
-  allow_plugins: false
-  local_session_recording: false
-  iframe: false
-  minify: true
+  settings_domains_newAccounts: true
+  settings_webRTC: false
+  settings_plugins_enabled: false
+  settings_domains_localSessionRecording: false
+  settings_allowFraming: false
+  settings_domains_minify: true
 
 service:
   main:
