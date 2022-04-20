@@ -29,7 +29,7 @@ env:
   VIKUNJA_DATABASE_DATABASE: "{{ .Values.postgresql.postgresDatabase }}"
   VIKUNJA_SERVICE_TIMEZONE: "{{ .Values.TZ }}"
   # User Defined
-  VIKUNJA_SERVICE_FRONTENDURL: "http://localhost:80"
+  VIKUNJA_SERVICE_FRONTENDURL: "http://localhost:8080"
   VIKUNJA_SERVICE_JWTTTL: 259200
   VIKUNJA_SERVICE_JWTTTLLONG: 2592000
   VIKUNJA_SERVICE_MAXITEMSPERPAGE: 50
@@ -74,17 +74,20 @@ service:
     ports:
       main:
         port: 10220
-        targetPort: 80
+        targetPort: 8080
 
 additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
+    env:
+      - name: VIKUNJA_HTTP_PORT
+        value: 8081
   proxy:
     name: proxy
     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
     ports:
-      - containerPort: 80
+      - containerPort: 8080
         name: main
     volumeMounts:
     - name: vikunja-config
