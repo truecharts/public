@@ -4,7 +4,7 @@
 {{/* Append the hardcoded settings */}}
 {{- define "meshcentral.harcodedValues" -}}
 persistence:
-  init:
+  init-template:
     enabled: "true"
     mountPath: "/init/meshcentral/config.json.template"
     subPath: "config.json.template"
@@ -12,7 +12,7 @@ persistence:
     volumeSpec:
       configMap:
         name: {{ printf "%v-init" (include "common.names.fullname" .) }}
-  init:
+  init-sh:
     enabled: "true"
     mountPath: "/init/meshcentral/init.sh"
     subPath: "init.sh"

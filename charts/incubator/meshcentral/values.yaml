@@ -38,8 +38,14 @@ initContainers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["/init/meshcentral/init.sh"]
     volumeMounts:
-      - name: init
-        mountPath: "/init/meshcentral"
+      - name: init-sh
+        mountPath: "/init/meshcentral/init.sh"
+        subPath: init.sh
+        readOnly: true
+      - name: init-template
+        mountPath: "/init/meshcentral/config.json.template"
+        subPath: "config.json.template"
+        readOnly: true
       - name: data
         mountPath: "/opt/meshcentral/meshcentral-data"
 
@@ -56,6 +62,3 @@ persistence:
   user:
     enabled: true
     mountPath: "/opt/meshcentral/meshcentral-files"
-  init:
-    enabled: "true"
-    mountPath: "/init/meshcentral"
