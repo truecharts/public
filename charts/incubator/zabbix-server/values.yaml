@@ -1,16 +1,16 @@
 image:
   repository: zabbix/zabbix-server-pgsql
-  tag: ubuntu-6.0.3@sha256:cef1152d9928a0d83223e42b264705b2d8079e49279a6c90f9f7758b3d0e3483
+  tag: ubuntu-6.0.3@sha256:57c7029b899d5e11c12ade03b7d68a16955723ccd4ff1af9fc54e99681315774
   pullPolicy: IfNotPresent
 
 frontImage:
   repository: zabbix/zabbix-web-nginx-pgsql
-  tag: ubuntu-6.0.3@sha256:49b13531b28f31afba3c32a6ec162885790615244a7d4be82123582f6610da18
+  tag: ubuntu-6.0.3@sha256:8e738b5fd231b745d30d3c52355b6bfe0afc7ef824bd8542ef2dbf1cd0b0f283
   pullPolicy: IfNotPresent
 
 snmptrapsImage:
   repository: zabbix/zabbix-snmptraps
-  tag: ubuntu-6.0.3@sha256:200e93d13d17bad124a84d79b761641a3ea4b5ef2cc38a5bb379cd260e99cfb4
+  tag: ubuntu-6.0.3@sha256:d7ee3801c5f00e4454819f2d0e7b7a4d21e46648fa1054fe233d89b2b2323627
   pullPolicy: IfNotPresent
 
 tty: true
