@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.15"></a>
+### [deluge-10.0.15](https://github.com/truecharts/apps/compare/deluge-10.0.14...deluge-10.0.15) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="deluge-10.0.14"></a>
 ### [deluge-10.0.14](https://github.com/truecharts/apps/compare/deluge-10.0.13...deluge-10.0.14) (2022-04-13)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="alist-1.0.17"></a>
+### [alist-1.0.17](https://github.com/truecharts/apps/compare/alist-1.0.16...alist-1.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="alist-1.0.16"></a>
 ### [alist-1.0.16](https://github.com/truecharts/apps/compare/alist-1.0.15...alist-1.0.16) (2022-04-18)
 

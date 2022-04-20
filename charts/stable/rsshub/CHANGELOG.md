@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.11"></a>
+### [rsshub-1.0.11](https://github.com/truecharts/apps/compare/rsshub-1.0.10...rsshub-1.0.11) (2022-04-20)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="rsshub-1.0.10"></a>
 ### [rsshub-1.0.10](https://github.com/truecharts/apps/compare/rsshub-1.0.9...rsshub-1.0.10) (2022-04-20)
 

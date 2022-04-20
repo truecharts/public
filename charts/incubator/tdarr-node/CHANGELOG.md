@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-2.0.13"></a>
+### [tdarr-node-2.0.13](https://github.com/truecharts/apps/compare/tdarr-node-2.0.12...tdarr-node-2.0.13) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="tdarr-node-2.0.12"></a>
 ### [tdarr-node-2.0.12](https://github.com/truecharts/apps/compare/tdarr-node-2.0.11...tdarr-node-2.0.12) (2022-04-12)
 

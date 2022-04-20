@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ddns-updater-1.0.2"></a>
+### [ddns-updater-1.0.2](https://github.com/truecharts/apps/compare/ddns-updater-1.0.1...ddns-updater-1.0.2) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="ddns-updater-1.0.1"></a>
 ### [ddns-updater-1.0.1](https://github.com/truecharts/apps/compare/ddns-updater-1.0.0...ddns-updater-1.0.1) (2022-04-19)
 

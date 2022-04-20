@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="spotweb-2.0.6"></a>
+### [spotweb-2.0.6](https://github.com/truecharts/apps/compare/spotweb-2.0.5...spotweb-2.0.6) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="spotweb-2.0.5"></a>
 ### [spotweb-2.0.5](https://github.com/truecharts/apps/compare/spotweb-2.0.4...spotweb-2.0.5) (2022-04-12)
 

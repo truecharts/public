@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="arma3exilemod-0.0.3"></a>
+### [arma3exilemod-0.0.3](https://github.com/truecharts/apps/compare/arma3exilemod-0.0.2...arma3exilemod-0.0.3) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="arma3exilemod-0.0.2"></a>
 ### [arma3exilemod-0.0.2](https://github.com/truecharts/apps/compare/arma3exilemod-0.0.1...arma3exilemod-0.0.2) (2022-04-12)
 

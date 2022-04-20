@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="esphome-10.0.15"></a>
+### [esphome-10.0.15](https://github.com/truecharts/apps/compare/esphome-10.0.14...esphome-10.0.15) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="esphome-10.0.14"></a>
 ### [esphome-10.0.14](https://github.com/truecharts/apps/compare/esphome-10.0.13...esphome-10.0.14) (2022-04-12)
 

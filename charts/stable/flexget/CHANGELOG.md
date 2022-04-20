@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="flexget-1.0.17"></a>
+### [flexget-1.0.17](https://github.com/truecharts/apps/compare/flexget-1.0.16...flexget-1.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="flexget-1.0.16"></a>
 ### [flexget-1.0.16](https://github.com/truecharts/apps/compare/flexget-1.0.15...flexget-1.0.16) (2022-04-17)
 

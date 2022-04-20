@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tvheadend-11.0.11"></a>
+### [tvheadend-11.0.11](https://github.com/truecharts/apps/compare/tvheadend-11.0.10...tvheadend-11.0.11) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="tvheadend-11.0.10"></a>
 ### [tvheadend-11.0.10](https://github.com/truecharts/apps/compare/tvheadend-11.0.9...tvheadend-11.0.10) (2022-04-12)
 

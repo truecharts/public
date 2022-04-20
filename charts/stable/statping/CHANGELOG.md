@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.16"></a>
+### [statping-5.0.16](https://github.com/truecharts/apps/compare/statping-5.0.15...statping-5.0.16) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="statping-5.0.15"></a>
 ### [statping-5.0.15](https://github.com/truecharts/apps/compare/statping-5.0.14...statping-5.0.15) (2022-04-12)
 

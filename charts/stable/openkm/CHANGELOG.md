@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="openkm-5.0.14"></a>
+### [openkm-5.0.14](https://github.com/truecharts/apps/compare/openkm-5.0.13...openkm-5.0.14) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="openkm-5.0.13"></a>
 ### [openkm-5.0.13](https://github.com/truecharts/apps/compare/openkm-5.0.12...openkm-5.0.13) (2022-04-12)
 

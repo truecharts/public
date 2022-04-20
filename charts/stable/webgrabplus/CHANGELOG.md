@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-1.0.12"></a>
+### [webgrabplus-1.0.12](https://github.com/truecharts/apps/compare/webgrabplus-1.0.11...webgrabplus-1.0.12) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="webgrabplus-1.0.11"></a>
 ### [webgrabplus-1.0.11](https://github.com/truecharts/apps/compare/webgrabplus-1.0.10...webgrabplus-1.0.11) (2022-04-12)
 

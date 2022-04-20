@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="server-7daystodie-0.0.4"></a>
+### [server-7daystodie-0.0.4](https://github.com/truecharts/apps/compare/server-7daystodie-0.0.3...server-7daystodie-0.0.4) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="server-7daystodie-0.0.3"></a>
 ### [server-7daystodie-0.0.3](https://github.com/truecharts/apps/compare/server-7daystodie-0.0.2...server-7daystodie-0.0.3) (2022-04-12)
 

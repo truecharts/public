@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.18"></a>
+### [boinc-1.0.18](https://github.com/truecharts/apps/compare/boinc-1.0.17...boinc-1.0.18) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="boinc-1.0.17"></a>
 ### [boinc-1.0.17](https://github.com/truecharts/apps/compare/boinc-1.0.16...boinc-1.0.17) (2022-04-18)
 
