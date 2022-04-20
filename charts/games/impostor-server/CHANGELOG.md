@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.29"></a>
+### [impostor-server-0.0.29](https://github.com/truecharts/apps/compare/impostor-server-0.0.28...impostor-server-0.0.29) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="impostor-server-0.0.28"></a>
 ### [impostor-server-0.0.28](https://github.com/truecharts/apps/compare/impostor-server-0.0.27...impostor-server-0.0.28) (2022-04-12)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-10.0.12"></a>
+### [sabnzbd-10.0.12](https://github.com/truecharts/apps/compare/sabnzbd-10.0.11...sabnzbd-10.0.12) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="sabnzbd-10.0.11"></a>
 ### [sabnzbd-10.0.11](https://github.com/truecharts/apps/compare/sabnzbd-10.0.10...sabnzbd-10.0.11) (2022-04-12)
 

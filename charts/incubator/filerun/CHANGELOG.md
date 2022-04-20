@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="filerun-0.0.8"></a>
+### [filerun-0.0.8](https://github.com/truecharts/apps/compare/filerun-0.0.7...filerun-0.0.8) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="filerun-0.0.7"></a>
 ### [filerun-0.0.7](https://github.com/truecharts/apps/compare/filerun-0.0.6...filerun-0.0.7) (2022-04-12)
 

@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="artifactory-oss-0.0.3"></a>
+### [artifactory-oss-0.0.3](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.2...artifactory-oss-0.0.3) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
 <a name="artifactory-oss-0.0.2"></a>
 ### [artifactory-oss-0.0.2](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.1...artifactory-oss-0.0.2) (2022-04-12)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deemix-2.0.5"></a>
+### [deemix-2.0.5](https://github.com/truecharts/apps/compare/deemix-2.0.4...deemix-2.0.5) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="deemix-2.0.4"></a>
 ### [deemix-2.0.4](https://github.com/truecharts/apps/compare/deemix-2.0.3...deemix-2.0.4) (2022-04-12)
 

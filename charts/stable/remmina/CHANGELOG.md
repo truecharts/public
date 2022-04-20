@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="remmina-2.0.11"></a>
+### [remmina-2.0.11](https://github.com/truecharts/apps/compare/remmina-2.0.10...remmina-2.0.11) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="remmina-2.0.10"></a>
 ### [remmina-2.0.10](https://github.com/truecharts/apps/compare/remmina-2.0.9...remmina-2.0.10) (2022-04-12)
 

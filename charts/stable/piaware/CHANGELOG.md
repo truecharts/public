@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.17"></a>
+### [piaware-5.0.17](https://github.com/truecharts/apps/compare/piaware-5.0.16...piaware-5.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="piaware-5.0.16"></a>
 ### [piaware-5.0.16](https://github.com/truecharts/apps/compare/piaware-5.0.15...piaware-5.0.16) (2022-04-12)
 

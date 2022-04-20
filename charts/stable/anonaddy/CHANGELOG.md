@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="anonaddy-7.0.16"></a>
+### [anonaddy-7.0.16](https://github.com/truecharts/apps/compare/anonaddy-7.0.15...anonaddy-7.0.16) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="anonaddy-7.0.15"></a>
 ### [anonaddy-7.0.15](https://github.com/truecharts/apps/compare/anonaddy-7.0.14...anonaddy-7.0.15) (2022-04-12)
 

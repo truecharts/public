@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="clamav-2.1.9"></a>
+### [clamav-2.1.9](https://github.com/truecharts/apps/compare/clamav-2.1.8...clamav-2.1.9) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="clamav-2.1.8"></a>
 ### [clamav-2.1.8](https://github.com/truecharts/apps/compare/clamav-2.1.7...clamav-2.1.8) (2022-04-12)
 

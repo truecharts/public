@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="budge-1.0.19"></a>
+### [budge-1.0.19](https://github.com/truecharts/apps/compare/budge-1.0.18...budge-1.0.19) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="budge-1.0.18"></a>
 ### [budge-1.0.18](https://github.com/truecharts/apps/compare/budge-1.0.17...budge-1.0.18) (2022-04-18)
 

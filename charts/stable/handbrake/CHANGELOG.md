@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="handbrake-12.0.9"></a>
+### [handbrake-12.0.9](https://github.com/truecharts/apps/compare/handbrake-12.0.8...handbrake-12.0.9) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="handbrake-12.0.8"></a>
 ### [handbrake-12.0.8](https://github.com/truecharts/apps/compare/handbrake-12.0.7...handbrake-12.0.8) (2022-04-12)
 

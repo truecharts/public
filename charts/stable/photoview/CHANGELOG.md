@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoview-2.0.14"></a>
+### [photoview-2.0.14](https://github.com/truecharts/apps/compare/photoview-2.0.13...photoview-2.0.14) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="photoview-2.0.13"></a>
 ### [photoview-2.0.13](https://github.com/truecharts/apps/compare/photoview-2.0.12...photoview-2.0.13) (2022-04-12)
 

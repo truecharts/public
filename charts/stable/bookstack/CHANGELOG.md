@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="bookstack-1.1.12"></a>
+### [bookstack-1.1.12](https://github.com/truecharts/apps/compare/bookstack-1.1.11...bookstack-1.1.12) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="bookstack-1.1.11"></a>
 ### [bookstack-1.1.11](https://github.com/truecharts/apps/compare/bookstack-1.1.10...bookstack-1.1.11) (2022-04-12)
 

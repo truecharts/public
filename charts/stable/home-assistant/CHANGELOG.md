@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="home-assistant-13.0.23"></a>
+### [home-assistant-13.0.23](https://github.com/truecharts/apps/compare/home-assistant-13.0.22...home-assistant-13.0.23) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="home-assistant-13.0.22"></a>
 ### [home-assistant-13.0.22](https://github.com/truecharts/apps/compare/home-assistant-13.0.21...home-assistant-13.0.22) (2022-04-18)
 
