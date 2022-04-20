@@ -10,9 +10,9 @@
 {{- $local_session_recording := .Values.mesh.local_session_recording }}
 
 {{- if and .Values.mesh.reverse_proxy .Values.mesh.reverse_proxy_tls_port }}
-  {{- $reverse_proxy_url := "certUrl": "https://%v:%v/" .Values.mesh.reverse_proxy .Values.mesh.reverse_proxy_tls_port }}
+  {{- $reverse_proxy_url := "\"certUrl\": \"https://%v:%v/\" .Values.mesh.reverse_proxy .Values.mesh.reverse_proxy_tls_port" }}
 {{- else }}
-  {{- $reverse_proxy_url := "_certUrl": "https://192.168.2.106:443/" }}
+  {{- $reverse_proxy_url := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
 {{- end -}}
 
 {{- $mongodbURL := .Values.mongodb.url }}
