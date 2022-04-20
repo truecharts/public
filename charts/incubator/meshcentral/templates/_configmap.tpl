@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "meshcentral.configmap" -}}
 
-{{- $settings_mongoDB := .Values.mongodb.url }}
+{{- $settings_mongoDBurl := .Values.mongodb.url }}
 {{- $settings_port := .Values.service.main.ports.main.port }}
 
 {{- $settings_cert := .Values.mesh.settings_cert }}
@@ -9,6 +9,7 @@
 {{- $settings_plugins_enabled := .Values.mesh.settings_plugins_enabled }}
 {{- $settings_allowFraming := .Values.mesh.settings_allowFraming }}
 
+{{- $settings_domains1 := .Values.mesh.settings_allowFraming }}
 {{- $settings_domains_title := .Values.mesh.settings_domains_title }}
 {{- $settings_domains_title2 := .Values.mesh.settings_domains_title2 }}
 {{- $settings_domains_newAccounts := .Values.mesh.settings_domains_newAccounts }}
@@ -34,7 +35,7 @@ data:
         "__comment__": "This is a sample configuration file, all values and sections that start with underscore (_) are ignored. Edit a section and remove the _ in front of the name. Refer to the user's guide for details.",
         "settings": {
           "cert": "$settings_cert",
-          "mongoDb": "$settings_mongoDB",
+          "mongoDb": "$settings_mongoDBurl",
           "port": $settings_port,
           "allowFraming": $settings_allowFraming,
           "webRTC": $settings_webRTC,
@@ -42,7 +43,7 @@ data:
           "plugins": { "enabled": $settings_plugins_enabled }
         },
         "domains": {
-          "": {
+          "settings_domainsName": {
             "_siteStyle": 2,
             "title": "$settings_domains_title",
             "title2": "$settings_domains_title2",
