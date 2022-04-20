@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="friendica-2.0.19"></a>
+### [friendica-2.0.19](https://github.com/truecharts/apps/compare/friendica-2.0.18...friendica-2.0.19) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="friendica-2.0.18"></a>
 ### [friendica-2.0.18](https://github.com/truecharts/apps/compare/friendica-2.0.17...friendica-2.0.18) (2022-04-12)
 

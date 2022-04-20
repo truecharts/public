@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-2.0.1"></a>
+### [dokuwiki-2.0.1](https://github.com/truecharts/apps/compare/dokuwiki-2.0.0...dokuwiki-2.0.1) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="dokuwiki-2.0.0"></a>
 ### [dokuwiki-2.0.0](https://github.com/truecharts/apps/compare/dokuwiki-1.0.10...dokuwiki-2.0.0) (2022-04-17)
 

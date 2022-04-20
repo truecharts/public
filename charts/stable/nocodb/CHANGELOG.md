@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nocodb-1.0.1"></a>
+### [nocodb-1.0.1](https://github.com/truecharts/apps/compare/nocodb-1.0.0...nocodb-1.0.1) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="nocodb-1.0.0"></a>
 ### [nocodb-1.0.0](https://github.com/truecharts/apps/compare/nocodb-0.0.5...nocodb-1.0.0) (2022-04-19)
 

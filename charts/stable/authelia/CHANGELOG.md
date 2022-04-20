@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-9.0.17"></a>
+### [authelia-9.0.17](https://github.com/truecharts/apps/compare/authelia-9.0.16...authelia-9.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="authelia-9.0.16"></a>
 ### [authelia-9.0.16](https://github.com/truecharts/apps/compare/authelia-9.0.15...authelia-9.0.16) (2022-04-12)
 

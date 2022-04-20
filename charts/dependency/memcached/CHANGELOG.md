@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.45"></a>
+### [memcached-2.0.45](https://github.com/truecharts/apps/compare/memcached-2.0.44...memcached-2.0.45) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="memcached-2.0.44"></a>
 ### [memcached-2.0.44](https://github.com/truecharts/apps/compare/memcached-2.0.43...memcached-2.0.44) (2022-04-19)
 

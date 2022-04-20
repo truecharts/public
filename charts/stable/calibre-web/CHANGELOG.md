@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.16"></a>
+### [calibre-web-10.0.16](https://github.com/truecharts/apps/compare/calibre-web-10.0.15...calibre-web-10.0.16) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="calibre-web-10.0.15"></a>
 ### [calibre-web-10.0.15](https://github.com/truecharts/apps/compare/calibre-web-10.0.14...calibre-web-10.0.15) (2022-04-12)
 

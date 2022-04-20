@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-5.0.23"></a>
+### [prowlarr-5.0.23](https://github.com/truecharts/apps/compare/prowlarr-5.0.22...prowlarr-5.0.23) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="prowlarr-5.0.22"></a>
 ### [prowlarr-5.0.22](https://github.com/truecharts/apps/compare/prowlarr-5.0.21...prowlarr-5.0.22) (2022-04-18)
 

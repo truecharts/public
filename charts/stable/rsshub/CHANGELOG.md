@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.10"></a>
+### [rsshub-1.0.10](https://github.com/truecharts/apps/compare/rsshub-1.0.9...rsshub-1.0.10) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="rsshub-1.0.9"></a>
 ### [rsshub-1.0.9](https://github.com/truecharts/apps/compare/rsshub-1.0.8...rsshub-1.0.9) (2022-04-12)
 

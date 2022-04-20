@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.32"></a>
+### [grafana-3.0.32](https://github.com/truecharts/apps/compare/grafana-3.0.31...grafana-3.0.32) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="grafana-3.0.31"></a>
 ### [grafana-3.0.31](https://github.com/truecharts/apps/compare/grafana-3.0.30...grafana-3.0.31) (2022-04-18)
 

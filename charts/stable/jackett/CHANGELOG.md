@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.28"></a>
+### [jackett-10.0.28](https://github.com/truecharts/apps/compare/jackett-10.0.27...jackett-10.0.28) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="jackett-10.0.27"></a>
 ### [jackett-10.0.27](https://github.com/truecharts/apps/compare/jackett-10.0.26...jackett-10.0.27) (2022-04-18)
 

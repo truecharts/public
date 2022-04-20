@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.48"></a>
+### [postgresql-7.0.48](https://github.com/truecharts/apps/compare/postgresql-7.0.47...postgresql-7.0.48) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="postgresql-7.0.47"></a>
 ### [postgresql-7.0.47](https://github.com/truecharts/apps/compare/postgresql-7.0.46...postgresql-7.0.47) (2022-04-19)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.17"></a>
+### [synapse-2.0.17](https://github.com/truecharts/apps/compare/synapse-2.0.16...synapse-2.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="synapse-2.0.16"></a>
 ### [synapse-2.0.16](https://github.com/truecharts/apps/compare/synapse-2.0.15...synapse-2.0.16) (2022-04-12)
 

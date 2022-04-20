@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-1.0.7"></a>
+### [browserless-chrome-1.0.7](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.6...browserless-chrome-1.0.7) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="browserless-chrome-1.0.6"></a>
 ### [browserless-chrome-1.0.6](https://github.com/truecharts/apps/compare/browserless-chrome-1.0.5...browserless-chrome-1.0.6) (2022-04-12)
 

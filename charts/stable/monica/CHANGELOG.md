@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="monica-1.0.21"></a>
+### [monica-1.0.21](https://github.com/truecharts/apps/compare/monica-1.0.20...monica-1.0.21) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="monica-1.0.20"></a>
 ### [monica-1.0.20](https://github.com/truecharts/apps/compare/monica-1.0.19...monica-1.0.20) (2022-04-12)
 

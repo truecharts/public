@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.40"></a>
+### [redis-2.0.40](https://github.com/truecharts/apps/compare/redis-2.0.39...redis-2.0.40) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="redis-2.0.39"></a>
 ### [redis-2.0.39](https://github.com/truecharts/apps/compare/redis-2.0.38...redis-2.0.39) (2022-04-19)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="readarr-10.0.14"></a>
+### [readarr-10.0.14](https://github.com/truecharts/apps/compare/readarr-10.0.13...readarr-10.0.14) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="readarr-10.0.13"></a>
 ### [readarr-10.0.13](https://github.com/truecharts/apps/compare/readarr-10.0.12...readarr-10.0.13) (2022-04-12)
 

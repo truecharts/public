@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-3.0.11"></a>
+### [leaf2mqtt-3.0.11](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.10...leaf2mqtt-3.0.11) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
 <a name="leaf2mqtt-3.0.10"></a>
 ### [leaf2mqtt-3.0.10](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.9...leaf2mqtt-3.0.10) (2022-04-12)
 
