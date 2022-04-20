@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-0.0.8"></a>
+### [vikunja-0.0.8](https://github.com/truecharts/apps/compare/vikunja-0.0.7...vikunja-0.0.8) (2022-04-20)
+
+#### Chore
+
+* bump vikunja ([#2523](https://github.com/truecharts/apps/issues/2523))
+
+
+
 <a name="vikunja-0.0.7"></a>
 ### [vikunja-0.0.7](https://github.com/truecharts/apps/compare/vikunja-0.0.6...vikunja-0.0.7) (2022-04-20)
 
