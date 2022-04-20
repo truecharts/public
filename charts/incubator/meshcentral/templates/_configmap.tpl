@@ -9,10 +9,10 @@
 {{- $minify := .Values.mesh.minify }}
 {{- $local_session_recording := .Values.mesh.local_session_recording }}
 
-{{- if and .Values.mesh.reverse_proxy .Values.mesh.reverse_proxy_tls_port }}
-  {{- $reverse_proxy_url := "\"certUrl\": \"https://%v:%v/\" .Values.mesh.reverse_proxy .Values.mesh.reverse_proxy_tls_port" }}
+{{- if .Values.mesh.settings_domains_certUrl }}
+  {{- $settings_domains_certUrl := "\"certUrl\": \"%v\" .Values.mesh.settings_domains_certUrl" }}
 {{- else }}
-  {{- $reverse_proxy_url := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
+  {{- $settings_domains_certUrl := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
 {{- end -}}
 
 {{- $mongodbURL := .Values.mongodb.url }}
@@ -194,7 +194,7 @@ data:
             "_hide": 4,
             "_footer": "<a href='https://twitter.com/mytwitter'>Twitter</a>",
             "_loginfooter": "This is a private server.",
-            "$reverse_proxy_url",
+            "$settings_domains_certUrl",
             "_altMessenging": {
               "name": "Jitsi",
               "url": "https://meet.jit.si/myserver-{0}"

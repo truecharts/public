@@ -15,8 +15,7 @@ podSecurityContext:
 
 mesh:
   settings_cert: "my.domain.com"
-  reverse_proxy: ""
-  reverse_proxy_tls_port: 0
+  settings_domains_certUrl: ""
   allow_new_accounts: true
   enable_webrtc: false
   allow_plugins: false
