@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="vikunja-0.0.7"></a>
+### [vikunja-0.0.7](https://github.com/truecharts/apps/compare/vikunja-0.0.6...vikunja-0.0.7) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+
+#### Fix
+
+* port ([#2521](https://github.com/truecharts/apps/issues/2521))
+
+
+
 <a name="vikunja-0.0.6"></a>
 ### [vikunja-0.0.6](https://github.com/truecharts/apps/compare/vikunja-0.0.5...vikunja-0.0.6) (2022-04-20)
 

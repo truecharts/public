@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="traefik-11.1.6"></a>
+### [traefik-11.1.6](https://github.com/truecharts/apps/compare/traefik-11.1.5...traefik-11.1.6) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+
+#### Fix
+
+* Fix custom chain middleware settings ([#2513](https://github.com/truecharts/apps/issues/2513))
+
+
+
 <a name="traefik-11.1.5"></a>
 ### [traefik-11.1.5](https://github.com/truecharts/apps/compare/traefik-11.1.4...traefik-11.1.5) (2022-04-12)
 
