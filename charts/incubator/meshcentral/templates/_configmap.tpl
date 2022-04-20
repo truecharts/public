@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "meshcentral.configmap" -}}
 
-{{- $hostname := .Values.mesh.hostname }}
+{{- $settings_cert := .Values.mesh.settings_cert }}
 {{- $enable_webrtc := .Values.mesh.enable_webrtc }}
 {{- $allow_new_accounts := .Values.mesh.allow_new_accounts }}
 {{- $allow_plugins := .Values.mesh.allow_plugins }}
@@ -29,7 +29,7 @@ data:
         "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",
         "__comment__": "This is a sample configuration file, all values and sections that start with underscore (_) are ignored. Edit a section and remove the _ in front of the name. Refer to the user's guide for details.",
         "settings": {
-          "cert": "$hostname",
+          "cert": "$settings_cert",
           "mongoDb": "$mongodbURL",
           "_mongoDbName": "meshcentral",
           "_mongoDbChangeStream": true,
@@ -493,7 +493,7 @@ data:
               "BindDN": "CN=svc_meshcentral,CN=Users,DC=meshcentral,DC=local",
               "BindCredentials": "Password.1",
               "SearchBase": "DC=meshcentral,DC=local",
-              "SearchFilter": "(sAMAccountName={{username}})"
+              "SearchFilter": "(sAMAccountName={{"{{"}}username{{"}}"}})"
             },
             "_footer": "Test",
             "_certUrl": "https://192.168.2.106:443/"

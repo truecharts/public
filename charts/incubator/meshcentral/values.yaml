@@ -14,7 +14,7 @@ podSecurityContext:
   runAsGroup: 0
 
 mesh:
-  hostname: "my.domain.com"
+  settings_cert: "my.domain.com"
   reverse_proxy: ""
   reverse_proxy_tls_port: 0
   allow_new_accounts: true
