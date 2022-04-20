@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-0.0.6"></a>
+### [vikunja-0.0.6](https://github.com/truecharts/apps/compare/vikunja-0.0.5...vikunja-0.0.6) (2022-04-20)
+
+#### Fix
+
+* different ports between proxy and frontend ([#2520](https://github.com/truecharts/apps/issues/2520))
+
+
+
 <a name="vikunja-0.0.5"></a>
 ### [vikunja-0.0.5](https://github.com/truecharts/apps/compare/vikunja-0.0.4...vikunja-0.0.5) (2022-04-19)
 

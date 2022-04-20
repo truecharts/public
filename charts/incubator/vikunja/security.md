@@ -123,7 +123,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:a5c260910866d65cef95aa623141abf4eb4241bb239d19b7d1cb769c6f2915c6
           tccr.io/truecharts/vikunja-api:v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
-        - 'tccr.io/truecharts/vikunja-frontend:v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab'
+          'tccr.io/truecharts/vikunja-frontend:v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab'
         - 'tccr.io/truecharts/nginx:v1.21.6@sha256:e530cd55de35803870c5c54ff5140f79807137937f7cfd9841fba73bee83d554'
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
@@ -446,9 +446,8 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| golang.org/x/crypto         |    CVE-2022-27191   |   HIGH  |  v0.0.0-20210817164053-32db794688a5 | 0.0.0-20220315160706-3147a52a75dd | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27191">https://access.redhat.com/security/cve/CVE-2022-27191</a><br><a href="https://github.com/advisories/GHSA-8c26-wmh5-6g9v">https://github.com/advisories/GHSA-8c26-wmh5-6g9v</a><br><a href="https://groups.google.com/g/golang-announce">https://groups.google.com/g/golang-announce</a><br><a href="https://groups.google.com/g/golang-announce/c/-cp44ypCT5s">https://groups.google.com/g/golang-announce/c/-cp44ypCT5s</a><br><a href="https://groups.google.com/g/golang-announce/c/-cp44ypCT5s/m/wmegxkLiAQAJ">https://groups.google.com/g/golang-announce/c/-cp44ypCT5s/m/wmegxkLiAQAJ</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-27191">https://nvd.nist.gov/vuln/detail/CVE-2022-27191</a><br></details>  |
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go-review.googlesource.com/c/text/+/340830">https://go-review.googlesource.com/c/text/+/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
-
-
 
 
 
