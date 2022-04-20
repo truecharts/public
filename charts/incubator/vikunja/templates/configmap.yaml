@@ -8,10 +8,10 @@ metadata:
 data:
   nginx-config: |-
     server {
-      listen 80;
+      listen 8080;
 
       location / {
-          proxy_pass http://localhost:80;
+          proxy_pass http://localhost:8081;
       }
 
       location ~* ^/(api|dav|\.well-known)/ {
