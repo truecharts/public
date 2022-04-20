@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: double-take
-version: 1.0.6
+version: 1.0.7
 appVersion: "1.7.0"
 description: Unified UI and API for processing and training images for facial recognition
 type: application
@@ -16,7 +16,7 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.8
+  version: 9.2.9
     # condition:
 maintainers:
 - email: info@truecharts.org
