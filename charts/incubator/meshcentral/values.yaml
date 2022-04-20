@@ -15,13 +15,15 @@ podSecurityContext:
 
 mesh:
   settings_cert: "my.domain.com"
-  settings_domains_certUrl: ""
-  settings_domains_newAccounts: true
   settings_webRTC: false
   settings_plugins_enabled: false
-  settings_domains_localSessionRecording: false
   settings_allowFraming: false
   settings_domains_minify: true
+  settings_domains_localSessionRecording: false
+  settings_domains_newAccounts: true
+  settings_domains_certUrl: ""
+  settings_domains_title: "MyServer"
+  settings_domains_title2: "Server Name"
 
 service:
   main:

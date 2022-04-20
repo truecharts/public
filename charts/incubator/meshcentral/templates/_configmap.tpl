@@ -2,27 +2,31 @@
 {{- define "meshcentral.configmap" -}}
 
 {{- $settings_mongoDB := .Values.mongodb.url }}
-{{- $settigns_port := .Values.service.main.ports.main.port }}
+{{- $settings_port := .Values.service.main.ports.main.port }}
 
 {{- $settings_cert := .Values.mesh.settings_cert }}
 {{- $settings_webRTC := .Values.mesh.settings_webRTC }}
-{{- $settings_domains_newAccounts := .Values.mesh.settings_domains_newAccounts }}
 {{- $settings_plugins_enabled := .Values.mesh.settings_plugins_enabled }}
 {{- $settings_allowFraming := .Values.mesh.settings_allowFraming }}
+
+{{- $settings_domains_title := .Values.mesh.settings_domains_title }}
+{{- $settings_domains_title2 := .Values.mesh.settings_domains_title2 }}
+{{- $settings_domains_newAccounts := .Values.mesh.settings_domains_newAccounts }}
 {{- $settings_domains_minify := .Values.mesh.settings_domains_minify }}
 {{- $settings_domains_localSessionRecording := .Values.mesh.settings_domains_localSessionRecording }}
 {{- if .Values.mesh.settings_domains_certUrl }}
   {{- $settings_domains_certUrl := "\"certUrl\": \"%v\"" .Values.mesh.settings_domains_certUrl }}
 {{- else }}
-  {{- $settings_domains_certUrl := "\"_certUrl\": \"https://192.168.2.106:443/\"" }}
+  {{- $settings_domains_certUrl := "\"_certUrl\": \"https://localhost:443/\"" }}
 {{- end -}}
-
 
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: meshcentral-init
+  name: {{ include "common.names.fullname" . }}-init
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
 data:
   config.json.template: |-
       {
@@ -47,7 +51,7 @@ data:
             "powerevents": 864000,
             "statsevents": 2592000
           },
-          "port": $settigns_port,
+          "port": $settings_port,
           "_portBind": "127.0.0.1",
           "_aliasPort": 444,
           "_redirPort": 80,
@@ -168,8 +172,8 @@ data:
         "domains": {
           "": {
             "_siteStyle": 2,
-            "title": "MyServer",
-            "title2": "Servername",
+            "title": "$settings_domains_title",
+            "title2": "$settings_domains_title2",
             "_titlePicture": "title-sample.png",
             "_loginPicture": "title-sample.png",
             "_userQuota": 1048576,
