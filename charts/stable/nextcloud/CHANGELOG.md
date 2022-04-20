@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.20"></a>
+### [nextcloud-12.0.20](https://github.com/truecharts/apps/compare/nextcloud-12.0.19...nextcloud-12.0.20) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="nextcloud-12.0.19"></a>
 ### [nextcloud-12.0.19](https://github.com/truecharts/apps/compare/nextcloud-12.0.18...nextcloud-12.0.19) (2022-04-12)
 

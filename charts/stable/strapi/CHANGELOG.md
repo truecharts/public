@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="strapi-2.0.14"></a>
+### [strapi-2.0.14](https://github.com/truecharts/apps/compare/strapi-2.0.13...strapi-2.0.14) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="strapi-2.0.13"></a>
 ### [strapi-2.0.13](https://github.com/truecharts/apps/compare/strapi-2.0.12...strapi-2.0.13) (2022-04-12)
 

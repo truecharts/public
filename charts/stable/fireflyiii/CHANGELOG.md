@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.17"></a>
+### [fireflyiii-14.0.17](https://github.com/truecharts/apps/compare/fireflyiii-14.0.16...fireflyiii-14.0.17) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="fireflyiii-14.0.16"></a>
 ### [fireflyiii-14.0.16](https://github.com/truecharts/apps/compare/fireflyiii-14.0.15...fireflyiii-14.0.16) (2022-04-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.40"></a>
+### [minecraft-java-0.0.40](https://github.com/truecharts/apps/compare/minecraft-java-0.0.39...minecraft-java-0.0.40) (2022-04-20)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="minecraft-java-0.0.39"></a>
 ### [minecraft-java-0.0.39](https://github.com/truecharts/apps/compare/minecraft-java-0.0.38...minecraft-java-0.0.39) (2022-04-20)
 

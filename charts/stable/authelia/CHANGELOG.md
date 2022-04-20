@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-9.0.18"></a>
+### [authelia-9.0.18](https://github.com/truecharts/apps/compare/authelia-9.0.17...authelia-9.0.18) (2022-04-20)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="authelia-9.0.17"></a>
 ### [authelia-9.0.17](https://github.com/truecharts/apps/compare/authelia-9.0.16...authelia-9.0.17) (2022-04-20)
 

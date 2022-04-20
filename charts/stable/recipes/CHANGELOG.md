@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.22"></a>
+### [recipes-6.0.22](https://github.com/truecharts/apps/compare/recipes-6.0.21...recipes-6.0.22) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="recipes-6.0.21"></a>
 ### [recipes-6.0.21](https://github.com/truecharts/apps/compare/recipes-6.0.20...recipes-6.0.21) (2022-04-12)
 

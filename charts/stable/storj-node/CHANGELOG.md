@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.16"></a>
+### [storj-node-1.0.16](https://github.com/truecharts/apps/compare/storj-node-1.0.15...storj-node-1.0.16) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="storj-node-1.0.15"></a>
 ### [storj-node-1.0.15](https://github.com/truecharts/apps/compare/storj-node-1.0.14...storj-node-1.0.15) (2022-04-16)
 

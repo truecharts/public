@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mosquitto-5.0.19"></a>
+### [mosquitto-5.0.19](https://github.com/truecharts/apps/compare/mosquitto-5.0.18...mosquitto-5.0.19) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="mosquitto-5.0.18"></a>
 ### [mosquitto-5.0.18](https://github.com/truecharts/apps/compare/mosquitto-5.0.17...mosquitto-5.0.18) (2022-04-12)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mylar-5.0.15"></a>
+### [mylar-5.0.15](https://github.com/truecharts/apps/compare/mylar-5.0.14...mylar-5.0.15) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="mylar-5.0.14"></a>
 ### [mylar-5.0.14](https://github.com/truecharts/apps/compare/mylar-5.0.13...mylar-5.0.14) (2022-04-17)
 

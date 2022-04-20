@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-6.0.13"></a>
+### [owncloud-ocis-6.0.13](https://github.com/truecharts/apps/compare/owncloud-ocis-6.0.12...owncloud-ocis-6.0.13) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
 <a name="owncloud-ocis-6.0.12"></a>
 ### [owncloud-ocis-6.0.12](https://github.com/truecharts/apps/compare/owncloud-ocis-6.0.11...owncloud-ocis-6.0.12) (2022-04-16)
 
