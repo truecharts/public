@@ -36,18 +36,30 @@ service:
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/init/meshcentral/init.sh"]
     volumeMounts:
-      - name: init-sh
-        mountPath: "/init/meshcentral/init.sh"
-        subPath: init.sh
-        readOnly: true
-      - name: init-template
-        mountPath: "/init/meshcentral/config.json.template"
-        subPath: "config.json.template"
-        readOnly: true
       - name: data
         mountPath: "/opt/meshcentral/meshcentral-data"
+    env:
+      - name: svcPort
+        value: "{{ .Values.service.main.ports.main.port }}"
+      - name: "mongodbURL"
+        valueFrom:
+          secretKeyRef:
+            name: mongodbcreds
+            key: url
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        export configfile = /opt/meshcentral/meshcentral-data/config.json";
+        if [ -f $configfile ]; then
+          echo "Config File exists, skipping...";
+        else
+          echo "Creating basic config file ($configfile)...";
+          echo "{" >> $configfile;
+          echo "  "settings": {" >> $configfile;
+          echo "    "port": $svcPort," >> $configfile;
+          echo "    "mongoDb": "$mongodbURL"," >> $configfile;
+        fi;
 
 mongodb:
   enabled: true
