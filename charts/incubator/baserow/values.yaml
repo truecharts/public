@@ -3,13 +3,13 @@ image:
   tag: 1.9.1@sha256:df822c1f8d71f8f91ad6f732348104108bbb91ce782ce7240c5c2beddf22723b
   pullPolicy: IfNotPresent
 
-# securityContext:
+securityContext:
 #   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -38,13 +38,46 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: redis-password
+  SECRET_KEY:
+    secretKeyRef:
+      name: baserow-secrets
+      key: SECRET_KEY
+
+# probes:
+#   liveness:
+#     enabled: true
+#     custom: true
+#     spec:
+#       exec:
+#         command:
+#           - /bin/bash
+#           - -ec
+#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
+#   readiness:
+#     enabled: true
+#     custom: true
+#     spec:
+#       exec:
+#         command:
+#           - /bin/bash
+#           - -ec
+#           - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
+#   startup:
+#     enabled: true
+#     custom: true
+#     spec:
+#       exec:
+#         command:
+#           - /bin/bash
+#           - -ec
+#           - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
 service:
   main:
     ports:
       main:
         port: 10000
-        targetPort: 0
+        targetPort: 80
 
 persistence:
   data:
