@@ -74,67 +74,7 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HOSTNAME
-          label: "HOSTNAME"
-          description: "your hostname"
-          schema:
-            type: string
-            default: "my.domain.com"
-        - variable: REVERSE_PROXY
-          label: "REVERSE_PROXY"
-          description: "Set to your reverse proxy domain if you want to put meshcentral behind a reverse proxy"
-          schema:
-            type: string
-            default: ""
-        - variable: REVERSE_PROXY_TLS_PORT
-          label: "REVERSE_PROXY_TLS_PORT"
-          description: "Set to your reverse proxy port if you want to put meshcentral behind a reverse proxy"
-          schema:
-            type: string
-            default: ""
-        - variable: IFRAME
-          label: "IFRAME"
-          description: "Set to true if you wish to enable iframe support"
-          schema:
-            type: boolean
-            default: false
-        - variable: ALLOW_NEW_ACCOUNTS
-          label: "ALLOW_NEW_ACCOUNTS"
-          description: "Set to false if you want disable self-service creation of new accounts besides the first (admin)"
-          schema:
-            type: boolean
-            default: true
-        - variable: WEBRTC
-          label: "WEBRTC"
-          description: "Set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution"
-          schema:
-            type: boolean
-            default: false
-        - variable: ALLOWPLUGINS
-          label: "ALLOWPLUGINS"
-          description: "Set to true to allow plugins"
-          schema:
-            type: boolean
-            default: false
-        - variable: LOCALSESSIONRECORDING
-          label: "LOCALSESSIONRECORDING"
-          description: "Set to true to allow session recording"
-          schema:
-            type: boolean
-            default: false
-        - variable: MINIFY
-          label: "MINIFY"
-          description: "Set to enable or disable minification of json, reduces traffic"
-          schema:
-            type: boolean
-            default: true
+
 # Include{containerConfig}
 
   - variable: service
@@ -198,7 +138,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 443
+                                    default: 10205
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -270,9 +210,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: user
-          label: "user Storage"
-          description: "Stores uploading for users live"
+        - variable: files
+          label: "Files Storage"
+          description: "Stores the Files"
           schema:
             additional_attrs: true
             type: dict
