@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:1c28727b9d2e1d4288c05bfc50a3b789dd293e2b83f44068a504b36e3b0de558
 
-command: ["cat", "/opt/meshcentral/meshcentral-data/config.json"]
+# command: ["cat", "/opt/meshcentral/meshcentral-data/config.json"]
 
 securityContext:
   readOnlyRootFilesystem: false
