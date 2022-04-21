@@ -11,7 +11,7 @@ data:
       listen 8080;
 
       location / {
-          proxy_pass http://localhost:8081;
+          proxy_pass http://localhost:80;
       }
 
       location ~* ^/(api|dav|\.well-known)/ {
