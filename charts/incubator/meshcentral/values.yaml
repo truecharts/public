@@ -41,13 +41,14 @@ initContainers:
         else
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
+          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile
           echo '  "settings": {' >> $configfile;
           echo '    "port": $svcPort,' >> $configfile;
           echo '    "mongoDb": "$mongodbURL"' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
         fi;
-        cat $configFile;
+        cat $configfile;
 
 mongodb:
   enabled: true
