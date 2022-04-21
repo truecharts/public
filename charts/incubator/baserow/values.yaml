@@ -61,7 +61,7 @@ envValueFrom:
 #         command:
 #           - /bin/bash
 #           - -ec
-#           - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
+#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
 #   startup:
 #     enabled: true
 #     custom: true
@@ -70,13 +70,13 @@ envValueFrom:
 #         command:
 #           - /bin/bash
 #           - -ec
-#           - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
+#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
 
 service:
   main:
     ports:
       main:
-        port: 10000
+        port: 10228
         targetPort: 80
 
 persistence:
@@ -93,4 +93,4 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: "baserow"
+  redisUsername: "default"
