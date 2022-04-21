@@ -37,7 +37,7 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        export configfile = /opt/meshcentral/meshcentral-data/config.json";
+        export configfile = "/opt/meshcentral/meshcentral-data/config.json";
         if [ -f $configfile ]; then
           echo "Config File exists, skipping...";
         else
