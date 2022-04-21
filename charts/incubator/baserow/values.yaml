@@ -1,0 +1,63 @@
+image:
+  repository: baserow/baserow
+  tag: 1.9.1@sha256:df822c1f8d71f8f91ad6f732348104108bbb91ce782ce7240c5c2beddf22723b
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_PORT: "5432"
+  REDIS_USER: "{{ .Values.redis.redisUsername }}"
+  REDIS_PORT: "6379"
+  REDIS_PROTOCOL: "redis"
+  # User Defined
+  BASEROW_PUBLIC_URL: "http://localhost:80"
+
+envValueFrom:
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10000
+        targetPort: 0
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/baserow/data"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: baserow
+  postgresqlDatabase: baserow
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: "baserow"
