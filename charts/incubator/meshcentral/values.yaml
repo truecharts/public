@@ -41,7 +41,7 @@ initContainers:
         if [ -f $configfile ]; then
           echo "Config File exists, skipping...";
         else
-          echo "Creating basic config file ($configfile)...";
+          echo "Creating basic config to $configfile...";
           echo "{" >> $configfile;
           echo "  "settings": {" >> $configfile;
           echo "    "port": $svcPort," >> $configfile;
