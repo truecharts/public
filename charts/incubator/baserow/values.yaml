@@ -4,7 +4,7 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-#   readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
@@ -52,7 +52,7 @@ envValueFrom:
 #         command:
 #           - /bin/bash
 #           - -ec
-#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
+#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
 #   readiness:
 #     enabled: true
 #     custom: true
@@ -61,7 +61,7 @@ envValueFrom:
 #         command:
 #           - /bin/bash
 #           - -ec
-#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
+#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
 #   startup:
 #     enabled: true
 #     custom: true
@@ -70,7 +70,7 @@ envValueFrom:
 #         command:
 #           - /bin/bash
 #           - -ec
-#           - "./baserow.sh backend-cmd backend-healthcheck && ./baserow.sh backend-cmd celery-worker-healthcheck && ./baserow.sh backend-cmd celery-exportworker-healthcheck"
+#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
 
 service:
   main:
