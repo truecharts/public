@@ -25,7 +25,7 @@ initContainers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: data
-        mountPath: "/opt/meshcentral/meshcentral-data"
+        mountPath: "/home/node/meshcentral/meshcentral-data"
     env:
       - name: svcPort
         value: "{{ .Values.service.main.ports.main.port }}"
@@ -37,7 +37,7 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        export configfile="/opt/meshcentral/meshcentral-data/config.json";
+        export configfile="/home/node/meshcentral/meshcentral-data/config.json";
         if [ -f $configfile ]; then
           echo "Config File exists, skipping...";
         else
@@ -59,7 +59,7 @@ mongodb:
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-data"
-  user:
+    mountPath: "/home/node/meshcentral/meshcentral-data"
+  files:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-files"
+    mountPath: "/home/node/meshcentral/meshcentral-files"
