@@ -48,7 +48,6 @@ initContainers:
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
         fi;
-        cat $configfile;
 
 mongodb:
   enabled: true
