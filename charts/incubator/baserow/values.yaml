@@ -11,6 +11,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+security:
+  PUID: 0
+
 env:
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -45,32 +48,11 @@ envValueFrom:
 
 # probes:
 #   liveness:
-#     enabled: true
-#     custom: true
-#     spec:
-#       exec:
-#         command:
-#           - /bin/bash
-#           - -ec
-#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
+#     path: "/_health"
 #   readiness:
-#     enabled: true
-#     custom: true
-#     spec:
-#       exec:
-#         command:
-#           - /bin/bash
-#           - -ec
-#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
+#     path: "/_health"
 #   startup:
-#     enabled: true
-#     custom: true
-#     spec:
-#       exec:
-#         command:
-#           - /bin/bash
-#           - -ec
-#           - "/baserow.sh backend-cmd backend-healthcheck && /baserow.sh backend-cmd celery-worker-healthcheck && /baserow.sh backend-cmd celery-exportworker-healthcheck"
+#     path: "/_health"
 
 service:
   main:
