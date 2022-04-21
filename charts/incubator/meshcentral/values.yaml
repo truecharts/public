@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/meshcentral
+  repository: uldiseihenbergs/meshcentral
   pullPolicy: IfNotPresent
-  tag: latest@sha256:1c28727b9d2e1d4288c05bfc50a3b789dd293e2b83f44068a504b36e3b0de558
+  tag: 1.0.1@sha256:c630bace032988cdab8b660ed120be7a32539afcab2045f9b0d384cf094a692f
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,40 +11,43 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  # your hostname
-  HOSTNAME: "my.domain.com"
-  # set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy
-  REVERSE_PROXY: false
-  REVERSE_PROXY_TLS_PORT: ""
-  # set to true if you wish to enable iframe support
-  IFRAME: false
-  # set to false if you want disable self-service creation of new accounts besides the first (admin)
-  ALLOW_NEW_ACCOUNTS: true
-  # set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution
-  WEBRTC: false
-  # set to true to allow plugins
-  ALLOWPLUGINS: false
-  # set to true to allow session recording
-  LOCALSESSIONRECORDING: false
-  # set to enable or disable minification of json, reduces traffic
-  MINIFY: true
-
 service:
   main:
     ports:
       main:
         protocol: "HTTPS"
-        targetPort: 443
         port: 10205
 
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/init/meshcentral/init.sh"]
     volumeMounts:
-      - name: init
-        mountPath: "/init/meshcentral"
+      - name: data
+        mountPath: "/home/node/meshcentral/meshcentral-data"
+    env:
+      - name: svcPort
+        value: "{{ .Values.service.main.ports.main.port }}"
+      - name: "mongodbURL"
+        valueFrom:
+          secretKeyRef:
+            name: mongodbcreds
+            key: url
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        export configfile='/home/node/meshcentral/meshcentral-data/config.json';
+        if [ -f $configfile ]; then
+          echo 'Config File exists, skipping...';
+        else
+          echo 'Creating basic config to $configfile...';
+          echo '{' >> $configfile;
+          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile
+          echo '  "settings": {' >> $configfile;
+          echo '    "port": '$svcPort',' >> $configfile;
+          echo '    "mongoDb": "'$mongodbURL'"' >> $configfile;
+          echo '  }' >> $configfile;
+          echo '}' >> $configfile;
+        fi;
 
 mongodb:
   enabled: true
@@ -55,17 +58,7 @@ mongodb:
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-data"
-  user:
+    mountPath: "/home/node/meshcentral/meshcentral-data"
+  files:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-files"
-  init:
-    enabled: "true"
-    mountPath: "/init/meshcentral"
-    noMount: true
-    readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: meshcentral-init
-        defaultMode: 0777
+    mountPath: "/home/node/meshcentral/meshcentral-files"
