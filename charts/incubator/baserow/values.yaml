@@ -44,13 +44,13 @@ envValueFrom:
       name: baserow-secrets
       key: SECRET_KEY
 
-# probes:
-#   liveness:
-#     path: "/_health"
-#   readiness:
-#     path: "/_health"
-#   startup:
-#     path: "/_health"
+probes:
+  liveness:
+    path: "/_health"
+  readiness:
+    path: "/_health"
+  startup:
+    path: "/_health"
 
 service:
   main:
