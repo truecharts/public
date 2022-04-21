@@ -91,7 +91,7 @@ questions:
         - variable: enable_mail_settings
           label: "Enable Mail Settings"
           schema:
-            type: string
+            type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
