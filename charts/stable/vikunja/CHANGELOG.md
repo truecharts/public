@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-1.0.0"></a>
+### [vikunja-1.0.0](https://github.com/truecharts/apps/compare/vikunja-0.0.10...vikunja-1.0.0) (2022-04-21)
+
+#### Feat
+
+* move to stable ([#2528](https://github.com/truecharts/apps/issues/2528))
+
+
+
 <a name="vikunja-0.0.10"></a>
 ### [vikunja-0.0.10](https://github.com/truecharts/apps/compare/vikunja-0.0.9...vikunja-0.0.10) (2022-04-21)
 
