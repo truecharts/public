@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.0.0"></a>
+### [meshcentral-1.0.0](https://github.com/truecharts/apps/compare/meshcentral-0.1.11...meshcentral-1.0.0) (2022-04-21)
+
+#### Fix
+
+* BREAKING CHANGE - rewrite config generation  ([#2526](https://github.com/truecharts/apps/issues/2526))
+
+
+
 <a name="meshcentral-0.1.11"></a>
 ### [meshcentral-0.1.11](https://github.com/truecharts/apps/compare/meshcentral-0.1.10...meshcentral-0.1.11) (2022-04-20)
 
