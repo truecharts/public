@@ -74,7 +74,82 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: BASEROW_PUBLIC_URL
+          label: "BASEROW_PUBLIC_URL"
+          description: "The public URL or IP that will be used to access baserow. Always should start with http:// https:// even if accessing via an IP address."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: enable_mail_settings
+          label: "Enable Mail Settings"
+          schema:
+            type: string
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: FROM_EMAIL
+                label: "FROM_EMAIL"
+                description: "The public URL or IP that will be used to access baserow. Always should start with http:// https:// even if accessing via an IP address."
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_SMTP
+                label: "EMAIL_SMTP"
+                description: "If set to any non empty value then Baserow will start sending emails using the configuration options below. If not set then Baserow will not send emails and just log them to the Celery worker logs instead."
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Disabled"
+                    - value: "true"
+                      description: "Enabled"
+              - variable: EMAIL_SMTP_USE_TLS
+                label: "EMAIL_SMTP_USE_TLS"
+                description: "If set to any non empty value then Baserow will attempt to send emails using TLS."
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Disabled"
+                    - value: "true"
+                      description: "Enabled"
+              - variable: EMAIL_SMTP_HOST
+                label: "EMAIL_SMTP_HOST"
+                description: "The host of the external SMTP server that Baserow should use to send emails."
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_SMTP_PORT
+                label: "EMAIL_SMTP_PORT"
+                description: "The port used to connect to $EMAIL_SMTP_HOST on."
+                schema:
+                  type: int
+                  default: 587
+              - variable: EMAIL_SMTP_USER
+                label: "EMAIL_SMTP_USER"
+                description: "The username to authenticate with $EMAIL_SMTP_HOST when sending emails."
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_SMTP_PASSWORD
+                label: "EMAIL_SMTP_PASSWORD"
+                description: "The password to authenticate with $EMAIL_SMTP_HOST when sending emails."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+
+
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +178,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10228
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +213,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 10228
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -167,9 +242,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

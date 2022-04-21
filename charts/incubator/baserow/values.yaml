@@ -21,8 +21,9 @@ env:
   REDIS_USER: "{{ .Values.redis.redisUsername }}"
   REDIS_PORT: "6379"
   REDIS_PROTOCOL: "redis"
+  BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
   # User Defined
-  BASEROW_PUBLIC_URL: "http://localhost:80"
+  BASEROW_PUBLIC_URL: "http://localhost:10228"
 
 envValueFrom:
   DATABASE_HOST:
@@ -59,7 +60,6 @@ service:
     ports:
       main:
         port: 10228
-        targetPort: 80
 
 persistence:
   data:
