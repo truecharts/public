@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-0.0.10"></a>
+### [vikunja-0.0.10](https://github.com/truecharts/apps/compare/vikunja-0.0.9...vikunja-0.0.10) (2022-04-21)
+
+#### Fix
+
+* try to fix port again ([#2527](https://github.com/truecharts/apps/issues/2527))
+
+
+
 <a name="vikunja-0.0.9"></a>
 ### [vikunja-0.0.9](https://github.com/truecharts/apps/compare/vikunja-0.0.8...vikunja-0.0.9) (2022-04-20)
 
