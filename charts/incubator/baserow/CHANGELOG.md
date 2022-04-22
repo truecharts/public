@@ -7,4 +7,3 @@
 #### Feat
 
 * add baserow ([#2529](https://github.com/truecharts/apps/issues/2529))
-

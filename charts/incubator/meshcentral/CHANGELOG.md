@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.0.1"></a>
+### [meshcentral-1.0.1](https://github.com/truecharts/apps/compare/meshcentral-1.0.0...meshcentral-1.0.1) (2022-04-21)
+
+#### Chore
+
+* update container image uldiseihenbergs/meshcentral to 1.0.1
+
+
+
 <a name="meshcentral-1.0.0"></a>
 ### [meshcentral-1.0.0](https://github.com/truecharts/apps/compare/meshcentral-0.1.11...meshcentral-1.0.0) (2022-04-21)
 
