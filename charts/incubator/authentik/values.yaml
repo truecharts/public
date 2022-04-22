@@ -14,9 +14,9 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-# secret:
-#   AK_ADMIN_PASS: "supersecret"
-#   AK_ADMIN_TOKEN: "supersecretapitoken"
+secret:
+  AK_ADMIN_PASS: "supersecret"
+  AK_ADMIN_TOKEN: "supersecretapitoken"
 
 env:
   AUTHENTIK_POSTGRESQL__NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -152,8 +152,6 @@ additionalContainers:
             key: AUTHENTIK_SECRET_KEY
       - name: AUTHENTIK_LOG_LEVEL
         value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
-      - name: AUTHENTIK_COOKIE_DOMAIN
-        value: "{{ .Values.env.AUTHENTIK_COOKIE_DOMAIN }}"
       - name: AUTHENTIK_DISABLE_UPDATE_CHECK
         value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
       - name: AUTHENTIK_ERROR_REPORTING__ENABLED

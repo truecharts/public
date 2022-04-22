@@ -74,29 +74,29 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # - variable: secret
-  #   group: "Container Configuration"
-  #   label: "Image Secrets"
-  #   schema:
-  #     additional_attrs: true
-  #     type: dict
-  #     attrs:
-  #       - variable: AK_ADMIN_PASS
-  #         label: "AK_ADMIN_PASS (Initial install only)"
-  #         description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
-  #         schema:
-  #           type: string
-  #           private: true
-  #           required: true
-  #           default: ""
-  #       - variable: AK_ADMIN_TOKEN
-  #         label: "AK_ADMIN_TOKEN (Initial install only)"
-  #         description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
-  #         schema:
-  #           type: string
-  #           private: true
-  #           required: true
-  #           default: ""
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: AK_ADMIN_PASS
+          label: "AK_ADMIN_PASS (Initial Install Only)"
+          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+        - variable: AK_ADMIN_TOKEN
+          label: "AK_ADMIN_TOKEN (Initial Install Only)"
+          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
