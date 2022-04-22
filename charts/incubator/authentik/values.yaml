@@ -103,6 +103,11 @@ additionalContainers:
           secretKeyRef:
             name: dbcreds
             key: postgresql-password
+      - name: AUTHENTIK_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: authentik-secrets
+            key: AUTHENTIK_SECRET_KEY
 
 persistence:
   media:
