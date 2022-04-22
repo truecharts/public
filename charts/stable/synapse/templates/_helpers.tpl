@@ -1,3 +1,4 @@
+{{/*
 Synapse hostname, derived from either the Values.matrix.hostname override or the Ingress definition
 */}}
 {{- define "matrix.hostname" -}}
