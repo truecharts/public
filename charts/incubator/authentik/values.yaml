@@ -72,8 +72,8 @@ geoip:
   # Set image's frequence to 0, so it executes once and exits.
   GEOIPUPDATE_FREQUENCY: 0
   # User Defined
-  # How often should we run the cronjob to update geoip
   ENABLE_GEOIPUPDATER: false
+  # How often should we run the cronjob to update geoip
   freqhours: 8
   GEOIPUPDATE_ACCOUNT_ID: ""
   GEOIPUPDATE_LICENSE_KEY: ""
