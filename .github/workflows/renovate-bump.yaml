@@ -12,12 +12,12 @@ jobs:
     name: Get changed Apps
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         name: Checkout
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         name: Checkout
         with:
           fetch-depth: 0
