@@ -1,1 +1,20 @@
-{{ include "common.all" . }}
+{{- include "common.setup" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "mongodb.harcodedValues" -}}
+persistence:
+  focalboard-config:
+    enabled: "true"
+    mountPath: "/docker-entrypoint-initdb.d/create-oplog-user.sh"
+    subPath: "create-oplog-user.sh"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-create-oplog-user" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "mongodb.harcodedValues" . | fromYaml) -}}
+
+{{- include "mongodb.configmap" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}
