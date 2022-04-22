@@ -22,11 +22,11 @@ jobs:
     name: Label commenter
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           ref: main
 
-      - uses: peaceiris/actions-label-commenter@v1
+      - uses: peaceiris/actions-label-commenter@f0dbbef043eb1b150b566db36b0bdc8b7f505579 # tag=v1
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
