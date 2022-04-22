@@ -10,7 +10,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
-  schedule: "0 */{{ .Values.geoip.freqhours }} * * *"
+  schedule: "* * * * *"
   concurrencyPolicy: Forbid
   {{- with .Values.cronjob.failedJobsHistoryLimit }}
   failedJobsHistoryLimit: {{ . }}
