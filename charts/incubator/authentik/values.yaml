@@ -1,0 +1,129 @@
+image:
+  repository: ghcr.io/goauthentik/server
+  tag: 2022.4.1@sha256:bb668ae68e9cbab81539fcd79bec5f2de4eefba461e35c770f35d525d48333cb
+  pullPolicy: IfNotPresent
+
+extraArgs: ["server"]
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
+secret:
+  AK_ADMIN_PASS: "supersecret"
+  AK_ADMIN_TOKEN: "supersecretapitoken"
+
+env:
+  AUTHENTIK_POSTGRESQL__NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  AUTHENTIK_POSTGRESQL__USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  AUTHENTIK_POSTGRESQL__PORT: "5432"
+  AUTHENTIK_REDIS__PORT: "6379"
+
+envValueFrom:
+  AUTHENTIK_POSTGRESQL__HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  AUTHENTIK_POSTGRESQL__PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  AUTHENTIK_REDIS__HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  AUTHENTIK_REDIS__PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  AUTHENTIK_SECRET_KEY:
+    secretKeyRef:
+      name: authentik-secrets
+      key: AUTHENTIK_SECRET_KEY
+
+service:
+  main:
+    ports:
+      main:
+        protocol: "HTTPS"
+        port: 10229
+        targetPort: 9443
+  http:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 10230
+        targetPort: 9000
+
+additionalContainers:
+  worker:
+    name: worker
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    args: ["worker"]
+    volumeMounts:
+    - name: media
+      mountPath: "/media"
+    - name: templates
+      mountPath: "/templates"
+    - name: certs
+      mountPath: "/certs"
+    - name: geoip
+      mountPath: "/geoip"
+    env:
+      - name: AUTHENTIK_REDIS__PORT
+        value: "6379"
+      - name: AUTHENTIK_REDIS__HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhost
+      - name: AUTHENTIK_REDIS__PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: redis-password
+      - name: AUTHENTIK_POSTGRESQL__NAME
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: AUTHENTIK_POSTGRESQL__USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: AUTHENTIK_POSTGRESQL__PORT
+        value: "5432"
+      - name: AUTHENTIK_POSTGRESQL__HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: AUTHENTIK_POSTGRESQL__PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+
+persistence:
+  media:
+    enabled: true
+    mountPath: "/media"
+  templates:
+    enabled: true
+    mountPath: "/templates"
+  certs:
+    enabled: true
+    mountPath: "/certs"
+  geoip:
+    enabled: true
+    mountPath: "/geoip"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: baserow
+  postgresqlDatabase: baserow
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
