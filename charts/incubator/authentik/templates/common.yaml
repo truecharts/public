@@ -4,5 +4,10 @@
 {{/* Render secrets for authentik */}}
 {{- include "authentik.secrets" . }}
 
+{{- if .Values.geoip.ENABLE_GEOIPUPDATER }}
+{{/* Render cronjob for authentik */}}
+{{- include "authentik.cronjob" . }}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}

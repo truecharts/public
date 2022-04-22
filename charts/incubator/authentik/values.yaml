@@ -50,6 +50,25 @@ envValueFrom:
       name: authentik-secrets
       key: AUTHENTIK_SECRET_KEY
 
+geoip:
+  # Set image's frequence to 0, so it executes once and exits.
+  GEOIPUPDATE_FREQUENCY: 0
+  # User Defined
+  # How often should we run the cronjob to update geoip
+  freqhours: 8
+  ENABLE_GEOIPUPDATER: false
+  GEOIPUPDATE_ACCOUNT_ID: ""
+  GEOIPUPDATE_LICENSE_KEY: ""
+  GEOIPUPDATE_EDITION_IDS: "GeoIP2-City"
+  GEOIPUPDATE_HOST: "updates.maxmind.com"
+  GEOIPUPDATE_PRESERVE_FILE_TIMES: 1
+
+probes:
+  liveness:
+    path: "/-/health/live"
+  readiness:
+    path: "/-/health/ready"
+
 service:
   main:
     ports:
