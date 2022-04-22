@@ -91,16 +91,16 @@ service:
   main:
     ports:
       main:
-        protocol: "HTTPS"
-        port: 10229
-        targetPort: 9443
+        enabled: true
+        port: 10230
+        targetPort: 9000
   http:
     enabled: true
     ports:
       http:
-        enabled: true
-        port: 10230
-        targetPort: 9000
+        protocol: "HTTPS"
+        port: 10229
+        targetPort: 9443
 
 additionalContainers:
   worker:
