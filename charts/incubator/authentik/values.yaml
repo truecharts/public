@@ -91,13 +91,13 @@ service:
   main:
     ports:
       main:
-        enabled: true
         port: 10230
         targetPort: 9000
   http:
     enabled: true
     ports:
       http:
+        enabled: true
         protocol: "HTTPS"
         port: 10229
         targetPort: 9443
