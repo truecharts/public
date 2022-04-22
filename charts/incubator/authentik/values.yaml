@@ -27,6 +27,8 @@ env:
   AUTHENTIK_POSTGRESQL__USER: "{{ .Values.postgresql.postgresqlUsername }}"
   AUTHENTIK_POSTGRESQL__PORT: "5432"
   AUTHENTIK_REDIS__PORT: "6379"
+  # User Defined
+  AUTHENTIK_LOG_LEVEL: "warning"
 
 envValueFrom:
   AUTHENTIK_POSTGRESQL__HOST:
@@ -132,6 +134,13 @@ additionalContainers:
           secretKeyRef:
             name: authentik-secrets
             key: AUTHENTIK_SECRET_KEY
+      - name: AUTHENTIK_LOG_LEVEL
+        value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
+
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
 
 persistence:
   media:
