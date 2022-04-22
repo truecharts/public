@@ -3,6 +3,11 @@ image:
   tag: 2022.4.1@sha256:bb668ae68e9cbab81539fcd79bec5f2de4eefba461e35c770f35d525d48333cb
   pullPolicy: IfNotPresent
 
+geoipImage:
+  repository: maxmindinc/geoipupdate
+  tag: latest
+  pullPolicy: IfNotPresent
+
 extraArgs: ["server"]
 
 # securityContext:
