@@ -215,8 +215,8 @@ persistence:
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
-  postgresqlUsername: baserow
-  postgresqlDatabase: baserow
+  postgresqlUsername: authentik
+  postgresqlDatabase: authentik
 
 redis:
   enabled: true
