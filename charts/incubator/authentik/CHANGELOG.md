@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authentik-0.0.3"></a>
+### [authentik-0.0.3](https://github.com/truecharts/apps/compare/authentik-0.0.2...authentik-0.0.3) (2022-04-23)
+
+#### Chore
+
+* update db name ([#2540](https://github.com/truecharts/apps/issues/2540))
+
+
+
 <a name="authentik-0.0.2"></a>
 ### [authentik-0.0.2](https://github.com/truecharts/apps/compare/authentik-0.0.1...authentik-0.0.2) (2022-04-22)
 
