@@ -63,7 +63,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host localhost -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
+          - echo "rs.status().ok" | mongo --host {{ .Release.Name }} -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -80,7 +80,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host localhost -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
+          - echo "rs.status().ok" | mongo --host {{ .Release.Name }} -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -95,7 +95,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host localhost -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
+          - echo "rs.status().ok" | mongo --host {{ .Release.Name }} -u root -p $MONGODB_ROOT_PASSWORD --port 27017 --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
@@ -126,4 +126,7 @@ env:
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
   MONGODB_ADVERTISED_HOSTNAME: "{{ .Release.Name }}"
-  MONGODB_ADVERTISED_PORT_NUMBER: "27017"
+  MONGODB_ADVERTISED_PORT_NUMBER: 27017
+  MONGODB_INITIAL_PRIMARY_HOST: "{{ .Release.Name }}"
+  MONGODB_INITIAL_PRIMARY_PORT_NUMBER: 27017
+  MONGODB_ENABLE_JOURNAL: true
