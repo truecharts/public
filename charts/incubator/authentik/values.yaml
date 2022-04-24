@@ -8,7 +8,8 @@ geoipImage:
   tag: v4.9@sha256:0b471203ce4c8db00e3173da2ba4fc0a4f32ca52b1488300b0c8bac6dd14e695
   pullPolicy: IfNotPresent
 
-extraArgs: ["server"]
+command: ["env"]
+# extraArgs: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
@@ -24,10 +25,6 @@ env:
   AUTHENTIK_POSTGRESQL__PORT: "5432"
   AUTHENTIK_REDIS__PORT: "6379"
   # User Defined
-  AUTHENTIK_DISABLE_UPDATE_CHECK: false
-  AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
   AUTHENTIK_GDPR_COMPLIANCE: true
   AUTHENTIK_IMPERSONATION: true
   AUTHENTIK_DISABLE_STARTUP_ANALYTICS: false
@@ -45,6 +42,10 @@ env:
   AUTHENTIK_EMAIL__USE_SSL: false
   AUTHENTIK_EMAIL__TIMEOUT: 10
   AUTHENTIK_EMAIL__FROM: ""
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "common.names.fullname" . }}-authentik-shared'
 
 envValueFrom:
   AUTHENTIK_POSTGRESQL__HOST:
@@ -67,6 +68,15 @@ envValueFrom:
     secretKeyRef:
       name: authentik-secrets
       key: AUTHENTIK_SECRET_KEY
+
+configmap:
+  authentik-shared:
+    enabled: true
+    data:
+      AUTHENTIK_DISABLE_UPDATE_CHECK: false
+      AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
+      AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
+      AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
 
 geoip:
   # Set image's frequence to 0, so it executes once and exits.
@@ -106,7 +116,8 @@ additionalContainers:
   worker:
     name: worker
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    args: ["worker"]
+    command: ["env"]
+    # args: ["worker"]
     volumeMounts:
     - name: media
       mountPath: "/media"
@@ -116,6 +127,9 @@ additionalContainers:
       mountPath: "/certs"
     - name: geoip
       mountPath: "/geoip"
+    envFrom:
+      - configMapRef:
+          name: '{{ include "common.names.fullname" . }}-authentik-shared'
     env:
       - name: AUTHENTIK_REDIS__PORT
         value: "6379"
@@ -152,8 +166,6 @@ additionalContainers:
             key: AUTHENTIK_SECRET_KEY
       - name: AUTHENTIK_LOG_LEVEL
         value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
-      - name: AUTHENTIK_DISABLE_UPDATE_CHECK
-        value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
       - name: AUTHENTIK_ERROR_REPORTING__ENABLED
         value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENABLED }}"
       - name: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
@@ -178,12 +190,6 @@ additionalContainers:
         value: "{{ .Values.env.AUTHENTIK_EMAIL__FROM }}"
       - name: AUTHENTIK_AVATARS
         value: "{{ .Values.env.AUTHENTIK_AVATARS }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_NAME }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME }}"
       - name: AUTHENTIK_GDPR_COMPLIANCE
         value: "{{ .Values.env.AUTHENTIK_GDPR_COMPLIANCE }}"
       - name: AUTHENTIK_DEFAULT_TOKEN_LENGTH
