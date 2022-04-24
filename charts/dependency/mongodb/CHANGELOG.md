@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.1.1"></a>
+### [mongodb-0.1.1](https://github.com/truecharts/apps/compare/mongodb-0.1.0...mongodb-0.1.1) (2022-04-24)
+
+#### Chore
+
+* bump common ([#2548](https://github.com/truecharts/apps/issues/2548))
+
+
+
 <a name="mongodb-0.1.0"></a>
 ### [mongodb-0.1.0](https://github.com/truecharts/apps/compare/mongodb-0.0.31...mongodb-0.1.0) (2022-04-24)
 
