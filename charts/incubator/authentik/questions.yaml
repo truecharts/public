@@ -74,6 +74,66 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: configmap
+    group: "Container Configuration"
+    label: "test configmap"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: authentik-shared
+          label: "authentik-shared"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: data
+                label: "data"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: AUTHENTIK_DISABLE_UPDATE_CHECK
+                      label: "AUTHENTIK_DISABLE_UPDATE_CHECK"
+                      schema:
+                        type: string
+                        default: "false"
+                        enum:
+                          - value: "true"
+                            description: "true"
+                          - value: "false"
+                            description: "false"
+                    - variable: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
+                      label: "AUTHENTIK_DEFAULT_USER_CHANGE_NAME"
+                      schema:
+                        type: string
+                        default: "true"
+                        enum:
+                          - value: "true"
+                            description: "true"
+                          - value: "false"
+                            description: "false"
+                    - variable: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
+                      label: "AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL"
+                      schema:
+                        type: string
+                        default: "true"
+                        enum:
+                          - value: "true"
+                            description: "true"
+                          - value: "false"
+                            description: "false"
+                    - variable: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
+                      label: "AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME"
+                      schema:
+                        type: string
+                        default: "true"
+                        enum:
+                          - value: "true"
+                            description: "true"
+                          - value: "false"
+                            description: "false"
+
   - variable: secret
     group: "Container Configuration"
     label: "Image Secrets"
@@ -81,14 +141,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: AK_ADMIN_PASS
-          label: "AK_ADMIN_PASS (Initial Install Only)"
-          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
         - variable: AK_ADMIN_TOKEN
           label: "AK_ADMIN_TOKEN (Initial Install Only)"
           description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"

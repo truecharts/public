@@ -8,8 +8,7 @@ geoipImage:
   tag: v4.9@sha256:0b471203ce4c8db00e3173da2ba4fc0a4f32ca52b1488300b0c8bac6dd14e695
   pullPolicy: IfNotPresent
 
-command: ["env"]
-# extraArgs: ["server"]
+extraArgs: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
@@ -116,8 +115,7 @@ additionalContainers:
   worker:
     name: worker
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["env"]
-    # args: ["worker"]
+    args: ["worker"]
     volumeMounts:
     - name: media
       mountPath: "/media"
