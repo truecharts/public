@@ -1,0 +1,44 @@
+image:
+  repository: tccr.io/truecharts/rocket-chat
+  tag: v4.6.3@sha256:e64755573a2f35db9e987807510c8e7c2466cc7d41644d879abf54879460721d
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  ROOT_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+
+envValueFrom:
+  MONGO_URL:
+    secretKeyRef:
+      name: mongodbcreds
+      key: url
+  MONGO_OPLOG_URL:
+    secretKeyRef:
+      name: mongodbcreds
+      key: urloplog
+
+service:
+  main:
+    ports:
+      main:
+        port: 10211
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: "/app/uploads"
+
+mongodb:
+  enabled: true
+  mongodbUsername: rocket-chat
+  mongodbDatabase: rocket-chat
+  existingSecret: "mongodbcreds"
