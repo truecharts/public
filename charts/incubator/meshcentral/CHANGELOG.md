@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.1.0"></a>
+### [meshcentral-1.1.0](https://github.com/truecharts/apps/compare/meshcentral-1.0.1...meshcentral-1.1.0) (2022-04-24)
+
+#### Chore
+
+* update image ref ([#2533](https://github.com/truecharts/apps/issues/2533))
+
+
+
 <a name="meshcentral-1.0.1"></a>
 ### [meshcentral-1.0.1](https://github.com/truecharts/apps/compare/meshcentral-1.0.0...meshcentral-1.0.1) (2022-04-21)
 
