@@ -73,10 +73,10 @@ configmap:
   authentik-shared:
     enabled: true
     data:
-      AUTHENTIK_DISABLE_UPDATE_CHECK: false
-      AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
-      AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
-      AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
+      AUTHENTIK_DISABLE_UPDATE_CHECK: "false"
+      AUTHENTIK_DEFAULT_USER_CHANGE_NAME: "true"
+      AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: "true"
+      AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: "true"
 
 geoip:
   # Set image's frequence to 0, so it executes once and exits.
