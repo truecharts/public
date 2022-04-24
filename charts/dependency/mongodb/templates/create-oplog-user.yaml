@@ -15,6 +15,7 @@ data:
     # '.script' extension is just to avoid the bitnami init script to executing it. (bitnami executes .sh and .js files automatically)
     echo 'use '$MONGODB_DATABASE > /docker-entrypoint-initdb.d/createOpLogUser.script;
     echo 'db.createUser({user: "'$MONGODB_USERNAME'-oplog", pwd: "'$MONGODB_PASSWORD'", roles: [ { role: "read", db: "local" } ]})' >> /docker-entrypoint-initdb.d/createOpLogUser.script;
+    echo 'hostname()' >> /docker-entrypoint-initdb.d/createOpLogUser.script;
     echo "Command Generated!";
 
     echo "Creating the user...";
