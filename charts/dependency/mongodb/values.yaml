@@ -102,6 +102,7 @@ mongodbRootPassword: "testroot"
 mongodbReplicasetMode: "primary"
 mongodbReplicasetName: "rs0"
 mongodbReplicasetKey: "testreplicasetkey"
+mongodbAdvertisedHostname: "localhost"
 existingSecret: ""
 
 envValueFrom:
@@ -123,5 +124,5 @@ env:
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
-  MONGODB_ADVERTISED_HOSTNAME: "localhost"
+  MONGODB_ADVERTISED_HOSTNAME: "{{ .Values.mongodbAdvertisedHostname }}"
   MONGODB_ADVERTISED_PORT_NUMBER: "27017"
