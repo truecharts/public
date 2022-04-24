@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-2.0.1"></a>
+### [wekan-2.0.1](https://github.com/truecharts/apps/compare/wekan-2.0.0...wekan-2.0.1) (2022-04-24)
+
+#### Fix
+
+* set advertised hostname ([#2555](https://github.com/truecharts/apps/issues/2555))
+
+
+
 <a name="wekan-2.0.0"></a>
 ### [wekan-2.0.0](https://github.com/truecharts/apps/compare/wekan-1.0.8...wekan-2.0.0) (2022-04-24)
 
