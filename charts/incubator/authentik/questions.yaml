@@ -133,6 +133,16 @@ questions:
                             description: "true"
                           - value: "false"
                             description: "false"
+                    - variable: TESTADDNEWVAR
+                      label: "TESTADDNEWVAR"
+                      schema:
+                        type: string
+                        default: "true"
+                        enum:
+                          - value: "true"
+                            description: "true"
+                          - value: "false"
+                            description: "false"
 
   - variable: secret
     group: "Container Configuration"
