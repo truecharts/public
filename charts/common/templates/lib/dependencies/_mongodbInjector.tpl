@@ -15,17 +15,22 @@ metadata:
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "mongodbcreds" }}
 {{- $dbPass := "" }}
 {{- $rootPass := "" }}
+{{- $replicaKey := "" }}
 data:
 {{- if $dbprevious }}
   {{- $dbPass = ( index $dbprevious.data "mongodb-password" ) | b64dec  }}
   {{- $rootPass = ( index $dbprevious.data "mongodb-root-password" ) | b64dec  }}
+  {{- $replicaKey = ( index $dbprevious.data "mongodb-replicaset-key" ) | b64dec  }}
   mongodb-password: {{ ( index $dbprevious.data "mongodb-password" ) }}
   mongodb-root-password: {{ ( index $dbprevious.data "mongodb-root-password" ) }}
+  mongodb-replicaset-key: {{ ( index $dbprevious.data "mongodb-replicaset-key" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   {{- $rootPass = randAlphaNum 50 }}
+  {{- $replicaKey = randAlphaNum 50 }}
   mongodb-password: {{ $dbPass | b64enc | quote }}
   mongodb-root-password: {{ $rootPass | b64enc | quote }}
+  mongodb-replicaset-key: {{ $replicaKey | b64enc | quote }}
 {{- end }}
   url: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?authSource=%v&replicaSet=%v" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase .Values.mongodb.mongodbDatabase .Values.mongodb.mongodbReplicasetName ) | b64enc | quote }}
   urlssl: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?authSource=%v&replicaSet=%v&ssl=true" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase .Values.mongodb.mongodbDatabase .Values.mongodb.mongodbReplicasetName ) | b64enc | quote }}
@@ -37,6 +42,7 @@ data:
 type: Opaque
 {{- $_ := set .Values.mongodb "mongodbPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.mongodb "mongodbRootPassword" ( $rootPass | quote ) }}
+{{- $_ := set .Values.mongodb "mongodbReplicasetKey" ( $replicaKey | quote ) }}
 {{- $_ := set .Values.mongodb.url "plain" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
 {{- $_ := set .Values.mongodb.url "plainhost" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
 {{- $_ := set .Values.mongodb.url "plainport" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
