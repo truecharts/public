@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="wekan-2.0.2"></a>
+### [wekan-2.0.2](https://github.com/truecharts/apps/compare/wekan-2.0.1...wekan-2.0.2) (2022-04-24)
+
+
+
 <a name="wekan-2.0.1"></a>
 ### [wekan-2.0.1](https://github.com/truecharts/apps/compare/wekan-2.0.0...wekan-2.0.1) (2022-04-24)
 

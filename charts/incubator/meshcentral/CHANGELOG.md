@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.1.2"></a>
+### [meshcentral-1.1.2](https://github.com/truecharts/apps/compare/meshcentral-1.1.0...meshcentral-1.1.2) (2022-04-24)
+
+
+
 <a name="meshcentral-1.1.0"></a>
 ### [meshcentral-1.1.0](https://github.com/truecharts/apps/compare/meshcentral-1.0.1...meshcentral-1.1.0) (2022-04-24)
 
