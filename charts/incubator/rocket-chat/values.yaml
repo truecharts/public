@@ -36,6 +36,10 @@ persistence:
   uploads:
     enabled: true
     mountPath: "/app/uploads"
+  temp:
+    enabled: true
+    mountPath: "/tmp/ufs"
+    type: emptyDir
 
 mongodb:
   enabled: true
