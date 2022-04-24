@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="duckdns-1.0.14"></a>
+### [duckdns-1.0.14](https://github.com/truecharts/apps/compare/duckdns-1.0.13...duckdns-1.0.14) (2022-04-24)
+
+#### Chore
+
+* add logfile option in gui ([#2552](https://github.com/truecharts/apps/issues/2552))
+
+
+
+<a name="duckdns-1.0.13"></a>
+### [duckdns-1.0.13](https://github.com/truecharts/apps/compare/duckdns-1.0.12...duckdns-1.0.13) (2022-04-24)
+
+#### Fix
+
+* rofs false ([#2546](https://github.com/truecharts/apps/issues/2546))
+
+
+
 <a name="duckdns-1.0.12"></a>
 ### [duckdns-1.0.12](https://github.com/truecharts/apps/compare/duckdns-1.0.11...duckdns-1.0.12) (2022-04-20)
 

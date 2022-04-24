@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: minisatip
-version: 1.0.11
+version: 1.0.12
 appVersion: "2021.12.01"
 description: Minisatip is a multi-threaded satip server version 1.2 that runs under Linux.
 type: application
@@ -16,13 +16,12 @@ dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 9.2.9
-  # condition:
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
-    - incubator
+    - utility
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

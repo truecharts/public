@@ -79,6 +79,12 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: LOG_FILE
+          label: "LOG_FILE"
+          description: "LOG_FILE"
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 
   - variable: serviceexpert
@@ -180,7 +186,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
