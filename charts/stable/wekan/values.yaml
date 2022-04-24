@@ -13,6 +13,10 @@ envValueFrom:
     secretKeyRef:
       name: mongodbcreds
       key: url
+  MONGO_OPLOG_URL:
+    secretKeyRef:
+      name: mongodbcreds
+      key: urloplog
 
 service:
   main:
