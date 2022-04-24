@@ -17,7 +17,7 @@ data:
     echo 'db.createUser({user: "'$MONGODB_USERNAME'-oplog", pwd: "'$MONGODB_PASSWORD'", roles: [ { role: "read", db: "local" } ]})' >> /docker-entrypoint-initdb.d/createOpLogUser.script;
     echo 'hostname()' >> /docker-entrypoint-initdb.d/createOpLogUser.script;
     echo "Command Generated!";
-
+    echo $testvar;
     echo "Creating the user...";
     mongo admin -u root -p $MONGODB_ROOT_PASSWORD < /docker-entrypoint-initdb.d/createOpLogUser.script;
     echo "User Created!";
