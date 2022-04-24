@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minisatip-1.0.12"></a>
+### [minisatip-1.0.12](https://github.com/truecharts/apps/compare/minisatip-1.0.11...minisatip-1.0.12) (2022-04-24)
+
+#### Fix
+
+* rofs false ([#2549](https://github.com/truecharts/apps/issues/2549))
+
+
+
 <a name="minisatip-1.0.11"></a>
 ### [minisatip-1.0.11](https://github.com/truecharts/apps/compare/minisatip-1.0.10...minisatip-1.0.11) (2022-04-20)
 
