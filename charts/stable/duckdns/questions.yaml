@@ -79,6 +79,12 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: LOG_FILE
+          label: "LOG_FILE"
+          description: "LOG_FILE"
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 
   - variable: serviceexpert
