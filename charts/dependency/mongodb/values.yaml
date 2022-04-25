@@ -104,6 +104,7 @@ mongodbRootPassword: "testroot"
 mongodbReplicasetMode: "primary"
 mongodbReplicasetName: "rs0"
 mongodbReplicasetKey: "testreplicasetkey"
+mongodbDependency: false
 existingSecret: ""
 
 envValueFrom:
@@ -125,8 +126,8 @@ env:
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
-  MONGODB_ADVERTISED_HOSTNAME: "{{ .Release.Name }}-0"
+  MONGODB_ADVERTISED_HOSTNAME: "{{ if .Values.mongodbDependency }}{{ .Release.Name }}-mongodb-0{{ else }}{{ .Release.Name }}-0{{ end }}"
   MONGODB_ADVERTISED_PORT_NUMBER: 27017
-  MONGODB_INITIAL_PRIMARY_HOST: "{{ .Release.Name }}-0"
+  MONGODB_INITIAL_PRIMARY_HOST: "{{ if .Values.mongodbDependency }}{{ .Release.Name }}-mongodb-0{{ else }}{{ .Release.Name }}-0{{ end }}"
   MONGODB_INITIAL_PRIMARY_PORT_NUMBER: 27017
   MONGODB_ENABLE_JOURNAL: true
