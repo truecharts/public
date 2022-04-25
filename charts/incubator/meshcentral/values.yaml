@@ -54,7 +54,6 @@ mongodb:
   enabled: true
   mongodbUsername: meshcentral
   mongodbDatabase: meshcentral
-  mongodbAdvertisedHostname: "{{ .Release.Name }}"
   existingSecret: "mongodbcreds"
 
 persistence:

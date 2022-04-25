@@ -29,7 +29,6 @@ mongodb:
   enabled: true
   mongodbUsername: wekan
   mongodbDatabase: wekan
-  mongodbAdvertisedHostname: "{{ .Release.Name }}-0"
   existingSecret: "mongodbcreds"
 
 persistence:
