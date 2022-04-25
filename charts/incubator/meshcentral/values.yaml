@@ -52,7 +52,7 @@ initContainers:
 
 mongodb:
   enabled: true
-  mongodbDependency: true
+  mongodbDependency: false
   mongodbUsername: meshcentral
   mongodbDatabase: meshcentral
   existingSecret: "mongodbcreds"

@@ -27,7 +27,7 @@ service:
 
 mongodb:
   enabled: true
-  mongodbDependency: true
+  mongodbDependency: false
   mongodbUsername: wekan
   mongodbDatabase: wekan
   existingSecret: "mongodbcreds"
