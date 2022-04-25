@@ -97,27 +97,6 @@ questions:
       type: string
       default: ""
       required: true
-  - variable: mongodbReplicasetMode
-    group: "App Configuration"
-    label: "ReplicaSet Mode"
-    schema:
-      type: string
-      default: "primary"
-      required: true
-  - variable: mongodbReplicasetName
-    group: "App Configuration"
-    label: "ReplicaSet Name"
-    schema:
-      type: string
-      default: "rs0"
-      required: true
-  - variable: mongodbReplicasetKey
-    group: "App Configuration"
-    label: "ReplicaSet Key"
-    schema:
-      type: string
-      default: "testreplicasetkey"
-      required: true
 
   - variable: service
     group: "Networking and Services"
