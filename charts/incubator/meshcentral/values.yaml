@@ -45,14 +45,12 @@ initContainers:
           echo '  "settings": {' >> $configfile;
           echo '    "port": '$svcPort',' >> $configfile;
           echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
-          echo '    "MongoDbChangeStream": true' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
         fi;
 
 mongodb:
   enabled: true
-  mongodbDependency: false
   mongodbUsername: meshcentral
   mongodbDatabase: meshcentral
   existingSecret: "mongodbcreds"
