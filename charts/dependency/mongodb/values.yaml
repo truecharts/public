@@ -125,7 +125,7 @@ env:
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
   MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
-  MONGODB_ADVERTISED_HOSTNAME: "{{ .Release.Name }}-mongodb-0"
+  MONGODB_ADVERTISED_HOSTNAME: "{{ .Release.Name }}-mongodb"
   MONGODB_ADVERTISED_PORT_NUMBER: 27017
   MONGODB_INITIAL_PRIMARY_HOST: "{{ .Release.Name }}-mongodb-0"
   MONGODB_INITIAL_PRIMARY_PORT_NUMBER: 27017
