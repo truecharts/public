@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.1.6"></a>
+### [mongodb-0.1.6](https://github.com/truecharts/apps/compare/mongodb-0.1.5...mongodb-0.1.6) (2022-04-25)
+
+#### Fix
+
+* set advertised hostname ([#2560](https://github.com/truecharts/apps/issues/2560))
+
+
+
 <a name="mongodb-0.1.5"></a>
 ### [mongodb-0.1.5](https://github.com/truecharts/apps/compare/mongodb-0.1.4...mongodb-0.1.5) (2022-04-24)
 
