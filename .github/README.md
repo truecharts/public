@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-78-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-80-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -173,7 +173,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/sebsx"><img src="https://avatars.githubusercontent.com/u/735033?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sebs</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=sebsx" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Dyllan2000alfa"><img src="https://avatars.githubusercontent.com/u/29694020?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dyllan Tinoco</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Dyllan2000alfa" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a></td>
+    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a> <a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/brothergomez"><img src="https://avatars.githubusercontent.com/u/38558969?v=4?s=100" width="100px;" alt=""/><br /><sub><b>brothergomez</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=brothergomez" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3Abrothergomez" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Sagit-chu" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ASagit-chu" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://zhouyou.info"><img src="https://avatars.githubusercontent.com/u/8481484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nevan Chow</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=zzzhouuu" title="Code">💻</a></td>
@@ -236,6 +236,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/huma2000"><img src="https://avatars.githubusercontent.com/u/9518124?v=4?s=100" width="100px;" alt=""/><br /><sub><b>huma2000</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ahuma2000" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/hugalafutro"><img src="https://avatars.githubusercontent.com/u/30209689?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hugalafutro</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ahugalafutro" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/yehia2amer"><img src="https://avatars.githubusercontent.com/u/6174059?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yehia Amer</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=yehia2amer" title="Documentation">📖</a></td>
   </tr>
 </table>
 
