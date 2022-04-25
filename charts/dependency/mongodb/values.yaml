@@ -26,7 +26,6 @@ controller:
 
 service:
   main:
-    publishNotReadyAddresses: true
     ports:
       main:
         port: 27017
@@ -62,7 +61,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host "${MONGODB_ADVERTISED_HOSTNAME}" -u root -p ${MONGODB_ROOT_PASSWORD} --port "${MONGODB_ADVERTISED_PORT_NUMBER}" --quiet
+          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -79,7 +78,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host "${MONGODB_ADVERTISED_HOSTNAME}" -u root -p ${MONGODB_ROOT_PASSWORD} --port "${MONGODB_ADVERTISED_PORT_NUMBER}" --quiet
+          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Startup probe configuration
   # @default -- See below
@@ -95,16 +94,15 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "rs.status().ok" | mongo --host "${MONGODB_ADVERTISED_HOSTNAME}" -u root -p ${MONGODB_ROOT_PASSWORD} --port "${MONGODB_ADVERTISED_PORT_NUMBER}" --quiet
+          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
-mongodbReplicasetMode: "primary"
-mongodbReplicasetName: "rs0"
-mongodbReplicasetKey: "testreplicasetkey"
-mongodbDependency: false
+# mongodbReplicasetMode: "primary"
+# mongodbReplicasetName: "rs0"
+# mongodbReplicasetKey: "testreplicasetkey"
 existingSecret: ""
 
 envValueFrom:
@@ -116,18 +114,13 @@ envValueFrom:
     secretKeyRef:
       name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "mongodb-root-password"
-  MONGODB_REPLICA_SET_KEY:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mongodb-replicaset-key"
+  # MONGODB_REPLICA_SET_KEY:
+  #   secretKeyRef:
+  #     name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+  #     key: "mongodb-replicaset-key"
 
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
-  MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
-  MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"
-  MONGODB_ADVERTISED_HOSTNAME: "{{ if .Values.mongodbDependency }}{{ .Release.Name }}-mongodb-0{{ else }}{{ .Release.Name }}-0{{ end }}"
-  MONGODB_ADVERTISED_PORT_NUMBER: 27017
-  MONGODB_INITIAL_PRIMARY_HOST: "{{ if .Values.mongodbDependency }}{{ .Release.Name }}-mongodb-0{{ else }}{{ .Release.Name }}-0{{ end }}"
-  MONGODB_INITIAL_PRIMARY_PORT_NUMBER: 27017
-  MONGODB_ENABLE_JOURNAL: true
+  # MONGODB_REPLICA_SET_MODE: "{{ .Values.mongodbReplicasetMode }}"
+  # MONGODB_REPLICA_SET_NAME: "{{ .Values.mongodbReplicasetName }}"

@@ -1,6 +1,10 @@
-{{- include "common.setup" . }}
+{{- include "common.all" . }}
 
+{{/*
+{{- include "common.setup" . }}
+*/}}
 {{/* Append the hardcoded settings */}}
+{{/*
 {{- define "mongodb.harcodedValues" -}}
 persistence:
   focalboard-config:
@@ -15,6 +19,9 @@ persistence:
 {{- $_ := mergeOverwrite .Values (include "mongodb.harcodedValues" . | fromYaml) -}}
 
 {{- include "mongodb.configmap" . }}
+*/}}
 
 {{/* Render the templates */}}
+{{/*
 {{ include "common.postSetup" . }}
+*/}}
