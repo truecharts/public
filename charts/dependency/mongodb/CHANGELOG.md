@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.1.7"></a>
+### [mongodb-0.1.7](https://github.com/truecharts/apps/compare/mongodb-0.1.6...mongodb-0.1.7) (2022-04-25)
+
+#### Fix
+
+* fix ([#2563](https://github.com/truecharts/apps/issues/2563))
+
+
+
 <a name="mongodb-0.1.6"></a>
 ### [mongodb-0.1.6](https://github.com/truecharts/apps/compare/mongodb-0.1.5...mongodb-0.1.6) (2022-04-25)
 
