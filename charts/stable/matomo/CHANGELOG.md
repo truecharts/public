@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="matomo-1.0.35"></a>
+### [matomo-1.0.35](https://github.com/truecharts/apps/compare/matomo-1.0.34...matomo-1.0.35) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="matomo-1.0.34"></a>
 ### [matomo-1.0.34](https://github.com/truecharts/apps/compare/matomo-1.0.33...matomo-1.0.34) (2022-04-20)
 

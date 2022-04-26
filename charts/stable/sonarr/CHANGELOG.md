@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-10.0.13"></a>
+### [sonarr-10.0.13](https://github.com/truecharts/apps/compare/sonarr-10.0.12...sonarr-10.0.13) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="sonarr-10.0.12"></a>
 ### [sonarr-10.0.12](https://github.com/truecharts/apps/compare/sonarr-10.0.11...sonarr-10.0.12) (2022-04-20)
 

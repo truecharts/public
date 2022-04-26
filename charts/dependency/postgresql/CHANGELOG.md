@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.50"></a>
+### [postgresql-7.0.50](https://github.com/truecharts/apps/compare/postgresql-7.0.49...postgresql-7.0.50) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="postgresql-7.0.49"></a>
 ### [postgresql-7.0.49](https://github.com/truecharts/apps/compare/postgresql-7.0.48...postgresql-7.0.49) (2022-04-26)
 

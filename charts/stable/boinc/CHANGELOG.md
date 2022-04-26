@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.19"></a>
+### [boinc-1.0.19](https://github.com/truecharts/apps/compare/boinc-1.0.18...boinc-1.0.19) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="boinc-1.0.18"></a>
 ### [boinc-1.0.18](https://github.com/truecharts/apps/compare/boinc-1.0.17...boinc-1.0.18) (2022-04-20)
 

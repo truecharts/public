@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-5.0.15"></a>
+### [komga-5.0.15](https://github.com/truecharts/apps/compare/komga-5.0.14...komga-5.0.15) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="komga-5.0.14"></a>
 ### [komga-5.0.14](https://github.com/truecharts/apps/compare/komga-5.0.13...komga-5.0.14) (2022-04-20)
 

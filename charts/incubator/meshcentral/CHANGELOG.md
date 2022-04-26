@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.1.5"></a>
+### [meshcentral-1.1.5](https://github.com/truecharts/apps/compare/meshcentral-1.1.4...meshcentral-1.1.5) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
 <a name="meshcentral-1.1.4"></a>
 ### [meshcentral-1.1.4](https://github.com/truecharts/apps/compare/meshcentral-1.1.2...meshcentral-1.1.4) (2022-04-25)
 
