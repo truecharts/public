@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-10.0.13"></a>
+### [bazarr-10.0.13](https://github.com/truecharts/apps/compare/bazarr-10.0.12...bazarr-10.0.13) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="bazarr-10.0.12"></a>
 ### [bazarr-10.0.12](https://github.com/truecharts/apps/compare/bazarr-10.0.11...bazarr-10.0.12) (2022-04-20)
 

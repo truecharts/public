@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.1.6"></a>
+### [meshcentral-1.1.6](https://github.com/truecharts/apps/compare/meshcentral-1.1.5...meshcentral-1.1.6) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="meshcentral-1.1.5"></a>
 ### [meshcentral-1.1.5](https://github.com/truecharts/apps/compare/meshcentral-1.1.4...meshcentral-1.1.5) (2022-04-26)
 

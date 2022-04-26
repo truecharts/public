@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-3.0.19"></a>
+### [filezilla-3.0.19](https://github.com/truecharts/apps/compare/filezilla-3.0.18...filezilla-3.0.19) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="filezilla-3.0.18"></a>
 ### [filezilla-3.0.18](https://github.com/truecharts/apps/compare/filezilla-3.0.17...filezilla-3.0.18) (2022-04-26)
 

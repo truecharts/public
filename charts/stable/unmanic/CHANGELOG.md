@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unmanic-2.0.14"></a>
+### [unmanic-2.0.14](https://github.com/truecharts/apps/compare/unmanic-2.0.13...unmanic-2.0.14) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="unmanic-2.0.13"></a>
 ### [unmanic-2.0.13](https://github.com/truecharts/apps/compare/unmanic-2.0.12...unmanic-2.0.13) (2022-04-20)
 

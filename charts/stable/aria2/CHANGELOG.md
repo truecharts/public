@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-4.0.12"></a>
+### [aria2-4.0.12](https://github.com/truecharts/apps/compare/aria2-4.0.11...aria2-4.0.12) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="aria2-4.0.11"></a>
 ### [aria2-4.0.11](https://github.com/truecharts/apps/compare/aria2-4.0.10...aria2-4.0.11) (2022-04-20)
 

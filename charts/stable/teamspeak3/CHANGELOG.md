@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-3.0.14"></a>
+### [teamspeak3-3.0.14](https://github.com/truecharts/apps/compare/teamspeak3-3.0.13...teamspeak3-3.0.14) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="teamspeak3-3.0.13"></a>
 ### [teamspeak3-3.0.13](https://github.com/truecharts/apps/compare/teamspeak3-3.0.12...teamspeak3-3.0.13) (2022-04-20)
 

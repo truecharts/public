@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="android-8-0-0.0.4"></a>
+### [android-8-0-0.0.4](https://github.com/truecharts/apps/compare/android-8-0-0.0.3...android-8-0-0.0.4) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="android-8-0-0.0.3"></a>
 ### [android-8-0-0.0.3](https://github.com/truecharts/apps/compare/android-8-0-0.0.2...android-8-0-0.0.3) (2022-04-20)
 

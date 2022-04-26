@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apt-cacher-ng-0.0.4"></a>
+### [apt-cacher-ng-0.0.4](https://github.com/truecharts/apps/compare/apt-cacher-ng-0.0.3...apt-cacher-ng-0.0.4) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="apt-cacher-ng-0.0.3"></a>
 ### [apt-cacher-ng-0.0.3](https://github.com/truecharts/apps/compare/apt-cacher-ng-0.0.2...apt-cacher-ng-0.0.3) (2022-04-20)
 

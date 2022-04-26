@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-1.0.15"></a>
+### [projectsend-1.0.15](https://github.com/truecharts/apps/compare/projectsend-1.0.14...projectsend-1.0.15) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="projectsend-1.0.14"></a>
 ### [projectsend-1.0.14](https://github.com/truecharts/apps/compare/projectsend-1.0.13...projectsend-1.0.14) (2022-04-20)
 

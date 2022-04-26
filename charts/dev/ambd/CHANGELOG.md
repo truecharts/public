@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ambd-0.0.4"></a>
+### [ambd-0.0.4](https://github.com/truecharts/apps/compare/ambd-0.0.3...ambd-0.0.4) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="ambd-0.0.3"></a>
 ### [ambd-0.0.3](https://github.com/truecharts/apps/compare/ambd-0.0.2...ambd-0.0.3) (2022-04-20)
 

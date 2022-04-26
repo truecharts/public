@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-2.0.12"></a>
+### [novnc-2.0.12](https://github.com/truecharts/apps/compare/novnc-2.0.11...novnc-2.0.12) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="novnc-2.0.11"></a>
 ### [novnc-2.0.11](https://github.com/truecharts/apps/compare/novnc-2.0.10...novnc-2.0.11) (2022-04-20)
 

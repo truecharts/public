@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-5.0.12"></a>
+### [reg-5.0.12](https://github.com/truecharts/apps/compare/reg-5.0.11...reg-5.0.12) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="reg-5.0.11"></a>
 ### [reg-5.0.11](https://github.com/truecharts/apps/compare/reg-5.0.10...reg-5.0.11) (2022-04-20)
 

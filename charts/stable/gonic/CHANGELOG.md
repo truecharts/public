@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-5.0.12"></a>
+### [gonic-5.0.12](https://github.com/truecharts/apps/compare/gonic-5.0.11...gonic-5.0.12) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="gonic-5.0.11"></a>
 ### [gonic-5.0.11](https://github.com/truecharts/apps/compare/gonic-5.0.10...gonic-5.0.11) (2022-04-20)
 

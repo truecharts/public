@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.20"></a>
+### [logitech-media-server-3.0.20](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.19...logitech-media-server-3.0.20) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="logitech-media-server-3.0.19"></a>
 ### [logitech-media-server-3.0.19](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.18...logitech-media-server-3.0.19) (2022-04-20)
 

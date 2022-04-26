@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="atd-0.0.4"></a>
+### [atd-0.0.4](https://github.com/truecharts/apps/compare/atd-0.0.3...atd-0.0.4) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="atd-0.0.3"></a>
 ### [atd-0.0.3](https://github.com/truecharts/apps/compare/atd-0.0.2...atd-0.0.3) (2022-04-20)
 

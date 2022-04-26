@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.24"></a>
+### [recipes-6.0.24](https://github.com/truecharts/apps/compare/recipes-6.0.23...recipes-6.0.24) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="recipes-6.0.23"></a>
 ### [recipes-6.0.23](https://github.com/truecharts/apps/compare/recipes-6.0.22...recipes-6.0.23) (2022-04-26)
 

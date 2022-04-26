@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-6.0.15"></a>
+### [pgadmin-6.0.15](https://github.com/truecharts/apps/compare/pgadmin-6.0.14...pgadmin-6.0.15) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="pgadmin-6.0.14"></a>
 ### [pgadmin-6.0.14](https://github.com/truecharts/apps/compare/pgadmin-6.0.13...pgadmin-6.0.14) (2022-04-20)
 

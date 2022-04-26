@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoview-2.0.15"></a>
+### [photoview-2.0.15](https://github.com/truecharts/apps/compare/photoview-2.0.14...photoview-2.0.15) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="photoview-2.0.14"></a>
 ### [photoview-2.0.14](https://github.com/truecharts/apps/compare/photoview-2.0.13...photoview-2.0.14) (2022-04-20)
 

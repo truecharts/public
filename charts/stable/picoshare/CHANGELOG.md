@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="picoshare-1.0.6"></a>
+### [picoshare-1.0.6](https://github.com/truecharts/apps/compare/picoshare-1.0.5...picoshare-1.0.6) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
 <a name="picoshare-1.0.5"></a>
 ### [picoshare-1.0.5](https://github.com/truecharts/apps/compare/picoshare-1.0.4...picoshare-1.0.5) (2022-04-26)
 
