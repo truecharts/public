@@ -3,11 +3,11 @@ appVersion: "1.6.20"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.9
+  version: 9.3.2
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.40
+  version: 2.0.42
 # - condition: mongodb.enabled
 #   name: mongodb
 #   repository: https://charts.truecharts.org
@@ -25,7 +25,7 @@ maintainers:
 name: appsmith
 sources:
 - https://github.com/appsmithorg/appsmith
-version: 0.0.4
+version: 0.0.5
 annotations:
   truecharts.org/catagories: |
     - productivity
