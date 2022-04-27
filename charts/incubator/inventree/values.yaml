@@ -74,10 +74,8 @@ additionalContainers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["invoke", "worker"]
     volumeMounts:
-    - name: static
-      mountPath: "/home/inventree/static"
-    - name: media
-      mountPath: "/home/inventree/media"
+    - name: data
+      mountPath: "/home/inventree/data"
     env:
       - name: INVENTREE_TIMEZONE
         value: "{{ .Values.TZ }}"
