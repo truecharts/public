@@ -9,11 +9,11 @@ nginxImage:
 
 # securityContext:
 #   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 100
-#   runAsGroup: 0
+  runAsGroup: 0
 
 env:
   INVENTREE_DB_ENGINE: "postgresql"
