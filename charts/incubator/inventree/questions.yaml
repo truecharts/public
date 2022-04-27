@@ -74,7 +74,54 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: INVENTREE_LOGIN_CONFIRM_DAYS
+          label: 'INVENTREE_LOGIN_CONFIRM_DAYS'
+          description: "Duration for which confirmation links are valid"
+          schema:
+            type: int
+            default: 3
+        - variable: INVENTREE_LOGIN_ATTEMPTS
+          label: 'INVENTREE_LOGIN_ATTEMPTS'
+          description: "Count of allowed login attempts before blocking user"
+          schema:
+            type: int
+            default: 5
+        - variable: INVENTREE_PLUGINS_ENABLED
+          label: 'INVENTREE_PLUGINS_ENABLED'
+          description: "Enable plugin support"
+          schema:
+            type: boolean
+            default: false
+        - variable: INVENTREE_DEBUG
+          label: 'INVENTREE_DEBUG'
+          description: "Enable debug mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: INVENTREE_LOG_LEVEL
+          label: 'INVENTREE_LOG_LEVEL'
+          description: "Set level of logging to terminal"
+          schema:
+            type: string
+            default: "INFO"
+            enum:
+              - value: "INFO"
+                description: "INFO"
+              - value: "DEBUG"
+                description: "DEBUG"
+              - value: "WARNING"
+                description: "WARNING"
+              - value: "ERROR"
+                description: "ERROR"
+              - value: "CRITICAL"
+                description: "CRITICAL"
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +150,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10231
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +185,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 8000
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -167,9 +214,52 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: static
+          label: "App Static Storage"
+          description: "Stores the Application Static."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: media
+          label: "App Media Storage"
+          description: "Stores the Application Media."
           schema:
             additional_attrs: true
             type: dict
