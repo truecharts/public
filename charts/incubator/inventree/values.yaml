@@ -7,8 +7,8 @@ nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
