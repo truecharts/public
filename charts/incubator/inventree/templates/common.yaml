@@ -1,21 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "common.setup" . }}
 
-# {{/* Append the hardcoded settings */}}
-# {{- define "inventree.harcodedValues" -}}
-# persistence:
-#   inventree-config:
-#     enabled: "true"
-#     mountPath: "/etc/nginx/conf.d/default.conf"
-#     subPath: "default.conf"
-#     type: "custom"
-#     volumeSpec:
-#       configMap:
-#         name: {{ printf "%v-config" (include "common.names.fullname" .) }}
-# {{- end -}}
-# {{- $_ := mergeOverwrite .Values (include "inventree.harcodedValues" . | fromYaml) -}}
-
-
 {{/* Render secrets for inventree */}}
 {{- include "inventree.secrets" . }}
 
