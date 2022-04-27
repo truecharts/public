@@ -3,6 +3,10 @@ image:
   tag: 0.6.3@sha256:dc583301371686a30c919a25dd68e5101ea9ecb8cb63dde617fa8b2c44c27ff6
   pullPolicy: IfNotPresent
 
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
+
 # securityContext:
 #   readOnlyRootFilesystem: false
 #   runAsNonRoot: false
@@ -43,17 +47,28 @@ service:
     ports:
       main:
         port: 10231
-        targetPort: 8000
+        targetPort: 10231
 
 persistence:
-  static:
+  data:
     enabled: true
-    mountPath: "/home/inventree/static"
-  media:
-    enabled: true
-    mountPath: "/home/inventree/media"
+    mountPath: "/home/inventree/data"
+
 
 additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 10231
+        name: main
+    volumeMounts:
+    - name: inventree-config
+      mountPath: "/etc/nginx/nginx.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: data
+      mountPath: "/var/www"
   worker:
     name: worker
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
