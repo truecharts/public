@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.16"></a>
+### [plex-9.0.16](https://github.com/truecharts/apps/compare/plex-9.0.15...plex-9.0.16) (2022-04-27)
+
+#### Fix
+
+* Adjust the description ([#2575](https://github.com/truecharts/apps/issues/2575))
+
+
+
 <a name="plex-9.0.15"></a>
 ### [plex-9.0.15](https://github.com/truecharts/apps/compare/plex-9.0.14...plex-9.0.15) (2022-04-26)
 
