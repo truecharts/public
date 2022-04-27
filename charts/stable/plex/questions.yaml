@@ -96,7 +96,7 @@ questions:
             default: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
         - variable: PLEX_CLAIM
           label: "Plex Claim Token"
-          description: "Claim token to use to register the plex server (Max. 4 minutes old!)"
+          description: "Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
           schema:
             type: string
             default: ""
