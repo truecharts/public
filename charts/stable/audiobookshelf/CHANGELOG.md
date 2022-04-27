@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-1.0.3"></a>
+### [audiobookshelf-1.0.3](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.2...audiobookshelf-1.0.3) (2022-04-27)
+
+#### Chore
+
+* update container image tccr.io/truecharts/audiobookshelf to v2.0.2 ([#2574](https://github.com/truecharts/apps/issues/2574))
+
+
+
 <a name="audiobookshelf-1.0.2"></a>
 ### [audiobookshelf-1.0.2](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.1...audiobookshelf-1.0.2) (2022-04-26)
 
