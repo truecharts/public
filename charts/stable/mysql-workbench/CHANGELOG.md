@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mysql-workbench-1.0.15"></a>
+### [mysql-workbench-1.0.15](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.14...mysql-workbench-1.0.15) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="mysql-workbench-1.0.14"></a>
 ### [mysql-workbench-1.0.14](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.13...mysql-workbench-1.0.14) (2022-04-26)
 

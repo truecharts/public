@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ntfy-1.0.3"></a>
+### [ntfy-1.0.3](https://github.com/truecharts/apps/compare/ntfy-1.0.2...ntfy-1.0.3) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="ntfy-1.0.2"></a>
 ### [ntfy-1.0.2](https://github.com/truecharts/apps/compare/ntfy-1.0.1...ntfy-1.0.2) (2022-04-26)
 

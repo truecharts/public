@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.48"></a>
+### [memcached-2.0.48](https://github.com/truecharts/apps/compare/memcached-2.0.47...memcached-2.0.48) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="memcached-2.0.47"></a>
 ### [memcached-2.0.47](https://github.com/truecharts/apps/compare/memcached-2.0.46...memcached-2.0.47) (2022-04-26)
 

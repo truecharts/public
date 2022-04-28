@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lanraragi-1.0.11"></a>
+### [lanraragi-1.0.11](https://github.com/truecharts/apps/compare/lanraragi-1.0.10...lanraragi-1.0.11) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="lanraragi-1.0.10"></a>
 ### [lanraragi-1.0.10](https://github.com/truecharts/apps/compare/lanraragi-1.0.9...lanraragi-1.0.10) (2022-04-26)
 

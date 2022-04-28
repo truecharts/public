@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-1.0.4"></a>
+### [audiobookshelf-1.0.4](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.3...audiobookshelf-1.0.4) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="audiobookshelf-1.0.3"></a>
 ### [audiobookshelf-1.0.3](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.2...audiobookshelf-1.0.3) (2022-04-27)
 

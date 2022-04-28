@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-9.0.13"></a>
+### [podgrab-9.0.13](https://github.com/truecharts/apps/compare/podgrab-9.0.12...podgrab-9.0.13) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="podgrab-9.0.12"></a>
 ### [podgrab-9.0.12](https://github.com/truecharts/apps/compare/podgrab-9.0.11...podgrab-9.0.12) (2022-04-26)
 

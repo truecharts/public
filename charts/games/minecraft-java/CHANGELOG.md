@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.43"></a>
+### [minecraft-java-0.0.43](https://github.com/truecharts/apps/compare/minecraft-java-0.0.42...minecraft-java-0.0.43) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="minecraft-java-0.0.42"></a>
 ### [minecraft-java-0.0.42](https://github.com/truecharts/apps/compare/minecraft-java-0.0.41...minecraft-java-0.0.42) (2022-04-26)
 

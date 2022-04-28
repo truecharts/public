@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-5.0.16"></a>
+### [openkm-5.0.16](https://github.com/truecharts/apps/compare/openkm-5.0.15...openkm-5.0.16) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="openkm-5.0.15"></a>
 ### [openkm-5.0.15](https://github.com/truecharts/apps/compare/openkm-5.0.14...openkm-5.0.15) (2022-04-26)
 

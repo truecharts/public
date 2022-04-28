@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-go-1.0.17"></a>
+### [ddns-go-1.0.17](https://github.com/truecharts/apps/compare/ddns-go-1.0.16...ddns-go-1.0.17) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="ddns-go-1.0.16"></a>
 ### [ddns-go-1.0.16](https://github.com/truecharts/apps/compare/ddns-go-1.0.15...ddns-go-1.0.16) (2022-04-26)
 

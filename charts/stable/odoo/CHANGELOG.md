@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-6.0.24"></a>
+### [odoo-6.0.24](https://github.com/truecharts/apps/compare/odoo-6.0.23...odoo-6.0.24) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
 <a name="odoo-6.0.23"></a>
 ### [odoo-6.0.23](https://github.com/truecharts/apps/compare/odoo-6.0.22...odoo-6.0.23) (2022-04-26)
 
