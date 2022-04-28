@@ -63,19 +63,10 @@ initContainers:
   init-migrate:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["pwd"]
     volumeMounts:
     - name: data
       mountPath: "/home/inventree/data"
     env:
-      # - name: INVENTREE_HOME
-      #   value: "/"
-      - name: INVENTREE_ADMIN_EMAIL
-        value: "{{ .Values.secret.INVENTREE_ADMIN_EMAIL }}"
-      - name: INVENTREE_ADMIN_USER
-        value: "{{ .Values.secret.INVENTREE_ADMIN_USER }}"
-      - name: INVENTREE_ADMIN_PASSWORD
-        value: "{{ .Values.secret.INVENTREE_ADMIN_PASSWORD }}"
       - name: INVENTREE_TIMEZONE
         value: "{{ .Values.TZ }}"
       - name: INVENTREE_DB_ENGINE
@@ -111,11 +102,11 @@ initContainers:
         value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
       - name: INVENTREE_PLUGINS_ENABLED
         value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
-    # command: ["sh", "-c"]
-    # args:
-    #   - >
-    #     cd /home/inventree;
-    #     invoke update;
+    command: ["sh", "-c"]
+    args:
+      - >
+        cd /home/inventree;
+        invoke update;
 
 
 additionalContainers:
