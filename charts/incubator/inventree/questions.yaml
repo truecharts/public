@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -82,23 +81,24 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PAPERLESS_ADMIN_USER
-          label: "PAPERLESS_ADMIN_USER (First Install Only)"
+        - variable: INVENTREE_ADMIN_EMAIL
+          label: "INVENTREE_ADMIN_EMAIL (Initial install only)"
           schema:
             type: string
             required: true
             default: ""
-        - variable: PAPERLESS_ADMIN_PASSWORD
-          label: "PAPERLESS_ADMIN_PASSWORD (First Install Only)"
+        - variable: INVENTREE_ADMIN_USER
+          label: "INVENTREE_ADMIN_USER (Initial install only)"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: INVENTREE_ADMIN_PASSWORD
+          label: "INVENTREE_ADMIN_PASSWORD (Initial install only)"
           schema:
             type: string
             required: true
             private: true
-            default: ""
-        - variable: PAPERLESS_ADMIN_MAIL
-          label: "PAPERLESS_ADMIN_MAIL (First Install Only)"
-          schema:
-            type: string
             default: ""
   - variable: env
     group: "Container Configuration"
@@ -107,19 +107,47 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PAPERLESS_URL
-          label: "PAPERLESS_URL"
-          description: "This is required if you will be exposing Paperless-ngx on a public domain."
-          schema:
-            type: string
-            default: ""
-        - variable: PAPERLESS_WEBSERVER_WORKERS
-          label: "PAPERLESS_WEBSERVER_WORKERS"
-          description: "The number of worker processes the webserver should spawn."
+        - variable: INVENTREE_LOGIN_CONFIRM_DAYS
+          label: 'INVENTREE_LOGIN_CONFIRM_DAYS'
+          description: "Duration for which confirmation links are valid"
           schema:
             type: int
-            required: true
-            default: 2
+            default: 3
+        - variable: INVENTREE_LOGIN_ATTEMPTS
+          label: 'INVENTREE_LOGIN_ATTEMPTS'
+          description: "Count of allowed login attempts before blocking user"
+          schema:
+            type: int
+            default: 5
+        - variable: INVENTREE_PLUGINS_ENABLED
+          label: 'INVENTREE_PLUGINS_ENABLED'
+          description: "Enable plugin support"
+          schema:
+            type: boolean
+            default: false
+        - variable: INVENTREE_DEBUG
+          label: 'INVENTREE_DEBUG'
+          description: "Enable debug mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: INVENTREE_LOG_LEVEL
+          label: 'INVENTREE_LOG_LEVEL'
+          description: "Set level of logging to terminal"
+          schema:
+            type: string
+            default: "INFO"
+            enum:
+              - value: "INFO"
+                description: "INFO"
+              - value: "DEBUG"
+                description: "DEBUG"
+              - value: "WARNING"
+                description: "WARNING"
+              - value: "ERROR"
+                description: "ERROR"
+              - value: "CRITICAL"
+                description: "CRITICAL"
 # Include{containerConfig}
 
   - variable: service
@@ -148,7 +176,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10140
+                              default: 10231
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -157,11 +185,6 @@ questions:
                               default: false
                               show_subquestions_if: true
                               subquestions:
-                                - variable: enabled
-                                  label: "Enable the port"
-                                  schema:
-                                    type: boolean
-                                    default: true
                                 - variable: protocol
                                   label: "Port Type"
                                   schema:
@@ -219,7 +242,7 @@ questions:
       attrs:
         - variable: data
           label: "App Data Storage"
-          description: "This is where paperless stores all its data (search index, classification model, etc)"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
@@ -260,92 +283,7 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: consume
-          label: "To-be consumed Document Storage"
-          description: "This where your documents should go to be consumed."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-# Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-# Include{persistenceAdvanced}
-        - variable: media
-          label: "App Document Storage"
-          description: "This is where your documents and thumbnails are stored."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-# Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
   - variable: ingress
