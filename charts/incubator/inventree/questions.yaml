@@ -74,6 +74,32 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: INVENTREE_ADMIN_EMAIL
+          label: "INVENTREE_ADMIN_EMAIL (Initial install only)"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: INVENTREE_ADMIN_USER
+          label: "INVENTREE_ADMIN_USER (Initial install only)"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: INVENTREE_ADMIN_PASSWORD
+          label: "INVENTREE_ADMIN_PASSWORD (Initial install only)"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
