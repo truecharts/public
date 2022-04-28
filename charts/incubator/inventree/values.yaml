@@ -3,7 +3,6 @@ image:
   tag: 0.6.3@sha256:dc583301371686a30c919a25dd68e5101ea9ecb8cb63dde617fa8b2c44c27ff6
   pullPolicy: IfNotPresent
 
-command: ["invoke", "worker"]
 # nginxImage:
 #   repository: tccr.io/truecharts/nginx
 #   tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
@@ -55,6 +54,51 @@ persistence:
     enabled: true
     mountPath: "/home/inventree/data"
 
+initContainers:
+  init:
+    name: init
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["invoke", "update"]
+    volumeMounts:
+    - name: data
+      mountPath: "/home/inventree/data"
+    env:
+      - name: INVENTREE_TIMEZONE
+        value: "{{ .Values.TZ }}"
+      - name: INVENTREE_DB_ENGINE
+        value: "postgresql"
+      - name: INVENTREE_DB_NAME
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: INVENTREE_DB_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: INVENTREE_DB_PORT
+        value: "5432"
+      - name: INVENTREE_DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: INVENTREE_DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: INVENTREE_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: inventree-secrets
+            key: INVENTREE_SECRET_KEY
+      - name: INVENTREE_LOG_LEVEL
+        value: "{{ .Values.env.INVENTREE_LOG_LEVEL }}"
+      - name: INVENTREE_DEBUG
+        value: "{{ .Values.env.INVENTREE_DEBUG }}"
+      - name: INVENTREE_LOGIN_CONFIRM_DAYS
+        value: "{{ .Values.env.INVENTREE_LOGIN_CONFIRM_DAYS }}"
+      - name: INVENTREE_LOGIN_ATTEMPTS
+        value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
+      - name: INVENTREE_PLUGINS_ENABLED
+        value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
+
 additionalContainers:
   # nginx:
   #   name: nginx
@@ -69,12 +113,10 @@ additionalContainers:
   #     readOnly: true
   #   - name: data
   #     mountPath: "/var/www"
-  server:
-    name: server
+  worker:
+    name: worker
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    ports:
-      - containerPort: 8000
-        name: main
+    command: ["invoke", "worker"]
     volumeMounts:
     - name: data
       mountPath: "/home/inventree/data"
