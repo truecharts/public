@@ -131,6 +131,12 @@ additionalContainers:
     - name: data
       mountPath: "/home/inventree/data"
     env:
+      - name: INVENTREE_ADMIN_EMAIL
+        value: "{{ .Values.secret.INVENTREE_ADMIN_EMAIL }}"
+      - name: INVENTREE_ADMIN_USER
+        value: "{{ .Values.secret.INVENTREE_ADMIN_USER }}"
+      - name: INVENTREE_ADMIN_PASSWORD
+        value: "{{ .Values.secret.INVENTREE_ADMIN_PASSWORD }}"
       - name: INVENTREE_TIMEZONE
         value: "{{ .Values.TZ }}"
       - name: INVENTREE_DB_ENGINE
