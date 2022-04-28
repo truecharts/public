@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.21"></a>
+### [paperless-ng-2.0.21](https://github.com/truecharts/apps/compare/paperless-ng-2.0.20...paperless-ng-2.0.21) (2022-04-28)
+
+#### Feat
+
+* add inventree ([#2576](https://github.com/truecharts/apps/issues/2576))
+
+
+
 <a name="paperless-ng-2.0.20"></a>
 ### [paperless-ng-2.0.20](https://github.com/truecharts/apps/compare/paperless-ng-2.0.19...paperless-ng-2.0.20) (2022-04-26)
 
