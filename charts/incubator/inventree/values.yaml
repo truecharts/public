@@ -15,6 +15,11 @@ podSecurityContext:
   runAsUser: 100
   # runAsGroup: 0
 
+secret:
+  INVENTREE_ADMIN_EMAIL: "test@example.com"
+  INVENTREE_ADMIN_USER: "super"
+  INVENTREE_ADMIN_PASSWORD: "secret"
+
 env:
   INVENTREE_DB_ENGINE: "postgresql"
   INVENTREE_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -55,14 +60,22 @@ persistence:
     mountPath: "/home/inventree/data"
 
 initContainers:
-  init:
-    name: init
+  init-migrate:
+    name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["invoke", "update"]
+    command: ["pwd"]
     volumeMounts:
     - name: data
       mountPath: "/home/inventree/data"
     env:
+      # - name: INVENTREE_HOME
+      #   value: "/"
+      - name: INVENTREE_ADMIN_EMAIL
+        value: "{{ .Values.secret.INVENTREE_ADMIN_EMAIL }}"
+      - name: INVENTREE_ADMIN_USER
+        value: "{{ .Values.secret.INVENTREE_ADMIN_USER }}"
+      - name: INVENTREE_ADMIN_PASSWORD
+        value: "{{ .Values.secret.INVENTREE_ADMIN_PASSWORD }}"
       - name: INVENTREE_TIMEZONE
         value: "{{ .Values.TZ }}"
       - name: INVENTREE_DB_ENGINE
@@ -98,6 +111,12 @@ initContainers:
         value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
       - name: INVENTREE_PLUGINS_ENABLED
         value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
+    # command: ["sh", "-c"]
+    # args:
+    #   - >
+    #     cd /home/inventree;
+    #     invoke update;
+
 
 additionalContainers:
   # nginx:
