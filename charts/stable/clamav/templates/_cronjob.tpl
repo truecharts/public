@@ -65,11 +65,11 @@ spec:
                     then
                       echo "Exit Status: $status";
                       echo "No Virus found!";
-                  elif [ $status -eq 1];
+                  elif [ $status -eq 1 ];
                     then
                       echo "Exit Status: $status.";
                       echo "Virus(es) found. Check \"${log_file}\".";
-                  elif [ $status -eq 2];
+                  elif [ $status -eq 2 ];
                     then
                       echo "Exit Status: $status.";
                       echo "Some error(s) occured.";
