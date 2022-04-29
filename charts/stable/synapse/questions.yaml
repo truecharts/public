@@ -208,19 +208,15 @@ questions:
                 schema:
                   type: boolean
                   default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: maxPixels
-                      label: "Max Pixels"
-                      schema:
-                        type: string
-                        default: "32M"
-                    - variable: sharedSecret
-                      label: "Shared Secret"
-                      schema:
-                        type: string
-                        default: ""
-                        private: true
+        - variable: sharedSecret
+          label: "Shared Secret"
+          description: |
+            If set, allows registration of standard or admin accounts by anyone who has the shared secret, even
+            if registration is otherwise disabled"
+          schema:
+            type: string
+            default: ""
+            private: true
       # TODO: required3PIDs
       # TODO: autoJoinRooms
         - variable: security
@@ -310,11 +306,6 @@ questions:
                 schema:
                   type: string
                   default: "Matrix <matrix@example.com>"
-              - variable: riotUrl
-                label: "Riot URL"
-                schema:
-                  type: string
-                  default: ""
               - variable: host
                 label: "Host"
                 schema:
@@ -354,6 +345,16 @@ questions:
           schema:
             type: boolean
             default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: sharedSecret
+                label: Coturn Shared Secret
+                description: The shared secret to compute passwords for the TURN server
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+
 
   - variable: service
     group: "Networking and Services"
