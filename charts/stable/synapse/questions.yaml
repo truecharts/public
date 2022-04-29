@@ -120,6 +120,15 @@ questions:
           schema:
             type: string
             default: "matrix.example.com"
+        - variable: clientBaseUrl
+          label: Client Base URL
+          # Assigned to `client_base_url` formerly called `riot_base_url`
+          description: |
+            Custom URL for links within email notifications. If not set links will be
+            based on https://matrix.to
+          schema:
+            type: string
+            default: ""
         - variable: presence
           label: "Presence"
           schema:
@@ -199,6 +208,11 @@ questions:
       # TODO: blacklist:
         - variable: registration
           label: "Registration Configuration"
+          # Enabling captcha instead of mail is also an option but currently only
+          # mail is configurable.
+          description: |
+            Enable registration. If enabled requires this will require enabling 
+            and configuring mail for SMTP.
           schema:
             additional_attrs: true
             type: dict
@@ -212,11 +226,12 @@ questions:
           label: "Shared Secret"
           description: |
             If set, allows registration of standard or admin accounts by anyone who has the shared secret, even
-            if registration is otherwise disabled"
+            if registration is otherwise disabled
           schema:
             type: string
             default: ""
             private: true
+            required: true
       # TODO: required3PIDs
       # TODO: autoJoinRooms
         - variable: security
@@ -332,29 +347,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
-  - variable: coturn
-    group: "Container Configuration"
-    label: "Coturn Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable Coturn"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: sharedSecret
-                label: Coturn Shared Secret
-                description: The shared secret to compute passwords for the TURN server
-                schema:
-                  type: string
-                  default: ""
-                  private: true
-
 
   - variable: service
     group: "Networking and Services"
@@ -719,6 +711,7 @@ questions:
           schema:
             type: int
             default: 568
+
 # Include{podSecurityContextAdvanced}
 
 # Include{resources}
