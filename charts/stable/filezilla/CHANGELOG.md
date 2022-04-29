@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-3.0.20"></a>
+### [filezilla-3.0.20](https://github.com/truecharts/apps/compare/filezilla-3.0.19...filezilla-3.0.20) (2022-04-29)
+
+#### Chore
+
+* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
+
+
+
 <a name="filezilla-3.0.19"></a>
 ### [filezilla-3.0.19](https://github.com/truecharts/apps/compare/filezilla-3.0.18...filezilla-3.0.19) (2022-04-26)
 
