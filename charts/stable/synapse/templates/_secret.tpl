@@ -50,7 +50,7 @@ stringData:
           cp_max: 10
           sslmode: "disable"
 
-    {{- if .Values.matrix.registration.sharedSecret }}
+    {{- if .Values.matrix.sharedSecret }}
     registration_shared_secret: {{ .Values.matrix.sharedSecret }}
     {{- end }}
 
