@@ -1,0 +1,103 @@
+image:
+  repository: netdata/netdata
+  tag: v1.34.1@sha256:f6cac082c234ac0fac0d0d464a4b4fe68fe3ec53d18a03b553307c8286e92f0c
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - SYS_PTRACE
+
+podSecurityContext:
+  runAsUser: 201
+  runAsGroup: 201
+  fsGroup: 201
+
+serviceAccount:
+  create: true
+
+rbac:
+  enabled: true
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+      - "pods"
+      - "services"
+      - "configmaps"
+      - "secrets"
+      - "nodes"
+      - "nodes/metrics"
+    verbs:
+      - "get"
+      - "list"
+      - "watch"
+  - apiGroups: [""]
+    resources:
+      - "namespaces"
+    verbs:
+      - "get"
+
+service:
+  main:
+    ports:
+      main:
+        port: 19999
+        targetPort: 19999
+
+probes:
+  liveness:
+    path: "/api/v1/info"
+  readiness:
+    path: "/api/v1/info"
+  startup:
+    path: "/api/v1/info"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/netdata"
+  lib:
+    enabled: true
+    mountPath: "/var/lib/netdata"
+  cache:
+    enabled: true
+    mountPath: "/var/cache/netdata"
+  passwd:
+    enabled: true
+    hostPath: "/etc/passwd"
+    mountPath: "/host/etc/passwd"
+    hostPathType: ""
+    readOnly: false
+  group:
+    enabled: true
+    hostPath: "/etc/group"
+    mountPath: "/host/etc/group"
+    hostPathType: ""
+    readOnly: false
+  proc:
+    enabled: true
+    hostPath: "/proc"
+    mountPath: "/host/proc"
+    hostPathType: ""
+    readOnly: false
+  sys:
+    enabled: true
+    hostPath: "/sys"
+    mountPath: "/host/sys"
+    hostPathType: ""
+    readOnly: false
+  os:
+    enabled: true
+    hostPath: "/etc/os-release"
+    mountPath: "/host/etc/os-release"
+    hostPathType: ""
+    readOnly: false
+  docker-sock:
+    enabled: true
+    hostPath: "/var/run/docker.sock"
+    mountPath: "/var/run/docker.sock"
+    hostPathType: ""
+    readOnly: false
