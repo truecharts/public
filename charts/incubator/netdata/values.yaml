@@ -11,8 +11,8 @@ securityContext:
       - SYS_PTRACE
 
 podSecurityContext:
-  runAsUser: 201
-  runAsGroup: 201
+  runAsUser: 0
+  runAsGroup: 0
   fsGroup: 201
 
 serviceAccount:
@@ -95,9 +95,9 @@ persistence:
     mountPath: "/host/etc/os-release"
     hostPathType: ""
     readOnly: false
-  docker-sock:
-    enabled: true
-    hostPath: "/var/run/docker.sock"
-    mountPath: "/var/run/docker.sock"
-    hostPathType: ""
-    readOnly: false
+  # docker-sock:
+  #   enabled: true
+  #   hostPath: "/var/run/docker.sock"
+  #   mountPath: "/var/run/docker.sock"
+  #   hostPathType: ""
+  #   readOnly: false
