@@ -70,31 +70,31 @@ persistence:
     hostPath: "/etc/passwd"
     mountPath: "/host/etc/passwd"
     hostPathType: ""
-    readOnly: false
+    readOnly: true
   group:
     enabled: true
     hostPath: "/etc/group"
     mountPath: "/host/etc/group"
     hostPathType: ""
-    readOnly: false
+    readOnly: true
   proc:
     enabled: true
     hostPath: "/proc"
     mountPath: "/host/proc"
     hostPathType: ""
-    readOnly: false
+    readOnly: true
   sys:
     enabled: true
     hostPath: "/sys"
     mountPath: "/host/sys"
     hostPathType: ""
-    readOnly: false
+    readOnly: true
   os:
     enabled: true
     hostPath: "/etc/os-release"
     mountPath: "/host/etc/os-release"
     hostPathType: ""
-    readOnly: false
+    readOnly: true
 
 initContainers:
   create-config:
