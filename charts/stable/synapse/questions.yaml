@@ -348,6 +348,19 @@ questions:
                   type: boolean
                   default: true
 
+  - variable: coturn
+    group: "Container Configuration"
+    label: "Coturn Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Coturn"
+          schema:
+            type: boolean
+            default: false
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
