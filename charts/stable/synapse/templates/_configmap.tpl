@@ -14,6 +14,12 @@ data:
     server_name: {{ .Values.matrix.serverName }}
     pid_file: /data/homeserver.pid
     public_baseurl: {{ include "matrix.baseUrl" . | quote }}
+
+    {{- if .Values.matrix.clientBaseURL -}}
+    # Client Base URL, Formerly riot_base_url
+    client_base_url: {{ .Values.matrix.clientBaseURL }}
+    {{- end}}
+
     use_presence: {{ .Values.matrix.presence }}
 
     allow_public_rooms_over_federation: {{ and .Values.matrix.federation.enabled .Values.matrix.federation.allowPublicRooms }}
