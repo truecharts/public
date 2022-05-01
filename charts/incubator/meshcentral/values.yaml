@@ -46,7 +46,7 @@ initContainers:
     args:
       - >
         export configfile='/home/node/meshcentral/meshcentral-data/config.json';
-        export basePath='/home/node/meshcentral/meshcentral-data/truecharts'
+        export basePath='/home/node/meshcentral/meshcentral-data/truecharts';
         if [ -f $configfile ]; then
           echo 'Config File exists, updating values...';
 
