@@ -89,7 +89,7 @@ initContainers:
           echo '    "port": '$svcPort',' >> $configfile;
           echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
           echo '    "cert": "'$hostname'"' >> $configfile;
-          echo '  }' >> $configfile;
+          echo '  },' >> $configfile;
           echo '  "domains": {' >> $configfile;
           echo '    "": {' >> $configfile;
           if [ ! -z $reverseProxyUrl ]; then
@@ -108,7 +108,6 @@ initContainers:
           # Save last port used
           echo "$svcPort" > $basePath/.lastport;
         fi;
-        cat $configfile;
 
 mongodb:
   enabled: true
