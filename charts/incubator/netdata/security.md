@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: netdata/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;create-config&#39; of Deployment &#39;RELEASE-NAME-netdata&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -64,11 +64,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -85,11 +85,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -108,11 +108,11 @@ hide:
 
 
 #### Container: netdata/netdata:v1.34.1@sha256:f6cac082c234ac0fac0d0d464a4b4fe68fe3ec53d18a03b553307c8286e92f0c (alpine 3.15.4)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | curl         |    CVE-2022-22576   |   MEDIUM  |  7.80.0-r0 | 7.80.0-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22576">https://access.redhat.com/security/cve/CVE-2022-22576</a><br><a href="https://curl.se/docs/CVE-2022-22576.html">https://curl.se/docs/CVE-2022-22576.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
@@ -126,17 +126,16 @@ hide:
 
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/prometheus/prometheus         |    CVE-2019-3826   |   MEDIUM  |  v2.5.0+incompatible | v2.7.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHBA-2019:0327">https://access.redhat.com/errata/RHBA-2019:0327</a><br><a href="https://access.redhat.com/security/cve/CVE-2019-3826">https://access.redhat.com/security/cve/CVE-2019-3826</a><br><a href="https://advisory.checkmarx.net/advisory/CX-2019-4297">https://advisory.checkmarx.net/advisory/CX-2019-4297</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826</a><br><a href="https://github.com/prometheus/prometheus/commit/62e591f9">https://github.com/prometheus/prometheus/commit/62e591f9</a><br><a href="https://github.com/prometheus/prometheus/pull/5163">https://github.com/prometheus/prometheus/pull/5163</a><br><a href="https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-3826">https://nvd.nist.gov/vuln/detail/CVE-2019-3826</a><br></details>  |
 | golang.org/x/crypto         |    CVE-2022-27191   |   HIGH  |  v0.0.0-20210506145944-38f3c27a63bf | 0.0.0-20220315160706-3147a52a75dd | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27191">https://access.redhat.com/security/cve/CVE-2022-27191</a><br><a href="https://github.com/advisories/GHSA-8c26-wmh5-6g9v">https://github.com/advisories/GHSA-8c26-wmh5-6g9v</a><br><a href="https://groups.google.com/g/golang-announce">https://groups.google.com/g/golang-announce</a><br><a href="https://groups.google.com/g/golang-announce/c/-cp44ypCT5s">https://groups.google.com/g/golang-announce/c/-cp44ypCT5s</a><br><a href="https://groups.google.com/g/golang-announce/c/-cp44ypCT5s/m/wmegxkLiAQAJ">https://groups.google.com/g/golang-announce/c/-cp44ypCT5s/m/wmegxkLiAQAJ</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HHGBEGJ54DZZGTXFUQNS7ZIG3E624YAF/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HHGBEGJ54DZZGTXFUQNS7ZIG3E624YAF/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/J5WPM42UR6XIBQNQPNQHM32X7S4LJTRX/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/J5WPM42UR6XIBQNQPNQHM32X7S4LJTRX/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QTFOIDHQRGNI4P6LYN6ILH5G443RYYKB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QTFOIDHQRGNI4P6LYN6ILH5G443RYYKB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YHYRQB7TRMHDB3NEHW5XBRG7PPMUTPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YHYRQB7TRMHDB3NEHW5XBRG7PPMUTPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQNPPQWSTP2IX7SHE6TS4SP4EVMI5EZK/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQNPPQWSTP2IX7SHE6TS4SP4EVMI5EZK/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-27191">https://nvd.nist.gov/vuln/detail/CVE-2022-27191</a><br><a href="https://security.netapp.com/advisory/ntap-20220429-0002/">https://security.netapp.com/advisory/ntap-20220429-0002/</a><br></details>  |
-
