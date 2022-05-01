@@ -86,6 +86,8 @@ initContainers:
           echo '{' >> $configfile;
           echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile;
           echo '  "settings": {' >> $configfile;
+          # Save last port used
+          echo "$svcPort" > $basePath/.lastport;
           echo '    "port": '$svcPort',' >> $configfile;
           echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
           echo '    "cert": "'$hostname'"' >> $configfile;
@@ -97,16 +99,14 @@ initContainers:
             # Save last reverse url used
             echo $reverseProxyUrl > $basePath/.lastreverse;
           else
+            # Underscore in front the the key is making it invisible to meshcentral
             echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
             # Save last reverse url used
-            # Underscore in fromt the the key is making it invisible to meshcentral
             echo "NOT_PROVIDED" > $basePath/.lastreverse;
           fi;
           echo '    }' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
-          # Save last port used
-          echo "$svcPort" > $basePath/.lastport;
         fi;
 
 mongodb:

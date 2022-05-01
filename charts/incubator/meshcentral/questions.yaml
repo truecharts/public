@@ -86,6 +86,7 @@ questions:
           description: "Hostname of your meshcentral instance, used to generate self singed certs, eg. mesh.example.com or 192.168.1.100."
           schema:
             type: string
+            required: true
             default: ""
         - variable: reverseProxyUrl
           label: "reverseProxyUrl"
