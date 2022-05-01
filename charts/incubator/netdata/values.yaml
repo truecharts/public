@@ -95,9 +95,23 @@ persistence:
     mountPath: "/host/etc/os-release"
     hostPathType: ""
     readOnly: false
-  # docker-sock:
-  #   enabled: true
-  #   hostPath: "/var/run/docker.sock"
-  #   mountPath: "/var/run/docker.sock"
-  #   hostPathType: ""
-  #   readOnly: false
+
+initContainers:
+  create-config:
+    name: create-config
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+    - name: config
+      mountPath: "/etc/netdata"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "Creating config file...";
+        export configfile=/etc/netdata/netdata.conf;
+        if [ ! -f $configfile ]; then
+          echo '[global]' > $configfile;
+          echo '  memory mode = dbengine' >> $configfile;
+          echo '  dbengine multihost disk space = 4096' >> $configfile;
+          echo '  page cache size = 64' >> $configfile;
+        else
+          echo "Config file exists, skipping...";
