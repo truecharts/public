@@ -108,6 +108,7 @@ initContainers:
           # Save last port used
           echo "$svcPort" > $basePath/.lastport;
         fi;
+        cat $configfile;
 
 mongodb:
   enabled: true
