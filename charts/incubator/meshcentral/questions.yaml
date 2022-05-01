@@ -74,6 +74,25 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: hostname
+          label: "hostname"
+          description: "Hostname of your meshcentral instance, used to generate self singed certs, eg. mesh.example.com or 192.168.1.100."
+          schema:
+            type: string
+            default: ""
+        - variable: reverseProxyUrl
+          label: "reverseProxyUrl"
+          description: "HTTPS URL on which you will reach this instance, can't be IP. eg. https://mesh.example.com/"
+          schema:
+            type: string
+            default: ""
 
 # Include{containerConfig}
 

@@ -46,43 +46,41 @@ initContainers:
     args:
       - >
         export configfile='/home/node/meshcentral/meshcentral-data/config.json';
+        export basePath='/home/node/meshcentral/meshcentral-data/truecharts'
         if [ -f $configfile ]; then
           echo 'Config File exists, updating values...';
 
           # Update hostname
           sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
 
-          export lastreverse=$(cat /home/node/meshcentral/meshcentral-data/.lastreverse);
+          export lastreverse=$(cat $basePath/.lastreverse);
           if [ ! -z $reverseProxyUrl ]; then
             if [[ $lastreverse == "NOT_PROVIDED" ]]; then
               # Update reverseProxyUrl
               echo "Adding $reverseProxyUrl...";
               sed -i 's/^      "_certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
-              echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
             else
               echo "Updating $lastreverse to $reverseProxyUrl...";
               sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
-              echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
             fi;
           else
             echo "Removing reverse proxy url..."
             sed -i 's/^      "_?certUrl":.*,$/      "_certUrl": "NOT_PROVIDED",/1' $configfile;
-            echo "NOT_PROVIDED" > /home/node/meshcentral/meshcentral-data/.lastreverse;
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
           fi;
 
-            # Save new url
-            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
-          fi;
-
-          export lastport=$(cat /home/node/meshcentral/meshcentral-data/.lastport);
+          export lastport=$(cat $basePath/.lastport);
           if [ ! -z $lastport ]; then
             # Update port
             echo "Updating $lastport to $svcPort...";
             sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
             # Save new port.
-            echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
+            echo "$svcPort" > $basePath/.lastport;
           fi;
         else
+          echo "DO NOT DELETE DOT FILES IN THIS DIR" > $basePath/DO_NOT_DELETE_DOT_FILES_IN_THIS_DIR;
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
           echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile;
@@ -96,18 +94,18 @@ initContainers:
           if [ ! -z $reverseProxyUrl ]; then
             echo '      "certUrl": "'$reverseProxyUrl'"' >> $configfile;
             # Save last reverse url used
-            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
+            echo $reverseProxyUrl > $basePath/.lastreverse;
           else
             echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
             # Save last reverse url used
             # Underscore in fromt the the key is making it invisible to meshcentral
-            echo "NOT_PROVIDED" > /home/node/meshcentral/meshcentral-data/.lastreverse;
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
           fi;
           echo '    }' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
           # Save last port used
-          echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
+          echo "$svcPort" > $basePath/.lastport;
         fi;
 
 mongodb:
