@@ -67,34 +67,34 @@ persistence:
     mountPath: "/var/cache/netdata"
   passwd:
     enabled: true
+    type: hostPath
     hostPath: "/etc/passwd"
     mountPath: "/host/etc/passwd"
-    hostPathType: ""
-    readOnly: false
+    readOnly: true
   group:
     enabled: true
+    type: hostPath
     hostPath: "/etc/group"
     mountPath: "/host/etc/group"
-    hostPathType: ""
-    readOnly: false
+    readOnly: true
   proc:
     enabled: true
+    type: hostPath
     hostPath: "/proc"
     mountPath: "/host/proc"
-    hostPathType: ""
-    readOnly: false
+    readOnly: true
   sys:
     enabled: true
+    type: hostPath
     hostPath: "/sys"
     mountPath: "/host/sys"
-    hostPathType: ""
-    readOnly: false
+    readOnly: true
   os:
     enabled: true
+    type: hostPath
     hostPath: "/etc/os-release"
     mountPath: "/host/etc/os-release"
-    hostPathType: ""
-    readOnly: false
+    readOnly: true
 
 initContainers:
   create-config:
