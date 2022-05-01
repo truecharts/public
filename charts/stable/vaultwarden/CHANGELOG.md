@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-14.0.17"></a>
+### [vaultwarden-14.0.17](https://github.com/truecharts/apps/compare/vaultwarden-14.0.16...vaultwarden-14.0.17) (2022-05-01)
+
+#### Fix
+
+* correct ws service definition ([#2593](https://github.com/truecharts/apps/issues/2593))
+
+
+
 <a name="vaultwarden-14.0.16"></a>
 ### [vaultwarden-14.0.16](https://github.com/truecharts/apps/compare/vaultwarden-14.0.15...vaultwarden-14.0.16) (2022-04-26)
 

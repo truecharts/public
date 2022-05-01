@@ -10,12 +10,13 @@
 
 {{/* Define path for websocket */}}
 {{- define "vaultwarden.websocket" -}}
+{{- $fullname := include "common.names.fullname" . -}}
 path: "/notifications/hub"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix
 service:
   # -- Overrides the service name reference for this path
-  name: ws
+  name: {{ printf "%s-ws" $fullname }}
   port: {{ .Values.service.ws.ports.ws.port }}
 {{- end -}}
 
