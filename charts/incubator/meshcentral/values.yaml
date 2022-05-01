@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.0.1@sha256:d8642b3909fcd1dad6b920629dac8e6e3a609230f38c9d62ca01ca67c26a4730
 
+extraArgs: ["--cert", "$hostname"]
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -10,6 +12,10 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+env:
+  hostname: "test.example.com"
+
 
 service:
   main:
@@ -25,6 +31,8 @@ initContainers:
       - name: data
         mountPath: "/home/node/meshcentral/meshcentral-data"
     env:
+      - name: hostname
+        value: "{{ .Values.env.hostname }}"
       - name: svcPort
         value: "{{ .Values.service.main.ports.main.port }}"
       - name: "mongodbURL"
@@ -37,16 +45,30 @@ initContainers:
       - >
         export configfile='/home/node/meshcentral/meshcentral-data/config.json';
         if [ -f $configfile ]; then
-          echo 'Config File exists, skipping...';
+          echo 'Config File exists, updating values...';
+
+          # Update hostname
+          sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
+
+
+          # Config file might contains multiple port lines for different objects
+          # Only replace the line that has the last used port.
+          # If a user manually edit the port this will do nothing.
+          export lastport=$(cat /home/node/meshcentral/meshcentral-data/.lastport);
+          sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
+          # Update the lastport.
+          echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
         else
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
           echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile
           echo '  "settings": {' >> $configfile;
           echo '    "port": '$svcPort',' >> $configfile;
-          echo '    "mongoDb": "'$mongodbURL'"' >> $configfile;
+          echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
+          echo '    "cert": "'$hostname'" >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
+          echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
         fi;
 
 mongodb:
