@@ -42,11 +42,12 @@ initContainers:
           secretKeyRef:
             name: mongodbcreds
             key: url
-    command: ["/bin/sh", "-c"]
+    command: ["/bin/bash", "-c"]
     args:
       - >
         export configfile='/home/node/meshcentral/meshcentral-data/config.json';
         export basePath='/home/node/meshcentral/meshcentral-data/truecharts';
+        mkdir -p $basePath;
         if [ -f $configfile ]; then
           echo 'Config File exists, updating values...';
 
@@ -58,11 +59,11 @@ initContainers:
             if [[ $lastreverse == "NOT_PROVIDED" ]]; then
               # Update reverseProxyUrl
               echo "Adding $reverseProxyUrl...";
-              sed -i 's/^      "_certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+              sed -i 's/^      "_certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
               echo $reverseProxyUrl > $basePath/.lastreverse;
             else
               echo "Updating $lastreverse to $reverseProxyUrl...";
-              sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+              sed -i 's/^      "certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
               echo $reverseProxyUrl > $basePath/.lastreverse;
             fi;
           else
