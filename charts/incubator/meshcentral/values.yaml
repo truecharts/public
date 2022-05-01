@@ -15,7 +15,7 @@ podSecurityContext:
 
 env:
   hostname: "test.example.com"
-
+  reverseProxyUrl: "https://test.example.com"
 
 service:
   main:
@@ -33,6 +33,8 @@ initContainers:
     env:
       - name: hostname
         value: "{{ .Values.env.hostname }}"
+      - name: reverseProxyUrl
+        value: "{{ .Values.env.reverseProxyUrl }}"
       - name: svcPort
         value: "{{ .Values.service.main.ports.main.port }}"
       - name: "mongodbURL"
@@ -50,14 +52,21 @@ initContainers:
           # Update hostname
           sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
 
+          export lastreverse=$(cat /home/node/meshcentral/meshcentral-data/.lastreverse);
+          if [ -z lastreverse ]; then
+            # Update reverseProxyUrl
+            sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+            # Save new url
+            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse
+          fi;
 
-          # Config file might contains multiple port lines for different objects
-          # Only replace the line that has the last used port.
-          # If a user manually edit the port this will do nothing.
           export lastport=$(cat /home/node/meshcentral/meshcentral-data/.lastport);
-          sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
-          # Update the lastport.
-          echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
+          if [ -z lastport ]; then
+            # Update port
+            sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
+            # Save new port.
+            echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
+          fi;
         else
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
@@ -65,9 +74,21 @@ initContainers:
           echo '  "settings": {' >> $configfile;
           echo '    "port": '$svcPort',' >> $configfile;
           echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
-          echo '    "cert": "'$hostname'" >> $configfile;
+          echo '    "cert": "'$hostname'"' >> $configfile;
+          echo '  }' >> $configfile;
+          echo '  "domains": {' >> $configfile;
+          echo '    "": {' >> $configfile;
+          if [ ! -z $reverseProxyUrl ]; then
+            echo '      "certUrl": "'$reverseProxyUrl'"' >> $configfile;
+            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
+          else
+            echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
+            echo "NOT_PROVIDED" > /home/node/meshcentral/meshcentral-data/.lastreverse;
+          fi;
+          echo '    }' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
+          # Save last port used
           echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
         fi;
 
