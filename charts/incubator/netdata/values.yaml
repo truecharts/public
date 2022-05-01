@@ -115,3 +115,4 @@ initContainers:
           echo '  page cache size = 64' >> $configfile;
         else
           echo "Config file exists, skipping...";
+        fi;
