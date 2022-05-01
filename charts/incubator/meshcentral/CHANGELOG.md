@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-1.1.7"></a>
+### [meshcentral-1.1.7](https://github.com/truecharts/apps/compare/meshcentral-1.1.6...meshcentral-1.1.7) (2022-05-01)
+
+#### Fix
+
+* fix config file generation ([#2591](https://github.com/truecharts/apps/issues/2591))
+
+
+
 <a name="meshcentral-1.1.6"></a>
 ### [meshcentral-1.1.6](https://github.com/truecharts/apps/compare/meshcentral-1.1.5...meshcentral-1.1.6) (2022-04-26)
 
