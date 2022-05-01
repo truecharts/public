@@ -53,15 +53,23 @@ initContainers:
           sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
 
           export lastreverse=$(cat /home/node/meshcentral/meshcentral-data/.lastreverse);
-          if [ ! -z $lastreverse ]; then
+          if [ ! -z $reverseProxyUrl ]; then
             if [[ $lastreverse == "NOT_PROVIDED" ]]; then
               # Update reverseProxyUrl
-              echo "Updating $lastreverse to $reverseProxyUrl...";
+              echo "Adding $reverseProxyUrl...";
               sed -i 's/^      "_certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+              echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
             else
               echo "Updating $lastreverse to $reverseProxyUrl...";
               sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+              echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
             fi;
+          else
+            echo "Removing reverse proxy url..."
+            sed -i 's/^      "_?certUrl":.*,$/      "_certUrl": "NOT_PROVIDED",/1' $configfile;
+            echo "NOT_PROVIDED" > /home/node/meshcentral/meshcentral-data/.lastreverse;
+          fi;
+
             # Save new url
             echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
           fi;
@@ -87,9 +95,12 @@ initContainers:
           echo '    "": {' >> $configfile;
           if [ ! -z $reverseProxyUrl ]; then
             echo '      "certUrl": "'$reverseProxyUrl'"' >> $configfile;
+            # Save last reverse url used
             echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
           else
             echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
+            # Save last reverse url used
+            # Underscore in fromt the the key is making it invisible to meshcentral
             echo "NOT_PROVIDED" > /home/node/meshcentral/meshcentral-data/.lastreverse;
           fi;
           echo '    }' >> $configfile;
