@@ -53,16 +53,23 @@ initContainers:
           sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
 
           export lastreverse=$(cat /home/node/meshcentral/meshcentral-data/.lastreverse);
-          if [ -z lastreverse ]; then
-            # Update reverseProxyUrl
-            sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+          if [ ! -z $lastreverse ]; then
+            if [[ $lastreverse == "NOT_PROVIDED" ]]; then
+              # Update reverseProxyUrl
+              echo "Updating $lastreverse to $reverseProxyUrl...";
+              sed -i 's/^      "_certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+            else
+              echo "Updating $lastreverse to $reverseProxyUrl...";
+              sed -i 's/^      "certUrl": "'$lastreverse'",$/      "certUrl": "'$reverseProxyUrl'",/1' $configfile;
+            fi;
             # Save new url
-            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse
+            echo $reverseProxyUrl > /home/node/meshcentral/meshcentral-data/.lastreverse;
           fi;
 
           export lastport=$(cat /home/node/meshcentral/meshcentral-data/.lastport);
-          if [ -z lastport ]; then
+          if [ ! -z $lastport ]; then
             # Update port
+            echo "Updating $lastport to $svcPort...";
             sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
             # Save new port.
             echo "$svcPort" > /home/node/meshcentral/meshcentral-data/.lastport;
@@ -70,7 +77,7 @@ initContainers:
         else
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
-          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile
+          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile;
           echo '  "settings": {' >> $configfile;
           echo '    "port": '$svcPort',' >> $configfile;
           echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
