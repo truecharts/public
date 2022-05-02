@@ -4,15 +4,15 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  # readOnlyRootFilesystem: false
+  runAsNonRoot: true
   capabilities:
     add:
       - SYS_PTRACE
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 201
+  runAsGroup: 201
   fsGroup: 201
 
 serviceAccount:
