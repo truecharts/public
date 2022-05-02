@@ -158,15 +158,15 @@ initContainers:
           echo '    tags: -unknown control_plane' >> $agentconfig;
           echo '    match:' >> $agentconfig;
           echo '      - tags: kube_scheduler' >> $agentconfig;
-          echo '        expr: '"'"'{{ glob .Image "k8s.gcr.io/kube-scheduler:*" }}'"'"' >> $agentconfig;
+          echo '        expr: '"'"'{{ "{{" }} glob .Image "k8s.gcr.io/kube-scheduler:*" {{ "}}" }}'"'"' >> $agentconfig;
           echo '      - tags: kube_controller_manager' >> $agentconfig;
-          echo '        expr: '"'"'{{ glob .Image "k8s.gcr.io/kube-controller-manager:*" }}'"'"' >> $agentconfig;
+          echo '        expr: '"'"'{{ "{{" }} glob .Image "k8s.gcr.io/kube-controller-manager:*" {{ "}}" }}'"'"' >> $agentconfig;
           echo '  - name: "Applications"' >> $agentconfig;
           echo '    selector: unknown' >> $agentconfig;
           echo '    tags: -unknown applications' >> $agentconfig;
           echo '    match:' >> $agentconfig;
           echo '      - tags: apps' >> $agentconfig;
-          echo '        expr: '"'"'{{ glob .Image "*" }}'"'"' >> $agentconfig;
+          echo '        expr: '"'"'{{ "{{" }} glob .Image "*" {{ "}}" }}'"'"' >> $agentconfig;
           echo 'export:' >> $agentconfig;
           echo '  file:' >> $agentconfig;
           echo '    - selector: file' >> $agentconfig;
