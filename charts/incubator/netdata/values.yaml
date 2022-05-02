@@ -99,6 +99,12 @@ persistence:
     hostPath: "/proc"
     mountPath: "/host/proc"
     readOnly: true
+  dev:
+    enabled: true
+    type: hostPath
+    hostPath: "/dev"
+    mountPath: "/host/dev"
+    readOnly: true
   sys:
     enabled: true
     type: hostPath
@@ -119,16 +125,17 @@ initContainers:
     volumeMounts:
     - name: config
       mountPath: "/etc/netdata"
+    - name: netdata-configs
+      mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
+      subPath: netdata-conf
+      readOnly: true
     command: ["/bin/sh", "-c"]
     args:
       - >
         export configfile=/etc/netdata/netdata.conf;
         if [ ! -f $configfile ]; then
-          echo "Creating config file...";
-          echo '[global]' > $configfile;
-          echo '  memory mode = dbengine' >> $configfile;
-          echo '  dbengine multihost disk space = 4096' >> $configfile;
-          echo '  page cache size = 64' >> $configfile;
+          cp /etc/netdata/truecharts-defaults/.netdata.conf $configfile
         else
           echo "Config file exists, skipping...";
         fi;
+        cat $configfile
