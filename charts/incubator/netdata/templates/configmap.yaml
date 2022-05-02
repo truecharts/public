@@ -4,11 +4,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-config
+  name: {{ include "common.names.fullname" . }}-configs
   labels:
     {{- include "common.labels" . | nindent 4 }}
 data:
-  netdata-config: |-
+  netdata-conf: |-
     [global]
       memory mode = dbengine
       dbengine multihost disk space = 4096
