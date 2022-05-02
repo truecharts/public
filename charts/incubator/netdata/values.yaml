@@ -86,12 +86,14 @@ persistence:
     type: hostPath
     hostPath: "/etc/passwd"
     mountPath: "/host/etc/passwd"
+    hostPathType: "File"
     readOnly: true
   group:
     enabled: true
     type: hostPath
     hostPath: "/etc/group"
     mountPath: "/host/etc/group"
+    hostPathType: "File"
     readOnly: true
   proc:
     enabled: true
@@ -110,6 +112,7 @@ persistence:
     type: hostPath
     hostPath: "/etc/os-release"
     mountPath: "/host/etc/os-release"
+    hostPathType: "File"
     readOnly: true
 
 initContainers:
