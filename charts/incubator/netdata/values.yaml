@@ -119,6 +119,8 @@ initContainers:
     volumeMounts:
     - name: config
       mountPath: "/etc/netdata"
+    - name: netdata-config
+      mountPath: "//etc/netdata/truecharts-defaults/.netdata.conf"
     command: ["/bin/sh", "-c"]
     args:
       - >
