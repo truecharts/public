@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="netdata-0.0.5"></a>
+### [netdata-0.0.5](https://github.com/truecharts/apps/compare/netdata-0.0.4...netdata-0.0.5) (2022-05-02)
+
+#### Chore
+
+* use configmap for readability and extendability ([#2601](https://github.com/truecharts/apps/issues/2601))
+
+
+
 <a name="netdata-0.0.4"></a>
 ### [netdata-0.0.4](https://github.com/truecharts/apps/compare/netdata-0.0.3...netdata-0.0.4) (2022-05-02)
 
