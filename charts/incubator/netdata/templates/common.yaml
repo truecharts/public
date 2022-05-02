@@ -1,1 +1,20 @@
-{{ include "common.all" . }}
+{{- include "common.setup" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "netdata.harcodedValues" -}}
+persistence:
+  netdata-configs:
+    enabled: "true"
+    mountPath: "/etc/netdata/truecharts-defaults/.netdada.conf"
+    subPath: "netdata-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-configs" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "focalboard.harcodedValues" . | fromYaml) -}}
+
+{{- include "netdata.configmap" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}
