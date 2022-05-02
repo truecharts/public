@@ -25,9 +25,9 @@ rbac:
     - ""
     resources:
       - "pods"
-      - "services"
-      - "configmaps"
-      - "secrets"
+      # - "services"       # used by sd
+      # - "configmaps"     # used by sd
+      # - "secrets"        # used by sd
       - "nodes"
       - "nodes/metrics"
     verbs:
@@ -39,6 +39,22 @@ rbac:
       - "namespaces"
     verbs:
       - "get"
+
+envValueFrom:
+  MY_NODE_NAME:
+    fieldRef:
+      fieldPath: spec.nodeName
+  MY_POD_NAMESPACE:
+    fieldRef:
+      fieldPath: metadata.namespace
+  MY_POD_NAME:
+    fieldRef:
+      fieldPath: metadata.name
+
+secret:
+  NETDATA_CLAIM_URL: ""
+  NETDATA_CLAIM_TOKEN: ""
+  NETDATA_CLAIM_ROOMS: ""
 
 service:
   main:
@@ -106,9 +122,9 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo "Creating config file...";
         export configfile=/etc/netdata/netdata.conf;
         if [ ! -f $configfile ]; then
+          echo "Creating config file...";
           echo '[global]' > $configfile;
           echo '  memory mode = dbengine' >> $configfile;
           echo '  dbengine multihost disk space = 4096' >> $configfile;
