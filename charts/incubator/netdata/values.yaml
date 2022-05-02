@@ -25,9 +25,9 @@ rbac:
     - ""
     resources:
       - "pods"
-      - "services"
-      - "configmaps"
-      - "secrets"
+      - "services"       # used by sd
+      - "configmaps"     # used by sd
+      - "secrets"        # used by sd
       - "nodes"
       - "nodes/metrics"
     verbs:
@@ -50,6 +50,11 @@ envValueFrom:
   MY_POD_NAME:
     fieldRef:
       fieldPath: metadata.name
+
+secret:
+  NETDATA_CLAIM_URL: ""
+  NETDATA_CLAIM_TOKEN: ""
+  NETDATA_CLAIM_ROOMS: ""
 
 service:
   main:
