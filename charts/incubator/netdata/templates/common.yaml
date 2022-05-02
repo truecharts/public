@@ -12,7 +12,7 @@ persistence:
       configMap:
         name: {{ printf "%v-configs" (include "common.names.fullname" .) }}
 {{- end -}}
-{{- $_ := mergeOverwrite .Values (include "focalboard.harcodedValues" . | fromYaml) -}}
+{{- $_ := mergeOverwrite .Values (include "netdata.harcodedValues" . | fromYaml) -}}
 
 {{- include "netdata.configmap" . }}
 
