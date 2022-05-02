@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="netdata-0.0.3"></a>
+### [netdata-0.0.3](https://github.com/truecharts/apps/compare/netdata-0.0.2...netdata-0.0.3) (2022-05-01)
+
+#### Chore
+
+* update container image netdata/netdata to v1.34.1
+
+
+
 <a name="netdata-0.0.2"></a>
 ### [netdata-0.0.2](https://github.com/truecharts/apps/compare/netdata-0.0.1...netdata-0.0.2) (2022-05-01)
 

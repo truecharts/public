@@ -57,8 +57,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          'netdata/netdata:v1.34.1@sha256:f6cac082c234ac0fac0d0d464a4b4fe68fe3ec53d18a03b553307c8286e92f0c'
-          netdata/netdata:v1.34.1@sha256:f6cac082c234ac0fac0d0d464a4b4fe68fe3ec53d18a03b553307c8286e92f0c
+          'netdata/netdata:v1.34.1@sha256:04494e001fc6854eb86dd6d53f8194554d3919652ea36d6f75c8f5974de05e1d'
+          netdata/netdata:v1.34.1@sha256:04494e001fc6854eb86dd6d53f8194554d3919652ea36d6f75c8f5974de05e1d
 
 ##### Scan Results
 
@@ -107,7 +107,7 @@ hide:
 
 
 
-#### Container: netdata/netdata:v1.34.1@sha256:f6cac082c234ac0fac0d0d464a4b4fe68fe3ec53d18a03b553307c8286e92f0c (alpine 3.15.4)
+#### Container: netdata/netdata:v1.34.1@sha256:04494e001fc6854eb86dd6d53f8194554d3919652ea36d6f75c8f5974de05e1d (alpine 3.15.4)
 
 
 **alpine**
