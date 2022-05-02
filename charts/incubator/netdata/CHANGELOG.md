@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="netdata-0.0.4"></a>
+### [netdata-0.0.4](https://github.com/truecharts/apps/compare/netdata-0.0.3...netdata-0.0.4) (2022-05-02)
+
+#### Chore
+
+* add pod/namespace/node env's ([#2600](https://github.com/truecharts/apps/issues/2600))
+
+
+
 <a name="netdata-0.0.3"></a>
 ### [netdata-0.0.3](https://github.com/truecharts/apps/compare/netdata-0.0.2...netdata-0.0.3) (2022-05-01)
 
