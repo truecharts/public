@@ -25,9 +25,9 @@ rbac:
     - ""
     resources:
       - "pods"
-      - "services"       # used by sd
-      - "configmaps"     # used by sd
-      - "secrets"        # used by sd
+      # - "services"       # used by sd
+      # - "configmaps"     # used by sd
+      # - "secrets"        # used by sd
       - "nodes"
       - "nodes/metrics"
     verbs:
