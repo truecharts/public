@@ -124,7 +124,7 @@ initContainers:
       - >
         export configfile=/etc/netdata/netdata.conf;
         if [ ! -f $configfile ]; then
-          cp /etc/netdata/truecharts-defaults/.netdada.conf $configfile
+          cp /etc/netdata/truecharts-defaults/.netdata.conf $configfile
         else
           echo "Config file exists, skipping...";
         fi;

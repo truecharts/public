@@ -3,14 +3,14 @@
 {{/* Append the hardcoded settings */}}
 {{- define "netdata.harcodedValues" -}}
 persistence:
-  netdata-configs:
+  netdata-config:
     enabled: "true"
-    mountPath: "/etc/netdata/truecharts-defaults/.netdada.conf"
+    mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
     subPath: "netdata-config"
     type: "custom"
     volumeSpec:
       configMap:
-        name: {{ printf "%v-configs" (include "common.names.fullname" .) }}
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "netdata.harcodedValues" . | fromYaml) -}}
 
