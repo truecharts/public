@@ -3,6 +3,11 @@ image:
   tag: v1.34.1@sha256:04494e001fc6854eb86dd6d53f8194554d3919652ea36d6f75c8f5974de05e1d
   pullPolicy: IfNotPresent
 
+agentImage:
+  repository: netdata/agent-sd
+  tag: v0.2.3@sha256:d4b25f112886442c882bf63978695576072e17f553e345c7a3308fc997539efc
+  pullPolicy: IfNotPresent
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -40,6 +45,20 @@ rbac:
     verbs:
       - "get"
 
+env:
+  NETDATA_PLUGINS_GOD_WATCH_PATH: "/etc/netdata/go.d/sd/go.d.yml"
+
+envValueFrom:
+  MY_NODE_NAME:
+    fieldRef:
+      fieldPath: spec.nodeName
+  MY_POD_NAMESPACE:
+    fieldRef:
+      fieldPath: metadata.namespace
+  MY_POD_NAME:
+    fieldRef:
+      fieldPath: metadata.name
+
 service:
   main:
     ports:
@@ -65,6 +84,12 @@ persistence:
   cache:
     enabled: true
     mountPath: "/var/cache/netdata"
+  service_discovery:
+    enabled: true
+    mountPath: "/etc/netdata/go.d/sd"
+  sd_agent_config:
+    enabled: true
+    mountPath: "/etc/netdata/sd_agent_config"
   passwd:
     enabled: true
     type: hostPath
@@ -103,12 +128,14 @@ initContainers:
     volumeMounts:
     - name: config
       mountPath: "/etc/netdata"
+    - name: sd_agent_config
+      mountPath: "/etc/netdata/sd_agent_config"
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo "Creating config file...";
         export configfile=/etc/netdata/netdata.conf;
         if [ ! -f $configfile ]; then
+          echo "Creating config file...";
           echo '[global]' > $configfile;
           echo '  memory mode = dbengine' >> $configfile;
           echo '  dbengine multihost disk space = 4096' >> $configfile;
@@ -116,3 +143,59 @@ initContainers:
         else
           echo "Config file exists, skipping...";
         fi;
+        export agentconfig=/etc/netdata/sd_agent_config/agent.yml;
+        if [ ! -f $agentconfig ]; then
+          echo "Creating agent config file...";
+          echo 'name: kubernetes' > $agentconfig;
+          echo 'discovery:' >> $agentconfig;
+          echo '  k8s:' >> $agentconfig;
+          echo '    - tags: unknown' >> $agentconfig;
+          echo '      role: pod' >> $agentconfig;
+          echo '      local_mode: true' >> $agentconfig;
+          echo 'tag:' >> $agentconfig;
+          echo '  - name: "Control-Plane"' >> $agentconfig;
+          echo '    selector: unknown' >> $agentconfig;
+          echo '    tags: -unknown control_plane' >> $agentconfig;
+          echo '    match:' >> $agentconfig;
+          echo '      - tags: kube_scheduler' >> $agentconfig;
+          echo '        expr: '"'"'{{ glob .Image "k8s.gcr.io/kube-scheduler:*" }}'"'"' >> $agentconfig;
+          echo '      - tags: kube_controller_manager' >> $agentconfig;
+          echo '        expr: '"'"'{{ glob .Image "k8s.gcr.io/kube-controller-manager:*" }}'"'"' >> $agentconfig;
+          echo '  - name: "Applications"' >> $agentconfig;
+          echo '    selector: unknown' >> $agentconfig;
+          echo '    tags: -unknown applications' >> $agentconfig;
+          echo '    match:' >> $agentconfig;
+          echo '      - tags: apps' >> $agentconfig;
+          echo '        expr: '"'"'{{ glob .Image "*" }}'"'"' >> $agentconfig;
+          echo 'export:' >> $agentconfig;
+          echo '  file:' >> $agentconfig;
+          echo '    - selector: file' >> $agentconfig;
+          echo '      filename: "/export/go.d.yml"' >> $agentconfig;
+        else
+          echo "Config file exists, skipping...";
+        fi;
+
+additionalContainers:
+  agent:
+    name: agent
+    image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
+    volumeMounts:
+    - name: service_discovery
+      mountPath: "/export"
+    - name: sd_agent_config
+      mountPath: "/config"
+    env:
+      - name: NETDATA_SD_CONFIG_FILE
+        value: "/config/agent.yml"
+      - name: MY_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
+      - name: MY_NODE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+      - name: MY_POD_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.name
