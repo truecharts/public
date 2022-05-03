@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-2.1.11"></a>
+### [clamav-2.1.11](https://github.com/truecharts/apps/compare/clamav-2.1.10...clamav-2.1.11) (2022-04-29)
+
+#### Fix
+
+* fix typo in cron ([#2586](https://github.com/truecharts/apps/issues/2586))
+
+
+
 <a name="clamav-2.1.10"></a>
 ### [clamav-2.1.10](https://github.com/truecharts/apps/compare/clamav-2.1.9...clamav-2.1.10) (2022-04-26)
 

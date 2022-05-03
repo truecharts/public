@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-6.0.17"></a>
+### [focalboard-6.0.17](https://github.com/truecharts/apps/compare/focalboard-6.0.16...focalboard-6.0.17) (2022-04-29)
+
+#### Chore
+
+* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
+
+
+
 <a name="focalboard-6.0.16"></a>
 ### [focalboard-6.0.16](https://github.com/truecharts/apps/compare/focalboard-6.0.15...focalboard-6.0.16) (2022-04-26)
 

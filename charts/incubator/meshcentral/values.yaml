@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.0.1@sha256:d8642b3909fcd1dad6b920629dac8e6e3a609230f38c9d62ca01ca67c26a4730
 
+extraArgs: ["--cert", "$hostname"]
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -10,6 +12,10 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+env:
+  hostname: "test.example.com"
+  reverseProxyUrl: "https://test.example.com"
 
 service:
   main:
@@ -25,6 +31,10 @@ initContainers:
       - name: data
         mountPath: "/home/node/meshcentral/meshcentral-data"
     env:
+      - name: hostname
+        value: "{{ .Values.env.hostname }}"
+      - name: reverseProxyUrl
+        value: "{{ .Values.env.reverseProxyUrl }}"
       - name: svcPort
         value: "{{ .Values.service.main.ports.main.port }}"
       - name: "mongodbURL"
@@ -32,19 +42,69 @@ initContainers:
           secretKeyRef:
             name: mongodbcreds
             key: url
-    command: ["/bin/sh", "-c"]
+    command: ["/bin/bash", "-c"]
     args:
       - >
         export configfile='/home/node/meshcentral/meshcentral-data/config.json';
+        export basePath='/home/node/meshcentral/meshcentral-data/truecharts';
+        mkdir -p $basePath;
         if [ -f $configfile ]; then
-          echo 'Config File exists, skipping...';
+          echo 'Config File exists, updating values...';
+
+          # Update hostname
+          sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
+
+          export lastreverse=$(cat $basePath/.lastreverse);
+          if [ ! -z $reverseProxyUrl ]; then
+            if [[ $lastreverse == "NOT_PROVIDED" ]]; then
+              # Update reverseProxyUrl
+              echo "Adding $reverseProxyUrl...";
+              sed -i 's/^      "_certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
+            else
+              echo "Updating $lastreverse to $reverseProxyUrl...";
+              sed -i 's/^      "certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
+            fi;
+          else
+            echo "Removing reverse proxy url..."
+            sed -i 's/^      "_?certUrl":.*,$/      "_certUrl": "NOT_PROVIDED",/1' $configfile;
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
+          fi;
+
+          export lastport=$(cat $basePath/.lastport);
+          if [ ! -z $lastport ]; then
+            # Update port
+            echo "Updating $lastport to $svcPort...";
+            sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
+            # Save new port.
+            echo "$svcPort" > $basePath/.lastport;
+          fi;
         else
+          echo "DO NOT DELETE DOT FILES IN THIS DIR" > $basePath/DO_NOT_DELETE_DOT_FILES_IN_THIS_DIR;
           echo 'Creating basic config to $configfile...';
           echo '{' >> $configfile;
-          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile
+          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile;
           echo '  "settings": {' >> $configfile;
+          # Save last port used
+          echo "$svcPort" > $basePath/.lastport;
           echo '    "port": '$svcPort',' >> $configfile;
-          echo '    "mongoDb": "'$mongodbURL'"' >> $configfile;
+          echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
+          echo '    "cert": "'$hostname'"' >> $configfile;
+          echo '  },' >> $configfile;
+          echo '  "domains": {' >> $configfile;
+          echo '    "": {' >> $configfile;
+          if [ ! -z $reverseProxyUrl ]; then
+            echo '      "certUrl": "'$reverseProxyUrl'"' >> $configfile;
+            # Save last reverse url used
+            echo $reverseProxyUrl > $basePath/.lastreverse;
+          else
+            # Underscore in front the the key is making it invisible to meshcentral
+            echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
+            # Save last reverse url used
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
+          fi;
+          echo '    }' >> $configfile;
           echo '  }' >> $configfile;
           echo '}' >> $configfile;
         fi;

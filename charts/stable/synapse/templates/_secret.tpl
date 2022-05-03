@@ -31,11 +31,11 @@ stringData:
     email:
       enable_notifs: {{ .Values.mail.enabled }}
       notif_from: {{ .Values.mail.from }}
-      smtp_host: {{ .Values.mail.external.host }}
-      smtp_port: {{ .Values.mail.external.port }}
-      smtp_user: {{ .Values.mail.external.username }}
-      smtp_pass: {{ .Values.mail.external.password }}
-      require_transport_security: {{ .Values.mail.external.requireTransportSecurity }}
+      smtp_host: {{ .Values.mail.host }}
+      smtp_port: {{ .Values.mail.port }}
+      smtp_user: {{ .Values.mail.username }}
+      smtp_pass: {{ .Values.mail.password }}
+      require_transport_security: {{ .Values.mail.requireTransportSecurity }}
     {{- end }}
 
     database:
@@ -50,8 +50,8 @@ stringData:
           cp_max: 10
           sslmode: "disable"
 
-    {{- if .Values.matrix.registration.sharedSecret }}
-    registration_shared_secret: {{ .Values.matrix.registration.sharedSecret }}
+    {{- if .Values.matrix.sharedSecret }}
+    registration_shared_secret: {{ .Values.matrix.sharedSecret }}
     {{- end }}
 
     macaroon_secret_key: {{ $msk }}

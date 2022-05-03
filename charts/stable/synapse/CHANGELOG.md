@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.25"></a>
+### [synapse-2.0.25](https://github.com/truecharts/apps/compare/synapse-2.0.24...synapse-2.0.25) (2022-05-01)
+
+
+
 <a name="synapse-2.0.24"></a>
 ### [synapse-2.0.24](https://github.com/truecharts/apps/compare/synapse-2.0.23...synapse-2.0.24) (2022-04-26)
 
