@@ -52,6 +52,14 @@ providers:
       # By default this Traefik service
       # pathOverride: ""
 
+# -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+forwardedHeaders:
+  enabled: false
+  # -- List of trusted IP and CIDR references
+  trustedIPs: []
+  # -- Trust all forwarded headers
+  insecureMode: false
+
 # -- Logs
 # https://docs.traefik.io/observability/logs/
 logs:
