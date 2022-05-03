@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.26"></a>
+### [synapse-2.0.26](https://github.com/truecharts/apps/compare/synapse-2.0.25...synapse-2.0.26) (2022-05-03)
+
+#### Fix
+
+* fix loadCustomConfig ([#2602](https://github.com/truecharts/apps/issues/2602))
+
+
+
 <a name="synapse-2.0.25"></a>
 ### [synapse-2.0.25](https://github.com/truecharts/apps/compare/synapse-2.0.24...synapse-2.0.25) (2022-05-01)
 
