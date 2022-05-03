@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.50
+  version: 7.0.52
 description: InvenTree is an open-source Inventory Management System which provides powerful low-level stock control and part tracking.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/inventree
 icon: https://truecharts.org/_static/img/appicons/inventree.png
@@ -23,7 +23,7 @@ name: inventree
 sources:
 - https://inventree.readthedocs.io
 - https://github.com/inventree/InvenTree
-version: 0.0.2
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - utilities
