@@ -101,10 +101,7 @@ data:
 
     {{- if .Values.matrix.registration.allowedLocal3PIDs }}
     allowed_local_3pids:
-        {{- range .Values.matrix.registration.allowedLocal3PIDs }}
-        - medium: {{ . | .medium }}
-          pattern: '{{ . | .pattern }}'
-        {{- end }} # end range allowed3PIDs
+        {{ .Values.matrix.registration.allowedLocal3PIDs }}
     {{- end }} # end if allowed3PIDs
 
     {{- end }} # end if registration.enabled
