@@ -86,6 +86,29 @@ data:
 
     enable_registration: {{ .Values.matrix.registration.enabled }}
 
+    {{- if .Values.matrix.registration.enabled }}
+    registration_requires_token: {{ .Values.matrix.registration.requiresToken }}
+
+    {{- if .Values.matrix.registration.require3PID }}
+    registrations_require_3pid:
+        {{- range .Values.matrix.registration.requires3PID }}
+        - {{ . | .medium }}
+        {{- end }} # end range requires3PID
+    {{- end }} # end if requires3PID
+
+    disable_msisdn_registration: {{ .Values.matrix.registration.disableMSISDNRegistration }}
+    enable_3pid_lookup: {{ .Values.matrix.registration.enable3PIDLookup }}
+
+    {{- if .Values.matrix.registration.allowedLocal3PIDs }}
+    allowed_local_3pids:
+        {{- range .Values.matrix.registration.allowedLocal3PIDs }}
+        - medium: {{ . | .medium }}
+          pattern: '{{ . | .pattern }}'
+        {{- end }} # end range allowed3PIDs
+    {{- end }} # end if allowed3PIDs
+
+    {{- end }} # end if registration.enabled
+
     allow_guest_access: {{ .Values.matrix.registration.allowGuests }}
 
     {{- if .Values.synapse.metrics.enabled }}
