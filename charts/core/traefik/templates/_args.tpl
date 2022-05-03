@@ -63,14 +63,13 @@ args:
   - "--providers.kubernetesingress.namespaces={{ template "providers.kubernetesIngress.namespaces" . }}"
   {{- end }}
   {{- end }}
-  {{/* store reference to forwardedHeaders config for application on all entrypoints */}}
-  {{- $forwardedHeaders := .Values.forwardedHeaders }}
   {{- range $entrypoint, $config := $ports }}
-  {{- if $forwardedHeaders.enabled }}
-  {{- if not ( empty $forwardedHeaders.trustedIPs ) }}
-  - "--entrypoints.{{ $entrypoint }}.forwardedHeaders.trustedIPs={{ join "," $forwardedHeaders.trustedIPs }}"
+  {{/* add args for forwardedHeaders support */}}
+  {{- if $config.forwardedHeaders.enabled }}
+  {{- if not ( empty $config.forwardedHeaders.trustedIPs ) }}
+  - "--entrypoints.{{ $entrypoint }}.forwardedHeaders.trustedIPs={{ join "," $config.forwardedHeaders.trustedIPs }}"
   {{- end }}
-  {{- if $forwardedHeaders.insecureMode }}
+  {{- if $config.forwardedHeaders.insecureMode }}
   - "--entrypoints.{{ $entrypoint }}.forwardedHeaders.insecure"
   {{- end }}
   {{- end }}

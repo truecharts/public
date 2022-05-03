@@ -551,38 +551,6 @@ questions:
                                     required: true
                                     default: ""
 
-  - variable: forwardedHeaders
-    label: "Accept Forwarded Headers"
-    group: "App Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: trustedIPs
-                label: "Trusted IPs"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: trustedIPsEntry
-                      label: ""
-                      schema:
-                        type: ipaddr
-                        required: true
-                        default: ""
-              - variable: insecureMode
-                label: "Insecure Mode"
-                schema:
-                  type: boolean
-                  default: false
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
@@ -638,6 +606,36 @@ questions:
                                   schema:
                                     type: int
                                     default: 9000
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
 
                           - variable: port
                             label: "Entrypoints Port"
@@ -707,6 +705,36 @@ questions:
                                   schema:
                                     type: string
                                     default: "websecure"
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
                     - variable: websecure
                       label: "websecure Entrypoints Configuration"
                       schema:
@@ -760,6 +788,36 @@ questions:
                                   label: "Redirect to Entrypoint"
                                   schema:
                                     type: string
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
@@ -832,6 +890,36 @@ questions:
                                   label: "Redirect to Entrypoint"
                                   schema:
                                     type: string
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
   - variable: ingress
     label: ""
     group: "Ingress"
