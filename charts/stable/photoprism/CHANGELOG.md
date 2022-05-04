@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-8.0.20"></a>
+### [photoprism-8.0.20](https://github.com/truecharts/apps/compare/photoprism-8.0.19...photoprism-8.0.20) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="photoprism-8.0.19"></a>
 ### [photoprism-8.0.19](https://github.com/truecharts/apps/compare/photoprism-8.0.18...photoprism-8.0.19) (2022-04-26)
 

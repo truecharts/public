@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appsmith-0.0.7"></a>
+### [appsmith-0.0.7](https://github.com/truecharts/apps/compare/appsmith-0.0.6...appsmith-0.0.7) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="appsmith-0.0.6"></a>
 ### [appsmith-0.0.6](https://github.com/truecharts/apps/compare/appsmith-0.0.5...appsmith-0.0.6) (2022-04-28)
 

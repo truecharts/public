@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-13.0.27"></a>
+### [home-assistant-13.0.27](https://github.com/truecharts/apps/compare/home-assistant-13.0.26...home-assistant-13.0.27) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="home-assistant-13.0.26"></a>
 ### [home-assistant-13.0.26](https://github.com/truecharts/apps/compare/home-assistant-13.0.25...home-assistant-13.0.26) (2022-04-28)
 

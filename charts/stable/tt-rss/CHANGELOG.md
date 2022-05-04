@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.23"></a>
+### [tt-rss-5.0.23](https://github.com/truecharts/apps/compare/tt-rss-5.0.22...tt-rss-5.0.23) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="tt-rss-5.0.22"></a>
 ### [tt-rss-5.0.22](https://github.com/truecharts/apps/compare/tt-rss-5.0.21...tt-rss-5.0.22) (2022-04-26)
 
