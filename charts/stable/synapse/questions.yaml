@@ -235,14 +235,13 @@ questions:
                       description: The 3rd party IDs required during registration. (All selected will be required)
                       schema:
                         type: list
-                        default: [email]
+                        default: []
                         items:
                           - variable: medium
                             label: Medium
                             schema:
                               type: string
                               default: email
-                              required: true
                               enum:
                                 - value: email
                                   description: Email
