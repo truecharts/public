@@ -606,36 +606,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9000
-                          - variable: forwardedHeaders
-                            label: "Accept Forwarded Headers"
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: enabled
-                                  label: "Enable"
-                                  schema:
-                                    type: boolean
-                                    default: false
-                                    show_subquestions_if: true
-                                    subquestions:
-                                      - variable: trustedIPs
-                                        label: "Trusted IPs"
-                                        schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: trustedIPsEntry
-                                              label: ""
-                                              schema:
-                                                type: ipaddr
-                                                required: true
-                                                default: ""
-                                      - variable: insecureMode
-                                        label: "Insecure Mode"
-                                        schema:
-                                          type: boolean
-                                          default: false
 
                           - variable: port
                             label: "Entrypoints Port"

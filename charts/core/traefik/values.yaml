@@ -146,13 +146,9 @@ service:
         port: 9000
         targetPort: 9000
         protocol: HTTP
-        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
           enabled: false
-          # -- List of trusted IP and CIDR references
-          trustedIPs: []
-          # -- Trust all forwarded headers
-          insecureMode: false
   tcp:
     enabled: true
     type: LoadBalancer
@@ -205,13 +201,9 @@ service:
         port: 9180
         targetPort: 9180
         protocol: HTTP
-        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
           enabled: false
-          # -- List of trusted IP and CIDR references
-          trustedIPs: []
-          # -- Trust all forwarded headers
-          insecureMode: false
   udp:
     enabled: false
 
