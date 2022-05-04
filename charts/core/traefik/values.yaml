@@ -146,6 +146,9 @@ service:
         port: 9000
         targetPort: 9000
         protocol: HTTP
+        # -- Forwarded Headers should never be enabled on Main entrypoint
+        forwardedHeaders:
+          enabled: false
   tcp:
     enabled: true
     type: LoadBalancer
@@ -155,12 +158,26 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        forwardedHeaders:
+          enabled: false
+          # -- List of trusted IP and CIDR references
+          trustedIPs: []
+          # -- Trust all forwarded headers
+          insecureMode: false
         # Options: Empty, 0 (ingore), or positive int
         # redirectPort:
       websecure:
         enabled: true
         port: 9443
         protocol: HTTPS
+        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        forwardedHeaders:
+          enabled: false
+          # -- List of trusted IP and CIDR references
+          trustedIPs: []
+          # -- Trust all forwarded headers
+          insecureMode: false
 #      tcpexample:
 #        enabled: true
 #        targetPort: 9443
@@ -184,6 +201,9 @@ service:
         port: 9180
         targetPort: 9180
         protocol: HTTP
+        # -- Forwarded Headers should never be enabled on Metrics entrypoint
+        forwardedHeaders:
+          enabled: false
   udp:
     enabled: false
 
@@ -303,7 +323,7 @@ middlewares:
   redirectRegex: []
   # - name: redirectRegexName
   #   regex: putregexhere
-  #   replacement: replacementurlhere
+  #   replacement: repslacementurlhere
   #   permanent: false
   stripPrefixRegex: []
   # - name: stripPrefixRegexName
