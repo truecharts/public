@@ -119,9 +119,9 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:01aa85137301b2ddea56b607dd888f65d1adb1f0844f98343df5dbef4e92c371
-          'tccr.io/truecharts/gitea:v1.16.6@sha256:bbec249fdd33ac2238cf5b61d151d98a8b1ee93e01af8c3c930c1f3459d3b9ef'
-          'tccr.io/truecharts/gitea:v1.16.6@sha256:bbec249fdd33ac2238cf5b61d151d98a8b1ee93e01af8c3c930c1f3459d3b9ef'
-          tccr.io/truecharts/gitea:v1.16.6@sha256:bbec249fdd33ac2238cf5b61d151d98a8b1ee93e01af8c3c930c1f3459d3b9ef
+          'tccr.io/truecharts/gitea:v1.16.7@sha256:d205d2f644d14d5b2a7c190246228fbe7dd0549b550abc066687447d91a7c70b'
+          'tccr.io/truecharts/gitea:v1.16.7@sha256:d205d2f644d14d5b2a7c190246228fbe7dd0549b550abc066687447d91a7c70b'
+          tccr.io/truecharts/gitea:v1.16.7@sha256:d205d2f644d14d5b2a7c190246228fbe7dd0549b550abc066687447d91a7c70b
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.2.0@sha256:efdd8be6c07f87069186785ea7ed1adc52b39e75b6929350ea1192a7292e16f2
@@ -431,22 +431,16 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/gitea:v1.16.6@sha256:bbec249fdd33ac2238cf5b61d151d98a8b1ee93e01af8c3c930c1f3459d3b9ef (alpine 3.13.10)
+#### Container: tccr.io/truecharts/gitea:v1.16.7@sha256:d205d2f644d14d5b2a7c190246228fbe7dd0549b550abc066687447d91a7c70b (alpine 3.13.10)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| curl         |    CVE-2022-22576   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22576">https://access.redhat.com/security/cve/CVE-2022-22576</a><br><a href="https://curl.se/docs/CVE-2022-22576.html">https://curl.se/docs/CVE-2022-22576.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| curl         |    CVE-2022-27774   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27774">https://access.redhat.com/security/cve/CVE-2022-27774</a><br><a href="https://curl.se/docs/CVE-2022-27774.html">https://curl.se/docs/CVE-2022-27774.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27774">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27774</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| curl         |    CVE-2022-27776   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27776">https://access.redhat.com/security/cve/CVE-2022-27776</a><br><a href="https://curl.se/docs/CVE-2022-27776.html">https://curl.se/docs/CVE-2022-27776.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27776">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27776</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| curl         |    CVE-2022-27775   |   LOW  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27775">https://access.redhat.com/security/cve/CVE-2022-27775</a><br><a href="https://curl.se/docs/CVE-2022-27775.html">https://curl.se/docs/CVE-2022-27775.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27775">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27775</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| libcurl         |    CVE-2022-22576   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22576">https://access.redhat.com/security/cve/CVE-2022-22576</a><br><a href="https://curl.se/docs/CVE-2022-22576.html">https://curl.se/docs/CVE-2022-22576.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22576</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| libcurl         |    CVE-2022-27774   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27774">https://access.redhat.com/security/cve/CVE-2022-27774</a><br><a href="https://curl.se/docs/CVE-2022-27774.html">https://curl.se/docs/CVE-2022-27774.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27774">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27774</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| libcurl         |    CVE-2022-27776   |   MEDIUM  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27776">https://access.redhat.com/security/cve/CVE-2022-27776</a><br><a href="https://curl.se/docs/CVE-2022-27776.html">https://curl.se/docs/CVE-2022-27776.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27776">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27776</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
-| libcurl         |    CVE-2022-27775   |   LOW  |  7.79.1-r0 | 7.79.1-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-27775">https://access.redhat.com/security/cve/CVE-2022-27775</a><br><a href="https://curl.se/docs/CVE-2022-27775.html">https://curl.se/docs/CVE-2022-27775.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27775">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27775</a><br><a href="https://ubuntu.com/security/notices/USN-5397-1">https://ubuntu.com/security/notices/USN-5397-1</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)

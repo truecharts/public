@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.43"></a>
+### [valheim-2.0.43](https://github.com/truecharts/apps/compare/valheim-2.0.42...valheim-2.0.43) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="valheim-2.0.42"></a>
 ### [valheim-2.0.42](https://github.com/truecharts/apps/compare/valheim-2.0.41...valheim-2.0.42) (2022-04-26)
 

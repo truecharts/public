@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-5.0.14"></a>
+### [k8s-gateway-5.0.14](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.13...k8s-gateway-5.0.14) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="k8s-gateway-5.0.13"></a>
 ### [k8s-gateway-5.0.13](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.12...k8s-gateway-5.0.13) (2022-04-26)
 

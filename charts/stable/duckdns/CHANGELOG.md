@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duckdns-1.0.16"></a>
+### [duckdns-1.0.16](https://github.com/truecharts/apps/compare/duckdns-1.0.15...duckdns-1.0.16) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="duckdns-1.0.15"></a>
 ### [duckdns-1.0.15](https://github.com/truecharts/apps/compare/duckdns-1.0.14...duckdns-1.0.15) (2022-04-26)
 

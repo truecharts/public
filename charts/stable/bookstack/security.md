@@ -77,7 +77,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:e12463f73268d0310da92124161f0ea39cd83293c4ab2b5254f27f0bd253da9f
-          tccr.io/truecharts/bookstack:v22.03.20220330@sha256:bd63b87bd76fa0c8e603d3e5c16b7b7320f8ce4f4b92ef962fbd9979d3f346bc
+          tccr.io/truecharts/bookstack:v22.04.20220429@sha256:a2c36165fb0fa726eba39d17c368c8254741ece27d83a8cd276842805810ee8b
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:d7c2887556f68cfbab56243471cf9f4879e3126da53941ae2ed9752d3a6a9615
@@ -333,9 +333,10 @@ hide:
 **composer**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| dompdf/dompdf         |    CVE-2022-28368   |   CRITICAL  |  v1.2.0 | 1.2.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-x752-qjv4-c4hc">https://github.com/advisories/GHSA-x752-qjv4-c4hc</a><br><a href="https://github.com/dompdf/dompdf/commit/4c70e1025bcd9b7694b95dd552499bd83cd6141d">https://github.com/dompdf/dompdf/commit/4c70e1025bcd9b7694b95dd552499bd83cd6141d</a><br><a href="https://github.com/dompdf/dompdf/issues/2598">https://github.com/dompdf/dompdf/issues/2598</a><br><a href="https://github.com/dompdf/dompdf/pull/2808">https://github.com/dompdf/dompdf/pull/2808</a><br><a href="https://github.com/snyk-labs/php-goof">https://github.com/snyk-labs/php-goof</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28368">https://nvd.nist.gov/vuln/detail/CVE-2022-28368</a><br><a href="https://packagist.org/packages/dompdf/dompdf#v1.2.1">https://packagist.org/packages/dompdf/dompdf#v1.2.1</a><br><a href="https://snyk.io/blog/security-alert-php-pdf-library-dompdf-rce/">https://snyk.io/blog/security-alert-php-pdf-library-dompdf-rce/</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.23"></a>
+### [paperless-ng-2.0.23](https://github.com/truecharts/apps/compare/paperless-ng-2.0.22...paperless-ng-2.0.23) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="paperless-ng-2.0.22"></a>
 ### [paperless-ng-2.0.22](https://github.com/truecharts/apps/compare/paperless-ng-2.0.21...paperless-ng-2.0.22) (2022-05-04)
 

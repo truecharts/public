@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.28"></a>
+### [synapse-2.0.28](https://github.com/truecharts/apps/compare/synapse-2.0.27...synapse-2.0.28) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="synapse-2.0.27"></a>
 ### [synapse-2.0.27](https://github.com/truecharts/apps/compare/synapse-2.0.26...synapse-2.0.27) (2022-05-04)
 

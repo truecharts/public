@@ -102,7 +102,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:e12463f73268d0310da92124161f0ea39cd83293c4ab2b5254f27f0bd253da9f
-          tccr.io/truecharts/linkace:v1.10.0@sha256:d5d913a785f883eb4835e7eefc12aa2fae8722c175490c75822612ea4545ab91
+          tccr.io/truecharts/linkace:v1.10.1@sha256:3b05433e4432392b028cce5c4d3ebe571b290cdad74d387c0c659c7603680156
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:d7c2887556f68cfbab56243471cf9f4879e3126da53941ae2ed9752d3a6a9615
@@ -355,7 +355,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/linkace:v1.10.0@sha256:d5d913a785f883eb4835e7eefc12aa2fae8722c175490c75822612ea4545ab91 (alpine 3.15.0)
+#### Container: tccr.io/truecharts/linkace:v1.10.1@sha256:3b05433e4432392b028cce5c4d3ebe571b290cdad74d387c0c659c7603680156 (alpine 3.15.0)
 
 
 **alpine**

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appsmith-0.0.8"></a>
+### [appsmith-0.0.8](https://github.com/truecharts/apps/compare/appsmith-0.0.7...appsmith-0.0.8) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="appsmith-0.0.7"></a>
 ### [appsmith-0.0.7](https://github.com/truecharts/apps/compare/appsmith-0.0.6...appsmith-0.0.7) (2022-05-04)
 

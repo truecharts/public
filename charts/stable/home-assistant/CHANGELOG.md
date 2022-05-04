@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-13.0.28"></a>
+### [home-assistant-13.0.28](https://github.com/truecharts/apps/compare/home-assistant-13.0.27...home-assistant-13.0.28) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="home-assistant-13.0.27"></a>
 ### [home-assistant-13.0.27](https://github.com/truecharts/apps/compare/home-assistant-13.0.26...home-assistant-13.0.27) (2022-05-04)
 

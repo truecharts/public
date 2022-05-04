@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-2.0.19"></a>
+### [weblate-2.0.19](https://github.com/truecharts/apps/compare/weblate-2.0.18...weblate-2.0.19) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="weblate-2.0.18"></a>
 ### [weblate-2.0.18](https://github.com/truecharts/apps/compare/weblate-2.0.17...weblate-2.0.18) (2022-05-04)
 

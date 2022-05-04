@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-1.0.13"></a>
+### [nntp2nntp-1.0.13](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.12...nntp2nntp-1.0.13) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="nntp2nntp-1.0.12"></a>
 ### [nntp2nntp-1.0.12](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.11...nntp2nntp-1.0.12) (2022-04-26)
 

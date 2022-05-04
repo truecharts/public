@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-11.2.1"></a>
+### [traefik-11.2.1](https://github.com/truecharts/apps/compare/traefik-11.2.0...traefik-11.2.1) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="traefik-11.2.0"></a>
 ### [traefik-11.2.0](https://github.com/truecharts/apps/compare/traefik-11.1.8...traefik-11.2.0) (2022-05-04)
 

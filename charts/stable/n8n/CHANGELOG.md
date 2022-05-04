@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-2.0.27"></a>
+### [n8n-2.0.27](https://github.com/truecharts/apps/compare/n8n-2.0.26...n8n-2.0.27) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="n8n-2.0.26"></a>
 ### [n8n-2.0.26](https://github.com/truecharts/apps/compare/n8n-2.0.25...n8n-2.0.26) (2022-05-04)
 
