@@ -93,8 +93,8 @@ data:
     registrations_require_3pid:
         {{- range .Values.matrix.registration.requires3PID }}
         - {{ . | .medium }}
-        {{- end }} # end range requires3PID
-    {{- end }} # end if requires3PID
+        {{- end }}
+    {{- end }}
 
     disable_msisdn_registration: {{ .Values.matrix.registration.disableMSISDNRegistration }}
     enable_3pid_lookup: {{ .Values.matrix.registration.enable3PIDLookup }}
@@ -102,9 +102,9 @@ data:
     {{- if .Values.matrix.registration.allowedLocal3PIDs }}
     allowed_local_3pids:
         {{ .Values.matrix.registration.allowedLocal3PIDs }}
-    {{- end }} # end if allowed3PIDs
+    {{- end }}
 
-    {{- end }} # end if registration.enabled
+    {{- end }}
 
     allow_guest_access: {{ .Values.matrix.registration.allowGuests }}
 
