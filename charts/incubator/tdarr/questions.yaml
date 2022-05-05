@@ -234,10 +234,10 @@ questions:
                   default: "Internal Node"
         - variable: serverIP
           label: "serverIP"
-          description: "Server IP, should only be changed if you have nodes in another IP"
+          description: "Where the server will be listening, should only be changed if you have nodes in another IP"
           schema:
             type: string
-            default: "0.0.0.0"
+            default: "localhost"
 
 # Include{serviceList}
 
