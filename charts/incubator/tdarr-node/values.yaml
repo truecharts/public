@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  nodePort: 9267
   # User Defined
   nodeID: "myFirstTdarrNode"
   serverIP: "0.0.0.0"
@@ -23,7 +22,7 @@ service:
     ports:
       main:
         port: 8267
-        targetPort: 9267
+        targetPort: 8267
 
 persistence:
   configs:
