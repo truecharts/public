@@ -3,11 +3,11 @@ appVersion: "2.3.12"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.2
+  version: 9.3.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.52
+  version: 7.0.54
 description: Photoview is a simple and user-friendly photo gallery.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/photoview
 icon: https://truecharts.org/_static/img/appicons/photoview.png
@@ -23,7 +23,7 @@ name: photoview
 sources:
 - https://github.com/photoview/photoview
 - https://hub.docker.com/r/viktorstrate/photoview
-version: 2.0.16
+version: 2.0.17
 annotations:
   truecharts.org/catagories: |
     - media
