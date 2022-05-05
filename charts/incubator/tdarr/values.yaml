@@ -16,7 +16,7 @@ env:
   webUIPort: "{{ .Values.service.main.ports.main.port }}"
   # User Defined
   internalNode: true
-  serverIP: "0.0.0.0"
+  serverIP: "localhost"
   nodeID: "Internal Node"
 
 service:
