@@ -1,20 +1,6 @@
 # Include{groups}
+portals: {}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: false
 # Include{global}
   - variable: controller
     group: "Controller"
