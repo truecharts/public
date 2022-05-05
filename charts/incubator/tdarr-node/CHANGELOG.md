@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-3.0.0"></a>
+### [tdarr-node-3.0.0](https://github.com/truecharts/apps/compare/tdarr-node-2.0.15...tdarr-node-3.0.0) (2022-05-05)
+
+#### Feat
+
+* spawn internal node and some cleanup on tdarr-node ([#2613](https://github.com/truecharts/apps/issues/2613))
+
+
+
 <a name="tdarr-node-2.0.15"></a>
 ### [tdarr-node-2.0.15](https://github.com/truecharts/apps/compare/tdarr-node-2.0.14...tdarr-node-2.0.15) (2022-05-05)
 
