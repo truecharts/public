@@ -12,15 +12,17 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  serverIP: "localhost"
-  serverPort: 8266
-  webUIPort: 8265
+  serverPort: "{{ .Values.service.comm.ports.comm.port }}"
+  webUIPort: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  internalNode: true
+  serverIP: "0.0.0.0"
+  nodeID: "Internal Node"
 
 service:
   main:
     ports:
       main:
-        targetPort: 8265
         port: 8265
   comm:
     enabled: true
@@ -28,7 +30,6 @@ service:
       comm:
         enabled: true
         port: 8266
-        targetPort: 8266
 
 persistence:
   configs:
@@ -43,5 +44,8 @@ persistence:
   transcode-cache:
     enabled: true
     mountPath: "/temp"
+  media:
+    enabled: true
+    mountPath: "/media"
   varrun:
     enabled: true
