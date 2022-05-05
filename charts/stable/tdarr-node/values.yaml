@@ -17,6 +17,13 @@ env:
   serverIP: "0.0.0.0"
   serverPort: 8266
 
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
 probes:
   liveness:
     enabled: false
