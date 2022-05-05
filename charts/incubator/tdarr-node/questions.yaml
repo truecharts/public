@@ -276,7 +276,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: transcode-cache
           label: "App Transcode cache"
-          description: "Stores the Application Transcode cache."
+          description: "Stores the Application Transcode cache.(Both Node and Server must have access to the SAME cache directory)"
           schema:
             additional_attrs: true
             type: dict
@@ -320,7 +320,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: media
           label: "App Media"
-          description: "Stores the Application Media."
+          description: "Stores the Application Media.(Both Node and Server must have access to the SAME media directory)"
           schema:
             additional_attrs: true
             type: dict
