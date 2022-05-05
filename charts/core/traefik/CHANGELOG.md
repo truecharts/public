@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-11.3.0"></a>
+### [traefik-11.3.0](https://github.com/truecharts/apps/compare/traefik-11.2.2...traefik-11.3.0) (2022-05-05)
+
+#### Feat
+
+* Add support for JSON format logs ([#2609](https://github.com/truecharts/apps/issues/2609))
+
+
+
 <a name="traefik-11.2.2"></a>
 ### [traefik-11.2.2](https://github.com/truecharts/apps/compare/traefik-11.2.1...traefik-11.2.2) (2022-05-05)
 
