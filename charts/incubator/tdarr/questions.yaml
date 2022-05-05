@@ -220,7 +220,7 @@ questions:
       attrs:
         - variable: internalNode
           label: "internalNode"
-          description: "Spawns an internal node (aka worker), with this, you will need to have a node separately."
+          description: "Spawns an internal node (aka worker), disabling this, you will need to have a node separately."
           schema:
             type: boolean
             default: true
