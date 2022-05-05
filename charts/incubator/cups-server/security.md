@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: cups-server/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-cups-server&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,11 +52,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -73,11 +73,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -94,11 +94,11 @@ hide:
 
 
 #### Container: ydkn/cups:latest@sha256:d84f17af1e712413903d9035eda2c4bbbe9431d86712b7924efbe467be9be764 (debian 10.12)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -622,4 +622,3 @@ hide:
 | wget         |    CVE-2021-31879   |   MEDIUM  |  1.20.1-1.1 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-31879">https://access.redhat.com/security/cve/CVE-2021-31879</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879</a><br><a href="https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html">https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31879">https://nvd.nist.gov/vuln/detail/CVE-2021-31879</a><br><a href="https://savannah.gnu.org/bugs/?56909">https://savannah.gnu.org/bugs/?56909</a><br><a href="https://security.netapp.com/advisory/ntap-20210618-0002/">https://security.netapp.com/advisory/ntap-20210618-0002/</a><br></details>  |
 | xdg-user-dirs         |    CVE-2017-15131   |   LOW  |  0.17-2 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHSA-2018:0842">https://access.redhat.com/errata/RHSA-2018:0842</a><br><a href="https://access.redhat.com/security/cve/CVE-2017-15131">https://access.redhat.com/security/cve/CVE-2017-15131</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1412762">https://bugzilla.redhat.com/show_bug.cgi?id=1412762</a><br><a href="https://linux.oracle.com/cve/CVE-2017-15131.html">https://linux.oracle.com/cve/CVE-2017-15131.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2018-0842.html">https://linux.oracle.com/errata/ELSA-2018-0842.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br></details>  |
 | xterm         |    CVE-2006-4447   |   LOW  |  344-1+deb10u2 |  | <details><summary>Expand...</summary><a href="http://lists.freedesktop.org/archives/xorg/2006-June/016146.html">http://lists.freedesktop.org/archives/xorg/2006-June/016146.html</a><br><a href="http://mail.gnome.org/archives/beast/2006-December/msg00025.html">http://mail.gnome.org/archives/beast/2006-December/msg00025.html</a><br><a href="http://secunia.com/advisories/21650">http://secunia.com/advisories/21650</a><br><a href="http://secunia.com/advisories/21660">http://secunia.com/advisories/21660</a><br><a href="http://secunia.com/advisories/21693">http://secunia.com/advisories/21693</a><br><a href="http://secunia.com/advisories/22332">http://secunia.com/advisories/22332</a><br><a href="http://secunia.com/advisories/25032">http://secunia.com/advisories/25032</a><br><a href="http://secunia.com/advisories/25059">http://secunia.com/advisories/25059</a><br><a href="http://security.gentoo.org/glsa/glsa-200608-25.xml">http://security.gentoo.org/glsa/glsa-200608-25.xml</a><br><a href="http://security.gentoo.org/glsa/glsa-200704-22.xml">http://security.gentoo.org/glsa/glsa-200704-22.xml</a><br><a href="http://www.debian.org/security/2006/dsa-1193">http://www.debian.org/security/2006/dsa-1193</a><br><a href="http://www.kb.cert.org/vuls/id/300368">http://www.kb.cert.org/vuls/id/300368</a><br><a href="http://www.mandriva.com/security/advisories?name=MDKSA-2006:160">http://www.mandriva.com/security/advisories?name=MDKSA-2006:160</a><br><a href="http://www.securityfocus.com/bid/19742">http://www.securityfocus.com/bid/19742</a><br><a href="http://www.securityfocus.com/bid/23697">http://www.securityfocus.com/bid/23697</a><br><a href="http://www.vupen.com/english/advisories/2006/3409">http://www.vupen.com/english/advisories/2006/3409</a><br><a href="http://www.vupen.com/english/advisories/2007/0409">http://www.vupen.com/english/advisories/2007/0409</a><br></details>  |
-

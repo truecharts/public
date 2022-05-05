@@ -19,10 +19,18 @@ env:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 8267
-        targetPort: 8267
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 persistence:
   configs:

@@ -1,8 +1,13 @@
 # Changelog<br>
 
 
-<a name="tdarr-3.0.0"></a>
-### [tdarr-3.0.0](https://github.com/truecharts/apps/compare/tdarr-2.0.15...tdarr-3.0.0) (2022-05-05)
+<a name="tdarr-node-1.0.0"></a>
+### [tdarr-node-1.0.0](https://github.com/truecharts/apps/compare/tdarr-node-3.0.0...tdarr-node-1.0.0) (2022-05-05)
+
+
+
+<a name="tdarr-node-3.0.0"></a>
+### [tdarr-node-3.0.0](https://github.com/truecharts/apps/compare/tdarr-node-2.0.15...tdarr-node-3.0.0) (2022-05-05)
 
 #### Feat
 
@@ -10,8 +15,8 @@
 
 
 
-<a name="tdarr-2.0.15"></a>
-### [tdarr-2.0.15](https://github.com/truecharts/apps/compare/tdarr-2.0.14...tdarr-2.0.15) (2022-05-05)
+<a name="tdarr-node-2.0.15"></a>
+### [tdarr-node-2.0.15](https://github.com/truecharts/apps/compare/tdarr-node-2.0.14...tdarr-node-2.0.15) (2022-05-05)
 
 #### Chore
 
@@ -19,8 +24,8 @@
 
 
 
-<a name="tdarr-2.0.14"></a>
-### [tdarr-2.0.14](https://github.com/truecharts/apps/compare/tdarr-2.0.13...tdarr-2.0.14) (2022-04-26)
+<a name="tdarr-node-2.0.14"></a>
+### [tdarr-node-2.0.14](https://github.com/truecharts/apps/compare/tdarr-node-2.0.13...tdarr-node-2.0.14) (2022-04-26)
 
 #### Chore
 
@@ -28,8 +33,8 @@
 
 
 
-<a name="tdarr-2.0.13"></a>
-### [tdarr-2.0.13](https://github.com/truecharts/apps/compare/tdarr-2.0.12...tdarr-2.0.13) (2022-04-20)
+<a name="tdarr-node-2.0.13"></a>
+### [tdarr-node-2.0.13](https://github.com/truecharts/apps/compare/tdarr-node-2.0.12...tdarr-node-2.0.13) (2022-04-20)
 
 #### Chore
 
@@ -38,8 +43,8 @@
 
 
 
-<a name="tdarr-2.0.12"></a>
-### [tdarr-2.0.12](https://github.com/truecharts/apps/compare/tdarr-2.0.11...tdarr-2.0.12) (2022-04-12)
+<a name="tdarr-node-2.0.12"></a>
+### [tdarr-node-2.0.12](https://github.com/truecharts/apps/compare/tdarr-node-2.0.11...tdarr-node-2.0.12) (2022-04-12)
 
 #### Chore
 
@@ -47,8 +52,8 @@
 
 
 
-<a name="tdarr-2.0.11"></a>
-### [tdarr-2.0.11](https://github.com/truecharts/apps/compare/tdarr-2.0.10...tdarr-2.0.11) (2022-04-03)
+<a name="tdarr-node-2.0.11"></a>
+### [tdarr-node-2.0.11](https://github.com/truecharts/apps/compare/tdarr-node-2.0.10...tdarr-node-2.0.11) (2022-04-03)
 
 #### Chore
 
@@ -56,8 +61,8 @@
 
 
 
-<a name="tdarr-2.0.10"></a>
-### [tdarr-2.0.10](https://github.com/truecharts/apps/compare/tdarr-2.0.9...tdarr-2.0.10) (2022-03-31)
+<a name="tdarr-node-2.0.10"></a>
+### [tdarr-node-2.0.10](https://github.com/truecharts/apps/compare/tdarr-node-2.0.9...tdarr-node-2.0.10) (2022-03-31)
 
 #### Chore
 
@@ -65,8 +70,8 @@
 
 
 
-<a name="tdarr-2.0.9"></a>
-### [tdarr-2.0.9](https://github.com/truecharts/apps/compare/tdarr-node-2.0.8...tdarr-2.0.9) (2022-03-30)
+<a name="tdarr-node-2.0.9"></a>
+### [tdarr-node-2.0.9](https://github.com/truecharts/apps/compare/tdarr-node-2.0.8...tdarr-node-2.0.9) (2022-03-30)
 
 #### Chore
 
@@ -74,8 +79,8 @@
 
 
 
-<a name="tdarr-2.0.8"></a>
-### [tdarr-2.0.8](https://github.com/truecharts/apps/compare/tdarr-node-2.0.7...tdarr-2.0.8) (2022-03-26)
+<a name="tdarr-node-2.0.8"></a>
+### [tdarr-node-2.0.8](https://github.com/truecharts/apps/compare/tdarr-node-2.0.7...tdarr-node-2.0.8) (2022-03-26)
 
 #### Chore
 
@@ -83,8 +88,8 @@
 
 
 
-<a name="tdarr-2.0.4"></a>
-### [tdarr-2.0.4](https://github.com/truecharts/apps/compare/tdarr-node-2.0.3...tdarr-2.0.4) (2022-03-17)
+<a name="tdarr-node-2.0.4"></a>
+### [tdarr-node-2.0.4](https://github.com/truecharts/apps/compare/tdarr-node-2.0.3...tdarr-node-2.0.4) (2022-03-17)
 
 #### Chore
 
@@ -93,8 +98,8 @@
 
 
 
-<a name="tdarr-2.0.2"></a>
-### [tdarr-2.0.2](https://github.com/truecharts/apps/compare/tdarr-2.0.1...tdarr-2.0.2) (2022-03-07)
+<a name="tdarr-node-2.0.2"></a>
+### [tdarr-node-2.0.2](https://github.com/truecharts/apps/compare/tdarr-node-2.0.1...tdarr-node-2.0.2) (2022-03-07)
 
 #### Chore
 
@@ -102,8 +107,8 @@
 
 
 
-<a name="tdarr-2.0.1"></a>
-### [tdarr-2.0.1](https://github.com/truecharts/apps/compare/tdarr-node-2.0.0...tdarr-2.0.1) (2022-03-07)
+<a name="tdarr-node-2.0.1"></a>
+### [tdarr-node-2.0.1](https://github.com/truecharts/apps/compare/tdarr-node-2.0.0...tdarr-node-2.0.1) (2022-03-07)
 
 #### Chore
 
@@ -112,14 +117,13 @@
 
 
 
-<a name="tdarr-2.0.0"></a>
-### [tdarr-2.0.0](https://github.com/truecharts/apps/compare/tdarr-node-1.0.48...tdarr-2.0.0) (2022-03-03)
+<a name="tdarr-node-2.0.0"></a>
+### [tdarr-node-2.0.0](https://github.com/truecharts/apps/compare/tdarr-node-1.0.48...tdarr-node-2.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
 * remove PUID from per-app env-vars if set to 568
-* remove empty env var declaration from questions.yaml
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -128,18 +132,17 @@
 
 
 
-<a name="tdarr-1.0.48"></a>
-### [tdarr-1.0.48](https://github.com/truecharts/apps/compare/tdarr-1.0.47...tdarr-1.0.48) (2022-03-02)
+<a name="tdarr-node-1.0.48"></a>
+### [tdarr-node-1.0.48](https://github.com/truecharts/apps/compare/tdarr-node-1.0.47...tdarr-node-1.0.48) (2022-03-02)
 
 #### Chore
 
-* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
 * update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="tdarr-1.0.47"></a>
-### [tdarr-1.0.47](https://github.com/truecharts/apps/compare/tdarr-1.0.46...tdarr-1.0.47) (2022-02-21)
+<a name="tdarr-node-1.0.47"></a>
+### [tdarr-node-1.0.47](https://github.com/truecharts/apps/compare/tdarr-node-1.0.46...tdarr-node-1.0.47) (2022-02-21)
 
 #### Chore
 
@@ -147,8 +150,8 @@
 
 
 
-<a name="tdarr-1.0.46"></a>
-### [tdarr-1.0.46](https://github.com/truecharts/apps/compare/tdarr-node-1.0.45...tdarr-1.0.46) (2022-02-15)
+<a name="tdarr-node-1.0.46"></a>
+### [tdarr-node-1.0.46](https://github.com/truecharts/apps/compare/tdarr-node-1.0.45...tdarr-node-1.0.46) (2022-02-15)
 
 #### Chore
 
@@ -156,8 +159,8 @@
 
 
 
-<a name="tdarr-1.0.45"></a>
-### [tdarr-1.0.45](https://github.com/truecharts/apps/compare/tdarr-node-1.0.44...tdarr-1.0.45) (2022-02-08)
+<a name="tdarr-node-1.0.45"></a>
+### [tdarr-node-1.0.45](https://github.com/truecharts/apps/compare/tdarr-node-1.0.44...tdarr-node-1.0.45) (2022-02-08)
 
 #### Chore
 
@@ -165,8 +168,8 @@
 
 
 
-<a name="tdarr-1.0.44"></a>
-### [tdarr-1.0.44](https://github.com/truecharts/apps/compare/tdarr-1.0.43...tdarr-1.0.44) (2022-02-06)
+<a name="tdarr-node-1.0.44"></a>
+### [tdarr-node-1.0.44](https://github.com/truecharts/apps/compare/tdarr-node-1.0.43...tdarr-node-1.0.44) (2022-02-06)
 
 #### Chore
 
@@ -174,8 +177,8 @@
 
 
 
-<a name="tdarr-1.0.43"></a>
-### [tdarr-1.0.43](https://github.com/truecharts/apps/compare/tdarr-1.0.42...tdarr-1.0.43) (2022-02-05)
+<a name="tdarr-node-1.0.43"></a>
+### [tdarr-node-1.0.43](https://github.com/truecharts/apps/compare/tdarr-node-1.0.42...tdarr-node-1.0.43) (2022-02-05)
 
 #### Chore
 
@@ -183,8 +186,8 @@
 
 
 
-<a name="tdarr-1.0.42"></a>
-### [tdarr-1.0.42](https://github.com/truecharts/apps/compare/tdarr-1.0.41...tdarr-1.0.42) (2022-02-02)
+<a name="tdarr-node-1.0.42"></a>
+### [tdarr-node-1.0.42](https://github.com/truecharts/apps/compare/tdarr-node-1.0.41...tdarr-node-1.0.42) (2022-02-02)
 
 #### Chore
 
@@ -192,8 +195,8 @@
 
 
 
-<a name="tdarr-1.0.41"></a>
-### [tdarr-1.0.41](https://github.com/truecharts/apps/compare/tdarr-1.0.40...tdarr-1.0.41) (2022-01-25)
+<a name="tdarr-node-1.0.41"></a>
+### [tdarr-node-1.0.41](https://github.com/truecharts/apps/compare/tdarr-node-1.0.40...tdarr-node-1.0.41) (2022-01-25)
 
 #### Chore
 
@@ -201,8 +204,8 @@
 
 
 
-<a name="tdarr-1.0.40"></a>
-### [tdarr-1.0.40](https://github.com/truecharts/apps/compare/tdarr-node-1.0.39...tdarr-1.0.40) (2022-01-22)
+<a name="tdarr-node-1.0.40"></a>
+### [tdarr-node-1.0.40](https://github.com/truecharts/apps/compare/tdarr-node-1.0.39...tdarr-node-1.0.40) (2022-01-22)
 
 #### Chore
 
@@ -210,8 +213,8 @@
 
 
 
-<a name="tdarr-1.0.39"></a>
-### [tdarr-1.0.39](https://github.com/truecharts/apps/compare/tdarr-node-1.0.38...tdarr-1.0.39) (2022-01-21)
+<a name="tdarr-node-1.0.39"></a>
+### [tdarr-node-1.0.39](https://github.com/truecharts/apps/compare/tdarr-node-1.0.38...tdarr-node-1.0.39) (2022-01-21)
 
 #### Chore
 
@@ -223,8 +226,8 @@
 
 
 
-<a name="tdarr-1.0.38"></a>
-### [tdarr-1.0.38](https://github.com/truecharts/apps/compare/tdarr-node-1.0.37...tdarr-1.0.38) (2022-01-18)
+<a name="tdarr-node-1.0.38"></a>
+### [tdarr-node-1.0.38](https://github.com/truecharts/apps/compare/tdarr-node-1.0.37...tdarr-node-1.0.38) (2022-01-18)
 
 #### Chore
 
@@ -233,8 +236,8 @@
 
 
 
-<a name="tdarr-1.0.37"></a>
-### [tdarr-1.0.37](https://github.com/truecharts/apps/compare/tdarr-node-1.0.36...tdarr-1.0.37) (2022-01-13)
+<a name="tdarr-node-1.0.37"></a>
+### [tdarr-node-1.0.37](https://github.com/truecharts/apps/compare/tdarr-node-1.0.36...tdarr-node-1.0.37) (2022-01-13)
 
 #### Chore
 
@@ -246,8 +249,8 @@
 
 
 
-<a name="tdarr-1.0.36"></a>
-### [tdarr-1.0.36](https://github.com/truecharts/apps/compare/tdarr-node-1.0.35...tdarr-1.0.36) (2022-01-12)
+<a name="tdarr-node-1.0.36"></a>
+### [tdarr-node-1.0.36](https://github.com/truecharts/apps/compare/tdarr-node-1.0.35...tdarr-node-1.0.36) (2022-01-12)
 
 #### Chore
 
@@ -255,8 +258,8 @@
 
 
 
-<a name="tdarr-1.0.35"></a>
-### [tdarr-1.0.35](https://github.com/truecharts/apps/compare/tdarr-node-1.0.34...tdarr-1.0.35) (2022-01-11)
+<a name="tdarr-node-1.0.35"></a>
+### [tdarr-node-1.0.35](https://github.com/truecharts/apps/compare/tdarr-node-1.0.34...tdarr-node-1.0.35) (2022-01-11)
 
 #### Chore
 
@@ -264,8 +267,8 @@
 
 
 
-<a name="tdarr-1.0.34"></a>
-### [tdarr-1.0.34](https://github.com/truecharts/apps/compare/tdarr-node-1.0.33...tdarr-1.0.34) (2022-01-10)
+<a name="tdarr-node-1.0.34"></a>
+### [tdarr-node-1.0.34](https://github.com/truecharts/apps/compare/tdarr-node-1.0.33...tdarr-node-1.0.34) (2022-01-10)
 
 #### Chore
 
@@ -273,8 +276,8 @@
 
 
 
-<a name="tdarr-1.0.33"></a>
-### [tdarr-1.0.33](https://github.com/truecharts/apps/compare/tdarr-node-1.0.32...tdarr-1.0.33) (2022-01-04)
+<a name="tdarr-node-1.0.33"></a>
+### [tdarr-node-1.0.33](https://github.com/truecharts/apps/compare/tdarr-node-1.0.32...tdarr-node-1.0.33) (2022-01-04)
 
 #### Chore
 
@@ -282,8 +285,8 @@
 
 
 
-<a name="tdarr-1.0.32"></a>
-### [tdarr-1.0.32](https://github.com/truecharts/apps/compare/tdarr-node-1.0.31...tdarr-1.0.32) (2022-01-03)
+<a name="tdarr-node-1.0.32"></a>
+### [tdarr-node-1.0.32](https://github.com/truecharts/apps/compare/tdarr-node-1.0.31...tdarr-node-1.0.32) (2022-01-03)
 
 #### Chore
 
@@ -291,8 +294,8 @@
 
 
 
-<a name="tdarr-1.0.31"></a>
-### [tdarr-1.0.31](https://github.com/truecharts/apps/compare/tdarr-node-1.0.30...tdarr-1.0.31) (2021-12-28)
+<a name="tdarr-node-1.0.31"></a>
+### [tdarr-node-1.0.31](https://github.com/truecharts/apps/compare/tdarr-node-1.0.30...tdarr-node-1.0.31) (2021-12-28)
 
 #### Chore
 
@@ -300,8 +303,8 @@
 
 
 
-<a name="tdarr-1.0.30"></a>
-### [tdarr-1.0.30](https://github.com/truecharts/apps/compare/tdarr-node-1.0.29...tdarr-1.0.30) (2021-12-21)
+<a name="tdarr-node-1.0.30"></a>
+### [tdarr-node-1.0.30](https://github.com/truecharts/apps/compare/tdarr-node-1.0.29...tdarr-node-1.0.30) (2021-12-21)
 
 #### Chore
 
@@ -309,20 +312,19 @@
 
 
 
-<a name="tdarr-1.0.29"></a>
-### [tdarr-1.0.29](https://github.com/truecharts/apps/compare/tdarr-node-1.0.28...tdarr-1.0.29) (2021-12-19)
+<a name="tdarr-node-1.0.29"></a>
+### [tdarr-node-1.0.29](https://github.com/truecharts/apps/compare/tdarr-node-1.0.28...tdarr-node-1.0.29) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
 * remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
 * remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
-* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
 
 
 
-<a name="tdarr-1.0.28"></a>
-### [tdarr-1.0.28](https://github.com/truecharts/apps/compare/tdarr-node-1.0.27...tdarr-1.0.28) (2021-12-19)
+<a name="tdarr-node-1.0.28"></a>
+### [tdarr-node-1.0.28](https://github.com/truecharts/apps/compare/tdarr-node-1.0.27...tdarr-node-1.0.28) (2021-12-19)
 
 #### Chore
 
@@ -330,8 +332,8 @@
 
 
 
-<a name="tdarr-1.0.27"></a>
-### [tdarr-1.0.27](https://github.com/truecharts/apps/compare/tdarr-node-1.0.26...tdarr-1.0.27) (2021-12-18)
+<a name="tdarr-node-1.0.27"></a>
+### [tdarr-node-1.0.27](https://github.com/truecharts/apps/compare/tdarr-node-1.0.26...tdarr-node-1.0.27) (2021-12-18)
 
 #### Chore
 
@@ -339,8 +341,8 @@
 
 
 
-<a name="tdarr-1.0.26"></a>
-### [tdarr-1.0.26](https://github.com/truecharts/apps/compare/tdarr-1.0.25...tdarr-1.0.26) (2021-12-17)
+<a name="tdarr-node-1.0.26"></a>
+### [tdarr-node-1.0.26](https://github.com/truecharts/apps/compare/tdarr-node-1.0.25...tdarr-node-1.0.26) (2021-12-17)
 
 #### Chore
 
@@ -353,8 +355,8 @@
 
 
 
-<a name="tdarr-1.0.25"></a>
-### [tdarr-1.0.25](https://github.com/truecharts/apps/compare/tdarr-1.0.24...tdarr-1.0.25) (2021-12-14)
+<a name="tdarr-node-1.0.25"></a>
+### [tdarr-node-1.0.25](https://github.com/truecharts/apps/compare/tdarr-node-1.0.24...tdarr-node-1.0.25) (2021-12-14)
 
 #### Chore
 
@@ -362,8 +364,8 @@
 
 
 
-<a name="tdarr-1.0.24"></a>
-### [tdarr-1.0.24](https://github.com/truecharts/apps/compare/tdarr-1.0.23...tdarr-1.0.24) (2021-12-13)
+<a name="tdarr-node-1.0.24"></a>
+### [tdarr-node-1.0.24](https://github.com/truecharts/apps/compare/tdarr-node-1.0.23...tdarr-node-1.0.24) (2021-12-13)
 
 #### Chore
 
@@ -371,17 +373,21 @@
 
 
 
-<a name="tdarr-1.0.23"></a>
-### [tdarr-1.0.23](https://github.com/truecharts/apps/compare/tdarr-node-1.0.22...tdarr-1.0.23) (2021-12-13)
+<a name="tdarr-node-1.0.23"></a>
+### [tdarr-node-1.0.23](https://github.com/truecharts/apps/compare/tdarr-node-1.0.22...tdarr-node-1.0.23) (2021-12-13)
 
 #### Chore
 
 * move incubator apps to stable and bump everything
 
+#### Fix
+
+* provide better defaults to work with `simple` network ([#1512](https://github.com/truecharts/apps/issues/1512))
 
 
-<a name="tdarr-1.0.22"></a>
-### [tdarr-1.0.22](https://github.com/truecharts/apps/compare/tdarr-node-1.0.21...tdarr-1.0.22) (2021-12-11)
+
+<a name="tdarr-node-1.0.22"></a>
+### [tdarr-node-1.0.22](https://github.com/truecharts/apps/compare/tdarr-node-1.0.21...tdarr-node-1.0.22) (2021-12-11)
 
 #### Chore
 
@@ -389,8 +395,8 @@
 
 
 
-<a name="tdarr-1.0.21"></a>
-### [tdarr-1.0.21](https://github.com/truecharts/apps/compare/tdarr-node-1.0.20...tdarr-1.0.21) (2021-12-07)
+<a name="tdarr-node-1.0.21"></a>
+### [tdarr-node-1.0.21](https://github.com/truecharts/apps/compare/tdarr-node-1.0.20...tdarr-node-1.0.21) (2021-12-07)
 
 #### Chore
 
@@ -398,8 +404,8 @@
 
 
 
-<a name="tdarr-1.0.20"></a>
-### tdarr-1.0.20 (2021-12-05)
+<a name="tdarr-node-1.0.20"></a>
+### tdarr-node-1.0.20 (2021-12-05)
 
 #### Chore
 
@@ -418,8 +424,8 @@
 
 
 
-<a name="tdarr-1.0.19"></a>
-### [tdarr-1.0.19](https://github.com/truecharts/apps/compare/tdarr-node-1.0.18...tdarr-1.0.19) (2021-12-05)
+<a name="tdarr-node-1.0.19"></a>
+### [tdarr-node-1.0.19](https://github.com/truecharts/apps/compare/tdarr-node-1.0.18...tdarr-node-1.0.19) (2021-12-05)
 
 #### Chore
 
@@ -427,8 +433,8 @@
 
 
 
-<a name="tdarr-1.0.18"></a>
-### [tdarr-1.0.18](https://github.com/truecharts/apps/compare/tdarr-node-1.0.17...tdarr-1.0.18) (2021-12-04)
+<a name="tdarr-node-1.0.18"></a>
+### [tdarr-node-1.0.18](https://github.com/truecharts/apps/compare/tdarr-node-1.0.17...tdarr-node-1.0.18) (2021-12-04)
 
 #### Chore
 
@@ -436,8 +442,8 @@
 
 
 
-<a name="tdarr-1.0.17"></a>
-### [tdarr-1.0.17](https://github.com/truecharts/apps/compare/tdarr-node-1.0.16...tdarr-1.0.17) (2021-12-04)
+<a name="tdarr-node-1.0.17"></a>
+### [tdarr-node-1.0.17](https://github.com/truecharts/apps/compare/tdarr-node-1.0.16...tdarr-node-1.0.17) (2021-12-04)
 
 #### Chore
 
@@ -445,8 +451,8 @@
 
 
 
-<a name="tdarr-1.0.16"></a>
-### [tdarr-1.0.16](https://github.com/truecharts/apps/compare/tdarr-node-1.0.15...tdarr-1.0.16) (2021-12-03)
+<a name="tdarr-node-1.0.16"></a>
+### [tdarr-node-1.0.16](https://github.com/truecharts/apps/compare/tdarr-node-1.0.15...tdarr-node-1.0.16) (2021-12-03)
 
 #### Chore
 
@@ -456,8 +462,8 @@
 
 
 
-<a name="tdarr-1.0.15"></a>
-### [tdarr-1.0.15](https://github.com/truecharts/apps/compare/tdarr-1.0.14...tdarr-1.0.15) (2021-11-30)
+<a name="tdarr-node-1.0.15"></a>
+### [tdarr-node-1.0.15](https://github.com/truecharts/apps/compare/tdarr-node-1.0.14...tdarr-node-1.0.15) (2021-11-30)
 
 #### Chore
 
@@ -465,8 +471,8 @@
 
 
 
-<a name="tdarr-1.0.14"></a>
-### [tdarr-1.0.14](https://github.com/truecharts/apps/compare/tdarr-node-1.0.13...tdarr-1.0.14) (2021-11-30)
+<a name="tdarr-node-1.0.14"></a>
+### [tdarr-node-1.0.14](https://github.com/truecharts/apps/compare/tdarr-node-1.0.13...tdarr-node-1.0.14) (2021-11-30)
 
 #### Chore
 
@@ -474,8 +480,8 @@
 
 
 
-<a name="tdarr-1.0.12"></a>
-### [tdarr-1.0.12](https://github.com/truecharts/apps/compare/tdarr-node-1.0.11...tdarr-1.0.12) (2021-11-23)
+<a name="tdarr-node-1.0.12"></a>
+### [tdarr-node-1.0.12](https://github.com/truecharts/apps/compare/tdarr-node-1.0.11...tdarr-node-1.0.12) (2021-11-23)
 
 #### Chore
 
@@ -483,8 +489,8 @@
 
 
 
-<a name="tdarr-1.0.11"></a>
-### [tdarr-1.0.11](https://github.com/truecharts/apps/compare/tdarr-node-1.0.10...tdarr-1.0.11) (2021-11-22)
+<a name="tdarr-node-1.0.11"></a>
+### [tdarr-node-1.0.11](https://github.com/truecharts/apps/compare/tdarr-node-1.0.10...tdarr-node-1.0.11) (2021-11-22)
 
 #### Chore
 
@@ -496,8 +502,8 @@
 
 
 
-<a name="tdarr-1.0.10"></a>
-### [tdarr-1.0.10](https://github.com/truecharts/apps/compare/tdarr-node-1.0.9...tdarr-1.0.10) (2021-11-16)
+<a name="tdarr-node-1.0.10"></a>
+### [tdarr-node-1.0.10](https://github.com/truecharts/apps/compare/tdarr-node-1.0.9...tdarr-node-1.0.10) (2021-11-16)
 
 #### Chore
 
@@ -505,8 +511,8 @@
 
 
 
-<a name="tdarr-1.0.9"></a>
-### [tdarr-1.0.9](https://github.com/truecharts/apps/compare/tdarr-node-1.0.8...tdarr-1.0.9) (2021-11-15)
+<a name="tdarr-node-1.0.9"></a>
+### [tdarr-node-1.0.9](https://github.com/truecharts/apps/compare/tdarr-node-1.0.8...tdarr-node-1.0.9) (2021-11-15)
 
 #### Chore
 
@@ -515,8 +521,8 @@
 
 
 
-<a name="tdarr-1.0.8"></a>
-### [tdarr-1.0.8](https://github.com/truecharts/apps/compare/tdarr-node-1.0.7...tdarr-1.0.8) (2021-11-14)
+<a name="tdarr-node-1.0.8"></a>
+### [tdarr-node-1.0.8](https://github.com/truecharts/apps/compare/tdarr-node-1.0.7...tdarr-node-1.0.8) (2021-11-14)
 
 #### Chore
 
@@ -532,8 +538,8 @@
 
 
 
-<a name="tdarr-1.0.7"></a>
-### [tdarr-1.0.7](https://github.com/truecharts/apps/compare/tdarr-node-1.0.6...tdarr-1.0.7) (2021-11-09)
+<a name="tdarr-node-1.0.7"></a>
+### [tdarr-node-1.0.7](https://github.com/truecharts/apps/compare/tdarr-node-1.0.6...tdarr-node-1.0.7) (2021-11-09)
 
 #### Chore
 
@@ -541,8 +547,8 @@
 
 
 
-<a name="tdarr-1.0.6"></a>
-### [tdarr-1.0.6](https://github.com/truecharts/apps/compare/tdarr-node-1.0.5...tdarr-1.0.6) (2021-11-07)
+<a name="tdarr-node-1.0.6"></a>
+### [tdarr-node-1.0.6](https://github.com/truecharts/apps/compare/tdarr-node-1.0.5...tdarr-node-1.0.6) (2021-11-07)
 
 #### Chore
 
@@ -550,8 +556,8 @@
 
 
 
-<a name="tdarr-1.0.5"></a>
-### [tdarr-1.0.5](https://github.com/truecharts/apps/compare/tdarr-node-1.0.4...tdarr-1.0.5) (2021-11-07)
+<a name="tdarr-node-1.0.5"></a>
+### [tdarr-node-1.0.5](https://github.com/truecharts/apps/compare/tdarr-node-1.0.4...tdarr-node-1.0.5) (2021-11-07)
 
 #### Chore
 
@@ -565,10 +571,14 @@
 
 * Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
 
+#### Fix
+
+* fix significant config mistakes
 
 
-<a name="tdarr-1.0.4"></a>
-### [tdarr-1.0.4](https://github.com/truecharts/apps/compare/tdarr-node-1.0.3...tdarr-1.0.4) (2021-11-02)
+
+<a name="tdarr-node-1.0.4"></a>
+### [tdarr-node-1.0.4](https://github.com/truecharts/apps/compare/tdarr-node-1.0.3...tdarr-node-1.0.4) (2021-11-02)
 
 #### Chore
 
@@ -576,8 +586,8 @@
 
 
 
-<a name="tdarr-1.0.3"></a>
-### [tdarr-1.0.3](https://github.com/truecharts/apps/compare/tdarr-node-1.0.2...tdarr-1.0.3) (2021-11-01)
+<a name="tdarr-node-1.0.3"></a>
+### [tdarr-node-1.0.3](https://github.com/truecharts/apps/compare/tdarr-node-1.0.2...tdarr-node-1.0.3) (2021-11-01)
 
 #### Chore
 
@@ -585,8 +595,8 @@
 
 
 
-<a name="tdarr-1.0.2"></a>
-### [tdarr-1.0.2](https://github.com/truecharts/apps/compare/tdarr-node-1.0.1...tdarr-1.0.2) (2021-10-26)
+<a name="tdarr-node-1.0.2"></a>
+### [tdarr-node-1.0.2](https://github.com/truecharts/apps/compare/tdarr-node-1.0.1...tdarr-node-1.0.2) (2021-10-26)
 
 #### Chore
 
@@ -594,8 +604,8 @@
 
 
 
-<a name="tdarr-1.0.1"></a>
-### [tdarr-1.0.1](https://github.com/truecharts/apps/compare/tdarr-node-1.0.0...tdarr-1.0.1) (2021-10-26)
+<a name="tdarr-node-1.0.1"></a>
+### [tdarr-node-1.0.1](https://github.com/truecharts/apps/compare/tdarr-node-1.0.0...tdarr-node-1.0.1) (2021-10-26)
 
 #### Chore
 
@@ -603,8 +613,8 @@
 
 
 
-<a name="tdarr-1.0.0"></a>
-### [tdarr-1.0.0](https://github.com/truecharts/apps/compare/tdarr-node-0.0.11...tdarr-1.0.0) (2021-10-25)
+<a name="tdarr-node-1.0.0"></a>
+### [tdarr-node-1.0.0](https://github.com/truecharts/apps/compare/tdarr-node-0.0.11...tdarr-node-1.0.0) (2021-10-25)
 
 #### Chore
 
@@ -612,8 +622,8 @@
 
 
 
-<a name="tdarr-0.0.11"></a>
-### [tdarr-0.0.11](https://github.com/truecharts/apps/compare/tdarr-node-0.0.8...tdarr-0.0.11) (2021-10-20)
+<a name="tdarr-node-0.0.11"></a>
+### [tdarr-node-0.0.11](https://github.com/truecharts/apps/compare/tdarr-node-0.0.8...tdarr-node-0.0.11) (2021-10-20)
 
 #### Chore
 
@@ -627,8 +637,8 @@
 
 
 
-<a name="tdarr-0.0.8"></a>
-### [tdarr-0.0.8](https://github.com/truecharts/apps/compare/tdarr-node-0.0.7...tdarr-0.0.8) (2021-10-20)
+<a name="tdarr-node-0.0.8"></a>
+### [tdarr-node-0.0.8](https://github.com/truecharts/apps/compare/tdarr-node-0.0.7...tdarr-node-0.0.8) (2021-10-20)
 
 #### Chore
 
@@ -636,8 +646,8 @@
 
 
 
-<a name="tdarr-0.0.7"></a>
-### [tdarr-0.0.7](https://github.com/truecharts/apps/compare/tdarr-0.0.6...tdarr-0.0.7) (2021-10-19)
+<a name="tdarr-node-0.0.7"></a>
+### [tdarr-node-0.0.7](https://github.com/truecharts/apps/compare/tdarr-node-0.0.6...tdarr-node-0.0.7) (2021-10-19)
 
 #### Change
 
@@ -659,8 +669,8 @@
 
 
 
-<a name="tdarr-0.0.6"></a>
-### [tdarr-0.0.6](https://github.com/truecharts/apps/compare/tdarr-0.0.5...tdarr-0.0.6) (2021-10-19)
+<a name="tdarr-node-0.0.6"></a>
+### [tdarr-node-0.0.6](https://github.com/truecharts/apps/compare/tdarr-node-0.0.5...tdarr-node-0.0.6) (2021-10-19)
 
 #### Fix
 
@@ -668,8 +678,8 @@
 
 
 
-<a name="tdarr-0.0.5"></a>
-### [tdarr-0.0.5](https://github.com/truecharts/apps/compare/tdarr-0.0.4...tdarr-0.0.5) (2021-10-19)
+<a name="tdarr-node-0.0.5"></a>
+### [tdarr-node-0.0.5](https://github.com/truecharts/apps/compare/tdarr-node-0.0.4...tdarr-node-0.0.5) (2021-10-19)
 
 #### Fix
 
@@ -677,8 +687,8 @@
 
 
 
-<a name="tdarr-0.0.4"></a>
-### [tdarr-0.0.4](https://github.com/truecharts/apps/compare/tdarr-node-0.0.3...tdarr-0.0.4) (2021-10-18)
+<a name="tdarr-node-0.0.4"></a>
+### [tdarr-node-0.0.4](https://github.com/truecharts/apps/compare/tdarr-node-0.0.3...tdarr-node-0.0.4) (2021-10-18)
 
 #### Chore
 
@@ -690,8 +700,8 @@
 
 
 
-<a name="tdarr-0.0.3"></a>
-### [tdarr-0.0.3](https://github.com/truecharts/apps/compare/tdarr-node-0.0.2...tdarr-0.0.3) (2021-10-17)
+<a name="tdarr-node-0.0.3"></a>
+### [tdarr-node-0.0.3](https://github.com/truecharts/apps/compare/tdarr-node-0.0.2...tdarr-node-0.0.3) (2021-10-17)
 
 #### Chore
 
@@ -703,8 +713,8 @@
 
 
 
-<a name="tdarr-0.0.2"></a>
-### [tdarr-0.0.2](https://github.com/truecharts/apps/compare/tdarr-0.0.1...tdarr-0.0.2) (2021-10-17)
+<a name="tdarr-node-0.0.2"></a>
+### [tdarr-node-0.0.2](https://github.com/truecharts/apps/compare/tdarr-node-0.0.1...tdarr-node-0.0.2) (2021-10-17)
 
 #### Fix
 
@@ -712,9 +722,9 @@
 
 
 
-<a name="tdarr-0.0.1"></a>
-### [tdarr-0.0.1](https://github.com/truecharts/apps/compare/tdarr-node-0.0.1...tdarr-0.0.1) (2021-10-16)
+<a name="tdarr-node-0.0.1"></a>
+### tdarr-node-0.0.1 (2021-10-16)
 
 #### Feat
 
-* Add tdarr  ([#1152](https://github.com/truecharts/apps/issues/1152))
+* Add tdarr-node ([#1150](https://github.com/truecharts/apps/issues/1150))

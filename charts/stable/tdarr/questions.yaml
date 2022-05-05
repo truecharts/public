@@ -220,7 +220,7 @@ questions:
       attrs:
         - variable: internalNode
           label: "internalNode"
-          description: "Spawns an internal node (aka worker), with this, you will need to have a node separately."
+          description: "Spawns an internal node (aka worker), disabling this, you will need to have a node separately."
           schema:
             type: boolean
             default: true
@@ -233,13 +233,6 @@ questions:
                   type: string
                   required: true
                   default: "Internal Node"
-        - variable: serverIP
-          label: "serverIP"
-          description: "Where the server will be listening, should only be changed if you have nodes in another IP"
-          schema:
-            type: string
-            required: true
-            default: "localhost"
 
 # Include{serviceList}
 
@@ -392,7 +385,7 @@ questions:
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simpleHP"
+                  default: "simplePVC"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -436,7 +429,7 @@ questions:
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simpleHP"
+                  default: "simplePVC"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -468,7 +461,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-
 
 # Include{persistenceList}
 
