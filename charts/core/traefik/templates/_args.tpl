@@ -107,17 +107,13 @@ args:
   {{- end }}
   {{- end }}
   {{- with .Values.logs }}
-  {{- if .general.format }}
   - "--log.format={{ .general.format }}"
-  {{- end }}
   {{- if ne .general.level "ERROR" }}
   - "--log.level={{ .general.level | upper }}"
   {{- end }}
   {{- if .access.enabled }}
   - "--accesslog=true"
-  {{- if .access.format }}
   - "--accesslog.format={{ .access.format }}"
-  {{- end }}
   {{- if .access.bufferingsize }}
   - "--accesslog.bufferingsize={{ .access.bufferingsize }}"
   {{- end }}

@@ -154,6 +154,16 @@ questions:
                       description: "Panics"
                     - value: "DEBUG"
                       description: "Debug"
+              - variable: format
+                label: "General Log format"
+                schema:
+                  type: string
+                  default: "common"
+                  enum:
+                    - value: "common"
+                      description: "Common Log Format"
+                    - value: "json"
+                      description: "JSON"
         - variable: access
           label: "Access Logs"
           schema:
@@ -233,7 +243,16 @@ questions:
                                         description: "Keep"
                                       - value: "drop"
                                         description: "Drop"
-
+                    - variable: format
+                      label: "Access Log format"
+                      schema:
+                        type: string
+                        default: "common"
+                        enum:
+                          - value: "common"
+                            description: "Common Log Format"
+                          - value: "json"
+                            description: "JSON"
   - variable: middlewares
     label: ""
     group: "Middlewares"
