@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.39"></a>
+### [grafana-3.0.39](https://github.com/truecharts/apps/compare/grafana-3.0.38...grafana-3.0.39) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="grafana-3.0.38"></a>
 ### [grafana-3.0.38](https://github.com/truecharts/apps/compare/grafana-3.0.37...grafana-3.0.38) (2022-05-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statisfactory-0.0.27"></a>
+### [statisfactory-0.0.27](https://github.com/truecharts/apps/compare/statisfactory-0.0.26...statisfactory-0.0.27) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="statisfactory-0.0.26"></a>
 ### [statisfactory-0.0.26](https://github.com/truecharts/apps/compare/statisfactory-0.0.25...statisfactory-0.0.26) (2022-04-26)
 

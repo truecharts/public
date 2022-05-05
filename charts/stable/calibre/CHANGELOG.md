@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-6.0.21"></a>
+### [calibre-6.0.21](https://github.com/truecharts/apps/compare/calibre-web-10.0.19...calibre-6.0.21) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="calibre-6.0.20"></a>
 ### [calibre-6.0.20](https://github.com/truecharts/apps/compare/calibre-web-10.0.18...calibre-6.0.20) (2022-05-04)
 

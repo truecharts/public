@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-2.0.18"></a>
+### [speedtest-exporter-2.0.18](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.17...speedtest-exporter-2.0.18) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="speedtest-exporter-2.0.17"></a>
 ### [speedtest-exporter-2.0.17](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.16...speedtest-exporter-2.0.17) (2022-04-26)
 

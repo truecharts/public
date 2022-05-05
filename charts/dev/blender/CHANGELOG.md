@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blender-0.0.5"></a>
+### [blender-0.0.5](https://github.com/truecharts/apps/compare/blender-0.0.4...blender-0.0.5) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="blender-0.0.4"></a>
 ### [blender-0.0.4](https://github.com/truecharts/apps/compare/blender-desktop-g3-0.0.3...blender-0.0.4) (2022-04-26)
 

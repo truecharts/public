@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flexget-1.0.21"></a>
+### [flexget-1.0.21](https://github.com/truecharts/apps/compare/flexget-1.0.20...flexget-1.0.21) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="flexget-1.0.20"></a>
 ### [flexget-1.0.20](https://github.com/truecharts/apps/compare/flexget-1.0.19...flexget-1.0.20) (2022-05-04)
 

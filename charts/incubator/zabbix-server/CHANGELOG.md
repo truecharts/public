@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zabbix-server-0.0.7"></a>
+### [zabbix-server-0.0.7](https://github.com/truecharts/apps/compare/zabbix-server-0.0.6...zabbix-server-0.0.7) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="zabbix-server-0.0.6"></a>
 ### [zabbix-server-0.0.6](https://github.com/truecharts/apps/compare/zabbix-server-0.0.5...zabbix-server-0.0.6) (2022-05-04)
 
