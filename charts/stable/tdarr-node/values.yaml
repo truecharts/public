@@ -17,12 +17,13 @@ env:
   serverIP: "0.0.0.0"
   serverPort: 8266
 
-service:
-  main:
-    ports:
-      main:
-        port: 8267
-        targetPort: 8267
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 persistence:
   configs:
