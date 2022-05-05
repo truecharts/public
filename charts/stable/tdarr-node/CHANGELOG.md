@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.0"></a>
+### [tdarr-node-1.0.0](https://github.com/truecharts/apps/compare/tdarr-node-3.0.0...tdarr-node-1.0.0) (2022-05-05)
+
+
+
 <a name="tdarr-node-3.0.0"></a>
 ### [tdarr-node-3.0.0](https://github.com/truecharts/apps/compare/tdarr-node-2.0.15...tdarr-node-3.0.0) (2022-05-05)
 

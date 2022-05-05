@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.0"></a>
+### [tdarr-1.0.0](https://github.com/truecharts/apps/compare/tdarr-3.0.0...tdarr-1.0.0) (2022-05-05)
+
+
+
 <a name="tdarr-3.0.0"></a>
 ### [tdarr-3.0.0](https://github.com/truecharts/apps/compare/tdarr-2.0.15...tdarr-3.0.0) (2022-05-05)
 
