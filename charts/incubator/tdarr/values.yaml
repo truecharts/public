@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tdarr
   pullPolicy: IfNotPresent
-  tag: v2.00.16@sha256:cb06a5d50de3c7ea209d9d853dfea9d75bc7347002ef60762e27729382c29946
+  tag: v2.00.18.1@sha256:f6272147724475e95b86269280d598b49bf113ee17deab177d196e14674503c8
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,10 +12,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  # Not sure if those set the port the server will listen
-  # lets test
-  serverPort: 9266
-  webUIPort: 9265
+  webUIPort: "{{ .Values.service.main.ports.main.port }}"
+  serverPort: "{{ .Values.service.comm.ports.comm.port }}"
   # User Defined
   internalNode: true
   serverIP: "localhost"
@@ -26,14 +24,12 @@ service:
     ports:
       main:
         port: 8265
-        targetPort: 8266
   comm:
     enabled: true
     ports:
       comm:
         enabled: true
         port: 8266
-        targetPort: 8266
 
 persistence:
   configs:
