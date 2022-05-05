@@ -15,6 +15,8 @@ securityContext:
 env:
   - name: SEPARATOR
     value: ";"
+  - name: IPTABLES_BACKEND
+    value: "nft"
 {{- range $envList := .Values.addons.vpn.envList }}
   {{- if and $envList.name $envList.value }}
   - name: {{ $envList.name }}
