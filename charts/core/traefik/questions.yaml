@@ -154,11 +154,16 @@ questions:
                       description: "Panics"
                     - value: "DEBUG"
                       description: "Debug"
-              - variable: formatJson
-                label: "Write General Logs in JSON format"
+              - variable: format
+                label: "General Log format"
                 schema:
-                  type: boolean
-                  default: false
+                  type: string
+                  default: "common"
+                  enum:
+                    - value: "common"
+                      description: "Common Log Format"
+                    - value: "json"
+                      description: "JSON"
         - variable: access
           label: "Access Logs"
           schema:
@@ -238,11 +243,16 @@ questions:
                                         description: "Keep"
                                       - value: "drop"
                                         description: "Drop"
-                    - variable: formatJson
-                      label: "Write Access Logs in JSON format"
+                    - variable: format
+                      label: "Access Log format"
                       schema:
-                        type: boolean
-                        default: false
+                        type: string
+                        default: "common"
+                        enum:
+                          - value: "common"
+                            description: "Common Log Format"
+                          - value: "json"
+                            description: "JSON"
   - variable: middlewares
     label: ""
     group: "Middlewares"
