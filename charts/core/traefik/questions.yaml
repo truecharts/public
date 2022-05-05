@@ -154,6 +154,11 @@ questions:
                       description: "Panics"
                     - value: "DEBUG"
                       description: "Debug"
+              - variable: formatJson
+                label: "Write General Logs in JSON format"
+                schema:
+                  type: boolean
+                  default: false
         - variable: access
           label: "Access Logs"
           schema:
@@ -233,7 +238,11 @@ questions:
                                         description: "Keep"
                                       - value: "drop"
                                         description: "Drop"
-
+                    - variable: formatJson
+                      label: "Write Access Logs in JSON format"
+                      schema:
+                        type: boolean
+                        default: false
   - variable: middlewares
     label: ""
     group: "Middlewares"

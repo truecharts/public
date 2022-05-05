@@ -107,16 +107,16 @@ args:
   {{- end }}
   {{- end }}
   {{- with .Values.logs }}
-  {{- if .general.format }}
-  - "--log.format={{ .general.format }}"
+  {{- if .general.formatJson }}
+  - "--log.format=json"
   {{- end }}
   {{- if ne .general.level "ERROR" }}
   - "--log.level={{ .general.level | upper }}"
   {{- end }}
   {{- if .access.enabled }}
   - "--accesslog=true"
-  {{- if .access.format }}
-  - "--accesslog.format={{ .access.format }}"
+  {{- if .access.formatJson }}
+  - "--accesslog.format=json"
   {{- end }}
   {{- if .access.bufferingsize }}
   - "--accesslog.bufferingsize={{ .access.bufferingsize }}"
