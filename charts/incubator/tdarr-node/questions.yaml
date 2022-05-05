@@ -74,9 +74,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
-
-
         - variable: nodeID
           label: "nodeID"
           description: "Sets name of this node"
@@ -84,25 +81,16 @@ questions:
             type: string
             required: true
             default: "myFirstTdarrNode"
-        - variable: nodeIP
-          label: "nodeIP"
-          description: "Sets IP of this node."
-          schema:
-            type: string
-            required: true
-            $ref:
-              - "definitions/nodeIP"
         - variable: serverIP
           label: "serverIP"
-          description: "Sets the serverIP, to which this node will connect. Use the service name if the node is in the same cluster"
+          description: "Sets the serverIP (or DNS name), to which this node will connect."
           schema:
             type: string
             required: true
-            $ref:
-              - "definitions/nodeIP"
+            default: ""
         - variable: serverPort
           label: "serverPort"
-          description: "Sets the server port, to which this node will connect. Leave default if you used service name."
+          description: "Sets the server port, to which this node will connect."
           schema:
             type: int
             required: true
@@ -288,7 +276,51 @@ questions:
 # Include{persistenceAdvanced}
         - variable: transcode-cache
           label: "App Transcode cache"
-          description: "Stores the Application Transcode cache."
+          description: "Stores the Application Transcode cache.(Both Node and Server must have access to the SAME cache directory)"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simpleHP"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  required: true
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: media
+          label: "App Media"
+          description: "Stores the Application Media.(Both Node and Server must have access to the SAME media directory)"
           schema:
             additional_attrs: true
             type: dict
