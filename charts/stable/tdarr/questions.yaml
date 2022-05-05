@@ -233,13 +233,6 @@ questions:
                   type: string
                   required: true
                   default: "Internal Node"
-        - variable: serverIP
-          label: "serverIP"
-          description: "Where the server will be listening, should only be changed if you have nodes in another IP"
-          schema:
-            type: string
-            required: true
-            default: "localhost"
 
 # Include{serviceList}
 
