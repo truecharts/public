@@ -12,8 +12,10 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  serverPort: "{{ .Values.service.comm.ports.comm.port }}"
-  webUIPort: "{{ .Values.service.main.ports.main.port }}"
+  # Not sure if those set the port the server will listen
+  # lets test
+  serverPort: 9266
+  webUIPort: 9265
   # User Defined
   internalNode: true
   serverIP: "localhost"
@@ -24,12 +26,14 @@ service:
     ports:
       main:
         port: 8265
+        targetPort: 8266
   comm:
     enabled: true
     ports:
       comm:
         enabled: true
         port: 8266
+        targetPort: 8266
 
 persistence:
   configs:
