@@ -1,23 +1,23 @@
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.107.6"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 9.3.2
-description: CUPS printing server
-home: https://github.com/truecharts/apps/tree/master/charts/stable/cups-server
-icon: https://truecharts.org/_static/img/appicons/cups-server.png
+description: Free and open source, powerful network-wide ads & trackers blocking DNS server.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/adguard-home
+icon: https://truecharts.org/_static/img/appicons/adguard-home.png
 keywords:
-- print
-- cups
+- adblock
+- adguard
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: cups-server
+name: adguard-home
 sources:
-- https://hub.docker.com/r/ydkn/cups
+- https://hub.docker.com/r/adguard/adguardhome
 version: 0.0.2
 annotations:
   truecharts.org/catagories: |

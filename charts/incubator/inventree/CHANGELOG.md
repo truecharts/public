@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="inventree-0.0.5"></a>
+### [inventree-0.0.5](https://github.com/truecharts/apps/compare/inventree-0.0.4...inventree-0.0.5) (2022-05-06)
+
+#### Fix
+
+* re-add nginx ([#2618](https://github.com/truecharts/apps/issues/2618))
+
+
+
 <a name="inventree-0.0.4"></a>
 ### [inventree-0.0.4](https://github.com/truecharts/apps/compare/inventree-0.0.3...inventree-0.0.4) (2022-05-05)
 
