@@ -1,12 +1,34 @@
 image:
-  repository: xal3xhx/fancy
+  repository: tccr.io/truecharts/fancyindex
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: latest@sha256:040ceb30558492517ae8515d219f2450775ffcd75755f959856783968d679088
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  WEBUSER: "webuser"
+  WEBPASSWORD: "webpassword"
+
+env:
+  CONTAINER_TIMEZONE: "{{ .Values.TZ }}"
+  # User Defined
+  DISABLE_AUTH: false
+  SET_CONTAINER_TIMEZONE: true
 
 service:
   main:
     ports:
       main:
+        port: 10235
         targetPort: 80
-        port: 10211
+
+persistence:
+  share:
+    enabled: true
+    mountPath: "/share"
