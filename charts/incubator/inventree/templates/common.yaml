@@ -15,7 +15,6 @@ persistence:
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "inventree.harcodedValues" . | fromYaml) -}}
 
-
 {{/* Render secrets for inventree */}}
 {{- include "inventree.secrets" . }}
 
