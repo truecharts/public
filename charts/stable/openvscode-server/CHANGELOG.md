@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-1.0.18"></a>
+### [openvscode-server-1.0.18](https://github.com/truecharts/apps/compare/openvscode-server-1.0.17...openvscode-server-1.0.18) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="openvscode-server-1.0.17"></a>
 ### [openvscode-server-1.0.17](https://github.com/truecharts/apps/compare/openvscode-server-1.0.16...openvscode-server-1.0.17) (2022-05-05)
 
