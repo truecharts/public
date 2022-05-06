@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: v2.6.3@sha256:fab794392ae3e63eef4009b97dfbd57fda9806b70b36333bc502a0ef72838852
+  tag: v2.6.6@sha256:8772fcd592d130f68e61778553554c99a791bcf1ab609fdc276e978706048acd
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -57,18 +57,13 @@ providers:
 logs:
   # Traefik logs concern everything that happens to Traefik itself (startup, configuration, events, shutdown, and so on).
   general:
-    # By default, the logs use a text format (common), but you can
-    # also ask for the json format in the format option
-    # format: json
     # By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
     level: ERROR
+    # -- Set the format of General Logs to be either Common Log Format or JSON. For more information: https://doc.traefik.io/traefik/observability/logs/#format
+    format: common
   access:
     # To enable access logs
     enabled: false
-    # By default, logs are written using the Common Log Format (CLF).
-    # To write logs in JSON, use json in the format option.
-    # If the given format is unsupported, the default (CLF) is used instead.
-    # format: json
     # To write the logs in an asynchronous fashion, specify a bufferingSize option.
     # This option represents the number of log lines Traefik will keep in memory before writing
     # them to the selected output. In some cases, this option can greatly help performances.
@@ -93,6 +88,8 @@ logs:
           # User-Agent: redact
           # Authorization: drop
           # Content-Type: keep
+    # -- Set the format of Access Logs to be either Common Log Format or JSON. For more information: https://doc.traefik.io/traefik/observability/access-logs/#format
+    format: common
 
 metrics:
   # datadog:
@@ -146,6 +143,9 @@ service:
         port: 9000
         targetPort: 9000
         protocol: HTTP
+        # -- Forwarded Headers should never be enabled on Main entrypoint
+        forwardedHeaders:
+          enabled: false
   tcp:
     enabled: true
     type: LoadBalancer
@@ -155,12 +155,26 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        forwardedHeaders:
+          enabled: false
+          # -- List of trusted IP and CIDR references
+          trustedIPs: []
+          # -- Trust all forwarded headers
+          insecureMode: false
         # Options: Empty, 0 (ingore), or positive int
         # redirectPort:
       websecure:
         enabled: true
         port: 9443
         protocol: HTTPS
+        # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
+        forwardedHeaders:
+          enabled: false
+          # -- List of trusted IP and CIDR references
+          trustedIPs: []
+          # -- Trust all forwarded headers
+          insecureMode: false
 #      tcpexample:
 #        enabled: true
 #        targetPort: 9443
@@ -184,6 +198,9 @@ service:
         port: 9180
         targetPort: 9180
         protocol: HTTP
+        # -- Forwarded Headers should never be enabled on Metrics entrypoint
+        forwardedHeaders:
+          enabled: false
   udp:
     enabled: false
 
@@ -303,7 +320,7 @@ middlewares:
   redirectRegex: []
   # - name: redirectRegexName
   #   regex: putregexhere
-  #   replacement: replacementurlhere
+  #   replacement: repslacementurlhere
   #   permanent: false
   stripPrefixRegex: []
   # - name: stripPrefixRegexName

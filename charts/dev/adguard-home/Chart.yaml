@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network
+    - Network-DNS
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.3
+deprecated: false
+description: "AdGuard Home is a network-wide software for blocking ads & tracking.\
+  \ After you set it up, it\u2019ll cover ALL your home devices, and you don\u2019\
+  t need any client-side software for that. With the rise of Internet-Of-Things and\
+  \ connected devices, it becomes more and more important to be able to control your\
+  \ whole network."
+home: https://github.com/truecharts/apps/tree/master/charts/stable/adguard-home
+icon: https://truecharts.org/_static/img/appicons/adguard-home.png
+keywords:
+- adguard-home
+- Network
+- Network-DNS
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: adguard-home
+sources:
+- https://registry.hub.docker.com/r/adguard/adguardhome
+type: application
+version: 0.0.5

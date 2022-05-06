@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/ispy-agent-dvr
-  tag: v3.9.0.0@sha256:72d5a30ae36e83b8fe0ea7a4ce2bcc470a45a08181606df78e45944f9080e23b
+  tag: v3.9.5.0@sha256:95310d013a0a93edd13cd4299ddc7fcfe8741673ee2f3a9b5befb3a31e5b05aa
   pullPolicy: IfNotPresent
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0

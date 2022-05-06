@@ -1,0 +1,33 @@
+image:
+  repository: ydkn/cups
+  tag: latest@sha256:a61674aff22886ae4d70d573b14dfdbf6696a5c3b8d62e8b35ee025f6aeb079e
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  ADMIN_PASSWORD: "secretpass"
+
+service:
+  main:
+    ports:
+      main:
+        port: 631
+        targetPort: 631
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/cups"
+  dbus:
+    enabled: true
+    type: hostPath
+    hostPath: "/var/run/dbus"
+    mountPath: "/var/run/dbus"
+    readOnly: false

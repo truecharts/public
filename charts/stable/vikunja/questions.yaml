@@ -1,0 +1,511 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: VIKUNJA_SERVICE_FRONTENDURL
+          label: "VIKUNJA_SERVICE_FRONTENDURL"
+          description: "The URL of the frontend, used to send password reset emails. eg. https://vikunjka.example.com"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: VIKUNJA_SERVICE_MOTD
+          label: "VIKUNJA_SERVICE_MOTD"
+          description: "Set the motd message, available from the /info endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: VIKUNJA_SERVICE_JWTTTL
+          label: "VIKUNJA_SERVICE_JWTTTL"
+          description: "The duration of the issed JWT tokens in seconds. The default is 259200 seconds (3 Days)."
+          schema:
+            type: int
+            required: true
+            default: 259200
+        - variable: VIKUNJA_SERVICE_JWTTTLLONG
+          label: "VIKUNJA_SERVICE_JWTTTLLONG"
+          description: "The duration of the “remember me” time in seconds. When the login request is made with the long param set, the token returned will be valid for this period. The default is 2592000 seconds (30 Days)."
+          schema:
+            type: int
+            required: true
+            default: 2592000
+        - variable: VIKUNJA_SERVICE_MAXITEMSPERPAGE
+          label: "VIKUNJA_SERVICE_MAXITEMSPERPAGE"
+          description: "The max number of items which can be returned per page."
+          schema:
+            type: int
+            required: true
+            default: 50
+        - variable: VIKUNJA_FILES_MAXSIZE
+          label: "VIKUNJA_FILES_MAXSIZE"
+          description: "The maximum size of a file, as a human-readable string. Warning: The max size is limited 2^64-1 bytes due to the underlying datatype"
+          schema:
+            type: string
+            required: true
+            default: "20MB"
+        - variable: VIKUNJA_SERVICE_ENABLECALDAV
+          label: "VIKUNJA_SERVICE_ENABLECALDAV"
+          description: "Enable the caldav endpoint, see the docs for more details"
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLELINKSHARING
+          label: "VIKUNJA_SERVICE_ENABLELINKSHARING"
+          description: "Enable sharing of lists via a link"
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLEREGISTRATION
+          label: "VIKUNJA_SERVICE_ENABLEREGISTRATION"
+          description: "Whether to let new users registering themselves or not"
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLETASKATTACHMENTS
+          label: "VIKUNJA_SERVICE_ENABLETASKATTACHMENTS"
+          description: "Whether to enable task attachments or not"
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLETASKCOMMENTS
+          label: "VIKUNJA_SERVICE_ENABLETASKCOMMENTS"
+          description: "Whether task comments should be enabled or not"
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLETOTP
+          label: "VIKUNJA_SERVICE_ENABLETOTP"
+          description: "Whether totp is enabled. In most cases you want to leave that enabled."
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLEEMAILREMINDERS
+          label: "VIKUNJA_SERVICE_ENABLEEMAILREMINDERS"
+          description: "If enabled, vikunja will send an email to everyone who is either assigned to a task or created it when a task reminder is due."
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_SERVICE_ENABLEUSERDELETION
+          label: "VIKUNJA_SERVICE_ENABLEUSERDELETION"
+          description: "If true, will allow users to request the complete deletion of their account. When using external authentication methods it may be required to coordinate with them in order to delete the account. This setting will not affect the cli commands for user deletion."
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_BACKGROUNDS_ENABLED
+          label: "VIKUNJA_BACKGROUNDS_ENABLED"
+          description: "Whether to enable backgrounds for lists at all."
+          schema:
+            type: boolean
+            default: true
+        - variable: VIKUNJA_RATELIMIT_ENABLED
+          label: "VIKUNJA_RATELIMIT_ENABLED"
+          description: "Whether or not to enable the rate limit"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: VIKUNJA_RATELIMIT_KIND
+                label: "VIKUNJA_RATELIMIT_KIND"
+                description: "The kind on which rates are based. Can be either “user” for a rate limit per user or “ip” for an ip-based rate limit."
+                schema:
+                  type: string
+                  required: true
+                  default: "user"
+                  enum:
+                    - value: user
+                      description: "user"
+                    - value: ip
+                      description: "ip"
+              - variable: VIKUNJA_RATELIMIT_PERIOD
+                label: "VIKUNJA_RATELIMIT_PERIOD"
+                description: "The time period in seconds for the limit"
+                schema:
+                  type: int
+                  required: true
+                  default: 60
+              - variable: VIKUNJA_RATELIMIT_LIMIT
+                label: "VIKUNJA_RATELIMIT_LIMIT"
+                description: "The max number of requests a user is allowed to do in the configured time period"
+                schema:
+                  type: int
+                  required: true
+                  default: 100
+        - variable: VIKUNJA_MAILER_ENABLED
+          label: "VIKUNJA_MAILER_ENABLED"
+          description: "Whether to enable the mailer or not. If it is disabled, all users are enabled right away and password reset is not possible."
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: VIKUNJA_MAILER_HOST
+                label: "VIKUNJA_MAILER_HOST"
+                description: "SMTP Host"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: VIKUNJA_MAILER_PORT
+                label: "VIKUNJA_MAILER_PORT"
+                description: "SMTP Host Port"
+                schema:
+                  type: int
+                  required: true
+                  default: 587
+              - variable: VIKUNJA_MAILER_USERNAME
+                label: "VIKUNJA_MAILER_USERNAME"
+                description: "SMTP username"
+                schema:
+                  type: string
+                  default: ""
+              - variable: VIKUNJA_MAILER_PASSWORD
+                label: "VIKUNJA_MAILER_PASSWORD"
+                description: "SMTP password"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: VIKUNJA_MAILER_FROMEMAIL
+                label: "VIKUNJA_MAILER_FROMEMAIL"
+                description: "The default from address when sending emails"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: VIKUNJA_MAILER_SKIPTLSVERIFY
+                label: "VIKUNJA_MAILER_SKIPTLSVERIFY"
+                description: "Wether to skip verification of the tls certificate on the server"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: VIKUNJA_MAILER_FORCESSL
+                label: "VIKUNJA_MAILER_FORCESSL"
+                description: "By default, vikunja will try to connect with starttls, use this option to force it to use ssl."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: VIKUNJA_MAILER_QUEUELENGTH
+                label: "VIKUNJA_MAILER_QUEUELENGTH"
+                description: "The length of the mail queue."
+                schema:
+                  type: int
+                  required: true
+                  default: 100
+              - variable: VIKUNJA_MAILER_QUEUETIMEOUT
+                label: "VIKUNJA_MAILER_QUEUETIMEOUT"
+                description: "The timeout in seconds after which the current open connection to the mailserver will be closed."
+                schema:
+                  type: int
+                  required: true
+                  default: 30
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10220
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 80
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: files
+          label: "App Files Storage"
+          description: "Stores the Application Files."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

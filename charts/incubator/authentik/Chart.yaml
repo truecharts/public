@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "2022.4.1"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.3
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.truecharts.org/
+  version: 7.0.54
+- condition: redis.enabled
+  name: redis
+  repository: https://charts.truecharts.org
+  version: 2.0.45
+description: authentik is an open-source Identity Provider focused on flexibility and versatility.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/authentik
+icon: https://truecharts.org/_static/img/appicons/authentik.png
+keywords:
+- authentik
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: authentik
+sources:
+- https://github.com/goauthentik/authentik
+- https://goauthentik.io/docs/
+version: 0.0.6
+annotations:
+  truecharts.org/catagories: |
+    - authentication
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

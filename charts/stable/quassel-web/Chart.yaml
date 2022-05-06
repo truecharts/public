@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: quassel-web
-version: 1.0.9
+version: 1.0.13
 appVersion: "2021.12.16"
 description: Quassel-web is a web client for Quassel.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.7
+  version: 9.3.3
   # condition:
 maintainers:
 - email: info@truecharts.org

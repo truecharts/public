@@ -74,7 +74,19 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: CSRF_TRUSTED_ORIGINS
+          label: "CSRF_TRUSTED_ORIGINS"
+          description: "Add any address you'd like to access babybuddy at (comma separated, no spaces)"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -258,12 +270,12 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
@@ -286,7 +298,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 0

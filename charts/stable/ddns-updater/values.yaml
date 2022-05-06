@@ -1,0 +1,18 @@
+image:
+  repository: tccr.io/truecharts/ddns-updater
+  tag: v2.4.1@sha256:82e1cedae94f79be838019bb82974bf80ee784084b6dca6823dde8c177ba4145
+  pullPolicy: IfNotPresent
+
+env:
+  LISTENING_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10227
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/updater/data"

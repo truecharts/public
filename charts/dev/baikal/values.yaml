@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/baikal
+  tag: vnginx
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/baikal/config
+  specific:
+    enabled: true
+    mountPath: /var/www/baikal/Specific
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 80

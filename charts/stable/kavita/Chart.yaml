@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: kavita
-version: 1.0.3
-appVersion: "0.5.1"
+version: 1.0.8
+appVersion: "0.5.2"
 description: Kavita is a rocket fueled self-hosted digital library which supports a vast array of file formats
 type: application
 deprecated: false
@@ -18,7 +18,7 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.7
+  version: 9.3.3
     # condition:
 maintainers:
 - email: info@truecharts.org

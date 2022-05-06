@@ -154,6 +154,16 @@ questions:
                       description: "Panics"
                     - value: "DEBUG"
                       description: "Debug"
+              - variable: format
+                label: "General Log format"
+                schema:
+                  type: string
+                  default: "common"
+                  enum:
+                    - value: "common"
+                      description: "Common Log Format"
+                    - value: "json"
+                      description: "JSON"
         - variable: access
           label: "Access Logs"
           schema:
@@ -233,7 +243,16 @@ questions:
                                         description: "Keep"
                                       - value: "drop"
                                         description: "Drop"
-
+                    - variable: format
+                      label: "Access Log format"
+                      schema:
+                        type: string
+                        default: "common"
+                        enum:
+                          - value: "common"
+                            description: "Common Log Format"
+                          - value: "json"
+                            description: "JSON"
   - variable: middlewares
     label: ""
     group: "Middlewares"
@@ -402,7 +421,6 @@ questions:
                       label: "Permanent"
                       schema:
                         type: boolean
-                        required: true
                         default: false
 
         - variable: rateLimit
@@ -467,7 +485,6 @@ questions:
                       label: "Permanent"
                       schema:
                         type: boolean
-                        required: true
                         default: false
         - variable: stripPrefixRegex
           label: "stripPrefixRegex"
@@ -552,7 +569,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
 
   - variable: service
     group: "Networking and Services"
@@ -678,6 +694,36 @@ questions:
                                   schema:
                                     type: string
                                     default: "websecure"
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
                     - variable: websecure
                       label: "websecure Entrypoints Configuration"
                       schema:
@@ -731,6 +777,36 @@ questions:
                                   label: "Redirect to Entrypoint"
                                   schema:
                                     type: string
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
@@ -803,6 +879,36 @@ questions:
                                   label: "Redirect to Entrypoint"
                                   schema:
                                     type: string
+                          - variable: forwardedHeaders
+                            label: "Accept Forwarded Headers"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: trustedIPs
+                                        label: "Trusted IPs"
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: trustedIPsEntry
+                                              label: ""
+                                              schema:
+                                                type: ipaddr
+                                                required: true
+                                                default: ""
+                                      - variable: insecureMode
+                                        label: "Insecure Mode"
+                                        schema:
+                                          type: boolean
+                                          default: false
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -879,7 +985,7 @@ questions:
             default: 568
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 568

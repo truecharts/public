@@ -1,0 +1,63 @@
+image:
+  repository: tccr.io/truecharts/nocodb
+  tag: v0.90.11@sha256:145c267a8bc0c87f9f52a3ed5e248d7111f4922702c8572a4a5447b53b6fd917
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  NC_MIN: ""
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  NC_PUBLIC_URL: "http://localhost:10226"
+  NC_DISABLE_TELE: true
+  DISABLE_SPLASH_SCREEN: false
+
+envValueFrom:
+  NC_REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+  NC_AUTH_JWT_SECRET:
+    secretKeyRef:
+      name: nocodb-secrets
+      key: NC_AUTH_JWT_SECRET
+
+envFrom:
+  - configMapRef:
+      name: nocodb-configmap
+
+probes:
+  liveness:
+    path: "/dashboard"
+  readiness:
+    path: "/dashboard"
+  startup:
+    path: "/dashboard"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10226
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/app/data"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: nocodb
+  postgresqlDatabase: nocodb
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"

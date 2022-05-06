@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.2.4"
+appVersion: "0.3.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.7
+  version: 9.3.3
 deprecated: false
 description: A Helm chart for the k8s_gateway CoreDNS plugin
 home: https://github.com/truecharts/apps/tree/master/charts/stable/k8s-gateway
@@ -20,7 +20,7 @@ name: k8s-gateway
 sources:
 - https://github.com/ori-edge/k8s_gateway
 type: application
-version: 5.0.10
+version: 5.0.15
 annotations:
   truecharts.org/catagories: |
     - networking

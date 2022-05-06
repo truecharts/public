@@ -8,7 +8,6 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://github.com/babybuddy/babybuddy>
-* <https://github.com/nicholaswilde/docker-babybuddy>
 
 ## Requirements
 
@@ -18,8 +17,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 7.0.37 |
-| https://library-charts.truecharts.org | common | 9.2.7 |
+| https://charts.truecharts.org/ | postgresql | 7.0.54 |
+| https://library-charts.truecharts.org | common | 9.3.3 |
 
 ## Installing the Chart
 

@@ -245,7 +245,7 @@ questions:
       attrs:
         - variable: N8N_AUTH_EXCLUDE_ENDPOINTS
           label: "Additional Endpoints to Exclude Auth Checks (Leave empty for default)"
-          description: 'Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (":"). The endpoints should not start with a forward slash ("/")'
+          description: "Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (\":\"). The endpoints should not start with a forward slash (\"/\")"
           schema:
             type: string
             default: ""
@@ -679,7 +679,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 568

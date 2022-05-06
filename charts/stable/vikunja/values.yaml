@@ -1,0 +1,108 @@
+image:
+  repository: tccr.io/truecharts/vikunja-api
+  tag: v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  repository: tccr.io/truecharts/vikunja-frontend
+  tag: v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab
+  pullPolicy: IfNotPresent
+
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  VIKUNJA_REDIS_ENABLED: 1
+  VIKUNJA_CACHE_ENABLED: 1
+  VIKUNJA_CACHE_TYPE: "redis"
+  VIKUNJA_DATABASE_TYPE: "postgres"
+  VIKUNJA_DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  VIKUNJA_DATABASE_DATABASE: "{{ .Values.postgresql.postgresDatabase }}"
+  VIKUNJA_SERVICE_TIMEZONE: "{{ .Values.TZ }}"
+  # User Defined
+  VIKUNJA_SERVICE_FRONTENDURL: "http://localhost:8080"
+  VIKUNJA_SERVICE_JWTTTL: 259200
+  VIKUNJA_SERVICE_JWTTTLLONG: 2592000
+  VIKUNJA_SERVICE_MAXITEMSPERPAGE: 50
+  VIKUNJA_FILES_MAXSIZE: "20MB"
+  VIKUNJA_SERVICE_ENABLECALDAV: true
+  VIKUNJA_SERVICE_ENABLELINKSHARING: true
+  VIKUNJA_SERVICE_ENABLEREGISTRATION: true
+  VIKUNJA_SERVICE_ENABLETASKATTACHMENTS: true
+  VIKUNJA_SERVICE_ENABLETASKCOMMENTS: true
+  VIKUNJA_SERVICE_ENABLETOTP: true
+  VIKUNJA_SERVICE_ENABLEEMAILREMINDERS: true
+  VIKUNJA_SERVICE_ENABLEUSERDELETION: true
+  VIKUNJA_BACKGROUNDS_ENABLED: true
+  VIKUNJA_RATELIMIT_ENABLED: false
+  VIKUNJA_RATELIMIT_PERIOD: 60
+  VIKUNJA_RATELIMIT_LIMIT: 100
+
+envValueFrom:
+  VIKUNJA_DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  VIKUNJA_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  VIKUNJA_REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainporthost
+  VIKUNJA_REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  VIKUNJA_SERVICE_JWT_SECRET:
+    secretKeyRef:
+      name: vikunja-secrets
+      key: VIKUNJA_SERVICE_JWT_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10220
+        targetPort: 8080
+
+additionalContainers:
+  frontend:
+    name: frontend
+    image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
+  proxy:
+    name: proxy
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 8080
+        name: main
+    volumeMounts:
+    - name: vikunja-config
+      mountPath: "/etc/nginx/conf.d/default.conf"
+      subPath: nginx-config
+      readOnly: true
+
+persistence:
+  files:
+    enabled: true
+    mountPath: "/app/vikunja/files"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: vikunja
+  postgresqlDatabase: vikunja
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"

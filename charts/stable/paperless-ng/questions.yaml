@@ -107,6 +107,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: PAPERLESS_URL
+          label: "PAPERLESS_URL"
+          description: "This is required if you will be exposing Paperless-ngx on a public domain."
+          schema:
+            type: string
+            default: ""
         - variable: PAPERLESS_WEBSERVER_WORKERS
           label: "PAPERLESS_WEBSERVER_WORKERS"
           description: "The number of worker processes the webserver should spawn."
@@ -418,7 +424,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 0

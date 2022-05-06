@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Other
+    - Crypto
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.3
+deprecated: false
+description: 'Support the Bitcoin network by hosting your own node! This template
+  provides a full Bitcoin Core node, built in a verifiably trustless way.
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/bitcoind
+icon: https://truecharts.org/_static/img/appicons/bitcoind.png
+keywords:
+- bitcoind
+- Tools-Utilities
+- Network-Other
+- Crypto
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: bitcoind
+sources:
+- https://bitcoin.org/
+- https://hub.docker.com/r/ofawx/bitcoind/
+type: application
+version: 0.0.5

@@ -1,7 +1,9 @@
 image:
   repository: tccr.io/truecharts/meshcentral
   pullPolicy: IfNotPresent
-  tag: latest@sha256:62230bdc8acebe42d5082267147de1a7ced76826d76191612dc54543d7ee1314
+  tag: v1.0.1@sha256:d8642b3909fcd1dad6b920629dac8e6e3a609230f38c9d62ca01ca67c26a4730
+
+extraArgs: ["--cert", "$hostname"]
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,39 +14,100 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  # your hostname
-  HOSTNAME: "my.domain.com"
-  # set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy
-  REVERSE_PROXY: false
-  REVERSE_PROXY_TLS_PORT: ""
-  # set to true if you wish to enable iframe support
-  IFRAME: false
-  # set to false if you want disable self-service creation of new accounts besides the first (admin)
-  ALLOW_NEW_ACCOUNTS: true
-  # set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution
-  WEBRTC: false
-  # set to true to allow plugins
-  ALLOWPLUGINS: false
-  # set to true to allow session recording
-  LOCALSESSIONRECORDING: false
-  # set to enable or disable minification of json, reduces traffic
-  MINIFY: true
+  hostname: "test.example.com"
+  reverseProxyUrl: "https://test.example.com"
 
 service:
   main:
     ports:
       main:
         protocol: "HTTPS"
-        targetPort: 443
         port: 10205
 
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/init/meshcentral/init.sh"]
     volumeMounts:
-      - name: init
-        mountPath: "/init/meshcentral"
+      - name: data
+        mountPath: "/home/node/meshcentral/meshcentral-data"
+    env:
+      - name: hostname
+        value: "{{ .Values.env.hostname }}"
+      - name: reverseProxyUrl
+        value: "{{ .Values.env.reverseProxyUrl }}"
+      - name: svcPort
+        value: "{{ .Values.service.main.ports.main.port }}"
+      - name: "mongodbURL"
+        valueFrom:
+          secretKeyRef:
+            name: mongodbcreds
+            key: url
+    command: ["/bin/bash", "-c"]
+    args:
+      - >
+        export configfile='/home/node/meshcentral/meshcentral-data/config.json';
+        export basePath='/home/node/meshcentral/meshcentral-data/truecharts';
+        mkdir -p $basePath;
+        if [ -f $configfile ]; then
+          echo 'Config File exists, updating values...';
+
+          # Update hostname
+          sed -i 's/^    "cert":.*,$/    "cert": "'$hostname'",/1' $configfile;
+
+          export lastreverse=$(cat $basePath/.lastreverse);
+          if [ ! -z $reverseProxyUrl ]; then
+            if [[ $lastreverse == "NOT_PROVIDED" ]]; then
+              # Update reverseProxyUrl
+              echo "Adding $reverseProxyUrl...";
+              sed -i 's/^      "_certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
+            else
+              echo "Updating $lastreverse to $reverseProxyUrl...";
+              sed -i 's/^      "certUrl": "'$lastreverse'",'$/      "certUrl": "'$reverseProxyUrl'",'/1' $configfile;
+              echo $reverseProxyUrl > $basePath/.lastreverse;
+            fi;
+          else
+            echo "Removing reverse proxy url..."
+            sed -i 's/^      "_?certUrl":.*,$/      "_certUrl": "NOT_PROVIDED",/1' $configfile;
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
+          fi;
+
+          export lastport=$(cat $basePath/.lastport);
+          if [ ! -z $lastport ]; then
+            # Update port
+            echo "Updating $lastport to $svcPort...";
+            sed -i 's/^    "port": '$lastport',$/    "port": '$svcPort',/1' $configfile;
+            # Save new port.
+            echo "$svcPort" > $basePath/.lastport;
+          fi;
+        else
+          echo "DO NOT DELETE DOT FILES IN THIS DIR" > $basePath/DO_NOT_DELETE_DOT_FILES_IN_THIS_DIR;
+          echo 'Creating basic config to $configfile...';
+          echo '{' >> $configfile;
+          echo '  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",' >> $configfile;
+          echo '  "settings": {' >> $configfile;
+          # Save last port used
+          echo "$svcPort" > $basePath/.lastport;
+          echo '    "port": '$svcPort',' >> $configfile;
+          echo '    "mongoDb": "'$mongodbURL'",' >> $configfile;
+          echo '    "cert": "'$hostname'"' >> $configfile;
+          echo '  },' >> $configfile;
+          echo '  "domains": {' >> $configfile;
+          echo '    "": {' >> $configfile;
+          if [ ! -z $reverseProxyUrl ]; then
+            echo '      "certUrl": "'$reverseProxyUrl'"' >> $configfile;
+            # Save last reverse url used
+            echo $reverseProxyUrl > $basePath/.lastreverse;
+          else
+            # Underscore in front the the key is making it invisible to meshcentral
+            echo '      "_certUrl": "NOT_PROVIDED"' >> $configfile;
+            # Save last reverse url used
+            echo "NOT_PROVIDED" > $basePath/.lastreverse;
+          fi;
+          echo '    }' >> $configfile;
+          echo '  }' >> $configfile;
+          echo '}' >> $configfile;
+        fi;
 
 mongodb:
   enabled: true
@@ -55,17 +118,7 @@ mongodb:
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-data"
-  user:
+    mountPath: "/home/node/meshcentral/meshcentral-data"
+  files:
     enabled: true
-    mountPath: "/opt/meshcentral/meshcentral-files"
-  init:
-    enabled: "true"
-    mountPath: "/init/meshcentral"
-    noMount: true
-    readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: meshcentral-init
-        defaultMode: 0777
+    mountPath: "/home/node/meshcentral/meshcentral-files"

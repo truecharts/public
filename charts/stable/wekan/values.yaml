@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/wekan
-  tag: v6.11@sha256:4d36ca29c2bf2775903d94e72b5ed55dc2893331ecced6a7ffd01164633e8df4
+  tag: v6.20@sha256:1db08efdf10d5af0c44974d38cb952e8127ecb38c16affb92dac6a51d2c6707c
   pullPolicy: IfNotPresent
 
 env:
   WRITABLE_PATH: "/data"
   # User Defined
-  ROOT_URL: "http://localhost"
+  ROOT_URL: "http://localhost:8080"
 
 envValueFrom:
   MONGO_URL:

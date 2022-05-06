@@ -1,0 +1,184 @@
+image:
+  repository: inventree/inventree
+  tag: 0.6.3@sha256:51f1e38f894a34dea12c0b9dfac7d59dc1c78319125ae24c8cb90a92fa75ae16
+  pullPolicy: IfNotPresent
+
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 100
+  runAsGroup: 0
+
+secret:
+  INVENTREE_ADMIN_EMAIL: "test@example.com"
+  INVENTREE_ADMIN_USER: "super"
+  INVENTREE_ADMIN_PASSWORD: "secret"
+
+env:
+  INVENTREE_DB_ENGINE: "postgresql"
+  INVENTREE_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  INVENTREE_DB_PORT: "5432"
+  INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
+  # User Defined
+  INVENTREE_DEBUG: false
+  INVENTREE_LOG_LEVEL: "INFO"
+  INVENTREE_PLUGINS_ENABLED: false
+  INVENTREE_LOGIN_CONFIRM_DAYS: 3
+  INVENTREE_LOGIN_ATTEMPTS: 5
+
+envValueFrom:
+  INVENTREE_DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  INVENTREE_DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  INVENTREE_SECRET_KEY:
+    secretKeyRef:
+      name: inventree-secrets
+      key: INVENTREE_SECRET_KEY
+
+service:
+  main:
+    ports:
+      main:
+        port: 10231
+        targetPort: 10231
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/home/inventree/data"
+
+initContainers:
+  init-migrate:
+    name: init-migrate
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+    - name: data
+      mountPath: "/home/inventree/data"
+    env:
+      - name: INVENTREE_TIMEZONE
+        value: "{{ .Values.TZ }}"
+      - name: INVENTREE_DB_ENGINE
+        value: "postgresql"
+      - name: INVENTREE_DB_NAME
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: INVENTREE_DB_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: INVENTREE_DB_PORT
+        value: "5432"
+      - name: INVENTREE_DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: INVENTREE_DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: INVENTREE_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: inventree-secrets
+            key: INVENTREE_SECRET_KEY
+      - name: INVENTREE_LOG_LEVEL
+        value: "{{ .Values.env.INVENTREE_LOG_LEVEL }}"
+      - name: INVENTREE_DEBUG
+        value: "{{ .Values.env.INVENTREE_DEBUG }}"
+      - name: INVENTREE_LOGIN_CONFIRM_DAYS
+        value: "{{ .Values.env.INVENTREE_LOGIN_CONFIRM_DAYS }}"
+      - name: INVENTREE_LOGIN_ATTEMPTS
+        value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
+      - name: INVENTREE_PLUGINS_ENABLED
+        value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
+    command: ["sh", "-c"]
+    args:
+      - >
+        cd /home/inventree;
+        invoke update;
+
+additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 10231
+        name: main
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 100
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
+    volumeMounts:
+    - name: inventree-config
+      mountPath: "/etc/nginx/conf.d/default.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: data
+      mountPath: "/var/www"
+  worker:
+    name: worker
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["invoke", "worker"]
+    volumeMounts:
+    - name: data
+      mountPath: "/home/inventree/data"
+    env:
+      - name: INVENTREE_ADMIN_EMAIL
+        value: "{{ .Values.secret.INVENTREE_ADMIN_EMAIL }}"
+      - name: INVENTREE_ADMIN_USER
+        value: "{{ .Values.secret.INVENTREE_ADMIN_USER }}"
+      - name: INVENTREE_ADMIN_PASSWORD
+        value: "{{ .Values.secret.INVENTREE_ADMIN_PASSWORD }}"
+      - name: INVENTREE_TIMEZONE
+        value: "{{ .Values.TZ }}"
+      - name: INVENTREE_DB_ENGINE
+        value: "postgresql"
+      - name: INVENTREE_DB_NAME
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: INVENTREE_DB_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: INVENTREE_DB_PORT
+        value: "5432"
+      - name: INVENTREE_DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: INVENTREE_DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: INVENTREE_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: inventree-secrets
+            key: INVENTREE_SECRET_KEY
+      - name: INVENTREE_LOG_LEVEL
+        value: "{{ .Values.env.INVENTREE_LOG_LEVEL }}"
+      - name: INVENTREE_DEBUG
+        value: "{{ .Values.env.INVENTREE_DEBUG }}"
+      - name: INVENTREE_LOGIN_CONFIRM_DAYS
+        value: "{{ .Values.env.INVENTREE_LOGIN_CONFIRM_DAYS }}"
+      - name: INVENTREE_LOGIN_ATTEMPTS
+        value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
+      - name: INVENTREE_PLUGINS_ENABLED
+        value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: inventree
+  postgresqlDatabase: inventree

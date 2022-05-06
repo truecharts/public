@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="ml-workspace-1.1.7"></a>
+### [ml-workspace-1.1.7](https://github.com/truecharts/apps/compare/ml-workspace-1.1.6...ml-workspace-1.1.7) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="ml-workspace-1.1.6"></a>
+### [ml-workspace-1.1.6](https://github.com/truecharts/apps/compare/ml-workspace-1.1.5...ml-workspace-1.1.6) (2022-04-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+
+
+
+<a name="ml-workspace-1.1.5"></a>
+### [ml-workspace-1.1.5](https://github.com/truecharts/apps/compare/ml-workspace-1.1.4...ml-workspace-1.1.5) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+
+
+
+<a name="ml-workspace-1.1.4"></a>
+### [ml-workspace-1.1.4](https://github.com/truecharts/apps/compare/ml-workspace-1.1.3...ml-workspace-1.1.4) (2022-04-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+
+
+
 <a name="ml-workspace-1.1.3"></a>
 ### [ml-workspace-1.1.3](https://github.com/truecharts/apps/compare/ml-workspace-1.1.2...ml-workspace-1.1.3) (2022-04-03)
 

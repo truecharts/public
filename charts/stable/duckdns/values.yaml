@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/duckdns
   pullPolicy: IfNotPresent
-  tag: v2021.11.17
+  tag: latest@sha256:eb4e9d4576653840c898e36b4b4b1da11b73faab987822b39944abd7f4fbdb82
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -15,6 +16,7 @@ secret:
 
 env:
   SUBDOMAINS: ""
+  LOG_FILE: false
 
 service:
   main:

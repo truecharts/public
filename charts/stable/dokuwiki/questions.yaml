@@ -75,6 +75,112 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DOKUWIKI_USERNAME
+          label: "DokuWiki Username"
+          description: "Dokuwiki application username."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: DOKUWIKI_PASSWORD
+          label: "DokuWiki Password"
+          description: "Dokuwiki application password."
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: DOKUWIKI_FULL_NAME
+          label: "DokuWiki Full Name"
+          description: "Dokuwiki application user full name."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: DOKUWIKI_EMAIL
+          label: "DokuWiki Email"
+          description: "Dokuwiki application email."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: DOKUWIKI_WIKI_NAME
+          label: "DokuWiki Wiki Name"
+          description: "Dokuwiki wiki name."
+          schema:
+            type: string
+            required: true
+            default: ""
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ENABLE_PHP_CONFIGURATION
+          label: "Enable PHP Configuration"
+          description: "Enables configuration options for PHP"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: PHP_ENABLE_OPCACHE
+                label: "PHP Enable OPCache"
+                description: "Enable OPcache for PHP scripts."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_EXPOSE_PHP
+                label: "PHP Expose PHP"
+                description: "Enables HTTP header with PHP version."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MAX_EXECUTION_TIME
+                label: "PHP Max Execution Time"
+                description: "Maximum execution time for PHP scripts."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MAX_INPUT_TIME
+                label: "PHP Max Input Time"
+                description: " Maximum input time for PHP scripts."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MAX_INPUT_VARS
+                label: "PHP Max Input Vars"
+                description: "Maximum amount of input variables for PHP scripts."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MEMORY_LIMIT
+                label: "PHP Memory Limit"
+                description: "Memory limit for PHP scripts."
+                schema:
+                  type: string
+                  default: "256M"
+              - variable: PHP_POST_MAX_SIZE
+                label: "PHP Post Max Size"
+                description: "Maximum size for PHP POST requests."
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_UPLOAD_MAX_FILESIZE
+                label: "PHP Upload Max Filesize"
+                description: "Maximum file size for PHP uploads."
+                schema:
+                  type: string
+                  default: ""
 
 # Include{containerConfig}
 
@@ -144,7 +250,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 8080
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -294,7 +400,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 0

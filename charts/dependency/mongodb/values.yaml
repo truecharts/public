@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: v5.0.6@sha256:ee381fe55ccdc282d2b440fbcbd0bec89222df471678381a2bc64bacc76a3386
+  tag: v5.0.8@sha256:477c77649943d4462442fcff49b2a1545909e877a94cccda111572e58700670e
 
 controller:
   # -- Set the controller type.
@@ -79,6 +79,7 @@ probes:
           - /bin/bash
           - -ec
           - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+
   # -- Startup probe configuration
   # @default -- See below
   startup:

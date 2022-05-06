@@ -1,0 +1,141 @@
+image:
+  repository: netdata/netdata
+  tag: v1.34.1@sha256:04494e001fc6854eb86dd6d53f8194554d3919652ea36d6f75c8f5974de05e1d
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - SYS_PTRACE
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 201
+
+serviceAccount:
+  create: true
+
+rbac:
+  enabled: true
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+      - "pods"
+      # - "services"       # used by sd
+      # - "configmaps"     # used by sd
+      # - "secrets"        # used by sd
+      - "nodes"
+      - "nodes/metrics"
+    verbs:
+      - "get"
+      - "list"
+      - "watch"
+  - apiGroups: [""]
+    resources:
+      - "namespaces"
+    verbs:
+      - "get"
+
+envValueFrom:
+  MY_NODE_NAME:
+    fieldRef:
+      fieldPath: spec.nodeName
+  MY_POD_NAMESPACE:
+    fieldRef:
+      fieldPath: metadata.namespace
+  MY_POD_NAME:
+    fieldRef:
+      fieldPath: metadata.name
+
+secret:
+  NETDATA_CLAIM_URL: ""
+  NETDATA_CLAIM_TOKEN: ""
+  NETDATA_CLAIM_ROOMS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 19999
+        targetPort: 19999
+
+probes:
+  liveness:
+    path: "/api/v1/info"
+  readiness:
+    path: "/api/v1/info"
+  startup:
+    path: "/api/v1/info"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/netdata"
+  lib:
+    enabled: true
+    mountPath: "/var/lib/netdata"
+  cache:
+    enabled: true
+    mountPath: "/var/cache/netdata"
+  passwd:
+    enabled: true
+    type: hostPath
+    hostPath: "/etc/passwd"
+    mountPath: "/host/etc/passwd"
+    readOnly: true
+  group:
+    enabled: true
+    type: hostPath
+    hostPath: "/etc/group"
+    mountPath: "/host/etc/group"
+    readOnly: true
+  proc:
+    enabled: true
+    type: hostPath
+    hostPath: "/proc"
+    mountPath: "/host/proc"
+    readOnly: true
+  dev:
+    enabled: true
+    type: hostPath
+    hostPath: "/dev"
+    mountPath: "/host/dev"
+    readOnly: true
+  sys:
+    enabled: true
+    type: hostPath
+    hostPath: "/sys"
+    mountPath: "/host/sys"
+    readOnly: true
+  os:
+    enabled: true
+    type: hostPath
+    hostPath: "/etc/os-release"
+    mountPath: "/host/etc/os-release"
+    readOnly: true
+
+initContainers:
+  create-config:
+    name: create-config
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+    - name: config
+      mountPath: "/etc/netdata"
+    - name: netdata-configs
+      mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
+      subPath: netdata-conf
+      readOnly: true
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        export configfile=/etc/netdata/netdata.conf;
+        if [ ! -f $configfile ]; then
+          cp /etc/netdata/truecharts-defaults/.netdata.conf $configfile
+        else
+          echo "Config file exists, skipping...";
+        fi;
+        cat $configfile

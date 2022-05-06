@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "1.56.0"
+appVersion: "1.58.1"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.2.7
+  version: 9.3.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.37
+  version: 7.0.54
 deprecated: false
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
 home: https://github.com/truecharts/apps/charts/stable/synapse
@@ -24,7 +24,7 @@ maintainers:
 name: synapse
 sources: []
 type: application
-version: 2.0.15
+version: 2.1.0
 annotations:
   truecharts.org/catagories: |
     - cloud

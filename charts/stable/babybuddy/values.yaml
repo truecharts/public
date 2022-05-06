@@ -1,10 +1,8 @@
 image:
   repository: tccr.io/truecharts/babybuddy
   pullPolicy: IfNotPresent
-  tag: v1.10.2@sha256:003501237525f4e5473811786357a5d62fec57d8e609bce4c80787d48f19cfcd
+  tag: v1.10.2@sha256:59c6866910f7b7886f42531b8eacc39374804b1bfcce7255bd9f968833bc1bd0
 
-# See more environment variables in the babybuddy documentation
-# https://github.com/linuxserver/docker-babybuddy#parameters
 env:
   DB_ENGINE: "django.db.backends.postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -22,7 +20,7 @@ envValueFrom:
       key: plainhost
 
 securityContext:
-  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
@@ -43,7 +41,6 @@ persistence:
   varrun:
     enabled: true
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-76-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-85-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -173,7 +173,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/sebsx"><img src="https://avatars.githubusercontent.com/u/735033?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sebs</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=sebsx" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Dyllan2000alfa"><img src="https://avatars.githubusercontent.com/u/29694020?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dyllan Tinoco</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Dyllan2000alfa" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a></td>
+    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a> <a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/brothergomez"><img src="https://avatars.githubusercontent.com/u/38558969?v=4?s=100" width="100px;" alt=""/><br /><sub><b>brothergomez</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=brothergomez" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3Abrothergomez" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Sagit-chu" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ASagit-chu" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://zhouyou.info"><img src="https://avatars.githubusercontent.com/u/8481484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nevan Chow</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=zzzhouuu" title="Code">💻</a></td>
@@ -231,6 +231,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/shadofall"><img src="https://avatars.githubusercontent.com/u/9327622?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shadofall</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=shadofall" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/agreppin"><img src="https://avatars.githubusercontent.com/u/26579013?v=4?s=100" width="100px;" alt=""/><br /><sub><b>agreppin</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=agreppin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/stdedos"><img src="https://avatars.githubusercontent.com/u/133706?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stavros Ntentos</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=stdedos" title="Code">💻</a> <a href="#ideas-stdedos" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/VladFlorinIlie"><img src="https://avatars.githubusercontent.com/u/35900803?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vlad-Florin Ilie</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=VladFlorinIlie" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/huma2000"><img src="https://avatars.githubusercontent.com/u/9518124?v=4?s=100" width="100px;" alt=""/><br /><sub><b>huma2000</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ahuma2000" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/hugalafutro"><img src="https://avatars.githubusercontent.com/u/30209689?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hugalafutro</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ahugalafutro" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/yehia2amer"><img src="https://avatars.githubusercontent.com/u/6174059?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yehia Amer</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=yehia2amer" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/tfrancis"><img src="https://avatars.githubusercontent.com/u/29070?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tyler Stransky</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Atfrancis" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/juggie"><img src="https://avatars.githubusercontent.com/u/2034757?v=4?s=100" width="100px;" alt=""/><br /><sub><b>juggie</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ajuggie" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/btilford"><img src="https://avatars.githubusercontent.com/u/248725?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Tilford</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Abtilford" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=btilford" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/I-nebukad-I"><img src="https://avatars.githubusercontent.com/u/16634069?v=4?s=100" width="100px;" alt=""/><br /><sub><b>I-nebukad-I</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AI-nebukad-I" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/packruler"><img src="https://avatars.githubusercontent.com/u/770373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ethan Leisinger</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=packruler" title="Code">💻</a></td>
   </tr>
 </table>
 

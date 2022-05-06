@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.3
+deprecated: false
+description: "Control AndroidTV/FireTV devices through ADB from the Home Assistant\
+  \ Core docker image.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/androiddebugbridge
+icon: https://truecharts.org/_static/img/appicons/androiddebugbridge.png
+keywords:
+- androiddebugbridge
+- HomeAutomation
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: androiddebugbridge
+sources:
+- https://hub.docker.com/r/barnybbb/adb-hass-androidtv
+- https://hub.docker.com/r/barnybbb/adb-hass-androidtv/
+type: application
+version: 0.0.5
