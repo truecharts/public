@@ -117,8 +117,7 @@ additionalContainers:
         name: main
     securityContext:
       runAsUser: 0
-      runAsGroup: 0
-      fsGroup: 100
+      runAsGroup: 100
       readOnlyRootFilesystem: false
       runAsNonRoot: false
     volumeMounts:
