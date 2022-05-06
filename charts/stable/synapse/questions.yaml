@@ -222,6 +222,72 @@ questions:
                 schema:
                   type: boolean
                   default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: requiresToken
+                      label: "Requires Token"
+                      description: "Require users to submit a token during registration."
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: require3PID
+                      label: "Third Party ID"
+                      description: "The 3rd party IDs required during registration. (All selected will be required)"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: medium
+                            label: "Medium"
+                            schema:
+                              type: string
+                              default: "email"
+                              enum:
+                                - value: "email"
+                                  description: "Email"
+                                - value: "msisdn"
+                                  description: "MSISDN"
+                    - variable: enable3PIDLookup
+                      label: "Lookup Third Party ID"
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: disableMSISDNRegistration
+                      label: "Disable MSISDN Registration"
+                      description: "Override requirement for MSISDN during registration"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: allowedLocal3PIDs
+                      label: "Allowed Local Third Party IDs"
+                      description: "Restrict 3PID to specific patterns"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: allowed
+                            label: "Allowed Third Party ID"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: medium
+                                  label: "Medium"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "email"
+                                    enum:
+                                      - value: "email"
+                                        description: "Email"
+                                      - value: "msisdn"
+                                        description: "MSISDN"
+                                - variable: pattern
+                                  label: "Pattern"
+                                  description: "Regular expression to match against"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
         - variable: sharedSecret
           label: "Shared Secret"
           description: |
@@ -252,7 +318,7 @@ questions:
                   default: []
                   items:
                     - variable: serverName
-                      label: Server Name
+                      label: "Server Name"
                       schema:
                         type: string
                         default: ""
