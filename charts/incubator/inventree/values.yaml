@@ -12,8 +12,9 @@ securityContext:
   runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 100
+  runAsUser: 0
   runAsGroup: 0
+  fsGroup: 100
 
 secret:
   INVENTREE_ADMIN_EMAIL: "test@example.com"
