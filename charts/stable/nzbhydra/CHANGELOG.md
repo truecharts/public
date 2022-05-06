@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-10.0.18"></a>
+### [nzbhydra-10.0.18](https://github.com/truecharts/apps/compare/nzbhydra-10.0.17...nzbhydra-10.0.18) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="nzbhydra-10.0.17"></a>
+### [nzbhydra-10.0.17](https://github.com/truecharts/apps/compare/nzbhydra-10.0.16...nzbhydra-10.0.17) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="nzbhydra-10.0.16"></a>
 ### [nzbhydra-10.0.16](https://github.com/truecharts/apps/compare/nzbhydra-10.0.15...nzbhydra-10.0.16) (2022-04-26)
 

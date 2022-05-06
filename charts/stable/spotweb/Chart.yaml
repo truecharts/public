@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: "1.5.1"
 kubeVersion: '>=1.16.0-0'
-version: 2.0.7
+version: 2.0.9
 name: spotweb
 description: Spotweb is a decentralized usenet community based on the Spotnet protocol.
 type: application
@@ -18,11 +18,11 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.2
+  version: 9.3.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.50
+  version: 7.0.54
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts

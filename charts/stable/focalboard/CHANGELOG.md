@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="focalboard-6.0.19"></a>
+### [focalboard-6.0.19](https://github.com/truecharts/apps/compare/focalboard-6.0.18...focalboard-6.0.19) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="focalboard-6.0.18"></a>
+### [focalboard-6.0.18](https://github.com/truecharts/apps/compare/focalboard-6.0.17...focalboard-6.0.18) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="focalboard-6.0.17"></a>
 ### [focalboard-6.0.17](https://github.com/truecharts/apps/compare/focalboard-6.0.16...focalboard-6.0.17) (2022-04-29)
 

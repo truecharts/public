@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="projectsend-1.0.17"></a>
+### [projectsend-1.0.17](https://github.com/truecharts/apps/compare/projectsend-1.0.16...projectsend-1.0.17) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="projectsend-1.0.16"></a>
+### [projectsend-1.0.16](https://github.com/truecharts/apps/compare/projectsend-1.0.15...projectsend-1.0.16) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="projectsend-1.0.15"></a>
 ### [projectsend-1.0.15](https://github.com/truecharts/apps/compare/projectsend-1.0.14...projectsend-1.0.15) (2022-04-26)
 

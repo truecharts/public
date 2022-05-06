@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-2.0.15"></a>
+### [trilium-notes-2.0.15](https://github.com/truecharts/apps/compare/trilium-notes-2.0.14...trilium-notes-2.0.15) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="trilium-notes-2.0.14"></a>
+### [trilium-notes-2.0.14](https://github.com/truecharts/apps/compare/trilium-notes-2.0.13...trilium-notes-2.0.14) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="trilium-notes-2.0.13"></a>
 ### [trilium-notes-2.0.13](https://github.com/truecharts/apps/compare/trilium-notes-2.0.12...trilium-notes-2.0.13) (2022-04-26)
 

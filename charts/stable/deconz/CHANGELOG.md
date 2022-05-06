@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.19"></a>
+### [deconz-7.0.19](https://github.com/truecharts/apps/compare/deconz-7.0.18...deconz-7.0.19) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="deconz-7.0.18"></a>
+### [deconz-7.0.18](https://github.com/truecharts/apps/compare/deconz-7.0.17...deconz-7.0.18) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="deconz-7.0.17"></a>
 ### [deconz-7.0.17](https://github.com/truecharts/apps/compare/deconz-7.0.16...deconz-7.0.17) (2022-04-28)
 

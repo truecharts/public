@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.23"></a>
+### [logitech-media-server-3.0.23](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.22...logitech-media-server-3.0.23) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="logitech-media-server-3.0.22"></a>
+### [logitech-media-server-3.0.22](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.21...logitech-media-server-3.0.22) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="logitech-media-server-3.0.21"></a>
 ### [logitech-media-server-3.0.21](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.20...logitech-media-server-3.0.21) (2022-04-28)
 

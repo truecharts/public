@@ -140,7 +140,7 @@ data:
     {{- end }}
 
     suppress_key_server_warning: {{ .Values.matrix.security.supressKeyServerWarning }}
-  {{- if not .Values.loadCustomConfig }}
+  {{- if not .Values.synapse.loadCustomConfig }}
   custom.yaml: |
     # PLACEHOLDER
   {{- end }}

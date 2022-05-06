@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="shlink-2.0.19"></a>
+### [shlink-2.0.19](https://github.com/truecharts/apps/compare/shlink-2.0.18...shlink-2.0.19) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="shlink-2.0.18"></a>
+### [shlink-2.0.18](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.12...shlink-2.0.18) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="shlink-2.0.17"></a>
 ### [shlink-2.0.17](https://github.com/truecharts/apps/compare/shlink-2.0.16...shlink-2.0.17) (2022-04-26)
 

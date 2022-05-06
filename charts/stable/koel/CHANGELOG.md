@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="koel-1.0.13"></a>
+### [koel-1.0.13](https://github.com/truecharts/apps/compare/koel-1.0.12...koel-1.0.13) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="koel-1.0.12"></a>
+### [koel-1.0.12](https://github.com/truecharts/apps/compare/koel-1.0.11...koel-1.0.12) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="koel-1.0.11"></a>
 ### [koel-1.0.11](https://github.com/truecharts/apps/compare/koel-1.0.10...koel-1.0.11) (2022-04-26)
 

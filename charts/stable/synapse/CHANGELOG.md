@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="synapse-2.0.29"></a>
+### [synapse-2.0.29](https://github.com/truecharts/apps/compare/synapse-2.0.28...synapse-2.0.29) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="synapse-2.0.28"></a>
+### [synapse-2.0.28](https://github.com/truecharts/apps/compare/synapse-2.0.27...synapse-2.0.28) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
+<a name="synapse-2.0.27"></a>
+### [synapse-2.0.27](https://github.com/truecharts/apps/compare/synapse-2.0.26...synapse-2.0.27) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
+<a name="synapse-2.0.26"></a>
+### [synapse-2.0.26](https://github.com/truecharts/apps/compare/synapse-2.0.25...synapse-2.0.26) (2022-05-03)
+
+#### Fix
+
+* fix loadCustomConfig ([#2602](https://github.com/truecharts/apps/issues/2602))
+
+
+
 <a name="synapse-2.0.25"></a>
 ### [synapse-2.0.25](https://github.com/truecharts/apps/compare/synapse-2.0.24...synapse-2.0.25) (2022-05-01)
 

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="photoview-2.0.17"></a>
+### [photoview-2.0.17](https://github.com/truecharts/apps/compare/photoview-2.0.16...photoview-2.0.17) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="photoview-2.0.16"></a>
+### [photoview-2.0.16](https://github.com/truecharts/apps/compare/photoview-2.0.15...photoview-2.0.16) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="photoview-2.0.15"></a>
 ### [photoview-2.0.15](https://github.com/truecharts/apps/compare/photoview-2.0.14...photoview-2.0.15) (2022-04-26)
 

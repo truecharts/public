@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.45"></a>
+### [minecraft-java-0.0.45](https://github.com/truecharts/apps/compare/minecraft-java-0.0.44...minecraft-java-0.0.45) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="minecraft-java-0.0.44"></a>
+### [minecraft-java-0.0.44](https://github.com/truecharts/apps/compare/minecraft-java-0.0.43...minecraft-java-0.0.44) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="minecraft-java-0.0.43"></a>
 ### [minecraft-java-0.0.43](https://github.com/truecharts/apps/compare/minecraft-java-0.0.42...minecraft-java-0.0.43) (2022-04-28)
 

@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="drawio-1.0.5"></a>
+### [drawio-1.0.5](https://github.com/truecharts/apps/compare/drawio-1.0.4...drawio-1.0.5) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="drawio-1.0.4"></a>
+### [drawio-1.0.4](https://github.com/truecharts/apps/compare/drawio-1.0.3...drawio-1.0.4) (2022-05-05)
+
+#### Chore
+
+* update container image tccr.io/truecharts/drawio to v18.0.0 ([#2607](https://github.com/truecharts/apps/issues/2607))
+
+
+
+<a name="drawio-1.0.3"></a>
+### [drawio-1.0.3](https://github.com/truecharts/apps/compare/drawio-1.0.2...drawio-1.0.3) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="drawio-1.0.2"></a>
 ### [drawio-1.0.2](https://github.com/truecharts/apps/compare/drawio-1.0.1...drawio-1.0.2) (2022-04-26)
 

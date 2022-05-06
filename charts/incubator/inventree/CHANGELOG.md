@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="inventree-0.0.4"></a>
+### [inventree-0.0.4](https://github.com/truecharts/apps/compare/inventree-0.0.3...inventree-0.0.4) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="inventree-0.0.3"></a>
+### [inventree-0.0.3](https://github.com/truecharts/apps/compare/inventree-0.0.2...inventree-0.0.3) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="inventree-0.0.2"></a>
 ### [inventree-0.0.2](https://github.com/truecharts/apps/compare/inventree-0.0.1...inventree-0.0.2) (2022-04-29)
 

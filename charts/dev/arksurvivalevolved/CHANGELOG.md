@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="arksurvivalevolved-0.0.5"></a>
+### [arksurvivalevolved-0.0.5](https://github.com/truecharts/apps/compare/arksurvivalevolved-0.0.4...arksurvivalevolved-0.0.5) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="arksurvivalevolved-0.0.4"></a>
 ### [arksurvivalevolved-0.0.4](https://github.com/truecharts/apps/compare/arksurvivalevolved-0.0.3...arksurvivalevolved-0.0.4) (2022-04-26)
 

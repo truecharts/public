@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="automatic-music-downloader-1.1.3"></a>
+### [automatic-music-downloader-1.1.3](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.2...automatic-music-downloader-1.1.3) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="automatic-music-downloader-1.1.2"></a>
 ### [automatic-music-downloader-1.1.2](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.1...automatic-music-downloader-1.1.2) (2022-04-26)
 

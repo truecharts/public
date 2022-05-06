@@ -8,7 +8,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://github.com/HaveAGitGat/Tdarr>
-* <https://hub.docker.com/r/haveagitgat/tdarr_node>
+* <https://hub.docker.com/r/haveagitgat/tdarr>
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 9.3.2 |
+| https://library-charts.truecharts.org | common | 9.3.3 |
 
 ## Installing the Chart
 

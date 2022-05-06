@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="server-7daystodie-0.0.6"></a>
+### [server-7daystodie-0.0.6](https://github.com/truecharts/apps/compare/server-7daystodie-0.0.5...server-7daystodie-0.0.6) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="server-7daystodie-0.0.5"></a>
 ### [server-7daystodie-0.0.5](https://github.com/truecharts/apps/compare/server-7daystodie-0.0.4...server-7daystodie-0.0.5) (2022-04-26)
 
