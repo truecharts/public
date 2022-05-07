@@ -7,4 +7,3 @@
 #### Feat
 
 * add kopia ([#2630](https://github.com/truecharts/apps/issues/2630))
-
