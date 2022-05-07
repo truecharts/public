@@ -41,9 +41,9 @@ function incr_semver() {
 BUMPTYPE=${1}
 if [ -z ${2+x} ]; then
 for train in stable incubator games enterprise develop non-free deprecated dependency core; do
-  for chart in charts/${train}/*; do
+  for chart in charts/*; do
     if [ -d "${chart}" ]; then
-      echo "Bumping patch version for ${train}/${chart}"
+      echo "Bumping patch version for ${chart}"
       OLDVER=$(cat ${chart}/Chart.yaml | grep "^version: ")
       OLDVER=${OLDVER#version: }
       NEWVER=$(incr_semver ${OLDVER} ${BUMPTYPE})
