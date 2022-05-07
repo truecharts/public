@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.20"></a>
+### [calibre-web-10.0.20](https://github.com/truecharts/apps/compare/calibre-web-10.0.19...calibre-web-10.0.20) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="calibre-web-10.0.19"></a>
+### [calibre-web-10.0.19](https://github.com/truecharts/apps/compare/calibre-web-10.0.18...calibre-web-10.0.19) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="calibre-web-10.0.18"></a>
 ### [calibre-web-10.0.18](https://github.com/truecharts/apps/compare/calibre-web-10.0.17...calibre-web-10.0.18) (2022-04-26)
 

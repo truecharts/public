@@ -64,6 +64,16 @@ args:
   {{- end }}
   {{- end }}
   {{- range $entrypoint, $config := $ports }}
+  {{/* add args for forwardedHeaders support */}}
+  {{- if $config.forwardedHeaders.enabled }}
+  {{- if not ( empty $config.forwardedHeaders.trustedIPs ) }}
+  - "--entrypoints.{{ $entrypoint }}.forwardedHeaders.trustedIPs={{ join "," $config.forwardedHeaders.trustedIPs }}"
+  {{- end }}
+  {{- if $config.forwardedHeaders.insecureMode }}
+  - "--entrypoints.{{ $entrypoint }}.forwardedHeaders.insecure"
+  {{- end }}
+  {{- end }}
+  {{/* end forwardedHeaders configuration */}}
   {{- if $config.redirectTo }}
   {{- $toPort := index $ports $config.redirectTo }}
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $toPort.port }}"
@@ -97,17 +107,13 @@ args:
   {{- end }}
   {{- end }}
   {{- with .Values.logs }}
-  {{- if .general.format }}
   - "--log.format={{ .general.format }}"
-  {{- end }}
   {{- if ne .general.level "ERROR" }}
   - "--log.level={{ .general.level | upper }}"
   {{- end }}
   {{- if .access.enabled }}
   - "--accesslog=true"
-  {{- if .access.format }}
   - "--accesslog.format={{ .access.format }}"
-  {{- end }}
   {{- if .access.bufferingsize }}
   - "--accesslog.bufferingsize={{ .access.bufferingsize }}"
   {{- end }}

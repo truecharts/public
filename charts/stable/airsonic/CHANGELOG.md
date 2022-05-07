@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-5.0.13"></a>
+### [airsonic-5.0.13](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.16...airsonic-5.0.13) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="airsonic-5.0.12"></a>
 ### [airsonic-5.0.12](https://github.com/truecharts/apps/compare/airsonic-5.0.11...airsonic-5.0.12) (2022-04-26)
 

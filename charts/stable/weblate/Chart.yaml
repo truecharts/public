@@ -1,17 +1,17 @@
 apiVersion: v2
-appVersion: "4.11.2"
+appVersion: "4.12.1"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.2
+  version: 9.3.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.50
+  version: 7.0.54
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.42
+  version: 2.0.45
 description: Weblate is a copylefted libre software web-based continuous localization system
 home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
 icon: https://truecharts.org/_static/img/appicons/weblate.png
@@ -28,7 +28,7 @@ sources:
 - https://github.com/WeblateOrg/docker
 - https://github.com/WeblateOrg/docker-compose
 - https://docs.weblate.org/en/latest/
-version: 2.0.17
+version: 2.0.20
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="custom-app-4.0.37"></a>
+### [custom-app-4.0.37](https://github.com/truecharts/apps/compare/custom-app-4.0.36...custom-app-4.0.37) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="custom-app-4.0.36"></a>
+### [custom-app-4.0.36](https://github.com/truecharts/apps/compare/custom-app-4.0.35...custom-app-4.0.36) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="custom-app-4.0.35"></a>
+### [custom-app-4.0.35](https://github.com/truecharts/apps/compare/custom-app-4.0.34...custom-app-4.0.35) (2022-05-05)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="custom-app-4.0.34"></a>
+### [custom-app-4.0.34](https://github.com/truecharts/apps/compare/custom-app-4.0.33...custom-app-4.0.34) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="custom-app-4.0.33"></a>
 ### [custom-app-4.0.33](https://github.com/truecharts/apps/compare/custom-app-4.0.32...custom-app-4.0.33) (2022-04-29)
 

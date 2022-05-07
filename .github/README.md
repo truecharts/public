@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-84-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-86-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -241,6 +241,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/juggie"><img src="https://avatars.githubusercontent.com/u/2034757?v=4?s=100" width="100px;" alt=""/><br /><sub><b>juggie</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ajuggie" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/btilford"><img src="https://avatars.githubusercontent.com/u/248725?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Tilford</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Abtilford" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=btilford" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/I-nebukad-I"><img src="https://avatars.githubusercontent.com/u/16634069?v=4?s=100" width="100px;" alt=""/><br /><sub><b>I-nebukad-I</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AI-nebukad-I" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/packruler"><img src="https://avatars.githubusercontent.com/u/770373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ethan Leisinger</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=packruler" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/CullenShane"><img src="https://avatars.githubusercontent.com/u/597786?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cullen Murphy</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=CullenShane" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ACullenShane" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

@@ -1,0 +1,73 @@
+image:
+  repository: tccr.io/truecharts/ghost
+  tag: v4.47.0@sha256:ce3e4141174631356bc1d1339a3afd3c78c808fde8359ef106123cbd72ec8784
+  pullPolicy: IfNotPresent
+
+env:
+  # db env
+  database__client: "mysql"
+  database__connection__port: 3306
+  database__connection__user: "{{ .Values.mariadb.mariadbUsername }}"
+  database__connection__database: "{{ .Values.mariadb.mariadbDatabase }}"
+  # server env
+  NODE_ENV: "production"
+  server__port: "{{ .Values.service.main.ports.main.port }}"
+  url: "http://localhost:10166"
+  useMinFiles: true
+  compress: true
+  imageOptimization__resize: true
+  imageOptimization__srcsets: true
+  preloadHeaders: false
+  sendWelcomeEmail: true
+  adminFrameProtection: true
+  emailAnalytics: true
+  backgroundJobs__emailAnalytics: true
+  stripeDirect: false
+  enableStripePromoCodes: false
+  # privacy env
+  privacy__useTinfoil: true
+  privacy__useUpdateCheck: false
+  privacy__useGravatar: false
+  privacy__useRpcPing: false
+  privacy__useStructuredData: false
+  # mail env
+  mail__from: ""
+  mail__transport: ""
+  mail__options__service: ""
+  mail__options__port: ""
+  mail__options__secure: false
+  mail__options__auth__user: ""
+  mail__options__auth__pass: ""
+  # integrations env
+  tenor__publicReadOnlyApiKey: ""
+  tenor__contentFilter: "off"
+  opensea__privateReadOnlyApiKey: ""
+  twitter__privateReadOnlyToken: ""
+
+envValueFrom:
+  database__connection__host:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  database__connection__password:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10166
+        targetPort: 10166
+
+persistence:
+  content:
+    enabled: true
+    mountPath: "/var/lib/ghost/content"
+
+mariadb:
+  enabled: true
+  mariadbUsername: ghost
+  mariadbDatabase: ghost
+  existingSecret: "mariadbcreds"

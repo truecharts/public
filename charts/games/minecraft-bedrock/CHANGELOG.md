@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.27"></a>
+### [minecraft-bedrock-0.0.27](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.26...minecraft-bedrock-0.0.27) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
 <a name="minecraft-bedrock-0.0.26"></a>
 ### [minecraft-bedrock-0.0.26](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.25...minecraft-bedrock-0.0.26) (2022-04-26)
 

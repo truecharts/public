@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="home-assistant-13.0.30"></a>
+### [home-assistant-13.0.30](https://github.com/truecharts/apps/compare/home-assistant-13.0.29...home-assistant-13.0.30) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="home-assistant-13.0.29"></a>
+### [home-assistant-13.0.29](https://github.com/truecharts/apps/compare/home-assistant-13.0.28...home-assistant-13.0.29) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="home-assistant-13.0.28"></a>
+### [home-assistant-13.0.28](https://github.com/truecharts/apps/compare/home-assistant-13.0.27...home-assistant-13.0.28) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
+<a name="home-assistant-13.0.27"></a>
+### [home-assistant-13.0.27](https://github.com/truecharts/apps/compare/home-assistant-13.0.26...home-assistant-13.0.27) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
 <a name="home-assistant-13.0.26"></a>
 ### [home-assistant-13.0.26](https://github.com/truecharts/apps/compare/home-assistant-13.0.25...home-assistant-13.0.26) (2022-04-28)
 

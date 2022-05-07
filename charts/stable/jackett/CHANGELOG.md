@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.37"></a>
+### [jackett-10.0.37](https://github.com/truecharts/apps/compare/jackett-10.0.36...jackett-10.0.37) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="jackett-10.0.36"></a>
+### [jackett-10.0.36](https://github.com/truecharts/apps/compare/jackett-10.0.35...jackett-10.0.36) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="jackett-10.0.35"></a>
+### [jackett-10.0.35](https://github.com/truecharts/apps/compare/jackett-10.0.34...jackett-10.0.35) (2022-05-05)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="jackett-10.0.34"></a>
+### [jackett-10.0.34](https://github.com/truecharts/apps/compare/jackett-10.0.33...jackett-10.0.34) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="jackett-10.0.33"></a>
 ### [jackett-10.0.33](https://github.com/truecharts/apps/compare/jackett-10.0.32...jackett-10.0.33) (2022-04-29)
 

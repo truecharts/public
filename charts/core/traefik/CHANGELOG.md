@@ -1,6 +1,38 @@
 # Changelog<br>
 
 
+<a name="traefik-11.3.0"></a>
+### [traefik-11.3.0](https://github.com/truecharts/apps/compare/traefik-11.2.2...traefik-11.3.0) (2022-05-05)
+
+#### Feat
+
+* Add support for JSON format logs ([#2609](https://github.com/truecharts/apps/issues/2609))
+
+
+
+<a name="traefik-11.2.2"></a>
+### [traefik-11.2.2](https://github.com/truecharts/apps/compare/traefik-11.2.1...traefik-11.2.2) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="traefik-11.2.1"></a>
+### [traefik-11.2.1](https://github.com/truecharts/apps/compare/traefik-11.2.0...traefik-11.2.1) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
+<a name="traefik-11.2.0"></a>
+### [traefik-11.2.0](https://github.com/truecharts/apps/compare/traefik-11.1.8...traefik-11.2.0) (2022-05-04)
+
+
+
 <a name="traefik-11.1.8"></a>
 ### [traefik-11.1.8](https://github.com/truecharts/apps/compare/traefik-11.1.7...traefik-11.1.8) (2022-04-26)
 

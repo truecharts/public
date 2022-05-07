@@ -1,0 +1,33 @@
+image:
+  repository: tccr.io/truecharts/cups-server
+  tag: latest@sha256:eb45a9741422b1d3413b33bb16ace05e85c8d443b3fb0a0c0725bd68248e6d11
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  ADMIN_PASSWORD: "secretpass"
+
+service:
+  main:
+    ports:
+      main:
+        port: 631
+        targetPort: 631
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/cups"
+  dbus:
+    enabled: true
+    type: hostPath
+    hostPath: "/var/run/dbus"
+    mountPath: "/var/run/dbus"
+    readOnly: false

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="collabora-online-11.0.21"></a>
+### [collabora-online-11.0.21](https://github.com/truecharts/apps/compare/collabora-online-11.0.20...collabora-online-11.0.21) (2022-05-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+
+
+
+<a name="collabora-online-11.0.20"></a>
+### [collabora-online-11.0.20](https://github.com/truecharts/apps/compare/collabora-online-11.0.19...collabora-online-11.0.20) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
 <a name="collabora-online-11.0.19"></a>
 ### [collabora-online-11.0.19](https://github.com/truecharts/apps/compare/collabora-online-11.0.18...collabora-online-11.0.19) (2022-04-26)
 
