@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pinry-1.0.6"></a>
+### [pinry-1.0.6](https://github.com/truecharts/apps/compare/pinry-1.0.5...pinry-1.0.6) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="pinry-1.0.5"></a>
 ### [pinry-1.0.5](https://github.com/truecharts/apps/compare/pinry-1.0.4...pinry-1.0.5) (2022-05-05)
 

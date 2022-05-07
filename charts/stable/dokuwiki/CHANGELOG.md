@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-2.0.10"></a>
+### [dokuwiki-2.0.10](https://github.com/truecharts/apps/compare/dokuwiki-2.0.9...dokuwiki-2.0.10) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="dokuwiki-2.0.9"></a>
 ### [dokuwiki-2.0.9](https://github.com/truecharts/apps/compare/dokuwiki-2.0.8...dokuwiki-2.0.9) (2022-05-06)
 

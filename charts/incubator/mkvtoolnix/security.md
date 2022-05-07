@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: mkvtoolnix/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-mkvtoolnix&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -52,11 +52,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -73,11 +73,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -94,11 +94,11 @@ hide:
 
 
 #### Container: jlesage/mkvtoolnix:v1.62.0@sha256:1f469cd70f92faff96930aa793dbf35f75ee126c6a003c351b5ba59aa6e1f48c (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r3 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -125,4 +125,3 @@ hide:
 | tiff         |    CVE-2022-0909   |   MEDIUM  |  4.3.0-r0 | 4.3.0-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-0909">https://access.redhat.com/security/cve/CVE-2022-0909</a><br><a href="https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0909.json">https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0909.json</a><br><a href="https://gitlab.com/libtiff/libtiff/-/issues/393">https://gitlab.com/libtiff/libtiff/-/issues/393</a><br><a href="https://gitlab.com/libtiff/libtiff/-/merge_requests/310">https://gitlab.com/libtiff/libtiff/-/merge_requests/310</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0909">https://nvd.nist.gov/vuln/detail/CVE-2022-0909</a><br><a href="https://www.debian.org/security/2022/dsa-5108">https://www.debian.org/security/2022/dsa-5108</a><br></details>  |
 | tiff         |    CVE-2022-0924   |   MEDIUM  |  4.3.0-r0 | 4.3.0-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-0924">https://access.redhat.com/security/cve/CVE-2022-0924</a><br><a href="https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0924.json">https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0924.json</a><br><a href="https://gitlab.com/libtiff/libtiff/-/issues/278">https://gitlab.com/libtiff/libtiff/-/issues/278</a><br><a href="https://gitlab.com/libtiff/libtiff/-/merge_requests/311">https://gitlab.com/libtiff/libtiff/-/merge_requests/311</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0924">https://nvd.nist.gov/vuln/detail/CVE-2022-0924</a><br><a href="https://www.debian.org/security/2022/dsa-5108">https://www.debian.org/security/2022/dsa-5108</a><br></details>  |
 | tiff         |    CVE-2022-22844   |   MEDIUM  |  4.3.0-r0 | 4.3.0-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22844">https://access.redhat.com/security/cve/CVE-2022-22844</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22844">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22844</a><br><a href="https://gitlab.com/libtiff/libtiff/-/issues/355">https://gitlab.com/libtiff/libtiff/-/issues/355</a><br><a href="https://gitlab.com/libtiff/libtiff/-/merge_requests/287">https://gitlab.com/libtiff/libtiff/-/merge_requests/287</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00001.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00001.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-22844">https://nvd.nist.gov/vuln/detail/CVE-2022-22844</a><br><a href="https://security.netapp.com/advisory/ntap-20220311-0002/">https://security.netapp.com/advisory/ntap-20220311-0002/</a><br><a href="https://www.debian.org/security/2022/dsa-5108">https://www.debian.org/security/2022/dsa-5108</a><br></details>  |
-

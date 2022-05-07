@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/sickchill:v2022.2.20@sha256:8deae2114b3f2e38e26144b165000a3b0966117b91acf8bbfa3ed4d5cfff1bf9
+          tccr.io/truecharts/sickchill:v2022.2.20@sha256:e91bb3896fd0cc6880efd80d2d25861828a37f94eb3c1f7142f596f91a5a25fb
 
 ##### Scan Results
 
