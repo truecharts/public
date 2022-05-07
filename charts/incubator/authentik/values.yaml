@@ -1,11 +1,11 @@
 image:
-  repository: ghcr.io/goauthentik/server
-  tag: 2022.4.1@sha256:bb668ae68e9cbab81539fcd79bec5f2de4eefba461e35c770f35d525d48333cb
+  repository: tccr.io/truecharts/authentik
+  tag: v2022.4.1@sha256:933795c950703e784d42f5a077934db4a92c0ef99025afd58ef19d3909a93d50
   pullPolicy: IfNotPresent
 
 geoipImage:
-  repository: maxmindinc/geoipupdate
-  tag: v4.9@sha256:0b471203ce4c8db00e3173da2ba4fc0a4f32ca52b1488300b0c8bac6dd14e695
+  repository: tccr.io/truecharts/geoipupdate
+  tag: v4.9@sha256:8466b52179d789f1ea00f80ac102b936397250b93d4ab4302e6e6dd5713694e5
   pullPolicy: IfNotPresent
 
 extraArgs: ["server"]
