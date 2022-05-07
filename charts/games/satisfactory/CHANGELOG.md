@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="satisfactory-1.0.0"></a>
+### satisfactory-1.0.0 (2022-05-07)
+
+#### Chore
+
+* Rename s`t`atisfacoty to satisfactory ([#2637](https://github.com/truecharts/apps/issues/2637))
+
+
+
 <a name="statisfactory-0.0.27"></a>
 ### [statisfactory-0.0.27](https://github.com/truecharts/apps/compare/statisfactory-0.0.26...statisfactory-0.0.27) (2022-05-05)
 
