@@ -36,7 +36,7 @@ within the common library.
 
   {{- $mddwrNamespace := "default" }}
   {{- if $values.ingressClassName }}
-  {{- $mddwrNamespace := ( printf "ix-%s" $values.ingressClassName ) }}
+  {{- $mddwrNamespace = ( printf "ix-%s" $values.ingressClassName ) }}
   {{- end }}
 
   {{- $fixedMiddlewares := "" }}
