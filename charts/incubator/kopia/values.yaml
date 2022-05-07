@@ -3,7 +3,7 @@ image:
   tag: 0.10.7@sha256:2a4f9e0804c0897d8793cfa10d0a321e3c936544d89631ca9bac41ff9a68d903
   pullPolicy: IfNotPresent
 
-extraArgs: ["server", "--address=http://0.0.0.0:10238","--ui", "--insecure"]
+extraArgs: ["server", "--address=http://0.0.0.0:10238", "--ui", "--insecure"]
 
 # securityContext:
 #   readOnlyRootFilesystem: false
