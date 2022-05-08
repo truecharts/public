@@ -55,7 +55,7 @@ args:
   - "--providers.kubernetesingress.labelSelector={{ .Values.providers.kubernetesIngress.labelSelector }}"
   {{- end }}
   {{- end }}
-  {{- if .Values.rbac.enabled }}
+  {{- if and .Values.rbac.enabled .Values.rbac.namespaced }}
   {{- if .Values.providers.kubernetesCRD.enabled }}
   - "--providers.kubernetescrd.namespaces={{ template "providers.kubernetesCRD.namespaces" . }}"
   {{- end }}
