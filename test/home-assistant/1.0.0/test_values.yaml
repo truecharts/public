@@ -1,0 +1,18 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: homeassistant/home-assistant
+  tag: "2022.5.3"
+environmentVariables: []
+extraAppVolumeMounts: []
+web_port: 32000
+dnsConfig:
+  options: []
+emptyDirVolumes: true
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /config
+ownerUID: 568
+ownerGID: 568
+hostNetwork: false
+timezone: "America/Los_Angeles"
