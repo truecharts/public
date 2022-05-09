@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="technitium-0.0.10"></a>
+### [technitium-0.0.10](https://github.com/truecharts/apps/compare/technitium-0.0.9...technitium-0.0.10) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
 <a name="technitium-0.0.9"></a>
 ### [technitium-0.0.9](https://github.com/truecharts/apps/compare/technitium-0.0.8...technitium-0.0.9) (2022-05-05)
 
