@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xwiki-1.0.10"></a>
+### [xwiki-1.0.10](https://github.com/truecharts/apps/compare/xwiki-1.0.9...xwiki-1.0.10) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
 <a name="xwiki-1.0.9"></a>
 ### [xwiki-1.0.9](https://github.com/truecharts/apps/compare/xwiki-1.0.8...xwiki-1.0.9) (2022-05-05)
 

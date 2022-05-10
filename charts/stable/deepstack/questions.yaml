@@ -130,6 +130,12 @@ questions:
                 description: "Medium"
               - value: "Low"
                 description: "Low"
+        - variable: THREADCOUNT
+          label: "Threadcount"
+          description: "Sets the threadcount each endpoint will run with"
+          schema:
+            type: int
+            default: 5
   - variable: deepstack
     group: "Container Configuration"
     label: "Image Environment"

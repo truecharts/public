@@ -91,8 +91,8 @@ data:
 
     {{- if .Values.matrix.registration.require3PID }}
     registrations_require_3pid:
-        {{- range .Values.matrix.registration.requires3PID }}
-        - {{ . | .medium }}
+        {{- range .Values.matrix.registration.require3PID }}
+        {{ print "- " (.medium | quote) }}
         {{- end }}
     {{- end }}
 
@@ -100,8 +100,7 @@ data:
     enable_3pid_lookup: {{ .Values.matrix.registration.enable3PIDLookup }}
 
     {{- if .Values.matrix.registration.allowedLocal3PIDs }}
-    allowed_local_3pids:
-        {{ .Values.matrix.registration.allowedLocal3PIDs }}
+    allowed_local_3pids: {{- print " " -}}{{ .Values.matrix.registration.allowedLocal3PIDs | toJson -}}
     {{- end }}
 
     {{- end }}

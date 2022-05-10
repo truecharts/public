@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-2.0.23"></a>
+### [minio-2.0.23](https://github.com/truecharts/apps/compare/minio-2.0.22...minio-2.0.23) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
 <a name="minio-2.0.22"></a>
 ### [minio-2.0.22](https://github.com/truecharts/apps/compare/minio-2.0.21...minio-2.0.22) (2022-05-05)
 

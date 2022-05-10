@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="alist-1.0.23"></a>
+### [alist-1.0.23](https://github.com/truecharts/apps/compare/alist-1.0.22...alist-1.0.23) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
+<a name="alist-1.0.22"></a>
+### [alist-1.0.22](https://github.com/truecharts/apps/compare/alist-1.0.21...alist-1.0.22) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
 <a name="alist-1.0.21"></a>
 ### [alist-1.0.21](https://github.com/truecharts/apps/compare/alist-1.0.20...alist-1.0.21) (2022-05-05)
 

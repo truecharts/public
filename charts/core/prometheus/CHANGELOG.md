@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.52"></a>
+### [prometheus-2.0.52](https://github.com/truecharts/apps/compare/prometheus-2.0.51...prometheus-2.0.52) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
+<a name="prometheus-2.0.51"></a>
+### [prometheus-2.0.51](https://github.com/truecharts/apps/compare/prometheus-2.0.50...prometheus-2.0.51) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
 <a name="prometheus-2.0.50"></a>
 ### [prometheus-2.0.50](https://github.com/truecharts/apps/compare/prometheus-2.0.49...prometheus-2.0.50) (2022-05-06)
 

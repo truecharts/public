@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-10.0.16"></a>
+### [qbittorrent-10.0.16](https://github.com/truecharts/apps/compare/qbittorrent-10.0.15...qbittorrent-10.0.16) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
 <a name="qbittorrent-10.0.15"></a>
 ### [qbittorrent-10.0.15](https://github.com/truecharts/apps/compare/qbittorrent-10.0.14...qbittorrent-10.0.15) (2022-05-06)
 
