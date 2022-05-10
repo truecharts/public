@@ -3,11 +3,11 @@ appVersion: "ubuntu"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.54
+  version: 7.0.61
 description: Zabbix is an enterprise-class open source distributed monitoring solution.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/zabbix-server
 icon: https://truecharts.org/_static/img/appicons/zabbix-server.png
@@ -23,7 +23,7 @@ name: zabbix-server
 sources:
 - https://hub.docker.com/r/zabbix/zabbix-server-pgsql
 - https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql
-version: 0.0.7
+version: 0.0.8
 annotations:
   truecharts.org/catagories: |
     - utilities
