@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-3.0.14"></a>
+### [audacity-3.0.14](https://github.com/truecharts/apps/compare/audacity-3.0.13...audacity-3.0.14) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="audacity-3.0.13"></a>
 ### [audacity-3.0.13](https://github.com/truecharts/apps/compare/audacity-3.0.12...audacity-3.0.13) (2022-05-05)
 

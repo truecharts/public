@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filebrowser-1.0.13"></a>
+### [filebrowser-1.0.13](https://github.com/truecharts/apps/compare/filebrowser-1.0.12...filebrowser-1.0.13) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="filebrowser-1.0.12"></a>
 ### [filebrowser-1.0.12](https://github.com/truecharts/apps/compare/filebrowser-1.0.11...filebrowser-1.0.12) (2022-05-05)
 

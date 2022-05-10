@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.46"></a>
+### [minecraft-java-0.0.46](https://github.com/truecharts/apps/compare/minecraft-java-0.0.45...minecraft-java-0.0.46) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="minecraft-java-0.0.45"></a>
 ### [minecraft-java-0.0.45](https://github.com/truecharts/apps/compare/minecraft-java-0.0.44...minecraft-java-0.0.45) (2022-05-05)
 

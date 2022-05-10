@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-11.0.14"></a>
+### [transmission-11.0.14](https://github.com/truecharts/apps/compare/transmission-11.0.13...transmission-11.0.14) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="transmission-11.0.13"></a>
 ### [transmission-11.0.13](https://github.com/truecharts/apps/compare/transmission-11.0.12...transmission-11.0.13) (2022-05-05)
 

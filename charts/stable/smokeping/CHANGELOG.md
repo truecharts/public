@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-2.0.14"></a>
+### [smokeping-2.0.14](https://github.com/truecharts/apps/compare/smokeping-2.0.13...smokeping-2.0.14) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="smokeping-2.0.13"></a>
 ### [smokeping-2.0.13](https://github.com/truecharts/apps/compare/smokeping-2.0.12...smokeping-2.0.13) (2022-05-05)
 

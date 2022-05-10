@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-10.0.17"></a>
+### [organizr-10.0.17](https://github.com/truecharts/apps/compare/organizr-10.0.16...organizr-10.0.17) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="organizr-10.0.16"></a>
 ### [organizr-10.0.16](https://github.com/truecharts/apps/compare/organizr-10.0.15...organizr-10.0.16) (2022-05-09)
 

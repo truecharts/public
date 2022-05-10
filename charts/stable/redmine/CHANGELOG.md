@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redmine-1.0.26"></a>
+### [redmine-1.0.26](https://github.com/truecharts/apps/compare/redmine-1.0.25...redmine-1.0.26) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="redmine-1.0.25"></a>
 ### [redmine-1.0.25](https://github.com/truecharts/apps/compare/redmine-1.0.24...redmine-1.0.25) (2022-05-05)
 

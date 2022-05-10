@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.54"></a>
+### [prometheus-2.0.54](https://github.com/truecharts/apps/compare/prometheus-2.0.53...prometheus-2.0.54) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="prometheus-2.0.53"></a>
 ### [prometheus-2.0.53](https://github.com/truecharts/apps/compare/prometheus-2.0.52...prometheus-2.0.53) (2022-05-10)
 

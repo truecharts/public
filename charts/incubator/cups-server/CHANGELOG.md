@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cups-server-0.0.4"></a>
+### [cups-server-0.0.4](https://github.com/truecharts/apps/compare/cups-server-0.0.3...cups-server-0.0.4) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="cups-server-0.0.3"></a>
 ### [cups-server-0.0.3](https://github.com/truecharts/apps/compare/cups-server-0.0.2...cups-server-0.0.3) (2022-05-08)
 

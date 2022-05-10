@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-1.0.8"></a>
+### [audiobookshelf-1.0.8](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.7...audiobookshelf-1.0.8) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="audiobookshelf-1.0.7"></a>
 ### [audiobookshelf-1.0.7](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.6...audiobookshelf-1.0.7) (2022-05-06)
 

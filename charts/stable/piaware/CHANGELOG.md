@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.22"></a>
+### [piaware-5.0.22](https://github.com/truecharts/apps/compare/piaware-5.0.21...piaware-5.0.22) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="piaware-5.0.21"></a>
 ### [piaware-5.0.21](https://github.com/truecharts/apps/compare/piaware-5.0.20...piaware-5.0.21) (2022-05-05)
 

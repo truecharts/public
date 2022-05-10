@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lanraragi-1.0.13"></a>
+### [lanraragi-1.0.13](https://github.com/truecharts/apps/compare/lanraragi-1.0.12...lanraragi-1.0.13) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="lanraragi-1.0.12"></a>
 ### [lanraragi-1.0.12](https://github.com/truecharts/apps/compare/lanraragi-1.0.11...lanraragi-1.0.12) (2022-05-05)
 

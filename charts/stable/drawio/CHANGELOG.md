@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="drawio-1.0.8"></a>
+### [drawio-1.0.8](https://github.com/truecharts/apps/compare/drawio-1.0.7...drawio-1.0.8) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="drawio-1.0.7"></a>
 ### [drawio-1.0.7](https://github.com/truecharts/apps/compare/drawio-1.0.6...drawio-1.0.7) (2022-05-08)
 

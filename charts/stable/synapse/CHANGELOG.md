@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-2.1.3"></a>
+### [synapse-2.1.3](https://github.com/truecharts/apps/compare/synapse-2.1.2...synapse-2.1.3) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="synapse-2.1.2"></a>
 ### [synapse-2.1.2](https://github.com/truecharts/apps/compare/synapse-2.1.1...synapse-2.1.2) (2022-05-10)
 

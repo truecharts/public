@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-5.0.19"></a>
+### [miniflux-5.0.19](https://github.com/truecharts/apps/compare/miniflux-5.0.18...miniflux-5.0.19) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="miniflux-5.0.18"></a>
 ### [miniflux-5.0.18](https://github.com/truecharts/apps/compare/miniflux-5.0.17...miniflux-5.0.18) (2022-05-05)
 

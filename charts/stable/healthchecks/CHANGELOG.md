@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-6.0.14"></a>
+### [healthchecks-6.0.14](https://github.com/truecharts/apps/compare/healthchecks-6.0.13...healthchecks-6.0.14) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="healthchecks-6.0.13"></a>
 ### [healthchecks-6.0.13](https://github.com/truecharts/apps/compare/healthchecks-6.0.12...healthchecks-6.0.13) (2022-05-05)
 

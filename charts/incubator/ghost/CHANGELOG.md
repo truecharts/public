@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.29"></a>
+### [ghost-1.0.29](https://github.com/truecharts/apps/compare/ghost-1.0.28...ghost-1.0.29) (2022-05-10)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+* move to incubator, because upstream does not support mariadb ([#2631](https://github.com/truecharts/apps/issues/2631))
+
+
+
 
 
 <a name="ghost-1.0.28"></a>

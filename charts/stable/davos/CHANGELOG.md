@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-3.0.14"></a>
+### [davos-3.0.14](https://github.com/truecharts/apps/compare/davos-3.0.13...davos-3.0.14) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="davos-3.0.13"></a>
 ### [davos-3.0.13](https://github.com/truecharts/apps/compare/davos-3.0.12...davos-3.0.13) (2022-05-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-updater-1.0.5"></a>
+### [ddns-updater-1.0.5](https://github.com/truecharts/apps/compare/ddns-updater-1.0.4...ddns-updater-1.0.5) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="ddns-updater-1.0.4"></a>
 ### [ddns-updater-1.0.4](https://github.com/truecharts/apps/compare/ddns-updater-1.0.3...ddns-updater-1.0.4) (2022-05-05)
 
