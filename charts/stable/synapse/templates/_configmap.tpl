@@ -90,17 +90,16 @@ data:
     registration_requires_token: {{ .Values.matrix.registration.requiresToken }}
 
     {{- if .Values.matrix.registration.require3PID }}
-    registrations_require_3pid:
-        {{- range .Values.matrix.registration.require3PID }}
-        {{ print "- " (.medium | quote) }}
-        {{- end }}
+    {{/* It seems toYaml doesn't work on lists/arrays */}}
+    registrations_require_3pid: {{- print " " -}}{{ .Values.matrix.registration.require3PID | toJson }}
     {{- end }}
 
     disable_msisdn_registration: {{ .Values.matrix.registration.disableMSISDNRegistration }}
     enable_3pid_lookup: {{ .Values.matrix.registration.enable3PIDLookup }}
 
     {{- if .Values.matrix.registration.allowedLocal3PIDs }}
-    allowed_local_3pids: {{- print " " -}}{{ .Values.matrix.registration.allowedLocal3PIDs | toJson -}}
+    {{/* It seems toYaml doesn't work on lists/arrays */}}
+    allowed_local_3pids: {{- print " " -}}{{ .Values.matrix.registration.allowedLocal3PIDs | toJson }}
     {{- end }}
 
     {{- end }}
