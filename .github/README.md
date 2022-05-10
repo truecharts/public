@@ -243,7 +243,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/I-nebukad-I"><img src="https://avatars.githubusercontent.com/u/16634069?v=4?s=100" width="100px;" alt=""/><br /><sub><b>I-nebukad-I</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AI-nebukad-I" title="Bug reports">🐛</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/packruler"><img src="https://avatars.githubusercontent.com/u/770373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ethan Leisinger</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=packruler" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/packruler"><img src="https://avatars.githubusercontent.com/u/770373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ethan Leisinger</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=packruler" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=packruler" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/CullenShane"><img src="https://avatars.githubusercontent.com/u/597786?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cullen Murphy</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=CullenShane" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ACullenShane" title="Bug reports">🐛</a></td>
   </tr>
 </table>
