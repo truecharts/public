@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-2.0.20"></a>
+### [shlink-2.0.20](https://github.com/truecharts/apps/compare/shlink-2.0.19...shlink-2.0.20) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="shlink-2.0.19"></a>
 ### [shlink-2.0.19](https://github.com/truecharts/apps/compare/shlink-2.0.18...shlink-2.0.19) (2022-05-05)
 

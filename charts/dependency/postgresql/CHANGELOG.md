@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.59"></a>
+### [postgresql-7.0.59](https://github.com/truecharts/apps/compare/postgresql-7.0.58...postgresql-7.0.59) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="postgresql-7.0.58"></a>
 ### [postgresql-7.0.58](https://github.com/truecharts/apps/compare/postgresql-7.0.57...postgresql-7.0.58) (2022-05-09)
 

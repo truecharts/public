@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-5.0.23"></a>
+### [omada-controller-5.0.23](https://github.com/truecharts/apps/compare/omada-controller-5.0.22...omada-controller-5.0.23) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="omada-controller-5.0.22"></a>
 ### [omada-controller-5.0.22](https://github.com/truecharts/apps/compare/omada-controller-5.0.21...omada-controller-5.0.22) (2022-05-09)
 
