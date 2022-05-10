@@ -3,11 +3,11 @@ appVersion: "1.24.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.54
+  version: 7.0.61
 deprecated: false
 description: Unofficial Bitwarden compatible server written in Rust
 home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
@@ -28,7 +28,7 @@ name: vaultwarden
 sources:
 - https://github.com/dani-garcia/vaultwarden
 type: application
-version: 14.0.19
+version: 14.0.20
 annotations:
   truecharts.org/catagories: |
     - security
