@@ -29,7 +29,7 @@ jobs:
     - name: Copy Common
       run: |
         cp -rf ./charts/common ./charts/dep-common
-        sed 's/name: common/name: dep-common/g' ./charts/dep-common/Chart.yaml
+        sed -i 's/name: common/name: dep-common/g' ./charts/dep-common/Chart.yaml
 
     - name: Install Helm
       uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # tag=v1
