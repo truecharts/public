@@ -28,7 +28,7 @@ jobs:
         
     - name: Copy Common
       run: |
-        cp ./charts/common ./charts/dep-common
+        cp -rf ./charts/common ./charts/dep-common
         sed 's/name: common/name: dep-common/g' ./charts/dep-common/Chart.yaml
 
     - name: Install Helm
