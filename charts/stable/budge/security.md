@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/budge:v0.0.7@sha256:57aa59c697c56c530e47792586a7d115a230efdcd38467a72689bab6e196a8ab
+          tccr.io/truecharts/budge:v0.0.7@sha256:1d3bd588763f8589601f1d8151040bf091de92203a789f471abe96732bb5059e
 
 ##### Scan Results
 

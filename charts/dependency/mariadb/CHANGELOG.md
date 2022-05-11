@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.60"></a>
+### [mariadb-2.0.60](https://github.com/truecharts/apps/compare/mariadb-2.0.58...mariadb-2.0.60) (2022-05-11)
+
+#### Chore
+
+* update helm chart common to v9.3.7 ([#2656](https://github.com/truecharts/apps/issues/2656))
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
 <a name="mariadb-2.0.58"></a>
 ### [mariadb-2.0.58](https://github.com/truecharts/apps/compare/mariadb-2.0.57...mariadb-2.0.58) (2022-05-10)
 

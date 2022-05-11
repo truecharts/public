@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.23"></a>
+### [rsshub-1.0.23](https://github.com/truecharts/apps/compare/rsshub-1.0.22...rsshub-1.0.23) (2022-05-11)
+
+#### Chore
+
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
 <a name="rsshub-1.0.22"></a>
 ### [rsshub-1.0.22](https://github.com/truecharts/apps/compare/rsshub-1.0.21...rsshub-1.0.22) (2022-05-10)
 
