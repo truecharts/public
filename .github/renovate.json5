@@ -44,9 +44,6 @@
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
       "paths": ["charts/dependency/"],
-      "schedule": [
-        "before 1pm on tuesday"
-      ],
     },
     {
       "matchDatasources": ["helm"],
@@ -58,9 +55,6 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/dependency/non-major"],
       "paths": ["charts/dependency/"],
-      "schedule": [
-        "before 1pm on tuesday"
-      ],
       "groupName": "helm dependency non-major",
     },
     //
