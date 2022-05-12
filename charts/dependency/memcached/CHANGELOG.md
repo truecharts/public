@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.61"></a>
+### [memcached-2.0.61](https://github.com/truecharts/apps/compare/memcached-2.0.60...memcached-2.0.61) (2022-05-12)
+
+#### Chore
+
+* update helm chart common to v9.3.8
+
+
+
 <a name="memcached-2.0.60"></a>
 ### [memcached-2.0.60](https://github.com/truecharts/apps/compare/memcached-2.0.58...memcached-2.0.60) (2022-05-11)
 
