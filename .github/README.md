@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-87-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-88-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -246,6 +246,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/packruler"><img src="https://avatars.githubusercontent.com/u/770373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ethan Leisinger</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=packruler" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=packruler" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/CullenShane"><img src="https://avatars.githubusercontent.com/u/597786?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Cullen Murphy</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=CullenShane" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ACullenShane" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jthat"><img src="https://avatars.githubusercontent.com/u/1931222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jason Thatcher</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=jthat" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3Ajthat" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=jthat" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/stefanschramek"><img src="https://avatars.githubusercontent.com/u/921342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stefan Schramek</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Astefanschramek" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
