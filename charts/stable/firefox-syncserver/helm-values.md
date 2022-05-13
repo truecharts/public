@@ -17,8 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FF_SYNCSERVER_FORWARDED_ALLOW_IPS | string | `"*"` |  |
 | env.FF_SYNCSERVER_LOGLEVEL | string | `"info"` |  |
 | env.FF_SYNCSERVER_PUBLIC_URL | string | `"firefox-syncserver.192.168.1.189.nip.io"` |  |
-| envValueFrom.DB_HOST.secretKeyRef.key | string | `"url"` |  |
-| envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
+| envValueFrom.FF_SYNCSERVER_SQLURI.secretKeyRef.key | string | `"url"` |  |
+| envValueFrom.FF_SYNCSERVER_SQLURI.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/firefox-syncserver"` |  |
 | image.tag | string | `"v1.8.0@sha256:d0fbf65c8c7a99ad4ba7ffcfdad2e7b2555e0d829867c21cefc9314ace94f747"` |  |
