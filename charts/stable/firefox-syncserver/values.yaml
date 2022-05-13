@@ -25,7 +25,7 @@ env:
   FF_SYNCSERVER_FORWARDED_ALLOW_IPS: "*"
 
 envValueFrom:
-  DB_HOST:
+  FF_SYNCSERVER_SQLURI:
     secretKeyRef:
       name: dbcreds
       key: url
