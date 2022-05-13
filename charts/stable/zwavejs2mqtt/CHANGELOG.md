@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-10.0.25"></a>
+### [zwavejs2mqtt-10.0.25](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.24...zwavejs2mqtt-10.0.25) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
 <a name="zwavejs2mqtt-10.0.24"></a>
 ### [zwavejs2mqtt-10.0.24](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.23...zwavejs2mqtt-10.0.24) (2022-05-10)
 

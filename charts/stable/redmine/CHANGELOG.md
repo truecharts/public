@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redmine-1.0.27"></a>
+### [redmine-1.0.27](https://github.com/truecharts/apps/compare/redmine-1.0.26...redmine-1.0.27) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
 <a name="redmine-1.0.26"></a>
 ### [redmine-1.0.26](https://github.com/truecharts/apps/compare/redmine-1.0.25...redmine-1.0.26) (2022-05-10)
 

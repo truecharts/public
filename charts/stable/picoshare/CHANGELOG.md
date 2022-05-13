@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="picoshare-1.0.12"></a>
+### [picoshare-1.0.12](https://github.com/truecharts/apps/compare/picoshare-1.0.11...picoshare-1.0.12) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
 <a name="picoshare-1.0.11"></a>
 ### [picoshare-1.0.11](https://github.com/truecharts/apps/compare/picoshare-1.0.10...picoshare-1.0.11) (2022-05-10)
 

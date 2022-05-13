@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.48"></a>
+### [minecraft-java-0.0.48](https://github.com/truecharts/apps/compare/minecraft-java-0.0.47...minecraft-java-0.0.48) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
 <a name="minecraft-java-0.0.47"></a>
 ### [minecraft-java-0.0.47](https://github.com/truecharts/apps/compare/minecraft-java-0.0.46...minecraft-java-0.0.47) (2022-05-11)
 
