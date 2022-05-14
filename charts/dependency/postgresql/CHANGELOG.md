@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.68"></a>
+### [postgresql-7.0.68](https://github.com/truecharts/apps/compare/postgresql-7.0.67...postgresql-7.0.68) (2022-05-14)
+
+#### Chore
+
+* update helm chart common to v9.3.11
+
+
+
 <a name="postgresql-7.0.67"></a>
 ### [postgresql-7.0.67](https://github.com/truecharts/apps/compare/postgresql-7.0.65...postgresql-7.0.67) (2022-05-13)
 
