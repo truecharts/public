@@ -64,7 +64,7 @@ args:
   {{- end }}
   {{- end }}
   {{- if .Values.ingressClass.enabled }}
-  - "--providers.kubernetesingress.ingressclass="{{ .Release.Name }}
+  - "--providers.kubernetesingress.ingressclass={{ .Release.Name }}"
   {{- end }}
   {{- range $entrypoint, $config := $ports }}
   {{/* add args for forwardedHeaders support */}}
