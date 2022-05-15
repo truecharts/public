@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkding-1.0.5"></a>
+### [linkding-1.0.5](https://github.com/truecharts/apps/compare/linkding-1.0.4...linkding-1.0.5) (2022-05-15)
+
+#### Chore
+
+* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
+
+
+
 <a name="linkding-1.0.4"></a>
 ### [linkding-1.0.4](https://github.com/truecharts/apps/compare/linkding-1.0.3...linkding-1.0.4) (2022-05-10)
 

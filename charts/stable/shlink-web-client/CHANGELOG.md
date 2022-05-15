@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-2.0.15"></a>
+### [shlink-web-client-2.0.15](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.14...shlink-web-client-2.0.15) (2022-05-15)
+
+#### Chore
+
+* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
+
+
+
 <a name="shlink-web-client-2.0.14"></a>
 ### [shlink-web-client-2.0.14](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.13...shlink-web-client-2.0.14) (2022-05-10)
 

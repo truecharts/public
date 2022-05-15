@@ -77,7 +77,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:0a9761a8eeb3967835f0850ef5956c5f3186588925004971f45c4f26f292e478
-          tccr.io/truecharts/matomo:v4.9.1@sha256:67be78b4589add4834b20dbad7fa923d736e358f50dce556e75079d8a10f1e0f
+          tccr.io/truecharts/matomo:v4.9.1@sha256:ef49d6918fd2c5be48ce2036a1533245373abb1fe291fe8d6221dd71f5801853
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:0a9761a8eeb3967835f0850ef5956c5f3186588925004971f45c4f26f292e478
@@ -334,7 +334,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/matomo:v4.9.1@sha256:67be78b4589add4834b20dbad7fa923d736e358f50dce556e75079d8a10f1e0f (debian 10.12)
+#### Container: tccr.io/truecharts/matomo:v4.9.1@sha256:ef49d6918fd2c5be48ce2036a1533245373abb1fe291fe8d6221dd71f5801853 (debian 10.12)
 
 
 **debian**

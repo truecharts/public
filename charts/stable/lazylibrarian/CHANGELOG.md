@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-10.0.24"></a>
+### [lazylibrarian-10.0.24](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.23...lazylibrarian-10.0.24) (2022-05-15)
+
+#### Chore
+
+* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
+
+
+
 <a name="lazylibrarian-10.0.23"></a>
 ### [lazylibrarian-10.0.23](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.22...lazylibrarian-10.0.23) (2022-05-10)
 

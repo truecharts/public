@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-2.0.21"></a>
+### [snipe-it-2.0.21](https://github.com/truecharts/apps/compare/snipe-it-2.0.20...snipe-it-2.0.21) (2022-05-15)
+
+#### Chore
+
+* update container image tccr.io/truecharts/snipe-it to v6.0.0 ([#2689](https://github.com/truecharts/apps/issues/2689))
+
+
+
 <a name="snipe-it-2.0.20"></a>
 ### [snipe-it-2.0.20](https://github.com/truecharts/apps/compare/snipe-it-2.0.19...snipe-it-2.0.20) (2022-05-10)
 
