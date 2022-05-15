@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import json
+import sys
+
+from catalog_update.upgrade_strategy import semantic_versioning
+
+
+def newer_mapping(image_tags):
+    key = list(image_tags.keys())[0]
+    version = semantic_versioning(sorted(image_tags[key], reverse=True))
+    if not version:
+        return {}
+
+    return {
+        'tags': {key: version},
+        'app_version': version,
+    }
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        exit(1)
+
+    print(json.dumps(newer_mapping(json.loads(sys.argv[1]))))
