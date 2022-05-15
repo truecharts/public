@@ -3,10 +3,10 @@ appVersion: "3.0.25"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 deprecated: false
 description: OpenSource Radius implementation
-home: https://www.openldap.org
+home: https://github.com/truecharts/apps/tree/master/charts/stable/freeradius
 icon: https://truecharts.org/_static/img/appicons/freeradius.png
 keywords:
 - radius
@@ -21,7 +21,7 @@ sources:
 - https://hub.docker.com/r/freeradius/freeradius-server/
 - https://freeradius.org/
 type: application
-version: 5.0.13
+version: 5.0.14
 annotations:
   truecharts.org/catagories: |
     - auth

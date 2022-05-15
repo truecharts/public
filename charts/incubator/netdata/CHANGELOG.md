@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="netdata-0.0.7"></a>
+### [netdata-0.0.7](https://github.com/truecharts/apps/compare/netdata-0.0.6...netdata-0.0.7) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+#### Feat
+
+* move to stable ([#2636](https://github.com/truecharts/apps/issues/2636))
+
+
+
 <a name="netdata-0.0.6"></a>
 ### [netdata-0.0.6](https://github.com/truecharts/apps/compare/netdata-0.0.5...netdata-0.0.6) (2022-05-05)
 

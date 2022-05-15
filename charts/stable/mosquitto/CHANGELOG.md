@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-5.0.22"></a>
+### [mosquitto-5.0.22](https://github.com/truecharts/apps/compare/mosquitto-5.0.21...mosquitto-5.0.22) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="mosquitto-5.0.21"></a>
 ### [mosquitto-5.0.21](https://github.com/truecharts/apps/compare/mosquitto-5.0.20...mosquitto-5.0.21) (2022-05-05)
 

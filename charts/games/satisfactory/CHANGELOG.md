@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="satisfactory-1.0.1"></a>
+### [satisfactory-1.0.1](https://github.com/truecharts/apps/compare/satisfactory-1.0.0...satisfactory-1.0.1) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="satisfactory-1.0.0"></a>
+### satisfactory-1.0.0 (2022-05-07)
+
+#### Chore
+
+* Rename s`t`atisfacoty to satisfactory ([#2637](https://github.com/truecharts/apps/issues/2637))
+
+
+
 <a name="statisfactory-0.0.27"></a>
 ### [statisfactory-0.0.27](https://github.com/truecharts/apps/compare/statisfactory-0.0.26...statisfactory-0.0.27) (2022-05-05)
 

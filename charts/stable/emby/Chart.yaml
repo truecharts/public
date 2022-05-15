@@ -3,10 +3,10 @@ appVersion: "4.6.7.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 deprecated: false
 description: Emby Server is a home media server
-home: https://github.com/truecharts/apps/master/stable/emby
+home: https://github.com/truecharts/apps/tree/master/charts/stable/emby
 icon: https://truecharts.org/_static/img/appicons/emby.png
 keywords:
 - jellyfin
@@ -22,7 +22,7 @@ sources:
 - https://hub.docker.com/r/linuxserver/emby
 - https://github.com/linuxserver/docker-emby.git
 type: application
-version: 10.0.13
+version: 10.0.14
 annotations:
   truecharts.org/catagories: |
     - media

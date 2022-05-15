@@ -8,12 +8,12 @@ appVersion: "latest"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 deprecated: false
 description: "Very simple WebDAV server based on Apache. You need a WebDAV client\
   \ to transfer files. It does not include a WebUI to upload files through your browser.\r\
   \n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/apache-webdav
+home: https://github.com/truecharts/apps/tree/master/charts/dev/apache-webdav
 icon: https://truecharts.org/_static/img/appicons/apache-webdav.png
 keywords:
 - apache-webdav
@@ -28,4 +28,4 @@ sources:
 - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
 - https://github.com/mgutt/docker-apachewebdav
 type: application
-version: 0.0.5
+version: 0.0.6

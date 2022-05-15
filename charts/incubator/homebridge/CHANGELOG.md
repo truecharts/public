@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homebridge-0.0.15"></a>
+### [homebridge-0.0.15](https://github.com/truecharts/apps/compare/homebridge-0.0.14...homebridge-0.0.15) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="homebridge-0.0.14"></a>
 ### [homebridge-0.0.14](https://github.com/truecharts/apps/compare/homebridge-0.0.13...homebridge-0.0.14) (2022-05-05)
 

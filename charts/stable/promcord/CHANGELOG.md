@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-3.0.15"></a>
+### [promcord-3.0.15](https://github.com/truecharts/apps/compare/promcord-3.0.14...promcord-3.0.15) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="promcord-3.0.14"></a>
 ### [promcord-3.0.14](https://github.com/truecharts/apps/compare/promcord-3.0.13...promcord-3.0.14) (2022-05-05)
 

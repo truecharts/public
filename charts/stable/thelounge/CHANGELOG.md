@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="thelounge-5.0.24"></a>
+### [thelounge-5.0.24](https://github.com/truecharts/apps/compare/thelounge-5.0.23...thelounge-5.0.24) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="thelounge-5.0.23"></a>
+### [thelounge-5.0.23](https://github.com/truecharts/apps/compare/thelounge-5.0.22...thelounge-5.0.23) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="thelounge-5.0.22"></a>
+### [thelounge-5.0.22](https://github.com/truecharts/apps/compare/thelounge-5.0.21...thelounge-5.0.22) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="thelounge-5.0.21"></a>
 ### [thelounge-5.0.21](https://github.com/truecharts/apps/compare/thelounge-5.0.20...thelounge-5.0.21) (2022-05-05)
 

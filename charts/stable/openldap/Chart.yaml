@@ -3,10 +3,10 @@ appVersion: "1.5.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 deprecated: false
 description: Community developed LDAP software
-home: https://www.openldap.org
+home: https://github.com/truecharts/apps/tree/master/charts/stable/openldap
 icon: https://truecharts.org/_static/img/appicons/openldap.png
 keywords:
 - ldap
@@ -23,7 +23,7 @@ sources:
 - https://github.com/jp-gouin/helm-openldap
 - https://github.com/osixia/docker-openldap
 type: application
-version: 6.0.13
+version: 6.0.14
 annotations:
   truecharts.org/catagories: |
     - cloud

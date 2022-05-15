@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-3.0.8"></a>
+### [zigbee2mqtt-3.0.8](https://github.com/truecharts/apps/compare/zigbee2mqtt-3.0.7...zigbee2mqtt-3.0.8) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="zigbee2mqtt-3.0.7"></a>
 ### [zigbee2mqtt-3.0.7](https://github.com/truecharts/apps/compare/zigbee2mqtt-3.0.6...zigbee2mqtt-3.0.7) (2022-05-05)
 

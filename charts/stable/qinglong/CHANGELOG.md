@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qinglong-1.0.19"></a>
+### [qinglong-1.0.19](https://github.com/truecharts/apps/compare/qinglong-1.0.18...qinglong-1.0.19) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="qinglong-1.0.18"></a>
 ### [qinglong-1.0.18](https://github.com/truecharts/apps/compare/qinglong-1.0.17...qinglong-1.0.18) (2022-05-05)
 

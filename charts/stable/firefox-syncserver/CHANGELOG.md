@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-7.0.0"></a>
+### [firefox-syncserver-7.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-6.0.18...firefox-syncserver-7.0.0) (2022-05-13)
+
+#### Fix
+
+* fix to use PostgreSQL instead of SQLite ([#2669](https://github.com/truecharts/apps/issues/2669))
+
+
+
+<a name="firefox-syncserver-6.0.18"></a>
+### [firefox-syncserver-6.0.18](https://github.com/truecharts/apps/compare/firefox-syncserver-6.0.17...firefox-syncserver-6.0.18) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="firefox-syncserver-6.0.17"></a>
 ### [firefox-syncserver-6.0.17](https://github.com/truecharts/apps/compare/firefox-syncserver-6.0.16...firefox-syncserver-6.0.17) (2022-05-05)
 

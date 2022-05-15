@@ -1,15 +1,15 @@
 # Introduction
 
-Ghost is an open source, professional publishing platform built on a modern Node.js technology stack — designed for teams who need power, flexibility and performance.
+MKVToolNix is a set of tools to create, alter and inspect Matroska files.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/TryGhost/Ghost>
-* <https://hub.docker.com/_/ghost>
-* <https://ghost.org/docs/>
+* <https://github.com/jlesage/docker-mkvtoolnix>
+* <https://hub.docker.com/r/jlesage/mkvtoolnix>
+* <https://mkvtoolnix.download/>
 
 ## Requirements
 
@@ -19,8 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 2.0.51 |
-| https://library-charts.truecharts.org | common | 9.3.3 |
+| https://library-charts.truecharts.org | common | 9.3.6 |
 
 ## Installing the Chart
 

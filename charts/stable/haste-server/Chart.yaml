@@ -3,9 +3,9 @@ appVersion: "latest"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 9.3.6
 description: Simple text sharing
-home: https://github.com/truecharts/apps/tree/master/charts/stable/haste
+home: https://github.com/truecharts/apps/tree/master/charts/stable/haste-server
 icon: https://truecharts.org/_static/img/appicons/haste-server.png
 keywords:
 - haste
@@ -21,7 +21,7 @@ name: haste-server
 sources:
 - https://github.com/seejohnrun/haste-server
 - https://github.com/k8s-at-home/container-images
-version: 5.0.13
+version: 5.0.14
 annotations:
   truecharts.org/catagories: |
     - utilities

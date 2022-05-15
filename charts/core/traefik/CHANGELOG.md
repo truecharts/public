@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="traefik-11.3.2"></a>
+### [traefik-11.3.2](https://github.com/truecharts/apps/compare/traefik-11.3.1...traefik-11.3.2) (2022-05-15)
+
+
+
+<a name="traefik-11.3.1"></a>
+### [traefik-11.3.1](https://github.com/truecharts/apps/compare/traefik-11.3.0...traefik-11.3.1) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="traefik-11.3.0"></a>
 ### [traefik-11.3.0](https://github.com/truecharts/apps/compare/traefik-11.2.2...traefik-11.3.0) (2022-05-05)
 

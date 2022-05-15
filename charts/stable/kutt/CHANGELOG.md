@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kutt-1.0.12"></a>
+### [kutt-1.0.12](https://github.com/truecharts/apps/compare/kutt-1.0.11...kutt-1.0.12) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+* description fix ([#2647](https://github.com/truecharts/apps/issues/2647))
+
+
+
 <a name="kutt-1.0.11"></a>
 ### [kutt-1.0.11](https://github.com/truecharts/apps/compare/kutt-1.0.10...kutt-1.0.11) (2022-05-05)
 

@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="docker-compose-1.0.22"></a>
+### [docker-compose-1.0.22](https://github.com/truecharts/apps/compare/docker-compose-1.0.21...docker-compose-1.0.22) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="docker-compose-1.0.21"></a>
+### [docker-compose-1.0.21](https://github.com/truecharts/apps/compare/docker-compose-1.0.20...docker-compose-1.0.21) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="docker-compose-1.0.20"></a>
+### [docker-compose-1.0.20](https://github.com/truecharts/apps/compare/docker-compose-1.0.19...docker-compose-1.0.20) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="docker-compose-1.0.19"></a>
 ### [docker-compose-1.0.19](https://github.com/truecharts/apps/compare/docker-compose-1.0.18...docker-compose-1.0.19) (2022-05-05)
 

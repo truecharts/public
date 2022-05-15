@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-10.0.25"></a>
+### [zwavejs2mqtt-10.0.25](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.24...zwavejs2mqtt-10.0.25) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="zwavejs2mqtt-10.0.24"></a>
+### [zwavejs2mqtt-10.0.24](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.23...zwavejs2mqtt-10.0.24) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="zwavejs2mqtt-10.0.23"></a>
+### [zwavejs2mqtt-10.0.23](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.22...zwavejs2mqtt-10.0.23) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
 <a name="zwavejs2mqtt-10.0.22"></a>
 ### [zwavejs2mqtt-10.0.22](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.21...zwavejs2mqtt-10.0.22) (2022-05-05)
 

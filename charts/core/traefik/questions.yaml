@@ -112,6 +112,7 @@ questions:
       attrs:
         - variable: enabled
           label: "Enable"
+          description: "When enabled, ingressClass will match the entered name of this app"
           schema:
             type: boolean
             default: false

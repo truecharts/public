@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-5.0.15"></a>
+### [overseerr-5.0.15](https://github.com/truecharts/apps/compare/overseerr-5.0.14...overseerr-5.0.15) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="overseerr-5.0.14"></a>
 ### [overseerr-5.0.14](https://github.com/truecharts/apps/compare/overseerr-5.0.13...overseerr-5.0.14) (2022-05-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ubooquity-2.0.16"></a>
+### [ubooquity-2.0.16](https://github.com/truecharts/apps/compare/ubooquity-2.0.15...ubooquity-2.0.16) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="ubooquity-2.0.15"></a>
 ### [ubooquity-2.0.15](https://github.com/truecharts/apps/compare/ubooquity-2.0.14...ubooquity-2.0.15) (2022-05-05)
 

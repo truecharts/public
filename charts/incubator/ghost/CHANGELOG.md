@@ -1,6 +1,38 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.31"></a>
+### [ghost-1.0.31](https://github.com/truecharts/apps/compare/ghost-1.0.30...ghost-1.0.31) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="ghost-1.0.30"></a>
+### [ghost-1.0.30](https://github.com/truecharts/apps/compare/ghost-1.0.29...ghost-1.0.30) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="ghost-1.0.29"></a>
+### [ghost-1.0.29](https://github.com/truecharts/apps/compare/ghost-1.0.28...ghost-1.0.29) (2022-05-10)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+* move to incubator, because upstream does not support mariadb ([#2631](https://github.com/truecharts/apps/issues/2631))
+
+
+
+
+
 <a name="ghost-1.0.28"></a>
 ### [ghost-1.0.28](https://github.com/truecharts/apps/compare/ghost-1.0.27...ghost-1.0.28) (2022-05-05)
 

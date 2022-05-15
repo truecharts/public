@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="beets-3.0.24"></a>
+### [beets-3.0.24](https://github.com/truecharts/apps/compare/beets-3.0.23...beets-3.0.24) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="beets-3.0.23"></a>
+### [beets-3.0.23](https://github.com/truecharts/apps/compare/beets-3.0.22...beets-3.0.23) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
 <a name="beets-3.0.22"></a>
 ### [beets-3.0.22](https://github.com/truecharts/apps/compare/beets-3.0.21...beets-3.0.22) (2022-05-06)
 
