@@ -1,0 +1,15 @@
+{{ $svc := .Values.embyServerHttp }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "emby" "port" $svc.port "nodePort" $svc.port "targetPort" "emby") }}
+{{ $ports = mustAppend $ports (dict "name" "http" "port" 80 "targetPort" "emby") }}
+{{ $ports = mustAppend $ports (dict "name" "https" "port" 443 "targetPort" "emby") }}
+{{ $params := . }}
+{{ $_ := set $params "commonService" (dict "ports" $ports ) }}
+{{ if .Values.hostNetwork }}
+{{ $_ := set $params.commonService "nameSuffix" "tcp-cluster-ip" }}
+{{ $_1 := set $params.commonService "type" "ClusterIP" }}
+{{ else }}
+{{ $_ := set $params.commonService "nameSuffix" "tcp" }}
+{{ $_1 := set $params.commonService "type" "NodePort" }}
+{{ end }}
+{{ include "common.classes.service" $params }}
