@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mongodb-0.1.26"></a>
+### [mongodb-0.1.26](https://github.com/truecharts/apps/compare/mongodb-0.1.24...mongodb-0.1.26) (2022-05-15)
+
+#### Chore
+
+* update helm chart common to v9.3.12
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
 <a name="mongodb-0.1.24"></a>
 ### [mongodb-0.1.24](https://github.com/truecharts/apps/compare/mongodb-0.1.23...mongodb-0.1.24) (2022-05-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-10.0.18"></a>
+### [unifi-10.0.18](https://github.com/truecharts/apps/compare/unifi-10.0.17...unifi-10.0.18) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
 <a name="unifi-10.0.17"></a>
 ### [unifi-10.0.17](https://github.com/truecharts/apps/compare/unifi-10.0.16...unifi-10.0.17) (2022-05-10)
 
