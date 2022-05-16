@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.44"></a>
+### [minetest-0.0.44](https://github.com/truecharts/apps/compare/minetest-0.0.43...minetest-0.0.44) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
 <a name="minetest-0.0.43"></a>
 ### [minetest-0.0.43](https://github.com/truecharts/apps/compare/minetest-0.0.42...minetest-0.0.43) (2022-05-10)
 

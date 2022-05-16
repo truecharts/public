@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-10.0.27"></a>
+### [lidarr-10.0.27](https://github.com/truecharts/apps/compare/lidarr-10.0.26...lidarr-10.0.27) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
 <a name="lidarr-10.0.26"></a>
 ### [lidarr-10.0.26](https://github.com/truecharts/apps/compare/lidarr-10.0.25...lidarr-10.0.26) (2022-05-11)
 
