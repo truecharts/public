@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: fancyindex
+version: 0.0.1
+appVersion: "latest"
+description: Fancyindex provides a lightweight nginx directory listing with theming support
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/fancyindex
+icon: https://truecharts.org/_static/img/appicons/fancyindex.png
+keywords:
+  - fancyindex
+sources:
+  - https://github.com/xal3xhx/fancyindex
+  - https://hub.docker.com/r/xal3xhx/fancy
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.6
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - web
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
