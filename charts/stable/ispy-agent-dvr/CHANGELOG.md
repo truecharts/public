@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ispy-agent-dvr-1.0.22"></a>
+### [ispy-agent-dvr-1.0.22](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.21...ispy-agent-dvr-1.0.22) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
 <a name="ispy-agent-dvr-1.0.21"></a>
 ### [ispy-agent-dvr-1.0.21](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.20...ispy-agent-dvr-1.0.21) (2022-05-14)
 
