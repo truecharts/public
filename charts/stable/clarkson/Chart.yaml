@@ -3,11 +3,11 @@ appVersion: "1.1.2"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.14
+  version: 9.3.15
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 2.0.69
+  version: 2.0.70
 description: "A web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/clarkson
 icon: https://truecharts.org/_static/img/appicons/clarkson.png
@@ -26,7 +26,7 @@ name: clarkson
 sources:
   - https://github.com/linuxserver/Clarkson
   - https://hub.docker.com/r/linuxserver/clarkson
-version: 1.0.19
+version: 1.0.20
 annotations:
   truecharts.org/catagories: |
     - vehicle
