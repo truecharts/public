@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ntfy-1.0.8"></a>
+### [ntfy-1.0.8](https://github.com/truecharts/apps/compare/ntfy-1.0.7...ntfy-1.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="ntfy-1.0.7"></a>
 ### [ntfy-1.0.7](https://github.com/truecharts/apps/compare/ntfy-1.0.6...ntfy-1.0.7) (2022-05-17)
 

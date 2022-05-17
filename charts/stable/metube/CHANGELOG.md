@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="metube-1.0.6"></a>
+### [metube-1.0.6](https://github.com/truecharts/apps/compare/metube-1.0.5...metube-1.0.6) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="metube-1.0.5"></a>
 ### [metube-1.0.5](https://github.com/truecharts/apps/compare/metube-1.0.4...metube-1.0.5) (2022-05-17)
 

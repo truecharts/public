@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-5.0.20"></a>
+### [traccar-5.0.20](https://github.com/truecharts/apps/compare/traccar-5.0.19...traccar-5.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="traccar-5.0.19"></a>
 ### [traccar-5.0.19](https://github.com/truecharts/apps/compare/traccar-5.0.18...traccar-5.0.19) (2022-05-17)
 

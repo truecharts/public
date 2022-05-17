@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickgear-2.0.16"></a>
+### [sickgear-2.0.16](https://github.com/truecharts/apps/compare/sickgear-2.0.15...sickgear-2.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="sickgear-2.0.15"></a>
 ### [sickgear-2.0.15](https://github.com/truecharts/apps/compare/sickgear-2.0.14...sickgear-2.0.15) (2022-05-17)
 

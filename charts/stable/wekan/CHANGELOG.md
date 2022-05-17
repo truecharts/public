@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-2.0.12"></a>
+### [wekan-2.0.12](https://github.com/truecharts/apps/compare/wekan-2.0.11...wekan-2.0.12) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="wekan-2.0.11"></a>
 ### [wekan-2.0.11](https://github.com/truecharts/apps/compare/wekan-2.0.10...wekan-2.0.11) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.35"></a>
+### [impostor-server-0.0.35](https://github.com/truecharts/apps/compare/impostor-server-0.0.34...impostor-server-0.0.35) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="impostor-server-0.0.34"></a>
 ### [impostor-server-0.0.34](https://github.com/truecharts/apps/compare/impostor-server-0.0.33...impostor-server-0.0.34) (2022-05-17)
 

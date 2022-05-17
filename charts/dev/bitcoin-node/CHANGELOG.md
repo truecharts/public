@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bitcoin-node-0.0.8"></a>
+### [bitcoin-node-0.0.8](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.7...bitcoin-node-0.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="bitcoin-node-0.0.7"></a>
 ### [bitcoin-node-0.0.7](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.6...bitcoin-node-0.0.7) (2022-05-17)
 

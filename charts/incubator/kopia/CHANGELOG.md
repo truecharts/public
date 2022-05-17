@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kopia-0.0.8"></a>
+### [kopia-0.0.8](https://github.com/truecharts/apps/compare/kopia-0.0.7...kopia-0.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="kopia-0.0.7"></a>
 ### [kopia-0.0.7](https://github.com/truecharts/apps/compare/kopia-0.0.6...kopia-0.0.7) (2022-05-17)
 

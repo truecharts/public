@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-5.0.20"></a>
+### [shiori-5.0.20](https://github.com/truecharts/apps/compare/shiori-5.0.19...shiori-5.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="shiori-5.0.19"></a>
 ### [shiori-5.0.19](https://github.com/truecharts/apps/compare/shiori-5.0.18...shiori-5.0.19) (2022-05-17)
 

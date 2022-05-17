@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-5.0.18"></a>
+### [flaresolverr-5.0.18](https://github.com/truecharts/apps/compare/flaresolverr-5.0.17...flaresolverr-5.0.18) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="flaresolverr-5.0.17"></a>
 ### [flaresolverr-5.0.17](https://github.com/truecharts/apps/compare/flaresolverr-5.0.16...flaresolverr-5.0.17) (2022-05-17)
 

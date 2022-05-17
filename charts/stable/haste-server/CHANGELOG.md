@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-5.0.16"></a>
+### [haste-server-5.0.16](https://github.com/truecharts/apps/compare/haste-server-5.0.15...haste-server-5.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="haste-server-5.0.15"></a>
 ### [haste-server-5.0.15](https://github.com/truecharts/apps/compare/haste-server-5.0.14...haste-server-5.0.15) (2022-05-17)
 

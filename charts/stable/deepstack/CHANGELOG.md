@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-3.0.18"></a>
+### [deepstack-3.0.18](https://github.com/truecharts/apps/compare/deepstack-3.0.17...deepstack-3.0.18) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="deepstack-3.0.17"></a>
 ### [deepstack-3.0.17](https://github.com/truecharts/apps/compare/deepstack-3.0.16...deepstack-3.0.17) (2022-05-17)
 

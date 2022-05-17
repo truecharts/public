@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blender-desktop-g3-0.0.8"></a>
+### [blender-desktop-g3-0.0.8](https://github.com/truecharts/apps/compare/blender-desktop-g3-0.0.7...blender-desktop-g3-0.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="blender-desktop-g3-0.0.7"></a>
 ### [blender-desktop-g3-0.0.7](https://github.com/truecharts/apps/compare/blender-desktop-g3-0.0.6...blender-desktop-g3-0.0.7) (2022-05-17)
 

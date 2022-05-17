@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="auto-yt-dl-0.0.8"></a>
+### [auto-yt-dl-0.0.8](https://github.com/truecharts/apps/compare/auto-yt-dl-0.0.7...auto-yt-dl-0.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="auto-yt-dl-0.0.7"></a>
 ### [auto-yt-dl-0.0.7](https://github.com/truecharts/apps/compare/auto-yt-dl-0.0.6...auto-yt-dl-0.0.7) (2022-05-17)
 

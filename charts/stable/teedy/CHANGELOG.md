@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-5.0.20"></a>
+### [teedy-5.0.20](https://github.com/truecharts/apps/compare/teedy-5.0.19...teedy-5.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="teedy-5.0.19"></a>
 ### [teedy-5.0.19](https://github.com/truecharts/apps/compare/teedy-5.0.18...teedy-5.0.19) (2022-05-17)
 

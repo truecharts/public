@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-10.0.16"></a>
+### [gaps-10.0.16](https://github.com/truecharts/apps/compare/gaps-10.0.15...gaps-10.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="gaps-10.0.15"></a>
 ### [gaps-10.0.15](https://github.com/truecharts/apps/compare/gaps-10.0.14...gaps-10.0.15) (2022-05-17)
 

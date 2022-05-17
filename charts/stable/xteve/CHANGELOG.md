@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-5.0.18"></a>
+### [xteve-5.0.18](https://github.com/truecharts/apps/compare/xteve-5.0.17...xteve-5.0.18) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="xteve-5.0.17"></a>
 ### [xteve-5.0.17](https://github.com/truecharts/apps/compare/xteve-5.0.16...xteve-5.0.17) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-10.0.16"></a>
+### [jellyfin-10.0.16](https://github.com/truecharts/apps/compare/jellyfin-10.0.15...jellyfin-10.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="jellyfin-10.0.15"></a>
 ### [jellyfin-10.0.15](https://github.com/truecharts/apps/compare/jellyfin-10.0.14...jellyfin-10.0.15) (2022-05-17)
 

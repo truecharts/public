@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="arma3exilemod-0.0.8"></a>
+### [arma3exilemod-0.0.8](https://github.com/truecharts/apps/compare/arma3exilemod-0.0.7...arma3exilemod-0.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="arma3exilemod-0.0.7"></a>
 ### [arma3exilemod-0.0.7](https://github.com/truecharts/apps/compare/arma3exilemod-0.0.6...arma3exilemod-0.0.7) (2022-05-17)
 
