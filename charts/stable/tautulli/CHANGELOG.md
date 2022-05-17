@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-10.0.17"></a>
+### [tautulli-10.0.17](https://github.com/truecharts/apps/compare/tautulli-10.0.16...tautulli-10.0.17) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="tautulli-10.0.16"></a>
 ### [tautulli-10.0.16](https://github.com/truecharts/apps/compare/tautulli-10.0.15...tautulli-10.0.16) (2022-05-10)
 

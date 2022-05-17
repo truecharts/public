@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-3.0.20"></a>
+### [code-server-3.0.20](https://github.com/truecharts/apps/compare/openvscode-server-1.0.19...code-server-3.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="code-server-3.0.19"></a>
 ### [code-server-3.0.19](https://github.com/truecharts/apps/compare/code-server-3.0.18...code-server-3.0.19) (2022-05-10)
 

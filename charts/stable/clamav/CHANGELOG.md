@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-2.1.16"></a>
+### [clamav-2.1.16](https://github.com/truecharts/apps/compare/clamav-2.1.15...clamav-2.1.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="clamav-2.1.15"></a>
 ### [clamav-2.1.15](https://github.com/truecharts/apps/compare/clamav-2.1.14...clamav-2.1.15) (2022-05-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-go-1.0.21"></a>
+### [ddns-go-1.0.21](https://github.com/truecharts/apps/compare/ddns-go-1.0.20...ddns-go-1.0.21) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="ddns-go-1.0.20"></a>
 ### [ddns-go-1.0.20](https://github.com/truecharts/apps/compare/ddns-go-1.0.19...ddns-go-1.0.20) (2022-05-10)
 

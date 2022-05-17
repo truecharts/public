@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="altitude-0.0.7"></a>
+### [altitude-0.0.7](https://github.com/truecharts/apps/compare/altitude-0.0.6...altitude-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="altitude-0.0.6"></a>
 ### [altitude-0.0.6](https://github.com/truecharts/apps/compare/altitude-0.0.5...altitude-0.0.6) (2022-05-10)
 

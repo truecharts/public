@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.19"></a>
+### [plex-9.0.19](https://github.com/truecharts/apps/compare/plex-9.0.18...plex-9.0.19) (2022-05-17)
+
+#### Chore
+
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
+* update helm general non-major helm releases
+
+
+
 <a name="plex-9.0.18"></a>
 ### [plex-9.0.18](https://github.com/truecharts/apps/compare/plex-9.0.17...plex-9.0.18) (2022-05-10)
 

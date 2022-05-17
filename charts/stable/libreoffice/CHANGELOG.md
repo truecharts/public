@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreoffice-1.0.16"></a>
+### [libreoffice-1.0.16](https://github.com/truecharts/apps/compare/libreoffice-1.0.15...libreoffice-1.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="libreoffice-1.0.15"></a>
 ### [libreoffice-1.0.15](https://github.com/truecharts/apps/compare/libreoffice-1.0.14...libreoffice-1.0.15) (2022-05-10)
 

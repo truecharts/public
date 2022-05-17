@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.27"></a>
+### [rsshub-1.0.27](https://github.com/truecharts/apps/compare/rsshub-1.0.26...rsshub-1.0.27) (2022-05-17)
+
+#### Chore
+
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
+* update helm general non-major helm releases
+
+
+
 <a name="rsshub-1.0.26"></a>
 ### [rsshub-1.0.26](https://github.com/truecharts/apps/compare/rsshub-1.0.25...rsshub-1.0.26) (2022-05-16)
 

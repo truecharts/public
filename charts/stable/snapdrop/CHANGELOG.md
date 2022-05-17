@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snapdrop-1.0.8"></a>
+### [snapdrop-1.0.8](https://github.com/truecharts/apps/compare/snapdrop-1.0.7...snapdrop-1.0.8) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="snapdrop-1.0.7"></a>
 ### [snapdrop-1.0.7](https://github.com/truecharts/apps/compare/snapdrop-1.0.6...snapdrop-1.0.7) (2022-05-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="btdex-0.0.7"></a>
+### [btdex-0.0.7](https://github.com/truecharts/apps/compare/btdex-0.0.6...btdex-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="btdex-0.0.6"></a>
 ### [btdex-0.0.6](https://github.com/truecharts/apps/compare/btdex-0.0.5...btdex-0.0.6) (2022-05-10)
 

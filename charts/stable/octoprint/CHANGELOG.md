@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-5.0.15"></a>
+### [octoprint-5.0.15](https://github.com/truecharts/apps/compare/octoprint-5.0.14...octoprint-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="octoprint-5.0.14"></a>
 ### [octoprint-5.0.14](https://github.com/truecharts/apps/compare/octoprint-5.0.13...octoprint-5.0.14) (2022-05-10)
 

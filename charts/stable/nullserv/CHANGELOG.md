@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nullserv-5.0.15"></a>
+### [nullserv-5.0.15](https://github.com/truecharts/apps/compare/nullserv-5.0.14...nullserv-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="nullserv-5.0.14"></a>
 ### [nullserv-5.0.14](https://github.com/truecharts/apps/compare/nullserv-5.0.13...nullserv-5.0.14) (2022-05-10)
 

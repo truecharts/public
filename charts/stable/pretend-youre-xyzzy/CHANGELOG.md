@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-5.0.15"></a>
+### [pretend-youre-xyzzy-5.0.15](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.14...pretend-youre-xyzzy-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="pretend-youre-xyzzy-5.0.14"></a>
 ### [pretend-youre-xyzzy-5.0.14](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.13...pretend-youre-xyzzy-5.0.14) (2022-05-10)
 

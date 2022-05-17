@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="artifactory-oss-0.0.7"></a>
+### [artifactory-oss-0.0.7](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.6...artifactory-oss-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
 <a name="artifactory-oss-0.0.6"></a>
 ### [artifactory-oss-0.0.6](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.5...artifactory-oss-0.0.6) (2022-05-10)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-6.0.30"></a>
+### [odoo-6.0.30](https://github.com/truecharts/apps/compare/odoo-6.0.29...odoo-6.0.30) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="odoo-6.0.29"></a>
 ### [odoo-6.0.29](https://github.com/truecharts/apps/compare/odoo-6.0.28...odoo-6.0.29) (2022-05-13)
 

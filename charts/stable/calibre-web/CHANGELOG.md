@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.23"></a>
+### [calibre-web-10.0.23](https://github.com/truecharts/apps/compare/calibre-web-10.0.22...calibre-web-10.0.23) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="calibre-web-10.0.22"></a>
 ### [calibre-web-10.0.22](https://github.com/truecharts/apps/compare/calibre-web-10.0.21...calibre-web-10.0.22) (2022-05-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-5.0.15"></a>
+### [phpldapadmin-5.0.15](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.14...phpldapadmin-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="phpldapadmin-5.0.14"></a>
 ### [phpldapadmin-5.0.14](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.13...phpldapadmin-5.0.14) (2022-05-10)
 

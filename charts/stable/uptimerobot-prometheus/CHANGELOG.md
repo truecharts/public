@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-3.0.15"></a>
+### [uptimerobot-prometheus-3.0.15](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.14...uptimerobot-prometheus-3.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="uptimerobot-prometheus-3.0.14"></a>
 ### [uptimerobot-prometheus-3.0.14](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.13...uptimerobot-prometheus-3.0.14) (2022-05-10)
 

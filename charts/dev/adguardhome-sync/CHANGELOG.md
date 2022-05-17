@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="adguardhome-sync-0.0.7"></a>
+### [adguardhome-sync-0.0.7](https://github.com/truecharts/apps/compare/adguardhome-sync-0.0.6...adguardhome-sync-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="adguardhome-sync-0.0.6"></a>
 ### [adguardhome-sync-0.0.6](https://github.com/truecharts/apps/compare/adguardhome-sync-0.0.5...adguardhome-sync-0.0.6) (2022-05-10)
 

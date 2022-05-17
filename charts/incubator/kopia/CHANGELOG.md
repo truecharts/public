@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kopia-0.0.7"></a>
+### [kopia-0.0.7](https://github.com/truecharts/apps/compare/kopia-0.0.6...kopia-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update container image kopia/kopia to v20220516.0.115504 ([#2698](https://github.com/truecharts/apps/issues/2698))
+* update helm general non-major helm releases
+
+
+
 <a name="kopia-0.0.6"></a>
 ### [kopia-0.0.6](https://github.com/truecharts/apps/compare/kopia-0.0.5...kopia-0.0.6) (2022-05-13)
 

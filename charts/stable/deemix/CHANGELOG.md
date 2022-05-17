@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deemix-2.0.11"></a>
+### [deemix-2.0.11](https://github.com/truecharts/apps/compare/deemix-2.0.10...deemix-2.0.11) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="deemix-2.0.10"></a>
 ### [deemix-2.0.10](https://github.com/truecharts/apps/compare/deemix-2.0.9...deemix-2.0.10) (2022-05-10)
 

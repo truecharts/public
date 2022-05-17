@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-2.0.24"></a>
+### [linkace-2.0.24](https://github.com/truecharts/apps/compare/linkace-2.0.23...linkace-2.0.24) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="linkace-2.0.23"></a>
 ### [linkace-2.0.23](https://github.com/truecharts/apps/compare/linkace-2.0.22...linkace-2.0.23) (2022-05-10)
 

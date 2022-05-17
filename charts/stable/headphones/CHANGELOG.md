@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="headphones-3.0.15"></a>
+### [headphones-3.0.15](https://github.com/truecharts/apps/compare/headphones-3.0.14...headphones-3.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="headphones-3.0.14"></a>
 ### [headphones-3.0.14](https://github.com/truecharts/apps/compare/headphones-3.0.13...headphones-3.0.14) (2022-05-10)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fluidd-1.0.7"></a>
+### [fluidd-1.0.7](https://github.com/truecharts/apps/compare/fluidd-1.0.6...fluidd-1.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="fluidd-1.0.6"></a>
 ### [fluidd-1.0.6](https://github.com/truecharts/apps/compare/fluidd-1.0.5...fluidd-1.0.6) (2022-05-10)
 

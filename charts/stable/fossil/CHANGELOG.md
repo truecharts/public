@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-3.0.15"></a>
+### [fossil-3.0.15](https://github.com/truecharts/apps/compare/fossil-3.0.14...fossil-3.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="fossil-3.0.14"></a>
 ### [fossil-3.0.14](https://github.com/truecharts/apps/compare/fossil-3.0.13...fossil-3.0.14) (2022-05-10)
 

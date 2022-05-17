@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="requestrr-1.0.16"></a>
+### [requestrr-1.0.16](https://github.com/truecharts/apps/compare/requestrr-1.0.15...requestrr-1.0.16) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="requestrr-1.0.15"></a>
 ### [requestrr-1.0.15](https://github.com/truecharts/apps/compare/requestrr-1.0.14...requestrr-1.0.15) (2022-05-10)
 

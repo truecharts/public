@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="verysync-1.0.9"></a>
+### [verysync-1.0.9](https://github.com/truecharts/apps/compare/verysync-1.0.8...verysync-1.0.9) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="verysync-1.0.8"></a>
 ### [verysync-1.0.8](https://github.com/truecharts/apps/compare/verysync-1.0.7...verysync-1.0.8) (2022-05-10)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="n8n-2.0.31"></a>
+### [n8n-2.0.31](https://github.com/truecharts/apps/compare/n8n-2.0.30...n8n-2.0.31) (2022-05-17)
+
+#### Chore
+
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
+* update helm general non-major helm releases
+
+
+
 <a name="n8n-2.0.30"></a>
 ### [n8n-2.0.30](https://github.com/truecharts/apps/compare/n8n-2.0.29...n8n-2.0.30) (2022-05-13)
 

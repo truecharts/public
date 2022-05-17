@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-5.0.15"></a>
+### [freeradius-5.0.15](https://github.com/truecharts/apps/compare/freeradius-5.0.14...freeradius-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="freeradius-5.0.14"></a>
 ### [freeradius-5.0.14](https://github.com/truecharts/apps/compare/freeradius-5.0.13...freeradius-5.0.14) (2022-05-10)
 

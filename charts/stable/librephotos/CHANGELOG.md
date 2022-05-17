@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librephotos-2.0.19"></a>
+### [librephotos-2.0.19](https://github.com/truecharts/apps/compare/librephotos-2.0.18...librephotos-2.0.19) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="librephotos-2.0.18"></a>
 ### [librephotos-2.0.18](https://github.com/truecharts/apps/compare/librephotos-2.0.17...librephotos-2.0.18) (2022-05-10)
 

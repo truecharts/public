@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-3.0.15"></a>
+### [golinks-3.0.15](https://github.com/truecharts/apps/compare/golinks-3.0.14...golinks-3.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="golinks-3.0.14"></a>
 ### [golinks-3.0.14](https://github.com/truecharts/apps/compare/golinks-3.0.13...golinks-3.0.14) (2022-05-10)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="oscam-5.0.15"></a>
+### [oscam-5.0.15](https://github.com/truecharts/apps/compare/oscam-5.0.14...oscam-5.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="oscam-5.0.14"></a>
 ### [oscam-5.0.14](https://github.com/truecharts/apps/compare/oscam-5.0.13...oscam-5.0.14) (2022-05-10)
 

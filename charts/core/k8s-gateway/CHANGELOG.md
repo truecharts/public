@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-5.0.17"></a>
+### [k8s-gateway-5.0.17](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.16...k8s-gateway-5.0.17) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="k8s-gateway-5.0.16"></a>
 ### [k8s-gateway-5.0.16](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.15...k8s-gateway-5.0.16) (2022-05-10)
 

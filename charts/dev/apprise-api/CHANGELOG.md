@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apprise-api-0.0.7"></a>
+### [apprise-api-0.0.7](https://github.com/truecharts/apps/compare/apprise-api-0.0.6...apprise-api-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="apprise-api-0.0.6"></a>
 ### [apprise-api-0.0.6](https://github.com/truecharts/apps/compare/apprise-api-0.0.5...apprise-api-0.0.6) (2022-05-10)
 

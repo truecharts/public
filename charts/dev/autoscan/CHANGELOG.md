@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="autoscan-0.0.7"></a>
+### [autoscan-0.0.7](https://github.com/truecharts/apps/compare/autoscan-0.0.6...autoscan-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="autoscan-0.0.6"></a>
 ### [autoscan-0.0.6](https://github.com/truecharts/apps/compare/autoscan-0.0.5...autoscan-0.0.6) (2022-05-10)
 

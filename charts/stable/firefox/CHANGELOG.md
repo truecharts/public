@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-1.0.15"></a>
+### [firefox-1.0.15](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.0...firefox-1.0.15) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="firefox-1.0.14"></a>
 ### [firefox-1.0.14](https://github.com/truecharts/apps/compare/firefox-1.0.13...firefox-1.0.14) (2022-05-10)
 

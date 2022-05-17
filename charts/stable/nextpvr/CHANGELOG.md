@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextpvr-1.0.14"></a>
+### [nextpvr-1.0.14](https://github.com/truecharts/apps/compare/nextpvr-1.0.13...nextpvr-1.0.14) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="nextpvr-1.0.13"></a>
 ### [nextpvr-1.0.13](https://github.com/truecharts/apps/compare/nextpvr-1.0.12...nextpvr-1.0.13) (2022-05-10)
 

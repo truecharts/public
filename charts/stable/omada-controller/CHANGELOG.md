@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-5.0.28"></a>
+### [omada-controller-5.0.28](https://github.com/truecharts/apps/compare/omada-controller-5.0.27...omada-controller-5.0.28) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="omada-controller-5.0.27"></a>
 ### [omada-controller-5.0.27](https://github.com/truecharts/apps/compare/omada-controller-5.0.26...omada-controller-5.0.27) (2022-05-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ama-0.0.7"></a>
+### [ama-0.0.7](https://github.com/truecharts/apps/compare/clamav-2.1.15...ama-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="ama-0.0.6"></a>
 ### [ama-0.0.6](https://github.com/truecharts/apps/compare/tinymediamanager-1.0.12...ama-0.0.6) (2022-05-10)
 

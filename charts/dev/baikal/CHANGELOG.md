@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="baikal-0.0.7"></a>
+### [baikal-0.0.7](https://github.com/truecharts/apps/compare/baikal-0.0.6...baikal-0.0.7) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="baikal-0.0.6"></a>
 ### [baikal-0.0.6](https://github.com/truecharts/apps/compare/baikal-0.0.5...baikal-0.0.6) (2022-05-10)
 

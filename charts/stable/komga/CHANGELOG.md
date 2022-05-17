@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-5.0.20"></a>
+### [komga-5.0.20](https://github.com/truecharts/apps/compare/komga-5.0.19...komga-5.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="komga-5.0.19"></a>
 ### [komga-5.0.19](https://github.com/truecharts/apps/compare/komga-5.0.18...komga-5.0.19) (2022-05-10)
 
