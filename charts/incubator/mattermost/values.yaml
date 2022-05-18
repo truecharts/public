@@ -1,0 +1,60 @@
+image:
+  repository: mattermost/mattermost-enterprise-edition
+  tag: 6.3
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  TIMEZONE: "{{ .Values.TZ }}"
+  MM_SQLSETTINGS_DRIVERNAME: "postgres"
+  MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+  MM_SERVICESETTINGS_SITEURL: "{{ .Values.env.reverseProxyUrl }}"
+  
+
+
+envValueFrom:
+  MM_SQLSETTINGS_DATASOURCE:
+    secretKeyRef:
+      name: dbcreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        port: 10239
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/mattermost/config"
+  data:
+    enabled: true
+    mountPath: "/mattermost/data"
+  logs:
+    enabled: true
+    mountPath: "/mattermost/logs"
+  plugins:
+    enabled: true
+    mountPath: "/mattermost/plugins"
+  clientPlugins:
+    enabled: true
+    mountPath: "/mattermost/client/plugins"
+  bleveIndexes:
+    enabled: true
+    mountPath: "/mattermost/bleve-indexes"
+  
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: mattermost
+  postgresqlDatabase: mattermost
