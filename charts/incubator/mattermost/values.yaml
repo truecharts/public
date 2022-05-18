@@ -16,9 +16,10 @@ env:
   MM_SQLSETTINGS_DRIVERNAME: "postgres"
   MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
   MM_SERVICESETTINGS_SITEURL: "{{ .Values.env.reverseProxyUrl }}"
+  MM_SQLSETTINGS_DATASOURCE: "'$postgresURL'?sslmode=disable&connect_timeout=10"
 
 envValueFrom:
-  MM_SQLSETTINGS_DATASOURCE:
+  postgresURL:
     secretKeyRef:
       name: dbcreds
       key: url
@@ -28,7 +29,7 @@ service:
     ports:
       main:
         port: 10239
-        targetPort: 80
+        targetPort: 8065
 
 persistence:
   config:
