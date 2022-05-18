@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/logitechmediaserver
   pullPolicy: IfNotPresent
-  tag: v8.3.0@sha256:2afa956e1d739eacd17270d13b61666824d545343e92560457996244cf0e878a
+  tag: v8.3.0@sha256:ba7d74875382928a9b08ed74226f6c0c6841536e5131afcc31f1a49717906bee
 env:
   # Permissions Settings
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
