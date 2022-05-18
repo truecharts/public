@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="amtd-0.0.8"></a>
+### [amtd-0.0.8](https://github.com/truecharts/apps/compare/amtd-0.0.7...amtd-0.0.8) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

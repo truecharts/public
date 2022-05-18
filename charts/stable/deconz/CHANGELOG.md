@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.24"></a>
+### [deconz-7.0.24](https://github.com/truecharts/apps/compare/deconz-7.0.22...deconz-7.0.24) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="deconz-7.0.23"></a>
 ### [deconz-7.0.23](https://github.com/truecharts/apps/compare/deconz-7.0.22...deconz-7.0.23) (2022-05-17)
 

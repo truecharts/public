@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="makemkv-1.0.14"></a>
+### [makemkv-1.0.14](https://github.com/truecharts/apps/compare/makemkv-1.0.13...makemkv-1.0.14) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="photoshow-2.0.16"></a>
+### [photoshow-2.0.16](https://github.com/truecharts/apps/compare/photoshow-2.0.15...photoshow-2.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

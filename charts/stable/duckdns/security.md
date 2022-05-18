@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          tccr.io/truecharts/duckdns:latest@sha256:eb4e9d4576653840c898e36b4b4b1da11b73faab987822b39944abd7f4fbdb82
+          tccr.io/truecharts/duckdns:latest@sha256:224ffe1bce8ec0ae78942c903852028bd2c815e7bc373d08c751c661c4120f69
 
 ##### Scan Results
 

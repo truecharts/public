@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="meshcentral-1.1.13"></a>
+### [meshcentral-1.1.13](https://github.com/truecharts/apps/compare/meshcentral-1.1.12...meshcentral-1.1.13) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

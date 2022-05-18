@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="kavita-1.0.11"></a>
+### [kavita-1.0.11](https://github.com/truecharts/apps/compare/kavita-1.0.10...kavita-1.0.11) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

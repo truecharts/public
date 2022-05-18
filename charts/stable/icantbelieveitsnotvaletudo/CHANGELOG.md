@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="icantbelieveitsnotvaletudo-3.0.16"></a>
+### [icantbelieveitsnotvaletudo-3.0.16](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-3.0.15...icantbelieveitsnotvaletudo-3.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="paperless-ng-2.0.28"></a>
+### [paperless-ng-2.0.28](https://github.com/truecharts/apps/compare/paperless-ng-2.0.27...paperless-ng-2.0.28) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

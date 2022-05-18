@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="custom-app-4.0.48"></a>
+### [custom-app-4.0.48](https://github.com/truecharts/apps/compare/custom-app-4.0.46...custom-app-4.0.48) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="custom-app-4.0.47"></a>
 ### [custom-app-4.0.47](https://github.com/truecharts/apps/compare/custom-app-4.0.46...custom-app-4.0.47) (2022-05-17)
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.33"></a>
+### [recipes-6.0.33](https://github.com/truecharts/apps/compare/recipes-6.0.31...recipes-6.0.33) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="recipes-6.0.32"></a>
 ### [recipes-6.0.32](https://github.com/truecharts/apps/compare/recipes-6.0.31...recipes-6.0.32) (2022-05-17)
 

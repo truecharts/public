@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="gotify-6.0.20"></a>
+### [gotify-6.0.20](https://github.com/truecharts/apps/compare/gotify-6.0.19...gotify-6.0.20) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

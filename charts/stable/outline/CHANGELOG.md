@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="outline-1.0.23"></a>
+### [outline-1.0.23](https://github.com/truecharts/apps/compare/outline-1.0.22...outline-1.0.23) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="calibre-web-10.0.25"></a>
+### [calibre-web-10.0.25](https://github.com/truecharts/apps/compare/calibre-web-10.0.23...calibre-web-10.0.25) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="calibre-web-10.0.24"></a>
 ### [calibre-web-10.0.24](https://github.com/truecharts/apps/compare/calibre-web-10.0.23...calibre-web-10.0.24) (2022-05-17)
 

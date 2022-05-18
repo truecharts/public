@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="iyuuplus-1.0.14"></a>
+### [iyuuplus-1.0.14](https://github.com/truecharts/apps/compare/iyuuplus-1.0.13...iyuuplus-1.0.14) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

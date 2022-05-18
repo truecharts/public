@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="inventree-0.0.10"></a>
+### [inventree-0.0.10](https://github.com/truecharts/apps/compare/inventree-0.0.8...inventree-0.0.10) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="inventree-0.0.9"></a>
 ### [inventree-0.0.9](https://github.com/truecharts/apps/compare/inventree-0.0.8...inventree-0.0.9) (2022-05-17)
 

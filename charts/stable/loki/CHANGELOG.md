@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="loki-3.0.19"></a>
+### [loki-3.0.19](https://github.com/truecharts/apps/compare/loki-3.0.18...loki-3.0.19) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

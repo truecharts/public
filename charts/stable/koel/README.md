@@ -8,7 +8,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://github.com/koel/docker>
-* <https://hub.docker.com/r/hyzual/koel>
+* <https://hub.docker.com/r/phanan/koel>
 * <https://github.com/koel/koel>
 
 ## Requirements

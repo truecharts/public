@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.34"></a>
+### [ghost-1.0.34](https://github.com/truecharts/apps/compare/ghost-1.0.32...ghost-1.0.34) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="ghost-1.0.33"></a>
 ### [ghost-1.0.33](https://github.com/truecharts/apps/compare/ghost-1.0.32...ghost-1.0.33) (2022-05-17)
 

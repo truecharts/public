@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="authentik-0.0.9"></a>
+### [authentik-0.0.9](https://github.com/truecharts/apps/compare/authentik-0.0.8...authentik-0.0.9) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

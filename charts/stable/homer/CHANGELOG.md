@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="homer-1.0.13"></a>
+### [homer-1.0.13](https://github.com/truecharts/apps/compare/homer-1.0.12...homer-1.0.13) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

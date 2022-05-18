@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="minecraft-java-0.0.51"></a>
+### [minecraft-java-0.0.51](https://github.com/truecharts/apps/compare/minecraft-java-0.0.50...minecraft-java-0.0.51) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

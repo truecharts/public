@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.29"></a>
+### [rsshub-1.0.29](https://github.com/truecharts/apps/compare/rsshub-1.0.27...rsshub-1.0.29) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="rsshub-1.0.28"></a>
 ### [rsshub-1.0.28](https://github.com/truecharts/apps/compare/rsshub-1.0.27...rsshub-1.0.28) (2022-05-17)
 

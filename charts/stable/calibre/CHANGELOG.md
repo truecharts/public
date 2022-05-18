@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="calibre-6.0.25"></a>
+### [calibre-6.0.25](https://github.com/truecharts/apps/compare/calibre-web-10.0.23...calibre-6.0.25) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

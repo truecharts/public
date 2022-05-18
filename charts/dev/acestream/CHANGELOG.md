@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="acestream-0.0.8"></a>
+### [acestream-0.0.8](https://github.com/truecharts/apps/compare/acestream-0.0.7...acestream-0.0.8) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

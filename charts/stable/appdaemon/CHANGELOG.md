@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="appdaemon-8.0.16"></a>
+### [appdaemon-8.0.16](https://github.com/truecharts/apps/compare/appdaemon-8.0.15...appdaemon-8.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="freeradius-5.0.16"></a>
+### [freeradius-5.0.16](https://github.com/truecharts/apps/compare/freeradius-5.0.15...freeradius-5.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

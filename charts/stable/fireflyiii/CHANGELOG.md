@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.26"></a>
+### [fireflyiii-14.0.26](https://github.com/truecharts/apps/compare/fireflyiii-14.0.24...fireflyiii-14.0.26) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="fireflyiii-14.0.25"></a>
 ### [fireflyiii-14.0.25](https://github.com/truecharts/apps/compare/fireflyiii-14.0.24...fireflyiii-14.0.25) (2022-05-17)
 

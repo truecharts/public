@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="minio-console-2.0.27"></a>
+### [minio-console-2.0.27](https://github.com/truecharts/apps/compare/minio-console-2.0.26...minio-console-2.0.27) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

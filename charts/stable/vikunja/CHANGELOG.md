@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="vikunja-1.0.9"></a>
+### [vikunja-1.0.9](https://github.com/truecharts/apps/compare/vikunja-1.0.7...vikunja-1.0.9) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="vikunja-1.0.8"></a>
 ### [vikunja-1.0.8](https://github.com/truecharts/apps/compare/vikunja-1.0.7...vikunja-1.0.8) (2022-05-17)
 

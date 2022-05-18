@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="linkace-2.0.25"></a>
+### [linkace-2.0.25](https://github.com/truecharts/apps/compare/linkace-2.0.24...linkace-2.0.25) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

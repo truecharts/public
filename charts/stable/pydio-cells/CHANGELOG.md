@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="pydio-cells-2.0.22"></a>
+### [pydio-cells-2.0.22](https://github.com/truecharts/apps/compare/pydio-cells-2.0.21...pydio-cells-2.0.22) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="mosdns-1.0.12"></a>
+### [mosdns-1.0.12](https://github.com/truecharts/apps/compare/mosdns-1.0.11...mosdns-1.0.12) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

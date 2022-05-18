@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.53"></a>
+### [grafana-3.0.53](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.53) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="grafana-3.0.52"></a>
 ### [grafana-3.0.52](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.52) (2022-05-17)
 

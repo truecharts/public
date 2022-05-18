@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="rsnapshot-1.0.16"></a>
+### [rsnapshot-1.0.16](https://github.com/truecharts/apps/compare/rsnapshot-1.0.15...rsnapshot-1.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

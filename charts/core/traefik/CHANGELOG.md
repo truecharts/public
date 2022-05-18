@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="traefik-11.3.4"></a>
+### [traefik-11.3.4](https://github.com/truecharts/apps/compare/traefik-11.3.3...traefik-11.3.4) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="duplicati-5.0.19"></a>
+### [duplicati-5.0.19](https://github.com/truecharts/apps/compare/duplicati-5.0.18...duplicati-5.0.19) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

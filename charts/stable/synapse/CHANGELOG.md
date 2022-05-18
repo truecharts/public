@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="synapse-2.1.5"></a>
+### [synapse-2.1.5](https://github.com/truecharts/apps/compare/synapse-2.1.4...synapse-2.1.5) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="k8s-gateway-5.0.18"></a>
+### [k8s-gateway-5.0.18](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.17...k8s-gateway-5.0.18) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

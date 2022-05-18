@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="drawio-1.0.15"></a>
+### [drawio-1.0.15](https://github.com/truecharts/apps/compare/drawio-1.0.13...drawio-1.0.15) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="drawio-1.0.14"></a>
 ### [drawio-1.0.14](https://github.com/truecharts/apps/compare/drawio-1.0.13...drawio-1.0.14) (2022-05-17)
 
