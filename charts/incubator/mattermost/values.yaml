@@ -1,6 +1,6 @@
 image:
   repository: mattermost/mattermost-enterprise-edition
-  tag: 6.3
+  tag: release-6.3
   pullPolicy: IfNotPresent
 
 # securityContext:
@@ -43,10 +43,10 @@ persistence:
   plugins:
     enabled: true
     mountPath: "/mattermost/plugins"
-  clientPlugins:
+  clientplugins:
     enabled: true
     mountPath: "/mattermost/client/plugins"
-  bleveIndexes:
+  bleveindexes:
     enabled: true
     mountPath: "/mattermost/bleve-indexes"
 
