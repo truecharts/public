@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="dillinger-1.0.16"></a>
+### [dillinger-1.0.16](https://github.com/truecharts/apps/compare/dillinger-1.0.15...dillinger-1.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="jdownloader2-7.0.14"></a>
+### [jdownloader2-7.0.14](https://github.com/truecharts/apps/compare/jdownloader2-7.0.13...jdownloader2-7.0.14) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

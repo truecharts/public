@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="ml-workspace-1.1.10"></a>
+### [ml-workspace-1.1.10](https://github.com/truecharts/apps/compare/ml-workspace-1.1.9...ml-workspace-1.1.10) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

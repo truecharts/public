@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="speedtest-exporter-2.0.21"></a>
+### [speedtest-exporter-2.0.21](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.20...speedtest-exporter-2.0.21) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

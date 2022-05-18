@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="monica-1.0.31"></a>
+### [monica-1.0.31](https://github.com/truecharts/apps/compare/monica-1.0.30...monica-1.0.31) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

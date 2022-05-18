@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="etherpad-6.0.20"></a>
+### [etherpad-6.0.20](https://github.com/truecharts/apps/compare/etherpad-6.0.19...etherpad-6.0.20) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="mylar-5.0.21"></a>
+### [mylar-5.0.21](https://github.com/truecharts/apps/compare/mylar-5.0.20...mylar-5.0.21) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

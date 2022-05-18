@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="node-red-10.0.16"></a>
+### [node-red-10.0.16](https://github.com/truecharts/apps/compare/node-red-10.0.15...node-red-10.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

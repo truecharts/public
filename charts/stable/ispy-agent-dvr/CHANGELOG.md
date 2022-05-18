@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="ispy-agent-dvr-1.0.24"></a>
+### [ispy-agent-dvr-1.0.24](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.23...ispy-agent-dvr-1.0.24) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

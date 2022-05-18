@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="ddns-updater-1.0.7"></a>
+### [ddns-updater-1.0.7](https://github.com/truecharts/apps/compare/ddns-updater-1.0.6...ddns-updater-1.0.7) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

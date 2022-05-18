@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="metube-1.0.6"></a>
+### [metube-1.0.6](https://github.com/truecharts/apps/compare/metube-1.0.5...metube-1.0.6) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

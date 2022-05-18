@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="zigbee2mqtt-3.0.10"></a>
+### [zigbee2mqtt-3.0.10](https://github.com/truecharts/apps/compare/zigbee2mqtt-3.0.9...zigbee2mqtt-3.0.10) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

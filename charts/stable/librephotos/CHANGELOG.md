@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="librephotos-2.0.20"></a>
+### [librephotos-2.0.20](https://github.com/truecharts/apps/compare/librephotos-2.0.19...librephotos-2.0.20) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

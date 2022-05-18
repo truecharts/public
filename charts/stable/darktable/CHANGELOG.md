@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="darktable-2.0.16"></a>
+### [darktable-2.0.16](https://github.com/truecharts/apps/compare/darktable-2.0.15...darktable-2.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

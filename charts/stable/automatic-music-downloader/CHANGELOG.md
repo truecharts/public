@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="automatic-music-downloader-1.1.6"></a>
+### [automatic-music-downloader-1.1.6](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.5...automatic-music-downloader-1.1.6) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

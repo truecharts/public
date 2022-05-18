@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="audiobookshelf-1.0.13"></a>
+### [audiobookshelf-1.0.13](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.12...audiobookshelf-1.0.13) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

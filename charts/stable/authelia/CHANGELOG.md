@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-9.0.29"></a>
+### [authelia-9.0.29](https://github.com/truecharts/apps/compare/authelia-9.0.28...authelia-9.0.29) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

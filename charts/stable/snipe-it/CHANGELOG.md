@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="snipe-it-2.0.23"></a>
+### [snipe-it-2.0.23](https://github.com/truecharts/apps/compare/snipe-it-2.0.22...snipe-it-2.0.23) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

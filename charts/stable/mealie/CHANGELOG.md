@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="mealie-6.0.20"></a>
+### [mealie-6.0.20](https://github.com/truecharts/apps/compare/mealie-6.0.19...mealie-6.0.20) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

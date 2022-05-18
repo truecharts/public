@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="reg-5.0.16"></a>
+### [reg-5.0.16](https://github.com/truecharts/apps/compare/reg-5.0.15...reg-5.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

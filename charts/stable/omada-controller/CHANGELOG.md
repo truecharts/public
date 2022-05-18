@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="omada-controller-5.0.30"></a>
+### [omada-controller-5.0.30](https://github.com/truecharts/apps/compare/omada-controller-5.0.28...omada-controller-5.0.30) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="omada-controller-5.0.29"></a>
 ### [omada-controller-5.0.29](https://github.com/truecharts/apps/compare/omada-controller-5.0.28...omada-controller-5.0.29) (2022-05-17)
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="minetest-0.0.46"></a>
+### [minetest-0.0.46](https://github.com/truecharts/apps/compare/minetest-0.0.45...minetest-0.0.46) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

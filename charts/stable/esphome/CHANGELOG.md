@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="esphome-10.0.22"></a>
+### [esphome-10.0.22](https://github.com/truecharts/apps/compare/esphome-10.0.20...esphome-10.0.22) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="esphome-10.0.21"></a>
 ### [esphome-10.0.21](https://github.com/truecharts/apps/compare/esphome-10.0.20...esphome-10.0.21) (2022-05-17)
 

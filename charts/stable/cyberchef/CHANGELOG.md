@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="cyberchef-1.0.20"></a>
+### [cyberchef-1.0.20](https://github.com/truecharts/apps/compare/cyberchef-1.0.18...cyberchef-1.0.20) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="cyberchef-1.0.19"></a>
 ### [cyberchef-1.0.19](https://github.com/truecharts/apps/compare/cyberchef-1.0.18...cyberchef-1.0.19) (2022-05-17)
 

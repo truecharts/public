@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.29"></a>
+### [logitech-media-server-3.0.29](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.27...logitech-media-server-3.0.29) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="logitech-media-server-3.0.28"></a>
 ### [logitech-media-server-3.0.28](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.27...logitech-media-server-3.0.28) (2022-05-17)
 

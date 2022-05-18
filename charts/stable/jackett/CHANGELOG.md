@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.48"></a>
+### [jackett-10.0.48](https://github.com/truecharts/apps/compare/jackett-10.0.46...jackett-10.0.48) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="jackett-10.0.47"></a>
 ### [jackett-10.0.47](https://github.com/truecharts/apps/compare/jackett-10.0.46...jackett-10.0.47) (2022-05-17)
 

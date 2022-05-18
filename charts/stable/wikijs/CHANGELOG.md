@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="wikijs-5.0.26"></a>
+### [wikijs-5.0.26](https://github.com/truecharts/apps/compare/wikijs-5.0.25...wikijs-5.0.26) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="clamav-2.1.17"></a>
+### [clamav-2.1.17](https://github.com/truecharts/apps/compare/clamav-2.1.16...clamav-2.1.17) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

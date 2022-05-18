@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="tvheadend-11.0.16"></a>
+### [tvheadend-11.0.16](https://github.com/truecharts/apps/compare/tvheadend-11.0.15...tvheadend-11.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

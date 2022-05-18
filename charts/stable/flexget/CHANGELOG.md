@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="flexget-1.0.27"></a>
+### [flexget-1.0.27](https://github.com/truecharts/apps/compare/flexget-1.0.26...flexget-1.0.27) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="phpldapadmin-5.0.16"></a>
+### [phpldapadmin-5.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.15...phpldapadmin-5.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

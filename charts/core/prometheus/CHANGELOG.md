@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.62"></a>
+### [prometheus-2.0.62](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.15...prometheus-2.0.62) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
 <a name="prometheus-2.0.61"></a>
 ### [prometheus-2.0.61](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.15...prometheus-2.0.61) (2022-05-17)
 

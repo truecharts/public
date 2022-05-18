@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="koel-1.0.17"></a>
+### [koel-1.0.17](https://github.com/truecharts/apps/compare/koel-1.0.15...koel-1.0.17) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
 <a name="koel-1.0.16"></a>
 ### [koel-1.0.16](https://github.com/truecharts/apps/compare/koel-1.0.15...koel-1.0.16) (2022-05-17)
 

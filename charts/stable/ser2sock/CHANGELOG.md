@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="ser2sock-5.0.16"></a>
+### [ser2sock-5.0.16](https://github.com/truecharts/apps/compare/ser2sock-5.0.15...ser2sock-5.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="promcord-3.0.17"></a>
+### [promcord-3.0.17](https://github.com/truecharts/apps/compare/promcord-3.0.16...promcord-3.0.17) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

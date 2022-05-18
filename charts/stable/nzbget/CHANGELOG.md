@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="nzbget-10.0.16"></a>
+### [nzbget-10.0.16](https://github.com/truecharts/apps/compare/nzbget-10.0.15...nzbget-10.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

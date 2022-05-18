@@ -109,6 +109,5 @@ hide:
 **python-pkg**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| httpx         |    CVE-2021-41945   |   CRITICAL  |  0.22.0 |  | <details><summary>Expand...</summary><a href="http://encode.com">http://encode.com</a><br><a href="https://gist.github.com/lebr0nli/4edb76bbd3b5ff993cf44f2fbce5e571">https://gist.github.com/lebr0nli/4edb76bbd3b5ff993cf44f2fbce5e571</a><br><a href="https://github.com/advisories/GHSA-h8pj-cxx2-jfg2">https://github.com/advisories/GHSA-h8pj-cxx2-jfg2</a><br><a href="https://github.com/encode/httpx">https://github.com/encode/httpx</a><br><a href="https://github.com/encode/httpx/discussions/1831">https://github.com/encode/httpx/discussions/1831</a><br><a href="https://github.com/encode/httpx/issues/2184">https://github.com/encode/httpx/issues/2184</a><br><a href="https://github.com/encode/httpx/pull/2185">https://github.com/encode/httpx/pull/2185</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41945">https://nvd.nist.gov/vuln/detail/CVE-2021-41945</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

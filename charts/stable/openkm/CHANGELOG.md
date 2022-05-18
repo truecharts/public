@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="openkm-5.0.21"></a>
+### [openkm-5.0.21](https://github.com/truecharts/apps/compare/openkm-5.0.20...openkm-5.0.21) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

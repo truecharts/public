@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="odoo-6.0.31"></a>
+### [odoo-6.0.31](https://github.com/truecharts/apps/compare/odoo-6.0.30...odoo-6.0.31) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

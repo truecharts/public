@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="kms-10.0.21"></a>
+### [kms-10.0.21](https://github.com/truecharts/apps/compare/kms-10.0.20...kms-10.0.21) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

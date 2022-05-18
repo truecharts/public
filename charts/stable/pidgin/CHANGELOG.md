@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="pidgin-1.0.16"></a>
+### [pidgin-1.0.16](https://github.com/truecharts/apps/compare/pidgin-1.0.15...pidgin-1.0.16) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 

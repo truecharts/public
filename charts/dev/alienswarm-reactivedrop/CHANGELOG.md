@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="alienswarm-reactivedrop-0.0.8"></a>
+### [alienswarm-reactivedrop-0.0.8](https://github.com/truecharts/apps/compare/alienswarm-reactivedrop-0.0.7...alienswarm-reactivedrop-0.0.8) (2022-05-17)
+
+#### Chore
+
 * update helm general non-major helm releases
 
 
