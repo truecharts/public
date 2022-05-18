@@ -74,63 +74,7 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: secret
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TYPECHO_USER_NAME
-          label: "TYPECHO_USER_NAME"
-          description: "USER NAME"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: TYPECHO_USER_PASSWORD
-          label: "TYPECHO_USER_PASSWORD"
-          description: "USER PASSWORD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TYPECHO_SITE_URL
-          label: "TYPECHO_SITE_URL"
-          description: "Your Typecho Site URL"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: TYPECHO_USER_MAIL
-          label: "TYPECHO_USER_MAIL"
-          description: "USER EMAIL"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: MEMORY_LIMIT
-          label: "MEMORY_LIMIT"
-          description: "MEMORY_LIMIT"
-          schema:
-            type: string
-            required: true
-            default: "100M"
-        - variable: MAX_POST_BODY
-          label: "MAX_POST_BODY"
-          description: "MAX_POST_BODY"
-          schema:
-            type: string
-            required: true
-            default: "50M"
+
 # Include{containerConfig}
 
   - variable: service
@@ -159,7 +103,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10207
+                              default: 10239
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -266,6 +210,222 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: plugins
+          label: "App Plugins Storage"
+          description: "Stores the Application Plugins."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: clientPlugins
+          label: "App Client's Plugins Storage"
+          description: "Stores the Application Client's Plugins."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: bleveIndexes
+          label: "App bleveIndexes Storage"
+          description: "Stores the Application bleveIndexes."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
   - variable: ingress
