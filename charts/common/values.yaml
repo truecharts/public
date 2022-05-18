@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: ghcr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:044684bdd488ad5a129e57d915ee56c3ad2b450624414cb577d3292517ac45d4
+  tag: latest@sha256:21bf236a201989c5bb5547b06e8083b2ae6ac13dee3dcb2bef0a101ab05f1038
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.3@sha256:c6c73ea866024e3e6ec14651222f1263d0734a8d4d60f64ba4999dcc71c8e445
+  tag: v10.7.3@sha256:99ce5bbd731cfefb9b8771fbfc6499bf0ed177fac8ab37b2b04053d40cf8f9be
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
