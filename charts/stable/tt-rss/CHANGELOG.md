@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.1.0"></a>
+### [tt-rss-5.1.0](https://github.com/truecharts/apps/compare/tt-rss-5.0.27...tt-rss-5.1.0) (2022-05-19)
+
+#### Fix
+
+* Add persistence ([#2716](https://github.com/truecharts/apps/issues/2716))
+
+
+
 <a name="tt-rss-5.0.27"></a>
 ### [tt-rss-5.0.27](https://github.com/truecharts/apps/compare/tt-rss-5.0.26...tt-rss-5.0.27) (2022-05-17)
 

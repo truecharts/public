@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-2.0.13"></a>
+### [wekan-2.0.13](https://github.com/truecharts/apps/compare/wekan-2.0.12...wekan-2.0.13) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
 <a name="wekan-2.0.12"></a>
 ### [wekan-2.0.12](https://github.com/truecharts/apps/compare/wekan-2.0.11...wekan-2.0.12) (2022-05-17)
 
