@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.3.0@sha256:c8b2690480691c332bebbc47adf9f77a059006157c5c11614d9aa33311a0e029
+  tag: v14.3.0@sha256:cc117e963834a2b4f6db986b9a0d2b42009b73ce2805ea29ac9c526107c7e99e
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.3@sha256:99ce5bbd731cfefb9b8771fbfc6499bf0ed177fac8ab37b2b04053d40cf8f9be
+  tag: v10.7.3@sha256:7e6cda19aa5edae8cfef06f3e5370bfd38a23ece5651c17961a05d7ff9cb8f90
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
@@ -84,7 +84,7 @@ mongodbImage:
   # -- Specify the mongodb image
   repository: ghcr.io/truecharts/mongodb
   # -- Specify the mongodb image tag
-  tag: v5.0.8@sha256:ed590cd7c6eb18e755006e4a42d54c477b2ac23bbe324fe972ab8eeffe4d159b
+  tag: v5.0.8@sha256:d2f8b88f49c80ba8a575f06b5afa30d3cf70fde0988ba0c2de3d7d7c2a00814c
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
