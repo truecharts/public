@@ -74,6 +74,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: MM_SERVICESETTINGS_SITEURL
+          label: "MM_SERVICESETTINGS_SITEURL"
+          description: "HTTPS URL on which you will reach this instance, eg. https://matter.example.com/"
+          schema:
+            type: string
+            required: false
+            default: ""
 
 # Include{containerConfig}
 
