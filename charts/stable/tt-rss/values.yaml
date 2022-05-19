@@ -18,6 +18,13 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  plugins:
+    enabled: true
+    mountPath: "/app/plugins.local"
+  themes:
+    enabled: true
+    mountPath: "/app/themes.local"
+  
 
 # -- See more environment variables in the tt-rss documentation
 # https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9
