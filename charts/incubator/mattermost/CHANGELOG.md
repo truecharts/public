@@ -7,4 +7,3 @@
 #### Feat
 
 * Add mattermost ([#2705](https://github.com/truecharts/apps/issues/2705))
-
