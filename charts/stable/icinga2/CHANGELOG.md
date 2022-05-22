@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-1.0.22"></a>
+### [icinga2-1.0.22](https://github.com/truecharts/apps/compare/icinga2-1.0.21...icinga2-1.0.22) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
 <a name="icinga2-1.0.21"></a>
 ### [icinga2-1.0.21](https://github.com/truecharts/apps/compare/icinga2-1.0.20...icinga2-1.0.21) (2022-05-17)
 

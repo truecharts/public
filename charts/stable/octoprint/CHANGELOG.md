@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-5.0.18"></a>
+### [octoprint-5.0.18](https://github.com/truecharts/apps/compare/octoprint-5.0.17...octoprint-5.0.18) (2022-05-21)
+
+#### Chore
+
+* update docker general non-major ([#2724](https://github.com/truecharts/apps/issues/2724))
+
+
+
 <a name="octoprint-5.0.17"></a>
 ### [octoprint-5.0.17](https://github.com/truecharts/apps/compare/octoprint-5.0.15...octoprint-5.0.17) (2022-05-18)
 
