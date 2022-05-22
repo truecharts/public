@@ -9,6 +9,8 @@ groups:
     description: "Configure nextcloud container parameters"
   - name: "Postgresql Configuration"
     description: "Configure Postgresql for nextcloud"
+  - name: "CronJob configuration"
+    description: "Configure CronJob for nextcloud"
   - name: "Scaling/Upgrade Policy"
     description: "Configure how pods are replaced when configuration is upgraded"
   - name: "Advanced DNS Settings"
@@ -99,6 +101,27 @@ questions:
             type: path
             default: "/var/www/html/data"
             required: true
+
+  - variable: cronjob
+    description: "Setup cronjob for nextcloud"
+    label: "Setup cronjob for nextcloud"
+    group: "CronJob configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable cronjobs for nextcloud"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: schedule
+                label: Schedule
+                schema:
+                  type: string
+                  default: "1 */24 * * *"
+                  empty: false
 
   # Update strategy
   - variable: updateStrategy
