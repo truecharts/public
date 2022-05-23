@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-2.0.12"></a>
+### [ipfs-2.0.12](https://github.com/truecharts/apps/compare/ipfs-2.0.11...ipfs-2.0.12) (2022-05-23)
+
+#### Fix
+
+* remove multiple persistence sections ([#2739](https://github.com/truecharts/apps/issues/2739))
+
+
+
 <a name="ipfs-2.0.11"></a>
 ### [ipfs-2.0.11](https://github.com/truecharts/apps/compare/ipfs-2.0.10...ipfs-2.0.11) (2022-05-23)
 
