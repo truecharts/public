@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-2.0.11"></a>
+### [ipfs-2.0.11](https://github.com/truecharts/apps/compare/ipfs-2.0.10...ipfs-2.0.11) (2022-05-23)
+
+#### Fix
+
+* missing sections of UI ([#2738](https://github.com/truecharts/apps/issues/2738))
+
+
+
 <a name="ipfs-2.0.10"></a>
 ### [ipfs-2.0.10](https://github.com/truecharts/apps/compare/ipfs-2.0.9...ipfs-2.0.10) (2022-05-17)
 
