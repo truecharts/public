@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.29"></a>
+### [nextcloud-12.0.29](https://github.com/truecharts/apps/compare/nextcloud-12.0.28...nextcloud-12.0.29) (2022-05-24)
+
+#### Chore
+
+* update container image tccr.io/truecharts/nextcloud to v24.0.0 ([#2714](https://github.com/truecharts/apps/issues/2714))
+
+
+
 <a name="nextcloud-12.0.28"></a>
 ### [nextcloud-12.0.28](https://github.com/truecharts/apps/compare/nextcloud-12.0.27...nextcloud-12.0.28) (2022-05-24)
 
