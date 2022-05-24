@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="alienswarm-0.0.9"></a>
+### [alienswarm-0.0.9](https://github.com/truecharts/apps/compare/alienswarm-reactivedrop-0.0.8...alienswarm-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="alienswarm-0.0.8"></a>
 ### [alienswarm-0.0.8](https://github.com/truecharts/apps/compare/alienswarm-reactivedrop-0.0.7...alienswarm-0.0.8) (2022-05-17)
 

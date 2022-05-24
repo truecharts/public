@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="barcodebuddy-0.0.9"></a>
+### [barcodebuddy-0.0.9](https://github.com/truecharts/apps/compare/barcodebuddy-0.0.8...barcodebuddy-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="barcodebuddy-0.0.8"></a>
 ### [barcodebuddy-0.0.8](https://github.com/truecharts/apps/compare/barcodebuddy-0.0.7...barcodebuddy-0.0.8) (2022-05-17)
 

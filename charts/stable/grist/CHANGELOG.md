@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.23"></a>
+### [grist-1.0.23](https://github.com/truecharts/apps/compare/grist-1.0.22...grist-1.0.23) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="grist-1.0.22"></a>
+### [grist-1.0.22](https://github.com/truecharts/apps/compare/grist-1.0.21...grist-1.0.22) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
 <a name="grist-1.0.21"></a>
 ### [grist-1.0.21](https://github.com/truecharts/apps/compare/grist-1.0.20...grist-1.0.21) (2022-05-17)
 

@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="cyberchef-1.0.25"></a>
+### [cyberchef-1.0.25](https://github.com/truecharts/apps/compare/cyberchef-1.0.24...cyberchef-1.0.25) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="cyberchef-1.0.24"></a>
+### [cyberchef-1.0.24](https://github.com/truecharts/apps/compare/cyberchef-1.0.23...cyberchef-1.0.24) (2022-05-23)
+
+#### Chore
+
+* update docker general non-major ([#2733](https://github.com/truecharts/apps/issues/2733))
+
+
+
+<a name="cyberchef-1.0.23"></a>
+### [cyberchef-1.0.23](https://github.com/truecharts/apps/compare/cyberchef-1.0.21...cyberchef-1.0.23) (2022-05-21)
+
+#### Chore
+
+* update docker general non-major ([#2724](https://github.com/truecharts/apps/issues/2724))
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="cyberchef-1.0.21"></a>
+### [cyberchef-1.0.21](https://github.com/truecharts/apps/compare/cyberchef-1.0.20...cyberchef-1.0.21) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
 <a name="cyberchef-1.0.20"></a>
 ### [cyberchef-1.0.20](https://github.com/truecharts/apps/compare/cyberchef-1.0.18...cyberchef-1.0.20) (2022-05-18)
 

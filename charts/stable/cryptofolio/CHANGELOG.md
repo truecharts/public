@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-3.0.17"></a>
+### [cryptofolio-3.0.17](https://github.com/truecharts/apps/compare/cryptofolio-3.0.16...cryptofolio-3.0.17) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="cryptofolio-3.0.16"></a>
 ### [cryptofolio-3.0.16](https://github.com/truecharts/apps/compare/cryptofolio-3.0.15...cryptofolio-3.0.16) (2022-05-17)
 

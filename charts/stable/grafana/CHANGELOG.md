@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.55"></a>
+### [grafana-3.0.55](https://github.com/truecharts/apps/compare/grafana-3.0.54...grafana-3.0.55) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="grafana-3.0.54"></a>
+### [grafana-3.0.54](https://github.com/truecharts/apps/compare/grafana-3.0.53...grafana-3.0.54) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
 <a name="grafana-3.0.53"></a>
 ### [grafana-3.0.53](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.53) (2022-05-18)
 

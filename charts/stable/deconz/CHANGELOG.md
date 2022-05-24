@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.25"></a>
+### [deconz-7.0.25](https://github.com/truecharts/apps/compare/deconz-7.0.24...deconz-7.0.25) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="deconz-7.0.24"></a>
 ### [deconz-7.0.24](https://github.com/truecharts/apps/compare/deconz-7.0.22...deconz-7.0.24) (2022-05-18)
 

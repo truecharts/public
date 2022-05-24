@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="filezilla-3.0.28"></a>
+### [filezilla-3.0.28](https://github.com/truecharts/apps/compare/filezilla-3.0.27...filezilla-3.0.28) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="filezilla-3.0.27"></a>
+### [filezilla-3.0.27](https://github.com/truecharts/apps/compare/filezilla-3.0.26...filezilla-3.0.27) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
 <a name="filezilla-3.0.26"></a>
 ### [filezilla-3.0.26](https://github.com/truecharts/apps/compare/filezilla-3.0.25...filezilla-3.0.26) (2022-05-17)
 

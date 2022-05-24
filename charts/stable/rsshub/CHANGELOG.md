@@ -1,6 +1,44 @@
 # Changelog<br>
 
 
+<a name="rsshub-1.0.35"></a>
+### [rsshub-1.0.35](https://github.com/truecharts/apps/compare/rsshub-1.0.34...rsshub-1.0.35) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="rsshub-1.0.34"></a>
+### [rsshub-1.0.34](https://github.com/truecharts/apps/compare/rsshub-1.0.33...rsshub-1.0.34) (2022-05-23)
+
+#### Chore
+
+* update docker general non-major ([#2733](https://github.com/truecharts/apps/issues/2733))
+
+
+
+<a name="rsshub-1.0.33"></a>
+### [rsshub-1.0.33](https://github.com/truecharts/apps/compare/rsshub-1.0.30...rsshub-1.0.33) (2022-05-22)
+
+#### Chore
+
+* update docker general non-major ([#2730](https://github.com/truecharts/apps/issues/2730))
+* update docker general non-major ([#2724](https://github.com/truecharts/apps/issues/2724))
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="rsshub-1.0.30"></a>
+### [rsshub-1.0.30](https://github.com/truecharts/apps/compare/rsshub-1.0.29...rsshub-1.0.30) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
 <a name="rsshub-1.0.29"></a>
 ### [rsshub-1.0.29](https://github.com/truecharts/apps/compare/rsshub-1.0.27...rsshub-1.0.29) (2022-05-18)
 

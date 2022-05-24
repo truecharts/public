@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-3.0.20"></a>
+### [loki-3.0.20](https://github.com/truecharts/apps/compare/loki-3.0.19...loki-3.0.20) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="loki-3.0.19"></a>
 ### [loki-3.0.19](https://github.com/truecharts/apps/compare/loki-3.0.18...loki-3.0.19) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duckdns-1.0.22"></a>
+### [duckdns-1.0.22](https://github.com/truecharts/apps/compare/duckdns-1.0.21...duckdns-1.0.22) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="duckdns-1.0.21"></a>
 ### [duckdns-1.0.21](https://github.com/truecharts/apps/compare/duckdns-1.0.19...duckdns-1.0.21) (2022-05-18)
 

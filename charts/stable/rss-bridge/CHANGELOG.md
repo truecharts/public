@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rss-bridge-1.0.8"></a>
+### [rss-bridge-1.0.8](https://github.com/truecharts/apps/compare/rss-bridge-1.0.7...rss-bridge-1.0.8) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="rss-bridge-1.0.7"></a>
 ### [rss-bridge-1.0.7](https://github.com/truecharts/apps/compare/rss-bridge-1.0.6...rss-bridge-1.0.7) (2022-05-17)
 

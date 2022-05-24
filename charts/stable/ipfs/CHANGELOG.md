@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="ipfs-2.0.13"></a>
+### [ipfs-2.0.13](https://github.com/truecharts/apps/compare/ipfs-2.0.12...ipfs-2.0.13) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="ipfs-2.0.12"></a>
+### [ipfs-2.0.12](https://github.com/truecharts/apps/compare/ipfs-2.0.11...ipfs-2.0.12) (2022-05-23)
+
+#### Fix
+
+* remove multiple persistence sections ([#2739](https://github.com/truecharts/apps/issues/2739))
+
+
+
+<a name="ipfs-2.0.11"></a>
+### [ipfs-2.0.11](https://github.com/truecharts/apps/compare/ipfs-2.0.10...ipfs-2.0.11) (2022-05-23)
+
+#### Fix
+
+* missing sections of UI ([#2738](https://github.com/truecharts/apps/issues/2738))
+
+
+
 <a name="ipfs-2.0.10"></a>
 ### [ipfs-2.0.10](https://github.com/truecharts/apps/compare/ipfs-2.0.9...ipfs-2.0.10) (2022-05-17)
 

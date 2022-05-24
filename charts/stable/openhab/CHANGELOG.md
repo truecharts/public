@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-1.0.17"></a>
+### [openhab-1.0.17](https://github.com/truecharts/apps/compare/openhab-1.0.16...openhab-1.0.17) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="openhab-1.0.16"></a>
 ### [openhab-1.0.16](https://github.com/truecharts/apps/compare/openhab-1.0.15...openhab-1.0.16) (2022-05-17)
 

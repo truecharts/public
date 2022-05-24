@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hammond-1.0.15"></a>
+### [hammond-1.0.15](https://github.com/truecharts/apps/compare/hammond-1.0.14...hammond-1.0.15) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="hammond-1.0.14"></a>
 ### [hammond-1.0.14](https://github.com/truecharts/apps/compare/hammond-1.0.13...hammond-1.0.14) (2022-05-17)
 

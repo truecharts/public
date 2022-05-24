@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="koel-1.0.19"></a>
+### [koel-1.0.19](https://github.com/truecharts/apps/compare/koel-1.0.18...koel-1.0.19) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="koel-1.0.18"></a>
+### [koel-1.0.18](https://github.com/truecharts/apps/compare/koel-1.0.17...koel-1.0.18) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
 <a name="koel-1.0.17"></a>
 ### [koel-1.0.17](https://github.com/truecharts/apps/compare/koel-1.0.15...koel-1.0.17) (2022-05-18)
 

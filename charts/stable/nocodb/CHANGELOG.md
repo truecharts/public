@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-1.0.12"></a>
+### [nocodb-1.0.12](https://github.com/truecharts/apps/compare/nocodb-1.0.11...nocodb-1.0.12) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="nocodb-1.0.11"></a>
 ### [nocodb-1.0.11](https://github.com/truecharts/apps/compare/nocodb-1.0.10...nocodb-1.0.11) (2022-05-17)
 

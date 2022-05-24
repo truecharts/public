@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="makemkv-1.0.15"></a>
+### [makemkv-1.0.15](https://github.com/truecharts/apps/compare/makemkv-1.0.14...makemkv-1.0.15) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="makemkv-1.0.14"></a>
 ### [makemkv-1.0.14](https://github.com/truecharts/apps/compare/makemkv-1.0.13...makemkv-1.0.14) (2022-05-17)
 

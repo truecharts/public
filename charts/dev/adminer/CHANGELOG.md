@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="adminer-0.0.9"></a>
+### [adminer-0.0.9](https://github.com/truecharts/apps/compare/adminer-0.0.8...adminer-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="adminer-0.0.8"></a>
 ### [adminer-0.0.8](https://github.com/truecharts/apps/compare/adminer-0.0.7...adminer-0.0.8) (2022-05-17)
 
