@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.69"></a>
+### [prometheus-2.0.69](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.17...prometheus-2.0.69) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+* update docker general non-major ([#2740](https://github.com/truecharts/apps/issues/2740))
+
+
+
 <a name="prometheus-2.0.68"></a>
 ### [prometheus-2.0.68](https://github.com/truecharts/apps/compare/prometheus-2.0.67...prometheus-2.0.68) (2022-05-24)
 

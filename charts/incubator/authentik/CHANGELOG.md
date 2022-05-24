@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authentik-0.0.11"></a>
+### [authentik-0.0.11](https://github.com/truecharts/apps/compare/authentik-0.0.10...authentik-0.0.11) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="authentik-0.0.10"></a>
 ### [authentik-0.0.10](https://github.com/truecharts/apps/compare/authentik-0.0.9...authentik-0.0.10) (2022-05-24)
 

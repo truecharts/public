@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-14.0.24"></a>
+### [vaultwarden-14.0.24](https://github.com/truecharts/apps/compare/vaultwarden-14.0.23...vaultwarden-14.0.24) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="vaultwarden-14.0.23"></a>
 ### [vaultwarden-14.0.23](https://github.com/truecharts/apps/compare/vaultwarden-14.0.22...vaultwarden-14.0.23) (2022-05-24)
 

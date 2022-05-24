@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appsmith-0.0.14"></a>
+### [appsmith-0.0.14](https://github.com/truecharts/apps/compare/appsmith-0.0.13...appsmith-0.0.14) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="appsmith-0.0.13"></a>
 ### [appsmith-0.0.13](https://github.com/truecharts/apps/compare/appsmith-0.0.12...appsmith-0.0.13) (2022-05-24)
 

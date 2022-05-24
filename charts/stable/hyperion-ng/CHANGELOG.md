@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-5.0.19"></a>
+### [hyperion-ng-5.0.19](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.18...hyperion-ng-5.0.19) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="hyperion-ng-5.0.18"></a>
 ### [hyperion-ng-5.0.18](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.17...hyperion-ng-5.0.18) (2022-05-24)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mkvtoolnix-1.0.5"></a>
+### [mkvtoolnix-1.0.5](https://github.com/truecharts/apps/compare/mkvtoolnix-1.0.4...mkvtoolnix-1.0.5) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="mkvtoolnix-1.0.4"></a>
 ### [mkvtoolnix-1.0.4](https://github.com/truecharts/apps/compare/mkvtoolnix-1.0.3...mkvtoolnix-1.0.4) (2022-05-24)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-5.0.28"></a>
+### [wikijs-5.0.28](https://github.com/truecharts/apps/compare/wikijs-5.0.27...wikijs-5.0.28) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
 <a name="wikijs-5.0.27"></a>
 ### [wikijs-5.0.27](https://github.com/truecharts/apps/compare/wikijs-5.0.26...wikijs-5.0.27) (2022-05-24)
 

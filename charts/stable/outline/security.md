@@ -118,8 +118,8 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.3.0@sha256:cc117e963834a2b4f6db986b9a0d2b42009b73ce2805ea29ac9c526107c7e99e
-          'tccr.io/truecharts/outline:v0.63.0@sha256:1ce6030a7e7a6a6c8f3584e605d4a779b11a760730b0eeda6d2bde4febc3a9e6'
-          tccr.io/truecharts/outline:v0.63.0@sha256:1ce6030a7e7a6a6c8f3584e605d4a779b11a760730b0eeda6d2bde4febc3a9e6
+          'tccr.io/truecharts/outline:v0.64.2@sha256:d5878bb0f1c3ac6a2cd93055dd21e38a26ecf40052822e123d0cbd5a80f7dcb8'
+          tccr.io/truecharts/outline:v0.64.2@sha256:d5878bb0f1c3ac6a2cd93055dd21e38a26ecf40052822e123d0cbd5a80f7dcb8
 
 ##### Scan Results
 
@@ -973,7 +973,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/outline:v0.63.0@sha256:1ce6030a7e7a6a6c8f3584e605d4a779b11a760730b0eeda6d2bde4febc3a9e6 (alpine 3.15.4)
+#### Container: tccr.io/truecharts/outline:v0.64.2@sha256:d5878bb0f1c3ac6a2cd93055dd21e38a26ecf40052822e123d0cbd5a80f7dcb8 (alpine 3.15.4)
 
 
 **alpine**

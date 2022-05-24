@@ -78,7 +78,7 @@ hide:
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/mariadb:v10.7.3@sha256:7e6cda19aa5edae8cfef06f3e5370bfd38a23ece5651c17961a05d7ff9cb8f90
-          tccr.io/truecharts/ghost:v4.47.4@sha256:9e89caa514c7f5f4ba02cc2acd8d224917cb16771386613dd46dfc09f274c779
+          tccr.io/truecharts/ghost:v4.48.0@sha256:7ba970dafeeb198c1036dc98d11b1d2d0c3c57c65b268d48faf544cf71c01525
 
 ##### Scan Results
 
@@ -571,7 +571,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/ghost:v4.47.4@sha256:9e89caa514c7f5f4ba02cc2acd8d224917cb16771386613dd46dfc09f274c779 (debian 11.3)
+#### Container: tccr.io/truecharts/ghost:v4.48.0@sha256:7ba970dafeeb198c1036dc98d11b1d2d0c3c57c65b268d48faf544cf71c01525 (debian 11.3)
 
 
 **debian**
