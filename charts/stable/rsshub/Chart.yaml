@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: rsshub
-version: 1.0.34
+version: 1.0.35
 appVersion: "latest"
 description: RSSHub can generate RSS feeds from pretty much everything
 type: application
@@ -17,11 +17,11 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.15
+  version: 9.3.17
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.64
+  version: 2.0.69
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
