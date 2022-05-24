@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-5.0.20"></a>
+### [duplicati-5.0.20](https://github.com/truecharts/apps/compare/duplicati-5.0.19...duplicati-5.0.20) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="duplicati-5.0.19"></a>
 ### [duplicati-5.0.19](https://github.com/truecharts/apps/compare/duplicati-5.0.18...duplicati-5.0.19) (2022-05-17)
 

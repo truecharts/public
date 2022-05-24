@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="androiddebugbridge-0.0.9"></a>
+### [androiddebugbridge-0.0.9](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.8...androiddebugbridge-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="androiddebugbridge-0.0.8"></a>
 ### [androiddebugbridge-0.0.8](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.7...androiddebugbridge-0.0.8) (2022-05-17)
 

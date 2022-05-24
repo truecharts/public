@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-2.0.18"></a>
+### [sqlitebrowser-2.0.18](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.17...sqlitebrowser-2.0.18) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="sqlitebrowser-2.0.17"></a>
 ### [sqlitebrowser-2.0.17](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.16...sqlitebrowser-2.0.17) (2022-05-17)
 

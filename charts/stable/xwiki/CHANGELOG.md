@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xwiki-1.0.16"></a>
+### [xwiki-1.0.16](https://github.com/truecharts/apps/compare/xwiki-1.0.15...xwiki-1.0.16) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="xwiki-1.0.15"></a>
 ### [xwiki-1.0.15](https://github.com/truecharts/apps/compare/xwiki-1.0.14...xwiki-1.0.15) (2022-05-19)
 

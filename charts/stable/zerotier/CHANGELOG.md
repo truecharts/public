@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zerotier-1.0.19"></a>
+### [zerotier-1.0.19](https://github.com/truecharts/apps/compare/zerotier-1.0.18...zerotier-1.0.19) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="zerotier-1.0.18"></a>
 ### [zerotier-1.0.18](https://github.com/truecharts/apps/compare/zerotier-1.0.17...zerotier-1.0.18) (2022-05-17)
 

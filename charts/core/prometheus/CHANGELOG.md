@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.68"></a>
+### [prometheus-2.0.68](https://github.com/truecharts/apps/compare/prometheus-2.0.67...prometheus-2.0.68) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="prometheus-2.0.67"></a>
 ### [prometheus-2.0.67](https://github.com/truecharts/apps/compare/prometheus-2.0.66...prometheus-2.0.67) (2022-05-23)
 

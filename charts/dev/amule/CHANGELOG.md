@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amule-0.0.9"></a>
+### [amule-0.0.9](https://github.com/truecharts/apps/compare/amule-0.0.8...amule-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="amule-0.0.8"></a>
 ### [amule-0.0.8](https://github.com/truecharts/apps/compare/amule-0.0.7...amule-0.0.8) (2022-05-17)
 

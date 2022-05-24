@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.23"></a>
+### [grist-1.0.23](https://github.com/truecharts/apps/compare/grist-1.0.22...grist-1.0.23) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="grist-1.0.22"></a>
 ### [grist-1.0.22](https://github.com/truecharts/apps/compare/grist-1.0.21...grist-1.0.22) (2022-05-20)
 

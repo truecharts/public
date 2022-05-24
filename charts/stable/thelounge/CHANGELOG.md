@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-5.0.28"></a>
+### [thelounge-5.0.28](https://github.com/truecharts/apps/compare/thelounge-5.0.27...thelounge-5.0.28) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="thelounge-5.0.27"></a>
 ### [thelounge-5.0.27](https://github.com/truecharts/apps/compare/thelounge-5.0.26...thelounge-5.0.27) (2022-05-21)
 

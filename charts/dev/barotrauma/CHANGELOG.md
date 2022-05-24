@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="barotrauma-0.0.9"></a>
+### [barotrauma-0.0.9](https://github.com/truecharts/apps/compare/barotrauma-0.0.8...barotrauma-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="barotrauma-0.0.8"></a>
 ### [barotrauma-0.0.8](https://github.com/truecharts/apps/compare/barotrauma-0.0.7...barotrauma-0.0.8) (2022-05-17)
 

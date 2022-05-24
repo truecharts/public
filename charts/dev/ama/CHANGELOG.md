@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ama-0.0.9"></a>
+### [ama-0.0.9](https://github.com/truecharts/apps/compare/clamav-2.1.17...ama-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="ama-0.0.8"></a>
 ### [ama-0.0.8](https://github.com/truecharts/apps/compare/clamav-2.1.16...ama-0.0.8) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="website-shot-1.0.7"></a>
+### [website-shot-1.0.7](https://github.com/truecharts/apps/compare/website-shot-1.0.6...website-shot-1.0.7) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="website-shot-1.0.6"></a>
 ### [website-shot-1.0.6](https://github.com/truecharts/apps/compare/website-shot-1.0.5...website-shot-1.0.6) (2022-05-17)
 

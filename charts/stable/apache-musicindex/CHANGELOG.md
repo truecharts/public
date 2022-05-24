@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-3.0.17"></a>
+### [apache-musicindex-3.0.17](https://github.com/truecharts/apps/compare/apache-musicindex-3.0.16...apache-musicindex-3.0.17) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="apache-musicindex-3.0.16"></a>
 ### [apache-musicindex-3.0.16](https://github.com/truecharts/apps/compare/apache-musicindex-3.0.15...apache-musicindex-3.0.16) (2022-05-17)
 

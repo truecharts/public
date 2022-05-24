@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.22"></a>
+### [ombi-10.0.22](https://github.com/truecharts/apps/compare/ombi-10.0.21...ombi-10.0.22) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="ombi-10.0.21"></a>
 ### [ombi-10.0.21](https://github.com/truecharts/apps/compare/ombi-10.0.20...ombi-10.0.21) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="drawio-1.0.17"></a>
+### [drawio-1.0.17](https://github.com/truecharts/apps/compare/drawio-1.0.16...drawio-1.0.17) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="drawio-1.0.16"></a>
 ### [drawio-1.0.16](https://github.com/truecharts/apps/compare/drawio-1.0.15...drawio-1.0.16) (2022-05-20)
 

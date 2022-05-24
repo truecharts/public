@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amtd-0.0.9"></a>
+### [amtd-0.0.9](https://github.com/truecharts/apps/compare/amtd-0.0.8...amtd-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="amtd-0.0.8"></a>
 ### [amtd-0.0.8](https://github.com/truecharts/apps/compare/amtd-0.0.7...amtd-0.0.8) (2022-05-17)
 

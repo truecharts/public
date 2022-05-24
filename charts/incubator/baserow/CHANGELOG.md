@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="baserow-0.0.9"></a>
+### [baserow-0.0.9](https://github.com/truecharts/apps/compare/baserow-0.0.8...baserow-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="baserow-0.0.8"></a>
 ### [baserow-0.0.8](https://github.com/truecharts/apps/compare/baserow-0.0.7...baserow-0.0.8) (2022-05-17)
 

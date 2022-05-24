@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aurora-files-0.0.9"></a>
+### [aurora-files-0.0.9](https://github.com/truecharts/apps/compare/aurora-files-0.0.8...aurora-files-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="aurora-files-0.0.8"></a>
 ### [aurora-files-0.0.8](https://github.com/truecharts/apps/compare/aurora-files-0.0.7...aurora-files-0.0.8) (2022-05-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-10.0.17"></a>
+### [node-red-10.0.17](https://github.com/truecharts/apps/compare/node-red-10.0.16...node-red-10.0.17) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="node-red-10.0.16"></a>
 ### [node-red-10.0.16](https://github.com/truecharts/apps/compare/node-red-10.0.15...node-red-10.0.16) (2022-05-17)
 

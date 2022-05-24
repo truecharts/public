@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="avorion-0.0.9"></a>
+### [avorion-0.0.9](https://github.com/truecharts/apps/compare/avorion-0.0.8...avorion-0.0.9) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="avorion-0.0.8"></a>
 ### [avorion-0.0.8](https://github.com/truecharts/apps/compare/avorion-0.0.7...avorion-0.0.8) (2022-05-17)
 
