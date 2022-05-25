@@ -339,8 +339,8 @@ questions:
               - variable: SMTP_PORT
                 label: "SMTP_PORT"
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  default: 587
               - variable: SMTP_USERNAME
                 label: "SMTP_USERNAME"
                 schema:
