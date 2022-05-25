@@ -324,6 +324,49 @@ questions:
                 schema:
                   type: string
                   default: "private"
+        - variable: smtpenabled
+          label: "Enable SMTP Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: SMTP_HOST
+                label: "SMTP_HOST"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SMTP_PORT
+                label: "SMTP_PORT"
+                schema:
+                  type: int
+                  default: 587
+              - variable: SMTP_USERNAME
+                label: "SMTP_USERNAME"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SMTP_PASSWORD
+                label: "SMTP_PASSWORD"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+              - variable: SMTP_FROM_EMAIL
+                label: "SMTP_FROM_EMAIL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SMTP_REPLY_EMAIL
+                label: "SMTP_REPLY_EMAIL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SMTP_SECURE
+                label: "SMTP_SECURE"
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 
   - variable: service
