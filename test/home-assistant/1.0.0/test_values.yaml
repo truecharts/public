@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: homeassistant/home-assistant
+  tag: "2022.5.3"
+environmentVariables: []
+extraAppVolumeMounts: []
+web_port: 32000
+dnsConfig:
+  options: []
+emptyDirVolumes: true
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /config
+  media:
+    emptyDir: true
+    mountPath: /media
+ownerUID: 568
+ownerGID: 568
+hostNetwork: false
+timezone: "America/Los_Angeles"
+
+postgresAppVolumeMounts:
+  postgres-backup:
+    emptyDir: true
+    mountPath: /postgres_backups
+  postgres-data:
+    emptyDir: true
+    mountPath: /var/lib/postgresql/data
+postgresql:
+  backupVolume:
+    datasetName: ix-postgres_backups
+    mountPath: /postgres_backups
+  dataVolume:
+    datasetName: ix-postgres_data
+    mountPath: /var/lib/postgresql/data
+ixChartContext: {}
