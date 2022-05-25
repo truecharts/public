@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.28"></a>
+### [outline-1.0.28](https://github.com/truecharts/apps/compare/outline-1.0.27...outline-1.0.28) (2022-05-25)
+
+#### Feat
+
+* Add smtp Options ([#2754](https://github.com/truecharts/apps/issues/2754))
+
+
+
 <a name="outline-1.0.27"></a>
 ### [outline-1.0.27](https://github.com/truecharts/apps/compare/outline-1.0.26...outline-1.0.27) (2022-05-25)
 
