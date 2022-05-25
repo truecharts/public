@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-1.0.27"></a>
+### [outline-1.0.27](https://github.com/truecharts/apps/compare/outline-1.0.26...outline-1.0.27) (2022-05-25)
+
+#### Fix
+
+* set default redisuser ([#2752](https://github.com/truecharts/apps/issues/2752))
+
+
+
 <a name="outline-1.0.26"></a>
 ### [outline-1.0.26](https://github.com/truecharts/apps/compare/outline-1.0.25...outline-1.0.26) (2022-05-25)
 
