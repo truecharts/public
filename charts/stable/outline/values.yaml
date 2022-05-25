@@ -91,6 +91,7 @@ probes:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: outline
 
 # Enabled postgres
 postgresql:
