@@ -39,3 +39,6 @@ service:
   nodePort: 31000
 updateStrategy: Recreate
 useServiceNameForHost: true
+cronjob:
+  enabled: false
+  schedule: "1 */24 * * *"
