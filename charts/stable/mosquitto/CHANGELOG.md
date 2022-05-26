@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="mosquitto-5.0.26"></a>
+### [mosquitto-5.0.26](https://github.com/truecharts/apps/compare/mosquitto-5.0.25...mosquitto-5.0.26) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

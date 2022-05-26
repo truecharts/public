@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="openvscode-server-1.0.24"></a>
+### [openvscode-server-1.0.24](https://github.com/truecharts/apps/compare/openvscode-server-1.0.23...openvscode-server-1.0.24) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

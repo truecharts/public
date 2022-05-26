@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="logitech-media-server-3.0.33"></a>
+### [logitech-media-server-3.0.33](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.32...logitech-media-server-3.0.33) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

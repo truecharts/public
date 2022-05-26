@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="bitcoinunlimited-0.0.10"></a>
+### [bitcoinunlimited-0.0.10](https://github.com/truecharts/apps/compare/bitcoinunlimited-0.0.9...bitcoinunlimited-0.0.10) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

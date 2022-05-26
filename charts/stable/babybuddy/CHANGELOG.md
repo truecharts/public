@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="babybuddy-6.0.33"></a>
+### [babybuddy-6.0.33](https://github.com/truecharts/apps/compare/babybuddy-6.0.32...babybuddy-6.0.33) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

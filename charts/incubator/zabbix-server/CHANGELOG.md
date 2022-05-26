@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="zabbix-server-0.0.12"></a>
+### [zabbix-server-0.0.12](https://github.com/truecharts/apps/compare/zabbix-server-0.0.11...zabbix-server-0.0.12) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

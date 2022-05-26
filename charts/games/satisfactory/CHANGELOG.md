@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="satisfactory-1.0.5"></a>
+### [satisfactory-1.0.5](https://github.com/truecharts/apps/compare/satisfactory-1.0.4...satisfactory-1.0.5) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 
 

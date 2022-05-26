@@ -6,6 +6,17 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+* update docker general non-major ([#2740](https://github.com/truecharts/apps/issues/2740))
+
+
+
+<a name="plex-9.0.22"></a>
+### [plex-9.0.22](https://github.com/truecharts/apps/compare/plex-9.0.21...plex-9.0.22) (2022-05-26)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
 * update docker general non-major ([#2740](https://github.com/truecharts/apps/issues/2740))
 
