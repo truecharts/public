@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-5.0.42"></a>
+### [prowlarr-5.0.42](https://github.com/truecharts/apps/compare/prowlarr-5.0.41...prowlarr-5.0.42) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="prowlarr-5.0.41"></a>
 ### [prowlarr-5.0.41](https://github.com/truecharts/apps/compare/prowlarr-5.0.40...prowlarr-5.0.41) (2022-05-24)
 

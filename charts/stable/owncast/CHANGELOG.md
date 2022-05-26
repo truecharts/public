@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-5.0.19"></a>
+### [owncast-5.0.19](https://github.com/truecharts/apps/compare/owncast-5.0.18...owncast-5.0.19) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="owncast-5.0.18"></a>
 ### [owncast-5.0.18](https://github.com/truecharts/apps/compare/owncast-5.0.17...owncast-5.0.18) (2022-05-24)
 

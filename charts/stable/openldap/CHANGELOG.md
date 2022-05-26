@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-6.0.18"></a>
+### [openldap-6.0.18](https://github.com/truecharts/apps/compare/openldap-6.0.17...openldap-6.0.18) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="openldap-6.0.17"></a>
 ### [openldap-6.0.17](https://github.com/truecharts/apps/compare/openldap-6.0.16...openldap-6.0.17) (2022-05-24)
 

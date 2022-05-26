@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.24"></a>
+### [statping-5.0.24](https://github.com/truecharts/apps/compare/statping-5.0.23...statping-5.0.24) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="statping-5.0.23"></a>
 ### [statping-5.0.23](https://github.com/truecharts/apps/compare/statping-5.0.22...statping-5.0.23) (2022-05-24)
 

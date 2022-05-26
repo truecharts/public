@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-5.0.21"></a>
+### [hyperion-ng-5.0.21](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.20...hyperion-ng-5.0.21) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="hyperion-ng-5.0.20"></a>
 ### [hyperion-ng-5.0.20](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.19...hyperion-ng-5.0.20) (2022-05-25)
 

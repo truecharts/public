@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-5.0.21"></a>
+### [pihole-5.0.21](https://github.com/truecharts/apps/compare/pihole-5.0.20...pihole-5.0.21) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="pihole-5.0.20"></a>
 ### [pihole-5.0.20](https://github.com/truecharts/apps/compare/pihole-5.0.19...pihole-5.0.20) (2022-05-24)
 

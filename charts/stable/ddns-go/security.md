@@ -107,5 +107,6 @@ hide:
 **gobinary**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| github.com/kardianos/service         |    CVE-2022-29583   |   HIGH  |  v1.2.1 |  | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-xm99-6pv5-q363">https://github.com/advisories/GHSA-xm99-6pv5-q363</a><br><a href="https://github.com/kardianos/service/pull/290">https://github.com/kardianos/service/pull/290</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29583">https://nvd.nist.gov/vuln/detail/CVE-2022-29583</a><br></details>  |

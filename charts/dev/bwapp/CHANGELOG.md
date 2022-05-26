@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bwapp-0.0.10"></a>
+### [bwapp-0.0.10](https://github.com/truecharts/apps/compare/bwapp-0.0.9...bwapp-0.0.10) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="bwapp-0.0.9"></a>
 ### [bwapp-0.0.9](https://github.com/truecharts/apps/compare/bwapp-0.0.8...bwapp-0.0.9) (2022-05-24)
 

@@ -99,5 +99,6 @@ hide:
 **python-pkg**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| PyJWT         |    CVE-2022-29217   |   HIGH  |  2.3.0 | 2.4.0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29217">https://access.redhat.com/security/cve/CVE-2022-29217</a><br><a href="https://github.com/advisories/GHSA-ffqj-6fqr-9h24">https://github.com/advisories/GHSA-ffqj-6fqr-9h24</a><br><a href="https://github.com/jpadilla/pyjwt/commit/9c528670c455b8d948aff95ed50e22940d1ad3fc">https://github.com/jpadilla/pyjwt/commit/9c528670c455b8d948aff95ed50e22940d1ad3fc</a><br><a href="https://github.com/jpadilla/pyjwt/releases/tag/2.4.0">https://github.com/jpadilla/pyjwt/releases/tag/2.4.0</a><br><a href="https://github.com/jpadilla/pyjwt/security/advisories/GHSA-ffqj-6fqr-9h24">https://github.com/jpadilla/pyjwt/security/advisories/GHSA-ffqj-6fqr-9h24</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29217">https://nvd.nist.gov/vuln/detail/CVE-2022-29217</a><br></details>  |

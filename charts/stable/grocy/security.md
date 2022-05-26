@@ -116,5 +116,6 @@ hide:
 **composer**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| guzzlehttp/guzzle         |    CVE-2022-29248   |   HIGH  |  7.4.2 | 7.4.3, 6.5.6 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab">https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab</a><br><a href="https://github.com/guzzle/guzzle/pull/3018">https://github.com/guzzle/guzzle/pull/3018</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://www.drupal.org/sa-core-2022-010">https://www.drupal.org/sa-core-2022-010</a><br></details>  |

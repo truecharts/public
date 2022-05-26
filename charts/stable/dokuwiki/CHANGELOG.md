@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-2.0.29"></a>
+### [dokuwiki-2.0.29](https://github.com/truecharts/apps/compare/dokuwiki-2.0.28...dokuwiki-2.0.29) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
 <a name="dokuwiki-2.0.28"></a>
 ### [dokuwiki-2.0.28](https://github.com/truecharts/apps/compare/dokuwiki-2.0.27...dokuwiki-2.0.28) (2022-05-26)
 
