@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.3.0@sha256:d569b16398ea62090a7bb0813d8d9383a54631deb7e01ceb8391d95ef640fec1
+  tag: v14.3.0@sha256:3109062bf7af46a9d89978ccaf20837d4d3ee54ce0c7bf68e2adbe6d1c76f1c3
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -84,7 +84,7 @@ mongodbImage:
   # -- Specify the mongodb image
   repository: ghcr.io/truecharts/mongodb
   # -- Specify the mongodb image tag
-  tag: v5.0.8@sha256:84767416aa97a8b82e396e01c2777d03f1c705a3a864d4113757b79ea2227a08
+  tag: v5.0.9@sha256:de647498fcd06746ad8444713ff6affaf71a79c741e2991ff94d5a2fa2271a07
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
