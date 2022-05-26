@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.71"></a>
+### [redis-2.0.71](https://github.com/truecharts/apps/compare/redis-2.0.70...redis-2.0.71) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.18 ([#2753](https://github.com/truecharts/apps/issues/2753))
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
 <a name="redis-2.0.70"></a>
 ### [redis-2.0.70](https://github.com/truecharts/apps/compare/redis-2.0.69...redis-2.0.70) (2022-05-24)
 

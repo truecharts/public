@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.79"></a>
+### [memcached-2.0.79](https://github.com/truecharts/apps/compare/memcached-2.0.78...memcached-2.0.79) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.18 ([#2753](https://github.com/truecharts/apps/issues/2753))
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
 <a name="memcached-2.0.78"></a>
 ### [memcached-2.0.78](https://github.com/truecharts/apps/compare/memcached-2.0.77...memcached-2.0.78) (2022-05-25)
 
