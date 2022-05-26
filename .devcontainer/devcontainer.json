@@ -2,13 +2,15 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/ruby
 {
     "name": "Ruby",
-    "image": "tccr.io/truecharts/devcontainer:v2.2.1"
-
+    "image": "tccr.io/truecharts/devcontainer:v2.2.1",
     // Set *default* container specific settings.json values on container create.
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.defaultProfile.linux": "zsh"
     },
-
+    "mounts": [
+        "source=home,target=/home/vscode,type=volume",
+        "source=${localEnv:HOME}/dotfiles,target=/home/vscode/dotfiles,type=bind"
+    ],
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
@@ -26,13 +28,10 @@
         "spmeesseman.vscode-taskexplorer",
         "formulahendry.code-runner"
     ],
-
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
-
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "export RUBYJQ_USE_SYSTEM_LIBRARIES=1 && bundle install",
-
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
 }
