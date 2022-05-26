@@ -3,11 +3,11 @@ appVersion: "6.26"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.17
+  version: 9.3.19
 - condition: mongodb.enabled
   name: mongodb
   repository: https://charts.truecharts.org
-  version: 0.1.33
+  version: 0.1.35
 description: WeKan - Open Source kanban
 home: https://github.com/truecharts/apps/tree/master/charts/stable/wekan
 icon: https://truecharts.org/_static/img/appicons/wekan.png
@@ -23,7 +23,7 @@ name: wekan
 sources:
 - https://github.com/wekan/wekan
 - https://wekan.github.io/
-version: 2.0.15
+version: 2.0.16
 annotations:
   truecharts.org/catagories: |
     - productivity
