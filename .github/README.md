@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-89-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-90-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -248,6 +248,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/jthat"><img src="https://avatars.githubusercontent.com/u/1931222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jason Thatcher</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=jthat" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3Ajthat" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=jthat" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/stefanschramek"><img src="https://avatars.githubusercontent.com/u/921342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stefan Schramek</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Astefanschramek" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/nokaka"><img src="https://avatars.githubusercontent.com/u/101942715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nokaka</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Anokaka" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://code.lockszmith.com"><img src="https://avatars.githubusercontent.com/u/905716?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gal Szkolnik</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3ALockszmith-GH" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
