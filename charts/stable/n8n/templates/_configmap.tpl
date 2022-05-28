@@ -6,51 +6,51 @@ kind: ConfigMap
 metadata:
   name: n8n-config
 data:
-  {{/*  Workflows */}}
+  {{/* Workflows */}}
   {{- if .Values.workflows.WORKFLOWS_DEFAULT_NAME }}
   WORKFLOWS_DEFAULT_NAME: {{ .Values.workflows.WORKFLOWS_DEFAULT_NAME | quote }}
   {{- end }}
-  {{/*  Security */}}
-  {{- if .Values.security.N8N_AUTH_EXCLUDE_ENDPOINTS }}
-  N8N_AUTH_EXCLUDE_ENDPOINTS: {{ .Values.security.N8N_AUTH_EXCLUDE_ENDPOINTS | quote }}
+  {{/* Security */}}
+  {{- if .Values.n8n_security.N8N_AUTH_EXCLUDE_ENDPOINTS }}
+  N8N_AUTH_EXCLUDE_ENDPOINTS: {{ .Values.n8n_security.N8N_AUTH_EXCLUDE_ENDPOINTS | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_BASIC_AUTH_ACTIVE }}
-  N8N_BASIC_AUTH_ACTIVE: {{ .Values.security.N8N_BASIC_AUTH_ACTIVE | quote }}
+  {{- if .Values.n8n_security.N8N_BASIC_AUTH_ACTIVE }}
+  N8N_BASIC_AUTH_ACTIVE: {{ .Values.n8n_security.N8N_BASIC_AUTH_ACTIVE | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_BASIC_AUTH_USER }}
-  N8N_BASIC_AUTH_USER: {{ .Values.security.N8N_BASIC_AUTH_USER | quote }}
+  {{- if .Values.n8n_security.N8N_BASIC_AUTH_USER }}
+  N8N_BASIC_AUTH_USER: {{ .Values.n8n_security.N8N_BASIC_AUTH_USER | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_BASIC_AUTH_PASSWORD }}
-  N8N_BASIC_AUTH_PASSWORD: {{ .Values.security.N8N_BASIC_AUTH_PASSWORD | quote }}
+  {{- if .Values.n8n_security.N8N_BASIC_AUTH_PASSWORD }}
+  N8N_BASIC_AUTH_PASSWORD: {{ .Values.n8n_security.N8N_BASIC_AUTH_PASSWORD | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_BASIC_AUTH_HASH }}
-  N8N_BASIC_AUTH_HASH: {{ .Values.security.N8N_BASIC_AUTH_HASH | quote }}
+  {{- if .Values.n8n_security.N8N_BASIC_AUTH_HASH }}
+  N8N_BASIC_AUTH_HASH: {{ .Values.n8n_security.N8N_BASIC_AUTH_HASH | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_AUTH_ACTIVE }}
-  N8N_JWT_AUTH_ACTIVE: {{ .Values.security.N8N_JWT_AUTH_ACTIVE | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_AUTH_ACTIVE }}
+  N8N_JWT_AUTH_ACTIVE: {{ .Values.n8n_security.N8N_JWT_AUTH_ACTIVE | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_AUTH_HEADER }}
-  N8N_JWT_AUTH_HEADER: {{ .Values.security.N8N_JWT_AUTH_HEADER | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_AUTH_HEADER }}
+  N8N_JWT_AUTH_HEADER: {{ .Values.n8n_security.N8N_JWT_AUTH_HEADER | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_AUTH_HEADER_VALUE_PREFIX }}
-  N8N_JWT_AUTH_HEADER_VALUE_PREFIX: {{ .Values.security.N8N_JWT_AUTH_HEADER_VALUE_PREFIX | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_AUTH_HEADER_VALUE_PREFIX }}
+  N8N_JWT_AUTH_HEADER_VALUE_PREFIX: {{ .Values.n8n_security.N8N_JWT_AUTH_HEADER_VALUE_PREFIX | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWKS_URI }}
-  N8N_JWKS_URI: {{ .Values.security.N8N_JWKS_URI | quote }}
+  {{- if .Values.n8n_security.N8N_JWKS_URI }}
+  N8N_JWKS_URI: {{ .Values.n8n_security.N8N_JWKS_URI | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_ISSUER }}
-  N8N_JWT_ISSUER: {{ .Values.security.N8N_JWT_ISSUER | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_ISSUER }}
+  N8N_JWT_ISSUER: {{ .Values.n8n_security.N8N_JWT_ISSUER | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_NAMESPACE }}
-  N8N_JWT_NAMESPACE: {{ .Values.security.N8N_JWT_NAMESPACE | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_NAMESPACE }}
+  N8N_JWT_NAMESPACE: {{ .Values.n8n_security.N8N_JWT_NAMESPACE | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_ALLOWED_TENANT }}
-  N8N_JWT_ALLOWED_TENANT: {{ .Values.security.N8N_JWT_ALLOWED_TENANT | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_ALLOWED_TENANT }}
+  N8N_JWT_ALLOWED_TENANT: {{ .Values.n8n_security.N8N_JWT_ALLOWED_TENANT | quote }}
   {{- end }}
-  {{- if .Values.security.N8N_JWT_ALLOWED_TENANT_KEY }}
-  N8N_JWT_ALLOWED_TENANT_KEY: {{ .Values.security.N8N_JWT_ALLOWED_TENANT_KEY | quote }}
+  {{- if .Values.n8n_security.N8N_JWT_ALLOWED_TENANT_KEY }}
+  N8N_JWT_ALLOWED_TENANT_KEY: {{ .Values.n8n_security.N8N_JWT_ALLOWED_TENANT_KEY | quote }}
   {{- end }}
-  {{/*  Logs */}}
+  {{/* Logs */}}
   {{- if .Values.logs.N8N_LOG_LEVEL }}
   N8N_LOG_LEVEL: {{ .Values.logs.N8N_LOG_LEVEL | quote }}
   {{- end }}
@@ -66,7 +66,7 @@ data:
   {{- if .Values.logs.N8N_LOG_FILE_LOCATION }}
   N8N_LOG_FILE_LOCATION: {{ .Values.logs.N8N_LOG_FILE_LOCATION | quote }}
   {{- end }}
-  {{/*  Executions */}}
+  {{/* Executions */}}
   {{- if .Values.executions.EXECUTIONS_PROCESS }}
   EXECUTIONS_PROCESS: {{ .Values.executions.EXECUTIONS_PROCESS | quote }}
   {{- end }}
@@ -100,7 +100,7 @@ data:
   {{- if or .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT ( eq 0 .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT ) }}
   EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT | quote }}
   {{- end }}
-  {{/*  Endpoints */}}
+  {{/* Endpoints */}}
   {{- if .Values.endpoints.WEBHOOK_URL }}
   WEBHOOK_URL: {{ .Values.endpoints.WEBHOOK_URL | quote }}
   {{- end }}
@@ -131,7 +131,7 @@ data:
   {{- if .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
   N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: {{ .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN | quote }}
   {{- end }}
-  {{/*  Credentials */}}
+  {{/* Credentials */}}
   {{- if .Values.credentials.CREDENTIALS_OVERWRITE_DATA }}
   CREDENTIALS_OVERWRITE_DATA: {{ .Values.credentials.CREDENTIALS_OVERWRITE_DATA | quote }}
   {{- end }}
@@ -141,7 +141,7 @@ data:
   {{- if .Values.credentials.CREDENTIALS_DEFAULT_NAME }}
   CREDENTIALS_DEFAULT_NAME: {{ .Values.credentials.CREDENTIALS_DEFAULT_NAME | quote }}
   {{- end }}
-  {{/*  Deployment */}}
+  {{/* Deployment */}}
   {{- if .Values.deployment.N8N_HOST }}
   N8N_HOST: {{ .Values.deployment.N8N_HOST | quote }}
   {{- end }}
