@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-11.3.8"></a>
+### [traefik-11.3.8](https://github.com/truecharts/apps/compare/traefik-11.3.7...traefik-11.3.8) (2022-05-27)
+
+#### Fix
+
+* set trustedIPs to string ([#2764](https://github.com/truecharts/apps/issues/2764))
+
+
+
 <a name="traefik-11.3.7"></a>
 ### [traefik-11.3.7](https://github.com/truecharts/apps/compare/traefik-11.3.6...traefik-11.3.7) (2022-05-26)
 

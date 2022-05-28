@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-2.0.36"></a>
+### [n8n-2.0.36](https://github.com/truecharts/apps/compare/n8n-2.0.35...n8n-2.0.36) (2022-05-28)
+
+#### Fix
+
+* duplicate security variable ([#2773](https://github.com/truecharts/apps/issues/2773))
+
+
+
 <a name="n8n-2.0.35"></a>
 ### [n8n-2.0.35](https://github.com/truecharts/apps/compare/n8n-2.0.34...n8n-2.0.35) (2022-05-26)
 
