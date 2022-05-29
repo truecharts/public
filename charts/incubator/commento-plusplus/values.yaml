@@ -1,0 +1,37 @@
+image:
+  repository: caroga/commentoplusplus
+  tag: v1.8.7@sha256:ccbc099c69700a6f973e5fd583520f8ff3293c5742d179cf3517eec49ee84f4b
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  COMMENTO_FORBID_NEW_OWNERS: false
+  COMMENTO_GZIP_STATIC: true
+  COMMENTO_ORIGIN: "http://localhost:8080"
+
+envValueFrom:
+  COMMENTO_POSTGRES:
+    secretKeyRef:
+      name: dbcreds
+      key: url-noql
+
+service:
+  main:
+    ports:
+      main:
+        port: 10240
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: comment-plusplus
+  postgresqlDatabase: comment-plusplus
