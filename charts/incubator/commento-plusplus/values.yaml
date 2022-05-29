@@ -17,12 +17,13 @@ env:
   COMMENTO_FORBID_NEW_OWNERS: false
   COMMENTO_GZIP_STATIC: true
   COMMENTO_ORIGIN: "http://localhost:8080"
+  COMMENTO_ENABLE_LOGGING: false
 
 envValueFrom:
   COMMENTO_POSTGRES:
     secretKeyRef:
       name: dbcreds
-      key: url-noql
+      key: urlnossl
 
 service:
   main:

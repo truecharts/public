@@ -98,6 +98,11 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: COMMENTO_ENABLE_LOGGING
+          label: "COMMENTO_ENABLE_LOGGING"
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 
   - variable: service
