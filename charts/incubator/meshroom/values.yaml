@@ -1,0 +1,24 @@
+image:
+  repository: alicevision/meshroom
+  tag: 2021.1.0-av2.4.0-centos7-cuda10.2@sha256:1cadc1a8f5edd8ebbf8de20df5cf1d6e44ee0aad4ebbb8939018fe0beadc2dad
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10243
+        targetPort: 22
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"

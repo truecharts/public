@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.3.19
+description: Meshroom is a free, open-source 3D Reconstruction Software based on the AliceVision Photogrammetric Computer Vision framework.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/meshroom
+icon: https://truecharts.org/_static/img/appicons/meshroom.png
+keywords:
+- meshroom
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: meshroom
+sources:
+- https://github.com/alicevision/meshroom
+- https://hub.docker.com/r/alicevision/meshroom
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
