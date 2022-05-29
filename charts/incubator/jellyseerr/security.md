@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: jellyseerr/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;hostpatch&#39; of Deployment &#39;RELEASE-NAME-jellyseerr&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -50,11 +50,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -71,11 +71,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -92,19 +92,19 @@ hide:
 
 
 #### Container: fallenbagel/jellyseerr:1.1.0@sha256:23f922ec6fe6ed3fdd486aec95b5a7760b29d03fdfcd9a78367c18f1d92b1638 (alpine 3.15.4)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   HIGH  |  3.0.0 | 3.0.1, 4.1.1, 5.0.1, 6.0.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-3807">https://access.redhat.com/security/cve/CVE-2021-3807</a><br><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://github.com/chalk/ansi-regex/releases/tag/v6.0.1">https://github.com/chalk/ansi-regex/releases/tag/v6.0.1</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3807.html">https://linux.oracle.com/cve/CVE-2021-3807.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-0350.html">https://linux.oracle.com/errata/ELSA-2022-0350.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br><a href="https://www.oracle.com/security-alerts/cpuapr2022.html">https://www.oracle.com/security-alerts/cpuapr2022.html</a><br></details>  |
@@ -113,4 +113,3 @@ hide:
 | minimist         |    CVE-2021-44906   |   CRITICAL  |  1.2.5 | 1.2.6 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-44906">https://access.redhat.com/security/cve/CVE-2021-44906</a><br><a href="https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip">https://github.com/Marynk/JavaScript-vulnerability-detection/blob/main/minimist%20PoC.zip</a><br><a href="https://github.com/advisories/GHSA-xvch-5gv4-984h">https://github.com/advisories/GHSA-xvch-5gv4-984h</a><br><a href="https://github.com/substack/minimist/blob/master/index.js#L69">https://github.com/substack/minimist/blob/master/index.js#L69</a><br><a href="https://github.com/substack/minimist/issues/164">https://github.com/substack/minimist/issues/164</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44906">https://nvd.nist.gov/vuln/detail/CVE-2021-44906</a><br><a href="https://security.snyk.io/vuln/SNYK-JS-MINIMIST-559764">https://security.snyk.io/vuln/SNYK-JS-MINIMIST-559764</a><br><a href="https://snyk.io/vuln/SNYK-JS-MINIMIST-559764">https://snyk.io/vuln/SNYK-JS-MINIMIST-559764</a><br><a href="https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068">https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function/20278068#20278068</a><br></details>  |
 | moment         |    CVE-2022-24785   |   HIGH  |  2.29.1 | 2.29.2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-24785">https://access.redhat.com/security/cve/CVE-2022-24785</a><br><a href="https://github.com/advisories/GHSA-8hfj-j24r-96c4">https://github.com/advisories/GHSA-8hfj-j24r-96c4</a><br><a href="https://github.com/moment/moment/commit/4211bfc8f15746be4019bba557e29a7ba83d54c5">https://github.com/moment/moment/commit/4211bfc8f15746be4019bba557e29a7ba83d54c5</a><br><a href="https://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4">https://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24785">https://nvd.nist.gov/vuln/detail/CVE-2022-24785</a><br><a href="https://security.netapp.com/advisory/ntap-20220513-0006/">https://security.netapp.com/advisory/ntap-20220513-0006/</a><br><a href="https://www.tenable.com/security/tns-2022-09">https://www.tenable.com/security/tns-2022-09</a><br></details>  |
 | sqlite3         |    CVE-2022-21227   |   HIGH  |  5.0.2 | 5.0.3 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-21227">https://access.redhat.com/security/cve/CVE-2022-21227</a><br><a href="https://github.com/TryGhost/node-sqlite3/commit/593c9d498be2510d286349134537e3bf89401c4a">https://github.com/TryGhost/node-sqlite3/commit/593c9d498be2510d286349134537e3bf89401c4a</a><br><a href="https://github.com/TryGhost/node-sqlite3/issues/1440">https://github.com/TryGhost/node-sqlite3/issues/1440</a><br><a href="https://github.com/TryGhost/node-sqlite3/issues/1449">https://github.com/TryGhost/node-sqlite3/issues/1449</a><br><a href="https://github.com/TryGhost/node-sqlite3/security/advisories/GHSA-9qrh-qjmc-5w2p">https://github.com/TryGhost/node-sqlite3/security/advisories/GHSA-9qrh-qjmc-5w2p</a><br><a href="https://github.com/advisories/GHSA-9qrh-qjmc-5w2p">https://github.com/advisories/GHSA-9qrh-qjmc-5w2p</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-21227">https://nvd.nist.gov/vuln/detail/CVE-2022-21227</a><br><a href="https://security.snyk.io/vuln/SNYK-JS-SQLITE3-2388645">https://security.snyk.io/vuln/SNYK-JS-SQLITE3-2388645</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-2805470">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-2805470</a><br><a href="https://snyk.io/vuln/SNYK-JS-SQLITE3-2388645">https://snyk.io/vuln/SNYK-JS-SQLITE3-2388645</a><br></details>  |
-

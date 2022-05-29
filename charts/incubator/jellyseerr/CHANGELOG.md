@@ -7,4 +7,3 @@
 #### Feat
 
 * add jellyseerr ([#2781](https://github.com/truecharts/apps/issues/2781))
-
