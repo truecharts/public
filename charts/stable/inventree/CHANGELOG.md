@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="inventree-1.0.0"></a>
+### [inventree-1.0.0](https://github.com/truecharts/apps/compare/inventree-0.0.14...inventree-1.0.0) (2022-05-29)
+
+#### Feat
+
+* move to stable ([#2787](https://github.com/truecharts/apps/issues/2787))
+
+
+
 <a name="inventree-0.0.14"></a>
 ### [inventree-0.0.14](https://github.com/truecharts/apps/compare/inventree-0.0.13...inventree-0.0.14) (2022-05-29)
 
