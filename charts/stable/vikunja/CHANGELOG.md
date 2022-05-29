@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-1.0.12"></a>
+### [vikunja-1.0.12](https://github.com/truecharts/apps/compare/vikunja-1.0.11...vikunja-1.0.12) (2022-05-29)
+
+#### Chore
+
+* update docker general non-major ([#2762](https://github.com/truecharts/apps/issues/2762))
+
+
+
 <a name="vikunja-1.0.11"></a>
 ### [vikunja-1.0.11](https://github.com/truecharts/apps/compare/vikunja-1.0.10...vikunja-1.0.11) (2022-05-26)
 

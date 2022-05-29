@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="inventree-0.0.14"></a>
+### [inventree-0.0.14](https://github.com/truecharts/apps/compare/inventree-0.0.13...inventree-0.0.14) (2022-05-29)
+
+#### Chore
+
+* update docker general non-major ([#2762](https://github.com/truecharts/apps/issues/2762))
+
+
+
 <a name="inventree-0.0.13"></a>
 ### [inventree-0.0.13](https://github.com/truecharts/apps/compare/inventree-0.0.12...inventree-0.0.13) (2022-05-26)
 

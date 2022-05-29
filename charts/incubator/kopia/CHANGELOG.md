@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kopia-0.0.15"></a>
+### [kopia-0.0.15](https://github.com/truecharts/apps/compare/kopia-0.0.14...kopia-0.0.15) (2022-05-29)
+
+#### Chore
+
+* update container image kopia/kopia to v20220528.0.132040 ([#2777](https://github.com/truecharts/apps/issues/2777))
+
+
+
 <a name="kopia-0.0.14"></a>
 ### [kopia-0.0.14](https://github.com/truecharts/apps/compare/kopia-0.0.13...kopia-0.0.14) (2022-05-26)
 
