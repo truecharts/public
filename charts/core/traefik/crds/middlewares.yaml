@@ -548,6 +548,19 @@ spec:
                       type: string
                     type: array
                 type: object
+              themePark:
+                description: ThemePark middleware contains configuration for the
+                  traefik-themepark plugin. This is a 3rd party plugin that allows for
+                  adding references to `theme.park` (https://theme-park.dev/) themes for
+                  a growing number of appliations.
+                properties:
+                  appName:
+                    description: The name of the supported application to be themed. (ie `sonarr`)
+                    type: string
+                  themeName:
+                    description: The name of the supported theme to be themed. (ie `dark`)
+                    type: string
+                type: object
             type: object
         required:
         - metadata
