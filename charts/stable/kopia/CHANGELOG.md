@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kopia-1.0.0"></a>
+### [kopia-1.0.0](https://github.com/truecharts/apps/compare/kopia-0.0.15...kopia-1.0.0) (2022-05-29)
+
+#### Feat
+
+* move apps to stable ([#2784](https://github.com/truecharts/apps/issues/2784))
+
+
+
 <a name="kopia-0.0.15"></a>
 ### [kopia-0.0.15](https://github.com/truecharts/apps/compare/kopia-0.0.14...kopia-0.0.15) (2022-05-29)
 

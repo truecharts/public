@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="baserow-1.0.0"></a>
+### [baserow-1.0.0](https://github.com/truecharts/apps/compare/baserow-0.0.10...baserow-1.0.0) (2022-05-29)
+
+#### Feat
+
+* move apps to stable ([#2784](https://github.com/truecharts/apps/issues/2784))
+
+
+
 <a name="baserow-0.0.10"></a>
 ### [baserow-0.0.10](https://github.com/truecharts/apps/compare/baserow-0.0.9...baserow-0.0.10) (2022-05-26)
 

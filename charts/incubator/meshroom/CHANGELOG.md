@@ -7,4 +7,3 @@
 #### Feat
 
 * add meshroom ([#2783](https://github.com/truecharts/apps/issues/2783))
-

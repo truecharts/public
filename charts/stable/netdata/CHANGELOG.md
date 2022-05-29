@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="netdata-1.0.0"></a>
+### [netdata-1.0.0](https://github.com/truecharts/apps/compare/netdata-0.0.11...netdata-1.0.0) (2022-05-29)
+
+#### Feat
+
+* move apps to stable ([#2784](https://github.com/truecharts/apps/issues/2784))
+
+
+
 <a name="netdata-0.0.11"></a>
 ### [netdata-0.0.11](https://github.com/truecharts/apps/compare/netdata-0.0.10...netdata-0.0.11) (2022-05-26)
 
