@@ -19,14 +19,11 @@ service:
   main:
     ports:
       main:
-        port: 10228
+        port: 10244
         targetPort: 3000
 
-# See more environment variables in the clarkson documentation
-# https://github.com/linuxserver/docker-clarkson#parameters
 env:
-  MYSQL_USERNAME: clarkson
-
+  MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
 
 envValueFrom:
   MYSQL_HOST:
