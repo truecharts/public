@@ -7,4 +7,3 @@
 #### Feat
 
 * add homarr ([#2779](https://github.com/truecharts/apps/issues/2779))
-
