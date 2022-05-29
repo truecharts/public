@@ -25,11 +25,11 @@ rbac:
     - ""
     resources:
       - "pods"
-      # - "services"       # used by sd
-      # - "configmaps"     # used by sd
-      # - "secrets"        # used by sd
       - "nodes"
       - "nodes/metrics"
+      # - "services"       # used by agent service discovery
+      # - "configmaps"     # used by agent service discovery
+      # - "secrets"        # used by agent service discovery
     verbs:
       - "get"
       - "list"
