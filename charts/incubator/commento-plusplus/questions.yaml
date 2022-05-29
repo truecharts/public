@@ -103,6 +103,11 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: SMTP_SKIP_HOST_VERIFY
+          label: "SMTP_SKIP_HOST_VERIFY"
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 
   - variable: service
