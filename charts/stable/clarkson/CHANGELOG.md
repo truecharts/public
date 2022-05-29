@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-1.0.24"></a>
+### [clarkson-1.0.24](https://github.com/truecharts/apps/compare/clarkson-1.0.23...clarkson-1.0.24) (2022-05-29)
+
+#### Feat
+
+* move to stable ([#2790](https://github.com/truecharts/apps/issues/2790))
+
+
+
 <a name="clarkson-1.0.23"></a>
 ### [clarkson-1.0.23](https://github.com/truecharts/apps/compare/clarkson-1.0.22...clarkson-1.0.23) (2022-05-29)
 
