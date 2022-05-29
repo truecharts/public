@@ -83,13 +83,13 @@ questions:
       attrs:
         - variable: COMMENTO_ORIGIN
           label: "COMMENTO_ORIGIN"
-          description: "The URL where you host Commento. eg https://commento.domain.com"
+          description: "This should be set to the subdomain or the IP address hosting Commento. All API requests will go to this server. This may include subdirectories if Commento is hosted behind a reverse proxy, for example. Include the protocol in the value to use HTTP/HTTPS."
           schema:
             type: string
             default: ""
         - variable: COMMENTO_FORBID_NEW_OWNERS
           label: "COMMENTO_FORBID_NEW_OWNERS"
-          description: "Keep it disabled until you create the first user"
+          description: "Used to disable new dashboard registrations. Useful if you are the only person using Commento on your server. Does not impact the creation of accounts for your readers."
           schema:
             type: boolean
             default: false
@@ -98,16 +98,62 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: COMMENTO_ENABLE_WILDCARDS
+          label: "COMMENTO_ENABLE_WILDCARDS"
+          description: "Allows use of wildcards in domain names in the admin dashboard. (e.g. if you share your commento instance with more than one admin/allow new registrations)"
+          schema:
+            type: boolean
+            default: true
         - variable: COMMENTO_ENABLE_LOGGING
           label: "COMMENTO_ENABLE_LOGGING"
+          description: "Should we log every page view? This will allow you to see stats but will fill up your free postgres database quite quickly."
           schema:
             type: boolean
             default: false
-        - variable: SMTP_SKIP_HOST_VERIFY
-          label: "SMTP_SKIP_HOST_VERIFY"
+        - variable: smpt_config
+          label: "Enable SMTP"
           schema:
             type: boolean
             default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: SMTP_SKIP_HOST_VERIFY
+                label: "SMTP_SKIP_HOST_VERIFY"
+                description: "Allows skipping of host verification for SMTP email sending."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: COMMENTO_SMTP_USERNAME
+                label: "COMMENTO_SMTP_USERNAME"
+                description: "SMTP credentials and configuration the server should use to send emails."
+                schema:
+                  type: string
+                  default: ""
+              - variable: COMMENTO_SMTP_PASSWORD
+                label: "COMMENTO_SMTP_PASSWORD"
+                description: "SMTP credentials and configuration the server should use to send emails."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: COMMENTO_SMTP_HOST
+                label: "COMMENTO_SMTP_HOST"
+                description: "SMTP credentials and configuration the server should use to send emails."
+                schema:
+                  type: string
+                  default: ""
+              - variable: COMMENTO_SMTP_FROM_ADDRESS
+                label: "COMMENTO_SMTP_FROM_ADDRESS"
+                description: "SMTP credentials and configuration the server should use to send emails."
+                schema:
+                  type: string
+                  default: ""
+              - variable: COMMENTO_SMTP_PORT
+                label: "COMMENTO_SMTP_PORT"
+                description: "SMTP credentials and configuration the server should use to send emails."
+                schema:
+                  type: int
+                  default: 587
 # Include{containerConfig}
 
   - variable: service
@@ -242,7 +288,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -252,7 +298,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -267,13 +313,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
