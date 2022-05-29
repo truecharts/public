@@ -4,7 +4,7 @@ image:
   pullPolicy: IfNotPresent
 
 env:
-  PORT: "{{ .Values.service.ports.main.port }}"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
   # User Defined
   JELLYFIN_TYPE: ""
   LOG_LEVEL: "info"
