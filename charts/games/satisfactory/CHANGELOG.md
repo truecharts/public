@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="satisfactory-1.0.6"></a>
+### [satisfactory-1.0.6](https://github.com/truecharts/apps/compare/satisfactory-1.0.5...satisfactory-1.0.6) (2022-05-30)
+
+
+
 <a name="satisfactory-1.0.5"></a>
 ### [satisfactory-1.0.5](https://github.com/truecharts/apps/compare/satisfactory-1.0.4...satisfactory-1.0.5) (2022-05-26)
 
