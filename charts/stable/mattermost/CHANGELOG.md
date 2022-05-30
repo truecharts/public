@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mattermost-1.0.0"></a>
+### [mattermost-1.0.0](https://github.com/truecharts/apps/compare/mattermost-0.0.4...mattermost-1.0.0) (2022-05-30)
+
+#### Feat
+
+* Move mattermost to stable ([#2798](https://github.com/truecharts/apps/issues/2798))
+
+
+
 <a name="mattermost-0.0.4"></a>
 ### [mattermost-0.0.4](https://github.com/truecharts/apps/compare/mattermost-0.0.3...mattermost-0.0.4) (2022-05-26)
 
