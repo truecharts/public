@@ -611,6 +611,19 @@ questions:
                       schema:
                         type: string
                         required: true
+                    - variable: enableBaseUrl
+                      label: Enable Custom Base URL
+                      description: Replace `https://theme-park.dev` URL for self-hosting reference.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: baseUrl
+                            label: Base URL
+                            schema:
+                              type: string
+                              required: true
 
   - variable: service
     group: "Networking and Services"

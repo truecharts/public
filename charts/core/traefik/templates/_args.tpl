@@ -145,7 +145,7 @@ args:
   - "--pilot.token={{ .Values.pilot.token }}"
   {{- if .Values.pilot.enableThemePark }}
   - "--experimental.plugins.themePark.modulename=github.com/packruler/traefik-themepark"
-  - "--experimental.plugins.themePark.version=v0.2.1"
+  - "--experimental.plugins.themePark.version=v1.0.0"
   {{- end }}
   {{- end }}
   {{- if hasKey .Values.pilot "dashboard" }}

@@ -560,6 +560,9 @@ spec:
                   themeName:
                     description: The name of the supported theme to be themed. (ie `dark`)
                     type: string
+                  baseUrl:
+                    description: The base URL to use for loading theme CSS styles from.
+                    type: string
                 type: object
             type: object
         required:

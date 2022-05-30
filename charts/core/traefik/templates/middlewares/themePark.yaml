@@ -14,6 +14,9 @@ metadata:
 spec:
   plugin:
     themePark:
-      app: {{ $middlewareData.appName}}
-      theme: {{ $middlewareData.themeName}}
+      app: {{ $middlewareData.appName }}
+      theme: {{ $middlewareData.themeName }}
+      {{- if $middlewareData.enableBaseUrl }}
+      baseUrl: {{ $middlewareData.baseUrl }}
+      {{- end -}}
 {{ end }}
