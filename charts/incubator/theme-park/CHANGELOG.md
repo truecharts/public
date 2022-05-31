@@ -7,4 +7,3 @@
 #### Feat
 
 * Add theme-park ([#2800](https://github.com/truecharts/apps/issues/2800))
-
