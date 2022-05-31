@@ -17,11 +17,11 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.19
+  version: 9.3.24
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.70
+  version: 2.0.76
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
