@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nocodb-1.0.15"></a>
+### [nocodb-1.0.15](https://github.com/truecharts/apps/compare/nocodb-1.0.14...nocodb-1.0.15) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="nocodb-1.0.14"></a>
 ### [nocodb-1.0.14](https://github.com/truecharts/apps/compare/nocodb-1.0.13...nocodb-1.0.14) (2022-05-26)
 

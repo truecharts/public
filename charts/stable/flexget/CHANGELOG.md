@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="flexget-1.0.31"></a>
+### [flexget-1.0.31](https://github.com/truecharts/apps/compare/flexget-1.0.30...flexget-1.0.31) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="flexget-1.0.30"></a>
 ### [flexget-1.0.30](https://github.com/truecharts/apps/compare/flexget-1.0.29...flexget-1.0.30) (2022-05-26)
 

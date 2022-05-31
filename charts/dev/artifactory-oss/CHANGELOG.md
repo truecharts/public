@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="artifactory-oss-0.0.11"></a>
+### [artifactory-oss-0.0.11](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.10...artifactory-oss-0.0.11) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="artifactory-oss-0.0.10"></a>
 ### [artifactory-oss-0.0.10](https://github.com/truecharts/apps/compare/artifactory-oss-0.0.9...artifactory-oss-0.0.10) (2022-05-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.50"></a>
+### [valheim-2.0.50](https://github.com/truecharts/apps/compare/valheim-2.0.49...valheim-2.0.50) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="valheim-2.0.49"></a>
 ### [valheim-2.0.49](https://github.com/truecharts/apps/compare/valheim-2.0.48...valheim-2.0.49) (2022-05-26)
 

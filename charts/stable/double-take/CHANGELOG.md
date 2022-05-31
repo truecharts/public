@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="double-take-1.0.18"></a>
+### [double-take-1.0.18](https://github.com/truecharts/apps/compare/double-take-1.0.17...double-take-1.0.18) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="double-take-1.0.17"></a>
 ### [double-take-1.0.17](https://github.com/truecharts/apps/compare/double-take-1.0.16...double-take-1.0.17) (2022-05-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ml-workspace-1.1.13"></a>
+### [ml-workspace-1.1.13](https://github.com/truecharts/apps/compare/ml-workspace-1.1.12...ml-workspace-1.1.13) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="ml-workspace-1.1.12"></a>
 ### [ml-workspace-1.1.12](https://github.com/truecharts/apps/compare/ml-workspace-1.1.11...ml-workspace-1.1.12) (2022-05-26)
 

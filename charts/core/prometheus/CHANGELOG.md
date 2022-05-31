@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.74"></a>
+### [prometheus-2.0.74](https://github.com/truecharts/apps/compare/prometheus-2.0.73...prometheus-2.0.74) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="prometheus-2.0.73"></a>
 ### [prometheus-2.0.73](https://github.com/truecharts/apps/compare/prometheus-2.0.72...prometheus-2.0.73) (2022-05-29)
 

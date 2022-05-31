@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-5.0.19"></a>
+### [librespeed-5.0.19](https://github.com/truecharts/apps/compare/librespeed-5.0.18...librespeed-5.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="librespeed-5.0.18"></a>
 ### [librespeed-5.0.18](https://github.com/truecharts/apps/compare/librespeed-5.0.17...librespeed-5.0.18) (2022-05-26)
 

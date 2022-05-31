@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.33"></a>
+### [minecraft-bedrock-0.0.33](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.32...minecraft-bedrock-0.0.33) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="minecraft-bedrock-0.0.32"></a>
 ### [minecraft-bedrock-0.0.32](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.31...minecraft-bedrock-0.0.32) (2022-05-26)
 

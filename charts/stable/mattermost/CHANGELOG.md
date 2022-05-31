@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mattermost-1.0.1"></a>
+### [mattermost-1.0.1](https://github.com/truecharts/apps/compare/mattermost-1.0.0...mattermost-1.0.1) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="mattermost-1.0.0"></a>
 ### [mattermost-1.0.0](https://github.com/truecharts/apps/compare/mattermost-0.0.4...mattermost-1.0.0) (2022-05-30)
 

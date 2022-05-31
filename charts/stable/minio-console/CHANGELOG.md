@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-console-2.0.31"></a>
+### [minio-console-2.0.31](https://github.com/truecharts/apps/compare/minio-console-2.0.30...minio-console-2.0.31) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="minio-console-2.0.30"></a>
 ### [minio-console-2.0.30](https://github.com/truecharts/apps/compare/minio-console-2.0.29...minio-console-2.0.30) (2022-05-26)
 

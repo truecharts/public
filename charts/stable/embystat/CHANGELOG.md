@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="embystat-1.0.19"></a>
+### [embystat-1.0.19](https://github.com/truecharts/apps/compare/embystat-1.0.18...embystat-1.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="embystat-1.0.18"></a>
 ### [embystat-1.0.18](https://github.com/truecharts/apps/compare/embystat-1.0.17...embystat-1.0.18) (2022-05-26)
 

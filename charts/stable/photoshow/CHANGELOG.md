@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-2.0.19"></a>
+### [photoshow-2.0.19](https://github.com/truecharts/apps/compare/photoshow-2.0.18...photoshow-2.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="photoshow-2.0.18"></a>
 ### [photoshow-2.0.18](https://github.com/truecharts/apps/compare/photoshow-2.0.17...photoshow-2.0.18) (2022-05-26)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ghost-1.0.43"></a>
+### [ghost-1.0.43](https://github.com/truecharts/apps/compare/ghost-1.0.42...ghost-1.0.43) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="ghost-1.0.42"></a>
 ### [ghost-1.0.42](https://github.com/truecharts/apps/compare/ghost-1.0.41...ghost-1.0.42) (2022-05-29)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mkvtoolnix-1.0.7"></a>
+### [mkvtoolnix-1.0.7](https://github.com/truecharts/apps/compare/mkvtoolnix-1.0.6...mkvtoolnix-1.0.7) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="mkvtoolnix-1.0.6"></a>
 ### [mkvtoolnix-1.0.6](https://github.com/truecharts/apps/compare/mkvtoolnix-1.0.5...mkvtoolnix-1.0.6) (2022-05-26)
 

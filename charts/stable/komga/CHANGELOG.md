@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-5.0.24"></a>
+### [komga-5.0.24](https://github.com/truecharts/apps/compare/komga-5.0.23...komga-5.0.24) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="komga-5.0.23"></a>
 ### [komga-5.0.23](https://github.com/truecharts/apps/compare/komga-5.0.22...komga-5.0.23) (2022-05-26)
 

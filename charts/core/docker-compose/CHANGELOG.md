@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-1.0.29"></a>
+### [docker-compose-1.0.29](https://github.com/truecharts/apps/compare/docker-compose-1.0.28...docker-compose-1.0.29) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="docker-compose-1.0.28"></a>
 ### [docker-compose-1.0.28](https://github.com/truecharts/apps/compare/docker-compose-1.0.27...docker-compose-1.0.28) (2022-05-29)
 

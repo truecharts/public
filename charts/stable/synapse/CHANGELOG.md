@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="synapse-2.1.9"></a>
+### [synapse-2.1.9](https://github.com/truecharts/apps/compare/synapse-2.1.8...synapse-2.1.9) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="synapse-2.1.8"></a>
 ### [synapse-2.1.8](https://github.com/truecharts/apps/compare/synapse-2.1.7...synapse-2.1.8) (2022-05-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-2.0.19"></a>
+### [muximux-2.0.19](https://github.com/truecharts/apps/compare/muximux-2.0.18...muximux-2.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="muximux-2.0.18"></a>
 ### [muximux-2.0.18](https://github.com/truecharts/apps/compare/muximux-2.0.17...muximux-2.0.18) (2022-05-26)
 

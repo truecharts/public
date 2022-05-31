@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.60"></a>
+### [minecraft-java-0.0.60](https://github.com/truecharts/apps/compare/minecraft-java-0.0.59...minecraft-java-0.0.60) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="minecraft-java-0.0.59"></a>
 ### [minecraft-java-0.0.59](https://github.com/truecharts/apps/compare/minecraft-java-0.0.58...minecraft-java-0.0.59) (2022-05-29)
 

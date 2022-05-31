@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="assettocorsa-0.0.11"></a>
+### [assettocorsa-0.0.11](https://github.com/truecharts/apps/compare/assettocorsa-0.0.10...assettocorsa-0.0.11) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="assettocorsa-0.0.10"></a>
 ### [assettocorsa-0.0.10](https://github.com/truecharts/apps/compare/assettocorsa-0.0.9...assettocorsa-0.0.10) (2022-05-26)
 

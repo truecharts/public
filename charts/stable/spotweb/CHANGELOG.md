@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="spotweb-2.0.15"></a>
+### [spotweb-2.0.15](https://github.com/truecharts/apps/compare/spotweb-2.0.14...spotweb-2.0.15) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="spotweb-2.0.14"></a>
 ### [spotweb-2.0.14](https://github.com/truecharts/apps/compare/spotweb-2.0.13...spotweb-2.0.14) (2022-05-26)
 

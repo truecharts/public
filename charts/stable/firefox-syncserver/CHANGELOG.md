@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-7.0.5"></a>
+### [firefox-syncserver-7.0.5](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.4...firefox-syncserver-7.0.5) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="firefox-syncserver-7.0.4"></a>
 ### [firefox-syncserver-7.0.4](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.3...firefox-syncserver-7.0.4) (2022-05-26)
 

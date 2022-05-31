@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="vikunja-1.0.13"></a>
+### [vikunja-1.0.13](https://github.com/truecharts/apps/compare/vikunja-1.0.12...vikunja-1.0.13) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="vikunja-1.0.12"></a>
 ### [vikunja-1.0.12](https://github.com/truecharts/apps/compare/vikunja-1.0.11...vikunja-1.0.12) (2022-05-29)
 

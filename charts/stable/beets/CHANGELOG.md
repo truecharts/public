@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-3.0.30"></a>
+### [beets-3.0.30](https://github.com/truecharts/apps/compare/beets-3.0.29...beets-3.0.30) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="beets-3.0.29"></a>
 ### [beets-3.0.29](https://github.com/truecharts/apps/compare/beets-3.0.28...beets-3.0.29) (2022-05-26)
 

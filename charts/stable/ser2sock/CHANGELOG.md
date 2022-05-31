@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-5.0.19"></a>
+### [ser2sock-5.0.19](https://github.com/truecharts/apps/compare/ser2sock-5.0.18...ser2sock-5.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="ser2sock-5.0.18"></a>
 ### [ser2sock-5.0.18](https://github.com/truecharts/apps/compare/ser2sock-5.0.17...ser2sock-5.0.18) (2022-05-26)
 

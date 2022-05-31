@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pinry-1.0.12"></a>
+### [pinry-1.0.12](https://github.com/truecharts/apps/compare/pinry-1.0.11...pinry-1.0.12) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="pinry-1.0.11"></a>
 ### [pinry-1.0.11](https://github.com/truecharts/apps/compare/pinry-1.0.10...pinry-1.0.11) (2022-05-26)
 

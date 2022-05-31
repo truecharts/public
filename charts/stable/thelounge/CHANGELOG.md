@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="thelounge-5.0.30"></a>
+### [thelounge-5.0.30](https://github.com/truecharts/apps/compare/thelounge-5.0.29...thelounge-5.0.30) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="thelounge-5.0.29"></a>
 ### [thelounge-5.0.29](https://github.com/truecharts/apps/compare/thelounge-5.0.28...thelounge-5.0.29) (2022-05-26)
 

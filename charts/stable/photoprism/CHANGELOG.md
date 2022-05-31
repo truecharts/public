@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoprism-8.0.28"></a>
+### [photoprism-8.0.28](https://github.com/truecharts/apps/compare/photoprism-8.0.27...photoprism-8.0.28) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update container image tccr.io/truecharts/photoprism to v220528 ([#2795](https://github.com/truecharts/apps/issues/2795))
+
+
+
 <a name="photoprism-8.0.27"></a>
 ### [photoprism-8.0.27](https://github.com/truecharts/apps/compare/photoprism-8.0.26...photoprism-8.0.27) (2022-05-26)
 

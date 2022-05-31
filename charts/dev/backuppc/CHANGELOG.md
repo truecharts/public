@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="backuppc-0.0.11"></a>
+### [backuppc-0.0.11](https://github.com/truecharts/apps/compare/backuppc-0.0.10...backuppc-0.0.11) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="backuppc-0.0.10"></a>
 ### [backuppc-0.0.10](https://github.com/truecharts/apps/compare/backuppc-0.0.9...backuppc-0.0.10) (2022-05-26)
 

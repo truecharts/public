@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-5.0.25"></a>
+### [mylar-5.0.25](https://github.com/truecharts/apps/compare/mylar-5.0.24...mylar-5.0.25) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="mylar-5.0.24"></a>
 ### [mylar-5.0.24](https://github.com/truecharts/apps/compare/mylar-5.0.23...mylar-5.0.24) (2022-05-26)
 

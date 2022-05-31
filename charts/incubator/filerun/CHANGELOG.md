@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filerun-0.0.17"></a>
+### [filerun-0.0.17](https://github.com/truecharts/apps/compare/filerun-0.0.16...filerun-0.0.17) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="filerun-0.0.16"></a>
 ### [filerun-0.0.16](https://github.com/truecharts/apps/compare/filerun-0.0.15...filerun-0.0.16) (2022-05-26)
 

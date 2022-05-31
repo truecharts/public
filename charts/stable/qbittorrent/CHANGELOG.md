@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-10.0.22"></a>
+### [qbittorrent-10.0.22](https://github.com/truecharts/apps/compare/qbittorrent-10.0.21...qbittorrent-10.0.22) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="qbittorrent-10.0.21"></a>
 ### [qbittorrent-10.0.21](https://github.com/truecharts/apps/compare/qbittorrent-10.0.20...qbittorrent-10.0.21) (2022-05-26)
 

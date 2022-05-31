@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-5.0.19"></a>
+### [flood-5.0.19](https://github.com/truecharts/apps/compare/flood-5.0.18...flood-5.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="flood-5.0.18"></a>
 ### [flood-5.0.18](https://github.com/truecharts/apps/compare/flood-5.0.17...flood-5.0.18) (2022-05-26)
 

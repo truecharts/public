@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-5.0.28"></a>
+### [littlelink-5.0.28](https://github.com/truecharts/apps/compare/littlelink-5.0.27...littlelink-5.0.28) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="littlelink-5.0.27"></a>
 ### [littlelink-5.0.27](https://github.com/truecharts/apps/compare/littlelink-5.0.26...littlelink-5.0.27) (2022-05-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-4.0.23"></a>
+### [onlyoffice-document-server-4.0.23](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.22...onlyoffice-document-server-4.0.23) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="onlyoffice-document-server-4.0.22"></a>
 ### [onlyoffice-document-server-4.0.22](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.21...onlyoffice-document-server-4.0.22) (2022-05-26)
 

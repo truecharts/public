@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pwndrop-1.0.19"></a>
+### [pwndrop-1.0.19](https://github.com/truecharts/apps/compare/pwndrop-1.0.18...pwndrop-1.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="pwndrop-1.0.18"></a>
 ### [pwndrop-1.0.18](https://github.com/truecharts/apps/compare/pwndrop-1.0.17...pwndrop-1.0.18) (2022-05-26)
 

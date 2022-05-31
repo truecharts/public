@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="storj-node-1.0.27"></a>
+### [storj-node-1.0.27](https://github.com/truecharts/apps/compare/storj-node-1.0.26...storj-node-1.0.27) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="storj-node-1.0.26"></a>
 ### [storj-node-1.0.26](https://github.com/truecharts/apps/compare/storj-node-1.0.25...storj-node-1.0.26) (2022-05-26)
 

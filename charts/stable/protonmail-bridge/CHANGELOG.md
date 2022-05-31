@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-5.0.19"></a>
+### [protonmail-bridge-5.0.19](https://github.com/truecharts/apps/compare/protonmail-bridge-5.0.18...protonmail-bridge-5.0.19) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="protonmail-bridge-5.0.18"></a>
 ### [protonmail-bridge-5.0.18](https://github.com/truecharts/apps/compare/protonmail-bridge-5.0.17...protonmail-bridge-5.0.18) (2022-05-26)
 

@@ -7,7 +7,8 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/SystemRage/py-kms>
+* <https://github.com/Py-KMS-Organization/py-kms>
+* <https://hub.docker.com/r/pykmsorg/py-kms>
 
 ## Requirements
 
@@ -17,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 9.3.19 |
+| https://library-charts.truecharts.org | common | 9.3.24 |
 
 ## Installing the Chart
 

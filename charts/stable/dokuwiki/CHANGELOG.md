@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-2.0.30"></a>
+### [dokuwiki-2.0.30](https://github.com/truecharts/apps/compare/dokuwiki-2.0.29...dokuwiki-2.0.30) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="dokuwiki-2.0.29"></a>
 ### [dokuwiki-2.0.29](https://github.com/truecharts/apps/compare/dokuwiki-2.0.28...dokuwiki-2.0.29) (2022-05-26)
 

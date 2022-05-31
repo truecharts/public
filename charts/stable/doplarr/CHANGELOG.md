@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doplarr-1.0.17"></a>
+### [doplarr-1.0.17](https://github.com/truecharts/apps/compare/doplarr-1.0.16...doplarr-1.0.17) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="doplarr-1.0.16"></a>
 ### [doplarr-1.0.16](https://github.com/truecharts/apps/compare/doplarr-1.0.15...doplarr-1.0.16) (2022-05-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="archiveteam-warrior-0.0.11"></a>
+### [archiveteam-warrior-0.0.11](https://github.com/truecharts/apps/compare/archiveteam-warrior-0.0.10...archiveteam-warrior-0.0.11) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="archiveteam-warrior-0.0.10"></a>
 ### [archiveteam-warrior-0.0.10](https://github.com/truecharts/apps/compare/archiveteam-warrior-0.0.9...archiveteam-warrior-0.0.10) (2022-05-26)
 

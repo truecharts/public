@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="wekan-2.0.17"></a>
+### [wekan-2.0.17](https://github.com/truecharts/apps/compare/wekan-2.0.16...wekan-2.0.17) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
 <a name="wekan-2.0.16"></a>
 ### [wekan-2.0.16](https://github.com/truecharts/apps/compare/wekan-2.0.15...wekan-2.0.16) (2022-05-26)
 

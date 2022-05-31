@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-6.0.29"></a>
+### [gitea-6.0.29](https://github.com/truecharts/apps/compare/gitea-6.0.28...gitea-6.0.29) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="gitea-6.0.28"></a>
 ### [gitea-6.0.28](https://github.com/truecharts/apps/compare/gitea-6.0.27...gitea-6.0.28) (2022-05-26)
 

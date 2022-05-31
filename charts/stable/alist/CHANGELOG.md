@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="alist-1.0.31"></a>
+### [alist-1.0.31](https://github.com/truecharts/apps/compare/alist-1.0.30...alist-1.0.31) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
 <a name="alist-1.0.30"></a>
 ### [alist-1.0.30](https://github.com/truecharts/apps/compare/alist-1.0.29...alist-1.0.30) (2022-05-29)
 
