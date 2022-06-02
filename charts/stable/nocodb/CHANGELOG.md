@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-1.0.16"></a>
+### [nocodb-1.0.16](https://github.com/truecharts/apps/compare/nocodb-1.0.15...nocodb-1.0.16) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+
+
+
 <a name="nocodb-1.0.15"></a>
 ### [nocodb-1.0.15](https://github.com/truecharts/apps/compare/nocodb-1.0.14...nocodb-1.0.15) (2022-05-31)
 

@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="homarr-1.0.2"></a>
+### [homarr-1.0.2](https://github.com/truecharts/apps/compare/homarr-1.0.1...homarr-1.0.2) (2022-06-02)
+
+
+
 <a name="homarr-1.0.1"></a>
 ### [homarr-1.0.1](https://github.com/truecharts/apps/compare/homarr-1.0.0...homarr-1.0.1) (2022-05-31)
 

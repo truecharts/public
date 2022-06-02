@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zerotier-1.0.22"></a>
+### [zerotier-1.0.22](https://github.com/truecharts/apps/compare/zerotier-1.0.21...zerotier-1.0.22) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+
+
+
 <a name="zerotier-1.0.21"></a>
 ### [zerotier-1.0.21](https://github.com/truecharts/apps/compare/zerotier-1.0.20...zerotier-1.0.21) (2022-05-31)
 

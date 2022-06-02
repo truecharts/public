@@ -56,8 +56,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
-          'tccr.io/truecharts/zigbee2mqtt:v1.25.1@sha256:4ff3af1c8e1814211b4754d7c3598b30f960594fb094abbccdfbf5f849f8460c'
-          tccr.io/truecharts/zigbee2mqtt:v1.25.1@sha256:4ff3af1c8e1814211b4754d7c3598b30f960594fb094abbccdfbf5f849f8460c
+          'tccr.io/truecharts/zigbee2mqtt:v1.25.2@sha256:cebe8806e79a9651304e6ad0165650e65b87021599ea7f5b3a106e4aa6b66323'
+          tccr.io/truecharts/zigbee2mqtt:v1.25.2@sha256:cebe8806e79a9651304e6ad0165650e65b87021599ea7f5b3a106e4aa6b66323
 
 ##### Scan Results
 
@@ -106,7 +106,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/zigbee2mqtt:v1.25.1@sha256:4ff3af1c8e1814211b4754d7c3598b30f960594fb094abbccdfbf5f849f8460c (alpine 3.15.4)
+#### Container: tccr.io/truecharts/zigbee2mqtt:v1.25.2@sha256:cebe8806e79a9651304e6ad0165650e65b87021599ea7f5b3a106e4aa6b66323 (alpine 3.15.4)
 
 
 **alpine**
