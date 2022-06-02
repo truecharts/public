@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="commento-plusplus-1.0.2"></a>
+### [commento-plusplus-1.0.2](https://github.com/truecharts/apps/compare/commento-plusplus-1.0.1...commento-plusplus-1.0.2) (2022-06-02)
+
+#### Chore
+
+* update image refs ([#2816](https://github.com/truecharts/apps/issues/2816))
+
+
+
 <a name="commento-plusplus-1.0.1"></a>
 ### [commento-plusplus-1.0.1](https://github.com/truecharts/apps/compare/commento-plusplus-1.0.0...commento-plusplus-1.0.1) (2022-05-31)
 

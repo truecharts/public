@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homarr-1.0.3"></a>
+### [homarr-1.0.3](https://github.com/truecharts/apps/compare/homarr-1.0.2...homarr-1.0.3) (2022-06-02)
+
+#### Chore
+
+* update image refs ([#2816](https://github.com/truecharts/apps/issues/2816))
+
+
+
 <a name="homarr-1.0.2"></a>
 ### [homarr-1.0.2](https://github.com/truecharts/apps/compare/homarr-1.0.1...homarr-1.0.2) (2022-06-02)
 

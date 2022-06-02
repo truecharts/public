@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="theme-park-0.0.3"></a>
+### [theme-park-0.0.3](https://github.com/truecharts/apps/compare/theme-park-0.0.2...theme-park-0.0.3) (2022-06-02)
+
+#### Chore
+
+* update image refs ([#2816](https://github.com/truecharts/apps/issues/2816))
+
+
+
 <a name="theme-park-0.0.2"></a>
 ### [theme-park-0.0.2](https://github.com/truecharts/apps/compare/theme-park-0.0.1...theme-park-0.0.2) (2022-05-31)
 
