@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zabbix-server-0.0.14"></a>
+### [zabbix-server-0.0.14](https://github.com/truecharts/apps/compare/zabbix-server-0.0.13...zabbix-server-0.0.14) (2022-06-02)
+
+#### Chore
+
+* update image refs ([#2819](https://github.com/truecharts/apps/issues/2819))
+
+
+
 <a name="zabbix-server-0.0.13"></a>
 ### [zabbix-server-0.0.13](https://github.com/truecharts/apps/compare/zabbix-server-0.0.12...zabbix-server-0.0.13) (2022-05-31)
 
