@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.25"></a>
+### [plex-9.0.25](https://github.com/truecharts/apps/compare/plex-9.0.24...plex-9.0.25) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
 <a name="plex-9.0.24"></a>
 ### [plex-9.0.24](https://github.com/truecharts/apps/compare/plex-9.0.23...plex-9.0.24) (2022-06-02)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-6.0.24"></a>
+### [pgadmin-6.0.24](https://github.com/truecharts/apps/compare/pgadmin-6.0.23...pgadmin-6.0.24) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
 <a name="pgadmin-6.0.23"></a>
 ### [pgadmin-6.0.23](https://github.com/truecharts/apps/compare/pgadmin-6.0.22...pgadmin-6.0.23) (2022-05-31)
 

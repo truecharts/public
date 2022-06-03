@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-3.0.31"></a>
+### [beets-3.0.31](https://github.com/truecharts/apps/compare/beets-3.0.30...beets-3.0.31) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
 <a name="beets-3.0.30"></a>
 ### [beets-3.0.30](https://github.com/truecharts/apps/compare/beets-3.0.29...beets-3.0.30) (2022-05-31)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-10.0.22"></a>
+### [tautulli-10.0.22](https://github.com/truecharts/apps/compare/tautulli-10.0.21...tautulli-10.0.22) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
 <a name="tautulli-10.0.21"></a>
 ### [tautulli-10.0.21](https://github.com/truecharts/apps/compare/tautulli-10.0.20...tautulli-10.0.21) (2022-05-31)
 
