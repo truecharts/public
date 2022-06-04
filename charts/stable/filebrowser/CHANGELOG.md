@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filebrowser-1.0.19"></a>
+### [filebrowser-1.0.19](https://github.com/truecharts/apps/compare/filebrowser-1.0.18...filebrowser-1.0.19) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
 <a name="filebrowser-1.0.18"></a>
 ### [filebrowser-1.0.18](https://github.com/truecharts/apps/compare/filebrowser-1.0.17...filebrowser-1.0.18) (2022-05-31)
 

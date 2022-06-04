@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosdns-1.0.16"></a>
+### [mosdns-1.0.16](https://github.com/truecharts/apps/compare/mosdns-1.0.15...mosdns-1.0.16) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
 <a name="mosdns-1.0.15"></a>
 ### [mosdns-1.0.15](https://github.com/truecharts/apps/compare/mosdns-1.0.14...mosdns-1.0.15) (2022-05-31)
 

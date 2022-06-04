@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mattermost-1.0.2"></a>
+### [mattermost-1.0.2](https://github.com/truecharts/apps/compare/mattermost-1.0.1...mattermost-1.0.2) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
 <a name="mattermost-1.0.1"></a>
 ### [mattermost-1.0.1](https://github.com/truecharts/apps/compare/mattermost-1.0.0...mattermost-1.0.1) (2022-05-31)
 

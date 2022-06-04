@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-9.0.33"></a>
+### [authelia-9.0.33](https://github.com/truecharts/apps/compare/authelia-9.0.32...authelia-9.0.33) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
 <a name="authelia-9.0.32"></a>
 ### [authelia-9.0.32](https://github.com/truecharts/apps/compare/authelia-9.0.31...authelia-9.0.32) (2022-05-31)
 
