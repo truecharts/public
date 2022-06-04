@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-2.0.51"></a>
+### [promtail-2.0.51](https://github.com/truecharts/apps/compare/promtail-2.0.50...promtail-2.0.51) (2022-06-04)
+
+#### Chore
+
+* update helm chart common to v9.3.28
+
+
+
 <a name="promtail-2.0.50"></a>
 ### [promtail-2.0.50](https://github.com/truecharts/apps/compare/promtail-2.0.49...promtail-2.0.50) (2022-06-03)
 
