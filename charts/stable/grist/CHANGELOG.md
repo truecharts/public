@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.26"></a>
+### [grist-1.0.26](https://github.com/truecharts/apps/compare/grist-1.0.25...grist-1.0.26) (2022-06-04)
+
+#### Fix
+
+* re-enable redis ([#2829](https://github.com/truecharts/apps/issues/2829))
+
+
+
 <a name="grist-1.0.25"></a>
 ### [grist-1.0.25](https://github.com/truecharts/apps/compare/grist-1.0.24...grist-1.0.25) (2022-05-31)
 
