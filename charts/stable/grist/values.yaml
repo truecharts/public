@@ -16,12 +16,11 @@ env:
   HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
   GRIST_DEFAULT_EMAIL: "user@mydomain.com"
 
-# https://github.com/gristlabs/grist-core/issues/128
-# envValueFrom:
-#   REDIS_URL:
-#     secretKeyRef:
-#       name: rediscreds
-#       key: url
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
@@ -42,6 +41,6 @@ persistence:
     enabled: true
     mountPath: "/persist"
 
-# redis:
-#   enabled: true
-#   existingSecret: "rediscreds"
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
