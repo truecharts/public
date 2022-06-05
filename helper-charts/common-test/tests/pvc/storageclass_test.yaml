@@ -1,0 +1,42 @@
+suite: pvc storageclass
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    set:
+      persistence.config.enabled: true
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        isNull:
+          path: spec.storageClassName
+
+  - it: custom should pass
+    set:
+      persistence.config:
+        enabled: true
+        storageClass: custom
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: spec.storageClassName
+          value: custom
+
+  - it: empty should pass
+    set:
+      persistence.config:
+        enabled: true
+        storageClass: "-"
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: spec.storageClassName
+          value: ""

@@ -1,7 +1,7 @@
 {{/*
 This template ensures pods with mongodb dependency have a delayed start
 */}}
-{{- define "common.dependencies.mongodb.init" -}}
+{{- define "tc.common.dependencies.mongodb.init" -}}
 {{- if .Values.mongodb.enabled }}
 - name: mongodb-init
   image: "{{ .Values.mongodbImage.repository}}:{{ .Values.mongodbImage.tag }}"
@@ -19,7 +19,7 @@ This template ensures pods with mongodb dependency have a delayed start
         - ALL
   resources:
   {{- with .Values.resources }}
-    {{- toYaml . | nindent 4 }}
+    {{- tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
   command: ["bash", "-ec"]
   args:

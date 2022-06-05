@@ -1,7 +1,7 @@
 {{/*
 The Wireguard sidecar container to be inserted.
 */}}
-{{- define "common.addon.wireguard.container" -}}
+{{- define "tc.common.addon.wireguard.container" -}}
 name: wireguard
 image: "{{ .Values.wireguardImage.repository }}:{{ .Values.wireguardImage.tag }}"
 imagePullPolicy: {{ .Values.wireguardImage.pullPolicy }}

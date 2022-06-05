@@ -1,0 +1,192 @@
+suite: container env values
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: TZ
+              value: UTC
+
+  - it: KeyValue string should pass
+    set:
+      env:
+        string: value_of_env
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: string
+            value: value_of_env
+
+  - it: KeyValue float should pass
+    set:
+      env:
+        string: 4.2
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: string
+            value: "4.2"
+
+  - it: KeyValue int should pass
+    set:
+      env:
+        string: 1
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: string
+            value: "1"
+
+  - it: KeyValue float should pass
+    set:
+      env:
+        string: 4.2
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: string
+            value: "4.2"
+
+  - it: List should pass
+    set:
+      env:
+        - name: STATIC_ENV_FROM_LIST
+          value: STATIC_ENV_VALUE_FROM_LIST
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: STATIC_ENV_FROM_LIST
+            value: STATIC_ENV_VALUE_FROM_LIST
+
+  - it: Explicit ValueFrom in list should pass
+    set:
+      env:
+        - name: DYNAMIC_ENV_FROM_LIST
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: DYNAMIC_ENV_FROM_LIST
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+
+  - it: Implicit ValueFrom should pass
+    set:
+      env:
+        DYNAMIC_ENV:
+          fieldRef:
+            fieldPath: spec.nodeName
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: DYNAMIC_ENV
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+
+  - it: Templated value should pass
+    set:
+      env:
+        DYNAMIC_ENV: "{{ .Release.Name }}-admin"
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: DYNAMIC_ENV
+            value: RELEASE-NAME-admin
+
+  - it: Combined KeyValue with Explicit ValueFrom should pass
+    set:
+      env:
+        STATIC_ENV: static
+        DYNAMIC_ENV:
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[11]
+          value:
+            name: DYNAMIC_ENV
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].env[12]
+          value:
+            name: STATIC_ENV
+            value: static

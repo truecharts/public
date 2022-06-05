@@ -1,0 +1,45 @@
+suite: pod additional containers
+templates:
+  - common.yaml
+tests:
+  - it: with explicit name should pass
+    set:
+      additionalContainers:
+        additional1:
+          name: template-test
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: template-test
+
+  - it: with implicit name should pass
+    set:
+      additionalContainers:
+        additional1:
+          image: template-test
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: additional1
+
+  - it: with templated name should pass
+    set:
+      additionalContainers:
+        additional1:
+          name: "{{ .Release.Name }}-container"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: RELEASE-NAME-container

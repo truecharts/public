@@ -1,0 +1,43 @@
+suite: container envFrom values
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        isNull:
+          path: spec.template.spec.containers[0].envFrom
+
+  - it: explicit envFrom should pass
+    set:
+      envFrom:
+        - secretRef:
+            name: myCustomSecret
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].envFrom[0]
+          value:
+            secretRef:
+              name: myCustomSecret
+
+  - it: from secretEnv should pass
+    set:
+      secretEnv:
+        STATIC_SECRET: value_of_secret
+    asserts:
+      - documentIndex: &DeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].envFrom[0]
+          value:
+            secretRef:
+              name: RELEASE-NAME-common-test

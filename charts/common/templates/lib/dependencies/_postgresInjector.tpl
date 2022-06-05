@@ -1,7 +1,7 @@
 {{/*
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
-{{- define "common.dependencies.postgresql.injector" -}}
+{{- define "tc.common.dependencies.postgresql.injector" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
 
 {{- if .Values.postgresql.enabled }}
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
   name: dbcreds
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
 {{- $dbPass := "" }}

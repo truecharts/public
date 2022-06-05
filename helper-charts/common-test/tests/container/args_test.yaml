@@ -1,0 +1,41 @@
+suite: container args override
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        isNull:
+          path: spec.template.spec.containers[0].args
+
+  - it: single string should pass
+    set:
+      args: sleep infinity
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - sleep infinity
+
+  - it: list of strings should pass
+    set:
+      args:
+        - sleep
+        - infinity
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - sleep
+            - infinity

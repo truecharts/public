@@ -1,7 +1,7 @@
 {{/*
 The code-server sidecar container to be inserted.
 */}}
-{{- define "common.addon.codeserver.container" -}}
+{{- define "tc.common.addon.codeserver.container" -}}
 name: codeserver
 image: "{{ .Values.codeserverImage.repository }}:{{ .Values.codeserverImage.tag }}"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
@@ -34,7 +34,7 @@ args:
 - "--port"
 - "{{ .Values.addons.codeserver.service.ports.codeserver.port }}"
 - {{ .Values.addons.codeserver.workingDir | default "/" }}
-{{- with (include "common.controller.volumeMounts" . | trim) }}
+{{- with (include "tc.common.controller.volumeMounts" . | trim) }}
 volumeMounts:
   {{ nindent 2 . }}
 {{- end }}

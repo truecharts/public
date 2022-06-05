@@ -1,0 +1,106 @@
+suite: pvc metadata
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    set:
+      persistence.config.enabled: true
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        isNull:
+          path: metadata.annotations
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+
+  - it: retain enabled should pass
+    set:
+      persistence.config:
+        enabled: true
+        retain: true
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.annotations
+          value:
+            helm.sh/resource-policy: keep
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+
+  - it: custom metadata should pass
+    set:
+      persistence.config:
+        enabled: true
+        labels:
+          test_label: test
+        annotations:
+          test_annotation: test
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.annotations
+          value:
+            test_annotation: test
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test
+
+  - it: custom metadata with global metadata should pass
+    set:
+      global:
+        labels:
+          global_label: test
+        annotations:
+          global_annotation: test
+      persistence.config:
+        enabled: true
+        labels:
+          test_label: test
+        annotations:
+          test_annotation: test
+    asserts:
+      - documentIndex: &PersistentVolumeClaimDocument 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.annotations
+          value:
+            test_annotation: test
+            global_annotation: test
+      - documentIndex: *PersistentVolumeClaimDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            global_label: test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test

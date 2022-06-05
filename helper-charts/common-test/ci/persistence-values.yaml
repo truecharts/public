@@ -166,6 +166,25 @@ persistence:
     hostPathType: ""
     readOnly: false
 
+  pvc-auto:
+    enabled: true
+    setPermissions: true
+    annotationsList: []
+    annotations: {}
+    labelsList: []
+    labels: {}
+    type: pvc
+    forceName: ""
+    mountPath: /autotest
+    readOnly: false
+    nameOverride:
+    storageClass:
+    existingClaim:
+    subPath:
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    retain: false
+
 
 "ixCertificateAuthorities": {}
 "ixCertificates":

@@ -1,13 +1,13 @@
 {{/*
 The volume (referencing git deploykey) to be inserted into additionalVolumes.
 */}}
-{{- define "common.addon.codeserver.deployKeyVolumeSpec" -}}
+{{- define "tc.common.addon.codeserver.deployKeyVolumeSpec" -}}
 {{- if or .Values.addons.codeserver.git.deployKey .Values.addons.codeserver.git.deployKeyBase64 .Values.addons.codeserver.git.deployKeySecret }}
 secret:
   {{- if .Values.addons.codeserver.git.deployKeySecret }}
   secretName: {{ .Values.addons.codeserver.git.deployKeySecret }}
   {{- else }}
-  secretName: {{ include "common.names.fullname" . }}-deploykey
+  secretName: {{ include "tc.common.names.fullname" . }}-deploykey
   {{- end }}
   defaultMode: 256
   items:

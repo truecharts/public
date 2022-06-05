@@ -1,0 +1,91 @@
+suite: ingress metadata
+templates:
+  - common.yaml
+tests:
+  - it: default metadata should pass
+    set:
+      ingress.main.enabled: true
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: default-chain-basic@kubernetescrd
+
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+
+  - it: custom metadata should pass
+    set:
+      ingress.main:
+        enabled: true
+        annotations:
+          test_annotation: test
+        labels:
+          test_label: test
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.annotations
+          value:
+            test_annotation: test
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: default-chain-basic@kubernetescrd
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test
+
+  - it: custom metadata with global metadata should pass
+    set:
+      global:
+        labels:
+          global_label: test
+        annotations:
+          global_annotation: test
+      ingress.main:
+        enabled: true
+        annotations:
+          test_annotation: test
+        labels:
+          test_label: test
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.annotations
+          value:
+            global_annotation: test
+            test_annotation: test
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: default-chain-basic@kubernetescrd
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            global_label: test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test

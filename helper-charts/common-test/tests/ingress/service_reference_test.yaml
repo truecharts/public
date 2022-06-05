@@ -1,0 +1,39 @@
+suite: ingress service reference
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    set:
+      ingress.main.enabled: true
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend
+          value:
+            serviceName: RELEASE-NAME-common-test
+            servicePort: 8080
+
+  - it: custom service reference should pass
+    set:
+      ingress.main:
+        enabled: true
+        hosts:
+          - host: chart-test.local
+            paths:
+              - path: /
+                service:
+                  name: pathService
+                  port: 1234
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend
+          value:
+            serviceName: pathService
+            servicePort: 1234

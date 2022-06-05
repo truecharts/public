@@ -1,0 +1,80 @@
+suite: addon vpn
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        not: true
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: vpn
+
+  - it: addon enabled with configFile should pass
+    set:
+      addons:
+        vpn:
+          type: openvpn
+          configFile:
+            enabled: true
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &AddonVPNConfigSecretDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            mountPath: /vpn/vpn.conf
+            name: vpnconfig
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /vpn/vpn.conf
+              type: File
+      - documentIndex: *AddonVPNConfigSecretDocument
+        equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-openvpn
+
+  - it: addon enabled with managed secret should pass
+    set:
+      addons:
+        vpn:
+          type: openvpn
+          openvpn:
+            username: something
+            password: something
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &SecretDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: 2
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        not: true
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: vpn

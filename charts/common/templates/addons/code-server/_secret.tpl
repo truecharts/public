@@ -1,15 +1,15 @@
 {{/*
 The OpenVPN credentials secrets to be included.
 */}}
-{{- define "common.addon.codeserver.deployKeySecret" -}}
+{{- define "tc.common.addon.codeserver.deployKeySecret" -}}
 {{- if or .Values.addons.codeserver.git.deployKey .Values.addons.codeserver.git.deployKeyBase64 }}
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ template "common.names.fullname" . }}-deploykey
+  name: {{ template "tc.common.names.fullname" . }}-deploykey
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
 {{- if .Values.addons.codeserver.git.deployKey }}
 stringData:

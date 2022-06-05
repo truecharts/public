@@ -1,0 +1,129 @@
+suite: container volumeMounts
+templates:
+  - common.yaml
+tests:
+  - it: no persistence should pass
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: temp
+            - mountPath: /var/logs
+              name: varlogs
+
+  - it: default should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+    asserts:
+      - documentIndex: &DeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: config
+            mountPath: /config
+
+  - it: emptyDir should pass
+    set:
+      persistence:
+        cache:
+          enabled: true
+          type: emptyDir
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: cache
+            mountPath: /cache
+
+  - it: custom mountPath should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          mountPath: /custom
+          accessMode: ReadWriteMany
+          size: 1G
+    asserts:
+      - documentIndex: &DeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: config
+            mountPath: /custom
+
+  - it: mount with subPath should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          existingClaim: myClaim
+          subPath: "mySubPath"
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: config
+            mountPath: /config
+            subPath: mySubPath
+
+  - it: hostPath with custom mountPath should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          type: hostPath
+          mountPath: /data
+          hostPath: /tmp
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: config
+            mountPath: /data
+
+  - it: hostPath mount with subPath should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          type: hostPath
+          hostPath: /dev
+          subPath: mySubPath
+    asserts:
+      - documentIndex: &DeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].volumeMounts[0]
+          value:
+            name: config
+            mountPath: /dev
+            subPath: mySubPath

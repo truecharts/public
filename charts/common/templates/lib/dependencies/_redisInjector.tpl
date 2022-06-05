@@ -1,7 +1,7 @@
 {{/*
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
-{{- define "common.dependencies.redis.injector" -}}
+{{- define "tc.common.dependencies.redis.injector" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "redis" }}
 
 {{- if .Values.redis.enabled }}
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
   name: rediscreds
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "rediscreds" }}
 {{- $dbPass := "" }}

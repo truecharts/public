@@ -1,0 +1,87 @@
+suite: configmap metadata
+templates:
+  - common.yaml
+tests:
+  - it: default metadata should pass
+    set:
+      configmap:
+        config:
+          enabled: true
+    asserts:
+      - documentIndex: &ConfigmapDocument 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *ConfigmapDocument
+        isNull:
+          path: metadata.annotations
+      - documentIndex: *ConfigmapDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+
+  - it: custom metadata should pass
+    set:
+      configmap:
+        config:
+          enabled: true
+          annotations:
+            test_annotation: test
+          labels:
+            test_label: test
+    asserts:
+      - documentIndex: &ConfigmapDocument 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *ConfigmapDocument
+        equal:
+          path: metadata.annotations
+          value:
+            test_annotation: test
+      - documentIndex: *ConfigmapDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test
+
+  - it: custom metadata with global metadata should pass
+    set:
+      global:
+        labels:
+          global_label: test
+        annotations:
+          global_annotation: test
+      configmap:
+        config:
+          enabled: true
+          annotations:
+            test_annotation: test
+          labels:
+            test_label: test
+    asserts:
+      - documentIndex: &ConfigmapDocument 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *ConfigmapDocument
+        equal:
+          path: metadata.annotations
+          value:
+            global_annotation: test
+            test_annotation: test
+      - documentIndex: *ConfigmapDocument
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            global_label: test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test

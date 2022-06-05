@@ -1,0 +1,83 @@
+suite: controller metadata statefulset
+templates:
+  - common.yaml
+tests:
+  - it: default metadata should pass
+    set:
+      controller.type: statefulset
+    asserts:
+      - documentIndex: &ControllerDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *ControllerDoc
+        isNull:
+          path: metadata.annotations
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+
+  - it: custom metadata should pass
+    set:
+      controller:
+        type: statefulset
+        annotations:
+          test_annotation: test
+        labels:
+          test_label: test
+    asserts:
+      - documentIndex: &ControllerDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.annotations
+          value:
+            test_annotation: test
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test
+
+  - it: custom metadata with global metadata should pass
+    set:
+      global:
+        labels:
+          global_label: test
+        annotations:
+          global_annotation: test
+      controller:
+        type: statefulset
+        annotations:
+          test_annotation: test
+        labels:
+          test_label: test
+    asserts:
+      - documentIndex: &ControllerDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.annotations
+          value:
+            global_annotation: test
+            test_annotation: test
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            global_label: test
+            helm.sh/chart: common-test-4.0.0
+            test_label: test

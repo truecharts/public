@@ -1,5 +1,5 @@
 {{/* Volumes included by the controller */}}
-{{- define "common.controller.volumeMounts" -}}
+{{- define "tc.common.controller.volumeMounts" -}}
   {{- range $index, $item := .Values.persistence }}
   {{- if not $item.noMount }}
     {{- $mountPath := (printf "/%v" $index) -}}
@@ -10,16 +10,16 @@
       {{- $mountPath = . -}}
     {{- end }}
     {{- if and $item.enabled (ne $mountPath "-") }}
-- mountPath: {{ $mountPath }}
-  name: {{ $index }}
+- mountPath: {{ tpl $mountPath $ }}
+  name: {{ tpl $index $ }}
       {{- with $item.subPath }}
-  subPath: {{ . }}
+  subPath: {{ tpl . $ }}
       {{- end }}
       {{- with $item.readOnly }}
   readOnly: {{ . }}
       {{- end }}
       {{- with $item.mountPropagation }}
-  mountPropagation: {{ . }}
+  mountPropagation: {{ tpl . $ }}
       {{- end }}
     {{- end }}
   {{- end }}
@@ -27,19 +27,11 @@
 
   {{- if eq .Values.controller.type "statefulset" }}
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
-    {{- $vctname := $index }}
-    {{- if $vct.name }}
-    {{- $vctname := $vct.name }}
-    {{- end }}
-    {{- if not $vct.noMount }}
 - mountPath: {{ $vct.mountPath }}
-  name: {{ $vctname }}
+  name: {{ $vct.name }}
       {{- if $vct.subPath }}
   subPath: {{ $vct.subPath }}
       {{- end }}
     {{- end }}
-    {{- end }}
   {{- end }}
-
-
 {{- end -}}

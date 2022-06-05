@@ -1,0 +1,99 @@
+name: "Charts: Lint and test"
+
+on:
+  pull_request:
+    paths:
+    - '.github/workflows/charts-lint-test.yaml'
+    - 'charts/**'
+    - 'helper-charts/**'
+
+jobs:
+  lint:
+    name: Lint charts
+    runs-on: ubuntu-20.04
+    outputs:
+      changed: ${{ steps.list-changed.outputs.changed }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.4
+
+    - uses: actions/setup-python@v3
+      with:
+        python-version: 3.7
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.2.1
+
+    - name: Run chart-testing (list-changed)
+      id: list-changed
+      run: |
+        changed=$(ct list-changed --config .github/ct-lint.yaml)
+        if [[ -n "$changed" ]]; then
+          echo "::set-output name=changed::true"
+        fi
+    - name: Run chart-testing (lint)
+      id: lint
+      if: steps.list-changed.outputs.changed == 'true'
+      run: ct lint --config .github/ct-lint.yaml
+
+  unittest:
+    needs:
+    - lint
+    name: Run unit tests
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.4
+
+    - name: Run tests
+      run: |
+        helm plugin install https://github.com/vbehar/helm3-unittest --version v1.0.16
+        cd helper-charts/common-test/
+        helm dependency update
+        helm unittest -f "tests/**/*_test.yaml" .
+  install:
+    needs:
+    - lint
+    name: Install charts
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.4
+
+    - uses: actions/setup-python@v3
+      with:
+        python-version: 3.7
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.2.1
+
+    - name: Create k3d cluster
+      uses: nolar/setup-k3d-k3s@v1
+      with:
+        version: v1.22.4+k3s1
+      if: needs.lint.outputs.changed == 'true'
+
+    - name: Run chart-testing (install)
+      if: needs.lint.outputs.changed == 'true'
+      run: find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml

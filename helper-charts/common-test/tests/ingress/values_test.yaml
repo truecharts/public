@@ -1,0 +1,72 @@
+suite: ingress values
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    set:
+      ingress.main.enabled: true
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: chart-example.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: "/"
+
+  - it: custom host and path should pass
+    set:
+      ingress.main:
+        enabled: true
+        hosts:
+          - host: chart-test.local
+            paths:
+              - path: /test
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: chart-test.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: "/test"
+
+  - it: host with template should pass
+    set:
+      ingress.main:
+        enabled: true
+        hosts:
+          - host: "{{ .Release.Name }}.hostname"
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: RELEASE-NAME.hostname
+
+  - it: path with template should pass
+    set:
+      ingress.main:
+        enabled: true
+        hosts:
+          - host: chart-test.local
+            paths:
+              - path: "/{{ .Release.Name }}.path"
+    asserts:
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: "/RELEASE-NAME.path"

@@ -1,0 +1,84 @@
+suite: portal defaults
+templates:
+  - common.yaml
+tests:
+  - it: uses "$node_ip" by default
+    set:
+      portal:
+        enabled: true
+      ingress:
+        main:
+          enabled: false
+      ixChartContext:
+        placeholder: true
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: 2
+        equal:
+          path: data.host
+          value: $node_ip
+
+  - it: uses port "443" by default
+    set:
+      portal:
+        enabled: true
+      ixChartContext:
+        placeholder: true
+      ingress:
+        main:
+          enabled: false
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: 2
+        equal:
+          path: data.port
+          value: "443"
+
+  - it: uses protocol "http" by default
+    set:
+      portal:
+        enabled: true
+      ingress:
+        main:
+          enabled: false
+      ixChartContext:
+        placeholder: true
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: 2
+        equal:
+          path: data.protocol
+          value: http
+
+
+  - it: uses path "/" by default
+    set:
+      portal:
+        enabled: true
+      ixChartContext:
+        placeholder: true
+      ingress:
+        main:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 4
+      - documentIndex: 3
+        isKind:
+          of: ConfigMap
+      - documentIndex: 3
+        equal:
+          path: data.path
+          value: /

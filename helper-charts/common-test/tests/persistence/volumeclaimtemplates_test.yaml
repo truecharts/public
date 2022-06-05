@@ -1,0 +1,30 @@
+suite: persistence volumeclaimtemplates
+templates:
+  - common.yaml
+tests:
+  - it: volumeClaimTemplates should pass
+    set:
+      controller:
+        type: statefulset
+      volumeClaimTemplates:
+        - name: "storage"
+          accessMode: "ReadWriteOnce"
+          size: "10Gi"
+          storageClass: "storage"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: 0
+        equal:
+          path: spec.volumeClaimTemplates[0]
+          value:
+            metadata:
+              name: storage
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 10Gi
+              storageClassName: storage

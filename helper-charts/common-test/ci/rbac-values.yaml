@@ -14,51 +14,53 @@ args:
   - '8080'
 
 rbac:
-  enabled: true
-  rules:
-    - apiGroups:
-        - ""
-      resources:
-        - services
-        - endpoints
-        - secrets
-      verbs:
-        - get
-        - list
-        - watch
-    - apiGroups:
-        - extensions
-        - networking.k8s.io
-      resources:
-        - ingresses
-        - ingressclasses
-      verbs:
-        - get
-        - list
-        - watch
-    - apiGroups:
-        - extensions
-        - networking.k8s.io
-      resources:
-        - ingresses/status
-      verbs:
-        - update
-    - apiGroups:
-        - traefik.containo.us
-      resources:
-        - ingressroutes
-        - ingressroutetcps
-        - ingressrouteudps
-        - middlewares
-        - middlewaretcps
-        - tlsoptions
-        - tlsstores
-        - traefikservices
-        - serverstransports
-      verbs:
-        - get
-        - list
-        - watch
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - endpoints
+          - secrets
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+          - ingressclasses
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses/status
+        verbs:
+          - update
+      - apiGroups:
+          - traefik.containo.us
+        resources:
+          - ingressroutes
+          - ingressroutetcps
+          - ingressrouteudps
+          - middlewares
+          - middlewaretcps
+          - tlsoptions
+          - tlsstores
+          - traefikservices
+          - serverstransports
+        verbs:
+          - get
+          - list
+          - watch
 
 serviceAccount:
-  create: true
+  main:
+    create: true

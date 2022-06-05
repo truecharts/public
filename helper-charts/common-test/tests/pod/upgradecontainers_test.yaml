@@ -1,0 +1,51 @@
+suite: pod upgrade initContainers
+templates:
+  - common.yaml
+tests:
+  - it: with explicit name should pass
+    set:
+      upgradeContainers:
+        upgrade1:
+          name: template-test
+      test:
+        upgrade: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: template-test
+
+  - it: with implicit name should pass
+    set:
+      upgradeContainers:
+        upgrade1:
+          image: template-test
+      test:
+        upgrade: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: upgrade1
+
+  - it: with templated name should pass
+    set:
+      upgradeContainers:
+        aupgrade1:
+          name: "{{ .Release.Name }}-container"
+      test:
+        upgrade: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: RELEASE-NAME-container

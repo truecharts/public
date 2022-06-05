@@ -1,0 +1,60 @@
+suite: persistence emptydir
+templates:
+  - common.yaml
+tests:
+  - it: default emptyDir should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          type: emptyDir
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: config
+            emptyDir: {}
+
+  - it: emptyDir with medium should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          type: emptyDir
+          medium: memory
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: config
+            emptyDir:
+              medium: memory
+
+  - it: emptyDir with medium and sizeLimit should pass
+    set:
+      persistence:
+        config:
+          enabled: true
+          type: emptyDir
+          medium: memory
+          sizeLimit: 1Gi
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: config
+            emptyDir:
+              medium: memory
+              sizeLimit: 1Gi

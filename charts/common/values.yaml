@@ -93,7 +93,10 @@ global:
   nameOverride:
   # -- Set the entire name definition
   fullnameOverride:
-  isSCALE: false
+  # -- Set additional global labels. Helm templates can be used.
+  labels: {}
+  # -- Set additional global annotations. Helm templates can be used.
+  annotations: {}
 
 controller:
   # -- enable the controller.
@@ -155,6 +158,8 @@ extraArgs: []
 # -- Set Container Timezone
 TZ: UTC
 
+patchInotify: true
+
 # -- Set the primary portal for TrueNAS SCALE
 portal:
   # -- enable generation of the portal configmap
@@ -191,70 +196,96 @@ stdin: false
 
 # -- Add a Horizontal Pod Autoscaler
 # @default -- <disabled>
-autoscaling:
-  enabled: false
-  target:  # deploymentname
-  minReplicas:  # 1
-  maxReplicas:  # 100
-  targetCPUUtilizationPercentage:  # 80
-  targetMemoryUtilizationPercentage:  # 80
+horizontalPodAutoscaler:
+  main:
+    enabled: false
+    # -- deployment kind of target
+    # @default -- main pod
+    targetKind:
+    # -- name of the targeted deployment
+    # @default -- main pod
+    target:
+    # -- minimum amount of replica's to spawn
+    # @default -- 1
+    minReplicas:
+    # -- minimum amount of replica's to spawn
+    # @default -- 100
+    maxReplicas:
+    # -- minimum amount of replica's to spawn
+    # @default -- 80
+    targetCPUUtilizationPercentage:
+    # -- minimum amount of replica's to spawn
+    # @default -- 80
+    targetMemoryUtilizationPercentage:
 
 # -- Create serviceaccount
 # @default -- See below
 serviceAccount:
-  # -- Specifies whether a service account should be created
-  create: false
+  main:
+    # -- Make this the primary serviceAccount (used in probes, notes, etc...).
+    # If there is more than 1 serviceAccount, make sure that only 1 serviceAccount is marked as primary.
+    primary: true
 
-  # -- Annotations to add to the service account
-  annotations: {}
+    # -- Specifies whether a service account should be created
+    enabled: false
 
-  # -- The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
+    # -- Annotations to add to the service account
+    annotations: {}
+
+    # -- The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
 
 # -- Create a ClusterRole and ClusterRoleBinding
 # @default -- See below
 rbac:
-  # -- Enables or disables the ClusterRole and ClusterRoleBinding
-  enabled: false
+  main:
+    # -- Make this the primary rbac (used in probes, notes, etc...).
+    # If there is more than 1 rbac, make sure that only 1 rbac is marked as primary.
+    primary: true
 
-  # -- Set Annotations on the ClusterRole
-  clusterRoleLabels: {}
+    # -- Enables or disables the ClusterRole and ClusterRoleBinding
+    enabled: false
 
-  # -- Set labels on the ClusterRole
-  clusterRoleAnnotations: {}
+    # -- Set Annotations on the ClusterRole
+    clusterRoleLabels: {}
 
-  # -- Set Annotations on the ClusterRoleBinding
+    # -- Set labels on the ClusterRole
+    clusterRoleAnnotations: {}
 
-  clusterRoleBindingLabels: {}
+    # -- Set Annotations on the ClusterRoleBinding
 
-  # -- Set labels on the ClusterRoleBinding
-  clusterRoleBindingAnnotations: {}
+    clusterRoleBindingLabels: {}
 
-  # -- Set Rules on the ClusterRole
-  rules: {}
+    # -- Set labels on the ClusterRoleBinding
+    clusterRoleBindingAnnotations: {}
 
-  # -- Add subjects to the ClusterRoleBinding.
-  # includes the above created serviceaccount
-  subjects: {}
+    # -- Set Rules on the ClusterRole
+    rules: {}
+
+    # -- Defines default subject serviceAccount Name.
+    # serviceAccountName: ""
+
+    # -- Add subjects to the ClusterRoleBinding.
+    # includes the above created serviceaccount
+    subjects: {}
 
 # -- Configure networkPolicy for the chart here.
 # @default -- See below
 networkPolicy:
-  # -- Enables or disables the networkPolicy
-  enabled: false
+  main:
+    # -- Enables or disables the networkPolicy
+    enabled: false
 
-  # customizes the podSelector (defaults to the helm-chart selector-labels
-  # podSelector:
+    # customizes the podSelector (defaults to the helm-chart selector-labels
+    # podSelector:
 
-  # -- add or remove Policy types. Options: ingress, egress, ingress-egress
-  policyType: ""
-
-  # -- add or remove egress policies
-  egress: []
-
-  # -- add or remove egress policies
-  ingress: []
+    # -- add or remove Policy types. Options: ingress, egress, ingress-egress
+    policyType: ""
+    # -- add or remove egress policies
+    egress: []
+    # -- add or remove egress policies
+    ingress: []
 
 # -- Use this directly attach a pod to a SCALE interface.
 # Please be aware: This bypasses k8s services
@@ -275,7 +306,7 @@ externalInterfaces: []
 # -- Use this to populate a secret with the values you specify.
 # Be aware that these values are not encrypted by default, and could therefore visible
 # to anybody with access to the values.yaml file.
-secret: {}
+secretEnv: {}
   # PASSWORD: my-password
 
 # -- Main environment variables. Template enabled.
@@ -283,27 +314,37 @@ secret: {}
 # A) TZ: UTC
 # B) PASSWD: '{{ .Release.Name }}'
 # C) PASSWD:
-#      envFrom:
-#        ...
+#      configMapKeyRef:
+#        name: config-map-name
+#        key: key-name
+# D) PASSWD:
+#      valueFrom:
+#        secretKeyRef:
+#          name: secret-name
+#          key: key-name
+#      ...
+# E) - name: TZ
+#      value: UTC
+# F) - name: TZ
+#      value: '{{ .Release.Name }}'
 env: {}
-
-## Variables with values set from templates, example
-## With a release name of: demo, the example env value will be: demo-admin
-envTpl: {}
-  # TEMPLATE_VALUE: "{{ .Release.Name }}-admin"
-
-## Variables with values from (for example) the Downward API
-## See https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/
-envValueFrom: {}
-  # NODE_NAME:
-  #   fieldRef:
-  #     fieldPath: spec.nodeName
 
 envFrom: []
 # - configMapRef:
 #     name: config-map-name
 # - secretRef:
 #     name: secret-name
+
+# -- Create secret objects directly from dict.
+secret:
+  # -- Secret Name
+  example-secret:
+    # -- Enable or Disable the secret from being created
+    enabled: false
+    # -- The actual data to be loaded into the secret as stringData
+    # Can contain tpl templating
+    data: {}
+
 # -- Custom priority class for different treatment by the scheduler
 priorityClassName:  # system-node-critical
 
@@ -311,6 +352,7 @@ priorityClassName:  # system-node-critical
 schedulerName:  # awkward-dangerous-scheduler
 
 # -- Allows specifying explicit hostname setting
+# please be aware this breaks some guides that assume default k8s hostnames...
 hostname:
 
 # -- When using hostNetwork make sure you set dnsPolicy to `ClusterFirstWithHostNet`
@@ -320,6 +362,7 @@ hostNetwork: false
 dnsPolicy:  # ClusterFirst
 
 # -- Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups.
+# By default we already specify " ndots=1 ", due to some reoccuring issues on SCALE.
 dnsConfig:
   options:
     - name: ndots
@@ -503,11 +546,15 @@ service:
     # @default -- See below
     portsList: []
 
+    # -- Specify the externalTrafficPolicy for the service. Options: Cluster, Local
+    # -- [[ref](https://kubernetes.io/docs/tutorials/services/source-ip/)]
+    externalTrafficPolicy:
+
     # -- Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack
     ipFamilyPolicy: SingleStack
 
     # -- The ip families that should be used. Options: IPv4, IPv6
-    ipFamilies: [ ]
+    ipFamilies: []
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
@@ -706,8 +753,13 @@ persistence:
     # -- The amount of storage that is requested for the persistent volume.
     size: 999Gi
 
-    # - Set to true to retain the PVC upon `helm uninstall`
+    # -- Set to true to retain the PVC upon `helm uninstall`
     retain: false
+
+    # -- Add additional custom spec parameters
+    # Used, for example, by openEBS to set dataset parameters
+    # Be sure not to add duplicates of the above variables
+    spec: {}
 
   # -- Create an emptyDir volume to share between all containers
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
@@ -768,35 +820,6 @@ persistence:
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
 
-
-  # -- Hostpath mountpoint to allow mounting the /usr/bin folder to disable docker-compose
-  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
-  # @default -- See below
-  # TODO Delete this once iX has blocked docker-compose
-  host-usr-bin:
-    enabled: true
-    noMount: true
-    type: hostPath
-    # -- Which path on the host should be mounted.
-    hostPath: /usr/bin
-    # -- Where to mount the path in the main container.
-    # Defaults to the value of `hostPath`
-    mountPath: "/host/usr/bin"
-
-  # -- Hostpath mountpoint to allow mounting the /bin folder to disable docker-compose
-  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
-  # @default -- See below
-  # TODO Delete this once iX has blocked docker-compose
-  host-bin:
-    enabled: true
-    noMount: true
-    type: hostPath
-    # -- Which path on the host should be mounted.
-    hostPath: /bin
-    # -- Where to mount the path in the main container.
-    # Defaults to the value of `hostPath`
-    mountPath: "/host/bin"
-
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
@@ -809,7 +832,7 @@ persistence:
     setPermissions: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
-    mountPath: "" # /myDev
+    mountPath:  # /myDev
     # -- Specifying a hostPathType adds a check before trying to mount the path.
     # See Kubernetes documentation for options.
     hostPathType: ""
@@ -828,7 +851,7 @@ persistence:
     setPermissionsSimple: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
-    mountPath: "" # /myDev
+    mountPath:  # /myDev
     # -- Specifying a hostPathType adds a check before trying to mount the path.
     # See Kubernetes documentation for options.
     hostPathType: ""
@@ -863,7 +886,7 @@ persistence:
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: # /custom-mount
+    mountPath:  # /custom-mount
     # -- Specify if the volume should be mounted read-only.
     readOnly: false
 
@@ -877,7 +900,7 @@ persistence:
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: # /custom-mount
+    mountPath:  # /custom-mount
     # -- Specify if the volume should be mounted read-only.
     readOnly: false
     # -- define the default mount mode for the secret
@@ -886,6 +909,22 @@ persistence:
     items:
       - key: username
         path: my-group/my-username
+
+  # -- Example of a nfs mount
+  # @default -- See below
+  nfs-example:
+    enabled: false
+    type: nfs
+    # -- Specify the name of the secret object to be mounted
+    server: 192.168.10.10
+    # -- define the default mount path on the nfs server
+    path: "/somepath"
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath:  # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
 
 # -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
 volumeClaimTemplates: []
@@ -943,6 +982,16 @@ resources:
     cpu: 10m
     memory: 50Mi
 
+# -- used to add SCALE GPU configuration
+scaleGPU:
+
+# -- used to fake certain states for tests
+test:
+  # -- fake install for install initContainers
+  install: false
+  # -- fake upgrade for upgrade initContainers
+  upgrade: false
+
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below
 addons:
@@ -977,7 +1026,7 @@ addons:
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     envList: []
-      #- name: someenv
+      # - name: someenv
       #  value: somevalue
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
@@ -1005,7 +1054,7 @@ addons:
     # -- All variables specified here will be added to the codeserver sidecar container
     # See the documentation of the codeserver image for all config values
     envList: []
-      #- name: someenv
+      # - name: someenv
       #  value: somevalue
     # -- Set codeserver command line arguments.
     # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
@@ -1071,7 +1120,7 @@ addons:
     # -- All variables specified here will be added to the promtail sidecar container
     # See the documentation of the promtail image for all config values
     envList: []
-      #- name: someenv
+      # - name: someenv
       #  value: somevalue
     # -- Set promtail command line arguments
     args: []
@@ -1096,7 +1145,7 @@ addons:
     # -- All variables specified here will be added to the netshoot sidecar container
     # See the documentation of the netshoot image for all config values
     envList: []
-      #- name: someenv
+      # - name: someenv
       #  value: somevalue
 
 ##

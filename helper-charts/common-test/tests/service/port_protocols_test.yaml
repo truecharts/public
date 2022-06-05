@@ -1,0 +1,71 @@
+suite: service protocols
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: spec.ports[0].protocol
+          value: TCP
+
+  - it: explicit TCP should pass
+    set:
+      service.main.ports.main.protocol: TCP
+    asserts:
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: spec.ports[0].protocol
+          value: TCP
+
+  - it: explicit UDP should pass
+    set:
+      service.main.ports.main.protocol: UDP
+    asserts:
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: spec.ports[0].protocol
+          value: UDP
+
+  - it: explicit HTTP should pass
+    set:
+      service.main.ports.main.protocol: HTTP
+    asserts:
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: spec.ports[0].protocol
+          value: TCP
+      - documentIndex: *ServiceDocument
+        isNull:
+          path: metadata.annotations
+
+  - it: explicit HTTPS should pass
+    set:
+      service.main.ports.main.protocol: HTTPS
+    asserts:
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *ServiceDocument
+        equal:
+          path: spec.ports[0].protocol
+          value: TCP
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/service.serversscheme: https

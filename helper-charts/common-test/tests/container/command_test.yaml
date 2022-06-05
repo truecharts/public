@@ -1,0 +1,41 @@
+suite: container command override
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        isNull:
+          path: spec.template.spec.containers[0].command
+
+  - it: single string should pass
+    set:
+      command: /bin/sh
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/sh
+
+  - it: list of strings should pass
+    set:
+      command:
+        - /bin/sh
+        - -c
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/sh
+            - -c

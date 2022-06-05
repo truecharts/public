@@ -1,0 +1,45 @@
+suite: persistence hostpath
+templates:
+  - common.yaml
+tests:
+  - it: hostPath should pass
+    set:
+      persistence:
+        hostpathmounts-data:
+          enabled: true
+          type: hostPath
+          hostPath: "/tmp1"
+          mountPath: "/data"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: hostpathmounts-data
+            hostPath:
+              path: /tmp1
+
+  - it: hostPath with type should pass
+    set:
+      persistence:
+        hostpathmounts-with-type:
+          enabled: true
+          type: hostPath
+          hostPath: "/tmp2"
+          hostPathType: "Directory"
+          mountPath: "/data2"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: hostpathmounts-with-type
+            hostPath:
+              path: /tmp2
+              type: Directory

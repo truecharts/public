@@ -1,0 +1,59 @@
+suite: pod replicas
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        isNull:
+          path: spec.template.spec.hostNetwork
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirst
+
+  - it: hostNetwork disabled should pass and set dnspolicy
+    set:
+      hostNetwork: false
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        isNull:
+          path: spec.template.spec.hostNetwork
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirst
+
+  - it: hostNetwork enabled should pass and set dnspolicy
+    set:
+      hostNetwork: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.hostNetwork
+          value: true
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirstWithHostNet
+
+  - it: custom dnsPolicy should pass
+    set:
+      dnsPolicy: None
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.dnsPolicy
+          value: None

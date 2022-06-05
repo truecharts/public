@@ -81,47 +81,48 @@ probes:
     "until": "Thu Dec 29 15:05:38 2022"
 
 networkPolicy:
-  enabled: true
+  main:
+    enabled: true
 
-  ingress:
-  - from:
-    - ipBlock:
-        cidr: 172.17.0.0/16
-        except:
-        - 172.17.1.0/24
-    - namespaceSelector:
-        matchLabels:
-          project: myproject
-    - podSelector:
-        matchLabels:
-          role: frontend
-    - namespaceSelector:
-        matchLabels:
-          project: myproject2
-      podSelector:
-        matchLabels:
-          role: frontend2
-    ports:
-    - protocol: TCP
-      port: 6379
-  egress:
-  - to:
-    - ipBlock:
-        cidr: 172.17.2.0/16
-        except:
-        - 172.17.2.0/24
-    - namespaceSelector:
-        matchLabels:
-          project: myproject3
-    - podSelector:
-        matchLabels:
-          role: frontend3
-    - namespaceSelector:
-        matchLabels:
-          project: myproject4
-      podSelector:
-        matchLabels:
-          role: frontend4
-    ports:
-    - protocol: TCP
-      port: 5978
+    ingress:
+    - from:
+      - ipBlock:
+          cidr: 172.17.0.0/16
+          except:
+          - 172.17.1.0/24
+      - namespaceSelector:
+          matchLabels:
+            project: myproject
+      - podSelector:
+          matchLabels:
+            role: frontend
+      - namespaceSelector:
+          matchLabels:
+            project: myproject2
+        podSelector:
+          matchLabels:
+            role: frontend2
+      ports:
+      - protocol: TCP
+        port: 6379
+    egress:
+    - to:
+      - ipBlock:
+          cidr: 172.17.2.0/16
+          except:
+          - 172.17.2.0/24
+      - namespaceSelector:
+          matchLabels:
+            project: myproject3
+      - podSelector:
+          matchLabels:
+            role: frontend3
+      - namespaceSelector:
+          matchLabels:
+            project: myproject4
+        podSelector:
+          matchLabels:
+            role: frontend4
+      ports:
+      - protocol: TCP
+        port: 5978

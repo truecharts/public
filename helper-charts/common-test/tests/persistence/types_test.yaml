@@ -1,0 +1,127 @@
+suite: persistence types
+templates:
+  - common.yaml
+tests:
+  - it: custom persistence type should pass
+    set:
+      persistence:
+        custom-mount:
+          enabled: true
+          type: custom
+          volumeSpec:
+            downwardAPI:
+              items:
+                - path: "labels"
+                  fieldRef:
+                    fieldPath: metadata.labels
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: custom-mount
+            downwardAPI:
+              items:
+              - fieldRef:
+                  fieldPath: metadata.labels
+                path: labels
+
+  - it: configmap persistence type should pass
+    set:
+      persistence:
+        configmap:
+          enabled: true
+          type: configMap
+          objectName: mySettings
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: configmap
+            configMap:
+              name: mySettings
+
+  - it: configmap persistence type with name template should pass
+    set:
+      persistence:
+        configmap:
+          enabled: true
+          type: configMap
+          objectName: "{{ include \"tc.common.names.fullname\" $ }}-config"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: configmap
+            configMap:
+              name: RELEASE-NAME-common-test-config
+
+  - it: secret persistence type should pass
+    set:
+      persistence:
+        secret:
+          enabled: true
+          type: secret
+          objectName: mySettings
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: secret
+            secret:
+              secretName: mySettings
+
+  - it: secret persistence type with name template should pass
+    set:
+      persistence:
+        secret:
+          enabled: true
+          type: secret
+          objectName: "{{ .Release.Name }}-config"
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: secret
+            secret:
+              secretName: RELEASE-NAME-config
+
+  - it: nfs persistence type should pass
+    set:
+      persistence:
+        nfs:
+          enabled: true
+          type: nfs
+          server: 10.10.0.8
+          path: /tank/nas/library
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: nfs
+            nfs:
+              path: /tank/nas/library
+              server: 10.10.0.8

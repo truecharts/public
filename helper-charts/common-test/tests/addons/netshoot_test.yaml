@@ -1,0 +1,38 @@
+suite: addon netshoot
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        not: true
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: netshoot
+
+  - it: addon enabled should pass
+    set:
+      addons:
+        netshoot:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: netshoot

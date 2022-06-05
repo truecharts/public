@@ -1,7 +1,7 @@
 {{/*
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
-{{- define "common.dependencies.mariadb.injector" -}}
+{{- define "tc.common.dependencies.mariadb.injector" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "mariadb" }}
 
 {{- if .Values.mariadb.enabled }}
@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
   name: mariadbcreds
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" }}
 {{- $dbPass := "" }}

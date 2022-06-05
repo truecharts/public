@@ -1,0 +1,51 @@
+suite: pod install initContainers
+templates:
+  - common.yaml
+tests:
+  - it: with explicit name should pass
+    set:
+      installContainers:
+        install1:
+          name: template-test
+      test:
+        install: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: template-test
+
+  - it: with implicit name should pass
+    set:
+      installContainers:
+        install1:
+          image: template-test
+      test:
+        install: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: install1
+
+  - it: with templated name should pass
+    set:
+      installContainers:
+        install1:
+          name: "{{ .Release.Name }}-container"
+      test:
+        install: true
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.template.spec.initContainers[1].name
+          value: RELEASE-NAME-container

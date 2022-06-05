@@ -1,0 +1,25 @@
+suite: pod replicas
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.replicas
+          value: 1
+
+  - it: custom replicas should pass
+    set:
+      controller.replicas: 3
+    asserts:
+      - documentIndex: 0
+        isKind:
+          of: Deployment
+      - documentIndex: 0
+        equal:
+          path: spec.replicas
+          value: 3

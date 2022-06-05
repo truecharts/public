@@ -1,27 +1,27 @@
 {{- /*
 The pod definition included in the controller.
 */ -}}
-{{- define "common.controller.pod" -}}
+{{- define "tc.common.controller.pod" -}}
   {{- with .Values.imagePullSecrets }}
 imagePullSecrets:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
-serviceAccountName: {{ include "common.names.serviceAccountName" . }}
+serviceAccountName: {{ include "tc.common.names.serviceAccountName" . }}
   {{- with .Values.podSecurityContext }}
 securityContext:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
   {{- with .Values.priorityClassName }}
-priorityClassName: {{ . }}
+priorityClassName: {{ tpl . $ }}
   {{- end }}
   {{- with .Values.schedulerName }}
-schedulerName: {{ . }}
+schedulerName: {{ tpl . $ }}
   {{- end }}
   {{- with .Values.hostNetwork }}
 hostNetwork: {{ . }}
   {{- end }}
   {{- with .Values.hostname }}
-hostname: {{ . }}
+hostname: {{ tpl . $ }}
   {{- end }}
   {{- if .Values.dnsPolicy }}
 dnsPolicy: {{ .Values.dnsPolicy }}
@@ -34,15 +34,15 @@ dnsPolicy: ClusterFirst
 dnsConfig:
   {{- with .Values.dnsConfig.options }}
   options:
-    {{- toYaml . | nindent 4 }}
+    {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
   {{- with .Values.dnsConfig.nameservers }}
   nameservers: []
-    {{- toYaml . | nindent 4 }}
+    {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
   {{- with .Values.dnsConfig.searches }}
   searches: []
-    {{- toYaml . | nindent 4 }}
+    {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
 {{- end }}
 enableServiceLinks: {{ .Values.enableServiceLinks }}
@@ -50,13 +50,11 @@ enableServiceLinks: {{ .Values.enableServiceLinks }}
 terminationGracePeriodSeconds: {{ . }}
   {{- end }}
 initContainers:
-  {{-  include "common.controller.autopermissions" . | nindent 2 }}
-  {{-  include "common.controller.hostpatch" . | nindent 2 }}
-  {{-  include "common.dependencies.postgresql.init" . | nindent 2 }}
-  {{-  include "common.dependencies.mariadb.init" . | nindent 2 }}
-  {{-  include "common.dependencies.mongodb.init" . | nindent 2 }}
-  {{- if .Release.IsInstall }}
-  {{- if .Values.installContainers }}
+  {{-  include "tc.common.controller.prepare" . | nindent 2 }}
+  {{-  include "tc.common.dependencies.postgresql.init" . | nindent 2 }}
+  {{-  include "tc.common.dependencies.mariadb.init" . | nindent 2 }}
+  {{-  include "tc.common.dependencies.mongodb.init" . | nindent 2 }}
+  {{- if and ( or ( .Release.IsInstall ) ( .Values.test.install ) ) ( .Values.installContainers )}}
     {{- $installContainers := list }}
     {{- range $index, $key := (keys .Values.installContainers | uniq | sortAlpha) }}
       {{- $container := get $.Values.installContainers $key }}
@@ -67,9 +65,7 @@ initContainers:
     {{- end }}
     {{- tpl (toYaml $installContainers) $ | nindent 2 }}
   {{- end }}
-  {{- end }}
-  {{- if .Release.IsUpgrade }}
-  {{- if .Values.upgradeContainers }}
+  {{- if and ( or ( .Release.IsUpgrade ) ( .Values.test.upgrade ) ) ( .Values.upgradeContainers )}}
     {{- $upgradeContainers := list }}
     {{- range $index, $key := (keys .Values.upgradeContainers | uniq | sortAlpha) }}
       {{- $container := get $.Values.upgradeContainers $key }}
@@ -79,7 +75,6 @@ initContainers:
       {{- $upgradeContainers = append $upgradeContainers $container }}
     {{- end }}
     {{- tpl (toYaml $upgradeContainers) $ | nindent 2 }}
-  {{- end }}
   {{- end }}
   {{- if .Values.initContainers }}
     {{- $initContainers := list }}
@@ -93,7 +88,7 @@ initContainers:
     {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
 containers:
-  {{- include "common.controller.mainContainer" . | nindent 2 }}
+  {{- include "tc.common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}
     {{- $additionalContainers := list }}
     {{- range $name, $container := . }}
@@ -104,28 +99,28 @@ containers:
     {{- end }}
     {{- tpl (toYaml $additionalContainers) $ | nindent 2 }}
   {{- end }}
-  {{- with (include "common.controller.volumes" . | trim) }}
+  {{- with (include "tc.common.controller.volumes" . | trim) }}
 volumes:
     {{- nindent 2 . }}
   {{- end }}
   {{- with .Values.hostAliases }}
 hostAliases:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
   {{- with .Values.nodeSelector }}
 nodeSelector:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
   {{- with .Values.affinity }}
 affinity:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
   {{- with .Values.topologySpreadConstraints }}
 topologySpreadConstraints:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
   {{- with .Values.tolerations }}
 tolerations:
-    {{- toYaml . | nindent 2 }}
+    {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
 {{- end -}}
