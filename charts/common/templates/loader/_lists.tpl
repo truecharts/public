@@ -13,6 +13,7 @@
   {{ include "tc.common.lib.values.persistence.annotations.list" . }}
 
   {{ include "tc.common.lib.values.service.list" . }}
+  {{ include "tc.common.lib.values.ports.list" . }}
 
   {{ include "tc.common.lib.values.ingress.list" . }}
   {{ include "tc.common.lib.values.ingress.label.list" . }}
