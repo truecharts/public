@@ -29,10 +29,10 @@
   {{- end }}
   {{- end }}
   {{- with .Values.tty }}
-  tty: {{ tpl . $ }}
+  tty: {{ . }}
   {{- end }}
   {{- with .Values.stdin }}
-  stdin: {{ tpl . $ }}
+  stdin: {{ . }}
   {{- end }}
   {{- with .Values.securityContext }}
   securityContext:
