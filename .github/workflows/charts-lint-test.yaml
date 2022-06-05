@@ -15,21 +15,21 @@ jobs:
       changed: ${{ steps.list-changed.outputs.changed }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
       with:
         fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@v1
+      uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # tag=v1
       with:
         version: v3.5.4
 
-    - uses: actions/setup-python@v3
+    - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3
       with:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.2.1
+      uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
     - name: Run chart-testing (list-changed)
       id: list-changed
@@ -50,12 +50,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
       with:
         fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@v1
+      uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # tag=v1
       with:
         version: v3.5.4
 
@@ -72,21 +72,21 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
       with:
           fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@v1
+      uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # tag=v1
       with:
         version: v3.5.4
 
-    - uses: actions/setup-python@v3
+    - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3
       with:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.2.1
+      uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
 
     - name: Create k3d cluster
       uses: nolar/setup-k3d-k3s@v1
