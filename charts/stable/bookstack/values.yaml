@@ -6,6 +6,18 @@ image:
 env:
   DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: bookstack-secrets
+      key: APP_KEY
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -29,19 +41,6 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-envValueFrom:
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  APP_KEY:
-    secretKeyRef:
-      name: bookstack-secrets
-      key: APP_KEY
 
 mariadb:
   enabled: true

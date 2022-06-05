@@ -2,14 +2,14 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/minio-console
   # -- image tag
-  tag: v0.18.0@sha256:e561e84d6209dcd32d31131f5b0a501b8f4b164e05a21b532de01362db47ac9f
+  tag: v0.18.1@sha256:b3f107196a93f0a231081bf041d2d51e1f86c7fadf017152a3dc699c5de2177c
   # -- image pull policy
   pullPolicy: IfNotPresent
 
 # -- Override the args for the default container.
 args: ["server"]
 
-secret:
+secretEnv:
   # -- Required: Passphrase to derive keys (generate own)
   # Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48
   CONSOLE_PBKDF_PASSPHRASE: "changeme"

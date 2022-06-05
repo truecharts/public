@@ -20,6 +20,24 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        server {
+          listen 8080;
+
+          location / {
+              proxy_pass http://localhost:80;
+          }
+
+          location ~* ^/(api|dav|\.well-known)/ {
+              proxy_pass http://localhost:3456;
+              client_max_body_size {{ .Values.env.VIKUNJA_FILES_MAXSIZE | upper | trimSuffix "B" }};
+          }
+        }
+
 env:
   VIKUNJA_REDIS_ENABLED: 1
   VIKUNJA_CACHE_ENABLED: 1
@@ -46,8 +64,6 @@ env:
   VIKUNJA_RATELIMIT_ENABLED: false
   VIKUNJA_RATELIMIT_PERIOD: 60
   VIKUNJA_RATELIMIT_LIMIT: 100
-
-envValueFrom:
   VIKUNJA_DATABASE_HOST:
     secretKeyRef:
       name: dbcreds
@@ -96,6 +112,14 @@ persistence:
   files:
     enabled: true
     mountPath: "/app/vikunja/files"
+  vikunja-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/conf.d/default.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
 
 postgresql:
   enabled: true

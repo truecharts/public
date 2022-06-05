@@ -20,6 +20,18 @@ env:
   APP_URL: https://crm.k8s-at-home.com
   DB_DATABASE: monica
   DB_USERNAME: monica
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: appkey
+      key: appkey
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -36,20 +48,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/www/html/storage"
-
-envValueFrom:
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  APP_KEY:
-    secretKeyRef:
-      name: appkey
-      key: appkey
 
 mariadb:
   enabled: true

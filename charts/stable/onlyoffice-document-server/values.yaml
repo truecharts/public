@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   JWT_SECRET: "randomgeneratedstring"
 
 env:
@@ -22,8 +22,6 @@ env:
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   REDIS_SERVER_PORT: 6379
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds

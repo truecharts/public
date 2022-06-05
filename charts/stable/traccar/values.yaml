@@ -15,8 +15,6 @@ env:
   LOGGER_CONSOLE: true
   DATABASE_DRIVER: "org.postgresql.Driver"
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-
-envValueFrom:
   DATABASE_PASSWORD:
     secretKeyRef:
       name: dbcreds

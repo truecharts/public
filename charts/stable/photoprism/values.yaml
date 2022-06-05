@@ -6,7 +6,7 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
-secret:
+secretEnv:
   PHOTOPRISM_ADMIN_PASSWORD: "please-change"
 env:
   HOME: "/photoprism"
@@ -25,8 +25,6 @@ env:
   PHOTOPRISM_DATABASE_DRIVER: "mysql"
   PHOTOPRISM_DATABASE_NAME: "photoprism"
   PHOTOPRISM_DATABASE_USER: "photoprism"
-
-envValueFrom:
   PHOTOPRISM_DATABASE_SERVER:
     secretKeyRef:
       name: mariadbcreds

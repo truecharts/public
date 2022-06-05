@@ -36,8 +36,6 @@ env:
   # MAILGUN_DOMAIN: ""
   # MAILGUN_API_REGION: ""
   # MAILGUN_API_KEY: ""
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds

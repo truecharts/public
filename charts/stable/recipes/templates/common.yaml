@@ -1,21 +1,7 @@
-{{- include "common.setup" . }}
-
-{{/* Append the hardcoded settings */}}
-{{- define "recipes.harcodedValues" -}}
-persistence:
-  recipes-config:
-    enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx.conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
-{{- end -}}
-{{- $_ := mergeOverwrite .Values (include "recipes.harcodedValues" . | fromYaml) -}}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render secrets for recipes */}}
 {{- include "recipes.secrets" . }}
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

@@ -1,15 +1,13 @@
 image:
   repository: tccr.io/truecharts/babybuddy
   pullPolicy: IfNotPresent
-  tag: v1.11.0@sha256:45733fc8bb55e840ca42e7648fb715931e199049c094d6fb280f1e8e0ebd0880
+  tag: v1.11.0@sha256:9721f267b7534ec97c2ebf554bdda26c3c1332d21670b5757da8925c8326102d
 
 env:
   DB_ENGINE: "django.db.backends.postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

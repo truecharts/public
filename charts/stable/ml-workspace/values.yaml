@@ -38,7 +38,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   WORKSPACE_AUTH_USER: "admin"
   WORKSPACE_AUTH_PASSWORD: "password"
   # true, false, or a token

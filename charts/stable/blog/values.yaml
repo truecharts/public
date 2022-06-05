@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:8928fcf62413459ea8fc5236a1eea28d8a15404f3fc9d0bee154c552000a871b
 
-secret:
+secretEnv:
   BLOG_NICK: username
   BLOG_PASS: password
 
@@ -25,6 +25,14 @@ env:
   BLOG_POSTGRES_USER: blog
   BLOG_POSTGRES_PORT: 5432
   BLOG_DB_NAME: blog
+  BLOG_POSTGRES_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  BLOG_POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
 
 service:
   main:
@@ -37,16 +45,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/data"
-
-envValueFrom:
-  BLOG_POSTGRES_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  BLOG_POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
 
 # Enabled postgres
 postgresql:

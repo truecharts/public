@@ -15,8 +15,6 @@ env:
   FR_DB_NAME: "filerun"
   FR_DB_USER: "filerun"
   FR_DB_PORT: "3306"
-
-envValueFrom:
   FR_DB_HOST:
     secretKeyRef:
       name: mariadbcreds

@@ -16,8 +16,6 @@ env:
   CMD_URL_ADDPORT: true
   DB_NAME: "hedgedoc"
   DB_USER: "hedgedoc"
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds

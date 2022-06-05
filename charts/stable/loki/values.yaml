@@ -27,6 +27,23 @@ controller:
 args:
   - "-config.file=/etc/loki/loki.yaml"
 
+## TODO add alertinggroups support like this
+# configmap:
+#   alerting:
+#     enabled: true
+#     data:
+#       '{{ include "common.names.fullname" . }}-alerting-rules.yaml': |-
+#       {{- if gt (len .Values.alerting_groups) 0 }}
+#           groups:
+#           {{- toYaml .Values.alerting_groups | nindent 6 }}
+#       {{- end }}
+
+secret:
+  config:
+    enabled: true
+    data:
+      loki.yaml: '{{ tpl (toYaml .Values.config) . }}'
+
 service:
   main:
     ports:
@@ -130,7 +147,7 @@ persistence:
     enabled: true
     type: secret
     # -- Specify the name of the configmap object to be mounted
-    objectName: '{{ include "common.names.fullname" . -}}-config'
+    objectName: '{{ include "tc.common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
     mountPath: "/etc/loki"
 

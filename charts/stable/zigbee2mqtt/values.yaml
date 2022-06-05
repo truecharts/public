@@ -3,7 +3,7 @@ image:
   tag: v1.25.2@sha256:cebe8806e79a9651304e6ad0165650e65b87021599ea7f5b3a106e4aa6b66323
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
   ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
 

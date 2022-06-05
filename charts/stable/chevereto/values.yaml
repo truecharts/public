@@ -18,10 +18,18 @@ env:
   CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
   CHEVERETO_DB_PORT: "3306"
   CHEVERETO_TAG: "free"
+  CHEVERETO_DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainporthost
+  CHEVERETO_DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-chevereto'
+      name: '{{ include "tc.common.names.fullname" . }}-chevereto'
 
 chevereto:
   https: false
@@ -35,16 +43,6 @@ configmap:
       CHEVERETO_HTTPS: "{{ ternary \"1\" \"0\" .Values.chevereto.https }}"
       CHEVERETO_DISABLE_UPDATE_HTTP: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_http }}"
       CHEVERETO_DISABLE_UPDATE_CLI: "{{ ternary \"1\" \"0\" .Values.chevereto.disable_update_cli }}"
-
-envValueFrom:
-  CHEVERETO_DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainporthost
-  CHEVERETO_DB_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
 
 service:
   main:

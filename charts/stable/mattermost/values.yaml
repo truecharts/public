@@ -8,8 +8,6 @@ env:
   MM_SQLSETTINGS_DRIVERNAME: "postgres"
   MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
   MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
-
-envValueFrom:
   MM_SQLSETTINGS_DATASOURCE:
     secretKeyRef:
       name: dbcreds

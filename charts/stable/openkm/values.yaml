@@ -44,6 +44,15 @@ persistence:
   config:
     enabled: true
     mountPath: "/opt/tomcat/repository"
+  init:
+    enabled: "true"
+    mountPath: "/config/init"
+    readOnly: true
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-init'
+        defaultMode: 0777
 
 postgresql:
   enabled: true

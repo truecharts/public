@@ -19,18 +19,16 @@ service:
 
 env:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: url
 
 envFrom:
   - configMapRef:
       name: vaultwardenconfig
   - secretRef:
       name: vaultwardensecret
-
-envValueFrom:
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: url
 
 database:
   # Database type, must be one of: 'sqlite', 'mysql' or 'postgresql'.

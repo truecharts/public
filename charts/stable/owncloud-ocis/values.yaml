@@ -14,8 +14,6 @@ env:
   PROXY_TLS: false
   PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
   OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
-
-envValueFrom:
   OCIS_JWT_SECRET:
     secretKeyRef:
       name: ocis-secrets

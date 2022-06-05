@@ -29,8 +29,6 @@ env:
   TYPECHO_USER_NAME: "typecho"
   TYPECHO_USER_PASSWORD: "testtypecho"
   TYPECHO_USER_MAIL: "test@truecharts.org"
-
-envValueFrom:
   TYPECHO_DB_HOST:
     secretKeyRef:
       name: mariadbcreds

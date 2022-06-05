@@ -27,8 +27,6 @@ env:
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

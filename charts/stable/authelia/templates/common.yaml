@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render configmap for authelia */}}
 {{- include "authelia.configmap" . }}
@@ -71,4 +71,4 @@ volumeSpec:
 
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

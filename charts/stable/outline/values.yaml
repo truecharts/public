@@ -53,8 +53,6 @@ env:
   # AWS_S3_UPLOAD_MAX_SIZE: 26214400
   # AWS_S3_FORCE_PATH_STYLE: true
   # AWS_S3_ACL: ""
-
-envValueFrom:
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds

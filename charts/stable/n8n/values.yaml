@@ -19,6 +19,22 @@ env:
   DB_POSTGRESDB_PORT: 5432
   QUEUE_BULL_REDIS_PORT: 6379
   N8N_USER_FOLDER: "/data"
+  DB_POSTGRESDB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_POSTGRESDB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  QUEUE_BULL_REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  QUEUE_BULL_REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 probes:
   liveness:
@@ -89,24 +105,6 @@ workflows: {}
 envFrom:
   - configMapRef:
       name: n8n-config
-
-envValueFrom:
-  DB_POSTGRESDB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DB_POSTGRESDB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  QUEUE_BULL_REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  QUEUE_BULL_REDIS_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 service:
   main:

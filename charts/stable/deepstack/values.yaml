@@ -25,7 +25,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   API-KEY: ""
   ADMIN-KEY: ""
 
@@ -38,7 +38,7 @@ env:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-deepstack'
+      name: '{{ include "tc.common.names.fullname" . }}-deepstack'
 
 deepstack:
   vision_face: true

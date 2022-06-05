@@ -3,7 +3,7 @@ appVersion: "1.2.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.24
+  version: 10.0.7
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
@@ -23,7 +23,7 @@ name: typecho
 sources:
 - https://github.com/typecho/typecho
 - https://hub.docker.com/r/joyqi/typecho
-version: 1.0.10
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
     - hosting

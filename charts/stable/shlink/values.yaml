@@ -36,8 +36,6 @@ env:
   DB_DRIVER: "postgres"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

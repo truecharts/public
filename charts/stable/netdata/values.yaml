@@ -15,32 +15,45 @@ podSecurityContext:
   runAsGroup: 0
   fsGroup: 201
 
+# -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
-  create: true
+  main:
+    create: true
+
+configmap:
+  configs:
+    enabled: true
+    data:
+      netdata-conf: |-
+          [global]
+          memory mode = dbengine
+          dbengine multihost disk space = 4096
+          page cache size = 64
 
 rbac:
-  enabled: true
-  rules:
-  - apiGroups:
-    - ""
-    resources:
-      - "pods"
-      - "nodes"
-      - "nodes/metrics"
-      # - "services"       # used by agent service discovery
-      # - "configmaps"     # used by agent service discovery
-      # - "secrets"        # used by agent service discovery
-    verbs:
-      - "get"
-      - "list"
-      - "watch"
-  - apiGroups: [""]
-    resources:
-      - "namespaces"
-    verbs:
-      - "get"
+  main:
+    enabled: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+        - "pods"
+        - "nodes"
+        - "nodes/metrics"
+        # - "services"       # used by agent service discovery
+        # - "configmaps"     # used by agent service discovery
+        # - "secrets"        # used by agent service discovery
+      verbs:
+        - "get"
+        - "list"
+        - "watch"
+    - apiGroups: [""]
+      resources:
+        - "namespaces"
+      verbs:
+        - "get"
 
-envValueFrom:
+env:
   MY_NODE_NAME:
     fieldRef:
       fieldPath: spec.nodeName
@@ -51,7 +64,7 @@ envValueFrom:
     fieldRef:
       fieldPath: metadata.name
 
-secret:
+secretEnv:
   NETDATA_CLAIM_URL: ""
   NETDATA_CLAIM_TOKEN: ""
   NETDATA_CLAIM_ROOMS: ""
@@ -117,6 +130,14 @@ persistence:
     hostPath: "/etc/os-release"
     mountPath: "/host/etc/os-release"
     readOnly: true
+  netdata-configs:
+    enabled: "true"
+    mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
+    subPath: "netdata-conf"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-configs" (include "tc.common.names.fullname" .) }}'
 
 initContainers:
   create-config:

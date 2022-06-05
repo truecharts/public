@@ -5,9 +5,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "common.names.fullname" . }}-scripts
+  name: {{ template "tc.common.names.fullname" . }}-scripts
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{- $bittorrentPort := "" -}}
   {{- $bittorrentPort = .Values.service.torrent.ports.torrent.port -}}

@@ -6,8 +6,6 @@ image:
 env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"
   PORT: 5432
-
-envValueFrom:
   PASSWORD:
     secretKeyRef:
       name: dbcreds

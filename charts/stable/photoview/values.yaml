@@ -11,8 +11,6 @@ env:
   PHOTOVIEW_DISABLE_FACE_RECOGNITION: false
   PHOTOVIEW_DISABLE_VIDEO_ENCODING: false
   PHOTOVIEW_DISABLE_RAW_PROCESSING: false
-
-envValueFrom:
   PHOTOVIEW_POSTGRES_URL:
     secretKeyRef:
       name: dbcreds

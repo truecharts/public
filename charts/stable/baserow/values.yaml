@@ -21,8 +21,6 @@ env:
   BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
   # User Defined
   BASEROW_PUBLIC_URL: "http://localhost:10228"
-
-envValueFrom:
   DATABASE_HOST:
     secretKeyRef:
       name: dbcreds

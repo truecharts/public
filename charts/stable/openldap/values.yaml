@@ -50,7 +50,7 @@ service:
         port: 636
         targetPort: 636
 
-secret:
+secretEnv:
   LDAP_ADMIN_PASSWORD: "ldapadmin"
   LDAP_CONFIG_PASSWORD: "changeme"
   LDAP_READONLY_USER_USERNAME: "readonly"

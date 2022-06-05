@@ -3,7 +3,7 @@ image:
   tag: v1.1.7@sha256:d495f21ef396bfd2a6f9c482de363c229fb865f9843c10875293ec057c3e3534
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   PS_SHARED_SECRET: "somesecretcode"
   LITESTREAM_BUCKET: ""
   LITESTREAM_ENDPOINT: ""

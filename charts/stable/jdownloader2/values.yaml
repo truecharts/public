@@ -34,9 +34,9 @@ service:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-jdownloader'
+      name: '{{ include "tc.common.names.fullname" . }}-jdownloader'
 
-secret:
+secretEnv:
   VNC_PASSWORD: ""
 
 jdownloader:

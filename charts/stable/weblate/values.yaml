@@ -18,6 +18,22 @@ env:
   POSTGRES_PORT: 5432
   REDIS_PORT: 6379
   REDIS_DB: "0"
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 weblate:
   general:
@@ -192,24 +208,6 @@ weblate:
 envFrom:
   - configMapRef:
       name: weblate-env
-
-envValueFrom:
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 probes:
   liveness:

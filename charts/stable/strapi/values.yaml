@@ -18,8 +18,6 @@ env:
   DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
   NODE_ENV: "production"
   EXTRA_ARGS: ""
-
-envValueFrom:
   DATABASE_HOST:
     secretKeyRef:
       name: dbcreds

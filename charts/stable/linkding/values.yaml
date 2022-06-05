@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   DJANGO_SUPERUSER_USERNAME: "superuser"
   DJANGO_SUPERUSER_EMAIL: "super@example.com"
   DJANGO_SUPERUSER_PASSWORD: "somesecret"

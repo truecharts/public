@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/mariadb
   pullPolicy: IfNotPresent
-  tag: v10.7.4@sha256:2741faf6ed0c730bf41357f7d0de3546025ddd9341bb64e946df0f193ed7a03f
+  tag: v10.7.4@sha256:28bbb5a46a33545dcac0dc46859db117221c2b60e49d6c07a6854fc74f8d18c9
 
 controller:
   # -- Set the controller type.
@@ -34,6 +34,24 @@ service:
 securityContext:
   readOnlyRootFilesystem: false
 
+secret:
+  credentials:
+    enabled: true
+    data:
+      mariadb-password: '{{ ( .Values.mariadbPassword | default "empty" ) }}'
+      mariadb-root-password: '{{ ( .Values.mariadbRootPassword | default "empty" ) }}'
+
+env:
+  MARIADB_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mariadb-password"
+  MARIADB_ROOT_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mariadb-root-password"
+  MARIADB_USER: "{{ .Values.mariadbUsername }}"
+  MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
 
 podSecurityContext:
   runAsGroup: 0
@@ -101,17 +119,3 @@ mariadbUsername: "test"
 mariadbDatabase: "test"
 mariadbRootPassword: "testroot"
 existingSecret: ""
-
-envValueFrom:
-  MARIADB_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mariadb-password"
-  MARIADB_ROOT_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mariadb-root-password"
-
-envTpl:
-  MARIADB_USER: "{{ .Values.mariadbUsername }}"
-  MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"

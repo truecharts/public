@@ -32,8 +32,6 @@ env:
   # User Defined
   ZBX_LOADMODULE: ""
   ZBX_TIMEOUT: 4
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds

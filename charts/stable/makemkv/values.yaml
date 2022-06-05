@@ -11,12 +11,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   VNC_PASSWORD: ""
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-makemkv'
+      name: '{{ include "tc.common.names.fullname" . }}-makemkv'
 
 makemkv:
   # General Settings

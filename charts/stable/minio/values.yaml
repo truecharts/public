@@ -5,7 +5,7 @@ image:
 
 args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
 
-secret:
+secretEnv:
   MINIO_ROOT_PASSWORD: "changeme"
 
 env:

@@ -23,7 +23,7 @@ service:
         port: 10074
         targetPort: 8000
 
-secret:
+secretEnv:
   # -- Superuser email
   SUPERUSER_EMAIL: "email@healthchecks.io"
   # -- Superuser password

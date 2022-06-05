@@ -8,7 +8,7 @@ image:
 
 # -- environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details.
 # @default -- See below
-secret:
+secretEnv:
   # -- dashboard admin user (needed to edit)
   ADMIN_USER: "admin"
   # -- dashboard admin password (needed to edit)
@@ -32,8 +32,6 @@ env:
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
   POSTGRES_SSLMODE: "disable"
-
-envValueFrom:
   DB_PASS:
     secretKeyRef:
       name: dbcreds

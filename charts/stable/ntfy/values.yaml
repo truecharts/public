@@ -17,7 +17,7 @@ env:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-ntfy'
+      name: '{{ include "tc.common.names.fullname" . }}-ntfy'
 
 service:
   main:

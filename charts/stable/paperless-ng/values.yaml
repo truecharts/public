@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   PAPERLESS_ADMIN_USER: "admin"
   PAPERLESS_ADMIN_PASSWORD: "admin"
   PAPERLESS_ADMIN_MAIL: "admin@admin.com"
@@ -28,8 +28,6 @@ env:
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
   PAPERLESS_DBPORT: "5432"
   PAPERLESS_WEBSERVER_WORKERS: 2
-
-envValueFrom:
   PAPERLESS_DBPASS:
     secretKeyRef:
       name: dbcreds

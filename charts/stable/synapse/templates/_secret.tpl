@@ -11,7 +11,7 @@ kind: Secret
 metadata:
   name: synapse-secret-macaroon
   labels:
-  {{ include "common.labels" . | nindent 4 }}
+  {{ include "tc.common.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 data:
@@ -22,7 +22,7 @@ kind: Secret
 metadata:
   name: synapse-secret
   labels:
-  {{ include "common.labels" . | nindent 4 }}
+  {{ include "tc.common.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 stringData:

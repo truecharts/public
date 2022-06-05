@@ -15,8 +15,6 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
   GRIST_DEFAULT_EMAIL: "user@mydomain.com"
-
-envValueFrom:
   REDIS_URL:
     secretKeyRef:
       name: rediscreds

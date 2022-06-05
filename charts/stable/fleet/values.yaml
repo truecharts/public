@@ -12,14 +12,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   # fleet_admin_secret: ""  (Optional)
 
 env:
   fleet_admin_authentication_type: DATABASE
   fleet_database_username: fleet
-
-envValueFrom:
   fleet_database_url:
     secretKeyRef:
       name: mariadbcreds

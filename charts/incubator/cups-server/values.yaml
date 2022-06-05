@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/cups-server
-  tag: latest@sha256:f8dd7aab4918c4a4b0ff4dedfed1d9bc55919392066eed8e74327d82427ae4e2
+  tag: latest@sha256:a32b021b8da8d0a19883b1ac3f274c8f6be3ad97a486c5134250682301ab31ef
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   ADMIN_PASSWORD: "secretpass"
 
 service:

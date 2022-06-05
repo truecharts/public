@@ -24,8 +24,6 @@ service:
 
 env:
   MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-
-envValueFrom:
   MYSQL_HOST:
     secretKeyRef:
       name: mariadbcreds

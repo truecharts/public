@@ -4,7 +4,7 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: v1.8.0@sha256:d0fbf65c8c7a99ad4ba7ffcfdad2e7b2555e0d829867c21cefc9314ace94f747
 
-secret:
+secretEnv:
   FF_SYNCSERVER_SECRET: "changeme"
 
 securityContext:
@@ -23,8 +23,6 @@ env:
   FF_SYNCSERVER_LOGLEVEL: "info"
   FF_SYNCSERVER_ALLOW_NEW_USERS: true
   FF_SYNCSERVER_FORWARDED_ALLOW_IPS: "*"
-
-envValueFrom:
   FF_SYNCSERVER_SQLURI:
     secretKeyRef:
       name: dbcreds

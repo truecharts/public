@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/redis
   pullPolicy: IfNotPresent
-  tag: v6.2.7@sha256:692ee212a2bfe72367f9b568abbc0e73092c440dcb93497f4deebd89dd174079
+  tag: v7.0.0@sha256:5ca358fcb215690d5dcc1a447b9884cc903003457ef2507cb33ec7dc555a4710
 
 controller:
   # -- Set the controller type.
@@ -30,23 +30,96 @@ securityContext:
 podSecurityContext:
   runAsGroup: 0
 
-env:
-  - name: REDIS_REPLICATION_MODE
-    value: master
-  - name: ALLOW_EMPTY_PASSWORD
-    value: "yes"
+configmap:
+  health:
+    enabled: true
+    data:
+      ping_readiness_local.sh: |-
+        #!/bin/bash
+        [[ -n "$REDIS_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_PASSWORD"
+        response=$(
+          timeout -s 3 $1 \
+          redis-cli \
+            -h localhost \
+            -p $REDIS_PORT \
+            ping
+        )
+        if [ "$response" != "PONG" ]; then
+          echo "failed to connect using password: $REDIS_PASSWORD response: $response"
+          exit 1
+        fi
+      ping_liveness_local.sh: |-
+        #!/bin/bash
+        [[ -n "$REDIS_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_PASSWORD"
+        response=$(
+          timeout -s 3 $1 \
+          redis-cli \
+            -h localhost \
+            -p $REDIS_PORT \
+            ping
+        )
+        if [ "$response" != "PONG" ] && [ "$response" != "LOADING Redis is loading the dataset in memory" ]; then
+          echo "$response"
+          exit 1
+        fi
+      ping_readiness_master.sh: |-
+        #!/bin/bash
+        [[ -n "$REDIS_MASTER_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_MASTER_PASSWORD"
+        response=$(
+          timeout -s 3 $1 \
+          redis-cli \
+            -h $REDIS_MASTER_HOST \
+            -p $REDIS_MASTER_PORT_NUMBER \
+            ping
+        )
+        if [ "$response" != "PONG" ]; then
+          echo "$response"
+          exit 1
+        fi
+      ping_liveness_master.sh: |-
+        #!/bin/bash
+        [[ -n "$REDIS_MASTER_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_MASTER_PASSWORD"
+        response=$(
+          timeout -s 3 $1 \
+          redis-cli \
+            -h $REDIS_MASTER_HOST \
+            -p $REDIS_MASTER_PORT_NUMBER \
+            ping
+        )
+        if [ "$response" != "PONG" ] && [ "$response" != "LOADING Redis is loading the dataset in memory" ]; then
+          echo "$response"
+          exit 1
+        fi
+      ping_readiness_local_and_master.sh: |-
+        script_dir="$(dirname "$0")"
+        exit_status=0
+        "$script_dir/ping_readiness_local.sh" $1 || exit_status=$?
+        "$script_dir/ping_readiness_master.sh" $1 || exit_status=$?
+        exit $exit_status
+      ping_liveness_local_and_master.sh: |-
+        script_dir="$(dirname "$0")"
+        exit_status=0
+        "$script_dir/ping_liveness_local.sh" $1 || exit_status=$?
+        "$script_dir/ping_liveness_master.sh" $1 || exit_status=$?
+        exit $exit_status
 
-envTpl:
+secret:
+  credentials:
+    enabled: true
+    data:
+      redis-password: '{{ ( .Values.redisPassword | default "nothing" ) }}'
+
+env:
+  REDIS_REPLICATION_MODE: master
+  ALLOW_EMPTY_PASSWORD: "yes"
   REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "redis-password"
 
 redisPassword: "testpass"
 existingSecret: ""
-
-envValueFrom:
-  REDIS_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "redis-password"
 
 service:
   main:
@@ -130,4 +203,4 @@ persistence:
     volumeSpec:
       configMap:
         defaultMode: 0755
-        name: redis-health
+        name: '{{ include "tc.common.names.fullname" . }}-health'

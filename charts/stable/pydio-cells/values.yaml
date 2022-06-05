@@ -11,6 +11,22 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+configmap:
+  install:
+    enabled: true
+    data:
+      pydiocells-install: |-
+        frontendapplicationtitle: {{ .Values.pydioinstall.title }}
+        frontendlogin: {{ .Values.pydioinstall.username }}
+        frontendpassword: {{ .Values.pydioinstall.password }}
+        frontendrepeatpassword: {{ .Values.pydioinstall.password }}
+        dbconnectiontype: tcp
+        dbtcphostname: {{ printf "%v-%v" .Release.Name "mariadb" }}
+        dbtcpport: 3306
+        dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
+        dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
+        dbtcppassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
+
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
@@ -82,6 +98,14 @@ persistence:
   services:
     enabled: true
     mountPath: "/cells/services"
+  pydiocells-install:
+    enabled: "true"
+    mountPath: "/cells/install.yml"
+    subPath: "pydiocells-install"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
 
 mariadb:
   enabled: true

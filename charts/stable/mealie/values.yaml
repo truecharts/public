@@ -21,8 +21,6 @@ env:
   DB_TYPE: postgres
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
