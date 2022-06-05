@@ -39,6 +39,20 @@
                       description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
+                    - value: "nfs"
+                      description: "NFS Share"
+              - variable: server
+                label: "NFS server"
+                schema:
+                  show_if: [["type", "=", "nfs"]]
+                  type: string
+                  default: ""
+              - variable: path
+                label: "Path on NFS server"
+                schema:
+                  show_if: [["type", "=", "nfs"]]
+                  type: string
+                  default: ""
               - variable: setPermissionsSimple
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
