@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.92"></a>
+### [mariadb-2.0.92](https://github.com/truecharts/apps/compare/mariadb-2.0.91...mariadb-2.0.92) (2022-06-05)
+
+#### Chore
+
+* update helm chart common to v9.3.29
+
+
+
 <a name="mariadb-2.0.91"></a>
 ### [mariadb-2.0.91](https://github.com/truecharts/apps/compare/mariadb-2.0.90...mariadb-2.0.91) (2022-06-04)
 
