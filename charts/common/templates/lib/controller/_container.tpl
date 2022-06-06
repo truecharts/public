@@ -90,20 +90,10 @@
       {{- if kindIs "map" $value -}}
         {{- if hasKey $value "value" }}
             {{- $value = $value.value -}}
-        {{- else if hasKey $value "secretKeyRef" }}
-      valueFrom:
-        secretKeyRef:
-           name: {{ tpl $value.secretKeyRef.name $ | quote }}
-           key: {{ tpl $value.secretKeyRef.key $ | quote }}
-        {{- else if hasKey $value "configMapRef" }}
-      valueFrom:
-        configMapRef:
-          name: {{ tpl $value.configMapRef.name $ | quote }}
-          key: {{ tpl $value.configMapRef.key $ | quote }}
         {{- else if hasKey $value "valueFrom" }}
-          {{- dict "valueFrom" $value.valueFrom | toYaml | nindent 6 }}
+      valueFrom: {{- tpl ( toYaml $value.valueFrom ) $ | nindent 8 }}
         {{- else }}
-          {{- dict "valueFrom" $value | toYaml | nindent 6 }}
+      valueFrom: {{- tpl ( toYaml $value ) $ | nindent 8 }}
         {{- end }}
       {{- end }}
       {{- if not (kindIs "map" $value) }}
