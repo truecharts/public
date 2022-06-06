@@ -2,10 +2,10 @@
 Renders the Secret objects required by the chart.
 */}}
 {{- define "tc.common.spawner.secret" -}}
-  {{- if .Values.secretEnv }}
-      {{- $secretValues := .Values.secretEnv -}}
+  {{- with .Values.secretEnv }}
+      {{- $secretEnvValues := dict "data" . -}}
 
-      {{- $_ := set $ "ObjectValues" (dict "secret" $secretValues) -}}
+      {{- $_ := set $ "ObjectValues" (dict "secret" $secretEnvValues) -}}
       {{- include "tc.common.class.secret" $ }}
   {{- end }}
 

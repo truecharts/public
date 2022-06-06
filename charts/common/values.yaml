@@ -303,11 +303,8 @@ externalInterfaces: []
   #        gateway: "192.168.0.1"
 
 
-# -- Use this to populate a secret with the values you specify.
-# Be aware that these values are not encrypted by default, and could therefore visible
-# to anybody with access to the values.yaml file.
+# -- Render these Env-Vars by putting them into a kubernetes secret first.
 secretEnv: {}
-  # PASSWORD: my-password
 
 # -- Main environment variables. Template enabled.
 # Syntax options:
