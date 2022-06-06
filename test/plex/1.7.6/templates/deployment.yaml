@@ -87,7 +87,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               command:
                 - /bin/plex_probe_check.sh
             initialDelaySeconds: 5
-            failureThreshold: 40
+            failureThreshold: 20
             periodSeconds: 15
       {{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
       volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
