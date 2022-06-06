@@ -4,7 +4,7 @@ Volumes included by the controller.
 {{- define "tc.common.controller.volumes" -}}
 {{- range $index, $persistence := .Values.persistence }}
 {{- if $persistence.enabled }}
-- name: {{ tpl  $index $ }}
+- name: {{ tpl ( toString $index ) $ }}
   {{- if eq (default "pvc" $persistence.type) "pvc" }}
     {{- $pvcName := (include "tc.common.names.fullname" $) -}}
     {{- if $persistence.existingClaim }}

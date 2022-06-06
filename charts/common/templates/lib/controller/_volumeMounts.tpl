@@ -28,7 +28,7 @@
   {{- if eq .Values.controller.type "statefulset" }}
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
 - mountPath: {{ $vct.mountPath }}
-  name: {{ $vct.name }}
+  name: {{ tpl ( toString $index ) $ }}
       {{- if $vct.subPath }}
   subPath: {{ $vct.subPath }}
       {{- end }}

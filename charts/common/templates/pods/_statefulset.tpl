@@ -49,7 +49,7 @@ spec:
   volumeClaimTemplates:
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
     - metadata:
-        name: {{ $vct.name }}
+        name: {{ tpl ( toString $index ) $ }}
       spec:
         accessModes:
           - {{ tpl ( $vct.accessMode | default "ReadWriteOnce" ) $ | quote }}
