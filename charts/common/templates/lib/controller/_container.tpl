@@ -90,6 +90,16 @@
       {{- if kindIs "map" $value -}}
         {{- if hasKey $value "value" }}
             {{- $value = $value.value -}}
+        {{- else if hasKey $value "secretKeyRef" }}
+      valueFrom:
+        secretKeyRef:
+           name: {{ tpl $value.secretKeyRef.name $ | quote }}
+           key: {{ tpl $value.secretKeyRef.key $ | quote }}
+        {{- else if hasKey $value "configMapRef" }}
+      valueFrom:
+        configMapRef:
+          name: {{ tpl $value.configMapRef.name $ | quote }}
+          key: {{ tpl $value.configMapRef.key $ | quote }}
         {{- else if hasKey $value "valueFrom" }}
           {{- dict "valueFrom" $value.valueFrom | toYaml | nindent 6 }}
         {{- else }}
@@ -104,21 +114,6 @@
       {{- end }}
     {{- end }}
   {{- end }}
-   {{- range $key, $value := .Values.envValueFrom }}
-    - name: {{ $key }}
-      valueFrom:
-        {{- if $value.secretKeyRef }}
-        secretKeyRef:
-          name: {{ tpl $value.secretKeyRef.name $ | quote }}
-          key: {{ tpl $value.secretKeyRef.key $ | quote }}
-        {{- else if $value.configMapRef }}
-        configMapRef:
-          name: {{ tpl $value.configMapRef.name $ | quote }}
-          key: {{ tpl $value.configMapRef.key $ | quote }}
-        {{- else }}
-        {{- $value | toYaml | nindent 8 }}
-        {{- end }}
-   {{- end }}
   {{- range $envList := .Values.envList }}
     {{- if and $envList.name $envList.value }}
     - name: {{ $envList.name }}
