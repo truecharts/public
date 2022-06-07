@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prowlarr-6.0.0"></a>
+### [prowlarr-6.0.0](https://github.com/truecharts/apps/compare/prowlarr-5.0.44...prowlarr-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="prowlarr-5.0.44"></a>
 ### [prowlarr-5.0.44](https://github.com/truecharts/apps/compare/prowlarr-5.0.43...prowlarr-5.0.44) (2022-06-04)
 

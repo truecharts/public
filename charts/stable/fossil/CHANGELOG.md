@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-4.0.0"></a>
+### [fossil-4.0.0](https://github.com/truecharts/apps/compare/fossil-3.0.19...fossil-4.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="fossil-3.0.19"></a>
 ### [fossil-3.0.19](https://github.com/truecharts/apps/compare/fossil-3.0.18...fossil-3.0.19) (2022-05-31)
 

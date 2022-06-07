@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-3.0.0"></a>
+### [shlink-web-client-3.0.0](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.20...shlink-web-client-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="shlink-web-client-2.0.20"></a>
 ### [shlink-web-client-2.0.20](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.19...shlink-web-client-2.0.20) (2022-05-31)
 

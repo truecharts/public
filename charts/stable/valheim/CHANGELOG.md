@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-3.0.0"></a>
+### [valheim-3.0.0](https://github.com/truecharts/apps/compare/valheim-2.0.50...valheim-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="valheim-2.0.50"></a>
 ### [valheim-2.0.50](https://github.com/truecharts/apps/compare/valheim-2.0.49...valheim-2.0.50) (2022-05-31)
 

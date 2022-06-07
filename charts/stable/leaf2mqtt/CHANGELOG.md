@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-4.0.0"></a>
+### [leaf2mqtt-4.0.0](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.20...leaf2mqtt-4.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="leaf2mqtt-3.0.20"></a>
 ### [leaf2mqtt-3.0.20](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.19...leaf2mqtt-3.0.20) (2022-05-31)
 

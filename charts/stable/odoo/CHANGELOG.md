@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="odoo-7.0.0"></a>
+### [odoo-7.0.0](https://github.com/truecharts/apps/compare/odoo-6.0.36...odoo-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="odoo-6.0.36"></a>
 ### [odoo-6.0.36](https://github.com/truecharts/apps/compare/odoo-6.0.35...odoo-6.0.36) (2022-06-02)
 

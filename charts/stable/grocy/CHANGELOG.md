@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="grocy-11.0.0"></a>
+### [grocy-11.0.0](https://github.com/truecharts/apps/compare/grocy-10.0.30...grocy-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="grocy-10.0.30"></a>
 ### [grocy-10.0.30](https://github.com/truecharts/apps/compare/grocy-10.0.29...grocy-10.0.30) (2022-06-03)
 

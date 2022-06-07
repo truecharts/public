@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="cups-server-1.0.0"></a>
+### [cups-server-1.0.0](https://github.com/truecharts/apps/compare/cups-server-0.0.11...cups-server-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="cups-server-0.0.11"></a>
 ### [cups-server-0.0.11](https://github.com/truecharts/apps/compare/cups-server-0.0.10...cups-server-0.0.11) (2022-05-31)
 

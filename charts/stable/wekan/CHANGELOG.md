@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wekan-3.0.0"></a>
+### [wekan-3.0.0](https://github.com/truecharts/apps/compare/wekan-2.0.17...wekan-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="wekan-2.0.17"></a>
 ### [wekan-2.0.17](https://github.com/truecharts/apps/compare/wekan-2.0.16...wekan-2.0.17) (2022-05-31)
 

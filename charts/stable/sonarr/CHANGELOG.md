@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="sonarr-11.0.0"></a>
+### [sonarr-11.0.0](https://github.com/truecharts/apps/compare/sonarr-10.0.21...sonarr-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="sonarr-10.0.21"></a>
 ### [sonarr-10.0.21](https://github.com/truecharts/apps/compare/sonarr-10.0.20...sonarr-10.0.21) (2022-05-31)
 

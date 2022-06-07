@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="gotify-7.0.0"></a>
+### [gotify-7.0.0](https://github.com/truecharts/apps/compare/gotify-6.0.23...gotify-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="gotify-6.0.23"></a>
 ### [gotify-6.0.23](https://github.com/truecharts/apps/compare/gotify-6.0.22...gotify-6.0.23) (2022-05-31)
 

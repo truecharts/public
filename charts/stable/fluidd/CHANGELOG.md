@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fluidd-2.0.0"></a>
+### [fluidd-2.0.0](https://github.com/truecharts/apps/compare/fluidd-1.0.13...fluidd-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="fluidd-1.0.13"></a>
 ### [fluidd-1.0.13](https://github.com/truecharts/apps/compare/fluidd-1.0.12...fluidd-1.0.13) (2022-05-31)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="freeradius-6.0.0"></a>
+### [freeradius-6.0.0](https://github.com/truecharts/apps/compare/freeradius-5.0.19...freeradius-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="freeradius-5.0.19"></a>
 ### [freeradius-5.0.19](https://github.com/truecharts/apps/compare/freeradius-5.0.18...freeradius-5.0.19) (2022-05-31)
 

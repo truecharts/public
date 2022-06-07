@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-3.0.0"></a>
+### [novnc-3.0.0](https://github.com/truecharts/apps/compare/novnc-2.0.19...novnc-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="novnc-2.0.19"></a>
 ### [novnc-2.0.19](https://github.com/truecharts/apps/compare/novnc-2.0.18...novnc-2.0.19) (2022-05-31)
 

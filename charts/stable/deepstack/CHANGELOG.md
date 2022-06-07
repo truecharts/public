@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="deepstack-4.0.0"></a>
+### [deepstack-4.0.0](https://github.com/truecharts/apps/compare/deepstack-3.0.21...deepstack-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="deepstack-3.0.21"></a>
 ### [deepstack-3.0.21](https://github.com/truecharts/apps/compare/deepstack-3.0.20...deepstack-3.0.21) (2022-05-31)
 

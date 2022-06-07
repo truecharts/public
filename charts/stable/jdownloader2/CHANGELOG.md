@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-8.0.0"></a>
+### [jdownloader2-8.0.0](https://github.com/truecharts/apps/compare/jdownloader2-7.0.17...jdownloader2-8.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="jdownloader2-7.0.17"></a>
 ### [jdownloader2-7.0.17](https://github.com/truecharts/apps/compare/jdownloader2-7.0.16...jdownloader2-7.0.17) (2022-05-31)
 

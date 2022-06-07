@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wireshark-2.0.0"></a>
+### [wireshark-2.0.0](https://github.com/truecharts/apps/compare/wireshark-1.0.20...wireshark-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="wireshark-1.0.20"></a>
 ### [wireshark-1.0.20](https://github.com/truecharts/apps/compare/wireshark-1.0.19...wireshark-1.0.20) (2022-05-31)
 

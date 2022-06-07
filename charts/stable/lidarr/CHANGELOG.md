@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lidarr-11.0.0"></a>
+### [lidarr-11.0.0](https://github.com/truecharts/apps/compare/lidarr-10.0.33...lidarr-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="lidarr-10.0.33"></a>
 ### [lidarr-10.0.33](https://github.com/truecharts/apps/compare/lidarr-10.0.32...lidarr-10.0.33) (2022-06-04)
 

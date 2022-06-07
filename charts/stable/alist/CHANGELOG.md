@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="alist-2.0.0"></a>
+### [alist-2.0.0](https://github.com/truecharts/apps/compare/alist-1.0.31...alist-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="alist-1.0.31"></a>
 ### [alist-1.0.31](https://github.com/truecharts/apps/compare/alist-1.0.30...alist-1.0.31) (2022-05-31)
 

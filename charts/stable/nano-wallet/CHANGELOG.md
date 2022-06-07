@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-2.0.0"></a>
+### [nano-wallet-2.0.0](https://github.com/truecharts/apps/compare/nano-wallet-1.0.19...nano-wallet-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="nano-wallet-1.0.19"></a>
 ### [nano-wallet-1.0.19](https://github.com/truecharts/apps/compare/nano-wallet-1.0.18...nano-wallet-1.0.19) (2022-05-31)
 

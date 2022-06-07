@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-6.0.0"></a>
+### [k8s-gateway-6.0.0](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.21...k8s-gateway-6.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="k8s-gateway-5.0.21"></a>
 ### [k8s-gateway-5.0.21](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.20...k8s-gateway-5.0.21) (2022-05-31)
 

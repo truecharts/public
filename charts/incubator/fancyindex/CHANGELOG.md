@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fancyindex-1.0.0"></a>
+### [fancyindex-1.0.0](https://github.com/truecharts/apps/compare/fancyindex-0.0.6...fancyindex-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="fancyindex-0.0.6"></a>
 ### [fancyindex-0.0.6](https://github.com/truecharts/apps/compare/fancyindex-0.0.5...fancyindex-0.0.6) (2022-05-31)
 

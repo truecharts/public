@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="stash-7.0.0"></a>
+### [stash-7.0.0](https://github.com/truecharts/apps/compare/stash-6.0.22...stash-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="stash-6.0.22"></a>
 ### [stash-6.0.22](https://github.com/truecharts/apps/compare/stash-6.0.21...stash-6.0.22) (2022-05-31)
 

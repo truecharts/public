@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.0"></a>
+### [redis-3.0.0](https://github.com/truecharts/apps/compare/redis-2.0.83...redis-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="redis-2.0.83"></a>
 ### [redis-2.0.83](https://github.com/truecharts/apps/compare/redis-2.0.82...redis-2.0.83) (2022-06-05)
 

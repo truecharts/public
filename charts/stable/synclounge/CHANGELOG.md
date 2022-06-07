@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synclounge-2.0.0"></a>
+### [synclounge-2.0.0](https://github.com/truecharts/apps/compare/synclounge-1.0.21...synclounge-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="synclounge-1.0.21"></a>
 ### [synclounge-1.0.21](https://github.com/truecharts/apps/compare/synclounge-1.0.20...synclounge-1.0.21) (2022-06-04)
 

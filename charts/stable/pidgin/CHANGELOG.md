@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pidgin-2.0.0"></a>
+### [pidgin-2.0.0](https://github.com/truecharts/apps/compare/pidgin-1.0.19...pidgin-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="pidgin-1.0.19"></a>
 ### [pidgin-1.0.19](https://github.com/truecharts/apps/compare/pidgin-1.0.18...pidgin-1.0.19) (2022-05-31)
 

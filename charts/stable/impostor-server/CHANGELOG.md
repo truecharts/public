@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-1.0.0"></a>
+### [impostor-server-1.0.0](https://github.com/truecharts/apps/compare/impostor-server-0.0.40...impostor-server-1.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="impostor-server-0.0.40"></a>
 ### [impostor-server-0.0.40](https://github.com/truecharts/apps/compare/impostor-server-0.0.39...impostor-server-0.0.40) (2022-06-04)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="home-assistant-14.0.0"></a>
+### [home-assistant-14.0.0](https://github.com/truecharts/apps/compare/home-assistant-13.0.41...home-assistant-14.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="home-assistant-13.0.41"></a>
 ### [home-assistant-13.0.41](https://github.com/truecharts/apps/compare/home-assistant-13.0.40...home-assistant-13.0.41) (2022-06-03)
 

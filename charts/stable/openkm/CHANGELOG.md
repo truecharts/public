@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="openkm-6.0.0"></a>
+### [openkm-6.0.0](https://github.com/truecharts/apps/compare/openkm-5.0.24...openkm-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="openkm-5.0.24"></a>
 ### [openkm-5.0.24](https://github.com/truecharts/apps/compare/openkm-5.0.23...openkm-5.0.24) (2022-05-31)
 

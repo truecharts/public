@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="drawio-2.0.0"></a>
+### [drawio-2.0.0](https://github.com/truecharts/apps/compare/drawio-1.0.20...drawio-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="drawio-1.0.20"></a>
 ### [drawio-1.0.20](https://github.com/truecharts/apps/compare/drawio-1.0.19...drawio-1.0.20) (2022-05-31)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-4.0.0"></a>
+### [uptimerobot-prometheus-4.0.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.19...uptimerobot-prometheus-4.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="uptimerobot-prometheus-3.0.19"></a>
 ### [uptimerobot-prometheus-3.0.19](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.18...uptimerobot-prometheus-3.0.19) (2022-05-31)
 

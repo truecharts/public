@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fileflows-2.0.0"></a>
+### [fileflows-2.0.0](https://github.com/truecharts/apps/compare/fileflows-1.0.2...fileflows-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="fileflows-1.0.2"></a>
 ### [fileflows-1.0.2](https://github.com/truecharts/apps/compare/fileflows-1.0.1...fileflows-1.0.2) (2022-06-02)
 

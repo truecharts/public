@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-6.0.0"></a>
+### [wikijs-6.0.0](https://github.com/truecharts/apps/compare/wikijs-5.0.30...wikijs-6.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="wikijs-5.0.30"></a>
 ### [wikijs-5.0.30](https://github.com/truecharts/apps/compare/wikijs-5.0.29...wikijs-5.0.30) (2022-05-31)
 

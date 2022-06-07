@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-3.0.0"></a>
+### [prometheus-3.0.0](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="prometheus-2.0.77"></a>
 ### [prometheus-2.0.77](https://github.com/truecharts/apps/compare/prometheus-2.0.76...prometheus-2.0.77) (2022-06-04)
 

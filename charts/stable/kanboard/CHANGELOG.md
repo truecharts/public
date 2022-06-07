@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kanboard-7.0.0"></a>
+### [kanboard-7.0.0](https://github.com/truecharts/apps/compare/kanboard-6.0.24...kanboard-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="kanboard-6.0.24"></a>
 ### [kanboard-6.0.24](https://github.com/truecharts/apps/compare/kanboard-6.0.23...kanboard-6.0.24) (2022-05-31)
 

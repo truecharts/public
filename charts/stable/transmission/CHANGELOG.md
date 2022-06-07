@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="transmission-12.0.0"></a>
+### [transmission-12.0.0](https://github.com/truecharts/apps/compare/transmission-11.0.19...transmission-12.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="transmission-11.0.19"></a>
 ### [transmission-11.0.19](https://github.com/truecharts/apps/compare/transmission-11.0.18...transmission-11.0.19) (2022-05-31)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="embystat-2.0.0"></a>
+### [embystat-2.0.0](https://github.com/truecharts/apps/compare/embystat-1.0.19...embystat-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="embystat-1.0.19"></a>
 ### [embystat-1.0.19](https://github.com/truecharts/apps/compare/embystat-1.0.18...embystat-1.0.19) (2022-05-31)
 

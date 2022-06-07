@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-2.0.0"></a>
+### [audiobookshelf-2.0.0](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.19...audiobookshelf-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="audiobookshelf-1.0.19"></a>
 ### [audiobookshelf-1.0.19](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.18...audiobookshelf-1.0.19) (2022-05-31)
 

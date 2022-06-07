@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="linkace-3.0.0"></a>
+### [linkace-3.0.0](https://github.com/truecharts/apps/compare/linkace-2.0.28...linkace-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="linkace-2.0.28"></a>
 ### [linkace-2.0.28](https://github.com/truecharts/apps/compare/linkace-2.0.27...linkace-2.0.28) (2022-05-31)
 

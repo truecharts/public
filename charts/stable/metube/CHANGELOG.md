@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="metube-2.0.0"></a>
+### [metube-2.0.0](https://github.com/truecharts/apps/compare/metube-1.0.9...metube-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="metube-1.0.9"></a>
 ### [metube-1.0.9](https://github.com/truecharts/apps/compare/metube-1.0.8...metube-1.0.9) (2022-05-31)
 

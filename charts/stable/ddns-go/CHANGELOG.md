@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="ddns-go-2.0.0"></a>
+### [ddns-go-2.0.0](https://github.com/truecharts/apps/compare/ddns-go-1.0.25...ddns-go-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="ddns-go-1.0.25"></a>
 ### [ddns-go-1.0.25](https://github.com/truecharts/apps/compare/ddns-go-1.0.24...ddns-go-1.0.25) (2022-05-31)
 

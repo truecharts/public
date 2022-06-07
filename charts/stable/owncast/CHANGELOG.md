@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="owncast-6.0.0"></a>
+### [owncast-6.0.0](https://github.com/truecharts/apps/compare/owncast-5.0.20...owncast-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="owncast-5.0.20"></a>
 ### [owncast-5.0.20](https://github.com/truecharts/apps/compare/owncast-5.0.19...owncast-5.0.20) (2022-05-31)
 

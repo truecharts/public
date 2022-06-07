@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="minio-console-3.0.0"></a>
+### [minio-console-3.0.0](https://github.com/truecharts/apps/compare/minio-console-2.0.32...minio-console-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="minio-console-2.0.32"></a>
 ### [minio-console-2.0.32](https://github.com/truecharts/apps/compare/minio-console-2.0.31...minio-console-2.0.32) (2022-06-03)
 

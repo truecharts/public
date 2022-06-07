@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="code-server-4.0.0"></a>
+### [code-server-4.0.0](https://github.com/truecharts/apps/compare/code-server-3.0.24...code-server-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="code-server-3.0.24"></a>
 ### [code-server-3.0.24](https://github.com/truecharts/apps/compare/openvscode-server-1.0.24...code-server-3.0.24) (2022-05-31)
 

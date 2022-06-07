@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-6.0.0"></a>
+### [booksonic-air-6.0.0](https://github.com/truecharts/apps/compare/booksonic-air-5.0.29...booksonic-air-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="booksonic-air-5.0.29"></a>
 ### [booksonic-air-5.0.29](https://github.com/truecharts/apps/compare/booksonic-air-5.0.28...booksonic-air-5.0.29) (2022-06-03)
 

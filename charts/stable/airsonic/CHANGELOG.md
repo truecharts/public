@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="airsonic-6.0.0"></a>
+### [airsonic-6.0.0](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.23...airsonic-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="airsonic-5.0.19"></a>
 ### [airsonic-5.0.19](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.22...airsonic-5.0.19) (2022-05-31)
 

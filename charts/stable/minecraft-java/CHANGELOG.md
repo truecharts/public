@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.0"></a>
+### [minecraft-java-1.0.0](https://github.com/truecharts/apps/compare/minecraft-java-0.0.60...minecraft-java-1.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="minecraft-java-0.0.60"></a>
 ### [minecraft-java-0.0.60](https://github.com/truecharts/apps/compare/minecraft-java-0.0.59...minecraft-java-0.0.60) (2022-05-31)
 

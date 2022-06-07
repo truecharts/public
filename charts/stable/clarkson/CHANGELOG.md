@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-2.0.0"></a>
+### [clarkson-2.0.0](https://github.com/truecharts/apps/compare/clarkson-1.0.25...clarkson-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="clarkson-1.0.25"></a>
 ### [clarkson-1.0.25](https://github.com/truecharts/apps/compare/clarkson-1.0.24...clarkson-1.0.25) (2022-05-31)
 

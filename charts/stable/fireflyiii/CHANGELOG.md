@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-15.0.0"></a>
+### [fireflyiii-15.0.0](https://github.com/truecharts/apps/compare/fireflyiii-14.0.30...fireflyiii-15.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="fireflyiii-14.0.30"></a>
 ### [fireflyiii-14.0.30](https://github.com/truecharts/apps/compare/fireflyiii-14.0.29...fireflyiii-14.0.30) (2022-06-02)
 

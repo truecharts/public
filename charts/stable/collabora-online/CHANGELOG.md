@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.0.0"></a>
+### [collabora-online-12.0.0](https://github.com/truecharts/apps/compare/collabora-online-11.0.27...collabora-online-12.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="collabora-online-11.0.27"></a>
 ### [collabora-online-11.0.27](https://github.com/truecharts/apps/compare/collabora-online-11.0.26...collabora-online-11.0.27) (2022-05-31)
 

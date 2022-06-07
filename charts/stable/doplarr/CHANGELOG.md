@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doplarr-2.0.0"></a>
+### [doplarr-2.0.0](https://github.com/truecharts/apps/compare/doplarr-1.0.17...doplarr-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="doplarr-1.0.17"></a>
 ### [doplarr-1.0.17](https://github.com/truecharts/apps/compare/doplarr-1.0.16...doplarr-1.0.17) (2022-05-31)
 

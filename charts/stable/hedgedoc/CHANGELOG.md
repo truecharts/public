@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-2.0.0"></a>
+### [hedgedoc-2.0.0](https://github.com/truecharts/apps/compare/hedgedoc-1.0.24...hedgedoc-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="hedgedoc-1.0.24"></a>
 ### [hedgedoc-1.0.24](https://github.com/truecharts/apps/compare/hedgedoc-1.0.23...hedgedoc-1.0.24) (2022-05-31)
 

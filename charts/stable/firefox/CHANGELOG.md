@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="firefox-2.0.0"></a>
+### [firefox-2.0.0](https://github.com/truecharts/apps/compare/firefox-1.0.19...firefox-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="firefox-1.0.19"></a>
 ### [firefox-1.0.19](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.4...firefox-1.0.19) (2022-05-31)
 

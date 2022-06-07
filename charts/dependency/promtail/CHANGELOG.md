@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.0"></a>
+### [promtail-3.0.0](https://github.com/truecharts/apps/compare/promtail-2.0.52...promtail-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="promtail-2.0.52"></a>
 ### [promtail-2.0.52](https://github.com/truecharts/apps/compare/promtail-2.0.51...promtail-2.0.52) (2022-06-05)
 

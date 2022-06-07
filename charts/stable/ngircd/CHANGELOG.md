@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="ngircd-2.0.0"></a>
+### [ngircd-2.0.0](https://github.com/truecharts/apps/compare/ngircd-1.0.19...ngircd-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="ngircd-1.0.19"></a>
 ### [ngircd-1.0.19](https://github.com/truecharts/apps/compare/ngircd-1.0.18...ngircd-1.0.19) (2022-05-31)
 

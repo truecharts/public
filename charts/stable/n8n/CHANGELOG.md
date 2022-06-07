@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="n8n-3.0.0"></a>
+### [n8n-3.0.0](https://github.com/truecharts/apps/compare/n8n-2.0.37...n8n-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="n8n-2.0.37"></a>
 ### [n8n-2.0.37](https://github.com/truecharts/apps/compare/n8n-2.0.36...n8n-2.0.37) (2022-05-31)
 

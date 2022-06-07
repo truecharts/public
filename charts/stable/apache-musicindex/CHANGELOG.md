@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-4.0.0"></a>
+### [apache-musicindex-4.0.0](https://github.com/truecharts/apps/compare/apache-musicindex-3.0.19...apache-musicindex-4.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="apache-musicindex-3.0.19"></a>
 ### [apache-musicindex-3.0.19](https://github.com/truecharts/apps/compare/apache-musicindex-3.0.18...apache-musicindex-3.0.19) (2022-05-31)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="ddns-updater-2.0.0"></a>
+### [ddns-updater-2.0.0](https://github.com/truecharts/apps/compare/ddns-updater-1.0.10...ddns-updater-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="ddns-updater-1.0.10"></a>
 ### [ddns-updater-1.0.10](https://github.com/truecharts/apps/compare/ddns-updater-1.0.9...ddns-updater-1.0.10) (2022-05-31)
 

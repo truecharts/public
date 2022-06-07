@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="theme-park-1.0.0"></a>
+### [theme-park-1.0.0](https://github.com/truecharts/apps/compare/theme-park-0.0.3...theme-park-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="theme-park-0.0.3"></a>
 ### [theme-park-0.0.3](https://github.com/truecharts/apps/compare/theme-park-0.0.2...theme-park-0.0.3) (2022-06-02)
 

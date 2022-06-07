@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="davos-4.0.0"></a>
+### [davos-4.0.0](https://github.com/truecharts/apps/compare/davos-3.0.19...davos-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="davos-3.0.19"></a>
 ### [davos-3.0.19](https://github.com/truecharts/apps/compare/davos-3.0.18...davos-3.0.19) (2022-05-31)
 
