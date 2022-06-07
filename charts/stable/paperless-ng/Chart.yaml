@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: paperless-ng
-version: 3.0.2
+version: 4.0.0
 appVersion: "1.7.1"
 description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 type: application
@@ -23,11 +23,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.93
+  version: 8.0.1
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 2.0.83
+  version: 3.0.1
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
