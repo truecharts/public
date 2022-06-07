@@ -7,11 +7,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 7.0.85
+  version: 7.0.93
 - condition: memcached.enabled
   name: memcached
   repository: https://charts.truecharts.org/
-  version: 2.0.84
+  version: 2.0.91
 deprecated: false
 description: Self hosted GIT repositories
 home: https://github.com/truecharts/apps/tree/master/charts/stable/gitea
