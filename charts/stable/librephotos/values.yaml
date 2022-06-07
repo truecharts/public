@@ -19,11 +19,71 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   ADMIN_EMAIL: "admin@mydomain.com"
   ADMIN_USERNAME: "admin"
   ADMIN_PASSWORD: "password"
   MAPBOX_API_KEY: ""
+
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        user  nginx;
+        worker_processes  1;
+
+        error_log  /var/log/nginx/error.log debug;
+
+        events {
+            worker_connections  1024;
+        }
+
+        http {
+          server {
+            listen 80;
+            location / {
+              # React routes are entirely on the App side in the web broswer
+              # Always proxy to root with the same page request when nginx 404s
+              error_page 404 /;
+              proxy_intercept_errors on;
+              proxy_set_header Host $host;
+              proxy_pass http://localhost:3000/;
+            }
+            location ~ ^/(api|media)/ {
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header Host localhost;
+              include uwsgi_params;
+              proxy_pass http://localhost:8001;
+            }
+            # Django media
+            location /protected_media  {
+                internal;
+                alias /protected_media/;
+            }
+
+            location /static/drf-yasg {
+                proxy_pass http://localhost:8001;
+            }
+
+            location /data  {
+                internal;
+                alias /data/;
+            }
+
+            # Original Photos
+            location /original  {
+                internal;
+                alias /data/;
+            }
+            # Nextcloud Original Photos
+            location /nextcloud_original  {
+                internal;
+                alias /data/nextcloud_media/;
+            }
+          }
+        }
 
 env:
   BACKEND_HOST: "localhost"
@@ -36,8 +96,6 @@ env:
   SKIP_PATTERNS: ""
   HEAVYWEIGHT_PROCESS: 1
   DEBUG: 0
-
-envValueFrom:
   DB_PASS:
     secretKeyRef:
       name: dbcreds
@@ -118,3 +176,11 @@ persistence:
   cache:
     enabled: true
     mountPath: "/root/.cache"
+  librephotos-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'

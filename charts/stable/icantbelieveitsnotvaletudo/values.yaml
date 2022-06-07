@@ -10,16 +10,33 @@ controller:
   # -- Set the controller upgrade strategy
   strategy: RollingUpdate
 
+configmap:
+  settings:
+    enabled: true
+    data:
+      config.json: |
+        {{- .Values.config | mustToPrettyJson | nindent 4 }}
+
 service:
   main:
     ports:
       main:
         port: 10039
         targetPort: 3000
+
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+  settings:
+    enabled: true
+    mountPath: "/app/config.json"
+    subPath: "config.json"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-settings" (include "tc.common.names.fullname" .) }}'
+
 # -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
 # @default -- See values.yaml
 config:

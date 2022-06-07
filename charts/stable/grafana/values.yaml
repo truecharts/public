@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: v8.5.4@sha256:67ffe5a759140d6fe11d484afd24d16cbf01d5cc500bad9d33a932c68eae553d
+  tag: v8.5.4@sha256:f63f123fe80e7b83b5d9d6ef36ab8a145d820ff2f5c30a9844345ebdab647236
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,7 +24,7 @@ probes:
   startup:
     path: "/api/health"
 
-secret:
+secretEnv:
   GF_SECURITY_ADMIN_USER: "admin"
   GF_SECURITY_ADMIN_PASSWORD: "testpassword"
 

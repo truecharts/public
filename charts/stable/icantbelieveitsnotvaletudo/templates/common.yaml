@@ -1,30 +1,4 @@
-{{- include "common.setup" . }}
-
-{{/* Append the hardcoded settings */}}
-{{- define "icantbelieveitsnotvaletudo.harcodedValues" -}}
-persistence:
-  settings:
-    enabled: "true"
-    mountPath: "/app/config.json"
-    subPath: "config.json"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-settings" (include "common.names.fullname" .) }}
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
-service:
-  main:
-    enabled: false
-{{- end -}}
-{{- $_ := mergeOverwrite .Values (include "icantbelieveitsnotvaletudo.harcodedValues" . | fromYaml) -}}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

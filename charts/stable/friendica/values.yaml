@@ -26,6 +26,22 @@ env:
   FRIENDICA_UPGRADE: false
   PHP_MEMORY_LIMIT: "512M"
   PHP_UPLOAD_LIMIT: "512M"
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PW:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 service:
   main:
@@ -51,24 +67,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-
-envValueFrom:
-  MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PW:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 redis:
   enabled: true

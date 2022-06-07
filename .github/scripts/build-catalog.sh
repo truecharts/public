@@ -201,6 +201,7 @@ patch_apps() {
     touch ${target}/values.yaml
     # mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
+    cp -rf ${target}/SCALE/migrations/* ${target}/migrations 2>/dev/null || :
     rm -rf ${target}/SCALE 2>/dev/null || :
     touch ${target}/values.yaml
     # Generate item.yaml

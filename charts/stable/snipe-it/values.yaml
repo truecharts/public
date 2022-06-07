@@ -38,8 +38,6 @@ env:
   # Login
   LOGIN_MAX_ATTEMPTS: 5
   LOGIN_LOCKOUT_DURATION: 60
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds

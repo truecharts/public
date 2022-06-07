@@ -18,8 +18,6 @@ env:
   CONTEXT_PATH: "/"
   spring_liquibase_parameters_userTableQuote: '"'
   spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
-
-envValueFrom:
   spring_datasource_url:
     secretKeyRef:
       name: dbcreds

@@ -1,19 +1,5 @@
-{{- include "common.setup" . }}
-
-{{/* Append the general configMap volume to the volumes */}}
-{{- define "vikunja.harcodedValues" -}}
-persistence:
-  vikunja-config:
-    enabled: "true"
-    mountPath: "/etc/nginx/conf.d/default.conf"
-    subPath: "nginx-config"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
-{{- end -}}
-{{- $_ := mergeOverwrite .Values (include "vikunja.harcodedValues" . | fromYaml) -}}
+{{- include "tc.common.loader.init" . }}
 
 {{- include "vikunja.secrets" . }}
 
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

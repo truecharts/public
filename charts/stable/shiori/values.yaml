@@ -16,8 +16,6 @@ podSecurityContext:
 env:
   SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-
-envValueFrom:
   SHIORI_PG_PASS:
     secretKeyRef:
       name: dbcreds

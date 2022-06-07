@@ -14,7 +14,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   ZEROTIER_API_SECRET: ""
   ZEROTIER_IDENTITY_PUBLIC: ""
   ZEROTIER_IDENTITY_SECRET: ""

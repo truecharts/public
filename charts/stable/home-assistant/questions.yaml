@@ -74,23 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: git
-    group: "Container Configuration"
-    label: "Home-Assistant Git Settings"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: deployKey
-          label: "Git deploy key"
-          schema:
-            type: string
-            default: ""
-        - variable: deployKeyBase64
-          label: "Git KeyBase64 deploy key"
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 
   - variable: service

@@ -6,7 +6,7 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   RPC_SECRET: "ChangemeNow"
   # -- environment variables. See more environment variables in the [Aria2c documentation](https://github.com/P3TERX/Aria2-Pro-Docker).
   # @default -- See below

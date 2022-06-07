@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: emulatorjs
-version: 1.0.21
+version: 2.0.0
 appVersion: "1.7.1"
 description: Emulatorjs - In browser web based emulation portable to nearly any device for many retro consoles.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.24
+  version: 10.0.8
   # condition:
 maintainers:
 - email: info@truecharts.org

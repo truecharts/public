@@ -58,23 +58,24 @@ jobs:
       - name: Collect changes
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
+        shell: bash
         run: |
           EXCLUDED=$(yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
           CHARTS=$(ct list-changed --config .github/ct-lint.yaml)
           CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
-          OUTPUT_JSON1=$(echo $OUTPUT_JSON | jq -r -c '.[:250]')
-          OUTPUT_JSON2=$(echo $OUTPUT_JSON | jq -r -c '.[251:500]')
-          OUTPUT_JSON3=$(echo $OUTPUT_JSON | jq -r -c '.[501:750]')
-          OUTPUT_JSON4=$(echo $OUTPUT_JSON | jq -r -c '.[751:1000]')
-          OUTPUT_JSON5=$(echo $OUTPUT_JSON | jq -r -c '.[1001:1250]')
-          OUTPUT_JSON6=$(echo $OUTPUT_JSON | jq -r -c '.[1251:1500]')
+          OUTPUT_JSON1=$((echo $OUTPUT_JSON | jq -r -c '.[:50]'; echo $OUTPUT_JSON | jq -r -c '.[301:350]'; echo $OUTPUT_JSON | jq -r -c '.[601:650]'; echo $OUTPUT_JSON | jq -r -c '.[901:950]'; echo $OUTPUT_JSON | jq -r -c '.[1201:1250]') | jq -s add)
+          OUTPUT_JSON2=$((echo $OUTPUT_JSON | jq -r -c '.[51:100]'; echo $OUTPUT_JSON | jq -r -c '.[351:400]'; echo $OUTPUT_JSON | jq -r -c '.[651:700]'; echo $OUTPUT_JSON | jq -r -c '.[951:1000]'; echo $OUTPUT_JSON | jq -r -c '.[1251:1300]') | jq -s add)
+          OUTPUT_JSON3=$((echo $OUTPUT_JSON | jq -r -c '.[101:150]'; echo $OUTPUT_JSON | jq -r -c '.[401:450]'; echo $OUTPUT_JSON | jq -r -c '.[701:750]'; echo $OUTPUT_JSON | jq -r -c '.[1001:1050]'; echo $OUTPUT_JSON | jq -r -c '.[1301:1350]') | jq -s add)
+          OUTPUT_JSON4=$((echo $OUTPUT_JSON | jq -r -c '.[151:200]'; echo $OUTPUT_JSON | jq -r -c '.[451:500]'; echo $OUTPUT_JSON | jq -r -c '.[751:800]'; echo $OUTPUT_JSON | jq -r -c '.[1051:1100]'; echo $OUTPUT_JSON | jq -r -c '.[1351:1400]') | jq -s add)
+          OUTPUT_JSON5=$((echo $OUTPUT_JSON | jq -r -c '.[201:250]'; echo $OUTPUT_JSON | jq -r -c '.[501:550]'; echo $OUTPUT_JSON | jq -r -c '.[801:850]'; echo $OUTPUT_JSON | jq -r -c '.[1101:1150]'; echo $OUTPUT_JSON | jq -r -c '.[1401:1450]') | jq -s add)
+          OUTPUT_JSON6=$((echo $OUTPUT_JSON | jq -r -c '.[251:300]'; echo $OUTPUT_JSON | jq -r -c '.[551:600]'; echo $OUTPUT_JSON | jq -r -c '.[851:900]'; echo $OUTPUT_JSON | jq -r -c '.[1151:1200]'; echo $OUTPUT_JSON | jq -r -c '.[1451:1500]') | jq -s add)
           echo ::set-output name=charts1::${OUTPUT_JSON1}
           echo ::set-output name=charts2::${OUTPUT_JSON2}
-          echo ::set-output name=charts2::${OUTPUT_JSON3}
-          echo ::set-output name=charts2::${OUTPUT_JSON4}
-          echo ::set-output name=charts2::${OUTPUT_JSON5}
-          echo ::set-output name=charts2::${OUTPUT_JSON6}
+          echo ::set-output name=charts3::${OUTPUT_JSON3}
+          echo ::set-output name=charts4::${OUTPUT_JSON4}
+          echo ::set-output name=charts5::${OUTPUT_JSON5}
+          echo ::set-output name=charts6::${OUTPUT_JSON6}
           if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
             echo "::set-output name=detected1::true"
           fi
@@ -112,7 +113,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -146,7 +147,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -180,7 +181,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -214,7 +215,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -248,7 +249,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -282,7 +283,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@ce0b2d7df14d57e25dc8959d693692c9aff5d3c6 # tag=v0.8.1
         with:
           setup-tools: |
             helmv3
@@ -305,11 +306,15 @@ jobs:
       - generate-lint-matrix
       - lint-charts1
       - lint-charts2
+      - lint-charts3
+      - lint-charts4
+      - lint-charts5
+      - lint-charts6
     if: |
       always()
     name: Lint successful
     runs-on: ubuntu-latest
     steps:
       - name: Check lint matrix status
-        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected3 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts3.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected4 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts4.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected5 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts5.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected6 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts6.result != 'skipped' ) ) ) }}
+        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected3 == 'true') && ( (needs.lint-charts3.result != 'success') || ( needs.lint-charts3.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected4 == 'true') && ( (needs.lint-charts4.result != 'success') || ( needs.lint-charts4.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected5 == 'true') && ( (needs.lint-charts5.result != 'success') || ( needs.lint-charts5.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected6 == 'true') && ( (needs.lint-charts6.result != 'success') || ( needs.lint-charts6.result != 'skipped' ) ) ) }}
         run: exit 1

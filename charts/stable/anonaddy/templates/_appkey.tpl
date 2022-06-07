@@ -8,7 +8,7 @@ kind: Secret
 type: Opaque
 metadata:
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
   name: appkey
 {{- $keyprevious := lookup "v1" "Secret" .Release.Namespace "appkey" }}
 {{- $appkey := "" }}

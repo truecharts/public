@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render secrets for gitea */}}
 {{- include "gitea.secrets" . }}
@@ -15,7 +15,7 @@ readOnly: true
 type: "custom"
 volumeSpec:
   secret:
-    secretName: {{ include "common.names.fullname" . }}-init
+    secretName: {{ include "tc.common.names.fullname" . }}-init
     defaultMode: 0777
 {{- end -}}
 
@@ -27,7 +27,7 @@ readOnly: true
 type: "custom"
 volumeSpec:
   secret:
-    secretName: {{ include "common.names.fullname" . }}
+    secretName: {{ include "tc.common.names.fullname" . }}
 {{- end -}}
 
 {{- $_ := set .Values.persistence "init" (include "gitea.initvolume" . | fromYaml) -}}
@@ -35,4 +35,4 @@ volumeSpec:
 
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

@@ -16,8 +16,6 @@ env:
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   # User Defined
   JAVA_OPTS: ""
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds

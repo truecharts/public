@@ -15,16 +15,6 @@ env:
   DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DJANGO_DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DJANGO_DATABASE_PORT: "5432"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-envValueFrom:
   DJANGO_DATABASE_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -33,6 +23,14 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

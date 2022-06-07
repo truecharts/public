@@ -43,8 +43,6 @@ env:
   tenor__contentFilter: "off"
   opensea__privateReadOnlyApiKey: ""
   twitter__privateReadOnlyToken: ""
-
-envValueFrom:
   database__connection__host:
     secretKeyRef:
       name: mariadbcreds

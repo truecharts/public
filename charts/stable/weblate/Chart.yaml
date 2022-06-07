@@ -3,7 +3,7 @@ appVersion: "4.12.1"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.24
+  version: 10.0.8
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
@@ -28,7 +28,7 @@ sources:
 - https://github.com/WeblateOrg/docker
 - https://github.com/WeblateOrg/docker-compose
 - https://docs.weblate.org/en/latest/
-version: 2.0.26
+version: 3.0.0
 annotations:
   truecharts.org/catagories: |
     - media

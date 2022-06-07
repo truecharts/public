@@ -27,9 +27,9 @@ service:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-mkvtoolnix'
+      name: '{{ include "tc.common.names.fullname" . }}-mkvtoolnix'
 
-secret:
+secretEnv:
   VNC_PASSWORD: ""
 
 mkvtoolnix:

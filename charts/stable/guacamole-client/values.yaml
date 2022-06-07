@@ -23,6 +23,14 @@ env:
   POSTGRES_PORT: 5432
   GUACD_HOSTNAME: "localhost"
   GUACD_PORT: 4822
+  POSTGRES_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 envFrom:
   - configMapRef:
@@ -129,16 +137,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: guacamole
   postgresqlDatabase: guacamole
-
-envValueFrom:
-  POSTGRES_HOSTNAME:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
 
 probes:
   liveness:

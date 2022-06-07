@@ -39,8 +39,6 @@ env:
   PUSHER_APP_KEY: ""
   PUSHER_APP_CLUSTER: ""
   APP_URL: http://localhost
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

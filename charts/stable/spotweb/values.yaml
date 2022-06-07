@@ -16,8 +16,6 @@ env:
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_SCHEMA: "public"
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -27,7 +25,7 @@ envValueFrom:
       name: dbcreds
       key: plainhost
 
-secret:
+secretEnv:
   SPOTWEB_USERNAME: "myawesomeuser"
   SPOTWEB_PASSWORD: "changeme"
 

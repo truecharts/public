@@ -15,15 +15,6 @@ env:
   LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
   LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
-
-service:
-  main:
-    ports:
-      main:
-        port: 10117
-        targetPort: 80
-
-envValueFrom:
   LEAN_DB_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -36,6 +27,14 @@ envValueFrom:
     secretKeyRef:
       name: leantime-secrets
       key: LEAN_SESSION_PASSWORD
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 10117
+        targetPort: 80
 
 mariadb:
   enabled: true

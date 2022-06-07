@@ -18,8 +18,6 @@ env:
   NC_PUBLIC_URL: "http://localhost:10226"
   NC_DISABLE_TELE: true
   DISABLE_SPLASH_SCREEN: false
-
-envValueFrom:
   NC_REDIS_URL:
     secretKeyRef:
       name: rediscreds

@@ -17,6 +17,14 @@ service:
         enabled: true
         port: 10170
 
+configmap:
+  init:
+    enabled: true
+    data:
+      enable-console-logging.sh: |
+        echo 'Enabling console logging.'
+        sed -i -E 's|(<AppenderRef ref="OSGI"/>).*|\1<AppenderRef ref="STDOUT"/>|' /openhab/userdata/etc/log4j2.xml
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -40,3 +48,11 @@ persistence:
   userdata:
     enabled: true
     mountPath: "/openhab/userdata"
+  init:
+    enabled: true
+    mountPath: /etc/cont-init.d/enable-console-logging.sh
+    subPath: enable-console-logging.sh
+    type: custom
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-init" (include "tc.common.names.fullname" .) }}'

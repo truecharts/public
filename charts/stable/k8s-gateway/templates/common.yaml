@@ -1,0 +1,24 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+
+{{/* Render configmap for nextcloud */}}
+{{- include "k8s-gateway.configmap" . }}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "k8s-gateway.configvolume" -}}
+enabled: "true"
+mountPath: "/etc/coredns"
+readOnly: true
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "tc.common.names.fullname" . }}-corefile
+    items:
+    - key: Corefile
+      path: Corefile
+{{- end -}}
+
+{{- $_ := set .Values.persistence "config-volume" (include "k8s-gateway.configvolume" . | fromYaml) -}}
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

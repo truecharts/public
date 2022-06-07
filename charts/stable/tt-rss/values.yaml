@@ -34,8 +34,6 @@ env:
   TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"
-
-envValueFrom:
   TTRSS_DB_PASS:
     secretKeyRef:
       name: dbcreds

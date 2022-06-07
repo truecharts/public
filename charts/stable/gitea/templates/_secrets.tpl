@@ -11,9 +11,9 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "common.names.fullname" . }}
+  name: {{ include "tc.common.names.fullname" . }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
 stringData:
   app.ini: |-
@@ -114,9 +114,9 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "common.names.fullname" . }}-init
+  name: {{ include "tc.common.names.fullname" . }}-init
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
 stringData:
   init_directory_structure.sh: |-

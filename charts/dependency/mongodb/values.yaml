@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: v5.0.9@sha256:4f5a82e1b66a48423960d1b5d07566fe55e606de70e42f36ea52ffa54fe20e8e
+  tag: v5.0.9@sha256:289263798ce4e53424af42901c9729e95117550dbc8810832783c21c3a4c0920
 
 controller:
   # -- Set the controller type.
@@ -102,16 +102,21 @@ mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
 existingSecret: ""
 
-envValueFrom:
-  MONGODB_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mongodb-password"
-  MONGODB_ROOT_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mongodb-root-password"
+secret:
+  credentials:
+    enabled: true
+    data:
+      mongodb-password: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
+      mongodb-root-password: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
 
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
+  MONGODB_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mongodb-password"
+  MONGODB_ROOT_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mongodb-root-password"

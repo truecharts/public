@@ -12,7 +12,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   DNS_SERVER_ADMIN_PASSWORD: "password"
 
 env:

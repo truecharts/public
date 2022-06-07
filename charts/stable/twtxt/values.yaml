@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: version-0.1.1@sha256:9f34f0557d2a46aa7952c55f5a368c130659fafa0780785a647721edd001cdaa
 
-secret:
+secretEnv:
   COOKIE_SECRET: supersecretchangeme
 
 securityContext:

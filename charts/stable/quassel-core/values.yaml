@@ -21,8 +21,6 @@ env:
   DB_PGSQL_PORT: 5432
   AUTH_AUTHENTICATOR: "Database"
   RUN_OPTS: "--config-from-environment"
-
-envValueFrom:
   DB_PGSQL_PASSWORD:
     secretKeyRef:
       name: dbcreds

@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "clamav.cronjob" -}}
-{{- $jobName := include "common.names.fullname" . }}
+{{- $jobName := include "tc.common.names.fullname" . }}
 
 ---
 apiVersion: batch/v1beta1
@@ -8,7 +8,7 @@ kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.clamav.cron_schedule }}"
   concurrencyPolicy: Forbid
@@ -25,7 +25,7 @@ spec:
         metadata:
         spec:
           restartPolicy: Never
-          {{- with (include "common.controller.volumes" . | trim) }}
+          {{- with (include "tc.common.controller.volumes" . | trim) }}
           volumes:
             {{- nindent 12 . }}
           {{- end }}
@@ -76,7 +76,7 @@ spec:
                   else
                     echo "Exit Status: $status.";
                   fi;
-              {{- with (include "common.controller.volumeMounts" . | trim) }}
+              {{- with (include "tc.common.controller.volumeMounts" . | trim) }}
               volumeMounts:
                 {{ nindent 16 . }}
               {{- end }}

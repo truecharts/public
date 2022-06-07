@@ -14,6 +14,26 @@ auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
   enabled: false
 
+configmap:
+  config:
+    enabled: true
+    data:
+      mosquitto.conf: |
+        listener {{ .Values.service.main.ports.main.port }}
+        {{- if .Values.auth.enabled }}
+        allow_anonymous false
+        {{- else }}
+        allow_anonymous true
+        {{- end }}
+        {{- if .Values.persistence.data.enabled }}
+        persistence true
+        persistence_location {{ .Values.persistence.data.mountPath }}
+        autosave_interval 1800
+        {{- end }}
+        {{- if .Values.persistence.configinc.enabled }}
+        include_dir {{ .Values.persistence.configinc.mountPath }}
+        {{- end }}
+
 persistence:
   data:
     enabled: true
@@ -21,3 +41,11 @@ persistence:
   configinc:
     enabled: true
     mountPath: "/mosquitto/configinc"
+  mosquitto-config:
+    enabled: "true"
+    mountPath: "/mosquitto/config/mosquitto.conf"
+    subPath: "mosquitto.conf"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ template "tc.common.names.fullname" . }}-config'

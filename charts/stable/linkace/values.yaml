@@ -30,8 +30,6 @@ env:
   BACKUP_DISK: s3
   BACKUP_NOTIFICATION_EMAIL: your@email.com
   BACKUP_MAX_SIZE: 512
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds

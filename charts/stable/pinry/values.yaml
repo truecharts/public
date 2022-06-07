@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-envValueFrom:
+env:
   SECRET_KEY:
     secretKeyRef:
       name: pinry-secrets

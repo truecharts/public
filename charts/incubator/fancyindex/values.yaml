@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   WEBUSER: "webuser"
   WEBPASSWORD: "webpassword"
 

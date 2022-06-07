@@ -17,7 +17,7 @@ service:
         port: 51080
         targetPort: 51080
 
-secret:
+secretEnv:
   PASSWORD: "secretpasswordgoeshere"
 
 env:

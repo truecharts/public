@@ -7,6 +7,18 @@ image:
 # @default -- See below
 env:
   DEFAULT_MYSQL_USER: icinga2
+  DEFAULT_MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DEFAULT_MYSQL_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  MYSQL_ROOT_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-root-password
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -62,20 +74,6 @@ persistence:
   ssmtp:
     enabled: true
     mountPath: "/etc/ssmtp"
-
-envValueFrom:
-  DEFAULT_MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DEFAULT_MYSQL_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  MYSQL_ROOT_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-root-password
 
 mariadb:
   enabled: true

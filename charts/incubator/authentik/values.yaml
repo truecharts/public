@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: v2022.5.3@sha256:6554918741c64fceede79acac5f78c4753613b21cf11c62225490638ba94196b
+  tag: v2022.6.1@sha256:4821678221ccdaa264a9b669e964e1810a476420932f3734504d6cf259ebcc08
   pullPolicy: IfNotPresent
 
 geoipImage:
@@ -14,7 +14,7 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-secret:
+secretEnv:
   AK_ADMIN_PASS: "supersecret"
   AK_ADMIN_TOKEN: "supersecretapitoken"
 
@@ -45,8 +45,6 @@ env:
   AUTHENTIK_EMAIL__USE_SSL: false
   AUTHENTIK_EMAIL__TIMEOUT: 10
   AUTHENTIK_EMAIL__FROM: ""
-
-envValueFrom:
   AUTHENTIK_POSTGRESQL__HOST:
     secretKeyRef:
       name: dbcreds

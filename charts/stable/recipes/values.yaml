@@ -20,6 +20,36 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        events {
+          worker_connections 1024;
+        }
+        http {
+          include /etc/nginx/mime.types;
+          server {
+            listen 80;
+            server_name _;
+            client_max_body_size 16M;
+            # serve media files
+            location /media/ {
+              alias /media/;
+            }
+            # serve static files
+            location /static/ {
+              alias /static/;
+            }
+            # pass requests for dynamic content to gunicorn
+            location / {
+              proxy_set_header Host $host;
+              proxy_pass http://localhost:8080;
+            }
+          }
+        }
+
 # -- environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details.
 # @default -- See below
 env:
@@ -34,8 +64,6 @@ env:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: "5432"
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -85,6 +113,14 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: "/opt/recipes/staticfiles"
+  recipes-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx.conf"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
 
 # Enabled postgres
 postgresql:

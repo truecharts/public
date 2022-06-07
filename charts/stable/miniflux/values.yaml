@@ -5,7 +5,7 @@ image:
 
 # -- environment variables. See [miniflux docs](https://miniflux.app/docs/configuration.html) for more details.
 # @default -- See below
-secret:
+secretEnv:
   # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
   ADMIN_USERNAME: "admin"
   # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
@@ -16,8 +16,6 @@ env:
   RUN_MIGRATIONS: 1
   # -- Set to `1` to create an admin user from environment variables.
   CREATE_ADMIN: 1
-
-envValueFrom:
   # -- Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details.
   DATABASE_URL:
     secretKeyRef:

@@ -3,7 +3,7 @@ appVersion: "2022.5.3"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.24
+  version: 10.0.8
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
@@ -26,7 +26,7 @@ name: authentik
 sources:
 - https://github.com/goauthentik/authentik
 - https://goauthentik.io/docs/
-version: 0.0.14
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - authentication

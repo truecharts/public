@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   MAIL_USER: ""
   MAIL_PASSWORD: ""
   RECAPTCHA_SITE_KEY: ""
@@ -43,8 +43,6 @@ env:
   MAIL_PORT: 567
   MAIL_FROM: ""
   MAIL_SECURE: true
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds

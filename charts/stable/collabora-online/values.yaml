@@ -17,7 +17,7 @@ service:
       main:
         port: 10105
         targetPort: 9980
-secret:
+secretEnv:
   username: admin
   password: changeme
 

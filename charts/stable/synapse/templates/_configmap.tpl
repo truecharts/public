@@ -6,7 +6,7 @@ kind: ConfigMap
 metadata:
   name: synapse-config
   labels:
-  {{ include "common.labels" . | nindent 4 }}
+  {{ include "tc.common.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 data:

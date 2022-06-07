@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: version-1.8.14@sha256:4900f0e787ca22cf93090ae44ecceb5689d4427c739e1eb637a6e3a913161bf8
 
-secret: {}
+secretEnv: {}
 
 # See more environment variables in the etherpad documentation
 # https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md
@@ -13,8 +13,6 @@ env:
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
-
-envValueFrom:
   DB_PASS:
     secretKeyRef:
       name: dbcreds

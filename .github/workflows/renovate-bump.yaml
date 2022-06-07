@@ -31,6 +31,7 @@ jobs:
             changed:
             - 'charts/stable/**'
             - 'charts/incubator/**'
+            - 'charts/SCALE/**'
             - 'charts/library/**'
             - 'charts/dependency/**'
             - 'charts/core/**'
@@ -51,6 +52,8 @@ jobs:
                 train="stable"
               elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
                 train="incubator"
+              elif test -f "./charts/SCALE/${chart}/Chart.yaml"; then
+                train="SCALE"
               elif test -f "./charts/library/${chart}/Chart.yaml"; then
                 train="library"
               elif test -f "./charts/dependency/${chart}/Chart.yaml"; then

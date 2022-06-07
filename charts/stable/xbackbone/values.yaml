@@ -17,7 +17,14 @@ env:
   DB_TYPE: mysql
   MYSQL_DATABASE: xbackbone
   MYSQL_USER: xbackbone
-
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -35,15 +42,6 @@ persistence:
     enabled: true
     mountPath: "/app/config"
 
-envValueFrom:
-  MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
 
 mariadb:
   enabled: true

@@ -25,7 +25,7 @@ service:
         enabled: true
         port: 7867
         targetPort: 7867
-secret:
+secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
   NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
 
@@ -33,12 +33,6 @@ env:
   TRUSTED_PROXIES: "172.16.0.0/16"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-
-envFrom:
-  - configMapRef:
-      name: nextcloudconfig
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -55,6 +49,10 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: redis-password
+
+envFrom:
+  - configMapRef:
+      name: nextcloudconfig
 
 persistence:
   data:

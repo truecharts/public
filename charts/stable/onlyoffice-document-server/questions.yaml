@@ -77,7 +77,7 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 
 # Include{controllerExpert}
-  - variable: secret
+  - variable: secretEnv
     group: "Container Configuration"
     label: "Image Secrets"
     schema:

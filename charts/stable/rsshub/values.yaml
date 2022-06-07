@@ -1,19 +1,13 @@
 image:
   repository: tccr.io/truecharts/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:73ef935db216aaac86f00a212338f6ad6765b87a3e4ed8d0c7e90bd6ff99605c
+  tag: latest@sha256:af727bc923259af5579afefbe38a9a97b430f6a5a38a79ab604288f0cc000012
 
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
   tag: v1.53.0-chrome@sha256:bba7c84a5c8c3c2b9518d8543f08b3669eeeda16837af4dc4c8065b7d87be08e
 
-envValueFrom:
-  REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
-
-secret:
+secretEnv:
   HTTP_BASIC_AUTH_NAME: ""
   HTTP_BASIC_AUTH_PASS: ""
   BITBUCKET_USERNAME: ""
@@ -34,6 +28,10 @@ env:
   # ALLOW_ORIGIN: ""
   DISALLOW_ROBOT: false
   TITLE_LENGTH_LIMIT: 150
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
