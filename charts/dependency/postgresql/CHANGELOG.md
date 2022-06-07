@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="postgresql-8.0.0"></a>
+### [postgresql-8.0.0](https://github.com/truecharts/apps/compare/postgresql-7.0.93...postgresql-8.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="postgresql-7.0.93"></a>
 ### [postgresql-7.0.93](https://github.com/truecharts/apps/compare/postgresql-7.0.92...postgresql-7.0.93) (2022-06-05)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.0"></a>
+### [grafana-4.0.0](https://github.com/truecharts/apps/compare/grafana-3.0.62...grafana-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="grafana-3.0.62"></a>
 ### [grafana-3.0.62](https://github.com/truecharts/apps/compare/grafana-3.0.61...grafana-3.0.62) (2022-06-04)
 

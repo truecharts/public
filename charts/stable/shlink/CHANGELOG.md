@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-3.0.0"></a>
+### [shlink-3.0.0](https://github.com/truecharts/apps/compare/shlink-2.0.27...shlink-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="shlink-2.0.27"></a>
 ### [shlink-2.0.27](https://github.com/truecharts/apps/compare/shlink-2.0.26...shlink-2.0.27) (2022-06-04)
 

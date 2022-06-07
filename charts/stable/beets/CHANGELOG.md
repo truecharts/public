@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="beets-4.0.0"></a>
+### [beets-4.0.0](https://github.com/truecharts/apps/compare/beets-3.0.31...beets-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="beets-3.0.31"></a>
 ### [beets-3.0.31](https://github.com/truecharts/apps/compare/beets-3.0.30...beets-3.0.31) (2022-06-03)
 

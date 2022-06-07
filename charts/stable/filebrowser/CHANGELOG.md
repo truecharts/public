@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="filebrowser-2.0.0"></a>
+### [filebrowser-2.0.0](https://github.com/truecharts/apps/compare/filebrowser-1.0.19...filebrowser-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="filebrowser-1.0.19"></a>
 ### [filebrowser-1.0.19](https://github.com/truecharts/apps/compare/filebrowser-1.0.18...filebrowser-1.0.19) (2022-06-04)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="filerun-1.0.0"></a>
+### [filerun-1.0.0](https://github.com/truecharts/apps/compare/filerun-0.0.17...filerun-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="filerun-0.0.17"></a>
 ### [filerun-0.0.17](https://github.com/truecharts/apps/compare/filerun-0.0.16...filerun-0.0.17) (2022-05-31)
 

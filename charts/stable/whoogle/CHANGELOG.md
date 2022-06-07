@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="whoogle-3.0.0"></a>
+### [whoogle-3.0.0](https://github.com/truecharts/apps/compare/whoogle-2.0.21...whoogle-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="whoogle-2.0.21"></a>
 ### [whoogle-2.0.21](https://github.com/truecharts/apps/compare/whoogle-2.0.20...whoogle-2.0.21) (2022-06-04)
 

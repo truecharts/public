@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kimai-2.0.0"></a>
+### [kimai-2.0.0](https://github.com/truecharts/apps/compare/kimai-1.0.16...kimai-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="kimai-1.0.16"></a>
 ### [kimai-1.0.16](https://github.com/truecharts/apps/compare/kimai-1.0.15...kimai-1.0.16) (2022-05-31)
 

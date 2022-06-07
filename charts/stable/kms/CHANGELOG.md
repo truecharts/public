@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-11.0.0"></a>
+### [kms-11.0.0](https://github.com/truecharts/apps/compare/kms-10.0.24...kms-11.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="kms-10.0.24"></a>
 ### [kms-10.0.24](https://github.com/truecharts/apps/compare/kms-10.0.23...kms-10.0.24) (2022-05-31)
 

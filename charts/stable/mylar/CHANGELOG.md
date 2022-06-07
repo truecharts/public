@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="mylar-6.0.0"></a>
+### [mylar-6.0.0](https://github.com/truecharts/apps/compare/mylar-5.0.25...mylar-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="mylar-5.0.25"></a>
 ### [mylar-5.0.25](https://github.com/truecharts/apps/compare/mylar-5.0.24...mylar-5.0.25) (2022-05-31)
 

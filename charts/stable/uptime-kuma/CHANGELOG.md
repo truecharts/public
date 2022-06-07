@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-3.0.0"></a>
+### [uptime-kuma-3.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.27...uptime-kuma-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="uptime-kuma-2.0.27"></a>
 ### [uptime-kuma-2.0.27](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.26...uptime-kuma-2.0.27) (2022-05-31)
 

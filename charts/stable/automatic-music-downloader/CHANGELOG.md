@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="automatic-music-downloader-2.0.0"></a>
+### [automatic-music-downloader-2.0.0](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.9...automatic-music-downloader-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="automatic-music-downloader-1.1.9"></a>
 ### [automatic-music-downloader-1.1.9](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.8...automatic-music-downloader-1.1.9) (2022-05-31)
 

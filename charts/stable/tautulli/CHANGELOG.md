@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="tautulli-11.0.0"></a>
+### [tautulli-11.0.0](https://github.com/truecharts/apps/compare/tautulli-10.0.22...tautulli-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="tautulli-10.0.22"></a>
 ### [tautulli-10.0.22](https://github.com/truecharts/apps/compare/tautulli-10.0.21...tautulli-10.0.22) (2022-06-03)
 

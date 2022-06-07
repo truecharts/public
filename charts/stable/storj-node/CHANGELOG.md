@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="storj-node-2.0.0"></a>
+### [storj-node-2.0.0](https://github.com/truecharts/apps/compare/storj-node-1.0.28...storj-node-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="storj-node-1.0.28"></a>
 ### [storj-node-1.0.28](https://github.com/truecharts/apps/compare/storj-node-1.0.27...storj-node-1.0.28) (2022-06-03)
 

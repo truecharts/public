@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jackett-11.0.0"></a>
+### [jackett-11.0.0](https://github.com/truecharts/apps/compare/jackett-10.0.54...jackett-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="jackett-10.0.54"></a>
 ### [jackett-10.0.54](https://github.com/truecharts/apps/compare/jackett-10.0.53...jackett-10.0.54) (2022-06-04)
 

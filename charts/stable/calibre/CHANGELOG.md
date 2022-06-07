@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="calibre-7.0.0"></a>
+### [calibre-7.0.0](https://github.com/truecharts/apps/compare/calibre-6.0.30...calibre-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="calibre-6.0.30"></a>
 ### [calibre-6.0.30](https://github.com/truecharts/apps/compare/calibre-6.0.29...calibre-6.0.30) (2022-06-03)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="overseerr-6.0.0"></a>
+### [overseerr-6.0.0](https://github.com/truecharts/apps/compare/overseerr-5.0.20...overseerr-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="overseerr-5.0.20"></a>
 ### [overseerr-5.0.20](https://github.com/truecharts/apps/compare/overseerr-5.0.19...overseerr-5.0.20) (2022-05-31)
 

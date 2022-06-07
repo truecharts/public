@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nextcloud-13.0.0"></a>
+### [nextcloud-13.0.0](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="nextcloud-12.0.32"></a>
 ### [nextcloud-12.0.32](https://github.com/truecharts/apps/compare/nextcloud-12.0.31...nextcloud-12.0.32) (2022-05-31)
 

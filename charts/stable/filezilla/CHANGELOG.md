@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="filezilla-4.0.0"></a>
+### [filezilla-4.0.0](https://github.com/truecharts/apps/compare/filezilla-3.0.31...filezilla-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="filezilla-3.0.31"></a>
 ### [filezilla-3.0.31](https://github.com/truecharts/apps/compare/filezilla-3.0.30...filezilla-3.0.31) (2022-06-03)
 

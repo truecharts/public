@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="mongodb-1.0.0"></a>
+### [mongodb-1.0.0](https://github.com/truecharts/apps/compare/mongodb-0.1.49...mongodb-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="mongodb-0.1.49"></a>
 ### [mongodb-0.1.49](https://github.com/truecharts/apps/compare/mongodb-0.1.48...mongodb-0.1.49) (2022-06-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-2.0.0"></a>
+### [cyberchef-2.0.0](https://github.com/truecharts/apps/compare/cyberchef-1.0.31...cyberchef-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="cyberchef-1.0.31"></a>
 ### [cyberchef-1.0.31](https://github.com/truecharts/apps/compare/cyberchef-1.0.30...cyberchef-1.0.31) (2022-06-04)
 

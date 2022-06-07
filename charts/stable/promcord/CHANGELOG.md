@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-4.0.0"></a>
+### [promcord-4.0.0](https://github.com/truecharts/apps/compare/promcord-3.0.20...promcord-4.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="promcord-3.0.20"></a>
 ### [promcord-3.0.20](https://github.com/truecharts/apps/compare/promcord-3.0.19...promcord-3.0.20) (2022-05-31)
 

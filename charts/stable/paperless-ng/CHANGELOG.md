@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-3.0.0"></a>
+### [paperless-ng-3.0.0](https://github.com/truecharts/apps/compare/paperless-ng-2.0.31...paperless-ng-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="paperless-ng-2.0.31"></a>
 ### [paperless-ng-2.0.31](https://github.com/truecharts/apps/compare/paperless-ng-2.0.30...paperless-ng-2.0.31) (2022-05-31)
 

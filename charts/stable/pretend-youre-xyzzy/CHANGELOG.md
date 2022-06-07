@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-6.0.0"></a>
+### [pretend-youre-xyzzy-6.0.0](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.19...pretend-youre-xyzzy-6.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="pretend-youre-xyzzy-5.0.19"></a>
 ### [pretend-youre-xyzzy-5.0.19](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.18...pretend-youre-xyzzy-5.0.19) (2022-05-31)
 

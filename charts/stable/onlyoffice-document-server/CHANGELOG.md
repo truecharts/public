@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-5.0.0"></a>
+### [onlyoffice-document-server-5.0.0](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.23...onlyoffice-document-server-5.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="onlyoffice-document-server-4.0.23"></a>
 ### [onlyoffice-document-server-4.0.23](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.22...onlyoffice-document-server-4.0.23) (2022-05-31)
 

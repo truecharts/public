@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-2.0.0"></a>
+### [guacd-2.0.0](https://github.com/truecharts/apps/compare/guacd-1.0.19...guacd-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="guacd-1.0.19"></a>
 ### [guacd-1.0.19](https://github.com/truecharts/apps/compare/guacd-1.0.18...guacd-1.0.19) (2022-05-31)
 

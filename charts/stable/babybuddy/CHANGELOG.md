@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="babybuddy-7.0.0"></a>
+### [babybuddy-7.0.0](https://github.com/truecharts/apps/compare/babybuddy-6.0.35...babybuddy-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="babybuddy-6.0.35"></a>
 ### [babybuddy-6.0.35](https://github.com/truecharts/apps/compare/babybuddy-6.0.34...babybuddy-6.0.35) (2022-06-03)
 

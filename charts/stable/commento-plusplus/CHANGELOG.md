@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="commento-plusplus-2.0.0"></a>
+### [commento-plusplus-2.0.0](https://github.com/truecharts/apps/compare/commento-plusplus-1.0.2...commento-plusplus-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="commento-plusplus-1.0.2"></a>
 ### [commento-plusplus-1.0.2](https://github.com/truecharts/apps/compare/commento-plusplus-1.0.1...commento-plusplus-1.0.2) (2022-06-02)
 

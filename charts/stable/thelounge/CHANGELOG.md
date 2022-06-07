@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="thelounge-6.0.0"></a>
+### [thelounge-6.0.0](https://github.com/truecharts/apps/compare/thelounge-5.0.31...thelounge-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="thelounge-5.0.31"></a>
 ### [thelounge-5.0.31](https://github.com/truecharts/apps/compare/thelounge-5.0.30...thelounge-5.0.31) (2022-06-04)
 

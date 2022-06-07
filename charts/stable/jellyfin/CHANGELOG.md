@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jellyfin-11.0.0"></a>
+### [jellyfin-11.0.0](https://github.com/truecharts/apps/compare/jellyfin-10.0.19...jellyfin-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="jellyfin-10.0.19"></a>
 ### [jellyfin-10.0.19](https://github.com/truecharts/apps/compare/jellyfin-10.0.18...jellyfin-10.0.19) (2022-05-31)
 

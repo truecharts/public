@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-11.0.0"></a>
+### [lazylibrarian-11.0.0](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.31...lazylibrarian-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="lazylibrarian-10.0.31"></a>
 ### [lazylibrarian-10.0.31](https://github.com/truecharts/apps/compare/lazylibrarian-10.0.30...lazylibrarian-10.0.31) (2022-06-03)
 

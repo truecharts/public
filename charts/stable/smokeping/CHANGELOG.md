@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="smokeping-3.0.0"></a>
+### [smokeping-3.0.0](https://github.com/truecharts/apps/compare/smokeping-2.0.19...smokeping-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="smokeping-2.0.19"></a>
 ### [smokeping-2.0.19](https://github.com/truecharts/apps/compare/smokeping-2.0.18...smokeping-2.0.19) (2022-05-31)
 

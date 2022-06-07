@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="esphome-11.0.0"></a>
+### [esphome-11.0.0](https://github.com/truecharts/apps/compare/esphome-10.0.26...esphome-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="esphome-10.0.26"></a>
 ### [esphome-10.0.26](https://github.com/truecharts/apps/compare/esphome-10.0.25...esphome-10.0.26) (2022-05-31)
 

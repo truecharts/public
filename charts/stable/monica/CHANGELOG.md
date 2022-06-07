@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="monica-2.0.0"></a>
+### [monica-2.0.0](https://github.com/truecharts/apps/compare/monica-1.0.34...monica-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="monica-1.0.34"></a>
 ### [monica-1.0.34](https://github.com/truecharts/apps/compare/monica-1.0.33...monica-1.0.34) (2022-05-31)
 

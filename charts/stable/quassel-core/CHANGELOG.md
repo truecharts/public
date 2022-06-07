@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-core-2.0.0"></a>
+### [quassel-core-2.0.0](https://github.com/truecharts/apps/compare/quassel-core-1.0.23...quassel-core-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="quassel-core-1.0.23"></a>
 ### [quassel-core-1.0.23](https://github.com/truecharts/apps/compare/quassel-core-1.0.22...quassel-core-1.0.23) (2022-05-31)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="double-take-2.0.0"></a>
+### [double-take-2.0.0](https://github.com/truecharts/apps/compare/double-take-1.0.18...double-take-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="double-take-1.0.18"></a>
 ### [double-take-1.0.18](https://github.com/truecharts/apps/compare/double-take-1.0.17...double-take-1.0.18) (2022-05-31)
 

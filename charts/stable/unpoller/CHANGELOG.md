@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-3.0.0"></a>
+### [unpoller-3.0.0](https://github.com/truecharts/apps/compare/unpoller-2.0.19...unpoller-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="unpoller-2.0.19"></a>
 ### [unpoller-2.0.19](https://github.com/truecharts/apps/compare/unpoller-2.0.18...unpoller-2.0.19) (2022-05-31)
 

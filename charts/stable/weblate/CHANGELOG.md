@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="weblate-3.0.0"></a>
+### [weblate-3.0.0](https://github.com/truecharts/apps/compare/weblate-2.0.26...weblate-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="weblate-2.0.26"></a>
 ### [weblate-2.0.26](https://github.com/truecharts/apps/compare/weblate-2.0.25...weblate-2.0.26) (2022-05-31)
 

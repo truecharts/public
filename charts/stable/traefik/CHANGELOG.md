@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-12.0.0"></a>
+### [traefik-12.0.0](https://github.com/truecharts/apps/compare/traefik-11.3.9...traefik-12.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="traefik-11.3.9"></a>
 ### [traefik-11.3.9](https://github.com/truecharts/apps/compare/traefik-11.3.8...traefik-11.3.9) (2022-05-31)
 

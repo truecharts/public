@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="icinga2-2.0.0"></a>
+### [icinga2-2.0.0](https://github.com/truecharts/apps/compare/icinga2-1.0.25...icinga2-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="icinga2-1.0.25"></a>
 ### [icinga2-1.0.25](https://github.com/truecharts/apps/compare/icinga2-1.0.24...icinga2-1.0.25) (2022-05-31)
 

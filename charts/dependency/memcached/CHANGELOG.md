@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.0"></a>
+### [memcached-3.0.0](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="memcached-2.0.91"></a>
 ### [memcached-2.0.91](https://github.com/truecharts/apps/compare/memcached-2.0.90...memcached-2.0.91) (2022-06-05)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="boinc-2.0.0"></a>
+### [boinc-2.0.0](https://github.com/truecharts/apps/compare/boinc-1.0.33...boinc-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="boinc-1.0.33"></a>
 ### [boinc-1.0.33](https://github.com/truecharts/apps/compare/boinc-1.0.32...boinc-1.0.33) (2022-06-04)
 

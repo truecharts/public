@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-6.0.0"></a>
+### [littlelink-6.0.0](https://github.com/truecharts/apps/compare/littlelink-5.0.30...littlelink-6.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="littlelink-5.0.30"></a>
 ### [littlelink-5.0.30](https://github.com/truecharts/apps/compare/littlelink-5.0.29...littlelink-5.0.30) (2022-06-04)
 

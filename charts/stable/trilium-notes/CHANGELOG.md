@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-3.0.0"></a>
+### [trilium-notes-3.0.0](https://github.com/truecharts/apps/compare/trilium-notes-2.0.21...trilium-notes-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="trilium-notes-2.0.21"></a>
 ### [trilium-notes-2.0.21](https://github.com/truecharts/apps/compare/trilium-notes-2.0.20...trilium-notes-2.0.21) (2022-05-31)
 

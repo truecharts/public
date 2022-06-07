@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="static-3.0.0"></a>
+### [static-3.0.0](https://github.com/truecharts/apps/compare/static-2.0.19...static-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="static-2.0.19"></a>
 ### [static-2.0.19](https://github.com/truecharts/apps/compare/static-2.0.18...static-2.0.19) (2022-05-31)
 

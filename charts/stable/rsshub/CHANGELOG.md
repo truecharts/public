@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-2.0.0"></a>
+### [rsshub-2.0.0](https://github.com/truecharts/apps/compare/rsshub-1.0.41...rsshub-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="rsshub-1.0.41"></a>
 ### [rsshub-1.0.41](https://github.com/truecharts/apps/compare/rsshub-1.0.40...rsshub-1.0.41) (2022-06-04)
 

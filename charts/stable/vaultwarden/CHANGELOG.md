@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-15.0.0"></a>
+### [vaultwarden-15.0.0](https://github.com/truecharts/apps/compare/vaultwarden-14.0.26...vaultwarden-15.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="vaultwarden-14.0.26"></a>
 ### [vaultwarden-14.0.26](https://github.com/truecharts/apps/compare/vaultwarden-14.0.25...vaultwarden-14.0.26) (2022-05-31)
 

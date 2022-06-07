@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pyload-6.0.0"></a>
+### [pyload-6.0.0](https://github.com/truecharts/apps/compare/pyload-5.0.19...pyload-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="pyload-5.0.19"></a>
 ### [pyload-5.0.19](https://github.com/truecharts/apps/compare/pyload-5.0.18...pyload-5.0.19) (2022-05-31)
 

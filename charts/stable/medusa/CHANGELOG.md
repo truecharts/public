@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="medusa-3.0.0"></a>
+### [medusa-3.0.0](https://github.com/truecharts/apps/compare/medusa-2.0.29...medusa-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="medusa-2.0.29"></a>
 ### [medusa-2.0.29](https://github.com/truecharts/apps/compare/medusa-2.0.28...medusa-2.0.29) (2022-05-31)
 

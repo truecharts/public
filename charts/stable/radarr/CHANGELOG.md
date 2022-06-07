@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="radarr-11.0.0"></a>
+### [radarr-11.0.0](https://github.com/truecharts/apps/compare/radarr-10.0.21...radarr-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="radarr-10.0.21"></a>
 ### [radarr-10.0.21](https://github.com/truecharts/apps/compare/radarr-10.0.20...radarr-10.0.21) (2022-05-31)
 

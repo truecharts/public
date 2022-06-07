@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-4.0.0"></a>
+### [logitech-media-server-4.0.0](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.34...logitech-media-server-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="logitech-media-server-3.0.34"></a>
 ### [logitech-media-server-3.0.34](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.33...logitech-media-server-3.0.34) (2022-05-31)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-6.0.0"></a>
+### [phpldapadmin-6.0.0](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.19...phpldapadmin-6.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="phpldapadmin-5.0.19"></a>
 ### [phpldapadmin-5.0.19](https://github.com/truecharts/apps/compare/phpldapadmin-5.0.18...phpldapadmin-5.0.19) (2022-05-31)
 

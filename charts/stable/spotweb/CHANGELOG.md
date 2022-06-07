@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="spotweb-3.0.0"></a>
+### [spotweb-3.0.0](https://github.com/truecharts/apps/compare/spotweb-2.0.15...spotweb-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="spotweb-2.0.15"></a>
 ### [spotweb-2.0.15](https://github.com/truecharts/apps/compare/spotweb-2.0.14...spotweb-2.0.15) (2022-05-31)
 

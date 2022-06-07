@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="metallb-2.0.0"></a>
+### [metallb-2.0.0](https://github.com/truecharts/apps/compare/metallb-1.0.5...metallb-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="metallb-1.0.5"></a>
 ### [metallb-1.0.5](https://github.com/truecharts/apps/compare/metallb-1.0.4...metallb-1.0.5) (2022-03-26)
 

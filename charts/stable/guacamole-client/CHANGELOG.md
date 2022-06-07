@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-3.0.0"></a>
+### [guacamole-client-3.0.0](https://github.com/truecharts/apps/compare/guacamole-client-2.0.23...guacamole-client-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="guacamole-client-2.0.23"></a>
 ### [guacamole-client-2.0.23](https://github.com/truecharts/apps/compare/guacamole-client-2.0.22...guacamole-client-2.0.23) (2022-05-31)
 

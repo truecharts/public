@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="domoticz-2.0.0"></a>
+### [domoticz-2.0.0](https://github.com/truecharts/apps/compare/domoticz-1.0.26...domoticz-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="domoticz-1.0.26"></a>
 ### [domoticz-1.0.26](https://github.com/truecharts/apps/compare/domoticz-1.0.25...domoticz-1.0.26) (2022-06-04)
 

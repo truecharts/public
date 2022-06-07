@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.0.0"></a>
+### [custom-app-5.0.0](https://github.com/truecharts/apps/compare/custom-app-4.0.54...custom-app-5.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="custom-app-4.0.54"></a>
 ### [custom-app-4.0.54](https://github.com/truecharts/apps/compare/custom-app-4.0.53...custom-app-4.0.54) (2022-06-04)
 

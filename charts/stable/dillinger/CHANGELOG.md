@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="dillinger-2.0.0"></a>
+### [dillinger-2.0.0](https://github.com/truecharts/apps/compare/dillinger-1.0.19...dillinger-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="dillinger-1.0.19"></a>
 ### [dillinger-1.0.19](https://github.com/truecharts/apps/compare/dillinger-1.0.18...dillinger-1.0.19) (2022-05-31)
 

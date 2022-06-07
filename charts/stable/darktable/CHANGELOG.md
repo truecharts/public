@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="darktable-3.0.0"></a>
+### [darktable-3.0.0](https://github.com/truecharts/apps/compare/darktable-2.0.19...darktable-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="darktable-2.0.19"></a>
 ### [darktable-2.0.19](https://github.com/truecharts/apps/compare/darktable-2.0.18...darktable-2.0.19) (2022-05-31)
 

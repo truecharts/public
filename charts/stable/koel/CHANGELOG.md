@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="koel-2.0.0"></a>
+### [koel-2.0.0](https://github.com/truecharts/apps/compare/koel-1.0.21...koel-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="koel-1.0.21"></a>
 ### [koel-1.0.21](https://github.com/truecharts/apps/compare/koel-1.0.20...koel-1.0.21) (2022-05-31)
 

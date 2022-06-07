@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-3.0.0"></a>
+### [speedtest-exporter-3.0.0](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.24...speedtest-exporter-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="speedtest-exporter-2.0.24"></a>
 ### [speedtest-exporter-2.0.24](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.23...speedtest-exporter-2.0.24) (2022-05-31)
 

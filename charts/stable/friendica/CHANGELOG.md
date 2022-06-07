@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="friendica-3.0.0"></a>
+### [friendica-3.0.0](https://github.com/truecharts/apps/compare/friendica-2.0.33...friendica-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="friendica-2.0.33"></a>
 ### [friendica-2.0.33](https://github.com/truecharts/apps/compare/friendica-2.0.32...friendica-2.0.33) (2022-05-31)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kutt-2.0.0"></a>
+### [kutt-2.0.0](https://github.com/truecharts/apps/compare/kutt-1.0.17...kutt-2.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="kutt-1.0.17"></a>
 ### [kutt-1.0.17](https://github.com/truecharts/apps/compare/kutt-1.0.16...kutt-1.0.17) (2022-05-31)
 

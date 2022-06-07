@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pgadmin-7.0.0"></a>
+### [pgadmin-7.0.0](https://github.com/truecharts/apps/compare/pgadmin-6.0.24...pgadmin-7.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="pgadmin-6.0.24"></a>
 ### [pgadmin-6.0.24](https://github.com/truecharts/apps/compare/pgadmin-6.0.23...pgadmin-6.0.24) (2022-06-03)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="ntfy-2.0.0"></a>
+### [ntfy-2.0.0](https://github.com/truecharts/apps/compare/ntfy-1.0.13...ntfy-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="ntfy-1.0.13"></a>
 ### [ntfy-1.0.13](https://github.com/truecharts/apps/compare/ntfy-1.0.12...ntfy-1.0.13) (2022-06-03)
 

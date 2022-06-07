@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-1.0.0"></a>
+### [minetest-1.0.0](https://github.com/truecharts/apps/compare/minetest-0.0.49...minetest-1.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="minetest-0.0.49"></a>
 ### [minetest-0.0.49](https://github.com/truecharts/apps/compare/minetest-0.0.48...minetest-0.0.49) (2022-05-31)
 

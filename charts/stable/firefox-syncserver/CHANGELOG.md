@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-8.0.0"></a>
+### [firefox-syncserver-8.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.5...firefox-syncserver-8.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="firefox-syncserver-7.0.5"></a>
 ### [firefox-syncserver-7.0.5](https://github.com/truecharts/apps/compare/firefox-syncserver-7.0.4...firefox-syncserver-7.0.5) (2022-05-31)
 
