@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="znc-2.0.2"></a>
+### [znc-2.0.2](https://github.com/truecharts/apps/compare/znc-2.0.1...znc-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="znc-2.0.1"></a>
 ### [znc-2.0.1](https://github.com/truecharts/apps/compare/znc-1.0.19...znc-2.0.1) (2022-06-07)
 

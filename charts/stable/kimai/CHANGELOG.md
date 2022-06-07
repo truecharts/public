@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kimai-3.0.0"></a>
+### [kimai-3.0.0](https://github.com/truecharts/apps/compare/kimai-2.0.1...kimai-3.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="kimai-2.0.1"></a>
 ### [kimai-2.0.1](https://github.com/truecharts/apps/compare/kimai-1.0.16...kimai-2.0.1) (2022-06-07)
 

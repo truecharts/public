@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.2"></a>
+### [memcached-3.0.2](https://github.com/truecharts/apps/compare/memcached-3.0.1...memcached-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="memcached-3.0.1"></a>
 ### [memcached-3.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.1) (2022-06-07)
 

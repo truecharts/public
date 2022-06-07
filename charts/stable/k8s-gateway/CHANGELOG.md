@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-6.0.2"></a>
+### [k8s-gateway-6.0.2](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.1...k8s-gateway-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="k8s-gateway-6.0.1"></a>
 ### [k8s-gateway-6.0.1](https://github.com/truecharts/apps/compare/k8s-gateway-5.0.21...k8s-gateway-6.0.1) (2022-06-07)
 

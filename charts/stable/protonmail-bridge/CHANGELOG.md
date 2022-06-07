@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-6.0.2"></a>
+### [protonmail-bridge-6.0.2](https://github.com/truecharts/apps/compare/protonmail-bridge-6.0.1...protonmail-bridge-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="protonmail-bridge-6.0.1"></a>
 ### [protonmail-bridge-6.0.1](https://github.com/truecharts/apps/compare/protonmail-bridge-5.0.19...protonmail-bridge-6.0.1) (2022-06-07)
 

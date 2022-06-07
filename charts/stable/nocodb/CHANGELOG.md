@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nocodb-3.0.0"></a>
+### [nocodb-3.0.0](https://github.com/truecharts/apps/compare/nocodb-2.0.1...nocodb-3.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nocodb-2.0.1"></a>
 ### [nocodb-2.0.1](https://github.com/truecharts/apps/compare/nocodb-1.0.16...nocodb-2.0.1) (2022-06-07)
 

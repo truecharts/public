@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deemix-3.0.2"></a>
+### [deemix-3.0.2](https://github.com/truecharts/apps/compare/deemix-3.0.1...deemix-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="deemix-3.0.1"></a>
 ### [deemix-3.0.1](https://github.com/truecharts/apps/compare/deemix-2.0.16...deemix-3.0.1) (2022-06-07)
 

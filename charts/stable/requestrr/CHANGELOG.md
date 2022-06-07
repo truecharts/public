@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="requestrr-2.0.2"></a>
+### [requestrr-2.0.2](https://github.com/truecharts/apps/compare/requestrr-2.0.1...requestrr-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="requestrr-2.0.1"></a>
 ### [requestrr-2.0.1](https://github.com/truecharts/apps/compare/requestrr-1.0.20...requestrr-2.0.1) (2022-06-07)
 

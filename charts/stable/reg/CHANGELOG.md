@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-6.0.2"></a>
+### [reg-6.0.2](https://github.com/truecharts/apps/compare/reg-6.0.1...reg-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="reg-6.0.1"></a>
 ### [reg-6.0.1](https://github.com/truecharts/apps/compare/reg-5.0.19...reg-6.0.1) (2022-06-07)
 

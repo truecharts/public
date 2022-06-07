@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nextcloud-14.0.0"></a>
+### [nextcloud-14.0.0](https://github.com/truecharts/apps/compare/nextcloud-13.0.1...nextcloud-14.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nextcloud-13.0.1"></a>
 ### [nextcloud-13.0.1](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.1) (2022-06-07)
 

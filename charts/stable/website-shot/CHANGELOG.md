@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="website-shot-2.0.2"></a>
+### [website-shot-2.0.2](https://github.com/truecharts/apps/compare/website-shot-2.0.1...website-shot-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="website-shot-2.0.1"></a>
 ### [website-shot-2.0.1](https://github.com/truecharts/apps/compare/website-shot-1.0.9...website-shot-2.0.1) (2022-06-07)
 

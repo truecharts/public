@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-6.0.2"></a>
+### [littlelink-6.0.2](https://github.com/truecharts/apps/compare/littlelink-6.0.1...littlelink-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="littlelink-6.0.1"></a>
 ### [littlelink-6.0.1](https://github.com/truecharts/apps/compare/littlelink-5.0.30...littlelink-6.0.1) (2022-06-07)
 

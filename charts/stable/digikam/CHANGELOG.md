@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-4.0.2"></a>
+### [digikam-4.0.2](https://github.com/truecharts/apps/compare/digikam-4.0.1...digikam-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="digikam-4.0.1"></a>
 ### [digikam-4.0.1](https://github.com/truecharts/apps/compare/digikam-3.0.19...digikam-4.0.1) (2022-06-07)
 

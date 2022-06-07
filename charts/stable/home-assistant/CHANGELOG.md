@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="home-assistant-15.0.0"></a>
+### [home-assistant-15.0.0](https://github.com/truecharts/apps/compare/home-assistant-14.0.1...home-assistant-15.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="home-assistant-14.0.1"></a>
 ### [home-assistant-14.0.1](https://github.com/truecharts/apps/compare/home-assistant-13.0.41...home-assistant-14.0.1) (2022-06-07)
 

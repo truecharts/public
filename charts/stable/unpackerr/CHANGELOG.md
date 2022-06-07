@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-6.0.2"></a>
+### [unpackerr-6.0.2](https://github.com/truecharts/apps/compare/unpackerr-6.0.1...unpackerr-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="unpackerr-6.0.1"></a>
 ### [unpackerr-6.0.1](https://github.com/truecharts/apps/compare/unpackerr-5.0.20...unpackerr-6.0.1) (2022-06-07)
 

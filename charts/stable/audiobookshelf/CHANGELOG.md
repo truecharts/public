@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-2.0.2"></a>
+### [audiobookshelf-2.0.2](https://github.com/truecharts/apps/compare/audiobookshelf-2.0.1...audiobookshelf-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="audiobookshelf-2.0.1"></a>
 ### [audiobookshelf-2.0.1](https://github.com/truecharts/apps/compare/audiobookshelf-1.0.19...audiobookshelf-2.0.1) (2022-06-07)
 

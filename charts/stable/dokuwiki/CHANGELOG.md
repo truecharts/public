@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-3.0.2"></a>
+### [dokuwiki-3.0.2](https://github.com/truecharts/apps/compare/dokuwiki-3.0.1...dokuwiki-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="dokuwiki-3.0.1"></a>
 ### [dokuwiki-3.0.1](https://github.com/truecharts/apps/compare/dokuwiki-2.0.33...dokuwiki-3.0.1) (2022-06-07)
 

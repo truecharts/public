@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-6.0.2"></a>
+### [pihole-6.0.2](https://github.com/truecharts/apps/compare/pihole-6.0.1...pihole-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="pihole-6.0.1"></a>
 ### [pihole-6.0.1](https://github.com/truecharts/apps/compare/pihole-5.0.22...pihole-6.0.1) (2022-06-07)
 

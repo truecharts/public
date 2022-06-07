@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="alist-2.0.2"></a>
+### [alist-2.0.2](https://github.com/truecharts/apps/compare/alist-2.0.1...alist-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="alist-2.0.1"></a>
 ### [alist-2.0.1](https://github.com/truecharts/apps/compare/alist-1.0.31...alist-2.0.1) (2022-06-07)
 

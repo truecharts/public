@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lanraragi-2.0.2"></a>
+### [lanraragi-2.0.2](https://github.com/truecharts/apps/compare/lanraragi-2.0.1...lanraragi-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="lanraragi-2.0.1"></a>
 ### [lanraragi-2.0.1](https://github.com/truecharts/apps/compare/lanraragi-1.0.18...lanraragi-2.0.1) (2022-06-07)
 

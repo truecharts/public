@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-3.0.2"></a>
+### [pixapop-3.0.2](https://github.com/truecharts/apps/compare/pixapop-3.0.1...pixapop-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="pixapop-3.0.1"></a>
 ### [pixapop-3.0.1](https://github.com/truecharts/apps/compare/pixapop-2.0.19...pixapop-3.0.1) (2022-06-07)
 

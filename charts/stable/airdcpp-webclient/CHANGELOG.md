@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airdcpp-webclient-3.0.2"></a>
+### [airdcpp-webclient-3.0.2](https://github.com/truecharts/apps/compare/airdcpp-webclient-3.0.1...airdcpp-webclient-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="airdcpp-webclient-3.0.1"></a>
 ### [airdcpp-webclient-3.0.1](https://github.com/truecharts/apps/compare/airdcpp-webclient-2.0.19...airdcpp-webclient-3.0.1) (2022-06-07)
 

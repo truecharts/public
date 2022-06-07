@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-4.0.2"></a>
+### [cryptofolio-4.0.2](https://github.com/truecharts/apps/compare/cryptofolio-4.0.1...cryptofolio-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="cryptofolio-4.0.1"></a>
 ### [cryptofolio-4.0.1](https://github.com/truecharts/apps/compare/cryptofolio-3.0.19...cryptofolio-4.0.1) (2022-06-07)
 

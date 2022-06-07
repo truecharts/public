@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-8.0.2"></a>
+### [deconz-8.0.2](https://github.com/truecharts/apps/compare/deconz-8.0.1...deconz-8.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="deconz-8.0.1"></a>
 ### [deconz-8.0.1](https://github.com/truecharts/apps/compare/deconz-7.0.29...deconz-8.0.1) (2022-06-07)
 

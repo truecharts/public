@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-4.0.2"></a>
+### [apache-musicindex-4.0.2](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.1...apache-musicindex-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="apache-musicindex-4.0.1"></a>
 ### [apache-musicindex-4.0.1](https://github.com/truecharts/apps/compare/apache-musicindex-3.0.19...apache-musicindex-4.0.1) (2022-06-07)
 

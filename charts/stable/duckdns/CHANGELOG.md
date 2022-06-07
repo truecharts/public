@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duckdns-2.0.2"></a>
+### [duckdns-2.0.2](https://github.com/truecharts/apps/compare/duckdns-2.0.1...duckdns-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="duckdns-2.0.1"></a>
 ### [duckdns-2.0.1](https://github.com/truecharts/apps/compare/duckdns-1.0.24...duckdns-2.0.1) (2022-06-07)
 

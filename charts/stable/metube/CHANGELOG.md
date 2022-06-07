@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="metube-2.0.2"></a>
+### [metube-2.0.2](https://github.com/truecharts/apps/compare/metube-2.0.1...metube-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="metube-2.0.1"></a>
 ### [metube-2.0.1](https://github.com/truecharts/apps/compare/metube-1.0.9...metube-2.0.1) (2022-06-07)
 

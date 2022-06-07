@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-6.0.2"></a>
+### [ser2sock-6.0.2](https://github.com/truecharts/apps/compare/ser2sock-6.0.1...ser2sock-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ser2sock-6.0.1"></a>
 ### [ser2sock-6.0.1](https://github.com/truecharts/apps/compare/ser2sock-5.0.19...ser2sock-6.0.1) (2022-06-07)
 

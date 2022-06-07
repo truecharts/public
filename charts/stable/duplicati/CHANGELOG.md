@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-6.0.2"></a>
+### [duplicati-6.0.2](https://github.com/truecharts/apps/compare/duplicati-6.0.1...duplicati-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="duplicati-6.0.1"></a>
 ### [duplicati-6.0.1](https://github.com/truecharts/apps/compare/duplicati-5.0.22...duplicati-6.0.1) (2022-06-07)
 

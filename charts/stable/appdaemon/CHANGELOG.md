@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-9.0.2"></a>
+### [appdaemon-9.0.2](https://github.com/truecharts/apps/compare/appdaemon-9.0.1...appdaemon-9.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="appdaemon-9.0.1"></a>
 ### [appdaemon-9.0.1](https://github.com/truecharts/apps/compare/appdaemon-8.0.19...appdaemon-9.0.1) (2022-06-07)
 

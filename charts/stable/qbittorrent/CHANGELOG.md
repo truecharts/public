@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-11.0.2"></a>
+### [qbittorrent-11.0.2](https://github.com/truecharts/apps/compare/qbittorrent-11.0.1...qbittorrent-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="qbittorrent-11.0.1"></a>
 ### [qbittorrent-11.0.1](https://github.com/truecharts/apps/compare/qbittorrent-10.0.22...qbittorrent-11.0.1) (2022-06-07)
 

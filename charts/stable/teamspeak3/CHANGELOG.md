@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-4.0.2"></a>
+### [teamspeak3-4.0.2](https://github.com/truecharts/apps/compare/teamspeak3-4.0.1...teamspeak3-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="teamspeak3-4.0.1"></a>
 ### [teamspeak3-4.0.1](https://github.com/truecharts/apps/compare/teamspeak3-3.0.21...teamspeak3-4.0.1) (2022-06-07)
 

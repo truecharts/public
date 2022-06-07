@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-4.0.2"></a>
+### [grav-4.0.2](https://github.com/truecharts/apps/compare/grav-4.0.1...grav-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="grav-4.0.1"></a>
 ### [grav-4.0.1](https://github.com/truecharts/apps/compare/grav-3.0.19...grav-4.0.1) (2022-06-07)
 

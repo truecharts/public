@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="verysync-2.0.2"></a>
+### [verysync-2.0.2](https://github.com/truecharts/apps/compare/verysync-2.0.1...verysync-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="verysync-2.0.1"></a>
 ### [verysync-2.0.1](https://github.com/truecharts/apps/compare/verysync-1.0.13...verysync-2.0.1) (2022-06-07)
 

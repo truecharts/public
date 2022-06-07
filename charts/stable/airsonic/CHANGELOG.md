@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-6.0.2"></a>
+### [airsonic-6.0.2](https://github.com/truecharts/apps/compare/airsonic-advanced-3.0.1...airsonic-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="airsonic-6.0.1"></a>
 ### [airsonic-6.0.1](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.23...airsonic-6.0.1) (2022-06-07)
 

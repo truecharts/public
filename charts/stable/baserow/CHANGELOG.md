@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="baserow-3.0.0"></a>
+### [baserow-3.0.0](https://github.com/truecharts/apps/compare/baserow-2.0.1...baserow-3.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="baserow-2.0.1"></a>
 ### [baserow-2.0.1](https://github.com/truecharts/apps/compare/baserow-1.0.1...baserow-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-4.0.2"></a>
+### [uptimerobot-prometheus-4.0.2](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.1...uptimerobot-prometheus-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="uptimerobot-prometheus-4.0.1"></a>
 ### [uptimerobot-prometheus-4.0.1](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.19...uptimerobot-prometheus-4.0.1) (2022-06-07)
 

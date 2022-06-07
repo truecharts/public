@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-4.0.2"></a>
+### [cloud9-4.0.2](https://github.com/truecharts/apps/compare/cloud9-4.0.1...cloud9-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="cloud9-4.0.1"></a>
 ### [cloud9-4.0.1](https://github.com/truecharts/apps/compare/cloud9-3.0.19...cloud9-4.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-8.0.2"></a>
+### [jdownloader2-8.0.2](https://github.com/truecharts/apps/compare/jdownloader2-8.0.1...jdownloader2-8.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="jdownloader2-8.0.1"></a>
 ### [jdownloader2-8.0.1](https://github.com/truecharts/apps/compare/jdownloader2-7.0.17...jdownloader2-8.0.1) (2022-06-07)
 

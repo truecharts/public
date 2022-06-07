@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-5.0.2"></a>
+### [aria2-5.0.2](https://github.com/truecharts/apps/compare/aria2-5.0.1...aria2-5.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="aria2-5.0.1"></a>
 ### [aria2-5.0.1](https://github.com/truecharts/apps/compare/aria2-4.0.19...aria2-5.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-11.0.2"></a>
+### [grocy-11.0.2](https://github.com/truecharts/apps/compare/grocy-11.0.1...grocy-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="grocy-11.0.1"></a>
 ### [grocy-11.0.1](https://github.com/truecharts/apps/compare/grocy-10.0.30...grocy-11.0.1) (2022-06-07)
 

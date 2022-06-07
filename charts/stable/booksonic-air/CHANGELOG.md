@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-6.0.2"></a>
+### [booksonic-air-6.0.2](https://github.com/truecharts/apps/compare/booksonic-air-6.0.1...booksonic-air-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="booksonic-air-6.0.1"></a>
 ### [booksonic-air-6.0.1](https://github.com/truecharts/apps/compare/booksonic-air-5.0.29...booksonic-air-6.0.1) (2022-06-07)
 

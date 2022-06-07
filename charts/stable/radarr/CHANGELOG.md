@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-11.0.2"></a>
+### [radarr-11.0.2](https://github.com/truecharts/apps/compare/radarr-11.0.1...radarr-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="radarr-11.0.1"></a>
 ### [radarr-11.0.1](https://github.com/truecharts/apps/compare/radarr-10.0.21...radarr-11.0.1) (2022-06-07)
 

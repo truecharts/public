@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snapdrop-2.0.2"></a>
+### [snapdrop-2.0.2](https://github.com/truecharts/apps/compare/snapdrop-2.0.1...snapdrop-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="snapdrop-2.0.1"></a>
 ### [snapdrop-2.0.1](https://github.com/truecharts/apps/compare/snapdrop-1.0.14...snapdrop-2.0.1) (2022-06-07)
 

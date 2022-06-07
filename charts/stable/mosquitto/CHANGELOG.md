@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-6.0.2"></a>
+### [mosquitto-6.0.2](https://github.com/truecharts/apps/compare/mosquitto-6.0.1...mosquitto-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="mosquitto-6.0.1"></a>
 ### [mosquitto-6.0.1](https://github.com/truecharts/apps/compare/mosquitto-5.0.27...mosquitto-6.0.1) (2022-06-07)
 

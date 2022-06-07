@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.0"></a>
+### [prometheus-4.0.0](https://github.com/truecharts/apps/compare/prometheus-3.0.1...prometheus-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="prometheus-3.0.1"></a>
 ### [prometheus-3.0.1](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.1) (2022-06-07)
 

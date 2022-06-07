@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="htpcmanager-2.0.2"></a>
+### [htpcmanager-2.0.2](https://github.com/truecharts/apps/compare/htpcmanager-2.0.1...htpcmanager-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="htpcmanager-2.0.1"></a>
 ### [htpcmanager-2.0.1](https://github.com/truecharts/apps/compare/htpcmanager-1.0.19...htpcmanager-2.0.1) (2022-06-07)
 

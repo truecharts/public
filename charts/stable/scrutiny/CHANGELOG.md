@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-2.0.2"></a>
+### [scrutiny-2.0.2](https://github.com/truecharts/apps/compare/scrutiny-2.0.1...scrutiny-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="scrutiny-2.0.1"></a>
 ### [scrutiny-2.0.1](https://github.com/truecharts/apps/compare/scrutiny-1.0.19...scrutiny-2.0.1) (2022-06-07)
 

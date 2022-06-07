@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-2.0.2"></a>
+### [nntp2nntp-2.0.2](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.1...nntp2nntp-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nntp2nntp-2.0.1"></a>
 ### [nntp2nntp-2.0.1](https://github.com/truecharts/apps/compare/nntp2nntp-1.0.20...nntp2nntp-2.0.1) (2022-06-07)
 

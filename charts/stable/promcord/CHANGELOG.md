@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-4.0.2"></a>
+### [promcord-4.0.2](https://github.com/truecharts/apps/compare/promcord-4.0.1...promcord-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="promcord-4.0.1"></a>
 ### [promcord-4.0.1](https://github.com/truecharts/apps/compare/promcord-3.0.20...promcord-4.0.1) (2022-06-07)
 

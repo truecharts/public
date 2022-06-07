@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosdns-2.0.2"></a>
+### [mosdns-2.0.2](https://github.com/truecharts/apps/compare/mosdns-2.0.1...mosdns-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="mosdns-2.0.1"></a>
 ### [mosdns-2.0.1](https://github.com/truecharts/apps/compare/mosdns-1.0.16...mosdns-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dillinger-2.0.2"></a>
+### [dillinger-2.0.2](https://github.com/truecharts/apps/compare/dillinger-2.0.1...dillinger-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="dillinger-2.0.1"></a>
 ### [dillinger-2.0.1](https://github.com/truecharts/apps/compare/dillinger-1.0.19...dillinger-2.0.1) (2022-06-07)
 

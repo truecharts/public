@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="domoticz-2.0.2"></a>
+### [domoticz-2.0.2](https://github.com/truecharts/apps/compare/domoticz-2.0.1...domoticz-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="domoticz-2.0.1"></a>
 ### [domoticz-2.0.1](https://github.com/truecharts/apps/compare/domoticz-1.0.26...domoticz-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-3.0.2"></a>
+### [medusa-3.0.2](https://github.com/truecharts/apps/compare/medusa-3.0.1...medusa-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="medusa-3.0.1"></a>
 ### [medusa-3.0.1](https://github.com/truecharts/apps/compare/medusa-2.0.29...medusa-3.0.1) (2022-06-07)
 

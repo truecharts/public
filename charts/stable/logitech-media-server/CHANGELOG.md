@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-4.0.2"></a>
+### [logitech-media-server-4.0.2](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.1...logitech-media-server-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="logitech-media-server-4.0.1"></a>
 ### [logitech-media-server-4.0.1](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.34...logitech-media-server-4.0.1) (2022-06-07)
 

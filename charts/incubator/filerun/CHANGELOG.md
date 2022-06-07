@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="filerun-2.0.0"></a>
+### [filerun-2.0.0](https://github.com/truecharts/apps/compare/filerun-1.0.1...filerun-2.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="filerun-1.0.1"></a>
 ### [filerun-1.0.1](https://github.com/truecharts/apps/compare/filerun-0.0.17...filerun-1.0.1) (2022-06-07)
 

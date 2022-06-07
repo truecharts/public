@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-7.0.2"></a>
+### [calibre-7.0.2](https://github.com/truecharts/apps/compare/calibre-web-11.0.1...calibre-7.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="calibre-7.0.1"></a>
 ### [calibre-7.0.1](https://github.com/truecharts/apps/compare/calibre-6.0.30...calibre-7.0.1) (2022-06-07)
 

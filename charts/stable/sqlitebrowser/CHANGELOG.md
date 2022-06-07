@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-3.0.2"></a>
+### [sqlitebrowser-3.0.2](https://github.com/truecharts/apps/compare/sqlitebrowser-3.0.1...sqlitebrowser-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="sqlitebrowser-3.0.1"></a>
 ### [sqlitebrowser-3.0.1](https://github.com/truecharts/apps/compare/sqlitebrowser-2.0.20...sqlitebrowser-3.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-11.0.2"></a>
+### [zwavejs2mqtt-11.0.2](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.1...zwavejs2mqtt-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="zwavejs2mqtt-11.0.1"></a>
 ### [zwavejs2mqtt-11.0.1](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.31...zwavejs2mqtt-11.0.1) (2022-06-07)
 

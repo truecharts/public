@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-8.0.0"></a>
+### [dsmr-reader-8.0.0](https://github.com/truecharts/apps/compare/dsmr-reader-7.0.1...dsmr-reader-8.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="dsmr-reader-7.0.1"></a>
 ### [dsmr-reader-7.0.1](https://github.com/truecharts/apps/compare/dsmr-reader-6.0.24...dsmr-reader-7.0.1) (2022-06-07)
 

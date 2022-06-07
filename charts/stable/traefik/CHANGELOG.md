@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-12.0.2"></a>
+### [traefik-12.0.2](https://github.com/truecharts/apps/compare/traefik-12.0.1...traefik-12.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="traefik-12.0.1"></a>
 ### [traefik-12.0.1](https://github.com/truecharts/apps/compare/traefik-11.3.9...traefik-12.0.1) (2022-06-07)
 

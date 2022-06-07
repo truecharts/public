@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kanboard-8.0.0"></a>
+### [kanboard-8.0.0](https://github.com/truecharts/apps/compare/kanboard-7.0.1...kanboard-8.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="kanboard-7.0.1"></a>
 ### [kanboard-7.0.1](https://github.com/truecharts/apps/compare/kanboard-6.0.24...kanboard-7.0.1) (2022-06-07)
 

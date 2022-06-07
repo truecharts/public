@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="self-service-password-1.0.2"></a>
+### [self-service-password-1.0.2](https://github.com/truecharts/apps/compare/self-service-password-1.0.1...self-service-password-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="self-service-password-1.0.1"></a>
 ### [self-service-password-1.0.1](https://github.com/truecharts/apps/compare/self-service-password-0.0.20...self-service-password-1.0.1) (2022-06-07)
 

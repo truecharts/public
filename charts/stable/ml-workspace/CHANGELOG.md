@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ml-workspace-2.0.2"></a>
+### [ml-workspace-2.0.2](https://github.com/truecharts/apps/compare/ml-workspace-2.0.1...ml-workspace-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ml-workspace-2.0.1"></a>
 ### [ml-workspace-2.0.1](https://github.com/truecharts/apps/compare/ml-workspace-1.1.13...ml-workspace-2.0.1) (2022-06-07)
 

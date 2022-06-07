@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hammond-2.0.2"></a>
+### [hammond-2.0.2](https://github.com/truecharts/apps/compare/hammond-2.0.1...hammond-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="hammond-2.0.1"></a>
 ### [hammond-2.0.1](https://github.com/truecharts/apps/compare/hammond-1.0.17...hammond-2.0.1) (2022-06-07)
 

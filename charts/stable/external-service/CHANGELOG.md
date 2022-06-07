@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-6.0.2"></a>
+### [external-service-6.0.2](https://github.com/truecharts/apps/compare/external-service-6.0.1...external-service-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="external-service-6.0.1"></a>
 ### [external-service-6.0.1](https://github.com/truecharts/apps/compare/external-service-5.0.20...external-service-6.0.1) (2022-06-07)
 

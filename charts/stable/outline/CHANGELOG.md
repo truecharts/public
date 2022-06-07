@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="outline-3.0.0"></a>
+### [outline-3.0.0](https://github.com/truecharts/apps/compare/outline-2.0.1...outline-3.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="outline-2.0.1"></a>
 ### [outline-2.0.1](https://github.com/truecharts/apps/compare/outline-1.0.30...outline-2.0.1) (2022-06-07)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="snipe-it-4.0.0"></a>
+### [snipe-it-4.0.0](https://github.com/truecharts/apps/compare/snipe-it-3.0.1...snipe-it-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="snipe-it-3.0.1"></a>
 ### [snipe-it-3.0.1](https://github.com/truecharts/apps/compare/snipe-it-2.0.27...snipe-it-3.0.1) (2022-06-07)
 

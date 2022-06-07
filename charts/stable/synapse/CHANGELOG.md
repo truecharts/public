@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="synapse-4.0.0"></a>
+### [synapse-4.0.0](https://github.com/truecharts/apps/compare/synapse-3.0.1...synapse-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="synapse-3.0.1"></a>
 ### [synapse-3.0.1](https://github.com/truecharts/apps/compare/synapse-2.1.9...synapse-3.0.1) (2022-06-07)
 

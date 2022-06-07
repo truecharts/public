@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-6.0.2"></a>
+### [prowlarr-6.0.2](https://github.com/truecharts/apps/compare/prowlarr-6.0.1...prowlarr-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="prowlarr-6.0.1"></a>
 ### [prowlarr-6.0.1](https://github.com/truecharts/apps/compare/prowlarr-5.0.44...prowlarr-6.0.1) (2022-06-07)
 

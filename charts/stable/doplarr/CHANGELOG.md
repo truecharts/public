@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doplarr-2.0.2"></a>
+### [doplarr-2.0.2](https://github.com/truecharts/apps/compare/doplarr-2.0.1...doplarr-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="doplarr-2.0.1"></a>
 ### [doplarr-2.0.1](https://github.com/truecharts/apps/compare/doplarr-1.0.17...doplarr-2.0.1) (2022-06-07)
 

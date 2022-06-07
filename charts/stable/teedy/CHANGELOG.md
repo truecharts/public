@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="teedy-7.0.0"></a>
+### [teedy-7.0.0](https://github.com/truecharts/apps/compare/teedy-6.0.1...teedy-7.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="teedy-6.0.1"></a>
 ### [teedy-6.0.1](https://github.com/truecharts/apps/compare/teedy-5.0.23...teedy-6.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="double-take-2.0.2"></a>
+### [double-take-2.0.2](https://github.com/truecharts/apps/compare/double-take-2.0.1...double-take-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="double-take-2.0.1"></a>
 ### [double-take-2.0.1](https://github.com/truecharts/apps/compare/double-take-1.0.18...double-take-2.0.1) (2022-06-07)
 

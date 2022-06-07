@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.2"></a>
+### [minecraft-java-1.0.2](https://github.com/truecharts/apps/compare/minecraft-java-1.0.1...minecraft-java-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="minecraft-java-1.0.1"></a>
 ### [minecraft-java-1.0.1](https://github.com/truecharts/apps/compare/minecraft-java-0.0.60...minecraft-java-1.0.1) (2022-06-07)
 

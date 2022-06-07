@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-11.0.2"></a>
+### [freshrss-11.0.2](https://github.com/truecharts/apps/compare/freshrss-11.0.1...freshrss-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="freshrss-11.0.1"></a>
 ### [freshrss-11.0.1](https://github.com/truecharts/apps/compare/freshrss-10.0.19...freshrss-11.0.1) (2022-06-07)
 

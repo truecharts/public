@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-11.0.2"></a>
+### [gaps-11.0.2](https://github.com/truecharts/apps/compare/gaps-11.0.1...gaps-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="gaps-11.0.1"></a>
 ### [gaps-11.0.1](https://github.com/truecharts/apps/compare/gaps-10.0.19...gaps-11.0.1) (2022-06-07)
 

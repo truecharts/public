@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-6.0.2"></a>
+### [xteve-6.0.2](https://github.com/truecharts/apps/compare/xteve-6.0.1...xteve-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="xteve-6.0.1"></a>
 ### [xteve-6.0.1](https://github.com/truecharts/apps/compare/xteve-5.0.21...xteve-6.0.1) (2022-06-07)
 

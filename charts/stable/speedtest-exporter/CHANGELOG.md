@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-3.0.2"></a>
+### [speedtest-exporter-3.0.2](https://github.com/truecharts/apps/compare/speedtest-exporter-3.0.1...speedtest-exporter-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="speedtest-exporter-3.0.1"></a>
 ### [speedtest-exporter-3.0.1](https://github.com/truecharts/apps/compare/speedtest-exporter-2.0.24...speedtest-exporter-3.0.1) (2022-06-07)
 

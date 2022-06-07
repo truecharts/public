@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-11.0.2"></a>
+### [emby-11.0.2](https://github.com/truecharts/apps/compare/emby-11.0.1...emby-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="emby-11.0.1"></a>
 ### [emby-11.0.1](https://github.com/truecharts/apps/compare/emby-10.0.19...emby-11.0.1) (2022-06-07)
 

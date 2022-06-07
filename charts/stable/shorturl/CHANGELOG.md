@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shorturl-3.0.2"></a>
+### [shorturl-3.0.2](https://github.com/truecharts/apps/compare/shorturl-3.0.1...shorturl-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="shorturl-3.0.1"></a>
 ### [shorturl-3.0.1](https://github.com/truecharts/apps/compare/shorturl-2.0.19...shorturl-3.0.1) (2022-06-07)
 

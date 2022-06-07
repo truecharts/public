@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-2.0.2"></a>
+### [storj-node-2.0.2](https://github.com/truecharts/apps/compare/storj-node-2.0.1...storj-node-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="storj-node-2.0.1"></a>
 ### [storj-node-2.0.1](https://github.com/truecharts/apps/compare/storj-node-1.0.28...storj-node-2.0.1) (2022-06-07)
 

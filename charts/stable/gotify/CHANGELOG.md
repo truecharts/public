@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="gotify-8.0.0"></a>
+### [gotify-8.0.0](https://github.com/truecharts/apps/compare/gotify-7.0.1...gotify-8.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="gotify-7.0.1"></a>
 ### [gotify-7.0.1](https://github.com/truecharts/apps/compare/gotify-6.0.23...gotify-7.0.1) (2022-06-07)
 

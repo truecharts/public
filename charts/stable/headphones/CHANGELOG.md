@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="headphones-4.0.2"></a>
+### [headphones-4.0.2](https://github.com/truecharts/apps/compare/headphones-4.0.1...headphones-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="headphones-4.0.1"></a>
 ### [headphones-4.0.1](https://github.com/truecharts/apps/compare/headphones-3.0.19...headphones-4.0.1) (2022-06-07)
 

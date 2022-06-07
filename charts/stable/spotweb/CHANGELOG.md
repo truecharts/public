@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="spotweb-4.0.0"></a>
+### [spotweb-4.0.0](https://github.com/truecharts/apps/compare/spotweb-3.0.1...spotweb-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="spotweb-3.0.1"></a>
 ### [spotweb-3.0.1](https://github.com/truecharts/apps/compare/spotweb-2.0.15...spotweb-3.0.1) (2022-06-07)
 

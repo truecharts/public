@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="leantime-4.0.0"></a>
+### [leantime-4.0.0](https://github.com/truecharts/apps/compare/leantime-3.0.1...leantime-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="leantime-3.0.1"></a>
 ### [leantime-3.0.1](https://github.com/truecharts/apps/compare/leantime-2.0.24...leantime-3.0.1) (2022-06-07)
 

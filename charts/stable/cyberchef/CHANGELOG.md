@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-2.0.2"></a>
+### [cyberchef-2.0.2](https://github.com/truecharts/apps/compare/cyberchef-2.0.1...cyberchef-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="cyberchef-2.0.1"></a>
 ### [cyberchef-2.0.1](https://github.com/truecharts/apps/compare/cyberchef-1.0.31...cyberchef-2.0.1) (2022-06-07)
 

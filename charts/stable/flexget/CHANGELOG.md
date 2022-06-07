@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flexget-2.0.2"></a>
+### [flexget-2.0.2](https://github.com/truecharts/apps/compare/flexget-2.0.1...flexget-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="flexget-2.0.1"></a>
 ### [flexget-2.0.1](https://github.com/truecharts/apps/compare/flexget-1.0.32...flexget-2.0.1) (2022-06-07)
 

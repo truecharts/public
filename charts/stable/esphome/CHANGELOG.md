@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-11.0.2"></a>
+### [esphome-11.0.2](https://github.com/truecharts/apps/compare/esphome-11.0.1...esphome-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="esphome-11.0.1"></a>
 ### [esphome-11.0.1](https://github.com/truecharts/apps/compare/esphome-10.0.26...esphome-11.0.1) (2022-06-07)
 

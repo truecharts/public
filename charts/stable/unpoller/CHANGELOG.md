@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-3.0.2"></a>
+### [unpoller-3.0.2](https://github.com/truecharts/apps/compare/unpoller-3.0.1...unpoller-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="unpoller-3.0.1"></a>
 ### [unpoller-3.0.1](https://github.com/truecharts/apps/compare/unpoller-2.0.19...unpoller-3.0.1) (2022-06-07)
 

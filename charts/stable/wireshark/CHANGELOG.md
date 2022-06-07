@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wireshark-2.0.2"></a>
+### [wireshark-2.0.2](https://github.com/truecharts/apps/compare/wireshark-2.0.1...wireshark-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="wireshark-2.0.1"></a>
 ### [wireshark-2.0.1](https://github.com/truecharts/apps/compare/wireshark-1.0.20...wireshark-2.0.1) (2022-06-07)
 

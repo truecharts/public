@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="zabbix-server-2.0.0"></a>
+### [zabbix-server-2.0.0](https://github.com/truecharts/apps/compare/zabbix-server-1.0.1...zabbix-server-2.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="zabbix-server-1.0.1"></a>
 ### [zabbix-server-1.0.1](https://github.com/truecharts/apps/compare/zabbix-server-0.0.15...zabbix-server-1.0.1) (2022-06-07)
 

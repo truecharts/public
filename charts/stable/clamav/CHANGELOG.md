@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-3.0.2"></a>
+### [clamav-3.0.2](https://github.com/truecharts/apps/compare/clamav-3.0.1...clamav-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="clamav-3.0.1"></a>
 ### [clamav-3.0.1](https://github.com/truecharts/apps/compare/clamav-2.1.20...clamav-3.0.1) (2022-06-07)
 

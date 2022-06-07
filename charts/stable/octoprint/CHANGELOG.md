@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-6.0.2"></a>
+### [octoprint-6.0.2](https://github.com/truecharts/apps/compare/octoprint-6.0.1...octoprint-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="octoprint-6.0.1"></a>
 ### [octoprint-6.0.1](https://github.com/truecharts/apps/compare/octoprint-5.0.22...octoprint-6.0.1) (2022-06-07)
 

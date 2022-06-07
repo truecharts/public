@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="couchpotato-2.0.2"></a>
+### [couchpotato-2.0.2](https://github.com/truecharts/apps/compare/couchpotato-2.0.1...couchpotato-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="couchpotato-2.0.1"></a>
 ### [couchpotato-2.0.1](https://github.com/truecharts/apps/compare/couchpotato-1.0.19...couchpotato-2.0.1) (2022-06-07)
 

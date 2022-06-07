@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="picoshare-2.0.2"></a>
+### [picoshare-2.0.2](https://github.com/truecharts/apps/compare/picoshare-2.0.1...picoshare-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="picoshare-2.0.1"></a>
 ### [picoshare-2.0.1](https://github.com/truecharts/apps/compare/picoshare-1.0.17...picoshare-2.0.1) (2022-06-07)
 

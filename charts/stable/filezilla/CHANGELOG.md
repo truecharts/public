@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-4.0.2"></a>
+### [filezilla-4.0.2](https://github.com/truecharts/apps/compare/filezilla-4.0.1...filezilla-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="filezilla-4.0.1"></a>
 ### [filezilla-4.0.1](https://github.com/truecharts/apps/compare/filezilla-3.0.31...filezilla-4.0.1) (2022-06-07)
 

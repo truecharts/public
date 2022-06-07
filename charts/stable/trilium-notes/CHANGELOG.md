@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-3.0.2"></a>
+### [trilium-notes-3.0.2](https://github.com/truecharts/apps/compare/trilium-notes-3.0.1...trilium-notes-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="trilium-notes-3.0.1"></a>
 ### [trilium-notes-3.0.1](https://github.com/truecharts/apps/compare/trilium-notes-2.0.21...trilium-notes-3.0.1) (2022-06-07)
 

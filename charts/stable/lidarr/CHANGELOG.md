@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-11.0.2"></a>
+### [lidarr-11.0.2](https://github.com/truecharts/apps/compare/lidarr-11.0.1...lidarr-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="lidarr-11.0.1"></a>
 ### [lidarr-11.0.1](https://github.com/truecharts/apps/compare/lidarr-10.0.33...lidarr-11.0.1) (2022-06-07)
 

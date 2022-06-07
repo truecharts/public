@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-6.0.2"></a>
+### [hyperion-ng-6.0.2](https://github.com/truecharts/apps/compare/hyperion-ng-6.0.1...hyperion-ng-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="hyperion-ng-6.0.1"></a>
 ### [hyperion-ng-6.0.1](https://github.com/truecharts/apps/compare/hyperion-ng-5.0.22...hyperion-ng-6.0.1) (2022-06-07)
 

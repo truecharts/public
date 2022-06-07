@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-1.0.2"></a>
+### [minecraft-bedrock-1.0.2](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.1...minecraft-bedrock-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="minecraft-bedrock-1.0.1"></a>
 ### [minecraft-bedrock-1.0.1](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.33...minecraft-bedrock-1.0.1) (2022-06-07)
 

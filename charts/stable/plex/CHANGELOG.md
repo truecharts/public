@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-10.0.2"></a>
+### [plex-10.0.2](https://github.com/truecharts/apps/compare/plex-10.0.1...plex-10.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="plex-10.0.1"></a>
 ### [plex-10.0.1](https://github.com/truecharts/apps/compare/plex-9.0.25...plex-10.0.1) (2022-06-07)
 

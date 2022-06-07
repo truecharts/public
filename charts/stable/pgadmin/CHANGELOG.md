@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-7.0.2"></a>
+### [pgadmin-7.0.2](https://github.com/truecharts/apps/compare/pgadmin-7.0.1...pgadmin-7.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="pgadmin-7.0.1"></a>
 ### [pgadmin-7.0.1](https://github.com/truecharts/apps/compare/pgadmin-6.0.24...pgadmin-7.0.1) (2022-06-07)
 

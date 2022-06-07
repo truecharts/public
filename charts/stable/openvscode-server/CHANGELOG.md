@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-2.0.2"></a>
+### [openvscode-server-2.0.2](https://github.com/truecharts/apps/compare/openvscode-server-2.0.1...openvscode-server-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="openvscode-server-2.0.1"></a>
 ### [openvscode-server-2.0.1](https://github.com/truecharts/apps/compare/openvscode-server-1.0.25...openvscode-server-2.0.1) (2022-06-07)
 

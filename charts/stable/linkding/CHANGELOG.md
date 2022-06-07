@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkding-2.0.2"></a>
+### [linkding-2.0.2](https://github.com/truecharts/apps/compare/linkding-2.0.1...linkding-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="linkding-2.0.1"></a>
 ### [linkding-2.0.1](https://github.com/truecharts/apps/compare/linkding-1.0.11...linkding-2.0.1) (2022-06-07)
 

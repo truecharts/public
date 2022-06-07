@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="authelia-11.0.0"></a>
+### [authelia-11.0.0](https://github.com/truecharts/apps/compare/authelia-10.0.1...authelia-11.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="authelia-10.0.1"></a>
 ### [authelia-10.0.1](https://github.com/truecharts/apps/compare/authelia-9.0.33...authelia-10.0.1) (2022-06-07)
 

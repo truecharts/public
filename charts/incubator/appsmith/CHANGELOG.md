@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="appsmith-2.0.0"></a>
+### [appsmith-2.0.0](https://github.com/truecharts/apps/compare/appsmith-1.0.1...appsmith-2.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="appsmith-1.0.1"></a>
 ### [appsmith-1.0.1](https://github.com/truecharts/apps/compare/appsmith-0.0.16...appsmith-1.0.1) (2022-06-07)
 

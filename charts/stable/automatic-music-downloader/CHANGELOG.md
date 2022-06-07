@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="automatic-music-downloader-2.0.2"></a>
+### [automatic-music-downloader-2.0.2](https://github.com/truecharts/apps/compare/automatic-music-downloader-2.0.1...automatic-music-downloader-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="automatic-music-downloader-2.0.1"></a>
 ### [automatic-music-downloader-2.0.1](https://github.com/truecharts/apps/compare/automatic-music-downloader-1.1.9...automatic-music-downloader-2.0.1) (2022-06-07)
 

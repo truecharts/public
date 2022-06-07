@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fluidd-2.0.2"></a>
+### [fluidd-2.0.2](https://github.com/truecharts/apps/compare/fluidd-2.0.1...fluidd-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="fluidd-2.0.1"></a>
 ### [fluidd-2.0.1](https://github.com/truecharts/apps/compare/fluidd-1.0.13...fluidd-2.0.1) (2022-06-07)
 

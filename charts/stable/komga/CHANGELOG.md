@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-6.0.2"></a>
+### [komga-6.0.2](https://github.com/truecharts/apps/compare/komga-6.0.1...komga-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="komga-6.0.1"></a>
 ### [komga-6.0.1](https://github.com/truecharts/apps/compare/komga-5.0.24...komga-6.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-12.0.2"></a>
+### [tvheadend-12.0.2](https://github.com/truecharts/apps/compare/tvheadend-12.0.1...tvheadend-12.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="tvheadend-12.0.1"></a>
 ### [tvheadend-12.0.1](https://github.com/truecharts/apps/compare/tvheadend-11.0.19...tvheadend-12.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-10.0.2"></a>
+### [podgrab-10.0.2](https://github.com/truecharts/apps/compare/podgrab-10.0.1...podgrab-10.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="podgrab-10.0.1"></a>
 ### [podgrab-10.0.1](https://github.com/truecharts/apps/compare/podgrab-9.0.20...podgrab-10.0.1) (2022-06-07)
 

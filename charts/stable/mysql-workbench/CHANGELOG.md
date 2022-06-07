@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mysql-workbench-2.0.2"></a>
+### [mysql-workbench-2.0.2](https://github.com/truecharts/apps/compare/mysql-workbench-2.0.1...mysql-workbench-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="mysql-workbench-2.0.1"></a>
 ### [mysql-workbench-2.0.1](https://github.com/truecharts/apps/compare/mysql-workbench-1.0.22...mysql-workbench-2.0.1) (2022-06-07)
 

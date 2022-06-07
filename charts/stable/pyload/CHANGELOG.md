@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-6.0.2"></a>
+### [pyload-6.0.2](https://github.com/truecharts/apps/compare/pyload-6.0.1...pyload-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="pyload-6.0.1"></a>
 ### [pyload-6.0.1](https://github.com/truecharts/apps/compare/pyload-5.0.19...pyload-6.0.1) (2022-06-07)
 

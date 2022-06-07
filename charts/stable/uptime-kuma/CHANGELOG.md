@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-3.0.2"></a>
+### [uptime-kuma-3.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.1...uptime-kuma-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="uptime-kuma-3.0.1"></a>
 ### [uptime-kuma-3.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.27...uptime-kuma-3.0.1) (2022-06-07)
 

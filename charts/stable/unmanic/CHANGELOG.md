@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unmanic-3.0.2"></a>
+### [unmanic-3.0.2](https://github.com/truecharts/apps/compare/unmanic-3.0.1...unmanic-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="unmanic-3.0.1"></a>
 ### [unmanic-3.0.1](https://github.com/truecharts/apps/compare/unmanic-2.0.22...unmanic-3.0.1) (2022-06-07)
 

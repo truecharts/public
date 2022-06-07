@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-4.0.2"></a>
+### [code-server-4.0.2](https://github.com/truecharts/apps/compare/code-server-4.0.1...code-server-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="code-server-4.0.1"></a>
 ### [code-server-4.0.1](https://github.com/truecharts/apps/compare/code-server-3.0.24...code-server-4.0.1) (2022-06-07)
 

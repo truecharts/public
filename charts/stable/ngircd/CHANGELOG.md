@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ngircd-2.0.2"></a>
+### [ngircd-2.0.2](https://github.com/truecharts/apps/compare/ngircd-2.0.1...ngircd-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ngircd-2.0.1"></a>
 ### [ngircd-2.0.1](https://github.com/truecharts/apps/compare/ngircd-1.0.19...ngircd-2.0.1) (2022-06-07)
 

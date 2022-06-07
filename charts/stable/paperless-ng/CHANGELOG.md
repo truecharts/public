@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-4.0.0"></a>
+### [paperless-ng-4.0.0](https://github.com/truecharts/apps/compare/paperless-ng-3.0.1...paperless-ng-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="paperless-ng-3.0.1"></a>
 ### [paperless-ng-3.0.1](https://github.com/truecharts/apps/compare/paperless-ng-2.0.31...paperless-ng-3.0.1) (2022-06-07)
 

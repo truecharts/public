@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.2"></a>
+### [redis-3.0.2](https://github.com/truecharts/apps/compare/redis-3.0.1...redis-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="redis-3.0.1"></a>
 ### [redis-3.0.1](https://github.com/truecharts/apps/compare/redis-2.0.83...redis-3.0.1) (2022-06-07)
 

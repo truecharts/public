@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-go-2.0.2"></a>
+### [ddns-go-2.0.2](https://github.com/truecharts/apps/compare/ddns-go-2.0.1...ddns-go-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ddns-go-2.0.1"></a>
 ### [ddns-go-2.0.1](https://github.com/truecharts/apps/compare/ddns-go-1.0.25...ddns-go-2.0.1) (2022-06-07)
 

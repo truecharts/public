@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-11.0.2"></a>
+### [sabnzbd-11.0.2](https://github.com/truecharts/apps/compare/sabnzbd-11.0.1...sabnzbd-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="sabnzbd-11.0.1"></a>
 ### [sabnzbd-11.0.1](https://github.com/truecharts/apps/compare/sabnzbd-10.0.20...sabnzbd-11.0.1) (2022-06-07)
 

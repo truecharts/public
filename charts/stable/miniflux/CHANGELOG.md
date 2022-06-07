@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="miniflux-7.0.0"></a>
+### [miniflux-7.0.0](https://github.com/truecharts/apps/compare/miniflux-6.0.1...miniflux-7.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="miniflux-6.0.1"></a>
 ### [miniflux-6.0.1](https://github.com/truecharts/apps/compare/miniflux-5.0.24...miniflux-6.0.1) (2022-06-07)
 

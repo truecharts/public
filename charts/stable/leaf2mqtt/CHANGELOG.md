@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-4.0.2"></a>
+### [leaf2mqtt-4.0.2](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.1...leaf2mqtt-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="leaf2mqtt-4.0.1"></a>
 ### [leaf2mqtt-4.0.1](https://github.com/truecharts/apps/compare/leaf2mqtt-3.0.20...leaf2mqtt-4.0.1) (2022-06-07)
 

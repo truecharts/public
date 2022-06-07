@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="adguard-home-1.0.2"></a>
+### [adguard-home-1.0.2](https://github.com/truecharts/apps/compare/adguard-home-1.0.1...adguard-home-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="adguard-home-1.0.1"></a>
 ### [adguard-home-1.0.1](https://github.com/truecharts/apps/compare/adguard-home-0.0.11...adguard-home-1.0.1) (2022-06-07)
 

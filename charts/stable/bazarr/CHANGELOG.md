@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-11.0.2"></a>
+### [bazarr-11.0.2](https://github.com/truecharts/apps/compare/bazarr-11.0.1...bazarr-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="bazarr-11.0.1"></a>
 ### [bazarr-11.0.1](https://github.com/truecharts/apps/compare/bazarr-10.0.21...bazarr-11.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.2"></a>
+### [promtail-3.0.2](https://github.com/truecharts/apps/compare/promtail-3.0.1...promtail-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="promtail-3.0.1"></a>
 ### [promtail-3.0.1](https://github.com/truecharts/apps/compare/promtail-2.0.52...promtail-3.0.1) (2022-06-07)
 

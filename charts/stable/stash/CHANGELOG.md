@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-7.0.2"></a>
+### [stash-7.0.2](https://github.com/truecharts/apps/compare/stash-7.0.1...stash-7.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="stash-7.0.1"></a>
 ### [stash-7.0.1](https://github.com/truecharts/apps/compare/stash-6.0.22...stash-7.0.1) (2022-06-07)
 

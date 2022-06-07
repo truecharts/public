@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="budge-2.0.2"></a>
+### [budge-2.0.2](https://github.com/truecharts/apps/compare/budge-2.0.1...budge-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="budge-2.0.1"></a>
 ### [budge-2.0.1](https://github.com/truecharts/apps/compare/budge-1.0.33...budge-2.0.1) (2022-06-07)
 

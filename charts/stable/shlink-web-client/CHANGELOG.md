@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-3.0.2"></a>
+### [shlink-web-client-3.0.2](https://github.com/truecharts/apps/compare/shlink-web-client-3.0.1...shlink-web-client-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="shlink-web-client-3.0.1"></a>
 ### [shlink-web-client-3.0.1](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.20...shlink-web-client-3.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-7.0.2"></a>
+### [healthchecks-7.0.2](https://github.com/truecharts/apps/compare/healthchecks-7.0.1...healthchecks-7.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="healthchecks-7.0.1"></a>
 ### [healthchecks-7.0.1](https://github.com/truecharts/apps/compare/healthchecks-6.0.19...healthchecks-7.0.1) (2022-06-07)
 

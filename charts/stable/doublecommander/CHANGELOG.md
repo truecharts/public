@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-4.0.2"></a>
+### [doublecommander-4.0.2](https://github.com/truecharts/apps/compare/doublecommander-4.0.1...doublecommander-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="doublecommander-4.0.1"></a>
 ### [doublecommander-4.0.1](https://github.com/truecharts/apps/compare/doublecommander-3.0.19...doublecommander-4.0.1) (2022-06-07)
 

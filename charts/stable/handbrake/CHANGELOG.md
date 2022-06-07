@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-13.0.2"></a>
+### [handbrake-13.0.2](https://github.com/truecharts/apps/compare/handbrake-13.0.1...handbrake-13.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="handbrake-13.0.1"></a>
 ### [handbrake-13.0.1](https://github.com/truecharts/apps/compare/handbrake-12.0.17...handbrake-13.0.1) (2022-06-07)
 

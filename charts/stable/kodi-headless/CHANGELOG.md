@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-2.0.2"></a>
+### [kodi-headless-2.0.2](https://github.com/truecharts/apps/compare/kodi-headless-2.0.1...kodi-headless-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="kodi-headless-2.0.1"></a>
 ### [kodi-headless-2.0.1](https://github.com/truecharts/apps/compare/kodi-headless-1.0.19...kodi-headless-2.0.1) (2022-06-07)
 

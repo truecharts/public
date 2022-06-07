@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextpvr-2.0.2"></a>
+### [nextpvr-2.0.2](https://github.com/truecharts/apps/compare/nextpvr-2.0.1...nextpvr-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nextpvr-2.0.1"></a>
 ### [nextpvr-2.0.1](https://github.com/truecharts/apps/compare/nextpvr-1.0.18...nextpvr-2.0.1) (2022-06-07)
 

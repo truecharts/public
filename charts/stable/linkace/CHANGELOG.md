@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.0"></a>
+### [linkace-4.0.0](https://github.com/truecharts/apps/compare/linkace-3.0.1...linkace-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="linkace-3.0.1"></a>
 ### [linkace-3.0.1](https://github.com/truecharts/apps/compare/linkace-2.0.28...linkace-3.0.1) (2022-06-07)
 

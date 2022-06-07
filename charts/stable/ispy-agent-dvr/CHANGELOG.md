@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ispy-agent-dvr-2.0.2"></a>
+### [ispy-agent-dvr-2.0.2](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.1...ispy-agent-dvr-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ispy-agent-dvr-2.0.1"></a>
 ### [ispy-agent-dvr-2.0.1](https://github.com/truecharts/apps/compare/ispy-agent-dvr-1.0.28...ispy-agent-dvr-2.0.1) (2022-06-07)
 

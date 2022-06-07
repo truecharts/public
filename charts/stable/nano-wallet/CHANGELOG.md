@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-2.0.2"></a>
+### [nano-wallet-2.0.2](https://github.com/truecharts/apps/compare/nano-wallet-2.0.1...nano-wallet-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nano-wallet-2.0.1"></a>
 ### [nano-wallet-2.0.1](https://github.com/truecharts/apps/compare/nano-wallet-1.0.19...nano-wallet-2.0.1) (2022-06-07)
 

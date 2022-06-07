@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddclient-2.0.2"></a>
+### [ddclient-2.0.2](https://github.com/truecharts/apps/compare/ddclient-2.0.1...ddclient-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ddclient-2.0.1"></a>
 ### [ddclient-2.0.1](https://github.com/truecharts/apps/compare/ddclient-1.0.19...ddclient-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="satisfactory-2.0.2"></a>
+### [satisfactory-2.0.2](https://github.com/truecharts/apps/compare/satisfactory-2.0.1...satisfactory-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="satisfactory-2.0.1"></a>
 ### [satisfactory-2.0.1](https://github.com/truecharts/apps/compare/satisfactory-1.0.7...satisfactory-2.0.1) (2022-06-07)
 

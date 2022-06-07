@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-6.0.2"></a>
+### [mylar-6.0.2](https://github.com/truecharts/apps/compare/mylar-6.0.1...mylar-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="mylar-6.0.1"></a>
 ### [mylar-6.0.1](https://github.com/truecharts/apps/compare/mylar-5.0.25...mylar-6.0.1) (2022-06-07)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wikijs-7.0.0"></a>
+### [wikijs-7.0.0](https://github.com/truecharts/apps/compare/wikijs-6.0.1...wikijs-7.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="wikijs-6.0.1"></a>
 ### [wikijs-6.0.1](https://github.com/truecharts/apps/compare/wikijs-5.0.30...wikijs-6.0.1) (2022-06-07)
 

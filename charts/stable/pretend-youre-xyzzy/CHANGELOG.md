@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-6.0.2"></a>
+### [pretend-youre-xyzzy-6.0.2](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-6.0.1...pretend-youre-xyzzy-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="pretend-youre-xyzzy-6.0.1"></a>
 ### [pretend-youre-xyzzy-6.0.1](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-5.0.19...pretend-youre-xyzzy-6.0.1) (2022-06-07)
 

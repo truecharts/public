@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-3.0.2"></a>
+### [muximux-3.0.2](https://github.com/truecharts/apps/compare/muximux-3.0.1...muximux-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="muximux-3.0.1"></a>
 ### [muximux-3.0.1](https://github.com/truecharts/apps/compare/muximux-2.0.19...muximux-3.0.1) (2022-06-07)
 

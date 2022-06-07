@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mkvtoolnix-2.0.2"></a>
+### [mkvtoolnix-2.0.2](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.1...mkvtoolnix-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="mkvtoolnix-2.0.1"></a>
 ### [mkvtoolnix-2.0.1](https://github.com/truecharts/apps/compare/mkvtoolnix-1.0.7...mkvtoolnix-2.0.1) (2022-06-07)
 

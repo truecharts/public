@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-3.0.2"></a>
+### [valheim-3.0.2](https://github.com/truecharts/apps/compare/valheim-3.0.1...valheim-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="valheim-3.0.1"></a>
 ### [valheim-3.0.1](https://github.com/truecharts/apps/compare/valheim-2.0.50...valheim-3.0.1) (2022-06-07)
 

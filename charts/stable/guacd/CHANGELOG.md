@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-2.0.2"></a>
+### [guacd-2.0.2](https://github.com/truecharts/apps/compare/guacd-2.0.1...guacd-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="guacd-2.0.1"></a>
 ### [guacd-2.0.1](https://github.com/truecharts/apps/compare/guacd-1.0.19...guacd-2.0.1) (2022-06-07)
 

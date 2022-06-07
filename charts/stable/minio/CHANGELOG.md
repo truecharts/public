@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-3.0.2"></a>
+### [minio-3.0.2](https://github.com/truecharts/apps/compare/minio-console-3.0.1...minio-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="minio-3.0.1"></a>
 ### [minio-3.0.1](https://github.com/truecharts/apps/compare/minio-2.0.32...minio-3.0.1) (2022-06-07)
 

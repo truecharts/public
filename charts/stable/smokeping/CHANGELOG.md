@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-3.0.2"></a>
+### [smokeping-3.0.2](https://github.com/truecharts/apps/compare/smokeping-3.0.1...smokeping-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="smokeping-3.0.1"></a>
 ### [smokeping-3.0.1](https://github.com/truecharts/apps/compare/smokeping-2.0.19...smokeping-3.0.1) (2022-06-07)
 

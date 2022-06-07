@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-1.0.2"></a>
+### [impostor-server-1.0.2](https://github.com/truecharts/apps/compare/impostor-server-1.0.1...impostor-server-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="impostor-server-1.0.1"></a>
 ### [impostor-server-1.0.1](https://github.com/truecharts/apps/compare/impostor-server-0.0.40...impostor-server-1.0.1) (2022-06-07)
 

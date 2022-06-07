@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-updater-2.0.2"></a>
+### [ddns-updater-2.0.2](https://github.com/truecharts/apps/compare/ddns-updater-2.0.1...ddns-updater-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ddns-updater-2.0.1"></a>
 ### [ddns-updater-2.0.1](https://github.com/truecharts/apps/compare/ddns-updater-1.0.10...ddns-updater-2.0.1) (2022-06-07)
 

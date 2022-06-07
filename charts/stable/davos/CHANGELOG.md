@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-4.0.2"></a>
+### [davos-4.0.2](https://github.com/truecharts/apps/compare/davos-4.0.1...davos-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="davos-4.0.1"></a>
 ### [davos-4.0.1](https://github.com/truecharts/apps/compare/davos-3.0.19...davos-4.0.1) (2022-06-07)
 

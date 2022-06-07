@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-4.0.2"></a>
+### [fossil-4.0.2](https://github.com/truecharts/apps/compare/fossil-4.0.1...fossil-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="fossil-4.0.1"></a>
 ### [fossil-4.0.1](https://github.com/truecharts/apps/compare/fossil-3.0.19...fossil-4.0.1) (2022-06-07)
 

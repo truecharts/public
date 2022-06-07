@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="embystat-2.0.2"></a>
+### [embystat-2.0.2](https://github.com/truecharts/apps/compare/embystat-2.0.1...embystat-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="embystat-2.0.1"></a>
 ### [embystat-2.0.1](https://github.com/truecharts/apps/compare/embystat-1.0.19...embystat-2.0.1) (2022-06-07)
 

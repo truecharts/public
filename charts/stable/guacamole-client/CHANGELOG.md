@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-4.0.0"></a>
+### [guacamole-client-4.0.0](https://github.com/truecharts/apps/compare/guacamole-client-3.0.1...guacamole-client-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="guacamole-client-3.0.1"></a>
 ### [guacamole-client-3.0.1](https://github.com/truecharts/apps/compare/guacamole-client-2.0.23...guacamole-client-3.0.1) (2022-06-07)
 

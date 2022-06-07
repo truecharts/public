@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homarr-2.0.2"></a>
+### [homarr-2.0.2](https://github.com/truecharts/apps/compare/homarr-2.0.1...homarr-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="homarr-2.0.1"></a>
 ### [homarr-2.0.1](https://github.com/truecharts/apps/compare/homarr-1.0.3...homarr-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synclounge-2.0.2"></a>
+### [synclounge-2.0.2](https://github.com/truecharts/apps/compare/synclounge-2.0.1...synclounge-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="synclounge-2.0.1"></a>
 ### [synclounge-2.0.1](https://github.com/truecharts/apps/compare/synclounge-1.0.21...synclounge-2.0.1) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-6.0.2"></a>
+### [librespeed-6.0.2](https://github.com/truecharts/apps/compare/librespeed-6.0.1...librespeed-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="librespeed-6.0.1"></a>
 ### [librespeed-6.0.1](https://github.com/truecharts/apps/compare/librespeed-5.0.19...librespeed-6.0.1) (2022-06-07)
 

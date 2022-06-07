@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ubooquity-3.0.2"></a>
+### [ubooquity-3.0.2](https://github.com/truecharts/apps/compare/ubooquity-3.0.1...ubooquity-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="ubooquity-3.0.1"></a>
 ### [ubooquity-3.0.1](https://github.com/truecharts/apps/compare/ubooquity-2.0.21...ubooquity-3.0.1) (2022-06-07)
 

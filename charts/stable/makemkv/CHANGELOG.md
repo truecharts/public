@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="makemkv-2.0.2"></a>
+### [makemkv-2.0.2](https://github.com/truecharts/apps/compare/makemkv-2.0.1...makemkv-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="makemkv-2.0.1"></a>
 ### [makemkv-2.0.1](https://github.com/truecharts/apps/compare/makemkv-1.0.17...makemkv-2.0.1) (2022-06-07)
 

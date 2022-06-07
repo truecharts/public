@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zerotier-2.0.2"></a>
+### [zerotier-2.0.2](https://github.com/truecharts/apps/compare/zerotier-2.0.1...zerotier-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="zerotier-2.0.1"></a>
 ### [zerotier-2.0.1](https://github.com/truecharts/apps/compare/zerotier-1.0.22...zerotier-2.0.1) (2022-06-07)
 

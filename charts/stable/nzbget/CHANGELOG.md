@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-11.0.2"></a>
+### [nzbget-11.0.2](https://github.com/truecharts/apps/compare/nzbget-11.0.1...nzbget-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="nzbget-11.0.1"></a>
 ### [nzbget-11.0.1](https://github.com/truecharts/apps/compare/nzbget-10.0.19...nzbget-11.0.1) (2022-06-07)
 

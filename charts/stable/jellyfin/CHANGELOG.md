@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-11.0.2"></a>
+### [jellyfin-11.0.2](https://github.com/truecharts/apps/compare/jellyfin-11.0.1...jellyfin-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="jellyfin-11.0.1"></a>
 ### [jellyfin-11.0.1](https://github.com/truecharts/apps/compare/jellyfin-10.0.19...jellyfin-11.0.1) (2022-06-07)
 

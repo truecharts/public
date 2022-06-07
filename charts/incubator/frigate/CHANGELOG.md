@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="frigate-2.0.2"></a>
+### [frigate-2.0.2](https://github.com/truecharts/apps/compare/frigate-2.0.1...frigate-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
 <a name="frigate-2.0.1"></a>
 ### [frigate-2.0.1](https://github.com/truecharts/apps/compare/frigate-1.0.19...frigate-2.0.1) (2022-06-07)
 
