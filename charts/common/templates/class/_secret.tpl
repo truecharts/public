@@ -18,7 +18,7 @@ within the common library.
   {{- end }}
 ---
 apiVersion: v1
-kind: secret
+kind: Secret
 metadata:
   name: {{ $secretName }}
   {{- with (merge ($values.labels | default dict) (include "tc.common.labels" $ | fromYaml)) }}
