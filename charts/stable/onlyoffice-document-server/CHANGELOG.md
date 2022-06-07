@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-5.0.1"></a>
+### [onlyoffice-document-server-5.0.1](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.23...onlyoffice-document-server-5.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="onlyoffice-document-server-5.0.0"></a>
 ### [onlyoffice-document-server-5.0.0](https://github.com/truecharts/apps/compare/onlyoffice-document-server-4.0.23...onlyoffice-document-server-5.0.0) (2022-06-07)
 

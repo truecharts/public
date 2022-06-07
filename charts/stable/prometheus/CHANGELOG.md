@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="prometheus-3.0.1"></a>
+### [prometheus-3.0.1](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2831](https://github.com/truecharts/apps/issues/2831))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="prometheus-3.0.0"></a>
 ### [prometheus-3.0.0](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.0) (2022-06-07)
 

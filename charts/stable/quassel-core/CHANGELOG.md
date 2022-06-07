@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="quassel-core-2.0.1"></a>
+### [quassel-core-2.0.1](https://github.com/truecharts/apps/compare/quassel-core-1.0.23...quassel-core-2.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="quassel-core-2.0.0"></a>
 ### [quassel-core-2.0.0](https://github.com/truecharts/apps/compare/quassel-core-1.0.23...quassel-core-2.0.0) (2022-06-07)
 

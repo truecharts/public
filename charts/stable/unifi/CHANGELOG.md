@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="unifi-11.0.1"></a>
+### [unifi-11.0.1](https://github.com/truecharts/apps/compare/unifi-10.0.23...unifi-11.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="unifi-11.0.0"></a>
 ### [unifi-11.0.0](https://github.com/truecharts/apps/compare/unifi-10.0.23...unifi-11.0.0) (2022-06-07)
 

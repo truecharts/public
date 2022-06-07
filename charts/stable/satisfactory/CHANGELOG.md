@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="satisfactory-2.0.1"></a>
+### [satisfactory-2.0.1](https://github.com/truecharts/apps/compare/satisfactory-1.0.7...satisfactory-2.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="satisfactory-2.0.0"></a>
 ### [satisfactory-2.0.0](https://github.com/truecharts/apps/compare/satisfactory-1.0.7...satisfactory-2.0.0) (2022-06-07)
 

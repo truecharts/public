@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="authelia-10.0.1"></a>
+### [authelia-10.0.1](https://github.com/truecharts/apps/compare/authelia-9.0.33...authelia-10.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="authelia-10.0.0"></a>
 ### [authelia-10.0.0](https://github.com/truecharts/apps/compare/authelia-9.0.33...authelia-10.0.0) (2022-06-07)
 

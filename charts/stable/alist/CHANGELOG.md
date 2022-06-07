@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="alist-2.0.1"></a>
+### [alist-2.0.1](https://github.com/truecharts/apps/compare/alist-1.0.31...alist-2.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="alist-2.0.0"></a>
 ### [alist-2.0.0](https://github.com/truecharts/apps/compare/alist-1.0.31...alist-2.0.0) (2022-06-07)
 

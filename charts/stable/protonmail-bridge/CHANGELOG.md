@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-6.0.1"></a>
+### [protonmail-bridge-6.0.1](https://github.com/truecharts/apps/compare/protonmail-bridge-5.0.19...protonmail-bridge-6.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="protonmail-bridge-6.0.0"></a>
 ### [protonmail-bridge-6.0.0](https://github.com/truecharts/apps/compare/protonmail-bridge-5.0.19...protonmail-bridge-6.0.0) (2022-06-07)
 

@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="valheim-3.0.1"></a>
+### [valheim-3.0.1](https://github.com/truecharts/apps/compare/valheim-2.0.50...valheim-3.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="valheim-3.0.0"></a>
 ### [valheim-3.0.0](https://github.com/truecharts/apps/compare/valheim-2.0.50...valheim-3.0.0) (2022-06-07)
 

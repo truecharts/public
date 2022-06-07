@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="truecommand-11.0.1"></a>
+### [truecommand-11.0.1](https://github.com/truecharts/apps/compare/truecommand-10.0.20...truecommand-11.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="truecommand-11.0.0"></a>
 ### [truecommand-11.0.0](https://github.com/truecharts/apps/compare/truecommand-10.0.20...truecommand-11.0.0) (2022-06-07)
 

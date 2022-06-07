@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-3.0.1"></a>
+### [shlink-web-client-3.0.1](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.20...shlink-web-client-3.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="shlink-web-client-3.0.0"></a>
 ### [shlink-web-client-3.0.0](https://github.com/truecharts/apps/compare/shlink-web-client-2.0.20...shlink-web-client-3.0.0) (2022-06-07)
 

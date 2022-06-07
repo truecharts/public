@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="unpackerr-6.0.1"></a>
+### [unpackerr-6.0.1](https://github.com/truecharts/apps/compare/unpackerr-5.0.20...unpackerr-6.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="unpackerr-6.0.0"></a>
 ### [unpackerr-6.0.0](https://github.com/truecharts/apps/compare/unpackerr-5.0.20...unpackerr-6.0.0) (2022-06-07)
 

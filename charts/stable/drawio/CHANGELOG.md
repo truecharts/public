@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="drawio-2.0.1"></a>
+### [drawio-2.0.1](https://github.com/truecharts/apps/compare/drawio-1.0.20...drawio-2.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
 <a name="drawio-2.0.0"></a>
 ### [drawio-2.0.0](https://github.com/truecharts/apps/compare/drawio-1.0.20...drawio-2.0.0) (2022-06-07)
 
