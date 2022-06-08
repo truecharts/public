@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="ispy-agent-dvr-2.0.3"></a>
+### [ispy-agent-dvr-2.0.3](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.2...ispy-agent-dvr-2.0.3) (2022-06-08)
+
+#### Chore
+
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 

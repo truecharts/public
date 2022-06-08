@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="ghost-3.0.1"></a>
+### [ghost-3.0.1](https://github.com/truecharts/apps/compare/ghost-3.0.0...ghost-3.0.1) (2022-06-08)
+
+#### Chore
+
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 

@@ -4,6 +4,19 @@
 <a name="vaultwarden-16.0.1"></a>
 ### [vaultwarden-16.0.1](https://github.com/truecharts/apps/compare/vaultwarden-16.0.0...vaultwarden-16.0.1) (2022-06-08)
 
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* fix yubico questions.yaml variable name
+
+
+
+<a name="vaultwarden-16.0.1"></a>
+### [vaultwarden-16.0.1](https://github.com/truecharts/apps/compare/vaultwarden-16.0.0...vaultwarden-16.0.1) (2022-06-08)
+
 #### Fix
 
 * fix yubico questions.yaml variable name

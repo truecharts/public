@@ -4,6 +4,19 @@
 <a name="ddclient-2.0.3"></a>
 ### [ddclient-2.0.3](https://github.com/truecharts/apps/compare/ddclient-2.0.2...ddclient-2.0.3) (2022-06-08)
 
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* set readOnlyRootFilesystem to false ([#2843](https://github.com/truecharts/apps/issues/2843))
+
+
+
+<a name="ddclient-2.0.3"></a>
+### [ddclient-2.0.3](https://github.com/truecharts/apps/compare/ddclient-2.0.2...ddclient-2.0.3) (2022-06-08)
+
 #### Fix
 
 * set readOnlyRootFilesystem to false ([#2843](https://github.com/truecharts/apps/issues/2843))

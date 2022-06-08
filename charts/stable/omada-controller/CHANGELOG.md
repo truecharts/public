@@ -6,6 +6,16 @@
 
 #### Chore
 
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="omada-controller-6.0.3"></a>
+### [omada-controller-6.0.3](https://github.com/truecharts/apps/compare/omada-controller-6.0.2...omada-controller-6.0.3) (2022-06-08)
+
+#### Chore
+
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 
