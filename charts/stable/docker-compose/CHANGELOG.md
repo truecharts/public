@@ -7,6 +7,17 @@
 #### Chore
 
 * Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="docker-compose-2.0.3"></a>
+### [docker-compose-2.0.3](https://github.com/truecharts/apps/compare/docker-compose-2.0.2...docker-compose-2.0.3) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 

@@ -7,6 +7,17 @@
 #### Chore
 
 * Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="home-assistant-15.0.1"></a>
+### [home-assistant-15.0.1](https://github.com/truecharts/apps/compare/home-assistant-15.0.0...home-assistant-15.0.1) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 

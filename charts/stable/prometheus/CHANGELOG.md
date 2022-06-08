@@ -7,6 +7,17 @@
 #### Chore
 
 * Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="prometheus-4.0.1"></a>
+### [prometheus-4.0.1](https://github.com/truecharts/apps/compare/prometheus-4.0.0...prometheus-4.0.1) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
 * update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
 
 
