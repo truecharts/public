@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-9.0.0"></a>
+### [focalboard-9.0.0](https://github.com/truecharts/apps/compare/focalboard-8.0.0...focalboard-9.0.0) (2022-06-08)
+
+#### Chore
+
+* update container image tccr.io/truecharts/focalboard to v7.0.0 ([#2842](https://github.com/truecharts/apps/issues/2842))
+
+
+
 <a name="focalboard-8.0.0"></a>
 ### [focalboard-8.0.0](https://github.com/truecharts/apps/compare/focalboard-7.0.1...focalboard-8.0.0) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-16.0.1"></a>
+### [vaultwarden-16.0.1](https://github.com/truecharts/apps/compare/vaultwarden-16.0.0...vaultwarden-16.0.1) (2022-06-08)
+
+#### Fix
+
+* fix yubico questions.yaml variable name
+
+
+
 <a name="vaultwarden-16.0.0"></a>
 ### [vaultwarden-16.0.0](https://github.com/truecharts/apps/compare/vaultwarden-15.0.1...vaultwarden-16.0.0) (2022-06-07)
 
