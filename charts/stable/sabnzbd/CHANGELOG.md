@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-11.0.3"></a>
+### [sabnzbd-11.0.3](https://github.com/truecharts/apps/compare/sabnzbd-11.0.2...sabnzbd-11.0.3) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
 <a name="sabnzbd-11.0.2"></a>
 ### [sabnzbd-11.0.2](https://github.com/truecharts/apps/compare/sabnzbd-11.0.1...sabnzbd-11.0.2) (2022-06-07)
 

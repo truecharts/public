@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-4.0.1"></a>
+### [wekan-4.0.1](https://github.com/truecharts/apps/compare/wekan-4.0.0...wekan-4.0.1) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
 <a name="wekan-4.0.0"></a>
 ### [wekan-4.0.0](https://github.com/truecharts/apps/compare/wekan-3.0.1...wekan-4.0.0) (2022-06-07)
 

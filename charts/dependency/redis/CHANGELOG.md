@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.3"></a>
+### [redis-3.0.3](https://github.com/truecharts/apps/compare/redis-3.0.2...redis-3.0.3) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
 <a name="redis-3.0.2"></a>
 ### [redis-3.0.2](https://github.com/truecharts/apps/compare/redis-3.0.1...redis-3.0.2) (2022-06-07)
 
