@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-3.0.3"></a>
+### [sqlitebrowser-3.0.3](https://github.com/truecharts/apps/compare/sqlitebrowser-3.0.2...sqlitebrowser-3.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="sqlitebrowser-3.0.2"></a>
 ### [sqlitebrowser-3.0.2](https://github.com/truecharts/apps/compare/sqlitebrowser-3.0.1...sqlitebrowser-3.0.2) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pidgin-2.0.3"></a>
+### [pidgin-2.0.3](https://github.com/truecharts/apps/compare/pidgin-2.0.2...pidgin-2.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="pidgin-2.0.2"></a>
 ### [pidgin-2.0.2](https://github.com/truecharts/apps/compare/pidgin-2.0.1...pidgin-2.0.2) (2022-06-07)
 

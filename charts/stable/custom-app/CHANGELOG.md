@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.0.6"></a>
+### [custom-app-5.0.6](https://github.com/truecharts/apps/compare/custom-app-5.0.5...custom-app-5.0.6) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+* update docker general non-major ([#2856](https://github.com/truecharts/apps/issues/2856))
+
+
+
 <a name="custom-app-5.0.5"></a>
 ### [custom-app-5.0.5](https://github.com/truecharts/apps/compare/custom-app-5.0.4...custom-app-5.0.5) (2022-06-11)
 

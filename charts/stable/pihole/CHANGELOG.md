@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-6.0.3"></a>
+### [pihole-6.0.3](https://github.com/truecharts/apps/compare/pihole-6.0.2...pihole-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="pihole-6.0.2"></a>
 ### [pihole-6.0.2](https://github.com/truecharts/apps/compare/pihole-6.0.1...pihole-6.0.2) (2022-06-07)
 

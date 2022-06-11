@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.4"></a>
+### [prometheus-4.0.4](https://github.com/truecharts/apps/compare/prometheus-4.0.3...prometheus-4.0.4) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="prometheus-4.0.3"></a>
 ### [prometheus-4.0.3](https://github.com/truecharts/apps/compare/prometheus-4.0.2...prometheus-4.0.3) (2022-06-11)
 

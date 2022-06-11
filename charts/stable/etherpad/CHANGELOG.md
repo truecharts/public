@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-8.0.1"></a>
+### [etherpad-8.0.1](https://github.com/truecharts/apps/compare/etherpad-8.0.0...etherpad-8.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="etherpad-8.0.0"></a>
 ### [etherpad-8.0.0](https://github.com/truecharts/apps/compare/etherpad-7.0.1...etherpad-8.0.0) (2022-06-07)
 

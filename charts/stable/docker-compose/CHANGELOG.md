@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-2.0.4"></a>
+### [docker-compose-2.0.4](https://github.com/truecharts/apps/compare/docker-compose-2.0.3...docker-compose-2.0.4) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="docker-compose-2.0.3"></a>
 ### [docker-compose-2.0.3](https://github.com/truecharts/apps/compare/docker-compose-2.0.2...docker-compose-2.0.3) (2022-06-08)
 

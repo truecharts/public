@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-3.0.3"></a>
+### [whoogle-3.0.3](https://github.com/truecharts/apps/compare/whoogle-3.0.2...whoogle-3.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="whoogle-3.0.2"></a>
 ### [whoogle-3.0.2](https://github.com/truecharts/apps/compare/whoogle-3.0.1...whoogle-3.0.2) (2022-06-07)
 

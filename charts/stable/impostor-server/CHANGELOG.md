@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-1.0.3"></a>
+### [impostor-server-1.0.3](https://github.com/truecharts/apps/compare/impostor-server-1.0.2...impostor-server-1.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="impostor-server-1.0.2"></a>
 ### [impostor-server-1.0.2](https://github.com/truecharts/apps/compare/impostor-server-1.0.1...impostor-server-1.0.2) (2022-06-07)
 

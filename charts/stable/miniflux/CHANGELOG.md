@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-7.0.1"></a>
+### [miniflux-7.0.1](https://github.com/truecharts/apps/compare/miniflux-7.0.0...miniflux-7.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="miniflux-7.0.0"></a>
 ### [miniflux-7.0.0](https://github.com/truecharts/apps/compare/miniflux-6.0.1...miniflux-7.0.0) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-4.0.4"></a>
+### [filezilla-4.0.4](https://github.com/truecharts/apps/compare/filezilla-4.0.3...filezilla-4.0.4) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="filezilla-4.0.3"></a>
 ### [filezilla-4.0.3](https://github.com/truecharts/apps/compare/filezilla-4.0.2...filezilla-4.0.3) (2022-06-11)
 

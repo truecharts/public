@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-3.0.3"></a>
+### [trilium-notes-3.0.3](https://github.com/truecharts/apps/compare/trilium-notes-3.0.2...trilium-notes-3.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+* update docker general non-major ([#2856](https://github.com/truecharts/apps/issues/2856))
+
+
+
 <a name="trilium-notes-3.0.2"></a>
 ### [trilium-notes-3.0.2](https://github.com/truecharts/apps/compare/trilium-notes-3.0.1...trilium-notes-3.0.2) (2022-06-07)
 

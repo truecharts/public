@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-8.0.1"></a>
+### [dsmr-reader-8.0.1](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.0...dsmr-reader-8.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="dsmr-reader-8.0.0"></a>
 ### [dsmr-reader-8.0.0](https://github.com/truecharts/apps/compare/dsmr-reader-7.0.1...dsmr-reader-8.0.0) (2022-06-07)
 

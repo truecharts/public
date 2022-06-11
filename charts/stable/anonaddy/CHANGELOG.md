@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-9.0.1"></a>
+### [anonaddy-9.0.1](https://github.com/truecharts/apps/compare/anonaddy-9.0.0...anonaddy-9.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="anonaddy-9.0.0"></a>
 ### [anonaddy-9.0.0](https://github.com/truecharts/apps/compare/anonaddy-8.0.1...anonaddy-9.0.0) (2022-06-07)
 

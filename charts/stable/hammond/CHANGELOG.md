@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hammond-2.0.3"></a>
+### [hammond-2.0.3](https://github.com/truecharts/apps/compare/hammond-2.0.2...hammond-2.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="hammond-2.0.2"></a>
 ### [hammond-2.0.2](https://github.com/truecharts/apps/compare/hammond-2.0.1...hammond-2.0.2) (2022-06-07)
 

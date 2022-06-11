@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-6.0.3"></a>
+### [protonmail-bridge-6.0.3](https://github.com/truecharts/apps/compare/protonmail-bridge-6.0.2...protonmail-bridge-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="protonmail-bridge-6.0.2"></a>
 ### [protonmail-bridge-6.0.2](https://github.com/truecharts/apps/compare/protonmail-bridge-6.0.1...protonmail-bridge-6.0.2) (2022-06-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-6.0.3"></a>
+### [airsonic-6.0.3](https://github.com/truecharts/apps/compare/airsonic-6.0.2...airsonic-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="airsonic-6.0.2"></a>
 ### [airsonic-6.0.2](https://github.com/truecharts/apps/compare/airsonic-advanced-3.0.1...airsonic-6.0.2) (2022-06-07)
 

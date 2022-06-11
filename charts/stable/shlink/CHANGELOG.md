@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-4.0.1"></a>
+### [shlink-4.0.1](https://github.com/truecharts/apps/compare/shlink-4.0.0...shlink-4.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="shlink-4.0.0"></a>
 ### [shlink-4.0.0](https://github.com/truecharts/apps/compare/shlink-3.0.1...shlink-4.0.0) (2022-06-07)
 

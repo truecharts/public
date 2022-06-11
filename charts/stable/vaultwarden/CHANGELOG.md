@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-16.0.2"></a>
+### [vaultwarden-16.0.2](https://github.com/truecharts/apps/compare/vaultwarden-16.0.1...vaultwarden-16.0.2) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="vaultwarden-16.0.1"></a>
 ### [vaultwarden-16.0.1](https://github.com/truecharts/apps/compare/vaultwarden-16.0.0...vaultwarden-16.0.1) (2022-06-08)
 

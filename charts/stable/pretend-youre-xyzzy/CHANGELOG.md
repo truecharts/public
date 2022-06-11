@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-6.0.3"></a>
+### [pretend-youre-xyzzy-6.0.3](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-6.0.2...pretend-youre-xyzzy-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="pretend-youre-xyzzy-6.0.2"></a>
 ### [pretend-youre-xyzzy-6.0.2](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-6.0.1...pretend-youre-xyzzy-6.0.2) (2022-06-07)
 

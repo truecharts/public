@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jellyfin-11.0.3"></a>
+### [jellyfin-11.0.3](https://github.com/truecharts/apps/compare/jellyfin-11.0.2...jellyfin-11.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+* update docker general non-major ([#2856](https://github.com/truecharts/apps/issues/2856))
+
+
+
 <a name="jellyfin-11.0.2"></a>
 ### [jellyfin-11.0.2](https://github.com/truecharts/apps/compare/jellyfin-11.0.1...jellyfin-11.0.2) (2022-06-07)
 

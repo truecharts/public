@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="theme-park-1.0.3"></a>
+### [theme-park-1.0.3](https://github.com/truecharts/apps/compare/theme-park-1.0.2...theme-park-1.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="theme-park-1.0.2"></a>
 ### [theme-park-1.0.2](https://github.com/truecharts/apps/compare/theme-park-1.0.1...theme-park-1.0.2) (2022-06-07)
 

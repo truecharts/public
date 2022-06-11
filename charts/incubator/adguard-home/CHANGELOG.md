@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="adguard-home-1.0.3"></a>
+### [adguard-home-1.0.3](https://github.com/truecharts/apps/compare/adguard-home-1.0.2...adguard-home-1.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="adguard-home-1.0.2"></a>
 ### [adguard-home-1.0.2](https://github.com/truecharts/apps/compare/adguard-home-1.0.1...adguard-home-1.0.2) (2022-06-07)
 

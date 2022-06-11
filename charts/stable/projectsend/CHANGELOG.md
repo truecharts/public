@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-3.0.1"></a>
+### [projectsend-3.0.1](https://github.com/truecharts/apps/compare/projectsend-3.0.0...projectsend-3.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="projectsend-3.0.0"></a>
 ### [projectsend-3.0.0](https://github.com/truecharts/apps/compare/projectsend-2.0.1...projectsend-3.0.0) (2022-06-07)
 

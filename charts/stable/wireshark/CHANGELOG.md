@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wireshark-2.0.3"></a>
+### [wireshark-2.0.3](https://github.com/truecharts/apps/compare/wireshark-2.0.2...wireshark-2.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="wireshark-2.0.2"></a>
 ### [wireshark-2.0.2](https://github.com/truecharts/apps/compare/wireshark-2.0.1...wireshark-2.0.2) (2022-06-07)
 

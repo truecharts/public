@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-8.0.1"></a>
+### [gotify-8.0.1](https://github.com/truecharts/apps/compare/gotify-8.0.0...gotify-8.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="gotify-8.0.0"></a>
 ### [gotify-8.0.0](https://github.com/truecharts/apps/compare/gotify-7.0.1...gotify-8.0.0) (2022-06-07)
 

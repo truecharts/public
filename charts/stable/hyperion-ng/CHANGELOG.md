@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-6.0.3"></a>
+### [hyperion-ng-6.0.3](https://github.com/truecharts/apps/compare/hyperion-ng-6.0.2...hyperion-ng-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="hyperion-ng-6.0.2"></a>
 ### [hyperion-ng-6.0.2](https://github.com/truecharts/apps/compare/hyperion-ng-6.0.1...hyperion-ng-6.0.2) (2022-06-07)
 

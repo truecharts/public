@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-3.0.1"></a>
+### [hedgedoc-3.0.1](https://github.com/truecharts/apps/compare/hedgedoc-3.0.0...hedgedoc-3.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="hedgedoc-3.0.0"></a>
 ### [hedgedoc-3.0.0](https://github.com/truecharts/apps/compare/hedgedoc-2.0.1...hedgedoc-3.0.0) (2022-06-07)
 

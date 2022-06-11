@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-3.0.4"></a>
+### [medusa-3.0.4](https://github.com/truecharts/apps/compare/medusa-3.0.3...medusa-3.0.4) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="medusa-3.0.3"></a>
 ### [medusa-3.0.3](https://github.com/truecharts/apps/compare/medusa-3.0.2...medusa-3.0.3) (2022-06-11)
 

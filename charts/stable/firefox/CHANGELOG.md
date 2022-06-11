@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-2.0.3"></a>
+### [firefox-2.0.3](https://github.com/truecharts/apps/compare/firefox-2.0.2...firefox-2.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
 <a name="firefox-2.0.2"></a>
 ### [firefox-2.0.2](https://github.com/truecharts/apps/compare/firefox-2.0.1...firefox-2.0.2) (2022-06-07)
 
