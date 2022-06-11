@@ -3,15 +3,15 @@ appVersion: "2.7.4"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.0.8
+  version: 10.0.9
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 8.0.1
+  version: 8.0.5
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 3.0.1
+  version: 3.0.5
 deprecated: false
 description: Kutt is a modern URL shortener with support for custom domains. Shorten URLs, manage your links and view the click rate statistics.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
@@ -29,7 +29,7 @@ name: kutt
 sources:
 - https://github.com/thedevs-network/kutt
 type: application
-version: 3.0.0
+version: 3.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity
