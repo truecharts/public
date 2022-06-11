@@ -14,7 +14,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:b7ae4f80183858ed6379b6f8f76f8ef4f1b474b222b8057e091ba0b4e5f62999
+  tag: v1.0.20210914@sha256:201948d742804511516907c311cb224316d43ad31e2fdafd8712a0da3dcb9a82
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.3.0@sha256:997205be58254e4196f4afdf2d0f539b809177966f62cc9891cca037b3da37a7
+  tag: v14.3.0@sha256:a05700459c7d20acebb13edfe713174cccbdb63c727f8a6cd421be8592b172a4
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.7.4@sha256:2741faf6ed0c730bf41357f7d0de3546025ddd9341bb64e946df0f193ed7a03f
+  tag: v10.7.4@sha256:dd2042a79c38b92ec14b4c55b97c615c1c5f437f4f5b3e796a8fa7aa1c0a0865
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
@@ -84,7 +84,7 @@ mongodbImage:
   # -- Specify the mongodb image
   repository: ghcr.io/truecharts/mongodb
   # -- Specify the mongodb image tag
-  tag: v5.0.9@sha256:4f5a82e1b66a48423960d1b5d07566fe55e606de70e42f36ea52ffa54fe20e8e
+  tag: v5.0.9@sha256:9a7678d3307d1da330c64a871d1fbe4ce34cd6e89096ef41b0d8aa6ab553349b
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
