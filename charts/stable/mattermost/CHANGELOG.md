@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mattermost-3.0.1"></a>
+### [mattermost-3.0.1](https://github.com/truecharts/apps/compare/mattermost-3.0.0...mattermost-3.0.1) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
 <a name="mattermost-3.0.0"></a>
 ### [mattermost-3.0.0](https://github.com/truecharts/apps/compare/mattermost-2.0.1...mattermost-3.0.0) (2022-06-07)
 

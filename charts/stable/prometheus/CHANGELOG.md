@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.3"></a>
+### [prometheus-4.0.3](https://github.com/truecharts/apps/compare/prometheus-4.0.2...prometheus-4.0.3) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
 <a name="prometheus-4.0.2"></a>
 ### [prometheus-4.0.2](https://github.com/truecharts/apps/compare/prometheus-4.0.1...prometheus-4.0.2) (2022-06-09)
 

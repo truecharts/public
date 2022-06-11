@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-8.0.1"></a>
+### [odoo-8.0.1](https://github.com/truecharts/apps/compare/odoo-8.0.0...odoo-8.0.1) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
 <a name="odoo-8.0.0"></a>
 ### [odoo-8.0.0](https://github.com/truecharts/apps/compare/odoo-7.0.1...odoo-8.0.0) (2022-06-07)
 

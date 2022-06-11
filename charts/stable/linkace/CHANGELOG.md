@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.1"></a>
+### [linkace-4.0.1](https://github.com/truecharts/apps/compare/linkace-4.0.0...linkace-4.0.1) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
 <a name="linkace-4.0.0"></a>
 ### [linkace-4.0.0](https://github.com/truecharts/apps/compare/linkace-3.0.1...linkace-4.0.0) (2022-06-07)
 

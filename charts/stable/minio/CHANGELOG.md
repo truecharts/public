@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-3.0.4"></a>
+### [minio-3.0.4](https://github.com/truecharts/apps/compare/minio-3.0.3...minio-3.0.4) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
 <a name="minio-3.0.3"></a>
 ### [minio-3.0.3](https://github.com/truecharts/apps/compare/minio-3.0.2...minio-3.0.3) (2022-06-08)
 
