@@ -160,8 +160,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        $ref:
-                          - "validations/hostPath"
 
   - variable: extraAppVolumeMounts
     label: "Extra Host Path Volumes"
