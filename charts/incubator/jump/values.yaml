@@ -1,0 +1,33 @@
+image:
+  repository: daledavies/jump
+  tag: v1.2.1@sha256:d7726d922000400e58c47555a5a6b6ac74bf04c435e526682bb07c0de6d35c75
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  SITENAME: "My Site"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10108
+        targetPort: 8080
+
+persistence:
+  backgrounds:
+    enabled: true
+    mountPath: "/backgrounds"
+  search:
+    enabled: true
+    mountPath: "/search"
+  sites:
+    enabled: true
+    mountPath: "/sites"
