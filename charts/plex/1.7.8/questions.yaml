@@ -185,8 +185,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        $ref:
-                          - "validations/hostPath"
         - variable: data
           label: "Data Volume"
           schema:
@@ -222,8 +220,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        $ref:
-                          - "validations/hostPath"
         - variable: config
           label: "Config Volume"
           schema:
@@ -259,8 +255,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        $ref:
-                          - "validations/hostPath"
         - variable: shared
           label: "Shared Volume"
           schema:
