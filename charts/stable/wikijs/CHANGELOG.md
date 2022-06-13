@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-7.0.2"></a>
+### [wikijs-7.0.2](https://github.com/truecharts/apps/compare/wikijs-7.0.1...wikijs-7.0.2) (2022-06-13)
+
+#### Chore
+
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
+
+
+
 <a name="wikijs-7.0.1"></a>
 ### [wikijs-7.0.1](https://github.com/truecharts/apps/compare/wikijs-7.0.0...wikijs-7.0.1) (2022-06-11)
 

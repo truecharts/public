@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-11.0.4"></a>
+### [qbittorrent-11.0.4](https://github.com/truecharts/apps/compare/qbittorrent-11.0.3...qbittorrent-11.0.4) (2022-06-12)
+
+#### Chore
+
+* update image ([#2865](https://github.com/truecharts/apps/issues/2865))
+
+
+
 <a name="qbittorrent-11.0.3"></a>
 ### [qbittorrent-11.0.3](https://github.com/truecharts/apps/compare/qbittorrent-11.0.2...qbittorrent-11.0.3) (2022-06-11)
 
