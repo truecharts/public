@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-8.0.2"></a>
+### [babybuddy-8.0.2](https://github.com/truecharts/apps/compare/babybuddy-8.0.1...babybuddy-8.0.2) (2022-06-13)
+
+#### Chore
+
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
+
+
+
 <a name="babybuddy-8.0.1"></a>
 ### [babybuddy-8.0.1](https://github.com/truecharts/apps/compare/babybuddy-8.0.0...babybuddy-8.0.1) (2022-06-11)
 

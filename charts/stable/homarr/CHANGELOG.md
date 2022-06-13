@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homarr-2.0.4"></a>
+### [homarr-2.0.4](https://github.com/truecharts/apps/compare/homarr-2.0.3...homarr-2.0.4) (2022-06-13)
+
+#### Chore
+
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
+
+
+
 <a name="homarr-2.0.3"></a>
 ### [homarr-2.0.3](https://github.com/truecharts/apps/compare/homarr-2.0.2...homarr-2.0.3) (2022-06-11)
 

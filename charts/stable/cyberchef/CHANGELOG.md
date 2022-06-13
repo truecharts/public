@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-2.0.5"></a>
+### [cyberchef-2.0.5](https://github.com/truecharts/apps/compare/cyberchef-2.0.4...cyberchef-2.0.5) (2022-06-13)
+
+#### Chore
+
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
+
+
+
 <a name="cyberchef-2.0.4"></a>
 ### [cyberchef-2.0.4](https://github.com/truecharts/apps/compare/cyberchef-2.0.3...cyberchef-2.0.4) (2022-06-11)
 
