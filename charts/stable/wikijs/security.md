@@ -58,7 +58,7 @@ hide:
           tccr.io/truecharts/postgresql:v14.3.0@sha256:a05700459c7d20acebb13edfe713174cccbdb63c727f8a6cd421be8592b172a4
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.3.0@sha256:a05700459c7d20acebb13edfe713174cccbdb63c727f8a6cd421be8592b172a4
-          tccr.io/truecharts/wikijs:v2.5.283@sha256:fc4ee84b1efb69ffcf1bc6f88cb5c3db36822618c1b3f5304e18a2c72ecd6fe7
+          tccr.io/truecharts/wikijs:v2.5.284@sha256:41008bf2c3ec6ba933f6ca26db084202eb74b25ab5e4dd15a53065bb4e9be8f6
 
 ##### Scan Results
 
@@ -409,15 +409,16 @@ hide:
 | github.com/opencontainers/runc         |    CVE-2022-24769   |   MEDIUM  |  v1.0.1 | v1.1.2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/05/12/1">http://www.openwall.com/lists/oss-security/2022/05/12/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2022-24769">https://access.redhat.com/security/cve/CVE-2022-24769</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24769">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24769</a><br><a href="https://github.com/containerd/containerd/security/advisories/GHSA-c9cp-9c75-9v8c">https://github.com/containerd/containerd/security/advisories/GHSA-c9cp-9c75-9v8c</a><br><a href="https://github.com/moby/moby/commit/2bbc786e4c59761d722d2d1518cd0a32829bc07f">https://github.com/moby/moby/commit/2bbc786e4c59761d722d2d1518cd0a32829bc07f</a><br><a href="https://github.com/moby/moby/releases/tag/v20.10.14">https://github.com/moby/moby/releases/tag/v20.10.14</a><br><a href="https://github.com/moby/moby/security/advisories/GHSA-2mm7-x5h6-5pvq">https://github.com/moby/moby/security/advisories/GHSA-2mm7-x5h6-5pvq</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6PMQKCAPK2AR3DCYITJYMMNBEGQBGLCC/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6PMQKCAPK2AR3DCYITJYMMNBEGQBGLCC/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5AFKOQ5CE3CEIULWW4FLQKHFFU6FSYG/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5AFKOQ5CE3CEIULWW4FLQKHFFU6FSYG/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5FQJ3MLFSEKQYCFPFZIKYGBXPZUJFVY/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5FQJ3MLFSEKQYCFPFZIKYGBXPZUJFVY/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FPOJUJZXGMIVKRS4QR75F6OIXNQ6LDBL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FPOJUJZXGMIVKRS4QR75F6OIXNQ6LDBL/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HIMAHZ6AUIKN7AX26KHZYBXVECIOVWBH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HIMAHZ6AUIKN7AX26KHZYBXVECIOVWBH/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HQCVS7WBFSTKJFNX5PGDRARMTOFWV2O7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HQCVS7WBFSTKJFNX5PGDRARMTOFWV2O7/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24769">https://nvd.nist.gov/vuln/detail/CVE-2022-24769</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/wikijs:v2.5.283@sha256:fc4ee84b1efb69ffcf1bc6f88cb5c3db36822618c1b3f5304e18a2c72ecd6fe7 (alpine 3.15.4)
+#### Container: tccr.io/truecharts/wikijs:v2.5.284@sha256:41008bf2c3ec6ba933f6ca26db084202eb74b25ab5e4dd15a53065bb4e9be8f6 (alpine 3.15.4)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libldap         |    CVE-2022-29155   |   CRITICAL  |  2.6.0-r0 | 2.6.2-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29155">https://access.redhat.com/security/cve/CVE-2022-29155</a><br><a href="https://bugs.openldap.org/show_bug.cgi?id=9815">https://bugs.openldap.org/show_bug.cgi?id=9815</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29155">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29155</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/05/msg00032.html">https://lists.debian.org/debian-lts-announce/2022/05/msg00032.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29155">https://nvd.nist.gov/vuln/detail/CVE-2022-29155</a><br><a href="https://security.netapp.com/advisory/ntap-20220609-0007/">https://security.netapp.com/advisory/ntap-20220609-0007/</a><br><a href="https://ubuntu.com/security/notices/USN-5424-1">https://ubuntu.com/security/notices/USN-5424-1</a><br><a href="https://ubuntu.com/security/notices/USN-5424-2">https://ubuntu.com/security/notices/USN-5424-2</a><br><a href="https://www.debian.org/security/2022/dsa-5140">https://www.debian.org/security/2022/dsa-5140</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **node-pkg**
 
