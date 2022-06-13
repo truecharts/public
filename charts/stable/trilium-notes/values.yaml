@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.52.2@sha256:848715471d8f09800f56c48aef30c419d8f2150e645ad37562ad2bd1d76699a8
 
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 1000
+
 service:
   main:
     ports:
@@ -11,10 +19,7 @@ service:
         targetPort: 8080
         port: 10156
 
-env:
-  TRILIUM_DATA_DIR: "/trilium-data"
-
 persistence:
   config:
     enabled: true
-    mountPath: "/trilium-data"
+    mountPath: "/home/node"
