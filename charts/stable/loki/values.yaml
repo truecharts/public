@@ -42,7 +42,7 @@ secret:
   config:
     enabled: true
     data:
-      loki.yaml: '{{ tpl (toYaml .Values.config) . }}'
+      loki.yaml: '{{ tpl (toYaml .Values.config) . | b64enc }}'
 
 service:
   main:
