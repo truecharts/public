@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-5.0.0"></a>
+### [trilium-notes-5.0.0](https://github.com/truecharts/apps/compare/trilium-notes-4.0.0...trilium-notes-5.0.0) (2022-06-13)
+
+#### Fix
+
+* BREAKING CHANGE ([#2870](https://github.com/truecharts/apps/issues/2870))
+
+
+
 <a name="trilium-notes-4.0.0"></a>
 ### [trilium-notes-4.0.0](https://github.com/truecharts/apps/compare/trilium-notes-3.0.3...trilium-notes-4.0.0) (2022-06-13)
 
