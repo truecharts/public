@@ -107,21 +107,18 @@ questions:
                 description: "Change the order of the labels in the list, to change the position in the widget, or remove an item from the list, to remove it from the widget"
                 schema:
                   type: string
-                  required: true
                   default: "os,arch,up_since"
               - variable: DASHDOT_OS_WIDGET_GROW
                 label: "DASHDOT_OS_WIDGET_GROW"
                 description: "To adjust the relative size of the OS widget"
                 schema:
                   type: string
-                  required: string
                   default: "1.5"
               - variable: DASHDOT_OS_WIDGET_MIN_WIDTH
                 label: "DASHDOT_OS_WIDGET_MIN_WIDTH"
                 description: "To adjust the minimum width of the OS widget (in px)"
                 schema:
                   type: string
-                  required: string
                   default: "300"
         - variable: cpuwidgetsettings
           label: "CPU Widget"
