@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-95-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-96-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -256,6 +256,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/DrSKiZZ"><img src="https://avatars.githubusercontent.com/u/50158917?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DrSKiZZ</b></sub></a><br /><a href="#financial-DrSKiZZ" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/janpuc"><img src="https://avatars.githubusercontent.com/u/8539508?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan Puciłowski</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=janpuc" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=janpuc" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/shauncoyne"><img src="https://avatars.githubusercontent.com/u/13672807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shaun Coyne</b></sub></a><br /><a href="#financial-shauncoyne" title="Financial">💵</a></td>
+    <td align="center"><a href="https://github.com/ich777"><img src="https://avatars.githubusercontent.com/u/28066518?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christoph</b></sub></a><br /><a href="#financial-ich777" title="Financial">💵</a></td>
   </tr>
 </table>
 
