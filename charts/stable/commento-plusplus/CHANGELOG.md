@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="commento-plusplus-3.0.3"></a>
+### [commento-plusplus-3.0.3](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.2...commento-plusplus-3.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
 <a name="commento-plusplus-3.0.2"></a>
 ### [commento-plusplus-3.0.2](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.1...commento-plusplus-3.0.2) (2022-06-14)
 

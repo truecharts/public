@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-7.0.3"></a>
+### [tt-rss-7.0.3](https://github.com/truecharts/apps/compare/tt-rss-7.0.2...tt-rss-7.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
 <a name="tt-rss-7.0.2"></a>
 ### [tt-rss-7.0.2](https://github.com/truecharts/apps/compare/tt-rss-7.0.1...tt-rss-7.0.2) (2022-06-14)
 

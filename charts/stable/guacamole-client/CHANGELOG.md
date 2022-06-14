@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-4.0.3"></a>
+### [guacamole-client-4.0.3](https://github.com/truecharts/apps/compare/guacamole-client-4.0.2...guacamole-client-4.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
 <a name="guacamole-client-4.0.2"></a>
 ### [guacamole-client-4.0.2](https://github.com/truecharts/apps/compare/guacamole-client-4.0.1...guacamole-client-4.0.2) (2022-06-14)
 

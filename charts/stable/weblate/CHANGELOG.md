@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-4.0.4"></a>
+### [weblate-4.0.4](https://github.com/truecharts/apps/compare/weblate-4.0.3...weblate-4.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
 <a name="weblate-4.0.3"></a>
 ### [weblate-4.0.3](https://github.com/truecharts/apps/compare/weblate-4.0.2...weblate-4.0.3) (2022-06-14)
 

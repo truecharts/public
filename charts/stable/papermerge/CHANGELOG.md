@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="papermerge-3.0.4"></a>
+### [papermerge-3.0.4](https://github.com/truecharts/apps/compare/papermerge-3.0.3...papermerge-3.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
 <a name="papermerge-3.0.3"></a>
 ### [papermerge-3.0.3](https://github.com/truecharts/apps/compare/papermerge-3.0.2...papermerge-3.0.3) (2022-06-14)
 
