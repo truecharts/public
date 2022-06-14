@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-3.0.7"></a>
+### [dokuwiki-3.0.7](https://github.com/truecharts/apps/compare/dokuwiki-3.0.6...dokuwiki-3.0.7) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="dokuwiki-3.0.6"></a>
 ### [dokuwiki-3.0.6](https://github.com/truecharts/apps/compare/dokuwiki-3.0.5...dokuwiki-3.0.6) (2022-06-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-8.0.4"></a>
+### [jdownloader2-8.0.4](https://github.com/truecharts/apps/compare/jdownloader2-8.0.3...jdownloader2-8.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="jdownloader2-8.0.3"></a>
 ### [jdownloader2-8.0.3](https://github.com/truecharts/apps/compare/jdownloader2-8.0.2...jdownloader2-8.0.3) (2022-06-11)
 

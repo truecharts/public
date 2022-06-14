@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-11.0.5"></a>
+### [lazylibrarian-11.0.5](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.4...lazylibrarian-11.0.5) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="lazylibrarian-11.0.4"></a>
 ### [lazylibrarian-11.0.4](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.3...lazylibrarian-11.0.4) (2022-06-13)
 

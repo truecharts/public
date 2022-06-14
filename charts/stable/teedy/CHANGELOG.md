@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-7.0.2"></a>
+### [teedy-7.0.2](https://github.com/truecharts/apps/compare/teedy-7.0.1...teedy-7.0.2) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="teedy-7.0.1"></a>
 ### [teedy-7.0.1](https://github.com/truecharts/apps/compare/teedy-7.0.0...teedy-7.0.1) (2022-06-11)
 

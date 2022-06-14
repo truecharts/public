@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shorturl-3.0.4"></a>
+### [shorturl-3.0.4](https://github.com/truecharts/apps/compare/shorturl-3.0.3...shorturl-3.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="shorturl-3.0.3"></a>
 ### [shorturl-3.0.3](https://github.com/truecharts/apps/compare/shorturl-3.0.2...shorturl-3.0.3) (2022-06-11)
 

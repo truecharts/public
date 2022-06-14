@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-3.0.4"></a>
+### [twtxt-3.0.4](https://github.com/truecharts/apps/compare/twtxt-3.0.3...twtxt-3.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="twtxt-3.0.3"></a>
 ### [twtxt-3.0.3](https://github.com/truecharts/apps/compare/twtxt-3.0.2...twtxt-3.0.3) (2022-06-11)
 

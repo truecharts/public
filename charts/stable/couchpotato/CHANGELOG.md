@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="couchpotato-2.0.4"></a>
+### [couchpotato-2.0.4](https://github.com/truecharts/apps/compare/couchpotato-2.0.3...couchpotato-2.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="couchpotato-2.0.3"></a>
 ### [couchpotato-2.0.3](https://github.com/truecharts/apps/compare/couchpotato-2.0.2...couchpotato-2.0.3) (2022-06-11)
 

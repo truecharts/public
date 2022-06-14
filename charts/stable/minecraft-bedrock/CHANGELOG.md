@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-1.0.4"></a>
+### [minecraft-bedrock-1.0.4](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.3...minecraft-bedrock-1.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="minecraft-bedrock-1.0.3"></a>
 ### [minecraft-bedrock-1.0.3](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.2...minecraft-bedrock-1.0.3) (2022-06-11)
 

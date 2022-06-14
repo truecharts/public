@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-2.0.4"></a>
+### [openhab-2.0.4](https://github.com/truecharts/apps/compare/openhab-2.0.3...openhab-2.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="openhab-2.0.3"></a>
 ### [openhab-2.0.3](https://github.com/truecharts/apps/compare/openhab-2.0.2...openhab-2.0.3) (2022-06-11)
 

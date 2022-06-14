@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddclient-2.0.5"></a>
+### [ddclient-2.0.5](https://github.com/truecharts/apps/compare/ddclient-2.0.4...ddclient-2.0.5) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="ddclient-2.0.4"></a>
 ### [ddclient-2.0.4](https://github.com/truecharts/apps/compare/ddclient-2.0.3...ddclient-2.0.4) (2022-06-11)
 

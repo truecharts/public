@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-9.0.4"></a>
+### [appdaemon-9.0.4](https://github.com/truecharts/apps/compare/appdaemon-9.0.3...appdaemon-9.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="appdaemon-9.0.3"></a>
 ### [appdaemon-9.0.3](https://github.com/truecharts/apps/compare/appdaemon-9.0.2...appdaemon-9.0.3) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-6.0.4"></a>
+### [overseerr-6.0.4](https://github.com/truecharts/apps/compare/overseerr-6.0.3...overseerr-6.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="overseerr-6.0.3"></a>
 ### [overseerr-6.0.3](https://github.com/truecharts/apps/compare/overseerr-6.0.2...overseerr-6.0.3) (2022-06-11)
 

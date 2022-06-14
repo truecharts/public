@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-4.0.4"></a>
+### [doublecommander-4.0.4](https://github.com/truecharts/apps/compare/doublecommander-4.0.3...doublecommander-4.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="doublecommander-4.0.3"></a>
 ### [doublecommander-4.0.3](https://github.com/truecharts/apps/compare/doublecommander-4.0.2...doublecommander-4.0.3) (2022-06-11)
 

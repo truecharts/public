@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-6.0.4"></a>
+### [duplicati-6.0.4](https://github.com/truecharts/apps/compare/duplicati-6.0.3...duplicati-6.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="duplicati-6.0.3"></a>
 ### [duplicati-6.0.3](https://github.com/truecharts/apps/compare/duplicati-6.0.2...duplicati-6.0.3) (2022-06-11)
 

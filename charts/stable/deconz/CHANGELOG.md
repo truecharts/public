@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-8.0.5"></a>
+### [deconz-8.0.5](https://github.com/truecharts/apps/compare/deconz-8.0.4...deconz-8.0.5) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="deconz-8.0.4"></a>
 ### [deconz-8.0.4](https://github.com/truecharts/apps/compare/deconz-8.0.3...deconz-8.0.4) (2022-06-11)
 

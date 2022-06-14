@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="oscam-6.0.4"></a>
+### [oscam-6.0.4](https://github.com/truecharts/apps/compare/oscam-6.0.3...oscam-6.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="oscam-6.0.3"></a>
 ### [oscam-6.0.3](https://github.com/truecharts/apps/compare/oscam-6.0.2...oscam-6.0.3) (2022-06-11)
 

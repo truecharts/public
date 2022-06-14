@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mattermost-3.0.3"></a>
+### [mattermost-3.0.3](https://github.com/truecharts/apps/compare/mattermost-3.0.2...mattermost-3.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="mattermost-3.0.2"></a>
 ### [mattermost-3.0.2](https://github.com/truecharts/apps/compare/mattermost-3.0.1...mattermost-3.0.2) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-6.0.4"></a>
+### [pyload-6.0.4](https://github.com/truecharts/apps/compare/pyload-6.0.3...pyload-6.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="pyload-6.0.3"></a>
 ### [pyload-6.0.3](https://github.com/truecharts/apps/compare/pyload-6.0.2...pyload-6.0.3) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.7"></a>
+### [grafana-4.0.7](https://github.com/truecharts/apps/compare/grafana-4.0.6...grafana-4.0.7) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="grafana-4.0.6"></a>
 ### [grafana-4.0.6](https://github.com/truecharts/apps/compare/grafana-4.0.5...grafana-4.0.6) (2022-06-14)
 

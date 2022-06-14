@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minisatip-2.0.4"></a>
+### [minisatip-2.0.4](https://github.com/truecharts/apps/compare/minisatip-2.0.3...minisatip-2.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="minisatip-2.0.3"></a>
 ### [minisatip-2.0.3](https://github.com/truecharts/apps/compare/minisatip-2.0.2...minisatip-2.0.3) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.4"></a>
+### [linkace-4.0.4](https://github.com/truecharts/apps/compare/linkace-4.0.3...linkace-4.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="linkace-4.0.3"></a>
 ### [linkace-4.0.3](https://github.com/truecharts/apps/compare/linkace-4.0.2...linkace-4.0.3) (2022-06-14)
 

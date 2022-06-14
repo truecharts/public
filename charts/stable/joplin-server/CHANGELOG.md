@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-8.0.2"></a>
+### [joplin-server-8.0.2](https://github.com/truecharts/apps/compare/joplin-server-8.0.1...joplin-server-8.0.2) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="joplin-server-8.0.1"></a>
 ### [joplin-server-8.0.1](https://github.com/truecharts/apps/compare/joplin-server-8.0.0...joplin-server-8.0.1) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-7.0.2"></a>
+### [statping-7.0.2](https://github.com/truecharts/apps/compare/statping-7.0.1...statping-7.0.2) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="statping-7.0.1"></a>
 ### [statping-7.0.1](https://github.com/truecharts/apps/compare/statping-7.0.0...statping-7.0.1) (2022-06-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="truecommand-11.0.4"></a>
+### [truecommand-11.0.4](https://github.com/truecharts/apps/compare/truecommand-11.0.3...truecommand-11.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="truecommand-11.0.3"></a>
 ### [truecommand-11.0.3](https://github.com/truecharts/apps/compare/truecommand-11.0.2...truecommand-11.0.3) (2022-06-11)
 

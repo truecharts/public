@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-11.0.8"></a>
+### [jackett-11.0.8](https://github.com/truecharts/apps/compare/jackett-11.0.7...jackett-11.0.8) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
 <a name="jackett-11.0.7"></a>
 ### [jackett-11.0.7](https://github.com/truecharts/apps/compare/jackett-11.0.6...jackett-11.0.7) (2022-06-14)
 
