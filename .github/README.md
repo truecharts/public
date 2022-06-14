@@ -253,7 +253,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/sonicaj"><img src="https://avatars.githubusercontent.com/u/17968138?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Waqar Ahmed</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Asonicaj" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/janpuc"><img src="https://avatars.githubusercontent.com/u/8539508?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan Puciłowski</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=janpuc" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/janpuc"><img src="https://avatars.githubusercontent.com/u/8539508?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan Puciłowski</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=janpuc" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=janpuc" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
