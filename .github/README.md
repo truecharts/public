@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-97-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-98-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -258,6 +258,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/shauncoyne"><img src="https://avatars.githubusercontent.com/u/13672807?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shaun Coyne</b></sub></a><br /><a href="#financial-shauncoyne" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/ich777"><img src="https://avatars.githubusercontent.com/u/28066518?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christoph</b></sub></a><br /><a href="#financial-ich777" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/UnDifferential"><img src="https://avatars.githubusercontent.com/u/17625468?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Brandon Rutledge</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AUnDifferential" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/mikeNG"><img src="https://avatars.githubusercontent.com/u/1216752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Bestas</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AmikeNG" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
