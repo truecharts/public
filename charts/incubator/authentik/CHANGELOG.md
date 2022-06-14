@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authentik-2.0.3"></a>
+### [authentik-2.0.3](https://github.com/truecharts/apps/compare/authentik-2.0.2...authentik-2.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2873](https://github.com/truecharts/apps/issues/2873))
+
+
+
 <a name="authentik-2.0.2"></a>
 ### [authentik-2.0.2](https://github.com/truecharts/apps/compare/authentik-2.0.1...authentik-2.0.2) (2022-06-11)
 

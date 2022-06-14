@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-6.0.7"></a>
+### [omada-controller-6.0.7](https://github.com/truecharts/apps/compare/omada-controller-6.0.6...omada-controller-6.0.7) (2022-06-14)
+
+#### Chore
+
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
 <a name="omada-controller-6.0.6"></a>
 ### [omada-controller-6.0.6](https://github.com/truecharts/apps/compare/omada-controller-6.0.5...omada-controller-6.0.6) (2022-06-13)
 

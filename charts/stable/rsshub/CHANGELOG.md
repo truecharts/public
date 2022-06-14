@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="rsshub-3.0.6"></a>
+### [rsshub-3.0.6](https://github.com/truecharts/apps/compare/rsshub-3.0.5...rsshub-3.0.6) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2873](https://github.com/truecharts/apps/issues/2873))
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
 <a name="rsshub-3.0.5"></a>
 ### [rsshub-3.0.5](https://github.com/truecharts/apps/compare/rsshub-3.0.4...rsshub-3.0.5) (2022-06-13)
 
