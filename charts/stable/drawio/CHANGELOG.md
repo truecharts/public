@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="drawio-2.0.6"></a>
+### [drawio-2.0.6](https://github.com/truecharts/apps/compare/drawio-2.0.5...drawio-2.0.6) (2022-06-14)
+
+#### Chore
+
+* update container image tccr.io/truecharts/drawio to v20.0.0 ([#2862](https://github.com/truecharts/apps/issues/2862))
+
+
+
 <a name="drawio-2.0.5"></a>
 ### [drawio-2.0.5](https://github.com/truecharts/apps/compare/drawio-2.0.4...drawio-2.0.5) (2022-06-11)
 
