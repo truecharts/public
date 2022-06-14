@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.0.9
+description: Jump is yet another self-hosted startpage for your server designed to be simple, stylish, fast and secure.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jump
+icon: https://truecharts.org/_static/img/appicons/jump.png
+keywords:
+- dashboard
+- jump
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: jump
+sources:
+- https://github.com/daledavies/jump
+- https://hub.docker.com/r/daledavies/jump
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
