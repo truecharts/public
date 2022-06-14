@@ -42,7 +42,8 @@ secret:
   config:
     enabled: true
     data:
-      loki.yaml: '{{ tpl (toYaml .Values.config) . }}'
+      loki.yaml: |
+          {{- tpl (toYaml .Values.config) . | nindent 8 }}
 
 service:
   main:
