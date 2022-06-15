@@ -90,7 +90,7 @@ questions:
             required: true
             default: "os,cpu,ram,network"
         - variable: oswidgetsettings
-          label: "OS Widget"
+          label: "OS Widget Settings"
           schema:
             type: boolean
             default: false
@@ -121,7 +121,7 @@ questions:
                   type: string
                   default: "300"
         - variable: cpuwidgetsettings
-          label: "CPU Widget"
+          label: "CPU Widget Settings"
           schema:
             type: boolean
             default: false
@@ -164,7 +164,7 @@ questions:
                   type: string
                   default: "1000"
         - variable: ramwidgetsettings
-          label: "RAM Widget"
+          label: "RAM Widget Settings"
           schema:
             type: boolean
             default: false
@@ -201,7 +201,7 @@ questions:
                   type: string
                   default: "1000"
         - variable: netwidgetsettings
-          label: "Network Widget"
+          label: "Network Widget Settings"
           schema:
             type: boolean
             default: false
