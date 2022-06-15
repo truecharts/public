@@ -6,10 +6,12 @@ image:
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-  capabilities:
-    add:
-      - SYS_PTRACE
-      - SYS_RAWIO
+  privileged: true
+  allowPrivilegeEscalation: true
+  # capabilities:
+  #   add:
+  #     - SYS_PTRACE
+  #     - SYS_RAWIO
 
 podSecurityContext:
   runAsUser: 0
