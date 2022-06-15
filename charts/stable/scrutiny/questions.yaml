@@ -75,7 +75,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -83,29 +82,13 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: GIN_MODE
-          label: "GIN_MODE"
+        - variable: COLLECTOR_CRON_SCHEDULE
+          label: "COLLECTOR_CRON_SCHEDULE"
+          description: "COLLECTOR_CRON_SCHEDULE"
           schema:
             type: string
-            default: "release"
-            required: true
-            enum:
-              - value: "release"
-                description: "release"
-              - value: "debug"
-                description: "debug"
-        - variable: SCRUTINY_WEB
-          label: "SCRUTINY_WEB"
-          description: "SCRUTINY_WEB"
-          schema:
-            type: boolean
-            default: true
-        - variable: SCRUTINY_COLLECTOR
-          label: "SCRUTINY_COLLECTOR"
-          description: "SCRUTINY_COLLECTOR"
-          schema:
-            type: boolean
-            default: true
+            default: "0 0 * * *"
+
 # Include{containerConfig}
 
   - variable: service
@@ -212,9 +195,9 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: data
-          label: "App data Storage"
-          description: "Stores the Application data."
+        - variable: influxdb
+          label: "App influxdb Storage"
+          description: "Stores the Application influxdb."
           schema:
             additional_attrs: true
             type: dict
