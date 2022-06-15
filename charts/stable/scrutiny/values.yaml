@@ -10,8 +10,8 @@ securityContext:
   allowPrivilegeEscalation: true
   capabilities:
     add:
-      - SYS_RAWIO # HDD's
-      - SYS_ADMIN # NVME's
+      - SYS_RAWIO  # HDD's
+      - SYS_ADMIN  # NVME's
 
 env:
   COLLECTOR_CRON_SCHEDULE: "0 0 * * *"
@@ -34,11 +34,6 @@ service:
       main:
         targetPort: 8080
         port: 10151
-  influxadmin:
-    ports:
-      influxadmin:
-        targetPort: 8086
-        port: 10118
 
 persistence:
   varrun:
