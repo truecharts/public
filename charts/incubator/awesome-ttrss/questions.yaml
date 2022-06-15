@@ -82,9 +82,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TTRSS_SELF_URL_PATH
-          label: "TTRSS_SELF_URL_PATH"
-          description: "Sets the TTRSS_SELF_URL_PATH env var"
+        - variable: SELF_URL_PATH
+          label: "SELF_URL_PATH"
+          description: "Sets the SELF_URL_PATH env var"
           schema:
             type: string
             default: ""
