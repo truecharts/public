@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-4.0.6"></a>
+### [snipe-it-4.0.6](https://github.com/truecharts/apps/compare/snipe-it-4.0.5...snipe-it-4.0.6) (2022-06-15)
+
+#### Chore
+
+* enable redis ([#2894](https://github.com/truecharts/apps/issues/2894))
+
+
+
 <a name="snipe-it-4.0.5"></a>
 ### [snipe-it-4.0.5](https://github.com/truecharts/apps/compare/snipe-it-4.0.4...snipe-it-4.0.5) (2022-06-15)
 

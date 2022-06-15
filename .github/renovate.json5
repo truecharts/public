@@ -1,5 +1,6 @@
 {
   "enabled": true,
+  "extends": ["helpers:pinGitHubActionDigests"]
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "assigneesFromCodeOwners": true,
@@ -32,6 +33,11 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+    },
+    // Setup datasources for github actions
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
     },
     //
     // helm deps
