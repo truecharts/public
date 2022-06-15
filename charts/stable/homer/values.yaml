@@ -3,12 +3,9 @@ image:
   tag: v22.02.2@sha256:0080500f803db4a6cd2b79d145fdeac54a11f0508ca25bebbe014934534a87be
   pullPolicy: IfNotPresent
 
-securityContext:
-  runAsNonRoot: false
-
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 1000
+  runAsGroup: 1000
 
 service:
   main:
