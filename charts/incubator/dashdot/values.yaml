@@ -6,7 +6,7 @@ image:
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-  privileged: true
+  # privileged: true
   # allowPrivilegeEscalation: true
   capabilities:
     add:
