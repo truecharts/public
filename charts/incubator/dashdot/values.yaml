@@ -7,11 +7,11 @@ securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
   privileged: true
-  allowPrivilegeEscalation: true
-  # capabilities:
-  #   add:
-  #     - SYS_PTRACE
-  #     - SYS_RAWIO
+  # allowPrivilegeEscalation: true
+  capabilities:
+    add:
+      - SYS_ADMIN
+      - SYS_RAWIO
 
 podSecurityContext:
   runAsUser: 0
@@ -19,7 +19,6 @@ podSecurityContext:
 
 env:
   DASHDOT_PORT: "{{ .Values.service.main.ports.main.port}}"
-  # User Defined
 
 service:
   main:
