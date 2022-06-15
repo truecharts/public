@@ -6,8 +6,8 @@ image:
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-  # privileged: true
-  # allowPrivilegeEscalation: true
+  privileged: true
+  allowPrivilegeEscalation: true
   capabilities:
     add:
       - SYS_ADMIN
