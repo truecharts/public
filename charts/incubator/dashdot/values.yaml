@@ -9,8 +9,7 @@ securityContext:
   capabilities:
     add:
       - SYS_PTRACE
-      # Test without it first
-      # - SYS_ADMIN
+      - SYS_RAWIO
 
 podSecurityContext:
   runAsUser: 0
@@ -41,4 +40,10 @@ persistence:
     type: hostPath
     hostPath: "/proc/1/ns/net"
     mountPath: "/mnt/proc/1/ns/net"
+    readOnly: true
+  mem:
+    enabled: true
+    type: hostPath
+    hostPath: "/dev/mem"
+    mountPath: "/dev/mem"
     readOnly: true
