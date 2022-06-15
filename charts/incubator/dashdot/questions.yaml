@@ -89,6 +89,12 @@ questions:
             type: string
             required: true
             default: "os,cpu,ram,network"
+        - variable: DASHDOT_ACCEPT_OOKLA_EULA
+          label: "DASHDOT_ACCEPT_OOKLA_EULA"
+          description: "Use the newer and more accurate speedtest tool from Ookla, instead of the old speedtest-cli for your speedtests. "
+          schema:
+            type: boolean
+            default: false
         - variable: oswidgetsettings
           label: "OS Widget Settings"
           schema:
