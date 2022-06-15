@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-0.0.3"></a>
+### [dashdot-0.0.3](https://github.com/truecharts/apps/compare/dashdot-0.0.2...dashdot-0.0.3) (2022-06-15)
+
+#### Fix
+
+* add cap and memory mapping ([#2897](https://github.com/truecharts/apps/issues/2897))
+
+
+
 <a name="dashdot-0.0.2"></a>
 ### [dashdot-0.0.2](https://github.com/truecharts/apps/compare/dashdot-0.0.1...dashdot-0.0.2) (2022-06-15)
 
