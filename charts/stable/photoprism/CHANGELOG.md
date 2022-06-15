@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-10.0.4"></a>
+### [photoprism-10.0.4](https://github.com/truecharts/apps/compare/photoprism-10.0.3...photoprism-10.0.4) (2022-06-15)
+
+#### Chore
+
+* update container image tccr.io/truecharts/photoprism to v220614 ([#2893](https://github.com/truecharts/apps/issues/2893))
+
+
+
 <a name="photoprism-10.0.3"></a>
 ### [photoprism-10.0.3](https://github.com/truecharts/apps/compare/photoprism-10.0.2...photoprism-10.0.3) (2022-06-14)
 

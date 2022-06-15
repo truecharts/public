@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-3.0.10"></a>
+### [rsshub-3.0.10](https://github.com/truecharts/apps/compare/rsshub-3.0.9...rsshub-3.0.10) (2022-06-15)
+
+#### Fix
+
+* fix permission ([#2889](https://github.com/truecharts/apps/issues/2889))
+
+
+
 <a name="rsshub-3.0.9"></a>
 ### [rsshub-3.0.9](https://github.com/truecharts/apps/compare/rsshub-3.0.8...rsshub-3.0.9) (2022-06-15)
 
