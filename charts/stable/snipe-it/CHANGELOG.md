@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-4.0.5"></a>
+### [snipe-it-4.0.5](https://github.com/truecharts/apps/compare/snipe-it-4.0.4...snipe-it-4.0.5) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
 <a name="snipe-it-4.0.4"></a>
 ### [snipe-it-4.0.4](https://github.com/truecharts/apps/compare/snipe-it-4.0.3...snipe-it-4.0.4) (2022-06-14)
 

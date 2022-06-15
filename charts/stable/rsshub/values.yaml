@@ -1,11 +1,19 @@
 image:
   repository: tccr.io/truecharts/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5ef8105657f071602f6f2880bb09f5546af1fb7feebb58854050d2976bdf0f65
+  tag: latest@sha256:fecb3e57bc495947cb9338244db3ba7ef561ad54fbeb024ff245a19c2238267f
 
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
   tag: v1.53.0-chrome@sha256:bba7c84a5c8c3c2b9518d8543f08b3669eeeda16837af4dc4c8065b7d87be08e
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   HTTP_BASIC_AUTH_NAME: ""

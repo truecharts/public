@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/snipe-it
   pullPolicy: IfNotPresent
-  tag: v6.0.2@sha256:3acd046042d62cc699ae9b8498eb88a9464b4767341e89bc7ca86dcc6a860625
+  tag: v6.0.4@sha256:4a90eb7e0c4c561adbe83945b9b0e7d9f1afbe0e76e7f75153f54f5c04c4fae9
 
 securityContext:
   runAsNonRoot: false
@@ -19,6 +19,9 @@ env:
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_PORT: "3306"
   REDIS_PORT: "6379"
+  SESSION_DRIVER: "redis"
+  CACHE_DRIVER: "redis"
+  QUEUE_DRIVER: "redis"
   APP_TIMEZONE: "{{ .Values.TZ }}"
   FILESYSTEM_DISK: "local"
   # User Defined

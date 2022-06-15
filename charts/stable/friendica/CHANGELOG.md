@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-4.0.6"></a>
+### [friendica-4.0.6](https://github.com/truecharts/apps/compare/friendica-4.0.5...friendica-4.0.6) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
 <a name="friendica-4.0.5"></a>
 ### [friendica-4.0.5](https://github.com/truecharts/apps/compare/friendica-4.0.4...friendica-4.0.5) (2022-06-14)
 
