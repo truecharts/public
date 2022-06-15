@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.8"></a>
+### [redis-3.0.8](https://github.com/truecharts/apps/compare/redis-3.0.7...redis-3.0.8) (2022-06-15)
+
+#### Chore
+
+* update helm chart common to v10.0.11 ([#2899](https://github.com/truecharts/apps/issues/2899))
+
+#### Fix
+
+* run as non root ([#2895](https://github.com/truecharts/apps/issues/2895))
+
+
+
 <a name="redis-3.0.7"></a>
 ### [redis-3.0.7](https://github.com/truecharts/apps/compare/redis-3.0.6...redis-3.0.7) (2022-06-14)
 

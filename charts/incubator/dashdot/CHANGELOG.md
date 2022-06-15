@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-0.0.4"></a>
+### [dashdot-0.0.4](https://github.com/truecharts/apps/compare/dashdot-0.0.3...dashdot-0.0.4) (2022-06-15)
+
+#### Fix
+
+* run privileged ([#2901](https://github.com/truecharts/apps/issues/2901))
+
+
+
 <a name="dashdot-0.0.3"></a>
 ### [dashdot-0.0.3](https://github.com/truecharts/apps/compare/dashdot-0.0.2...dashdot-0.0.3) (2022-06-15)
 
