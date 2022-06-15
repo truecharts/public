@@ -88,7 +88,7 @@ questions:
           schema:
             type: string
             required: true
-            default: "os,cpu,ram,network"
+            default: "os,cpu,storage,ram,network"
         - variable: DASHDOT_ACCEPT_OOKLA_EULA
           label: "DASHDOT_ACCEPT_OOKLA_EULA"
           description: "Use the newer and more accurate speedtest tool from Ookla, instead of the old speedtest-cli for your speedtests. "
@@ -169,6 +169,37 @@ questions:
                 schema:
                   type: string
                   default: "1000"
+        - variable: storagewidgetsettings
+          label: "Storage Widget Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: DASHDOT_STORAGE_LABEL_LIST
+                label: "DASHDOT_STORAGE_LABEL_LIST"
+                description: "Change the order of the labels in the list, to change the position in the widget, or remove an item from the list, to remove it from the widget"
+                schema:
+                  type: string
+                  default: "brand,size,type"
+              - variable: DASHDOT_STORAGE_WIDGET_GROW
+                label: "DASHDOT_STORAGE_WIDGET_GROW"
+                description: "To adjust the relative size of the Storage widget"
+                schema:
+                  type: string
+                  default: "3.5"
+              - variable: DASHDOT_STORAGE_WIDGET_MIN_WIDTH
+                label: "DASHDOT_STORAGE_WIDGET_MIN_WIDTH	"
+                description: "To adjust the minimum width of the Storage widget (in px)"
+                schema:
+                  type: string
+                  default: "500"
+              - variable: DASHDOT_STORAGE_POLL_INTERVAL
+                label: "DASHDOT_STORAGE_POLL_INTERVAL"
+                description: "Read the Storage load every x milliseconds"
+                schema:
+                  type: string
+                  default: "60000"
         - variable: ramwidgetsettings
           label: "RAM Widget Settings"
           schema:
@@ -213,6 +244,12 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
+              - variable: DASHDOT_USE_NETWORK_INTERFACE
+                label: "DASHDOT_USE_NETWORK_INTERFACE"
+                description: "If dashdot detects the wrong gateway as your default interface, you can provide a name here that is used instead"
+                schema:
+                  type: string
+                  default: ""
               - variable: DASHDOT_SPEED_TEST_INTERVAL
                 label: "DASHDOT_SPEED_TEST_INTERVAL"
                 description: "At which interval the network speed-test should be rerun (in minutes)"
@@ -343,6 +380,24 @@ questions:
               - variable: DASHDOT_OVERRIDE_NETWORK_PUBLIC_IP
                 label: "DASHDOT_OVERRIDE_NETWORK_PUBLIC_IP"
                 description: "Override NETWORK PUBLIC IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: DASHDOT_OVERRIDE_STORAGE_BRANDS
+                label: "DASHDOT_OVERRIDE_STORAGE_BRANDS"
+                description: "Pass a comma-separated list of brands of your drives. You can skip correct drives, by passing empty values for it"
+                schema:
+                  type: string
+                  default: ""
+              - variable: DASHDOT_OVERRIDE_STORAGE_SIZES
+                label: "DASHDOT_OVERRIDE_STORAGE_SIZES	"
+                description: "Pass a comma-separated list of sizes of your drives. You can skip correct drives, by passing empty values for it"
+                schema:
+                  type: string
+                  default: ""
+              - variable: DASHDOT_OVERRIDE_STORAGE_TYPES
+                label: "DASHDOT_OVERRIDE_STORAGE_TYPES"
+                description: "Pass a comma-separated list of types of your drives. You can skip correct drives, by passing empty values for it"
                 schema:
                   type: string
                   default: ""

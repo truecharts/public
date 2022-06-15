@@ -1,6 +1,6 @@
 image:
   repository: mauricenino/dashdot
-  tag: 3.3.3@sha256:5cb60d5ab847f5e15ace2290381622cb359d153415958d6e39ed04df7bb9bf2c
+  tag: 3.4.0@sha256:54a11e6475529da60057255095e265f21f366c81bfcbbcc3e956f7af01978c61
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -20,9 +20,6 @@ podSecurityContext:
 env:
   DASHDOT_PORT: "{{ .Values.service.main.ports.main.port}}"
   # User Defined
-  # There is a storage widget, but currently it can't extract ZFS usage accurately
-  # https://github.com/MauriceNino/dashdot/issues/40
-  DASHDOT_WIDGET_LIST: "os,cpu,ram,network"
 
 service:
   main:
