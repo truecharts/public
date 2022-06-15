@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-4.0.4"></a>
+### [synapse-4.0.4](https://github.com/truecharts/apps/compare/synapse-4.0.3...synapse-4.0.4) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
 <a name="synapse-4.0.3"></a>
 ### [synapse-4.0.3](https://github.com/truecharts/apps/compare/synapse-4.0.2...synapse-4.0.3) (2022-06-14)
 
