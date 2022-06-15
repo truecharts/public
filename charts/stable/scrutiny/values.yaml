@@ -6,19 +6,27 @@ image:
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
+  privileged: true
+  allowPrivilegeEscalation: true
   capabilities:
     add:
-      # HDD's
-      - SYS_RAWIO
-      # NVME's
-      - SYS_ADMIN
-# Test without those but with caps
-  # privileged: true
-  # allowPrivilegeEscalation: true
+      - SYS_RAWIO # HDD's
+      - SYS_ADMIN # NVME's
+
+env:
+  COLLECTOR_CRON_SCHEDULE: "0 0 * * *"
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+probes:
+  liveness:
+    path: "/api/health"
+  readiness:
+    path: "/api/health"
+  startup:
+    path: "/api/health"
 
 service:
   main:
@@ -30,8 +38,7 @@ service:
     ports:
       influxadmin:
         targetPort: 8086
-        # CHANGE THIS
-        port: 10152
+        port: 10118
 
 persistence:
   varrun:
