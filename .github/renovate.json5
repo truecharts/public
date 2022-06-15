@@ -33,6 +33,11 @@
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
     },
+    // Setup datasources for github actions
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+    },
     //
     // helm deps
     //
