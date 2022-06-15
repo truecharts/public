@@ -8,7 +8,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://snipeitapp.com/>
-* <https://hub.docker.com/r/linuxserver/>
+* <https://github.com/snipe/snipe-it>
 
 ## Requirements
 
