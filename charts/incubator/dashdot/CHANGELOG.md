@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-0.0.6"></a>
+### [dashdot-0.0.6](https://github.com/truecharts/apps/compare/dashdot-0.0.5...dashdot-0.0.6) (2022-06-16)
+
+#### Chore
+
+* update image refs ([#2912](https://github.com/truecharts/apps/issues/2912))
+
+
+
 <a name="dashdot-0.0.5"></a>
 ### [dashdot-0.0.5](https://github.com/truecharts/apps/compare/dashdot-0.0.4...dashdot-0.0.5) (2022-06-16)
 
