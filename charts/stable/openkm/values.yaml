@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/openkm-ce
-  # -- image tag
   tag: v6.3.11@sha256:0e540f965a5ce457e55cd06f87fd7f9a0723b6028e88d6000d29326e4a7964a1
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 initContainers:
@@ -24,13 +21,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See more environment variables in the [openkm documentation](https://openkm.org/docs).
-# @default -- See below
-env:
-  # -- Set the container timezone
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -38,8 +28,6 @@ service:
         port: 10090
         targetPort: 8080
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

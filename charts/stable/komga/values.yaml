@@ -1,17 +1,8 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/komga
-  # -- image tag
   tag: v0.154.3@sha256:e4d3665f4b42c7cfb74ab119ab6ef01eef9a41850dc1dfaff36ac205b0f427c0
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- environment variables. See more environment variables in the [komga documentation](https://komga.org/installation/configuration.html#optional-configuration).
-# @default -- See below
-env: {}
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -19,8 +10,6 @@ service:
         port: 10085
         targetPort: 8080
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

@@ -1,21 +1,11 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/speedtest-exporter
-  # -- image tag
   tag: v3.5.1
-  # -- image pull policy
   pullPolicy: IfNotPresent
-
-# -- environment variables. See [application docs](https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/) for more details.
-# @default -- See below
-env:
-  # -- Set the container timezone
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
