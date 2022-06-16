@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  LASTFM_API_KEY: ""
+  LASTFM_API_SECRET: ""
+  YOUTUBE_API_KEY: ""
+
 env:
   DB_CONNECTION: "mysql"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
@@ -18,9 +23,6 @@ env:
   DB_PORT: "3306"
   FORCE_HTTPS: false
   MEMORY_LIMIT: 2048
-  LASTFM_API_KEY: ""
-  LASTFM_API_SECRET: ""
-  YOUTUBE_API_KEY: ""
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds

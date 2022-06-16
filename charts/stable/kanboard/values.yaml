@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/kanboard
-  # -- image tag
   tag: v1.2.22@sha256:693507bec023dacc214fcb5bdcfc7004fd116befc8aed63b1617315bf2de8f9c
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,14 +11,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables)
-# and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details.
-# @default -- See below (only deviations from the default settings are specified)
 env:
-  # -- Set the container timezone
-  # -- Enable/disable email configuration from the user interface
   MAIL_CONFIGURATION: false
-  # -- log driver: syslog, stderr, stdout or file
   LOG_DRIVER: stdout
   DB_DRIVER: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -36,8 +27,6 @@ env:
       name: dbcreds
       key: plainhost
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -45,8 +34,6 @@ service:
         port: 10015
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true
@@ -55,8 +42,6 @@ persistence:
     enabled: true
     mountPath: "/etc/nginx/ssl"
 
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- See values.yaml
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

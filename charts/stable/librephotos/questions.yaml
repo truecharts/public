@@ -74,40 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SKIP_PATTERNS
-          label: "SKIP_PATTERNS"
-          description: "Comma delimited list of patterns to ignore"
-          schema:
-            type: string
-            default: ""
-        - variable: WEB_CONCURRENCY
-          label: "WEB_CONCURRENCY"
-          description: "Number of workers, which take care of the request to the api. This setting can dramatically affect the ram usage."
-          schema:
-            type: int
-            required: true
-            default: 2
-        - variable: HEAVYWEIGHT_PROCESS
-          label: "HEAVYWEIGHT_PROCESS"
-          description: "Number of workers, when scanning pictures. This setting can dramatically affect the ram usage"
-          schema:
-            type: int
-            required: true
-            default: 1
-        - variable: DEBUG
-          label: "DEBUG"
-          description: "Enable Debug"
-          schema:
-            type: boolean
-            default: false
 
   - variable: secretEnv
     group: "Container Configuration"
@@ -143,6 +109,41 @@ questions:
           schema:
             type: string
             default: ""
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: SKIP_PATTERNS
+          label: "SKIP_PATTERNS"
+          description: "Comma delimited list of patterns to ignore"
+          schema:
+            type: string
+            default: ""
+        - variable: WEB_CONCURRENCY
+          label: "WEB_CONCURRENCY"
+          description: "Number of workers, which take care of the request to the api. This setting can dramatically affect the ram usage."
+          schema:
+            type: int
+            required: true
+            default: 2
+        - variable: HEAVYWEIGHT_PROCESS
+          label: "HEAVYWEIGHT_PROCESS"
+          description: "Number of workers, when scanning pictures. This setting can dramatically affect the ram usage"
+          schema:
+            type: int
+            required: true
+            default: 1
+        - variable: DEBUG
+          label: "DEBUG"
+          description: "Enable Debug"
+          schema:
+            type: boolean
+            default: false
+
 
 # Include{containerConfig}
 

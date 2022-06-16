@@ -18,6 +18,20 @@ service:
         port: 10017
         targetPort: 80
 
+secretEnv:
+  PUSHER_APP_KEY: ""
+  PUSHER_APP_SECRET: ""
+  PUSHER_APP_ID: ""
+  PUSHER_APP_CLUSTER: "mt1"
+  MAIL_DRIVER: "smtp"
+  MAIL_HOST: ""
+  MAIL_FROM_NAME: ""
+  MAIL_FROM_ADDRESS: ""
+  MAIL_USERNAME: ""
+  MAIL_PASSWORD: ""
+  MAIL_PORT: 587
+  MAIL_ENCRYPTION: "tls"
+
 env:
   # Internal Envs
   TIMEZONE: "{{ .Values.TZ }}"
@@ -36,8 +50,6 @@ env:
   # User Envs
   SECURITY_HEADER_HSTS_ENABLE: false
   APP_DEBUG: false
-  PUSHER_APP_KEY: ""
-  PUSHER_APP_CLUSTER: ""
   APP_URL: http://localhost
   DB_PASSWORD:
     secretKeyRef:

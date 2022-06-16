@@ -11,6 +11,22 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  CRON_TOKEN: ""
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  AWS_DEFAULT_REGION: ""
+  AWS_BUCKET: ""
+  MAIL_DRIVER: "smtp"
+  MAIL_FROM_ADDRESS: ""
+  MAIL_FROM_NAME: ""
+  MAIL_HOST: ""
+  MAIL_PORT: 587
+  MAIL_USERNAME: ""
+  MAIL_PASSWORD: ""
+  MAIL_ENCRYPTION: "tls"
+
+
 env:
   # Internal Envs
   DB_CONNECTION: "mysql"

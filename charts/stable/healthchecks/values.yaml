@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/healthchecks
-  # -- image tag
   tag: version-v1.22.0@sha256:234347d239410227e8d4585c467293f7bb59859f2042bad885633c1ff30c98f2
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,8 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -24,22 +19,14 @@ service:
         targetPort: 8000
 
 secretEnv:
-  # -- Superuser email
   SUPERUSER_EMAIL: "email@healthchecks.io"
-  # -- Superuser password
   SUPERUSER_PASSWORD: "myVeryStrongPassword"
-# -- environment variables. See [image docs](https://github.com/linuxserver/docker-healthchecks#parameters) for more details.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  # -- Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file.
-  REGENERATE_SETTINGS: "True"
-  # -- The site's top-level URL and the port it listens to
-  SITE_ROOT: "https://healthchecks.domain"
-  # -- The site's name (e.g., "Example Corp HealthChecks")
-  SITE_NAME: 8265
 
-# -- Configure persistence settings for the chart under this key.
+env:
+  REGENERATE_SETTINGS: "True"
+  SITE_ROOT: "https://healthchecks.domain"
+  SITE_NAME: "8265"
+
 # @default -- See values.yaml
 persistence:
 # -- Volume used for configuration

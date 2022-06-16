@@ -176,196 +176,168 @@ questions:
           label: "Forge Version"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FORGE_INSTALLER
           label: "Forge Installer"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FORGE_INSTALLER_URL
           label: "Forge Installer URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FABRIC_LOADER_VERSION
           label: "Fabric Loader Version"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: FABRIC_INSTALLER
           label: "Fabric Installer"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: FABRIC_INSTALLER_URL
           label: "Fabric Installer URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: SPIGOT_DOWNLOAD_URL
           label: "Spigot Download URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "SPIGOT"]]
         - variable: BUILD_FROM_SOURCE
           label: "Build Spigot from Source?"
           schema:
             type: boolean
-            required: false
             default: false
             show_if: [[TYPE, "=", "SPIGOT"]]
         - variable: BUKKIT_DOWNLOAD_URL
           label: "Bukkit Download URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "BUKKIT"]]
         - variable: PAPERBUILD
           label: "Paper Build Number"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: PAPER_DOWNLOAD_URL
           label: "Paper Download URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: PACKWIZ_URL
           label: "Packwiz URL"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: AIRPLANE_BUILD
           label: "Airplane Build"
           schema:
             type: string
-            required: false
             default: "lastSuccessfulBuild"
             show_if: [[TYPE, "=", "AIRPLANE"]]
         - variable: USE_FLARE_FLAGS
           label: "Enable to add appropriate flags for the Flare profiler"
           schema:
             type: boolean
-            required: false
             default: false
             show_if: [[TYPE, "=", "AIRPLANE"]]
         - variable: MAGMA_CHANNEL
           label: "Magma Channel"
           schema:
             type: string
-            required: false
             default: "stable"
             show_if: [[TYPE, "=", "MAGMA"]]
         - variable: MOHIST_BUILD
           label: "Mohist Build"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "MOHIST"]]
         - variable: CANYON_BUILD
           label: "Canyon Build"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "CANYON"]]
         - variable: SPONGEBRANCH
           label: "Sponge Branch"
           schema:
             type: string
-            required: false
             default: "STABLE"
             show_if: [[TYPE, "=", "SPONGEVANILLA"]]
         - variable: SPONGEVERSION
           label: "Sponge Version"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "SPONGEVANILLA"]]
         - variable: LIMBO_BUILD
           label: "Limbo Build"
           schema:
             type: string
-            required: false
             default: "LATEST"
             show_if: [[TYPE, "=", "LIMBO"]]
         - variable: LIMBO_SCHEMA_FILENAME
           label: "Limbo Schema Filename"
           schema:
             type: string
-            required: false
             default: "default.schem"
             show_if: [[TYPE, "=", "LIMBO"]]
         - variable: CRUCIBLE_RELEASE
           label: "Crucible Release"
           schema:
             type: string
-            required: false
             default: "latest"
             show_if: [[TYPE, "=", "CRUCIBLE"]]
         - variable: FTB_MODPACK_ID
           label: "FTB Modpack ID"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FTBA"]]
         - variable: FTB_MODPACK_VERSION_ID
           label: "FTB Modpack Version ID"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "FTBA"]]
         - variable: CF_SERVER_MOD
           label: "CF Server Mod"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: CF_BASE_DIR
           label: "CF Base Dir"
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: USE_MODPACK_START_SCRIPT
           label: "Use Modpack Start Script"
           schema:
             type: boolean
-            required: false
             default: true
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: FTB_LEGACYJAVAFIXER
           label: "Fix for \"unable to launch forgemodloader\""
           schema:
             type: boolean
-            required: false
             default: false
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: DIFFICULTY
@@ -387,19 +359,16 @@ questions:
           label: "Whitelist"
           schema:
             type: string
-            required: false
             default: ""
         - variable: OPS
           label: "OPs"
           schema:
             type: string
-            required: false
             default: ""
         - variable: ICON
           label: "URL to Server Icon"
           schema:
             type: string
-            required: false
             default: ""
         - variable: MAX_PLAYERS
           label: "Max Connected Players"
@@ -417,37 +386,31 @@ questions:
           label: "Enable/Disable Nether"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
           label: "Enable/Disable Announceing Player Achievements"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: ENABLE_COMMAND_BLOCK
           label: "Enable/Disable Command Blocks"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: FORCE_GAMEMODE
           label: "Enable/Disable Force Gamemode"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: GENERATE_STRUCTURES
           label: "Enable/Disable Generate Structures"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: HARDCORE
           label: "Enable/Disable Hardcore Mode"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: MAX_BUILD_HEIGHT
           label: "Max World Build Height"
@@ -465,19 +428,16 @@ questions:
           label: "Enable/Disable Spawning Animals"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: SPAWN_MONSTERS
           label: "Enable/Disable Spawning Monsters"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: SPAWN_NPCS
           label: "Enable/Disable Spawning NPCs"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: VIEW_DISTANCE
           label: "Server View Distance"
@@ -489,7 +449,6 @@ questions:
           label: "Level Seed"
           schema:
             type: string
-            required: false
             default: ""
         - variable: MODE
           label: "Default Gamemode"
@@ -510,13 +469,11 @@ questions:
           label: "Server Message of the Day"
           schema:
             type: string
-            required: false
             default: "Welcome to Minecraft on TrueNAS Scale!"
         - variable: PVP
           label: "Enable/Disable PVP"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: LEVEL_TYPE
           label: "Level Type"
@@ -528,7 +485,6 @@ questions:
           label: "Generator Settings"
           schema:
             type: string
-            required: false
             default: ""
         - variable: LEVEL
           label: "World Save Name"
@@ -540,19 +496,16 @@ questions:
           label: "URL of world download"
           schema:
             type: string
-            required: false
             default: ""
         - variable: FORCE_REDOWNLOAD
           label: "Force redownload server files"
           schema:
             type: string
-            required: false
             default: ""
         - variable: ONLINE_MODE
           label: "Enable/Disable Online Mode"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: advanced
           label: "Show Advanced Server Settings"
@@ -571,13 +524,11 @@ questions:
                 label: "JVM Options"
                 schema:
                   type: string
-                  required: false
                   default: ""
               - variable: JVM_XX_OPTS
                 label: "JVM -X Options"
                 schema:
                   type: string
-                  required: false
                   default: ""
 
 # Include{containerConfig}
