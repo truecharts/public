@@ -143,7 +143,6 @@ questions:
           label: "Enable/Disable Cheats"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: MAX_PLAYERS
           label: "Max players"
@@ -156,13 +155,11 @@ questions:
           label: "Online mode"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: WHITE_LIST
           label: "White list"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: VIEW_DISTANCE
           label: "View distance"
@@ -202,7 +199,6 @@ questions:
           label: "Level seed"
           schema:
             type: string
-            required: false
             default: ""
         - variable: DEFAULT_PLAYER_PERMISSION_LEVEL
           label: "Default player permission level"
@@ -221,7 +217,6 @@ questions:
           label: "Require texturepack"
           schema:
             type: boolean
-            required: false
             default: false
         - variable: SERVER_AUTHORITATIVE_MOVEMENT
           label: "Server authoritave movement"
@@ -260,7 +255,6 @@ questions:
           label: "Enable/Disable Player movement correction"
           schema:
             type: boolean
-            required: false
             default: false
 
 # Include{containerConfig}
