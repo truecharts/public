@@ -7,7 +7,7 @@ embyServerHttp:
 emptyDirVolumes: true
 environmentVariables: []
 extraAppVolumeMounts:
-- hostPath: /mnt/extras
+- hostPath: /mnt/extras/something
   mountPath: /mnt/extras
   readOnly: true
 gpuConfiguration: {}
