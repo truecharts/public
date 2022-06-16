@@ -54,7 +54,7 @@ alpineImage:
   # -- Specify the Alpine image
   repository: ghcr.io/truecharts/alpine
   # -- Specify the Alpine image tag
-  tag: v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
+  tag: v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
   # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.3.0@sha256:5a7765edadb738a56757590d843417861d27628cf56fefb25e30870f5e047620
+  tag: v14.3.0@sha256:252ddb6970b7cbffeb58bba348a2b30f352ce5e782dd5c465a43fd2e66af8736
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
