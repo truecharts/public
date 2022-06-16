@@ -11,6 +11,14 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+AWS_ACCESS_KEY_ID: ""
+AWS_SECRET_ACCESS_KEY: ""
+AWS_BUCKET: ""
+AWS_BUCKET_PATH: ""
+NC_GOOGLE_CLIENT_ID: ""
+NC_GOOGLE_CLIENT_SECRET: ""
+
 env:
   NC_MIN: ""
   PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -18,6 +26,13 @@ env:
   NC_PUBLIC_URL: "http://localhost:10226"
   NC_DISABLE_TELE: true
   DISABLE_SPLASH_SCREEN: false
+  NC_JWT_EXPIRES_IN: "10h"
+  NC_INVITE_ONLY_SIGNUP: false
+  NC_DISABLE_CACHE: false
+  NC_DISABLE_ERR_REPORT: true
+  NC_REQUEST_BODY_SIZE: "1MB"
+  NC_EXPORT_MAX_TIMEOUT: 5000
+  NC_SENTRY_DSN: ""
   NC_REDIS_URL:
     secretKeyRef:
       name: rediscreds

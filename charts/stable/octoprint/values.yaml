@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/octoprint
-  # -- image tag
   tag: v1.8.1@sha256:3e0b4798b1058f5deb13fcd0af023adc1eb58f97f5c250cc9fd0df8af0139350
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,20 +10,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables.
-# @default -- See below
 env:
-  # -- Set the container timezone
-  # -- Enable MJPG Streamer
-  # Enable this to ensure camera streaming is enabled you add a video device.
   ENABLE_MJPG_STREAMER: "true"
-  # -- MJPG Streamer input parameters
   MJPG_STREAMER_INPUT:  # "-y -n -r 640x480"
-  # -- MJPG Streamer camera device
   CAMERA_DEV:  # /dev/video0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -34,13 +22,9 @@ service:
         port: 10021
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true
     mountPath: "/octoprint"
-  # -- Configure a hostPathMount to mount a USB device in the container.
-  # @default -- See values.yaml
   varrun:
     enabled: true
