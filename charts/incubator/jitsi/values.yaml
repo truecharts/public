@@ -159,7 +159,6 @@ service:
 
 additionalContainers:
   prosody:
-    name: prosody
     image: "{{ .Values.prosodyImage.repository }}:{{ .Values.prosodyImage.tag }}"s
     env:
       # AUTH_TYPE:
@@ -239,7 +238,6 @@ additionalContainers:
         mountPath: "/prosody-plugins-custom"
 
   jicofo:
-    name: jicofo
     image: "{{ .Values.jicofoImage.repository }}:{{ .Values.jicofoImage.tag }}"
     env:
       # AUTH_TYPE:
@@ -286,7 +284,6 @@ additionalContainers:
         mountPath: "/config"
 
   jvb:
-    name: jvb
     image: "{{ .Values.jvbImage.repository }}:{{ .Values.jvbImage.tag }}"
     env:
       # DOCKER_HOST_ADDRESS:
