@@ -14,13 +14,13 @@ podSecurityContext:
 persistence:
   icons:
     enabled: true
-    mountPath: "/var/www/feed-icons/"
+    mountPath: "/var/www/feed-icons"
   plugins:
     enabled: true
-    mountPath: "/app/plugins.local"
+    mountPath: "/var/www/plugins.local"
   themes:
     enabled: true
-    mountPath: "/app/themes.local"
+    mountPath: "/var/www/themes.local"
 
 env:
   # -- External URL you use to connect to the RSS (the one you enter in your browser)
