@@ -1,20 +1,11 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/flood
-  # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
   tag: v4.7.0@sha256:758b454843dcade464111920afce72994ecdbcfac1f4cf167a55936cec2ad616
 
-# -- environment variables. See more environment variables in the [flood documentation] (https://github.com/jesec/flood/blob/v4.6.0/config.ts)
-# Note: The environmental variables are not case sensitive (e.g. FLOOD_OPTION_port=FLOOD_OPTION_PORT).
-# @default -- See below
 env:
-  # -- Where to store Flood's runtime files (eg. database)
   FLOOD_OPTION_RUNDIR: /data
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -22,8 +13,6 @@ service:
         port: 10036
         targetPort: 3000
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true

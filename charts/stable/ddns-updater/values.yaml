@@ -5,6 +5,21 @@ image:
 
 env:
   LISTENING_PORT: "{{ .Values.service.main.ports.main.port }}"
+  CONFIG: ""
+  PERIOD: "5m"
+  IPV6_PREFIX: "/128"
+  PUBLICIP_FETCHERS: "all"
+  PUBLICIP_HTTP_PROVIDERS: "all"
+  PUBLICIPV4_HTTP_PROVIDERS: "all"
+  PUBLICIPV6_HTTP_PROVIDERS: "all"
+  PUBLICIP_DNS_PROVIDERS: "all"
+  PUBLICIP_DNS_TIMEOUT: "3s"
+  UPDATE_COOLDOWN_PERIOD: "5m"
+  HTTP_TIMEOUT: "10s"
+  BACKUP_PERIOD: "0"
+  LOG_LEVEL: "info"
+  LOG_CALLER: "hidden"
+  SHOUTRRR_ADDRESSES: ""
 
 service:
   main:
