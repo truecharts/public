@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: senseai-server/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;autopermissions&#39; of Deployment &#39;RELEASE-NAME-senseai-server&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -40,11 +40,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583 (alpine 3.15.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r4 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -61,11 +61,11 @@ hide:
 
 
 #### Container: codeproject/senseai-server:focal-1.4.0@sha256:e26603f89a1a994cda27c4604fb79ed380acd65e4233e9bd4a8689eb21625b39 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | binutils         |    CVE-2017-13716   |   LOW  |  2.34-6ubuntu1.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2017-13716">https://access.redhat.com/security/cve/CVE-2017-13716</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13716">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13716</a><br><a href="https://sourceware.org/bugzilla/show_bug.cgi?id=22009">https://sourceware.org/bugzilla/show_bug.cgi?id=22009</a><br></details>  |
@@ -284,8 +284,7 @@ hide:
 
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | mpmath         |    CVE-2021-29063   |   HIGH  |  1.2.1 |  | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-f865-m6cq-j9vx">https://github.com/advisories/GHSA-f865-m6cq-j9vx</a><br><a href="https://github.com/fredrik-johansson/mpmath/commit/46d44c3c8f3244017fe1eb102d564eb4ab8ef750">https://github.com/fredrik-johansson/mpmath/commit/46d44c3c8f3244017fe1eb102d564eb4ab8ef750</a><br><a href="https://github.com/fredrik-johansson/mpmath/commit/c811b37c65a4372a7ce613111d2a508c204f9833">https://github.com/fredrik-johansson/mpmath/commit/c811b37c65a4372a7ce613111d2a508c204f9833</a><br><a href="https://github.com/fredrik-johansson/mpmath/issues/548">https://github.com/fredrik-johansson/mpmath/issues/548</a><br><a href="https://github.com/npm/hosted-git-info/pull/76">https://github.com/npm/hosted-git-info/pull/76</a><br><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-29063/Mpmath.md">https://github.com/yetingli/PoCs/blob/main/CVE-2021-29063/Mpmath.md</a><br><a href="https://github.com/yetingli/SaveResults/blob/main/js/hosted-git-info.js">https://github.com/yetingli/SaveResults/blob/main/js/hosted-git-info.js</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3M5O55E7VUDMXCPQR6MQTOIFDKHP36AA/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3M5O55E7VUDMXCPQR6MQTOIFDKHP36AA/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EIUX3XWY2K3MSO7QXMZXQQYAURARSPC5/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EIUX3XWY2K3MSO7QXMZXQQYAURARSPC5/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MS2U6GLXQSRZJE2HVUAUMVFR2DWQLCZG/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MS2U6GLXQSRZJE2HVUAUMVFR2DWQLCZG/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-29063">https://nvd.nist.gov/vuln/detail/CVE-2021-29063</a><br><a href="https://www.npmjs.com/package/hosted-git-info">https://www.npmjs.com/package/hosted-git-info</a><br></details>  |
-
