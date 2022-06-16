@@ -230,6 +230,11 @@ additionalContainers:
     ports:
       - containerPort: 5222
         name: main
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
     volumeMounts:
       - name: prosodyconfig
         mountPath: "/config"
@@ -252,8 +257,8 @@ additionalContainers:
       # ENABLE_RECORDING:
       # ENABLE_SCTP:
       # ENABLE_AUTO_LOGIN:
-      # JICOFO_AUTH_USER:
-      # JICOFO_AUTH_PASSWORD:
+      JICOFO_AUTH_USER: "test"
+      JICOFO_AUTH_PASSWORD: “test123456”
       # JICOFO_ENABLE_BRIDGE_HEALTH_CHECKS:
       # JICOFO_CONF_INITIAL_PARTICIPANT_WAIT_TIMEOUT:
       # JICOFO_CONF_SINGLE_PARTICIPANT_TIMEOUT:
@@ -281,6 +286,11 @@ additionalContainers:
     volumeMounts:
       - name: jicofoconfig
         mountPath: "/config"
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
 
   jvb:
     name: jvb
@@ -289,8 +299,8 @@ additionalContainers:
       # DOCKER_HOST_ADDRESS:
       # ENABLE_COLIBRI_WEBSOCKET:
       # ENABLE_OCTO:
-      # JVB_AUTH_USER:
-      # JVB_AUTH_PASSWORD:
+      JVB_AUTH_USER: "test"
+      JVB_AUTH_PASSWORD: “test123456”
       # JVB_BREWERY_MUC:
       # JVB_PORT:
       # JVB_MUC_NICKNAME:
@@ -315,6 +325,11 @@ additionalContainers:
     ports:
       - containerPort: 8080
         name: main
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
     volumeMounts:
       - name: jvbconfig
         mountPath: "/config"
