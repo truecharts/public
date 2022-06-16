@@ -160,7 +160,7 @@ service:
 additionalContainers:
   prosody:
     name: prosody
-    image: "{{ .Values.prosodyImage.repository }}:{{ .Values.prosodyImage.tag }}"s
+    image: "{{ .Values.prosodyImage.repository }}:{{ .Values.prosodyImage.tag }}"
     # env:
       # AUTH_TYPE:
       # DISABLE_POLLS:
