@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synclounge-2.0.7"></a>
+### [synclounge-2.0.7](https://github.com/truecharts/apps/compare/synclounge-2.0.6...synclounge-2.0.7) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
 <a name="synclounge-2.0.6"></a>
 ### [synclounge-2.0.6](https://github.com/truecharts/apps/compare/synclounge-2.0.5...synclounge-2.0.6) (2022-06-14)
 

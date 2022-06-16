@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.0.10"></a>
+### [custom-app-5.0.10](https://github.com/truecharts/apps/compare/custom-app-5.0.9...custom-app-5.0.10) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
 <a name="custom-app-5.0.9"></a>
 ### [custom-app-5.0.9](https://github.com/truecharts/apps/compare/custom-app-5.0.8...custom-app-5.0.9) (2022-06-15)
 
