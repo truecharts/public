@@ -27,9 +27,7 @@ env:
   SITE_ROOT: "https://healthchecks.domain"
   SITE_NAME: "8265"
 
-# @default -- See values.yaml
 persistence:
-# -- Volume used for configuration
   config:
     enabled: true
     mountPath: "/config"

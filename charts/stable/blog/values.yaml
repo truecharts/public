@@ -15,8 +15,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# See more environment variables in the blog documentation
-# https://github.com/nicholaswilde/docker-blog
 env:
   BLOG_TITLE: "Blog"
   BLOG_NAME: "Max Musermann"
@@ -46,7 +44,6 @@ persistence:
     enabled: true
     mountPath: "/var/www/html/data"
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

@@ -19,9 +19,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-
-# -- environment variables. See [image docs](https://github.com/oznu/docker-homebridge#parameters) for more details.
-# @default -- See below
 env:
   HOMEBRIDGE_CONFIG_UI: 1
 
