@@ -15,17 +15,6 @@ jvbImage:
   repository: jitsi/jvb
   tag: stable-7287-2@sha256:50b1494fd2847fb15d5d514e25b60d702719d2222973cff967642b2784eb1cd2
 
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  crontabs:
-    enabled: true
-    mountPath: "/var/spool/cron/crontabs"
-  transcripts:
-    enabled: true
-    mountPath: "/usr/share/jitsi-meet/transcripts"
-
 # env:
   # TZ:
   # AMPLITUDE_ID: ""
@@ -321,3 +310,23 @@ additionalContainers:
     volumeMounts:
       - name: jvbconfig
         mountPath: "/config"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  crontabs:
+    enabled: true
+    mountPath: "/var/spool/cron/crontabs"
+  transcripts:
+    enabled: true
+    mountPath: "/usr/share/jitsi-meet/transcripts"
+  prosodyconfig:
+    enabled: true
+    mountPath: "/prosodyconfig/config"
+  prosodyplugins:
+    enabled: true
+    mountPath: "/prosody-plugins-custom"
+  jicofoconfig:
+    enabled: true
+    mountPath: "/jicofoconfig/config"
