@@ -19,7 +19,7 @@ podSecurityContext:
 # @default -- See below
 env:
   # -- Root domain to receive email from
-  ANONADDY_DOMAIN: chart-example.local
+  ANONADDY_DOMAIN: "chart-example.local"
   DB_DATABASE: anonaddy
   DB_USERNAME: anonaddy
   DB_HOST:
