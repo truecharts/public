@@ -18,13 +18,13 @@ podSecurityContext:
 # See more environment variables in the blog documentation
 # https://github.com/nicholaswilde/docker-blog
 env:
-  BLOG_TITLE: Blog
-  BLOG_NAME: Max Musermann
-  BLOG_LANG: en
-  BLOG_DB_CONNECTION: postgres
-  BLOG_POSTGRES_USER: blog
-  BLOG_POSTGRES_PORT: 5432
-  BLOG_DB_NAME: blog
+  BLOG_TITLE: "Blog"
+  BLOG_NAME: "Max Musermann"
+  BLOG_LANG: "en"
+  BLOG_DB_CONNECTION: "postgres"
+  BLOG_POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  BLOG_POSTGRES_PORT: "5432"
+  BLOG_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   BLOG_POSTGRES_PASS:
     secretKeyRef:
       name: dbcreds

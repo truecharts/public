@@ -6,6 +6,7 @@ image:
 env:
   DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  APP_URL: ""
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds
