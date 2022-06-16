@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/mealie
-  # -- image tag
   tag: v0.5.6@sha256:49fca9d0e53aa4ceb92dd41b9bf58ca47d31d3ceff0b9575fe86d193c0484f66
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,10 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://hay-kot.github.io/mealie/getting-started/install/#env-variables) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   DB_TYPE: postgres
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -35,8 +29,7 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: mealie
   postgresqlDatabase: mealie
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+
 service:
   main:
     ports:
@@ -44,14 +37,6 @@ service:
         port: 10018
         targetPort: 80
 
-ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
-  main:
-    enabled: false
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
