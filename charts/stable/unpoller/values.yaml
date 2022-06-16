@@ -1,14 +1,8 @@
 image:
-  # -- Image to deploy.
   repository: tccr.io/truecharts/unifi-poller
-  # -- Image [k8s pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images).
   pullPolicy: IfNotPresent
-  # -- Image tag to deploy.
   tag: v2.1.3@sha256:2d6cd1f4cdc3d8522d697830f69ca12aa2fe24fda4e5476610af6e0b5c0597e9
 
-
-# -- Environment variable configuration options for unifi-poller ([docs](https://unifipoller.com/docs/install/configuration)).
-#    Note: a [configuration file](https://github.com/unifi-poller/unifi-poller/blob/master/examples/up.conf.example) is also supported.
 env:
   # UP_UNIFI_DEFAULT_URL: "https://127.0.0.1:8443"
   # UP_UNIFI_DEFAULT_USER: "unifipoller"

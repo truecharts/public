@@ -15,7 +15,6 @@ service:
   main:
     ports:
       main:
-        targetPort: 10153
         port: 10153
 
 probes:
@@ -32,7 +31,7 @@ env:
   ANONYMIZE_REMOTE_ADDR: true
   ENABLE_PERIODIC_VISIT_LOCATE: true
   IS_HTTPS_ENABLED: true
-  PORT: 10153
+  PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_DRIVER: "postgres"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"

@@ -1,15 +1,10 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/recipes
-  # -- image tag
   tag: v1.2.7@sha256:adf374f81318ded9b4f8d8a4b3ce4694fe034b1f52f86f069ba05fb1689db2ce
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 nginxImage:
-  # -- nginx sidecar image repository
   repository: tccr.io/truecharts/nginx
-  # -- nginx sidecar image tag
   tag: v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef
 
 securityContext:
@@ -50,8 +45,6 @@ configmap:
           }
         }
 
-# -- environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details.
-# @default -- See below
 env:
   DEBUG: 0
   ALLOWED_HOSTS: "*"
@@ -94,8 +87,6 @@ additionalContainers:
     - name: static
       mountPath: "/static"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -103,8 +94,6 @@ service:
         port: 10029
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   media:
     enabled: true
@@ -122,7 +111,6 @@ persistence:
       configMap:
         name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

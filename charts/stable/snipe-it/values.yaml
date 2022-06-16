@@ -26,6 +26,8 @@ env:
   FILESYSTEM_DISK: "local"
   # User Defined
   APP_URL: "http://localhost:80"
+  # APP_FORCE_TLS: false
+  # APP_TRUSTED_PROXIES: "172.16.0.0/16"
   APP_LOCALE: "en"
   MAX_RESULTS: 500
   IMAGE_LIB: "gd"
@@ -37,10 +39,50 @@ env:
   ENCRYPT: false
   COOKIE_NAME: "snipeit_session"
   SECURE_COOKIES: false
+  # COOKIE_DOMAIN: ""
   API_TOKEN_EXPIRATION_YEARS: 40
   # Login
   LOGIN_MAX_ATTEMPTS: 5
   LOGIN_LOCKOUT_DURATION: 60
+  # ALLOW_IFRAMING: false
+  # APP_ALLOW_INSECURE_HOSTS: false
+  # GOOGLE_MAPS_API: ""
+  # LDAP_MEM_LIM: "500M"
+  # LDAP_TIME_LIM: 600
+  # API_THROTTLE_PER_MINUTE: 120
+  # ENABLE_HSTS: false
+  # ENABLE_CSP: false
+  # CORS_ALLOWED_ORIGINS: "null"
+  # REFERRER_POLICY: "same-origin"
+  # MAIL_DRIVER: "log"
+  # MAIL_HOST: ""
+  # MAIL_PORT: 587
+  # MAIL_USERNAME: ""
+  # MAIL_PASSWORD: ""
+  # MAIL_ENCRYPTION: "null"
+  # MAIL_FROM_ADDR: ""
+  # MAIL_FROM_NAME: ""
+  # MAIL_REPLYTO_ADDR: ""
+  # MAIL_REPLYTO_NAME: ""
+  # MAIL_AUTO_EMBED: true
+  # MAIL_AUTO_EMBED_METHOD: "base64"
+  # PUBLIC_AWS_SECRET_ACCESS_KEY: ""
+  # PUBLIC_AWS_ACCESS_KEY_ID: ""
+  # PUBLIC_AWS_DEFAULT_REGION: ""
+  # PUBLIC_AWS_BUCKET: ""
+  # PUBLIC_AWS_URL: ""
+  # PUBLIC_AWS_BUCKET_ROOT: ""
+  # PRIVATE_AWS_SECRET_ACCESS_KEY: ""
+  # PRIVATE_AWS_ACCESS_KEY_ID: ""
+  # PRIVATE_AWS_DEFAULT_REGION: ""
+  # PRIVATE_AWS_BUCKET: ""
+  # PRIVATE_AWS_URL: ""
+  # PRIVATE_AWS_BUCKET_ROOT: ""
+  # LOG: "daily"
+  # APP_LOG_MAX_FILES: 10
+  # APP_DEBUG: false
+  # APP_LOG_LEVEL: "error"
+
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds
