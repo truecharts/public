@@ -244,7 +244,7 @@ additionalContainers:
   jicofo:
     name: jicofo
     image: "{{ .Values.jicofoImage.repository }}:{{ .Values.jicofoImage.tag }}"
-    # env:
+    env:
       # AUTH_TYPE:
       # BRIDGE_AVG_PARTICIPANT_STRESS:
       # BRIDGE_STRESS_THRESHOLD:
@@ -295,7 +295,7 @@ additionalContainers:
   jvb:
     name: jvb
     image: "{{ .Values.jvbImage.repository }}:{{ .Values.jvbImage.tag }}"
-    # env:
+    env:
       # DOCKER_HOST_ADDRESS:
       # ENABLE_COLIBRI_WEBSOCKET:
       # ENABLE_OCTO:
