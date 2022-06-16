@@ -15,6 +15,14 @@ jvbImage:
   repository: jitsi/jvb
   tag: stable-7287-2@sha256:50b1494fd2847fb15d5d514e25b60d702719d2222973cff967642b2784eb1cd2
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 # env:
   # TZ:
   # AMPLITUDE_ID: ""
