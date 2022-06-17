@@ -75,7 +75,19 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: URL
+          label: "URL"
+          description: "This will specify the app url, slashes need to be escaped like follow https:\/\/domain.com"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
