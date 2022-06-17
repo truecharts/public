@@ -1,9 +1,6 @@
 image:
-# -- image repository
   repository: tccr.io/truecharts/owncast
-  # -- image tag
   tag: v0.0.11@sha256:bebcb90cae79b4dddd7222d002052a9b3eb6f4a20dc7386df28617120f3fe53c
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -22,7 +19,7 @@ service:
         targetPort: 8080
   rtmp:
     enabled: true
-    externalTrafficPolicy: Local
+    # externalTrafficPolicy: Local
     ports:
       rtmp:
         enabled: true
