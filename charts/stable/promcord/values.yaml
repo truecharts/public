@@ -3,8 +3,6 @@ image:
   tag: latest@sha256:ba9bee8d89b3ce86ca55d1bd29e13deb31f73a004991b17d8d80c73f2cc1c03c
   pullPolicy: IfNotPresent
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -15,11 +13,8 @@ service:
         port: 10101
         targetPort: 8080
 
-# -- environment variables. See [application docs](https://github.com/nimarion/promcord/blob/master/README.md) for more details.
-# @default -- See below
-env: {}
-  # -- Discord bot token
-  # DISCORD_TOKEN:
+# env:
+#   DISCORD_TOKEN:
 
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.

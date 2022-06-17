@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-6.0.5"></a>
+### [flaresolverr-6.0.5](https://github.com/truecharts/apps/compare/flaresolverr-6.0.4...flaresolverr-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="flaresolverr-6.0.4"></a>
 ### [flaresolverr-6.0.4](https://github.com/truecharts/apps/compare/flaresolverr-6.0.3...flaresolverr-6.0.4) (2022-06-14)
 

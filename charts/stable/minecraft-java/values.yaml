@@ -4,7 +4,7 @@ image:
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:a1e1e9eb43fbad2e91e3ec87f0ab00dc46778ccf291c60d6a1684ffb9a53d6cb
+  tag: latest@sha256:118c4ec310490fef42a2ba6ed7a577ccb32ee12fbd5f434ac11cdbfd7ef15f49
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
@@ -12,11 +12,11 @@ j11j9Image:
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:da49f15bd2e991a58b671ee56d547577ee2cf1b5e40f19479046446309c157b7
+  tag: latest@sha256:516a5a470d3eed3ee10847aeae775b14c998beb8665f370ad8682e32b3d9381f
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:da49f15bd2e991a58b671ee56d547577ee2cf1b5e40f19479046446309c157b7
+  tag: latest@sha256:516a5a470d3eed3ee10847aeae775b14c998beb8665f370ad8682e32b3d9381f
   pullPolicy: Always
 
 portal:
@@ -60,6 +60,43 @@ env:
   LEVEL: world
   ONLINE_MODE: true
   MEMORY: 2048M
+  # FORGEVERSION: ""
+  # FORGE_INSTALLER: ""
+  # FORGE_INSTALLER_URL: ""
+  # FABRIC_LOADER_VERSION: ""
+  # FABRIC_INSTALLER: ""
+  # FABRIC_INSTALLER_URL: ""
+  # SPIGOT_DOWNLOAD_URL: ""
+  # BUILD_FROM_SOURCE: false
+  # BUKKIT_DOWNLOAD_URL: ""
+  # PAPERBUILD: ""
+  # PAPER_DOWNLOAD_URL: ""
+  # PACKWIZ_URL: ""
+  # AIRPLANE_BUILD: "lastSuccessfulBuild"
+  # USE_FLARE_FLAGS: false
+  # MAGMA_CHANNEL: "stable"
+  # MOHIST_BUILD: ""
+  # CANYON_BUILD: ""
+  # SPONGEBRANCH: "STABLE"
+  # SPONGEVERSION: ""
+  # LIMBO_BUILD: "LATEST"
+  # LIMBO_SCHEMA_FILENAME: "default.schem"
+  # CRUCIBLE_RELEASE: "latest"
+  # FTB_MODPACK_ID: ""
+  # FTB_MODPACK_VERSION_ID: ""
+  # CF_SERVER_MOD: ""
+  # CF_BASE_DIR: ""
+  # USE_MODPACK_START_SCRIPT: true
+  # FTB_LEGACYJAVAFIXER: false
+  # WHITELIST: ""
+  # OPS: ""
+  # ICON: ""
+  # SEED: ""
+  # GENERATOR_SETTINGS: ""
+  # WORLD: ""
+  # FORCE_REDOWNLOAD: ""
+  # JVM_OPTS: ""
+  # JVM_XX_OPTS: ""
 
 persistence:
   data:

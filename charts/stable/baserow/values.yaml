@@ -21,6 +21,13 @@ env:
   BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
   # User Defined
   BASEROW_PUBLIC_URL: "http://localhost:10228"
+  FROM_EMAIL: ""
+  EMAIL_SMTP: ""
+  EMAIL_SMTP_USE_TLS: ""
+  EMAIL_SMTP_HOST: ""
+  EMAIL_SMTP_PORT: 587
+  EMAIL_SMTP_USER: ""
+  EMAIL_SMTP_PASSWORD: ""
   DATABASE_HOST:
     secretKeyRef:
       name: dbcreds

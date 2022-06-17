@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-8.0.6"></a>
+### [babybuddy-8.0.6](https://github.com/truecharts/apps/compare/babybuddy-8.0.5...babybuddy-8.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="babybuddy-8.0.5"></a>
 ### [babybuddy-8.0.5](https://github.com/truecharts/apps/compare/babybuddy-8.0.4...babybuddy-8.0.5) (2022-06-15)
 

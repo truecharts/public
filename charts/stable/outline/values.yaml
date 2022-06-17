@@ -53,6 +53,14 @@ env:
   # AWS_S3_UPLOAD_MAX_SIZE: 26214400
   # AWS_S3_FORCE_PATH_STYLE: true
   # AWS_S3_ACL: ""
+  # SMTP_HOST: ""
+  # SMTP_PORT: 587
+  # SMTP_USERNAME: ""
+  # SMTP_PASSWORD: ""
+  # SMTP_FROM_EMAIL: ""
+  # SMTP_REPLY_EMAIL: ""
+  # SMTP_SECURE: true
+
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds

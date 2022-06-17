@@ -21,6 +21,7 @@ env:
   PAPERLESS_DATA_DIR: "/data/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
+  PAPERLESS_URL: ""
   USERMAP_UID: "{{ .Values.security.PUID }}"
   USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"

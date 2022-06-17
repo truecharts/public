@@ -9,8 +9,8 @@ args:
   - --auth
   - none
 
-env: {}
-  # PROXY_DOMAIN: code-server.my.domain
+env:
+  PROXY_DOMAIN: ""
 
 securityContext:
   readOnlyRootFilesystem: false

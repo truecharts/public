@@ -16,7 +16,7 @@ secretEnv:
 
 env:
   # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
-  DECONZ_DEVICE:  # /dev/ttyUSB0
+  DECONZ_DEVICE: ""  # /dev/ttyUSB0
   DECONZ_UPNP: 0
   DECONZ_START_VERBOSE: 0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh

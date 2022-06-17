@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homer-2.0.7"></a>
+### [homer-2.0.7](https://github.com/truecharts/apps/compare/homer-2.0.6...homer-2.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="homer-2.0.6"></a>
 ### [homer-2.0.6](https://github.com/truecharts/apps/compare/homer-2.0.5...homer-2.0.6) (2022-06-15)
 

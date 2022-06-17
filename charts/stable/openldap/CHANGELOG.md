@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-7.0.5"></a>
+### [openldap-7.0.5](https://github.com/truecharts/apps/compare/openldap-7.0.4...openldap-7.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="openldap-7.0.4"></a>
 ### [openldap-7.0.4](https://github.com/truecharts/apps/compare/openldap-7.0.3...openldap-7.0.4) (2022-06-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-6.0.5"></a>
+### [airsonic-6.0.5](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.3...airsonic-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="airsonic-6.0.4"></a>
 ### [airsonic-6.0.4](https://github.com/truecharts/apps/compare/airsonic-6.0.3...airsonic-6.0.4) (2022-06-14)
 

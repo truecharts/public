@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-9.0.6"></a>
+### [anonaddy-9.0.6](https://github.com/truecharts/apps/compare/anonaddy-9.0.4...anonaddy-9.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="anonaddy-9.0.4"></a>
 ### [anonaddy-9.0.4](https://github.com/truecharts/apps/compare/anonaddy-9.0.3...anonaddy-9.0.4) (2022-06-14)
 

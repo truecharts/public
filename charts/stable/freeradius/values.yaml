@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/freeradius
   pullPolicy: IfNotPresent
-  tag: v3.0.25@sha256:071d2533ecfe74993de840359c939cf6fd25d4ea34322bf6211055e0e5e9d96f
+  tag: v3.2.0@sha256:af2f56926a046858695857fedbb29e00bc1f9cbfccfbf35cb8a87c435fb996e1
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -27,26 +27,13 @@ service:
         port: 1813
         targetPort: 1813
 
-# -- Probe configuration
-# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-# @default -- See below
 probes:
-  # -- Liveness probe configuration
-  # @default -- See below
   liveness:
     enabled: false
-
-  # -- Redainess probe configuration
-  # @default -- See below
   readiness:
     enabled: false
-
-  # -- Startup probe configuration
-  # @default -- See below
   startup:
     enabled: false
-
-env: {}
 
 persistence:
   config:

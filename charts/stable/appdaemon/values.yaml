@@ -10,11 +10,15 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  TOKEN: "REPLACETHIS"
+
 env:
+  DASH_URL: "http://$HOSTNAME:5050"
+  HA_URL: ""
   LATITUDE: 46
   LONGITUDE: -94
   ELEVATION: 1217
-  DASH_URL: "http://$HOSTNAME:5050"
 
 service:
   main:
@@ -34,6 +38,5 @@ persistence:
   conf:
     enabled: true
     mountPath: "/conf"
-
   varrun:
     enabled: true

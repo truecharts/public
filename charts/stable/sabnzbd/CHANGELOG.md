@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-11.0.6"></a>
+### [sabnzbd-11.0.6](https://github.com/truecharts/apps/compare/sabnzbd-11.0.5...sabnzbd-11.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="sabnzbd-11.0.5"></a>
 ### [sabnzbd-11.0.5](https://github.com/truecharts/apps/compare/sabnzbd-11.0.4...sabnzbd-11.0.5) (2022-06-14)
 

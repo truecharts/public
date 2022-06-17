@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.8"></a>
+### [minecraft-java-1.0.8](https://github.com/truecharts/apps/compare/minecraft-java-1.0.7...minecraft-java-1.0.8) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+
+
+
+<a name="minecraft-java-1.0.7"></a>
+### [minecraft-java-1.0.7](https://github.com/truecharts/apps/compare/minecraft-java-1.0.6...minecraft-java-1.0.7) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
 <a name="minecraft-java-1.0.6"></a>
 ### [minecraft-java-1.0.6](https://github.com/truecharts/apps/compare/minecraft-java-1.0.5...minecraft-java-1.0.6) (2022-06-14)
 

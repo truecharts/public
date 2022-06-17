@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-4.0.6"></a>
+### [wekan-4.0.6](https://github.com/truecharts/apps/compare/wekan-4.0.5...wekan-4.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="wekan-4.0.5"></a>
 ### [wekan-4.0.5](https://github.com/truecharts/apps/compare/wekan-4.0.4...wekan-4.0.5) (2022-06-14)
 

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="nocodb-3.0.7"></a>
+### [nocodb-3.0.7](https://github.com/truecharts/apps/compare/nocodb-3.0.6...nocodb-3.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
+<a name="nocodb-3.0.6"></a>
+### [nocodb-3.0.6](https://github.com/truecharts/apps/compare/nocodb-3.0.5...nocodb-3.0.6) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
 <a name="nocodb-3.0.5"></a>
 ### [nocodb-3.0.5](https://github.com/truecharts/apps/compare/nocodb-3.0.4...nocodb-3.0.5) (2022-06-15)
 

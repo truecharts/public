@@ -29,8 +29,8 @@ probes:
     path: "/login"
 
 env:
-  DB_USERNAME: firefly
-  DB_DATABASE: firefly
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_CONNECTION: pgsql
   DB_PORT: 5432
   REDIS_DB: "0"

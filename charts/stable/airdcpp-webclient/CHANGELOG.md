@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airdcpp-webclient-3.0.5"></a>
+### [airdcpp-webclient-3.0.5](https://github.com/truecharts/apps/compare/airdcpp-webclient-3.0.4...airdcpp-webclient-3.0.5) (2022-06-16)
+
+#### Chore
+
+* remove UI leftovers ([#2914](https://github.com/truecharts/apps/issues/2914))
+
+
+
 <a name="airdcpp-webclient-3.0.4"></a>
 ### [airdcpp-webclient-3.0.4](https://github.com/truecharts/apps/compare/airdcpp-webclient-3.0.3...airdcpp-webclient-3.0.4) (2022-06-14)
 

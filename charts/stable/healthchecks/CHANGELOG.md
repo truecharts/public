@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-7.0.6"></a>
+### [healthchecks-7.0.6](https://github.com/truecharts/apps/compare/healthchecks-7.0.4...healthchecks-7.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="healthchecks-7.0.4"></a>
 ### [healthchecks-7.0.4](https://github.com/truecharts/apps/compare/healthchecks-7.0.3...healthchecks-7.0.4) (2022-06-14)
 

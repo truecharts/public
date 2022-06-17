@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="freeradius-6.0.5"></a>
+### [freeradius-6.0.5](https://github.com/truecharts/apps/compare/freeradius-6.0.4...freeradius-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+
+
+
 <a name="freeradius-6.0.4"></a>
 ### [freeradius-6.0.4](https://github.com/truecharts/apps/compare/freeradius-6.0.3...freeradius-6.0.4) (2022-06-14)
 

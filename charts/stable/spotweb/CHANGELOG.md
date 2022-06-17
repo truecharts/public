@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="spotweb-4.0.4"></a>
+### [spotweb-4.0.4](https://github.com/truecharts/apps/compare/spotweb-4.0.3...spotweb-4.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+#### Fix
+
+* run as non root ([#2895](https://github.com/truecharts/apps/issues/2895))
+
+
+
 <a name="spotweb-4.0.3"></a>
 ### [spotweb-4.0.3](https://github.com/truecharts/apps/compare/spotweb-4.0.2...spotweb-4.0.3) (2022-06-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-5.0.3"></a>
+### [trilium-notes-5.0.3](https://github.com/truecharts/apps/compare/trilium-notes-5.0.2...trilium-notes-5.0.3) (2022-06-16)
+
+#### Chore
+
+* remove UI leftovers ([#2914](https://github.com/truecharts/apps/issues/2914))
+
+
+
 <a name="trilium-notes-5.0.2"></a>
 ### [trilium-notes-5.0.2](https://github.com/truecharts/apps/compare/trilium-notes-5.0.1...trilium-notes-5.0.2) (2022-06-15)
 

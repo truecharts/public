@@ -24,6 +24,7 @@ env:
   FRIENDICA_ADMIN_MAIL: "my@domain.com"
   FRIENDICA_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   FRIENDICA_UPGRADE: false
+  FRIENDICA_SITENAME: ""
   PHP_MEMORY_LIMIT: "512M"
   PHP_UPLOAD_LIMIT: "512M"
   MYSQL_HOST:

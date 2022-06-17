@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/collabora
-  tag: v21.11.5.1.1@sha256:5dd8d06f309ff90e604eaf15c467e246695bd96b595f5acf4d328771dff4da80
+  tag: v21.11.5.3.1@sha256:cc81b7ab6c3a34a9c2fa7b2439b310ac65808c7558c3b28052bbe728e0f569f1
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,11 +17,14 @@ service:
       main:
         port: 10105
         targetPort: 9980
+
 secretEnv:
-  username: admin
-  password: changeme
+  username: "admin"
+  password: "changeme"
 
 env:
-  dictionaries: de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru
+  aliasgroup1: ""
+  dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
   extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
-  server_name: collabora\.domain\.tld
+  server_name: "collabora.domain.tld"
+  DONT_GEN_SSL_CERT: true

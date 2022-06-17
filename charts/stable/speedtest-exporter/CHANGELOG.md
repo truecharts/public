@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-3.0.5"></a>
+### [speedtest-exporter-3.0.5](https://github.com/truecharts/apps/compare/speedtest-exporter-3.0.4...speedtest-exporter-3.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="speedtest-exporter-3.0.4"></a>
 ### [speedtest-exporter-3.0.4](https://github.com/truecharts/apps/compare/speedtest-exporter-3.0.3...speedtest-exporter-3.0.4) (2022-06-14)
 

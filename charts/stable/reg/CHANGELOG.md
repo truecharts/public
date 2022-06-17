@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-6.0.5"></a>
+### [reg-6.0.5](https://github.com/truecharts/apps/compare/reg-6.0.4...reg-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="reg-6.0.4"></a>
 ### [reg-6.0.4](https://github.com/truecharts/apps/compare/reg-6.0.3...reg-6.0.4) (2022-06-14)
 

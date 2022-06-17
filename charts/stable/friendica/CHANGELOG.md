@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-4.0.7"></a>
+### [friendica-4.0.7](https://github.com/truecharts/apps/compare/friendica-4.0.6...friendica-4.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="friendica-4.0.6"></a>
 ### [friendica-4.0.6](https://github.com/truecharts/apps/compare/friendica-4.0.5...friendica-4.0.6) (2022-06-15)
 

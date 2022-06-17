@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-15.0.7"></a>
+### [home-assistant-15.0.7](https://github.com/truecharts/apps/compare/home-assistant-15.0.6...home-assistant-15.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="home-assistant-15.0.6"></a>
 ### [home-assistant-15.0.6](https://github.com/truecharts/apps/compare/home-assistant-15.0.5...home-assistant-15.0.6) (2022-06-15)
 

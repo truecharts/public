@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-11.0.5"></a>
+### [zwavejs2mqtt-11.0.5](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.4...zwavejs2mqtt-11.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="zwavejs2mqtt-11.0.4"></a>
 ### [zwavejs2mqtt-11.0.4](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.3...zwavejs2mqtt-11.0.4) (2022-06-14)
 

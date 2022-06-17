@@ -1,13 +1,9 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/icantbelieveitsnotvaletudo
-  # -- image tag
   tag: v2021.2.1@sha256:12546c37abe795970d27fda99f78fd45cd25522b11b4c6db6ce98d7484c68883
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 controller:
-  # -- Set the controller upgrade strategy
   strategy: RollingUpdate
 
 configmap:
@@ -37,8 +33,6 @@ persistence:
       configMap:
         name: '{{ printf "%v-settings" (include "tc.common.names.fullname" .) }}'
 
-# -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
-# @default -- See values.yaml
 config:
   mapsettings:
     drawPath: true

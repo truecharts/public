@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="alist-2.0.5"></a>
+### [alist-2.0.5](https://github.com/truecharts/apps/compare/alist-2.0.4...alist-2.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="alist-2.0.4"></a>
 ### [alist-2.0.4](https://github.com/truecharts/apps/compare/alist-2.0.3...alist-2.0.4) (2022-06-14)
 

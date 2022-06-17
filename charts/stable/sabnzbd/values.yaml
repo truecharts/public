@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.6.0@sha256:9caf7833f7cfc44e8d8cfdeaf626f13059118b479a89519bd43ca22c59a5f463
 
+env:
+  HOST_WHITELIST_ENTRIES: ""
+
 service:
   main:
     ports:

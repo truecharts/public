@@ -15,6 +15,19 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
   GRIST_DEFAULT_EMAIL: "user@mydomain.com"
+  GRIST_DOMAIN: ""
+  GRIST_SUPPORT_ANON: false
+  GRIST_THROTTLE_CPU: false
+  GRIST_BACKUP_DELAY_SECS: 15
+  ALLOWED_WEBHOOK_DOMAINS: ""
+  GRIST_SANDBOX_FLAVOR: ""
+  GRIST_SANDBOX: ""
+  PYTHON_VERSION: ""
+  PYTHON_VERSION_ON_CREATION: ""
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+  GOOGLE_API_KEY: ""
+  GOOGLE_DRIVE_SCOPE: ""
   REDIS_URL:
     secretKeyRef:
       name: rediscreds

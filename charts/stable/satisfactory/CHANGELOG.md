@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="satisfactory-2.0.6"></a>
+### [satisfactory-2.0.6](https://github.com/truecharts/apps/compare/satisfactory-2.0.4...satisfactory-2.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="satisfactory-2.0.4"></a>
 ### [satisfactory-2.0.4](https://github.com/truecharts/apps/compare/satisfactory-2.0.3...satisfactory-2.0.4) (2022-06-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-3.0.5"></a>
+### [blog-3.0.5](https://github.com/truecharts/apps/compare/blog-3.0.3...blog-3.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="blog-3.0.3"></a>
 ### [blog-3.0.3](https://github.com/truecharts/apps/compare/blog-3.0.2...blog-3.0.3) (2022-06-14)
 

@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "focal"
+appVersion: "1.4.0"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
@@ -19,7 +19,7 @@ name: senseai-server
 sources:
 - https://github.com/codeproject/CodeProject.SenseAI
 - https://hub.docker.com/r/codeproject/senseai-server
-version: 0.0.2
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - ai

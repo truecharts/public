@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.10"></a>
+### [redis-3.0.10](https://github.com/truecharts/apps/compare/redis-3.0.9...redis-3.0.10) (2022-06-17)
+
+#### Chore
+
+* update helm chart common to v10.0.12
+
+
+
+<a name="redis-3.0.9"></a>
+### [redis-3.0.9](https://github.com/truecharts/apps/compare/redis-3.0.8...redis-3.0.9) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
 <a name="redis-3.0.8"></a>
 ### [redis-3.0.8](https://github.com/truecharts/apps/compare/redis-3.0.7...redis-3.0.8) (2022-06-15)
 
