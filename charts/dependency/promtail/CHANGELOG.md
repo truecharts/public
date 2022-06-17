@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.7"></a>
+### [promtail-3.0.7](https://github.com/truecharts/apps/compare/promtail-3.0.6...promtail-3.0.7) (2022-06-17)
+
+#### Chore
+
+* update helm chart common to v10.0.13
+
+
+
 <a name="promtail-3.0.6"></a>
 ### [promtail-3.0.6](https://github.com/truecharts/apps/compare/promtail-3.0.5...promtail-3.0.6) (2022-06-17)
 
