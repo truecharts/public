@@ -14,7 +14,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.2.1@sha256:4ace13c049bf00f85c63e0070f86b71656a7c3b2113aa3e21c3107f3d1f7bf87
+      image: ghcr.io/truecharts/devcontainer:v2.3.0@sha256:a163ad40427cd75a31a0365afb832f97e512d420429ed091b90b18a034526264
     concurrency: gitpush
     steps:
       - name: Install Kubernetes tools
