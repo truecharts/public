@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/amcrest2mqtt
-  # -- image tag
   tag: v1.0.16@sha256:64d7a2487a2622ed163ff0dd9d518b9564f29c11438801a953da1d1bf931f18e
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 service:
@@ -31,10 +28,7 @@ secretEnv:
   # -- Password used to connect to the MQTT broker
   MQTT_PASSWORD: "changeme"
 
-# -- environment variables. See more environment variables in the [amcrest2mqtt repo](https://github.com/dchesterton/amcrest2mqtt).
-# @default -- See below
 env:
-  # -- Set the container timezone
   # -- Host name used to connect to the Amcrest device
   AMCREST_HOST: "localhost"
   # -- Port used to connect to the Amcrest device

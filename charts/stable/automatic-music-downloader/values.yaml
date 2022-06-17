@@ -11,6 +11,35 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  AUTOSTART: true
+  SCRIPTINTERVAL: "1h"
+  DOWNLOADMODE: "wanted"
+  FALLBACKSEARCH: true
+  LIST: "both"
+  SearchType: "both"
+  Concurrency: 1
+  EMBEDDED_COVER_QUALITY: 80
+  FORMAT: "FLAC"
+  BITRATE: 320
+  ENABLEPOSTPROCESSING: true
+  FORCECONVERT: true
+  requirequality: true
+  MatchDistance: 10
+  replaygain: true
+  FolderPermissions: 766
+  FilePermissions: 666
+  MBRAINZMIRROR: "https://musicbrainz.org"
+  LidarrUrl: "http://x.x.x.x:8686"
+  LidarrAPIkey: "LIDARRAPI"
+  ARL_TOKEN: "ARLTOKEN"
+  NOTIFYPLEX: false
+  PLEXLIBRARYNAME: "Music"
+  PLEXURL: "http://x.x.x.x:32400"
+  PLEXTOKEN: "plextoken"
+  ALBUM_TYPE_FILTER: "COMPILE"
+  POSTPROCESSTHREADS: 1
+
 service:
   main:
     enabled: false

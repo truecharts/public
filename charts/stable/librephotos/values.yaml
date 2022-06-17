@@ -95,7 +95,7 @@ env:
   WEB_CONCURRENCY: 2
   SKIP_PATTERNS: ""
   HEAVYWEIGHT_PROCESS: 1
-  DEBUG: 0
+  DEBUG: false
   DB_PASS:
     secretKeyRef:
       name: dbcreds

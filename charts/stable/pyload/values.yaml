@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/pyload
-  # -- image tag
   tag: version-5de90278@sha256:c33489498cb4541bbf936b1ebd1eaebfb0cae279f738aa0e6184969089e94081
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,12 +10,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-pyload#environment-variables-e) for more details.
-# @default -- See below
-env: {}
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -26,8 +17,6 @@ service:
         port: 10075
         targetPort: 8000
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

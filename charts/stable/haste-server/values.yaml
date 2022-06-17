@@ -1,21 +1,12 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/haste-server
-  # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
   tag: latest@sha256:046b4d04aa5c23a7a4de10b678aad8f62932e2ae04b2db123107e753b7929f86
 
-# -- environment variables. See [image docs](https://github.com/seejohnrun/haste-server) for more details.
-# @default -- See below
 env:
-  # -- filepath for persistance
   STORAGE_FILEPATH: "/config"
-  # -- sets backend
   STORAGE_TYPE: "file"
 
-# -- Configures service settings for the chart. Normally this does not need to be modified.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -23,14 +14,6 @@ service:
         port: 7777
         targetPort: 7777
 
-ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
-  main:
-    enabled: false
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

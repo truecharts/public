@@ -1,17 +1,10 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/traccar
-  # -- image tag
   tag: v5.0@sha256:b56353fba09e0103d8fef47b283f5aaf592420ceec0123d14194e8b7a9630d0d
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- environment variables. See more environment variables in the [traccar documentation](https://www.traccar.org/configuration-file/)
-# @default -- See below
 env:
-  # -- Set application to read environment variables
   CONFIG_USE_ENVIRONMENT_VARIABLES: true
-  # -- Set application to log to stdout
   LOGGER_CONSOLE: true
   DATABASE_DRIVER: "org.postgresql.Driver"
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -24,8 +17,6 @@ env:
       name: dbcreds
       key: jdbc
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -33,14 +24,11 @@ service:
         port: 8082
         targetPort: 8082
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true
     mountPath: "/opt/traccar/data"
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

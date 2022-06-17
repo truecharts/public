@@ -25,17 +25,9 @@ service:
         targetPort: 22023
 
 probes:
-  # -- Liveness probe configuration
-  # @default -- See below
   liveness:
     enabled: false
-
-  # -- Redainess probe configuration
-  # @default -- See below
   readiness:
     enabled: false
-
-  # -- Startup probe configuration
-  # @default -- See below
   startup:
     enabled: false

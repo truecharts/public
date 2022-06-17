@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/protonmail-bridge
-  # -- image tag
   tag: v1.8.10-1@sha256:58a54002123cc9a83cfb3170deb0a1dbf4cedabdced09a9c6bcafc19ee4b5631
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,13 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     enabled: false
@@ -35,8 +25,6 @@ service:
         port: 25
         targetPort: 25
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

@@ -142,17 +142,12 @@ configmap:
           trusted_proxies:
             - 172.16.0.0/16
 
-# -- Enable and configure postgresql database subchart under this key.
-#    For more options see [postgresql chart documentation](https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/postgresql)
-# @default -- See values.yaml
 postgresql:
   enabled: true
   postgresqlUsername: home-assistant
   postgresqlDatabase: home-assistant
   existingSecret: "dbcreds"
 
-# Enable influxdb
-# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/influxdb
 influxdb:
   enabled: false
   architecture: standalone

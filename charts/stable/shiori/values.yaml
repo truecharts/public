@@ -11,8 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# See more environment variables in the shiori documentation
-# https://github.com/go-shiori/shiori/wiki/Configuration#database
 env:
   SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -39,7 +37,6 @@ persistence:
   varrun:
     enabled: true
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

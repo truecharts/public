@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/hyperion.ng
-  # -- image tag
   tag: v2.0.13@sha256:1480feaaa3e9f9969254828427de061384dc6a29940aa8d5df1fce907d795e61
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,12 +10,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
-# @default -- See below
-env: {}
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:

@@ -1,17 +1,8 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/dizquetv
-  # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
   tag: v1.5.0@sha256:00edf305cfe85a8df0053ef924fe23cc26fdf4e063c70b94c1062040d9f21778
 
-# -- environment variables. See more environment variables in the [dizquetv documentation](https://hub.docker.com/r/vexorian/dizquetv).
-# @default -- See below
-env: {}
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -19,8 +10,6 @@ service:
         port: 10071
         targetPort: 8000
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
