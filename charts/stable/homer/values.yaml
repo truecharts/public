@@ -7,6 +7,9 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
+env:
+  INIT_ASSETS: true
+
 service:
   main:
     ports:

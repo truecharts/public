@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/librespeed
-  # -- image tag
   tag: version-5.2.4@sha256:c441bc4d4d086a95966e93b4dea82674d1a258774f97084b02e87c0bc38deb2a
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,22 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
-# @default -- See below
-env: {}
-  # -- Set the container timezone
-  # -- Specify the user ID the application will run as
-  # PASSWORD:
-  # CUSTOM_RESULTS:
-  # DB_TYPE:
-  # DB_NAME:
-  # DB_HOSTNAME:
-  # DB_USERNAME:
-  # DB_PASSWORD:
-  # DB_PORT:
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -37,8 +18,6 @@ service:
         port: 10016
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

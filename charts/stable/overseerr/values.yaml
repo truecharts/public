@@ -1,23 +1,14 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/overseerr
-  # -- image tag
   tag: v1.29.1@sha256:8b2e31f80dcdaed42ef89be859068a741379b25cf9f02ae9ba9cc26ceea16d30
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables.
-# @default -- See below
 env:
-  # -- Set the container timezone
-  # -- Set the application log level
   LOG_LEVEL: info
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -25,8 +16,6 @@ service:
         port: 5055
         targetPort: 5055
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

@@ -1,13 +1,8 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/apache-musicindex
-  # -- image tag
   tag: v1.4.1-2@sha256:442d1edfbf89b8a2a42c0d649f53f091c39256c65f922078ad38ff60bdbdadf9
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- Allows to start web server on ports 80 and 443
-# @default -- See values.yaml
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -16,8 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:

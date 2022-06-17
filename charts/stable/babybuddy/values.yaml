@@ -8,6 +8,7 @@ env:
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
+  CSRF_TRUSTED_ORIGINS: ""
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

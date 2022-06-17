@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.5.1@sha256:75fe32474598f89d7b0741c3b96eeebd6b346da5219e1eabf8ed9e769f7a98f5
 
-# See more environment variables in the babybuddy documentation
-# https://hub.docker.com/r/jgeusebroek/spotweb
 env:
   SPOTWEB_SYSTEMTYPE: "single"
   SPOTWEB_FIRSTNAME: "demo"
@@ -44,7 +42,6 @@ service:
         port: 10050
         targetPort: 80
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

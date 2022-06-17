@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/tt-rss
-  # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
   tag: v2.0.9113@sha256:c4b2bc071fbea7e78d20b7270fe51d94a4b4ca3bd857a872b23b145f60da0458
 
 securityContext:
@@ -25,11 +22,7 @@ persistence:
     enabled: true
     mountPath: "/app/themes.local"
 
-# -- See more environment variables in the tt-rss documentation
-# https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9
-# @default -- See below.
 env:
-  # -- External URL you use to connect to the RSS (the one you enter in your browser)
   TTRSS_SELF_URL_PATH: ""
   TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -43,8 +36,6 @@ env:
       name: dbcreds
       key: plainhost
 
-# -- Configure the services for the chart here.
-# @default -- See below.
 service:
   main:
     ports:
@@ -52,12 +43,8 @@ service:
         port: 10104
         targetPort: 8080
 
-# @default -- see bellow
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
-  # -- Postgres database user name
   postgresqlUsername: tt-rss
-  # -- Postgres database password
   postgresqlDatabase: tt-rss

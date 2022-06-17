@@ -1,31 +1,18 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/statping
-  # -- image tag
   tag: v0.90.78@sha256:975e6f7361c435414d14c3700a356819fd6f4eb00df8cb2c13a24e5511580042
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details.
-# @default -- See below
 secretEnv:
-  # -- dashboard admin user (needed to edit)
   ADMIN_USER: "admin"
-  # -- dashboard admin password (needed to edit)
   ADMIN_PASSWORD: "changeme"
-  # -- dashboard admin email
   ADMIN_EMAIL: "info@example.com"
+
 env:
-  # -- Set the container timezone
-  # -- Name of the Statping instance
   NAME: "Statping Example"
-  # -- Description of the Statping instance
   DESCRIPTION: "This is a Statping instance deployed as Helm chart"
-  # -- External URL you use to connect to the statping (the one you enter in your browser)
   VIRTUAL_HOST: ""
-  # -- Use CDN for static context from third-parties
   USE_CDN: false
-  # -- Disable logs from appearing and writing to disk
   DISABLE_LOGS: false
   DB_CONN: "postgres"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -40,23 +27,19 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+
 service:
   main:
     ports:
       main:
         port: 10099
         targetPort: 8080
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
+
 persistence:
   data:
     enabled: true
     mountPath: "/app"
 
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- See values.yaml
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

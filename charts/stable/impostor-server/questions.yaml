@@ -110,13 +110,11 @@ questions:
           label: "Enable/Disable Anti Cheat"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: IMPOSTOR_AntiCheat__BanIpFromGame
           label: "Enable/Disable Anti Cheat Ban IP"
           schema:
             type: boolean
-            required: false
             default: true
         - variable: debug
           label: "Show Debug settings"
@@ -129,13 +127,11 @@ questions:
                 label: "Enable/Disable Game Recorder"
                 schema:
                   type: boolean
-                  required: false
                   default: false
               - variable: IMPOSTOR_Debug__GameRecorderPath
                 label: "Game Recorder Path"
                 schema:
                   type: string
-                  required: false
                   default: ""
 
 

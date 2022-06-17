@@ -3,27 +3,19 @@ image:
   tag: v2.0.37@sha256:591557c5015384ff8f3c580fb651f0ddbbcaf4fac9ea5a02d0116362b44db107
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [miniflux docs](https://miniflux.app/docs/configuration.html) for more details.
-# @default -- See below
 secretEnv:
   # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
   ADMIN_USERNAME: "admin"
   # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
   ADMIN_PASSWORD: "changeme"
 env:
-  # -- Set the container timezone.
-  # -- Set to `1` to run database migrations during application startup.
   RUN_MIGRATIONS: 1
-  # -- Set to `1` to create an admin user from environment variables.
   CREATE_ADMIN: 1
-  # -- Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details.
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: urlnossl
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -35,8 +27,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-# -- Configures the probes for the main Pod.
-# @default -- See values.yaml
+
 probes:
   liveness:
     enabled: true
@@ -50,8 +41,6 @@ probes:
         path: /healthcheck
         port: 8080
 
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- Enabled (see values.yaml for more details)
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

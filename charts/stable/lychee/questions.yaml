@@ -74,32 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_URL
-          label: "APP_URL"
-          description: "Application URL eg. https://lychee.mydomain.com"
-          schema:
-            type: string
-            default: "http://localhost"
-        - variable: APP_DEBUG
-          label: "APP_DEBUG"
-          description: "Enables the debug info"
-          schema:
-            type: boolean
-            default: false
-        - variable: SECURITY_HEADER_HSTS_ENABLE
-          label: "SECURITY_HEADER_HSTS_ENABLE"
-          description: "Enables HSTS Headers"
-          schema:
-            type: boolean
-            default: false
-
   - variable: secretEnv
     group: "Container Configuration"
     label: "Secret Image Environment"
@@ -196,18 +170,32 @@ questions:
           schema:
             type: string
             default: "mt1"
-        - variable: PUSHER_APP_CLUSTER
-          label: "PUSHER_APP_CLUSTER"
-          description: "Pusher App Cluster"
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: APP_URL
+          label: "APP_URL"
+          description: "Application URL eg. https://lychee.mydomain.com"
           schema:
             type: string
-            default: "mt1"
-        - variable: PUSHER_APP_CLUSTER
-          label: "PUSHER_APP_CLUSTER"
-          description: "Pusher App Cluster"
+            default: "http://localhost"
+        - variable: APP_DEBUG
+          label: "APP_DEBUG"
+          description: "Enables the debug info"
           schema:
-            type: string
-            default: "mt1"
+            type: boolean
+            default: false
+        - variable: SECURITY_HEADER_HSTS_ENABLE
+          label: "SECURITY_HEADER_HSTS_ENABLE"
+          description: "Enables HSTS Headers"
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 

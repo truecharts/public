@@ -62,27 +62,30 @@ questions:
       attrs:
         - variable: AMCREST_USERNAME
           label: "AMCREST_USERNAME"
+          description: "User name used to connect to the Amcrest device"
           schema:
             type: string
             default: "admin"
         - variable: AMCREST_PASSWORD
           label: "AMCREST_PASSWORD"
+          description: "Password used to connect to the Amcrest device"
           schema:
             type: string
             default: "changeme"
             required: true
         - variable: MQTT_USERNAME
           label: "MQTT_USERNAME"
+          description: "User name used to connect to the MQTT broker"
           schema:
             type: string
             default: "mqttuser"
             required: true
         - variable: MQTT_PASSWORD
           label: "MQTT_PASSWORD"
+          description: "Password used to connect to the MQTT broker"
           schema:
             type: string
             default: "changeme"
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -90,39 +93,43 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
-
         - variable: AMCREST_HOST
           label: "AMCREST_HOST"
+          description: "Host name used to connect to the Amcrest device"
           schema:
             type: string
             default: ""
             required: true
         - variable: AMCREST_PORT
           label: "AMCREST_PORT"
+          description: "Port used to connect to the Amcrest device"
           schema:
             type: int
             default: 80
             required: true
         - variable: MQTT_HOST
           label: "MQTT_HOST"
+          description: "Host name used to connect to the MQTT broker"
           schema:
             type: string
             default: "localhost"
             required: true
         - variable: MQTT_PORT
           label: "MQTT_PORT"
+          description: "Port used to connect to the MQTT broker"
           schema:
             type: int
             default: 1883
             required: true
         - variable: HOME_ASSISTANT
           label: "HOME_ASSISTANT"
+          description: "Enable Home Assistant autodiscovery"
           schema:
             type: boolean
             default: false
         - variable: HOME_ASSISTANT_PREFIX
           label: "HOME_ASSISTANT_PREFIX"
+          description: "Home Assistant autodiscovery prefix"
           schema:
             type: string
             default: "homeassistant"

@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/gonic
-  # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
   tag: v0.14.0@sha256:2965f50240b6fd9fb1535e87607c65f0f1212b5ce1df54966fb7d212efe1b770
 
 securityContext:
@@ -13,16 +10,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See more environment variables in the [gonic documentation](https://github.com/sentriz/gonic#configuration-options)
-# @default -- See below
-env:
-  # -- Set the container timezone
-  # GONIC_MUSIC_PATH:
-  # GONIC_PODCAST_PATH:
-  # GONIC_CACHE_PATH:
+# env:
+#   GONIC_MUSIC_PATH:
+#   GONIC_PODCAST_PATH:
+#   GONIC_CACHE_PATH:
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -30,8 +22,6 @@ service:
         port: 10023
         targetPort: 80
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true

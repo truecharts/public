@@ -15,11 +15,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See more environment variables in the [anonaddy documentation](https://github.com/anonaddy/docker#environment-variables).
-# @default -- See below
 env:
-  # -- Root domain to receive email from
-  ANONADDY_DOMAIN: chart-example.local
+  ANONADDY_DOMAIN: "chart-example.local"
   DB_DATABASE: anonaddy
   DB_USERNAME: anonaddy
   DB_HOST:
@@ -47,8 +44,6 @@ env:
       name: appkey
       key: secret
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -63,8 +58,6 @@ service:
         port: 25
         targetPort: 25
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   varrun:
     enabled: true

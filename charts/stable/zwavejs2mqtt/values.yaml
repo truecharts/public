@@ -6,10 +6,8 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
-# # See more environment variables in the zwavejs2mqtt documentation
-# https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
-env: {}
-  # OZW_NETWORK_KEY:
+# env: {}
+#   OZW_NETWORK_KEY:
 
 probes:
   liveness:

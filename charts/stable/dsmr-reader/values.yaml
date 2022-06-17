@@ -1,15 +1,9 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/dsmr-reader
-  # -- image tag
   tag: v2021.09.02@sha256:bf3454b0b379d325d95ec0693e2634bcfd4bfd917ec59d0918ca60d32a6073c5
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [image docs](https://github.com/xirixiz/dsmr-reader-docker#dsmr-reader---environment-variables) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
   DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
   DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -32,20 +26,18 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
       main:
         port: 10009
         targetPort: 80
+
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- See values.yaml
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

@@ -1,9 +1,6 @@
 image:
-# -- image repository
   repository: tccr.io/truecharts/owncast
-  # -- image tag
   tag: v0.0.11@sha256:bebcb90cae79b4dddd7222d002052a9b3eb6f4a20dc7386df28617120f3fe53c
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,8 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -24,16 +19,13 @@ service:
         targetPort: 8080
   rtmp:
     enabled: true
-    externalTrafficPolicy: Local
+    # externalTrafficPolicy: Local
     ports:
       rtmp:
         enabled: true
         port: 1935
         targetPort: 1935
 
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

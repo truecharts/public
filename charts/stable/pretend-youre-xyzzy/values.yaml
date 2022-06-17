@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/pretend-youre-xyzzy
-  # -- image tag
   tag: v4@sha256:d2b339819975c546a5360e160c793a615e86ab04e5aed91427ff1dd850205ace
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,8 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
