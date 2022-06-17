@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  URL: "http://localhost"
   DB_TYPE: mysql
   MYSQL_DATABASE: xbackbone
   MYSQL_USER: xbackbone
