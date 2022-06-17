@@ -82,9 +82,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: SELF_URL_PATH
-          label: "SELF_URL_PATH"
-          description: "Sets the SELF_URL_PATH env var"
+        - variable: PUBLIC_URL
+          label: "PUBLIC_URL"
+          description: "Sets the PUBLIC_URL"
           schema:
             type: string
             default: ""
