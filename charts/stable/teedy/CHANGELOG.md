@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-7.0.4"></a>
+### [teedy-7.0.4](https://github.com/truecharts/apps/compare/teedy-7.0.3...teedy-7.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="teedy-7.0.3"></a>
 ### [teedy-7.0.3](https://github.com/truecharts/apps/compare/teedy-7.0.2...teedy-7.0.3) (2022-06-14)
 

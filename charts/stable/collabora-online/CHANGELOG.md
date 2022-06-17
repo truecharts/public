@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.0.6"></a>
+### [collabora-online-12.0.6](https://github.com/truecharts/apps/compare/collabora-online-12.0.5...collabora-online-12.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="collabora-online-12.0.5"></a>
 ### [collabora-online-12.0.5](https://github.com/truecharts/apps/compare/collabora-online-12.0.4...collabora-online-12.0.5) (2022-06-16)
 

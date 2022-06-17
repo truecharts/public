@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.6"></a>
+### [linkace-4.0.6](https://github.com/truecharts/apps/compare/linkace-4.0.5...linkace-4.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="linkace-4.0.5"></a>
 ### [linkace-4.0.5](https://github.com/truecharts/apps/compare/linkace-4.0.4...linkace-4.0.5) (2022-06-14)
 

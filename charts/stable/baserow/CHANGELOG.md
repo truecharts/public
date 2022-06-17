@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="baserow-3.0.6"></a>
+### [baserow-3.0.6](https://github.com/truecharts/apps/compare/baserow-3.0.5...baserow-3.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="baserow-3.0.5"></a>
 ### [baserow-3.0.5](https://github.com/truecharts/apps/compare/baserow-3.0.4...baserow-3.0.5) (2022-06-14)
 

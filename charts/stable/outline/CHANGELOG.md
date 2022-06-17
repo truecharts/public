@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="outline-3.0.5"></a>
+### [outline-3.0.5](https://github.com/truecharts/apps/compare/outline-3.0.4...outline-3.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="outline-3.0.4"></a>
 ### [outline-3.0.4](https://github.com/truecharts/apps/compare/outline-3.0.3...outline-3.0.4) (2022-06-14)
 

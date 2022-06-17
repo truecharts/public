@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-7.0.4"></a>
+### [openkm-7.0.4](https://github.com/truecharts/apps/compare/openkm-7.0.3...openkm-7.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="openkm-7.0.3"></a>
 ### [openkm-7.0.3](https://github.com/truecharts/apps/compare/openkm-7.0.2...openkm-7.0.3) (2022-06-14)
 

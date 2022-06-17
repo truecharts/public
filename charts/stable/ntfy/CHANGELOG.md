@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ntfy-2.0.5"></a>
+### [ntfy-2.0.5](https://github.com/truecharts/apps/compare/ntfy-2.0.4...ntfy-2.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="ntfy-2.0.4"></a>
 ### [ntfy-2.0.4](https://github.com/truecharts/apps/compare/ntfy-2.0.3...ntfy-2.0.4) (2022-06-14)
 

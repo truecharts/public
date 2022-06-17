@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-8.0.4"></a>
+### [dsmr-reader-8.0.4](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.3...dsmr-reader-8.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="dsmr-reader-8.0.3"></a>
 ### [dsmr-reader-8.0.3](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.2...dsmr-reader-8.0.3) (2022-06-14)
 

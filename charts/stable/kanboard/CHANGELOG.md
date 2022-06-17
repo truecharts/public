@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-8.0.4"></a>
+### [kanboard-8.0.4](https://github.com/truecharts/apps/compare/kanboard-8.0.3...kanboard-8.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="kanboard-8.0.3"></a>
 ### [kanboard-8.0.3](https://github.com/truecharts/apps/compare/kanboard-8.0.2...kanboard-8.0.3) (2022-06-14)
 

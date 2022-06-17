@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-6.0.6"></a>
+### [octoprint-6.0.6](https://github.com/truecharts/apps/compare/octoprint-6.0.5...octoprint-6.0.6) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="octoprint-6.0.5"></a>
 ### [octoprint-6.0.5](https://github.com/truecharts/apps/compare/octoprint-6.0.4...octoprint-6.0.5) (2022-06-16)
 

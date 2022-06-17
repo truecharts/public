@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-6.0.5"></a>
+### [duplicati-6.0.5](https://github.com/truecharts/apps/compare/duplicati-6.0.4...duplicati-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="duplicati-6.0.4"></a>
 ### [duplicati-6.0.4](https://github.com/truecharts/apps/compare/duplicati-6.0.3...duplicati-6.0.4) (2022-06-14)
 

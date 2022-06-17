@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-7.0.5"></a>
+### [pgadmin-7.0.5](https://github.com/truecharts/apps/compare/pgadmin-7.0.4...pgadmin-7.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="pgadmin-7.0.4"></a>
 ### [pgadmin-7.0.4](https://github.com/truecharts/apps/compare/pgadmin-7.0.3...pgadmin-7.0.4) (2022-06-14)
 

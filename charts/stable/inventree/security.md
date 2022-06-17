@@ -89,10 +89,10 @@ hide:
           tccr.io/truecharts/postgresql:v14.3.0@sha256:5a7765edadb738a56757590d843417861d27628cf56fefb25e30870f5e047620
           tccr.io/truecharts/alpine:v3.15.2@sha256:29ed3480a0ee43f7af681fed5d4fc215516abf1c41eade6938b26d8c9c2c7583
           tccr.io/truecharts/postgresql:v14.3.0@sha256:5a7765edadb738a56757590d843417861d27628cf56fefb25e30870f5e047620
-          'tccr.io/truecharts/inventree:v0.7.2@sha256:5c7d2ac33e996e8c278f3b6dafe499dfb48bc87b2ed813cd54f4ece599d21a72'
-          tccr.io/truecharts/inventree:v0.7.2@sha256:5c7d2ac33e996e8c278f3b6dafe499dfb48bc87b2ed813cd54f4ece599d21a72
+          'tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c'
+          tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c
         - 'tccr.io/truecharts/nginx:v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef'
-          'tccr.io/truecharts/inventree:v0.7.2@sha256:5c7d2ac33e996e8c278f3b6dafe499dfb48bc87b2ed813cd54f4ece599d21a72'
+          'tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c'
 
 ##### Scan Results
 
@@ -445,7 +445,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/inventree:v0.7.2@sha256:5c7d2ac33e996e8c278f3b6dafe499dfb48bc87b2ed813cd54f4ece599d21a72 (alpine 3.14.6)
+#### Container: tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c (alpine 3.14.6)
 
 
 **alpine**

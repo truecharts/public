@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-4.0.5"></a>
+### [amcrest2mqtt-4.0.5](https://github.com/truecharts/apps/compare/amcrest2mqtt-4.0.4...amcrest2mqtt-4.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="amcrest2mqtt-4.0.4"></a>
 ### [amcrest2mqtt-4.0.4](https://github.com/truecharts/apps/compare/amcrest2mqtt-4.0.3...amcrest2mqtt-4.0.4) (2022-06-14)
 

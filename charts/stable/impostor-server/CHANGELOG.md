@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-1.0.7"></a>
+### [impostor-server-1.0.7](https://github.com/truecharts/apps/compare/impostor-server-1.0.5...impostor-server-1.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="impostor-server-1.0.5"></a>
 ### [impostor-server-1.0.5](https://github.com/truecharts/apps/compare/impostor-server-1.0.4...impostor-server-1.0.5) (2022-06-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-4.0.7"></a>
+### [snipe-it-4.0.7](https://github.com/truecharts/apps/compare/snipe-it-4.0.6...snipe-it-4.0.7) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
 <a name="snipe-it-4.0.6"></a>
 ### [snipe-it-4.0.6](https://github.com/truecharts/apps/compare/snipe-it-4.0.5...snipe-it-4.0.6) (2022-06-15)
 
