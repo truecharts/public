@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="double-take-2.0.6"></a>
+### [double-take-2.0.6](https://github.com/truecharts/apps/compare/double-take-2.0.5...double-take-2.0.6) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
 <a name="double-take-2.0.5"></a>
 ### [double-take-2.0.5](https://github.com/truecharts/apps/compare/double-take-2.0.4...double-take-2.0.5) (2022-06-14)
 

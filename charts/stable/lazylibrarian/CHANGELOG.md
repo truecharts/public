@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-11.0.6"></a>
+### [lazylibrarian-11.0.6](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.5...lazylibrarian-11.0.6) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
 <a name="lazylibrarian-11.0.5"></a>
 ### [lazylibrarian-11.0.5](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.4...lazylibrarian-11.0.5) (2022-06-14)
 

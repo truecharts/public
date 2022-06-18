@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="website-shot-2.0.5"></a>
+### [website-shot-2.0.5](https://github.com/truecharts/apps/compare/website-shot-2.0.4...website-shot-2.0.5) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
 <a name="website-shot-2.0.4"></a>
 ### [website-shot-2.0.4](https://github.com/truecharts/apps/compare/website-shot-2.0.3...website-shot-2.0.4) (2022-06-14)
 

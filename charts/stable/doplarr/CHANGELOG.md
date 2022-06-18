@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doplarr-2.0.5"></a>
+### [doplarr-2.0.5](https://github.com/truecharts/apps/compare/doplarr-2.0.4...doplarr-2.0.5) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
 <a name="doplarr-2.0.4"></a>
 ### [doplarr-2.0.4](https://github.com/truecharts/apps/compare/doplarr-2.0.3...doplarr-2.0.4) (2022-06-14)
 
