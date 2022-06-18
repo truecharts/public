@@ -547,9 +547,9 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
+
         - variable: themePark
           label: "theme.park"
-          description: "Currently requires to enable Traefik Pilot. Until it's deprecated."
           schema:
             type: list
             default: []
@@ -562,29 +562,37 @@ questions:
                   attrs:
                     - variable: name
                       label: "Name"
+                      description: Requires enabling `theme.park` plugin in Traefik Pilot section.
                       schema:
                         type: string
                         required: true
-                    - variable: app
-                      label: "Application Name"
-                      description: "Lower case, supported list https://docs.theme-park.dev/themes."
+                    - variable: appName
+                      label: App Name
+                      description: The name of the app to be themed.
+                        Go to https://docs.theme-park.dev/themes/ to see supported apps.
                       schema:
                         type: string
                         required: true
-                        default: ""
-                    - variable: theme
-                      label: "Theme Name"
-                      description: "Lower case, supported lists https://docs.theme-park.dev/theme-options and https://docs.theme-park.dev/community-themes"
+                    - variable: themeName
+                      label: Theme Name
+                      description: The name of the theme to be applied.
+                        Go to https://docs.theme-park.dev/theme-options/ to see supported themes.
                       schema:
                         type: string
-                        default: ""
-                    - variable: baseUrl
-                      label: "Base URL for theme"
-                      description: "https://theme-park.dev or a self hosted url"
+                        required: true
+                    - variable: enableBaseUrl
+                      label: Enable Custom Base URL
+                      description: Replace `https://theme-park.dev` URL for self-hosting reference.
                       schema:
-                        type: string
-                        default: "https://theme-park.dev"
-
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: baseUrl
+                            label: Base URL
+                            schema:
+                              type: string
+                              required: true
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
