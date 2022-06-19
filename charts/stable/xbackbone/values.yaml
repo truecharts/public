@@ -9,10 +9,10 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 0
+  runAsGroup: 1000
 
 env:
-  URL: 'http:\/\/localhost:10121'
+  URL: 'http:\/\/localhost'
   APP_NAME: "xbb"
   DB_TYPE: mysql
   MYSQL_DATABASE: xbackbone
