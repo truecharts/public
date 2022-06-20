@@ -200,6 +200,12 @@ questions:
                 schema:
                   type: string
                   default: "60000"
+              - variable: DASHDOT_ENABLE_STORAGE_SPLIT_VIEW
+                label: "DASHDOT_ENABLE_STORAGE_SPLIT_VIEW"
+                description: "Enable an optional split view for the storage widget."
+                schema:
+                  type: boolean
+                  default: false
         - variable: ramwidgetsettings
           label: "RAM Widget Settings"
           schema:
