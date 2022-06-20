@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-3.0.0"></a>
+### [scrutiny-3.0.0](https://github.com/truecharts/apps/compare/scrutiny-2.0.5...scrutiny-3.0.0) (2022-06-20)
+
+#### Chore
+
+* add COLLECTOR_HOST_ID env ([#2938](https://github.com/truecharts/apps/issues/2938))
+
+
+
 <a name="scrutiny-2.0.5"></a>
 ### [scrutiny-2.0.5](https://github.com/truecharts/apps/compare/scrutiny-2.0.4...scrutiny-2.0.5) (2022-06-16)
 
