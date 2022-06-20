@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="duplicati-6.0.6"></a>
+### [duplicati-6.0.6](https://github.com/truecharts/apps/compare/duplicati-6.0.5...duplicati-6.0.6) (2022-06-20)
+
+
+
 <a name="duplicati-6.0.5"></a>
 ### [duplicati-6.0.5](https://github.com/truecharts/apps/compare/duplicati-6.0.4...duplicati-6.0.5) (2022-06-17)
 
