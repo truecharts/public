@@ -329,7 +329,7 @@ additionalContainers:
       # JVB_WS_DOMAIN:
       # JVB_WS_SERVER_ID:
       - name: PUBLIC_URL
-        value: "{{ .Values.env.PUBLIC_URL}}"
+        value: "{{ .Values.env.PUBLIC_URL }}"
       # SENTRY_DSN="${JVB_SENTRY_DSN:-0}":
       # SENTRY_ENVIRONMENT:
       # SENTRY_RELEASE:
