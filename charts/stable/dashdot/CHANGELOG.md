@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-1.0.0"></a>
+### [dashdot-1.0.0](https://github.com/truecharts/apps/compare/dashdot-0.0.7...dashdot-1.0.0) (2022-06-20)
+
+#### Feat
+
+* move to stable ([#2942](https://github.com/truecharts/apps/issues/2942))
+
+
+
 <a name="dashdot-0.0.7"></a>
 ### [dashdot-0.0.7](https://github.com/truecharts/apps/compare/dashdot-0.0.6...dashdot-0.0.7) (2022-06-17)
 
