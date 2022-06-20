@@ -265,9 +265,9 @@ additionalContainers:
       # ENABLE_SCTP:
       # ENABLE_AUTO_LOGIN:
       - name: JICOFO_AUTH_USER
-        value: "{{ .Values.env.JICOFO_AUTH_USER}}"
+        value: "{{ .Values.env.JICOFO_AUTH_USER }}"
       - name: JICOFO_AUTH_PASSWORD
-        value: "{{ .Values.env.JICOFO_AUTH_PASSWORD}}"
+        value: "{{ .Values.env.JICOFO_AUTH_PASSWORD }}"
       # JICOFO_ENABLE_BRIDGE_HEALTH_CHECKS:
       # JICOFO_CONF_INITIAL_PARTICIPANT_WAIT_TIMEOUT:
       # JICOFO_CONF_SINGLE_PARTICIPANT_TIMEOUT:
