@@ -169,43 +169,6 @@ questions:
                 schema:
                   type: string
                   default: "1000"
-        - variable: gpuwidgetsettings
-          label: "GPU Widget Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: DASHDOT_GPU_LABEL_LIST
-                label: "DASHDOT_GPU_LABEL_LIST"
-                description: "Change the order of the labels in the list, to change the position in the widget, or remove an item from the list, to remove it from the widget"
-                schema:
-                  type: string
-                  default: "brand, model, memory"
-              - variable: DASHDOT_GPU_WIDGET_GROW
-                label: "DASHDOT_GPU_WIDGET_GROW"
-                description: "To adjust the relative size of the GPU widget."
-                schema:
-                  type: string
-                  default: "6"
-              - variable: DASHDOT_GPU_WIDGET_MIN_WIDTH
-                label: "DASHDOT_GPU_WIDGET_MIN_WIDTH"
-                description: "To adjust the minimum width of the GPU widget (in px)."
-                schema:
-                  type: string
-                  default: "700"
-              - variable: DASHDOT_GPU_DATAPOINTS
-                label: "DASHDOT_GPU_DATAPOINTS"
-                description: "The amount of datapoints in the GPU graph."
-                schema:
-                  type: string
-                  default: "20"
-              - variable: DASHDOT_GPU_POLL_INTERVAL
-                label: "DASHDOT_GPU_POLL_INTERVAL"
-                description: "Read the GPU load every x milliseconds."
-                schema:
-                  type: string
-                  default: "1000"
         - variable: storagewidgetsettings
           label: "Storage Widget Settings"
           schema:
