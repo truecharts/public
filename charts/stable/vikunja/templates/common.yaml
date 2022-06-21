@@ -1,5 +1,1 @@
-{{- include "tc.common.loader.init" . }}
-
-{{- include "vikunja.secrets" . }}
-
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.common.loader.all" . }}
