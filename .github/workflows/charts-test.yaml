@@ -429,3 +429,10 @@ jobs:
       - name: Check install matrix status
         if: ${{ ( (needs.generate-install-matrix.outputs.detected1 == 'true') && (needs.install-charts1.result != 'success') ) && ( (needs.generate-install-matrix.outputs.detected2 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts2.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected3 == 'true') && ( (needs.install-charts3.result != 'success') || ( needs.install-charts3.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected4 == 'true') && ( (needs.install-charts4.result != 'success') || ( needs.install-charts4.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected5 == 'true') && ( (needs.install-charts5.result != 'success') || ( needs.install-charts5.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected6 == 'true') && ( (needs.install-charts6.result != 'success') || ( needs.install-charts6.result != 'skipped' ) ) ) }}
         run: exit 1
+
+      - uses: vishnudxb/cancel-workflow@v1.2
+        if: failure()
+        with:
+          repo: truecharts/apps
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}

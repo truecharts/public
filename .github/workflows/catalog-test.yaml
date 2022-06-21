@@ -32,3 +32,10 @@ jobs:
       - name: build-and-run
         run: |
           tools/build-release.sh
+
+      - uses: vishnudxb/cancel-workflow@v1.2
+        if: failure()
+        with:
+          repo: truecharts/apps
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}
