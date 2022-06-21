@@ -88,6 +88,16 @@ mongodbImage:
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
+# -- redis specific configuration
+# @default -- See below
+redisImage:
+  # -- Specify the redis image
+  repository: ghcr.io/truecharts/redis
+  # -- Specify the redis image tag
+  tag: v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661
+  # -- Specify the redis image pull policy
+  pullPolicy: IfNotPresent
+
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
