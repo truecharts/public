@@ -15,6 +15,7 @@ securityContext:
 
 env:
   COLLECTOR_CRON_SCHEDULE: "0 0 * * *"
+  COLLECTOR_HOST_ID: "TrueNAS"
 
 podSecurityContext:
   runAsUser: 0

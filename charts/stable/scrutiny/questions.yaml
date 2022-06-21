@@ -88,6 +88,12 @@ questions:
           schema:
             type: string
             default: "0 0 * * *"
+        - variable: COLLECTOR_HOST_ID
+          label: "COLLECTOR_HOST_ID"
+          description: "COLLECTOR_HOST_ID"
+          schema:
+            type: string
+            default: "TrueNAS Scale"
 
 # Include{containerConfig}
 
