@@ -20,6 +20,10 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
 configmap:
   config:
     enabled: true
@@ -133,7 +137,3 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: vikunja
   postgresqlDatabase: vikunja
-
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
