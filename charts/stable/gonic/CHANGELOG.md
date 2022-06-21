@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-6.0.6"></a>
+### [gonic-6.0.6](https://github.com/truecharts/apps/compare/gonic-6.0.5...gonic-6.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="gonic-6.0.5"></a>
 ### [gonic-6.0.5](https://github.com/truecharts/apps/compare/gonic-6.0.4...gonic-6.0.5) (2022-06-17)
 

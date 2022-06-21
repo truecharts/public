@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-9.0.4"></a>
+### [firefox-syncserver-9.0.4](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.3...firefox-syncserver-9.0.4) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="firefox-syncserver-9.0.3"></a>
 ### [firefox-syncserver-9.0.3](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.2...firefox-syncserver-9.0.3) (2022-06-14)
 

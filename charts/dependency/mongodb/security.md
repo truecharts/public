@@ -40,7 +40,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mongodb:v5.0.9@sha256:9ede3c1fc5e68a9600130de5c35612fa5963a182469fd0936a40d810fbdf5b4f
+          tccr.io/truecharts/mongodb:v5.0.9@sha256:c15a49a8255690f067299d1a001f7f165218d90fe8c66fd4daf0e33c3a107307
 
 ##### Scan Results
 
@@ -57,7 +57,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:9ede3c1fc5e68a9600130de5c35612fa5963a182469fd0936a40d810fbdf5b4f (debian 10.12)
+#### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:c15a49a8255690f067299d1a001f7f165218d90fe8c66fd4daf0e33c3a107307 (debian 10.12)
 
 
 **debian**

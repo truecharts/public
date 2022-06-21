@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-13.0.6"></a>
+### [lychee-13.0.6](https://github.com/truecharts/apps/compare/lychee-13.0.5...lychee-13.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="lychee-13.0.5"></a>
 ### [lychee-13.0.5](https://github.com/truecharts/apps/compare/lychee-13.0.4...lychee-13.0.5) (2022-06-17)
 

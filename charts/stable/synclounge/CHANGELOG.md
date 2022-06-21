@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="synclounge-2.0.8"></a>
+### [synclounge-2.0.8](https://github.com/truecharts/apps/compare/synclounge-2.0.7...synclounge-2.0.8) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
 <a name="synclounge-2.0.7"></a>
 ### [synclounge-2.0.7](https://github.com/truecharts/apps/compare/synclounge-2.0.6...synclounge-2.0.7) (2022-06-16)
 
