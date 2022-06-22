@@ -1,23 +1,29 @@
 appVolumeMounts:
-  config:
+  nextcloud-data:
     emptyDir: true
-    mountPath: /config
-  media:
-    emptyDir: true
-    mountPath: /media
+    mountPath: /var/www
+cronjob:
+  enabled: false
+  schedule: 1 */24 * * *
 dnsConfig:
   options: []
 emptyDirVolumes: true
 environmentVariables: []
-extraAppVolumeMounts: []
-hostNetwork: false
 image:
   pullPolicy: IfNotPresent
-  repository: homeassistant/home-assistant
-  tag: 2022.6.6
+  repository: nextcloud
+  tag: 24.0.2
 ixChartContext: {}
-ownerGID: 568
-ownerUID: 568
+nextcloud:
+  datadir: /var/www/html/data
+  host: nextcloud.kube.home
+  password: changeme
+  username: admin
+nginx:
+  image:
+    pullPolicy: IfNotPresent
+    repository: nginx
+    tag: 1.21.3
 postgresAppVolumeMounts:
   postgres-backup:
     emptyDir: true
@@ -32,5 +38,7 @@ postgresql:
   dataVolume:
     datasetName: ix-postgres_data
     mountPath: /var/lib/postgresql/data
-timezone: America/Los_Angeles
-web_port: 32000
+service:
+  nodePort: 31000
+updateStrategy: Recreate
+useServiceNameForHost: true
