@@ -145,7 +145,7 @@ questions:
                 description: "Domain name (eg. hedgedoc.org)"
                 schema:
                   type: string
-                  default: false
+                  default: ""
               - variable: CMD_PROTOCOL_USESSL
                 label: "CMD_PROTOCOL_USESSL"
                 description: "Set to use SSL protocol for resources path (only applied when domain is set)"
@@ -175,7 +175,7 @@ questions:
                 label: "CMD_HSTS_ENABLE"
                 description: "Set to enable HSTS if HTTPS is also enabled"
                 schema:
-                  type: string
+                  type: boolean
                   default: true
               - variable: CMD_HSTS_INCLUDE_SUBDOMAINS
                 label: "CMD_HSTS_INCLUDE_SUBDOMAINS"
