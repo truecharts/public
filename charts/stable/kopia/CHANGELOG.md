@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kopia-2.0.10"></a>
+### [kopia-2.0.10](https://github.com/truecharts/apps/compare/kopia-2.0.9...kopia-2.0.10) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="kopia-2.0.9"></a>
 ### [kopia-2.0.9](https://github.com/truecharts/apps/compare/kopia-2.0.8...kopia-2.0.9) (2022-06-16)
 

@@ -7,7 +7,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://hub.docker.com/r/linuxserver/duplicati/>
+* <https://hub.docker.com/r/duplicati/duplicati/>
 * <https://github.com/duplicati/duplicati>
 
 ## Requirements
@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.0.10 |
+| https://library-charts.truecharts.org | common | 10.0.15 |
 
 ## Installing the Chart
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="chevereto-3.0.4"></a>
+### [chevereto-3.0.4](https://github.com/truecharts/apps/compare/chevereto-3.0.3...chevereto-3.0.4) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="chevereto-3.0.3"></a>
 ### [chevereto-3.0.3](https://github.com/truecharts/apps/compare/chevereto-3.0.2...chevereto-3.0.3) (2022-06-14)
 

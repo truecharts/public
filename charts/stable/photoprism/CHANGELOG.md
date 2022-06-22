@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="photoprism-10.0.7"></a>
+### [photoprism-10.0.7](https://github.com/truecharts/apps/compare/photoprism-10.0.6...photoprism-10.0.7) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="photoprism-10.0.6"></a>
+### [photoprism-10.0.6](https://github.com/truecharts/apps/compare/photoprism-10.0.5...photoprism-10.0.6) (2022-06-18)
+
+#### Chore
+
+* update container image tccr.io/truecharts/photoprism to v220617 ([#2928](https://github.com/truecharts/apps/issues/2928))
+
+
+
 <a name="photoprism-10.0.5"></a>
 ### [photoprism-10.0.5](https://github.com/truecharts/apps/compare/photoprism-10.0.4...photoprism-10.0.5) (2022-06-17)
 

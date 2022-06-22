@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="omada-controller-6.0.12"></a>
+### [omada-controller-6.0.12](https://github.com/truecharts/apps/compare/omada-controller-6.0.11...omada-controller-6.0.12) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
+<a name="omada-controller-6.0.11"></a>
+### [omada-controller-6.0.11](https://github.com/truecharts/apps/compare/omada-controller-6.0.10...omada-controller-6.0.11) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
 <a name="omada-controller-6.0.10"></a>
 ### [omada-controller-6.0.10](https://github.com/truecharts/apps/compare/omada-controller-6.0.9...omada-controller-6.0.10) (2022-06-16)
 

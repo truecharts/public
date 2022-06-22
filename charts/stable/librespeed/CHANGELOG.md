@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-6.0.6"></a>
+### [librespeed-6.0.6](https://github.com/truecharts/apps/compare/librespeed-6.0.5...librespeed-6.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="librespeed-6.0.5"></a>
 ### [librespeed-6.0.5](https://github.com/truecharts/apps/compare/librespeed-6.0.4...librespeed-6.0.5) (2022-06-17)
 

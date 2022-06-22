@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-2.0.6"></a>
+### [syslog-ng-2.0.6](https://github.com/truecharts/apps/compare/syslog-ng-2.0.5...syslog-ng-2.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="syslog-ng-2.0.5"></a>
 ### [syslog-ng-2.0.5](https://github.com/truecharts/apps/compare/syslog-ng-2.0.4...syslog-ng-2.0.5) (2022-06-14)
 

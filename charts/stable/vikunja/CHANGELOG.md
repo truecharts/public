@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vikunja-3.0.6"></a>
+### [vikunja-3.0.6](https://github.com/truecharts/apps/compare/vikunja-3.0.5...vikunja-3.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="vikunja-3.0.5"></a>
 ### [vikunja-3.0.5](https://github.com/truecharts/apps/compare/vikunja-3.0.4...vikunja-3.0.5) (2022-06-17)
 

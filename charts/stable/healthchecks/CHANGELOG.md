@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-7.0.7"></a>
+### [healthchecks-7.0.7](https://github.com/truecharts/apps/compare/healthchecks-7.0.6...healthchecks-7.0.7) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="healthchecks-7.0.6"></a>
 ### [healthchecks-7.0.6](https://github.com/truecharts/apps/compare/healthchecks-7.0.4...healthchecks-7.0.6) (2022-06-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-10.0.6"></a>
+### [podgrab-10.0.6](https://github.com/truecharts/apps/compare/podgrab-10.0.5...podgrab-10.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="podgrab-10.0.5"></a>
 ### [podgrab-10.0.5](https://github.com/truecharts/apps/compare/podgrab-10.0.4...podgrab-10.0.5) (2022-06-17)
 

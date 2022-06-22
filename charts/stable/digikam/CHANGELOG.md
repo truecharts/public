@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-4.0.5"></a>
+### [digikam-4.0.5](https://github.com/truecharts/apps/compare/digikam-4.0.4...digikam-4.0.5) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="digikam-4.0.4"></a>
 ### [digikam-4.0.4](https://github.com/truecharts/apps/compare/digikam-4.0.3...digikam-4.0.4) (2022-06-14)
 

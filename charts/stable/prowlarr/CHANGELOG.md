@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-6.0.6"></a>
+### [prowlarr-6.0.6](https://github.com/truecharts/apps/compare/prowlarr-6.0.5...prowlarr-6.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="prowlarr-6.0.5"></a>
 ### [prowlarr-6.0.5](https://github.com/truecharts/apps/compare/prowlarr-6.0.4...prowlarr-6.0.5) (2022-06-17)
 

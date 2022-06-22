@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-6.0.6"></a>
+### [ser2sock-6.0.6](https://github.com/truecharts/apps/compare/ser2sock-6.0.5...ser2sock-6.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
 <a name="ser2sock-6.0.5"></a>
 ### [ser2sock-6.0.5](https://github.com/truecharts/apps/compare/ser2sock-6.0.4...ser2sock-6.0.5) (2022-06-17)
 
