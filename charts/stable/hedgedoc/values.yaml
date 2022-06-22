@@ -19,8 +19,8 @@ env:
   CMD_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   CMD_SESSION_SECRET:
     secretKeyRef:
-      name:
-      key:
+      name: hedgedoc-secrets
+      key: CMD_SESSION_SECRET
   CMD_DB_HOST:
     secretKeyRef:
       name: mariadbcreds
