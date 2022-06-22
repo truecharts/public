@@ -28,7 +28,7 @@ env:
   CMD_DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
-      key: mariadb-password
+      key: postgresql-password
   # User Defined
   CMD_FORBIDDEN_NOTE_IDS: "robots.txt, favicon.ico, api, build, css, docs, fonts, js, uploads, vendor, views"
   CMD_IMAGE_UPLOAD_TYPE: "filesystem"
