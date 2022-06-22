@@ -3,11 +3,11 @@ appVersion: "220617"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.0.15
+  version: 10.1.1
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 3.0.12
+  version: 3.0.14
 description: "PhotoPrism\xC2\xAE is a server-based application for browsing, organizing\
   \ and sharing your personal photo collection"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/photoprism
@@ -26,7 +26,7 @@ name: photoprism
 sources:
 - https://github.com/photoprism/photoprism
 - https://hub.docker.com/r/photoprism/photoprism
-version: 10.0.7
+version: 10.0.8
 annotations:
   truecharts.org/catagories: |
     - media
