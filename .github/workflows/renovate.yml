@@ -12,7 +12,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@0a6d27f663f95dc81120fffc750dd968394e2845 # tag=v32.91.1
+        uses: renovatebot/github-action@9c151fee146a65ae80c329a630d23b2f14b82ae8 # tag=v32.92.1
         with:
           configurationFile: .github/renovate-config.js
           token: ${{ secrets.BOT_TOKEN }}
