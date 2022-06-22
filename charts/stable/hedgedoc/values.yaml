@@ -23,11 +23,11 @@ env:
       key: CMD_SESSION_SECRET
   CMD_DB_HOST:
     secretKeyRef:
-      name: mariadbcreds
+      name: dbcreds
       key: plainhost
   CMD_DB_PASSWORD:
     secretKeyRef:
-      name: mariadbcreds
+      name: dbcreds
       key: mariadb-password
   # User Defined
   CMD_FORBIDDEN_NOTE_IDS: "robots.txt, favicon.ico, api, build, css, docs, fonts, js, uploads, vendor, views"
