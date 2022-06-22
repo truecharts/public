@@ -210,27 +210,63 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: icons
-          label: "App Icons Storage"
-          description: "Stores the Application Icons."
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Config."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: plugins
-          label: "App Plugins Storage"
-          description: "Stores the Application Plugins."
+        - variable: crontabs
+          label: "App Crontabs Storage"
+          description: "Stores the Application Crontabs."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: themes
-          label: "App Themes Storage"
-          description: "Stores the Application Themes."
+        - variable: transcripts
+          label: "App Transcripts Storage"
+          description: "Stores the Application Transcripts."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: prosodyconfig
+          label: "App ProsodycConfig Storage"
+          description: "Stores the Application ProsodycConfig."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: prosodyplugins
+          label: "App ProsodyPlugins Storage"
+          description: "Stores the Application ProsodyPlugins."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: jicofoconfig
+          label: "App JicofoConfig Storage"
+          description: "Stores the Application JicofoConfig."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: jvbconfig
+          label: "App JvbConfig Storage"
+          description: "Stores the Application JvbConfig."
           schema:
             additional_attrs: true
             type: dict
