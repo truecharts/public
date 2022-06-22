@@ -24,7 +24,7 @@ configmap:
   config:
     enabled: true
     data:
-      nginx-config: |
+      nginx-config: |-
         server {
           listen 8080;
           location / {
