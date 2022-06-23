@@ -12,7 +12,7 @@ image:
 
 env:
   NODE_ENV: "production"
-  CMD_PORT: "{{ .Values.service.main.ports.main }}"
+  CMD_PORT: "{{ .Values.service.main.ports.main.port }}"
   CMD_DB_PORT: "5432"
   CMD_DB_DIALECT: "postgres"
   CMD_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
