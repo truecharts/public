@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-4.0.6"></a>
+### [logitech-media-server-4.0.6](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.5...logitech-media-server-4.0.6) (2022-06-22)
+
+#### Chore
+
+* update docker general non-major ([#2954](https://github.com/truecharts/apps/issues/2954))
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="logitech-media-server-4.0.5"></a>
 ### [logitech-media-server-4.0.5](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.4...logitech-media-server-4.0.5) (2022-06-21)
 

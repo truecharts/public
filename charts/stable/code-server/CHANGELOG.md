@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-4.0.7"></a>
+### [code-server-4.0.7](https://github.com/truecharts/apps/compare/code-server-4.0.6...code-server-4.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="code-server-4.0.6"></a>
 ### [code-server-4.0.6](https://github.com/truecharts/apps/compare/openvscode-server-2.0.6...code-server-4.0.6) (2022-06-21)
 

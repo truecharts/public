@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-6.0.7"></a>
+### [haste-server-6.0.7](https://github.com/truecharts/apps/compare/haste-server-6.0.6...haste-server-6.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="haste-server-6.0.6"></a>
 ### [haste-server-6.0.6](https://github.com/truecharts/apps/compare/haste-server-6.0.5...haste-server-6.0.6) (2022-06-21)
 

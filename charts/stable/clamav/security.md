@@ -50,8 +50,8 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/clamav:v0.105.0@sha256:1e823d0489134be13ed34e6022b526d78e53dedfa916dcb4a46d2b762d01d1bc
-              tccr.io/truecharts/clamav:v0.105.0@sha256:1e823d0489134be13ed34e6022b526d78e53dedfa916dcb4a46d2b762d01d1bc
+          tccr.io/truecharts/clamav:v0.105.0@sha256:7ec18dac2cb9b3977d05d635d5785aa8f3d877f0ad638786b386ca9f5b734bc7
+              tccr.io/truecharts/clamav:v0.105.0@sha256:7ec18dac2cb9b3977d05d635d5785aa8f3d877f0ad638786b386ca9f5b734bc7
 
 ##### Scan Results
 

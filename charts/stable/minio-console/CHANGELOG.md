@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-3.0.8"></a>
+### [minio-console-3.0.8](https://github.com/truecharts/apps/compare/minio-console-3.0.7...minio-console-3.0.8) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="minio-console-3.0.7"></a>
 ### [minio-console-3.0.7](https://github.com/truecharts/apps/compare/minio-console-3.0.6...minio-console-3.0.7) (2022-06-21)
 

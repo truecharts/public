@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          kopia/kopia:20220615.0.131817@sha256:da1f0ffb80cf3c6a19a4529c37e189d1742e4ce3035eae67af13885ed41b87a4
+          tccr.io/truecharts/kopia:v0.10.7@sha256:41c6d2d54bb45f217b95f757b3b96d00355a994b55afe5865ee1fad11ff4def4
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: kopia/kopia:20220615.0.131817@sha256:da1f0ffb80cf3c6a19a4529c37e189d1742e4ce3035eae67af13885ed41b87a4 (debian 11.3)
+#### Container: tccr.io/truecharts/kopia:v0.10.7@sha256:41c6d2d54bb45f217b95f757b3b96d00355a994b55afe5865ee1fad11ff4def4 (debian 11.3)
 
 
 **debian**

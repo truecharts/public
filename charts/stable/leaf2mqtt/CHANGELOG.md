@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-4.0.7"></a>
+### [leaf2mqtt-4.0.7](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.6...leaf2mqtt-4.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="leaf2mqtt-4.0.6"></a>
 ### [leaf2mqtt-4.0.6](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.5...leaf2mqtt-4.0.6) (2022-06-21)
 

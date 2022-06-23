@@ -89,5 +89,7 @@ hide:
 **composer**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| guzzlehttp/guzzle         |    CVE-2022-31090   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-25mq-v84q-4j7r">https://github.com/advisories/GHSA-25mq-v84q-4j7r</a><br><a href="https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r">https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r</a><br></details>  |
+| guzzlehttp/guzzle         |    CVE-2022-31091   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-q559-8m2m-g699">https://github.com/advisories/GHSA-q559-8m2m-g699</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699">https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699</a><br></details>  |

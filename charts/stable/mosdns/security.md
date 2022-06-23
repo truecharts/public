@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mosdns:v3.9.0@sha256:0bc90cb85482907d39af07ce97d8ce422e7856e87fdeb478ec38bc48fb9ec806
+          tccr.io/truecharts/mosdns:v3.9.0@sha256:d083d5758b1e57cdef2c2f73b63809365b25ad2bd77567e5306c375351fd3c81
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mosdns:v3.9.0@sha256:0bc90cb85482907d39af07ce97d8ce422e7856e87fdeb478ec38bc48fb9ec806 (alpine 3.16.0)
+#### Container: tccr.io/truecharts/mosdns:v3.9.0@sha256:d083d5758b1e57cdef2c2f73b63809365b25ad2bd77567e5306c375351fd3c81 (alpine 3.16.0)
 
 
 **alpine**
