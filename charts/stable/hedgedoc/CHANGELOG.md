@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-4.0.0"></a>
+### [hedgedoc-4.0.0](https://github.com/truecharts/apps/compare/hedgedoc-3.0.5...hedgedoc-4.0.0) (2022-06-23)
+
+#### Feat
+
+* BREAKING CHANGE switch to official image  ([#2958](https://github.com/truecharts/apps/issues/2958))
+
+
+
 <a name="hedgedoc-3.0.5"></a>
 ### [hedgedoc-3.0.5](https://github.com/truecharts/apps/compare/hedgedoc-3.0.4...hedgedoc-3.0.5) (2022-06-22)
 
