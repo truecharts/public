@@ -3,13 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.9.3@sha256:c26aa5a4ecbb4318be8a5abc50a15090e346212ac7bcf4396dbda2cf1452fde4
 
-# securityContext:
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   NODE_ENV: "production"
   CMD_PORT: "{{ .Values.service.main.ports.main.port }}"
