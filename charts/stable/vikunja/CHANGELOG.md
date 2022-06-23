@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="vikunja-3.0.8"></a>
+### [vikunja-3.0.8](https://github.com/truecharts/apps/compare/vikunja-3.0.7...vikunja-3.0.8) (2022-06-23)
+
+
+
 <a name="vikunja-3.0.7"></a>
 ### [vikunja-3.0.7](https://github.com/truecharts/apps/compare/vikunja-3.0.6...vikunja-3.0.7) (2022-06-22)
 
