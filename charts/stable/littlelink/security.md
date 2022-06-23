@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/littlelink-server:latest@sha256:205f99817026517466d48d4fea51b501be3b30c1c6b74f28520486e11f067edd
+          tccr.io/truecharts/littlelink-server:latest@sha256:1cd27733dfd4896d9b2532a35e0a92db81655dda6f17b3eecf315a747074c2b6
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:205f99817026517466d48d4fea51b501be3b30c1c6b74f28520486e11f067edd (alpine 3.15.4)
+#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:1cd27733dfd4896d9b2532a35e0a92db81655dda6f17b3eecf315a747074c2b6 (alpine 3.15.4)
 
 
 **alpine**

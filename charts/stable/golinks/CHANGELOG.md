@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-4.0.6"></a>
+### [golinks-4.0.6](https://github.com/truecharts/apps/compare/golinks-4.0.5...golinks-4.0.6) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="golinks-4.0.5"></a>
 ### [golinks-4.0.5](https://github.com/truecharts/apps/compare/golinks-4.0.4...golinks-4.0.5) (2022-06-21)
 

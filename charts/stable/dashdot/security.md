@@ -46,7 +46,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/dashdot:v3.6.0@sha256:dbf1db33304cd2c99a029d70ba02e2fb076a48f02ff7d71672703bfaa82e5ecf
+          tccr.io/truecharts/dashdot:v3.7.2@sha256:6ef9af355761e178128df52441e98d6523072c597ffcdb43350b68395ab51ce5
 
 ##### Scan Results
 
@@ -63,7 +63,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/dashdot:v3.6.0@sha256:dbf1db33304cd2c99a029d70ba02e2fb076a48f02ff7d71672703bfaa82e5ecf (alpine 3.16.0)
+#### Container: tccr.io/truecharts/dashdot:v3.7.2@sha256:6ef9af355761e178128df52441e98d6523072c597ffcdb43350b68395ab51ce5 (alpine 3.16.0)
 
 
 **alpine**

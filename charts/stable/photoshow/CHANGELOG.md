@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-3.0.6"></a>
+### [photoshow-3.0.6](https://github.com/truecharts/apps/compare/photoshow-3.0.5...photoshow-3.0.6) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="photoshow-3.0.5"></a>
 ### [photoshow-3.0.5](https://github.com/truecharts/apps/compare/photoshow-3.0.4...photoshow-3.0.5) (2022-06-21)
 

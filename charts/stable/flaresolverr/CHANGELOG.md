@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-6.0.7"></a>
+### [flaresolverr-6.0.7](https://github.com/truecharts/apps/compare/flaresolverr-6.0.6...flaresolverr-6.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="flaresolverr-6.0.6"></a>
 ### [flaresolverr-6.0.6](https://github.com/truecharts/apps/compare/flaresolverr-6.0.5...flaresolverr-6.0.6) (2022-06-21)
 

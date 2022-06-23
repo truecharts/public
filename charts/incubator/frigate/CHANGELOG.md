@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="frigate-2.0.7"></a>
+### [frigate-2.0.7](https://github.com/truecharts/apps/compare/frigate-2.0.6...frigate-2.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="frigate-2.0.6"></a>
 ### [frigate-2.0.6](https://github.com/truecharts/apps/compare/frigate-2.0.5...frigate-2.0.6) (2022-06-21)
 
