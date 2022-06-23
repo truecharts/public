@@ -16,6 +16,8 @@ This template ensures pods with redis dependency have a delayed start
         secretKeyRef:
           name: rediscreds
           key: redis-password
+    - name: REDIS_PORT
+      value: "6379"
   securityContext:
     capabilities:
       drop:
