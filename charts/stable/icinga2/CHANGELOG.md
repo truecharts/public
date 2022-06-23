@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-3.0.6"></a>
+### [icinga2-3.0.6](https://github.com/truecharts/apps/compare/icinga2-3.0.5...icinga2-3.0.6) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="icinga2-3.0.5"></a>
 ### [icinga2-3.0.5](https://github.com/truecharts/apps/compare/icinga2-3.0.4...icinga2-3.0.5) (2022-06-21)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="n8n-4.0.10"></a>
+### [n8n-4.0.10](https://github.com/truecharts/apps/compare/n8n-4.0.9...n8n-4.0.10) (2022-06-22)
+
+#### Chore
+
+* update docker general non-major ([#2954](https://github.com/truecharts/apps/issues/2954))
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="n8n-4.0.9"></a>
 ### [n8n-4.0.9](https://github.com/truecharts/apps/compare/n8n-4.0.8...n8n-4.0.9) (2022-06-21)
 

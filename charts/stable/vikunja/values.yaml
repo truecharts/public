@@ -27,11 +27,9 @@ configmap:
       nginx-config: |-
         server {
           listen 8080;
-
           location / {
               proxy_pass http://localhost:80;
           }
-
           location ~* ^/(api|dav|\.well-known)/ {
               proxy_pass http://localhost:3456;
               client_max_body_size {{ .Values.env.VIKUNJA_FILES_MAXSIZE | upper | trimSuffix "B" }};

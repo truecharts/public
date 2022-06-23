@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-6.0.7"></a>
+### [reg-6.0.7](https://github.com/truecharts/apps/compare/reg-6.0.6...reg-6.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="reg-6.0.6"></a>
 ### [reg-6.0.6](https://github.com/truecharts/apps/compare/reg-6.0.5...reg-6.0.6) (2022-06-21)
 

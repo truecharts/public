@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.11"></a>
+### [minecraft-java-1.0.11](https://github.com/truecharts/apps/compare/minecraft-java-1.0.10...minecraft-java-1.0.11) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
 <a name="minecraft-java-1.0.10"></a>
 ### [minecraft-java-1.0.10](https://github.com/truecharts/apps/compare/minecraft-java-1.0.9...minecraft-java-1.0.10) (2022-06-21)
 

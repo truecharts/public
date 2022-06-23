@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/jellyseerr:v1.1.0@sha256:e4d100eaef48bef0584ad122d4121ef78ae57936d716337afdaca70bfc6a548e
+          tccr.io/truecharts/jellyseerr:v1.1.1@sha256:e34db5a994464a8e5c4c17b0211bc0ae4d79c0dcf90cba7983e860b46c006ff6
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/jellyseerr:v1.1.0@sha256:e4d100eaef48bef0584ad122d4121ef78ae57936d716337afdaca70bfc6a548e (alpine 3.15.4)
+#### Container: tccr.io/truecharts/jellyseerr:v1.1.1@sha256:e34db5a994464a8e5c4c17b0211bc0ae4d79c0dcf90cba7983e860b46c006ff6 (alpine 3.15.4)
 
 
 **alpine**
