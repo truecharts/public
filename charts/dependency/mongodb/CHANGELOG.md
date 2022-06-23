@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-1.0.16"></a>
+### [mongodb-1.0.16](https://github.com/truecharts/apps/compare/mongodb-1.0.15...mongodb-1.0.16) (2022-06-22)
+
+#### Chore
+
+* update helm chart common to v10.1.1
+
+
+
 <a name="mongodb-1.0.15"></a>
 ### [mongodb-1.0.15](https://github.com/truecharts/apps/compare/mongodb-1.0.14...mongodb-1.0.15) (2022-06-21)
 
