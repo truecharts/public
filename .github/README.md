@@ -264,6 +264,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://rudaks.lv"><img src="https://avatars.githubusercontent.com/u/4631864?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jurģis Rudaks</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Ajurgisrudaks" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/brunofatia"><img src="https://avatars.githubusercontent.com/u/67926902?v=4?s=100" width="100px;" alt=""/><br /><sub><b>brunofatia</b></sub></a><br /><a href="#financial-brunofatia" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/TopicsLP"><img src="https://avatars.githubusercontent.com/u/9019121?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TopicsLP</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=TopicsLP" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://schnerring.net"><img src="https://avatars.githubusercontent.com/u/3743342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Schnerring</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aschnerring" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://tamasnagy.com"><img src="https://avatars.githubusercontent.com/u/1661487?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamas Nagy</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Atlnagy" title="Bug reports">🐛</a></td>
   </tr>
 </table>
