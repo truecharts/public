@@ -42,7 +42,7 @@ env:
   TIME_ZONE: "{{ .Values.TZ }}"
   WGER_USE_GUNICORN: true
   # User Defined
-  SITE_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  SITE_URL: "http://localhost:80"
   SYNC_EXERCISES_ON_STARTUP: false
   DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP: false
   ALLOW_REGISTRATION: true
@@ -72,7 +72,7 @@ configmap:
             server localhost:8000;
         }
         server {
-            listen {{ .Values.service.main.ports.main.port }};
+            listen 80;
             location / {
                 proxy_pass http://localhost;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -101,14 +101,15 @@ service:
   main:
     ports:
       main:
-        port: 10248
+        port: 10249
+        targetPort: 80
 
 additionalContainers:
   nginx:
     name: nginx
     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
     ports:
-      - containerPort: "{{ .Values.service.main.ports.main.port }}"
+      - containerPort: 80
         name: main
     volumeMounts:
     - name: wger-config
