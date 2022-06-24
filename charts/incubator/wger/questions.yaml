@@ -122,9 +122,9 @@ questions:
         - variable: EXERCISE_CACHE_TTL
           label: "EXERCISE_CACHE_TTL"
           schema:
-            type: int
+            type: string
             required: true
-            default: 3600
+            default: "3600"
         - variable: DJANGO_PERFORM_MIGRATIONS
           label: "DJANGO_PERFORM_MIGRATIONS"
           schema:
