@@ -29,15 +29,15 @@ This template ensures pods with redis dependency have a delayed start
   command: ["bash", "-ec"]
   args:
     - >
-      [[ -n "$REDIS_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_PASSWORD"
-      export LIVE=false
-      until $LIVE
+      [[ -n "$REDIS_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_PASSWORD";
+      export LIVE=false;
+      until "$LIVE";
       do
         response=$(
             timeout -s 3 2 \
             redis-cli \
-              -h $REDIS_HOST \
-              -p $REDIS_PORT \
+              -h "$REDIS_HOST" \
+              -p "$REDIS_PORT" \
               ping
           )
         if [ "$response" == "PONG" ] || [ "$response" == "LOADING Redis is loading the dataset in memory" ]; then
@@ -48,7 +48,7 @@ This template ensures pods with redis dependency have a delayed start
           echo "$response"
           echo "Redis not respoding... Sleeping for 10 sec..."
           sleep 10
-        fi
+        fi;
       done
   imagePullPolicy: IfNotPresent
 {{- end }}
