@@ -44,6 +44,14 @@ persistence:
     enabled: true
     mountPath: "/var/lib/nginx/tmp"
     type: "emptyDir"
+  custom-conf:
+    enabled: true
+    mountPath: "/srv/cfg"
+    readOnly: true
+    type: "custom"
+    volumeSpec:
+      secret:
+        secretName: '{{ include "tc.common.names.fullname" . }}-secret'
 
 postgresql:
   enabled: true
