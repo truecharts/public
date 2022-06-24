@@ -75,7 +75,7 @@ persistence:
     enabled: true
     mountPath: "/var/lib/nginx/tmp"
     type: "emptyDir"
-  conf-privatebin:
+  conf-app:
     enabled: true
     type: "custom"
     readOnly: true
@@ -83,6 +83,19 @@ persistence:
     volumeSpec:
       secret:
         secretName: '{{ include "tc.common.names.fullname" . }}-secret'
+  conf-server:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/etc"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-config'
+        items:
+          - key: sizelimits-php
+            path: "php8/conf.d/10-sizelimits.ini"
+          - key: sizelimits-nginx
+            path: "nginx/conf.d/sizelimits.conf"
 
 postgresql:
   enabled: true

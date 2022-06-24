@@ -4,5 +4,8 @@
 {{/* Render secrets for privatebin */}}
 {{- include "privatebin.secrets" . }}
 
+{{/* Render configMap for privatebin */}}
+{{- include "privatebin.configmap" . }}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
