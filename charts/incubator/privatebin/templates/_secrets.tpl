@@ -22,71 +22,89 @@ stringData:
 
     [main]
     ; (optional) set a project name to be displayed on the website
-    ; name = "PrivateBin"
+    {{- if .Values.privatebin.main.name }}
+    name = "{{ .Values.privatebin.main.name }}"
+    {{- end }}
 
     ; The full URL, with the domain name and directories that point to the PrivateBin files
     ; This URL is essential to allow Opengraph images to be displayed on social networks
-    ; basepath = ""
+    {{- if .Values.privatebin.main.basepath }}
+    basepath = "{{ .Values.privatebin.main.basepath }}"
+    {{- end }}
 
     ; enable or disable the discussion feature, defaults to true
-    discussion = true
+    discussion = {{ .Values.privatebin.main.discussion }}
 
     ; preselect the discussion feature, defaults to false
-    opendiscussion = false
+    opendiscussion = {{ .Values.privatebin.main.opendiscussion }}
 
     ; enable or disable the password feature, defaults to true
-    password = true
+    password = {{ .Values.privatebin.main.password }}
 
     ; enable or disable the file upload feature, defaults to false
-    fileupload = false
+    fileupload = {{ .Values.privatebin.main.fileupload }}
 
     ; preselect the burn-after-reading feature, defaults to false
-    burnafterreadingselected = false
+    burnafterreadingselected = {{ .Values.privatebin.main.burnafterreadingselected }}
 
     ; which display mode to preselect by default, defaults to "plaintext"
     ; make sure the value exists in [formatter_options]
-    defaultformatter = "plaintext"
+    defaultformatter = "{{ .Values.privatebin.main.defaultformatter }}"
 
     ; (optional) set a syntax highlighting theme, as found in css/prettify/
-    ; syntaxhighlightingtheme = "sons-of-obsidian"
+    {{- if .Values.privatebin.main.syntaxhighlightingtheme }}
+    syntaxhighlightingtheme = "{{ .Values.privatebin.main.syntaxhighlightingtheme }}"
+    {{- end }}
 
     ; size limit per paste or comment in bytes, defaults to 10 Mebibytes
-    sizelimit = 10485760
+    sizelimit = {{ .Values.privatebin.main.sizelimit }}
 
     ; template to include, default is "bootstrap" (tpl/bootstrap.php)
-    template = "bootstrap"
+    template = "{{ .Values.privatebin.main.template }}"
 
     ; (optional) info text to display
     ; use single, instead of double quotes for HTML attributes
-    ;info = "More information on the <a href='https://privatebin.info/'>project page</a>."
+    {{- if .Values.privatebin.main.info }}
+    info = "{{ .Values.privatebin.main.info }}"
+    {{- end }}
 
     ; (optional) notice to display
-    ; notice = "Note: This is a test service: Data may be deleted anytime. Kittens will die if you abuse this service."
+    {{- if .Values.privatebin.main.notice }}
+    notice = "{{ .Values.privatebin.main.notice }}"
+    {{- end }}
 
     ; by default PrivateBin will guess the visitors language based on the browsers
     ; settings. Optionally you can enable the language selection menu, which uses
     ; a session cookie to store the choice until the browser is closed.
-    languageselection = false
+    languageselection = {{ .Values.privatebin.main.languageselection }}
 
     ; set the language your installs defaults to, defaults to English
     ; if this is set and language selection is disabled, this will be the only language
-    ; languagedefault = "en"
+    {{- if .Values.privatebin.main.languagedefault }}
+    languagedefault = "{{ .Values.privatebin.main.languagedefault }}"
+    {{- end }}
 
     ; (optional) URL shortener address to offer after a new paste is created
     ; it is suggested to only use this with self-hosted shorteners as this will leak
     ; the pastes encryption key
-    ; urlshortener = "https://shortener.example.com/api?link="
+    {{- if .Values.privatebin.main.urlshortener }}
+    urlshortener = "{{ .Values.privatebin.main.urlshortener }}"
+    {{- end }}
 
     ; (optional) Let users create a QR code for sharing the paste URL with one click.
     ; It works both when a new paste is created and when you view a paste.
-    ; qrcode = true
+    {{- if .Values.privatebin.main.qrcode }}
+    qrcode = "{{ .Values.privatebin.main.qrcode }}"
+    {{- end }}
 
     ; (optional) IP based icons are a weak mechanism to detect if a comment was from
     ; a different user when the same username was used in a comment. It might be
     ; used to get the IP of a non anonymous comment poster if the server salt is
     ; leaked and a SHA256 HMAC rainbow table is generated for all (relevant) IPs.
     ; Can be set to one these values: "none" / "vizhash" / "identicon" (default).
-    ; icon = "none"
+    {{- if .Values.privatebin.main.icon }}
+    icon = "{{ .Values.privatebin.main.icon }}"
+    {{- end }}
 
     ; Content Security Policy headers allow a website to restrict what sources are
     ; allowed to be accessed in its context. You need to change this if you added
@@ -105,11 +123,17 @@ stringData:
     ;   webassembly support (used for zlib compression). You can remove it if Chrome
     ;   doesn't need to be supported and old browsers don't need to be warned.
     ; cspheader = "default-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; connect-src * blob:; script-src 'self' 'unsafe-eval'; style-src 'self'; font-src 'self'; frame-ancestors 'none'; img-src 'self' data: blob:; media-src blob:; object-src blob:; sandbox allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-downloads"
+    {{- if .Values.privatebin.main.cspheader }}
+    cspheader = "{{ .Values.privatebin.main.cspheader }}"
+    {{- end }}
 
     ; stay compatible with PrivateBin Alpha 0.19, less secure
     ; if enabled will use base64.js version 1.7 instead of 2.1.9 and sha1 instead of
     ; sha256 in HMAC for the deletion token
     ; zerobincompatibility = false
+    {{- if .Values.privatebin.main.zerobincompatibility }}
+    zerobincompatibility = "{{ .Values.privatebin.main.zerobincompatibility }}"
+    {{- end }}
 
     ; Enable or disable the warning message when the site is served over an insecure
     ; connection (insecure HTTP instead of HTTPS), defaults to true.
@@ -117,16 +141,22 @@ stringData:
     ; It is **strongly discouraged** to disable this.
     ; See https://github.com/PrivateBin/PrivateBin/wiki/FAQ#why-does-it-show-me-an-error-about-an-insecure-connection for more information.
     ; httpwarning = true
+    {{- if .Values.privatebin.main.httpwarning }}
+    httpwarning = "{{ .Values.privatebin.main.httpwarning }}"
+    {{- end }}
 
     ; Pick compression algorithm or disable it. Only applies to pastes/comments
     ; created after changing the setting.
     ; Can be set to one these values: "none" / "zlib" (default).
     ; compression = "zlib"
+    {{- if .Values.privatebin.main.compression }}
+    compression = "{{ .Values.privatebin.main.compression }}"
+    {{- end }}
 
     [expire]
     ; expire value that is selected per default
     ; make sure the value exists in [expire_options]
-    default = "1week"
+    default = "{{ .Values.privatebin.expire.default }}"
 
     [expire_options]
     ; Set each one of these to the number of seconds in the expiration period,
@@ -150,34 +180,40 @@ stringData:
     [traffic]
     ; time limit between calls from the same IP address in seconds
     ; Set this to 0 to disable rate limiting.
-    limit = 10
+    limit = {{ .Values.privatebin.traffic.limit }}
 
     ; (optional) Set IPs addresses (v4 or v6) or subnets (CIDR) which are exempted
     ; from the rate-limit. Invalid IPs will be ignored. If multiple values are to
     ; be exempted, the list needs to be comma separated. Leave unset to disable
     ; exemptions.
-    ; exempted = "1.2.3.4,10.10.10/24"
+    {{- if .Values.privatebin.traffic.exempted }}
+    exempted = "{{ .Values.privatebin.main.exempted }}"
+    {{- end }}
 
     ; (optional) If you want only some source IP addresses (v4 or v6) or subnets
     ; (CIDR) to be allowed to create pastes, set these here. Invalid IPs will be
     ; ignored. If multiple values are to be exempted, the list needs to be comma
     ; separated. Leave unset to allow anyone to create pastes.
-    ; creators = "1.2.3.4,10.10.10/24"
+    {{- if .Values.privatebin.traffic.creators }}
+    creators = "{{ .Values.privatebin.main.creators }}"
+    {{- end }}
 
     ; (optional) if your website runs behind a reverse proxy or load balancer,
     ; set the HTTP header containing the visitors IP address, i.e. X_FORWARDED_FOR
-    ; header = "X_FORWARDED_FOR"
+    {{- if .Values.privatebin.traffic.header }}
+    header = "{{ .Values.privatebin.main.header }}"
+    {{- end }}
 
     [purge]
     ; minimum time limit between two purgings of expired pastes, it is only
     ; triggered when pastes are created
     ; Set this to 0 to run a purge every time a paste is created.
-    limit = 300
+    limit = {{ .Values.privatebin.purge.limit }}
 
     ; maximum amount of expired pastes to delete in one purge
     ; Set this to 0 to disable purging. Set it higher, if you are running a large
     ; site
-    batchsize = 10
+    batchsize = {{ .Values.privatebin.purge.batchsize }}
 
     [model]
     ; example of DB configuration for PostgreSQL
