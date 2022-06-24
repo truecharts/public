@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="librephotos-4.0.8"></a>
+### [librephotos-4.0.8](https://github.com/truecharts/apps/compare/librephotos-4.0.7...librephotos-4.0.8) (2022-06-23)
+
+
+
 <a name="librephotos-4.0.7"></a>
 ### [librephotos-4.0.7](https://github.com/truecharts/apps/compare/librephotos-4.0.6...librephotos-4.0.7) (2022-06-22)
 
