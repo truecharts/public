@@ -154,8 +154,8 @@ questions:
           label: "MAIL_PORT"
           description: "Mail Port"
           schema:
-            type: int
-            default: 587
+            type: string
+            default: "587"
         - variable: MAIL_USERNAME
           label: "MAIL_USERNAME"
           description: "Mail Username"

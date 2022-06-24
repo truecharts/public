@@ -1,3 +1,5 @@
-{{ include "tc.common.loader.all" . }}
+{{- include "tc.common.loader.init" . }}
 
-{{- include "librephotos.secrets" . }}
+{{ include "librephotos.secrets" . }}
+
+{{ include "tc.common.loader.apply" . }}
