@@ -38,7 +38,7 @@ env:
   TIME_ZONE: "{{ .Values.TZ }}"
   WGER_USE_GUNICORN: true
   # User Defined
-  SITE_URL: "http://localhost:8000"
+  SITE_URL: "http://localhost:80"
   ALLOW_REGISTRATION: true
   ALLOW_GUEST_USERS: true
   ALLOW_UPLOAD_VIDEOS: true
