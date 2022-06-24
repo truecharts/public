@@ -83,19 +83,24 @@ persistence:
     volumeSpec:
       secret:
         secretName: '{{ include "tc.common.names.fullname" . }}-secret'
-  conf-server:
+  conf-php:
     enabled: true
     type: "custom"
     readOnly: true
-    mountPath: "/etc"
+    mountPath: "/etc/php8/conf.d/10-sizelimits.ini"
+    subPath: "sizelimits-php.ini"
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-config'
-        items:
-          - key: sizelimits-php
-            path: "php8/conf.d/10-sizelimits.ini"
-          - key: sizelimits-nginx
-            path: "nginx/conf.d/sizelimits.conf"
+  conf-nginx:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/etc/nginx/conf.d/sizelimits.conf"
+    subPath: "sizelimits-nginx.conf"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-config'
 
 postgresql:
   enabled: true
