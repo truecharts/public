@@ -3,6 +3,10 @@ image:
   tag: latest@sha256:504626e67e709b00a23fb2daf8edd420f30b9e2d1c2c72efb2c3e3907fc636a1
   pullPolicy: IfNotPresent
 
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef
+
 # securityContext:
 #   runAsNonRoot: false
 #   readOnlyRootFilesystem: false
