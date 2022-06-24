@@ -88,6 +88,12 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: FROM_EMAIL
+          label: "FROM_EMAIL"
+          schema:
+            type: string
+            required: true
+            default: ""
         - variable: SYNC_EXERCISES_ON_STARTUP
           label: "SYNC_EXERCISES_ON_STARTUP"
           schema:
@@ -117,6 +123,7 @@ questions:
           label: "EXERCISE_CACHE_TTL"
           schema:
             type: int
+            required: true
             default: 3600
         - variable: DJANGO_PERFORM_MIGRATIONS
           label: "DJANGO_PERFORM_MIGRATIONS"
@@ -135,11 +142,6 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: FROM_EMAIL
-                label: "FROM_EMAIL"
-                schema:
-                  type: string
-                  default: ""
               - variable: EMAIL_HOST
                 label: "EMAIL_HOST"
                 schema:
@@ -148,8 +150,9 @@ questions:
               - variable: EMAIL_PORT
                 label: "EMAIL_PORT"
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  required: true
+                  default: 587
               - variable: EMAIL_HOST_USER
                 label: "EMAIL_HOST_USER"
                 schema:

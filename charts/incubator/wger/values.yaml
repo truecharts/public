@@ -43,6 +43,7 @@ env:
   WGER_USE_GUNICORN: true
   # User Defined
   SITE_URL: "http://localhost:80"
+  FROM_EMAIL: "info@example.com"
   SYNC_EXERCISES_ON_STARTUP: false
   DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP: false
   ALLOW_REGISTRATION: true
@@ -52,7 +53,6 @@ env:
   DJANGO_PERFORM_MIGRATIONS: true
   DJANGO_DEBUG: false
   # ENABLE_EMAIL: ""
-  # FROM_EMAIL: "info@example.com"
   # EMAIL_HOST: ""
   # EMAIL_PORT: ""
   # EMAIL_HOST_USER: ""
