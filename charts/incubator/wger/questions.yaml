@@ -148,8 +148,8 @@ questions:
               - variable: EMAIL_PORT
                 label: "EMAIL_PORT"
                 schema:
-                  type: int
-                  default:
+                  type: string
+                  default: ""
               - variable: EMAIL_HOST_USER
                 label: "EMAIL_HOST_USER"
                 schema:
