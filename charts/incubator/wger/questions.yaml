@@ -81,14 +81,119 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TEMPLATEVARIABLE
-          label: "TEMPLATEVARIABLE"
-          description: ""
+        - variable: SITE_URL
+          label: "SITE_URL"
+          description: "eg. https://wger.mydomain.com"
           schema:
             type: string
             required: true
             default: ""
-
+        - variable: SYNC_EXERCISES_ON_STARTUP
+          label: "SYNC_EXERCISES_ON_STARTUP"
+          schema:
+            type: boolean
+            default: false
+        - variable: DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP
+          label: "DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP"
+          schema:
+            type: boolean
+            default: false
+        - variable: ALLOW_REGISTRATION
+          label: "ALLOW_REGISTRATION"
+          schema:
+            type: boolean
+            default: true
+        - variable: ALLOW_GUEST_USERS
+          label: "ALLOW_GUEST_USERS"
+          schema:
+            type: boolean
+            default: true
+        - variable: ALLOW_UPLOAD_VIDEOS
+          label: "ALLOW_UPLOAD_VIDEOS"
+          schema:
+            type: boolean
+            default: true
+        - variable: EXERCISE_CACHE_TTL
+          label: "EXERCISE_CACHE_TTL"
+          schema:
+            type: int
+            default: 3600
+        - variable: DJANGO_PERFORM_MIGRATIONS
+          label: "DJANGO_PERFORM_MIGRATIONS"
+          schema:
+            type: boolean
+            default: true
+        - variable: DJANGO_DEBUG
+          label: "DJANGO_DEBUG"
+          schema:
+            type: boolean
+            default: false
+        - variable: ENABLE_EMAIL
+          label: "Email Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: FROM_EMAIL
+                label: "FROM_EMAIL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_HOST
+                label: "EMAIL_HOST"
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_PORT
+                label: "EMAIL_PORT"
+                schema:
+                  type: int
+                  default:
+              - variable: EMAIL_HOST_USER
+                label: "EMAIL_HOST_USER"
+                schema:
+                  type: string
+                  default: ""
+              - variable: EMAIL_HOST_PASSWORD
+                label: "EMAIL_HOST_PASSWORD"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: EMAIL_USE_TLS
+                label: "EMAIL_USE_TLS"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: EMAIL_USE_SSL
+                label: "EMAIL_USE_SSL"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: captchasettings
+          label: "Captcha Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: RECAPTCHA_PUBLIC_KEY
+                label: "RECAPTCHA_PUBLIC_KEY"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RECAPTCHA_PRIVATE_KEY
+                label: "RECAPTCHA_PRIVATE_KEY"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: NOCAPTCHA
+                label: "NOCAPTCHA"
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 
   - variable: service
@@ -117,7 +222,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10000
+                              default: 10248
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -152,7 +257,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 0
+                                    default: 10248
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -180,9 +285,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: media
+          label: "App Media Storage"
+          description: "Stores the Application Media."
           schema:
             additional_attrs: true
             type: dict
