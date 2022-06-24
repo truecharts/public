@@ -8,15 +8,10 @@ env:
   TZ: "{{ .Values.TZ }}"
   PHP_TZ: "{{ .Values.TZ }}"
 
-securityContext:
-  # This image supports running in read-only mode. Using this reduces the attack
-  # surface slightly, since an exploit in one of the images services can't
-  # overwrite arbitrary files in the container. Only /tmp, /var/tmp, /var/run &
-  # /srv/data may be written into.
-  # See also: https://github.com/PrivateBin/docker-nginx-fpm-alpine#running-the-image
-  readOnlyRootFilesystem: true
-  privileged: false
-  allowPrivilegeEscalation: false
+podSecurityContext:
+  runAsUser: 65534
+  runAsGroup: 82
+  fsGroup: 82
 
 service:
   main:
@@ -24,18 +19,15 @@ service:
     ports:
       main:
         targetPort: 8080
-        port: 8080
+        port: 10247
 
 probes:
   liveness:
     path: "/"
-    port: 8080
   readiness:
     path: "/"
-    port: 8080
-  startup:  # TODO disable?
+  startup:
     path: "/"
-    port: 8080
 
 persistence:
   run:

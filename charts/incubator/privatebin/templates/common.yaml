@@ -3,3 +3,6 @@
 
 {{/* Render secrets for privatebin */}}
 {{- include "privatebin.secrets" . }}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
