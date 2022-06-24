@@ -179,39 +179,6 @@ stringData:
     ; site
     batchsize = 10
 
-    ;[model]
-    ; name of data model class to load and directory for storage
-    ; the default model "Filesystem" stores everything in the filesystem
-    ;class = Filesystem
-    ;[model_options]
-    ;dir = PATH "data"
-
-    ;[model]
-    ; example of a Google Cloud Storage configuration
-    ;class = GoogleCloudStorage
-    ;[model_options]
-    ;bucket = "my-private-bin"
-    ;prefix = "pastes"
-
-    ;[model]
-    ; example of DB configuration for MySQL
-    ;class = Database
-    ;[model_options]
-    ;dsn = "mysql:host=localhost;dbname=privatebin;charset=UTF8"
-    ;tbl = "privatebin_"    ; table prefix
-    ;usr = "privatebin"
-    ;pwd = "Z3r0P4ss"
-    ;opt[12] = true    ; PDO::ATTR_PERSISTENT
-
-    ;[model]
-    ; example of DB configuration for SQLite
-    ;class = Database
-    ;[model_options]
-    ;dsn = "sqlite:" PATH "data/db.sq3"
-    ;usr = null
-    ;pwd = null
-    ;opt[12] = true    ; PDO::ATTR_PERSISTENT
-
     [model]
     ; example of DB configuration for PostgreSQL
     class = Database
