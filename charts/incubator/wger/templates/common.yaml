@@ -1,1 +1,7 @@
-{{ include "tc.common.loader.all" . }}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secrets for wger */}}
+{{- include "wger.secrets" . }}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
