@@ -12,3 +12,5 @@ data:
     memory_limit = {{ mul .Values.privatebin.main.sizelimit 2 }}
   sizelimits-nginx: |-
     client_max_body_size {{ add (div (div .Values.privatebin.main.sizelimit 1024) 1024) 5 }}M;
+
+{{- end }}

@@ -22,14 +22,14 @@ stringData:
 
     [main]
     ; (optional) set a project name to be displayed on the website
-    {{- if .Values.privatebin.main.name }}
-    name = "{{ .Values.privatebin.main.name }}"
+    {{- with .Values.privatebin.main.name }}
+    name = "{{ . }}"
     {{- end }}
 
     ; The full URL, with the domain name and directories that point to the PrivateBin files
     ; This URL is essential to allow Opengraph images to be displayed on social networks
-    {{- if .Values.privatebin.main.basepath }}
-    basepath = "{{ .Values.privatebin.main.basepath }}"
+    {{- with .Values.privatebin.main.basepath }}
+    basepath = "{{ . }}"
     {{- end }}
 
     ; enable or disable the discussion feature, defaults to true
@@ -52,8 +52,8 @@ stringData:
     defaultformatter = "{{ .Values.privatebin.main.defaultformatter }}"
 
     ; (optional) set a syntax highlighting theme, as found in css/prettify/
-    {{- if .Values.privatebin.main.syntaxhighlightingtheme }}
-    syntaxhighlightingtheme = "{{ .Values.privatebin.main.syntaxhighlightingtheme }}"
+    {{- with .Values.privatebin.main.syntaxhighlightingtheme }}
+    syntaxhighlightingtheme = "{{ . }}"
     {{- end }}
 
     ; size limit per paste or comment in bytes, defaults to 10 Mebibytes
@@ -64,13 +64,13 @@ stringData:
 
     ; (optional) info text to display
     ; use single, instead of double quotes for HTML attributes
-    {{- if .Values.privatebin.main.info }}
-    info = "{{ .Values.privatebin.main.info }}"
+    {{- with .Values.privatebin.main.info }}
+    info = "{{ . }}"
     {{- end }}
 
     ; (optional) notice to display
-    {{- if .Values.privatebin.main.notice }}
-    notice = "{{ .Values.privatebin.main.notice }}"
+    {{- with .Values.privatebin.main.notice }}
+    notice = "{{ . }}"
     {{- end }}
 
     ; by default PrivateBin will guess the visitors language based on the browsers
@@ -80,21 +80,21 @@ stringData:
 
     ; set the language your installs defaults to, defaults to English
     ; if this is set and language selection is disabled, this will be the only language
-    {{- if .Values.privatebin.main.languagedefault }}
-    languagedefault = "{{ .Values.privatebin.main.languagedefault }}"
+    {{- with .Values.privatebin.main.languagedefault }}
+    languagedefault = "{{ . }}"
     {{- end }}
 
     ; (optional) URL shortener address to offer after a new paste is created
     ; it is suggested to only use this with self-hosted shorteners as this will leak
     ; the pastes encryption key
-    {{- if .Values.privatebin.main.urlshortener }}
-    urlshortener = "{{ .Values.privatebin.main.urlshortener }}"
+    {{- with .Values.privatebin.main.urlshortener }}
+    urlshortener = "{{ . }}"
     {{- end }}
 
     ; (optional) Let users create a QR code for sharing the paste URL with one click.
     ; It works both when a new paste is created and when you view a paste.
-    {{- if .Values.privatebin.main.qrcode }}
-    qrcode = "{{ .Values.privatebin.main.qrcode }}"
+    {{- with .Values.privatebin.main.qrcode }}
+    qrcode = "{{ . }}"
     {{- end }}
 
     ; (optional) IP based icons are a weak mechanism to detect if a comment was from
@@ -102,8 +102,8 @@ stringData:
     ; used to get the IP of a non anonymous comment poster if the server salt is
     ; leaked and a SHA256 HMAC rainbow table is generated for all (relevant) IPs.
     ; Can be set to one these values: "none" / "vizhash" / "identicon" (default).
-    {{- if .Values.privatebin.main.icon }}
-    icon = "{{ .Values.privatebin.main.icon }}"
+    {{- with .Values.privatebin.main.icon }}
+    icon = "{{ . }}"
     {{- end }}
 
     ; Content Security Policy headers allow a website to restrict what sources are
@@ -122,17 +122,15 @@ stringData:
     ;   async functions and display an error if not and for Chrome to enable
     ;   webassembly support (used for zlib compression). You can remove it if Chrome
     ;   doesn't need to be supported and old browsers don't need to be warned.
-    ; cspheader = "default-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; connect-src * blob:; script-src 'self' 'unsafe-eval'; style-src 'self'; font-src 'self'; frame-ancestors 'none'; img-src 'self' data: blob:; media-src blob:; object-src blob:; sandbox allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-downloads"
-    {{- if .Values.privatebin.main.cspheader }}
-    cspheader = "{{ .Values.privatebin.main.cspheader }}"
+    {{- with .Values.privatebin.main.cspheader }}
+    cspheader = "{{ . }}"
     {{- end }}
 
     ; stay compatible with PrivateBin Alpha 0.19, less secure
     ; if enabled will use base64.js version 1.7 instead of 2.1.9 and sha1 instead of
     ; sha256 in HMAC for the deletion token
-    ; zerobincompatibility = false
-    {{- if .Values.privatebin.main.zerobincompatibility }}
-    zerobincompatibility = "{{ .Values.privatebin.main.zerobincompatibility }}"
+    {{- with .Values.privatebin.main.zerobincompatibility }}
+    zerobincompatibility = "{{ . }}"
     {{- end }}
 
     ; Enable or disable the warning message when the site is served over an insecure
@@ -140,17 +138,15 @@ stringData:
     ; Secure transport methods like Tor and I2P domains are automatically whitelisted.
     ; It is **strongly discouraged** to disable this.
     ; See https://github.com/PrivateBin/PrivateBin/wiki/FAQ#why-does-it-show-me-an-error-about-an-insecure-connection for more information.
-    ; httpwarning = true
-    {{- if .Values.privatebin.main.httpwarning }}
-    httpwarning = "{{ .Values.privatebin.main.httpwarning }}"
+    {{- with .Values.privatebin.main.httpwarning }}
+    httpwarning = "{{ . }}"
     {{- end }}
 
     ; Pick compression algorithm or disable it. Only applies to pastes/comments
     ; created after changing the setting.
     ; Can be set to one these values: "none" / "zlib" (default).
-    ; compression = "zlib"
-    {{- if .Values.privatebin.main.compression }}
-    compression = "{{ .Values.privatebin.main.compression }}"
+    {{- with .Values.privatebin.main.compression }}
+    compression = "{{ . }}"
     {{- end }}
 
     [expire]
@@ -186,22 +182,22 @@ stringData:
     ; from the rate-limit. Invalid IPs will be ignored. If multiple values are to
     ; be exempted, the list needs to be comma separated. Leave unset to disable
     ; exemptions.
-    {{- if .Values.privatebin.traffic.exempted }}
-    exempted = "{{ .Values.privatebin.main.exempted }}"
+    {{- with .Values.privatebin.traffic.exempted }}
+    exempted = "{{ . }}"
     {{- end }}
 
     ; (optional) If you want only some source IP addresses (v4 or v6) or subnets
     ; (CIDR) to be allowed to create pastes, set these here. Invalid IPs will be
     ; ignored. If multiple values are to be exempted, the list needs to be comma
     ; separated. Leave unset to allow anyone to create pastes.
-    {{- if .Values.privatebin.traffic.creators }}
-    creators = "{{ .Values.privatebin.main.creators }}"
+    {{- with .Values.privatebin.traffic.creators }}
+    creators = "{{ . }}"
     {{- end }}
 
     ; (optional) if your website runs behind a reverse proxy or load balancer,
     ; set the HTTP header containing the visitors IP address, i.e. X_FORWARDED_FOR
-    {{- if .Values.privatebin.traffic.header }}
-    header = "{{ .Values.privatebin.main.header }}"
+    {{- with .Values.privatebin.traffic.header }}
+    header = "{{ . }}"
     {{- end }}
 
     [purge]

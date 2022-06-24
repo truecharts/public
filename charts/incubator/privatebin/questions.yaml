@@ -169,8 +169,7 @@ questions:
                       description: "Sunburst"
               - variable: sizelimit
                 label: "sizelimit"
-                # TODO requires php.ini / nginx.conf to be configurable
-                description: "Size limit per paste or comment in bytes. Remember that also PHP must be configured, so uploads of the requested size are possible. Adjust `upload_max_filesize`, `post_max_size` and `memory_limit`."
+                description: "Size limit per paste or comment in bytes"
                 schema:
                   type: int
                   default: 10485760
