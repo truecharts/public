@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-8.0.17"></a>
+### [postgresql-8.0.17](https://github.com/truecharts/apps/compare/postgresql-8.0.16...postgresql-8.0.17) (2022-06-24)
+
+#### Chore
+
+* update helm chart common to v10.1.2
+
+
+
 <a name="postgresql-8.0.16"></a>
 ### [postgresql-8.0.16](https://github.com/truecharts/apps/compare/postgresql-8.0.15...postgresql-8.0.16) (2022-06-22)
 
