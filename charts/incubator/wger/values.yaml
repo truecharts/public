@@ -1,0 +1,144 @@
+image:
+  repository: wger/server
+  tag: latest@sha256:504626e67e709b00a23fb2daf8edd420f30b9e2d1c2c72efb2c3e3907fc636a1
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  DJANGO_DB_ENGINE: "django.db.backends.postgresql"
+  DJANGO_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DJANGO_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DJANGO_DB_PORT: "5432"
+  DJANGO_DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DJANGO_DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DJANGO_CACHE_BACKEND: "django_redis.cache.RedisCache"
+  DJANGO_CACHE_CLIENT_CLASS: "django_redis.client.DefaultClient"
+  DJANGO_CACHE_TIMEOUT: 1296000
+  DJANGO_CACHE_LOCATION:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+  SECRET_KEY:
+    secretKeyRef:
+      name: wger-secrets
+      key: SECRET_KEY
+  TIME_ZONE: "{{ .Values.TZ }}"
+  WGER_USE_GUNICORN: true
+  # User Defined
+  SITE_URL: "http://localhost:8000"
+  ALLOW_REGISTRATION: true
+  ALLOW_GUEST_USERS: true
+  ALLOW_UPLOAD_VIDEOS: true
+  EXERCISE_CACHE_TTL: 3600
+  DJANGO_PERFORM_MIGRATIONS: true
+  DJANGO_DEBUG: false
+  FROM_EMAIL: "info@example.com"
+  # RECAPTCHA_PUBLIC_KEY: ""
+  # RECAPTCHA_PRIVATE_KEY: ""
+  # NOCAPTCHA: ""
+  # ENABLE_EMAIL: ""
+  # EMAIL_HOST: ""
+  # EMAIL_PORT: ""
+  # EMAIL_HOST_USER: ""
+  # EMAIL_HOST_PASSWORD: ""
+  # EMAIL_USE_TLS: ""
+  # EMAIL_USE_SSL: ""
+
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        upstream wger {
+            server localhost:8000;
+        }
+        server {
+            listen 80;
+            location / {
+                proxy_pass http://localhost;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $host;
+                proxy_redirect off;
+            }
+            location /static/ {
+                alias /static/;
+            }
+            location /media/ {
+                alias /media/;
+            }
+            # Increase max body size to allow for video uploads
+            client_max_body_size 100M;
+        }
+
+probes:
+  liveness:
+    path: "/"
+  readiness:
+    path: "/"
+  startup:
+    path: "/"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10248
+        targetPort: 80
+
+additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+    - name: wger-config
+      mountPath: "/etc/nginx/conf.d/default.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: media
+      mountPath: "/media"
+    - name: static
+      mountPath: "/static"
+
+persistence:
+  static:
+    enabled: true
+    type: emptyDir
+    mountPath: "/wger/static"
+  media:
+    enabled: true
+    type: emptyDir
+    mountPath: "/wger/media"
+  wger-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/conf.d/default.conf"
+    subPath: "default.conf"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: wger
+  postgresqlDatabase: wger
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
