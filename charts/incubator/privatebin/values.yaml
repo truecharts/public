@@ -71,20 +71,15 @@ persistence:
     mountPath: "/run"
     type: "emptyDir"
     medium: "Memory"
-  tmp:
-    enabled: true
-    mountPath: "/tmp"
-    type: "emptyDir"
-    medium: "Memory"
   nginx-cache:
     enabled: true
     mountPath: "/var/lib/nginx/tmp"
     type: "emptyDir"
-  custom-conf:
+  conf-privatebin:
     enabled: true
-    mountPath: "/srv/cfg"
-    readOnly: true
     type: "custom"
+    readOnly: true
+    mountPath: "/srv/cfg"
     volumeSpec:
       secret:
         secretName: '{{ include "tc.common.names.fullname" . }}-secret'
