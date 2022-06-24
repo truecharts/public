@@ -107,35 +107,30 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  required: true
               - variable: opendiscussion
                 label: "opendiscussion"
                 description: "Preselect the discussion feature"
                 schema:
                   type: boolean
                   default: false
-                  required: true
               - variable: password
                 label: "password"
                 description: "Enable or disable the password feature"
                 schema:
                   type: boolean
                   default: true
-                  required: true
               - variable: fileupload
                 label: "fileupload"
                 description: "Enable or disable the file upload feature"
                 schema:
                   type: boolean
                   default: false
-                  required: true
               - variable: burnafterreadingselected
                 label: "burnafterreadingselected"
                 description: "Preselect the burn-after-reading feature"
                 schema:
                   type: boolean
                   default: false
-                  required: true
               - variable: defaultformatter
                 label: "defaultformatter"
                 description: "Which display mode to preselect by default"
@@ -216,7 +211,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-                  required: true
               - variable: languagedefault
                 label: "languagedefault"
                 description: "Set the language your installs defaults to, defaults to English. If this is set and language selection is disabled, this will be the only language."
