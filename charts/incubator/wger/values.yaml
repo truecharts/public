@@ -144,7 +144,7 @@ installContainers:
     args:
       - >
         echo 'Migrating Sites...';
-        python manage.py migrate sites;
+        python3 manage.py migrate sites;
 
 additionalContainers:
   nginx:
