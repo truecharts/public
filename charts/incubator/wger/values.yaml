@@ -119,12 +119,12 @@ installContainers:
       - name: DJANGO_DB_HOST
         valueFrom:
           secretKeyRef:
-            name: rediscreds
+            name: dbcreds
             key: plainhost
       - name: DJANGO_DB_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: rediscreds
+            name: dbcreds
             key: postgresql-password
       - name: DJANGO_CACHE_BACKEND
         value: "{{ .Values.env.DJANGO_CACHE_BACKEND }}"
