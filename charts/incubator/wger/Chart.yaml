@@ -3,15 +3,15 @@ appVersion: "10.6.2"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.1.3
+  version: 10.1.4
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 8.0.15
+  version: 8.0.18
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
-  version: 3.0.15
+  version: 3.0.18
 description: Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/wger
 icon: https://truecharts.org/_static/img/appicons/wger.png
@@ -26,7 +26,7 @@ name: wger
 sources:
 - https://github.com/wger-project/wger
 - https://github.com/wger-project/docker
-version: 0.0.1
+version: 0.0.2
 annotations:
   truecharts.org/catagories: |
     - life
