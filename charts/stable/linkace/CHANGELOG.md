@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.10"></a>
+### [linkace-4.0.10](https://github.com/truecharts/apps/compare/linkace-4.0.9...linkace-4.0.10) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="linkace-4.0.9"></a>
+### [linkace-4.0.9](https://github.com/truecharts/apps/compare/linkace-4.0.8...linkace-4.0.9) (2022-06-24)
+
+#### Fix
+
+* convert to string envs inside secretEnv ([#2962](https://github.com/truecharts/apps/issues/2962))
+
+
+
 <a name="linkace-4.0.8"></a>
 ### [linkace-4.0.8](https://github.com/truecharts/apps/compare/linkace-4.0.7...linkace-4.0.8) (2022-06-22)
 

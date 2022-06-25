@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/teamspeak:v3.13.6@sha256:b133ae5f082ee252ebdac37cb9fa9a7bfc45f64629d4a6b64168bf64e6be8faf
+          tccr.io/truecharts/teamspeak:v3.13.7@sha256:0f5c2987999990633963fa79b8344d84ef59f3a02adbb8685e376dbbf6dbb627
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/teamspeak:v3.13.6@sha256:b133ae5f082ee252ebdac37cb9fa9a7bfc45f64629d4a6b64168bf64e6be8faf (alpine 3.13.10)
+#### Container: tccr.io/truecharts/teamspeak:v3.13.7@sha256:0f5c2987999990633963fa79b8344d84ef59f3a02adbb8685e376dbbf6dbb627 (alpine 3.13.10)
 
 
 **alpine**
@@ -67,4 +67,4 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libpq         |    CVE-2022-1552   |   HIGH  |  13.6-r0 | 13.7-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-1552">https://access.redhat.com/security/cve/CVE-2022-1552</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1552">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1552</a><br><a href="https://errata.almalinux.org/8/ALSA-2022-4807.html">https://errata.almalinux.org/8/ALSA-2022-4807.html</a><br><a href="https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=677a494789062ca88e0142a17bedd5415f6ab0aa (REL_14_3)">https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=677a494789062ca88e0142a17bedd5415f6ab0aa (REL_14_3)</a><br><a href="https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=ab49ce7c3414ac19e4afb386d7843ce2d2fb8bda (REL_14_3)">https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=ab49ce7c3414ac19e4afb386d7843ce2d2fb8bda (REL_14_3)</a><br><a href="https://linux.oracle.com/cve/CVE-2022-1552.html">https://linux.oracle.com/cve/CVE-2022-1552.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-4855.html">https://linux.oracle.com/errata/ELSA-2022-4855.html</a><br><a href="https://ubuntu.com/security/notices/USN-5440-1">https://ubuntu.com/security/notices/USN-5440-1</a><br><a href="https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/">https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/</a><br><a href="https://www.postgresql.org/support/security/CVE-2022-1552/">https://www.postgresql.org/support/security/CVE-2022-1552/</a><br></details>  |
+| libpq         |    CVE-2022-1552   |   HIGH  |  13.6-r0 | 13.7-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-1552">https://access.redhat.com/security/cve/CVE-2022-1552</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1552">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1552</a><br><a href="https://errata.almalinux.org/8/ALSA-2022-4807.html">https://errata.almalinux.org/8/ALSA-2022-4807.html</a><br><a href="https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=677a494789062ca88e0142a17bedd5415f6ab0aa (REL_14_3)">https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=677a494789062ca88e0142a17bedd5415f6ab0aa (REL_14_3)</a><br><a href="https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=ab49ce7c3414ac19e4afb386d7843ce2d2fb8bda (REL_14_3)">https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=ab49ce7c3414ac19e4afb386d7843ce2d2fb8bda (REL_14_3)</a><br><a href="https://linux.oracle.com/cve/CVE-2022-1552.html">https://linux.oracle.com/cve/CVE-2022-1552.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-5162.html">https://linux.oracle.com/errata/ELSA-2022-5162.html</a><br><a href="https://ubuntu.com/security/notices/USN-5440-1">https://ubuntu.com/security/notices/USN-5440-1</a><br><a href="https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/">https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/</a><br><a href="https://www.postgresql.org/support/security/CVE-2022-1552/">https://www.postgresql.org/support/security/CVE-2022-1552/</a><br></details>  |

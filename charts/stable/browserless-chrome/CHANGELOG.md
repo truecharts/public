@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-2.0.8"></a>
+### [browserless-chrome-2.0.8](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.7...browserless-chrome-2.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="browserless-chrome-2.0.7"></a>
+### [browserless-chrome-2.0.7](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.6...browserless-chrome-2.0.7) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="browserless-chrome-2.0.6"></a>
 ### [browserless-chrome-2.0.6](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.5...browserless-chrome-2.0.6) (2022-06-22)
 

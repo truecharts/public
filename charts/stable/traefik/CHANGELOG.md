@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-12.0.8"></a>
+### [traefik-12.0.8](https://github.com/truecharts/apps/compare/traefik-12.0.7...traefik-12.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="traefik-12.0.7"></a>
 ### [traefik-12.0.7](https://github.com/truecharts/apps/compare/traefik-12.0.6...traefik-12.0.7) (2022-06-22)
 

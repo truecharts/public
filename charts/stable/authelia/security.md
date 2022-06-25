@@ -93,13 +93,13 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
-          tccr.io/truecharts/redis:v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661
+          tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
+          tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69
           tccr.io/truecharts/authelia:v4.35.6@sha256:b36938fb88cce6d73c4c9e92644340d9ecfc58cad87aa8a8f6351ea4301c42df
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/redis:v7.0.2@sha256:55f0a77f91b8d51e8138d305019bdc17911d988c85b89fe901a456daa448f176
+          tccr.io/truecharts/redis:v7.0.2@sha256:dcd5d5a227bfefc9306a7de6b520e0c7d4123ab1a22bd3b6b102f6dad7fbe7d5
 
 ##### Scan Results
 
@@ -116,7 +116,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c (debian 11.3)
+#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea (debian 11.3)
 
 
 **debian**
@@ -271,7 +271,7 @@ hide:
 | github.com/opencontainers/runc         |    CVE-2022-24769   |   MEDIUM  |  v1.0.1 | v1.1.2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/05/12/1">http://www.openwall.com/lists/oss-security/2022/05/12/1</a><br><a href="https://access.redhat.com/security/cve/CVE-2022-24769">https://access.redhat.com/security/cve/CVE-2022-24769</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24769">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24769</a><br><a href="https://github.com/containerd/containerd/security/advisories/GHSA-c9cp-9c75-9v8c">https://github.com/containerd/containerd/security/advisories/GHSA-c9cp-9c75-9v8c</a><br><a href="https://github.com/moby/moby/commit/2bbc786e4c59761d722d2d1518cd0a32829bc07f">https://github.com/moby/moby/commit/2bbc786e4c59761d722d2d1518cd0a32829bc07f</a><br><a href="https://github.com/moby/moby/releases/tag/v20.10.14">https://github.com/moby/moby/releases/tag/v20.10.14</a><br><a href="https://github.com/moby/moby/security/advisories/GHSA-2mm7-x5h6-5pvq">https://github.com/moby/moby/security/advisories/GHSA-2mm7-x5h6-5pvq</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6PMQKCAPK2AR3DCYITJYMMNBEGQBGLCC/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6PMQKCAPK2AR3DCYITJYMMNBEGQBGLCC/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5AFKOQ5CE3CEIULWW4FLQKHFFU6FSYG/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5AFKOQ5CE3CEIULWW4FLQKHFFU6FSYG/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5FQJ3MLFSEKQYCFPFZIKYGBXPZUJFVY/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/A5FQJ3MLFSEKQYCFPFZIKYGBXPZUJFVY/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FPOJUJZXGMIVKRS4QR75F6OIXNQ6LDBL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FPOJUJZXGMIVKRS4QR75F6OIXNQ6LDBL/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HIMAHZ6AUIKN7AX26KHZYBXVECIOVWBH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HIMAHZ6AUIKN7AX26KHZYBXVECIOVWBH/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HQCVS7WBFSTKJFNX5PGDRARMTOFWV2O7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HQCVS7WBFSTKJFNX5PGDRARMTOFWV2O7/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-24769">https://nvd.nist.gov/vuln/detail/CVE-2022-24769</a><br><a href="https://www.debian.org/security/2022/dsa-5162">https://www.debian.org/security/2022/dsa-5162</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661 (debian 11.3)
+#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69 (debian 11.3)
 
 
 **debian**
@@ -605,7 +605,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:55f0a77f91b8d51e8138d305019bdc17911d988c85b89fe901a456daa448f176 (debian 11.3)
+#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:dcd5d5a227bfefc9306a7de6b520e0c7d4123ab1a22bd3b6b102f6dad7fbe7d5 (debian 11.3)
 
 
 **debian**

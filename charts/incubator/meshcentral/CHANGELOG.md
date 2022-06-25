@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="meshcentral-3.0.8"></a>
+### [meshcentral-3.0.8](https://github.com/truecharts/apps/compare/meshcentral-3.0.7...meshcentral-3.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="meshcentral-3.0.7"></a>
+### [meshcentral-3.0.7](https://github.com/truecharts/apps/compare/meshcentral-3.0.6...meshcentral-3.0.7) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="meshcentral-3.0.6"></a>
 ### [meshcentral-3.0.6](https://github.com/truecharts/apps/compare/meshcentral-3.0.5...meshcentral-3.0.6) (2022-06-22)
 

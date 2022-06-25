@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-11.0.9"></a>
+### [calibre-web-11.0.9](https://github.com/truecharts/apps/compare/calibre-web-11.0.8...calibre-web-11.0.9) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="calibre-web-11.0.8"></a>
 ### [calibre-web-11.0.8](https://github.com/truecharts/apps/compare/calibre-web-11.0.7...calibre-web-11.0.8) (2022-06-22)
 

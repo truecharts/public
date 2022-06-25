@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/impostor-server:v1.7.0@sha256:cdcac482a33864f66116741bd8a973acdebeb3724739601555291ea4430e69cd
+          tccr.io/truecharts/impostor-server:v1.7.1@sha256:523b9570b1eb8cf3579ba019f1ff07ea4fe99c5f8d7f0901593821ecb8e5c148
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/impostor-server:v1.7.0@sha256:cdcac482a33864f66116741bd8a973acdebeb3724739601555291ea4430e69cd (debian 11.3)
+#### Container: tccr.io/truecharts/impostor-server:v1.7.1@sha256:523b9570b1eb8cf3579ba019f1ff07ea4fe99c5f8d7f0901593821ecb8e5c148 (debian 11.3)
 
 
 **debian**

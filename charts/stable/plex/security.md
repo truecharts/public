@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/plex:v1.27.0.5897@sha256:0dbded565d8784437740c9feadb9d4910651a4a40cd34d9ccd930749c56c766d
+          tccr.io/truecharts/plex:v1.27.1.5916@sha256:82924ea1450aa80b16a88bfb8739d79d7aadd9ca79e3b2dc0a08a10c07ac658a
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/plex:v1.27.0.5897@sha256:0dbded565d8784437740c9feadb9d4910651a4a40cd34d9ccd930749c56c766d (ubuntu 20.04)
+#### Container: tccr.io/truecharts/plex:v1.27.1.5916@sha256:82924ea1450aa80b16a88bfb8739d79d7aadd9ca79e3b2dc0a08a10c07ac658a (ubuntu 20.04)
 
 
 **ubuntu**

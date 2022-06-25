@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="littlelink-6.0.13"></a>
+### [littlelink-6.0.13](https://github.com/truecharts/apps/compare/littlelink-6.0.12...littlelink-6.0.13) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="littlelink-6.0.12"></a>
+### [littlelink-6.0.12](https://github.com/truecharts/apps/compare/littlelink-6.0.11...littlelink-6.0.12) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="littlelink-6.0.11"></a>
 ### [littlelink-6.0.11](https://github.com/truecharts/apps/compare/littlelink-6.0.10...littlelink-6.0.11) (2022-06-22)
 

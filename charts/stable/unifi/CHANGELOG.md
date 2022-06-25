@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-11.0.7"></a>
+### [unifi-11.0.7](https://github.com/truecharts/apps/compare/unifi-11.0.6...unifi-11.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="unifi-11.0.6"></a>
 ### [unifi-11.0.6](https://github.com/truecharts/apps/compare/unifi-11.0.5...unifi-11.0.6) (2022-06-22)
 

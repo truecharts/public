@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/drawio:v20.0.2@sha256:25b82581f11280651d7399b047571785f11c691c3ba42c092c3d7bc6341aa48d
+          tccr.io/truecharts/drawio:v20.0.3@sha256:0e2c8d2b2b577b715f51b0633188fa9852849e89839996bc1272d229f5b5b398
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/drawio:v20.0.2@sha256:25b82581f11280651d7399b047571785f11c691c3ba42c092c3d7bc6341aa48d (ubuntu 20.04)
+#### Container: tccr.io/truecharts/drawio:v20.0.3@sha256:0e2c8d2b2b577b715f51b0633188fa9852849e89839996bc1272d229f5b5b398 (ubuntu 20.04)
 
 
 **ubuntu**

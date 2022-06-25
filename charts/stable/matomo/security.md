@@ -69,10 +69,10 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
-          tccr.io/truecharts/matomo:v4.10.1@sha256:e36fcc15ad0a8fceebea06f3b0be0246f62cde17d8ad2d4a04e6a69355c2304c
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
+          tccr.io/truecharts/matomo:v4.10.1@sha256:819aa064eeec6195ec74a059084fd69b06d7fafad8e2169f06997c57c78d612a
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
 
 ##### Scan Results
 
@@ -89,7 +89,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**
@@ -225,7 +225,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/matomo:v4.10.1@sha256:e36fcc15ad0a8fceebea06f3b0be0246f62cde17d8ad2d4a04e6a69355c2304c (debian 11.3)
+#### Container: tccr.io/truecharts/matomo:v4.10.1@sha256:819aa064eeec6195ec74a059084fd69b06d7fafad8e2169f06997c57c78d612a (debian 11.3)
 
 
 **debian**
@@ -533,7 +533,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**

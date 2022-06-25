@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="wikijs-7.0.8"></a>
+### [wikijs-7.0.8](https://github.com/truecharts/apps/compare/wikijs-7.0.7...wikijs-7.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="wikijs-7.0.7"></a>
+### [wikijs-7.0.7](https://github.com/truecharts/apps/compare/wikijs-7.0.6...wikijs-7.0.7) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="wikijs-7.0.6"></a>
 ### [wikijs-7.0.6](https://github.com/truecharts/apps/compare/wikijs-7.0.5...wikijs-7.0.6) (2022-06-22)
 
