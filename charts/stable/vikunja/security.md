@@ -124,7 +124,7 @@ hide:
           tccr.io/truecharts/redis:v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661
           tccr.io/truecharts/vikunja-api:v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
         - 'tccr.io/truecharts/vikunja-frontend:v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab'
-        - 'tccr.io/truecharts/nginx:v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef'
+        - 'tccr.io/truecharts/nginx:v1.23.0@sha256:f4f43b06452c23534106d5dcebdff45fc7737ad360c6b84dda801d55d25548ea'
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
@@ -475,7 +475,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 
 

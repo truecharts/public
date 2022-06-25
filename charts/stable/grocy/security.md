@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/grocy:v3.3.1@sha256:dfb4c165ff9a6f88d7e23d9cd99e5156eae7523431d525d2cc1806629da60cdd
+          tccr.io/truecharts/grocy:v3.3.1@sha256:be11da1efea8b70fc1c705e319ca2adac7c1d333bd637dc5c7e278a17d63c87f
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/grocy:v3.3.1@sha256:dfb4c165ff9a6f88d7e23d9cd99e5156eae7523431d525d2cc1806629da60cdd (alpine 3.14)
+#### Container: tccr.io/truecharts/grocy:v3.3.1@sha256:be11da1efea8b70fc1c705e319ca2adac7c1d333bd637dc5c7e278a17d63c87f (alpine 3.14)
 
 
 **alpine**
@@ -91,5 +91,5 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| guzzlehttp/guzzle         |    CVE-2022-31090   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-25mq-v84q-4j7r">https://github.com/advisories/GHSA-25mq-v84q-4j7r</a><br><a href="https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r">https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r</a><br></details>  |
-| guzzlehttp/guzzle         |    CVE-2022-31091   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-q559-8m2m-g699">https://github.com/advisories/GHSA-q559-8m2m-g699</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699">https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699</a><br></details>  |
+| guzzlehttp/guzzle         |    CVE-2022-31090   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31090.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31090.yaml</a><br><a href="https://github.com/advisories/GHSA-25mq-v84q-4j7r">https://github.com/advisories/GHSA-25mq-v84q-4j7r</a><br><a href="https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r">https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r</a><br></details>  |
+| guzzlehttp/guzzle         |    CVE-2022-31091   |   HIGH  |  7.4.4 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31091.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31091.yaml</a><br><a href="https://github.com/advisories/GHSA-q559-8m2m-g699">https://github.com/advisories/GHSA-q559-8m2m-g699</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699">https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699</a><br></details>  |

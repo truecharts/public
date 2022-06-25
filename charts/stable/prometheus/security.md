@@ -155,7 +155,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/prometheus-operator:v0.57.0@sha256:27fa7ddaba6893355c630e46b22dc2214bd628f58d977f5796192eba4bf7cc58
+          tccr.io/truecharts/prometheus-operator:v0.57.0@sha256:7d7ae5a878ae07a25f60c7bdc1d24242cefc57542c90a9431ce1fb6985c6e9cf
           docker.io/bitnami/node-exporter:1.3.1-debian-11-r3
           docker.io/bitnami/kube-state-metrics:2.5.0-debian-11-r3
 
@@ -174,7 +174,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/prometheus-operator:v0.57.0@sha256:27fa7ddaba6893355c630e46b22dc2214bd628f58d977f5796192eba4bf7cc58 (debian 11.3)
+#### Container: tccr.io/truecharts/prometheus-operator:v0.57.0@sha256:7d7ae5a878ae07a25f60c7bdc1d24242cefc57542c90a9431ce1fb6985c6e9cf (debian 11.3)
 
 
 **debian**
@@ -433,14 +433,14 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 
 #### Container: docker.io/bitnami/kube-state-metrics:2.5.0-debian-11-r3 (debian 11.3)
