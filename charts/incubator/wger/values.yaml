@@ -41,7 +41,7 @@ env:
       key: SECRET_KEY
   TIME_ZONE: "{{ .Values.TZ }}"
   # True, not true
-  WGER_USE_GUNICORN: True
+  WGER_USE_GUNICORN: "True"
   # User Defined
   SITE_URL: "{{ .Values.wger.site_url }}"
   FROM_EMAIL: "{{ .Values.wger.from_email }}"
