@@ -13,7 +13,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 1000
+  runAsGroup: 0
 
 env:
   DJANGO_DB_ENGINE: "django.db.backends.postgresql"
@@ -40,7 +40,9 @@ env:
       name: wger-secrets
       key: SECRET_KEY
   TIME_ZONE: "{{ .Values.TZ }}"
-  WGER_USE_GUNICORN: true
+  # True, not true
+  WGER_USE_GUNICORN: True
+  # User Defined
   SITE_URL: "{{ .Values.wger.site_url }}"
   FROM_EMAIL: "{{ .Values.wger.from_email }}"
   EXERCISE_CACHE_TTL: "{{ .Values.wger.exercise_cache_ttl }}"
