@@ -51,8 +51,8 @@ env:
   ALLOW_UPLOAD_VIDEOS: true
   EXERCISE_CACHE_TTL: 3600
   DJANGO_PERFORM_MIGRATIONS: true
-  DJANGO_DEBUG: true
-  # ENABLE_EMAIL: ""
+  DJANGO_DEBUG: false
+  ENABLE_EMAIL: false
   # EMAIL_HOST: ""
   # EMAIL_PORT: ""
   # EMAIL_HOST_USER: ""
@@ -108,6 +108,8 @@ installContainers:
   migration:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     env:
+      - name: ENABLE_EMAIL
+        value: "false"
       - name: DJANGO_DB_ENGINE
         value: "{{ .Values.env.DJANGO_DB_ENGINE }}"
       - name: DJANGO_DB_DATABASE
