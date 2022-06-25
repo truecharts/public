@@ -65,7 +65,7 @@ questions:
                 label: "(Advanced) Update Strategy"
                 schema:
                   type: string
-                  default: "Recreate"
+                  default: "RollingUpdate"
                   required: true
                   enum:
                     - value: "Recreate"
@@ -104,7 +104,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 3000
+                              default: 10250
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -165,23 +165,6 @@ questions:
 
 # Include{serviceList}
 
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 
   - variable: ingress

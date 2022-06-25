@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/openspeedtest
+  repository: openspeedtest/latest
   pullPolicy: IfNotPresent
-  tag: v0.20.1216@sha256:b18c87da9d022c81edcec0cfa21d32669eb99a5e0418a520569ad70e3de939d8
+tag: latest@sha256:ac0f1b4313bab30fd33b07addacfd3cbf51ed8722225c7514a31096433245952
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,7 +12,7 @@ service:
     ports:
       main:
         targetPort: 3000
-        port: 3000
+        port: 10250
 
 probes:
   liveness:
