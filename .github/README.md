@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-103-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-104-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -266,6 +266,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/TopicsLP"><img src="https://avatars.githubusercontent.com/u/9019121?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TopicsLP</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=TopicsLP" title="Documentation">📖</a></td>
     <td align="center"><a href="https://schnerring.net"><img src="https://avatars.githubusercontent.com/u/3743342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Schnerring</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aschnerring" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=schnerring" title="Code">💻</a></td>
     <td align="center"><a href="https://tamasnagy.com"><img src="https://avatars.githubusercontent.com/u/1661487?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamas Nagy</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Atlnagy" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://OpenSpeedTest.com"><img src="https://avatars.githubusercontent.com/u/51720450?v=4?s=100" width="100px;" alt=""/><br /><sub><b>OpenSpeedTest™️</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=openspeedtest" title="Code">💻</a></td>
   </tr>
 </table>
 
