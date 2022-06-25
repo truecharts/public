@@ -147,9 +147,8 @@ installContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo 'Migrating Sites...';
-        python3 manage.py migrate sites;
-        python3 manage.py migrate;
+        echo 'Migrating...';
+        wger migrate-db
 
 additionalContainers:
   nginx:
