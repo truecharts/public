@@ -128,6 +128,8 @@ installContainers:
           secretKeyRef:
             name: dbcreds
             key: postgresql-password
+      - name: DJANGO_CACHE_TIMEOUT
+        value: "{{ .Values.env.DJANGO_CACHE_TIMEOUT }}"
       - name: DJANGO_CACHE_BACKEND
         value: "{{ .Values.env.DJANGO_CACHE_BACKEND }}"
       - name: DJANGO_CACHE_CLIENT_CLASS
