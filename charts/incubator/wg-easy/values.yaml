@@ -10,9 +10,6 @@ securityContext:
     - NET_ADMIN
     - SYS_MODULE
   runAsNonRoot: false
-  sysctls:
-    - name: net.ipv4.conf.all.src_valid_mark
-      value: "1"
 
 podSecurityContext:
   runAsUser: 0
