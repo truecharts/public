@@ -142,8 +142,9 @@ installContainers:
             key: SECRET_KEY
     command: ["/bin/sh", "-c"]
     args:
-          echo 'Migrating Sites...';
-          python manage.py migrate sites;
+      - >
+        echo 'Migrating Sites...';
+        python manage.py migrate sites;
 
 additionalContainers:
   nginx:
