@@ -110,6 +110,8 @@ installContainers:
     env:
       - name: FROM_EMAIL
         value: "info@example.com"
+      - name: SITE_URL
+        value: "{{ .Values.env.SITE_URL }}"
       - name: DJANGO_DB_ENGINE
         value: "{{ .Values.env.DJANGO_DB_ENGINE }}"
       - name: DJANGO_DB_DATABASE
