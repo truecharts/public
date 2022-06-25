@@ -11,4 +11,3 @@
 #### Feat
 
 * add wger ([#2975](https://github.com/truecharts/apps/issues/2975))
-
