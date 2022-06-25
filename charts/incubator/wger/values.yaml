@@ -115,7 +115,7 @@ installContainers:
       - name: DJANGO_DB_USER
         value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: DJANGO_DB_PORT
-        value:  "{{ .Values.env.DJANGO_DB_PORT }}"
+        value: "{{ .Values.env.DJANGO_DB_PORT }}"
       - name: DJANGO_DB_HOST
         valueFrom:
           secretKeyRef:
