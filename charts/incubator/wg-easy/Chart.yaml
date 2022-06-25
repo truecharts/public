@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.1.4
+deprecated: false
+description: The easiest way to run WireGuard VPN + Web-based Admin UI.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+icon: https://truecharts.org/_static/img/appicons/jackett.png
+keywords:
+- wg-easy
+- wireguard
+- weejewel
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: wg-easy
+sources:
+- https://hub.docker.com/r/weejewel/wg-easy
+- https://github.com/WeeJeWel/wg-easy
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,0 +1,41 @@
+image:
+  repository: https://hub.docker.com/r/weejewel/wg-easy
+  pullPolicy: IfNotPresent
+  tag: sha256-3ff40254ba06cc93c2f3c348197e0eceac4bf4e5fee04e44d01c38daebc7631c
+
+securityContext:
+  readOnlyRootFilesystem: false
+  capabilities:
+    add:
+    - NET_ADMIN
+    - SYS_MODULE
+  runAsNonRoot: false
+    sysctls:
+        - name: net.ipv4.conf.all.src_valid_mark
+            value: '1'
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    protocol: TCP
+    ports:
+      main:
+        targetPort: 51821
+        port: 51821
+  vpn:
+    enabled: true
+    ports:
+        vpn:
+        protocol: UDP
+        port: 51820
+        targetPort: 51820
+        
+      
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/wireguard"
