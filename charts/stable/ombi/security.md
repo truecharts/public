@@ -40,7 +40,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/ombi:v4.20.4@sha256:51df3028d5655a69f43cd03692f1c7f350efa6a3267c9c830bd2e2d32d49513b
+          tccr.io/truecharts/ombi:v4.21.0@sha256:6192c2d16aa450600b8c43daa48d768518af69055bdc890e52947e453b3e3bee
 
 ##### Scan Results
 
@@ -57,7 +57,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/ombi:v4.20.4@sha256:51df3028d5655a69f43cd03692f1c7f350efa6a3267c9c830bd2e2d32d49513b (ubuntu 20.04)
+#### Container: tccr.io/truecharts/ombi:v4.21.0@sha256:6192c2d16aa450600b8c43daa48d768518af69055bdc890e52947e453b3e3bee (ubuntu 20.04)
 
 
 **ubuntu**

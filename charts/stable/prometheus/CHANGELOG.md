@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.13"></a>
+### [prometheus-4.0.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.7...prometheus-4.0.13) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="prometheus-4.0.12"></a>
 ### [prometheus-4.0.12](https://github.com/truecharts/apps/compare/prometheus-4.0.11...prometheus-4.0.12) (2022-06-22)
 

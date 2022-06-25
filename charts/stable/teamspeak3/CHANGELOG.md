@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-4.0.7"></a>
+### [teamspeak3-4.0.7](https://github.com/truecharts/apps/compare/teamspeak3-4.0.6...teamspeak3-4.0.7) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="teamspeak3-4.0.6"></a>
 ### [teamspeak3-4.0.6](https://github.com/truecharts/apps/compare/teamspeak3-4.0.5...teamspeak3-4.0.6) (2022-06-22)
 

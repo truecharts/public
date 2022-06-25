@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snapdrop-2.0.9"></a>
+### [snapdrop-2.0.9](https://github.com/truecharts/apps/compare/snapdrop-2.0.8...snapdrop-2.0.9) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="snapdrop-2.0.8"></a>
 ### [snapdrop-2.0.8](https://github.com/truecharts/apps/compare/snapdrop-2.0.7...snapdrop-2.0.8) (2022-06-22)
 
