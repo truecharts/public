@@ -93,7 +93,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
+          tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
           tccr.io/truecharts/zabbix-server:v6.0.5@sha256:3744428aca58421820f775d41f8ac83fab551d6958b0d984c9b349d282483785
           'tccr.io/truecharts/zabbix-web:v6.0.5@sha256:2ad89f579a7c1ccc38af01f1252a2f3d8ca9cf82616c0d1151a8abaa97c196ee'
         - 'tccr.io/truecharts/zabbix-snmptraps:v6.0.5@sha256:67049f5bf817403b717a56cdfc35dfa2be74fe62222fdc297e037c5d4789bfb2'
@@ -115,7 +115,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c (debian 11.3)
+#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea (debian 11.3)
 
 
 **debian**

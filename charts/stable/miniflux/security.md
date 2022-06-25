@@ -66,7 +66,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
+          tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
           tccr.io/truecharts/miniflux:v2.0.37@sha256:591557c5015384ff8f3c580fb651f0ddbbcaf4fac9ea5a02d0116362b44db107
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
@@ -86,7 +86,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c (debian 11.3)
+#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea (debian 11.3)
 
 
 **debian**
@@ -257,7 +257,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.14"></a>
+### [prometheus-4.0.14](https://github.com/truecharts/apps/compare/prometheus-4.0.13...prometheus-4.0.14) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="prometheus-4.0.13"></a>
 ### [prometheus-4.0.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.7...prometheus-4.0.13) (2022-06-25)
 

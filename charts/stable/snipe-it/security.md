@@ -96,13 +96,13 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
-          tccr.io/truecharts/redis:v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
+          tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69
           tccr.io/truecharts/snipe-it:v6.0.5@sha256:d72d84a62dd348088d88fbe4bdfd123205406d5f230f796ee263c2930ab2509f
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/redis:v7.0.2@sha256:55f0a77f91b8d51e8138d305019bdc17911d988c85b89fe901a456daa448f176
+          tccr.io/truecharts/redis:v7.0.2@sha256:dcd5d5a227bfefc9306a7de6b520e0c7d4123ab1a22bd3b6b102f6dad7fbe7d5
 
 ##### Scan Results
 
@@ -119,7 +119,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**
@@ -255,7 +255,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:dfca138f71f1896a07b5ca1e6af88625824925bbbd7719a7676ac11e9e076661 (debian 11.3)
+#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69 (debian 11.3)
 
 
 **debian**
@@ -841,9 +841,9 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| guzzlehttp/guzzle         |    CVE-2022-29248   |   HIGH  |  7.4.2 | 7.4.3, 6.5.6 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab">https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab</a><br><a href="https://github.com/guzzle/guzzle/pull/3018">https://github.com/guzzle/guzzle/pull/3018</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29248">https://nvd.nist.gov/vuln/detail/CVE-2022-29248</a><br><a href="https://www.drupal.org/sa-core-2022-010">https://www.drupal.org/sa-core-2022-010</a><br></details>  |
+| guzzlehttp/guzzle         |    CVE-2022-29248   |   HIGH  |  7.4.2 | 6.5.6, 7.4.3 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab">https://github.com/guzzle/guzzle/commit/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab</a><br><a href="https://github.com/guzzle/guzzle/pull/3018">https://github.com/guzzle/guzzle/pull/3018</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3">https://github.com/guzzle/guzzle/security/advisories/GHSA-cwmx-hcrq-mhc3</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29248">https://nvd.nist.gov/vuln/detail/CVE-2022-29248</a><br><a href="https://www.drupal.org/sa-core-2022-010">https://www.drupal.org/sa-core-2022-010</a><br></details>  |
 | guzzlehttp/guzzle         |    CVE-2022-31042   |   HIGH  |  7.4.2 | 7.4.4, 6.5.7 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31042.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31042.yaml</a><br><a href="https://github.com/advisories/GHSA-f2wf-25xc-69c9">https://github.com/advisories/GHSA-f2wf-25xc-69c9</a><br><a href="https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8">https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-f2wf-25xc-69c9">https://github.com/guzzle/guzzle/security/advisories/GHSA-f2wf-25xc-69c9</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-31042">https://nvd.nist.gov/vuln/detail/CVE-2022-31042</a><br><a href="https://www.drupal.org/sa-core-2022-011">https://www.drupal.org/sa-core-2022-011</a><br><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx">https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx</a><br></details>  |
-| guzzlehttp/guzzle         |    CVE-2022-31043   |   HIGH  |  7.4.2 | 6.5.7, 7.4.4 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31043.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31043.yaml</a><br><a href="https://github.com/advisories/GHSA-w248-ffj2-4v5q">https://github.com/advisories/GHSA-w248-ffj2-4v5q</a><br><a href="https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8">https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-w248-ffj2-4v5q">https://github.com/guzzle/guzzle/security/advisories/GHSA-w248-ffj2-4v5q</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-31043">https://nvd.nist.gov/vuln/detail/CVE-2022-31043</a><br><a href="https://www.drupal.org/sa-core-2022-011">https://www.drupal.org/sa-core-2022-011</a><br><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx">https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx</a><br></details>  |
+| guzzlehttp/guzzle         |    CVE-2022-31043   |   HIGH  |  7.4.2 | 7.4.4, 6.5.7 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31043.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31043.yaml</a><br><a href="https://github.com/advisories/GHSA-w248-ffj2-4v5q">https://github.com/advisories/GHSA-w248-ffj2-4v5q</a><br><a href="https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8">https://github.com/guzzle/guzzle/commit/e3ff079b22820c2029d4c2a87796b6a0b8716ad8</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-w248-ffj2-4v5q">https://github.com/guzzle/guzzle/security/advisories/GHSA-w248-ffj2-4v5q</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-31043">https://nvd.nist.gov/vuln/detail/CVE-2022-31043</a><br><a href="https://www.drupal.org/sa-core-2022-011">https://www.drupal.org/sa-core-2022-011</a><br><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx">https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx</a><br></details>  |
 | guzzlehttp/guzzle         |    CVE-2022-31090   |   HIGH  |  7.4.2 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31090.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31090.yaml</a><br><a href="https://github.com/advisories/GHSA-25mq-v84q-4j7r">https://github.com/advisories/GHSA-25mq-v84q-4j7r</a><br><a href="https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/6.5.8/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md">https://github.com/guzzle/guzzle/blob/7.4.5/CHANGELOG.md</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r">https://github.com/guzzle/guzzle/security/advisories/GHSA-25mq-v84q-4j7r</a><br></details>  |
 | guzzlehttp/guzzle         |    CVE-2022-31091   |   HIGH  |  7.4.2 | 7.4.5, 6.5.8 | <details><summary>Expand...</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31091.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/guzzlehttp/guzzle/CVE-2022-31091.yaml</a><br><a href="https://github.com/advisories/GHSA-q559-8m2m-g699">https://github.com/advisories/GHSA-q559-8m2m-g699</a><br><a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699">https://github.com/guzzle/guzzle/security/advisories/GHSA-q559-8m2m-g699</a><br></details>  |
 
@@ -860,7 +860,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**
@@ -1008,7 +1008,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:55f0a77f91b8d51e8138d305019bdc17911d988c85b89fe901a456daa448f176 (debian 11.3)
+#### Container: tccr.io/truecharts/redis:v7.0.2@sha256:dcd5d5a227bfefc9306a7de6b520e0c7d4123ab1a22bd3b6b102f6dad7fbe7d5 (debian 11.3)
 
 
 **debian**

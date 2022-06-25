@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-11.0.7"></a>
+### [kms-11.0.7](https://github.com/truecharts/apps/compare/kms-11.0.6...kms-11.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="kms-11.0.6"></a>
 ### [kms-11.0.6](https://github.com/truecharts/apps/compare/kms-11.0.5...kms-11.0.6) (2022-06-22)
 

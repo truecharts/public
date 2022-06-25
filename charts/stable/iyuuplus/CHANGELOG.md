@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="iyuuplus-2.0.7"></a>
+### [iyuuplus-2.0.7](https://github.com/truecharts/apps/compare/iyuuplus-2.0.6...iyuuplus-2.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="iyuuplus-2.0.6"></a>
 ### [iyuuplus-2.0.6](https://github.com/truecharts/apps/compare/iyuuplus-2.0.5...iyuuplus-2.0.6) (2022-06-22)
 
