@@ -104,54 +104,59 @@ service:
         port: 10249
         targetPort: 80
 
-# installContainers:
-#   migration:
-#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#     env:
-#       - name: FROM_EMAIL
-#         value: "info@example.com"
-#       - name: SITE_URL
-#         value: "{{ .Values.env.SITE_URL }}"
-#       - name: DJANGO_DB_ENGINE
-#         value: "{{ .Values.env.DJANGO_DB_ENGINE }}"
-#       - name: DJANGO_DB_DATABASE
-#         value: "{{ .Values.postgresql.postgresqlDatabase }}"
-#       - name: DJANGO_DB_USER
-#         value: "{{ .Values.postgresql.postgresqlUsername }}"
-#       - name: DJANGO_DB_PORT
-#         value: "{{ .Values.env.DJANGO_DB_PORT }}"
-#       - name: DJANGO_DB_HOST
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: plainhost
-#       - name: DJANGO_DB_PASSWORD
-#         valueFrom:
-#           secretKeyRef:
-#             name: dbcreds
-#             key: postgresql-password
-#       - name: DJANGO_CACHE_TIMEOUT
-#         value: "{{ .Values.env.DJANGO_CACHE_TIMEOUT }}"
-#       - name: DJANGO_CACHE_BACKEND
-#         value: "{{ .Values.env.DJANGO_CACHE_BACKEND }}"
-#       - name: DJANGO_CACHE_CLIENT_CLASS
-#         value: "{{ .Values.env.DJANGO_CACHE_CLIENT_CLASS }}"
-#       - name: DJANGO_CACHE_LOCATION
-#         valueFrom:
-#           secretKeyRef:
-#             name: rediscreds
-#             key: url
-#       - name: SECRET_KEY
-#         valueFrom:
-#           secretKeyRef:
-#             name: wger-secrets
-#             key: SECRET_KEY
-#     command: ["/bin/sh", "-c"]
-#     args:
-#       - >
-#         echo 'Migrating';
-#         python3 manage.py migrate sites;
-#         python3 manage.py migrate;
+installContainers:
+  migration:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    env:
+      - name: FROM_EMAIL
+        value: "info@example.com"
+      - name: SITE_URL
+        value: "{{ .Values.env.SITE_URL }}"
+      - name: DJANGO_DB_ENGINE
+        value: "{{ .Values.env.DJANGO_DB_ENGINE }}"
+      - name: DJANGO_DB_DATABASE
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: DJANGO_DB_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: DJANGO_DB_PORT
+        value: "{{ .Values.env.DJANGO_DB_PORT }}"
+      - name: DJANGO_DB_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+      - name: DJANGO_DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: DJANGO_CACHE_TIMEOUT
+        value: "{{ .Values.env.DJANGO_CACHE_TIMEOUT }}"
+      - name: DJANGO_CACHE_BACKEND
+        value: "{{ .Values.env.DJANGO_CACHE_BACKEND }}"
+      - name: DJANGO_CACHE_CLIENT_CLASS
+        value: "{{ .Values.env.DJANGO_CACHE_CLIENT_CLASS }}"
+      - name: DJANGO_CACHE_LOCATION
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: url
+      - name: SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: wger-secrets
+            key: SECRET_KEY
+    volumeMounts:
+    - name: media
+      mountPath: "/home/wger/media"
+    - name: static
+      mountPath: "/home/wger/static"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo 'Migrating';
+        python3 manage.py migrate sites;
+        python3 manage.py migrate;
 
 additionalContainers:
   nginx:
