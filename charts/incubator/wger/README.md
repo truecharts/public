@@ -1,13 +1,14 @@
 # Introduction
 
-HTML5 Network Speed Test Server. You can test download & upload speed from any device within your network with a web browser that is IE10 or new.
+Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/openspeedtest/Speed-Test>
+* <https://github.com/wger-project/wger>
+* <https://github.com/wger-project/docker>
 
 ## Requirements
 
@@ -17,6 +18,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
+| https://charts.truecharts.org/ | postgresql | 8.0.18 |
+| https://charts.truecharts.org | redis | 3.0.18 |
 | https://library-charts.truecharts.org | common | 10.1.4 |
 
 ## Installing the Chart
