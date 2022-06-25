@@ -45,26 +45,46 @@ env:
   # User Defined
   SITE_URL: "http://localhost:8000"
   FROM_EMAIL: "info@example.com"
-  SYNC_EXERCISES_ON_STARTUP: false
-  DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP: false
-  ALLOW_REGISTRATION: true
-  ALLOW_GUEST_USERS: true
-  ALLOW_UPLOAD_VIDEOS: true
   EXERCISE_CACHE_TTL: 3600
-  DJANGO_PERFORM_MIGRATIONS: true
-  DJANGO_DEBUG: false
-  # ENABLE_EMAIL: false
   # EMAIL_HOST: ""
   # EMAIL_PORT: ""
   # EMAIL_HOST_USER: ""
   # EMAIL_HOST_PASSWORD: ""
-  # EMAIL_USE_TLS: false
-  # EMAIL_USE_SSL: false
   # RECAPTCHA_PUBLIC_KEY: ""
   # RECAPTCHA_PRIVATE_KEY: ""
-  # NOCAPTCHA: ""
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-wger'
+
+wger:
+  sync_exercises_on_startup: false
+  download_exercise_images_on_startup: false
+  allow_registration: true
+  allow_guest_users: true
+  allow_upload_videos: true
+  django_perform_migrations: true
+  django_debug: false
+  enable_email: false
+  email_use_tls: true
+  email_use_ssl: true
+  nocaptcha: true
 
 configmap:
+  wger:
+    enabled: true
+    data:
+      SYNC_EXERCISES_ON_STARTUP: "{{ ternary \"True\" \"False\" .Values.wger.sync_exercises_on_startup }}"
+      DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP: "{{ ternary \"True\" \"False\" .Values.wger.download_exercise_images_on_startup }}"
+      ALLOW_REGISTRATION: "{{ ternary \"True\" \"False\" .Values.wger.allow_registration }}"
+      ALLOW_GUEST_USERS: "{{ ternary \"True\" \"False\" .Values.wger.allow_guest_users }}"
+      ALLOW_UPLOAD_VIDEOS: "{{ ternary \"True\" \"False\" .Values.wger.allow_upload_videos }}"
+      DJANGO_PERFORM_MIGRATIONS: "{{ ternary \"True\" \"False\" .Values.wger.django_perform_migrations }}"
+      DJANGO_DEBUG: "{{ ternary \"True\" \"False\" .Values.wger.django_debug }}"
+      ENABLE_EMAIL: "{{ ternary \"True\" \"False\" .Values.wger.enable_email }}"
+      EMAIL_USE_TLS: "{{ ternary \"True\" \"False\" .Values.wger.email_use_tls }}"
+      EMAIL_USE_SSL: "{{ ternary \"True\" \"False\" .Values.wger.email_use_ssl }}"
+      NOCAPTCHA: "{{ ternary \"True\" \"False\" .Values.wger.nocaptcha }}"
   config:
     enabled: true
     data:
@@ -104,60 +124,6 @@ service:
       main:
         port: 10249
         targetPort: 80
-
-installContainers:
-  migration:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: FROM_EMAIL
-        value: "info@example.com"
-      - name: SITE_URL
-        value: "{{ .Values.env.SITE_URL }}"
-      - name: DJANGO_DB_ENGINE
-        value: "{{ .Values.env.DJANGO_DB_ENGINE }}"
-      - name: DJANGO_DB_DATABASE
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: DJANGO_DB_USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: DJANGO_DB_PORT
-        value: "{{ .Values.env.DJANGO_DB_PORT }}"
-      - name: DJANGO_DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: DJANGO_DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: DJANGO_CACHE_TIMEOUT
-        value: "{{ .Values.env.DJANGO_CACHE_TIMEOUT }}"
-      - name: DJANGO_CACHE_BACKEND
-        value: "{{ .Values.env.DJANGO_CACHE_BACKEND }}"
-      - name: DJANGO_CACHE_CLIENT_CLASS
-        value: "{{ .Values.env.DJANGO_CACHE_CLIENT_CLASS }}"
-      - name: DJANGO_CACHE_LOCATION
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: url
-      - name: SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: wger-secrets
-            key: SECRET_KEY
-    volumeMounts:
-    - name: media
-      mountPath: "/home/wger/media"
-    - name: static
-      mountPath: "/home/wger/static"
-    command: ["/bin/sh", "-c"]
-    args:
-      - >
-        echo 'Migrating';
-        python3 manage.py migrate sites;
-        python3 manage.py migrate;
 
 additionalContainers:
   nginx:
