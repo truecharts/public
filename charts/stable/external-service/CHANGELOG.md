@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-6.0.7"></a>
+### [external-service-6.0.7](https://github.com/truecharts/apps/compare/external-service-6.0.6...external-service-6.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="external-service-6.0.6"></a>
 ### [external-service-6.0.6](https://github.com/truecharts/apps/compare/external-service-6.0.5...external-service-6.0.6) (2022-06-22)
 

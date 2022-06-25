@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-11.0.7"></a>
+### [emby-11.0.7](https://github.com/truecharts/apps/compare/embystat-2.0.6...emby-11.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="emby-11.0.6"></a>
 ### [emby-11.0.6](https://github.com/truecharts/apps/compare/embystat-2.0.5...emby-11.0.6) (2022-06-22)
 

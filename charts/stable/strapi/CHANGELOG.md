@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="strapi-4.0.6"></a>
+### [strapi-4.0.6](https://github.com/truecharts/apps/compare/strapi-4.0.5...strapi-4.0.6) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="strapi-4.0.5"></a>
 ### [strapi-4.0.5](https://github.com/truecharts/apps/compare/strapi-4.0.4...strapi-4.0.5) (2022-06-22)
 

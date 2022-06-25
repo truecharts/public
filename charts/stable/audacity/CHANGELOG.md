@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-4.0.7"></a>
+### [audacity-4.0.7](https://github.com/truecharts/apps/compare/audacity-4.0.6...audacity-4.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="audacity-4.0.6"></a>
 ### [audacity-4.0.6](https://github.com/truecharts/apps/compare/audacity-4.0.5...audacity-4.0.6) (2022-06-22)
 

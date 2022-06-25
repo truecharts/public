@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-11.0.8"></a>
+### [sonarr-11.0.8](https://github.com/truecharts/apps/compare/sonarr-11.0.7...sonarr-11.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="sonarr-11.0.7"></a>
 ### [sonarr-11.0.7](https://github.com/truecharts/apps/compare/sonarr-11.0.6...sonarr-11.0.7) (2022-06-22)
 
