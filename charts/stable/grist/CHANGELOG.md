@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-3.0.8"></a>
+### [grist-3.0.8](https://github.com/truecharts/apps/compare/grist-3.0.7...grist-3.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="grist-3.0.7"></a>
 ### [grist-3.0.7](https://github.com/truecharts/apps/compare/grist-3.0.6...grist-3.0.7) (2022-06-22)
 

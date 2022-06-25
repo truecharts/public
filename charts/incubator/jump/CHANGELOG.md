@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jump-0.0.6"></a>
+### [jump-0.0.6](https://github.com/truecharts/apps/compare/jump-0.0.5...jump-0.0.6) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="jump-0.0.5"></a>
 ### [jump-0.0.5](https://github.com/truecharts/apps/compare/jump-0.0.4...jump-0.0.5) (2022-06-22)
 

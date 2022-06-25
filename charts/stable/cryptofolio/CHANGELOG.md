@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-4.0.8"></a>
+### [cryptofolio-4.0.8](https://github.com/truecharts/apps/compare/cryptofolio-4.0.7...cryptofolio-4.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="cryptofolio-4.0.7"></a>
 ### [cryptofolio-4.0.7](https://github.com/truecharts/apps/compare/cryptofolio-4.0.6...cryptofolio-4.0.7) (2022-06-22)
 

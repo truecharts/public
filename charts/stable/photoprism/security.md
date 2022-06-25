@@ -67,10 +67,10 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
           tccr.io/truecharts/photoprism:v220617@sha256:2f98c9158e864b3c9ba069ff2149f98cf090929b94d917f1cb6bf56ab434b37a
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
 
 ##### Scan Results
 
@@ -87,7 +87,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**
@@ -394,6 +394,7 @@ hide:
 | libgraphicsmagick-q16-3         |    CVE-2017-13736   |   LOW  |  1.4+really1.3.36+hg16481-2 |  | <details><summary>Expand...</summary><a href="http://www.securityfocus.com/bid/100513">http://www.securityfocus.com/bid/100513</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1484192">https://bugzilla.redhat.com/show_bug.cgi?id=1484192</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13736">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13736</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PF62B5PJA2JDUOCKJGUQO3SPL74BEYSV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PF62B5PJA2JDUOCKJGUQO3SPL74BEYSV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WHIKB4TP6KBJWT2UIPWL5MWMG5QXKGEJ/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WHIKB4TP6KBJWT2UIPWL5MWMG5QXKGEJ/</a><br></details>  |
 | libgssapi-krb5-2         |    CVE-2004-0971   |   LOW  |  1.18.3-6+deb11u1 |  | <details><summary>Expand...</summary><a href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=136304">http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=136304</a><br><a href="http://www.gentoo.org/security/en/glsa/glsa-200410-24.xml">http://www.gentoo.org/security/en/glsa/glsa-200410-24.xml</a><br><a href="http://www.redhat.com/support/errata/RHSA-2005-012.html">http://www.redhat.com/support/errata/RHSA-2005-012.html</a><br><a href="http://www.securityfocus.com/bid/11289">http://www.securityfocus.com/bid/11289</a><br><a href="http://www.trustix.org/errata/2004/0050">http://www.trustix.org/errata/2004/0050</a><br><a href="https://access.redhat.com/security/cve/CVE-2004-0971">https://access.redhat.com/security/cve/CVE-2004-0971</a><br><a href="https://exchange.xforce.ibmcloud.com/vulnerabilities/17583">https://exchange.xforce.ibmcloud.com/vulnerabilities/17583</a><br><a href="https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E">https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E</a><br><a href="https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10497">https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10497</a><br></details>  |
 | libgssapi-krb5-2         |    CVE-2018-5709   |   LOW  |  1.18.3-6+deb11u1 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2018-5709">https://access.redhat.com/security/cve/CVE-2018-5709</a><br><a href="https://github.com/poojamnit/Kerberos-V5-1.16-Vulnerabilities/tree/master/Integer%20Overflow">https://github.com/poojamnit/Kerberos-V5-1.16-Vulnerabilities/tree/master/Integer%20Overflow</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br></details>  |
+| libharfbuzz0b         |    CVE-2022-33068   |   UNKNOWN  |  2.7.4-1 |  | <details><summary>Expand...</summary><a href="https://github.com/harfbuzz/harfbuzz/commit/62e803b36173fd096d7ad460dd1d1db9be542593">https://github.com/harfbuzz/harfbuzz/commit/62e803b36173fd096d7ad460dd1d1db9be542593</a><br><a href="https://github.com/harfbuzz/harfbuzz/issues/3557">https://github.com/harfbuzz/harfbuzz/issues/3557</a><br></details>  |
 | libheif-examples         |    CVE-2020-23109   |   HIGH  |  1.11.0-1 |  | <details><summary>Expand...</summary><a href="https://github.com/strukturag/libheif/issues/207">https://github.com/strukturag/libheif/issues/207</a><br></details>  |
 | libheif1         |    CVE-2020-23109   |   HIGH  |  1.11.0-1 |  | <details><summary>Expand...</summary><a href="https://github.com/strukturag/libheif/issues/207">https://github.com/strukturag/libheif/issues/207</a><br></details>  |
 | libimage-exiftool-perl         |    CVE-2022-23935   |   HIGH  |  12.16+dfsg-2 |  | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23935">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23935</a><br><a href="https://gist.github.com/ert-plus/1414276e4cb5d56dd431c2f0429e4429">https://gist.github.com/ert-plus/1414276e4cb5d56dd431c2f0429e4429</a><br><a href="https://github.com/exiftool/exiftool/commit/74dbab1d2766d6422bb05b033ac6634bf8d1f582">https://github.com/exiftool/exiftool/commit/74dbab1d2766d6422bb05b033ac6634bf8d1f582</a><br><a href="https://github.com/exiftool/exiftool/commit/74dbab1d2766d6422bb05b033ac6634bf8d1f582 (12.38)">https://github.com/exiftool/exiftool/commit/74dbab1d2766d6422bb05b033ac6634bf8d1f582 (12.38)</a><br></details>  |
@@ -571,7 +572,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.7.4@sha256:2e2c1d19a9192dfb48721928d1820ec71bd393c08dfb0aea9698f3128a3101fa (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
 
 
 **debian**

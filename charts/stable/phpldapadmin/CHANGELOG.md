@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-6.0.7"></a>
+### [phpldapadmin-6.0.7](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.6...phpldapadmin-6.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="phpldapadmin-6.0.6"></a>
 ### [phpldapadmin-6.0.6](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.5...phpldapadmin-6.0.6) (2022-06-22)
 

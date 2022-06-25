@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-3.0.7"></a>
+### [smokeping-3.0.7](https://github.com/truecharts/apps/compare/smokeping-3.0.6...smokeping-3.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="smokeping-3.0.6"></a>
 ### [smokeping-3.0.6](https://github.com/truecharts/apps/compare/smokeping-3.0.5...smokeping-3.0.6) (2022-06-22)
 

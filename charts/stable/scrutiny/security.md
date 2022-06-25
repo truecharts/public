@@ -281,18 +281,18 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
