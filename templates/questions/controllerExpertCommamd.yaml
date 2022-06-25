@@ -1,0 +1,10 @@
+              - variable: command
+                label: "Command"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: param
+                      label: "param"
+                      schema:
+                        type: string
