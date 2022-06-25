@@ -7,7 +7,6 @@ nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef
 
-command: ["cat", "/etc/passwd"]
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -42,32 +41,40 @@ env:
       key: SECRET_KEY
   TIME_ZONE: "{{ .Values.TZ }}"
   WGER_USE_GUNICORN: true
-  # User Defined
-  SITE_URL: "http://localhost:8000"
-  FROM_EMAIL: "info@example.com"
-  EXERCISE_CACHE_TTL: 3600
-  # EMAIL_HOST: ""
-  # EMAIL_PORT: ""
-  # EMAIL_HOST_USER: ""
-  # EMAIL_HOST_PASSWORD: ""
-  # RECAPTCHA_PUBLIC_KEY: ""
-  # RECAPTCHA_PRIVATE_KEY: ""
+  SITE_URL: "{{ .Values.wger.site_url }}"
+  FROM_EMAIL:  "{{ .Values.wger.from_email }}"
+  EXERCISE_CACHE_TTL: "{{ .Values.wger.exercise_cache_ttl }}"
+  EMAIL_HOST: "{{ .Values.wger.email_host }}"
+  EMAIL_PORT: "{{ .Values.wger.email_port }}"
+  EMAIL_HOST_USER: "{{ .Values.wger.email_host_user }}"
+  EMAIL_HOST_PASSWORD: "{{ .Values.wger.email_host_password }}"
+  RECAPTCHA_PUBLIC_KEY: "{{ .Values.wger.recaptha_public_key }}"
+  RECAPTCHA_PRIVATE_KEY: "{{ .Values.wger.recaptha_private_key }}"
 
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-wger'
 
 wger:
+  site_url: "http://localhost:8000"
   sync_exercises_on_startup: false
   download_exercise_images_on_startup: false
   allow_registration: true
   allow_guest_users: true
   allow_upload_videos: true
+  exercise_cache_ttl: "3600"
   django_perform_migrations: true
   django_debug: false
   enable_email: false
+  from_email: ""
+  email_host: ""
+  email_port: ""
+  email_host_user: ""
+  email_host_password: ""
   email_use_tls: true
   email_use_ssl: true
+  recaptha_public_key: ""
+  recaptha_private_key: ""
   nocaptcha: true
 
 configmap:
