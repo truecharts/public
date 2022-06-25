@@ -42,7 +42,7 @@ env:
   TIME_ZONE: "{{ .Values.TZ }}"
   WGER_USE_GUNICORN: true
   # User Defined
-  SITE_URL: "http://localhost:80"
+  SITE_URL: "http://localhost:8000"
   FROM_EMAIL: "info@example.com"
   SYNC_EXERCISES_ON_STARTUP: false
   DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP: false
