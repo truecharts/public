@@ -22,9 +22,7 @@ service:
 probes:
   liveness:
     path: "/"
-
   readiness:
     path: "/"
-
   startup:
     path: "/"
