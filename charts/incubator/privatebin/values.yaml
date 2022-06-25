@@ -3,6 +3,11 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.4.0@sha256:5fe4b94286dcadbd0e576418f619205463030754e257863ec430eb7eb3e957fd
 
+podSecurityContext:
+  runAsUser: 65534
+  runAsGroup: 82
+  fsGroup: 82
+
 privatebin:
   # See also: https://github.com/PrivateBin/PrivateBin/wiki/Configuration
   main:
@@ -40,14 +45,8 @@ privatebin:
     batchsize: 10
 
 env:
-  # See also: https://github.com/PrivateBin/docker-nginx-fpm-alpine#timezone-settings
   TZ: "{{ .Values.TZ }}"
   PHP_TZ: "{{ .Values.TZ }}"
-
-podSecurityContext:
-  runAsUser: 65534
-  runAsGroup: 82
-  fsGroup: 82
 
 service:
   main:
@@ -55,7 +54,7 @@ service:
     ports:
       main:
         targetPort: 8080
-        port: 10247
+        port: 10248
 
 probes:
   liveness:
