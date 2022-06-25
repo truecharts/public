@@ -12,7 +12,7 @@ securityContext:
   runAsNonRoot: false
   sysctls:
     - name: net.ipv4.conf.all.src_valid_mark
-      value: '1'
+      value: "1"
 
 podSecurityContext:
   runAsUser: 0
