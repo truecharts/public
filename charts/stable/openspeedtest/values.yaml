@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/openspeedtest
+  pullPolicy: IfNotPresent
+  tag: v0.20.1216@sha256:b18c87da9d022c81edcec0cfa21d32669eb99a5e0418a520569ad70e3de939d8
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 3000
+        port: 3000
+
+probes:
+  liveness:
+    path: "/"
+
+  readiness:
+    path: "/"
+
+  startup:
+    path: "/"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
