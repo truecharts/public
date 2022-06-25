@@ -27,13 +27,10 @@ service:
   vpn:
     enabled: true
     ports:
-        vpn:
+      vpn:
         protocol: UDP
         port: 51820
         targetPort: 51820
-        
-      
-
 persistence:
   config:
     enabled: true
