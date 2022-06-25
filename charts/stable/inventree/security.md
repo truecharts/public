@@ -105,10 +105,10 @@ hide:
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
-          'tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c'
-          tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c
-        - 'tccr.io/truecharts/nginx:v1.22.0@sha256:9829252d9891aa3dfc654df8a98f65567ca8b43683e3ef2898944bc44287aeef'
-          'tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c'
+          'tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602'
+          tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602
+        - 'tccr.io/truecharts/nginx:v1.23.0@sha256:f4f43b06452c23534106d5dcebdff45fc7737ad360c6b84dda801d55d25548ea'
+          'tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602'
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
 
@@ -284,7 +284,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/inventree:v0.7.3@sha256:bf1126dbb5791be12fa18c7076f40d9b547201f5c18abfce01302ad2a7b08d8c (alpine 3.14.6)
+#### Container: tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602 (alpine 3.14.6)
 
 
 **alpine**
@@ -309,10 +309,7 @@ hide:
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Pillow         |    CVE-2022-30595   |   HIGH  |  9.1.0 | 9.1.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-30595">https://access.redhat.com/security/cve/CVE-2022-30595</a><br><a href="https://github.com/advisories/GHSA-hr8g-f6r6-mr22">https://github.com/advisories/GHSA-hr8g-f6r6-mr22</a><br><a href="https://github.com/python-pillow/Pillow/blob/main/src/libImaging/TgaRleDecode.c">https://github.com/python-pillow/Pillow/blob/main/src/libImaging/TgaRleDecode.c</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-30595">https://nvd.nist.gov/vuln/detail/CVE-2022-30595</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/9.1.1.html">https://pillow.readthedocs.io/en/stable/releasenotes/9.1.1.html</a><br></details>  |
-| inventree         |    GHSA-85q9-7467-r53q   |   HIGH  |  0.7.1 | 0.7.3 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-85q9-7467-r53q">https://github.com/advisories/GHSA-85q9-7467-r53q</a><br><a href="https://github.com/inventree/InvenTree/security/advisories/GHSA-85q9-7467-r53q">https://github.com/inventree/InvenTree/security/advisories/GHSA-85q9-7467-r53q</a><br></details>  |
-| inventree         |    GHSA-rm89-9g65-4ffr   |   HIGH  |  0.7.1 | 0.7.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-rm89-9g65-4ffr">https://github.com/advisories/GHSA-rm89-9g65-4ffr</a><br><a href="https://github.com/inventree/InvenTree/security/advisories/GHSA-rm89-9g65-4ffr">https://github.com/inventree/InvenTree/security/advisories/GHSA-rm89-9g65-4ffr</a><br></details>  |
-| inventree         |    CVE-2022-2111   |   MEDIUM  |  0.7.1 | 0.7.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-fr2w-mp56-g4xp">https://github.com/advisories/GHSA-fr2w-mp56-g4xp</a><br><a href="https://github.com/inventree/InvenTree/security/advisories/GHSA-fr2w-mp56-g4xp">https://github.com/inventree/InvenTree/security/advisories/GHSA-fr2w-mp56-g4xp</a><br><a href="https://github.com/inventree/inventree/commit/26bf51c20a1c9b3130ac5dd2e17649bece5ff84f">https://github.com/inventree/inventree/commit/26bf51c20a1c9b3130ac5dd2e17649bece5ff84f</a><br><a href="https://huntr.dev/bounties/a0e5c68e-0f75-499b-bd7b-d935fb8c0cd1">https://huntr.dev/bounties/a0e5c68e-0f75-499b-bd7b-d935fb8c0cd1</a><br></details>  |
-| inventree         |    GHSA-7rq4-qcpw-74gq   |   MEDIUM  |  0.7.1 | 0.7.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-7rq4-qcpw-74gq">https://github.com/advisories/GHSA-7rq4-qcpw-74gq</a><br><a href="https://github.com/inventree/InvenTree/security/advisories/GHSA-7rq4-qcpw-74gq">https://github.com/inventree/InvenTree/security/advisories/GHSA-7rq4-qcpw-74gq</a><br></details>  |
+| inventree         |    GHSA-85q9-7467-r53q   |   HIGH  |  0.7.2 | 0.7.3 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-85q9-7467-r53q">https://github.com/advisories/GHSA-85q9-7467-r53q</a><br><a href="https://github.com/inventree/InvenTree/security/advisories/GHSA-85q9-7467-r53q">https://github.com/inventree/InvenTree/security/advisories/GHSA-85q9-7467-r53q</a><br></details>  |
 
 **cargo**
 

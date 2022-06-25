@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/snapdrop:latest@sha256:58b141022a76573dfb67843a56020e48506aa66f8e46b273b2356f3fdf1a6d2e
+          tccr.io/truecharts/snapdrop:latest@sha256:404bd6f3cfb1102327e2869ea1fb1e193e0faffd04d6cf1350250354f46631a1
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/snapdrop:latest@sha256:58b141022a76573dfb67843a56020e48506aa66f8e46b273b2356f3fdf1a6d2e (alpine 3.14)
+#### Container: tccr.io/truecharts/snapdrop:latest@sha256:404bd6f3cfb1102327e2869ea1fb1e193e0faffd04d6cf1350250354f46631a1 (alpine 3.14)
 
 
 **alpine**

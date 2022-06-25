@@ -40,7 +40,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/grafana:v8.5.6@sha256:db934c54b6bbd6ef0e319abbfee37214628bb9dd420d38e838fa70bde42b85d7
+          tccr.io/truecharts/grafana:v8.5.6@sha256:2f54534db777d36858962ee1bc3be678b6be5790517cb66af47cbd4740ca0bdd
 
 ##### Scan Results
 
@@ -57,7 +57,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/grafana:v8.5.6@sha256:db934c54b6bbd6ef0e319abbfee37214628bb9dd420d38e838fa70bde42b85d7 (debian 11.3)
+#### Container: tccr.io/truecharts/grafana:v8.5.6@sha256:2f54534db777d36858962ee1bc3be678b6be5790517cb66af47cbd4740ca0bdd (debian 11.3)
 
 
 **debian**

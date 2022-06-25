@@ -41,7 +41,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/domoticz:v2022.1.20220616
+          tccr.io/truecharts/domoticz:v2022.1.20220623
 
 ##### Scan Results
 
@@ -58,7 +58,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/domoticz:v2022.1.20220616 (ubuntu 20.04)
+#### Container: tccr.io/truecharts/domoticz:v2022.1.20220623 (ubuntu 20.04)
 
 
 **ubuntu**
