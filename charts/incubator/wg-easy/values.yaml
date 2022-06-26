@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: false
   capabilities:
     add:
     - NET_ADMIN
     - SYS_MODULE
-  runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
