@@ -11,9 +11,14 @@ securityContext:
     - NET_ADMIN
     - SYS_MODULE
 
+security:
+  PUID: 0
+  PGID: 0
+  
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+  fsGroup: 568
 
 secretEnv:
   PASSWORD: "secretpass"
