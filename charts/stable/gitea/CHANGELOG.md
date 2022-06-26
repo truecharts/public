@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-8.0.7"></a>
+### [gitea-8.0.7](https://github.com/truecharts/apps/compare/gitea-8.0.6...gitea-8.0.7) (2022-06-26)
+
+#### Gitea
+
+* change questions.yaml admin password to private ([#2991](https://github.com/truecharts/apps/issues/2991))
+
+
+
 <a name="gitea-8.0.6"></a>
 ### [gitea-8.0.6](https://github.com/truecharts/apps/compare/gitea-8.0.5...gitea-8.0.6) (2022-06-25)
 
