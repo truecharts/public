@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redmine-3.0.9"></a>
+### [redmine-3.0.9](https://github.com/truecharts/apps/compare/redmine-3.0.8...redmine-3.0.9) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
 <a name="redmine-3.0.8"></a>
 ### [redmine-3.0.8](https://github.com/truecharts/apps/compare/redmine-3.0.7...redmine-3.0.8) (2022-06-25)
 

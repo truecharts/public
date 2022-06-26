@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/homarr:v0.7.1@sha256:5fa68053c922c353608afe0448a1e0f615900ed74879949d4503abbb4abf9d1f
+          tccr.io/truecharts/homarr:v0.7.2@sha256:f17ec4cc1f9fe6b61fc53d5addb9d07775f60341292fc1d32a57a6b82d8ecbd7
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/homarr:v0.7.1@sha256:5fa68053c922c353608afe0448a1e0f615900ed74879949d4503abbb4abf9d1f (alpine 3.16.0)
+#### Container: tccr.io/truecharts/homarr:v0.7.2@sha256:f17ec4cc1f9fe6b61fc53d5addb9d07775f60341292fc1d32a57a6b82d8ecbd7 (alpine 3.16.0)
 
 
 **alpine**
