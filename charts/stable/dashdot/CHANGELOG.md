@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-1.0.4"></a>
+### [dashdot-1.0.4](https://github.com/truecharts/apps/compare/dashdot-1.0.3...dashdot-1.0.4) (2022-06-26)
+
+#### Chore
+
+* add 2 env vars in gui ([#2992](https://github.com/truecharts/apps/issues/2992))
+
+
+
 <a name="dashdot-1.0.3"></a>
 ### [dashdot-1.0.3](https://github.com/truecharts/apps/compare/dashdot-1.0.2...dashdot-1.0.3) (2022-06-25)
 
