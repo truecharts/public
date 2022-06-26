@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openspeedtest-1.0.0"></a>
+### [openspeedtest-1.0.0](https://github.com/truecharts/apps/compare/openspeedtest-0.0.2...openspeedtest-1.0.0) (2022-06-26)
+
+#### Feat
+
+* move to stable ([#2994](https://github.com/truecharts/apps/issues/2994))
+
+
+
 <a name="openspeedtest-0.0.2"></a>
 ### [openspeedtest-0.0.2](https://github.com/truecharts/apps/compare/openspeedtest-0.0.1...openspeedtest-0.0.2) (2022-06-26)
 
