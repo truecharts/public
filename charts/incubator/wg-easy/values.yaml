@@ -1,7 +1,7 @@
 image:
-  repository: https://hub.docker.com/r/weejewel/wg-easy
+  repository: weejewel/wg-easy
   pullPolicy: IfNotPresent
-  tag: sha256-3ff40254ba06cc93c2f3c348197e0eceac4bf4e5fee04e44d01c38daebc7631c
+  tag: latest@sha256:fb997c869e6117e05102c38e8ea52788f7fc29f11c7e7b81cf9ed7d4504c9ac0
 
 securityContext:
   readOnlyRootFilesystem: false
