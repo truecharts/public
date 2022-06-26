@@ -104,7 +104,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
+          tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
           'tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602'
           tccr.io/truecharts/inventree:v0.7.4@sha256:ac0be06d9e494ff08623a5b99e72f8ba0104d6259973bbcff74b571be36fc602
         - 'tccr.io/truecharts/nginx:v1.23.0@sha256:f4f43b06452c23534106d5dcebdff45fc7737ad360c6b84dda801d55d25548ea'
@@ -127,7 +127,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c (debian 11.3)
+#### Container: tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea (debian 11.3)
 
 
 **debian**

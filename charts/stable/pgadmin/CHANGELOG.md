@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-7.0.8"></a>
+### [pgadmin-7.0.8](https://github.com/truecharts/apps/compare/pgadmin-7.0.7...pgadmin-7.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="pgadmin-7.0.7"></a>
 ### [pgadmin-7.0.7](https://github.com/truecharts/apps/compare/pgadmin-7.0.6...pgadmin-7.0.7) (2022-06-22)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-6.0.8"></a>
+### [booksonic-air-6.0.8](https://github.com/truecharts/apps/compare/booksonic-air-6.0.7...booksonic-air-6.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="booksonic-air-6.0.7"></a>
 ### [booksonic-air-6.0.7](https://github.com/truecharts/apps/compare/booksonic-air-6.0.6...booksonic-air-6.0.7) (2022-06-22)
 

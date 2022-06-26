@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-3.0.17"></a>
+### [rsshub-3.0.17](https://github.com/truecharts/apps/compare/rsshub-3.0.16...rsshub-3.0.17) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="rsshub-3.0.16"></a>
 ### [rsshub-3.0.16](https://github.com/truecharts/apps/compare/rsshub-3.0.15...rsshub-3.0.16) (2022-06-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="senseai-server-0.0.6"></a>
+### [senseai-server-0.0.6](https://github.com/truecharts/apps/compare/senseai-server-0.0.5...senseai-server-0.0.6) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="senseai-server-0.0.5"></a>
 ### [senseai-server-0.0.5](https://github.com/truecharts/apps/compare/senseai-server-0.0.4...senseai-server-0.0.5) (2022-06-22)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-web-2.0.7"></a>
+### [quassel-web-2.0.7](https://github.com/truecharts/apps/compare/quassel-web-2.0.6...quassel-web-2.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="quassel-web-2.0.6"></a>
 ### [quassel-web-2.0.6](https://github.com/truecharts/apps/compare/quassel-web-2.0.5...quassel-web-2.0.6) (2022-06-22)
 

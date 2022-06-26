@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-3.0.8"></a>
+### [ipfs-3.0.8](https://github.com/truecharts/apps/compare/ipfs-3.0.7...ipfs-3.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="ipfs-3.0.7"></a>
 ### [ipfs-3.0.7](https://github.com/truecharts/apps/compare/ipfs-3.0.6...ipfs-3.0.7) (2022-06-22)
 

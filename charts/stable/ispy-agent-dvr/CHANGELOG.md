@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ispy-agent-dvr-2.0.13"></a>
+### [ispy-agent-dvr-2.0.13](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.12...ispy-agent-dvr-2.0.13) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
 <a name="ispy-agent-dvr-2.0.12"></a>
 ### [ispy-agent-dvr-2.0.12](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.11...ispy-agent-dvr-2.0.12) (2022-06-25)
 

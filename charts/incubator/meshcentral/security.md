@@ -81,7 +81,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mongodb:v5.0.9@sha256:53695634689ba352106ac9efd2da6783453baad3b87a0506d2d8eece51be6962
+          tccr.io/truecharts/mongodb:v5.0.9@sha256:73059f8cf026f44c2ec0c1bca7d003054cb7657ce437c252491e50004423e44b
           'tccr.io/truecharts/meshcentral:v1.0.41@sha256:c5ec8ab4ded2fe04f771c0f6a7ed045c673970e6efec75e264194c2d61ab571e'
           tccr.io/truecharts/meshcentral:v1.0.41@sha256:c5ec8ab4ded2fe04f771c0f6a7ed045c673970e6efec75e264194c2d61ab571e
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
@@ -102,7 +102,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:53695634689ba352106ac9efd2da6783453baad3b87a0506d2d8eece51be6962 (debian 10.12)
+#### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:73059f8cf026f44c2ec0c1bca7d003054cb7657ce437c252491e50004423e44b (debian 10.12)
 
 
 **debian**
