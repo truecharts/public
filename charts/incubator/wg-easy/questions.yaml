@@ -75,7 +75,35 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: hostname
+          label: "hostname"
+          description: "The public hostname of your VPN server."
+          schema:
+            type: string
+            required: true
+            default: ""
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PASSWORD
+          label: "ADMIN_PASSWORD"
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+            
 # Include{containerConfig}
 
   - variable: service

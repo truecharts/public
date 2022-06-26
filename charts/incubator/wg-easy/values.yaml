@@ -15,6 +15,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  PASSWORD: "secretpass"
+
+env:
+  WG_HOST: "hostname"
+  
 service:
   main:
     ports:
