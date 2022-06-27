@@ -548,51 +548,62 @@ questions:
                                     required: true
                                     default: ""
 
-        - variable: themePark
-          label: "theme.park"
+        - variable: enableThemePark
+          label: "Enable theme.park"
+          description: Install plugin adding support for theme.park themes on supported apps.
+            This is a 3rd party plugin!
+            Please report any bugs to
+            <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
           schema:
-            type: list
-            default: []
-            items:
-              - variable: themeParkEntry
-                label: ""
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: themePark
+                label: "theme.park"
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: name
-                      label: "Name"
-                      description: Requires enabling `theme.park` plugin in Traefik Pilot section.
+                  type: list
+                  default: []
+                  items:
+                    - variable: themeParkEntry
+                      label: ""
                       schema:
-                        type: string
-                        required: true
-                    - variable: appName
-                      label: App Name
-                      description: The name of the app to be themed.
-                        Go to https://docs.theme-park.dev/themes/ to see supported apps.
-                      schema:
-                        type: string
-                        required: true
-                    - variable: themeName
-                      label: Theme Name
-                      description: The name of the theme to be applied.
-                        Go to https://docs.theme-park.dev/theme-options/ to see supported themes.
-                      schema:
-                        type: string
-                        required: true
-                    - variable: enableBaseUrl
-                      label: Enable Custom Base URL
-                      description: Replace `https://theme-park.dev` URL for self-hosting reference.
-                      schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: baseUrl
-                            label: Base URL
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            description: Requires enabling `theme.park` plugin in Traefik Pilot section.
                             schema:
                               type: string
                               required: true
+                          - variable: appName
+                            label: App Name
+                            description: The name of the app to be themed.
+                              Go to https://docs.theme-park.dev/themes/ to see supported apps.
+                            schema:
+                              type: string
+                              required: true
+                          - variable: themeName
+                            label: Theme Name
+                            description: The name of the theme to be applied.
+                              Go to https://docs.theme-park.dev/theme-options/ to see supported themes.
+                            schema:
+                              type: string
+                              required: true
+                          - variable: enableBaseUrl
+                            label: Enable Custom Base URL
+                            description: Replace `https://theme-park.dev` URL for self-hosting reference.
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: baseUrl
+                                  label: Base URL
+                                  schema:
+                                    type: string
+                                    required: true
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
