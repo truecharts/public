@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.1.0"></a>
+### [custom-app-5.1.0](https://github.com/truecharts/apps/compare/custom-app-5.0.16...custom-app-5.1.0) (2022-06-27)
+
+#### Feat
+
+* Add custom command UI ([#2983](https://github.com/truecharts/apps/issues/2983))
+
+
+
 <a name="custom-app-5.0.16"></a>
 ### [custom-app-5.0.16](https://github.com/truecharts/apps/compare/custom-app-5.0.15...custom-app-5.0.16) (2022-06-26)
 

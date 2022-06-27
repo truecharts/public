@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-2.0.8"></a>
+### [openhab-2.0.8](https://github.com/truecharts/apps/compare/openhab-2.0.7...openhab-2.0.8) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2996](https://github.com/truecharts/apps/issues/2996))
+
+
+
 <a name="openhab-2.0.7"></a>
 ### [openhab-2.0.7](https://github.com/truecharts/apps/compare/openhab-2.0.6...openhab-2.0.7) (2022-06-25)
 
