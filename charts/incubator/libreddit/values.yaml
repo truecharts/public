@@ -15,6 +15,14 @@ libreddit:
   hide_hls_notification: "off"
   autoplay_videos: "off"
 
+probes:
+  liveness:
+    path: "/settings"
+  readiness:
+    path: "/settings"
+  startup:
+    path: "/settings"
+
 service:
   main:
     ports:
