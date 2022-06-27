@@ -3,6 +3,16 @@ image:
   tag: 4.3@sha256:29d2a4d15720a13b8d60cf6d97ad9aa9d14ba93909a72641152b33bef1f2db8d
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  allowPrivilegeEscalation: true
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 env:
   ytdl_use_local_db: false
   ytdl_mongodb_connection_string:
@@ -67,12 +77,12 @@ persistence:
   users:
     enabled: true
     mountPath: "/app/users"
+  subscriptions:
+    enabled: true
+    mountPath: "/app/subscriptions"
   audio:
     enabled: true
     mountPath: "/app/audio"
   video:
     enabled: true
     mountPath: "/app/video"
-  subscriptions:
-    enabled: true
-    mountPath: "/app/subscriptions"

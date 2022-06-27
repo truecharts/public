@@ -375,7 +375,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10192
+                              default: 10253
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -410,7 +410,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 10253
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -439,9 +439,45 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+        - variable: appdata
+          label: "App AppData Storage"
+          description: "Stores the Application AppData."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: users
+          label: "App Users Storage"
+          description: "Stores the Application Users."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: subscriptions
+          label: "App Subscriptions Storage"
+          description: "Stores the Application Subscriptions."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: audio
+          label: "App Audio Storage"
+          description: "Stores the Application Audio."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: video
+          label: "App Video Storage"
+          description: "Stores the Application Video."
           schema:
             additional_attrs: true
             type: dict
