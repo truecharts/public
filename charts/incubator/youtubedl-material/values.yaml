@@ -1,0 +1,51 @@
+image:
+  repository: tzahi12345/youtubedl-material
+  tag: 4.3@sha256:29d2a4d15720a13b8d60cf6d97ad9aa9d14ba93909a72641152b33bef1f2db8d
+  pullPolicy: IfNotPresent
+
+env:
+  ytdl_use_local_db: false
+  ytdl_mongodb_connection_string:
+    secretKeyRef:
+      name: mongodbcreds
+      key: url
+  ytdl_port: "{{ .Values.service.main.ports.main.port }}"
+  ALLOW_CONFIG_MUTATIONS: true
+  # Used Defined
+  write_ytdl_config: true
+  ytdl_url: ""
+  ytdl_multi_user_mode: ""
+  ytdl_allow_subscriptions: ""
+  ytdl_subscriptions_check_interval: 86400
+  ytdl_subscriptions_redownload_fresh_uploads: false
+  ytdl_default_theme: "default"
+  ytdl_allow_theme_change: true
+
+service:
+  main:
+    ports:
+      main:
+        port: 10253
+
+mongodb:
+  enabled: true
+  existingSecret: "mongodbcreds"
+  mongodbUsername: youtubedl-material
+  mongodbDatabase: youtubedl-material
+
+persistence:
+  appdata:
+    enabled: true
+    mountPath: "/app/appdata"
+  users:
+    enabled: true
+    mountPath: "/app/users"
+  audio:
+    enabled: true
+    mountPath: "/app/audio"
+  video:
+    enabled: true
+    mountPath: "/app/video"
+  subscriptions:
+    enabled: true
+    mountPath: "/app/subscriptions"
