@@ -10,6 +10,10 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+  fsGroup: 0
+
+security:
+  PUID: 0
 
 env:
   ytdl_mongodb_connection_string:
