@@ -82,8 +82,8 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: hostname
-          label: "hostname"
+        - variable: WG_HOST
+          label: "WG_HOST"
           description: "The public hostname of your VPN server."
           schema:
             type: string
