@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fileflows-2.0.11"></a>
+### [fileflows-2.0.11](https://github.com/truecharts/apps/compare/fileflows-2.0.10...fileflows-2.0.11) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
 <a name="fileflows-2.0.10"></a>
 ### [fileflows-2.0.10](https://github.com/truecharts/apps/compare/fileflows-2.0.9...fileflows-2.0.10) (2022-06-25)
 

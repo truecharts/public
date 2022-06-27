@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-2.0.12"></a>
+### [storj-node-2.0.12](https://github.com/truecharts/apps/compare/storj-node-2.0.11...storj-node-2.0.12) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
 <a name="storj-node-2.0.11"></a>
 ### [storj-node-2.0.11](https://github.com/truecharts/apps/compare/storj-node-2.0.10...storj-node-2.0.11) (2022-06-25)
 

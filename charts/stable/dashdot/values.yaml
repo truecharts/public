@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: v3.7.2@sha256:6ef9af355761e178128df52441e98d6523072c597ffcdb43350b68395ab51ce5
+  tag: v3.8.1@sha256:1ec271243ec30224d5ac22a3c83151646404c38ab3ab476971cdfdeaa07fd35b
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -22,6 +22,8 @@ env:
   # User Defined
   # DASHDOT_WIDGET_LIST: os,cpu,storage,ram,network
   # DASHDOT_ACCEPT_OOKLA_EULA: true
+  # DASHDOT_USE_IMPERIAL: false
+  # DASHDOT_DISABLE_INTEGRATIONS: false
   # DASHDOT_DISABLE_HOST: false
   # DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
   # DASHDOT_OS_WIDGET_GROW: "1.5"

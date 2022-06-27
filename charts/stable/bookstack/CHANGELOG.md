@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-3.0.8"></a>
+### [bookstack-3.0.8](https://github.com/truecharts/apps/compare/bookstack-3.0.7...bookstack-3.0.8) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
 <a name="bookstack-3.0.7"></a>
 ### [bookstack-3.0.7](https://github.com/truecharts/apps/compare/bookstack-3.0.6...bookstack-3.0.7) (2022-06-25)
 

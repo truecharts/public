@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/littlelink-server:latest@sha256:090bd025eb1ecf8e12bf09ffc15e921acc92a88f0a8783cf8cb5440ab16a42f1
+          tccr.io/truecharts/littlelink-server:latest@sha256:db0386a15cdd91a93d32c4d8afa5da7feda342ca74892ee75dd6ad8f3672e9a0
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:090bd025eb1ecf8e12bf09ffc15e921acc92a88f0a8783cf8cb5440ab16a42f1 (alpine 3.15.4)
+#### Container: tccr.io/truecharts/littlelink-server:latest@sha256:db0386a15cdd91a93d32c4d8afa5da7feda342ca74892ee75dd6ad8f3672e9a0 (alpine 3.16.0)
 
 
 **alpine**
@@ -70,6 +70,5 @@ hide:
 **node-pkg**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| npm         |    CVE-2022-29244   |   MEDIUM  |  8.5.5 | 8.11.0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29244">https://access.redhat.com/security/cve/CVE-2022-29244</a><br><a href="https://github.com/advisories/GHSA-hj9c-8jmm-8c52">https://github.com/advisories/GHSA-hj9c-8jmm-8c52</a><br><a href="https://github.com/nodejs/node/pull/43210">https://github.com/nodejs/node/pull/43210</a><br><a href="https://github.com/nodejs/node/releases/tag/v16.15.1">https://github.com/nodejs/node/releases/tag/v16.15.1</a><br><a href="https://github.com/nodejs/node/releases/tag/v17.9.1">https://github.com/nodejs/node/releases/tag/v17.9.1</a><br><a href="https://github.com/nodejs/node/releases/tag/v18.3.0">https://github.com/nodejs/node/releases/tag/v18.3.0</a><br><a href="https://github.com/npm/cli/releases/tag/v8.11.0">https://github.com/npm/cli/releases/tag/v8.11.0</a><br><a href="https://github.com/npm/cli/security/advisories/GHSA-hj9c-8jmm-8c52">https://github.com/npm/cli/security/advisories/GHSA-hj9c-8jmm-8c52</a><br><a href="https://github.com/npm/cli/tree/latest/workspaces/libnpmpack">https://github.com/npm/cli/tree/latest/workspaces/libnpmpack</a><br><a href="https://github.com/npm/cli/tree/latest/workspaces/libnpmpublish">https://github.com/npm/cli/tree/latest/workspaces/libnpmpublish</a><br><a href="https://github.com/npm/npm-packlist">https://github.com/npm/npm-packlist</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29244">https://nvd.nist.gov/vuln/detail/CVE-2022-29244</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

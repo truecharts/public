@@ -91,7 +91,19 @@ questions:
             default: "os,cpu,storage,ram,network"
         - variable: DASHDOT_ACCEPT_OOKLA_EULA
           label: "DASHDOT_ACCEPT_OOKLA_EULA"
-          description: "Use the newer and more accurate speedtest tool from Ookla, instead of the old speedtest-cli for your speedtests. "
+          description: "Use the newer and more accurate speedtest tool from Ookla, instead of the old speedtest-cli for your speedtests."
+          schema:
+            type: boolean
+            default: false
+        - variable: DASHDOT_USE_IMPERIAL
+          label: "DASHDOT_USE_IMPERIAL"
+          description: "Shows any units in the imperial system, instead of the default metric."
+          schema:
+            type: boolean
+            default: false
+        - variable: DASHDOT_DISABLE_INTEGRATIONS
+          label: "DASHDOT_DISABLE_INTEGRATIONS"
+          description: "Disables support for integrations. This does two things: disable CORS and disable open API endpoints."
           schema:
             type: boolean
             default: false

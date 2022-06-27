@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/memcached:v1.6.15@sha256:b959d1cb3d5888410c78d3ca31aab88e200bbdac0a6231c82ac6283f7e8881b8
+          tccr.io/truecharts/memcached:v1.6.15@sha256:c73a6d1eaa149ecfe58206d8a19dd4a8303aabe2b65f68d59a7ae4576a7a0150
 
 ##### Scan Results
 
@@ -56,7 +56,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/memcached:v1.6.15@sha256:b959d1cb3d5888410c78d3ca31aab88e200bbdac0a6231c82ac6283f7e8881b8 (debian 11.3)
+#### Container: tccr.io/truecharts/memcached:v1.6.15@sha256:c73a6d1eaa149ecfe58206d8a19dd4a8303aabe2b65f68d59a7ae4576a7a0150 (debian 11.3)
 
 
 **debian**
