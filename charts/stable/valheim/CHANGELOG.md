@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-3.0.10"></a>
+### [valheim-3.0.10](https://github.com/truecharts/apps/compare/valheim-3.0.9...valheim-3.0.10) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2996](https://github.com/truecharts/apps/issues/2996))
+
+
+
 <a name="valheim-3.0.9"></a>
 ### [valheim-3.0.9](https://github.com/truecharts/apps/compare/valheim-3.0.8...valheim-3.0.9) (2022-06-26)
 

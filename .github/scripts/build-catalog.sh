@@ -31,6 +31,11 @@ include_questions(){
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+     # Replace # Include{controllerExpertCommand} with the standard controllerExpertCommand codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerExpertCommand}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controllerExpertCommand.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{containerConfig} with the standard containerConfig codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }

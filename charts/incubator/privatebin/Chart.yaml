@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "1.4.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.1.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.18
+deprecated: false
+description: PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data.
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/privatebin
+icon: https://truecharts.org/_static/img/appicons/privatebin.png
+keywords:
+  - privatebin
+  - pastebin
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: privatebin
+sources:
+  - https://privatebin.info/
+  - https://github.com/PrivateBin/PrivateBin
+  - https://hub.docker.com/r/privatebin/pdo
+type: application
+version: 0.0.2
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

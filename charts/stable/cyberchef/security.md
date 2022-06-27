@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/cyberchef:v9.39.1@sha256:ab0169374a32f43a51df0b1938ecafeb065a3232ac47b6300e5a5788a7be75ef
+          tccr.io/truecharts/cyberchef:v9.39.1@sha256:64eb0bab8901ece060180ba0889393f001e6b8c8123bcb7476c202a7c3423f29
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/cyberchef:v9.39.1@sha256:ab0169374a32f43a51df0b1938ecafeb065a3232ac47b6300e5a5788a7be75ef (alpine 3.16.0)
+#### Container: tccr.io/truecharts/cyberchef:v9.39.1@sha256:64eb0bab8901ece060180ba0889393f001e6b8c8123bcb7476c202a7c3423f29 (alpine 3.16.0)
 
 
 **alpine**

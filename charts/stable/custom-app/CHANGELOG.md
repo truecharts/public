@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.1.1"></a>
+### [custom-app-5.1.1](https://github.com/truecharts/apps/compare/custom-app-5.1.0...custom-app-5.1.1) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+
+
+
+<a name="custom-app-5.1.0"></a>
+### [custom-app-5.1.0](https://github.com/truecharts/apps/compare/custom-app-5.0.16...custom-app-5.1.0) (2022-06-27)
+
+#### Feat
+
+* Add custom command UI ([#2983](https://github.com/truecharts/apps/issues/2983))
+
+
+
 <a name="custom-app-5.0.16"></a>
 ### [custom-app-5.0.16](https://github.com/truecharts/apps/compare/custom-app-5.0.15...custom-app-5.0.16) (2022-06-26)
 
