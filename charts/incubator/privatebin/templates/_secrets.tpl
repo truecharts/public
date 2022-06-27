@@ -57,7 +57,7 @@ stringData:
     {{- end }}
 
     ; size limit per paste or comment in bytes, defaults to 10 Mebibytes
-    {{/* 
+    {{/*
       Multiply by 1, so large integers aren't rendered in scientific notation
       See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
     */}}

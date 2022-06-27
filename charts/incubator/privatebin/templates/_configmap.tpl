@@ -6,7 +6,7 @@ kind: ConfigMap
 metadata:
   name: {{ include "tc.common.names.fullname" . }}-config
 data:
-  {{/* 
+  {{/*
     Multiply by 1, so large integers aren't rendered in scientific notation
     See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
   */}}
