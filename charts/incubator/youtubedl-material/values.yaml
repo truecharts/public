@@ -14,12 +14,12 @@ podSecurityContext:
 
 
 env:
-  ytdl_mongodb_connection_string:
-    secretKeyRef:
-      name: mongodbcreds
-      key: urlssl
+  # ytdl_mongodb_connection_string:
+  #   secretKeyRef:
+  #     name: mongodbcreds
+  #     key: url
   # ytdl_port: "{{ .Values.service.main.ports.main.port }}"
-  ytdl_use_local_db: false
+  ytdl_use_local_db: true
   ALLOW_CONFIG_MUTATIONS: true
   write_ytdl_config: true
   # Used Defined
