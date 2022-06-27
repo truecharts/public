@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.18"></a>
+### [memcached-3.0.18](https://github.com/truecharts/apps/compare/memcached-3.0.17...memcached-3.0.18) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
 <a name="memcached-3.0.17"></a>
 ### [memcached-3.0.17](https://github.com/truecharts/apps/compare/memcached-3.0.16...memcached-3.0.17) (2022-06-25)
 

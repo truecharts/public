@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/dokuwiki:v20200729.0.0@sha256:edafaedb8951040cb007bcfcac92820008b8c2dfa245398920beb96e97fb0d47
+          tccr.io/truecharts/dokuwiki:v20200729.0.0@sha256:804759e051d202d1dba53fa9a46b597d6bac239766e48d9dde48eb720bc5d150
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/dokuwiki:v20200729.0.0@sha256:edafaedb8951040cb007bcfcac92820008b8c2dfa245398920beb96e97fb0d47 (debian 11.3)
+#### Container: tccr.io/truecharts/dokuwiki:v20200729.0.0@sha256:804759e051d202d1dba53fa9a46b597d6bac239766e48d9dde48eb720bc5d150 (debian 11.3)
 
 
 **debian**

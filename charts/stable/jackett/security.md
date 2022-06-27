@@ -40,7 +40,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/jackett:v0.20.1216@sha256:b18c87da9d022c81edcec0cfa21d32669eb99a5e0418a520569ad70e3de939d8
+          tccr.io/truecharts/jackett:v0.20.1226@sha256:a994370a4dcb0b88fe39e9f0f42965803381af5ef1638655874ed0ba290e450c
 
 ##### Scan Results
 
@@ -57,7 +57,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/jackett:v0.20.1216@sha256:b18c87da9d022c81edcec0cfa21d32669eb99a5e0418a520569ad70e3de939d8 (ubuntu 20.04)
+#### Container: tccr.io/truecharts/jackett:v0.20.1226@sha256:a994370a4dcb0b88fe39e9f0f42965803381af5ef1638655874ed0ba290e450c (ubuntu 20.04)
 
 
 **ubuntu**

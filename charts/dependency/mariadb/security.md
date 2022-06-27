@@ -40,7 +40,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
+          tccr.io/truecharts/mariadb:v10.8.3@sha256:b258673bc9f1a6377bc7b7355224346fdc4d8b1256c9ef953b2cd0c7f92192a6
 
 ##### Scan Results
 
@@ -57,7 +57,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921 (debian 11.3)
+#### Container: tccr.io/truecharts/mariadb:v10.8.3@sha256:b258673bc9f1a6377bc7b7355224346fdc4d8b1256c9ef953b2cd0c7f92192a6 (debian 11.3)
 
 
 **debian**
