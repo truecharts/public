@@ -1,28 +1,26 @@
 image:
   repository: tzahi12345/youtubedl-material
-  tag: 4.3@sha256:29d2a4d15720a13b8d60cf6d97ad9aa9d14ba93909a72641152b33bef1f2db8d
+  tag: 4.3@sha256:58b17b5be6a9b27076214fa35ebf5929d90f077696f3c2185d2db858d426c599
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-
 env:
-  # ytdl_mongodb_connection_string:
-  #   secretKeyRef:
-  #     name: mongodbcreds
-  #     key: url
-  # ytdl_port: "{{ .Values.service.main.ports.main.port }}"
-  ytdl_use_local_db: true
+  ytdl_mongodb_connection_string:
+    secretKeyRef:
+      name: mongodbcreds
+      key: url
+  ytdl_port: "{{ .Values.service.main.ports.main.port }}"
+  ytdl_use_local_db: false
   ALLOW_CONFIG_MUTATIONS: true
   write_ytdl_config: true
-  # Used Defined
+  # # Used Defined
   ytdl_url: ""
   ytdl_multi_user_mode: false
   ytdl_allow_subscriptions: true
