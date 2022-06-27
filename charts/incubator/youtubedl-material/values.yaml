@@ -10,10 +10,10 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
+  fsGroup: 1000
 
 security:
-  PUID: 0
+  PUID: 1000
 
 env:
   ytdl_mongodb_connection_string:
@@ -66,7 +66,6 @@ service:
     ports:
       main:
         port: 10253
-        targetPort: 17442
 
 mongodb:
   enabled: true
