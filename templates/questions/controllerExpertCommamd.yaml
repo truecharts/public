@@ -1,0 +1,17 @@
+        - variable: customcommand
+          label: "Show Custom Command Options"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: command
+                label: "Command"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: param
+                      label: "param"
+                      schema:
+                        type: string
