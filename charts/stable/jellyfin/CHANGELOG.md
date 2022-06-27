@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-11.0.8"></a>
+### [jellyfin-11.0.8](https://github.com/truecharts/apps/compare/jellyfin-11.0.7...jellyfin-11.0.8) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+
+
+
 <a name="jellyfin-11.0.7"></a>
 ### [jellyfin-11.0.7](https://github.com/truecharts/apps/compare/jellyfin-11.0.6...jellyfin-11.0.7) (2022-06-25)
 
