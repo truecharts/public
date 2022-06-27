@@ -172,7 +172,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 51821
-            - variable: vpn
+        - variable: vpn
           label: "Wireguard Internal"
           description: "Wireguard Internal Port"
           schema:
@@ -228,7 +228,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 51820
-
 
   - variable: serviceexpert
     group: "Networking and Services"
