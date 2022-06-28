@@ -70,8 +70,8 @@ service:
 mongodb:
   enabled: true
   existingSecret: "mongodbcreds"
-  mongodbUsername: youtubedl-material
-  mongodbDatabase: youtubedl-material
+  mongodbUsername: ytdl_material
+  mongodbDatabase: ytdl_material
 
 persistence:
   appdata:
