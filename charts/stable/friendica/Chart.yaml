@@ -7,7 +7,7 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 3.0.17
+  version: 3.0.18
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
@@ -27,7 +27,7 @@ name: friendica
 sources:
   - https://friendi.ca/
   - https://hub.docker.com/_/friendica
-version: 4.0.11
+version: 4.0.12
 annotations:
   truecharts.org/catagories: |
     - social
