@@ -317,17 +317,17 @@ questions:
                   type: string
                   default: "info"
                   enum:
-                    - values: "info"
+                    - value: "info"
                       description: "info"
-                    - values: "info"
+                    - value: "info"
                       description: "info"
-                    - values: "debug"
+                    - value: "debug"
                       description: "debug"
-                    - values: "verbose"
+                    - value: "verbose"
                       description: "verbose"
-                    - values: "warn"
+                    - value: "warn"
                       description: "warn"
-                    - values: "error"
+                    - value: "error"
                       description: "error"
               - variable: ytdl_jwt_expiration
                 label: "JWT Expiration"
