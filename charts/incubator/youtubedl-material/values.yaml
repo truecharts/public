@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  # runAsNonRoot: false
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
+  runAsUser: 0
+  runAsGroup: 0
   fsGroup: 1000
 
 security:
@@ -67,12 +67,6 @@ service:
       main:
         port: 10253
 
-mongodb:
-  enabled: true
-  existingSecret: "mongodbcreds"
-  mongodbUsername: ytdl_material
-  mongodbDatabase: ytdl_material
-
 persistence:
   appdata:
     enabled: true
@@ -89,3 +83,10 @@ persistence:
   video:
     enabled: true
     mountPath: "/app/video"
+
+mongodb:
+  enabled: true
+  existingSecret: "mongodbcreds"
+  mongodbUsername: ytdl_material
+  # DB name seems to be harcoded in their app
+  mongodbDatabase: ytdl_material
