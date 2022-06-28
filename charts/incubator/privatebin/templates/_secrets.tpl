@@ -57,7 +57,11 @@ stringData:
     {{- end }}
 
     ; size limit per paste or comment in bytes, defaults to 10 Mebibytes
-    sizelimit = {{ .Values.privatebin.main.sizelimit }}
+    {{/*
+      Multiply by 1, so large integers aren't rendered in scientific notation
+      See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
+    */}}
+    sizelimit = {{ mul .Values.privatebin.main.sizelimit 1 }}
 
     ; template to include, default is "bootstrap" (tpl/bootstrap.php)
     template = "{{ .Values.privatebin.main.template }}"
@@ -94,7 +98,7 @@ stringData:
     ; (optional) Let users create a QR code for sharing the paste URL with one click.
     ; It works both when a new paste is created and when you view a paste.
     {{- with .Values.privatebin.main.qrcode }}
-    qrcode = "{{ . }}"
+    qrcode = {{ . }}
     {{- end }}
 
     ; (optional) IP based icons are a weak mechanism to detect if a comment was from
@@ -130,7 +134,7 @@ stringData:
     ; if enabled will use base64.js version 1.7 instead of 2.1.9 and sha1 instead of
     ; sha256 in HMAC for the deletion token
     {{- with .Values.privatebin.main.zerobincompatibility }}
-    zerobincompatibility = "{{ . }}"
+    zerobincompatibility = {{ . }}
     {{- end }}
 
     ; Enable or disable the warning message when the site is served over an insecure
@@ -139,7 +143,7 @@ stringData:
     ; It is **strongly discouraged** to disable this.
     ; See https://github.com/PrivateBin/PrivateBin/wiki/FAQ#why-does-it-show-me-an-error-about-an-insecure-connection for more information.
     {{- with .Values.privatebin.main.httpwarning }}
-    httpwarning = "{{ . }}"
+    httpwarning = {{ . }}
     {{- end }}
 
     ; Pick compression algorithm or disable it. Only applies to pastes/comments
@@ -212,13 +216,13 @@ stringData:
     batchsize = {{ .Values.privatebin.purge.batchsize }}
 
     [model]
-    ; example of DB configuration for PostgreSQL
+    ; DB configuration for PostgreSQL
     class = Database
     [model_options]
-    dsn = {{ printf "pgsql:host=%v-postgresql;dbname=%v" .Release.Name .Values.postgresql.postgresqlDatabase }}
+    dsn = "{{ printf "pgsql:host=%v-postgresql;dbname=%v" .Release.Name .Values.postgresql.postgresqlDatabase }}"
     tbl = "privatebin_"    ; table prefix
     usr = "{{ .Values.postgresql.postgresqlUsername }}"
-    pwd = "{{ .Values.postgresql.postgresqlPassword }}"
+    pwd = {{ .Values.postgresql.postgresqlPassword }}
     opt[12] = true    ; PDO::ATTR_PERSISTENT
 
 {{- end }}
