@@ -307,11 +307,9 @@ questions:
                 description: "Expire value that is selected per default"
                 schema:
                   type: string
-                  default: ""
+                  default: "1week"
                   required: true
                   enum:
-                    - value: ""
-                      description: "PrivateBin Default"
                     - value: "5min"
                       description: "5min"
                     - value: "10min"

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.3"></a>
+### [privatebin-0.0.3](https://github.com/truecharts/apps/compare/privatebin-0.0.2...privatebin-0.0.3) (2022-06-28)
+
+#### Fix
+
+* fix errors ([#3001](https://github.com/truecharts/apps/issues/3001))
+
+
+
 <a name="privatebin-0.0.2"></a>
 ### [privatebin-0.0.2](https://github.com/truecharts/apps/compare/privatebin-0.0.1...privatebin-0.0.2) (2022-06-27)
 
