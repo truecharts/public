@@ -1,0 +1,582 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: mainsettings
+          label: "Main Settings"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: ytdl_url
+                label: "URL"
+                description: "URL for the frontend"
+                schema:
+                  type: string
+                  default: ""
+              - variable: ytdl_multi_user_mode
+                label: "Multi User Mode"
+                description: "Allows creation of users (with their own files), roles, and permissions"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_allow_subscriptions
+                label: "Allow Subscriptions"
+                description: "Allows subscribing to channels"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_subscriptions_check_interval
+                label: "Subscriptions Check Interval"
+                description: "Amount of time between cycling through all subscriptions."
+                schema:
+                  type: int
+                  default: 86400
+              - variable: ytdl_subscriptions_redownload_fresh_uploads
+                label: "Subscriptions Redownload Fresh Uploads"
+                description: "Checks day-old or newer videos in a subscription to see if a higher quality one exists. If it does, it's downloaded."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_allow_theme_change
+                label: "Allow Theme Change"
+                description: "Allows the theme to be changed by hitting the 3 dots in the top right corner"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_default_theme
+                label: "Default Theme"
+                description: "Sets the default theme."
+                schema:
+                  type: string
+                  default: "default"
+                  enum:
+                    - value: "default"
+                      description: "default"
+                    - value: "dark"
+                      description: "dark"
+        - variable: extrasettigns
+          label: "Extra Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: ytdl_title_top
+                label: "Title Top"
+                description: "Sets the top bar and browser tab title."
+                schema:
+                  type: string
+                  default: "YoutubeDL-Material"
+              - variable: ytdl_file_manager_enabled
+                label: "Enable File Manager"
+                description: "Enables file management in the home screen."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_enable_downloads_manager
+                label: "Enable Download Manager"
+                description: "Enables download management page."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_allow_quality_select
+                label: "Allow Quality Select"
+                description: "Allows changing quality of files (resolution/bitrate). Disabling this means it's always the best quality selected."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_download_only_mode
+                label: "Download Only Mode"
+                description: "Playing videos is disabled, they can only be downloaded."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_use_api_key
+                label: "Enable YTDL-Material API Key"
+                description: "Allows YoutubeDL-Material's API to be utilized."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_api_key
+                label: "YTDL-Material API Key"
+                description: "Key used to authenticate YoutubeDL-Material's API users."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: ytdl_youtube_api_key
+                label: "Youtube API Key"
+                description: "Youtube API Key."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: ytdl_use_twitch_api
+                label: "Enable Twitch API Key"
+                description: "Enables Twitch API use, currently only used for downloading chats for VODs."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_twitch_api_key
+                label: "Twitch API Key"
+                description: "Twitch API Key."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: ytdl_twitch_auto_download_chat
+                label: "Twitch Auto Download Chat"
+                description: "Automatically downloads Twitch chats for VODs."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_use_sponsorblock_api
+                label: "Enable SponsorBlock"
+                description: "Enables Skip ads button in the video player if found on SponsorBlock."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_generate_nfo_files
+                label: "Generate NFO Files"
+                description: "Automatically creates NFO files for downloaded videos, primarily used with Kodi."
+                schema:
+                  type: boolean
+                  default: false
+        - variable: downloadersettigns
+          label: "Downloader Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: ytdl_default_file_output
+                label: "Default File Output"
+                description: "Changes the formatting for file names based on youtube-dl output template."
+                schema:
+                  type: string
+                  default: ""
+              - variable: ytdl_custom_args
+                label: "Custom Args"
+                description: "Youtube-dl args that get added to every download."
+                schema:
+                  type: string
+                  default: ""
+              - variable: ytdl_allow_playlist_categorization
+                label: "Allow Playlist Categorization"
+                description: "Allow Playlist Categorization"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_use_youtubedl_archive
+                label: "Use Youtubedl Archive"
+                description: "Creates and uses archive text files to avoid redownloading the same file, and helps track/port already downloaded files."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_include_thumbnail
+                label: "Include Thumbnail"
+                description: "Downloads thumbnail along with file."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_include_metadata
+                label: "Include Metadata"
+                description: "Downloads .info.json files along with file (highly recommended)."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_max_concurrent_downloads
+                label: "Max Concurrent Downloads"
+                description: "Limits the number of simultaneous downloads."
+                schema:
+                  type: int
+                  default: 5
+              - variable: ytdl_download_rate_limit
+                label: "Rate Limit"
+                description: "Limits download speed."
+                schema:
+                  type: string
+                  default: ""
+        - variable: advancedsettigns
+          label: "Advanced Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: ytdl_default_downloader
+                label: "Default Downloader"
+                description: "youtube-dl fork to use (youtube-dl, youtube-dlc, or yt-dlp)"
+                schema:
+                  type: string
+                  default: "yt-dlp"
+                  enum:
+                    - value: "yt-dlp"
+                      description: "yt-dlp"
+                    - value: "youtube-dlc"
+                      description: "youtube-dlc"
+                    - value: "youtube-dl"
+                      description: "youtube-dl"
+              - variable: ytdl_use_default_downloading_agent
+                label: "Use Default Downloading Agent"
+                description: "Whether to use youtube-dl's default agent or an alternative."
+                schema:
+                  type: boolean
+                  default: true
+              - variable: ytdl_custom_downloading_agent
+                label: "Custom Downloading Agent"
+                description: "Preferred download agent, only used if Use default downloading agent is set to false."
+                schema:
+                  type: string
+                  default: ""
+              - variable: ytdl_logger_level
+                label: "Logger Level"
+                description: "Logger Level."
+                schema:
+                  type: string
+                  default: "info"
+                  enum:
+                    - value: "info"
+                      description: "info"
+                    - value: "info"
+                      description: "info"
+                    - value: "debug"
+                      description: "debug"
+                    - value: "verbose"
+                      description: "verbose"
+                    - value: "warn"
+                      description: "warn"
+                    - value: "error"
+                      description: "error"
+              - variable: ytdl_jwt_expiration
+                label: "JWT Expiration"
+                description: "Length of time it takes for logins to expire."
+                schema:
+                  type: int
+                  default: 86400
+              - variable: ytdl_allow_advanced_download
+                label: "JWT Expiration"
+                description: "Enables an advanced download tab on the home page for additional download settings and information."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ytdl_use_cookies
+                label: "Use Cookies"
+                description: "Enables usage of uploaded cookies to download videos as if you were logged into that website."
+                schema:
+                  type: boolean
+                  default: false
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10253
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 10253
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: appdata
+          label: "App AppData Storage"
+          description: "Stores the Application AppData."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: users
+          label: "App Users Storage"
+          description: "Stores the Application Users."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: subscriptions
+          label: "App Subscriptions Storage"
+          description: "Stores the Application Subscriptions."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: audio
+          label: "App Audio Storage"
+          description: "Stores the Application Audio."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: video
+          label: "App Video Storage"
+          description: "Stores the Application Video."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 1000
+# Include{podSecurityContextAdvanced}
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}
