@@ -32,6 +32,10 @@ service:
         targetPort: 4001
         port: 10138
 
+ingress:
+  front:
+    autoLink: true
+
 persistence:
   data:
     enabled: true
