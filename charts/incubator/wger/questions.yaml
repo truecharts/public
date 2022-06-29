@@ -82,12 +82,14 @@ questions:
       type: dict
       attrs:
         - variable: sync_exercises_on_startup
-          label: "SYNC_EXERCISES_ON_STARTUP"
+          label: "SYNC_EXERCISES_ON_STARTUP (Slow Startup)"
+          description: "Enabling that can greatly impact the startup of this app"
           schema:
             type: boolean
             default: false
         - variable: download_exercise_images_on_startup
-          label: "DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP"
+          label: "DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP (Slow Startup)"
+          description: "Enabling that can greatly impact the startup of this app"
           schema:
             type: boolean
             default: false
