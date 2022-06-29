@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: youtubedl-material/charts/mongodb/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-mongodb&#39; of StatefulSet &#39;RELEASE-NAME-mongodb&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -35,7 +35,7 @@ hide:
 | Kubernetes Security Check         |    KSV106   |   Container capabilities must only include NET_BIND_SERVICE  |  LOW | <details><summary>Expand...</summary> Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability. <br> <hr> <br> container should drop all </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a><br></details>  |
 | Kubernetes Security Check         |    KSV106   |   Container capabilities must only include NET_BIND_SERVICE  |  LOW | <details><summary>Expand...</summary> Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability. <br> <hr> <br> container should drop all </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a><br></details>  |
 
-      
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-youtubedl-material&#39; of Deployment &#39;RELEASE-NAME-youtubedl-material&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -78,23 +78,23 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:73059f8cf026f44c2ec0c1bca7d003054cb7657ce437c252491e50004423e44b (debian 10.12)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -281,7 +281,7 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/opencontainers/runc         |    CVE-2022-29162   |   HIGH  |  v1.0.1 | v1.1.2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29162">https://access.redhat.com/security/cve/CVE-2022-29162</a><br><a href="https://github.com/opencontainers/runc/commit/d04de3a9b72d7a2455c1885fc75eb36d02cd17b5">https://github.com/opencontainers/runc/commit/d04de3a9b72d7a2455c1885fc75eb36d02cd17b5</a><br><a href="https://github.com/opencontainers/runc/releases/tag/v1.1.2">https://github.com/opencontainers/runc/releases/tag/v1.1.2</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-f3fp-gc8g-vw66">https://github.com/opencontainers/runc/security/advisories/GHSA-f3fp-gc8g-vw66</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVPZBV7ISA7QKRPTC7ZXWKMIQI2HZEBB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVPZBV7ISA7QKRPTC7ZXWKMIQI2HZEBB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D77CKD3AXPMU4PMQIQI5Q74SI4JATNND/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D77CKD3AXPMU4PMQIQI5Q74SI4JATNND/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GPQU4YC4AAY54JDXGDQHJEYKSXXG5T2Y/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GPQU4YC4AAY54JDXGDQHJEYKSXXG5T2Y/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29162">https://nvd.nist.gov/vuln/detail/CVE-2022-29162</a><br></details>  |
@@ -290,91 +290,91 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 
 #### Container: tzahi12345/youtubedl-material:4.3@sha256:58b17b5be6a9b27076214fa35ebf5929d90f077696f3c2185d2db858d426c599 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | coreutils         |    CVE-2016-2781   |   LOW  |  8.30-3ubuntu2 |  | <details><summary>Expand...</summary><a href="http://seclists.org/oss-sec/2016/q1/452">http://seclists.org/oss-sec/2016/q1/452</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/2">http://www.openwall.com/lists/oss-security/2016/02/28/2</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/3">http://www.openwall.com/lists/oss-security/2016/02/28/3</a><br><a href="https://access.redhat.com/security/cve/CVE-2016-2781">https://access.redhat.com/security/cve/CVE-2016-2781</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://lore.kernel.org/patchwork/patch/793178/">https://lore.kernel.org/patchwork/patch/793178/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2781">https://nvd.nist.gov/vuln/detail/CVE-2016-2781</a><br></details>  |
@@ -431,39 +431,39 @@ hide:
 
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: tccr.io/truecharts/mongodb:v5.0.9@sha256:c15a49a8255690f067299d1a001f7f165218d90fe8c66fd4daf0e33c3a107307 (debian 10.12)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -650,7 +650,7 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/opencontainers/runc         |    CVE-2022-29162   |   HIGH  |  v1.0.1 | v1.1.2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29162">https://access.redhat.com/security/cve/CVE-2022-29162</a><br><a href="https://github.com/opencontainers/runc/commit/d04de3a9b72d7a2455c1885fc75eb36d02cd17b5">https://github.com/opencontainers/runc/commit/d04de3a9b72d7a2455c1885fc75eb36d02cd17b5</a><br><a href="https://github.com/opencontainers/runc/releases/tag/v1.1.2">https://github.com/opencontainers/runc/releases/tag/v1.1.2</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-f3fp-gc8g-vw66">https://github.com/opencontainers/runc/security/advisories/GHSA-f3fp-gc8g-vw66</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVPZBV7ISA7QKRPTC7ZXWKMIQI2HZEBB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVPZBV7ISA7QKRPTC7ZXWKMIQI2HZEBB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D77CKD3AXPMU4PMQIQI5Q74SI4JATNND/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/D77CKD3AXPMU4PMQIQI5Q74SI4JATNND/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GPQU4YC4AAY54JDXGDQHJEYKSXXG5T2Y/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GPQU4YC4AAY54JDXGDQHJEYKSXXG5T2Y/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29162">https://nvd.nist.gov/vuln/detail/CVE-2022-29162</a><br></details>  |
@@ -659,81 +659,80 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/text         |    CVE-2021-38561   |   HIGH  |  v0.3.5 | 0.3.7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-38561">https://access.redhat.com/security/cve/CVE-2021-38561</a><br><a href="https://go.dev/cl/340830">https://go.dev/cl/340830</a><br><a href="https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f">https://go.googlesource.com/text/+/383b2e75a7a4198c42f8f87833eefb772868a56f</a><br><a href="https://pkg.go.dev/vuln/GO-2021-0113">https://pkg.go.dev/vuln/GO-2021-0113</a><br></details>  |
-
