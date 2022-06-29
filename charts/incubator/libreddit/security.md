@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: libreddit/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-libreddit&#39; of Deployment &#39;RELEASE-NAME-libreddit&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -45,25 +45,22 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 
 #### Container: spikecodes/libreddit:latest@sha256:864924575f9f7e250981978508ccd374c0105d0038af41f7a3d8a3f96b0c264f (alpine 3.16.0)
-    
+
 
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

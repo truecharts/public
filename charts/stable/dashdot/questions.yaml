@@ -107,6 +107,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: DASHDOT_ALWAYS_SHOW_PERCENTAGES
+          label: "DASHDOT_ALWAYS_SHOW_PERCENTAGES"
+          description: "To always show the current percentage of each graph in the top-left corner."
+          schema:
+            type: boolean
+            default: false
         - variable: oswidgetsettings
           label: "OS Widget Settings"
           schema:
@@ -114,9 +120,9 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: DASHDOT_DISABLE_HOST
-                label: "DASHDOT_DISABLE_HOST"
-                description: "If you want to hide the host part in the server widget"
+              - variable: DASHDOT_SHOW_HOST
+                label: "DASHDOT_SHOW_HOST"
+                description: "If you want to show the host part in the server widget"
                 schema:
                   type: boolean
                   default: false
