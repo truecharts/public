@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.12"></a>
+### [linkace-4.0.12](https://github.com/truecharts/apps/compare/linkace-4.0.11...linkace-4.0.12) (2022-06-29)
+
+#### Chore
+
+* bump linkace ([#3014](https://github.com/truecharts/apps/issues/3014))
+
+#### Fix
+
+* remove /app storage. ([#3012](https://github.com/truecharts/apps/issues/3012))
+
+
+
 <a name="linkace-4.0.11"></a>
 ### [linkace-4.0.11](https://github.com/truecharts/apps/compare/linkace-4.0.10...linkace-4.0.11) (2022-06-29)
 
