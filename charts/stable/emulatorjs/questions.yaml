@@ -324,6 +324,19 @@ questions:
 # Include{ingressTraefik}
 
 # Include{ingressExpert}
+        - variable: front
+          label: "Front Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
 
 # Include{ingressList}
 
