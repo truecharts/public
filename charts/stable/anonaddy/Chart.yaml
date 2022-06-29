@@ -7,7 +7,7 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.truecharts.org/
-  version: 3.0.17
+  version: 3.0.18
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
@@ -25,7 +25,7 @@ maintainers:
 name: anonaddy
 sources:
 - https://github.com/anonaddy/docker
-version: 9.0.9
+version: 9.0.10
 annotations:
   truecharts.org/catagories: |
     - email
