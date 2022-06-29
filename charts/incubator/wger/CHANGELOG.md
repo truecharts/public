@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wger-0.0.5"></a>
+### [wger-0.0.5](https://github.com/truecharts/apps/compare/wger-0.0.4...wger-0.0.5) (2022-06-29)
+
+#### Fix
+
+* another fix ([#3011](https://github.com/truecharts/apps/issues/3011))
+
+
+
 <a name="wger-0.0.4"></a>
 ### [wger-0.0.4](https://github.com/truecharts/apps/compare/wger-0.0.3...wger-0.0.4) (2022-06-29)
 
