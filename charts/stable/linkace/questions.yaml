@@ -318,6 +318,15 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
+        - variable: logs
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 
 # Include{persistenceList}
 

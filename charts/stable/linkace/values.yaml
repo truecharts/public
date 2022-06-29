@@ -82,9 +82,6 @@ service:
         targetPort: 80
 
 persistence:
-  app:
-    enabled: true
-    mountPath: "/app"
   logs:
     enabled: true
     mountPath: "/app/storage/logs"
