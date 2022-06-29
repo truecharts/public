@@ -1,0 +1,45 @@
+image:
+  repository: weejewel/wg-easy
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:fb997c869e6117e05102c38e8ea52788f7fc29f11c7e7b81cf9ed7d4504c9ac0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+    - NET_ADMIN
+    - SYS_MODULE
+
+security:
+  PUID: 0
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  PASSWORD: "secretpass"
+
+env:
+  WG_HOST: "hostname"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 51821
+        port: 51821
+  vpn:
+    enabled: true
+    ports:
+      vpn:
+        enabled: true
+        protocol: UDP
+        port: 51820
+        targetPort: 51820
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/wireguard"
