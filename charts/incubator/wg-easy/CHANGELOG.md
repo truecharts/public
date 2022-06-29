@@ -7,4 +7,3 @@
 #### Feat
 
 * Add WG-Easy Chart ([#2982](https://github.com/truecharts/apps/issues/2982))
-

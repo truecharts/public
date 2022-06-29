@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="wger-0.0.6"></a>
+### [wger-0.0.6](https://github.com/truecharts/apps/compare/wger-0.0.5...wger-0.0.6) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+* add ingress on webui aswell ([#3013](https://github.com/truecharts/apps/issues/3013))
+
+
+
 <a name="wger-0.0.5"></a>
 ### [wger-0.0.5](https://github.com/truecharts/apps/compare/wger-0.0.4...wger-0.0.5) (2022-06-29)
 

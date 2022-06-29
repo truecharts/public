@@ -110,7 +110,7 @@ hide:
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
           tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69
-          wger/server:latest@sha256:78fea660278d316a6a4235c1179a2355370aa1ce80d1ed3e346fbe37420a0b11
+          wger/server:latest@sha256:a9dc8d9975760b6ff6d0af36b9e301946e5ec0d94b93ca037077061da41ee4ad
         - 'tccr.io/truecharts/nginx:v1.23.0@sha256:f4f43b06452c23534106d5dcebdff45fc7737ad360c6b84dda801d55d25548ea'
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/postgresql:v14.4.0@sha256:9f88fe352b51208f9a8fa01a95c07a74751e72629d009230cfe18a427e30550c
@@ -439,7 +439,7 @@ hide:
 
 
 
-#### Container: wger/server:latest@sha256:78fea660278d316a6a4235c1179a2355370aa1ce80d1ed3e346fbe37420a0b11 (ubuntu 22.04)
+#### Container: wger/server:latest@sha256:a9dc8d9975760b6ff6d0af36b9e301946e5ec0d94b93ca037077061da41ee4ad (ubuntu 22.04)
 
 
 **ubuntu**
