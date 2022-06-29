@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-3.0.9"></a>
+### [meshcentral-3.0.9](https://github.com/truecharts/apps/compare/meshcentral-3.0.8...meshcentral-3.0.9) (2022-06-29)
+
+#### Chore
+
+* update helm general non-major Helm releases ([#3003](https://github.com/truecharts/apps/issues/3003))
+
+
+
 <a name="meshcentral-3.0.8"></a>
 ### [meshcentral-3.0.8](https://github.com/truecharts/apps/compare/meshcentral-3.0.7...meshcentral-3.0.8) (2022-06-25)
 

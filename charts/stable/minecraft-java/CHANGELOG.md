@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.13"></a>
+### [minecraft-java-1.0.13](https://github.com/truecharts/apps/compare/minecraft-java-1.0.12...minecraft-java-1.0.13) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="minecraft-java-1.0.12"></a>
 ### [minecraft-java-1.0.12](https://github.com/truecharts/apps/compare/minecraft-java-1.0.11...minecraft-java-1.0.12) (2022-06-25)
 

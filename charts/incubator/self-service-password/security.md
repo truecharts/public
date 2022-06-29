@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/self-service-password:v5.2.2@sha256:8f121cb243437e9d9507e1574dfb66db108e9463aaf713b1f97f904bdf728478
+          tccr.io/truecharts/self-service-password:v5.2.3@sha256:950a5a9ca9963466ec5555c9a83862daa10603874557ffc384b10146810ab2df
 
 ##### Scan Results
 
@@ -59,7 +59,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/self-service-password:v5.2.2@sha256:8f121cb243437e9d9507e1574dfb66db108e9463aaf713b1f97f904bdf728478 (alpine 3.15.4)
+#### Container: tccr.io/truecharts/self-service-password:v5.2.3@sha256:950a5a9ca9963466ec5555c9a83862daa10603874557ffc384b10146810ab2df (alpine 3.15.4)
 
 
 **alpine**

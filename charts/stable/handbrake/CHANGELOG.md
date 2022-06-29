@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-13.0.8"></a>
+### [handbrake-13.0.8](https://github.com/truecharts/apps/compare/handbrake-13.0.7...handbrake-13.0.8) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="handbrake-13.0.7"></a>
 ### [handbrake-13.0.7](https://github.com/truecharts/apps/compare/handbrake-13.0.6...handbrake-13.0.7) (2022-06-25)
 

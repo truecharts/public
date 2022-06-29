@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-3.0.14"></a>
+### [dokuwiki-3.0.14](https://github.com/truecharts/apps/compare/dokuwiki-3.0.13...dokuwiki-3.0.14) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="dokuwiki-3.0.13"></a>
 ### [dokuwiki-3.0.13](https://github.com/truecharts/apps/compare/dokuwiki-3.0.12...dokuwiki-3.0.13) (2022-06-26)
 

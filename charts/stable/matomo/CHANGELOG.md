@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="matomo-3.0.13"></a>
+### [matomo-3.0.13](https://github.com/truecharts/apps/compare/matomo-3.0.12...matomo-3.0.13) (2022-06-29)
+
+#### Chore
+
+* update helm general non-major Helm releases ([#3003](https://github.com/truecharts/apps/issues/3003))
+
+
+
 <a name="matomo-3.0.12"></a>
 ### [matomo-3.0.12](https://github.com/truecharts/apps/compare/matomo-3.0.11...matomo-3.0.12) (2022-06-27)
 

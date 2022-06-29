@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="self-service-password-1.0.9"></a>
+### [self-service-password-1.0.9](https://github.com/truecharts/apps/compare/self-service-password-1.0.8...self-service-password-1.0.9) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="self-service-password-1.0.8"></a>
 ### [self-service-password-1.0.8](https://github.com/truecharts/apps/compare/self-service-password-1.0.7...self-service-password-1.0.8) (2022-06-25)
 

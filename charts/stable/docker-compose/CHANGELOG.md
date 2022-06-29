@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-2.0.9"></a>
+### [docker-compose-2.0.9](https://github.com/truecharts/apps/compare/docker-compose-2.0.8...docker-compose-2.0.9) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="docker-compose-2.0.8"></a>
 ### [docker-compose-2.0.8](https://github.com/truecharts/apps/compare/docker-compose-2.0.7...docker-compose-2.0.8) (2022-06-25)
 

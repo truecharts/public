@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-3.0.8"></a>
+### [clarkson-3.0.8](https://github.com/truecharts/apps/compare/clarkson-3.0.7...clarkson-3.0.8) (2022-06-29)
+
+#### Chore
+
+* update helm general non-major Helm releases ([#3003](https://github.com/truecharts/apps/issues/3003))
+
+
+
 <a name="clarkson-3.0.7"></a>
 ### [clarkson-3.0.7](https://github.com/truecharts/apps/compare/clarkson-3.0.6...clarkson-3.0.7) (2022-06-25)
 

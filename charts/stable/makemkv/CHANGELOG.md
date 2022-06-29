@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="makemkv-2.0.8"></a>
+### [makemkv-2.0.8](https://github.com/truecharts/apps/compare/makemkv-2.0.7...makemkv-2.0.8) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
 <a name="makemkv-2.0.7"></a>
 ### [makemkv-2.0.7](https://github.com/truecharts/apps/compare/makemkv-2.0.6...makemkv-2.0.7) (2022-06-25)
 

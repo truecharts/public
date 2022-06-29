@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-10.0.10"></a>
+### [photoprism-10.0.10](https://github.com/truecharts/apps/compare/photoprism-10.0.9...photoprism-10.0.10) (2022-06-29)
+
+#### Chore
+
+* update helm general non-major Helm releases ([#3003](https://github.com/truecharts/apps/issues/3003))
+
+
+
 <a name="photoprism-10.0.9"></a>
 ### [photoprism-10.0.9](https://github.com/truecharts/apps/compare/photoprism-10.0.8...photoprism-10.0.9) (2022-06-25)
 

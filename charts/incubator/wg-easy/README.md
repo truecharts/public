@@ -1,14 +1,14 @@
 # Introduction
 
-YoutubeDL-Material is a Material Design frontend for youtube-dl.
+The easiest way to run WireGuard VPN + Web-based Admin UI.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/tzahi12345/youtubedl-material>
-* <https://github.com/Tzahi12345/YoutubeDL-Material>
+* <https://hub.docker.com/r/weejewel/wg-easy>
+* <https://github.com/WeeJeWel/wg-easy>
 
 ## Requirements
 
@@ -18,7 +18,6 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | mongodb | 1.0.19 |
 | https://library-charts.truecharts.org | common | 10.1.4 |
 
 ## Installing the Chart
