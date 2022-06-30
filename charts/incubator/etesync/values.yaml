@@ -8,6 +8,13 @@ podSecurityContext:
   runAsGroup: 373
   fsGroup: 373
 
+etesync:
+  DEBUG: false
+  SHELL_DEBUG: false
+  SUPER_USER: "admin"
+  SUPER_PASS: ""
+  SUPER_EMAIL: ""
+
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
 
@@ -18,9 +25,13 @@ env:
   SERVER: http
   DEBUG: "{{ .Values.etesync.DEBUG }}"
   SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
+  AUTO_UPDATE: true
   TIME_ZONE: "{{ .Values.TZ }}"
 
 secretEnv:
+  SUPER_USER: "{{ .Values.etesync.SUPER_USER }}"
+  SUPER_PASS: "{{ .Values.etesync.SUPER_PASS }}"
+  SUPER_EMAIL: "{{ .Values.etesync.SUPER_EMAIL }}"
   DATABASE_PASSWORD:
     secretKeyRef:
       name: dbcreds

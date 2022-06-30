@@ -95,6 +95,26 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: SUPER_USER
+          label: "SUPER_USER"
+          description: "Username of the Django superuser (First Install Only)"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: SUPER_PASS
+          label: "SUPER_PASS"
+          description: "Password of the Django superuser (First Install Only). Will be generated if left unset."
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: SUPER_EMAIL
+          label: "SUPER_EMAIL"
+          description: "Email of the Django superuser (First Install Only)"
+          schema:
+            type: string
+            default: ""
 
 # Include{containerConfig}
 
