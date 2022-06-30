@@ -1,0 +1,36 @@
+image:
+  repository: victorrds/etesync
+  pullPolicy: IfNotPresent
+  tag: 0.9.1@sha256:a880ed256dd78f14fb8dc9ab2e72ca2acebd3b8a87db65ea038f30abed27d896
+
+podSecurityContext:
+  runAsUser: 373
+  runAsGroup: 373
+  fsGroup: 373
+
+env:
+  TZ: "{{ .Values.TZ }}"
+
+secretEnv:
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 3735
+        port: 10253
+
+probes:
+  liveness:
+    path: "/"
+  readiness:
+    path: "/"
+  startup:
+    path: "/"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: etesync
+  postgresqlDatabase: etesync
