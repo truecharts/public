@@ -32,7 +32,7 @@ args:
 #   alerting:
 #     enabled: true
 #     data:
-#       '{{ include "common.names.fullname" . }}-alerting-rules.yaml': |-
+#       '{{ include "tc.common.names.fullname" . }}-alerting-rules.yaml': |-
 #       {{- if gt (len .Values.alerting_groups) 0 }}
 #           groups:
 #           {{- toYaml .Values.alerting_groups | nindent 6 }}
