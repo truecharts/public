@@ -95,6 +95,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: DEBUG_DJANGO
+          label: "DEBUG_DJANGO"
+          description: "Enable Django debug mode (not recommended for production)"
+          schema:
+            type: boolean
+            default: false
         - variable: SUPER_USER
           label: "SUPER_USER"
           description: "Username of the Django superuser (First Install Only)"
@@ -115,6 +121,26 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: ALLOWED_HOSTS
+          label: "ALLOWED_HOSTS"
+          description: "Must be a valid domain or * (* is not recommended for production)"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: AUTO_SIGNUP
+          label: "AUTO_SIGNUP"
+          description: "Enable automatic signup"
+          schema:
+            type: boolean
+            default: false
+        - variable: LANGUAGE_CODE
+          label: "LANGUAGE_CODE"
+          description: "Django language code"
+          schema:
+            type: string
+            default: "en-us"
+            required: true
 
 # Include{containerConfig}
 

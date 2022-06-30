@@ -9,11 +9,15 @@ podSecurityContext:
   fsGroup: 373
 
 etesync:
-  DEBUG: false
-  SHELL_DEBUG: false
+  DEBUG: true
+  SHELL_DEBUG: true
+  DEBUG_DJANGO: true
   SUPER_USER: "admin"
   SUPER_PASS: ""
   SUPER_EMAIL: ""
+  ALLOWED_HOSTS: "*"
+  AUTO_SIGNUP: false
+  LANGUAGE_CODE: "en-us"
 
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
@@ -25,6 +29,7 @@ env:
   SERVER: http
   DEBUG: "{{ .Values.etesync.DEBUG }}"
   SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
+  DEBUG_DJANGO: "{{ .Values.etesync.DEBUG_DJANGO }}"
   AUTO_UPDATE: true
   SUPER_USER: "{{ .Values.etesync.SUPER_USER }}"
   SUPER_PASS: "{{ .Values.etesync.SUPER_PASS }}"
@@ -41,6 +46,9 @@ env:
       name: dbcreds
       key: plainhost
   DATABASE_PORT: 5432
+  ALLOWED_HOSTS: "{{ .Values.etesync.ALLOWED_HOSTS }}"
+  AUTO_SIGNUP: "{{ .Values.etesync.AUTO_SIGNUP }}"
+  LANGUAGE_CODE: "{{ .Values.etesync.LANGUAGE_CODE }}"
   TIME_ZONE: "{{ .Values.TZ }}"
 
 service:
