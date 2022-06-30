@@ -8,10 +8,23 @@ podSecurityContext:
   runAsGroup: 373
   fsGroup: 373
 
+# Docker image configuration docs:
+# https://github.com/victor-rds/docker-etebase#settings-and-customization
+
+# EteSync configuration docs:
+# https://github.com/etesync/server#configuration
+
 env:
-  TZ: "{{ .Values.TZ }}"
+  SERVER: http
+  DEBUG: "{{ .Values.etesync.DEBUG }}"
+  SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
+  TIME_ZONE: "{{ .Values.TZ }}"
 
 secretEnv:
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 service:
   main:
@@ -20,6 +33,11 @@ service:
       main:
         targetPort: 3735
         port: 10253
+
+persistence:
+  app:
+    enabled: true
+    mountPath: "/data"
 
 probes:
   liveness:
