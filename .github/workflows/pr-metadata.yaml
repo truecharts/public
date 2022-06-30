@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Get branch name
         id: branch-name
-        uses: tj-actions/branch-names@9cd06d955f4184031cd71fbb1717ac268ade2ee0 # tag=v5.2
+        uses: tj-actions/branch-names@e0e3be64a3f10f671bb526b715f86a8a834dce75 # tag=v5.3
 
       - name: Save PR data to file
         env:
