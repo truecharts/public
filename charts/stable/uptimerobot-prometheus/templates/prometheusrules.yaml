@@ -2,22 +2,22 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: {{ include "common.names.fullname" . }}
+  name: {{ include "tc.common.names.fullname" . }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
     {{- with .Values.metrics.prometheusRule.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
   groups:
-    - name: {{ include "common.names.fullname" . }}
+    - name: {{ include "tc.common.names.fullname" . }}
       rules:
         - alert: UptimeRobotExporterAbsent
           annotations:
             description: Uptime Robot Exporter has disappeared from Prometheus service discovery.
             summary: Uptime Robot Exporter is down.
           expr: |
-            absent(up{job=~".*{{ include "common.names.fullname" . }}.*"} == 1)
+            absent(up{job=~".*{{ include "tc.common.names.fullname" . }}.*"} == 1)
           for: 5m
           labels:
             severity: critical
