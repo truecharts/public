@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.15"></a>
+### [grafana-4.0.15](https://github.com/truecharts/apps/compare/grafana-4.0.14...grafana-4.0.15) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
 <a name="grafana-4.0.14"></a>
 ### [grafana-4.0.14](https://github.com/truecharts/apps/compare/grafana-4.0.13...grafana-4.0.14) (2022-06-27)
 

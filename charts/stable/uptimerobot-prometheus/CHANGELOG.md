@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-4.0.9"></a>
+### [uptimerobot-prometheus-4.0.9](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.8...uptimerobot-prometheus-4.0.9) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
 <a name="uptimerobot-prometheus-4.0.8"></a>
 ### [uptimerobot-prometheus-4.0.8](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.7...uptimerobot-prometheus-4.0.8) (2022-06-25)
 

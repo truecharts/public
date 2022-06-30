@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-5.0.9"></a>
+### [loki-5.0.9](https://github.com/truecharts/apps/compare/loki-5.0.8...loki-5.0.9) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
 <a name="loki-5.0.8"></a>
 ### [loki-5.0.8](https://github.com/truecharts/apps/compare/loki-5.0.7...loki-5.0.8) (2022-06-25)
 

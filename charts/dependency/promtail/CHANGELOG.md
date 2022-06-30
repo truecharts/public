@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.14"></a>
+### [promtail-3.0.14](https://github.com/truecharts/apps/compare/promtail-3.0.13...promtail-3.0.14) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
 <a name="promtail-3.0.13"></a>
 ### [promtail-3.0.13](https://github.com/truecharts/apps/compare/promtail-3.0.12...promtail-3.0.13) (2022-06-25)
 
