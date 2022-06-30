@@ -26,16 +26,22 @@ env:
   DEBUG: "{{ .Values.etesync.DEBUG }}"
   SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
   AUTO_UPDATE: true
-  TIME_ZONE: "{{ .Values.TZ }}"
-
-secretEnv:
   SUPER_USER: "{{ .Values.etesync.SUPER_USER }}"
   SUPER_PASS: "{{ .Values.etesync.SUPER_PASS }}"
   SUPER_EMAIL: "{{ .Values.etesync.SUPER_EMAIL }}"
+  DB_ENGINE: postgres
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DATABASE_PASSWORD:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PORT: 5432
+  TIME_ZONE: "{{ .Values.TZ }}"
 
 service:
   main:
