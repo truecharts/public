@@ -56,14 +56,6 @@ service:
         targetPort: 8080
         port: 10248
 
-probes:
-  liveness:
-    path: "/"
-  readiness:
-    path: "/"
-  startup:
-    path: "/"
-
 persistence:
   run:
     enabled: true

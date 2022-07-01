@@ -1,0 +1,44 @@
+apiVersion: v2
+appVersion: "0.9.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.1.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.18
+deprecated: false
+description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/etesync
+icon: https://truecharts.org/_static/img/appicons/etesync.png
+keywords:
+  - etesync
+  - sync
+  - contacts
+  - calendars
+  - tasks
+  - notes
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: etesync
+sources:
+  - https://www.etesync.com/
+  - https://github.com/etesync
+  - https://github.com/victor-rds/docker-etebase
+  - https://hub.docker.com/r/victorrds/etesync
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+    - sync
+    - contacts
+    - calendars
+    - tasks
+    - notes
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
