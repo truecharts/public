@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-7.0.9"></a>
+### [pgadmin-7.0.9](https://github.com/truecharts/apps/compare/pgadmin-7.0.8...pgadmin-7.0.9) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
 <a name="pgadmin-7.0.8"></a>
 ### [pgadmin-7.0.8](https://github.com/truecharts/apps/compare/pgadmin-7.0.7...pgadmin-7.0.8) (2022-06-25)
 

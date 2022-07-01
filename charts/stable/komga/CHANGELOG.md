@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-6.0.10"></a>
+### [komga-6.0.10](https://github.com/truecharts/apps/compare/komga-6.0.9...komga-6.0.10) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
 <a name="komga-6.0.9"></a>
 ### [komga-6.0.9](https://github.com/truecharts/apps/compare/komga-6.0.8...komga-6.0.9) (2022-06-25)
 

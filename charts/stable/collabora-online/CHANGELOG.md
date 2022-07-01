@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.0.10"></a>
+### [collabora-online-12.0.10](https://github.com/truecharts/apps/compare/collabora-online-12.0.9...collabora-online-12.0.10) (2022-07-01)
+
+#### Chore
+
+* update container image tccr.io/truecharts/collabora to v22.05.3.1.1 ([#3017](https://github.com/truecharts/apps/issues/3017))
+
+
+
 <a name="collabora-online-12.0.9"></a>
 ### [collabora-online-12.0.9](https://github.com/truecharts/apps/compare/collabora-online-12.0.8...collabora-online-12.0.9) (2022-06-25)
 

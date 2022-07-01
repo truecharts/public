@@ -46,7 +46,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/dashdot:v3.8.2@sha256:7547f520380aeddfda4b7b4195c483c60641caba149bc8896416dd104c899ae5
+          tccr.io/truecharts/dashdot:v3.9.5@sha256:280d7d3330a01734d3387a1a83eb5ee29b5603871806cd3fd395549c983faa64
 
 ##### Scan Results
 
@@ -57,13 +57,19 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| curl         |    CVE-2022-32205   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32205">https://access.redhat.com/security/cve/CVE-2022-32205</a><br><a href="https://curl.se/docs/CVE-2022-32205.html">https://curl.se/docs/CVE-2022-32205.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32206   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32206">https://access.redhat.com/security/cve/CVE-2022-32206</a><br><a href="https://curl.se/docs/CVE-2022-32206.html">https://curl.se/docs/CVE-2022-32206.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32207   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32207">https://access.redhat.com/security/cve/CVE-2022-32207</a><br><a href="https://curl.se/docs/CVE-2022-32207.html">https://curl.se/docs/CVE-2022-32207.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32205   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32205">https://access.redhat.com/security/cve/CVE-2022-32205</a><br><a href="https://curl.se/docs/CVE-2022-32205.html">https://curl.se/docs/CVE-2022-32205.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32206   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32206">https://access.redhat.com/security/cve/CVE-2022-32206</a><br><a href="https://curl.se/docs/CVE-2022-32206.html">https://curl.se/docs/CVE-2022-32206.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32207   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32207">https://access.redhat.com/security/cve/CVE-2022-32207</a><br><a href="https://curl.se/docs/CVE-2022-32207.html">https://curl.se/docs/CVE-2022-32207.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
 
 
-
-
-#### Container: tccr.io/truecharts/dashdot:v3.8.2@sha256:7547f520380aeddfda4b7b4195c483c60641caba149bc8896416dd104c899ae5 (alpine 3.16.0)
+#### Container: tccr.io/truecharts/dashdot:v3.9.5@sha256:280d7d3330a01734d3387a1a83eb5ee29b5603871806cd3fd395549c983faa64 (alpine 3.16.0)
 
 
 **alpine**

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kavita-2.0.8"></a>
+### [kavita-2.0.8](https://github.com/truecharts/apps/compare/kavita-2.0.7...kavita-2.0.8) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
 <a name="kavita-2.0.7"></a>
 ### [kavita-2.0.7](https://github.com/truecharts/apps/compare/kavita-2.0.6...kavita-2.0.7) (2022-06-25)
 

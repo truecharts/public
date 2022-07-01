@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-5.0.7"></a>
+### [trilium-notes-5.0.7](https://github.com/truecharts/apps/compare/trilium-notes-5.0.6...trilium-notes-5.0.7) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
 <a name="trilium-notes-5.0.6"></a>
 ### [trilium-notes-5.0.6](https://github.com/truecharts/apps/compare/trilium-notes-5.0.5...trilium-notes-5.0.6) (2022-06-25)
 

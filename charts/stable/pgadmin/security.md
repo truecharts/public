@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/pgadmin4:v6.10@sha256:443202126a191489f91f6450aaa5504f060cfbebef40c3cf1da211b830c47abb
+          tccr.io/truecharts/pgadmin4:v6.11@sha256:d3f3b5c6839a3633fa939525c1aa7712d27cb53101d0f969b1a14ae02df75f68
 
 ##### Scan Results
 
@@ -53,21 +53,28 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| curl         |    CVE-2022-32205   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32205">https://access.redhat.com/security/cve/CVE-2022-32205</a><br><a href="https://curl.se/docs/CVE-2022-32205.html">https://curl.se/docs/CVE-2022-32205.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32206   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32206">https://access.redhat.com/security/cve/CVE-2022-32206</a><br><a href="https://curl.se/docs/CVE-2022-32206.html">https://curl.se/docs/CVE-2022-32206.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32207   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32207">https://access.redhat.com/security/cve/CVE-2022-32207</a><br><a href="https://curl.se/docs/CVE-2022-32207.html">https://curl.se/docs/CVE-2022-32207.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| curl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32205   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32205">https://access.redhat.com/security/cve/CVE-2022-32205</a><br><a href="https://curl.se/docs/CVE-2022-32205.html">https://curl.se/docs/CVE-2022-32205.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32206   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32206">https://access.redhat.com/security/cve/CVE-2022-32206</a><br><a href="https://curl.se/docs/CVE-2022-32206.html">https://curl.se/docs/CVE-2022-32206.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32206</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32207   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32207">https://access.redhat.com/security/cve/CVE-2022-32207</a><br><a href="https://curl.se/docs/CVE-2022-32207.html">https://curl.se/docs/CVE-2022-32207.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
+| libcurl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
 
 
-
-
-#### Container: tccr.io/truecharts/pgadmin4:v6.10@sha256:443202126a191489f91f6450aaa5504f060cfbebef40c3cf1da211b830c47abb (alpine 3.15.4)
+#### Container: tccr.io/truecharts/pgadmin4:v6.11@sha256:d3f3b5c6839a3633fa939525c1aa7712d27cb53101d0f969b1a14ae02df75f68 (alpine 3.15.4)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libldap         |    CVE-2022-29155   |   CRITICAL  |  2.6.0-r0 | 2.6.2-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-29155">https://access.redhat.com/security/cve/CVE-2022-29155</a><br><a href="https://bugs.openldap.org/show_bug.cgi?id=9815">https://bugs.openldap.org/show_bug.cgi?id=9815</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29155">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29155</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/05/msg00032.html">https://lists.debian.org/debian-lts-announce/2022/05/msg00032.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-29155">https://nvd.nist.gov/vuln/detail/CVE-2022-29155</a><br><a href="https://security.netapp.com/advisory/ntap-20220609-0007/">https://security.netapp.com/advisory/ntap-20220609-0007/</a><br><a href="https://ubuntu.com/security/notices/USN-5424-1">https://ubuntu.com/security/notices/USN-5424-1</a><br><a href="https://ubuntu.com/security/notices/USN-5424-2">https://ubuntu.com/security/notices/USN-5424-2</a><br><a href="https://www.debian.org/security/2022/dsa-5140">https://www.debian.org/security/2022/dsa-5140</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **python-pkg**
 
