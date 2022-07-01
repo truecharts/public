@@ -23,6 +23,7 @@ Kubernetes: `>=1.16.0-0`
 ## Installing the Chart
 
 To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To actually get this to work you will need to add Environment Variables, the services url, and the services api key.
 
 ## Upgrading, Rolling Back and Uninstalling the Chart
 
