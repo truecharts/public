@@ -2,27 +2,28 @@ apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: cloudflared
 version: 0.0.1
-appVersion: 2022.6.3
-description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge. 
+appVersion: "2022.6.3"
+description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge.
 type: application
 deprecated: false
-home: https://github.com/xstar97/NoobApps/tree/master/charts/stable/cloudflared
-icon: https://raw.githubusercontent.com/xstar97/NoobApps/master/stable/cloudflared/icon.png?raw=true
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cloudflared
+icon: https://truecharts.org/_static/img/appicons/cloudflared.png
 keywords:
-  - Cloudflared
+  - cloudflared
+  - networking
 sources:
-  - https://github.com/xstar97/NoobApps/tree/master/charts/cloudflared
+  - https://hub.docker.com/r/cloudflare/cloudflared
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
   version: 10.1.4
-    # condition:
+  # condition:
 maintainers:
-- email: info@xstar97thenoob.com
-  name: NoobCharts
-  url: https://github.com/xstar97/noobcharts
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
-    - networking
+    - incubator
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
