@@ -18,7 +18,7 @@ env:
   # App
   SERVER: http
   AUTO_UPDATE: true
-  ALLOWED_HOSTS: "*"
+  ALLOWED_HOSTS: "localhost"
   AUTO_SIGNUP: false
   LANGUAGE_CODE: "en-us"
   TIME_ZONE: "{{ .Values.TZ }}"
