@@ -4,17 +4,21 @@ Volumes Configuration
 {{- define "volumeConfiguration" }}
 {{- if or .Values.ixVolumes .Values.hostPathVolumes .Values.emptyDirVolumes }}
 volumes:
+{{ $host_p := list }}
 {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
   - name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
     hostPath:
       path: {{ $hostPathConfiguration.hostPath }}
+    {{ $host_p = mustAppend $host_p $hostPathConfiguration.hostPath }}
 {{- end }}
 {{- range $index, $hostPathConfiguration := .Values.ixVolumes }}
 {{ $dsName := base $hostPathConfiguration.hostPath }}
   - name: ix-host-volume-{{ $.Release.Name }}-{{ $dsName }}
     hostPath:
       path: {{ $hostPathConfiguration.hostPath }}
+    {{ $host_p = mustAppend $host_p $hostPathConfiguration.hostPath }}
 {{- end }}
+{{ include "common.storage.hostPathsValidation" $host_p }}
 {{- range $index, $emptyDirConfiguration := .Values.emptyDirVolumes }}
   - name: ix-emptydir-volume-{{ $.Release.Name }}-{{ $index }}
     emptyDir:
