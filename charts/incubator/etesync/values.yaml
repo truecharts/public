@@ -63,6 +63,15 @@ persistence:
   app:
     enabled: true
     mountPath: "/data"
+  secret:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/data/secret.txt"
+    subPath: "secret.txt"
+    volumeSpec:
+      secret:
+        secretName: "etesync-secret"
 
 probes:
   liveness:
