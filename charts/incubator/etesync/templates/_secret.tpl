@@ -14,9 +14,5 @@ data:
   {{- else }}
   secret.txt: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-stringData:
-  SUPER_USER: {{ .Values.etesync.SUPER_USER | quote }}
-  SUPER_PASS: {{ .Values.etesync.SUPER_PASS | quote }}
-  SUPER_EMAIL: {{ .Values.etesync.SUPER_EMAIL | quote }}
 
 {{- end }}

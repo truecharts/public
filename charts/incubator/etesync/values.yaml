@@ -8,17 +8,6 @@ podSecurityContext:
   runAsGroup: 373
   fsGroup: 373
 
-etesync:
-  ALLOWED_HOSTS: "*"
-  AUTO_SIGNUP: false
-  LANGUAGE_CODE: "en-us"
-  SUPER_USER: "admin"
-  SUPER_PASS: "TestPassword"
-  SUPER_EMAIL: "admin@example.com"
-  DEBUG: true
-  SHELL_DEBUG: true
-  DEBUG_DJANGO: true
-
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
 
@@ -29,29 +18,15 @@ env:
   # App
   SERVER: http
   AUTO_UPDATE: true
-  ALLOWED_HOSTS: "{{ .Values.etesync.ALLOWED_HOSTS }}"
-  AUTO_SIGNUP: "{{ .Values.etesync.AUTO_SIGNUP }}"
-  LANGUAGE_CODE: "{{ .Values.etesync.LANGUAGE_CODE }}"
+  ALLOWED_HOSTS: "*"
+  AUTO_SIGNUP: false
+  LANGUAGE_CODE: "en-us"
   TIME_ZONE: "{{ .Values.TZ }}"
 
-  # Superuser
-  SUPER_USER:
-    secretKeyRef:
-      name: etesync-secret
-      key: SUPER_USER
-  SUPER_PASS:
-    secretKeyRef:
-      name: etesync-secret
-      key: SUPER_PASS
-  SUPER_EMAIL:
-    secretKeyRef:
-      name: etesync-secret
-      key: SUPER_EMAIL
-
   # Debugging
-  DEBUG: "{{ .Values.etesync.DEBUG }}"
-  SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
-  DEBUG_DJANGO: "{{ .Values.etesync.DEBUG_DJANGO }}"
+  DEBUG: false
+  SHELL_DEBUG: false
+  DEBUG_DJANGO: false
 
   # Postgres
   DB_ENGINE: postgres
@@ -66,6 +41,12 @@ env:
       name: dbcreds
       key: plainhost
   DATABASE_PORT: 5432
+
+secretEnv:
+  # Superuser
+  SUPER_USER: "admin"
+  SUPER_PASS: ""
+  SUPER_EMAIL: ""
 
 service:
   main:

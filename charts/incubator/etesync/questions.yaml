@@ -76,9 +76,9 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-  - variable: etesync
+  - variable: env
     group: "Container Configuration"
-    label: "EteSync Configuration"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -103,6 +103,31 @@ questions:
             type: string
             default: "en-us"
             required: true
+        - variable: DEBUG
+          label: "DEBUG"
+          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
+          schema:
+            type: boolean
+            default: false
+        - variable: SHELL_DEBUG
+          label: "SHELL_DEBUG"
+          description: "Run `/entrypoint.sh` with `set -x`"
+          schema:
+            type: boolean
+            default: false
+        - variable: DEBUG_DJANGO
+          label: "DEBUG_DJANGO"
+          description: "Enable Django debug mode (not recommended for production)"
+          schema:
+            type: boolean
+            default: false
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
         - variable: SUPER_USER
           label: "SUPER_USER"
           description: "Username of the Django superuser (First Install Only)"
@@ -123,24 +148,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: DEBUG
-          label: "DEBUG"
-          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
-          schema:
-            type: boolean
-            default: false
-        - variable: SHELL_DEBUG
-          label: "SHELL_DEBUG"
-          description: "Run `/entrypoint.sh` with `set -x`"
-          schema:
-            type: boolean
-            default: false
-        - variable: DEBUG_DJANGO
-          label: "DEBUG_DJANGO"
-          description: "Enable Django debug mode (not recommended for production)"
-          schema:
-            type: boolean
-            default: false
 
 # Include{containerConfig}
 
