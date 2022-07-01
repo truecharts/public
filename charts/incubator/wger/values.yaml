@@ -121,14 +121,6 @@ configmap:
             client_max_body_size 100M;
         }
 
-probes:
-  liveness:
-    path: "/"
-  readiness:
-    path: "/"
-  startup:
-    path: "/"
-
 service:
   main:
     ports:

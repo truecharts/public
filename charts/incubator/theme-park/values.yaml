@@ -10,14 +10,6 @@ service:
         port: 10244
         targetPort: 8080
 
-probes:
-  liveness:
-    path: "/"
-  readiness:
-    path: "/"
-  startup:
-    path: "/"
-
 persistence:
   config:
     enabled: true

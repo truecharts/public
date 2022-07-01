@@ -70,14 +70,6 @@ persistence:
       secret:
         secretName: "etesync-secret"
 
-probes:
-  liveness:
-    path: "/"
-  readiness:
-    path: "/"
-  startup:
-    path: "/"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
