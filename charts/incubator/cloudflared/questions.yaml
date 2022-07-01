@@ -1,7 +1,7 @@
 # Include{groups}
 portals: {}
 questions:
-# Include{global}
+  # Include{global}
 
   - variable: controller
     group: "Controller"
@@ -52,7 +52,7 @@ questions:
                       description: "RollingUpdate: Create new pods and then kill old ones"
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
-# Include{controllerExpert}
+  # Include{controllerExpert}
 
   - variable: cfconfig
     group: "Container Configuration"
@@ -67,7 +67,7 @@ questions:
           schema:
             required: true
             type: string
- 
+
   - variable: probes
     group: "Container Configuration"
     label: "Healthcheck Probes"
@@ -179,7 +179,7 @@ questions:
                         type: string
                         default: "/"
 
-# Include{containerConfig}
+  # Include{containerConfig}
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -196,9 +196,9 @@ questions:
             type: boolean
             default: false
 
-# Include{serviceExpert}
+  # Include{serviceExpert}
 
-# Include{serviceList}
+  # Include{serviceList}
 
   - variable: persistence
     label: "Integrated Persistent Storage"
@@ -215,13 +215,13 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-# Include{persistenceList}
+  # Include{persistenceBasic}
+  # Include{persistenceAdvanced}
+  # Include{persistenceList}
 
-# Include{ingressList}
+  # Include{ingressList}
 
-# Include{security}
+  # Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
@@ -257,7 +257,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
+  # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
     group: "Security and Permissions"
