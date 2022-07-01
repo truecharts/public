@@ -13,8 +13,8 @@ etesync:
   SHELL_DEBUG: true
   DEBUG_DJANGO: true
   SUPER_USER: "admin"
-  SUPER_PASS: ""
-  SUPER_EMAIL: ""
+  SUPER_PASS: "TestPassword"
+  SUPER_EMAIL: "admin@example.com"
   ALLOWED_HOSTS: "*"
   AUTO_SIGNUP: false
   LANGUAGE_CODE: "en-us"
@@ -31,9 +31,18 @@ env:
   SHELL_DEBUG: "{{ .Values.etesync.SHELL_DEBUG }}"
   DEBUG_DJANGO: "{{ .Values.etesync.DEBUG_DJANGO }}"
   AUTO_UPDATE: true
-  SUPER_USER: "{{ .Values.etesync.SUPER_USER }}"
-  SUPER_PASS: "{{ .Values.etesync.SUPER_PASS }}"
-  SUPER_EMAIL: "{{ .Values.etesync.SUPER_EMAIL }}"
+  SUPER_USER:
+    secretKeyRef:
+      name: etesync-secret
+      key: SUPER_USER
+  SUPER_PASS:
+    secretKeyRef:
+      name: etesync-secret
+      key: SUPER_PASS
+  SUPER_EMAIL:
+    secretKeyRef:
+      name: etesync-secret
+      key: SUPER_EMAIL
   DB_ENGINE: postgres
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
