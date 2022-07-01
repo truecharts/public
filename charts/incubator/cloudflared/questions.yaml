@@ -1,0 +1,483 @@
+groups:
+  - name: "Container Image"
+    description: "Image to be used for container"
+  - name: "Controller"
+    description: "Configure workload deployment"
+  - name: "Container Configuration"
+    description: "additional container configuration"
+  - name: "controllerExpertCommamd"
+    description: "custom commands"
+  - name: "App Configuration"
+    description: "App specific config options"
+  - name: "Networking and Services"
+    description: "Configure Network and Services for container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
+  - name: "Resources and Devices"
+    description: "Specify resources/devices to be allocated to workload"
+  - name: "Middlewares"
+    description: "Traefik Middlewares"
+  - name: "Metrics"
+    description: "Metrics"
+  - name: "Addons"
+    description: "Addon Configuration"
+  - name: "Advanced"
+    description: "Advanced Configuration"
+portals: {}
+questions:
+
+  - variable: global
+    label: "global settings"
+    group: "Controller"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: isSCALE
+          label: "flag this is SCALE"
+          schema:
+            type: boolean
+            default: true
+            hidden: true
+  
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      hidden: true
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+        - variable: expert
+          label: "Show Expert Configuration Options"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: extraArgs
+                label: "Extra Args"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: arg
+                      label: "arg"
+                      schema:
+                        type: string
+              - variable: labelsList
+                label: "Controller Labels"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: labelItem
+                      label: "Label"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+              - variable: annotationsList
+                label: " Controller Annotations"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: annotationItem
+                      label: "Label"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+  
+  - variable: TZ
+    label: "Timezone"
+    group: "Container Configuration"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  - variable: cfconfig
+    group: "Container Configuration"
+    label: "CloudFlare Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: token
+          label: "tunnel token"
+          description: "token for tunnel(tunnel managed by cloudflare not locally)"
+          schema:
+            required: true
+            type: string
+ 
+  - variable: probes
+    group: "Container Configuration"
+    label: "Healthcheck Probes"
+    schema:
+      hidden: true
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: liveness
+          label: "Liveness"
+          description: "Liveness Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Probe Type"
+                      description: "Probe Type"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        enum:
+                          - value: "TCP"
+                            description: "TCP"
+                          - value: "HTTP"
+                            description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
+                    - variable: path
+                      label: "Probe Path"
+                      description: "Probe Path"
+                      schema:
+                        type: string
+                        default: "/"
+        - variable: readiness
+          label: "Readiness"
+          description: "Readiness Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Probe Type"
+                      description: "Probe Type"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        enum:
+                          - value: "TCP"
+                            description: "TCP"
+                          - value: "HTTP"
+                            description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
+                    - variable: path
+                      label: "Probe Path"
+                      description: "Probe Path"
+                      schema:
+                        type: string
+                        default: "/"
+        - variable: startup
+          label: "Startup"
+          description: "Startup Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Probe Type"
+                      description: "Probe Type"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        enum:
+                          - value: "TCP"
+                            description: "TCP"
+                          - value: "HTTP"
+                            description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
+                    - variable: path
+                      label: "Probe Path"
+                      description: "Probe Path"
+                      schema:
+                        type: string
+                        default: "/"
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "Simple"
+                  enum:
+                    - value: "Simple"
+                      description: "Simple"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "NodePort"
+                      description: "NodePort (Advanced)"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer (Advanced)"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ipFamilyPolicy
+                label: "IP Family Policy"
+                description: "(Advanced) Specify the ip policy"
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: string
+                  default: "SingleStack"
+                  enum:
+                    - value: "SingleStack"
+                      description: "SingleStack"
+                    - value: "PreferDualStack"
+                      description: "PreferDualStack"
+                    - value: "RequireDualStack"
+                      description: "RequireDualStack"
+              - variable: ipFamilies
+                label: "(advanced) IP families"
+                description: "(advanced) The ip families that should be used"
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipFamily
+                      label: "IP family"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 6969
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 6969
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: true
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568

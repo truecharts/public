@@ -1,0 +1,30 @@
+
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: cloudflared
+version: 0.0.1
+appVersion: 2022.6.3
+description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge. 
+type: application
+deprecated: false
+home: https://github.com/xstar97/NoobApps/tree/master/charts/stable/cloudflared
+icon: https://raw.githubusercontent.com/xstar97/NoobApps/master/stable/cloudflared/icon.png?raw=true
+keywords:
+  - Cloudflared
+sources:
+  - https://github.com/xstar97/NoobApps/tree/master/charts/cloudflared
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.1.4
+    # condition:
+maintainers:
+- email: info@xstar97thenoob.com
+  name: NoobCharts
+  url: https://github.com/xstar97/noobcharts
+annotations:
+  truecharts.org/catagories: |
+    - networking
+    - vpn
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,0 +1,17 @@
+image:
+  repository: cloudflare/cloudflared
+  pullPolicy: IfNotPresent
+  tag: 2022.6.3
+
+extraArgs: ["tunnel","--no-autoupdate","run","--token","{{ .Values.cfconfig.token }}"]
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 6969
+        port: 6969
