@@ -83,44 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: DEBUG
-          label: "DEBUG"
-          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
-          schema:
-            type: boolean
-            default: false
-        - variable: SHELL_DEBUG
-          label: "SHELL_DEBUG"
-          description: "Run `/entrypoint.sh` with `set -x`"
-          schema:
-            type: boolean
-            default: false
-        - variable: DEBUG_DJANGO
-          label: "DEBUG_DJANGO"
-          description: "Enable Django debug mode (not recommended for production)"
-          schema:
-            type: boolean
-            default: false
-        - variable: SUPER_USER
-          label: "SUPER_USER"
-          description: "Username of the Django superuser (First Install Only)"
-          schema:
-            type: string
-            default: "admin"
-            required: true
-        - variable: SUPER_PASS
-          label: "SUPER_PASS"
-          description: "Password of the Django superuser (First Install Only). Will be generated if left unset."
-          schema:
-            type: string
-            default: ""
-            private: true
-        - variable: SUPER_EMAIL
-          label: "SUPER_EMAIL"
-          description: "Email of the Django superuser (First Install Only)"
-          schema:
-            type: string
-            default: ""
         - variable: ALLOWED_HOSTS
           label: "ALLOWED_HOSTS"
           description: "Must be a valid domain or * (* is not recommended for production)"
@@ -141,6 +103,44 @@ questions:
             type: string
             default: "en-us"
             required: true
+        - variable: SUPER_USER
+          label: "SUPER_USER"
+          description: "Username of the Django superuser (First Install Only)"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: SUPER_PASS
+          label: "SUPER_PASS"
+          description: "Password of the Django superuser (First Install Only). Will be generated if left unset."
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: SUPER_EMAIL
+          label: "SUPER_EMAIL"
+          description: "Email of the Django superuser (First Install Only)"
+          schema:
+            type: string
+            default: ""
+        - variable: DEBUG
+          label: "DEBUG"
+          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
+          schema:
+            type: boolean
+            default: false
+        - variable: SHELL_DEBUG
+          label: "SHELL_DEBUG"
+          description: "Run `/entrypoint.sh` with `set -x`"
+          schema:
+            type: boolean
+            default: false
+        - variable: DEBUG_DJANGO
+          label: "DEBUG_DJANGO"
+          description: "Enable Django debug mode (not recommended for production)"
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 
