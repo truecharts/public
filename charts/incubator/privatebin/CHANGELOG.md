@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.4"></a>
+### [privatebin-0.0.4](https://github.com/truecharts/apps/compare/privatebin-0.0.3...privatebin-0.0.4) (2022-07-01)
+
+#### Feat
+
+* Add EteSync to incubator ([#3024](https://github.com/truecharts/apps/issues/3024))
+
+
+
 <a name="privatebin-0.0.3"></a>
 ### [privatebin-0.0.3](https://github.com/truecharts/apps/compare/privatebin-0.0.2...privatebin-0.0.3) (2022-06-28)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wger-0.0.7"></a>
+### [wger-0.0.7](https://github.com/truecharts/apps/compare/wger-0.0.6...wger-0.0.7) (2022-07-01)
+
+#### Feat
+
+* Add EteSync to incubator ([#3024](https://github.com/truecharts/apps/issues/3024))
+
+
+
 <a name="wger-0.0.6"></a>
 ### [wger-0.0.6](https://github.com/truecharts/apps/compare/wger-0.0.5...wger-0.0.6) (2022-06-29)
 
