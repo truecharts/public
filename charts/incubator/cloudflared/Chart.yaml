@@ -14,17 +14,16 @@ keywords:
 sources:
   - https://hub.docker.com/r/cloudflare/cloudflared
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.1.4
-  # condition:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.1.4
+    # condition:
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - incubator
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
-  
