@@ -1,0 +1,37 @@
+image:
+  repository: tomsquest/docker-radicale
+  pullPolicy: IfNotPresent
+  tag: 3.1.7.0@sha256:ffc26d09d9ef85a477b9f22aa2f08bf35af8ddbee7bfbba192df7c567e21ebb5
+
+# Docker image configuration docs:
+# https://github.com/tomsquest/docker-radicale#custom-configuration
+
+# Radicale configuration docs:
+# https://radicale.org/v3.html#configuration
+
+podSecurityContext:
+  runAsUser: 2999
+  runAsGroup: 2999
+  fsGroup: 2999
+
+env:
+  # Skip chown on /data.
+  TAKE_FILE_OWNERSHIP: false
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 5232
+        port: 10255
+
+persistence:
+  config:
+    enabled: true
+    type: configMap
+    name: radicale-config
+    readOnly: true
+  data:
+    enabled: true
+    mountPath: /data
