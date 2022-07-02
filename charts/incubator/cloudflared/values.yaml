@@ -6,7 +6,7 @@ image:
 extraArgs: ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
 
 env:
-  token: ""
+  token: "testtoken"
 
 securityContext:
   readOnlyRootFilesystem: false
