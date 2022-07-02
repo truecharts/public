@@ -22,3 +22,11 @@ service:
       main:
         targetPort: 6969
         port: 6969
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
