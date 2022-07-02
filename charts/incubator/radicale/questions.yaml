@@ -166,28 +166,29 @@ questions:
                   required: true
               - variable: users
                 label: Basic Authentication Users (htpasswd)
-                schema: list
-                default: []
-                items:
-                  - variable: usersEntry
-                    label: ""
-                    schema:
-                      additional_attrs: true
-                      type: dict
-                      attrs:
-                        - variable: username
-                          label: "Username"
-                          schema:
-                            type: string
-                            required: true
-                            default: ""
-                        - variable: password
-                          label: "Password"
-                          schema:
-                            type: string
-                            required: true
-                            private: true
-                            default: ""
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: usersEntry
+                      label: ""
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: username
+                            label: "Username"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: password
+                            label: "Password"
+                            schema:
+                              type: string
+                              required: true
+                              private: true
+                              default: ""
 
         - variable: rights
           label: Rights Configuration
