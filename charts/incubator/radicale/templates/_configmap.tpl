@@ -100,6 +100,7 @@ data:
     # Rights backend
     # Value: none | authenticated | owner_only | owner_write | from_file
     #type = owner_only
+    type = {{ .Values.radicale.rights.type }}
 
     # File for rights management from_file
     #file = /etc/radicale/rights

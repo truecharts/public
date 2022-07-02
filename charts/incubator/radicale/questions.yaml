@@ -130,6 +130,26 @@ questions:
                   type: string
                   default: utf-8
                   required: true
+        - variable: rights
+          label: Rights Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: type
+                description: The backend that is used to check the access rights of collections.
+                schema:
+                  type: string
+                  default: owner_only
+                  required: true
+                  enum:
+                    - value: authenticated
+                      description: authenticated
+                    - value: owner_only
+                      description: owner_only
+                    - value: owner_write
+                      description: owner_write
         - variable: storage
           label: Storage Configuration
           schema:
