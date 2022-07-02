@@ -1,4 +1,4 @@
-# Include{groups}
+ Include{groups}
 portals: {}
 questions:
 # Include{global}
@@ -77,7 +77,7 @@ questions:
           schema:
             type: string
             private: true
-            default: ""    
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -126,7 +126,7 @@ questions:
           description: "Cloudflare DNS Zones"
           schema:
             type: string
-            default: "A;A;AAAA"       
+            default: "A;A;AAAA"
 # Include{containerConfig}
 
   - variable: serviceexpert
