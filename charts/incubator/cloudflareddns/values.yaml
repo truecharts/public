@@ -26,6 +26,14 @@ env:
   CF_ZONES: "example.com;foobar.com;foobar.com"
   CF_RECORDTYPES: "A;A;AAAA"
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 service:
   main:
     enabled: false
