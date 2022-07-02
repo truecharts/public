@@ -2,7 +2,6 @@
 portals: {}
 questions:
   # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -53,7 +52,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
   # Include{controllerExpert}
-
   - variable: cfconfig
     group: "Container Configuration"
     label: "CloudFlare Configuration"
@@ -67,7 +65,6 @@ questions:
           schema:
             required: true
             type: string
-
   - variable: probes
     group: "Container Configuration"
     label: "Healthcheck Probes"
@@ -178,9 +175,7 @@ questions:
                       schema:
                         type: string
                         default: "/"
-
   # Include{containerConfig}
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -195,9 +190,7 @@ questions:
           schema:
             type: boolean
             default: false
-
   # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -216,11 +209,8 @@ questions:
   # Include{persistenceBasic}
   # Include{persistenceAdvanced}
   # Include{persistenceList}
-
   # Include{ingressList}
-
   # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -256,7 +246,6 @@ questions:
                   type: boolean
                   default: false
   # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -283,5 +272,4 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
