@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.2@sha256:2eb9d9c87391d4dd389ce5daf494f17799e12bd8ac1aa68804cef4c013537799
+  tag: v24.0.2@sha256:2e8ce7bc258d243b81a3ff65bbae356e8e94d7844758f4342ca711709bdbe078
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -17,7 +17,14 @@ service:
     ports:
       main:
         port: 10020
-        targetPort: 80
+        targetPort: 8080
+  hpb:
+    enabled: true
+    ports:
+      hpb:
+        enabled: true
+        port: 7867
+        targetPort: 7867
 
 secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -28,28 +35,41 @@ probes:
     custom: true
     spec:
       initialDelaySeconds: 25
-      tcpSocket:
-        port: 9000
+      httpGet:
+        path: /status.php
+        port: 8080
+        httpHeaders:
+        - name: Host
+          value: "test.fakedomain.dns"
 
   readiness:
     custom: true
     spec:
       initialDelaySeconds: 25
-      tcpSocket:
-        port: 9000
+      httpGet:
+        path: /status.php
+        port: 8080
+        httpHeaders:
+        - name: Host
+          value: "test.fakedomain.dns"
 
   startup:
     custom: true
     spec:
       initialDelaySeconds: 25
-      tcpSocket:
-        port: 9000
+      httpGet:
+        path: /status.php
+        port: 8080
+        httpHeaders:
+        - name: Host
+          value: "test.fakedomain.dns"
 
 initContainers:
-  datadir:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+  prestart:
+    image: '{{ include "tc.common.images.selector" . }}'
     securityContext:
       runAsUser: 0
+      runAsGroup: 0
       privileged: true
     command:
       - "/bin/sh"
@@ -63,7 +83,7 @@ initContainers:
 
     volumeMounts:
       - name: data
-        mountPath: "/data"
+        mountPath: "/var/www/html/data"
       - name: html
         mountPath: "/html"
 
@@ -102,6 +122,13 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/data"
+  varrun:
+    enabled: true
+  cache:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/cache/nginx
+    medium: Memory
   nginx:
     enabled: "true"
     mountPath: "/etc/nginx"
@@ -156,7 +183,7 @@ configmap:
             }
 
             server {
-                listen 80;
+                listen 8080;
 
                 # HSTS settings
                 # WARNING: Only add the preload option once you read about

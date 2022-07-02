@@ -1,11 +1,12 @@
 {{/* Define the nginx container */}}
 {{- define "nextcloud.nginx" -}}
-image: nginx:alpine
+image: nginxinc/nginx-unprivileged:1.23
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
-{{- with .Values.securityContext }}
 securityContext:
-  {{- tpl ( toYaml . ) $ | nindent 2 }}
-{{- end }}
+  runAsUser: 33
+  runAsGroup: 33
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
 {{- with (include "tc.common.controller.volumeMounts" . | trim) }}
 volumeMounts:
   {{ nindent 2 . }}
@@ -15,12 +16,12 @@ volumeMounts:
     readOnly: true
     subPath: nginx.conf
 ports:
-  - containerPort: 80
+  - containerPort: 8080
 
 readinessProbe:
   httpGet:
-    path: /status.php
-    port: 80
+    path: /robots.txt
+    port: 8080
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"
@@ -30,8 +31,8 @@ readinessProbe:
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   httpGet:
-    path: /status.php
-    port: 80
+    path: /robots.txt
+    port: 8080
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"
@@ -41,8 +42,8 @@ livenessProbe:
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
   httpGet:
-    path: /status.php
-    port: 80
+    path: /robots.txt
+    port: 8080
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"

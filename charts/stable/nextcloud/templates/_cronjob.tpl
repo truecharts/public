@@ -3,7 +3,7 @@
 {{- $jobName := include "tc.common.names.fullname" . }}
 
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
@@ -31,7 +31,7 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
+              image: '{{ include "tc.common.images.selector" . }}'
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
               command: [ "php" ]
               args:
@@ -45,6 +45,8 @@ spec:
               securityContext:
                 runAsUser: 33
                 runAsGroup: 33
+                readOnlyRootFilesystem: true
+                runAsNonRoot: true
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 

@@ -2,10 +2,11 @@
 {{- define "nextcloud.hpb" -}}
 image: '{{ include "tc.common.images.selector" . }}'
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
-{{- with .Values.securityContext }}
 securityContext:
-  {{- tpl ( toYaml . ) $ | nindent 2 }}
-{{- end }}
+  runAsUser: 33
+  runAsGroup: 33
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
 {{- with (include "tc.common.controller.volumeMounts" . | trim) }}
 volumeMounts:
   {{ nindent 2 . }}
@@ -38,24 +39,29 @@ command:
   - "-c"
   - |
     /bin/bash <<'EOF'
-    echo "Waiting for Nextcloud to start..."
-    until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1/status.php); do
-        printf '.'
-        sleep 5
-    done
-
+    sleep 10
     echo "Waiting for notify_push file to be available..."
     until [ -f /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push ]
     do
-         sleep 30
+         sleep 10
          echo "Notify_push not found... waiting..."
     done
-    echo "Notify_push found... Launching High Performance Backend..."
+    echo "Waiting for Nextcloud to start..."
+    until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php); do
+        echo "Nextcloud not found... waiting..."
+        sleep 10
+    done
+    until $(curl --silent --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php | jq --raw-output '.installed' | grep "true"); do
+        echo "Nextcloud not installed... waiting..."
+        sleep 10
+    done
+    sleep 10
+    echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php
     EOF
 env:
   - name: NEXTCLOUD_URL
-    value: 'http://127.0.0.1'
+    value: 'http://127.0.0.1:8080'
   - name: TRUSTED_PROXIES
     value: "{{ .Values.env.TRUSTED_PROXIES }}"
   - name: POSTGRES_DB
