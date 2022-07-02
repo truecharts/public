@@ -1,0 +1,32 @@
+image:
+  repository: cloudflare/cloudflared
+  pullPolicy: IfNotPresent
+  tag: 2022.6.3
+
+extraArgs: ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
+
+env:
+  token: ""
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 6969
+        port: 6969
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
