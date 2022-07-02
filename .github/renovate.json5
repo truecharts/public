@@ -72,7 +72,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/general/major"],
       "groupName": ["helm general major"],
-      "paths": ["charts/incubator/", "charts/SCALE/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/incubator/", "charts/SCALE/", "charts/dev/", "charts/enterprise/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -87,7 +87,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major"],
       "groupName": "helm general non-major",
-      "paths": ["charts/incubator/", "charts/SCALE/", "charts/games/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/incubator/", "charts/SCALE/", "charts/dev/", "charts/enterprise/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -143,7 +143,7 @@
       "updateTypes": ["major"],
       "bumpVersion": "minor",
       "labels": ["update/docker/general/major"],
-      "paths": ["charts/dependency/", "charts/SCALE/", "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/", "charts/SCALE/", "charts/incubator/", "charts/dev/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 8am"
       ],
@@ -160,7 +160,7 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major"],
       "groupName": ["docker general non-major"],
-      "paths": ["charts/dependency/", "charts/SCALE/",  "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 8am"
       ],
