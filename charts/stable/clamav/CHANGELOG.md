@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-3.0.9"></a>
+### [clamav-3.0.9](https://github.com/truecharts/apps/compare/clamav-3.0.8...clamav-3.0.9) (2022-07-02)
+
+#### Chore
+
+* update to v1 from v1bet ([#3047](https://github.com/truecharts/apps/issues/3047))
+
+
+
 <a name="clamav-3.0.8"></a>
 ### [clamav-3.0.8](https://github.com/truecharts/apps/compare/clamav-3.0.7...clamav-3.0.8) (2022-07-02)
 

@@ -7,4 +7,3 @@
 #### Feat
 
 * add Radicale to incubator ([#3030](https://github.com/truecharts/apps/issues/3030))
-
