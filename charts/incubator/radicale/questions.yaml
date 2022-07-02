@@ -130,6 +130,26 @@ questions:
                   type: string
                   default: utf-8
                   required: true
+        - variable: auth
+          label: Auth Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: delay
+                label: delay
+                description: Average delay after failed login attempts in seconds.
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: realm
+                label: realm
+                description: Message displayed in the client when a password is needed.
+                schema:
+                  type: string
+                  default: Radicale - Password Required
+                  required: true
         - variable: rights
           label: Rights Configuration
           schema:

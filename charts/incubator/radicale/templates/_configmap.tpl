@@ -87,13 +87,15 @@ data:
     # Value: plain | bcrypt | md5
     # bcrypt requires the installation of radicale[bcrypt].
     #htpasswd_encryption = md5
+    htpasswd_encryption = bcrypt
 
     # Incorrect authentication delay (seconds)
     #delay = 1
+    delay = {{ .Values.radicale.auth.delay }}
 
     # Message displayed in the client when a password is needed
     #realm = Radicale - Password Required
-
+    realm = {{ .Values.radicale.auth.realm }}
 
     [rights]
 
