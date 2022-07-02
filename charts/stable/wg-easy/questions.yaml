@@ -24,6 +24,7 @@ questions:
             type: boolean
             default: true
 # Include{global}
+
   - variable: controller
     group: "Controller"
     label: ""
@@ -64,7 +65,7 @@ questions:
                 label: "(Advanced) Update Strategy"
                 schema:
                   type: string
-                  default: "RollingUpdate"
+                  default: "Recreate"
                   required: true
                   enum:
                     - value: "Recreate"
@@ -74,120 +75,64 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: lbreddit
+  - variable: env
     group: "Container Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: theme
-          label: "Default Theme"
+        - variable: WG_HOST
+          label: "WG_HOST"
+          description: "The public hostname of your VPN server."
           schema:
             type: string
-            default: "system"
-            enum:
-              - value: "system"
-                description: "system"
-              - value: "light"
-                description: "light"
-              - value: "dark"
-                description: "dark"
-              - value: "black"
-                description: "black"
-              - value: "dracula"
-                description: "dracula"
-              - value: "nord"
-                description: "nord"
-              - value: "laserwave"
-                description: "laserwave"
-              - value: "violet"
-                description: "violet"
-              - value: "gold"
-                description: "gold"
-              - value: "rosebox"
-                description: "rosebox"
-        - variable: front_page
-          label: "Front Page"
+            required: true
+            default: ""
+        - variable: WG_MTU
+          label: "WG_MTU"
+          description: "The MTU the clients will use. Server uses default WG MTU."
+          schema:
+            type: int
+            default: 1420
+        - variable: WG_PERSISTENT_KEEPALIVE
+          label: "WG_PERSISTENT_KEEPALIVE"
+          description: "Value in seconds to keep the connection open."
+          schema:
+            type: int
+            default: 0
+        - variable: WG_DEFAULT_ADDRESS
+          label: "WG_DEFAULT_ADDRESS"
+          description: "Clients IP address range."
           schema:
             type: string
-            default: "default"
-            enum:
-              - value: "default"
-                description: "default"
-              - value: "popular"
-                description: "popular"
-              - value: "all"
-                description: "all"
-        - variable: layout
-          label: "Layout"
+            default: "10.8.0.x"
+        - variable: WG_DEFAULT_DNS
+          label: "WG_DEFAULT_DNS"
+          description: "Clients default DNS IP"
           schema:
             type: string
-            default: "card"
-            enum:
-              - value: "card"
-                description: "card"
-              - value: "clean"
-                description: "clean"
-              - value: "compact"
-                description: "compact"
-        - variable: post_sort
-          label: "Post Sort"
+            default: "1.1.1.1"
+        - variable: WG_ALLOWED_IPS
+          label: "WG_ALLOWED_IPS"
+          description: "Allowed IPs clients will use."
           schema:
             type: string
-            default: "hot"
-            enum:
-              - value: "hot"
-                description: "hot"
-              - value: "new"
-                description: "new"
-              - value: "top"
-                description: "top"
-              - value: "rising"
-                description: "rising"
-              - value: "controversial"
-                description: "controversial"
-        - variable: comment_sort
-          label: "Comment Sort"
+            default: "0.0.0.0/0, ::/0"
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PASSWORD
+          label: "ADMIN_PASSWORD"
           schema:
             type: string
-            default: "confidence"
-            enum:
-              - value: "confidence"
-                description: "confidence"
-              - value: "top"
-                description: "top"
-              - value: "new"
-                description: "new"
-              - value: "controversial"
-                description: "controversial"
-              - value: "old"
-                description: "old"
-        - variable: wide
-          label: "Wide"
-          schema:
-            type: boolean
-            default: false
-        - variable: show_nsfw
-          label: "Show NSFW"
-          schema:
-            type: boolean
-            default: false
-        - variable: use_hls
-          label: "Use HLS"
-          schema:
-            type: boolean
-            default: false
-        - variable: hide_hls_notification
-          label: "Hide HLS Notification"
-          schema:
-            type: boolean
-            default: false
-        - variable: autoplay_videos
-          label: "Auto Play Videos"
-          schema:
-            type: boolean
-            default: false
+            private: true
+            required: true
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -206,7 +151,7 @@ questions:
             attrs:
 # Include{serviceSelector}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: "Web GUI port configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -216,7 +161,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10252
+                              default: 51821
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -225,11 +170,16 @@ questions:
                               default: false
                               show_subquestions_if: true
                               subquestions:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
                                 - variable: protocol
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "TCP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -251,7 +201,63 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 51821
+        - variable: vpn
+          label: "Wireguard Internal"
+          description: "Wireguard Internal Port"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: vpn
+                      label: "Wireguard Interal Port"
+                      description: "Omada Controller or EAP Discovery Utility discovers Omada devices."
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51820
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "UDP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 51820
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -272,6 +278,23 @@ questions:
 
 # Include{serviceList}
 
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
 
   - variable: ingress
@@ -322,7 +345,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -332,7 +355,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -347,13 +370,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

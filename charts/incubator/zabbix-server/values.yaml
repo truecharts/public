@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/zabbix-server
-  tag: v6.0.5@sha256:3744428aca58421820f775d41f8ac83fab551d6958b0d984c9b349d282483785
+  tag: v6.0.6@sha256:6ad564abb89c735dae25407111ac3c452767f290b09b65e772f3ea67c8aad024
   pullPolicy: IfNotPresent
 
 frontImage:
   repository: tccr.io/truecharts/zabbix-web
-  tag: v6.0.5@sha256:2ad89f579a7c1ccc38af01f1252a2f3d8ca9cf82616c0d1151a8abaa97c196ee
+  tag: v6.0.6@sha256:83085f499b558cda91311b7f55545b2f201a1fc1f69ccdfd092d4c0b921e6ca2
   pullPolicy: IfNotPresent
 
 snmptrapsImage:
   repository: tccr.io/truecharts/zabbix-snmptraps
-  tag: v6.0.5@sha256:67049f5bf817403b717a56cdfc35dfa2be74fe62222fdc297e037c5d4789bfb2
+  tag: v6.0.6@sha256:1910b1f3700d3559cc6d8c78e9fe9c49d51c4dab670c9706e12217b100367886
   pullPolicy: IfNotPresent
 
 tty: true

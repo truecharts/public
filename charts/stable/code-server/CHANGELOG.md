@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-4.0.9"></a>
+### [code-server-4.0.9](https://github.com/truecharts/apps/compare/openvscode-server-2.0.9...code-server-4.0.9) (2022-07-02)
+
+#### Chore
+
+* update docker general non-major ([#3033](https://github.com/truecharts/apps/issues/3033))
+
+
+
 <a name="code-server-4.0.8"></a>
 ### [code-server-4.0.8](https://github.com/truecharts/apps/compare/openvscode-server-2.0.8...code-server-4.0.8) (2022-06-25)
 
