@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:5a5d15f77847de9b01c0c607a7c40353f44dae650e689cea00a4c0eea572778f
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 secretEnv:
   CF_APITOKEN: ""
@@ -17,8 +17,11 @@ secretEnv:
   CF_APITOKEN_ZONE: ""
 
 env:
+  DETECTION_MODE: '{{ ternary .Values.DETECT_MODE .Values.DETECT_OVERRIDE (eq .Values.DETECT_OVERRIDE "") }}'
+  # Use Defined
   INTERVAL: 300
-  DETECTION_MODE: "dig-whoami.cloudflare"
+  DETECT_MODE: "dig-whoami.cloudflare"
+  DETECT_OVERRIDE: ""
   LOG_LEVEL: 3
   cloudflareddns: ""
   CF_USER: "your.cf.email@example.com"

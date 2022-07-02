@@ -97,31 +97,50 @@ questions:
           schema:
             type: int
             default: 3
-         - variable: DETECTION_MODE
+        - variable: DETECT_MODE
           label: "DETECTION_MODE"
           description: "How you want to get your WAN IP"
           schema:
             type: string
             default: "dig-whoami.cloudflare"
-         - variable: CF_USER
+            enum:
+              - value: "dig-whoami.cloudflare"
+                description: "dig-whoami.cloudflare"
+              - value: "curl-ifconfig.co"
+                description: "curl-ifconfig.co"
+              - value: "curl-icanhazip.com"
+                description: "curl-icanhazip.com"
+              - value: "curl-wtfismyip.com"
+                description: "curl-wtfismyip.com"
+              - value: "curl-showmyip.ca"
+                description: "curl-showmyip.ca"
+              - value: "curl-da.gd"
+                description: "curl-da.gd"
+              - value: "curl-seeip.org"
+                description: "curl-seeip.org"
+              - value: "dig-google.com"
+                description: "dig-google.com"
+              - value: "dig-opendns.com"
+                description: "dig-opendns.com"
+        - variable: DETECT_OVERRIDE
+          label: "DETECTION_MODE_OVERRIDE"
+          description: "If you want to set DETECTION_MODE to 'local:eth0' for a local interface, this will override the dropdown selection"
+          schema:
+            type: string
+            default: "local:eth0"
+        - variable: CF_USER
           label: "CF_USER"
           description: "Cloudflare Username"
           schema:
             type: string
             default: "your.cf.email@example.com"
-         - variable: CF_HOSTS
+        - variable: CF_HOSTS
           label: "CF_HOSTS"
           description: "Cloudflare Hosts (Domains)"
           schema:
             type: string
-            default: "test.example.com;test.foobar.com;test2.foobar.com"
-         - variable: CF_ZONES
-          label: "CF_ZONES"
-          description: "Cloudflare DNS Zones"
-          schema:
-            type: string
-            default: "example.com;foobar.com;foobar.com"
-            - variable: CF_RECORDTYPES
+            default: "test.example.com;test.foobar.com"
+        - variable: CF_RECORDTYPES
           label: "CF_RECORDTYPES"
           description: "Cloudflare DNS Zones"
           schema:
@@ -129,22 +148,6 @@ questions:
             default: "A;A;AAAA"
 # Include{containerConfig}
 
-  - variable: serviceexpert
-    group: "Networking and Services"
-    label: "Show Expert Config"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: hostNetwork
-          group: "Networking and Services"
-          label: "Host-Networking (Complicated)"
-          schema:
-            type: boolean
-            default: false
-
-# Include{serviceExpert}
 
 # Include{serviceList}
 
@@ -204,7 +207,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -219,13 +222,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
