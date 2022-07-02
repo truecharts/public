@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="youtubedl-material-0.0.4"></a>
+### [youtubedl-material-0.0.4](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.3...youtubedl-material-0.0.4) (2022-07-02)
+
+#### Chore
+
+* update image refs ([#3040](https://github.com/truecharts/apps/issues/3040))
+
+
+
 <a name="youtubedl-material-0.0.3"></a>
 ### [youtubedl-material-0.0.3](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.2...youtubedl-material-0.0.3) (2022-07-01)
 

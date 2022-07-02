@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filebrowser-2.0.8"></a>
+### [filebrowser-2.0.8](https://github.com/truecharts/apps/compare/filebrowser-2.0.7...filebrowser-2.0.8) (2022-07-02)
+
+#### Chore
+
+* update docker general non-major ([#3033](https://github.com/truecharts/apps/issues/3033))
+
+
+
 <a name="filebrowser-2.0.7"></a>
 ### [filebrowser-2.0.7](https://github.com/truecharts/apps/compare/filebrowser-2.0.6...filebrowser-2.0.7) (2022-06-25)
 

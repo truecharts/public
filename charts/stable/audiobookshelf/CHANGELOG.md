@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-2.0.9"></a>
+### [audiobookshelf-2.0.9](https://github.com/truecharts/apps/compare/audiobookshelf-2.0.8...audiobookshelf-2.0.9) (2022-07-02)
+
+#### Fix
+
+* add temp dir for .npm ([#3045](https://github.com/truecharts/apps/issues/3045))
+
+
+
 <a name="audiobookshelf-2.0.8"></a>
 ### [audiobookshelf-2.0.8](https://github.com/truecharts/apps/compare/audiobookshelf-2.0.7...audiobookshelf-2.0.8) (2022-06-25)
 

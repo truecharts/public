@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-3.0.8"></a>
+### [clamav-3.0.8](https://github.com/truecharts/apps/compare/clamav-3.0.7...clamav-3.0.8) (2022-07-02)
+
+#### Chore
+
+* update docker general non-major ([#3033](https://github.com/truecharts/apps/issues/3033))
+
+
+
 <a name="clamav-3.0.7"></a>
 ### [clamav-3.0.7](https://github.com/truecharts/apps/compare/clamav-3.0.6...clamav-3.0.7) (2022-06-25)
 

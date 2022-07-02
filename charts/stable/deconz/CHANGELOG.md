@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-8.0.10"></a>
+### [deconz-8.0.10](https://github.com/truecharts/apps/compare/deconz-8.0.9...deconz-8.0.10) (2022-07-02)
+
+#### Chore
+
+* update docker general non-major ([#3033](https://github.com/truecharts/apps/issues/3033))
+
+
+
 <a name="deconz-8.0.9"></a>
 ### [deconz-8.0.9](https://github.com/truecharts/apps/compare/deconz-8.0.8...deconz-8.0.9) (2022-06-25)
 

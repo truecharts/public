@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-104-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-105-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -210,7 +210,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/alexthamm"><img src="https://avatars.githubusercontent.com/u/2556372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexander Thamm</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aalexthamm" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/rexit1982"><img src="https://avatars.githubusercontent.com/u/7585043?v=4?s=100" width="100px;" alt=""/><br /><sub><b>rexit1982</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Arexit1982" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/iaxx"><img src="https://avatars.githubusercontent.com/u/13745514?v=4?s=100" width="100px;" alt=""/><br /><sub><b>iaxx</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aiaxx" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://xstar97.github.io"><img src="https://avatars.githubusercontent.com/u/9399967?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xstar97</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AXstar97" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://xstar97.github.io"><img src="https://avatars.githubusercontent.com/u/9399967?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xstar97</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AXstar97" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=Xstar97" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Ornias"><img src="https://avatars.githubusercontent.com/u/20852677?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ornias</b></sub></a><br /><a href="#video-ornias" title="Videos">📹</a></td>
     <td align="center"><a href="http://joshasplund.com"><img src="https://avatars.githubusercontent.com/u/3958801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Josh Asplund</b></sub></a><br /><a href="#financial-joshuata" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/midnight33233"><img src="https://avatars.githubusercontent.com/u/25982892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>midnight33233</b></sub></a><br /><a href="#financial-midnight33233" title="Financial">💵</a></td>
@@ -267,6 +267,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://schnerring.net"><img src="https://avatars.githubusercontent.com/u/3743342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Schnerring</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aschnerring" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/apps/commits?author=schnerring" title="Code">💻</a></td>
     <td align="center"><a href="https://tamasnagy.com"><img src="https://avatars.githubusercontent.com/u/1661487?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamas Nagy</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Atlnagy" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://OpenSpeedTest.com"><img src="https://avatars.githubusercontent.com/u/51720450?v=4?s=100" width="100px;" alt=""/><br /><sub><b>OpenSpeedTest™️</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=openspeedtest" title="Code">💻</a></td>
+    <td align="center"><a href="https://richardjacton.github.io/"><img src="https://avatars.githubusercontent.com/u/6893043?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Richard James Acton</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=RichardJActon" title="Documentation">📖</a></td>
   </tr>
 </table>
 
