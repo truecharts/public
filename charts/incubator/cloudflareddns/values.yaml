@@ -8,8 +8,8 @@ securityContext:
   readOnlyRootFilesystem: false
 
 podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   CF_APITOKEN: ""
