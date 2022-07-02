@@ -29,9 +29,11 @@ service:
 persistence:
   config:
     enabled: true
-    type: configMap
-    name: radicale-config
+    type: custom
     readOnly: true
+    volumeSpec:
+      configMap:
+        name: radicale-config
   data:
     enabled: true
     mountPath: /data
