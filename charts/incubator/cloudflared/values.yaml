@@ -9,7 +9,7 @@ env:
   token: ""
 
 securityContext:
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
