@@ -18,6 +18,14 @@ service:
       main:
         port: 10223
 
+probes:
+  liveness:
+    path: "/ping"
+  readiness:
+    path: "/ping"
+  startup:
+    path: "/ping"
+
 persistence:
   config:
     enabled: true
@@ -28,3 +36,7 @@ persistence:
   metadata:
     enabled: true
     mountPath: "/metadata"
+  npm:
+    enabled: true
+    mountPath: "/home/node/.npm"
+    type: emptyDir
