@@ -1,28 +1,6 @@
 # Include{groups}
-portals:
-  open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
+portals: {}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
   - variable: controller
     group: "Controller"
@@ -74,7 +52,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: token
+          label: "Tunnel Token"
+          description: "Token for tunnel (Tunnel managed by Cloudflare not locally)"
+          schema:
+            type: string
+            required: true
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -103,7 +94,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10223
+                              default: 6969
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +129,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10223
+                                    default: 6969
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -154,11 +145,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -176,52 +164,9 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: audiobooks
-          label: "App Audiobooks Storage"
-          description: "Stores the Application Audiobooks."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-        - variable: metadata
-          label: "App Metadata Storage"
-          description: "Stores the Application Metadata."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-
 # Include{persistenceList}
-
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -245,7 +190,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -255,9 +200,8 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -270,13 +214,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
@@ -284,9 +228,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

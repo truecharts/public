@@ -1,6 +1,6 @@
 image:
-  repository: spikecodes/libreddit
-  tag: latest@sha256:864924575f9f7e250981978508ccd374c0105d0038af41f7a3d8a3f96b0c264f
+  repository: tccr.io/truecharts/libreddit
+  tag: latest@sha256:b86788339ddc40df45af7a9697cce00dd0695056e9c33564c56a4235a3126944
   pullPolicy: IfNotPresent
 
 libreddit:
@@ -27,7 +27,7 @@ service:
   main:
     ports:
       main:
-        port: 10252
+        port: 10257
         targetPort: 8080
 
 configmap:

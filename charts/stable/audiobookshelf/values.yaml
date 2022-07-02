@@ -12,11 +12,27 @@ env:
       name: audiobookshelf-secrets
       key: TOKEN_SECRET
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 service:
   main:
     ports:
       main:
         port: 10223
+
+probes:
+  liveness:
+    path: "/ping"
+  readiness:
+    path: "/ping"
+  startup:
+    path: "/ping"
 
 persistence:
   config:

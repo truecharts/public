@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openspeedtest-1.0.4"></a>
+### [openspeedtest-1.0.4](https://github.com/truecharts/apps/compare/openspeedtest-1.0.3...openspeedtest-1.0.4) (2022-07-02)
+
+#### Feat
+
+* Add EteSync to incubator ([#3024](https://github.com/truecharts/apps/issues/3024))
+
+
+
 <a name="openspeedtest-1.0.3"></a>
 ### [openspeedtest-1.0.3](https://github.com/truecharts/apps/compare/openspeedtest-1.0.2...openspeedtest-1.0.3) (2022-07-01)
 
