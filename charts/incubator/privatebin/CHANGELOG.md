@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.5"></a>
+### [privatebin-0.0.5](https://github.com/truecharts/apps/compare/privatebin-0.0.4...privatebin-0.0.5) (2022-07-02)
+
+#### Chore
+
+* update image refs ([#3040](https://github.com/truecharts/apps/issues/3040))
+
+
+
 <a name="privatebin-0.0.4"></a>
 ### [privatebin-0.0.4](https://github.com/truecharts/apps/compare/privatebin-0.0.3...privatebin-0.0.4) (2022-07-01)
 
