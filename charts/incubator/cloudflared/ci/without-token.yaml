@@ -1,0 +1,4 @@
+# With the bellow lines, we test both that the tpl is working inside extraArgs list 
+# and that the container starts up with a accountless connection
+extraArgs: ["tunnel", "--no-autoupdate", "{{ .Values.testTpl }}"]
+testTpl: "--helo-world"
