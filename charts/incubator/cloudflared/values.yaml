@@ -8,8 +8,8 @@ extraArgs: ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token
 env:
   token: "testtoken"
 
-securityContext:
-  readOnlyRootFilesystem: false
+# securityContext:
+#   readOnlyRootFilesystem: false
 
 service:
   main:
