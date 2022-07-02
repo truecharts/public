@@ -165,5 +165,13 @@
         "before 8am"
       ],
     },
+    //
+    // Tag semantic version type based on regex
+    //
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
+      "matchPackageNames": ["tccr.io/truecharts/photoprism"],
+    }
   ]
 }
