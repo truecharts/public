@@ -229,7 +229,6 @@ questions:
     group: "Storage"
     schema:
       type: dict
-      hidden: true
       attrs:
         - variable: postgres-data
           label: "Postgres Data Volume"
@@ -240,17 +239,34 @@ questions:
                 label: "Postgres Data Volume Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   default: "ix-postgres_data"
+                  show_if: [["hostPathEnabled", "=", false]]
                   editable: false
+
               - variable: mountPath
                 label: "Postgresql Data Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/var/lib/postgresql/data"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Postgres Data Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Postgres Data Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+
         - variable: postgres-backup
           label: "Postgres Backup Volume"
           schema:
@@ -260,17 +276,32 @@ questions:
                 label: "Postgres Backup Volume Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   default: "ix-postgres_backups"
+                  show_if: [["hostPathEnabled", "=", false]]
                   editable: false
               - variable: mountPath
                 label: "Postgresql Backup Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/postgres_backups"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Postgres Backup Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Postgres Backup Volume"
+                      schema:
+                        type: hostpath
+                        required: true
 
   - variable: enableResourceLimits
     label: "Enable Pod resource limits"
