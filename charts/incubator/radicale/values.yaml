@@ -9,6 +9,18 @@ image:
 # Radicale configuration docs:
 # https://radicale.org/v3.html#configuration
 
+security:
+  PUID: 2999
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+    add:
+      - SETUID
+      - SETGID
+      - KILL
+
 podSecurityContext:
   runAsUser: 2999
   runAsGroup: 2999
