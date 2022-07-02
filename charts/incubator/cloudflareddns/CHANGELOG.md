@@ -7,4 +7,3 @@
 #### Feat
 
 * Add CloudflareDDNS to incubator  ([#3037](https://github.com/truecharts/apps/issues/3037))
-
