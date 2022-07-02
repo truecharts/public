@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: cloudflared/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-cloudflared&#39; of Deployment &#39;RELEASE-NAME-cloudflared&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -47,11 +47,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | curl         |    CVE-2022-32205   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32205">https://access.redhat.com/security/cve/CVE-2022-32205</a><br><a href="https://curl.se/docs/CVE-2022-32205.html">https://curl.se/docs/CVE-2022-32205.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32205</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br></details>  |
@@ -65,11 +65,11 @@ hide:
 
 
 #### Container: cloudflare/cloudflared:2022.6.3 (debian 10.12)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | libc6         |    CVE-2021-33574   |   CRITICAL  |  2.28-10+deb10u1 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2021-33574">https://access.redhat.com/security/cve/CVE-2021-33574</a><br><a href="https://linux.oracle.com/cve/CVE-2021-33574.html">https://linux.oracle.com/cve/CVE-2021-33574.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-9560.html">https://linux.oracle.com/errata/ELSA-2021-9560.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-33574">https://nvd.nist.gov/vuln/detail/CVE-2021-33574</a><br><a href="https://security.gentoo.org/glsa/202107-07">https://security.gentoo.org/glsa/202107-07</a><br><a href="https://security.netapp.com/advisory/ntap-20210629-0005/">https://security.netapp.com/advisory/ntap-20210629-0005/</a><br><a href="https://sourceware.org/bugzilla/show_bug.cgi?id=27896">https://sourceware.org/bugzilla/show_bug.cgi?id=27896</a><br><a href="https://sourceware.org/bugzilla/show_bug.cgi?id=27896#c1">https://sourceware.org/bugzilla/show_bug.cgi?id=27896#c1</a><br></details>  |
@@ -103,9 +103,6 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-
