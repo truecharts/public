@@ -1,0 +1,52 @@
+image:
+  repository: ghcr.io/hotio/cloudflareddns
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:5a5d15f77847de9b01c0c607a7c40353f44dae650e689cea00a4c0eea572778f
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  CF_APITOKEN: ""
+  CF_APIKEY: ""
+  CF_APITOKEN_ZONE: ""
+
+env:
+  DETECTION_MODE: '{{ ternary .Values.DETECT_MODE .Values.DETECT_OVERRIDE (eq .Values.DETECT_OVERRIDE "") }}'
+  # Use Defined
+  INTERVAL: 300
+  DETECT_MODE: "dig-whoami.cloudflare"
+  DETECT_OVERRIDE: ""
+  LOG_LEVEL: 3
+  cloudflareddns: ""
+  CF_USER: "your.cf.email@example.com"
+  CF_HOSTS: "test.example.com;test.foobar.com;test2.foobar.com"
+  CF_ZONES: "example.com;foobar.com;foobar.com"
+  CF_RECORDTYPES: "A;A;AAAA"
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
