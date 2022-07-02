@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:5a5d15f77847de9b01c0c607a7c40353f44dae650e689cea00a4c0eea572778f
 
-# securityContext:
-#   runAsNonRoot: false
-#   readOnlyRootFilesystem: false
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   CF_APITOKEN: ""
