@@ -17,6 +17,14 @@ radicale:
   encoding:
     request: utf-8
     stock: utf-8
+  storage:
+    type: multifilesystem
+    max_sync_token_age: 2592000
+  web:
+    type: internal
+  logging:
+    level: warning
+    mask_passwords: "True"
 
 security:
   PUID: 2999

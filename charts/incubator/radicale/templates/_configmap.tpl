@@ -39,7 +39,7 @@ data:
 
     # Max size of request body (bytes)
     #max_content_length = 100000000
-    {{-/*
+    {{- /*
       Multiply by 1, so large integers aren't rendered in scientific notation
       See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
     */}}
@@ -110,6 +110,7 @@ data:
     # Storage backend
     # Value: multifilesystem | multifilesystem_nolock
     #type = multifilesystem
+    type = {{ .Values.radicale.storage.type }}
 
     # Folder for storing local collections, created if not present
     #filesystem_folder = /var/lib/radicale/collections
@@ -117,6 +118,11 @@ data:
 
     # Delete sync token that are older (seconds)
     #max_sync_token_age = 2592000
+    {{- /*
+      Multiply by 1, so large integers aren't rendered in scientific notation
+      See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
+    */}}
+    max_sync_token_age = {{ mul .Values.radicale.storage.max_sync_token_age 1 }}
 
     # Command that is run after changes to storage
     # Example: ([ -d .git ] || git init) && git add -A && (git diff --cached --quiet || git commit -m "Changes by "%(user)s)
@@ -128,6 +134,7 @@ data:
     # Web interface backend
     # Value: none | internal
     #type = internal
+    type = {{ .Values.radicale.web.type }}
 
 
     [logging]
@@ -135,9 +142,11 @@ data:
     # Threshold for the logger
     # Value: debug | info | warning | error | critical
     #level = warning
+    level = {{ .Values.radicale.logging.level }}
 
     # Don't include passwords in logs
     #mask_passwords = True
+    mask_passwords = {{ .Values.radicale.logging.mask_passwords }}
 
 
     [headers]

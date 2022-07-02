@@ -130,6 +130,85 @@ questions:
                   type: string
                   default: utf-8
                   required: true
+        - variable: storage
+          label: Storage Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: type
+                description: The backend that is used to store data.
+                schema:
+                  type: string
+                  default: multifilesystem
+                  required: true
+                  enum:
+                    - value: multifilesystem
+                      description: multifilesystem
+                    - value: multifilesystem_nolock
+                      description: multifilesystem_nolock
+              - variable: max_sync_token_age
+                label: max_sync_token_age
+                description: Delete sync token that are older (seconds)
+                schema:
+                  type: int
+                  default: 2592000
+                  required: true
+        - variable: web
+          label: Web Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: type
+                description: The backend that provides the web interface of Radicale.
+                schema:
+                  type: string
+                  default: internal
+                  required: true
+                  enum:
+                    - value: none
+                      description: none
+                    - value: internal
+                      description: internal
+        - variable: logging
+          label: Logging Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: level
+                label: level
+                description: Set the logging level.
+                schema:
+                  type: string
+                  default: warning
+                  required: true
+                  enum:
+                    - value: debug
+                      description: debug
+                    - value: info
+                      description: info
+                    - value: warning
+                      description: warning
+                    - value: error
+                      description: error
+                    - value: critical
+                      description: critical
+              - variable: mask_passwords
+                label: mask_passwords
+                description: Don't include passwords in logs.
+                schema:
+                  type: string
+                  default: "True"
+                  required: true
+                  enum:
+                    - value: "True"
+                      description: "True"
+                    - value: "False"
+                      description: "False"
 
 # Include{containerConfig}
 
