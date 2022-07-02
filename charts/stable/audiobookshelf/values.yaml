@@ -12,6 +12,14 @@ env:
       name: audiobookshelf-secrets
       key: TOKEN_SECRET
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -36,7 +44,3 @@ persistence:
   metadata:
     enabled: true
     mountPath: "/metadata"
-  npm:
-    enabled: true
-    mountPath: "/home/node/.npm"
-    type: emptyDir
