@@ -9,6 +9,15 @@ image:
 # Radicale configuration docs:
 # https://radicale.org/v3.html#configuration
 
+radicale:
+  server:
+    max_connections: 8
+    max_content_length: 100000000
+    timeout: 30
+  encoding:
+    request: utf-8
+    stock: utf-8
+
 security:
   PUID: 2999
 
@@ -27,7 +36,7 @@ podSecurityContext:
   fsGroup: 2999
 
 env:
-  # Skip chown on /data.
+  # Skip chown on /data by entrypoint.sh
   TAKE_FILE_OWNERSHIP: false
 
 service:

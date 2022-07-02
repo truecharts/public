@@ -76,6 +76,61 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: radicale
+    group: Container Configuration
+    label: Radicale Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: server
+          label: Server Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: max_connections
+                label: max_connections
+                description: The maximum number of parallel connections. Set to 0 to disable the limit.
+                schema:
+                  type: int
+                  default: 8
+                  required: true
+              - variable: max_content_length
+                label: max_content_length
+                description: The maximum size of the request body. (bytes)
+                schema:
+                  type: int
+                  default: 100000000
+                  required: true
+              - variable: timeout
+                label: timeout
+                description: Socket timeout. (seconds)
+                schema:
+                  type: int
+                  default: 30
+                  required: true
+        - variable: encoding
+          label: Encoding Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: request
+                label: request
+                description: Encoding for responding requests.
+                schema:
+                  type: string
+                  default: utf-8
+                  required: true
+              - variable: stock
+                label: stock
+                description: Encoding for storing local collections.
+                schema:
+                  type: string
+                  default: utf-8
+                  required: true
+
 # Include{containerConfig}
 
   - variable: service

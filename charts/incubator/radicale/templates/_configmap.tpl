@@ -35,12 +35,19 @@ data:
 
     # Max parallel connections
     #max_connections = 8
+    max_connections = {{ .Values.radicale.server.max_connections }}
 
     # Max size of request body (bytes)
     #max_content_length = 100000000
+    {{-/*
+      Multiply by 1, so large integers aren't rendered in scientific notation
+      See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
+    */}}
+    max_content_length = {{ mul .Values.radicale.server.max_content_length 1 }}
 
     # Socket timeout (seconds)
     #timeout = 30
+    timeout = {{ .Values.radicale.server.timeout }}
 
     # SSL flag, enable HTTPS protocol
     #ssl = False
@@ -60,9 +67,11 @@ data:
 
     # Encoding for responding requests
     #request = utf-8
+    request = {{ .Values.radicale.encoding.request }}
 
     # Encoding for storing local collections
     #stock = utf-8
+    stock = {{ .Values.radicale.encoding.stock }}
 
 
     [auth]
