@@ -241,14 +241,8 @@ questions:
                 label: mask_passwords
                 description: Don't include passwords in logs.
                 schema:
-                  type: string
-                  default: "True"
-                  required: true
-                  enum:
-                    - value: "True"
-                      description: "True"
-                    - value: "False"
-                      description: "False"
+                  type: boolean
+                  default: true
 
 # Include{containerConfig}
 

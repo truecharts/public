@@ -149,7 +149,7 @@ data:
 
     # Don't include passwords in logs
     #mask_passwords = True
-    mask_passwords = {{ .Values.radicale.logging.mask_passwords }}
+    mask_passwords = {{ .Values.radicale.logging.mask_passwords | ternary "True" "False" }}
 
 
     [headers]
