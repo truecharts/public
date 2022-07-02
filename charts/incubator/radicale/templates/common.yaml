@@ -4,5 +4,8 @@
 {{/* Render config map for radicale */}}
 {{- include "radicale.configmap" . }}
 
+{{/* Render secret for radicale */}}
+{{- include "radicale.secret" . }}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

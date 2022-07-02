@@ -136,6 +136,20 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: type
+                label: type
+                description: The method to verify usernames and passwords.
+                schema:
+                  type: string
+                  default: htpasswd
+                  required: true
+                  enum:
+                    - value: none
+                      description: none
+                    - value: htpasswd
+                      description: htpasswd
+                    - value: http_x_remote_user
+                      description: http_x_remote_user
               - variable: delay
                 label: delay
                 description: Average delay after failed login attempts in seconds.
@@ -150,6 +164,31 @@ questions:
                   type: string
                   default: Radicale - Password Required
                   required: true
+              - variable: users
+                label: Basic Authentication Users (htpasswd)
+                schema: list
+                default: []
+                items:
+                  - variable: usersEntry
+                    label: ""
+                    schema:
+                      additional_attrs: true
+                      type: dict
+                      attrs:
+                        - variable: username
+                          label: "Username"
+                          schema:
+                            type: string
+                            required: true
+                            default: ""
+                        - variable: password
+                          label: "Password"
+                          schema:
+                            type: string
+                            required: true
+                            private: true
+                            default: ""
+
         - variable: rights
           label: Rights Configuration
           schema:

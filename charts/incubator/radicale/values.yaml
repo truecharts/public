@@ -20,6 +20,7 @@ radicale:
   auth:
     delay: 1
     realm: Radicale - Password Required
+    users: []
   rights:
     type: owner_only
   storage:
@@ -68,6 +69,15 @@ persistence:
     volumeSpec:
       configMap:
         name: radicale-config
+  users:
+    enabled: true
+    type: custom
+    readOnly: true
+    mountPath: /etc/radicale/users
+    subPath: users
+    volumeSpec:
+      secret:
+        secretName: radicale-secret
   data:
     enabled: true
     mountPath: /data
