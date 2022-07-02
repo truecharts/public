@@ -60,12 +60,24 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TOKEN
-          label: "TOKEN"
+        - variable: CF_APITOKEN
+          label: "CF_APITOKEN"
           schema:
             type: string
             private: true
             default: ""
+        - variable: CF_APIKEY
+          label: "CF_APIKEY"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: CF_APITOKEN_ZONE
+          label: "CF_APITOKEN_ZONE"
+          schema:
+            type: string
+            private: true
+            default: ""    
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -109,6 +121,12 @@ questions:
           schema:
             type: string
             default: "example.com;foobar.com;foobar.com"
+            - variable: CF_RECORDTYPES
+          label: "CF_RECORDTYPES"
+          description: "Cloudflare DNS Zones"
+          schema:
+            type: string
+            default: "A;A;AAAA"       
 # Include{containerConfig}
 
   - variable: serviceexpert
