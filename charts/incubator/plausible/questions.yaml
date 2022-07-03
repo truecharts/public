@@ -76,9 +76,9 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-  - variable: env
+  - variable: plausible
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Plausible Configuration"
     schema:
       additional_attrs: true
       type: dict
@@ -102,27 +102,6 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: CLICKHOUSE_FLUSH_INTERVAL_MS
-          label: CLICKHOUSE_FLUSH_INTERVAL_MS
-          description: nterval (in milliseconds) between flushing events and sessions data to Clickhouse. Consult Clickhouse docs before changing it.
-          schema:
-            type: int
-            default: 5000
-            required: true
-        - variable: CLICKHOUSE_MAX_BUFFER_SIZE
-          label: CLICKHOUSE_MAX_BUFFER_SIZE
-          description: Maximum size of the buffer of events or sessions. Consult Clickhouse docs before changing it.
-          schema:
-            type: int
-            default: 10000
-            required: true
-  - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: ADMIN_USER_NAME
           label: ADMIN_USER_NAME
           description: Admin user's name (First Install Only)
@@ -144,6 +123,20 @@ questions:
             default: ""
             required: true
             private: true
+        - variable: CLICKHOUSE_FLUSH_INTERVAL_MS
+          label: CLICKHOUSE_FLUSH_INTERVAL_MS
+          description: nterval (in milliseconds) between flushing events and sessions data to Clickhouse. Consult Clickhouse docs before changing it.
+          schema:
+            type: int
+            default: 5000
+            required: true
+        - variable: CLICKHOUSE_MAX_BUFFER_SIZE
+          label: CLICKHOUSE_MAX_BUFFER_SIZE
+          description: Maximum size of the buffer of events or sessions. Consult Clickhouse docs before changing it.
+          schema:
+            type: int
+            default: 10000
+            required: true
         - variable: MAILER_EMAIL
           label: MAILER_EMAIL
           description: The email id to use for as from address of all communications from Plausible.

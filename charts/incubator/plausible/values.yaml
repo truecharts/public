@@ -6,29 +6,20 @@ image:
 # Plausible self-hosting documentation
 # https://plausible.io/docs/self-hosting
 
-env:
+plausible:
   # Server
   BASE_URL: http://localhost
-  SECRET_KEY_BASE:
-    secretKeyRef:
-      name: plausible-secret
-      key: SECRET_KEY_BASE
   DISABLE_AUTH: false
   DISABLE_REGISTRATION: false
 
-  # Database
-  CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
-  CLICKHOUSE_MAX_BUFFER_SIZE: 10000
-
-secretEnv:
   # Default User
   ADMIN_USER_NAME: admin
   ADMIN_USER_EMAIL: ""
   ADMIN_USER_PWD: P@ssw0rd
 
   # Database
-  DATABASE_URL: '{{ get .Values.postgresql.url "complete-noql" }}'
-  # CLICKHOUSE_DATABASE_URL: TODO
+  CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
+  CLICKHOUSE_MAX_BUFFER_SIZE: 10000
 
   # Mailer/SMTP Setup
   MAILER_EMAIL: hello@plausible.local
@@ -44,6 +35,12 @@ secretEnv:
   # Google Search Integration
   GOOGLE_CLIENT_ID: ""
   GOOGLE_CLIENT_SECRET: ""
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-config'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 service:
   main:
