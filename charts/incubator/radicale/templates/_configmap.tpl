@@ -79,6 +79,7 @@ data:
     # Authentication method
     # Value: none | htpasswd | remote_user | http_x_remote_user
     #type = none
+    type = {{ .Values.radicale.auth.type }}
 
     # Htpasswd filename
     #htpasswd_filename = /etc/radicale/users
