@@ -28,13 +28,14 @@ secretEnv:
 
   # Database
   DATABASE_URL: '{{ .Values.postgresql.url.complete-noql }}'
-  #CLICKHOUSE_DATABASE_URL: TODO
+  # CLICKHOUSE_DATABASE_URL: TODO
 
   # Mailer/SMTP Setup
   # TODO
 
   # Google Search Integration
-  # TODO
+  GOOGLE_CLIENT_ID:
+  GOOGLE_CLIENT_SECRET:
 
 service:
   main:

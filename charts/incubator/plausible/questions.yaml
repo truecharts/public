@@ -144,6 +144,21 @@ questions:
             default:
             required: true
             private: true
+        - variable: GOOGLE_CLIENT_ID
+          label: GOOGLE_CLIENT_ID
+          description: The Client ID from the Google API Console for your Plausible Analytics project
+          schema:
+            type: string
+            default:
+            required: true
+        - variable: GOOGLE_CLIENT_SECRET
+          label: GOOGLE_CLIENT_SECRET
+          description: The Client Secret from the Google API Console for your Plausible Analytics project
+          schema:
+            type: string
+            default:
+            required: true
+            private: true
 
 # Include{containerConfig}
 
