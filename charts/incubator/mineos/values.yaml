@@ -1,0 +1,41 @@
+image:
+  repository: hexparrot/mineos
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+env:
+  USE_HTTPS: false
+  SERVER_PORT: 9443
+  USER_NAME: "mc"
+  USER_UID: 1000
+  USER_PASSWORD: "CHANGE_ME"
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 9443
+        port: 9443
+
+probes:
+  liveness:
+    path: "/"
+
+  readiness:
+    path: "/"
+
+  startup:
+    path: "/"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/games/minecraft"
