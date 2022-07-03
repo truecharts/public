@@ -4,10 +4,10 @@ image:
   tag: "latest"
 
 env:
+  SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+  USER_UID: "{{ .Values.security.PUID }}"
   USE_HTTPS: false
-  SERVER_PORT: 9443
   USER_NAME: "mc"
-  USER_UID: 1000
   USER_PASSWORD: "CHANGE_ME"
 
 securityContext:
