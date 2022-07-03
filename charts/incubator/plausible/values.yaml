@@ -9,6 +9,10 @@ image:
 env:
   # Server
   BASE_URL: http://localhost
+  SECRET_KEY_BASE:
+    secretKeyRef:
+      name: plausible-secret
+      key: SECRET_KEY_BASE
   DISABLE_AUTH: false
   DISABLE_REGISTRATION: false
 
