@@ -97,7 +97,7 @@ questions:
     schema:
       additional_attrs: true
       type: dict
-      attrs:            
+      attrs:
         - variable: USER_NAME
           label: "USER NAME"
           description: "User Login for the Web Interface."
@@ -113,7 +113,7 @@ questions:
             private: true
             required: true
             default: ""
-  
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
