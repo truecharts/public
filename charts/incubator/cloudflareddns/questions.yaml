@@ -140,6 +140,12 @@ questions:
           schema:
             type: string
             default: "test.example.com;test.foobar.com"
+        - variable: CF_ZONES
+          label: "CF_ZONES"
+          description: "Cloudflare DNS Zones"
+          schema:
+            type: string
+            default: "example.com;foobar.com;foobar.com"
         - variable: CF_RECORDTYPES
           label: "CF_RECORDTYPES"
           description: "Cloudflare DNS Zones"
