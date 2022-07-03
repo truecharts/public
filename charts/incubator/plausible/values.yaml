@@ -1,0 +1,33 @@
+image:
+  repository: plausible/analytics
+  pullPolicy: IfNotPresent
+  tag: v1.4.4@sha256:20204bfc253cfab31e1f6c41c321c8a1437bd4a585a3f13393b5e0449b6d8698
+
+# Plausible self-hosting documentation
+# https://plausible.io/docs/self-hosting
+
+env:
+  # Server
+  BASE_URL: http://localhost
+  DISABLE_AUTH: false
+  DISABLE_REGISTRATION: false
+
+secretEnv:
+  # Default User
+  ADMIN_USER_NAME: admin
+  ADMIN_USER_EMAIL:
+  ADMIN_USER_PWD: P@ssw0rd
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 8000
+        port: 10256
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: plausible
+  postgresqlDatabase: plausible
