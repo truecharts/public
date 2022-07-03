@@ -8,7 +8,7 @@ controller:
   strategy: RollingUpdate
   rollingUpdate:
     unavailable: 1
-    
+
 securityContext:
   capabilities:
     add:
@@ -27,6 +27,12 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
+  config-server:
+    enabled: true
+    mountPath: /etc/clickhouse-server/config.d
+  config-users:
+    enabled: true
+    mountPath: /etc/clickhouse-server/users.d
   logs:
     enabled: true
     mountPath: /var/log/clickhouse-server

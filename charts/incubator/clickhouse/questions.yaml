@@ -203,6 +203,24 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
+        - variable: config-server
+          label: Server Configuration Storage
+          description: Files with Server Settings Adjustments
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: config-users
+          label: Users Configuration Storage
+          description: Files with Users Settings Adjustments
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 
 # Include{persistenceList}
 
