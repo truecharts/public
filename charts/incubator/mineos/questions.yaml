@@ -90,37 +90,29 @@ questions:
           description: "Should the web interface use HTTPS(true) or HTTP?(false)"
           schema:
             type: boolean
-            required: false
             default: false
-        - variable: SERVER_PORT
-          label: "SERVER PORT"
-          description: "What port should the web interface listen on?"
-          schema:
-            type: int
-            required: true
-            default: 9443
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:            
         - variable: USER_NAME
           label: "USER NAME"
-          description: "user login for the web interface."
+          description: "User Login for the Web Interface."
           schema:
             type: string
             required: true
-            default: "mc"
-        - variable: USER_UID
-          label: "USER UID"
-          description: "user UID"
-          schema:
-            type: int
-            required: true
-            default: 1000
+            default: ""
         - variable: USER_PASSWORD
           label: "USER PASSWORD"
-          description: "user password for the web interface."
+          description: "User Password for the Web Interface."
           schema:
             type: string
             private: true
             required: true
-            default: "CHANGE_ME"
+            default: ""
   
   - variable: service
     group: "Networking and Services"
