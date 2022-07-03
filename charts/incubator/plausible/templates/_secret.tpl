@@ -8,9 +8,9 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-dataString:
+stringData:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-  SECRET_KEY_BASE: {{ index .dataString "SECRET_KEY_BASE" }}
+  SECRET_KEY_BASE: {{ index .stringData "SECRET_KEY_BASE" }}
   {{- else }}
   {{- /* The plain value of SECRET_KEY_BASE is also base64 encoded */}}
   SECRET_KEY_BASE: {{ randAlphaNum 65 | b64enc }}
