@@ -22,8 +22,7 @@ service:
     protocol: HTTP
     ports:
       main:
-        targetPort: 9443
-        port: 9443
+        port: 10257
 
 
 persistence:
