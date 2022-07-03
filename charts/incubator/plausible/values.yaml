@@ -42,6 +42,23 @@ envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
+initContainers:
+  plausible-init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    envFrom:
+      - configMapRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-config'
+      - secretRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+    command: [sh]
+    args:
+      - -c
+      - >-
+        sleep 10 &&
+        /entrypoint.sh db createdb &&
+        /entrypoint.sh db migrate &&
+        /entrypoint.sh db init-admin
+
 service:
   main:
     protocol: HTTP
