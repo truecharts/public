@@ -194,9 +194,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 8843
-        - variable: omada-tcp
-          label: "Omada TCP"
-          description: "Omada TCP"
+        - variable: omada
+          label: "Omada"
+          description: "Omada"
           schema:
             additional_attrs: true
             type: dict
@@ -394,14 +394,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 29814
-        - variable: omada-udp
-          label: "Omada UDP"
-          description: "Omada UDP"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: omada-udp1
                       label: "Omada UDP 1"
                       description: "Omada Controller or EAP Discovery Utility discovers Omada devices."

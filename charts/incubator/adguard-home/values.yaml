@@ -18,16 +18,13 @@ service:
       main:
         port: 10232
         targetPort: 3000
-  dns-tcp:
+  dns:
     enabled: true
     ports:
       dns-tcp:
         enabled: true
         port: 53
         targetPort: 53
-  dns-udp:
-    enabled: true
-    ports:
       dns-udp:
         enabled: true
         protocol: UDP
@@ -36,20 +33,17 @@ service:
   dns-http:
     enabled: true
     ports:
-      dns-http:
+      dns-http-tcp:
         enabled: true
         port: 10233
         targetPort: 80
   dns-https:
     enabled: true
     ports:
-      dns-https:
+      dns-https-tcp:
         enabled: true
         port: 10234
         targetPort: 443
-  dns-https-udp:
-    enabled: true
-    ports:
       dns-https-udp:
         enabled: true
         protocol: UDP
@@ -58,19 +52,16 @@ service:
   dns-crypt:
     enabled: true
     ports:
-      dns-crypt:
+      dns-crypt-tcp:
         enabled: true
         port: 5443
         targetPort: 5443
-  dns-crypt-udp:
-    enabled: true
-    ports:
       dns-crypt-udp:
         enabled: true
         protocol: UDP
         port: 5443
         targetPort: 5443
-  dns-quic-udp-1:
+  dns-quic:
     enabled: true
     ports:
       dns-quic-udp-1:
@@ -78,17 +69,11 @@ service:
         protocol: UDP
         port: 784
         targetPort: 784
-  dns-quic-udp-2:
-    enabled: true
-    ports:
       dns-quic-udp-2:
         enabled: true
         protocol: UDP
         port: 853
         targetPort: 853
-  dns-quic-udp-3:
-    enabled: true
-    ports:
       dns-quic-udp-3:
         enabled: true
         protocol: UDP

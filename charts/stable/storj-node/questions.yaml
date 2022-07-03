@@ -187,9 +187,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 14002
-        - variable: coretcp
-          label: "Core TCP Service"
-          description: "Core TCP Service"
+        - variable: core
+          label: "Core Service"
+          description: "Core Service"
           schema:
             additional_attrs: true
             type: dict
@@ -219,7 +219,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "TCP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -242,14 +242,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 28967
-        - variable: coreudp
-          label: "Core UDP Service"
-          description: "Core UDP Service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: coreudp
                       label: "Core UDP Service Port Configuration"
                       schema:
@@ -274,7 +266,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "UDP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"

@@ -15,14 +15,11 @@ service:
   torrent:
     enabled: true
     ports:
-      torrent:
+      torrent-tcp:
         enabled: true
         port: 6881
         targetPort: 6881
-  torrentudp:
-    enabled: true
-    ports:
-      torrentudp:
+      torrent-udp:
         enabled: true
         port: 6881
         targetPort: 6881

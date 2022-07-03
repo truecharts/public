@@ -22,16 +22,13 @@ service:
       main:
         port: 10125
         targetPort: 5001
-  peer-tcp:
+  peer:
     enabled: true
     ports:
       peer-tcp:
         enabled: true
         targetPort: 4001
         port: 4001
-  peer-udp:
-    enabled: true
-    ports:
       peer-udp:
         protocol: UDP
         enabled: true

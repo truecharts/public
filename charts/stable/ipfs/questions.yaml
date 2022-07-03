@@ -171,9 +171,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 5001
-        - variable: peer-tcp
-          label: "Peer-TCP Service"
-          description: "The Peer-TCP service."
+        - variable: peer
+          label: "Peer Service"
+          description: "The Peer service."
           schema:
             additional_attrs: true
             type: dict
@@ -231,14 +231,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 4001
-        - variable: peer-udp
-          label: "Peer-UDP Service"
-          description: "The Peer-udp service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: peer-udp
                       label: "Peer-UDP Service Port Configuration"
                       schema:

@@ -26,16 +26,13 @@ service:
       main:
         port: 14002
         targetPort: 14002
-  coretcp:
+  core:
     enabled: true
     ports:
       coretcp:
         enabled: true
         port: 28967
         targetPort: 28967
-  coreudp:
-    enabled: true
-    ports:
       coreudp:
         enabled: true
         protocol: UDP

@@ -8,7 +8,7 @@ service:
     ports:
       main:
         port: 10193
-  bt-udp1:
+  bt:
     enabled: true
     ports:
       bt-udp1:
@@ -16,9 +16,6 @@ service:
         port: 22037
         targetPort: 22037
         protocol: UDP
-  bt-udp2:
-    enabled: true
-    ports:
       bt-udp2:
         enabled: true
         port: 22027

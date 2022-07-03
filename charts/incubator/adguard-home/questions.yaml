@@ -139,9 +139,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 3000
-        - variable: dns-tcp
-          label: "dns-tcp Service"
-          description: "dns-tcp service"
+        - variable: dns
+          label: "dns Service"
+          description: "dns service"
           schema:
             additional_attrs: true
             type: dict
@@ -194,14 +194,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
-        - variable: dns-udp
-          label: "dns-udp Service"
-          description: "dns-udp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-udp
                       label: "dns-udp Service Port Configuration"
                       schema:
@@ -312,8 +304,8 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: dns-https
-                      label: "dns-https Service Port Configuration"
+                    - variable: dns-https-tcp
+                      label: "dns-https-tcp Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -359,14 +351,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 443
-        - variable: dns-https-udp
-          label: "dns-https-udp Service"
-          description: "The dns-https-udp service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-https-udp
                       label: "dns-https-udp Service Port Configuration"
                       schema:
@@ -422,8 +406,8 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: dns-crypt
-                      label: "dns-crypt Service Port Configuration"
+                    - variable: dns-crypt-tcp
+                      label: "dns-crypt-tcp Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -469,14 +453,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 5443
-        - variable: dns-crypt-udp
-          label: "dns-crypt-udp Service"
-          description: "The dns-crypt-udp service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-crypt-udp
                       label: "dns-crypt-udp Service Port Configuration"
                       schema:
@@ -524,9 +500,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 5443
-        - variable: dns-quic-udp-1
-          label: "dns-quic-udp-1 Service"
-          description: "The dns-quic-udp-1 service."
+        - variable: dns-quic
+          label: "dns-quic Service"
+          description: "The dns-quic service."
           schema:
             additional_attrs: true
             type: dict
@@ -579,14 +555,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 784
-        - variable: dns-quic-udp-2
-          label: "dns-quic-udp-2 Service"
-          description: "The dns-quic-udp-2 service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-quic-udp-2
                       label: "dns-quic-udp-2 Service Port Configuration"
                       schema:
@@ -634,14 +602,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 853
-        - variable: dns-quic-udp-3
-          label: "dns-quic-udp-3 Service"
-          description: "The dns-quic-udp-3 service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-quic-udp-3
                       label: "dns-quic-udp-3 Service Port Configuration"
                       schema:

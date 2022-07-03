@@ -24,7 +24,7 @@ service:
         enabled: true
         port: 8843
         targetPort: 8843
-  omada-tcp:
+  omada:
     enabled: true
     ports:
       omada-tcp1:
@@ -43,9 +43,6 @@ service:
         enabled: true
         port: 29814
         targetPort: 29814
-  omada-udp:
-    enabled: true
-    ports:
       omada-udp1:
         enabled: true
         protocol: UDP

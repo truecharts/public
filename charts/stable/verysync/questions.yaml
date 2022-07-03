@@ -138,11 +138,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 10193
-
-
-        - variable: bt-udp1
-          label: "bt-udp1 Service"
-          description: "The bt-udp service"
+        - variable: bt
+          label: "bt Service"
+          description: "The bt service"
           schema:
             additional_attrs: true
             type: dict
@@ -195,16 +193,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 22037
-
-
-        - variable: bt-udp2
-          label: "bt-udp2 Service"
-          description: "The bt-udp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: bt-udp2
                       label: "bt-udp2 Service Port Configuration"
                       schema:

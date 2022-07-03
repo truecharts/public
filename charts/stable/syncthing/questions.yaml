@@ -139,8 +139,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8384
-
-
         - variable: listeners
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -196,14 +194,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 22000
-        - variable: listeners-udp
-          label: "Syncthing Listening Service"
-          description: "This service is used to process incoming connections directly to this Syncthing instance"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:

@@ -34,16 +34,13 @@ service:
         enabled: true
         targetPort: 9090
         port: 10059
-  playertcp:
+  player:
     enabled: true
     ports:
       slimprototcp:
         enabled: true
         targetPort: 3483
         port: 3483
-  playerudp:
-    enabled: true
-    ports:
       slimprotoudp:
         enabled: true
         targetPort: 3483

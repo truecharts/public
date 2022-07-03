@@ -12,18 +12,16 @@ service:
   torrent:
     enabled: true
     ports:
-      torrent:
+      torrent-tcp:
         enabled: true
         port: 51414
         targetPort: 51414
-  torrentudp:
-    enabled: true
-    ports:
       torrentudp:
         enabled: true
         port: 51414
         targetPort: 51414
         protocol: UDP
+
 secretEnv: {}
   # TRANSMISSION_RPC_USERNAME: ""
   # TRANSMISSION_RPC_PASSWORD: ""
