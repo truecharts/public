@@ -135,13 +135,13 @@ questions:
           description: The default ("admin") user email (First Install Only)
           schema:
             type: string
-            default:
+            default: ""
         - variable: ADMIN_USER_PWD
           label: ADMIN_USER_PWD
           description: The default ("admin") user password (First Install Only)
           schema:
             type: string
-            default:
+            default: ""
             required: true
             private: true
         - variable: MAILER_EMAIL
@@ -170,13 +170,13 @@ questions:
           description: The username/email in case SMTP auth is enabled.
           schema:
             type: string
-            default:
+            default: ""
         - variable: SMTP_USER_PWD
           label: SMTP_USER_PWD
           description: The password in case SMTP auth is enabled.
           schema:
             type: string
-            default:
+            default: ""
             private: true
         - variable: SMTP_HOST_SSL_ENABLED
           label: SMTP_HOST_SSL_ENABLED
@@ -207,20 +207,20 @@ questions:
           description: Enter your API key.
           schema:
             type: string
-            default:
+            default: ""
             private: true
         - variable: GOOGLE_CLIENT_ID
           label: GOOGLE_CLIENT_ID
           description: The Client ID from the Google API Console for your Plausible Analytics project
           schema:
             type: string
-            default:
+            default: ""
         - variable: GOOGLE_CLIENT_SECRET
           label: GOOGLE_CLIENT_SECRET
           description: The Client Secret from the Google API Console for your Plausible Analytics project
           schema:
             type: string
-            default:
+            default: ""
             private: true
 
 # Include{containerConfig}

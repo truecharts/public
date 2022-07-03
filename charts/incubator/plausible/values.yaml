@@ -23,7 +23,7 @@ env:
 secretEnv:
   # Default User
   ADMIN_USER_NAME: admin
-  ADMIN_USER_EMAIL:
+  ADMIN_USER_EMAIL: ""
   ADMIN_USER_PWD: P@ssw0rd
 
   # Database
@@ -34,16 +34,16 @@ secretEnv:
   MAILER_EMAIL: hello@plausible.local
   SMTP_HOST_ADDR: localhost
   SMTP_HOST_PORT: 25
-  SMTP_USER_NAME:
-  SMTP_USER_PWD:
+  SMTP_USER_NAME: ""
+  SMTP_USER_PWD: ""
   SMTP_HOST_SSL_ENABLED: false
   SMTP_RETRIES: 2
   MAILER_ADAPTER: Bamboo.SMTPAdapter
-  POSTMARK_API_KEY:
+  POSTMARK_API_KEY: ""
 
   # Google Search Integration
-  GOOGLE_CLIENT_ID:
-  GOOGLE_CLIENT_SECRET:
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
 
 service:
   main:
