@@ -41,7 +41,7 @@ stringData:
   ADMIN_USER_EMAIL: {{ .Values.plausible.ADMIN_USER_EMAIL }}
   ADMIN_USER_PWD: {{ .Values.plausible.ADMIN_USER_PWD | quote }}
 
-  DATABASE_URL: {{ get .Values.plausible.postgresql.url "complete-noql" }}
+  DATABASE_URL: {{ get .Values.postgresql.url "complete-noql" }}
   {{- /* CLICKHOUSE_DATABASE_URL: TODO */}}
 
   MAILER_EMAIL: {{ .Values.plausible.MAILER_EMAIL }}
