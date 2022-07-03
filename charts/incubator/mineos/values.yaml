@@ -25,15 +25,6 @@ service:
         targetPort: 9443
         port: 9443
 
-probes:
-  liveness:
-    path: "/"
-
-  readiness:
-    path: "/"
-
-  startup:
-    path: "/"
 
 persistence:
   config:
