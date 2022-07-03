@@ -29,10 +29,10 @@ service:
       main:
         protocol: HTTP
         port: 10257
-  mc-port-1:
+  mc-1:
     enabled: true
     ports:
-      mc-port-1:
+      mc-port-1-tcp:
         protocol: TCP
         enabled: true
         port: 25565
@@ -42,10 +42,10 @@ service:
         enabled: true
         port: 25565
         targetPort: 25565
-  mc-port-2:
+  mc-2:
     enabled: true
     ports:
-      mc-port-2:
+      mc-port-2-tcp:
         protocol: TCP
         enabled: true
         port: 25566
@@ -55,10 +55,10 @@ service:
         enabled: true
         port: 25566
         targetPort: 25566
-  mc-port-3:
+  mc-3:
     enabled: true
     ports:
-      mc-port-3:
+      mc-port-3-tcp:
         protocol: TCP
         enabled: true
         port: 25567
@@ -68,10 +68,10 @@ service:
         enabled: true
         port: 25567
         targetPort: 25567
-  mc-port-4:
+  mc-4:
     enabled: true
     ports:
-      mc-port-4:
+      mc-port-4-tcp:
         protocol: TCP
         enabled: true
         port: 25568
@@ -81,10 +81,10 @@ service:
         enabled: true
         port: 25568
         targetPort: 25568
-  mc-port-5:
+  mc-5:
     enabled: true
     ports:
-      mc-port-5:
+      mc-port-5-tcp:
         protocol: TCP
         enabled: true
         port: 25569
@@ -94,10 +94,10 @@ service:
         enabled: true
         port: 25569
         targetPort: 25569
-  mc-port-6:
+  mc-6:
     enabled: true
     ports:
-      mc-port-6:
+      mc-port-6-tcp:
         protocol: TCP
         enabled: true
         port: 25570
