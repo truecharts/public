@@ -127,25 +127,25 @@ questions:
           description: "If you want to set DETECTION_MODE to 'local:eth0' for a local interface, this will override the dropdown selection"
           schema:
             type: string
-            default: "local:eth0"
+            default: ""
         - variable: CF_USER
           label: "CF_USER"
-          description: "Cloudflare Username"
+          description: "Cloudflare Username (eg. your.cf.email@example.com)"
           schema:
             type: string
-            default: "your.cf.email@example.com"
+            default: ""
         - variable: CF_HOSTS
           label: "CF_HOSTS"
-          description: "Cloudflare Hosts (Domains)"
+          description: "Cloudflare Hosts (Domains) (eg. test.example.com;test.foobar.com)"
           schema:
             type: string
-            default: "test.example.com;test.foobar.com"
+            default: ""
         - variable: CF_ZONES
           label: "CF_ZONES"
-          description: "Cloudflare DNS Zones"
+          description: "Cloudflare DNS Zones (eg. example.com;foobar.com;foobar.com)"
           schema:
             type: string
-            default: "example.com;foobar.com;foobar.com"
+            default: ""
         - variable: CF_RECORDTYPES
           label: "CF_RECORDTYPES"
           description: "Cloudflare DNS Zones"
