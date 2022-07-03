@@ -6,7 +6,7 @@ image:
 env:
   SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   USER_UID: "{{ .Values.security.PUID }}"
-  GROUP_GID: "{{ .Values.porSecurityContext.fsGroup }}"
+  GROUP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   GROUP_NAME: "{{ .Values.secretEnv.USER_NAME }}"
   # User Defined
   USE_HTTPS: false
@@ -25,10 +25,88 @@ podSecurityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         port: 10257
+  mc-port-1:
+    enabled: true
+    ports:
+      mc-port-1:
+        protocol: TCP
+        enabled: true
+        port: 25565
+        targetPort: 25565
+      mc-port-1-udp:
+        protocol: UDP
+        enabled: true
+        port: 25565
+        targetPort: 25565
+  mc-port-2:
+    enabled: true
+    ports:
+      mc-port-2:
+        protocol: TCP
+        enabled: true
+        port: 25566
+        targetPort: 25566
+      mc-port-2-udp:
+        protocol: UDP
+        enabled: true
+        port: 25566
+        targetPort: 25566
+  mc-port-3:
+    enabled: true
+    ports:
+      mc-port-3:
+        protocol: TCP
+        enabled: true
+        port: 25567
+        targetPort: 25567
+      mc-port-3-udp:
+        protocol: UDP
+        enabled: true
+        port: 25567
+        targetPort: 25567
+  mc-port-4:
+    enabled: true
+    ports:
+      mc-port-4:
+        protocol: TCP
+        enabled: true
+        port: 25568
+        targetPort: 25568
+      mc-port-4-udp:
+        protocol: UDP
+        enabled: true
+        port: 25568
+        targetPort: 25568
+  mc-port-5:
+    enabled: true
+    ports:
+      mc-port-5:
+        protocol: TCP
+        enabled: true
+        port: 25569
+        targetPort: 25569
+      mc-port-5-udp:
+        protocol: UDP
+        enabled: true
+        port: 25569
+        targetPort: 25569
+  mc-port-6:
+    enabled: true
+    ports:
+      mc-port-6:
+        protocol: TCP
+        enabled: true
+        port: 25570
+        targetPort: 25570
+      mc-port-6-udp:
+        protocol: UDP
+        enabled: true
+        port: 25570
+        targetPort: 25570
 
 persistence:
   config:
