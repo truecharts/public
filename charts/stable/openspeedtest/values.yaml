@@ -13,7 +13,6 @@ podSecurityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
         targetPort: 3000
