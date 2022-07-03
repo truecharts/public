@@ -31,7 +31,13 @@ secretEnv:
   # CLICKHOUSE_DATABASE_URL: TODO
 
   # Mailer/SMTP Setup
-  # TODO
+  MAILER_EMAIL: hello@plausible.local
+  SMTP_HOST_ADDR: localhost
+  SMTP_HOST_PORT: 25
+  SMTP_USER_NAME:
+  SMTP_USER_PWD:
+  SMTP_HOST_SSL_ENABLED: false
+  SMTP_RETRIES: 2
 
   # Google Search Integration
   GOOGLE_CLIENT_ID:

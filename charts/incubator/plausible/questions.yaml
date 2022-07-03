@@ -144,20 +144,65 @@ questions:
             default:
             required: true
             private: true
+        - variable: MAILER_EMAIL
+          label: MAILER_EMAIL
+          description: The email id to use for as from address of all communications from Plausible.
+          schema:
+            type: string
+            default: hello@plausible.local
+            required: true
+        - variable: SMTP_HOST_ADDR
+          label: SMTP_HOST_ADDR
+          description: The host address of your smtp server.
+          schema:
+            type: string
+            default: localhost
+            required: true
+        - variable: SMTP_HOST_PORT
+          label: SMTP_HOST_PORT
+          description: The port of your smtp server.
+          schema:
+            type: int
+            default: 25
+            required: true
+        - variable: SMTP_USER_NAME
+          label: SMTP_USER_NAME
+          description: The username/email in case SMTP auth is enabled.
+          schema:
+            type: string
+            default:
+        - variable: SMTP_USER_PWD
+          label: SMTP_USER_PWD
+          description: The password in case SMTP auth is enabled.
+          schema:
+            type: string
+            default:
+            private: true
+        - variable: SMTP_HOST_SSL_ENABLED
+          label: SMTP_HOST_SSL_ENABLED
+          description: If SSL is enabled for SMTP connection
+          schema:
+            type: boolean
+            default: false
+        - variable: SMTP_RETRIES
+          label: SMTP_RETRIES
+          description: Number of retries to make until mailer gives up.
+          schema:
+            type: int
+            default: 2
+            required: true
         - variable: GOOGLE_CLIENT_ID
           label: GOOGLE_CLIENT_ID
           description: The Client ID from the Google API Console for your Plausible Analytics project
           schema:
             type: string
             default:
-            required: true
         - variable: GOOGLE_CLIENT_SECRET
           label: GOOGLE_CLIENT_SECRET
           description: The Client Secret from the Google API Console for your Plausible Analytics project
           schema:
             type: string
             default:
-            required: true
             private: true
 
 # Include{containerConfig}
