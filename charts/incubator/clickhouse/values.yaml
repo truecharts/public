@@ -1,0 +1,65 @@
+image:
+  repository: yandex/clickhouse-server
+  pullPolicy: IfNotPresent
+  tag: 21.3.20.1@sha256:4eccfffb01d735ab7c1af9a97fbff0c532112a6871b2bb5fe5c478d86d247b7e
+
+controller:
+  type: statefulset
+  strategy: RollingUpdate
+  rollingUpdate:
+    unavailable: 1
+    
+securityContext:
+  capabilities:
+    add:
+      - IPC_LOCK
+      - NET_ADMIN
+      - SYS_NICE
+
+service:
+  main:
+    ports:
+      main:
+        port: 8123
+        targetPort: 8123
+
+volumeClaimTemplates:
+  data:
+    enabled: true
+    mountPath: /var/lib/clickhouse
+  logs:
+    enabled: true
+    mountPath: /var/log/clickhouse-server
+    type: emptyDir
+
+probes:
+  liveness:
+    type: HTTP
+    path: /ping
+  readiness:
+    type: HTTP
+    path: /ping
+  startup:
+    type: HTTP
+    path: /ping
+
+clickhouseDatabase: "test"
+clickhouseUsername: "test"
+clickhousePassword: "testpass"
+clickhouseDefaultAccessManagement: 0
+existingSecret: ""
+
+secret:
+  credentials:
+    enabled: true
+    data:
+      clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
+
+env:
+  CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
+  CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
+  CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
+  CLICKHOUSE_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "clickhouse-password"
