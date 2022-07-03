@@ -6,6 +6,9 @@ image:
 env:
   SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   USER_UID: "{{ .Values.security.PUID }}"
+  GROUP_GID: "{{ .Values.porSecurityContext.fsGroup }}"
+  GROUP_NAME: "{{ .Values.secretEnv.USER_NAME }}"
+  # User Defined
   USE_HTTPS: false
 
 secretEnv:
