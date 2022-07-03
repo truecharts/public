@@ -17,8 +17,6 @@ env:
   DISABLE_REGISTRATION: false
 
   # Database
-  DATABASE_URL: '{{ .Values.postgresql.url.complete-noql }}'
-  #CLICKHOUSE_DATABASE_URL: TODO
   CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
   CLICKHOUSE_MAX_BUFFER_SIZE: 10000
 
@@ -27,6 +25,16 @@ secretEnv:
   ADMIN_USER_NAME: admin
   ADMIN_USER_EMAIL:
   ADMIN_USER_PWD: P@ssw0rd
+
+  # Database
+  DATABASE_URL: '{{ .Values.postgresql.url.complete-noql }}'
+  #CLICKHOUSE_DATABASE_URL: TODO
+
+  # Mailer/SMTP Setup
+  # TODO
+
+  # Google Search Integration
+  # TODO
 
 service:
   main:
