@@ -416,7 +416,6 @@ service:
     enabled: true
     ports:
       rtmp:
-        protocol: TCP
         enabled: true
         port: 1935
         targetPort: 1935

@@ -7,7 +7,6 @@ service:
   main:
     ports:
       main:
-        protocol: HTTPS
         port: 8443
         targetPort: 8443
   comm:
@@ -39,12 +38,10 @@ service:
         enabled: true
         port: 8880
         targetPort: 8880
-        protocol: HTTP
       websecure:
         enabled: true
         port: 8843
         targetPort: 8843
-        protocol: HTTPS
 
 securityContext:
   readOnlyRootFilesystem: false

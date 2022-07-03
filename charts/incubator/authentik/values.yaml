@@ -96,7 +96,6 @@ service:
     ports:
       https:
         enabled: true
-        protocol: "HTTPS"
         port: 10229
         targetPort: 9443
 

@@ -31,7 +31,6 @@ service:
   main:
     ports:
       main:
-        protocol: HTTPS
         port: 9200
         targetPort: 9200
 

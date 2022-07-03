@@ -15,7 +15,6 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         targetPort: 8080
         port: 10156
 

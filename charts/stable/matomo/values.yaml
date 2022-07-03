@@ -72,7 +72,6 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         port: 10172
         targetPort: 10172
   https:
@@ -80,7 +79,6 @@ service:
     ports:
       https:
         enabled: true
-        protocol: HTTPS
         port: 10173
         targetPort: 10173
 

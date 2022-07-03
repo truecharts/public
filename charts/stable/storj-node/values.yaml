@@ -31,7 +31,6 @@ service:
     ports:
       coretcp:
         enabled: true
-        protocol: TCP
         port: 28967
         targetPort: 28967
   coreudp:

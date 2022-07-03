@@ -49,7 +49,6 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         targetPort: 3100
         port: 3100
 
