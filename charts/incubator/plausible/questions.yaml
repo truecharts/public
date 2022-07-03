@@ -191,6 +191,24 @@ questions:
             type: int
             default: 2
             required: true
+        - variable: MAILER_ADAPTER
+          label: MAILER_ADAPTER
+          description: Mailer Adapter
+          schema:
+            type: string
+            default: Bamboo.SMTPAdapter
+            enum:
+              - value: Bamboo.SMTPAdapter
+                description: Bamboo.SMTPAdapter
+              - value: Bamboo.PostmarkAdapter
+                description: Bamboo.PostmarkAdapter
+        - variable: POSTMARK_API_KEY
+          label: POSTMARK_API_KEY
+          description: Enter your API key.
+          schema:
+            type: string
+            default:
+            private: true
         - variable: GOOGLE_CLIENT_ID
           label: GOOGLE_CLIENT_ID
           description: The Client ID from the Google API Console for your Plausible Analytics project

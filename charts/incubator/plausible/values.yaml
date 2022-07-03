@@ -38,6 +38,8 @@ secretEnv:
   SMTP_USER_PWD:
   SMTP_HOST_SSL_ENABLED: false
   SMTP_RETRIES: 2
+  MAILER_ADAPTER: Bamboo.SMTPAdapter
+  POSTMARK_API_KEY:
 
   # Google Search Integration
   GOOGLE_CLIENT_ID:
