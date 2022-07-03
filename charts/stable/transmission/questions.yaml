@@ -472,7 +472,7 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: torrent-tcp
+                    - variable: torrenttcp
                       label: "TCP Service Port Configuration"
                       schema:
                         additional_attrs: true
@@ -519,7 +519,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 51414
-                    - variable: torrent-udp
+                    - variable: torrentudp
                       label: "UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
