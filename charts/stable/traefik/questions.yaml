@@ -549,10 +549,9 @@ questions:
                                     default: ""
 
         - variable: enableThemePark
-          label: "Enable theme.park"
-          description: This requires setting up Traefik Pilot in `App Configuration`.
-            This is a 3rd party plugin and not maintained by TrueCharts, for more information go to
-            <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
+          label: "Enable `theme.park` Plugin"
+          description: This is a 3rd party plugin and not maintained by TrueCharts,
+            for more information go to <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
           schema:
             type: boolean
             default: false
