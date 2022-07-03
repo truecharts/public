@@ -27,7 +27,7 @@ secretEnv:
   ADMIN_USER_PWD: P@ssw0rd
 
   # Database
-  DATABASE_URL: '{{ .Values.postgresql.url.complete-noql }}'
+  DATABASE_URL: '{{ get .Values.postgresql.url "complete-noql" }}'
   # CLICKHOUSE_DATABASE_URL: TODO
 
   # Mailer/SMTP Setup
