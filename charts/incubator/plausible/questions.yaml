@@ -102,6 +102,20 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: CLICKHOUSE_FLUSH_INTERVAL_MS
+          label: CLICKHOUSE_FLUSH_INTERVAL_MS
+          description: nterval (in milliseconds) between flushing events and sessions data to Clickhouse. Consult Clickhouse docs before changing it.
+          schema:
+            type: int
+            default: 5000
+            required: true
+        - variable: CLICKHOUSE_MAX_BUFFER_SIZE
+          label: CLICKHOUSE_MAX_BUFFER_SIZE
+          description: Maximum size of the buffer of events or sessions. Consult Clickhouse docs before changing it.
+          schema:
+            type: int
+            default: 10000
+            required: true
   - variable: secretEnv
     group: "Container Configuration"
     label: "Image Secrets"

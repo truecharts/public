@@ -16,6 +16,12 @@ env:
   DISABLE_AUTH: false
   DISABLE_REGISTRATION: false
 
+  # Database
+  DATABASE_URL: '{{ .Values.postgresql.url.complete-noql }}'
+  #CLICKHOUSE_DATABASE_URL: TODO
+  CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
+  CLICKHOUSE_MAX_BUFFER_SIZE: 10000
+
 secretEnv:
   # Default User
   ADMIN_USER_NAME: admin
