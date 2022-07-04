@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/audiobookshelf:v2.0.22@sha256:f5a94614d909eee870267879c051efdda2616590211d383d3a9dc13770f82e72
+          tccr.io/truecharts/audiobookshelf:v2.0.23@sha256:ef49500b7f0e9893d92142c18d9df7b150eab16183b7cb40481d3c03370e9a23
 
 ##### Scan Results
 
@@ -65,7 +65,7 @@ hide:
 | libcurl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br><a href="https://ubuntu.com/security/notices/USN-5499-1">https://ubuntu.com/security/notices/USN-5499-1</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/audiobookshelf:v2.0.22@sha256:f5a94614d909eee870267879c051efdda2616590211d383d3a9dc13770f82e72 (alpine 3.16.0)
+#### Container: tccr.io/truecharts/audiobookshelf:v2.0.23@sha256:ef49500b7f0e9893d92142c18d9df7b150eab16183b7cb40481d3c03370e9a23 (alpine 3.16.0)
 
 
 **alpine**
