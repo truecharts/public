@@ -1,0 +1,56 @@
+image:
+  repository: jlesage/mkvcleaver
+  tag: v1.3.0@sha256:e37617bad36809f7dd45216373b40684180c88fac1ff23249162b9c8394adb6b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10270
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10271
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-mkvcleaver'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+mkvcleaver:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+
+configmap:
+  mkvcleaver:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mkvcleaver.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mkvcleaver.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.mkvcleaver.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.mkvcleaver.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
