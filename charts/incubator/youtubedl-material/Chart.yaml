@@ -3,11 +3,11 @@ appVersion: "4.3"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.1.4
+  version: 10.2.0
 - condition: mongodb.enabled
   name: mongodb
   repository: https://charts.truecharts.org
-  version: 1.0.19
+  version: 1.0.23
 description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/youtubedl-material
 icon: https://truecharts.org/_static/img/appicons/youtubedl-material.png
@@ -22,7 +22,7 @@ name: youtubedl-material
 sources:
 - https://hub.docker.com/r/tzahi12345/youtubedl-material
 - https://github.com/Tzahi12345/YoutubeDL-Material
-version: 0.0.4
+version: 0.0.5
 annotations:
   truecharts.org/catagories: |
     - media
