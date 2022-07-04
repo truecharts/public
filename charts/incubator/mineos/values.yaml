@@ -28,7 +28,7 @@ service:
     ports:
       main:
         port: 10257
-  mc-1:
+  minecraft:
     enabled: true
     ports:
       mc-port-1-tcp:
@@ -40,9 +40,6 @@ service:
         enabled: true
         port: 25565
         targetPort: 25565
-  mc-2:
-    enabled: true
-    ports:
       mc-port-2-tcp:
         enabled: true
         port: 25566
@@ -52,9 +49,6 @@ service:
         enabled: true
         port: 25566
         targetPort: 25566
-  mc-3:
-    enabled: true
-    ports:
       mc-port-3-tcp:
         enabled: true
         port: 25567
@@ -64,9 +58,6 @@ service:
         enabled: true
         port: 25567
         targetPort: 25567
-  mc-4:
-    enabled: true
-    ports:
       mc-port-4-tcp:
         enabled: true
         port: 25568
@@ -76,9 +67,6 @@ service:
         enabled: true
         port: 25568
         targetPort: 25568
-  mc-5:
-    enabled: true
-    ports:
       mc-port-5-tcp:
         enabled: true
         port: 25569
@@ -88,9 +76,6 @@ service:
         enabled: true
         port: 25569
         targetPort: 25569
-  mc-6:
-    enabled: true
-    ports:
       mc-port-6-tcp:
         enabled: true
         port: 25570
