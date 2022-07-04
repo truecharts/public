@@ -15,14 +15,14 @@ service:
   main:
     ports:
       main:
-        port: 10053
+        port: 10258
         targetPort: 5800
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
-        port: 10055
+        port: 10259
         targetPort: 5900
 
 envFrom:
