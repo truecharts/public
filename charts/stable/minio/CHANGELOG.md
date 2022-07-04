@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-3.0.14"></a>
+### [minio-3.0.14](https://github.com/truecharts/apps/compare/minio-3.0.13...minio-3.0.14) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="minio-3.0.13"></a>
 ### [minio-3.0.13](https://github.com/truecharts/apps/compare/minio-3.0.12...minio-3.0.13) (2022-07-01)
 

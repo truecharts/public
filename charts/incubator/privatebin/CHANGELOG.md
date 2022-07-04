@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.6"></a>
+### [privatebin-0.0.6](https://github.com/truecharts/apps/compare/privatebin-0.0.5...privatebin-0.0.6) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="privatebin-0.0.5"></a>
 ### [privatebin-0.0.5](https://github.com/truecharts/apps/compare/privatebin-0.0.4...privatebin-0.0.5) (2022-07-02)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jitsi-0.0.4"></a>
+### [jitsi-0.0.4](https://github.com/truecharts/apps/compare/jitsi-0.0.3...jitsi-0.0.4) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="jitsi-0.0.3"></a>
 ### [jitsi-0.0.3](https://github.com/truecharts/apps/compare/jitsi-0.0.2...jitsi-0.0.3) (2022-06-25)
 

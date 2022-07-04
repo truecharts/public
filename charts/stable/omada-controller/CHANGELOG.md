@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-6.0.18"></a>
+### [omada-controller-6.0.18](https://github.com/truecharts/apps/compare/omada-controller-6.0.17...omada-controller-6.0.18) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="omada-controller-6.0.17"></a>
 ### [omada-controller-6.0.17](https://github.com/truecharts/apps/compare/omada-controller-6.0.16...omada-controller-6.0.17) (2022-07-03)
 

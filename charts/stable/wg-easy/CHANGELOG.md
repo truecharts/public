@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wg-easy-1.0.1"></a>
+### [wg-easy-1.0.1](https://github.com/truecharts/apps/compare/wg-easy-1.0.0...wg-easy-1.0.1) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="wg-easy-1.0.0"></a>
 ### [wg-easy-1.0.0](https://github.com/truecharts/apps/compare/wg-easy-0.0.2...wg-easy-1.0.0) (2022-07-02)
 

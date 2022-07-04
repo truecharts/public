@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-6.0.8"></a>
+### [k8s-gateway-6.0.8](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.7...k8s-gateway-6.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="k8s-gateway-6.0.7"></a>
 ### [k8s-gateway-6.0.7](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.6...k8s-gateway-6.0.7) (2022-06-25)
 

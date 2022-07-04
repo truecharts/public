@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="youtubedl-material-0.0.5"></a>
+### [youtubedl-material-0.0.5](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.4...youtubedl-material-0.0.5) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="youtubedl-material-0.0.4"></a>
 ### [youtubedl-material-0.0.4](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.3...youtubedl-material-0.0.4) (2022-07-02)
 

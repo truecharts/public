@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-5.0.8"></a>
+### [trilium-notes-5.0.8](https://github.com/truecharts/apps/compare/trilium-notes-5.0.7...trilium-notes-5.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="trilium-notes-5.0.7"></a>
 ### [trilium-notes-5.0.7](https://github.com/truecharts/apps/compare/trilium-notes-5.0.6...trilium-notes-5.0.7) (2022-07-01)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="browserless-chrome-2.0.9"></a>
+### [browserless-chrome-2.0.9](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.8...browserless-chrome-2.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="browserless-chrome-2.0.8"></a>
 ### [browserless-chrome-2.0.8](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.7...browserless-chrome-2.0.8) (2022-06-25)
 

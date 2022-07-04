@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.15"></a>
+### [minecraft-java-1.0.15](https://github.com/truecharts/apps/compare/minecraft-java-1.0.14...minecraft-java-1.0.15) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="minecraft-java-1.0.14"></a>
 ### [minecraft-java-1.0.14](https://github.com/truecharts/apps/compare/minecraft-java-1.0.13...minecraft-java-1.0.14) (2022-07-01)
 

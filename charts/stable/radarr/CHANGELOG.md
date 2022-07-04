@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-11.0.9"></a>
+### [radarr-11.0.9](https://github.com/truecharts/apps/compare/radarr-11.0.8...radarr-11.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="radarr-11.0.8"></a>
 ### [radarr-11.0.8](https://github.com/truecharts/apps/compare/radarr-11.0.7...radarr-11.0.8) (2022-06-25)
 

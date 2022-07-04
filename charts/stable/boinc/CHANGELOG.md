@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-2.0.14"></a>
+### [boinc-2.0.14](https://github.com/truecharts/apps/compare/boinc-2.0.13...boinc-2.0.14) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="boinc-2.0.13"></a>
 ### [boinc-2.0.13](https://github.com/truecharts/apps/compare/boinc-2.0.12...boinc-2.0.13) (2022-07-03)
 

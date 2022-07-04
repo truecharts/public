@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radicale-0.0.4"></a>
+### [radicale-0.0.4](https://github.com/truecharts/apps/compare/radicale-0.0.3...radicale-0.0.4) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="radicale-0.0.3"></a>
 ### [radicale-0.0.3](https://github.com/truecharts/apps/compare/radicale-0.0.2...radicale-0.0.3) (2022-07-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-15.0.12"></a>
+### [home-assistant-15.0.12](https://github.com/truecharts/apps/compare/home-assistant-15.0.11...home-assistant-15.0.12) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="home-assistant-15.0.11"></a>
 ### [home-assistant-15.0.11](https://github.com/truecharts/apps/compare/home-assistant-15.0.10...home-assistant-15.0.11) (2022-06-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-4.0.8"></a>
+### [logitech-media-server-4.0.8](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.7...logitech-media-server-4.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="logitech-media-server-4.0.7"></a>
 ### [logitech-media-server-4.0.7](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.6...logitech-media-server-4.0.7) (2022-06-25)
 

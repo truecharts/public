@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-12.0.8"></a>
+### [transmission-12.0.8](https://github.com/truecharts/apps/compare/transmission-12.0.7...transmission-12.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="transmission-12.0.7"></a>
 ### [transmission-12.0.7](https://github.com/truecharts/apps/compare/transmission-12.0.6...transmission-12.0.7) (2022-06-25)
 

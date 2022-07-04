@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-7.0.8"></a>
+### [owncloud-ocis-7.0.8](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.7...owncloud-ocis-7.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="owncloud-ocis-7.0.7"></a>
 ### [owncloud-ocis-7.0.7](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.6...owncloud-ocis-7.0.7) (2022-06-25)
 
