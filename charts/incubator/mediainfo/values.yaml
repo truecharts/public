@@ -1,0 +1,56 @@
+image:
+  repository: jlesage/mediainfo
+  tag: v1.10.0@sha256:ffcc6b9bbb59aa11e6701c2bcb5d4f9449c91d6dcdd8a66f65f222e59ba50a22
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10264
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10265
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-mediainfo'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+mediainfo:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+
+configmap:
+  mediainfo:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mediainfo.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mediainfo.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.mediainfo.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.mediainfo.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
