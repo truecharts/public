@@ -42,33 +42,27 @@ probes:
   liveness:
     custom: true
     spec:
-      httpGet:
-        path: /ping
-        port: main
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 10
-      failureThreshold: 60
+      exec:
+        command:
+          - sh
+          - -c
+          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
   readiness:
     custom: true
     spec:
-      httpGet:
-        path: /ping
-        port: main
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 10
-      failureThreshold: 60
+      exec:
+        command:
+          - sh
+          - -c
+          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
   startup:
     custom: true
     spec:
-      httpGet:
-        path: /ping
-        port: main
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 10
-      failureThreshold: 60
+      exec:
+        command:
+          - sh
+          - -c
+          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
