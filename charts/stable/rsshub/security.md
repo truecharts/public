@@ -82,7 +82,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/redis:v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69
-          tccr.io/truecharts/rsshub:latest@sha256:616f02872fb531c7678387f65f4d9b0fe1902cab9efd5a25718c7c5d10f84d8f
+          tccr.io/truecharts/rsshub:latest@sha256:6536b5e6078b96e79a12b5593b6c8284db933fa64923fcbc648c9dca93695c56
         - 'tccr.io/truecharts/browserless-chrome:v1.54.0-chrome@sha256:ae4ca2a22cf58ddbbb52d27b042d4cb9cd4fcf9d43926475916fc2b1c0598446'
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
           tccr.io/truecharts/redis:v7.0.2@sha256:dcd5d5a227bfefc9306a7de6b520e0c7d4123ab1a22bd3b6b102f6dad7fbe7d5
@@ -253,7 +253,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/rsshub:latest@sha256:616f02872fb531c7678387f65f4d9b0fe1902cab9efd5a25718c7c5d10f84d8f (debian 11.3)
+#### Container: tccr.io/truecharts/rsshub:latest@sha256:6536b5e6078b96e79a12b5593b6c8284db933fa64923fcbc648c9dca93695c56 (debian 11.3)
 
 
 **debian**
