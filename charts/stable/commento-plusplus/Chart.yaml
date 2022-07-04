@@ -3,11 +3,11 @@ appVersion: "1.8.7"
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.1.4
+  version: 10.2.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 8.0.18
+  version: 8.0.21
 description: Commento++ is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/commento-plusplus
 icon: https://truecharts.org/_static/img/appicons/commento-plusplus.png
@@ -22,7 +22,7 @@ name: commento-plusplus
 sources:
 - https://github.com/souramoo/commentoplusplus
 - https://hub.docker.com/r/caroga/commentoplusplus
-version: 3.0.7
+version: 3.0.8
 annotations:
   truecharts.org/catagories: |
     - media
