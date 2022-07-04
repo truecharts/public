@@ -166,7 +166,7 @@ initContainers:
         mountPath: "/initdbdata"
     command: ["/bin/sh", "-c"]
     args:
-      - >
+      - |-
         echo "Creating initdb.sql file..."
         /opt/guacamole/bin/initdb.sh --postgres >/initdbdata/initdb.sql
         if [ -e /initdbdata/initdb.sql ]; then
@@ -201,7 +201,7 @@ initContainers:
         mountPath: "/initdbdata"
     command: ["/bin/sh", "-c"]
     args:
-      - >
+      - |-
         psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
         if [ $? -eq 0 ]; then
           echo "DB already initialized. Skipping..."
@@ -231,7 +231,7 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql-hack"
     command: ["/bin/sh", "-c"]
     args:
-    - >
+    - |-
       echo "Checking postgresql driver version..."
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
         echo "Version found is correct."
@@ -271,7 +271,7 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql"
     command: ["/bin/sh", "-c"]
     args:
-    - >
+    - |-
       echo "Copying postgres driver into the final destination."
       cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
