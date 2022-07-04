@@ -40,11 +40,35 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    path: /ping
+    custom: true
+    spec:
+      httpGet:
+        path: /ping
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 60
   readiness:
-    path: /ping
+    custom: true
+    spec:
+      httpGet:
+        path: /ping
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 60
   startup:
-    path: /ping
+    custom: true
+    spec:
+      httpGet:
+        path: /ping
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 60
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
