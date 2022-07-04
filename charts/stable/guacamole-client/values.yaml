@@ -3,11 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.4.0@sha256:43f7b0575173f509b5215a89170dfea80ea07f0b2bfed405882a4bc7ec9dfa52
 
-postgresqlImage:
-  repository: ghcr.io/truecharts/postgresql
-  pullPolicy: IfNotPresent
-  tag: v14.4.0@sha256:16f1954b5e3ca05d163c5d3c6edda0ec4e687cdd524133241df639f4423946dc
-
 podSecurityContext:
   runAsUser: 1001
   runAsGroup: 1001
@@ -172,18 +167,18 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo "Creating initdb.sql file...";
-        /opt/guacamole/bin/initdb.sh --postgres > /initdbdata/initdb.sql;
-        if [ -e /initdbdata/initdb.sql ];
-        then
-          echo "Init file created successfully!";
-          exit 0;
+        echo "Creating initdb.sql file..."
+        /opt/guacamole/bin/initdb.sh --postgres >/initdbdata/initdb.sql
+        if [ -e /initdbdata/initdb.sql ]; then
+          echo "Init file created successfully!"
+          exit 0
         else
-          echo "Init file failed to create.";
-          exit 1;
-        fi;
+          echo "Init file failed to create."
+          exit 1
+        fi
+
   2-initdb:
-    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
+    image: "{{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}"
     env:
       - name: POSTGRES_DATABASE
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -207,22 +202,21 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user';
-        if [ $? -eq 0 ];
-          then
-            echo "DB already initialized. Skipping...";
+        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
+        if [ $? -eq 0 ]; then
+          echo "DB already initialized. Skipping..."
+        else
+          echo "Initializing DB's schema..."
+          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql
+          if [ $? -eq 0 ]; then
+            echo "DB's schema initialized successfully!"
+            exit 0
           else
-            echo "Initializing DB's schema...";
-            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
-            if [ $? -eq 0 ];
-              then
-                echo "DB's schema initialized successfully!";
-                exit 0;
-              else
-                echo "DB's schema failed to initialize.";
-                exit 1;
-            fi;
-        fi;
+            echo "DB's schema failed to initialize."
+            exit 1
+          fi
+        fi
+
     # Until they release an image with the updated driver, we need to manually replace it.
     # https://issues.apache.org/jira/browse/GUACAMOLE-1433
     # https://github.com/apache/guacamole-client/pull/655
@@ -238,36 +232,33 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
     - >
-      echo "Checing postgresql driver version...";
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then
-          echo "Version found is correct.";
-          exit 0;
-        else
-          echo "Old version found. Will try to download a known-to-work version.";
-          echo "Downloading (postgresql-42.2.24.jre7.jar)...";
-          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar";
-          if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];
-            then
-              echo "Downloaded successfully!";
-              cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;
-              if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];
-                then
-                  echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
-                  rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar";
-                  if [ $? -eq 0 ];
-                    then
-                      echo "Removed successfully!";
-                    else
-                      echo "Failed to remove.";
-                      exit 1;
-                  fi;
-              fi;
+      echo "Checking postgresql driver version..."
+      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+        echo "Version found is correct."
+        exit 0
+      else
+        echo "Old version found. Will try to download a known-to-work version."
+        echo "Downloading (postgresql-42.2.24.jre7.jar)..."
+        curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" >"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar"
+        if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ]; then
+          echo "Downloaded successfully!"
+          cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/
+          if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ]; then
+            echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)"
+            rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar"
+            if [ $? -eq 0 ]; then
+              echo "Removed successfully!"
             else
-              echo "Failed to download.";
-              exit 1;
-          fi;
-      fi;
+              echo "Failed to remove."
+              exit 1
+            fi
+          fi
+        else
+          echo "Failed to download."
+          exit 1
+        fi
+      fi
+
   4-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
@@ -281,11 +272,10 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
     - >
-      echo "Copying postgres driver into the final destination.";
-      cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/;
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then
-          echo "Driver copied successfully!";
-        else
-          echo "Failed to copy the driver";
-      fi;
+      echo "Copying postgres driver into the final destination."
+      cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
+      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+        echo "Driver copied successfully!"
+      else
+        echo "Failed to copy the driver"
+      fi
