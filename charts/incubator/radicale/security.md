@@ -39,7 +39,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tomsquest/docker-radicale:3.1.7.0@sha256:ffc26d09d9ef85a477b9f22aa2f08bf35af8ddbee7bfbba192df7c567e21ebb5
+          tomsquest/docker-radicale:3.1.7.0@sha256:c182c596c8bc869003845a594ea4242c506ae77d661e9e2511398389785cb9ec
 
 ##### Scan Results
 
@@ -62,7 +62,7 @@ hide:
 | libcurl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br><a href="https://ubuntu.com/security/notices/USN-5499-1">https://ubuntu.com/security/notices/USN-5499-1</a><br></details>  |
 
 
-#### Container: tomsquest/docker-radicale:3.1.7.0@sha256:ffc26d09d9ef85a477b9f22aa2f08bf35af8ddbee7bfbba192df7c567e21ebb5 (alpine 3.14.6)
+#### Container: tomsquest/docker-radicale:3.1.7.0@sha256:c182c596c8bc869003845a594ea4242c506ae77d661e9e2511398389785cb9ec (alpine 3.14.6)
 
 
 **alpine**

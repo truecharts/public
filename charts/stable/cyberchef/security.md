@@ -42,7 +42,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
-          tccr.io/truecharts/cyberchef:v9.39.1@sha256:53d94935606142570ed63f0b8f6a4439a1ff4f9f8b1e85bd21bf130abd1401c9
+          tccr.io/truecharts/cyberchef:v9.39.1@sha256:f99a4cbd1bfee7b037fcaa85f13f403cae22e9c4c0596181a70e9e43cdfcf244
 
 ##### Scan Results
 
@@ -65,7 +65,7 @@ hide:
 | libcurl         |    CVE-2022-32208   |   MEDIUM  |  7.83.1-r1 | 7.83.1-r2 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-32208">https://access.redhat.com/security/cve/CVE-2022-32208</a><br><a href="https://curl.se/docs/CVE-2022-32208.html">https://curl.se/docs/CVE-2022-32208.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32208</a><br><a href="https://ubuntu.com/security/notices/USN-5495-1">https://ubuntu.com/security/notices/USN-5495-1</a><br><a href="https://ubuntu.com/security/notices/USN-5499-1">https://ubuntu.com/security/notices/USN-5499-1</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/cyberchef:v9.39.1@sha256:53d94935606142570ed63f0b8f6a4439a1ff4f9f8b1e85bd21bf130abd1401c9 (alpine 3.16.0)
+#### Container: tccr.io/truecharts/cyberchef:v9.39.1@sha256:f99a4cbd1bfee7b037fcaa85f13f403cae22e9c4c0596181a70e9e43cdfcf244 (alpine 3.16.0)
 
 
 **alpine**
