@@ -8,7 +8,7 @@
     {{- if kindIs "string" . }}
     - {{ tpl . $ }}
     {{- else }}
-      {{ toYaml . | nindent 4 }}
+      {{ tpl ( toYaml . ) $ | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if or ( .Values.extraArgs ) ( .Values.args ) }}
