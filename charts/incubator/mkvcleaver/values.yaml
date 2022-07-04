@@ -37,11 +37,13 @@ mkvcleaver:
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
 
 configmap:
   mkvcleaver:
     enabled: true
     data:
+      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.mkvcleaver.ENABLE_CJK_FONT }}"
       KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mkvcleaver.KEEP_APP_RUNNING }}"
       SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mkvcleaver.SECURE_CONNECTION }}"
       DISPLAY_WIDTH: "{{ .Values.mkvcleaver.DISPLAY_WIDTH }}"

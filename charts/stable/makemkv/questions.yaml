@@ -95,6 +95,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: ENABLE_CJK_FONT
+          label: "ENABLE_CJK_FONT"
+          description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
+          schema:
+            type: boolean
+            default: false
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."

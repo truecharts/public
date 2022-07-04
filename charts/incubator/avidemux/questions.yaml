@@ -96,6 +96,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: ENABLE_CJK_FONT
+          label: "ENABLE_CJK_FONT"
+          description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
+          schema:
+            type: boolean
+            default: false
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
@@ -126,7 +132,7 @@ questions:
                   required: true
               - variable: SECURE_CONNECTION
                 label: "SECURE_CONNECTION"
-                description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
+                description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
                 schema:
                   type: boolean
                   default: false

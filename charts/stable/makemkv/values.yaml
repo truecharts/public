@@ -30,6 +30,7 @@ makemkv:
   AUTO_DISC_RIPPER_BD_MODE: "mkv"
   AUTO_DISC_RIPPER_MAKEMKV_PROFILE: ""
   SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
   AUTO_DISC_RIPPER: false
   AUTO_DISC_RIPPER_EJECT: false
   AUTO_DISC_RIPPER_PARALLEL_RIP: false
@@ -54,6 +55,7 @@ configmap:
   makemkv:
     enabled: true
     data:
+      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.makemkv.ENABLE_CJK_FONT }}"
       KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.makemkv.KEEP_APP_RUNNING }}"
       SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.makemkv.SECURE_CONNECTION }}"
       DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
