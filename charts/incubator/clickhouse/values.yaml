@@ -46,7 +46,7 @@ probes:
         command:
           - sh
           - -c
-          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
+          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
   readiness:
     custom: true
     spec:
@@ -54,7 +54,7 @@ probes:
         command:
           - sh
           - -c
-          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
+          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
   startup:
     custom: true
     spec:
@@ -62,7 +62,7 @@ probes:
         command:
           - sh
           - -c
-          - until wget --quiet --tries=1 --spider http://localhost:8123/ping; do sleep 2; done
+          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
