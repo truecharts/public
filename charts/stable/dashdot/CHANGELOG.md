@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-1.0.10"></a>
+### [dashdot-1.0.10](https://github.com/truecharts/apps/compare/dashdot-1.0.9...dashdot-1.0.10) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
 <a name="dashdot-1.0.9"></a>
 ### [dashdot-1.0.9](https://github.com/truecharts/apps/compare/dashdot-1.0.8...dashdot-1.0.9) (2022-07-02)
 

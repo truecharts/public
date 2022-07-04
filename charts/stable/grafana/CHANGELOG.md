@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.17"></a>
+### [grafana-4.0.17](https://github.com/truecharts/apps/compare/grafana-4.0.16...grafana-4.0.17) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
 <a name="grafana-4.0.16"></a>
 ### [grafana-4.0.16](https://github.com/truecharts/apps/compare/grafana-4.0.15...grafana-4.0.16) (2022-07-01)
 
