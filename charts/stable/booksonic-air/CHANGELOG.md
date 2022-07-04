@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-6.0.9"></a>
+### [booksonic-air-6.0.9](https://github.com/truecharts/apps/compare/booksonic-air-6.0.8...booksonic-air-6.0.9) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
 <a name="booksonic-air-6.0.8"></a>
 ### [booksonic-air-6.0.8](https://github.com/truecharts/apps/compare/booksonic-air-6.0.7...booksonic-air-6.0.8) (2022-06-25)
 
