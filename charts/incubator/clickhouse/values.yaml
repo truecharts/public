@@ -22,6 +22,7 @@ service:
       main:
         port: 8123
         targetPort: 8123
+        protocol: HTTP
 
 volumeClaimTemplates:
   data:
@@ -40,29 +41,14 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - sh
-          - -c
-          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
+    type: HTTP
+    path: /ping
   readiness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - sh
-          - -c
-          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
+    type: HTTP
+    path: /ping
   startup:
-    custom: true
-    spec:
-      exec:
-        command:
-          - sh
-          - -c
-          - wget --quiet --tries=1 --spider http://localhost:8123/ping || exit 1
+    type: HTTP
+    path: /ping
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
