@@ -1,0 +1,27 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: mineos
+version: 0.0.1
+appVersion: "latest"
+description: MineOS is a server front-end to ease managing Minecraft administrative tasks.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/mineos
+icon: https://truecharts.org/_static/img/appicons/mineos.png
+keywords:
+  - games
+sources:
+  - https://hub.docker.com/r/hexparrot/mineos
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.1.4
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
