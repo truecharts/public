@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: ghcr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:21bf236a201989c5bb5547b06e8083b2ae6ac13dee3dcb2bef0a101ab05f1038
+  tag: latest@sha256:659892f163ae2f2295727d087f4e04cec2d12002c8466d1cff64a5516bb30bfa
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v4.4.0@sha256:13b87094cf293bf45278de98ecb83eb50f3d86ffe0587b4fafd6dc259d367a4d
+  tag: v4.5.0@sha256:688d7ee25d5a42e78d3bf47c46f0d32ec1689f5539869af787752faf9e6f7dc5
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.4.0@sha256:569f358a5e8fa89564c68625fedc5d9b60580bac3a2e49169faeba23429e55ea
+  tag: v14.4.0@sha256:16f1954b5e3ca05d163c5d3c6edda0ec4e687cdd524133241df639f4423946dc
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -74,7 +74,7 @@ mariadbImage:
   # -- Specify the mariadb image
   repository: ghcr.io/truecharts/mariadb
   # -- Specify the mariadb image tag
-  tag: v10.8.3@sha256:838895128e226c4044bc9cffc055986ce8dd45286dabb847a7c1993c51c56921
+  tag: v10.8.3@sha256:0296a23b35c62b30d0024054d08f1fc8f72a543d222d20e2cb84a6db0e47b65d
   # -- Specify the mariadb image pull policy
   pullPolicy: IfNotPresent
 
@@ -84,7 +84,7 @@ mongodbImage:
   # -- Specify the mongodb image
   repository: ghcr.io/truecharts/mongodb
   # -- Specify the mongodb image tag
-  tag: v5.0.9@sha256:73059f8cf026f44c2ec0c1bca7d003054cb7657ce437c252491e50004423e44b
+  tag: v5.0.9@sha256:0ed93b0f9013c78e66c693920e33e34d744ee9525bd805d0218754e84766bd6c
   # -- Specify the mongodb image pull policy
   pullPolicy: IfNotPresent
 
@@ -94,7 +94,7 @@ redisImage:
   # -- Specify the redis image
   repository: ghcr.io/truecharts/redis
   # -- Specify the redis image tag
-  tag: v7.0.2@sha256:f8d1ed698dc62989cb821727b0d56ff268825714002f4b9715026d1916dfbc69
+  tag: v7.0.2@sha256:6fdca1a975247a29f5ed76752f99e880f0052672347b575c387e406fff09e3c8
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
