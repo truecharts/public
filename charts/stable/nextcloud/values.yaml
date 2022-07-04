@@ -18,13 +18,21 @@ service:
       main:
         port: 10020
         targetPort: 8080
-  hpb:
+  backend:
     enabled: true
     ports:
       hpb:
         enabled: true
         port: 7867
         targetPort: 7867
+      hpb-metrics:
+        enabled: true
+        port: 7868
+        targetPort: 7868
+      fpm:
+        enabled: true
+        port: 9000
+        targetPort: 9000
 
 secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -90,8 +98,9 @@ initContainers:
 env:
   # IP used for exposing nextcloud
   # Often the service or nodePort IP
-  AccessIP: 127.0.0.1
-  TRUSTED_PROXIES: "172.16.0.0/16"
+  # Defaults to the main serviceName for CI purposes.
+  AccessIP:
+  TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PASSWORD:
@@ -185,6 +194,16 @@ configmap:
             server {
                 listen 8080;
 
+                # Forward Notify_Push "High Performance Backend"  to it's own container
+                location ^~ /push/ {
+                    proxy_pass http://127.0.0.1:7867/;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection "Upgrade";
+                    proxy_set_header Host $host;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                }
+
                 # HSTS settings
                 # WARNING: Only add the preload option once you read about
                 # the consequences in https://hstspreload.org/. This option
@@ -272,16 +291,6 @@ configmap:
                 location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)(?:$|/)  { return 404; }
                 location ~ ^/(?:\.|autotest|occ|issue|indie|db_|console)                { return 404; }
 
-                # Forward Notify_Push "High Performance Backend"  to it's own container
-                location ^~ /push/ {
-                    proxy_pass http://127.0.0.1:7867/;
-                    proxy_http_version 1.1;
-                    proxy_set_header Upgrade $http_upgrade;
-                    proxy_set_header Connection "Upgrade";
-                    proxy_set_header Host $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                }
-
                 # Ensure this block, which passes PHP files to the PHP process, is above the blocks
                 # which handle static assets (as seen below). If this block is not declared first,
                 # then Nginx will encounter an infinite rewriting loop when it prepends `/index.php`
@@ -332,10 +341,14 @@ configmap:
         }
 
 cronjob:
+  enabled: true
   schedule: "*/5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
+
+hpb:
+  enabled: true
 
 postgresql:
   enabled: true

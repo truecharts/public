@@ -7,14 +7,13 @@
 {{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
+{{- if .Values.hpb.enabled -}}
 {{- $_ := set .Values.additionalContainers "hpb" (include "nextcloud.hpb" . | fromYaml) -}}
+{{- end -}}
 {{- $_ := set .Values.additionalContainers "nginx" (include "nextcloud.nginx" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
-
-{{/* Render job for nextcloud */}}
-{{ include "nextcloud.job" . }}
 
 {{/* Render cronjob for nextcloud */}}
 {{- include "nextcloud.cronjob" . }}

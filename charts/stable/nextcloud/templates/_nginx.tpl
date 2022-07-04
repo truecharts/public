@@ -1,6 +1,6 @@
 {{/* Define the nginx container */}}
 {{- define "nextcloud.nginx" -}}
-image: nginxinc/nginx-unprivileged:1.23
+image: tccr.io/truecharts/nginx-unprivileged:v1.23.0@sha256:e0e989581b7935192d6023ac4a2c19045df39b69b43b894fedbd09726b34c133
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 securityContext:
   runAsUser: 33

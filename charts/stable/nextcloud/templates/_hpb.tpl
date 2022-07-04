@@ -1,5 +1,6 @@
 {{/* Define the hbp container */}}
 {{- define "nextcloud.hpb" -}}
+{{- $jobName := include "tc.common.names.fullname" . }}
 image: '{{ include "tc.common.images.selector" . }}'
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 securityContext:
@@ -14,22 +15,34 @@ volumeMounts:
 ports:
   - containerPort: 7867
 readinessProbe:
-  tcpSocket:
+  httpGet:
+    path: /push/test/cookie
     port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
-  tcpSocket:
+  httpGet:
+    path: /push/test/cookie
     port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
-  tcpSocket:
+  httpGet:
+    path: /push/test/cookie
     port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
@@ -39,7 +52,7 @@ command:
   - "-c"
   - |
     /bin/bash <<'EOF'
-    sleep 10
+    set -m
     echo "Waiting for notify_push file to be available..."
     until [ -f /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push ]
     do
@@ -55,13 +68,23 @@ command:
         echo "Nextcloud not installed... waiting..."
         sleep 10
     done
-    sleep 10
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
-    /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php
+    /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
+
+    until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
+        echo "High Performance Backend not running ... waiting..."
+        sleep 10
+    done
+    echo  "High Performance Backend found..."
+    echo  "Configuring High Performance Backend for url: ${ACCESS_URL}"
+    php /var/www/html/occ notify_push:setup ${ACCESS_URL}/push
+    fg
     EOF
 env:
   - name: NEXTCLOUD_URL
     value: 'http://127.0.0.1:8080'
+  - name: METRICS_PORT
+    value: '7868'
   - name: TRUSTED_PROXIES
     value: "{{ .Values.env.TRUSTED_PROXIES }}"
   - name: POSTGRES_DB
@@ -88,4 +111,7 @@ env:
       secretKeyRef:
         name: rediscreds
         key: redis-password
+envFrom:
+  - configMapRef:
+      name: nextcloudconfig
 {{- end -}}
