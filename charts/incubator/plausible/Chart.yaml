@@ -7,7 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.18
+    version: 8.0.20
+  - condition: clickhouse.enabled
+    name: clickhouse
+    repository: https://charts.truecharts.org/
+    version: 0.0.1
 deprecated: false
 description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/plausible

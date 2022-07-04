@@ -54,7 +54,6 @@ installContainers:
     args:
       - -c
       - >-
-        sleep 10 &&
         /entrypoint.sh db createdb &&
         /entrypoint.sh db migrate &&
         /entrypoint.sh db init-admin
@@ -70,9 +69,7 @@ upgradeContainers:
     command: [sh]
     args:
       - -c
-      - >-
-        sleep 10 &&
-        /entrypoint.sh db migrate
+      - /entrypoint.sh db migrate
 
 service:
   main:
@@ -87,3 +84,9 @@ postgresql:
   existingSecret: dbcreds
   postgresqlUsername: plausible
   postgresqlDatabase: plausible
+
+clickhouse:
+  enabled: true
+  existingSecret: clickhousecreds
+  clickhouseUsername: plausible
+  clickhouseDatabase: plausible
