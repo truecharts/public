@@ -202,12 +202,12 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - |-
-        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
+        psql -h "$POSTGRES_HOSTNAME" -d "$POSTGRES_DATABASE" -U "$POSTGRES_USER" -p "$POSTGRES_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
         if [ $? -eq 0 ]; then
           echo "DB already initialized. Skipping..."
         else
           echo "Initializing DB's schema..."
-          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql
+          psql -h "$POSTGRES_HOSTNAME" -d "$POSTGRES_DATABASE" -U "$POSTGRES_USER" -p "$POSTGRES_PORT" -a -w -f /initdbdata/initdb.sql
           if [ $? -eq 0 ]; then
             echo "DB's schema initialized successfully!"
             exit 0
