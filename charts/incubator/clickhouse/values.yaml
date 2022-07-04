@@ -40,13 +40,10 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    type: HTTP
     path: /ping
   readiness:
-    type: HTTP
     path: /ping
   startup:
-    type: HTTP
     path: /ping
 
 clickhouseDatabase: "test"
