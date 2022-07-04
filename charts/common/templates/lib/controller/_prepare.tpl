@@ -11,8 +11,8 @@ before chart installation.
     {{- $_ := set $hostPathMounts $name $mount -}}
   {{- end -}}
 {{- end }}
-- name: autopermissions
-  image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
+- name: prepare
+  image: {{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}
   securityContext:
     runAsUser: 0
     privileged: true
@@ -20,6 +20,42 @@ before chart installation.
   {{- with .Values.resources }}
     {{- tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
+  env:
+    {{- if .Values.mariadb.enabled }}
+    - name: MARIADB_HOST
+      valueFrom:
+        secretKeyRef:
+          name: mariadbcreds
+          key: plainhost
+    - name: MARIADB_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mariadbcreds
+          key: mariadb-root-password
+    {{- end }}
+    {{- if .Values.redis.enabled }}
+    - name: REDIS_HOST
+      valueFrom:
+        secretKeyRef:
+          name: rediscreds
+          key: plainhost
+    - name: REDIS_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: rediscreds
+          key: redis-password
+    - name: REDIS_PORT
+      value: "6379"
+    {{- end }}
+    {{- if .Values.mongodb.enabled }}
+    - name: MONGODB_HOST
+      valueFrom:
+        secretKeyRef:
+          name: mongodbcreds
+          key: plainhost
+    - name: MONGODB_DATABASE
+      value: "{{ .Values.mongodb.mongoDatabase }}"
+    {{- end }}
   command:
     - "/bin/sh"
     - "-c"
@@ -52,6 +88,49 @@ before chart installation.
       {{- if .Values.patchInotify }}
       echo "increasing inotify limits..."
       ( sysctl -w fs.inotify.max_user_watches=524288 || echo "error setting inotify") && ( sysctl -w fs.inotify.max_user_instances=512 || echo "error setting inotify")
+      {{- end }}
+      {{- if .Values.postgresql.enabled }}
+      {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
+      until
+        pg_isready -U {{ .Values.postgresql.postgresqlUsername }} -h {{ $pghost }}
+        do sleep 2
+      done
+      {{- end }}
+      {{- if .Values.mongodb.enabled }}
+      until
+        echo "db.runCommand(\"ping\")" | mongo --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
+        do sleep 2;
+      done
+      {{- end }}
+      {{- if .Values.mariadb.enabled }}
+      until
+        mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" ping \
+        && mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" status;
+        do sleep 2;
+      done
+      {{- end }}
+      {{- if .Values.redis.enabled }}
+      [[ -n "$REDIS_PASSWORD" ]] && export REDISCLI_AUTH="$REDIS_PASSWORD";
+      export LIVE=false;
+      until "$LIVE";
+      do
+        response=$(
+            timeout -s 3 2 \
+            redis-cli \
+              -h "$REDIS_HOST" \
+              -p "$REDIS_PORT" \
+              ping
+          )
+        if [ "$response" == "PONG" ] || [ "$response" == "LOADING Redis is loading the dataset in memory" ]; then
+          LIVE=true
+          echo "$response"
+          echo "Redis Responded, ending initcontainer and starting main container(s)..."
+        else
+          echo "$response"
+          echo "Redis not respoding... Sleeping for 10 sec..."
+          sleep 10
+        fi;
+      done
       {{- end }}
       EOF
 

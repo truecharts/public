@@ -51,10 +51,6 @@ terminationGracePeriodSeconds: {{ . }}
   {{- end }}
 initContainers:
   {{- include "tc.common.controller.prepare" . | nindent 2 }}
-  {{- include "tc.common.dependencies.postgresql.init" . | nindent 2 }}
-  {{- include "tc.common.dependencies.mariadb.init" . | nindent 2 }}
-  {{- include "tc.common.dependencies.mongodb.init" . | nindent 2 }}
-  {{- include "tc.common.dependencies.redis.init" . | nindent 2 }}
   {{- if and ( or ( .Release.IsInstall ) ( .Values.test.install ) ) ( .Values.installContainers )}}
     {{- $installContainers := list }}
     {{- range $index, $key := (keys .Values.installContainers | uniq | sortAlpha) }}

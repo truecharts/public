@@ -58,43 +58,11 @@ alpineImage:
   # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
 
-# -- postgresql specific configuration
-# @default -- See below
-postgresqlImage:
-  # -- Specify the postgresql image
-  repository: ghcr.io/truecharts/postgresql
-  # -- Specify the postgresql image tag
-  tag: v14.4.0@sha256:16f1954b5e3ca05d163c5d3c6edda0ec4e687cdd524133241df639f4423946dc
-  # -- Specify the postgresql image pull policy
-  pullPolicy: IfNotPresent
-
-# -- mariadb specific configuration
-# @default -- See below
-mariadbImage:
-  # -- Specify the mariadb image
-  repository: ghcr.io/truecharts/mariadb
-  # -- Specify the mariadb image tag
-  tag: v10.8.3@sha256:0296a23b35c62b30d0024054d08f1fc8f72a543d222d20e2cb84a6db0e47b65d
-  # -- Specify the mariadb image pull policy
-  pullPolicy: IfNotPresent
-
-# -- mongodb specific configuration
-# @default -- See below
-mongodbImage:
-  # -- Specify the mongodb image
-  repository: ghcr.io/truecharts/mongodb
-  # -- Specify the mongodb image tag
-  tag: v5.0.9@sha256:0ed93b0f9013c78e66c693920e33e34d744ee9525bd805d0218754e84766bd6c
-  # -- Specify the mongodb image pull policy
-  pullPolicy: IfNotPresent
-
-# -- redis specific configuration
-# @default -- See below
-redisImage:
-  # -- Specify the redis image
-  repository: ghcr.io/truecharts/redis
+multiinitImage:
+  # -- Specify the multi-init image
+  repository: ghcr.io/truecharts/multi-init
   # -- Specify the redis image tag
-  tag: v7.0.2@sha256:6fdca1a975247a29f5ed76752f99e880f0052672347b575c387e406fff09e3c8
+  tag: v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
