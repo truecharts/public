@@ -1,0 +1,54 @@
+image:
+  repository: jlesage/putty
+  tag: v1.4.0@sha256:97743ba343536b6a1f411286fbe4cca3781452e521fc303a9a4d3317b7eb4eb0
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10266
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10267
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-putty'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+putty:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+
+configmap:
+  putty:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.putty.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.putty.SECURE_CONNECTION }}"
+      DISABLE_RESTART_SESSION_DIALOG_WINDOW: "{{ ternary \"1\" \"0\" .Values.putty.DISABLE_RESTART_SESSION_DIALOG_WINDOW }}"
+      DISPLAY_WIDTH: "{{ .Values.putty.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.putty.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
