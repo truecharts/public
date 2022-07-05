@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="makemkv-2.0.10"></a>
+### [makemkv-2.0.10](https://github.com/truecharts/apps/compare/makemkv-2.0.9...makemkv-2.0.10) (2022-07-05)
+
+#### Feat
+
+* add 8 apps (jlesage apps) ([#3070](https://github.com/truecharts/apps/issues/3070))
+
+
+
 <a name="makemkv-2.0.9"></a>
 ### [makemkv-2.0.9](https://github.com/truecharts/apps/compare/makemkv-2.0.8...makemkv-2.0.9) (2022-07-04)
 

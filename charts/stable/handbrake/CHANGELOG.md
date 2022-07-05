@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-13.0.10"></a>
+### [handbrake-13.0.10](https://github.com/truecharts/apps/compare/handbrake-13.0.9...handbrake-13.0.10) (2022-07-05)
+
+#### Feat
+
+* add 8 apps (jlesage apps) ([#3070](https://github.com/truecharts/apps/issues/3070))
+
+
+
 <a name="handbrake-13.0.9"></a>
 ### [handbrake-13.0.9](https://github.com/truecharts/apps/compare/handbrake-13.0.8...handbrake-13.0.9) (2022-07-04)
 
