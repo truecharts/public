@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-7.0.10"></a>
+### [stash-7.0.10](https://github.com/truecharts/apps/compare/stash-7.0.9...stash-7.0.10) (2022-07-05)
+
+#### Chore
+
+* update docker general non-major ([#3071](https://github.com/truecharts/apps/issues/3071))
+
+
+
 <a name="stash-7.0.9"></a>
 ### [stash-7.0.9](https://github.com/truecharts/apps/compare/stash-7.0.8...stash-7.0.9) (2022-07-04)
 

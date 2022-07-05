@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: dupeguru/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-dupeguru&#39; of Deployment &#39;RELEASE-NAME-dupeguru&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -48,11 +48,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | coreutils         |    CVE-2016-2781   |   LOW  |  8.30-3ubuntu2 |  | <details><summary>Expand...</summary><a href="http://seclists.org/oss-sec/2016/q1/452">http://seclists.org/oss-sec/2016/q1/452</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/2">http://www.openwall.com/lists/oss-security/2016/02/28/2</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/3">http://www.openwall.com/lists/oss-security/2016/02/28/3</a><br><a href="https://access.redhat.com/security/cve/CVE-2016-2781">https://access.redhat.com/security/cve/CVE-2016-2781</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://lore.kernel.org/patchwork/patch/793178/">https://lore.kernel.org/patchwork/patch/793178/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2781">https://nvd.nist.gov/vuln/detail/CVE-2016-2781</a><br></details>  |
@@ -270,11 +270,11 @@ hide:
 
 
 #### Container: jlesage/dupeguru:v1.12.1@sha256:8e663b9fb92beeb361ac078dd8ddb6ac9bef8521b12d2b2c9a53b2ec52d3572b (alpine 3.15.0)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.34.1-r3 | 1.34.1-r5 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -337,9 +337,6 @@ hide:
 
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: qdirstat/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;RELEASE-NAME-qdirstat&#39; of Deployment &#39;RELEASE-NAME-qdirstat&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a><br></details>  |
@@ -48,11 +48,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | coreutils         |    CVE-2016-2781   |   LOW  |  8.30-3ubuntu2 |  | <details><summary>Expand...</summary><a href="http://seclists.org/oss-sec/2016/q1/452">http://seclists.org/oss-sec/2016/q1/452</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/2">http://www.openwall.com/lists/oss-security/2016/02/28/2</a><br><a href="http://www.openwall.com/lists/oss-security/2016/02/28/3">http://www.openwall.com/lists/oss-security/2016/02/28/3</a><br><a href="https://access.redhat.com/security/cve/CVE-2016-2781">https://access.redhat.com/security/cve/CVE-2016-2781</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://lore.kernel.org/patchwork/patch/793178/">https://lore.kernel.org/patchwork/patch/793178/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-2781">https://nvd.nist.gov/vuln/detail/CVE-2016-2781</a><br></details>  |
@@ -270,11 +270,11 @@ hide:
 
 
 #### Container: jlesage/qdirstat:v1.5.0@sha256:a0e5b452e50c4a521c4fb5bdac5e1b9b99243e8379539f5aa8635ba8a0f08381 (alpine 3.14.3)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2022-28391   |   CRITICAL  |  1.33.1-r6 | 1.33.1-r7 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-28391">https://access.redhat.com/security/cve/CVE-2022-28391</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28391</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch</a><br><a href="https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch">https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch</a><br><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661">https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-28391">https://nvd.nist.gov/vuln/detail/CVE-2022-28391</a><br></details>  |
@@ -299,4 +299,3 @@ hide:
 | tiff         |    CVE-2022-0924   |   MEDIUM  |  4.2.0-r1 | 4.3.0-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-0924">https://access.redhat.com/security/cve/CVE-2022-0924</a><br><a href="https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0924.json">https://gitlab.com/gitlab-org/cves/-/blob/master/2022/CVE-2022-0924.json</a><br><a href="https://gitlab.com/libtiff/libtiff/-/issues/278">https://gitlab.com/libtiff/libtiff/-/issues/278</a><br><a href="https://gitlab.com/libtiff/libtiff/-/merge_requests/311">https://gitlab.com/libtiff/libtiff/-/merge_requests/311</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RNT2GFNRLOMKJ5KXM6JIHKBNBFDVZPD3/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4E654ZYUUUQNBKYQFXNK2CV3CPWTM2/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0924">https://nvd.nist.gov/vuln/detail/CVE-2022-0924</a><br><a href="https://security.netapp.com/advisory/ntap-20220506-0002/">https://security.netapp.com/advisory/ntap-20220506-0002/</a><br><a href="https://www.debian.org/security/2022/dsa-5108">https://www.debian.org/security/2022/dsa-5108</a><br></details>  |
 | tiff         |    CVE-2022-22844   |   MEDIUM  |  4.2.0-r1 | 4.3.0-r0 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-22844">https://access.redhat.com/security/cve/CVE-2022-22844</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22844">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22844</a><br><a href="https://gitlab.com/libtiff/libtiff/-/issues/355">https://gitlab.com/libtiff/libtiff/-/issues/355</a><br><a href="https://gitlab.com/libtiff/libtiff/-/merge_requests/287">https://gitlab.com/libtiff/libtiff/-/merge_requests/287</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/03/msg00001.html">https://lists.debian.org/debian-lts-announce/2022/03/msg00001.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-22844">https://nvd.nist.gov/vuln/detail/CVE-2022-22844</a><br><a href="https://security.netapp.com/advisory/ntap-20220311-0002/">https://security.netapp.com/advisory/ntap-20220311-0002/</a><br><a href="https://www.debian.org/security/2022/dsa-5108">https://www.debian.org/security/2022/dsa-5108</a><br></details>  |
 | xz-libs         |    CVE-2022-1271   |   HIGH  |  5.2.5-r0 | 5.2.5-r1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-1271">https://access.redhat.com/security/cve/CVE-2022-1271</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1271">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1271</a><br><a href="https://errata.almalinux.org/8/ALSA-2022-1537.html">https://errata.almalinux.org/8/ALSA-2022-1537.html</a><br><a href="https://linux.oracle.com/cve/CVE-2022-1271.html">https://linux.oracle.com/cve/CVE-2022-1271.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-5052.html">https://linux.oracle.com/errata/ELSA-2022-5052.html</a><br><a href="https://lists.gnu.org/r/bug-gzip/2022-04/msg00011.html">https://lists.gnu.org/r/bug-gzip/2022-04/msg00011.html</a><br><a href="https://ubuntu.com/security/notices/USN-5378-1">https://ubuntu.com/security/notices/USN-5378-1</a><br><a href="https://ubuntu.com/security/notices/USN-5378-2">https://ubuntu.com/security/notices/USN-5378-2</a><br><a href="https://ubuntu.com/security/notices/USN-5378-3">https://ubuntu.com/security/notices/USN-5378-3</a><br><a href="https://ubuntu.com/security/notices/USN-5378-4">https://ubuntu.com/security/notices/USN-5378-4</a><br><a href="https://www.openwall.com/lists/oss-security/2022/04/07/8">https://www.openwall.com/lists/oss-security/2022/04/07/8</a><br></details>  |
-

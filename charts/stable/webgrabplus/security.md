@@ -41,7 +41,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/webgrabplus:v4.2.3
+          tccr.io/truecharts/webgrabplus:v4.2.4
 
 ##### Scan Results
 
@@ -268,7 +268,7 @@ hide:
 | xxd         |    CVE-2022-1898   |   LOW  |  2:8.1.2269-1ubuntu5.7 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/CVE-2022-1898">https://access.redhat.com/security/cve/CVE-2022-1898</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1898">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1898</a><br><a href="https://github.com/vim/vim/commit/e2fa213cf571041dbd04ab0329303ffdc980678a">https://github.com/vim/vim/commit/e2fa213cf571041dbd04ab0329303ffdc980678a</a><br><a href="https://huntr.dev/bounties/45aad635-c2f1-47ca-a4f9-db5b25979cea">https://huntr.dev/bounties/45aad635-c2f1-47ca-a4f9-db5b25979cea</a><br><a href="https://lists.debian.org/debian-lts-announce/2022/06/msg00014.html">https://lists.debian.org/debian-lts-announce/2022/06/msg00014.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OZSLFIKFYU5Y2KM5EJKQNYHWRUBDQ4GJ/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OZSLFIKFYU5Y2KM5EJKQNYHWRUBDQ4GJ/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QMFHBC5OQXDPV2SDYA2JUQGVCPYASTJB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QMFHBC5OQXDPV2SDYA2JUQGVCPYASTJB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TYNK6SDCMOLQJOI3B4AOE66P2G2IH4ZM/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TYNK6SDCMOLQJOI3B4AOE66P2G2IH4ZM/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-1898">https://nvd.nist.gov/vuln/detail/CVE-2022-1898</a><br><a href="https://ubuntu.com/security/notices/USN-5498-1">https://ubuntu.com/security/notices/USN-5498-1</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/webgrabplus:v4.2.3 (alpine 3.15)
+#### Container: tccr.io/truecharts/webgrabplus:v4.2.4 (alpine 3.15)
 
 
 **alpine**
