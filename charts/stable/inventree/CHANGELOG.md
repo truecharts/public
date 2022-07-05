@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="inventree-3.0.11"></a>
+### [inventree-3.0.11](https://github.com/truecharts/apps/compare/inventree-3.0.10...inventree-3.0.11) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="inventree-3.0.10"></a>
 ### [inventree-3.0.10](https://github.com/truecharts/apps/compare/inventree-3.0.9...inventree-3.0.10) (2022-07-04)
 

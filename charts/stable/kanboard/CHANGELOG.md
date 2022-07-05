@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-8.0.9"></a>
+### [kanboard-8.0.9](https://github.com/truecharts/apps/compare/kanboard-8.0.8...kanboard-8.0.9) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="kanboard-8.0.8"></a>
 ### [kanboard-8.0.8](https://github.com/truecharts/apps/compare/kanboard-8.0.7...kanboard-8.0.8) (2022-07-04)
 

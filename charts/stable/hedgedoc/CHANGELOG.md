@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-4.0.5"></a>
+### [hedgedoc-4.0.5](https://github.com/truecharts/apps/compare/hedgedoc-4.0.4...hedgedoc-4.0.5) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="hedgedoc-4.0.4"></a>
 ### [hedgedoc-4.0.4](https://github.com/truecharts/apps/compare/hedgedoc-4.0.3...hedgedoc-4.0.4) (2022-07-04)
 

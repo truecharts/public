@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librephotos-4.0.11"></a>
+### [librephotos-4.0.11](https://github.com/truecharts/apps/compare/librephotos-4.0.10...librephotos-4.0.11) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="librephotos-4.0.10"></a>
 ### [librephotos-4.0.10](https://github.com/truecharts/apps/compare/librephotos-4.0.9...librephotos-4.0.10) (2022-07-04)
 

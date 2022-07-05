@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ferdi-server-3.0.8"></a>
+### [ferdi-server-3.0.8](https://github.com/truecharts/apps/compare/ferdi-server-3.0.7...ferdi-server-3.0.8) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="ferdi-server-3.0.7"></a>
 ### [ferdi-server-3.0.7](https://github.com/truecharts/apps/compare/ferdi-server-3.0.6...ferdi-server-3.0.7) (2022-07-04)
 

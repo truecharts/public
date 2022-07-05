@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.21 |
+| https://charts.truecharts.org/ | mariadb | 3.0.22 |
 | https://charts.truecharts.org | redis | 3.0.22 |
 | https://library-charts.truecharts.org | common | 10.2.0 |
 

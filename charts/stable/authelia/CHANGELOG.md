@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-11.0.11"></a>
+### [authelia-11.0.11](https://github.com/truecharts/apps/compare/authelia-11.0.10...authelia-11.0.11) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="authelia-11.0.10"></a>
 ### [authelia-11.0.10](https://github.com/truecharts/apps/compare/authelia-11.0.9...authelia-11.0.10) (2022-07-04)
 

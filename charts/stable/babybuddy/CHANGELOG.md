@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-8.0.14"></a>
+### [babybuddy-8.0.14](https://github.com/truecharts/apps/compare/babybuddy-8.0.13...babybuddy-8.0.14) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
 <a name="babybuddy-8.0.13"></a>
 ### [babybuddy-8.0.13](https://github.com/truecharts/apps/compare/babybuddy-8.0.12...babybuddy-8.0.13) (2022-07-04)
 
