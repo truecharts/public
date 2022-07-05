@@ -84,6 +84,19 @@ initContainers:
       - "-c"
       - |
         /bin/bash <<'EOF'
+        if [[ -f /data/config/config.php ]] && [[ ! -f /html/config/config.php ]]; then
+        echo "migrating from single to dual PVC's..."
+        echo "moving to placeholder location..."
+        mv -f /var/www/html/data/* /var/www/html/data/tomigrate/
+        echo "moving userdata to data-pvc root..."
+        mv -f /var/www/html/data/tomigrate/data/* /var/www/html/data/
+        echo "removing old data folder..."
+        rm -rf /var/www/html/data/tomigrate/data
+        echo "moving config, apps, templates and other content to html-pvc root..."
+        mv -f /var/www/html/data/tomigrate/data/* /var/www/html/data/
+        echo "Removing migration temporary folder..."
+        rm -rf /var/www/html/data/tomigrate
+        fi
         echo "Enforcing chmod 770 on data-dir..."
         chmod 770 /var/www/html/data
         echo "Migrating old data when found..."
@@ -93,7 +106,7 @@ initContainers:
       - name: data
         mountPath: "/var/www/html/data"
       - name: html
-        mountPath: "/html"
+        mountPath: "/var/www/html"
 
 env:
   # IP used for exposing nextcloud
