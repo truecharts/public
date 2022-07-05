@@ -37,6 +37,7 @@ handbrake:
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
   AUTOMATED_CONVERSION_PRESET: "General/Very Fast 1080p30"
   AUTOMATED_CONVERSION_FORMAT: "mp4"
   AUTOMATED_CONVERSION_KEEP_SOURCE: true
@@ -46,6 +47,7 @@ configmap:
   handbrake:
     enabled: true
     data:
+      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.handbrake.ENABLE_CJK_FONT }}"
       KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.handbrake.KEEP_APP_RUNNING }}"
       SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.handbrake.SECURE_CONNECTION }}"
       DISPLAY_WIDTH: "{{ .Values.handbrake.DISPLAY_WIDTH }}"

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/mkvtoolnix
-  tag: v1.63.0@sha256:eace00e1e0b5a213d419e034ce1b8b19b48297d86335011450b52b65efa42fce
+  repository: jlesage/tsmuxer
+  tag: v1.5.1@sha256:f4db5f28dd0946fdcd044d815f13203906d358a22fe70efb7051ce7057012390
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -15,24 +15,24 @@ service:
   main:
     ports:
       main:
-        port: 10236
+        port: 10274
         targetPort: 5800
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
-        port: 10237
+        port: 10275
         targetPort: 5900
 
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-mkvtoolnix'
+      name: '{{ include "tc.common.names.fullname" . }}-tsmuxer'
 
 secretEnv:
   VNC_PASSWORD: ""
 
-mkvtoolnix:
+tsmuxer:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
@@ -40,14 +40,14 @@ mkvtoolnix:
   ENABLE_CJK_FONT: false
 
 configmap:
-  mkvtoolnix:
+  tsmuxer:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.mkvtoolnix.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mkvtoolnix.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mkvtoolnix.SECURE_CONNECTION }}"
-      DISPLAY_WIDTH: "{{ .Values.mkvtoolnix.DISPLAY_WIDTH }}"
-      DISPLAY_HEIGHT: "{{ .Values.mkvtoolnix.DISPLAY_HEIGHT }}"
+      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.tsmuxer.ENABLE_CJK_FONT }}"
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.tsmuxer.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.tsmuxer.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.tsmuxer.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.tsmuxer.DISPLAY_HEIGHT }}"
 
 persistence:
   config:
