@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 8.0.21
+  version: 8.0.22
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
@@ -26,7 +26,7 @@ name: authentik
 sources:
 - https://github.com/goauthentik/authentik
 - https://goauthentik.io/docs/
-version: 2.0.11
+version: 2.0.12
 annotations:
   truecharts.org/catagories: |
     - authentication

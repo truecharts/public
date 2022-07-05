@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.truecharts.org/
-  version: 8.0.21
+  version: 8.0.22
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
@@ -30,7 +30,7 @@ sources:
 - https://github.com/ONLYOFFICE/DocumentServer
 - https://github.com/ONLYOFFICE/Docker-DocumentServer
 - https://hub.docker.com/r/onlyoffice/documentserver/
-version: 6.0.8
+version: 6.0.9
 annotations:
   truecharts.org/catagories: |
     - office
