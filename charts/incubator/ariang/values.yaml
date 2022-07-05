@@ -16,10 +16,8 @@ service:
 
 probes:
   liveness:
-    path: "/#!/"
-
+    path: "/"
   readiness:
-    path: "/#!/"
-
+    path: "/"
   startup:
-    path: "/#!/"
+    path: "/"
