@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.2@sha256:2e8ce7bc258d243b81a3ff65bbae356e8e94d7844758f4342ca711709bdbe078
+  tag: v24.0.2@sha256:9cd0fb3875d673932d50fa677326b42955a3e8637dc2602b7a827f2afb42eee9
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
@@ -383,6 +383,9 @@ hpb:
   enabled: true
 
 imaginary:
+  enabled: true
+
+previewcron:
   enabled: true
 
 postgresql:
