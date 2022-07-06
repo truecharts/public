@@ -84,11 +84,11 @@ persistence:
     hostPath: "/etc/os-release"
     mountPath: "/etc/os-release"
     readOnly: true
-  net:
+  host-mnt:
     enabled: true
     type: hostPath
-    hostPath: "/proc/1/ns/net"
-    mountPath: "/mnt/proc/1/ns/net"
+    hostPath: "/"
+    mountPath: "/mnt/host"
     readOnly: true
   mem:
     enabled: true
