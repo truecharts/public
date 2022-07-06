@@ -109,11 +109,12 @@ questions:
           schema:
             type: string
             default: "172.16.0.0/16"
-        - variable: NODE_IP
-          label: "NODE_IP (First Install Only)"
-          description: "Sets nextcloud nodeip for nodeport connections (Ensure this is correct at first install!)"
+        - variable: AccessIP
+          label: "Access IP"
+          description: "Set to the IP-Address used to reach Nextcloud. Most often the Service or NodePort IP (Ensure this is correct!)"
           schema:
             type: string
+            required: true
             $ref:
               - "definitions/nodeIP"
 
@@ -180,7 +181,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 8080
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -209,6 +210,15 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: html
+          label: "App html Storage"
+          description: "Stores the Application html."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."

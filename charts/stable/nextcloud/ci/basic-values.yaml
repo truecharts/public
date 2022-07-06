@@ -1,0 +1,11 @@
+env:
+  # IP used for exposing nextcloud
+  # Often the service or nodePort IP
+  AccessIP: "127.0.0.1"
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080

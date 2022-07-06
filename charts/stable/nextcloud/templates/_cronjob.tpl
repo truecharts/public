@@ -1,9 +1,10 @@
 {{/* Define the cronjob */}}
 {{- define "nextcloud.cronjob" -}}
+{{- if .Values.cronjob.enabled -}}
 {{- $jobName := include "tc.common.names.fullname" . }}
 
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
@@ -31,12 +32,17 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
+              image: '{{ include "tc.common.images.selector" . }}'
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
-              command: [ "php" ]
-              args:
-                - "-f"
-                - "/var/www/html/cron.php"
+              command:
+                - "/bin/sh"
+                - "-c"
+                - |
+                  /bin/bash <<'EOF'
+                  echo "running nextcloud cronjob..."
+                  php -f /var/www/html/cron.php
+                  echo "cronjob finished"
+                  EOF
               # Will mount configuration files as www-data (id: 33) by default for nextcloud
               {{- with (include "tc.common.controller.volumeMounts" . | trim) }}
               volumeMounts:
@@ -45,7 +51,9 @@ spec:
               securityContext:
                 runAsUser: 33
                 runAsGroup: 33
+                readOnlyRootFilesystem: true
+                runAsNonRoot: true
               resources:
 {{ toYaml .Values.resources | indent 16 }}
-
+{{- end -}}
 {{- end -}}
