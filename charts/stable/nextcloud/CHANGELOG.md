@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.0.0"></a>
+### [nextcloud-15.0.0](https://github.com/truecharts/apps/compare/nextcloud-14.0.16...nextcloud-15.0.0) (2022-07-06)
+
+
+
 <a name="nextcloud-14.0.16"></a>
 ### [nextcloud-14.0.16](https://github.com/truecharts/apps/compare/nextcloud-14.0.15...nextcloud-14.0.16) (2022-07-05)
 

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: v3.9.8@sha256:0ff862e76c7234f9cc380615327de5bbb357857939663078e7459245e48d7fb6
+  tag: v4.0.0@sha256:0e54817c3b5498accdf1680926d4c1753726f867d5061467285b9d81cf8a0c70
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -78,17 +78,11 @@ service:
         port: 10044
 
 persistence:
-  os:
+  host-mnt:
     enabled: true
     type: hostPath
-    hostPath: "/etc/os-release"
-    mountPath: "/etc/os-release"
-    readOnly: true
-  net:
-    enabled: true
-    type: hostPath
-    hostPath: "/proc/1/ns/net"
-    mountPath: "/mnt/proc/1/ns/net"
+    hostPath: "/"
+    mountPath: "/mnt/host"
     readOnly: true
   mem:
     enabled: true
