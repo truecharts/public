@@ -76,8 +76,14 @@ command:
         sleep 10
     done
     echo  "High Performance Backend found..."
-    echo  "Configuring High Performance Backend for url: {{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}https://{{ .host }}{{ end }}{{ else }}http://{{ .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) }}:{{ .Values.service.main.ports.main.port }}{{ end }}"
-    php /var/www/html/occ notify_push:setup {{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}https://{{ .host }}{{ end }}{{ else }}http://{{ .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) }}:{{ .Values.service.main.ports.main.port }}{{ end }}/push
+    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
+    {{- if .Values.ingress.main.enabled }}
+      {{- with (first .Values.ingress.main.hosts) }}
+      {{- $accessurl = (  printf "https://%s" .host ) }}
+      {{- end }}
+    {{- end }}
+    echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
+    php /var/www/html/occ notify_push:setup {{ $accessurl }}/push
     fg
     EOF
 env:
