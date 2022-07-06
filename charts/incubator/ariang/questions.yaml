@@ -164,7 +164,10 @@ questions:
 # Include{serviceExpert}
 
 # Include{serviceList}
-  
+
+
+# Include{serviceList}
+
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -183,27 +186,6 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceList}
-  
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
 
 # Include{ingressList}
 
@@ -242,7 +224,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -271,7 +253,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 
 # Include{resources}
 
