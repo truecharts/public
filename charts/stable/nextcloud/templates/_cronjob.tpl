@@ -42,7 +42,7 @@ spec:
                   echo "running nextcloud cronjob..."
                   php -f /var/www/html/cron.php
                   echo "cronjob finished"
-                  {{- if .Values.imaginary.enabled }}
+                  {{- if .Values.cronjob.generatePreviews }}
                   echo "Pre-generating Previews..."
                   php /var/www/html/occ preview:pre-generate
                   echo "Previews generated."

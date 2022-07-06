@@ -374,6 +374,7 @@ configmap:
 
 cronjob:
   enabled: true
+  generatePreviews: true
   schedule: "*/5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
@@ -385,8 +386,6 @@ hpb:
 imaginary:
   enabled: true
 
-previewcron:
-  enabled: true
 
 postgresql:
   enabled: true
