@@ -78,17 +78,11 @@ service:
         port: 10044
 
 persistence:
-  os:
+  host-mnt:
     enabled: true
     type: hostPath
-    hostPath: "/etc/os-release"
-    mountPath: "/etc/os-release"
-    readOnly: true
-  net:
-    enabled: true
-    type: hostPath
-    hostPath: "/proc/1/ns/net"
-    mountPath: "/mnt/proc/1/ns/net"
+    hostPath: "/"
+    mountPath: "/mnt/host"
     readOnly: true
   mem:
     enabled: true
