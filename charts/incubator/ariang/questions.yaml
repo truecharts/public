@@ -164,7 +164,27 @@ questions:
 # Include{serviceExpert}
 
 # Include{serviceList}
+  
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 
+# Include{persistenceList}
+  
   - variable: ingress
     label: ""
     group: "Ingress"

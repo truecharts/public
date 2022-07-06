@@ -14,3 +14,7 @@ service:
         targetPort: 8080
         port: 18080
 
+persistence:
+  config:
+    enabled: true
+    mountPath: "/build"
