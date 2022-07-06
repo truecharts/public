@@ -33,7 +33,7 @@ jobs:
         run: |
           tools/build-release.sh
 
-      - uses: vishnudxb/cancel-workflow@v1.2
+      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
         if: failure()
         with:
           repo: truecharts/apps
