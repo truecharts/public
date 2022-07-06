@@ -206,6 +206,7 @@ configmap:
 
             server {
                 listen 8080;
+                absolute_redirect off;
 
                 # Forward Notify_Push "High Performance Backend"  to it's own container
                 location ^~ /push/ {
