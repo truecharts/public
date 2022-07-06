@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.1.0"></a>
+### [nextcloud-15.1.0](https://github.com/truecharts/apps/compare/nextcloud-15.0.1...nextcloud-15.1.0) (2022-07-06)
+
+#### Feat
+
+* add Imaginary high-performance preview backend ([#3086](https://github.com/truecharts/apps/issues/3086))
+
+
+
 <a name="nextcloud-15.0.1"></a>
 ### [nextcloud-15.0.1](https://github.com/truecharts/apps/compare/nextcloud-15.0.0...nextcloud-15.0.1) (2022-07-06)
 
