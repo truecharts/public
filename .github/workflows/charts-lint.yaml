@@ -319,7 +319,7 @@ jobs:
         if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected3 == 'true') && ( (needs.lint-charts3.result != 'success') || ( needs.lint-charts3.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected4 == 'true') && ( (needs.lint-charts4.result != 'success') || ( needs.lint-charts4.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected5 == 'true') && ( (needs.lint-charts5.result != 'success') || ( needs.lint-charts5.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected6 == 'true') && ( (needs.lint-charts6.result != 'success') || ( needs.lint-charts6.result != 'skipped' ) ) ) }}
         run: exit 1
 
-      - uses: vishnudxb/cancel-workflow@v1.2
+      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
         if: failure()
         with:
           repo: truecharts/apps
