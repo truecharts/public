@@ -8,9 +8,9 @@ securityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 8080
         port: 18080
 
