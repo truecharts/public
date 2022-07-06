@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-11.0.9"></a>
+### [heimdall-11.0.9](https://github.com/truecharts/apps/compare/heimdall-11.0.8...heimdall-11.0.9) (2022-07-06)
+
+#### Chore
+
+* manually update ([#3088](https://github.com/truecharts/apps/issues/3088))
+
+
+
 <a name="heimdall-11.0.8"></a>
 ### [heimdall-11.0.8](https://github.com/truecharts/apps/compare/heimdall-11.0.7...heimdall-11.0.8) (2022-07-04)
 
