@@ -78,12 +78,6 @@ service:
         port: 10044
 
 persistence:
-  os:
-    enabled: true
-    type: hostPath
-    hostPath: "/etc/os-release"
-    mountPath: "/etc/os-release"
-    readOnly: true
   host-mnt:
     enabled: true
     type: hostPath
