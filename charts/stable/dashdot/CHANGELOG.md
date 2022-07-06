@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-1.0.13"></a>
+### [dashdot-1.0.13](https://github.com/truecharts/apps/compare/dashdot-1.0.12...dashdot-1.0.13) (2022-07-06)
+
+#### Chore
+
+* apply some changes to be insync with the new app release ([#3082](https://github.com/truecharts/apps/issues/3082))
+
+
+
 <a name="dashdot-1.0.12"></a>
 ### [dashdot-1.0.12](https://github.com/truecharts/apps/compare/dashdot-1.0.11...dashdot-1.0.12) (2022-07-06)
 
