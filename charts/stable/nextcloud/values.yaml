@@ -1,7 +1,17 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.2@sha256:2e8ce7bc258d243b81a3ff65bbae356e8e94d7844758f4342ca711709bdbe078
+  tag: v24.0.2@sha256:9cd0fb3875d673932d50fa677326b42955a3e8637dc2602b7a827f2afb42eee9
+
+nginxImage:
+  repository: tccr.io/truecharts/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: v1.23.0@sha256:e0e989581b7935192d6023ac4a2c19045df39b69b43b894fedbd09726b34c133
+
+imaginaryImage:
+  repository: h2non/imaginary
+  pullPolicy: IfNotPresent
+  tag: 1.2.4@sha256:7facb4221047a5e79b9e902f380247f4e5bf4376400d0badbeb738d3e1c2f654
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -33,6 +43,10 @@ service:
         enabled: true
         port: 9000
         targetPort: 9000
+      imaginary:
+        enabled: true
+        port: 9090
+        targetPort: 9090
 
 secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -360,6 +374,7 @@ configmap:
 
 cronjob:
   enabled: true
+  generatePreviews: true
   schedule: "*/5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
@@ -367,6 +382,10 @@ cronjob:
 
 hpb:
   enabled: true
+
+imaginary:
+  enabled: true
+
 
 postgresql:
   enabled: true

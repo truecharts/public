@@ -42,6 +42,11 @@ spec:
                   echo "running nextcloud cronjob..."
                   php -f /var/www/html/cron.php
                   echo "cronjob finished"
+                  {{- if .Values.cronjob.generatePreviews }}
+                  echo "Pre-generating Previews..."
+                  php /var/www/html/occ preview:pre-generate
+                  echo "Previews generated."
+                  {{- end }}
                   EOF
               # Will mount configuration files as www-data (id: 33) by default for nextcloud
               {{- with (include "tc.common.controller.volumeMounts" . | trim) }}

@@ -71,6 +71,12 @@ command:
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
 
+    {{- if .Values.imaginary.enabled }}
+    echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
+    php /var/www/html/occ config:system:set enabledPreviewProviders 6 --value='OC\Preview\Imaginary'
+    php /var/www/html/occ config:system:set preview_imaginary_url --value='http://127.0.0.1:9090'
+    {{- end }}
+
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
         echo "High Performance Backend not running ... waiting..."
         sleep 10
