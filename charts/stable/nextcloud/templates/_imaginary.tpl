@@ -1,6 +1,6 @@
 {{/* Define the imaginary container */}}
 {{- define "nextcloud.imaginary" -}}
-image: '{{ include "tc.common.images.selector" . }}'
+image: {{ .Values.imaginaryImage.repository }}:{{ .Values.imaginaryImage.tag }}
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 securityContext:
   runAsUser: 33
