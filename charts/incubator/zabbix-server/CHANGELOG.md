@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zabbix-server-2.0.10"></a>
+### [zabbix-server-2.0.10](https://github.com/truecharts/apps/compare/zabbix-server-2.0.9...zabbix-server-2.0.10) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
 <a name="zabbix-server-2.0.9"></a>
 ### [zabbix-server-2.0.9](https://github.com/truecharts/apps/compare/zabbix-server-2.0.8...zabbix-server-2.0.9) (2022-07-05)
 

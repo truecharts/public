@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.0.1"></a>
+### [nextcloud-15.0.1](https://github.com/truecharts/apps/compare/nextcloud-15.0.0...nextcloud-15.0.1) (2022-07-06)
+
+#### Fix
+
+* change nginx redirect options to not add port to query ([#3085](https://github.com/truecharts/apps/issues/3085))
+
+
+
 <a name="nextcloud-15.0.0"></a>
 ### [nextcloud-15.0.0](https://github.com/truecharts/apps/compare/nextcloud-14.0.16...nextcloud-15.0.0) (2022-07-06)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="youtubedl-material-0.0.7"></a>
+### [youtubedl-material-0.0.7](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.6...youtubedl-material-0.0.7) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
 <a name="youtubedl-material-0.0.6"></a>
 ### [youtubedl-material-0.0.6](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.5...youtubedl-material-0.0.6) (2022-07-05)
 

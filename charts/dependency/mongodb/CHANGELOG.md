@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mongodb-1.0.25"></a>
+### [mongodb-1.0.25](https://github.com/truecharts/apps/compare/mongodb-1.0.24...mongodb-1.0.25) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
 <a name="mongodb-1.0.24"></a>
 ### [mongodb-1.0.24](https://github.com/truecharts/apps/compare/mongodb-1.0.23...mongodb-1.0.24) (2022-07-05)
 
