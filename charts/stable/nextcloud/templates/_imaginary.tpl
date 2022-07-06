@@ -11,6 +11,6 @@ ports:
   - containerPort: 9090
 args: ["-enable-url-source"]
 env:
-  - name: PORT:
+  - name: PORT
     value: 9090
 {{- end -}}
