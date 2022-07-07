@@ -107,7 +107,7 @@ initContainers:
         echo "removing old data folder..."
         rm -rf /var/www/html/data/tomigrate/data
         echo "moving config, apps, templates and other content to html-pvc root..."
-        mv -f /var/www/html/data/tomigrate/data/* /var/www/html/data/
+        mv -f /var/www/html/data/tomigrate/* /var/www/html/
         echo "Removing migration temporary folder..."
         rm -rf /var/www/html/data/tomigrate
         fi
