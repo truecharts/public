@@ -8,6 +8,10 @@ dependencies:
   name: postgresql
   repository: https://charts.truecharts.org/
   version: 8.0.22
+- condition: collabora.enabled
+  name: collabora-online
+  repository: https://charts.truecharts.org/
+  version: 12.0.11
 - condition: redis.enabled
   name: redis
   repository: https://charts.truecharts.org
