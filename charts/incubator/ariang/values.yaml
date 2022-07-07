@@ -1,0 +1,15 @@
+image:
+  repository: leonismoe/ariang
+  pullPolicy: IfNotPresent
+  tag: 1.2.4
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        targetPort: 8080
+        port: 18080

@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: ariang
+version: 0.0.1
+appVersion: "1.2.4"
+description: A modern web frontend making aria2 easier to use | Aria2 WebUI.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ariang
+icon: https://truecharts.org/_static/img/appicons/ariang.png
+keywords:
+  - ariang
+sources:
+  - https://hub.docker.com/r/leonismoe/ariang
+  - https://github.com/leonismoe/docker-images
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.2.0
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
