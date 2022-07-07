@@ -40,8 +40,8 @@ helm_sec_scan() {
     cat templates/security.tpl >> ${chart}/security.md
     echo "" >> ${chart}/security.md
     helm template ${chart} --output-dir ${chart}/render > /dev/null
-    trivy config -f template --template "@./templates/trivy-config.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
-    cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
+    #trivy config -f template --template "@./templates/trivy-config.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
+    cat "SCANNING DISABLED DUE TO BUG" >> ${chart}/security.md
     rm -rf ${chart}/render/tmpsec${chartname}.md || true
     echo "" >> ${chart}/security.md
     }
