@@ -10,7 +10,7 @@ jobs:
       image: ixsystems/catalog_validation:latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       name: Checkout
     - name: Validate catalog format
       run: |

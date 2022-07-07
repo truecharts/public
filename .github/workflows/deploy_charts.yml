@@ -11,7 +11,7 @@ jobs:
         run: /bin/bash -c "curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash"
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
