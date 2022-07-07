@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="openspeedtest-1.0.6"></a>
+### [openspeedtest-1.0.6](https://github.com/truecharts/apps/compare/openspeedtest-1.0.5...openspeedtest-1.0.6) (2022-07-07)
+
+
+
 <a name="openspeedtest-1.0.5"></a>
 ### [openspeedtest-1.0.5](https://github.com/truecharts/apps/compare/openspeedtest-1.0.4...openspeedtest-1.0.5) (2022-07-04)
 
