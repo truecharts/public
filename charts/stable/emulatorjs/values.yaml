@@ -37,6 +37,9 @@ ingress:
     autoLink: true
 
 persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
   data:
     enabled: true
     mountPath: "/data"
