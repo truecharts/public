@@ -49,9 +49,8 @@ service:
         targetPort: 9090
 
 hostAliases:
-  - ip: "127.0.0.1"
+  - ip: '{{ .Values.AccessIP | default "127.0.0.1" }}'
     hostnames:
-    - "test.fakedomain.dns"
     - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
 
 secretEnv:
