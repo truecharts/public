@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.1.2"></a>
+### [nextcloud-15.1.2](https://github.com/truecharts/apps/compare/nextcloud-15.1.1...nextcloud-15.1.2) (2022-07-07)
+
+#### Fix
+
+* bypass hpb domain check ([#3093](https://github.com/truecharts/apps/issues/3093))
+
+
+
 <a name="nextcloud-15.1.1"></a>
 ### [nextcloud-15.1.1](https://github.com/truecharts/apps/compare/nextcloud-15.1.0...nextcloud-15.1.1) (2022-07-07)
 
