@@ -12,13 +12,10 @@ service:
   torrent:
     enabled: true
     ports:
-      torrent:
+      torrenttcp:
         enabled: true
         port: 51414
         targetPort: 51414
-  torrentudp:
-    enabled: true
-    ports:
       torrentudp:
         enabled: true
         port: 51414
