@@ -23,9 +23,64 @@ groups:
     description: "Specify resources to be allocated to workload"
   - name: "Resource Limits"
     description: "Set CPU/memory limits for Kubernetes Pod"
-
+  - name: "Portal Configuration"
+    description: "Configure UI web portal"
 
 questions:
+  - variable: enableUIPortal
+    label: "Enable WebUI Portal (only supported in TrueNAS SCALE Bluefin)"
+    description: "Enable webui portal for easier access to workload ( Only valid for TrueNAS SCALE Bluefin )"
+    group: "Portal Configuration"
+    schema:
+      type: boolean
+      default: false
+  - variable: portalDetails
+    label: "WebUI Portal"
+    description: "Configure WebUI Portal"
+    group: "Portal Configuration"
+    schema:
+      show_if: [["enableUIPortal", "=", true]]
+      type: dict
+      attrs:
+        - variable: portalName
+          label: "Portal Name"
+          description: "Specify a UI Portal name to use which would be displayed in the UI"
+          schema:
+            type: string
+            default: "Web Portal"
+        - variable: protocol
+          label: "Protocol for Portal"
+          description: "Specify protocol for portal"
+          schema:
+            type: string
+            default: "http"
+            enum:
+              - value: "http"
+                description: "HTTP Protocol"
+              - value: "https"
+                description: "HTTPS Protocol"
+        - variable: useNodeIP
+          label: "Use Node IP for Portal IP/Domain"
+          schema:
+            type: boolean
+            default: true
+        - variable: host
+          description: "IP/Domain to use for accessing the portal"
+          label: "Portal IP/Domain"
+          schema:
+            show_if: [["useNodeIP", "=", false]]
+            type: string
+            $ref:
+              - "definitions/nodeIP"
+        - variable: port
+          label: "Port"
+          description: "Specify port to be used for Portal access"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 15000
+
   # Workload type
   - variable: workloadType
     description: "Please specify type of workload to deploy"
