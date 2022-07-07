@@ -48,6 +48,12 @@ service:
         port: 9090
         targetPort: 9090
 
+hostAliases:
+  - ip: "127.0.0.1"
+    hostnames:
+    - "test.fakedomain.dns"
+    - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
+
 secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
   NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
