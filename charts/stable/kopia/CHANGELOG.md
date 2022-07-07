@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kopia-2.0.16"></a>
+### [kopia-2.0.16](https://github.com/truecharts/apps/compare/kopia-2.0.15...kopia-2.0.16) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
 <a name="kopia-2.0.15"></a>
 ### [kopia-2.0.15](https://github.com/truecharts/apps/compare/kopia-2.0.14...kopia-2.0.15) (2022-07-06)
 

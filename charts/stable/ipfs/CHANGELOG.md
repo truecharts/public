@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-3.0.10"></a>
+### [ipfs-3.0.10](https://github.com/truecharts/apps/compare/ipfs-3.0.9...ipfs-3.0.10) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
 <a name="ipfs-3.0.9"></a>
 ### [ipfs-3.0.9](https://github.com/truecharts/apps/compare/ipfs-3.0.8...ipfs-3.0.9) (2022-07-04)
 

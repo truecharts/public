@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-3.0.6"></a>
+### [scrutiny-3.0.6](https://github.com/truecharts/apps/compare/scrutiny-3.0.5...scrutiny-3.0.6) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
 <a name="scrutiny-3.0.5"></a>
 ### [scrutiny-3.0.5](https://github.com/truecharts/apps/compare/scrutiny-3.0.4...scrutiny-3.0.5) (2022-07-04)
 
