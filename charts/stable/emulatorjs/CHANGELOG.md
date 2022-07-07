@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-2.0.12"></a>
+### [emulatorjs-2.0.12](https://github.com/truecharts/apps/compare/emulatorjs-2.0.11...emulatorjs-2.0.12) (2022-07-07)
+
+#### Fix
+
+* add config persistence ([#3095](https://github.com/truecharts/apps/issues/3095))
+
+
+
 <a name="emulatorjs-2.0.11"></a>
 ### [emulatorjs-2.0.11](https://github.com/truecharts/apps/compare/emulatorjs-2.0.10...emulatorjs-2.0.11) (2022-07-04)
 
