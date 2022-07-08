@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.1.4"></a>
+### [nextcloud-15.1.4](https://github.com/truecharts/apps/compare/nextcloud-15.1.3...nextcloud-15.1.4) (2022-07-08)
+
+#### Fix
+
+* fix wrong accessip reference ([#3101](https://github.com/truecharts/apps/issues/3101))
+
+
+
 <a name="nextcloud-15.1.3"></a>
 ### [nextcloud-15.1.3](https://github.com/truecharts/apps/compare/nextcloud-15.1.2...nextcloud-15.1.3) (2022-07-07)
 
