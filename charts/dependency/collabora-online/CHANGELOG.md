@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.1.0"></a>
+### [collabora-online-12.1.0](https://github.com/truecharts/apps/compare/collabora-online-12.0.11...collabora-online-12.1.0) (2022-07-08)
+
+
+
 <a name="collabora-online-12.0.11"></a>
 ### [collabora-online-12.0.11](https://github.com/truecharts/apps/compare/collabora-online-12.0.10...collabora-online-12.0.11) (2022-07-04)
 
