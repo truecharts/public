@@ -87,7 +87,7 @@ command:
       {{- $accessurl = (  printf "https://%s" .host ) }}
       {{- end }}
     {{- end }}
-    until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://$accessurl/push/test/cookie); do
+    until $(curl --output /dev/null --silent --head --fail $accessurl/push/test/cookie); do
         echo "High Performance Backend service not accessable ... waiting..."
         sleep 10
     done
