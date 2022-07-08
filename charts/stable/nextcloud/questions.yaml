@@ -108,7 +108,7 @@ questions:
           description: "Sets nextcloud Trusted Proxies"
           schema:
             type: string
-            default: "172.16.0.0/16"
+            default: "172.16.0.0/16 127.0.0.1"
         - variable: AccessIP
           label: "Access IP"
           description: "Set to the IP-Address used to reach Nextcloud. Most often the Service or NodePort IP (Ensure this is correct!)"
