@@ -49,7 +49,7 @@ service:
         targetPort: 9090
 
 hostAliases:
-  - ip: '{{ .Values.AccessIP | default "127.0.0.1" }}'
+  - ip: '{{ .Values.env.AccessIP | default "127.0.0.1" }}'
     hostnames:
     - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
 

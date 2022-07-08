@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: v4.1.0@sha256:ccd134fac32d6d32d40ef3c77e185f5495656678d396aa0fb78a64462cbaf02d
+  tag: v4.2.0@sha256:38332cab070b11b1a7fd24951ba1eb506e1c87c659e72cffd9ced4b82c0fe83a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -26,6 +26,8 @@ env:
   # DASHDOT_DISABLE_INTEGRATIONS: false
   # DASHDOT_SHOW_HOST: true
   # DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
+  # DASHDOT_FS_TYPE_FILTER: "cifs,9p,fuse.rclone,fuse.mergerfs"
+  # DASHDOT_FS_VIRTUAL_MOUNTS: ""
   # DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
   # DASHDOT_OS_WIDGET_GROW: "1.5"
   # DASHDOT_OS_WIDGET_MIN_WIDTH: "300"

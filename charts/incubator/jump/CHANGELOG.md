@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jump-0.0.9"></a>
+### [jump-0.0.9](https://github.com/truecharts/apps/compare/jump-0.0.8...jump-0.0.9) (2022-07-08)
+
+#### Chore
+
+* update docker general non-major ([#3099](https://github.com/truecharts/apps/issues/3099))
+
+
+
 <a name="jump-0.0.8"></a>
 ### [jump-0.0.8](https://github.com/truecharts/apps/compare/jump-0.0.7...jump-0.0.8) (2022-07-04)
 
