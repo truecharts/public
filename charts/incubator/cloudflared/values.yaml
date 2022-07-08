@@ -17,9 +17,9 @@ podSecurityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 6969
         port: 6969
 
