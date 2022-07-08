@@ -391,6 +391,17 @@ hpb:
 imaginary:
   enabled: true
 
+collabora:
+  enabled: false
+  env:
+    aliasgroup1:
+      configMapRef:
+        name: nextcloudconfig
+        key: aliasgroup1
+    dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+    extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
+    server_name: ""
+    DONT_GEN_SSL_CERT: true
 
 postgresql:
   enabled: true
