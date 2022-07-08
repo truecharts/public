@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.2.1"></a>
+### [nextcloud-15.2.1](https://github.com/truecharts/apps/compare/nextcloud-15.2.0...nextcloud-15.2.1) (2022-07-08)
+
+#### Fix
+
+* fix HPB service polling url ([#3102](https://github.com/truecharts/apps/issues/3102))
+
+
+
 <a name="nextcloud-15.2.0"></a>
 ### [nextcloud-15.2.0](https://github.com/truecharts/apps/compare/nextcloud-15.1.4...nextcloud-15.2.0) (2022-07-08)
 
