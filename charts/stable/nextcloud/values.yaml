@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.2@sha256:9cd0fb3875d673932d50fa677326b42955a3e8637dc2602b7a827f2afb42eee9
+  tag: v24.0.2@sha256:402be26ad63d87469fd31bed1056a0e51a7a8a6122a15d7804abc592711cbf3a
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
@@ -132,6 +132,10 @@ env:
   # Often the service or nodePort IP
   # Defaults to the main serviceName for CI purposes.
   AccessIP:
+  NEXTCLOUD_INIT_HTACCESS: true
+  PHP_INI_MEMORY_LIMIT: 1G
+  PHP_UPLOAD_LIMIT: 10G
+  NEXTCLOUD_CHUNKSIZE: "31457280"
   TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"

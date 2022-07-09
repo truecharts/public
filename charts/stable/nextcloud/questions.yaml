@@ -109,6 +109,18 @@ questions:
           schema:
             type: string
             default: "172.16.0.0/16 127.0.0.1"
+        - variable: PHP_INI_MEMORY_LIMIT
+          label: "PHP_INI_MEMORY_LIMIT"
+          description: "Sets php memory_limit setting"
+          schema:
+            type: string
+            default: "1G"
+        - variable: PHP_UPLOAD_LIMIT
+          label: "PHP_UPLOAD_LIMIT"
+          description: "Sets php upload_max_filesize and post_max_size settings"
+          schema:
+            type: string
+            default: "10G"
         - variable: AccessIP
           label: "Access IP"
           description: "Set to the IP-Address used to reach Nextcloud. Most often the Service or NodePort IP (Ensure this is correct!)"
