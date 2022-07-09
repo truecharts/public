@@ -71,7 +71,6 @@ probes:
         path: /ping
         port: 8123
       initialDelaySeconds: 20
-      #failureThreshold: 6
       periodSeconds: 10
       timeoutSeconds: 1
 
