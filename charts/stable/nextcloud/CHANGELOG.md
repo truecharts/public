@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.2.3"></a>
+### [nextcloud-15.2.3](https://github.com/truecharts/apps/compare/nextcloud-15.2.2...nextcloud-15.2.3) (2022-07-09)
+
+#### Fix
+
+* improve upload performance and predictability ([#3109](https://github.com/truecharts/apps/issues/3109))
+
+
+
 <a name="nextcloud-15.2.2"></a>
 ### [nextcloud-15.2.2](https://github.com/truecharts/apps/compare/nextcloud-15.2.1...nextcloud-15.2.2) (2022-07-08)
 
