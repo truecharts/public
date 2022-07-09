@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="monica-3.0.15"></a>
+### [monica-3.0.15](https://github.com/truecharts/apps/compare/monica-3.0.14...monica-3.0.15) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="monica-3.0.14"></a>
+### [monica-3.0.14](https://github.com/truecharts/apps/compare/monica-3.0.13...monica-3.0.14) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
+<a name="monica-3.0.13"></a>
+### [monica-3.0.13](https://github.com/truecharts/apps/compare/monica-3.0.12...monica-3.0.13) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="monica-3.0.12"></a>
+### [monica-3.0.12](https://github.com/truecharts/apps/compare/monica-3.0.11...monica-3.0.12) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="monica-3.0.11"></a>
 ### [monica-3.0.11](https://github.com/truecharts/apps/compare/monica-3.0.10...monica-3.0.11) (2022-06-29)
 

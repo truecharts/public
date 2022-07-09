@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="senseai-server-0.0.8"></a>
+### [senseai-server-0.0.8](https://github.com/truecharts/apps/compare/senseai-server-0.0.7...senseai-server-0.0.8) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="senseai-server-0.0.7"></a>
+### [senseai-server-0.0.7](https://github.com/truecharts/apps/compare/senseai-server-0.0.6...senseai-server-0.0.7) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="senseai-server-0.0.6"></a>
 ### [senseai-server-0.0.6](https://github.com/truecharts/apps/compare/senseai-server-0.0.5...senseai-server-0.0.6) (2022-06-25)
 

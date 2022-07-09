@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="openkm-7.0.10"></a>
+### [openkm-7.0.10](https://github.com/truecharts/apps/compare/openkm-7.0.9...openkm-7.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="openkm-7.0.9"></a>
+### [openkm-7.0.9](https://github.com/truecharts/apps/compare/openkm-7.0.8...openkm-7.0.9) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="openkm-7.0.8"></a>
+### [openkm-7.0.8](https://github.com/truecharts/apps/compare/openkm-7.0.7...openkm-7.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="openkm-7.0.7"></a>
 ### [openkm-7.0.7](https://github.com/truecharts/apps/compare/openkm-7.0.6...openkm-7.0.7) (2022-06-25)
 

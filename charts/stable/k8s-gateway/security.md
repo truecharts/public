@@ -11,42 +11,16 @@ hide:
 
 ##### Scan Results
 
-#### Chart Object: k8s-gateway/templates/common.yaml
-
-
-
-| No Misconfigurations found         |
-|:---------------------------------|
-
-
 
 ## Containers
 
 ##### Detected Containers
 
-          tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
+          tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
           tccr.io/truecharts/k8s_gateway:v0.3.0@sha256:035b4488071258db2f2e543c21c93f1c6ca5fbf13ae132aac9579afa5843a4b9
 
 ##### Scan Results
 
+SCANNING DISABLED DUE TO BUG
 
-#### Container: tccr.io/truecharts/alpine:v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730 (alpine 3.16.0)
-
-
-**alpine**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-
-#### Container: coredns
-
-
-**gobinary**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
+SCANNING DISABLED DUE TO BUG

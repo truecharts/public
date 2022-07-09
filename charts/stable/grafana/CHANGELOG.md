@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.20"></a>
+### [grafana-4.0.20](https://github.com/truecharts/apps/compare/grafana-4.0.19...grafana-4.0.20) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="grafana-4.0.19"></a>
+### [grafana-4.0.19](https://github.com/truecharts/apps/compare/grafana-4.0.18...grafana-4.0.19) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
+<a name="grafana-4.0.18"></a>
+### [grafana-4.0.18](https://github.com/truecharts/apps/compare/grafana-4.0.17...grafana-4.0.18) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="grafana-4.0.17"></a>
+### [grafana-4.0.17](https://github.com/truecharts/apps/compare/grafana-4.0.16...grafana-4.0.17) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
 <a name="grafana-4.0.16"></a>
 ### [grafana-4.0.16](https://github.com/truecharts/apps/compare/grafana-4.0.15...grafana-4.0.16) (2022-07-01)
 

@@ -15,7 +15,7 @@ jobs:
     name: Test SCALE Catalog
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.3.0@sha256:a163ad40427cd75a31a0365afb832f97e512d420429ed091b90b18a034526264
+      image: ghcr.io/truecharts/devcontainer:v2.4.0@sha256:395ee7ed8b9cba6569ddeba77b7ceb86fdb79b91a19c639625d7bc54cb1ccc1d
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         name: Checkout
@@ -32,3 +32,10 @@ jobs:
       - name: build-and-run
         run: |
           tools/build-release.sh
+
+      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
+        if: failure()
+        with:
+          repo: truecharts/apps
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}

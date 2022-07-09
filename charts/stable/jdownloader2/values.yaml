@@ -46,11 +46,13 @@ jdownloader:
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
 
 configmap:
   jdownloader:
     enabled: true
     data:
+      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.jdownloader.ENABLE_CJK_FONT }}"
       KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.jdownloader.KEEP_APP_RUNNING }}"
       SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.jdownloader.SECURE_CONNECTION }}"
       DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"

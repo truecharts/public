@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="synapse-4.0.12"></a>
+### [synapse-4.0.12](https://github.com/truecharts/apps/compare/synapse-4.0.11...synapse-4.0.12) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="synapse-4.0.11"></a>
+### [synapse-4.0.11](https://github.com/truecharts/apps/compare/synapse-4.0.10...synapse-4.0.11) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="synapse-4.0.10"></a>
+### [synapse-4.0.10](https://github.com/truecharts/apps/compare/synapse-4.0.9...synapse-4.0.10) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="synapse-4.0.9"></a>
+### [synapse-4.0.9](https://github.com/truecharts/apps/compare/synapse-4.0.8...synapse-4.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="synapse-4.0.8"></a>
 ### [synapse-4.0.8](https://github.com/truecharts/apps/compare/synapse-4.0.7...synapse-4.0.8) (2022-06-29)
 

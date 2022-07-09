@@ -1,6 +1,38 @@
 # Changelog<br>
 
 
+<a name="openspeedtest-1.0.8"></a>
+### [openspeedtest-1.0.8](https://github.com/truecharts/apps/compare/openspeedtest-1.0.7...openspeedtest-1.0.8) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="openspeedtest-1.0.7"></a>
+### [openspeedtest-1.0.7](https://github.com/truecharts/apps/compare/openspeedtest-1.0.6...openspeedtest-1.0.7) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="openspeedtest-1.0.6"></a>
+### [openspeedtest-1.0.6](https://github.com/truecharts/apps/compare/openspeedtest-1.0.5...openspeedtest-1.0.6) (2022-07-07)
+
+
+
+<a name="openspeedtest-1.0.5"></a>
+### [openspeedtest-1.0.5](https://github.com/truecharts/apps/compare/openspeedtest-1.0.4...openspeedtest-1.0.5) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="openspeedtest-1.0.4"></a>
 ### [openspeedtest-1.0.4](https://github.com/truecharts/apps/compare/openspeedtest-1.0.3...openspeedtest-1.0.4) (2022-07-02)
 

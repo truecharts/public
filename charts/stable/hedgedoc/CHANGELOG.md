@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-4.0.6"></a>
+### [hedgedoc-4.0.6](https://github.com/truecharts/apps/compare/hedgedoc-4.0.5...hedgedoc-4.0.6) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="hedgedoc-4.0.5"></a>
+### [hedgedoc-4.0.5](https://github.com/truecharts/apps/compare/hedgedoc-4.0.4...hedgedoc-4.0.5) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="hedgedoc-4.0.4"></a>
+### [hedgedoc-4.0.4](https://github.com/truecharts/apps/compare/hedgedoc-4.0.3...hedgedoc-4.0.4) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="hedgedoc-4.0.3"></a>
 ### [hedgedoc-4.0.3](https://github.com/truecharts/apps/compare/hedgedoc-4.0.2...hedgedoc-4.0.3) (2022-06-27)
 

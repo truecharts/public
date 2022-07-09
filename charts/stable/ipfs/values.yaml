@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ipfs
   pullPolicy: IfNotPresent
-  tag: v0.13.0@sha256:c069effef89bc8991702dc7af59e285b88ded043ef952027c8eb44189b7b2dd9
+  tag: v0.13.1@sha256:7762e26dbcf49b42fbe543e52d52a9f25774a65b7669b2aa4a742dbe2ec14386
 
 securityContext:
   runAsNonRoot: false
@@ -22,16 +22,13 @@ service:
       main:
         port: 10125
         targetPort: 5001
-  peer-tcp:
+  peer:
     enabled: true
     ports:
       peer-tcp:
         enabled: true
         targetPort: 4001
         port: 4001
-  peer-udp:
-    enabled: true
-    ports:
       peer-udp:
         protocol: UDP
         enabled: true

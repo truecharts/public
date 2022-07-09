@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-11.0.14"></a>
+### [lazylibrarian-11.0.14](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.13...lazylibrarian-11.0.14) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="lazylibrarian-11.0.13"></a>
+### [lazylibrarian-11.0.13](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.12...lazylibrarian-11.0.13) (2022-07-08)
+
+#### Chore
+
+* update docker general non-major ([#3099](https://github.com/truecharts/apps/issues/3099))
+
+
+
+<a name="lazylibrarian-11.0.12"></a>
+### [lazylibrarian-11.0.12](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.11...lazylibrarian-11.0.12) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="lazylibrarian-11.0.11"></a>
 ### [lazylibrarian-11.0.11](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.10...lazylibrarian-11.0.11) (2022-07-01)
 

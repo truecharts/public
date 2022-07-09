@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.1.5"></a>
+### [custom-app-5.1.5](https://github.com/truecharts/apps/compare/custom-app-5.1.4...custom-app-5.1.5) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="custom-app-5.1.4"></a>
+### [custom-app-5.1.4](https://github.com/truecharts/apps/compare/custom-app-5.1.2...custom-app-5.1.4) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+#### Fix
+
+* adjust initcontainers with new image ([#3069](https://github.com/truecharts/apps/issues/3069))
+
+
+
 <a name="custom-app-5.1.2"></a>
 ### [custom-app-5.1.2](https://github.com/truecharts/apps/compare/custom-app-5.1.1...custom-app-5.1.2) (2022-06-29)
 

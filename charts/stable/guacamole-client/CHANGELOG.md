@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-4.0.10"></a>
+### [guacamole-client-4.0.10](https://github.com/truecharts/apps/compare/guacamole-client-4.0.9...guacamole-client-4.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="guacamole-client-4.0.9"></a>
+### [guacamole-client-4.0.9](https://github.com/truecharts/apps/compare/guacamole-client-4.0.8...guacamole-client-4.0.9) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="guacamole-client-4.0.8"></a>
+### [guacamole-client-4.0.8](https://github.com/truecharts/apps/compare/guacamole-client-4.0.6...guacamole-client-4.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+#### Fix
+
+* adjust initcontainers with new image ([#3069](https://github.com/truecharts/apps/issues/3069))
+
+
+
 <a name="guacamole-client-4.0.6"></a>
 ### [guacamole-client-4.0.6](https://github.com/truecharts/apps/compare/guacamole-client-4.0.5...guacamole-client-4.0.6) (2022-06-25)
 

@@ -5,9 +5,9 @@ image:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 8581
         port: 8581
 

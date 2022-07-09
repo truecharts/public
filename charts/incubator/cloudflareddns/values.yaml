@@ -17,7 +17,7 @@ secretEnv:
   CF_APITOKEN_ZONE: ""
 
 env:
-  DETECTION_MODE: '{{ ternary .Values.DETECT_MODE .Values.DETECT_OVERRIDE (eq .Values.DETECT_OVERRIDE "") }}'
+  DETECTION_MODE: '{{ ternary .Values.env.DETECT_MODE .Values.env.DETECT_OVERRIDE (eq .Values.env.DETECT_OVERRIDE "") }}'
   # Use Defined
   INTERVAL: 300
   DETECT_MODE: "dig-whoami.cloudflare"

@@ -176,7 +176,7 @@ questions:
                               default: 10059
                               required: true
 
-        - variable: playertcp
+        - variable: player
           label: "Logitech Media Server Player TCP Communcation"
           description: "Logitech Media Server Player Service for TCP communication"
           schema:
@@ -211,15 +211,6 @@ questions:
                               type: int
                               default: 3483
                               required: true
-
-        - variable: playerudp
-          label: "Logitech Media Server Player Communcation"
-          description: "Logitech Media Server Player Service for UDP communication"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: slimprotoudp
                       label: "Player to server UDP communication"
                       schema:

@@ -1,7 +1,7 @@
 image:
   repository: cloudflare/cloudflared
   pullPolicy: IfNotPresent
-  tag: 2022.6.3
+  tag: 2022.7.1
 
 extraArgs: ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
 
@@ -17,9 +17,9 @@ podSecurityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 6969
         port: 6969
 

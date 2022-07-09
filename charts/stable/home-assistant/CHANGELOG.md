@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="home-assistant-15.0.16"></a>
+### [home-assistant-15.0.16](https://github.com/truecharts/apps/compare/home-assistant-15.0.15...home-assistant-15.0.16) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="home-assistant-15.0.15"></a>
+### [home-assistant-15.0.15](https://github.com/truecharts/apps/compare/home-assistant-15.0.14...home-assistant-15.0.15) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
+<a name="home-assistant-15.0.14"></a>
+### [home-assistant-15.0.14](https://github.com/truecharts/apps/compare/home-assistant-15.0.13...home-assistant-15.0.14) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="home-assistant-15.0.13"></a>
+### [home-assistant-15.0.13](https://github.com/truecharts/apps/compare/home-assistant-15.0.12...home-assistant-15.0.13) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="home-assistant-15.0.12"></a>
+### [home-assistant-15.0.12](https://github.com/truecharts/apps/compare/home-assistant-15.0.11...home-assistant-15.0.12) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="home-assistant-15.0.11"></a>
 ### [home-assistant-15.0.11](https://github.com/truecharts/apps/compare/home-assistant-15.0.10...home-assistant-15.0.11) (2022-06-25)
 

@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="self-service-password-1.0.13"></a>
+### [self-service-password-1.0.13](https://github.com/truecharts/apps/compare/self-service-password-1.0.12...self-service-password-1.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="self-service-password-1.0.12"></a>
+### [self-service-password-1.0.12](https://github.com/truecharts/apps/compare/self-service-password-1.0.11...self-service-password-1.0.12) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="self-service-password-1.0.11"></a>
+### [self-service-password-1.0.11](https://github.com/truecharts/apps/compare/self-service-password-1.0.10...self-service-password-1.0.11) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="self-service-password-1.0.10"></a>
+### [self-service-password-1.0.10](https://github.com/truecharts/apps/compare/self-service-password-1.0.9...self-service-password-1.0.10) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="self-service-password-1.0.9"></a>
 ### [self-service-password-1.0.9](https://github.com/truecharts/apps/compare/self-service-password-1.0.8...self-service-password-1.0.9) (2022-06-29)
 

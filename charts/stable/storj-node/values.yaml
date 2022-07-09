@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/storj-node
-  tag: v1.58.1@sha256:006ca53a1a58964c5102ffaa788c66edc5a4daa59d1fff4244493c23ebbd218b
+  tag: v1.58.2@sha256:66ef5b88475c3a933fa255b1b578d54fcc65433b200a3a3270dfe5d2ddbf1d79
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -26,7 +26,7 @@ service:
       main:
         port: 14002
         targetPort: 14002
-  coretcp:
+  core:
     enabled: true
     ports:
       coretcp:
@@ -34,9 +34,6 @@ service:
         protocol: TCP
         port: 28967
         targetPort: 28967
-  coreudp:
-    enabled: true
-    ports:
       coreudp:
         enabled: true
         protocol: UDP

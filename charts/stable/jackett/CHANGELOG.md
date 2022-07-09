@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="jackett-11.0.21"></a>
+### [jackett-11.0.21](https://github.com/truecharts/apps/compare/jackett-11.0.20...jackett-11.0.21) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="jackett-11.0.20"></a>
+### [jackett-11.0.20](https://github.com/truecharts/apps/compare/jackett-11.0.19...jackett-11.0.20) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="jackett-11.0.19"></a>
+### [jackett-11.0.19](https://github.com/truecharts/apps/compare/jackett-11.0.18...jackett-11.0.19) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="jackett-11.0.18"></a>
 ### [jackett-11.0.18](https://github.com/truecharts/apps/compare/jackett-11.0.17...jackett-11.0.18) (2022-06-29)
 

@@ -12,13 +12,10 @@ service:
   torrent:
     enabled: true
     ports:
-      torrent:
+      torrenttcp:
         enabled: true
         port: 51414
         targetPort: 51414
-  torrentudp:
-    enabled: true
-    ports:
       torrentudp:
         enabled: true
         port: 51414
@@ -56,7 +53,7 @@ env:
   # TRANSMISSION_PEER_ID_TTL_HOURS: 6
   # TRANSMISSION_PEER_LIMIT_GLOBAL: 200
   # TRANSMISSION_PEER_LIMIT_PER_TORRENT: 50
-  TRANSMISSION_PEER_PORT: "{{ .Values.service.torrent.ports.torrent.targetPort }}"
+  TRANSMISSION_PEER_PORT: "{{ .Values.service.torrent.ports.torrenttcp.targetPort }}"
   # TRANSMISSION_PEER_PORT_RANDOM_HIGH: 65535
   # TRANSMISSION_PEER_PORT_RANDOM_LOW: 49152
   # TRANSMISSION_PEER_PORT_RANDOM_ON_START: false

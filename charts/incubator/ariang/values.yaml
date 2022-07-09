@@ -1,0 +1,12 @@
+image:
+  repository: leonismoe/ariang
+  pullPolicy: IfNotPresent
+  tag: 1.2.4
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10276
