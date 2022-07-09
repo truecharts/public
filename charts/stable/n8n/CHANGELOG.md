@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-4.0.16"></a>
+### [n8n-4.0.16](https://github.com/truecharts/apps/compare/n8n-4.0.15...n8n-4.0.16) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="n8n-4.0.15"></a>
 ### [n8n-4.0.15](https://github.com/truecharts/apps/compare/n8n-4.0.14...n8n-4.0.15) (2022-07-06)
 

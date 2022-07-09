@@ -1,6 +1,7 @@
 # Changelog<br>
 
 
+
 <a name="komga-6.0.11"></a>
 ### [komga-6.0.11](https://github.com/truecharts/apps/compare/komga-6.0.10...komga-6.0.11) (2022-07-04)
 

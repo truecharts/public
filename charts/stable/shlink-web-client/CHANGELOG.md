@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-3.0.10"></a>
+### [shlink-web-client-3.0.10](https://github.com/truecharts/apps/compare/shlink-web-client-3.0.9...shlink-web-client-3.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="shlink-web-client-3.0.9"></a>
 ### [shlink-web-client-3.0.9](https://github.com/truecharts/apps/compare/shlink-web-client-3.0.8...shlink-web-client-3.0.9) (2022-07-04)
 

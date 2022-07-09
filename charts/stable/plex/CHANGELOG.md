@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-10.0.13"></a>
+### [plex-10.0.13](https://github.com/truecharts/apps/compare/plex-10.0.12...plex-10.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="plex-10.0.12"></a>
 ### [plex-10.0.12](https://github.com/truecharts/apps/compare/plex-10.0.11...plex-10.0.12) (2022-07-06)
 

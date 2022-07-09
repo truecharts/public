@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-7.0.10"></a>
+### [dizquetv-7.0.10](https://github.com/truecharts/apps/compare/dizquetv-7.0.9...dizquetv-7.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="dizquetv-7.0.9"></a>
 ### [dizquetv-7.0.9](https://github.com/truecharts/apps/compare/dizquetv-7.0.8...dizquetv-7.0.9) (2022-07-04)
 

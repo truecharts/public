@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="satisfactory-2.0.11"></a>
+### [satisfactory-2.0.11](https://github.com/truecharts/apps/compare/satisfactory-2.0.10...satisfactory-2.0.11) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="satisfactory-2.0.10"></a>
 ### [satisfactory-2.0.10](https://github.com/truecharts/apps/compare/satisfactory-2.0.9...satisfactory-2.0.10) (2022-07-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-4.0.10"></a>
+### [leantime-4.0.10](https://github.com/truecharts/apps/compare/leantime-4.0.9...leantime-4.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="leantime-4.0.9"></a>
 ### [leantime-4.0.9](https://github.com/truecharts/apps/compare/leantime-4.0.8...leantime-4.0.9) (2022-07-05)
 
