@@ -50,9 +50,9 @@ secretEnv:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 3735
         port: 10254
 

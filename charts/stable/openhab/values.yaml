@@ -5,15 +5,15 @@ image:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         port: 10169
   https:
-    protocol: HTTPS
     enabled: true
     ports:
       https:
+        protocol: HTTPS
         enabled: true
         port: 10170
 

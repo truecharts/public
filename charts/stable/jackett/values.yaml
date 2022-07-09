@@ -8,9 +8,9 @@ securityContext:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 9117
         port: 9117
 
