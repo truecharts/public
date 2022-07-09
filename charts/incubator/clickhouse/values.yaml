@@ -12,15 +12,20 @@ controller:
 securityContext:
   capabilities:
     add:
+      # TODO: remove capabilities for unused ClickHouse features. See also:
+      # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
+      # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
       - IPC_LOCK
       - NET_ADMIN
       - SYS_NICE
+      - SYS_PTRACE
 
 service:
   main:
     ports:
       main:
         port: 8123
+        protocol: HTTP
         targetPort: 8123
 
 volumeClaimTemplates:
@@ -43,20 +48,20 @@ probes:
     custom: true
     spec:
       httpGet:
-              path: /ping
-              port: 8123
+        path: /ping
+        port: 8123
   readiness:
     custom: true
     spec:
       httpGet:
-              path: /ping
-              port: 8123
-  startup:
+        path: /ping
+        port: 8123
+startup:
     custom: true
     spec:
       httpGet:
-              path: /ping
-              port: 8123
+        path: /ping
+        port: 8123
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
