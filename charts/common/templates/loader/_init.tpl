@@ -27,4 +27,7 @@
 
   {{- /* Autogenerate mongodb passwords if needed */ -}}
   {{- include "tc.common.dependencies.mongodb.injector" . }}
+
+  {{- /* Autogenerate clickhouse passwords if needed */ -}}
+  {{- include "tc.common.dependencies.clickhouse.injector" . }}
 {{- end -}}

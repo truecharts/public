@@ -56,6 +56,13 @@ before chart installation.
     - name: MONGODB_DATABASE
       value: "{{ .Values.mongodb.mongoDatabase }}"
     {{- end }}
+    {{- if .Values.clickhouse.enabled }}
+    - name: CLICKHOUSE_PING
+      valueFrom:
+        secretKeyRef:
+          name: clickhousecreds
+          key: ping
+    {{- end }}
   command:
     - "/bin/sh"
     - "-c"
@@ -130,6 +137,11 @@ before chart installation.
           echo "Redis not respoding... Sleeping for 10 sec..."
           sleep 10
         fi;
+      done
+      {{- end }}
+      {{- if .Values.clickhouse.enabled }}
+      until wget --quiet --tries=1 --spider "${CLICKHOUSE_PING}"; do
+        sleep 2
       done
       {{- end }}
       EOF

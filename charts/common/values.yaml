@@ -776,7 +776,7 @@ persistence:
     mountPath: /tmp
     # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
     # of the storage medium that backs the node.
-    medium: # Memory
+    medium:  # Memory
     # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
@@ -1156,5 +1156,13 @@ mariadb:
 mongodb:
   enabled: false
   existingSecret: "mongodbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
+
+# -- clickhouse dependency configuration
+# @default -- See below
+clickhouse:
+  enabled: false
+  existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
