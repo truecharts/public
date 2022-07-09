@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-6.0.10"></a>
+### [freeradius-6.0.10](https://github.com/truecharts/apps/compare/freeradius-6.0.9...freeradius-6.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="freeradius-6.0.9"></a>
 ### [freeradius-6.0.9](https://github.com/truecharts/apps/compare/freeradius-6.0.8...freeradius-6.0.9) (2022-07-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-2.0.26"></a>
+### [cyberchef-2.0.26](https://github.com/truecharts/apps/compare/cyberchef-2.0.25...cyberchef-2.0.26) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="cyberchef-2.0.25"></a>
 ### [cyberchef-2.0.25](https://github.com/truecharts/apps/compare/cyberchef-2.0.24...cyberchef-2.0.25) (2022-07-09)
 

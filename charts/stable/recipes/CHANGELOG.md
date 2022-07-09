@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-8.0.12"></a>
+### [recipes-8.0.12](https://github.com/truecharts/apps/compare/recipes-8.0.11...recipes-8.0.12) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="recipes-8.0.11"></a>
 ### [recipes-8.0.11](https://github.com/truecharts/apps/compare/recipes-8.0.10...recipes-8.0.11) (2022-07-08)
 

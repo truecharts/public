@@ -1,6 +1,7 @@
 # Changelog<br>
 
 
+
 <a name="darktable-3.0.8"></a>
 ### [darktable-3.0.8](https://github.com/truecharts/apps/compare/darktable-3.0.7...darktable-3.0.8) (2022-07-04)
 

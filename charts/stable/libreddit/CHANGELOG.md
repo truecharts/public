@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreddit-1.0.3"></a>
+### [libreddit-1.0.3](https://github.com/truecharts/apps/compare/libreddit-1.0.2...libreddit-1.0.3) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="libreddit-1.0.2"></a>
 ### [libreddit-1.0.2](https://github.com/truecharts/apps/compare/libreddit-1.0.1...libreddit-1.0.2) (2022-07-04)
 
