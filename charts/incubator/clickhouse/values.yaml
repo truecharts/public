@@ -22,7 +22,6 @@ service:
       main:
         port: 8123
         targetPort: 8123
-        protocol: HTTP
 
 volumeClaimTemplates:
   data:
