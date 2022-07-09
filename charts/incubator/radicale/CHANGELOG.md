@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radicale-0.0.5"></a>
+### [radicale-0.0.5](https://github.com/truecharts/apps/compare/radicale-0.0.4...radicale-0.0.5) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="radicale-0.0.4"></a>
 ### [radicale-0.0.4](https://github.com/truecharts/apps/compare/radicale-0.0.3...radicale-0.0.4) (2022-07-04)
 

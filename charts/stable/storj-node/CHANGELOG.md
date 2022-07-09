@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="storj-node-2.0.17"></a>
+### [storj-node-2.0.17](https://github.com/truecharts/apps/compare/storj-node-2.0.16...storj-node-2.0.17) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="storj-node-2.0.16"></a>
 ### [storj-node-2.0.16](https://github.com/truecharts/apps/compare/storj-node-2.0.15...storj-node-2.0.16) (2022-07-06)
 

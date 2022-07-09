@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-3.0.11"></a>
+### [ipfs-3.0.11](https://github.com/truecharts/apps/compare/ipfs-3.0.10...ipfs-3.0.11) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="ipfs-3.0.10"></a>
 ### [ipfs-3.0.10](https://github.com/truecharts/apps/compare/ipfs-3.0.9...ipfs-3.0.10) (2022-07-07)
 

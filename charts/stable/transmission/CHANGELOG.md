@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-12.0.9"></a>
+### [transmission-12.0.9](https://github.com/truecharts/apps/compare/transmission-12.0.8...transmission-12.0.9) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="transmission-12.0.8"></a>
 ### [transmission-12.0.8](https://github.com/truecharts/apps/compare/transmission-12.0.7...transmission-12.0.8) (2022-07-04)
 

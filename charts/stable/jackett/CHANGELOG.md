@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-11.0.20"></a>
+### [jackett-11.0.20](https://github.com/truecharts/apps/compare/jackett-11.0.19...jackett-11.0.20) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="jackett-11.0.19"></a>
 ### [jackett-11.0.19](https://github.com/truecharts/apps/compare/jackett-11.0.18...jackett-11.0.19) (2022-07-04)
 

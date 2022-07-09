@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="adguard-home-1.0.9"></a>
+### [adguard-home-1.0.9](https://github.com/truecharts/apps/compare/adguard-home-1.0.8...adguard-home-1.0.9) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="adguard-home-1.0.8"></a>
 ### [adguard-home-1.0.8](https://github.com/truecharts/apps/compare/adguard-home-1.0.7...adguard-home-1.0.8) (2022-07-04)
 

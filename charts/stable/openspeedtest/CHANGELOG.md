@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openspeedtest-1.0.7"></a>
+### [openspeedtest-1.0.7](https://github.com/truecharts/apps/compare/openspeedtest-1.0.6...openspeedtest-1.0.7) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="openspeedtest-1.0.6"></a>
 ### [openspeedtest-1.0.6](https://github.com/truecharts/apps/compare/openspeedtest-1.0.5...openspeedtest-1.0.6) (2022-07-07)
 

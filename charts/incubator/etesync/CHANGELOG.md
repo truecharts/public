@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etesync-0.0.5"></a>
+### [etesync-0.0.5](https://github.com/truecharts/apps/compare/etesync-0.0.4...etesync-0.0.5) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="etesync-0.0.4"></a>
 ### [etesync-0.0.4](https://github.com/truecharts/apps/compare/etesync-0.0.3...etesync-0.0.4) (2022-07-05)
 

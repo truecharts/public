@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.8"></a>
+### [privatebin-0.0.8](https://github.com/truecharts/apps/compare/privatebin-0.0.7...privatebin-0.0.8) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="privatebin-0.0.7"></a>
 ### [privatebin-0.0.7](https://github.com/truecharts/apps/compare/privatebin-0.0.6...privatebin-0.0.7) (2022-07-05)
 

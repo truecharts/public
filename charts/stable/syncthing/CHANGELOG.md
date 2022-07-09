@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-11.0.10"></a>
+### [syncthing-11.0.10](https://github.com/truecharts/apps/compare/syncthing-11.0.9...syncthing-11.0.10) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
 <a name="syncthing-11.0.9"></a>
 ### [syncthing-11.0.9](https://github.com/truecharts/apps/compare/syncthing-11.0.8...syncthing-11.0.9) (2022-07-06)
 
