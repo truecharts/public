@@ -41,13 +41,13 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    type: HTTP
+    type: AUTO
     path: /ping
   readiness:
-    type: HTTP
+    type: AUTO
     path: /ping
   startup:
-    type: HTTP
+    type: AUTO
     path: /ping
 
 clickhouseDatabase: "test"
