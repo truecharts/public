@@ -40,13 +40,23 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    type: HTTP
-    path: /ping
+    custom: true
+    spec:
+      httpGet:
+              path: /ping
+              port: 8123
   readiness:
-    type: HTTP
-    path: /ping
+    custom: true
+    spec:
+      httpGet:
+              path: /ping
+              port: 8123
   startup:
-    enabled: false
+    custom: true
+    spec:
+      httpGet:
+              path: /ping
+              port: 8123
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
