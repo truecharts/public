@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-3.0.10"></a>
+### [projectsend-3.0.10](https://github.com/truecharts/apps/compare/projectsend-3.0.9...projectsend-3.0.10) (2022-07-09)
+
+#### Chore
+
+* some UI fixes ([#3103](https://github.com/truecharts/apps/issues/3103))
+
+
+
 <a name="projectsend-3.0.9"></a>
 ### [projectsend-3.0.9](https://github.com/truecharts/apps/compare/projectsend-3.0.8...projectsend-3.0.9) (2022-07-05)
 
