@@ -46,8 +46,7 @@ probes:
     type: HTTP
     path: /ping
   startup:
-    type: HTTP
-    path: /ping
+    enabled: false
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
