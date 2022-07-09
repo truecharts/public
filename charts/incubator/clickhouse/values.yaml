@@ -50,18 +50,30 @@ probes:
       httpGet:
         path: /ping
         port: 8123
+      initialDelaySeconds: 30
+      failureThreshold: 3
+      periodSeconds: 10
+      timeoutSeconds: 1
   readiness:
     custom: true
     spec:
       httpGet:
         path: /ping
         port: 8123
-startup:
+      initialDelaySeconds: 20
+      failureThreshold: 6
+      periodSeconds: 10
+      timeoutSeconds: 1
+  startup:
     custom: true
     spec:
       httpGet:
         path: /ping
         port: 8123
+      initialDelaySeconds: 20
+      #failureThreshold: 6
+      periodSeconds: 10
+      timeoutSeconds: 1
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
