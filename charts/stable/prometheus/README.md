@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | kube-state-metrics | 3.1.1 |
 | https://charts.bitnami.com/bitnami | node-exporter | 3.0.4 |
-| https://library-charts.truecharts.org | common | 10.2.0 |
+| https://library-charts.truecharts.org | common | 10.2.1 |
 
 ## Installing the Chart
 

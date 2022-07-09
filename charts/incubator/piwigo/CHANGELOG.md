@@ -1,6 +1,7 @@
 # Changelog<br>
 
 
+
 <a name="piwigo-3.0.8"></a>
 ### [piwigo-3.0.8](https://github.com/truecharts/apps/compare/piwigo-3.0.7...piwigo-3.0.8) (2022-07-04)
 

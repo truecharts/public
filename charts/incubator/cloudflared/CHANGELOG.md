@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloudflared-0.0.6"></a>
+### [cloudflared-0.0.6](https://github.com/truecharts/apps/compare/cloudflared-0.0.5...cloudflared-0.0.6) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="cloudflared-0.0.5"></a>
 ### [cloudflared-0.0.5](https://github.com/truecharts/apps/compare/cloudflared-0.0.4...cloudflared-0.0.5) (2022-07-09)
 

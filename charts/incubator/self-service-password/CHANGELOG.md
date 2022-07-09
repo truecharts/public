@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="self-service-password-1.0.13"></a>
+### [self-service-password-1.0.13](https://github.com/truecharts/apps/compare/self-service-password-1.0.12...self-service-password-1.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="self-service-password-1.0.12"></a>
 ### [self-service-password-1.0.12](https://github.com/truecharts/apps/compare/self-service-password-1.0.11...self-service-password-1.0.12) (2022-07-07)
 

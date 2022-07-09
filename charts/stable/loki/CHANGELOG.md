@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-5.0.12"></a>
+### [loki-5.0.12](https://github.com/truecharts/apps/compare/loki-5.0.11...loki-5.0.12) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="loki-5.0.11"></a>
 ### [loki-5.0.11](https://github.com/truecharts/apps/compare/loki-5.0.10...loki-5.0.11) (2022-07-09)
 

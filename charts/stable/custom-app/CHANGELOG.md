@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.1.5"></a>
+### [custom-app-5.1.5](https://github.com/truecharts/apps/compare/custom-app-5.1.4...custom-app-5.1.5) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="custom-app-5.1.4"></a>
 ### [custom-app-5.1.4](https://github.com/truecharts/apps/compare/custom-app-5.1.2...custom-app-5.1.4) (2022-07-04)
 

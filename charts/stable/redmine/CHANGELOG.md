@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redmine-3.0.12"></a>
+### [redmine-3.0.12](https://github.com/truecharts/apps/compare/redmine-3.0.11...redmine-3.0.12) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="redmine-3.0.11"></a>
 ### [redmine-3.0.11](https://github.com/truecharts/apps/compare/redmine-3.0.10...redmine-3.0.11) (2022-07-05)
 

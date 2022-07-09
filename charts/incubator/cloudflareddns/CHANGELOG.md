@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloudflareddns-0.0.5"></a>
+### [cloudflareddns-0.0.5](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.4...cloudflareddns-0.0.5) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
 <a name="cloudflareddns-0.0.4"></a>
 ### [cloudflareddns-0.0.4](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.3...cloudflareddns-0.0.4) (2022-07-04)
 
