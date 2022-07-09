@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/cyberchef:v9.39.1@sha256:7d7e35b3bf5b61de5e3bfb251a73c93d7268f989544e06850b6b6205d9919b5f
+          tccr.io/truecharts/cyberchef:v9.46.0@sha256:71695f15ef303e306420fe20b047f20adee51b6368f73c985b67d550085daa02
 
 ##### Scan Results
 

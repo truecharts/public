@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/dashdot:v4.2.0@sha256:38332cab070b11b1a7fd24951ba1eb506e1c87c659e72cffd9ced4b82c0fe83a
+          tccr.io/truecharts/dashdot:v4.3.0@sha256:101d0b5ec51a1b1a09c70c5444ec9b42729e7d5e2557194dd4eaae4e2d0b7827
 
 ##### Scan Results
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-9.0.10"></a>
+### [focalboard-9.0.10](https://github.com/truecharts/apps/compare/focalboard-9.0.9...focalboard-9.0.10) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
 <a name="focalboard-9.0.9"></a>
 ### [focalboard-9.0.9](https://github.com/truecharts/apps/compare/focalboard-9.0.8...focalboard-9.0.9) (2022-07-05)
 

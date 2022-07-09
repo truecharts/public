@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.1.1"></a>
+### [collabora-online-12.1.1](https://github.com/truecharts/apps/compare/collabora-online-12.1.0...collabora-online-12.1.1) (2022-07-09)
+
+#### Chore
+
+* update helm chart common to v10.2.1 ([#3110](https://github.com/truecharts/apps/issues/3110))
+
+
+
 <a name="collabora-online-12.1.0"></a>
 ### [collabora-online-12.1.0](https://github.com/truecharts/apps/compare/collabora-online-12.0.11...collabora-online-12.1.0) (2022-07-08)
 
