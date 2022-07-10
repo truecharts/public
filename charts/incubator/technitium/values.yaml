@@ -33,13 +33,16 @@ service:
       main:
         port: 5380
         targetPort: 5380
-  dns:
+  dns-tcp:
     enabled: true
     ports:
       dns-tcp:
         enabled: true
         port: 53
         targetPort: 53
+  dns-udp:
+    enabled: true
+    ports:
       dns-udp:
         enabled: true
         protocol: UDP

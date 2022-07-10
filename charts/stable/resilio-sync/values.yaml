@@ -17,13 +17,16 @@ service:
       main:
         port: 8888
         targetPort: 8888
-  bt:
+  bt-tcp:
     enabled: true
     ports:
       bt-tcp:
         enabled: true
         port: 55555
         targetPort: 55555
+  bt-udp:
+    enabled: true
+    ports:
       bt-udp:
         enabled: true
         port: 55555
