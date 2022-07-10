@@ -114,7 +114,8 @@ questions:
           description: The default ("admin") user email (First Install Only)
           schema:
             type: string
-            default: ""
+            default: admin@example.com
+            required: true
         - variable: ADMIN_USER_PWD
           label: ADMIN_USER_PWD
           description: The default ("admin") user password (First Install Only)
