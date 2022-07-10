@@ -69,30 +69,23 @@ questions:
 
 # Include{containerConfig}
 
-  - variable: postgresqlDatabase
+  - variable: solrCores
     group: "App Configuration"
-    label: "Database Name"
+    label: "Solr Cores"
     schema:
       type: string
-      default: "mydatabase"
+      default: "testcore"
       required: true
-  - variable: postgresqlUsername
+  - variable: solrUsername
     group: "App Configuration"
-    label: "Database User"
+    label: "Solr Admin Username"
     schema:
       type: string
-      default: "mydatabaseuser"
+      default: "test"
       required: true
-  - variable: postgresqlPassword
+  - variable: solrPassword
     group: "App Configuration"
-    label: "Database Password"
-    schema:
-      type: string
-      default: ""
-      required: true
-  - variable: postgrespassword
-    group: "App Configuration"
-    label: "Root Password"
+    label: "Solr Admin Password"
     schema:
       type: string
       default: ""
@@ -124,7 +117,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5432
+                              default: 8983
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -159,7 +152,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 5432
+                                    default: 8983
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -253,13 +246,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 1001
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 1001
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

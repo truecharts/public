@@ -24,8 +24,11 @@ controller:
   # -- ReplicaSet revision history limit
   revisionHistoryLimit: 3
 
-securityContext:
-  readOnlyRootFilesystem: false
+podSecurityContext:
+  runAsUser: 1001
+  runAsGroup: 1001
+# securityContext:
+#   readOnlyRootFilesystem: false
 
 service:
   main:
@@ -33,9 +36,6 @@ service:
       main:
         port: 8983
         targetPort: 8983
-
-# podSecurityContext:
-#   runAsGroup: 0
 
 volumeClaimTemplates:
   db:
@@ -62,7 +62,6 @@ probes:
           - sh
           - -c
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
-          - solr status
 
   # -- Redainess probe configuration
   # @default -- See below
