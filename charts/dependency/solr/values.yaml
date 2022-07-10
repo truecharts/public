@@ -25,8 +25,8 @@ controller:
   revisionHistoryLimit: 3
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 1001
+  runAsUser: 1001
+  runAsGroup: 0
 securityContext:
   readOnlyRootFilesystem: false
 
