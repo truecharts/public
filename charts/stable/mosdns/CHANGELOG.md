@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosdns-2.0.11"></a>
+### [mosdns-2.0.11](https://github.com/truecharts/apps/compare/mosdns-2.0.10...mosdns-2.0.11) (2022-07-10)
+
+#### Chore
+
+* update container image tccr.io/truecharts/mosdns to v4.1.3 ([#3035](https://github.com/truecharts/apps/issues/3035))
+
+
+
 <a name="mosdns-2.0.10"></a>
 ### [mosdns-2.0.10](https://github.com/truecharts/apps/compare/mosdns-2.0.9...mosdns-2.0.10) (2022-07-09)
 
