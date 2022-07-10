@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mongodb-1.0.28"></a>
+### [mongodb-1.0.28](https://github.com/truecharts/apps/compare/mongodb-1.0.27...mongodb-1.0.28) (2022-07-10)
+
+#### Chore
+
+* update helm chart common to v10.4.0 ([#3123](https://github.com/truecharts/apps/issues/3123))
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="mongodb-1.0.27"></a>
 ### [mongodb-1.0.27](https://github.com/truecharts/apps/compare/mongodb-1.0.26...mongodb-1.0.27) (2022-07-10)
 

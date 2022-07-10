@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.25"></a>
+### [memcached-3.0.25](https://github.com/truecharts/apps/compare/memcached-3.0.24...memcached-3.0.25) (2022-07-10)
+
+#### Chore
+
+* update helm chart common to v10.4.0 ([#3123](https://github.com/truecharts/apps/issues/3123))
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="memcached-3.0.24"></a>
 ### [memcached-3.0.24](https://github.com/truecharts/apps/compare/memcached-3.0.23...memcached-3.0.24) (2022-07-10)
 
