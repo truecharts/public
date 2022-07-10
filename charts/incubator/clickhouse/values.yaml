@@ -11,14 +11,15 @@ controller:
 
 securityContext:
   readOnlyRootFilesystem: false
-  capabilities:
-    add:
-      # TODO: remove capabilities for unused ClickHouse features. See also:
-      # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
-      # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
-      - IPC_LOCK
-      - NET_ADMIN
-      - SYS_NICE
+  # Optional capabilities advanced ClickHouse features. See also:
+  # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
+  # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
+  # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
+  # capabilities:
+  #   add:
+  #     - IPC_LOCK
+  #     - NET_ADMIN
+  #     - SYS_NICE
 
 service:
   main:
