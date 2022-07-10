@@ -22,14 +22,17 @@ service:
       main:
         port: 9089
         targetPort: 80
-  dns:
+  dns-tcp:
     enabled: true
     ports:
       dns-tcp:
         enabled: true
         port: 53
         targetPort: 53
-      dns-udp:
+  dns:
+    enabled: true
+    ports:
+      dns:
         enabled: true
         protocol: UDP
         port: 53

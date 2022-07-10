@@ -254,9 +254,9 @@ questions:
                                     type: int
                                     default: 5380
 
-        - variable: dns
-          label: "DNS Service"
-          description: "DNS Service"
+        - variable: dns-udp
+          label: "DNS-UDP Service"
+          description: "DNS-UDP Service"
           schema:
             additional_attrs: true
             type: dict
@@ -309,6 +309,15 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
+
+        - variable: dns-tcp
+          label: "DNS-TCP Service"
+          description: "DNS-TCP Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
                     - variable: dns-tcp
                       label: "DNS-TCP Service Port Configuration"
                       schema:
