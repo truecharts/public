@@ -33,14 +33,14 @@ data:
   url:                 {{ $url | b64enc | quote }}
   jdbc:                {{ $jdbc | b64enc | quote }}
 
-{{- $_ := set .Values.clickhouse     "clickhousePassword" ($dbPass | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "plain"              ($host | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainhost"          ($host | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainport"          ($portHost | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainporthost"      ($portHost  | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "ping"               ($ping  | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "complete"           ($url | b64enc | quote) }}
-{{- $_ := set .Values.clickhouse.url "jdbc"               ($jdbc | b64enc | quote) }}
+{{- $_ := set .Values.clickhouse     "clickhousePassword" ($dbPass | quote) }}
+{{- $_ := set .Values.clickhouse.url "plain"              ($host | quote) }}
+{{- $_ := set .Values.clickhouse.url "plainhost"          ($host | quote) }}
+{{- $_ := set .Values.clickhouse.url "plainport"          ($portHost | quote) }}
+{{- $_ := set .Values.clickhouse.url "plainporthost"      ($portHost | quote) }}
+{{- $_ := set .Values.clickhouse.url "ping"               ($ping | quote) }}
+{{- $_ := set .Values.clickhouse.url "complete"           ($url | quote) }}
+{{- $_ := set .Values.clickhouse.url "jdbc"               ($jdbc | quote) }}
 
 {{- end }}
 {{- end -}}

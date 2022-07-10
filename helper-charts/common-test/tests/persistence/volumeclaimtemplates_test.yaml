@@ -20,7 +20,7 @@ tests:
           path: spec.volumeClaimTemplates[0]
           value:
             metadata:
-              name: storage
+              name: 0
             spec:
               accessModes:
                 - ReadWriteOnce
