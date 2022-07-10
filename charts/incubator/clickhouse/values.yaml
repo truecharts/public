@@ -19,7 +19,6 @@ securityContext:
       - IPC_LOCK
       - NET_ADMIN
       - SYS_NICE
-      - SYS_PTRACE
 
 service:
   main:
@@ -36,34 +35,14 @@ volumeClaimTemplates:
 
 probes:
   liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /ping
-        port: 8123
-      initialDelaySeconds: 30
-      failureThreshold: 3
-      periodSeconds: 10
-      timeoutSeconds: 1
+    type: HTTP
+    path: /ping
   readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /ping
-        port: 8123
-      initialDelaySeconds: 20
-      failureThreshold: 6
-      periodSeconds: 10
-      timeoutSeconds: 1
+    type: HTTP
+    path: /ping
   startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /ping
-        port: 8123
-      initialDelaySeconds: 20
-      periodSeconds: 10
-      timeoutSeconds: 1
+    type: HTTP
+    path: /ping
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
