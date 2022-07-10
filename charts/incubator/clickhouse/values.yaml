@@ -10,6 +10,7 @@ controller:
     unavailable: 1
 
 securityContext:
+  readOnlyRootFilesystem: false
   capabilities:
     add:
       # TODO: remove capabilities for unused ClickHouse features. See also:
@@ -32,16 +33,6 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
-  config-server:
-    enabled: true
-    mountPath: /etc/clickhouse-server/config.d
-  config-users:
-    enabled: true
-    mountPath: /etc/clickhouse-server/users.d
-  logs:
-    enabled: true
-    mountPath: /var/log/clickhouse-server
-    type: emptyDir
 
 probes:
   liveness:
