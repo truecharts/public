@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-6.0.11"></a>
+### [pihole-6.0.11](https://github.com/truecharts/apps/compare/pihole-6.0.10...pihole-6.0.11) (2022-07-10)
+
+#### Fix
+
+* revert combine ports ([#3119](https://github.com/truecharts/apps/issues/3119))
+
+
+
 <a name="pihole-6.0.10"></a>
 ### [pihole-6.0.10](https://github.com/truecharts/apps/compare/pihole-6.0.9...pihole-6.0.10) (2022-07-09)
 

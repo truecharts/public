@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-6.0.11"></a>
+### [resilio-sync-6.0.11](https://github.com/truecharts/apps/compare/resilio-sync-6.0.10...resilio-sync-6.0.11) (2022-07-10)
+
+#### Fix
+
+* revert combine ports ([#3119](https://github.com/truecharts/apps/issues/3119))
+
+
+
 <a name="resilio-sync-6.0.10"></a>
 ### [resilio-sync-6.0.10](https://github.com/truecharts/apps/compare/resilio-sync-6.0.9...resilio-sync-6.0.10) (2022-07-09)
 
