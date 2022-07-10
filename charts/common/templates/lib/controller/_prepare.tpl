@@ -152,15 +152,17 @@ before chart installation.
           echo "Redis Responded, ending initcontainer and starting main container(s)..."
         else
           echo "$response"
-          echo "Redis not respoding... Sleeping for 10 sec..."
+          echo "Redis not responding... Sleeping for 10 sec..."
           sleep 10
         fi;
       done
       {{- end }}
       {{- if .Values.clickhouse.enabled }}
       until wget --quiet --tries=1 --spider "${CLICKHOUSE_PING}"; do
+        echo "ClickHouse - no response. Sleeping 2 seconds..."
         sleep 2
       done
+      echo "ClickHouse - accepting connections"
       {{- end }}
       {{- if .Values.solr.enabled }}
       if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
