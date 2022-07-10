@@ -36,6 +36,9 @@ plausible:
   GOOGLE_CLIENT_ID: ""
   GOOGLE_CLIENT_SECRET: ""
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-config'
