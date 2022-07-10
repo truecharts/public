@@ -63,6 +63,24 @@ before chart installation.
           name: clickhousecreds
           key: ping
     {{- end }}
+    {{- if .Values.solr.enabled }}
+    - name: "SOLR_HOST"
+      valueFrom:
+        secretKeyRef:
+          name: solrcreds
+          key: plainhost
+    - name: SOLR_CORES
+      value: "{{ .Values.solr.solrCores }}"
+    - name: SOLR_ENABLE_AUTHENTICATION
+      value: "{{ .Values.solr.solrEnableAuthentication }}"
+    - name: SOLR_ADMIN_USERNAME
+      value: "{{ .Values.solr.solrUsername }}"
+    - name: SOLR_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: solrcreds
+          key: solr-password
+    {{- end }}
   command:
     - "/bin/sh"
     - "-c"
@@ -144,6 +162,14 @@ before chart installation.
         sleep 2
       done
       {{- end }}
+      {{- if .Values.solr.enabled }}
+      if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+        until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" "${SOLR_HOST}":8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+      else
+        until curl --fail "${SOLR_HOST}":8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+      fi;
+      {{- end }}
+
       EOF
 
   volumeMounts:

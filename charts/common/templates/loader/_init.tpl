@@ -30,4 +30,7 @@
 
   {{- /* Autogenerate clickhouse passwords if needed */ -}}
   {{- include "tc.common.dependencies.clickhouse.injector" . }}
+
+  {{- /* Autogenerate solr passwords if needed */ -}}
+  {{- include "tc.common.dependencies.solr.injector" . }}
 {{- end -}}

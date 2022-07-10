@@ -1166,3 +1166,11 @@ clickhouse:
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+
+# -- solr dependency configuration
+# @default -- See below
+solr:
+  enabled: false
+  existingSecret: "solrcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
