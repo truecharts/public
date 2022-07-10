@@ -28,6 +28,7 @@ podSecurityContext:
   runAsUser: 1001
   runAsGroup: 0
 securityContext:
+  runAsNonRoot: true
   readOnlyRootFilesystem: false
 
 service:
