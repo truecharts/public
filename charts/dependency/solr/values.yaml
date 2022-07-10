@@ -27,8 +27,8 @@ controller:
 podSecurityContext:
   runAsUser: 1001
   runAsGroup: 1001
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 
 service:
   main:
