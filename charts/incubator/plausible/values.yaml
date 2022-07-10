@@ -36,6 +36,10 @@ plausible:
   GOOGLE_CLIENT_ID: ""
   GOOGLE_CLIENT_SECRET: ""
 
+  # Logging
+  # TODO: reset to warn
+  LOG_LEVEL: debug
+
 securityContext:
   readOnlyRootFilesystem: false
 
@@ -48,11 +52,6 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-env-config'
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-
-command: [sh]
-args:
-  - -c
-  - /entrypoint.sh run
 
 installContainers:
   plausible-install:

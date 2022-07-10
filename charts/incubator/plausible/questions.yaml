@@ -190,6 +190,7 @@ questions:
           description: Mailer Adapter
           schema:
             type: string
+            required: true
             default: Bamboo.SMTPAdapter
             enum:
               - value: Bamboo.SMTPAdapter
@@ -216,6 +217,22 @@ questions:
             type: string
             default: ""
             private: true
+        - variable: LOG_LEVEL
+          label: LOG_LEVEL
+          description: Logging Level
+          schema:
+            type: string
+            required: true
+            default: warn
+            enum:
+              - value: debug
+                description: debug
+              - value: info
+                description: info
+              - value: warn
+                description: warn
+              - value: error
+                description: error
 
 # Include{containerConfig}
 

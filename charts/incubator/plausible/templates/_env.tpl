@@ -22,6 +22,8 @@ data:
   SMTP_HOST_SSL_ENABLED: {{ .Values.plausible.SMTP_HOST_SSL_ENABLED | quote }}
   SMTP_RETRIES: {{ .Values.plausible.SMTP_RETRIES | quote }}
   MAILER_ADAPTER: {{ .Values.plausible.MAILER_ADAPTER | quote }}
+
+  LOG_LEVEL: {{ .Values.plausible.LOG_LEVEL | quote }}
 ---
 apiVersion: v1
 kind: Secret
