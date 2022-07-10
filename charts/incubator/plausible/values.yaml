@@ -39,6 +39,10 @@ plausible:
 securityContext:
   readOnlyRootFilesystem: false
 
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-config'
