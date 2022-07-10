@@ -25,7 +25,7 @@ controller:
   revisionHistoryLimit: 3
 
 podSecurityContext:
-  runAsUser: 1001
+  runAsUser: 0
   runAsGroup: 0
 securityContext:
   runAsNonRoot: true
@@ -60,8 +60,8 @@ probes:
     spec:
       exec:
         command:
-          - sh
-          - -c
+          - bash
+          - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
 
   # -- Redainess probe configuration
@@ -77,8 +77,8 @@ probes:
     spec:
       exec:
         command:
-          - sh
-          - -c
+          - bash
+          - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
   # -- Startup probe configuration
   # @default -- See below
@@ -92,10 +92,9 @@ probes:
     spec:
       exec:
         command:
-          - sh
-          - -c
+          - bash
+          - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
-
 
 solrCores: "testcore"
 solrEnableAuthentication: "yes"
