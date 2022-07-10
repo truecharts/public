@@ -15,6 +15,13 @@ service:
   main:
     ports:
       main:
+        targetPort: 53
+        port: 53
+  dns-udp:
+    enabled: true
+    ports:
+      dns-upd:
+        enabled: true
         protocol: UDP
         targetPort: 53
         port: 53
