@@ -49,6 +49,11 @@ envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
+command: [sh]
+args:
+  - -c
+  - /entrypoint.sh run
+
 installContainers:
   plausible-install:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
