@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-15.2.5"></a>
+### [nextcloud-15.2.5](https://github.com/truecharts/apps/compare/nextcloud-15.2.4...nextcloud-15.2.5) (2022-07-10)
+
+#### Fix
+
+* increase nginx fpm forwarding timeouts ([#3122](https://github.com/truecharts/apps/issues/3122))
+
+
+
 <a name="nextcloud-15.2.4"></a>
 ### [nextcloud-15.2.4](https://github.com/truecharts/apps/compare/nextcloud-15.2.3...nextcloud-15.2.4) (2022-07-09)
 
