@@ -20,7 +20,7 @@ data:
   {{- if .Values.usermanagement.N8N_SMTP_HOST }}
   N8N_SMTP_HOST: {{ .Values.usermanagement.N8N_SMTP_HOST | quote }}
   {{- end }}
-  {{- if .Values.usermanagement.N8N_SMTP_PORT }}
+  {{- if or .Values.usermanagement.N8N_SMTP_PORT ( eq 0 .Values.usermanagement.N8N_SMTP_PORT) }}
   N8N_SMTP_PORT: {{ .Values.usermanagement.N8N_SMTP_PORT | quote }}
   {{- end }}
   {{- if .Values.usermanagement.N8N_SMTP_USER }}
