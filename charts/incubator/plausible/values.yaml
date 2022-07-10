@@ -80,11 +80,22 @@ upgradeContainers:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
         targetPort: 8000
+        protocol: HTTP
         port: 10277
+
+probes:
+  liveness:
+    type: HTTP
+    path: /api/health
+  readiness:
+    type: HTTP
+    path: /api/health
+  startup:
+    type: HTTP
+    path: /api/health
 
 postgresql:
   enabled: true
