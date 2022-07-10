@@ -111,10 +111,12 @@ probes:
               until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
             fi;
 
+# Currently only single core is supported, with multiple cores, probes will fail.
 solrCores: "testcore"
 solrEnableAuthentication: "yes"
 solrUsername: "test"
 solrPassword: "testpass"
+# Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
 existingSecret: ""
 
@@ -128,7 +130,6 @@ env:
   SOLR_CORES: "{{ .Values.solrCores }}"
   SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
   SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
-  # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
   SOLR_OPTS: "{{ .Values.solrOpts }}"
   SOLR_ADMIN_PASSWORD:
     secretKeyRef:
