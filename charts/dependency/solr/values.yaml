@@ -60,7 +60,7 @@ probes:
     spec:
       exec:
         command:
-          - bash
+          - /bin/bash
           - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
 
@@ -77,7 +77,7 @@ probes:
     spec:
       exec:
         command:
-          - bash
+          - /bin/bash
           - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
   # -- Startup probe configuration
@@ -92,7 +92,7 @@ probes:
     spec:
       exec:
         command:
-          - bash
+          - /bin/bash
           - -ec
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
 
