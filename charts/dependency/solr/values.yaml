@@ -62,7 +62,12 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -79,7 +84,12 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -94,10 +104,15 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
 
 solrCores: "testcore"
-solrEnableAuthentication: "no"
+solrEnableAuthentication: "yes"
 solrUsername: "test"
 solrPassword: "testpass"
 existingSecret: ""
