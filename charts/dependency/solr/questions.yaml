@@ -90,6 +90,12 @@ questions:
       type: string
       default: ""
       required: true
+  - variable: solrOpts
+    group: "App Configuration"
+    label: "Solr Opts"
+    schema:
+      type: string
+      default: ""
 
   - variable: service
     group: "Networking and Services"

@@ -115,6 +115,7 @@ solrCores: "testcore"
 solrEnableAuthentication: "yes"
 solrUsername: "test"
 solrPassword: "testpass"
+solrOpts: ""
 existingSecret: ""
 
 secret:
@@ -127,6 +128,8 @@ env:
   SOLR_CORES: "{{ .Values.solrCores }}"
   SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
   SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
+  # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
+  SOLR_OPTS: "{{ .Values.solrOpts }}"
   SOLR_ADMIN_PASSWORD:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
