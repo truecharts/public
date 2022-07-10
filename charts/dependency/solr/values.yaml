@@ -61,7 +61,7 @@ probes:
         command:
           - sh
           - -c
-          - "until eval curl --fail 10.10.10.254:8983/solr/admin/info/system | jq .responseHeader.status; do sleep 2; done"
+          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
           - solr status
 
   # -- Redainess probe configuration
@@ -79,7 +79,7 @@ probes:
         command:
           - sh
           - -c
-          - "until eval curl --fail 10.10.10.254:8983/solr/admin/info/system | jq .responseHeader.status; do sleep 2; done"
+          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -94,7 +94,7 @@ probes:
         command:
           - sh
           - -c
-          - "until eval curl --fail 10.10.10.254:8983/solr/admin/info/system | jq .responseHeader.status; do sleep 2; done"
+          - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
 
 
 solrCores: "testcore"
