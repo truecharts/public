@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="plex-10.0.13"></a>
+### [plex-10.0.13](https://github.com/truecharts/apps/compare/plex-10.0.12...plex-10.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="plex-10.0.12"></a>
+### [plex-10.0.12](https://github.com/truecharts/apps/compare/plex-10.0.11...plex-10.0.12) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="plex-10.0.11"></a>
+### [plex-10.0.11](https://github.com/truecharts/apps/compare/plex-10.0.10...plex-10.0.11) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="plex-10.0.10"></a>
 ### [plex-10.0.10](https://github.com/truecharts/apps/compare/plex-10.0.9...plex-10.0.10) (2022-06-25)
 

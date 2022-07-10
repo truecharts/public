@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/hotio/cloudflareddns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5a5d15f77847de9b01c0c607a7c40353f44dae650e689cea00a4c0eea572778f
+  tag: latest@sha256:0bc0538131575bb67c68e068a2a4194755cd1c4bfb3a749e64b1ef3d558513b1
 
 securityContext:
   runAsNonRoot: false
@@ -17,7 +17,7 @@ secretEnv:
   CF_APITOKEN_ZONE: ""
 
 env:
-  DETECTION_MODE: '{{ ternary .Values.DETECT_MODE .Values.DETECT_OVERRIDE (eq .Values.DETECT_OVERRIDE "") }}'
+  DETECTION_MODE: '{{ ternary .Values.env.DETECT_MODE .Values.env.DETECT_OVERRIDE (eq .Values.env.DETECT_OVERRIDE "") }}'
   # Use Defined
   INTERVAL: 300
   DETECT_MODE: "dig-whoami.cloudflare"

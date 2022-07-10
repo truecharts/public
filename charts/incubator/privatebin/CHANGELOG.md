@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.9"></a>
+### [privatebin-0.0.9](https://github.com/truecharts/apps/compare/privatebin-0.0.8...privatebin-0.0.9) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="privatebin-0.0.8"></a>
+### [privatebin-0.0.8](https://github.com/truecharts/apps/compare/privatebin-0.0.7...privatebin-0.0.8) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="privatebin-0.0.7"></a>
+### [privatebin-0.0.7](https://github.com/truecharts/apps/compare/privatebin-0.0.6...privatebin-0.0.7) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="privatebin-0.0.6"></a>
+### [privatebin-0.0.6](https://github.com/truecharts/apps/compare/privatebin-0.0.5...privatebin-0.0.6) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="privatebin-0.0.5"></a>
 ### [privatebin-0.0.5](https://github.com/truecharts/apps/compare/privatebin-0.0.4...privatebin-0.0.5) (2022-07-02)
 

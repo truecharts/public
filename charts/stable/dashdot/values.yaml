@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: v3.9.7@sha256:1b0f557090c68f72e3aa5ea985ff219433444776a6c46b63b0f32357a0cf8fc6
+  tag: v4.3.1@sha256:2c65de1c3db6066c94176474d4a85006d72a6be9488246c0f58d23347e02d91a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -26,6 +26,8 @@ env:
   # DASHDOT_DISABLE_INTEGRATIONS: false
   # DASHDOT_SHOW_HOST: true
   # DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
+  # DASHDOT_FS_TYPE_FILTER: "cifs,9p,fuse.rclone,fuse.mergerfs"
+  # DASHDOT_FS_VIRTUAL_MOUNTS: ""
   # DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
   # DASHDOT_OS_WIDGET_GROW: "1.5"
   # DASHDOT_OS_WIDGET_MIN_WIDTH: "300"
@@ -78,17 +80,11 @@ service:
         port: 10044
 
 persistence:
-  os:
+  host-mnt:
     enabled: true
     type: hostPath
-    hostPath: "/etc/os-release"
-    mountPath: "/etc/os-release"
-    readOnly: true
-  net:
-    enabled: true
-    type: hostPath
-    hostPath: "/proc/1/ns/net"
-    mountPath: "/mnt/proc/1/ns/net"
+    hostPath: "/"
+    mountPath: "/mnt/host"
     readOnly: true
   mem:
     enabled: true

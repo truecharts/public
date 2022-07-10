@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="linkace-4.0.17"></a>
+### [linkace-4.0.17](https://github.com/truecharts/apps/compare/linkace-4.0.16...linkace-4.0.17) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="linkace-4.0.16"></a>
+### [linkace-4.0.16](https://github.com/truecharts/apps/compare/linkace-4.0.15...linkace-4.0.16) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="linkace-4.0.15"></a>
+### [linkace-4.0.15](https://github.com/truecharts/apps/compare/linkace-4.0.14...linkace-4.0.15) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="linkace-4.0.14"></a>
+### [linkace-4.0.14](https://github.com/truecharts/apps/compare/linkace-4.0.13...linkace-4.0.14) (2022-07-03)
+
+#### Chore
+
+* update docker general non-major ([#3052](https://github.com/truecharts/apps/issues/3052))
+
+
+
 <a name="linkace-4.0.13"></a>
 ### [linkace-4.0.13](https://github.com/truecharts/apps/compare/linkace-4.0.12...linkace-4.0.13) (2022-07-02)
 

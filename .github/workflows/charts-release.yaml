@@ -14,7 +14,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.3.0@sha256:a163ad40427cd75a31a0365afb832f97e512d420429ed091b90b18a034526264
+      image: ghcr.io/truecharts/devcontainer:v2.4.0@sha256:395ee7ed8b9cba6569ddeba77b7ceb86fdb79b91a19c639625d7bc54cb1ccc1d
     concurrency: gitpush
     steps:
       - name: Install Kubernetes tools
@@ -31,14 +31,12 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts-old https://truecharts.org
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
-          helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
           helm repo update
 
       - name: Checkout

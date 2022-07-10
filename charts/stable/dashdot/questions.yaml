@@ -113,6 +113,18 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: DASHDOT_FS_TYPE_FILTER
+          label: "DASHDOT_FS_TYPE_FILTER"
+          description: "If dash. detects network drives as internal drives, you can provide a list of ignored FS types here."
+          schema:
+            type: string
+            default: "cifs,9p,fuse.rclone,fuse.mergerfs"
+        - variable: DASHDOT_FS_VIRTUAL_MOUNTS
+          label: "DASHDOT_FS_VIRTUAL_MOUNTS"
+          description: "If you want to show a virtual mount in the storage split view, that is ignored in the filter above. Can be used for example to show fuse.mergerfs mounts, which is basically a grouping of other mounts."
+          schema:
+            type: string
+            default: ""
         - variable: oswidgetsettings
           label: "OS Widget Settings"
           schema:

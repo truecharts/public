@@ -56,9 +56,9 @@ env:
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 5232
         port: 10255
 

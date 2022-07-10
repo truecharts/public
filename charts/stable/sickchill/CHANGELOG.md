@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="sickchill-3.0.11"></a>
+### [sickchill-3.0.11](https://github.com/truecharts/apps/compare/sickchill-3.0.10...sickchill-3.0.11) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="sickchill-3.0.10"></a>
+### [sickchill-3.0.10](https://github.com/truecharts/apps/compare/sickchill-3.0.9...sickchill-3.0.10) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="sickchill-3.0.9"></a>
+### [sickchill-3.0.9](https://github.com/truecharts/apps/compare/sickchill-3.0.8...sickchill-3.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="sickchill-3.0.8"></a>
 ### [sickchill-3.0.8](https://github.com/truecharts/apps/compare/sickchill-3.0.7...sickchill-3.0.8) (2022-07-01)
 

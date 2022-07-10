@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="owncast-6.0.11"></a>
+### [owncast-6.0.11](https://github.com/truecharts/apps/compare/owncast-6.0.10...owncast-6.0.11) (2022-07-10)
+
+#### Chore
+
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
+<a name="owncast-6.0.10"></a>
+### [owncast-6.0.10](https://github.com/truecharts/apps/compare/owncast-6.0.9...owncast-6.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="owncast-6.0.9"></a>
+### [owncast-6.0.9](https://github.com/truecharts/apps/compare/owncast-6.0.8...owncast-6.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="owncast-6.0.8"></a>
 ### [owncast-6.0.8](https://github.com/truecharts/apps/compare/owncast-6.0.7...owncast-6.0.8) (2022-06-25)
 

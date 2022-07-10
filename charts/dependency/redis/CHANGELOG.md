@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.25"></a>
+### [redis-3.0.25](https://github.com/truecharts/apps/compare/redis-3.0.24...redis-3.0.25) (2022-07-10)
+
+#### Chore
+
+* update helm chart common to v10.3.0
+
+
+
+<a name="redis-3.0.24"></a>
+### [redis-3.0.24](https://github.com/truecharts/apps/compare/redis-3.0.23...redis-3.0.24) (2022-07-09)
+
+#### Chore
+
+* update helm chart common to v10.2.1 ([#3110](https://github.com/truecharts/apps/issues/3110))
+
+
+
+<a name="redis-3.0.23"></a>
+### [redis-3.0.23](https://github.com/truecharts/apps/compare/redis-3.0.22...redis-3.0.23) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="redis-3.0.22"></a>
+### [redis-3.0.22](https://github.com/truecharts/apps/compare/redis-3.0.21...redis-3.0.22) (2022-07-04)
+
+#### Chore
+
+* update helm chart common to v10.2.0 ([#3065](https://github.com/truecharts/apps/issues/3065))
+
+
+
+<a name="redis-3.0.21"></a>
+### [redis-3.0.21](https://github.com/truecharts/apps/compare/redis-3.0.20...redis-3.0.21) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
 <a name="redis-3.0.20"></a>
 ### [redis-3.0.20](https://github.com/truecharts/apps/compare/redis-3.0.19...redis-3.0.20) (2022-07-01)
 

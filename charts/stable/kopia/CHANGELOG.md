@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="kopia-2.0.17"></a>
+### [kopia-2.0.17](https://github.com/truecharts/apps/compare/kopia-2.0.16...kopia-2.0.17) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="kopia-2.0.16"></a>
+### [kopia-2.0.16](https://github.com/truecharts/apps/compare/kopia-2.0.15...kopia-2.0.16) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="kopia-2.0.15"></a>
+### [kopia-2.0.15](https://github.com/truecharts/apps/compare/kopia-2.0.14...kopia-2.0.15) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="kopia-2.0.14"></a>
+### [kopia-2.0.14](https://github.com/truecharts/apps/compare/kopia-2.0.13...kopia-2.0.14) (2022-07-05)
+
+#### Chore
+
+* update docker general non-major ([#3071](https://github.com/truecharts/apps/issues/3071))
+
+
+
+<a name="kopia-2.0.13"></a>
+### [kopia-2.0.13](https://github.com/truecharts/apps/compare/kopia-2.0.12...kopia-2.0.13) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="kopia-2.0.12"></a>
 ### [kopia-2.0.12](https://github.com/truecharts/apps/compare/kopia-2.0.11...kopia-2.0.12) (2022-06-25)
 

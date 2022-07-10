@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="ghost-3.0.15"></a>
+### [ghost-3.0.15](https://github.com/truecharts/apps/compare/ghost-3.0.14...ghost-3.0.15) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="ghost-3.0.14"></a>
+### [ghost-3.0.14](https://github.com/truecharts/apps/compare/ghost-3.0.13...ghost-3.0.14) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
+<a name="ghost-3.0.13"></a>
+### [ghost-3.0.13](https://github.com/truecharts/apps/compare/ghost-3.0.12...ghost-3.0.13) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="ghost-3.0.12"></a>
+### [ghost-3.0.12](https://github.com/truecharts/apps/compare/ghost-3.0.11...ghost-3.0.12) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="ghost-3.0.11"></a>
+### [ghost-3.0.11](https://github.com/truecharts/apps/compare/ghost-3.0.10...ghost-3.0.11) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
 <a name="ghost-3.0.10"></a>
 ### [ghost-3.0.10](https://github.com/truecharts/apps/compare/ghost-3.0.9...ghost-3.0.10) (2022-06-29)
 
