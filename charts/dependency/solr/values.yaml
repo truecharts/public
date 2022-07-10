@@ -97,7 +97,7 @@ probes:
           - "until curl --fail localhost:8983/solr/${SOLR_CORES}/admin/ping; do sleep 2; done"
 
 solrCores: "testcore"
-solrEnableAuthentication: "yes"
+solrEnableAuthentication: "no"
 solrUsername: "test"
 solrPassword: "testpass"
 existingSecret: ""
