@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-4.0.7"></a>
+### [hedgedoc-4.0.7](https://github.com/truecharts/apps/compare/hedgedoc-4.0.6...hedgedoc-4.0.7) (2022-07-10)
+
+#### Chore
+
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="hedgedoc-4.0.6"></a>
 ### [hedgedoc-4.0.6](https://github.com/truecharts/apps/compare/hedgedoc-4.0.5...hedgedoc-4.0.6) (2022-07-09)
 

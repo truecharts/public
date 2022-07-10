@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dashdot-1.0.19"></a>
+### [dashdot-1.0.19](https://github.com/truecharts/apps/compare/dashdot-1.0.18...dashdot-1.0.19) (2022-07-10)
+
+#### Chore
+
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="darktable-3.0.9"></a>
 ### [darktable-3.0.9](https://github.com/truecharts/apps/compare/darktable-3.0.8...darktable-3.0.9) (2022-07-09)
 

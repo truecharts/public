@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-7.0.14"></a>
+### [calibre-7.0.14](https://github.com/truecharts/apps/compare/calibre-7.0.13...calibre-7.0.14) (2022-07-10)
+
+#### Chore
+
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="calibre-7.0.13"></a>
 ### [calibre-7.0.13](https://github.com/truecharts/apps/compare/calibre-7.0.12...calibre-7.0.13) (2022-07-09)
 

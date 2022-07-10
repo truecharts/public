@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cups-server-1.0.13"></a>
+### [cups-server-1.0.13](https://github.com/truecharts/apps/compare/cups-server-1.0.12...cups-server-1.0.13) (2022-07-10)
+
+#### Chore
+
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
 <a name="cups-server-1.0.12"></a>
 ### [cups-server-1.0.12](https://github.com/truecharts/apps/compare/cups-server-1.0.11...cups-server-1.0.12) (2022-07-09)
 
