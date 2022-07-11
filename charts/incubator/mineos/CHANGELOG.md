@@ -7,4 +7,3 @@
 #### Feat
 
 * add mineOS ([#3127](https://github.com/truecharts/apps/issues/3127))
-

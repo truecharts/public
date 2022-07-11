@@ -124,7 +124,7 @@ questions:
             default: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
         - variable: extra_params
           label: "Extra Parameters to add"
-          description: 'e.g. "--o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
+          description: 'e.g. "--o:welcome.enable=false", See more on /etc/loolwsd/loolwsd.xml. Separate params with space'
           schema:
             type: string
             default: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false"

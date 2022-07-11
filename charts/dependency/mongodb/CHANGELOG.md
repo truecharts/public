@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mongodb-1.0.30"></a>
+### [mongodb-1.0.30](https://github.com/truecharts/apps/compare/mongodb-1.0.29...mongodb-1.0.30) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
 <a name="mongodb-1.0.29"></a>
 ### [mongodb-1.0.29](https://github.com/truecharts/apps/compare/mongodb-1.0.28...mongodb-1.0.29) (2022-07-11)
 
