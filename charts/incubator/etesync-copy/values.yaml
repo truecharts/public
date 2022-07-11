@@ -1,0 +1,77 @@
+image:
+  repository: victorrds/etesync
+  pullPolicy: IfNotPresent
+  tag: 0.9.1@sha256:c7c1af7532803996af2314a0b01475574fc41b5120460b1d5db726dc13576d17
+
+podSecurityContext:
+  runAsUser: 373
+  runAsGroup: 373
+  fsGroup: 373
+
+# Docker image configuration docs:
+# https://github.com/victor-rds/docker-etebase#settings-and-customization
+
+# EteSync configuration docs:
+# https://github.com/etesync/server#configuration
+
+env:
+  # App
+  SERVER: http
+  AUTO_UPDATE: true
+  ALLOWED_HOSTS: "localhost"
+  AUTO_SIGNUP: false
+  LANGUAGE_CODE: "en-us"
+  TIME_ZONE: "{{ .Values.TZ }}"
+
+  # Debugging
+  DEBUG: false
+  SHELL_DEBUG: false
+  DEBUG_DJANGO: false
+
+  # Postgres
+  DB_ENGINE: postgres
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PORT: 5432
+
+secretEnv:
+  # Superuser
+  SUPER_USER: "admin"
+  SUPER_PASS: ""
+  SUPER_EMAIL: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3735
+        port: 10254
+
+persistence:
+  app:
+    enabled: true
+    mountPath: "/data"
+  secret:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/data/secret.txt"
+    subPath: "secret.txt"
+    volumeSpec:
+      secret:
+        secretName: "etesync-secret"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: etesync
+  postgresqlDatabase: etesync
