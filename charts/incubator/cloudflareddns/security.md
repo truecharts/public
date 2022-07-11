@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/hotio/cloudflareddns:latest@sha256:0bc0538131575bb67c68e068a2a4194755cd1c4bfb3a749e64b1ef3d558513b1
+          tccr.io/truecharts/cloudflareddns:latest@sha256:21393f2edec6838dde0e1db48e37a976bdf26f991d775057e95480e6983d4a6e
 
 ##### Scan Results
 

@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          jlesage/putty:v1.4.0@sha256:97743ba343536b6a1f411286fbe4cca3781452e521fc303a9a4d3317b7eb4eb0
+          tccr.io/truecharts/putty:v1.4.0@sha256:f89db29318fa70d0a24013de15bbeb3cc8752fb9ac1a66239eb283878aaae5e0
 
 ##### Scan Results
 

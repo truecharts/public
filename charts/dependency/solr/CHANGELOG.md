@@ -7,4 +7,3 @@
 #### Feat
 
 * add solr as dep ([#3120](https://github.com/truecharts/apps/issues/3120))
-

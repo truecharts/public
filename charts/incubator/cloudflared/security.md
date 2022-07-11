@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          cloudflare/cloudflared:2022.7.1
+          tccr.io/truecharts/cloudflared:v2022.7.1@sha256:eb30a8a7a410e7b6be3fa07112a8295360c153518438cd5a94c8d42f5ccbe233
 
 ##### Scan Results
 
