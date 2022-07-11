@@ -149,11 +149,6 @@ questions:
                               default: false
                               show_subquestions_if: true
                               subquestions:
-                                - variable: enabled
-                                  label: "Enable the port"
-                                  schema:
-                                    type: boolean
-                                    default: true
                                 - variable: protocol
                                   label: "Port Type"
                                   schema:
@@ -164,10 +159,6 @@ questions:
                                         description: "HTTP"
                                       - value: "HTTPS"
                                         description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -181,7 +172,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 10257
-  
+
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
