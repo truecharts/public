@@ -8,7 +8,7 @@
 
 {{- $dbPass := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-  {{- $dbPass = index .stringData "clickhouse-password" }}
+  {{- $dbPass = (index .data "clickhouse-password") | b64dec }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
 {{- end }}
