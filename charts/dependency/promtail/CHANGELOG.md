@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.20"></a>
+### [promtail-3.0.20](https://github.com/truecharts/apps/compare/promtail-3.0.19...promtail-3.0.20) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
 <a name="promtail-3.0.19"></a>
 ### [promtail-3.0.19](https://github.com/truecharts/apps/compare/promtail-3.0.18...promtail-3.0.19) (2022-07-11)
 
