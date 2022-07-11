@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-7.0.11"></a>
+### [traccar-7.0.11](https://github.com/truecharts/apps/compare/traccar-7.0.10...traccar-7.0.11) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
 <a name="traccar-7.0.10"></a>
 ### [traccar-7.0.10](https://github.com/truecharts/apps/compare/traccar-7.0.9...traccar-7.0.10) (2022-07-09)
 

@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          yandex/clickhouse-server:21.3.20.1@sha256:4eccfffb01d735ab7c1af9a97fbff0c532112a6871b2bb5fe5c478d86d247b7e
+          tccr.io/truecharts/clickhouse:v22.5.2.53@sha256:00712dcfc0085b45d03533335043b00cda6d75e1e5a23e225233ecd7df2a7d01
 
 ##### Scan Results
 

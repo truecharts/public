@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-11.0.11"></a>
+### [heimdall-11.0.11](https://github.com/truecharts/apps/compare/heimdall-11.0.10...heimdall-11.0.11) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
 <a name="heimdall-11.0.10"></a>
 ### [heimdall-11.0.10](https://github.com/truecharts/apps/compare/heimdall-11.0.9...heimdall-11.0.10) (2022-07-09)
 

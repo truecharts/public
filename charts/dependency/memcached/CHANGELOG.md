@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.26"></a>
+### [memcached-3.0.26](https://github.com/truecharts/apps/compare/memcached-3.0.25...memcached-3.0.26) (2022-07-11)
+
+#### Chore
+
+* update helm chart common to v10.4.2
+
+
+
 <a name="memcached-3.0.25"></a>
 ### [memcached-3.0.25](https://github.com/truecharts/apps/compare/memcached-3.0.24...memcached-3.0.25) (2022-07-10)
 

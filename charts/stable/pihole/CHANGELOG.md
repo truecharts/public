@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-6.0.12"></a>
+### [pihole-6.0.12](https://github.com/truecharts/apps/compare/pihole-6.0.11...pihole-6.0.12) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
 <a name="pihole-6.0.11"></a>
 ### [pihole-6.0.11](https://github.com/truecharts/apps/compare/pihole-6.0.10...pihole-6.0.11) (2022-07-10)
 
