@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-6.0.11"></a>
+### [flaresolverr-6.0.11](https://github.com/truecharts/apps/compare/flaresolverr-6.0.10...flaresolverr-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="flaresolverr-6.0.10"></a>
 ### [flaresolverr-6.0.10](https://github.com/truecharts/apps/compare/flaresolverr-6.0.9...flaresolverr-6.0.10) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-15.0.18"></a>
+### [home-assistant-15.0.18](https://github.com/truecharts/apps/compare/home-assistant-15.0.17...home-assistant-15.0.18) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="home-assistant-15.0.17"></a>
 ### [home-assistant-15.0.17](https://github.com/truecharts/apps/compare/home-assistant-15.0.16...home-assistant-15.0.17) (2022-07-11)
 

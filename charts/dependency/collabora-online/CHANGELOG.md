@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.1.6"></a>
+### [collabora-online-12.1.6](https://github.com/truecharts/apps/compare/collabora-online-12.1.5...collabora-online-12.1.6) (2022-07-11)
+
+#### Chore
+
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="collabora-online-12.1.5"></a>
 ### [collabora-online-12.1.5](https://github.com/truecharts/apps/compare/collabora-online-12.1.4...collabora-online-12.1.5) (2022-07-11)
 

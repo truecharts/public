@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-4.0.12"></a>
+### [promcord-4.0.12](https://github.com/truecharts/apps/compare/promcord-4.0.11...promcord-4.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="promcord-4.0.11"></a>
 ### [promcord-4.0.11](https://github.com/truecharts/apps/compare/promcord-4.0.10...promcord-4.0.11) (2022-07-09)
 

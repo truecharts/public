@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-11.0.22"></a>
+### [jackett-11.0.22](https://github.com/truecharts/apps/compare/jackett-11.0.21...jackett-11.0.22) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="jackett-11.0.21"></a>
 ### [jackett-11.0.21](https://github.com/truecharts/apps/compare/jackett-11.0.20...jackett-11.0.21) (2022-07-09)
 

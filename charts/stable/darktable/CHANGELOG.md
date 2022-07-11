@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="darktable-3.0.10"></a>
+### [darktable-3.0.10](https://github.com/truecharts/apps/compare/darktable-3.0.9...darktable-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 
 <a name="darktable-3.0.8"></a>
 ### [darktable-3.0.8](https://github.com/truecharts/apps/compare/darktable-3.0.7...darktable-3.0.8) (2022-07-04)

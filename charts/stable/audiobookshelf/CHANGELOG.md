@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audiobookshelf-2.0.13"></a>
+### [audiobookshelf-2.0.13](https://github.com/truecharts/apps/compare/audiobookshelf-2.0.12...audiobookshelf-2.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="audiobookshelf-2.0.12"></a>
 ### [audiobookshelf-2.0.12](https://github.com/truecharts/apps/compare/audiobookshelf-2.0.11...audiobookshelf-2.0.12) (2022-07-09)
 

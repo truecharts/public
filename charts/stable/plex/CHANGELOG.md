@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-10.0.14"></a>
+### [plex-10.0.14](https://github.com/truecharts/apps/compare/plex-10.0.13...plex-10.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="plex-10.0.13"></a>
 ### [plex-10.0.13](https://github.com/truecharts/apps/compare/plex-10.0.12...plex-10.0.13) (2022-07-09)
 

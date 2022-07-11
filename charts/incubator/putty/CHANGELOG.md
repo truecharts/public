@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="putty-0.0.4"></a>
+### [putty-0.0.4](https://github.com/truecharts/apps/compare/putty-0.0.3...putty-0.0.4) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="putty-0.0.3"></a>
 ### [putty-0.0.3](https://github.com/truecharts/apps/compare/putty-0.0.2...putty-0.0.3) (2022-07-11)
 

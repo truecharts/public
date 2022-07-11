@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-2.0.14"></a>
+### [emulatorjs-2.0.14](https://github.com/truecharts/apps/compare/emulatorjs-2.0.13...emulatorjs-2.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="emulatorjs-2.0.13"></a>
 ### [emulatorjs-2.0.13](https://github.com/truecharts/apps/compare/emulatorjs-2.0.12...emulatorjs-2.0.13) (2022-07-09)
 

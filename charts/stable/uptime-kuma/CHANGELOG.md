@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-3.0.11"></a>
+### [uptime-kuma-3.0.11](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.10...uptime-kuma-3.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="uptime-kuma-3.0.10"></a>
 ### [uptime-kuma-3.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.9...uptime-kuma-3.0.10) (2022-07-09)
 

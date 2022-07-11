@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-16.0.13"></a>
+### [fireflyiii-16.0.13](https://github.com/truecharts/apps/compare/fireflyiii-16.0.12...fireflyiii-16.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="fireflyiii-16.0.12"></a>
 ### [fireflyiii-16.0.12](https://github.com/truecharts/apps/compare/fireflyiii-16.0.11...fireflyiii-16.0.12) (2022-07-09)
 

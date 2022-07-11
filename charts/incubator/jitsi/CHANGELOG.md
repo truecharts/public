@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jitsi-0.0.6"></a>
+### [jitsi-0.0.6](https://github.com/truecharts/apps/compare/jitsi-0.0.5...jitsi-0.0.6) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="jitsi-0.0.5"></a>
 ### [jitsi-0.0.5](https://github.com/truecharts/apps/compare/jitsi-0.0.4...jitsi-0.0.5) (2022-07-09)
 

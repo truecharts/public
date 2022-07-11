@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreddit-1.0.4"></a>
+### [libreddit-1.0.4](https://github.com/truecharts/apps/compare/libreddit-1.0.3...libreddit-1.0.4) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="libreddit-1.0.3"></a>
 ### [libreddit-1.0.3](https://github.com/truecharts/apps/compare/libreddit-1.0.2...libreddit-1.0.3) (2022-07-09)
 

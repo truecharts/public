@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-11.0.12"></a>
+### [sabnzbd-11.0.12](https://github.com/truecharts/apps/compare/sabnzbd-11.0.11...sabnzbd-11.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="sabnzbd-11.0.11"></a>
 ### [sabnzbd-11.0.11](https://github.com/truecharts/apps/compare/sabnzbd-11.0.10...sabnzbd-11.0.11) (2022-07-09)
 
