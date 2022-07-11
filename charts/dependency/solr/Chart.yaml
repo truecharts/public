@@ -5,26 +5,26 @@ dependencies:
   repository: https://library-charts.truecharts.org
   version: 10.4.2
 deprecated: false
-description: PostgresSQL
-home: https://github.com/truecharts/apps/tree/master/charts/dependency/postgresql
-icon: https://truecharts.org/_static/img/appicons/postgresql.png
+description: Apache Solr
+home: https://github.com/truecharts/apps/tree/master/charts/dependency/solr
+icon: https://truecharts.org/_static/img/appicons/solr.png
 keywords:
-- postgres
-- postgressql
-- dtabase
-- sql
+- solr
+- apache
+- search
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: postgresql
+name: solr
 sources:
-- https://www.postgresql.org/
+- https://github.com/apache/solr
+- https://hub.docker.com/r/bitnami/solr/
 type: application
-version: 8.0.27
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
-    - database
+    - search
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

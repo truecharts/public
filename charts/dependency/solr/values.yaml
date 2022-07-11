@@ -1,0 +1,137 @@
+image:
+  repository: bitnami/solr
+  pullPolicy: IfNotPresent
+  tag: 9.0.0@sha256:16adc0e1ded3b4e1c7dec3b47c739f41cafc9088be639c18bd4aab8e8efc80fa
+
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: statefulset
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable: 1
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
+
+podSecurityContext:
+  runAsUser: 1001
+  runAsGroup: 0
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 8983
+        targetPort: 8983
+
+volumeClaimTemplates:
+  db:
+    enabled: true
+    mountPath: "/bitnami/solr"
+
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    # -- Enable the liveness probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own livenessProbe
+    custom: true
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    # -- Enable the readiness probe
+    enabled: true
+    # -- Set this to `true` if you wish to specify your own readinessProbe
+    custom: true
+    # -- The spec field contains the values for the default readinessProbe.
+    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- Enable the startup probe
+    enabled: true
+    custom: true
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -ec
+          - |
+            if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
+              until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            else
+              until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
+            fi;
+
+# Currently only single core is supported, with multiple cores, probes will fail.
+solrCores: "testcore"
+solrEnableAuthentication: "yes"
+solrUsername: "test"
+solrPassword: "testpass"
+# Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
+solrOpts: ""
+existingSecret: ""
+
+secret:
+  credentials:
+    enabled: true
+    data:
+      solr-password: '{{ ( .Values.solrPassword | default "empty" ) }}'
+
+env:
+  SOLR_CORES: "{{ .Values.solrCores }}"
+  SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
+  SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
+  SOLR_OPTS: "{{ .Values.solrOpts }}"
+  SOLR_ADMIN_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "solr-password"
