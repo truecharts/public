@@ -20,7 +20,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@20d2b4f98d41febe2bbca46408499dbb535b6258 # tag=v3
+      uses: azure/setup-helm@e4f3964f67aac34233ac06d6614802b7040f2a7c # tag=v3
       with:
         version: v3.5.4
 
@@ -55,7 +55,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@20d2b4f98d41febe2bbca46408499dbb535b6258 # tag=v3
+      uses: azure/setup-helm@e4f3964f67aac34233ac06d6614802b7040f2a7c # tag=v3
       with:
         version: v3.5.4
 
@@ -77,7 +77,7 @@ jobs:
           fetch-depth: 0
 
     - name: Install Helm
-      uses: azure/setup-helm@20d2b4f98d41febe2bbca46408499dbb535b6258 # tag=v3
+      uses: azure/setup-helm@e4f3964f67aac34233ac06d6614802b7040f2a7c # tag=v3
       with:
         version: v3.5.4
 
