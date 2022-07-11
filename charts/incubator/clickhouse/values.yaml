@@ -1,7 +1,7 @@
 image:
-  repository: clickhouse/clickhouse-server
+  repository: tccr.io/truecharts/clickhouse
   pullPolicy: IfNotPresent
-  tag: 22.5.2.53@sha256:7e67d6aeda179f6e56d8c658054188102f96d532a4de8b73245e43b04eed1324
+  tag: v22.5.2.53@sha256:00712dcfc0085b45d03533335043b00cda6d75e1e5a23e225233ecd7df2a7d01
 
 controller:
   type: statefulset
