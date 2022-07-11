@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-8.0.28"></a>
+### [postgresql-8.0.28](https://github.com/truecharts/apps/compare/postgresql-8.0.27...postgresql-8.0.28) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
 <a name="postgresql-8.0.27"></a>
 ### [postgresql-8.0.27](https://github.com/truecharts/apps/compare/postgresql-8.0.26...postgresql-8.0.27) (2022-07-11)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.27"></a>
+### [memcached-3.0.27](https://github.com/truecharts/apps/compare/memcached-3.0.26...memcached-3.0.27) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
 <a name="memcached-3.0.26"></a>
 ### [memcached-3.0.26](https://github.com/truecharts/apps/compare/memcached-3.0.25...memcached-3.0.26) (2022-07-11)
 

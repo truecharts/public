@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="collabora-online-12.1.5"></a>
+### [collabora-online-12.1.5](https://github.com/truecharts/apps/compare/collabora-online-12.1.4...collabora-online-12.1.5) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
 <a name="collabora-online-12.1.4"></a>
 ### [collabora-online-12.1.4](https://github.com/truecharts/apps/compare/collabora-online-12.1.3...collabora-online-12.1.4) (2022-07-11)
 
