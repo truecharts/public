@@ -1,7 +1,7 @@
 image:
-  repository: yandex/clickhouse-server
+  repository: clickhouse/clickhouse-server
   pullPolicy: IfNotPresent
-  tag: 21.3.20.1@sha256:4eccfffb01d735ab7c1af9a97fbff0c532112a6871b2bb5fe5c478d86d247b7e
+  tag: 22.5.2.53@sha256:7e67d6aeda179f6e56d8c658054188102f96d532a4de8b73245e43b04eed1324
 
 controller:
   type: statefulset
