@@ -78,42 +78,6 @@ questions:
 
 # Include{containerConfig}
 
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USE_HTTPS
-          label: "USE HTTPS"
-          description: "Should the web interface use HTTPS(true) or HTTP?(false)"
-          schema:
-            type: boolean
-            default: false
-  - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USER_NAME
-          label: "USER NAME"
-          description: "User Login for the Web Interface."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: USER_PASSWORD
-          label: "USER PASSWORD"
-          description: "User Password for the Web Interface."
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -149,6 +113,11 @@ questions:
                               default: false
                               show_subquestions_if: true
                               subquestions:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
                                 - variable: protocol
                                   label: "Port Type"
                                   schema:
