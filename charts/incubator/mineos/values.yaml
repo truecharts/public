@@ -1,7 +1,7 @@
 image:
-  repository: hexparrot/mineos
-  pullPolicy: IfNotPresent
-  tag: "latest"
+	  repository: tccr.io/truecharts/mineos
+	  pullPolicy: IfNotPresent
+	  tag: latest@sha256:dae5c70dd0ec272707cf2eca7758f635ef4d76a177b437e2f7651b6bbcbc0245
 
 securityContext:
   runAsNonRoot: false
