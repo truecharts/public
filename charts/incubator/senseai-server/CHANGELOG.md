@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="senseai-server-0.0.9"></a>
+### [senseai-server-0.0.9](https://github.com/truecharts/apps/compare/senseai-server-0.0.8...senseai-server-0.0.9) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="senseai-server-0.0.8"></a>
 ### [senseai-server-0.0.8](https://github.com/truecharts/apps/compare/senseai-server-0.0.7...senseai-server-0.0.8) (2022-07-09)
 

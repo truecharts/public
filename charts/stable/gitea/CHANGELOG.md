@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-8.0.12"></a>
+### [gitea-8.0.12](https://github.com/truecharts/apps/compare/gitea-8.0.11...gitea-8.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="gitea-8.0.11"></a>
 ### [gitea-8.0.11](https://github.com/truecharts/apps/compare/gitea-8.0.10...gitea-8.0.11) (2022-07-09)
 

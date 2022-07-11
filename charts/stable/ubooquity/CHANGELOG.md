@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="ubooquity-3.0.11"></a>
+### [ubooquity-3.0.11](https://github.com/truecharts/apps/compare/ubooquity-3.0.10...ubooquity-3.0.11) (2022-07-11)
+
+
+
 <a name="ubooquity-3.0.10"></a>
 ### [ubooquity-3.0.10](https://github.com/truecharts/apps/compare/ubooquity-3.0.9...ubooquity-3.0.10) (2022-07-11)
 

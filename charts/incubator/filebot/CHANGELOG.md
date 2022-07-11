@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="filebot-0.0.4"></a>
+### [filebot-0.0.4](https://github.com/truecharts/apps/compare/filebot-0.0.3...filebot-0.0.4) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="filebot-0.0.3"></a>
 ### [filebot-0.0.3](https://github.com/truecharts/apps/compare/filebot-0.0.2...filebot-0.0.3) (2022-07-11)
 

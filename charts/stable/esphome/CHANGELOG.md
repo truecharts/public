@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-11.0.12"></a>
+### [esphome-11.0.12](https://github.com/truecharts/apps/compare/esphome-11.0.11...esphome-11.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="esphome-11.0.11"></a>
 ### [esphome-11.0.11](https://github.com/truecharts/apps/compare/esphome-11.0.10...esphome-11.0.11) (2022-07-09)
 

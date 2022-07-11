@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="promtail-3.0.21"></a>
+### [promtail-3.0.21](https://github.com/truecharts/apps/compare/promtail-3.0.20...promtail-3.0.21) (2022-07-11)
+
+
+
 <a name="promtail-3.0.20"></a>
 ### [promtail-3.0.20](https://github.com/truecharts/apps/compare/promtail-3.0.19...promtail-3.0.20) (2022-07-11)
 

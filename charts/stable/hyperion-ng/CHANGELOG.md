@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-6.0.11"></a>
+### [hyperion-ng-6.0.11](https://github.com/truecharts/apps/compare/hyperion-ng-6.0.10...hyperion-ng-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="hyperion-ng-6.0.10"></a>
 ### [hyperion-ng-6.0.10](https://github.com/truecharts/apps/compare/hyperion-ng-6.0.9...hyperion-ng-6.0.10) (2022-07-09)
 

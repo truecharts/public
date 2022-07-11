@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-11.0.13"></a>
+### [qbittorrent-11.0.13](https://github.com/truecharts/apps/compare/qbittorrent-11.0.12...qbittorrent-11.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="qbittorrent-11.0.12"></a>
 ### [qbittorrent-11.0.12](https://github.com/truecharts/apps/compare/qbittorrent-11.0.11...qbittorrent-11.0.12) (2022-07-10)
 

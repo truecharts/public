@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tsmuxer-0.0.3"></a>
+### [tsmuxer-0.0.3](https://github.com/truecharts/apps/compare/tsmuxer-0.0.2...tsmuxer-0.0.3) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="tsmuxer-0.0.2"></a>
 ### [tsmuxer-0.0.2](https://github.com/truecharts/apps/compare/tsmuxer-0.0.1...tsmuxer-0.0.2) (2022-07-09)
 

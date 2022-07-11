@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-4.0.18"></a>
+### [snipe-it-4.0.18](https://github.com/truecharts/apps/compare/snipe-it-4.0.17...snipe-it-4.0.18) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="snipe-it-4.0.17"></a>
 ### [snipe-it-4.0.17](https://github.com/truecharts/apps/compare/snipe-it-4.0.16...snipe-it-4.0.17) (2022-07-09)
 

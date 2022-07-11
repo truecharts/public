@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-4.0.13"></a>
+### [synapse-4.0.13](https://github.com/truecharts/apps/compare/synapse-4.0.12...synapse-4.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="synapse-4.0.12"></a>
 ### [synapse-4.0.12](https://github.com/truecharts/apps/compare/synapse-4.0.11...synapse-4.0.12) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-11.0.10"></a>
+### [kms-11.0.10](https://github.com/truecharts/apps/compare/kms-11.0.9...kms-11.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="kms-11.0.9"></a>
 ### [kms-11.0.9](https://github.com/truecharts/apps/compare/kms-11.0.8...kms-11.0.9) (2022-07-09)
 

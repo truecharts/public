@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-4.0.11"></a>
+### [guacamole-client-4.0.11](https://github.com/truecharts/apps/compare/guacamole-client-4.0.10...guacamole-client-4.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="guacamole-client-4.0.10"></a>
 ### [guacamole-client-4.0.10](https://github.com/truecharts/apps/compare/guacamole-client-4.0.9...guacamole-client-4.0.10) (2022-07-09)
 

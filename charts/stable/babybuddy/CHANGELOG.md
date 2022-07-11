@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-8.0.17"></a>
+### [babybuddy-8.0.17](https://github.com/truecharts/apps/compare/babybuddy-8.0.16...babybuddy-8.0.17) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="babybuddy-8.0.16"></a>
 ### [babybuddy-8.0.16](https://github.com/truecharts/apps/compare/babybuddy-8.0.15...babybuddy-8.0.16) (2022-07-11)
 

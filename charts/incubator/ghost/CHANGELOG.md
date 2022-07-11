@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ghost-3.0.16"></a>
+### [ghost-3.0.16](https://github.com/truecharts/apps/compare/ghost-3.0.15...ghost-3.0.16) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="ghost-3.0.15"></a>
 ### [ghost-3.0.15](https://github.com/truecharts/apps/compare/ghost-3.0.14...ghost-3.0.15) (2022-07-09)
 

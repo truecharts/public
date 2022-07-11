@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-3.0.12"></a>
+### [icinga2-3.0.12](https://github.com/truecharts/apps/compare/icinga2-3.0.11...icinga2-3.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="icinga2-3.0.11"></a>
 ### [icinga2-3.0.11](https://github.com/truecharts/apps/compare/icinga2-3.0.10...icinga2-3.0.11) (2022-07-09)
 

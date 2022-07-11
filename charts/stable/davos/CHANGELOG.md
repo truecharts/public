@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-4.0.10"></a>
+### [davos-4.0.10](https://github.com/truecharts/apps/compare/davos-4.0.9...davos-4.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="davos-4.0.9"></a>
 ### [davos-4.0.9](https://github.com/truecharts/apps/compare/davos-4.0.8...davos-4.0.9) (2022-07-09)
 

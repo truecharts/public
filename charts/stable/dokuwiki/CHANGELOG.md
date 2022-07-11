@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-3.0.21"></a>
+### [dokuwiki-3.0.21](https://github.com/truecharts/apps/compare/dokuwiki-3.0.20...dokuwiki-3.0.21) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="dokuwiki-3.0.20"></a>
 ### [dokuwiki-3.0.20](https://github.com/truecharts/apps/compare/dokuwiki-3.0.19...dokuwiki-3.0.20) (2022-07-10)
 

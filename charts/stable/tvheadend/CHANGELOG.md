@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-12.0.10"></a>
+### [tvheadend-12.0.10](https://github.com/truecharts/apps/compare/tvheadend-12.0.9...tvheadend-12.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="tvheadend-12.0.9"></a>
 ### [tvheadend-12.0.9](https://github.com/truecharts/apps/compare/tvheadend-12.0.8...tvheadend-12.0.9) (2022-07-09)
 

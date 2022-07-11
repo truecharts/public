@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="makemkv-2.0.12"></a>
+### [makemkv-2.0.12](https://github.com/truecharts/apps/compare/makemkv-2.0.11...makemkv-2.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="makemkv-2.0.11"></a>
 ### [makemkv-2.0.11](https://github.com/truecharts/apps/compare/makemkv-2.0.10...makemkv-2.0.11) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-3.0.10"></a>
+### [photoshow-3.0.10](https://github.com/truecharts/apps/compare/photoshow-3.0.9...photoshow-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="photoshow-3.0.9"></a>
 ### [photoshow-3.0.9](https://github.com/truecharts/apps/compare/photoshow-3.0.8...photoshow-3.0.9) (2022-07-09)
 

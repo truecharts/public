@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-11.0.13"></a>
+### [calibre-web-11.0.13](https://github.com/truecharts/apps/compare/calibre-web-11.0.12...calibre-web-11.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="calibre-web-11.0.12"></a>
 ### [calibre-web-11.0.12](https://github.com/truecharts/apps/compare/calibre-web-11.0.11...calibre-web-11.0.12) (2022-07-09)
 

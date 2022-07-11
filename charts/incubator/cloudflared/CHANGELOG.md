@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloudflared-0.0.8"></a>
+### [cloudflared-0.0.8](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.7...cloudflared-0.0.8) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="cloudflared-0.0.7"></a>
 ### [cloudflared-0.0.7](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.6...cloudflared-0.0.7) (2022-07-11)
 

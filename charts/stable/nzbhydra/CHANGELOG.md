@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-11.0.14"></a>
+### [nzbhydra-11.0.14](https://github.com/truecharts/apps/compare/nzbhydra-11.0.13...nzbhydra-11.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="nzbhydra-11.0.13"></a>
 ### [nzbhydra-11.0.13](https://github.com/truecharts/apps/compare/nzbhydra-11.0.12...nzbhydra-11.0.13) (2022-07-09)
 

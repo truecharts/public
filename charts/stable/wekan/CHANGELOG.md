@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wekan-4.0.15"></a>
+### [wekan-4.0.15](https://github.com/truecharts/apps/compare/wekan-4.0.14...wekan-4.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="wekan-4.0.14"></a>
 ### [wekan-4.0.14](https://github.com/truecharts/apps/compare/wekan-4.0.13...wekan-4.0.14) (2022-07-11)
 

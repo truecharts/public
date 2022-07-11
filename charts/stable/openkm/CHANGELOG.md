@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-7.0.11"></a>
+### [openkm-7.0.11](https://github.com/truecharts/apps/compare/openkm-7.0.10...openkm-7.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="openkm-7.0.10"></a>
 ### [openkm-7.0.10](https://github.com/truecharts/apps/compare/openkm-7.0.9...openkm-7.0.10) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cyberchef-2.0.28"></a>
+### [cyberchef-2.0.28](https://github.com/truecharts/apps/compare/cyberchef-2.0.27...cyberchef-2.0.28) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="cyberchef-2.0.27"></a>
 ### [cyberchef-2.0.27](https://github.com/truecharts/apps/compare/cyberchef-2.0.26...cyberchef-2.0.27) (2022-07-10)
 

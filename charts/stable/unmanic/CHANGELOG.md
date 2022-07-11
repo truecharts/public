@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unmanic-3.0.10"></a>
+### [unmanic-3.0.10](https://github.com/truecharts/apps/compare/unmanic-3.0.9...unmanic-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="unmanic-3.0.9"></a>
 ### [unmanic-3.0.9](https://github.com/truecharts/apps/compare/unmanic-3.0.8...unmanic-3.0.9) (2022-07-09)
 

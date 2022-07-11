@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-7.0.11"></a>
+### [dizquetv-7.0.11](https://github.com/truecharts/apps/compare/dizquetv-7.0.10...dizquetv-7.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="dizquetv-7.0.10"></a>
 ### [dizquetv-7.0.10](https://github.com/truecharts/apps/compare/dizquetv-7.0.9...dizquetv-7.0.10) (2022-07-09)
 
