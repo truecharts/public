@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/booksonic-air:v2201.1.0@sha256:0c5f1257770cc31f6f15cec56d4b2b2e7d6591cf5ccb856caaf2cdecf422e602
+          tccr.io/truecharts/booksonic-air:v2201.1.0@sha256:47d2c309afa04fe69b2a96d3daa4238d9dafc894585baff14cef2cf814ade845
 
 ##### Scan Results
 

@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/littlelink-server:latest@sha256:a03d280cb41f35f89a69957b5791111981148bc5f7d9d8985891484b996f2198
+          tccr.io/truecharts/littlelink-server:latest@sha256:25e28dd90416deb77627b2774d5fef5f126e907b81776c56af132ee140694a67
 
 ##### Scan Results
 

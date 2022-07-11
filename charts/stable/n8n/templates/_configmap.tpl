@@ -6,11 +6,59 @@ kind: ConfigMap
 metadata:
   name: n8n-config
 data:
+  {{/* External Hooks */}}
+  {{- if .Values.externalhooks.EXTERNAL_HOOK_FILES }}
+  EXTERNAL_HOOK_FILES: {{ .Values.externalhooks.EXTERNAL_HOOK_FILES | quote }}
+  {{- end }}
+  {{/* User Management */}}
+  {{- if .Values.usermanagement.N8N_USER_MANAGEMENT_DISABLED }}
+  N8N_USER_MANAGEMENT_DISABLED: {{ .Values.usermanagement.N8N_USER_MANAGEMENT_DISABLED | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_EMAIL_MODE }}
+  N8N_EMAIL_MODE: {{ .Values.usermanagement.N8N_EMAIL_MODE | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_SMTP_HOST }}
+  N8N_SMTP_HOST: {{ .Values.usermanagement.N8N_SMTP_HOST | quote }}
+  {{- end }}
+  {{- if or .Values.usermanagement.N8N_SMTP_PORT ( eq 0 .Values.usermanagement.N8N_SMTP_PORT) }}
+  N8N_SMTP_PORT: {{ .Values.usermanagement.N8N_SMTP_PORT | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_SMTP_USER }}
+  N8N_SMTP_USER: {{ .Values.usermanagement.N8N_SMTP_USER | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_SMTP_PASS }}
+  N8N_SMTP_PASS: {{ .Values.usermanagement.N8N_SMTP_PASS | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_SMTP_SENDER }}
+  N8N_SMTP_SENDER: {{ .Values.usermanagement.N8N_SMTP_SENDER | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_SMTP_SSL }}
+  N8N_SMTP_SSL: {{ .Values.usermanagement.N8N_SMTP_SSL | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_UM_EMAIL_TEMPLATES_INVITE }}
+  N8N_UM_EMAIL_TEMPLATES_INVITE: {{ .Values.usermanagement.N8N_UM_EMAIL_TEMPLATES_INVITE | quote }}
+  {{- end }}
+  {{- if .Values.usermanagement.N8N_UM_EMAIL_TEMPLATES_PWRESET }}
+  N8N_UM_EMAIL_TEMPLATES_PWRESET: {{ .Values.usermanagement.N8N_UM_EMAIL_TEMPLATES_PWRESET | quote }}
+  {{- end }}
+  {{/* Timezone and Locale */}}
+  {{- if .Values.timezoneandlocale.N8N_DEFAULT_LOCALE }}
+  N8N_DEFAULT_LOCALE: {{ .Values.timezoneandlocale.N8N_DEFAULT_LOCALE | quote }}
+  {{- end }}
   {{/* Workflows */}}
   {{- if .Values.workflows.WORKFLOWS_DEFAULT_NAME }}
   WORKFLOWS_DEFAULT_NAME: {{ .Values.workflows.WORKFLOWS_DEFAULT_NAME | quote }}
   {{- end }}
+  {{- if .Values.workflows.N8N_ONBOARDING_FLOW_DISABLED }}
+  N8N_ONBOARDING_FLOW_DISABLED: {{ .Values.workflows.N8N_ONBOARDING_FLOW_DISABLED | quote }}
+  {{- end }}
+  {{- if .Values.workflows.N8N_WORKFLOW_TAGS_DISABLED }}
+  N8N_WORKFLOW_TAGS_DISABLED: {{ .Values.workflows.N8N_WORKFLOW_TAGS_DISABLED | quote }}
+  {{- end }}
   {{/* Security */}}
+  {{- if .Values.n8n_security.N8N_BLOCK_ENV_ACCESS_IN_NODE }}
+  N8N_BLOCK_ENV_ACCESS_IN_NODE: {{ .Values.n8n_security.N8N_BLOCK_ENV_ACCESS_IN_NODE | quote }}
+  {{- end }}
   {{- if .Values.n8n_security.N8N_AUTH_EXCLUDE_ENDPOINTS }}
   N8N_AUTH_EXCLUDE_ENDPOINTS: {{ .Values.n8n_security.N8N_AUTH_EXCLUDE_ENDPOINTS | quote }}
   {{- end }}
@@ -145,6 +193,9 @@ data:
   {{- if .Values.deployment.N8N_HOST }}
   N8N_HOST: {{ .Values.deployment.N8N_HOST | quote }}
   {{- end }}
+  {{- if .Values.deployment.N8N_EDITOR_BASE_URL }}
+  N8N_EDITOR_BASE_URL: {{ .Values.deployment.N8N_EDITOR_BASE_URL | quote }}
+  {{- end }}
   {{- if .Values.deployment.N8N_CONFIG_FILES }}
   N8N_CONFIG_FILES: {{ .Values.deployment.N8N_CONFIG_FILES | quote }}
   {{- end }}
@@ -160,7 +211,16 @@ data:
   {{- if .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED }}
   N8N_VERSION_NOTIFICATIONS_ENABLED: {{ .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED | quote }}
   {{- end }}
+  {{- if .Values.deployment.N8N_TEMPLATES_ENABLED }}
+  N8N_TEMPLATES_ENABLED: {{ .Values.deployment.N8N_TEMPLATES_ENABLED | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_TEMPLATES_HOST }}
+  N8N_TEMPLATES_HOST: {{ .Values.deployment.N8N_TEMPLATES_HOST | quote }}
+  {{- end }}
   {{- if .Values.deployment.N8N_DIAGNOSTICS_ENABLED }}
   N8N_DIAGNOSTICS_ENABLED: {{ .Values.deployment.N8N_DIAGNOSTICS_ENABLED | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_HIRING_BANNER_ENABLED }}
+  N8N_HIRING_BANNER_ENABLED: {{ .Values.deployment.N8N_HIRING_BANNER_ENABLED | quote }}
   {{- end }}
 {{- end -}}

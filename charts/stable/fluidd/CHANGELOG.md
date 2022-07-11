@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fluidd-2.0.11"></a>
+### [fluidd-2.0.11](https://github.com/truecharts/apps/compare/fluidd-2.0.10...fluidd-2.0.11) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
 <a name="fluidd-2.0.10"></a>
 ### [fluidd-2.0.10](https://github.com/truecharts/apps/compare/fluidd-2.0.9...fluidd-2.0.10) (2022-07-09)
 

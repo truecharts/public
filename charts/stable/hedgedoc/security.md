@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tccr.io/truecharts/hedgedoc:v1.9.3@sha256:be1d87f3995c9b1d2575d72c975bccc35a1a51ef5b0d4c8ecacefc9c76ac2ced
+          tccr.io/truecharts/hedgedoc:v1.9.4@sha256:bce6ddfa1aaa150a65cdef24d972b5ed272eae3f8383f3093265632115bb1695
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
           tccr.io/truecharts/postgresql:v14.4.0@sha256:bd156ce74b29ee99bef079166d7472f27748889aea4c5f02001eba9499e7aebe
 
