@@ -37,6 +37,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
 {{- end -}}
+
+{[- define "custom.linking" -}}
+##### Connecting to other apps
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+{{- end -}}
+
 {{- define "custom.support" -}}
 ## Support
 
@@ -65,6 +71,8 @@ All Rights Reserved - The TrueCharts Project
 {{ template "custom.install" . }}
 
 {{ template "custom.uninstall" . }}
+
+{{ template "custom.linking" . }}
 
 {{ template "custom.support" . }}
 ---
