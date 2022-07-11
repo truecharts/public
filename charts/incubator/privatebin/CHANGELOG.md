@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="privatebin-0.0.10"></a>
+### [privatebin-0.0.10](https://github.com/truecharts/apps/compare/privatebin-0.0.9...privatebin-0.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="privatebin-0.0.9"></a>
 ### [privatebin-0.0.9](https://github.com/truecharts/apps/compare/privatebin-0.0.8...privatebin-0.0.9) (2022-07-09)
 

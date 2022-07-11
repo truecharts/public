@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-3.0.10"></a>
+### [sqlitebrowser-3.0.10](https://github.com/truecharts/apps/compare/sqlitebrowser-3.0.9...sqlitebrowser-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="sqlitebrowser-3.0.9"></a>
 ### [sqlitebrowser-3.0.9](https://github.com/truecharts/apps/compare/sqlitebrowser-3.0.8...sqlitebrowser-3.0.9) (2022-07-09)
 

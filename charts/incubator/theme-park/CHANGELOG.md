@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="theme-park-1.0.12"></a>
+### [theme-park-1.0.12](https://github.com/truecharts/apps/compare/theme-park-1.0.11...theme-park-1.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="theme-park-1.0.11"></a>
 ### [theme-park-1.0.11](https://github.com/truecharts/apps/compare/theme-park-1.0.10...theme-park-1.0.11) (2022-07-10)
 

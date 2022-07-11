@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsshub-3.0.30"></a>
+### [rsshub-3.0.30](https://github.com/truecharts/apps/compare/rsshub-3.0.29...rsshub-3.0.30) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="rsshub-3.0.29"></a>
 ### [rsshub-3.0.29](https://github.com/truecharts/apps/compare/rsshub-3.0.28...rsshub-3.0.29) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authentik-2.0.15"></a>
+### [authentik-2.0.15](https://github.com/truecharts/apps/compare/authentik-2.0.14...authentik-2.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="authentik-2.0.14"></a>
 ### [authentik-2.0.14](https://github.com/truecharts/apps/compare/authentik-2.0.13...authentik-2.0.14) (2022-07-09)
 

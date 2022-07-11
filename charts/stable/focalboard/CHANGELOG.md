@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-9.0.12"></a>
+### [focalboard-9.0.12](https://github.com/truecharts/apps/compare/focalboard-9.0.11...focalboard-9.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="focalboard-9.0.11"></a>
 ### [focalboard-9.0.11](https://github.com/truecharts/apps/compare/focalboard-9.0.10...focalboard-9.0.11) (2022-07-09)
 

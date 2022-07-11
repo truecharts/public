@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-3.0.11"></a>
+### [novnc-3.0.11](https://github.com/truecharts/apps/compare/novnc-3.0.10...novnc-3.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="novnc-3.0.10"></a>
 ### [novnc-3.0.10](https://github.com/truecharts/apps/compare/novnc-3.0.9...novnc-3.0.10) (2022-07-09)
 

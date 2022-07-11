@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-6.0.10"></a>
+### [phpldapadmin-6.0.10](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.9...phpldapadmin-6.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="phpldapadmin-6.0.9"></a>
 ### [phpldapadmin-6.0.9](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.8...phpldapadmin-6.0.9) (2022-07-09)
 

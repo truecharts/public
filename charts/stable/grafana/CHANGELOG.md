@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-4.0.21"></a>
+### [grafana-4.0.21](https://github.com/truecharts/apps/compare/grafana-4.0.20...grafana-4.0.21) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="grafana-4.0.20"></a>
 ### [grafana-4.0.20](https://github.com/truecharts/apps/compare/grafana-4.0.19...grafana-4.0.20) (2022-07-09)
 

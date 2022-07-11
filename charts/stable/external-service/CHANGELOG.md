@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-6.0.10"></a>
+### [external-service-6.0.10](https://github.com/truecharts/apps/compare/external-service-6.0.9...external-service-6.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="external-service-6.0.9"></a>
 ### [external-service-6.0.9](https://github.com/truecharts/apps/compare/external-service-6.0.8...external-service-6.0.9) (2022-07-09)
 

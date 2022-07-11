@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wg-easy-1.0.3"></a>
+### [wg-easy-1.0.3](https://github.com/truecharts/apps/compare/wg-easy-1.0.2...wg-easy-1.0.3) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="wg-easy-1.0.2"></a>
 ### [wg-easy-1.0.2](https://github.com/truecharts/apps/compare/wg-easy-1.0.1...wg-easy-1.0.2) (2022-07-09)
 

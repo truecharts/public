@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="czkawka-0.0.5"></a>
+### [czkawka-0.0.5](https://github.com/truecharts/apps/compare/czkawka-0.0.4...czkawka-0.0.5) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="czkawka-0.0.4"></a>
 ### [czkawka-0.0.4](https://github.com/truecharts/apps/compare/czkawka-0.0.3...czkawka-0.0.4) (2022-07-09)
 

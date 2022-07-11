@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-1.0.17"></a>
+### [minecraft-java-1.0.17](https://github.com/truecharts/apps/compare/minecraft-java-1.0.16...minecraft-java-1.0.17) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="minecraft-java-1.0.16"></a>
 ### [minecraft-java-1.0.16](https://github.com/truecharts/apps/compare/minecraft-java-1.0.15...minecraft-java-1.0.16) (2022-07-09)
 

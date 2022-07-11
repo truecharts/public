@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-4.0.9"></a>
+### [hedgedoc-4.0.9](https://github.com/truecharts/apps/compare/hedgedoc-4.0.8...hedgedoc-4.0.9) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="hedgedoc-4.0.8"></a>
 ### [hedgedoc-4.0.8](https://github.com/truecharts/apps/compare/hedgedoc-4.0.7...hedgedoc-4.0.8) (2022-07-11)
 

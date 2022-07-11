@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-6.0.11"></a>
+### [overseerr-6.0.11](https://github.com/truecharts/apps/compare/overseerr-6.0.10...overseerr-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="overseerr-6.0.10"></a>
 ### [overseerr-6.0.10](https://github.com/truecharts/apps/compare/overseerr-6.0.9...overseerr-6.0.10) (2022-07-09)
 

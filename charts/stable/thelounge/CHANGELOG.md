@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-6.0.10"></a>
+### [thelounge-6.0.10](https://github.com/truecharts/apps/compare/thelounge-6.0.9...thelounge-6.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="thelounge-6.0.9"></a>
 ### [thelounge-6.0.9](https://github.com/truecharts/apps/compare/thelounge-6.0.8...thelounge-6.0.9) (2022-07-09)
 

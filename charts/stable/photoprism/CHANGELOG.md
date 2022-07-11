@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-10.0.15"></a>
+### [photoprism-10.0.15](https://github.com/truecharts/apps/compare/photoprism-10.0.14...photoprism-10.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="photoprism-10.0.14"></a>
 ### [photoprism-10.0.14](https://github.com/truecharts/apps/compare/photoprism-10.0.13...photoprism-10.0.14) (2022-07-09)
 

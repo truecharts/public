@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deemix-3.0.10"></a>
+### [deemix-3.0.10](https://github.com/truecharts/apps/compare/deemix-3.0.9...deemix-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="deemix-3.0.9"></a>
 ### [deemix-3.0.9](https://github.com/truecharts/apps/compare/deemix-3.0.8...deemix-3.0.9) (2022-07-09)
 

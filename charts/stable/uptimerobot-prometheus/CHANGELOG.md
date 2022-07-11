@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-4.0.12"></a>
+### [uptimerobot-prometheus-4.0.12](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.11...uptimerobot-prometheus-4.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="uptimerobot-prometheus-4.0.11"></a>
 ### [uptimerobot-prometheus-4.0.11](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.10...uptimerobot-prometheus-4.0.11) (2022-07-09)
 

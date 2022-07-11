@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="koel-3.0.12"></a>
+### [koel-3.0.12](https://github.com/truecharts/apps/compare/koel-3.0.11...koel-3.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="komga-6.0.12"></a>
 ### [komga-6.0.12](https://github.com/truecharts/apps/compare/komga-6.0.11...komga-6.0.12) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="youtubedl-material-0.0.9"></a>
+### [youtubedl-material-0.0.9](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.8...youtubedl-material-0.0.9) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="youtubedl-material-0.0.8"></a>
 ### [youtubedl-material-0.0.8](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.7...youtubedl-material-0.0.8) (2022-07-09)
 

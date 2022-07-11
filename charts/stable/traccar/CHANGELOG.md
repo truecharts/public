@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-7.0.12"></a>
+### [traccar-7.0.12](https://github.com/truecharts/apps/compare/traccar-7.0.11...traccar-7.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="traccar-7.0.11"></a>
 ### [traccar-7.0.11](https://github.com/truecharts/apps/compare/traccar-7.0.10...traccar-7.0.11) (2022-07-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-6.0.13"></a>
+### [pihole-6.0.13](https://github.com/truecharts/apps/compare/pihole-6.0.12...pihole-6.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="pihole-6.0.12"></a>
 ### [pihole-6.0.12](https://github.com/truecharts/apps/compare/pihole-6.0.11...pihole-6.0.12) (2022-07-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-2.0.12"></a>
+### [openhab-2.0.12](https://github.com/truecharts/apps/compare/openhab-2.0.11...openhab-2.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="openhab-2.0.11"></a>
 ### [openhab-2.0.11](https://github.com/truecharts/apps/compare/openhab-2.0.10...openhab-2.0.11) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-11.0.12"></a>
+### [heimdall-11.0.12](https://github.com/truecharts/apps/compare/heimdall-11.0.11...heimdall-11.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="heimdall-11.0.11"></a>
 ### [heimdall-11.0.11](https://github.com/truecharts/apps/compare/heimdall-11.0.10...heimdall-11.0.11) (2022-07-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-11.0.11"></a>
+### [jellyfin-11.0.11](https://github.com/truecharts/apps/compare/jellyfin-11.0.10...jellyfin-11.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="jellyfin-11.0.10"></a>
 ### [jellyfin-11.0.10](https://github.com/truecharts/apps/compare/jellyfin-11.0.9...jellyfin-11.0.10) (2022-07-09)
 

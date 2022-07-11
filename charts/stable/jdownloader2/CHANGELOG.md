@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-8.0.11"></a>
+### [jdownloader2-8.0.11](https://github.com/truecharts/apps/compare/jdownloader2-8.0.10...jdownloader2-8.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 <a name="jdownloader2-8.0.10"></a>
 ### [jdownloader2-8.0.10](https://github.com/truecharts/apps/compare/jdownloader2-8.0.9...jdownloader2-8.0.10) (2022-07-09)
 

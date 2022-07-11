@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-10.0.12"></a>
+### [podgrab-10.0.12](https://github.com/truecharts/apps/compare/podgrab-10.0.11...podgrab-10.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="podgrab-10.0.11"></a>
 ### [podgrab-10.0.11](https://github.com/truecharts/apps/compare/podgrab-10.0.10...podgrab-10.0.11) (2022-07-09)
 

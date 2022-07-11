@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-13.0.12"></a>
+### [lychee-13.0.12](https://github.com/truecharts/apps/compare/lychee-13.0.11...lychee-13.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="lychee-13.0.11"></a>
 ### [lychee-13.0.11](https://github.com/truecharts/apps/compare/lychee-13.0.10...lychee-13.0.11) (2022-07-09)
 

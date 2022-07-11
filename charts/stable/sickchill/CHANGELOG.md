@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-3.0.12"></a>
+### [sickchill-3.0.12](https://github.com/truecharts/apps/compare/sickchill-3.0.11...sickchill-3.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="sickchill-3.0.11"></a>
 ### [sickchill-3.0.11](https://github.com/truecharts/apps/compare/sickchill-3.0.10...sickchill-3.0.11) (2022-07-09)
 
