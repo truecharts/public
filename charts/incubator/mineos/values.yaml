@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: "latest"
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   USER_UID: "{{ .Values.security.PUID }}"
@@ -20,8 +28,8 @@ service:
     ports:
       main:
         protocol: HTTP
-        targetPort: 10257
-        port: 10257
+        targetPort: 10278
+        port: 10278
 
 persistence:
   config:

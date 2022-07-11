@@ -65,7 +65,7 @@ questions:
                 label: "(Advanced) Update Strategy"
                 schema:
                   type: string
-                  default: "RollingUpdate"
+                  default: "Recreate"
                   required: true
                   enum:
                     - value: "Recreate"
@@ -140,7 +140,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10257
+                              default: 10278
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -164,6 +164,10 @@ questions:
                                         description: "HTTP"
                                       - value: "HTTPS"
                                         description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -176,7 +180,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10257
+                                    default: 10278
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -262,7 +266,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -272,7 +276,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -287,19 +291,19 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 568
+            default: 0
 # Include{podSecurityContextAdvanced}
 
 # Include{resources}
