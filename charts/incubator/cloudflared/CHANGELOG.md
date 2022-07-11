@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloudflared-0.0.7"></a>
+### [cloudflared-0.0.7](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.6...cloudflared-0.0.7) (2022-07-11)
+
+#### Chore
+
+* update image refs ([#3135](https://github.com/truecharts/apps/issues/3135))
+
+
+
 <a name="cloudflared-0.0.6"></a>
 ### [cloudflared-0.0.6](https://github.com/truecharts/apps/compare/cloudflared-0.0.5...cloudflared-0.0.6) (2022-07-09)
 

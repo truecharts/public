@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="putty-0.0.3"></a>
+### [putty-0.0.3](https://github.com/truecharts/apps/compare/putty-0.0.2...putty-0.0.3) (2022-07-11)
+
+#### Chore
+
+* update image refs ([#3135](https://github.com/truecharts/apps/issues/3135))
+
+
+
 <a name="putty-0.0.2"></a>
 ### [putty-0.0.2](https://github.com/truecharts/apps/compare/putty-0.0.1...putty-0.0.2) (2022-07-09)
 

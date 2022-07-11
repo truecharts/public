@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          tomsquest/docker-radicale:3.1.7.0@sha256:c182c596c8bc869003845a594ea4242c506ae77d661e9e2511398389785cb9ec
+          tccr.io/truecharts/radicale:v3.1.7.0@sha256:57e164314ffc65d27fd3361c94ce34a97995f9edeb8a0b57b764e22ae9787d86
 
 ##### Scan Results
 

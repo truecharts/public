@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          jlesage/filebot:v1.14.1@sha256:7e4bfc0ff5a4493a9b2608ff8cb0f3c745f7adb6b7857665d48de712afa7a9e1
+          tccr.io/truecharts/filebot:v1.14.1@sha256:7488e78942de63908fd5fdc27c41931d54b616c32ef6c09e99f7f64bf2fedd1e
 
 ##### Scan Results
 

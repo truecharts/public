@@ -17,7 +17,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/multi-init:v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
-          jlesage/dupeguru:v1.12.1@sha256:8e663b9fb92beeb361ac078dd8ddb6ac9bef8521b12d2b2c9a53b2ec52d3572b
+          tccr.io/truecharts/dupeguru:v1.12.1@sha256:c493967875dbc3f0fa556ec7ab62598cb89178cfaf4d4ef0e6dc82f8f264492f
 
 ##### Scan Results
 
