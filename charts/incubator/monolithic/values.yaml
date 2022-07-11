@@ -29,7 +29,6 @@ env:
   CACHE_INDEX_SIZE: "500m"
 # The maximum amount of time a file should be held in cache
   CACHE_MAX_AGE: "3560d"
-
 # advanced section
   NGINX_WORKER_PROCESSES: "{{ .Values.secretEnv.NGINX_WORKER_PROCESSES }}"
   GENERICCACHE_VERSION: "{{ .Values.secretEnv.GENERICCACHE_VERSION }}"
@@ -39,11 +38,10 @@ env:
   CACHE_SLICE_SIZE: "{{ .Values.secretEnv.CACHE_SLICE_SIZE }}"
   CACHE_MODE: "{{ .Values.secretEnv.CACHE_MODE }}"
   FORCE_PERMS_CHECK: "{{ .Values.secretEnv.FORCE_PERMS_CHECK }}"
-
-#advanced options
+# advanced options
 secretEnv:
   NGINX_WORKER_PROCESSES: "auto"
-#Internal reference version. DO NOT CHANGE THIS.
+# Internal reference version. DO NOT CHANGE THIS.
   GENERICCACHE_VERSION: 2
   WEBUSER: "www-data"
   BEAT_TIME: "1h"
