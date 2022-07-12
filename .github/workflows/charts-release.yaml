@@ -75,9 +75,9 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
-          repository: truecharts/pub
+          repository: truecharts/website
           token: ${{ secrets.BOT_TOKEN }}
-          path: pub
+          path: website
 
       - name: Copy docs to website
         if: |
@@ -86,6 +86,8 @@ jobs:
         run: |
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
+          rm -rf website/charts/*
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -93,13 +95,11 @@ jobs:
                 train=${chart_parts[0]}
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
-                mkdir -p docs/apps/${train}/${chart} || echo "app path already exists, continuing..."
-                yes | cp -rf charts/${train}/${chart}/README.md pub/website/apps/${train}/${chart}/index.md 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md pub/website/apps/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/security.md pub/website/apps/${train}/${chart}/security.md 2>/dev/null || :
-                rm pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/LICENSE pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
-                sed -i '1s/^/# License<br>\n\n/' pub/website/apps/${train}/${chart}/LICENSE.md 2>/dev/null || :
+                mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
+                yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/chart-icons/${chart}.png 2>/dev/null || :
               fi
           done
 
@@ -130,14 +130,14 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetected == 'true'
         run: |
-          cd pub
+          cd website
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
           cd -
-          rm -rf pub
+          rm -rf website
 
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -198,7 +198,7 @@ jobs:
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
+          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
           git push
           cd -
           rm -rf catalog
@@ -211,7 +211,7 @@ jobs:
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
-          git commit -sm "Commit new App releases for TrueCharts" || exit 0
+          git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
           git push
           cd -
           rm -rf dh_catalog
