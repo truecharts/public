@@ -86,6 +86,7 @@ jobs:
         run: |
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -93,7 +94,7 @@ jobs:
                 train=${chart_parts[0]}
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
-                mkdir -p docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
+                mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/security.md website/docs/charts/${train}/${chart}/security.md 2>/dev/null || :
