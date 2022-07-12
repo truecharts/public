@@ -87,8 +87,9 @@ jobs:
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Removing Chart Docs prior to regeneration..."
-          for deltrain in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
-            rm -rf website/docs/charts/${deltrain}
+          for deltrain in /charts/*; do
+            deletethis=$(basename deltrain)
+            rm -rf website/docs/charts/${deletethis}
           done
           mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
           for i in "${CHARTS[@]}"
