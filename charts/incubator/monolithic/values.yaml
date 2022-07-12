@@ -8,8 +8,8 @@ securityContext:
   runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 568
+  runAsGroup: 568
 
 env:
   CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
