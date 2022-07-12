@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [phpldapadmin-6.0.12](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.11...phpldapadmin-6.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="phpldapadmin-6.0.11"></a>
 ### [phpldapadmin-6.0.11](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.10...phpldapadmin-6.0.11) (2022-07-12)
 

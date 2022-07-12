@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pidgin-2.0.12](https://github.com/truecharts/apps/compare/pidgin-2.0.11...pidgin-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="pidgin-2.0.11"></a>
 ### [pidgin-2.0.11](https://github.com/truecharts/apps/compare/pidgin-2.0.10...pidgin-2.0.11) (2022-07-12)
 

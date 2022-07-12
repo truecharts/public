@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [haste-server-6.0.13](https://github.com/truecharts/apps/compare/haste-server-6.0.12...haste-server-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="haste-server-6.0.12"></a>
 ### [haste-server-6.0.12](https://github.com/truecharts/apps/compare/haste-server-6.0.11...haste-server-6.0.12) (2022-07-12)
 

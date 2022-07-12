@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tsmuxer-0.0.5](https://github.com/truecharts/apps/compare/tsmuxer-0.0.4...tsmuxer-0.0.5) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="tsmuxer-0.0.4"></a>
 ### [tsmuxer-0.0.4](https://github.com/truecharts/apps/compare/tsmuxer-0.0.3...tsmuxer-0.0.4) (2022-07-12)
 

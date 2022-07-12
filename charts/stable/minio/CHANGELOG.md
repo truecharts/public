@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minio-3.0.21](https://github.com/truecharts/apps/compare/minio-console-3.0.13...minio-3.0.21) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="minio-3.0.20"></a>
 ### [minio-3.0.20](https://github.com/truecharts/apps/compare/minio-console-3.0.12...minio-3.0.20) (2022-07-12)
 

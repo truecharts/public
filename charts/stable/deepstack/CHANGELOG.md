@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deepstack-4.0.12](https://github.com/truecharts/apps/compare/deepstack-4.0.11...deepstack-4.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="deepstack-4.0.11"></a>
 ### [deepstack-4.0.11](https://github.com/truecharts/apps/compare/deepstack-4.0.10...deepstack-4.0.11) (2022-07-12)
 

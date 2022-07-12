@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ferdi-server-3.0.12](https://github.com/truecharts/apps/compare/ferdi-server-3.0.11...ferdi-server-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="ferdi-server-3.0.11"></a>
 ### [ferdi-server-3.0.11](https://github.com/truecharts/apps/compare/ferdi-server-3.0.10...ferdi-server-3.0.11) (2022-07-12)
 

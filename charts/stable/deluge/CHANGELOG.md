@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deluge-11.0.14](https://github.com/truecharts/apps/compare/deluge-11.0.13...deluge-11.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="deluge-11.0.13"></a>
 ### [deluge-11.0.13](https://github.com/truecharts/apps/compare/deluge-11.0.12...deluge-11.0.13) (2022-07-12)
 

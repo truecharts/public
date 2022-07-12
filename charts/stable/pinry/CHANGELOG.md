@@ -1,6 +1,7 @@
 # Changelog
 
 
+
 <a name="pinry-2.0.11"></a>
 ### [pinry-2.0.11](https://github.com/truecharts/apps/compare/pinry-2.0.10...pinry-2.0.11) (2022-07-12)
 

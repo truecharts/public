@@ -36,5 +36,7 @@ If you need to connect this App to other Apps on TrueNAS SCALE, please refer to 
 - See the [Wiki](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+
 ---
+
 All Rights Reserved - The TrueCharts Project

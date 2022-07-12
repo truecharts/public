@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [medusa-3.0.16](https://github.com/truecharts/apps/compare/medusa-3.0.15...medusa-3.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="medusa-3.0.15"></a>
 ### [medusa-3.0.15](https://github.com/truecharts/apps/compare/medusa-3.0.14...medusa-3.0.15) (2022-07-12)
 

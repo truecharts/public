@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authelia-11.0.16](https://github.com/truecharts/apps/compare/authelia-11.0.15...authelia-11.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="authelia-11.0.15"></a>
 ### [authelia-11.0.15](https://github.com/truecharts/apps/compare/authelia-11.0.14...authelia-11.0.15) (2022-07-12)
 

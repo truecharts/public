@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mattermost-3.0.15](https://github.com/truecharts/apps/compare/mattermost-3.0.14...mattermost-3.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="mattermost-3.0.14"></a>
 ### [mattermost-3.0.14](https://github.com/truecharts/apps/compare/mattermost-3.0.13...mattermost-3.0.14) (2022-07-12)
 

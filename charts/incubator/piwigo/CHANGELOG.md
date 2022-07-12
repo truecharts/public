@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [piwigo-3.0.12](https://github.com/truecharts/apps/compare/piwigo-3.0.11...piwigo-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="piwigo-3.0.11"></a>
 ### [piwigo-3.0.11](https://github.com/truecharts/apps/compare/piwigo-3.0.10...piwigo-3.0.11) (2022-07-12)
 

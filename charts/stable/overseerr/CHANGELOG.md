@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [overseerr-6.0.13](https://github.com/truecharts/apps/compare/overseerr-6.0.12...overseerr-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="overseerr-6.0.12"></a>
 ### [overseerr-6.0.12](https://github.com/truecharts/apps/compare/overseerr-6.0.11...overseerr-6.0.12) (2022-07-12)
 

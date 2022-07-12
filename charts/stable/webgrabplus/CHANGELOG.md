@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [webgrabplus-2.0.13](https://github.com/truecharts/apps/compare/webgrabplus-2.0.12...webgrabplus-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="webgrabplus-2.0.12"></a>
 ### [webgrabplus-2.0.12](https://github.com/truecharts/apps/compare/webgrabplus-2.0.11...webgrabplus-2.0.12) (2022-07-12)
 

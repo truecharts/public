@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sonarr-11.0.13](https://github.com/truecharts/apps/compare/sonarr-11.0.12...sonarr-11.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="sonarr-11.0.12"></a>
 ### [sonarr-11.0.12](https://github.com/truecharts/apps/compare/sonarr-11.0.11...sonarr-11.0.12) (2022-07-12)
 

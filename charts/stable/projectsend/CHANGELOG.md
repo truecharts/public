@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [projectsend-3.0.14](https://github.com/truecharts/apps/compare/projectsend-3.0.13...projectsend-3.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="projectsend-3.0.13"></a>
 ### [projectsend-3.0.13](https://github.com/truecharts/apps/compare/projectsend-3.0.12...projectsend-3.0.13) (2022-07-12)
 

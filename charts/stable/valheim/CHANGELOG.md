@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [valheim-3.0.15](https://github.com/truecharts/apps/compare/valheim-3.0.14...valheim-3.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="valheim-3.0.14"></a>
 ### [valheim-3.0.14](https://github.com/truecharts/apps/compare/valheim-3.0.13...valheim-3.0.14) (2022-07-12)
 

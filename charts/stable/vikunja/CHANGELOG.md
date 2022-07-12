@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [vikunja-3.0.16](https://github.com/truecharts/apps/compare/vikunja-3.0.15...vikunja-3.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="vikunja-3.0.15"></a>
 ### [vikunja-3.0.15](https://github.com/truecharts/apps/compare/vikunja-3.0.14...vikunja-3.0.15) (2022-07-12)
 

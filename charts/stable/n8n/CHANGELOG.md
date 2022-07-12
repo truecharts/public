@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [n8n-4.0.20](https://github.com/truecharts/apps/compare/n8n-4.0.19...n8n-4.0.20) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="n8n-4.0.19"></a>
 ### [n8n-4.0.19](https://github.com/truecharts/apps/compare/n8n-4.0.18...n8n-4.0.19) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pgadmin-7.0.14](https://github.com/truecharts/apps/compare/pgadmin-7.0.13...pgadmin-7.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="pgadmin-7.0.13"></a>
 ### [pgadmin-7.0.13](https://github.com/truecharts/apps/compare/pgadmin-7.0.12...pgadmin-7.0.13) (2022-07-12)
 

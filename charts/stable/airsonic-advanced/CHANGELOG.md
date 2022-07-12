@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [airsonic-advanced-4.0.13](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.12...airsonic-advanced-4.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="airsonic-advanced-4.0.12"></a>
 ### [airsonic-advanced-4.0.12](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.11...airsonic-advanced-4.0.12) (2022-07-12)
 

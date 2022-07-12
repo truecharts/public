@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [verysync-2.0.14](https://github.com/truecharts/apps/compare/verysync-2.0.13...verysync-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="verysync-2.0.13"></a>
 ### [verysync-2.0.13](https://github.com/truecharts/apps/compare/verysync-2.0.12...verysync-2.0.13) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [alist-2.0.13](https://github.com/truecharts/apps/compare/alist-2.0.12...alist-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="alist-2.0.12"></a>
 ### [alist-2.0.12](https://github.com/truecharts/apps/compare/alist-2.0.11...alist-2.0.12) (2022-07-12)
 

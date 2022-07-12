@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cyberchef-2.0.30](https://github.com/truecharts/apps/compare/cyberchef-2.0.29...cyberchef-2.0.30) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="cyberchef-2.0.29"></a>
 ### [cyberchef-2.0.29](https://github.com/truecharts/apps/compare/cyberchef-2.0.28...cyberchef-2.0.29) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deemix-3.0.12](https://github.com/truecharts/apps/compare/deemix-3.0.11...deemix-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="deemix-3.0.11"></a>
 ### [deemix-3.0.11](https://github.com/truecharts/apps/compare/deemix-3.0.10...deemix-3.0.11) (2022-07-12)
 

@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+## [clickhouse-0.0.6](https://github.com/truecharts/apps/compare/clickhouse-0.0.5...clickhouse-0.0.6) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+- update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="clickhouse-0.0.5"></a>

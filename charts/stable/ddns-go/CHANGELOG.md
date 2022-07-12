@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ddns-go-2.0.13](https://github.com/truecharts/apps/compare/ddns-go-2.0.12...ddns-go-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="ddns-go-2.0.12"></a>
 ### [ddns-go-2.0.12](https://github.com/truecharts/apps/compare/ddns-go-2.0.11...ddns-go-2.0.12) (2022-07-12)
 

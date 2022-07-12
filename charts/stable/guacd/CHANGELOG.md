@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [guacd-2.0.14](https://github.com/truecharts/apps/compare/guacd-2.0.13...guacd-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="guacd-2.0.13"></a>
 ### [guacd-2.0.13](https://github.com/truecharts/apps/compare/guacd-2.0.12...guacd-2.0.13) (2022-07-12)
 

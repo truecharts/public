@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [xwiki-3.0.16](https://github.com/truecharts/apps/compare/xwiki-3.0.15...xwiki-3.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="xwiki-3.0.15"></a>
 ### [xwiki-3.0.15](https://github.com/truecharts/apps/compare/xwiki-3.0.14...xwiki-3.0.15) (2022-07-12)
 

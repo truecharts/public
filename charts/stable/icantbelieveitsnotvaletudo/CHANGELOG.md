@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [icantbelieveitsnotvaletudo-4.0.13](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-4.0.12...icantbelieveitsnotvaletudo-4.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="icantbelieveitsnotvaletudo-4.0.12"></a>
 ### [icantbelieveitsnotvaletudo-4.0.12](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-4.0.11...icantbelieveitsnotvaletudo-4.0.12) (2022-07-12)
 

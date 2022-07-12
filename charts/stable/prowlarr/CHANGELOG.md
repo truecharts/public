@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [prowlarr-6.0.13](https://github.com/truecharts/apps/compare/prowlarr-6.0.12...prowlarr-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="prowlarr-6.0.12"></a>
 ### [prowlarr-6.0.12](https://github.com/truecharts/apps/compare/prowlarr-6.0.11...prowlarr-6.0.12) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [unmanic-3.0.12](https://github.com/truecharts/apps/compare/unmanic-3.0.11...unmanic-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="unmanic-3.0.11"></a>
 ### [unmanic-3.0.11](https://github.com/truecharts/apps/compare/unmanic-3.0.10...unmanic-3.0.11) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [reg-6.0.13](https://github.com/truecharts/apps/compare/reg-6.0.12...reg-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="reg-6.0.12"></a>
 ### [reg-6.0.12](https://github.com/truecharts/apps/compare/reg-6.0.11...reg-6.0.12) (2022-07-12)
 

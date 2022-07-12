@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [automatic-music-downloader-2.0.13](https://github.com/truecharts/apps/compare/automatic-music-downloader-2.0.12...automatic-music-downloader-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="automatic-music-downloader-2.0.12"></a>
 ### [automatic-music-downloader-2.0.12](https://github.com/truecharts/apps/compare/automatic-music-downloader-2.0.11...automatic-music-downloader-2.0.12) (2022-07-12)
 

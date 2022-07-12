@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [scrutiny-3.0.10](https://github.com/truecharts/apps/compare/scrutiny-3.0.9...scrutiny-3.0.10) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="satisfactory-2.0.13"></a>
 ### [satisfactory-2.0.13](https://github.com/truecharts/apps/compare/satisfactory-2.0.12...satisfactory-2.0.13) (2022-07-12)
 

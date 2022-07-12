@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [quassel-web-2.0.12](https://github.com/truecharts/apps/compare/quassel-web-2.0.11...quassel-web-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="quassel-web-2.0.11"></a>
 ### [quassel-web-2.0.11](https://github.com/truecharts/apps/compare/quassel-web-2.0.10...quassel-web-2.0.11) (2022-07-12)
 

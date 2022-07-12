@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grafana-4.0.23](https://github.com/truecharts/apps/compare/grafana-4.0.22...grafana-4.0.23) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="grafana-4.0.22"></a>
 ### [grafana-4.0.22](https://github.com/truecharts/apps/compare/grafana-4.0.21...grafana-4.0.22) (2022-07-12)
 

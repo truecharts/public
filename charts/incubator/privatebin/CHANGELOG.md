@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [privatebin-0.0.12](https://github.com/truecharts/apps/compare/privatebin-0.0.11...privatebin-0.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="privatebin-0.0.11"></a>
 ### [privatebin-0.0.11](https://github.com/truecharts/apps/compare/privatebin-0.0.10...privatebin-0.0.11) (2022-07-12)
 

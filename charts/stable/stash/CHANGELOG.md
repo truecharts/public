@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [stash-7.0.14](https://github.com/truecharts/apps/compare/stash-7.0.13...stash-7.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="stash-7.0.13"></a>
 ### [stash-7.0.13](https://github.com/truecharts/apps/compare/stash-7.0.12...stash-7.0.13) (2022-07-12)
 

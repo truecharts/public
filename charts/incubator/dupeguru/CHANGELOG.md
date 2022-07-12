@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dupeguru-0.0.6](https://github.com/truecharts/apps/compare/dupeguru-0.0.5...dupeguru-0.0.6) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="dupeguru-0.0.5"></a>
 ### [dupeguru-0.0.5](https://github.com/truecharts/apps/compare/dupeguru-0.0.4...dupeguru-0.0.5) (2022-07-12)
 

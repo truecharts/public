@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [homebridge-1.0.14](https://github.com/truecharts/apps/compare/homebridge-1.0.13...homebridge-1.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="homebridge-1.0.13"></a>
 ### [homebridge-1.0.13](https://github.com/truecharts/apps/compare/homebridge-1.0.12...homebridge-1.0.13) (2022-07-12)
 

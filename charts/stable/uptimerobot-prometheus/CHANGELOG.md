@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [uptimerobot-prometheus-4.0.14](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.13...uptimerobot-prometheus-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="uptimerobot-prometheus-4.0.13"></a>
 ### [uptimerobot-prometheus-4.0.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.12...uptimerobot-prometheus-4.0.13) (2022-07-12)
 

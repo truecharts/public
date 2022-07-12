@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [onlyoffice-document-server-6.0.13](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.12...onlyoffice-document-server-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="onlyoffice-document-server-6.0.12"></a>
 ### [onlyoffice-document-server-6.0.12](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.11...onlyoffice-document-server-6.0.12) (2022-07-12)
 

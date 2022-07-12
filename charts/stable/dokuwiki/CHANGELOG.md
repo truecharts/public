@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dokuwiki-3.0.23](https://github.com/truecharts/apps/compare/dokuwiki-3.0.22...dokuwiki-3.0.23) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="dokuwiki-3.0.22"></a>
 ### [dokuwiki-3.0.22](https://github.com/truecharts/apps/compare/dokuwiki-3.0.21...dokuwiki-3.0.22) (2022-07-12)
 

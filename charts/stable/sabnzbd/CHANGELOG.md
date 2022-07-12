@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sabnzbd-11.0.14](https://github.com/truecharts/apps/compare/sabnzbd-11.0.13...sabnzbd-11.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="sabnzbd-11.0.13"></a>
 ### [sabnzbd-11.0.13](https://github.com/truecharts/apps/compare/sabnzbd-11.0.12...sabnzbd-11.0.13) (2022-07-12)
 

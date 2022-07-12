@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ddns-updater-2.0.13](https://github.com/truecharts/apps/compare/ddns-updater-2.0.12...ddns-updater-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="ddns-updater-2.0.12"></a>
 ### [ddns-updater-2.0.12](https://github.com/truecharts/apps/compare/ddns-updater-2.0.11...ddns-updater-2.0.12) (2022-07-12)
 

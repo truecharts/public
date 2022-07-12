@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [leantime-4.0.14](https://github.com/truecharts/apps/compare/leantime-4.0.13...leantime-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="leantime-4.0.13"></a>
 ### [leantime-4.0.13](https://github.com/truecharts/apps/compare/leantime-4.0.12...leantime-4.0.13) (2022-07-12)
 

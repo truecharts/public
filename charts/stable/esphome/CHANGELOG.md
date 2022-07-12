@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [esphome-11.0.14](https://github.com/truecharts/apps/compare/esphome-11.0.13...esphome-11.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="endlessh-2.0.11"></a>
 ### [endlessh-2.0.11](https://github.com/truecharts/apps/compare/endlessh-2.0.10...endlessh-2.0.11) (2022-07-12)
 

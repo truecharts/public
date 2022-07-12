@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gotify-8.0.13](https://github.com/truecharts/apps/compare/gotify-8.0.12...gotify-8.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="gotify-8.0.12"></a>
 ### [gotify-8.0.12](https://github.com/truecharts/apps/compare/gotify-8.0.11...gotify-8.0.12) (2022-07-12)
 

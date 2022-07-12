@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fireflyiii-16.0.15](https://github.com/truecharts/apps/compare/fireflyiii-16.0.14...fireflyiii-16.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="fireflyiii-16.0.14"></a>
 ### [fireflyiii-16.0.14](https://github.com/truecharts/apps/compare/fireflyiii-16.0.13...fireflyiii-16.0.14) (2022-07-12)
 

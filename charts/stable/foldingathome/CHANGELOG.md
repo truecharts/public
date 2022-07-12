@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [foldingathome-2.0.12](https://github.com/truecharts/apps/compare/foldingathome-2.0.11...foldingathome-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="foldingathome-2.0.11"></a>
 ### [foldingathome-2.0.11](https://github.com/truecharts/apps/compare/foldingathome-2.0.10...foldingathome-2.0.11) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wekan-4.0.17](https://github.com/truecharts/apps/compare/wekan-4.0.16...wekan-4.0.17) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="wekan-4.0.16"></a>
 ### [wekan-4.0.16](https://github.com/truecharts/apps/compare/wekan-4.0.15...wekan-4.0.16) (2022-07-12)
 

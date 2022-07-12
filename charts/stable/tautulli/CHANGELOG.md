@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tautulli-11.0.13](https://github.com/truecharts/apps/compare/tautulli-11.0.12...tautulli-11.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="tautulli-11.0.12"></a>
 ### [tautulli-11.0.12](https://github.com/truecharts/apps/compare/tautulli-11.0.11...tautulli-11.0.12) (2022-07-12)
 

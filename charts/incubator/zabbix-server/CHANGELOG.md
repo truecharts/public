@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [zabbix-server-2.0.14](https://github.com/truecharts/apps/compare/zabbix-server-2.0.13...zabbix-server-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="zabbix-server-2.0.13"></a>
 ### [zabbix-server-2.0.13](https://github.com/truecharts/apps/compare/zabbix-server-2.0.12...zabbix-server-2.0.13) (2022-07-12)
 

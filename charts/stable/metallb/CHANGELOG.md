@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [metallb-2.0.5](https://github.com/truecharts/apps/compare/metallb-2.0.4...metallb-2.0.5) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="metallb-2.0.4"></a>
 ### [metallb-2.0.4](https://github.com/truecharts/apps/compare/metallb-2.0.3...metallb-2.0.4) (2022-07-12)
 

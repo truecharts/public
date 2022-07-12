@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nullserv-6.0.13](https://github.com/truecharts/apps/compare/nullserv-6.0.12...nullserv-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="nullserv-6.0.12"></a>
 ### [nullserv-6.0.12](https://github.com/truecharts/apps/compare/nullserv-6.0.11...nullserv-6.0.12) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoshow-3.0.12](https://github.com/truecharts/apps/compare/photoshow-3.0.11...photoshow-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="photoshow-3.0.11"></a>
 ### [photoshow-3.0.11](https://github.com/truecharts/apps/compare/photoshow-3.0.10...photoshow-3.0.11) (2022-07-12)
 

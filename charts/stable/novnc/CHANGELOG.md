@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [novnc-3.0.13](https://github.com/truecharts/apps/compare/novnc-3.0.12...novnc-3.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="novnc-3.0.12"></a>
 ### [novnc-3.0.12](https://github.com/truecharts/apps/compare/novnc-3.0.11...novnc-3.0.12) (2022-07-12)
 

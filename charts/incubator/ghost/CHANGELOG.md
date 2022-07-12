@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ghost-3.0.18](https://github.com/truecharts/apps/compare/ghost-3.0.17...ghost-3.0.18) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="ghost-3.0.17"></a>
 ### [ghost-3.0.17](https://github.com/truecharts/apps/compare/ghost-3.0.16...ghost-3.0.17) (2022-07-12)
 

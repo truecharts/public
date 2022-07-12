@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [emulatorjs-2.0.16](https://github.com/truecharts/apps/compare/emulatorjs-2.0.15...emulatorjs-2.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="emulatorjs-2.0.15"></a>
 ### [emulatorjs-2.0.15](https://github.com/truecharts/apps/compare/emulatorjs-2.0.14...emulatorjs-2.0.15) (2022-07-12)
 

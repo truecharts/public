@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [filebot-0.0.6](https://github.com/truecharts/apps/compare/filebot-0.0.5...filebot-0.0.6) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="filebot-0.0.5"></a>
 ### [filebot-0.0.5](https://github.com/truecharts/apps/compare/filebot-0.0.4...filebot-0.0.5) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fileflows-2.0.18](https://github.com/truecharts/apps/compare/fileflows-2.0.17...fileflows-2.0.18) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="fileflows-2.0.17"></a>
 ### [fileflows-2.0.17](https://github.com/truecharts/apps/compare/fileflows-2.0.16...fileflows-2.0.17) (2022-07-12)
 

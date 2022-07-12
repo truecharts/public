@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kanboard-8.0.13](https://github.com/truecharts/apps/compare/kanboard-8.0.12...kanboard-8.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="kanboard-8.0.12"></a>
 ### [kanboard-8.0.12](https://github.com/truecharts/apps/compare/kanboard-8.0.11...kanboard-8.0.12) (2022-07-12)
 

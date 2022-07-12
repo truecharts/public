@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [linkace-4.0.20](https://github.com/truecharts/apps/compare/linkace-4.0.19...linkace-4.0.20) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="linkace-4.0.19"></a>
 ### [linkace-4.0.19](https://github.com/truecharts/apps/compare/linkace-4.0.18...linkace-4.0.19) (2022-07-12)
 

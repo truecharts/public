@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [trilium-notes-5.0.13](https://github.com/truecharts/apps/compare/trilium-notes-5.0.12...trilium-notes-5.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="trilium-notes-5.0.12"></a>
 ### [trilium-notes-5.0.12](https://github.com/truecharts/apps/compare/trilium-notes-5.0.11...trilium-notes-5.0.12) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [unpoller-3.0.14](https://github.com/truecharts/apps/compare/unpoller-3.0.13...unpoller-3.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="unpoller-3.0.13"></a>
 ### [unpoller-3.0.13](https://github.com/truecharts/apps/compare/unpoller-3.0.12...unpoller-3.0.13) (2022-07-12)
 

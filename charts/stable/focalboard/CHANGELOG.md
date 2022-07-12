@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [focalboard-9.0.14](https://github.com/truecharts/apps/compare/focalboard-9.0.13...focalboard-9.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="focalboard-9.0.13"></a>
 ### [focalboard-9.0.13](https://github.com/truecharts/apps/compare/focalboard-9.0.12...focalboard-9.0.13) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [shiori-7.0.13](https://github.com/truecharts/apps/compare/shiori-7.0.12...shiori-7.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="shiori-7.0.12"></a>
 ### [shiori-7.0.12](https://github.com/truecharts/apps/compare/shiori-7.0.11...shiori-7.0.12) (2022-07-12)
 

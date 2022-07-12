@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [memcached-3.0.30](https://github.com/truecharts/apps/compare/memcached-3.0.29...memcached-3.0.30) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="memcached-3.0.29"></a>
 ### [memcached-3.0.29](https://github.com/truecharts/apps/compare/memcached-3.0.28...memcached-3.0.29) (2022-07-12)
 

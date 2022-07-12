@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [traefik-12.0.15](https://github.com/truecharts/apps/compare/traefik-12.0.14...traefik-12.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="traccar-7.0.13"></a>
 ### [traccar-7.0.13](https://github.com/truecharts/apps/compare/traccar-7.0.12...traccar-7.0.13) (2022-07-12)
 

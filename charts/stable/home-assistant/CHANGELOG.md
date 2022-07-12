@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [home-assistant-15.0.20](https://github.com/truecharts/apps/compare/home-assistant-15.0.19...home-assistant-15.0.20) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="home-assistant-15.0.19"></a>
 ### [home-assistant-15.0.19](https://github.com/truecharts/apps/compare/home-assistant-15.0.18...home-assistant-15.0.19) (2022-07-12)
 

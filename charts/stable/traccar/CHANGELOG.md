@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [traccar-7.0.14](https://github.com/truecharts/apps/compare/traccar-7.0.13...traccar-7.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 
 <a name="traccar-7.0.12"></a>
 ### [traccar-7.0.12](https://github.com/truecharts/apps/compare/traccar-7.0.11...traccar-7.0.12) (2022-07-11)

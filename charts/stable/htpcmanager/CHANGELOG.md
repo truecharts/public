@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [htpcmanager-2.0.12](https://github.com/truecharts/apps/compare/htpcmanager-2.0.11...htpcmanager-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="htpcmanager-2.0.11"></a>
 ### [htpcmanager-2.0.11](https://github.com/truecharts/apps/compare/htpcmanager-2.0.10...htpcmanager-2.0.11) (2022-07-12)
 

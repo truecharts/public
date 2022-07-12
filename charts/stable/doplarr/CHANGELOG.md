@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [doplarr-2.0.13](https://github.com/truecharts/apps/compare/doplarr-2.0.12...doplarr-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="doplarr-2.0.12"></a>
 ### [doplarr-2.0.12](https://github.com/truecharts/apps/compare/doplarr-2.0.11...doplarr-2.0.12) (2022-07-12)
 

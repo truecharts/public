@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [quassel-core-3.0.12](https://github.com/truecharts/apps/compare/quassel-core-3.0.11...quassel-core-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="quassel-core-3.0.11"></a>
 ### [quassel-core-3.0.11](https://github.com/truecharts/apps/compare/quassel-core-3.0.10...quassel-core-3.0.11) (2022-07-12)
 

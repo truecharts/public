@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [booksonic-air-6.0.15](https://github.com/truecharts/apps/compare/booksonic-air-6.0.14...booksonic-air-6.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="booksonic-air-6.0.14"></a>
 ### [booksonic-air-6.0.14](https://github.com/truecharts/apps/compare/booksonic-air-6.0.13...booksonic-air-6.0.14) (2022-07-12)
 

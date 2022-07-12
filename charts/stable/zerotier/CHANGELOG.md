@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [zerotier-2.0.12](https://github.com/truecharts/apps/compare/zerotier-2.0.11...zerotier-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="zerotier-2.0.11"></a>
 ### [zerotier-2.0.11](https://github.com/truecharts/apps/compare/zerotier-2.0.10...zerotier-2.0.11) (2022-07-12)
 

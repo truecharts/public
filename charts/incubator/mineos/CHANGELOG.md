@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mineos-0.0.4](https://github.com/truecharts/apps/compare/mineos-0.0.3...mineos-0.0.4) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="mineos-0.0.3"></a>
 ### [mineos-0.0.3](https://github.com/truecharts/apps/compare/mineos-0.0.2...mineos-0.0.3) (2022-07-12)
 

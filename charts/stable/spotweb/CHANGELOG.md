@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [spotweb-4.0.13](https://github.com/truecharts/apps/compare/spotweb-4.0.12...spotweb-4.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="spotweb-4.0.12"></a>
 ### [spotweb-4.0.12](https://github.com/truecharts/apps/compare/spotweb-4.0.11...spotweb-4.0.12) (2022-07-12)
 

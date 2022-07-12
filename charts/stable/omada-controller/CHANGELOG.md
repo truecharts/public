@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [omada-controller-6.0.24](https://github.com/truecharts/apps/compare/omada-controller-6.0.23...omada-controller-6.0.24) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="omada-controller-6.0.23"></a>
 ### [omada-controller-6.0.23](https://github.com/truecharts/apps/compare/omada-controller-6.0.22...omada-controller-6.0.23) (2022-07-12)
 

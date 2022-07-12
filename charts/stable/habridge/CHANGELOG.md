@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [habridge-2.0.12](https://github.com/truecharts/apps/compare/habridge-2.0.11...habridge-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="habridge-2.0.11"></a>
 ### [habridge-2.0.11](https://github.com/truecharts/apps/compare/habridge-2.0.10...habridge-2.0.11) (2022-07-12)
 

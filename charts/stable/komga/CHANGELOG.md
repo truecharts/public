@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [komga-6.0.15](https://github.com/truecharts/apps/compare/komga-6.0.14...komga-6.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="komga-6.0.14"></a>
 ### [komga-6.0.14](https://github.com/truecharts/apps/compare/komga-6.0.13...komga-6.0.14) (2022-07-12)
 

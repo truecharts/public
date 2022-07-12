@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [anonaddy-9.0.16](https://github.com/truecharts/apps/compare/anonaddy-9.0.15...anonaddy-9.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="anonaddy-9.0.15"></a>
 ### [anonaddy-9.0.15](https://github.com/truecharts/apps/compare/anonaddy-9.0.14...anonaddy-9.0.15) (2022-07-12)
 

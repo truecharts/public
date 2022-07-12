@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [handbrake-13.0.14](https://github.com/truecharts/apps/compare/handbrake-13.0.13...handbrake-13.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="handbrake-13.0.13"></a>
 ### [handbrake-13.0.13](https://github.com/truecharts/apps/compare/handbrake-13.0.12...handbrake-13.0.13) (2022-07-12)
 

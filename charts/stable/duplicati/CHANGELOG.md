@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [duplicati-6.0.14](https://github.com/truecharts/apps/compare/duplicati-6.0.13...duplicati-6.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="duplicati-6.0.13"></a>
 ### [duplicati-6.0.13](https://github.com/truecharts/apps/compare/duplicati-6.0.12...duplicati-6.0.13) (2022-07-12)
 

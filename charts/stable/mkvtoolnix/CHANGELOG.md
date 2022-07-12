@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mkvtoolnix-2.0.13](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.12...mkvtoolnix-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="mkvtoolnix-2.0.12"></a>
 ### [mkvtoolnix-2.0.12](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.11...mkvtoolnix-2.0.12) (2022-07-12)
 

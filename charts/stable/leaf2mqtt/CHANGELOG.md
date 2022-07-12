@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [leaf2mqtt-4.0.13](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.12...leaf2mqtt-4.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="leaf2mqtt-4.0.12"></a>
 ### [leaf2mqtt-4.0.12](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.11...leaf2mqtt-4.0.12) (2022-07-12)
 

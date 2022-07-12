@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [endlessh-2.0.12](https://github.com/truecharts/apps/compare/endlessh-2.0.11...endlessh-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 
 <a name="endlessh-2.0.10"></a>
 ### [endlessh-2.0.10](https://github.com/truecharts/apps/compare/endlessh-2.0.9...endlessh-2.0.10) (2022-07-11)

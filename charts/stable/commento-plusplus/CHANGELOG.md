@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [commento-plusplus-3.0.13](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.12...commento-plusplus-3.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="commento-plusplus-3.0.12"></a>
 ### [commento-plusplus-3.0.12](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.11...commento-plusplus-3.0.12) (2022-07-12)
 

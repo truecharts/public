@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [awesome-ttrss-0.0.14](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.13...awesome-ttrss-0.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="awesome-ttrss-0.0.13"></a>
 ### [awesome-ttrss-0.0.13](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.12...awesome-ttrss-0.0.13) (2022-07-12)
 

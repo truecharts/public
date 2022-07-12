@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jdownloader2-8.0.13](https://github.com/truecharts/apps/compare/jdownloader2-8.0.12...jdownloader2-8.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="jdownloader2-8.0.12"></a>
 ### [jdownloader2-8.0.12](https://github.com/truecharts/apps/compare/jdownloader2-8.0.11...jdownloader2-8.0.12) (2022-07-12)
 

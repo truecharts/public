@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ntfy-2.0.15](https://github.com/truecharts/apps/compare/ntfy-2.0.14...ntfy-2.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="ntfy-2.0.14"></a>
 ### [ntfy-2.0.14](https://github.com/truecharts/apps/compare/ntfy-2.0.13...ntfy-2.0.14) (2022-07-12)
 

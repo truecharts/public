@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [promtail-3.0.23](https://github.com/truecharts/apps/compare/promtail-3.0.22...promtail-3.0.23) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="promtail-3.0.22"></a>
 ### [promtail-3.0.22](https://github.com/truecharts/apps/compare/promtail-3.0.21...promtail-3.0.22) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [hammond-2.0.12](https://github.com/truecharts/apps/compare/hammond-2.0.11...hammond-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="hammond-2.0.11"></a>
 ### [hammond-2.0.11](https://github.com/truecharts/apps/compare/hammond-2.0.10...hammond-2.0.11) (2022-07-12)
 

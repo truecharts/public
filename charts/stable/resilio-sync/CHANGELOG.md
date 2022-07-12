@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [resilio-sync-6.0.14](https://github.com/truecharts/apps/compare/resilio-sync-6.0.13...resilio-sync-6.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="resilio-sync-6.0.13"></a>
 ### [resilio-sync-6.0.13](https://github.com/truecharts/apps/compare/resilio-sync-6.0.12...resilio-sync-6.0.13) (2022-07-12)
 

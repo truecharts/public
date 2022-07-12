@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [loki-5.0.15](https://github.com/truecharts/apps/compare/loki-5.0.14...loki-5.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="loki-5.0.14"></a>
 ### [loki-5.0.14](https://github.com/truecharts/apps/compare/loki-5.0.13...loki-5.0.14) (2022-07-12)
 

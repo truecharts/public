@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [whoogle-3.0.14](https://github.com/truecharts/apps/compare/whoogle-3.0.13...whoogle-3.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="whoogle-3.0.13"></a>
 ### [whoogle-3.0.13](https://github.com/truecharts/apps/compare/whoogle-3.0.12...whoogle-3.0.13) (2022-07-12)
 

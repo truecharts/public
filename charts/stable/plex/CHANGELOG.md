@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plex-10.0.16](https://github.com/truecharts/apps/compare/plex-10.0.15...plex-10.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="plex-10.0.15"></a>
 ### [plex-10.0.15](https://github.com/truecharts/apps/compare/plex-10.0.14...plex-10.0.15) (2022-07-12)
 

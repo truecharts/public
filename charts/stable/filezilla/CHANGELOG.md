@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [filezilla-4.0.13](https://github.com/truecharts/apps/compare/filezilla-4.0.12...filezilla-4.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="filezilla-4.0.12"></a>
 ### [filezilla-4.0.12](https://github.com/truecharts/apps/compare/filezilla-4.0.11...filezilla-4.0.12) (2022-07-12)
 

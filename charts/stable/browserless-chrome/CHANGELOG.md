@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [browserless-chrome-2.0.13](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.12...browserless-chrome-2.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="browserless-chrome-2.0.12"></a>
 ### [browserless-chrome-2.0.12](https://github.com/truecharts/apps/compare/browserless-chrome-2.0.11...browserless-chrome-2.0.12) (2022-07-12)
 

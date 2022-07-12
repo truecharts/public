@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snipe-it-4.0.20](https://github.com/truecharts/apps/compare/snipe-it-4.0.19...snipe-it-4.0.20) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="snipe-it-4.0.19"></a>
 ### [snipe-it-4.0.19](https://github.com/truecharts/apps/compare/snipe-it-4.0.18...snipe-it-4.0.19) (2022-07-12)
 

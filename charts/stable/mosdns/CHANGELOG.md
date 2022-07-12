@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mosdns-2.0.14](https://github.com/truecharts/apps/compare/mosdns-2.0.13...mosdns-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="mosdns-2.0.13"></a>
 ### [mosdns-2.0.13](https://github.com/truecharts/apps/compare/mosdns-2.0.12...mosdns-2.0.13) (2022-07-12)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflareddns-0.0.10](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.9...cloudflareddns-0.0.10) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="cloudflareddns-0.0.9"></a>
 ### [cloudflareddns-0.0.9](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.8...cloudflareddns-0.0.9) (2022-07-12)
 

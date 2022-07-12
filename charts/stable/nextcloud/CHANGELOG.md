@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextcloud-15.2.9](https://github.com/truecharts/apps/compare/nextcloud-15.2.8...nextcloud-15.2.9) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="nextcloud-15.2.8"></a>
 ### [nextcloud-15.2.8](https://github.com/truecharts/apps/compare/nextcloud-15.2.7...nextcloud-15.2.8) (2022-07-12)
 

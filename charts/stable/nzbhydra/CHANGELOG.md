@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nzbhydra-11.0.16](https://github.com/truecharts/apps/compare/nzbhydra-11.0.15...nzbhydra-11.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="nzbhydra-11.0.15"></a>
 ### [nzbhydra-11.0.15](https://github.com/truecharts/apps/compare/nzbhydra-11.0.14...nzbhydra-11.0.15) (2022-07-12)
 
