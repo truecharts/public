@@ -6,30 +6,19 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  # allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
 env:
-# The github repo url for the cache_domains files to use to populate the cdn maps
   CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
-# The branch of the CACHE_DOMAINS_REPO to use
   CACHE_DOMAINS_BRANCH: "master"
-# Turn off all git pull operations and use stored data
   NOFETCH: false
-# The upstream DNS server(s) the cache should use.
-# separated by semi colons (or spaces). Do NOT point this at lancache-dns
-  UPSTREAM_DNS: "1.1.1.1;1.0.0.1" # "1.1.1.1 1.0.0.1"
-# The amount of disk space the container should use for caching data
+  UPSTREAM_DNS: "1.1.1.1;1.0.0.1"
   CACHE_DISK_SIZE: "1000000m"
-# Ammount of index memory for the nginx cache manager
-# reccommended 250m of index memory per 1TB of CACHE_DISK_SIZE
   CACHE_INDEX_SIZE: "500m"
-# The maximum amount of time a file should be held in cache
   CACHE_MAX_AGE: "3560d"
-# advanced section
   NGINX_WORKER_PROCESSES: "{{ .Values.secretEnv.NGINX_WORKER_PROCESSES }}"
   GENERICCACHE_VERSION: "{{ .Values.secretEnv.GENERICCACHE_VERSION }}"
   WEBUSER: "{{ .Values.secretEnv.WEBUSER }}"
@@ -38,10 +27,9 @@ env:
   CACHE_SLICE_SIZE: "{{ .Values.secretEnv.CACHE_SLICE_SIZE }}"
   CACHE_MODE: "{{ .Values.secretEnv.CACHE_MODE }}"
   FORCE_PERMS_CHECK: "{{ .Values.secretEnv.FORCE_PERMS_CHECK }}"
-# advanced options
+
 secretEnv:
   NGINX_WORKER_PROCESSES: "auto"
-# Internal reference version. DO NOT CHANGE THIS.
   GENERICCACHE_VERSION: 2
   WEBUSER: "www-data"
   BEAT_TIME: "1h"
