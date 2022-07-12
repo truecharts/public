@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="statping-7.0.12"></a>
+### [statping-7.0.12](https://github.com/truecharts/apps/compare/statping-7.0.11...statping-7.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="statping-7.0.11"></a>

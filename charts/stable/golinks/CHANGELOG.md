@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="golinks-4.0.11"></a>
+### [golinks-4.0.11](https://github.com/truecharts/apps/compare/golinks-4.0.10...golinks-4.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="golinks-4.0.10"></a>

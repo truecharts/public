@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="firefox-syncserver-9.0.11"></a>
+### [firefox-syncserver-9.0.11](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.10...firefox-syncserver-9.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="firefox-syncserver-9.0.10"></a>

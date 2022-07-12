@@ -1,4 +1,14 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="mylar-6.0.11"></a>
+### [mylar-6.0.11](https://github.com/truecharts/apps/compare/mylar-6.0.10...mylar-6.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="mylar-6.0.10"></a>

@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="openspeedtest-1.0.10"></a>
+### [openspeedtest-1.0.10](https://github.com/truecharts/apps/compare/openspeedtest-1.0.9...openspeedtest-1.0.10) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="openspeedtest-1.0.9"></a>

@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="nntp2nntp-2.0.11"></a>
+### [nntp2nntp-2.0.11](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.10...nntp2nntp-2.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="nntp2nntp-2.0.10"></a>

@@ -1,4 +1,4 @@
-# Introduction
+# papermerge
 
 Papermerge is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents.
 
@@ -17,8 +17,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.24 |
-| https://library-charts.truecharts.org | common | 10.2.1 |
+| https://charts.truecharts.org | redis | 3.0.30 |
+| https://library-charts.truecharts.org | common | 10.4.4 |
 
 ## Installing the Chart
 
@@ -27,6 +27,9 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 ## Upgrading, Rolling Back and Uninstalling the Chart
 
 To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+
+##### Connecting to other apps
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
 
 ## Support
 

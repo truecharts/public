@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="duckdns-2.0.14"></a>
+### [duckdns-2.0.14](https://github.com/truecharts/apps/compare/duckdns-2.0.13...duckdns-2.0.14) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="duckdns-2.0.13"></a>

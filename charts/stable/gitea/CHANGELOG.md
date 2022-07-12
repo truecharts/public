@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="gitea-8.0.13"></a>
+### [gitea-8.0.13](https://github.com/truecharts/apps/compare/gitea-8.0.12...gitea-8.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="gitea-8.0.12"></a>

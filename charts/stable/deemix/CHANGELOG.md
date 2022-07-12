@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="deemix-3.0.11"></a>
+### [deemix-3.0.11](https://github.com/truecharts/apps/compare/deemix-3.0.10...deemix-3.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="deemix-3.0.10"></a>

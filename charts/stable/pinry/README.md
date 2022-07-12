@@ -1,4 +1,4 @@
-# Introduction
+# pinry
 
 The open-source core of Pinry, a tiling image board system for people who want to save, tag, and share images, videos and webpages in an easy to skim through format.
 
@@ -17,7 +17,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.2.1 |
+| https://library-charts.truecharts.org | common | 10.4.4 |
 
 ## Installing the Chart
 
@@ -26,6 +26,9 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 ## Upgrading, Rolling Back and Uninstalling the Chart
 
 To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+
+##### Connecting to other apps
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
 
 ## Support
 
