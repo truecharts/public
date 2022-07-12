@@ -76,7 +76,7 @@ questions:
           description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
           schema:
             type: string
-            default: "1.1.1.1 1.0.0.1"
+            default: "1.1.1.1;1.0.0.1"
         - variable: USE_GENERIC_CACHE
           label: "USE GENERIC CACHE"
           description: "If you are using a single monolithic instance set this to true"
