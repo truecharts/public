@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="mariadb-3.0.29"></a>
+### [mariadb-3.0.29](https://github.com/truecharts/apps/compare/mariadb-3.0.28...mariadb-3.0.29) (2022-07-12)
+
+#### Chore
+
+* update helm chart common to v10.4.4 ([#3146](https://github.com/truecharts/apps/issues/3146))
+
 
 
 <a name="mongodb-1.0.31"></a>
