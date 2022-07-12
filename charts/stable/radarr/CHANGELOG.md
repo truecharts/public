@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [radarr-11.0.13](https://github.com/truecharts/apps/compare/radarr-11.0.12...radarr-11.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="radarr-11.0.12"></a>
+### [radarr-11.0.12](https://github.com/truecharts/apps/compare/radarr-11.0.11...radarr-11.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="radarr-11.0.11"></a>

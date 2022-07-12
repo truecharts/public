@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [calibre-7.0.17](https://github.com/truecharts/apps/compare/calibre-web-11.0.14...calibre-7.0.17) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="calibre-7.0.16"></a>
+### [calibre-7.0.16](https://github.com/truecharts/apps/compare/calibre-web-11.0.13...calibre-7.0.16) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="calibre-7.0.15"></a>

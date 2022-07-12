@@ -1,4 +1,22 @@
-# Changelog<br>
+# Changelog
+
+
+## [calibre-web-11.0.15](https://github.com/truecharts/apps/compare/calibre-web-11.0.14...calibre-web-11.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="calibre-web-11.0.14"></a>
+### [calibre-web-11.0.14](https://github.com/truecharts/apps/compare/calibre-web-11.0.13...calibre-web-11.0.14) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="calibre-web-11.0.13"></a>

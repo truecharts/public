@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [fluidd-2.0.14](https://github.com/truecharts/apps/compare/fluidd-2.0.13...fluidd-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="fluidd-2.0.13"></a>
+### [fluidd-2.0.13](https://github.com/truecharts/apps/compare/fluidd-2.0.12...fluidd-2.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="fluidd-2.0.12"></a>

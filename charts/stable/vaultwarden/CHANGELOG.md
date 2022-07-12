@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [vaultwarden-16.0.13](https://github.com/truecharts/apps/compare/vaultwarden-16.0.12...vaultwarden-16.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="vaultwarden-16.0.12"></a>
+### [vaultwarden-16.0.12](https://github.com/truecharts/apps/compare/vaultwarden-16.0.11...vaultwarden-16.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="vaultwarden-16.0.11"></a>

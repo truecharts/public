@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [senseai-server-0.0.11](https://github.com/truecharts/apps/compare/senseai-server-0.0.10...senseai-server-0.0.11) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="senseai-server-0.0.10"></a>
+### [senseai-server-0.0.10](https://github.com/truecharts/apps/compare/senseai-server-0.0.9...senseai-server-0.0.10) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="senseai-server-0.0.9"></a>

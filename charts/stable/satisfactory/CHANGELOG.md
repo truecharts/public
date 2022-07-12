@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+## [satisfactory-2.0.14](https://github.com/truecharts/apps/compare/satisfactory-2.0.13...satisfactory-2.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
 
 
 <a name="satisfactory-2.0.12"></a>

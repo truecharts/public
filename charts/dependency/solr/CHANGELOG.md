@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [solr-0.0.5](https://github.com/truecharts/apps/compare/solr-0.0.4...solr-0.0.5) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+- update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
+
+
 <a name="solr-0.0.4"></a>
 ### [solr-0.0.4](https://github.com/truecharts/apps/compare/solr-0.0.3...solr-0.0.4) (2022-07-12)
 

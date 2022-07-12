@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [etesync-0.0.9](https://github.com/truecharts/apps/compare/etesync-0.0.8...etesync-0.0.9) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="etesync-0.0.8"></a>
+### [etesync-0.0.8](https://github.com/truecharts/apps/compare/etesync-0.0.7...etesync-0.0.8) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="etesync-0.0.7"></a>

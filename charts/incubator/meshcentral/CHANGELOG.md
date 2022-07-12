@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [meshcentral-3.0.17](https://github.com/truecharts/apps/compare/meshcentral-3.0.16...meshcentral-3.0.17) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="meshcentral-3.0.16"></a>
+### [meshcentral-3.0.16](https://github.com/truecharts/apps/compare/meshcentral-3.0.15...meshcentral-3.0.16) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="meshcentral-3.0.15"></a>

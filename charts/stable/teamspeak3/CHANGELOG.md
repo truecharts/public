@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [teamspeak3-4.0.14](https://github.com/truecharts/apps/compare/teamspeak3-4.0.13...teamspeak3-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="teamspeak3-4.0.13"></a>
+### [teamspeak3-4.0.13](https://github.com/truecharts/apps/compare/teamspeak3-4.0.12...teamspeak3-4.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="teamspeak3-4.0.12"></a>

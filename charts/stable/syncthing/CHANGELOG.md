@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [syncthing-11.0.15](https://github.com/truecharts/apps/compare/syncthing-11.0.14...syncthing-11.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="syncthing-11.0.14"></a>
+### [syncthing-11.0.14](https://github.com/truecharts/apps/compare/syncthing-11.0.13...syncthing-11.0.14) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="syncthing-11.0.13"></a>

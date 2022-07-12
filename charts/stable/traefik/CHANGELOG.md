@@ -1,8 +1,25 @@
-# Changelog<br>
+# Changelog
 
 
-<a name="traefik-12.0.13"></a>
-### [traefik-12.0.13](https://github.com/truecharts/apps/compare/traefik-12.0.12...traefik-12.0.13) (2022-07-11)
+## [traefik-12.0.15](https://github.com/truecharts/apps/compare/traefik-12.0.14...traefik-12.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="traccar-7.0.13"></a>
+### [traccar-7.0.13](https://github.com/truecharts/apps/compare/traccar-7.0.12...traccar-7.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
+
+
+<a name="traccar-7.0.12"></a>
+### [traccar-7.0.12](https://github.com/truecharts/apps/compare/traccar-7.0.11...traccar-7.0.12) (2022-07-11)
 
 #### Chore
 
@@ -10,8 +27,17 @@
 
 
 
-<a name="traefik-12.0.12"></a>
-### [traefik-12.0.12](https://github.com/truecharts/apps/compare/traefik-12.0.11...traefik-12.0.12) (2022-07-09)
+<a name="traccar-7.0.11"></a>
+### [traccar-7.0.11](https://github.com/truecharts/apps/compare/traccar-7.0.10...traccar-7.0.11) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
+<a name="traccar-7.0.10"></a>
+### [traccar-7.0.10](https://github.com/truecharts/apps/compare/traccar-7.0.9...traccar-7.0.10) (2022-07-09)
 
 #### Chore
 
@@ -19,8 +45,17 @@
 
 
 
-<a name="traefik-12.0.11"></a>
-### [traefik-12.0.11](https://github.com/truecharts/apps/compare/traefik-12.0.10...traefik-12.0.11) (2022-07-04)
+<a name="traccar-7.0.9"></a>
+### [traccar-7.0.9](https://github.com/truecharts/apps/compare/traccar-7.0.8...traccar-7.0.9) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="traccar-7.0.8"></a>
+### [traccar-7.0.8](https://github.com/truecharts/apps/compare/traccar-7.0.7...traccar-7.0.8) (2022-07-04)
 
 #### Chore
 
@@ -28,26 +63,8 @@
 
 
 
-<a name="traefik-12.0.10"></a>
-### [traefik-12.0.10](https://github.com/truecharts/apps/compare/traefik-12.0.9...traefik-12.0.10) (2022-07-01)
-
-#### Chore
-
-* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
-
-
-
-<a name="traefik-12.0.9"></a>
-### [traefik-12.0.9](https://github.com/truecharts/apps/compare/traefik-12.0.8...traefik-12.0.9) (2022-06-29)
-
-#### Chore
-
-* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
-
-
-
-<a name="traefik-12.0.8"></a>
-### [traefik-12.0.8](https://github.com/truecharts/apps/compare/traefik-12.0.7...traefik-12.0.8) (2022-06-25)
+<a name="traccar-7.0.7"></a>
+### [traccar-7.0.7](https://github.com/truecharts/apps/compare/traccar-7.0.6...traccar-7.0.7) (2022-06-25)
 
 #### Chore
 
@@ -55,8 +72,8 @@
 
 
 
-<a name="traefik-12.0.7"></a>
-### [traefik-12.0.7](https://github.com/truecharts/apps/compare/traefik-12.0.6...traefik-12.0.7) (2022-06-22)
+<a name="traccar-7.0.6"></a>
+### [traccar-7.0.6](https://github.com/truecharts/apps/compare/traccar-7.0.5...traccar-7.0.6) (2022-06-22)
 
 #### Chore
 
@@ -64,8 +81,8 @@
 
 
 
-<a name="traefik-12.0.6"></a>
-### [traefik-12.0.6](https://github.com/truecharts/apps/compare/traefik-12.0.5...traefik-12.0.6) (2022-06-21)
+<a name="traccar-7.0.5"></a>
+### [traccar-7.0.5](https://github.com/truecharts/apps/compare/traccar-7.0.4...traccar-7.0.5) (2022-06-21)
 
 #### Chore
 
@@ -73,17 +90,26 @@
 
 
 
-<a name="traefik-12.0.5"></a>
-### [traefik-12.0.5](https://github.com/truecharts/apps/compare/traefik-12.0.4...traefik-12.0.5) (2022-06-15)
+<a name="traccar-7.0.4"></a>
+### [traccar-7.0.4](https://github.com/truecharts/apps/compare/traccar-7.0.3...traccar-7.0.4) (2022-06-17)
 
 #### Chore
 
-* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
 
 
 
-<a name="traefik-12.0.4"></a>
-### [traefik-12.0.4](https://github.com/truecharts/apps/compare/traefik-12.0.3...traefik-12.0.4) (2022-06-14)
+<a name="traccar-7.0.3"></a>
+### [traccar-7.0.3](https://github.com/truecharts/apps/compare/traccar-7.0.2...traccar-7.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="traccar-7.0.2"></a>
+### [traccar-7.0.2](https://github.com/truecharts/apps/compare/traccar-7.0.1...traccar-7.0.2) (2022-06-14)
 
 #### Chore
 
@@ -91,8 +117,8 @@
 
 
 
-<a name="traefik-12.0.3"></a>
-### [traefik-12.0.3](https://github.com/truecharts/apps/compare/traefik-12.0.2...traefik-12.0.3) (2022-06-11)
+<a name="traccar-7.0.1"></a>
+### [traccar-7.0.1](https://github.com/truecharts/apps/compare/traccar-7.0.0...traccar-7.0.1) (2022-06-11)
 
 #### Chore
 
@@ -100,8 +126,12 @@
 
 
 
-<a name="traefik-12.0.2"></a>
-### [traefik-12.0.2](https://github.com/truecharts/apps/compare/traefik-12.0.1...traefik-12.0.2) (2022-06-07)
+<a name="traccar-7.0.0"></a>
+### [traccar-7.0.0](https://github.com/truecharts/apps/compare/traccar-6.0.1...traccar-7.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
 
 #### Fix
 
@@ -109,12 +139,14 @@
 
 
 
-<a name="traefik-12.0.1"></a>
-### [traefik-12.0.1](https://github.com/truecharts/apps/compare/traefik-11.3.9...traefik-12.0.1) (2022-06-07)
+<a name="traccar-6.0.1"></a>
+### [traccar-6.0.1](https://github.com/truecharts/apps/compare/traccar-5.0.24...traccar-6.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 
 #### Fix
 
@@ -126,8 +158,12 @@
 
 
 
-<a name="traefik-12.0.0"></a>
-### [traefik-12.0.0](https://github.com/truecharts/apps/compare/traefik-11.3.9...traefik-12.0.0) (2022-06-07)
+<a name="traccar-6.0.0"></a>
+### [traccar-6.0.0](https://github.com/truecharts/apps/compare/traccar-5.0.24...traccar-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
 
 #### Refactor
 
@@ -135,8 +171,8 @@
 
 
 
-<a name="traefik-11.3.9"></a>
-### [traefik-11.3.9](https://github.com/truecharts/apps/compare/traefik-11.3.8...traefik-11.3.9) (2022-05-31)
+<a name="traccar-5.0.24"></a>
+### [traccar-5.0.24](https://github.com/truecharts/apps/compare/traccar-5.0.23...traccar-5.0.24) (2022-05-31)
 
 #### Chore
 
@@ -144,17 +180,8 @@
 
 
 
-<a name="traefik-11.3.8"></a>
-### [traefik-11.3.8](https://github.com/truecharts/apps/compare/traefik-11.3.7...traefik-11.3.8) (2022-05-27)
-
-#### Fix
-
-* set trustedIPs to string ([#2764](https://github.com/truecharts/apps/issues/2764))
-
-
-
-<a name="traefik-11.3.7"></a>
-### [traefik-11.3.7](https://github.com/truecharts/apps/compare/traefik-11.3.6...traefik-11.3.7) (2022-05-26)
+<a name="traccar-5.0.23"></a>
+### [traccar-5.0.23](https://github.com/truecharts/apps/compare/traccar-5.0.22...traccar-5.0.23) (2022-05-26)
 
 #### Chore
 
@@ -163,8 +190,8 @@
 
 
 
-<a name="traefik-11.3.7"></a>
-### [traefik-11.3.7](https://github.com/truecharts/apps/compare/traefik-11.3.6...traefik-11.3.7) (2022-05-26)
+<a name="traccar-5.0.23"></a>
+### [traccar-5.0.23](https://github.com/truecharts/apps/compare/traccar-5.0.22...traccar-5.0.23) (2022-05-26)
 
 #### Chore
 
@@ -172,17 +199,17 @@
 
 
 
-<a name="traefik-11.3.6"></a>
-### [traefik-11.3.6](https://github.com/truecharts/apps/compare/traefik-11.3.5...traefik-11.3.6) (2022-05-26)
+<a name="traccar-5.0.22"></a>
+### [traccar-5.0.22](https://github.com/truecharts/apps/compare/traccar-5.0.21...traccar-5.0.22) (2022-05-25)
 
 #### Chore
 
-* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+* update container image tccr.io/truecharts/traccar to v5.0 ([#2749](https://github.com/truecharts/apps/issues/2749))
 
 
 
-<a name="traefik-11.3.5"></a>
-### [traefik-11.3.5](https://github.com/truecharts/apps/compare/traefik-11.3.4...traefik-11.3.5) (2022-05-24)
+<a name="traccar-5.0.21"></a>
+### [traccar-5.0.21](https://github.com/truecharts/apps/compare/traccar-5.0.20...traccar-5.0.21) (2022-05-24)
 
 #### Chore
 
@@ -190,8 +217,8 @@
 
 
 
-<a name="traefik-11.3.4"></a>
-### [traefik-11.3.4](https://github.com/truecharts/apps/compare/traefik-11.3.3...traefik-11.3.4) (2022-05-17)
+<a name="traccar-5.0.20"></a>
+### [traccar-5.0.20](https://github.com/truecharts/apps/compare/traccar-5.0.19...traccar-5.0.20) (2022-05-17)
 
 #### Chore
 
@@ -200,8 +227,8 @@
 
 
 
-<a name="traefik-11.3.4"></a>
-### [traefik-11.3.4](https://github.com/truecharts/apps/compare/traefik-11.3.3...traefik-11.3.4) (2022-05-17)
+<a name="traccar-5.0.20"></a>
+### [traccar-5.0.20](https://github.com/truecharts/apps/compare/traccar-5.0.19...traccar-5.0.20) (2022-05-17)
 
 #### Chore
 
@@ -209,8 +236,8 @@
 
 
 
-<a name="traefik-11.3.3"></a>
-### [traefik-11.3.3](https://github.com/truecharts/apps/compare/traefik-11.3.2...traefik-11.3.3) (2022-05-17)
+<a name="traccar-5.0.19"></a>
+### [traccar-5.0.19](https://github.com/truecharts/apps/compare/traccar-5.0.18...traccar-5.0.19) (2022-05-17)
 
 #### Chore
 
@@ -218,13 +245,8 @@
 
 
 
-<a name="traefik-11.3.2"></a>
-### [traefik-11.3.2](https://github.com/truecharts/apps/compare/traefik-11.3.1...traefik-11.3.2) (2022-05-15)
-
-
-
-<a name="traefik-11.3.1"></a>
-### [traefik-11.3.1](https://github.com/truecharts/apps/compare/traefik-11.3.0...traefik-11.3.1) (2022-05-10)
+<a name="traccar-5.0.18"></a>
+### [traccar-5.0.18](https://github.com/truecharts/apps/compare/traccar-5.0.17...traccar-5.0.18) (2022-05-10)
 
 #### Chore
 
@@ -232,17 +254,8 @@
 
 
 
-<a name="traefik-11.3.0"></a>
-### [traefik-11.3.0](https://github.com/truecharts/apps/compare/traefik-11.2.2...traefik-11.3.0) (2022-05-05)
-
-#### Feat
-
-* Add support for JSON format logs ([#2609](https://github.com/truecharts/apps/issues/2609))
-
-
-
-<a name="traefik-11.2.2"></a>
-### [traefik-11.2.2](https://github.com/truecharts/apps/compare/traefik-11.2.1...traefik-11.2.2) (2022-05-05)
+<a name="traccar-5.0.17"></a>
+### [traccar-5.0.17](https://github.com/truecharts/apps/compare/traccar-5.0.16...traccar-5.0.17) (2022-05-05)
 
 #### Chore
 
@@ -250,22 +263,17 @@
 
 
 
-<a name="traefik-11.2.1"></a>
-### [traefik-11.2.1](https://github.com/truecharts/apps/compare/traefik-11.2.0...traefik-11.2.1) (2022-05-04)
+<a name="traccar-5.0.16"></a>
+### [traccar-5.0.16](https://github.com/truecharts/apps/compare/traccar-5.0.15...traccar-5.0.16) (2022-05-04)
 
 #### Chore
 
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
 
 
 
-<a name="traefik-11.2.0"></a>
-### [traefik-11.2.0](https://github.com/truecharts/apps/compare/traefik-11.1.8...traefik-11.2.0) (2022-05-04)
-
-
-
-<a name="traefik-11.1.8"></a>
-### [traefik-11.1.8](https://github.com/truecharts/apps/compare/traefik-11.1.7...traefik-11.1.8) (2022-04-26)
+<a name="traccar-5.0.15"></a>
+### [traccar-5.0.15](https://github.com/truecharts/apps/compare/traccar-5.0.14...traccar-5.0.15) (2022-04-26)
 
 #### Chore
 
@@ -273,30 +281,18 @@
 
 
 
-<a name="traefik-11.1.7"></a>
-### [traefik-11.1.7](https://github.com/truecharts/apps/compare/traefik-11.1.6...traefik-11.1.7) (2022-04-20)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
-
-
-
-<a name="traefik-11.1.6"></a>
-### [traefik-11.1.6](https://github.com/truecharts/apps/compare/traefik-11.1.5...traefik-11.1.6) (2022-04-20)
+<a name="traccar-5.0.14"></a>
+### [traccar-5.0.14](https://github.com/truecharts/apps/compare/traccar-5.0.13...traccar-5.0.14) (2022-04-20)
 
 #### Chore
 
 * add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-
-#### Fix
-
-* Fix custom chain middleware settings ([#2513](https://github.com/truecharts/apps/issues/2513))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
 
 
 
-<a name="traefik-11.1.5"></a>
-### [traefik-11.1.5](https://github.com/truecharts/apps/compare/traefik-11.1.4...traefik-11.1.5) (2022-04-12)
+<a name="traccar-5.0.13"></a>
+### [traccar-5.0.13](https://github.com/truecharts/apps/compare/traccar-5.0.12...traccar-5.0.13) (2022-04-12)
 
 #### Chore
 
@@ -304,41 +300,8 @@
 
 
 
-<a name="traefik-11.1.4"></a>
-### [traefik-11.1.4](https://github.com/truecharts/apps/compare/traefik-11.1.3...traefik-11.1.4) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
-
-
-
-<a name="traefik-11.1.3"></a>
-### [traefik-11.1.3](https://github.com/truecharts/apps/compare/traefik-11.1.2...traefik-11.1.3) (2022-04-08)
-
-
-
-<a name="traefik-11.1.2"></a>
-### [traefik-11.1.2](https://github.com/truecharts/apps/compare/traefik-11.1.1...traefik-11.1.2) (2022-04-06)
-
-
-
-<a name="traefik-11.1.1"></a>
-### [traefik-11.1.1](https://github.com/truecharts/apps/compare/traefik-11.1.0...traefik-11.1.1) (2022-04-04)
-
-
-
-<a name="traefik-11.1.0"></a>
-### [traefik-11.1.0](https://github.com/truecharts/apps/compare/traefik-11.0.13...traefik-11.1.0) (2022-04-04)
-
-#### Feat
-
-* Add stripPrefixRegex ([#2422](https://github.com/truecharts/apps/issues/2422))
-
-
-
-<a name="traefik-11.0.13"></a>
-### [traefik-11.0.13](https://github.com/truecharts/apps/compare/traefik-11.0.12...traefik-11.0.13) (2022-04-03)
+<a name="traccar-5.0.12"></a>
+### [traccar-5.0.12](https://github.com/truecharts/apps/compare/traccar-5.0.11...traccar-5.0.12) (2022-04-03)
 
 #### Chore
 
@@ -346,17 +309,17 @@
 
 
 
-<a name="traefik-11.0.12"></a>
-### [traefik-11.0.12](https://github.com/truecharts/apps/compare/traefik-11.0.11...traefik-11.0.12) (2022-04-01)
+<a name="traccar-5.0.11"></a>
+### [traccar-5.0.11](https://github.com/truecharts/apps/compare/traccar-5.0.10...traccar-5.0.11) (2022-03-31)
 
 #### Chore
 
-* update docker general non-major
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
 
 
 
-<a name="traefik-11.0.11"></a>
-### [traefik-11.0.11](https://github.com/truecharts/apps/compare/traefik-11.0.10...traefik-11.0.11) (2022-03-31)
+<a name="traccar-5.0.10"></a>
+### [traccar-5.0.10](https://github.com/truecharts/apps/compare/traccar-5.0.9...traccar-5.0.10) (2022-03-31)
 
 #### Chore
 
@@ -364,26 +327,27 @@
 
 
 
-<a name="traefik-11.0.10"></a>
-### [traefik-11.0.10](https://github.com/truecharts/apps/compare/traefik-11.0.9...traefik-11.0.10) (2022-03-30)
+<a name="traccar-5.0.9"></a>
+### [traccar-5.0.9](https://github.com/truecharts/apps/compare/traccar-5.0.8...traccar-5.0.9) (2022-03-30)
 
 #### Chore
 
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="traefik-11.0.9"></a>
-### [traefik-11.0.9](https://github.com/truecharts/apps/compare/traefik-11.0.8...traefik-11.0.9) (2022-03-30)
+<a name="traccar-5.0.8"></a>
+### [traccar-5.0.8](https://github.com/truecharts/apps/compare/traccar-5.0.7...traccar-5.0.8) (2022-03-26)
 
 #### Chore
 
-* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
 
 
 
-<a name="traefik-11.0.8"></a>
-### [traefik-11.0.8](https://github.com/truecharts/apps/compare/traefik-11.0.7...traefik-11.0.8) (2022-03-26)
+<a name="traccar-5.0.7"></a>
+### [traccar-5.0.7](https://github.com/truecharts/apps/compare/traccar-5.0.6...traccar-5.0.7) (2022-03-26)
 
 #### Chore
 
@@ -391,41 +355,31 @@
 
 
 
-<a name="traefik-11.0.6"></a>
-### [traefik-11.0.6](https://github.com/truecharts/apps/compare/traefik-11.0.5...traefik-11.0.6) (2022-03-26)
+<a name="traccar-5.0.2"></a>
+### [traccar-5.0.2](https://github.com/truecharts/apps/compare/traccar-5.0.1...traccar-5.0.2) (2022-03-08)
 
 #### Chore
 
-* update docker general non-major
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
 
 
 
-<a name="traefik-11.0.2"></a>
-### [traefik-11.0.2](https://github.com/truecharts/apps/compare/traefik-11.0.1...traefik-11.0.2) (2022-03-07)
+<a name="traccar-5.0.1"></a>
+### [traccar-5.0.1](https://github.com/truecharts/apps/compare/traccar-5.0.0...traccar-5.0.1) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
-
-
-
-<a name="traefik-11.0.1"></a>
-### [traefik-11.0.1](https://github.com/truecharts/apps/compare/traefik-11.0.0...traefik-11.0.1) (2022-03-07)
-
-#### Chore
-
-* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
 * Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="traefik-11.0.0"></a>
-### [traefik-11.0.0](https://github.com/truecharts/apps/compare/traefik-10.0.59...traefik-11.0.0) (2022-03-03)
+<a name="traccar-5.0.0"></a>
+### [traccar-5.0.0](https://github.com/truecharts/apps/compare/traccar-4.0.35...traccar-5.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove empty env var declaration from questions.yaml
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -434,8 +388,8 @@
 
 
 
-<a name="traefik-10.0.59"></a>
-### [traefik-10.0.59](https://github.com/truecharts/apps/compare/traefik-10.0.58...traefik-10.0.59) (2022-03-02)
+<a name="traccar-4.0.35"></a>
+### [traccar-4.0.35](https://github.com/truecharts/apps/compare/traccar-4.0.34...traccar-4.0.35) (2022-03-02)
 
 #### Chore
 
@@ -444,8 +398,8 @@
 
 
 
-<a name="traefik-10.0.58"></a>
-### [traefik-10.0.58](https://github.com/truecharts/apps/compare/traefik-10.0.57...traefik-10.0.58) (2022-02-21)
+<a name="traccar-4.0.34"></a>
+### [traccar-4.0.34](https://github.com/truecharts/apps/compare/traccar-4.0.33...traccar-4.0.34) (2022-02-21)
 
 #### Chore
 
@@ -453,17 +407,8 @@
 
 
 
-<a name="traefik-10.0.57"></a>
-### [traefik-10.0.57](https://github.com/truecharts/apps/compare/traefik-10.0.56...traefik-10.0.57) (2022-02-15)
-
-#### Fix
-
-* fix errors rendering ingressroute
-
-
-
-<a name="traefik-10.0.56"></a>
-### [traefik-10.0.56](https://github.com/truecharts/apps/compare/traefik-10.0.55...traefik-10.0.56) (2022-02-15)
+<a name="traccar-4.0.33"></a>
+### [traccar-4.0.33](https://github.com/truecharts/apps/compare/traccar-4.0.32...traccar-4.0.33) (2022-02-15)
 
 #### Chore
 
@@ -471,8 +416,8 @@
 
 
 
-<a name="traefik-10.0.55"></a>
-### [traefik-10.0.55](https://github.com/truecharts/apps/compare/traefik-10.0.54...traefik-10.0.55) (2022-02-08)
+<a name="traccar-4.0.32"></a>
+### [traccar-4.0.32](https://github.com/truecharts/apps/compare/traccar-4.0.31...traccar-4.0.32) (2022-02-08)
 
 #### Chore
 
@@ -480,8 +425,8 @@
 
 
 
-<a name="traefik-10.0.54"></a>
-### [traefik-10.0.54](https://github.com/truecharts/apps/compare/traefik-10.0.53...traefik-10.0.54) (2022-02-06)
+<a name="traccar-4.0.31"></a>
+### [traccar-4.0.31](https://github.com/truecharts/apps/compare/traccar-4.0.30...traccar-4.0.31) (2022-02-06)
 
 #### Chore
 
@@ -489,8 +434,8 @@
 
 
 
-<a name="traefik-10.0.53"></a>
-### [traefik-10.0.53](https://github.com/truecharts/apps/compare/traefik-10.0.52...traefik-10.0.53) (2022-02-05)
+<a name="traccar-4.0.30"></a>
+### [traccar-4.0.30](https://github.com/truecharts/apps/compare/traccar-4.0.29...traccar-4.0.30) (2022-02-05)
 
 #### Chore
 
@@ -498,8 +443,17 @@
 
 
 
-<a name="traefik-10.0.52"></a>
-### [traefik-10.0.52](https://github.com/truecharts/apps/compare/traefik-10.0.51...traefik-10.0.52) (2022-02-02)
+<a name="traccar-4.0.29"></a>
+### [traccar-4.0.29](https://github.com/truecharts/apps/compare/traccar-4.0.28...traccar-4.0.29) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="traccar-4.0.28"></a>
+### [traccar-4.0.28](https://github.com/truecharts/apps/compare/traccar-4.0.27...traccar-4.0.28) (2022-02-02)
 
 #### Chore
 
@@ -507,77 +461,8 @@
 
 
 
-<a name="traefik-10.0.51"></a>
-### [traefik-10.0.51](https://github.com/truecharts/apps/compare/traefik-10.0.50...traefik-10.0.51) (2022-01-31)
-
-#### Chore
-
-* update docker general non-major ([#1824](https://github.com/truecharts/apps/issues/1824))
-
-
-
-<a name="traefik-10.0.50"></a>
-### [traefik-10.0.50](https://github.com/truecharts/apps/compare/traefik-10.0.49...traefik-10.0.50) (2022-01-31)
-
-#### Chore
-
-* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
-
-
-
-<a name="traefik-10.0.49"></a>
-### [traefik-10.0.49](https://github.com/truecharts/apps/compare/traefik-10.0.48...traefik-10.0.49) (2022-01-31)
-
-#### Fix
-
-* introduce two basic changes with different CORS policy
-
-
-
-<a name="traefik-10.0.48"></a>
-### [traefik-10.0.48](https://github.com/truecharts/apps/compare/traefik-10.0.47...traefik-10.0.48) (2022-01-31)
-
-
-
-<a name="traefik-10.0.47"></a>
-### [traefik-10.0.47](https://github.com/truecharts/apps/compare/traefik-10.0.46...traefik-10.0.47) (2022-01-31)
-
-#### Fix
-
-* replace depricated header references
-
-
-
-<a name="traefik-10.0.46"></a>
-### [traefik-10.0.46](https://github.com/truecharts/apps/compare/traefik-10.0.45...traefik-10.0.46) (2022-01-31)
-
-#### Fix
-
-* correct mistaken indentation on synapse middleware
-
-
-
-<a name="traefik-10.0.45"></a>
-### [traefik-10.0.45](https://github.com/truecharts/apps/compare/traefik-10.0.44...traefik-10.0.45) (2022-01-31)
-
-
-
-<a name="traefik-10.0.44"></a>
-### [traefik-10.0.44](https://github.com/truecharts/apps/compare/traefik-10.0.43...traefik-10.0.44) (2022-01-28)
-
-
-
-<a name="traefik-10.0.43"></a>
-### [traefik-10.0.43](https://github.com/truecharts/apps/compare/traefik-10.0.42...traefik-10.0.43) (2022-01-27)
-
-#### Fix
-
-* hide Traefik metrics port and enable prometheus metrics
-
-
-
-<a name="traefik-10.0.42"></a>
-### [traefik-10.0.42](https://github.com/truecharts/apps/compare/traefik-10.0.41...traefik-10.0.42) (2022-01-25)
+<a name="traccar-4.0.27"></a>
+### [traccar-4.0.27](https://github.com/truecharts/apps/compare/traccar-4.0.26...traccar-4.0.27) (2022-01-25)
 
 #### Chore
 
@@ -585,8 +470,8 @@
 
 
 
-<a name="traefik-10.0.41"></a>
-### [traefik-10.0.41](https://github.com/truecharts/apps/compare/traefik-10.0.40...traefik-10.0.41) (2022-01-22)
+<a name="traccar-4.0.26"></a>
+### [traccar-4.0.26](https://github.com/truecharts/apps/compare/traccar-4.0.25...traccar-4.0.26) (2022-01-22)
 
 #### Chore
 
@@ -594,8 +479,17 @@
 
 
 
-<a name="traefik-10.0.40"></a>
-### [traefik-10.0.40](https://github.com/truecharts/apps/compare/traefik-10.0.39...traefik-10.0.40) (2022-01-21)
+<a name="traccar-4.0.25"></a>
+### [traccar-4.0.25](https://github.com/truecharts/apps/compare/traccar-4.0.24...traccar-4.0.25) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="traccar-4.0.24"></a>
+### [traccar-4.0.24](https://github.com/truecharts/apps/compare/traccar-4.0.23...traccar-4.0.24) (2022-01-21)
 
 #### Chore
 
@@ -607,8 +501,8 @@
 
 
 
-<a name="traefik-10.0.39"></a>
-### [traefik-10.0.39](https://github.com/truecharts/apps/compare/traefik-10.0.38...traefik-10.0.39) (2022-01-18)
+<a name="traccar-4.0.23"></a>
+### [traccar-4.0.23](https://github.com/truecharts/apps/compare/traccar-4.0.22...traccar-4.0.23) (2022-01-18)
 
 #### Chore
 
@@ -616,8 +510,8 @@
 
 
 
-<a name="traefik-10.0.38"></a>
-### [traefik-10.0.38](https://github.com/truecharts/apps/compare/traefik-10.0.37...traefik-10.0.38) (2022-01-13)
+<a name="traccar-4.0.22"></a>
+### [traccar-4.0.22](https://github.com/truecharts/apps/compare/traccar-4.0.21...traccar-4.0.22) (2022-01-13)
 
 #### Chore
 
@@ -629,8 +523,8 @@
 
 
 
-<a name="traefik-10.0.37"></a>
-### [traefik-10.0.37](https://github.com/truecharts/apps/compare/traefik-10.0.36...traefik-10.0.37) (2022-01-12)
+<a name="traccar-4.0.21"></a>
+### [traccar-4.0.21](https://github.com/truecharts/apps/compare/traccar-4.0.20...traccar-4.0.21) (2022-01-12)
 
 #### Chore
 
@@ -638,8 +532,8 @@
 
 
 
-<a name="traefik-10.0.36"></a>
-### [traefik-10.0.36](https://github.com/truecharts/apps/compare/traefik-10.0.35...traefik-10.0.36) (2022-01-11)
+<a name="traccar-4.0.20"></a>
+### [traccar-4.0.20](https://github.com/truecharts/apps/compare/traccar-4.0.19...traccar-4.0.20) (2022-01-11)
 
 #### Chore
 
@@ -647,17 +541,8 @@
 
 
 
-<a name="traefik-10.0.34"></a>
-### [traefik-10.0.34](https://github.com/truecharts/apps/compare/traefik-10.0.33...traefik-10.0.34) (2022-01-09)
-
-#### Fix
-
-* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
-
-
-
-<a name="traefik-10.0.33"></a>
-### [traefik-10.0.33](https://github.com/truecharts/apps/compare/traefik-10.0.32...traefik-10.0.33) (2022-01-04)
+<a name="traccar-4.0.19"></a>
+### [traccar-4.0.19](https://github.com/truecharts/apps/compare/traccar-4.0.18...traccar-4.0.19) (2022-01-04)
 
 #### Chore
 
@@ -665,8 +550,8 @@
 
 
 
-<a name="traefik-10.0.32"></a>
-### [traefik-10.0.32](https://github.com/truecharts/apps/compare/traefik-10.0.31...traefik-10.0.32) (2021-12-28)
+<a name="traccar-4.0.18"></a>
+### [traccar-4.0.18](https://github.com/truecharts/apps/compare/traccar-4.0.17...traccar-4.0.18) (2021-12-28)
 
 #### Chore
 
@@ -674,30 +559,8 @@
 
 
 
-<a name="traefik-10.0.31"></a>
-### [traefik-10.0.31](https://github.com/truecharts/apps/compare/traefik-10.0.30...traefik-10.0.31) (2021-12-27)
-
-#### Chore
-
-* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
-
-#### Fix
-
-* fix default ingress on traefik ([#1614](https://github.com/truecharts/apps/issues/1614))
-
-
-
-<a name="traefik-10.0.30"></a>
-### [traefik-10.0.30](https://github.com/truecharts/apps/compare/traefik-10.0.29...traefik-10.0.30) (2021-12-22)
-
-#### Feat
-
-* allow port-based redirect and move redirect to advanced settings. ([#1601](https://github.com/truecharts/apps/issues/1601))
-
-
-
-<a name="traefik-10.0.29"></a>
-### [traefik-10.0.29](https://github.com/truecharts/apps/compare/traefik-10.0.28...traefik-10.0.29) (2021-12-21)
+<a name="traccar-4.0.17"></a>
+### [traccar-4.0.17](https://github.com/truecharts/apps/compare/traccar-4.0.16...traccar-4.0.17) (2021-12-21)
 
 #### Chore
 
@@ -705,28 +568,39 @@
 
 
 
-<a name="traefik-10.0.28"></a>
-### [traefik-10.0.28](https://github.com/truecharts/apps/compare/traefik-10.0.27...traefik-10.0.28) (2021-12-19)
+<a name="traccar-4.0.16"></a>
+### [traccar-4.0.16](https://github.com/truecharts/apps/compare/traccar-4.0.15...traccar-4.0.16) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
 * remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
 
 
 
-<a name="traefik-10.0.27"></a>
-### [traefik-10.0.27](https://github.com/truecharts/apps/compare/traefik-10.0.26...traefik-10.0.27) (2021-12-19)
+<a name="traccar-4.0.15"></a>
+### [traccar-4.0.15](https://github.com/truecharts/apps/compare/traccar-4.0.14...traccar-4.0.15) (2021-12-19)
 
 #### Chore
 
-* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
 * update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
 
 
 
-<a name="traefik-10.0.26"></a>
-### [traefik-10.0.26](https://github.com/truecharts/apps/compare/traefik-10.0.25...traefik-10.0.26) (2021-12-14)
+<a name="traccar-4.0.14"></a>
+### [traccar-4.0.14](https://github.com/truecharts/apps/compare/traccar-4.0.13...traccar-4.0.14) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
+<a name="traccar-4.0.13"></a>
+### [traccar-4.0.13](https://github.com/truecharts/apps/compare/traccar-4.0.12...traccar-4.0.13) (2021-12-14)
 
 #### Chore
 
@@ -734,8 +608,8 @@
 
 
 
-<a name="traefik-10.0.25"></a>
-### [traefik-10.0.25](https://github.com/truecharts/apps/compare/traefik-10.0.24...traefik-10.0.25) (2021-12-13)
+<a name="traccar-4.0.12"></a>
+### [traccar-4.0.12](https://github.com/truecharts/apps/compare/traccar-4.0.11...traccar-4.0.12) (2021-12-13)
 
 #### Chore
 
@@ -743,17 +617,8 @@
 
 
 
-<a name="traefik-10.0.24"></a>
-### [traefik-10.0.24](https://github.com/truecharts/apps/compare/traefik-10.0.23...traefik-10.0.24) (2021-12-12)
-
-#### Chore
-
-* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
-
-
-
-<a name="traefik-10.0.23"></a>
-### [traefik-10.0.23](https://github.com/truecharts/apps/compare/traefik-10.0.22...traefik-10.0.23) (2021-12-11)
+<a name="traccar-4.0.11"></a>
+### [traccar-4.0.11](https://github.com/truecharts/apps/compare/traccar-4.0.10...traccar-4.0.11) (2021-12-11)
 
 #### Chore
 
@@ -761,8 +626,8 @@
 
 
 
-<a name="traefik-10.0.22"></a>
-### [traefik-10.0.22](https://github.com/truecharts/apps/compare/traefik-10.0.21...traefik-10.0.22) (2021-12-07)
+<a name="traccar-4.0.10"></a>
+### [traccar-4.0.10](https://github.com/truecharts/apps/compare/traccar-4.0.9...traccar-4.0.10) (2021-12-07)
 
 #### Chore
 
@@ -770,17 +635,18 @@
 
 
 
-<a name="traefik-10.0.21"></a>
-### traefik-10.0.21 (2021-12-05)
+<a name="traccar-4.0.9"></a>
+### traccar-4.0.9 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* ensure container references are prefixed with v
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
 * update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
 #### Fix
@@ -789,8 +655,8 @@
 
 
 
-<a name="traefik-10.0.20"></a>
-### [traefik-10.0.20](https://github.com/truecharts/apps/compare/traefik-10.0.19...traefik-10.0.20) (2021-12-05)
+<a name="traccar-4.0.8"></a>
+### [traccar-4.0.8](https://github.com/truecharts/apps/compare/traccar-4.0.7...traccar-4.0.8) (2021-12-05)
 
 #### Chore
 
@@ -798,8 +664,8 @@
 
 
 
-<a name="traefik-10.0.19"></a>
-### [traefik-10.0.19](https://github.com/truecharts/apps/compare/traefik-10.0.18...traefik-10.0.19) (2021-12-04)
+<a name="traccar-4.0.7"></a>
+### [traccar-4.0.7](https://github.com/truecharts/apps/compare/traccar-4.0.6...traccar-4.0.7) (2021-12-04)
 
 #### Chore
 
@@ -807,8 +673,8 @@
 
 
 
-<a name="traefik-10.0.18"></a>
-### [traefik-10.0.18](https://github.com/truecharts/apps/compare/traefik-10.0.17...traefik-10.0.18) (2021-12-04)
+<a name="traccar-4.0.6"></a>
+### [traccar-4.0.6](https://github.com/truecharts/apps/compare/traccar-4.0.5...traccar-4.0.6) (2021-12-04)
 
 #### Chore
 
@@ -816,32 +682,28 @@
 
 
 
-<a name="traefik-10.0.17"></a>
-### [traefik-10.0.17](https://github.com/truecharts/apps/compare/traefik-10.0.16...traefik-10.0.17) (2021-12-03)
+<a name="traccar-4.0.5"></a>
+### [traccar-4.0.5](https://github.com/truecharts/apps/compare/traccar-4.0.4...traccar-4.0.5) (2021-12-03)
 
 #### Chore
 
+* ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 
 
 
-<a name="traefik-10.0.16"></a>
-### [traefik-10.0.16](https://github.com/truecharts/apps/compare/traefik-10.0.15...traefik-10.0.16) (2021-11-30)
+<a name="traccar-4.0.4"></a>
+### [traccar-4.0.4](https://github.com/truecharts/apps/compare/traccar-4.0.3...traccar-4.0.4) (2021-11-30)
 
 #### Chore
 
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
-#### Fix
-
-* correct some ports mistakes ([#1416](https://github.com/truecharts/apps/issues/1416))
-* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
 
 
-
-<a name="traefik-10.0.15"></a>
-### [traefik-10.0.15](https://github.com/truecharts/apps/compare/traefik-10.0.14...traefik-10.0.15) (2021-11-23)
+<a name="traccar-4.0.3"></a>
+### [traccar-4.0.3](https://github.com/truecharts/apps/compare/traccar-4.0.2...traccar-4.0.3) (2021-11-23)
 
 #### Chore
 
@@ -849,8 +711,8 @@
 
 
 
-<a name="traefik-10.0.14"></a>
-### [traefik-10.0.14](https://github.com/truecharts/apps/compare/traefik-10.0.13...traefik-10.0.14) (2021-11-22)
+<a name="traccar-4.0.2"></a>
+### [traccar-4.0.2](https://github.com/truecharts/apps/compare/traccar-4.0.1...traccar-4.0.2) (2021-11-22)
 
 #### Chore
 
@@ -858,13 +720,12 @@
 
 #### Fix
 
-* [#1359](https://github.com/truecharts/apps/issues/1359) ([#1360](https://github.com/truecharts/apps/issues/1360))
 * Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
 
 
 
-<a name="traefik-10.0.13"></a>
-### [traefik-10.0.13](https://github.com/truecharts/apps/compare/traefik-10.0.12...traefik-10.0.13) (2021-11-16)
+<a name="traccar-4.0.1"></a>
+### [traccar-4.0.1](https://github.com/truecharts/apps/compare/traccar-4.0.0...traccar-4.0.1) (2021-11-16)
 
 #### Chore
 
@@ -872,52 +733,53 @@
 
 
 
-<a name="traefik-10.0.12"></a>
-### [traefik-10.0.12](https://github.com/truecharts/apps/compare/traefik-10.0.11...traefik-10.0.12) (2021-11-15)
+<a name="traccar-4.0.0"></a>
+### [traccar-4.0.0](https://github.com/truecharts/apps/compare/traccar-3.0.10...traccar-4.0.0) (2021-11-16)
 
 #### Chore
 
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
+<a name="traccar-3.0.10"></a>
+### [traccar-3.0.10](https://github.com/truecharts/apps/compare/traccar-3.0.9...traccar-3.0.10) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
 * update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
 
-#### Feat
-
-* readd ingress for standardisation
 
 
-
-<a name="traefik-10.0.11"></a>
-### [traefik-10.0.11](https://github.com/truecharts/apps/compare/traefik-10.0.10...traefik-10.0.11) (2021-11-14)
+<a name="traccar-3.0.9"></a>
+### [traccar-3.0.9](https://github.com/truecharts/apps/compare/traccar-3.0.8...traccar-3.0.9) (2021-11-14)
 
 #### Chore
 
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
 * move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
 * clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
 * update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
-* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* sync securityContext from values to questions ([#1323](https://github.com/truecharts/apps/issues/1323))
 
 
 
-<a name="traefik-10.0.10"></a>
-### [traefik-10.0.10](https://github.com/truecharts/apps/compare/traefik-10.0.9...traefik-10.0.10) (2021-11-14)
-
-#### Chore
-
-* move traefik and k8s gateway to core train
-
-
-
-<a name="traefik-10.0.9"></a>
-### [traefik-10.0.9](https://github.com/truecharts/apps/compare/traefik-10.0.8...traefik-10.0.9) (2021-11-09)
+<a name="traccar-3.0.8"></a>
+### [traccar-3.0.8](https://github.com/truecharts/apps/compare/traccar-3.0.7...traccar-3.0.8) (2021-11-09)
 
 #### Chore
 
 * update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
-* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
 
 
 
-<a name="traefik-10.0.8"></a>
-### [traefik-10.0.8](https://github.com/truecharts/apps/compare/traefik-10.0.7...traefik-10.0.8) (2021-11-07)
+<a name="traccar-3.0.7"></a>
+### [traccar-3.0.7](https://github.com/truecharts/apps/compare/traccar-3.0.6...traccar-3.0.7) (2021-11-07)
 
 #### Chore
 
@@ -925,17 +787,8 @@
 
 
 
-<a name="traefik-10.0.6"></a>
-### [traefik-10.0.6](https://github.com/truecharts/apps/compare/traefik-10.0.5...traefik-10.0.6) (2021-11-07)
-
-#### Fix
-
-* Don't try to run udp services under SCALE (we don't actively test it anyway)
-
-
-
-<a name="traefik-10.0.5"></a>
-### [traefik-10.0.5](https://github.com/truecharts/apps/compare/traefik-10.0.4...traefik-10.0.5) (2021-11-07)
+<a name="traccar-3.0.6"></a>
+### [traccar-3.0.6](https://github.com/truecharts/apps/compare/traccar-3.0.5...traccar-3.0.6) (2021-11-07)
 
 #### Chore
 
@@ -949,14 +802,10 @@
 
 * Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
 
-#### Fix
-
-* prevent duplicate port use and fix some questions.yaml mistakes
 
 
-
-<a name="traefik-10.0.4"></a>
-### [traefik-10.0.4](https://github.com/truecharts/apps/compare/traefik-10.0.3...traefik-10.0.4) (2021-11-02)
+<a name="traccar-3.0.5"></a>
+### [traccar-3.0.5](https://github.com/truecharts/apps/compare/traccar-3.0.4...traccar-3.0.5) (2021-11-02)
 
 #### Chore
 
@@ -964,8 +813,8 @@
 
 
 
-<a name="traefik-10.0.3"></a>
-### [traefik-10.0.3](https://github.com/truecharts/apps/compare/traefik-10.0.2...traefik-10.0.3) (2021-11-01)
+<a name="traccar-3.0.4"></a>
+### [traccar-3.0.4](https://github.com/truecharts/apps/compare/traccar-3.0.3...traccar-3.0.4) (2021-11-01)
 
 #### Chore
 
@@ -973,8 +822,17 @@
 
 
 
-<a name="traefik-10.0.2"></a>
-### [traefik-10.0.2](https://github.com/truecharts/apps/compare/traefik-10.0.1...traefik-10.0.2) (2021-10-26)
+<a name="traccar-3.0.3"></a>
+### [traccar-3.0.3](https://github.com/truecharts/apps/compare/traccar-3.0.2...traccar-3.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
+<a name="traccar-3.0.2"></a>
+### [traccar-3.0.2](https://github.com/truecharts/apps/compare/traccar-3.0.1...traccar-3.0.2) (2021-10-26)
 
 #### Chore
 
@@ -982,8 +840,8 @@
 
 
 
-<a name="traefik-10.0.1"></a>
-### [traefik-10.0.1](https://github.com/truecharts/apps/compare/traefik-10.0.0...traefik-10.0.1) (2021-10-26)
+<a name="traccar-3.0.1"></a>
+### [traccar-3.0.1](https://github.com/truecharts/apps/compare/traccar-3.0.0...traccar-3.0.1) (2021-10-26)
 
 #### Chore
 
@@ -991,8 +849,18 @@
 
 
 
-<a name="traefik-10.0.0"></a>
-### [traefik-10.0.0](https://github.com/truecharts/apps/compare/traefik-9.0.19...traefik-10.0.0) (2021-10-25)
+<a name="traccar-3.0.0"></a>
+### [traccar-3.0.0](https://github.com/truecharts/apps/compare/traccar-2.0.0...traccar-3.0.0) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5 ([#1234](https://github.com/truecharts/apps/issues/1234))
+* update helm chart postgresql to v4.1.0 ([#1237](https://github.com/truecharts/apps/issues/1237))
+
+
+
+<a name="traccar-2.0.0"></a>
+### [traccar-2.0.0](https://github.com/truecharts/apps/compare/traccar-1.0.3...traccar-2.0.0) (2021-10-25)
 
 #### Chore
 
@@ -1000,36 +868,39 @@
 
 
 
-<a name="traefik-9.0.19"></a>
-### [traefik-9.0.19](https://github.com/truecharts/apps/compare/traefik-9.0.16...traefik-9.0.19) (2021-10-20)
+<a name="traccar-1.0.3"></a>
+### [traccar-1.0.3](https://github.com/truecharts/apps/compare/traccar-1.0.0...traccar-1.0.3) (2021-10-20)
 
 #### Chore
 
 * bump apps, remove duplicates and move incubator to stable for RC1
-* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+
+
+<a name="traccar-1.0.0"></a>
+### [traccar-1.0.0](https://github.com/truecharts/apps/compare/traccar-0.0.4...traccar-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
 
 #### Fix
 
-* reenable postgresql migration scripting and bump all to force update
 * use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
 
 
 
-<a name="traefik-9.0.16"></a>
-### [traefik-9.0.16](https://github.com/truecharts/apps/compare/traefik-9.0.15...traefik-9.0.16) (2021-10-20)
+<a name="traccar-0.0.4"></a>
+### [traccar-0.0.4](https://github.com/truecharts/apps/compare/traccar-0.0.3...traccar-0.0.4) (2021-10-20)
 
 #### Chore
 
 * bump versions to rerelease and fix icons
 
-#### Security
-
-* Improve Snyk hardening advisory ([#1208](https://github.com/truecharts/apps/issues/1208))
 
 
-
-<a name="traefik-9.0.15"></a>
-### [traefik-9.0.15](https://github.com/truecharts/apps/compare/traefik-9.0.14...traefik-9.0.15) (2021-10-19)
+<a name="traccar-0.0.3"></a>
+### [traccar-0.0.3](https://github.com/truecharts/apps/compare/traccar-0.0.2...traccar-0.0.3) (2021-10-19)
 
 #### Change
 
@@ -1038,7 +909,6 @@
 #### Chore
 
 * Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
-* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
 * update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
 
 #### Feat
@@ -1051,205 +921,28 @@
 
 
 
-<a name="traefik-9.0.14"></a>
-### [traefik-9.0.14](https://github.com/truecharts/apps/compare/traefik-9.0.13...traefik-9.0.14) (2021-10-19)
-
-#### Fix
-
-* fix previous SCALE bugfix not correctly being applied
-
-
-
-<a name="traefik-9.0.13"></a>
-### [traefik-9.0.13](https://github.com/truecharts/apps/compare/traefik-9.0.12...traefik-9.0.13) (2021-10-19)
-
-#### Fix
-
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
-
-
-
-<a name="traefik-9.0.12"></a>
-### [traefik-9.0.12](https://github.com/truecharts/apps/compare/traefik-9.0.11...traefik-9.0.12) (2021-10-18)
-
-#### Refactor
-
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
-
-
-
-<a name="traefik-9.0.11"></a>
-### [traefik-9.0.11](https://github.com/truecharts/apps/compare/traefik-9.0.10...traefik-9.0.11) (2021-10-17)
+<a name="traccar-0.0.2"></a>
+### [traccar-0.0.2](https://github.com/truecharts/apps/compare/traccar-0.0.1...traccar-0.0.2) (2021-10-19)
 
 #### Chore
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
 
 
 
-<a name="traefik-9.0.10"></a>
-### [traefik-9.0.10](https://github.com/truecharts/apps/compare/traefik-9.0.9...traefik-9.0.10) (2021-10-13)
-
-#### Chore
-
-* update non-major deps helm releases ([#1133](https://github.com/truecharts/apps/issues/1133))
-
-
-
-<a name="traefik-9.0.9"></a>
-### [traefik-9.0.9](https://github.com/truecharts/apps/compare/traefik-9.0.8...traefik-9.0.9) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
-
-
-
-<a name="traefik-9.0.8"></a>
-### [traefik-9.0.8](https://github.com/truecharts/apps/compare/traefik-9.0.7...traefik-9.0.8) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
-
-
-
-<a name="traefik-9.0.7"></a>
-### [traefik-9.0.7](https://github.com/truecharts/apps/compare/traefik-9.0.6...traefik-9.0.7) (2021-10-05)
-
-#### Chore
-
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
-
-
-
-<a name="traefik-9.0.6"></a>
-### [traefik-9.0.6](https://github.com/truecharts/apps/compare/traefik-9.0.5...traefik-9.0.6) (2021-10-02)
-
-
-
-<a name="traefik-9.0.5"></a>
-### [traefik-9.0.5](https://github.com/truecharts/apps/compare/traefik-9.0.4...traefik-9.0.5) (2021-10-01)
-
-
-
-<a name="traefik-9.0.4"></a>
-### [traefik-9.0.4](https://github.com/truecharts/apps/compare/traefik-9.0.3...traefik-9.0.4) (2021-10-01)
-
-
-
-<a name="traefik-9.0.3"></a>
-### [traefik-9.0.3](https://github.com/truecharts/apps/compare/traefik-9.0.2...traefik-9.0.3) (2021-09-29)
-
-#### Chore
-
-* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
-
-
-
-<a name="traefik-9.0.1"></a>
-### [traefik-9.0.1](https://github.com/truecharts/apps/compare/traefik-9.0.0...traefik-9.0.1) (2021-09-26)
-
-
-
-<a name="traefik-9.0.0"></a>
-### [traefik-9.0.0](https://github.com/truecharts/apps/compare/traefik-8.0.4...traefik-9.0.0) (2021-09-26)
-
-
-
-<a name="traefik-8.0.4"></a>
-### [traefik-8.0.4](https://github.com/truecharts/apps/compare/traefik-8.0.3...traefik-8.0.4) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
-
-
-
-<a name="traefik-8.0.3"></a>
-### [traefik-8.0.3](https://github.com/truecharts/apps/compare/traefik-8.0.2...traefik-8.0.3) (2021-09-21)
-
-#### Chore
-
-* update non-major ([#1013](https://github.com/truecharts/apps/issues/1013))
-
-
-
-<a name="traefik-8.0.2"></a>
-### [traefik-8.0.2](https://github.com/truecharts/apps/compare/traefik-8.0.1...traefik-8.0.2) (2021-09-16)
-
-#### Fix
-
-* ensure traefik TLSOPtions get rendered correctly
-
-
-
-<a name="traefik-8.0.1"></a>
-### [traefik-8.0.1](https://github.com/truecharts/apps/compare/traefik-7.1.4...traefik-8.0.1) (2021-09-13)
-
-#### Chore
-
-* move most remaining Apps to GHCR mirror ([#959](https://github.com/truecharts/apps/issues/959))
-* move more dockerhub containers to GHCR mirror ([#958](https://github.com/truecharts/apps/issues/958))
-* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
+<a name="traccar-0.0.1"></a>
+### traccar-0.0.1 (2021-10-19)
 
 #### Feat
 
-* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
-* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
-* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
-* Move some common containers to our own containers
-
-#### Fix
-
-* make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
+* Add more Apps using postgresql ([#1136](https://github.com/truecharts/apps/issues/1136))
 
 
 
-<a name="traefik-7.1.4"></a>
-### [traefik-7.1.4](https://github.com/truecharts/apps/compare/traefik-7.1.3...traefik-7.1.4) (2021-09-08)
-
-#### Fix
-
-* remove non-functional redirectmiddelwares for nextcloud
-
-
-
-<a name="traefik-7.1.3"></a>
-### [traefik-7.1.3](https://github.com/truecharts/apps/compare/traefik-7.1.2...traefik-7.1.3) (2021-09-08)
-
-#### Fix
-
-* correct nextcloud middleware namespaces
-
-
-
-<a name="traefik-7.1.2"></a>
-### [traefik-7.1.2](https://github.com/truecharts/apps/compare/traefik-7.1.1...traefik-7.1.2) (2021-09-08)
-
-#### Fix
-
-* only release when version is bumped
-* use fixed version for traefik container for consistency
-
-
-
-<a name="traefik-7.1.1"></a>
-### [traefik-7.1.1](https://github.com/truecharts/apps/compare/traefik-7.1.0...traefik-7.1.1) (2021-09-08)
-
-#### Fix
-
-* fix release pipeline picking wrong file for appversion generation
-
-
-
-<a name="traefik-7.1.0"></a>
-### [traefik-7.1.0](https://github.com/truecharts/apps/compare/traefik-7.0.11...traefik-7.1.0) (2021-09-08)
+<a name="traccar-0.0.1"></a>
+### traccar-0.0.1 (2021-10-16)
 
 #### Feat
 
-* Add IPWhitelist, redirectRegex and (internal) nextcloud middlewares ([#929](https://github.com/truecharts/apps/issues/929))
-* Pre-commit and tag-appversion syncing ([#926](https://github.com/truecharts/apps/issues/926))
-
-<a name="traefik-7.0.11"></a>
-## [traefik-7.0.11](https://github.com/truecharts/apps/compare/traefik-7.0.10...traefik-7.0.11) (2021-09-08)
+* Add more Apps using postgresql

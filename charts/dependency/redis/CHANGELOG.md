@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [redis-3.0.31](https://github.com/truecharts/apps/compare/redis-3.0.30...redis-3.0.31) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="redis-3.0.30"></a>
 ### [redis-3.0.30](https://github.com/truecharts/apps/compare/redis-3.0.29...redis-3.0.30) (2022-07-12)
 

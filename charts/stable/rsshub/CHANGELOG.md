@@ -1,4 +1,22 @@
-# Changelog<br>
+# Changelog
+
+
+## [rsshub-3.0.32](https://github.com/truecharts/apps/compare/rsshub-3.0.31...rsshub-3.0.32) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="rsshub-3.0.31"></a>
+### [rsshub-3.0.31](https://github.com/truecharts/apps/compare/rsshub-3.0.30...rsshub-3.0.31) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="rsshub-3.0.30"></a>

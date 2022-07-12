@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [minisatip-2.0.12](https://github.com/truecharts/apps/compare/minisatip-2.0.11...minisatip-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="minisatip-2.0.11"></a>
+### [minisatip-2.0.11](https://github.com/truecharts/apps/compare/minisatip-2.0.10...minisatip-2.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="minisatip-2.0.10"></a>

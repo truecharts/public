@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [unifi-11.0.12](https://github.com/truecharts/apps/compare/unifi-11.0.11...unifi-11.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="unifi-11.0.11"></a>
+### [unifi-11.0.11](https://github.com/truecharts/apps/compare/unifi-11.0.10...unifi-11.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="unifi-11.0.10"></a>

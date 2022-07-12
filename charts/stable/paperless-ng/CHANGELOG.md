@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [paperless-ng-4.0.14](https://github.com/truecharts/apps/compare/paperless-ng-4.0.13...paperless-ng-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="paperless-ng-4.0.13"></a>
+### [paperless-ng-4.0.13](https://github.com/truecharts/apps/compare/paperless-ng-4.0.12...paperless-ng-4.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="paperless-ng-4.0.12"></a>

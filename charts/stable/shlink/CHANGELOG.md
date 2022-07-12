@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [shlink-4.0.14](https://github.com/truecharts/apps/compare/shlink-web-client-3.0.12...shlink-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="shlink-4.0.13"></a>
+### [shlink-4.0.13](https://github.com/truecharts/apps/compare/shlink-web-client-3.0.11...shlink-4.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="shlink-4.0.12"></a>

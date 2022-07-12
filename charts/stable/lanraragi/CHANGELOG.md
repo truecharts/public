@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [lanraragi-2.0.12](https://github.com/truecharts/apps/compare/lanraragi-2.0.11...lanraragi-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="lanraragi-2.0.11"></a>
+### [lanraragi-2.0.11](https://github.com/truecharts/apps/compare/lanraragi-2.0.10...lanraragi-2.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="lanraragi-2.0.10"></a>

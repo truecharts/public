@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [littlelink-6.0.26](https://github.com/truecharts/apps/compare/littlelink-6.0.25...littlelink-6.0.26) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="littlelink-6.0.25"></a>
+### [littlelink-6.0.25](https://github.com/truecharts/apps/compare/littlelink-6.0.24...littlelink-6.0.25) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="littlelink-6.0.24"></a>

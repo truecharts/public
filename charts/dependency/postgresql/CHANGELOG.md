@@ -1,4 +1,12 @@
-# Changelog<br>
+# Changelog
+
+
+## [postgresql-8.0.31](https://github.com/truecharts/apps/compare/postgresql-8.0.30...postgresql-8.0.31) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
 
 
 <a name="postgresql-8.0.30"></a>

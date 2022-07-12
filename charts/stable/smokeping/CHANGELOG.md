@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [smokeping-3.0.12](https://github.com/truecharts/apps/compare/smokeping-3.0.11...smokeping-3.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="smokeping-3.0.11"></a>
+### [smokeping-3.0.11](https://github.com/truecharts/apps/compare/smokeping-3.0.10...smokeping-3.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="smokeping-3.0.10"></a>

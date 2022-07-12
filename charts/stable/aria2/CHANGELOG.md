@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [aria2-5.0.13](https://github.com/truecharts/apps/compare/aria2-5.0.12...aria2-5.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="aria2-5.0.12"></a>
+### [aria2-5.0.12](https://github.com/truecharts/apps/compare/aria2-5.0.11...aria2-5.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="aria2-5.0.11"></a>

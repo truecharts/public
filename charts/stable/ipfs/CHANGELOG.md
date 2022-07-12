@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [ipfs-3.0.16](https://github.com/truecharts/apps/compare/ipfs-3.0.15...ipfs-3.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="ipfs-3.0.15"></a>
+### [ipfs-3.0.15](https://github.com/truecharts/apps/compare/ipfs-3.0.14...ipfs-3.0.15) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="ipfs-3.0.14"></a>

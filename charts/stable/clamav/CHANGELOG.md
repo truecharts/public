@@ -1,4 +1,22 @@
-# Changelog<br>
+# Changelog
+
+
+## [clamav-3.0.14](https://github.com/truecharts/apps/compare/clamav-3.0.13...clamav-3.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="clamav-3.0.13"></a>
+### [clamav-3.0.13](https://github.com/truecharts/apps/compare/clamav-3.0.12...clamav-3.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="clamav-3.0.12"></a>

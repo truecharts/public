@@ -1,4 +1,22 @@
-# Changelog<br>
+# Changelog
+
+
+## [kopia-2.0.20](https://github.com/truecharts/apps/compare/kopia-2.0.19...kopia-2.0.20) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="kopia-2.0.19"></a>
+### [kopia-2.0.19](https://github.com/truecharts/apps/compare/kopia-2.0.18...kopia-2.0.19) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="kopia-2.0.18"></a>

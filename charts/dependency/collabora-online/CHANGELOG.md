@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [collabora-online-12.1.8](https://github.com/truecharts/apps/compare/collabora-online-12.1.7...collabora-online-12.1.8) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="collabora-online-12.1.7"></a>
 ### [collabora-online-12.1.7](https://github.com/truecharts/apps/compare/collabora-online-12.1.6...collabora-online-12.1.7) (2022-07-12)
 

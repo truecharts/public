@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [logitech-media-server-4.0.14](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.13...logitech-media-server-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="logitech-media-server-4.0.13"></a>
+### [logitech-media-server-4.0.13](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.12...logitech-media-server-4.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="logitech-media-server-4.0.12"></a>

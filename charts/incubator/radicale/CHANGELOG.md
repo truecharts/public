@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [radicale-0.0.10](https://github.com/truecharts/apps/compare/radicale-0.0.9...radicale-0.0.10) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="radicale-0.0.9"></a>
+### [radicale-0.0.9](https://github.com/truecharts/apps/compare/radicale-0.0.8...radicale-0.0.9) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="radicale-0.0.8"></a>

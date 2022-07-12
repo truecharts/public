@@ -1,4 +1,21 @@
-# Changelog<br>
+# Changelog
+
+
+## [sickchill-3.0.14](https://github.com/truecharts/apps/compare/sickchill-3.0.13...sickchill-3.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="sickchill-3.0.13"></a>
+### [sickchill-3.0.13](https://github.com/truecharts/apps/compare/sickchill-3.0.12...sickchill-3.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="sickchill-3.0.12"></a>
