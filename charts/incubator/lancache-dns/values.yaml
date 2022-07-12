@@ -10,13 +10,7 @@ env:
   # If you are using a single monolithic instance set this to true
   USE_GENERIC_CACHE: false
   # Set IP for the monolithic app, only if USE_GENERIC_CACHE is true
-  LANCACHE_IP: ""
-  BLIZZARDCACHE_IP: ""
-  FRONTIERCACHE_IP: ""
-  ORIGINCACHE_IP: ""
-  RIOTCACHE_IP: ""
-  STEAMCACHE_IP: ""
-  UPLAYCACHE_IP: ""
+  LANCACHE_IP: "127.0.0.1"
   DISABLE_BLIZZARD: false
   DISABLE_RIOT: false
   DISABLE_UPLAY: false
