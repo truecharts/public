@@ -20,13 +20,13 @@ env:
   CACHE_INDEX_SIZE: "500m"
   CACHE_MAX_AGE: "3560d"
   NGINX_WORKER_PROCESSES: "{{ .Values.secretEnv.NGINX_WORKER_PROCESSES }}"
-  GENERICCACHE_VERSION: "{{ .Values.secretEnv.GENERICCACHE_VERSION }}"
+  GENERICCACHE_VERSION: {{ .Values.secretEnv.GENERICCACHE_VERSION }}
   WEBUSER: "{{ .Values.secretEnv.WEBUSER }}"
   BEAT_TIME: "{{ .Values.secretEnv.BEAT_TIME }}"
-  LOGFILE_RETENTION: "{{ .Values.secretEnv.LOGFILE_RETENTION }}"
+  LOGFILE_RETENTION: {{ .Values.secretEnv.LOGFILE_RETENTION }}
   CACHE_SLICE_SIZE: "{{ .Values.secretEnv.CACHE_SLICE_SIZE }}"
   CACHE_MODE: "{{ .Values.secretEnv.CACHE_MODE }}"
-  FORCE_PERMS_CHECK: "{{ .Values.secretEnv.FORCE_PERMS_CHECK }}"
+  FORCE_PERMS_CHECK: {{ .Values.secretEnv.FORCE_PERMS_CHECK }}
 
 secretEnv:
   NGINX_WORKER_PROCESSES: "auto"
