@@ -25,9 +25,9 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         port: 10280
         targetPort: 80
+        protocol: HTTP
 
 persistence:
   config:
