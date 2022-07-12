@@ -1,0 +1,37 @@
+image:
+  repository: lancachenet/monolithic
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:f233ed96ab6323a4463a26665b2faca38e8b5098b47227855be5328ab9a3cef4
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
+  CACHE_DOMAINS_BRANCH: "master"
+  UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
+  CACHE_DISK_SIZE: "1000000m"
+  CACHE_MAX_AGE: "3560d"
+  CACHE_INDEX_SIZE: "500m"
+  NOFETCH: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10279
+        targetPort: 80
+        protocol: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data/cache"
+  logs:
+    enabled: true
+    mountPath: "/data/logs"
