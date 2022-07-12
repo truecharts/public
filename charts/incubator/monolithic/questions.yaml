@@ -105,10 +105,10 @@ questions:
             default: false
         - variable: UPSTREAM_DNS
           label: "UPSTREAM DNS"
-          description: "upstream DNS server(s) the cache should use(separated by semi colons (or spaces). Do NOT point this at lancache-dns)"
+          description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
           schema:
             type: string
-            default: "1.1.1.1;1.0.0.1"
+            default: "1.1.1.1 1.0.0.1"
         - variable: CACHE_DISK_SIZE
           label: "CACHE DISK SIZE"
           description: "The amount of disk space the container should use for caching data"
@@ -121,12 +121,12 @@ questions:
           schema:
             type: string
             default: "3560d"
-        - variable: CACHE_MODE
-          label: "CACHE MODE"
-          description: "cache mode(generic)"
+        - variable: CACHE_INDEX_SIZE
+          label: "CACHE INDEX SIZE"
+          description: "Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB"
           schema:
             type: string
-            default: "generic"
+            default: "3560d"
 
   - variable: service
     group: "Networking and Services"
@@ -154,7 +154,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10280
+                              default: 10279
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -195,116 +195,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 80
-        - variable: dns-tcp
-          label: "dns-tcp Service"
-          description: "dns-tcp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: dns-tcp
-                      label: "dns-tcp Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 53
-                              required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "TCP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
-        - variable: dns-udp
-          label: "dns-udp Service"
-          description: "dns-udp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: dns-udp
-                      label: "dns-udp Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 53
-                              required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "UDP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
 
   - variable: serviceexpert
     group: "Networking and Services"
