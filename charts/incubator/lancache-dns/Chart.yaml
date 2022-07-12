@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: lancache-dns
+version: 0.0.1
+appVersion: "latest"
+description: DNS Docker service for a steamcache.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/lancache-dns
+icon: https://truecharts.org/img/appicons/lancache-dns.png
+keywords:
+  - lancache-dns
+  - dns
+sources:
+  - https://hub.docker.com/r/lancachenet/lancache-dns
+  - https://github.com/lancachenet/lancache-dns
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
