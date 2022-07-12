@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [collabora-online-12.1.11](https://github.com/truecharts/apps/compare/collabora-online-12.1.8...collabora-online-12.1.11) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [collabora-online-12.1.8](https://github.com/truecharts/apps/compare/collabora-online-12.1.7...collabora-online-12.1.8) (2022-07-12)
 
 ### Chore

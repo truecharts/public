@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [meshcentral-3.0.19](https://github.com/truecharts/apps/compare/meshcentral-3.0.17...meshcentral-3.0.19) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [meshcentral-3.0.17](https://github.com/truecharts/apps/compare/meshcentral-3.0.16...meshcentral-3.0.17) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [lazylibrarian-11.0.20](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.18...lazylibrarian-11.0.20) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [lazylibrarian-11.0.18](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.17...lazylibrarian-11.0.18) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [emby-11.0.14](https://github.com/truecharts/apps/compare/emby-11.0.12...emby-11.0.14) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [emby-11.0.12](https://github.com/truecharts/apps/compare/embystat-2.0.11...emby-11.0.12) (2022-07-12)
 
 ### Chore

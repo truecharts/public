@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [wikijs-7.0.16](https://github.com/truecharts/apps/compare/wikijs-7.0.14...wikijs-7.0.16) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [wikijs-7.0.14](https://github.com/truecharts/apps/compare/wikijs-7.0.13...wikijs-7.0.14) (2022-07-12)
 
 ### Chore

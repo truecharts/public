@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [homer-2.0.18](https://github.com/truecharts/apps/compare/homer-2.0.16...homer-2.0.18) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [homer-2.0.16](https://github.com/truecharts/apps/compare/homer-2.0.15...homer-2.0.16) (2022-07-12)
 
 ### Chore

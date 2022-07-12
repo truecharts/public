@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [nextcloud-15.2.11](https://github.com/truecharts/apps/compare/nextcloud-15.2.9...nextcloud-15.2.11) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [nextcloud-15.2.9](https://github.com/truecharts/apps/compare/nextcloud-15.2.8...nextcloud-15.2.9) (2022-07-12)
 
 ### Chore

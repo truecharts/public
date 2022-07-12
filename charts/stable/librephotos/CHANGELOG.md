@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [librephotos-4.0.17](https://github.com/truecharts/apps/compare/librephotos-4.0.15...librephotos-4.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [librephotos-4.0.15](https://github.com/truecharts/apps/compare/librephotos-4.0.14...librephotos-4.0.15) (2022-07-12)
 
 ### Chore

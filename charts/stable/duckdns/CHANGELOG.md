@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [duckdns-2.0.17](https://github.com/truecharts/apps/compare/duckdns-2.0.15...duckdns-2.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [duckdns-2.0.15](https://github.com/truecharts/apps/compare/duckdns-2.0.14...duckdns-2.0.15) (2022-07-12)
 
 ### Chore

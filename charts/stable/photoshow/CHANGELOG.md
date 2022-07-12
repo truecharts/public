@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [photoshow-3.0.14](https://github.com/truecharts/apps/compare/photoshow-3.0.12...photoshow-3.0.14) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [photoshow-3.0.12](https://github.com/truecharts/apps/compare/photoshow-3.0.11...photoshow-3.0.12) (2022-07-12)
 
 ### Chore

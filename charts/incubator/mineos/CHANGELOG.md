@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [mineos-0.0.6](https://github.com/truecharts/apps/compare/mineos-0.0.4...mineos-0.0.6) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [mineos-0.0.4](https://github.com/truecharts/apps/compare/mineos-0.0.3...mineos-0.0.4) (2022-07-12)
 
 ### Chore

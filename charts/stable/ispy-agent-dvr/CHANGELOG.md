@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [ispy-agent-dvr-2.0.20](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.18...ispy-agent-dvr-2.0.20) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [ispy-agent-dvr-2.0.18](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.17...ispy-agent-dvr-2.0.18) (2022-07-12)
 
 ### Chore

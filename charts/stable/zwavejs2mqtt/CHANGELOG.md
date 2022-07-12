@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [zwavejs2mqtt-11.0.17](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.15...zwavejs2mqtt-11.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [zwavejs2mqtt-11.0.15](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.14...zwavejs2mqtt-11.0.15) (2022-07-12)
 
 ### Chore

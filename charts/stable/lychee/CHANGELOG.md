@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [lychee-13.0.16](https://github.com/truecharts/apps/compare/lychee-13.0.14...lychee-13.0.16) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [lychee-13.0.14](https://github.com/truecharts/apps/compare/lychee-13.0.13...lychee-13.0.14) (2022-07-12)
 
 ### Chore

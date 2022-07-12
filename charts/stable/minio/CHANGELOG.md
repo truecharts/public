@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [minio-3.0.23](https://github.com/truecharts/apps/compare/minio-3.0.21...minio-3.0.23) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [minio-3.0.21](https://github.com/truecharts/apps/compare/minio-console-3.0.13...minio-3.0.21) (2022-07-12)
 
 ### Chore

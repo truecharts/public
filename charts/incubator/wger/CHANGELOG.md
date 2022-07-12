@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [wger-0.0.17](https://github.com/truecharts/apps/compare/wger-0.0.15...wger-0.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [wger-0.0.15](https://github.com/truecharts/apps/compare/wger-0.0.14...wger-0.0.15) (2022-07-12)
 
 ### Chore

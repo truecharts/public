@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [kopia-2.0.22](https://github.com/truecharts/apps/compare/kopia-2.0.20...kopia-2.0.22) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [kopia-2.0.20](https://github.com/truecharts/apps/compare/kopia-2.0.19...kopia-2.0.20) (2022-07-12)
 
 ### Chore

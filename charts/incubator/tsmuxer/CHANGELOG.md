@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [tsmuxer-0.0.7](https://github.com/truecharts/apps/compare/tsmuxer-0.0.5...tsmuxer-0.0.7) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [tsmuxer-0.0.5](https://github.com/truecharts/apps/compare/tsmuxer-0.0.4...tsmuxer-0.0.5) (2022-07-12)
 
 ### Chore

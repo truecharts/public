@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [plausible-0.0.5](https://github.com/truecharts/apps/compare/plausible-0.0.3...plausible-0.0.5) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [plausible-0.0.3](https://github.com/truecharts/apps/compare/plausible-0.0.2...plausible-0.0.3) (2022-07-12)
 
 ### Chore

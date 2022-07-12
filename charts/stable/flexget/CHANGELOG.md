@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [flexget-2.0.19](https://github.com/truecharts/apps/compare/flexget-2.0.17...flexget-2.0.19) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [flexget-2.0.17](https://github.com/truecharts/apps/compare/flexget-2.0.16...flexget-2.0.17) (2022-07-12)
 
 ### Chore

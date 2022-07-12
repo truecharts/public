@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [gitea-8.0.16](https://github.com/truecharts/apps/compare/gitea-8.0.14...gitea-8.0.16) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [gitea-8.0.14](https://github.com/truecharts/apps/compare/gitea-8.0.13...gitea-8.0.14) (2022-07-12)
 
 ### Chore

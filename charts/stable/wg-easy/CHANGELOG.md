@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [wg-easy-1.0.7](https://github.com/truecharts/apps/compare/wg-easy-1.0.5...wg-easy-1.0.7) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [wg-easy-1.0.5](https://github.com/truecharts/apps/compare/wg-easy-1.0.4...wg-easy-1.0.5) (2022-07-12)
 
 ### Chore

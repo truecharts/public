@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [storj-node-2.0.24](https://github.com/truecharts/apps/compare/storj-node-2.0.22...storj-node-2.0.24) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [storj-node-2.0.22](https://github.com/truecharts/apps/compare/storj-node-2.0.21...storj-node-2.0.22) (2022-07-12)
 
 ### Chore

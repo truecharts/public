@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [chevereto-3.0.15](https://github.com/truecharts/apps/compare/chevereto-3.0.13...chevereto-3.0.15) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [chevereto-3.0.13](https://github.com/truecharts/apps/compare/chevereto-3.0.12...chevereto-3.0.13) (2022-07-12)
 
 ### Chore

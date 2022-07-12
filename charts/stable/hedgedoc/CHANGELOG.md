@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [hedgedoc-4.0.13](https://github.com/truecharts/apps/compare/hedgedoc-4.0.11...hedgedoc-4.0.13) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [hedgedoc-4.0.11](https://github.com/truecharts/apps/compare/hedgedoc-4.0.10...hedgedoc-4.0.11) (2022-07-12)
 
 ### Chore

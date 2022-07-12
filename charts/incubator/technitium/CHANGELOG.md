@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [technitium-1.0.16](https://github.com/truecharts/apps/compare/technitium-1.0.14...technitium-1.0.16) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [technitium-1.0.14](https://github.com/truecharts/apps/compare/technitium-1.0.13...technitium-1.0.14) (2022-07-12)
 
 ### Chore

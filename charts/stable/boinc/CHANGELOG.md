@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [boinc-2.0.21](https://github.com/truecharts/apps/compare/boinc-2.0.19...boinc-2.0.21) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [boinc-2.0.19](https://github.com/truecharts/apps/compare/boinc-2.0.18...boinc-2.0.19) (2022-07-12)
 
 ### Chore

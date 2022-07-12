@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [grafana-4.0.25](https://github.com/truecharts/apps/compare/grafana-4.0.23...grafana-4.0.25) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [grafana-4.0.23](https://github.com/truecharts/apps/compare/grafana-4.0.22...grafana-4.0.23) (2022-07-12)
 
 ### Chore

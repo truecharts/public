@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [mediainfo-0.0.8](https://github.com/truecharts/apps/compare/mediainfo-0.0.6...mediainfo-0.0.8) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [mediainfo-0.0.6](https://github.com/truecharts/apps/compare/mediainfo-0.0.5...mediainfo-0.0.6) (2022-07-12)
 
 ### Chore

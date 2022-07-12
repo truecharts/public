@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [self-service-password-1.0.18](https://github.com/truecharts/apps/compare/self-service-password-1.0.16...self-service-password-1.0.18) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [self-service-password-1.0.16](https://github.com/truecharts/apps/compare/self-service-password-1.0.15...self-service-password-1.0.16) (2022-07-12)
 
 ### Chore

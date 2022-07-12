@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [senseai-server-0.0.13](https://github.com/truecharts/apps/compare/senseai-server-0.0.11...senseai-server-0.0.13) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [senseai-server-0.0.11](https://github.com/truecharts/apps/compare/senseai-server-0.0.10...senseai-server-0.0.11) (2022-07-12)
 
 ### Chore

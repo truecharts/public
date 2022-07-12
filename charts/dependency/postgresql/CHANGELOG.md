@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [postgresql-8.0.33](https://github.com/truecharts/apps/compare/postgresql-8.0.31...postgresql-8.0.33) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
 ## [postgresql-8.0.31](https://github.com/truecharts/apps/compare/postgresql-8.0.30...postgresql-8.0.31) (2022-07-12)
 
 ### Chore
