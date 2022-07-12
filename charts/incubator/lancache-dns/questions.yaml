@@ -77,26 +77,81 @@ questions:
           schema:
             type: string
             default: "1.1.1.1 1.0.0.1"
-        - variable: advanced
-          label: "Show Generic Settings"
+        - variable: USE_GENERIC_CACHE
+          label: "USE GENERIC CACHE"
+          description: "If you are using a single monolithic instance set this to true"
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: USE_GENERIC_CACHE
-                label: "USE GENERIC CACHE"
-                description: "using a single monolithic instance set true"
-                schema:
-                  type: boolean
-                  default: false
               - variable: LANCACHE_IP
                 label: "LANCACHE IP"
-                description: "set IP for the lancache-monolithic app"
+                description: "Set the IP for the lancache-monolithic app only if "
                 schema:
                   type: string
                   default: ""
-
+        - variable: customdisable
+          label: "Disable Cache DNS Resolvers"
+          schema:
+            show_if: [["USE_GENERIC_CACHE", "=", true]]
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: DISABLE_BLIZZARD
+                label: "Disable BLIZZARD"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: DISABLE_RIOT
+                label: "Disable RIOT"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: DISABLE_UPLAY
+                label: "Disable UPLAY"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: customips
+          label: "Custom IPs for Services"
+          schema:
+            show_if: [["USE_GENERIC_CACHE", "=", true]]
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: BLIZZARDCACHE_IP
+                label: "BLIZZARD CACHE IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: FRONTIERCACHE_IP
+                label: "FRONTIER CACHE IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: ORIGINCACHE_IP
+                label: "ORIGIN CACHE IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RIOTCACHE_IP
+                label: "RIOT CACHE IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: STEAMCACHE_IP
+                label: "STEAM CACHE IP"
+                schema:
+                  type: string
+                  default: ""
+              - variable: UPLAYCACHE_IP
+                label: "UPLAY CACHE IP"
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 
   - variable: service
