@@ -75,9 +75,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
-# Include{containerConfig}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -127,6 +124,7 @@ questions:
           schema:
             type: string
             default: "3560d"
+# Include{containerConfig}
 
   - variable: service
     group: "Networking and Services"
