@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="transmission-12.0.13"></a>
+### [transmission-12.0.13](https://github.com/truecharts/apps/compare/transmission-12.0.12...transmission-12.0.13) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="transmission-12.0.12"></a>

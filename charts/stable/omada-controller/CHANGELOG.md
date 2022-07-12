@@ -1,4 +1,14 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="omada-controller-6.0.23"></a>
+### [omada-controller-6.0.23](https://github.com/truecharts/apps/compare/omada-controller-6.0.22...omada-controller-6.0.23) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="omada-controller-6.0.22"></a>

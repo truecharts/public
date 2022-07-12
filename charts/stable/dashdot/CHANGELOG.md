@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="dashdot-1.0.22"></a>
+### [dashdot-1.0.22](https://github.com/truecharts/apps/compare/dashdot-1.0.21...dashdot-1.0.22) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="dashdot-1.0.21"></a>

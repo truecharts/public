@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="shiori-7.0.12"></a>
+### [shiori-7.0.12](https://github.com/truecharts/apps/compare/shiori-7.0.11...shiori-7.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="shiori-7.0.11"></a>

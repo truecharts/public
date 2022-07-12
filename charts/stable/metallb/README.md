@@ -1,4 +1,4 @@
-# Introduction
+# metallb
 
 A network load-balancer implementation for Kubernetes using standard routing protocols
 
@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://metallb.github.io/metallb | metallb | 0.12.1 |
+| https://metallb.github.io/metallb | metallb | 0.13.3 |
 
 ## Installing the Chart
 
@@ -27,6 +27,9 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 ## Upgrading, Rolling Back and Uninstalling the Chart
 
 To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+
+##### Connecting to other apps
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
 
 ## Support
 

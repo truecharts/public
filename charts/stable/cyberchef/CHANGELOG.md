@@ -1,4 +1,14 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="cyberchef-2.0.29"></a>
+### [cyberchef-2.0.29](https://github.com/truecharts/apps/compare/cyberchef-2.0.28...cyberchef-2.0.29) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="cyberchef-2.0.28"></a>

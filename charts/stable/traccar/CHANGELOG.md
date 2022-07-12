@@ -1,4 +1,5 @@
-# Changelog<br>
+# Changelog
+
 
 
 <a name="traccar-7.0.12"></a>

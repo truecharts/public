@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="qbittorrent-11.0.14"></a>
+### [qbittorrent-11.0.14](https://github.com/truecharts/apps/compare/qbittorrent-11.0.13...qbittorrent-11.0.14) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="qbittorrent-11.0.13"></a>

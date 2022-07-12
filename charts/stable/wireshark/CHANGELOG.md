@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="wireshark-2.0.11"></a>
+### [wireshark-2.0.11](https://github.com/truecharts/apps/compare/wireshark-2.0.10...wireshark-2.0.11) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="wireshark-2.0.10"></a>

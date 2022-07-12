@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="friendica-4.0.17"></a>
+### [friendica-4.0.17](https://github.com/truecharts/apps/compare/friendica-4.0.16...friendica-4.0.17) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="friendica-4.0.16"></a>

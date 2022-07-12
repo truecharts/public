@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="homer-2.0.15"></a>
+### [homer-2.0.15](https://github.com/truecharts/apps/compare/homer-2.0.14...homer-2.0.15) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="homer-2.0.14"></a>

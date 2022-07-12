@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="metallb-2.0.4"></a>
+### [metallb-2.0.4](https://github.com/truecharts/apps/compare/metallb-2.0.3...metallb-2.0.4) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="metallb-2.0.3"></a>

@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="onlyoffice-document-server-6.0.12"></a>
+### [onlyoffice-document-server-6.0.12](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.11...onlyoffice-document-server-6.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="onlyoffice-document-server-6.0.11"></a>

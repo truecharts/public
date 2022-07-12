@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="ubooquity-3.0.12"></a>
+### [ubooquity-3.0.12](https://github.com/truecharts/apps/compare/ubooquity-3.0.11...ubooquity-3.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="ubooquity-3.0.11"></a>

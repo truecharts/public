@@ -1,4 +1,14 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="monica-3.0.17"></a>
+### [monica-3.0.17](https://github.com/truecharts/apps/compare/monica-3.0.16...monica-3.0.17) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
 
 
 <a name="monica-3.0.16"></a>

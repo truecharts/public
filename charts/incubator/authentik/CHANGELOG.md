@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="authentik-2.0.16"></a>
+### [authentik-2.0.16](https://github.com/truecharts/apps/compare/authentik-2.0.15...authentik-2.0.16) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="authentik-2.0.15"></a>

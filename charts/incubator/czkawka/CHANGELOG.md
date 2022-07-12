@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="czkawka-0.0.6"></a>
+### [czkawka-0.0.6](https://github.com/truecharts/apps/compare/czkawka-0.0.5...czkawka-0.0.6) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="czkawka-0.0.5"></a>

@@ -1,4 +1,13 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="mineos-0.0.3"></a>
+### [mineos-0.0.3](https://github.com/truecharts/apps/compare/mineos-0.0.2...mineos-0.0.3) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
 
 
 <a name="mineos-0.0.2"></a>
