@@ -87,9 +87,10 @@ questions:
             subquestions:
               - variable: LANCACHE_IP
                 label: "LANCACHE IP"
-                description: "Set the IP for the lancache-monolithic app only if "
+                description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
                 schema:
                   type: string
+                  required: true
                   default: ""
         - variable: customdisable
           label: "Disable Cache DNS Resolvers"
