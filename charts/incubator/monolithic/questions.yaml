@@ -120,13 +120,6 @@ questions:
           schema:
             type: string
             default: "3560d"
-  - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: CACHE_MODE
           label: "CACHE MODE"
           description: "cache mode(generic)"
