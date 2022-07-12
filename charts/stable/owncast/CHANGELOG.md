@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-6.0.12"></a>
+### [owncast-6.0.12](https://github.com/truecharts/apps/compare/owncast-6.0.11...owncast-6.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="owncast-6.0.11"></a>
 ### [owncast-6.0.11](https://github.com/truecharts/apps/compare/owncast-6.0.10...owncast-6.0.11) (2022-07-10)
 

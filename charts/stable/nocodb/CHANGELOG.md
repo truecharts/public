@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nocodb-3.0.16"></a>
+### [nocodb-3.0.16](https://github.com/truecharts/apps/compare/nocodb-3.0.15...nocodb-3.0.16) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="nocodb-3.0.15"></a>
 ### [nocodb-3.0.15](https://github.com/truecharts/apps/compare/nocodb-3.0.14...nocodb-3.0.15) (2022-07-09)
 

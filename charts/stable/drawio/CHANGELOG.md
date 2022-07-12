@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="drawio-2.0.16"></a>
+### [drawio-2.0.16](https://github.com/truecharts/apps/compare/drawio-2.0.15...drawio-2.0.16) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="drawio-2.0.15"></a>
 ### [drawio-2.0.15](https://github.com/truecharts/apps/compare/drawio-2.0.14...drawio-2.0.15) (2022-07-09)
 

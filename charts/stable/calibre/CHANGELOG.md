@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-7.0.15"></a>
+### [calibre-7.0.15](https://github.com/truecharts/apps/compare/calibre-7.0.14...calibre-7.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="calibre-7.0.14"></a>
 ### [calibre-7.0.14](https://github.com/truecharts/apps/compare/calibre-7.0.13...calibre-7.0.14) (2022-07-10)
 

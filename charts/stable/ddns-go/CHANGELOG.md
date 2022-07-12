@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ddns-go-2.0.11"></a>
+### [ddns-go-2.0.11](https://github.com/truecharts/apps/compare/ddns-go-2.0.10...ddns-go-2.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="ddns-go-2.0.10"></a>
 ### [ddns-go-2.0.10](https://github.com/truecharts/apps/compare/ddns-go-2.0.9...ddns-go-2.0.10) (2022-07-09)
 

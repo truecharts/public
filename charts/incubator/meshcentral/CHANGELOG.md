@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="meshcentral-3.0.15"></a>
+### [meshcentral-3.0.15](https://github.com/truecharts/apps/compare/meshcentral-3.0.14...meshcentral-3.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="meshcentral-3.0.14"></a>
 ### [meshcentral-3.0.14](https://github.com/truecharts/apps/compare/meshcentral-3.0.13...meshcentral-3.0.14) (2022-07-11)
 

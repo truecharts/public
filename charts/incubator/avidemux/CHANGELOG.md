@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="avidemux-0.0.4"></a>
+### [avidemux-0.0.4](https://github.com/truecharts/apps/compare/avidemux-0.0.3...avidemux-0.0.4) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
 
 <a name="avidemux-0.0.2"></a>
 ### [avidemux-0.0.2](https://github.com/truecharts/apps/compare/avidemux-0.0.1...avidemux-0.0.2) (2022-07-09)

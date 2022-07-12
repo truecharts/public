@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="homer-2.0.14"></a>
+### [homer-2.0.14](https://github.com/truecharts/apps/compare/homer-2.0.13...homer-2.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="homer-2.0.13"></a>
 ### [homer-2.0.13](https://github.com/truecharts/apps/compare/homer-2.0.12...homer-2.0.13) (2022-07-09)
 

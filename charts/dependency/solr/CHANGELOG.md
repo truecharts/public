@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="solr-0.0.3"></a>
+### [solr-0.0.3](https://github.com/truecharts/apps/compare/solr-0.0.2...solr-0.0.3) (2022-07-11)
+
+
+
 <a name="solr-0.0.2"></a>
 ### [solr-0.0.2](https://github.com/truecharts/apps/compare/solr-0.0.1...solr-0.0.2) (2022-07-11)
 

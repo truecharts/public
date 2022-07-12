@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fleet-3.0.11"></a>
+### [fleet-3.0.11](https://github.com/truecharts/apps/compare/fleet-3.0.10...fleet-3.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="fleet-3.0.10"></a>
 ### [fleet-3.0.10](https://github.com/truecharts/apps/compare/fleet-3.0.9...fleet-3.0.10) (2022-07-09)
 

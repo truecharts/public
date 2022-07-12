@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-2.0.11"></a>
+### [webgrabplus-2.0.11](https://github.com/truecharts/apps/compare/webgrabplus-2.0.10...webgrabplus-2.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="webgrabplus-2.0.10"></a>
 ### [webgrabplus-2.0.10](https://github.com/truecharts/apps/compare/webgrabplus-2.0.9...webgrabplus-2.0.10) (2022-07-09)
 

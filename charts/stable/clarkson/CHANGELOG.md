@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-3.0.12"></a>
+### [clarkson-3.0.12](https://github.com/truecharts/apps/compare/clarkson-3.0.11...clarkson-3.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="clarkson-3.0.11"></a>
 ### [clarkson-3.0.11](https://github.com/truecharts/apps/compare/clarkson-3.0.10...clarkson-3.0.11) (2022-07-09)
 

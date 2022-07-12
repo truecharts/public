@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-2.0.11"></a>
+### [syslog-ng-2.0.11](https://github.com/truecharts/apps/compare/syslog-ng-2.0.10...syslog-ng-2.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="syslog-ng-2.0.10"></a>
 ### [syslog-ng-2.0.10](https://github.com/truecharts/apps/compare/syslog-ng-2.0.9...syslog-ng-2.0.10) (2022-07-09)
 

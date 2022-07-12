@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ferdi-server-3.0.10"></a>
+### [ferdi-server-3.0.10](https://github.com/truecharts/apps/compare/ferdi-server-3.0.9...ferdi-server-3.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="ferdi-server-3.0.9"></a>
 ### [ferdi-server-3.0.9](https://github.com/truecharts/apps/compare/ferdi-server-3.0.8...ferdi-server-3.0.9) (2022-07-09)
 

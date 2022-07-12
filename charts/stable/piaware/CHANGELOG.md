@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-6.0.11"></a>
+### [piaware-6.0.11](https://github.com/truecharts/apps/compare/piaware-6.0.10...piaware-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="piaware-6.0.10"></a>
 ### [piaware-6.0.10](https://github.com/truecharts/apps/compare/piaware-6.0.9...piaware-6.0.10) (2022-07-09)
 

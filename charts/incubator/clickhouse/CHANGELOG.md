@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="clickhouse-0.0.5"></a>
+### [clickhouse-0.0.5](https://github.com/truecharts/apps/compare/clickhouse-0.0.4...clickhouse-0.0.5) (2022-07-11)
+
+
+
 <a name="clickhouse-0.0.4"></a>
 ### [clickhouse-0.0.4](https://github.com/truecharts/apps/compare/clickhouse-0.0.3...clickhouse-0.0.4) (2022-07-11)
 

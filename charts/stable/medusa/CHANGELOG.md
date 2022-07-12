@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-3.0.14"></a>
+### [medusa-3.0.14](https://github.com/truecharts/apps/compare/medusa-3.0.13...medusa-3.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="medusa-3.0.13"></a>
 ### [medusa-3.0.13](https://github.com/truecharts/apps/compare/medusa-3.0.12...medusa-3.0.13) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-2.0.10"></a>
+### [nntp2nntp-2.0.10](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.9...nntp2nntp-2.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="nntp2nntp-2.0.9"></a>
 ### [nntp2nntp-2.0.9](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.8...nntp2nntp-2.0.9) (2022-07-09)
 

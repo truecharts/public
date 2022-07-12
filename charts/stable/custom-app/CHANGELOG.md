@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-5.1.6"></a>
+### [custom-app-5.1.6](https://github.com/truecharts/apps/compare/custom-app-5.1.5...custom-app-5.1.6) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="custom-app-5.1.5"></a>
 ### [custom-app-5.1.5](https://github.com/truecharts/apps/compare/custom-app-5.1.4...custom-app-5.1.5) (2022-07-09)
 

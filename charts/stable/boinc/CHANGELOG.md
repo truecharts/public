@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-2.0.17"></a>
+### [boinc-2.0.17](https://github.com/truecharts/apps/compare/boinc-2.0.16...boinc-2.0.17) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="boinc-2.0.16"></a>
 ### [boinc-2.0.16](https://github.com/truecharts/apps/compare/boinc-2.0.15...boinc-2.0.16) (2022-07-10)
 

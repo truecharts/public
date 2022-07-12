@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-6.0.11"></a>
+### [librespeed-6.0.11](https://github.com/truecharts/apps/compare/librespeed-6.0.10...librespeed-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="librespeed-6.0.10"></a>
 ### [librespeed-6.0.10](https://github.com/truecharts/apps/compare/librespeed-6.0.9...librespeed-6.0.10) (2022-07-09)
 

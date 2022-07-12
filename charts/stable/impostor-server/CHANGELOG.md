@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-1.0.14"></a>
+### [impostor-server-1.0.14](https://github.com/truecharts/apps/compare/impostor-server-1.0.13...impostor-server-1.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="impostor-server-1.0.13"></a>
 ### [impostor-server-1.0.13](https://github.com/truecharts/apps/compare/impostor-server-1.0.12...impostor-server-1.0.13) (2022-07-09)
 

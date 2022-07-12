@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-4.0.16"></a>
+### [friendica-4.0.16](https://github.com/truecharts/apps/compare/friendica-4.0.15...friendica-4.0.16) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="friendica-4.0.15"></a>
 ### [friendica-4.0.15](https://github.com/truecharts/apps/compare/friendica-4.0.14...friendica-4.0.15) (2022-07-09)
 

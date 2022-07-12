@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-6.0.11"></a>
+### [gonic-6.0.11](https://github.com/truecharts/apps/compare/gonic-6.0.10...gonic-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="gonic-6.0.10"></a>
 ### [gonic-6.0.10](https://github.com/truecharts/apps/compare/gonic-6.0.9...gonic-6.0.10) (2022-07-09)
 

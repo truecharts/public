@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-11.0.13"></a>
+### [syncthing-11.0.13](https://github.com/truecharts/apps/compare/syncthing-11.0.12...syncthing-11.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="syncthing-11.0.12"></a>
 ### [syncthing-11.0.12](https://github.com/truecharts/apps/compare/syncthing-11.0.11...syncthing-11.0.12) (2022-07-10)
 

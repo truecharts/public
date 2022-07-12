@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="redis-3.0.29"></a>
+### [redis-3.0.29](https://github.com/truecharts/apps/compare/redis-3.0.28...redis-3.0.29) (2022-07-11)
+
+
+
 <a name="redis-3.0.28"></a>
 ### [redis-3.0.28](https://github.com/truecharts/apps/compare/redis-3.0.27...redis-3.0.28) (2022-07-11)
 

@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="memcached-3.0.28"></a>
+### [memcached-3.0.28](https://github.com/truecharts/apps/compare/memcached-3.0.27...memcached-3.0.28) (2022-07-11)
+
+
+
 <a name="memcached-3.0.27"></a>
 ### [memcached-3.0.27](https://github.com/truecharts/apps/compare/memcached-3.0.26...memcached-3.0.27) (2022-07-11)
 
