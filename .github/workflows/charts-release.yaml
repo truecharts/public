@@ -87,7 +87,7 @@ jobs:
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Removing Chart Docs prior to regeneration..."
-          for deltrain in /charts/*; do
+          for deltrain in charts/*; do
             deletethis=$(basename deltrain)
             rm -rf website/docs/charts/${deletethis}
           done
