@@ -87,6 +87,7 @@ jobs:
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
+          rm -rf website/charts/*
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
