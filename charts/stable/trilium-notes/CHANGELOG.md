@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-5.0.11"></a>
+### [trilium-notes-5.0.11](https://github.com/truecharts/apps/compare/trilium-notes-5.0.10...trilium-notes-5.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="trilium-notes-5.0.10"></a>
 ### [trilium-notes-5.0.10](https://github.com/truecharts/apps/compare/trilium-notes-5.0.9...trilium-notes-5.0.10) (2022-07-09)
 

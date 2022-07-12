@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pylon-2.0.10"></a>
+### [pylon-2.0.10](https://github.com/truecharts/apps/compare/pylon-2.0.9...pylon-2.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="pylon-2.0.9"></a>
 ### [pylon-2.0.9](https://github.com/truecharts/apps/compare/pylon-2.0.8...pylon-2.0.9) (2022-07-09)
 

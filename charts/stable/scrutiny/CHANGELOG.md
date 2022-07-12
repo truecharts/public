@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-3.0.8"></a>
+### [scrutiny-3.0.8](https://github.com/truecharts/apps/compare/scrutiny-3.0.7...scrutiny-3.0.8) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="scrutiny-3.0.7"></a>
 ### [scrutiny-3.0.7](https://github.com/truecharts/apps/compare/scrutiny-3.0.6...scrutiny-3.0.7) (2022-07-09)
 

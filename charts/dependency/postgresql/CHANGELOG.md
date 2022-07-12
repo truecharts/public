@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="postgresql-8.0.30"></a>
+### [postgresql-8.0.30](https://github.com/truecharts/apps/compare/postgresql-8.0.29...postgresql-8.0.30) (2022-07-11)
+
+
+
 <a name="postgresql-8.0.29"></a>
 ### [postgresql-8.0.29](https://github.com/truecharts/apps/compare/postgresql-8.0.28...postgresql-8.0.29) (2022-07-11)
 

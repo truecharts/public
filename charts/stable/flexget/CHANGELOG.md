@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flexget-2.0.15"></a>
+### [flexget-2.0.15](https://github.com/truecharts/apps/compare/flexget-2.0.14...flexget-2.0.15) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="flexget-2.0.14"></a>
 ### [flexget-2.0.14](https://github.com/truecharts/apps/compare/flexget-2.0.13...flexget-2.0.14) (2022-07-09)
 

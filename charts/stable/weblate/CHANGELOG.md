@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-4.0.12"></a>
+### [weblate-4.0.12](https://github.com/truecharts/apps/compare/weblate-4.0.11...weblate-4.0.12) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="weblate-4.0.11"></a>
 ### [weblate-4.0.11](https://github.com/truecharts/apps/compare/weblate-4.0.10...weblate-4.0.11) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-7.0.11"></a>
+### [openldap-7.0.11](https://github.com/truecharts/apps/compare/openldap-7.0.10...openldap-7.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="openldap-7.0.10"></a>
 ### [openldap-7.0.10](https://github.com/truecharts/apps/compare/openldap-7.0.9...openldap-7.0.10) (2022-07-09)
 

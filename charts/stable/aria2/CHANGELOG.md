@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-5.0.11"></a>
+### [aria2-5.0.11](https://github.com/truecharts/apps/compare/aria2-5.0.10...aria2-5.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="aria2-5.0.10"></a>
 ### [aria2-5.0.10](https://github.com/truecharts/apps/compare/aria2-5.0.9...aria2-5.0.10) (2022-07-09)
 

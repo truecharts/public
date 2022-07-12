@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-4.0.26"></a>
+### [prometheus-4.0.26](https://github.com/truecharts/apps/compare/prometheus-4.0.25...prometheus-4.0.26) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="prometheus-4.0.25"></a>
 ### [prometheus-4.0.25](https://github.com/truecharts/apps/compare/prometheus-4.0.24...prometheus-4.0.25) (2022-07-09)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-3.0.19"></a>
+### [minio-3.0.19](https://github.com/truecharts/apps/compare/minio-3.0.18...minio-3.0.19) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="minio-3.0.18"></a>
 ### [minio-3.0.18](https://github.com/truecharts/apps/compare/minio-3.0.17...minio-3.0.18) (2022-07-09)
 

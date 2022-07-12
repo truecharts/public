@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-8.0.11"></a>
+### [dsmr-reader-8.0.11](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.10...dsmr-reader-8.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="dsmr-reader-8.0.10"></a>
 ### [dsmr-reader-8.0.10](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.9...dsmr-reader-8.0.10) (2022-07-09)
 

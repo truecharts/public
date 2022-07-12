@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-6.0.11"></a>
+### [xteve-6.0.11](https://github.com/truecharts/apps/compare/xteve-6.0.10...xteve-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="xteve-6.0.10"></a>
 ### [xteve-6.0.10](https://github.com/truecharts/apps/compare/xteve-6.0.9...xteve-6.0.10) (2022-07-09)
 

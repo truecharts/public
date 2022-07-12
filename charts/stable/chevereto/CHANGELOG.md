@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="chevereto-3.0.11"></a>
+### [chevereto-3.0.11](https://github.com/truecharts/apps/compare/chevereto-3.0.10...chevereto-3.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="chevereto-3.0.10"></a>
 ### [chevereto-3.0.10](https://github.com/truecharts/apps/compare/chevereto-3.0.9...chevereto-3.0.10) (2022-07-09)
 

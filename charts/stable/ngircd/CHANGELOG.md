@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ngircd-2.0.10"></a>
+### [ngircd-2.0.10](https://github.com/truecharts/apps/compare/ngircd-2.0.9...ngircd-2.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="ngircd-2.0.9"></a>
 ### [ngircd-2.0.9](https://github.com/truecharts/apps/compare/ngircd-2.0.8...ngircd-2.0.9) (2022-07-09)
 

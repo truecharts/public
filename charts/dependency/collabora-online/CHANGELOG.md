@@ -1,4 +1,22 @@
-# Changelog<br>
+# Changelog
+
+
+<a name="collabora-online-12.1.7"></a>
+### [collabora-online-12.1.7](https://github.com/truecharts/apps/compare/collabora-online-12.1.6...collabora-online-12.1.7) (2022-07-12)
+
+#### Chore
+
+* update helm chart common to v10.4.4 ([#3146](https://github.com/truecharts/apps/issues/3146))
+
+
+
+<a name="collabora-online-12.1.6"></a>
+### [collabora-online-12.1.6](https://github.com/truecharts/apps/compare/collabora-online-12.1.5...collabora-online-12.1.6) (2022-07-11)
+
+#### Chore
+
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
 
 
 <a name="collabora-online-12.1.5"></a>

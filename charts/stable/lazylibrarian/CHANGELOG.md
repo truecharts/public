@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-11.0.16"></a>
+### [lazylibrarian-11.0.16](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.15...lazylibrarian-11.0.16) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="lazylibrarian-11.0.15"></a>
 ### [lazylibrarian-11.0.15](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.14...lazylibrarian-11.0.15) (2022-07-10)
 

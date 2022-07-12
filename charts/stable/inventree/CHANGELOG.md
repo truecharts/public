@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="inventree-3.0.13"></a>
+### [inventree-3.0.13](https://github.com/truecharts/apps/compare/inventree-3.0.12...inventree-3.0.13) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="inventree-3.0.12"></a>
 ### [inventree-3.0.12](https://github.com/truecharts/apps/compare/inventree-3.0.11...inventree-3.0.12) (2022-07-09)
 

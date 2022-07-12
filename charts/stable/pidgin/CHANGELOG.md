@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pidgin-2.0.10"></a>
+### [pidgin-2.0.10](https://github.com/truecharts/apps/compare/pidgin-2.0.9...pidgin-2.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="pidgin-2.0.9"></a>
 ### [pidgin-2.0.9](https://github.com/truecharts/apps/compare/pidgin-2.0.8...pidgin-2.0.9) (2022-07-09)
 

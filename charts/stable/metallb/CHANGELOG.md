@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="metallb-2.0.3"></a>
+### [metallb-2.0.3](https://github.com/truecharts/apps/compare/metallb-2.0.2...metallb-2.0.3) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
 <a name="metallb-2.0.2"></a>
 ### [metallb-2.0.2](https://github.com/truecharts/apps/compare/metallb-2.0.1...metallb-2.0.2) (2022-06-07)
 
