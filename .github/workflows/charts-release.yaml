@@ -97,6 +97,7 @@ jobs:
                 yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/security.md website/docs/charts/${train}/${chart}/security.md 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/appicons/${chart}.png 2>/dev/null || :
                 rm website/docs/charts/${train}/${chart}/LICENSE.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/LICENSE website/docs/charts/${train}/${chart}/LICENSE.md 2>/dev/null || :
                 sed -i '1s/^/# License<br>\n\n/' website/docs/charts/${train}/${chart}/LICENSE.md 2>/dev/null || :
