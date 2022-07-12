@@ -1,7 +1,7 @@
 image:
   repository: lancachenet/monolithic
-  tag: "latest"
   pullPolicy: IfNotPresent
+  tag: latest@sha256:f233ed96ab6323a4463a26665b2faca38e8b5098b47227855be5328ab9a3cef4
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,21 +12,14 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
-  CACHE_DOMAINS_BRANCH: "master"
-  NOFETCH: false
-  UPSTREAM_DNS: "1.1.1.1;1.0.0.1"
+  UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
   CACHE_DISK_SIZE: "1000000m"
-  CACHE_INDEX_SIZE: "500m"
+  CACHE_MEM_SIZE: "500m"
   CACHE_MAX_AGE: "3560d"
-  NGINX_WORKER_PROCESSES: "auto"
-  GENERICCACHE_VERSION: 2
-  WEBUSER: "www-data"
-  BEAT_TIME: "1h"
-  LOGFILE_RETENTION: 3560
-  CACHE_SLICE_SIZE: "1m"
-  CACHE_MODE: "generic"
-  FORCE_PERMS_CHECK: false
+  CACHE_INDEX_SIZE: "500m"
+  CACHE_DOMAINS_BRANCH: "master"
+  CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
+  NOFETCH: false
 
 service:
   main:
@@ -35,21 +28,6 @@ service:
         protocol: HTTP
         port: 10280
         targetPort: 80
-  dns-tcp:
-    enabled: true
-    ports:
-      dns-tcp:
-        enabled: true
-        port: 53
-        targetPort: 53
-  dns-udp:
-    enabled: true
-    ports:
-      dns-udp:
-        enabled: true
-        protocol: UDP
-        port: 53
-        targetPort: 53
 
 persistence:
   config:
