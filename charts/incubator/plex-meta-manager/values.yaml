@@ -13,7 +13,7 @@ podSecurityContext:
 
 env:
   PUID: "{{ .Values.security.PUID }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+  PGID: "{{ .Values.podSecurityContext.fsGroup }}"
   # PMM_CONFIG: ""
   PMM_TIME: "03:00"
   PMM_RUN: false
