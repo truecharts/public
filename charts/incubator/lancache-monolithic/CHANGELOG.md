@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [lancache-monolithic-0.0.5](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.4...lancache-monolithic-0.0.5) (2022-07-13)
+
+
+
 ## [lancache-monolithic-0.0.4](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.2...lancache-monolithic-0.0.4) (2022-07-12)
 
 ### Chore
