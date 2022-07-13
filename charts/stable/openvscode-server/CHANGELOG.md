@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openvscode-server-2.0.18](https://github.com/truecharts/apps/compare/openvscode-server-2.0.17...openvscode-server-2.0.18) (2022-07-13)
+
+### Chore
+
+- update docker general non-major ([#3157](https://github.com/truecharts/apps/issues/3157))
+
+
+
 ## [openvscode-server-2.0.17](https://github.com/truecharts/apps/compare/openvscode-server-2.0.15...openvscode-server-2.0.17) (2022-07-12)
 
 ### Chore

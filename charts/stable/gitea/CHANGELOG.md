@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gitea-8.0.17](https://github.com/truecharts/apps/compare/gitea-8.0.16...gitea-8.0.17) (2022-07-13)
+
+### Chore
+
+- update docker general non-major ([#3157](https://github.com/truecharts/apps/issues/3157))
+
+
+
 ## [gitea-8.0.16](https://github.com/truecharts/apps/compare/gitea-8.0.14...gitea-8.0.16) (2022-07-12)
 
 ### Chore
