@@ -65,7 +65,7 @@ questions:
           description: "Specify a custom config file to use internally ex: /config/config.yaml"
           schema:
             type: string
-            default: "/config/config.yaml"
+            default: ""
         - variable: PMM_TIME
           label: "PMM TIME"
           description: "Comma-separated list of times to update each day. Format: HH:MM"
