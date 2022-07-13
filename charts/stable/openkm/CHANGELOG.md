@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [openkm-7.0.15](https://github.com/truecharts/apps/compare/openkm-7.0.13...openkm-7.0.15) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [openkm-7.0.13](https://github.com/truecharts/apps/compare/openkm-7.0.12...openkm-7.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="openkm-7.0.12"></a>
 ### [openkm-7.0.12](https://github.com/truecharts/apps/compare/openkm-7.0.11...openkm-7.0.12) (2022-07-12)
 

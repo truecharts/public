@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [openvscode-server-2.0.17](https://github.com/truecharts/apps/compare/openvscode-server-2.0.15...openvscode-server-2.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [openvscode-server-2.0.15](https://github.com/truecharts/apps/compare/openvscode-server-2.0.14...openvscode-server-2.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="openvscode-server-2.0.14"></a>
 ### [openvscode-server-2.0.14](https://github.com/truecharts/apps/compare/openvscode-server-2.0.13...openvscode-server-2.0.14) (2022-07-12)
 

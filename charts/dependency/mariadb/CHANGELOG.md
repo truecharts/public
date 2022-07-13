@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [mariadb-3.0.32](https://github.com/truecharts/apps/compare/mariadb-3.0.30...mariadb-3.0.32) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [mariadb-3.0.30](https://github.com/truecharts/apps/compare/mariadb-3.0.29...mariadb-3.0.30) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+- update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
+
+
 <a name="mariadb-3.0.29"></a>
 ### [mariadb-3.0.29](https://github.com/truecharts/apps/compare/mariadb-3.0.28...mariadb-3.0.29) (2022-07-12)
 

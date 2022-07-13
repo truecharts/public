@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [nocodb-3.0.20](https://github.com/truecharts/apps/compare/nocodb-3.0.18...nocodb-3.0.20) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [nocodb-3.0.18](https://github.com/truecharts/apps/compare/nocodb-3.0.17...nocodb-3.0.18) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="nocodb-3.0.17"></a>
 ### [nocodb-3.0.17](https://github.com/truecharts/apps/compare/nocodb-3.0.16...nocodb-3.0.17) (2022-07-12)
 

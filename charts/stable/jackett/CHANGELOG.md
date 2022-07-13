@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [jackett-11.0.26](https://github.com/truecharts/apps/compare/jackett-11.0.24...jackett-11.0.26) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [jackett-11.0.24](https://github.com/truecharts/apps/compare/jackett-11.0.23...jackett-11.0.24) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="jackett-11.0.23"></a>
 ### [jackett-11.0.23](https://github.com/truecharts/apps/compare/jackett-11.0.22...jackett-11.0.23) (2022-07-12)
 

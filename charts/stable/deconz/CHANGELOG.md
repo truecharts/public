@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [deconz-8.0.17](https://github.com/truecharts/apps/compare/deconz-8.0.15...deconz-8.0.17) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [deconz-8.0.15](https://github.com/truecharts/apps/compare/deconz-8.0.14...deconz-8.0.15) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="deconz-8.0.14"></a>
 ### [deconz-8.0.14](https://github.com/truecharts/apps/compare/deconz-8.0.13...deconz-8.0.14) (2022-07-12)
 

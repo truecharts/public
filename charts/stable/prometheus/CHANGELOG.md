@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [prometheus-4.0.30](https://github.com/truecharts/apps/compare/prometheus-4.0.28...prometheus-4.0.30) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [prometheus-4.0.28](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.13...prometheus-4.0.28) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="prometheus-4.0.27"></a>
 ### [prometheus-4.0.27](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.12...prometheus-4.0.27) (2022-07-12)
 

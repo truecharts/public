@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [pwndrop-2.0.14](https://github.com/truecharts/apps/compare/pwndrop-2.0.12...pwndrop-2.0.14) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [pwndrop-2.0.12](https://github.com/truecharts/apps/compare/pwndrop-2.0.11...pwndrop-2.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="pwndrop-2.0.11"></a>
 ### [pwndrop-2.0.11](https://github.com/truecharts/apps/compare/pwndrop-2.0.10...pwndrop-2.0.11) (2022-07-12)
 

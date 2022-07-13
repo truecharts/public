@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [putty-0.0.8](https://github.com/truecharts/apps/compare/putty-0.0.6...putty-0.0.8) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [putty-0.0.6](https://github.com/truecharts/apps/compare/putty-0.0.5...putty-0.0.6) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="putty-0.0.5"></a>
 ### [putty-0.0.5](https://github.com/truecharts/apps/compare/putty-0.0.4...putty-0.0.5) (2022-07-12)
 

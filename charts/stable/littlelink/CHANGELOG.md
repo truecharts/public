@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [littlelink-6.0.28](https://github.com/truecharts/apps/compare/littlelink-6.0.26...littlelink-6.0.28) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [littlelink-6.0.26](https://github.com/truecharts/apps/compare/littlelink-6.0.25...littlelink-6.0.26) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="littlelink-6.0.25"></a>
 ### [littlelink-6.0.25](https://github.com/truecharts/apps/compare/littlelink-6.0.24...littlelink-6.0.25) (2022-07-12)
 

@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [paperless-ng-4.0.16](https://github.com/truecharts/apps/compare/paperless-ng-4.0.14...paperless-ng-4.0.16) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [paperless-ng-4.0.14](https://github.com/truecharts/apps/compare/paperless-ng-4.0.13...paperless-ng-4.0.14) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="paperless-ng-4.0.13"></a>
 ### [paperless-ng-4.0.13](https://github.com/truecharts/apps/compare/paperless-ng-4.0.12...paperless-ng-4.0.13) (2022-07-12)
 

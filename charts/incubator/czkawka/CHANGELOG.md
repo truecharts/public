@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [czkawka-0.0.9](https://github.com/truecharts/apps/compare/czkawka-0.0.7...czkawka-0.0.9) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [czkawka-0.0.7](https://github.com/truecharts/apps/compare/czkawka-0.0.6...czkawka-0.0.7) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="czkawka-0.0.6"></a>
 ### [czkawka-0.0.6](https://github.com/truecharts/apps/compare/czkawka-0.0.5...czkawka-0.0.6) (2022-07-12)
 

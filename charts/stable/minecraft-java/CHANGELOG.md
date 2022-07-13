@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [minecraft-java-1.0.21](https://github.com/truecharts/apps/compare/minecraft-java-1.0.19...minecraft-java-1.0.21) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+- fix rm on chart-release ([#3155](https://github.com/truecharts/apps/issues/3155))
+
+
+
+## [minecraft-java-1.0.19](https://github.com/truecharts/apps/compare/minecraft-java-1.0.18...minecraft-java-1.0.19) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="minecraft-java-1.0.18"></a>
 ### [minecraft-java-1.0.18](https://github.com/truecharts/apps/compare/minecraft-java-1.0.17...minecraft-java-1.0.18) (2022-07-12)
 

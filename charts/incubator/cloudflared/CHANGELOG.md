@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [cloudflared-0.0.12](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.10...cloudflared-0.0.12) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [cloudflared-0.0.10](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.9...cloudflared-0.0.10) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
 <a name="cloudflared-0.0.9"></a>
 ### [cloudflared-0.0.9](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.8...cloudflared-0.0.9) (2022-07-12)
 
