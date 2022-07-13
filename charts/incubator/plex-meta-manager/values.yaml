@@ -25,6 +25,14 @@ service:
         targetPort: 10281
         protocol: HTTP
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 persistence:
   config:
     enabled: true
