@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [synclounge-2.0.19](https://github.com/truecharts/apps/compare/synclounge-2.0.18...synclounge-2.0.19) (2022-07-13)
+
+### Fix
+
+- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
+
+
+
 ## [synclounge-2.0.18](https://github.com/truecharts/apps/compare/synclounge-2.0.16...synclounge-2.0.18) (2022-07-12)
 
 ### Chore
