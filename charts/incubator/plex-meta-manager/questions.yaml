@@ -60,12 +60,20 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PMM_CONFIG
-          label: "PMM CONFIG"
-          description: "Specify a custom config file to use internally ex: /config/config.yaml"
+        - variable: CUSTOM_CONFIG_FILE
+          label: "Set Custom config file"
+          description: "enable this and point the config.yaml to a dir"
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: PMM_CONFIG
+                label: "PMM CONFIG"
+                description: "Specify a custom config file to use internally ex: /config/config.yaml"
+                schema:
+                  type: string
+                  default: ""
         - variable: PMM_TIME
           label: "PMM TIME"
           description: "Comma-separated list of times to update each day. Format: HH:MM"
@@ -272,13 +280,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
