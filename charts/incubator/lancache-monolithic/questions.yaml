@@ -101,7 +101,7 @@ questions:
           description: "Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB"
           schema:
             type: string
-            default: "3560d"
+            default: "500m"
 # Include{containerConfig}
 
   - variable: service
