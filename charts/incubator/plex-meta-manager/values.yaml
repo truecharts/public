@@ -4,17 +4,17 @@ image:
   tag: v1.17.1@sha256:af30bf9e2a48a2d359e097854becde159befc6e4dfd33b6b1d1c529fed565537
 
 securityContext:
-  #readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: false
   runAsNonRoot: true
 
 podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   PUID: "{{ .Values.security.PUID }}"
   PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
-  PMM_CONFIG: ""
+  # PMM_CONFIG: ""
   PMM_TIME: "03:00"
   PMM_RUN: false
   PMM_TEST: false
