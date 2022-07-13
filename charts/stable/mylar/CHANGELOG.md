@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mylar-6.0.15](https://github.com/truecharts/apps/compare/mylar-6.0.14...mylar-6.0.15) (2022-07-13)
+
+### Fix
+
+- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
+
+
+
 ## [mylar-6.0.14](https://github.com/truecharts/apps/compare/mylar-6.0.12...mylar-6.0.14) (2022-07-12)
 
 ### Chore
