@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [traefik-12.0.18](https://github.com/truecharts/apps/compare/traefik-12.0.17...traefik-12.0.18) (2022-07-13)
+
+
+
 ## [traefik-12.0.17](https://github.com/truecharts/apps/compare/traefik-12.0.15...traefik-12.0.17) (2022-07-12)
 
 ### Chore
