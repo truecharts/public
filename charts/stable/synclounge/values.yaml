@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/synclounge
   pullPolicy: IfNotPresent
-  tag: v5.1.123
+  tag: v5.1.112@sha256:a57327a9954aa82e11d6c59e944528dc0166e30fa9ef455ba83ae8097b3c1369
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
