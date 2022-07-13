@@ -12,6 +12,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
+  PUID: "{{ .Values.security.PUID }}"
+  PGID: "{{ .Values.podSecurityContext.fsGroup }}"
   PMM_TIME: "03:00"
   PMM_RUN: false
   PMM_TEST: false
