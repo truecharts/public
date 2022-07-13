@@ -1,6 +1,7 @@
 # Changelog
 
 
+
 ## [collabora-online-12.1.11](https://github.com/truecharts/apps/compare/collabora-online-12.1.8...collabora-online-12.1.11) (2022-07-12)
 
 ### Chore
