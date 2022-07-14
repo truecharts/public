@@ -60,20 +60,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: CUSTOM_CONFIG_FILE
-          label: "Set Custom config file"
-          description: "enable this and point the config.yaml to a dir"
+        - variable: PMM_CONFIG
+          label: "PMM CONFIG"
+          description: "Specify a custom config.yaml"
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: PMM_CONFIG
-                label: "PMM CONFIG"
-                description: "Specify a custom config file to use internally ex: /config/config.yaml"
-                schema:
-                  type: string
-                  default: ""
+            type: string
+            default: "/config/config.yaml"
         - variable: PMM_TIME
           label: "PMM TIME"
           description: "Comma-separated list of times to update each day. Format: HH:MM"
@@ -85,7 +77,7 @@ questions:
           description: "Set to True to run without the scheduler."
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: PMM_TEST
           label: "PMM TEST"
           description: "Set to True to run in debug mode with only collections that have test: true"
