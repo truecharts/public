@@ -1,14 +1,15 @@
-# metallb
+# plex-meta-manager
 
-A network load-balancer implementation for Kubernetes using standard routing protocols
+Python3 script run using YAML config files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/metallb/metallb>
-* <https://metallb.universe.tf>
+* <https://hub.docker.com/r/linuxserver/plex-meta-manager>
+* <https://github.com/linuxserver/docker-plex-meta-manager>
+* <https://github.com/meisnate12/Plex-Meta-Manager>
 
 ## Requirements
 
@@ -18,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://metallb.github.io/metallb | metallb | 0.12.1 |
+| https://library-charts.truecharts.org | common | 10.4.4 |
 
 ## Installing the Chart
 
