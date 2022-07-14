@@ -6,7 +6,7 @@ image:
 controller:
   # -- Set additional annotations on the deployment/statefulset/daemonset
   # -- Number of desired pods
-  replicas: 1
+  replicas: 2
   # -- Set the controller upgrade strategy
   # For Deployments, valid values are Recreate (default) and RollingUpdate.
   # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
