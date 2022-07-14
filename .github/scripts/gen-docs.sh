@@ -35,8 +35,8 @@ sync_helmignore() {
     local train="$3"
     local chartversion="$4"
     echo "Attempting to sync HelmIgnore file for: ${chartname}"
-    rm -rf ${chart}/.helmingore
-    cp templates/app/.helmingore ${chart}/
+    rm -rf ${chart}/.helmignore
+    cp templates/app/.helmignore ${chart}/
     }
 export -f sync_helmignore
 
