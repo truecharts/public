@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [home-assistant-15.0.23](https://github.com/truecharts/apps/compare/home-assistant-15.0.22...home-assistant-15.0.23) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 ## [home-assistant-15.0.22](https://github.com/truecharts/apps/compare/home-assistant-15.0.20...home-assistant-15.0.22) (2022-07-12)
 
 ### Chore

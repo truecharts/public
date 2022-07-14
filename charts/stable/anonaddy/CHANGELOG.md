@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [anonaddy-9.0.19](https://github.com/truecharts/apps/compare/anonaddy-9.0.18...anonaddy-9.0.19) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 ## [anonaddy-9.0.18](https://github.com/truecharts/apps/compare/anonaddy-9.0.16...anonaddy-9.0.18) (2022-07-12)
 
 ### Chore

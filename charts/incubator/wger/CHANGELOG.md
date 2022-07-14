@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wger-0.0.19](https://github.com/truecharts/apps/compare/wger-0.0.18...wger-0.0.19) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 ## [wger-0.0.18](https://github.com/truecharts/apps/compare/wger-0.0.17...wger-0.0.18) (2022-07-13)
 
 ### Chore
