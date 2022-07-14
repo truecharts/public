@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authelia-11.0.19](https://github.com/truecharts/apps/compare/authelia-11.0.18...authelia-11.0.19) (2022-07-14)
+
+### Fix
+
+- disable HTTP probes temporarily ([#3173](https://github.com/truecharts/apps/issues/3173))
+
+
+
 ## [authelia-11.0.18](https://github.com/truecharts/apps/compare/authelia-11.0.16...authelia-11.0.18) (2022-07-12)
 
 ### Chore

@@ -6,4 +6,3 @@
 ### Feat
 
 - Add plex-meta-manager ([#3172](https://github.com/truecharts/apps/issues/3172))
-
