@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [custom-app-5.1.12](https://github.com/truecharts/apps/compare/custom-app-5.1.11...custom-app-5.1.12) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 ## [custom-app-5.1.11](https://github.com/truecharts/apps/compare/custom-app-5.1.10...custom-app-5.1.11) (2022-07-13)
 
 ### Chore

@@ -29,6 +29,17 @@ sync_tag() {
     }
 export -f sync_tag
 
+sync_helmignore() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Attempting to sync HelmIgnore file for: ${chartname}"
+    rm -rf ${chart}/.helmignore
+    cp templates/app/.helmignore ${chart}/
+    }
+export -f sync_helmignore
+
 create_changelog() {
     local chart="$1"
     local chartname="$2"
@@ -73,6 +84,7 @@ if [[ -d "charts/${1}" ]]; then
     chartname=$(basename charts/${1})
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+    sync_helmignore "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Syncing HelmIgnore file failed..."
     helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
     sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
     create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."

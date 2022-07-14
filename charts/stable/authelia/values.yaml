@@ -46,18 +46,18 @@ envFrom:
   - configMapRef:
       name: authelia-paths
 
-probes:
-  liveness:
-    type: HTTP
-    path: /api/health"
+# probes:
+#   liveness:
+#     type: HTTP
+#     path: /api/health"
 
-  readiness:
-    type: HTTP
-    path: "/api/health"
+#   readiness:
+#     type: HTTP
+#     path: "/api/health"
 
-  startup:
-    type: HTTP
-    path: "/api/health"
+#   startup:
+#     type: HTTP
+#     path: "/api/health"
 
 domain: example.com
 

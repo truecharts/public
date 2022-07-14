@@ -204,6 +204,37 @@ service:
   udp:
     enabled: false
 
+# probes:
+#   # -- Liveness probe configuration
+#   # @default -- See below
+#   liveness:
+#     # -- sets the probe type when not using a custom probe
+#     # @default -- "TCP"
+#     type: HTTP
+#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+#     # @default -- "/"
+#     path: "/ping"
+
+#   # -- Redainess probe configuration
+#   # @default -- See below
+#   readiness:
+#     # -- sets the probe type when not using a custom probe
+#     # @default -- "TCP"
+#     type: HTTP
+#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+#     # @default -- "/"
+#     path: "/ping"
+
+#   # -- Startup probe configuration
+#   # @default -- See below
+#   startup:
+#     # -- sets the probe type when not using a custom probe
+#     # @default -- "TCP"
+#     type: HTTP
+#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+#     # @default -- "/"
+#     path: "/ping"
+
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:

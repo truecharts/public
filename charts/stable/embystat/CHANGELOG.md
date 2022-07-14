@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [embystat-2.0.15](https://github.com/truecharts/apps/compare/embystat-2.0.14...embystat-2.0.15) (2022-07-13)
+
+### Fix
+
+- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
+
+
+
 ## [embystat-2.0.14](https://github.com/truecharts/apps/compare/embystat-2.0.12...embystat-2.0.14) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [adguard-home-1.0.17](https://github.com/truecharts/apps/compare/adguard-home-1.0.16...adguard-home-1.0.17) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 ## [adguard-home-1.0.16](https://github.com/truecharts/apps/compare/adguard-home-1.0.14...adguard-home-1.0.16) (2022-07-12)
 
 ### Chore

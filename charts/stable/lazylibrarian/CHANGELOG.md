@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lazylibrarian-11.0.21](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.20...lazylibrarian-11.0.21) (2022-07-13)
+
+### Fix
+
+- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
+
+
+
 ## [lazylibrarian-11.0.20](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.18...lazylibrarian-11.0.20) (2022-07-12)
 
 ### Chore

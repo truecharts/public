@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: plex-meta-manager
+version: 0.0.3
+appVersion: "1.17.1"
+description: Python3 script run using YAML config files to update on a schedule the metadata of the movies, shows, and collections in your libraries as well as automatically build collections
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/plex-meta-manager
+icon: https://truecharts.org/img/chart-icons/plex-meta-manager.png
+keywords:
+  - plex-meta-manager
+sources:
+  - https://hub.docker.com/r/linuxserver/plex-meta-manager
+  - https://github.com/linuxserver/docker-plex-meta-manager
+  - https://github.com/meisnate12/Plex-Meta-Manager
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [collabora-online-12.1.13](https://github.com/truecharts/apps/compare/collabora-online-12.1.12...collabora-online-12.1.13) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
 
 ## [collabora-online-12.1.11](https://github.com/truecharts/apps/compare/collabora-online-12.1.8...collabora-online-12.1.11) (2022-07-12)
 
