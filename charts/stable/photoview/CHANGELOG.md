@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoview-4.0.17](https://github.com/truecharts/apps/compare/photoview-4.0.16...photoview-4.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [photoview-4.0.16](https://github.com/truecharts/apps/compare/photoview-4.0.14...photoview-4.0.16) (2022-07-14)
 
 ### Fix

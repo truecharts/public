@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [traccar-7.0.19](https://github.com/truecharts/apps/compare/traccar-7.0.18...traccar-7.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [traccar-7.0.18](https://github.com/truecharts/apps/compare/traccar-7.0.16...traccar-7.0.18) (2022-07-14)
 
 ### Fix

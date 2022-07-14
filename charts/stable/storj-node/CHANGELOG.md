@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [storj-node-2.0.28](https://github.com/truecharts/apps/compare/storj-node-2.0.27...storj-node-2.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [storj-node-2.0.27](https://github.com/truecharts/apps/compare/storj-node-2.0.25...storj-node-2.0.27) (2022-07-14)
 
 ### Fix

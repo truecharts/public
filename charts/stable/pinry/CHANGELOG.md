@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pinry-2.0.17](https://github.com/truecharts/apps/compare/pinry-2.0.16...pinry-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [pinry-2.0.16](https://github.com/truecharts/apps/compare/pinry-2.0.14...pinry-2.0.16) (2022-07-14)
 
 ### Fix

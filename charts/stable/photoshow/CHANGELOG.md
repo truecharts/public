@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoshow-3.0.17](https://github.com/truecharts/apps/compare/photoshow-3.0.16...photoshow-3.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [photoshow-3.0.16](https://github.com/truecharts/apps/compare/photoshow-3.0.14...photoshow-3.0.16) (2022-07-14)
 
 ### Fix

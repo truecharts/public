@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [loki-5.0.20](https://github.com/truecharts/apps/compare/loki-5.0.19...loki-5.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [loki-5.0.19](https://github.com/truecharts/apps/compare/loki-5.0.17...loki-5.0.19) (2022-07-14)
 
 ### Fix

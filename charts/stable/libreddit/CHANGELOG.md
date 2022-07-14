@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [libreddit-1.0.11](https://github.com/truecharts/apps/compare/libreddit-1.0.10...libreddit-1.0.11) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [libreddit-1.0.10](https://github.com/truecharts/apps/compare/libreddit-1.0.8...libreddit-1.0.10) (2022-07-14)
 
 ### Fix

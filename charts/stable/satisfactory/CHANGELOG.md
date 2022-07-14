@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [satisfactory-2.0.19](https://github.com/truecharts/apps/compare/satisfactory-2.0.18...satisfactory-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [satisfactory-2.0.18](https://github.com/truecharts/apps/compare/satisfactory-2.0.16...satisfactory-2.0.18) (2022-07-14)
 
 ### Fix

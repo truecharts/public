@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [unpackerr-6.0.17](https://github.com/truecharts/apps/compare/unpackerr-6.0.16...unpackerr-6.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [unpackerr-6.0.16](https://github.com/truecharts/apps/compare/unpackerr-6.0.14...unpackerr-6.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grafana-4.0.28](https://github.com/truecharts/apps/compare/grafana-4.0.27...grafana-4.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [grafana-4.0.27](https://github.com/truecharts/apps/compare/grafana-4.0.25...grafana-4.0.27) (2022-07-14)
 
 ### Fix

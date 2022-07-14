@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [onlyoffice-document-server-6.0.18](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.17...onlyoffice-document-server-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [onlyoffice-document-server-6.0.17](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.15...onlyoffice-document-server-6.0.17) (2022-07-14)
 
 ### Fix

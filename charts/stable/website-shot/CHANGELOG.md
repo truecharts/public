@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [website-shot-2.0.18](https://github.com/truecharts/apps/compare/website-shot-2.0.17...website-shot-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [website-shot-2.0.17](https://github.com/truecharts/apps/compare/website-shot-2.0.15...website-shot-2.0.17) (2022-07-14)
 
 ### Fix

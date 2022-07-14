@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kutt-3.0.18](https://github.com/truecharts/apps/compare/kutt-3.0.17...kutt-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [kutt-3.0.17](https://github.com/truecharts/apps/compare/kutt-3.0.15...kutt-3.0.17) (2022-07-14)
 
 ### Fix

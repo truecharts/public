@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [airsonic-advanced-4.0.18](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.17...airsonic-advanced-4.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [airsonic-advanced-4.0.17](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.15...airsonic-advanced-4.0.17) (2022-07-14)
 
 ### Fix

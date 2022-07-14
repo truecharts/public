@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [readarr-11.0.17](https://github.com/truecharts/apps/compare/readarr-11.0.16...readarr-11.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [readarr-11.0.16](https://github.com/truecharts/apps/compare/readarr-11.0.14...readarr-11.0.16) (2022-07-14)
 
 ### Fix

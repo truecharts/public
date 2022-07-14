@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [monica-3.0.25](https://github.com/truecharts/apps/compare/monica-3.0.24...monica-3.0.25) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [monica-3.0.24](https://github.com/truecharts/apps/compare/monica-3.0.22...monica-3.0.24) (2022-07-14)
 
 ### Fix

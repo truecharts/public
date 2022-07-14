@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [domoticz-2.0.21](https://github.com/truecharts/apps/compare/domoticz-2.0.20...domoticz-2.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [domoticz-2.0.20](https://github.com/truecharts/apps/compare/domoticz-2.0.18...domoticz-2.0.20) (2022-07-14)
 
 ### Fix

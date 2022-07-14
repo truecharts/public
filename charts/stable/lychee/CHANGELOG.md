@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lychee-13.0.19](https://github.com/truecharts/apps/compare/lychee-13.0.18...lychee-13.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [lychee-13.0.18](https://github.com/truecharts/apps/compare/lychee-13.0.16...lychee-13.0.18) (2022-07-14)
 
 ### Fix

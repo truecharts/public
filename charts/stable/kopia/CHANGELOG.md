@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kopia-2.0.25](https://github.com/truecharts/apps/compare/kopia-2.0.24...kopia-2.0.25) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [kopia-2.0.24](https://github.com/truecharts/apps/compare/kopia-2.0.22...kopia-2.0.24) (2022-07-14)
 
 ### Fix

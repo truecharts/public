@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [typecho-3.0.18](https://github.com/truecharts/apps/compare/typecho-3.0.17...typecho-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [typecho-3.0.17](https://github.com/truecharts/apps/compare/typecho-3.0.15...typecho-3.0.17) (2022-07-14)
 
 ### Fix

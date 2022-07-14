@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [prowlarr-6.0.18](https://github.com/truecharts/apps/compare/prowlarr-6.0.17...prowlarr-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [prowlarr-6.0.17](https://github.com/truecharts/apps/compare/prowlarr-6.0.15...prowlarr-6.0.17) (2022-07-14)
 
 ### Fix

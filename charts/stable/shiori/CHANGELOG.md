@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [shiori-7.0.18](https://github.com/truecharts/apps/compare/shiori-7.0.17...shiori-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [shiori-7.0.17](https://github.com/truecharts/apps/compare/shiori-7.0.15...shiori-7.0.17) (2022-07-14)
 
 ### Fix

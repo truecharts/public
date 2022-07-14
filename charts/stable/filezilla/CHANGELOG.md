@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [filezilla-4.0.18](https://github.com/truecharts/apps/compare/filezilla-4.0.17...filezilla-4.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [filezilla-4.0.17](https://github.com/truecharts/apps/compare/filezilla-4.0.15...filezilla-4.0.17) (2022-07-14)
 
 ### Fix

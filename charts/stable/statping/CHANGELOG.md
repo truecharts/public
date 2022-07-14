@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [statping-7.0.18](https://github.com/truecharts/apps/compare/statping-7.0.17...statping-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [statping-7.0.17](https://github.com/truecharts/apps/compare/statping-7.0.15...statping-7.0.17) (2022-07-14)
 
 ### Fix

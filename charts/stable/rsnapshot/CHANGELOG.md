@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [rsnapshot-2.0.17](https://github.com/truecharts/apps/compare/rsnapshot-2.0.16...rsnapshot-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [rsnapshot-2.0.16](https://github.com/truecharts/apps/compare/rsnapshot-2.0.14...rsnapshot-2.0.16) (2022-07-14)
 
 ### Fix

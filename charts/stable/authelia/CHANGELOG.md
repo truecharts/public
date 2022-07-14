@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authelia-11.0.22](https://github.com/truecharts/apps/compare/authelia-11.0.21...authelia-11.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [authelia-11.0.21](https://github.com/truecharts/apps/compare/authelia-11.0.19...authelia-11.0.21) (2022-07-14)
 
 ### Fix

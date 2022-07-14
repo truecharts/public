@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [healthchecks-7.0.19](https://github.com/truecharts/apps/compare/healthchecks-7.0.18...healthchecks-7.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [healthchecks-7.0.18](https://github.com/truecharts/apps/compare/healthchecks-7.0.16...healthchecks-7.0.18) (2022-07-14)
 
 ### Fix

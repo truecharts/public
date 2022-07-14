@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tautulli-11.0.18](https://github.com/truecharts/apps/compare/tautulli-11.0.17...tautulli-11.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [tautulli-11.0.17](https://github.com/truecharts/apps/compare/tautulli-11.0.15...tautulli-11.0.17) (2022-07-14)
 
 ### Fix

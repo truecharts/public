@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [valheim-3.0.20](https://github.com/truecharts/apps/compare/valheim-3.0.19...valheim-3.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [valheim-3.0.19](https://github.com/truecharts/apps/compare/valheim-3.0.17...valheim-3.0.19) (2022-07-14)
 
 ### Fix

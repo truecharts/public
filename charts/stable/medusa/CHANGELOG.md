@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [medusa-3.0.21](https://github.com/truecharts/apps/compare/medusa-3.0.20...medusa-3.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mealie-8.0.17](https://github.com/truecharts/apps/compare/mealie-8.0.15...mealie-8.0.17) (2022-07-14)
 
 ### Fix

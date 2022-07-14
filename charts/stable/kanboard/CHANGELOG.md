@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kanboard-8.0.18](https://github.com/truecharts/apps/compare/kanboard-8.0.17...kanboard-8.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [kanboard-8.0.17](https://github.com/truecharts/apps/compare/kanboard-8.0.15...kanboard-8.0.17) (2022-07-14)
 
 ### Fix

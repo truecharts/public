@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [truecommand-11.0.17](https://github.com/truecharts/apps/compare/truecommand-11.0.16...truecommand-11.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [truecommand-11.0.16](https://github.com/truecharts/apps/compare/truecommand-11.0.14...truecommand-11.0.16) (2022-07-14)
 
 ### Fix

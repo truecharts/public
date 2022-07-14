@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sabnzbd-11.0.19](https://github.com/truecharts/apps/compare/sabnzbd-11.0.18...sabnzbd-11.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [sabnzbd-11.0.18](https://github.com/truecharts/apps/compare/sabnzbd-11.0.16...sabnzbd-11.0.18) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [whoogle-3.0.19](https://github.com/truecharts/apps/compare/whoogle-3.0.18...whoogle-3.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [whoogle-3.0.18](https://github.com/truecharts/apps/compare/whoogle-3.0.16...whoogle-3.0.18) (2022-07-14)
 
 ### Fix

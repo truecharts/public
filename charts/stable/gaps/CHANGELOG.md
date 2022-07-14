@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gaps-11.0.17](https://github.com/truecharts/apps/compare/gaps-11.0.16...gaps-11.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [gaps-11.0.16](https://github.com/truecharts/apps/compare/gaps-11.0.14...gaps-11.0.16) (2022-07-14)
 
 ### Fix

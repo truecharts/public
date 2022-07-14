@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [appsmith-2.0.23](https://github.com/truecharts/apps/compare/appsmith-2.0.22...appsmith-2.0.23) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [appsmith-2.0.22](https://github.com/truecharts/apps/compare/appsmith-2.0.20...appsmith-2.0.22) (2022-07-14)
 
 ### Fix

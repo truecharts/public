@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [xwiki-3.0.23](https://github.com/truecharts/apps/compare/xwiki-3.0.22...xwiki-3.0.23) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [xwiki-3.0.22](https://github.com/truecharts/apps/compare/xwiki-3.0.20...xwiki-3.0.22) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wireshark-2.0.17](https://github.com/truecharts/apps/compare/wireshark-2.0.16...wireshark-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [wireshark-2.0.16](https://github.com/truecharts/apps/compare/wireshark-2.0.14...wireshark-2.0.16) (2022-07-14)
 
 ### Fix

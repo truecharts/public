@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [thelounge-6.0.17](https://github.com/truecharts/apps/compare/thelounge-6.0.16...thelounge-6.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [thelounge-6.0.16](https://github.com/truecharts/apps/compare/thelounge-6.0.14...thelounge-6.0.16) (2022-07-14)
 
 ### Fix

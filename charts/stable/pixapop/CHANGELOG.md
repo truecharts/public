@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pixapop-3.0.17](https://github.com/truecharts/apps/compare/pixapop-3.0.16...pixapop-3.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [pixapop-3.0.16](https://github.com/truecharts/apps/compare/pixapop-3.0.14...pixapop-3.0.16) (2022-07-14)
 
 ### Fix

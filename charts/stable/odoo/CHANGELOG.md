@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [odoo-8.0.21](https://github.com/truecharts/apps/compare/odoo-8.0.20...odoo-8.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [odoo-8.0.20](https://github.com/truecharts/apps/compare/odoo-8.0.18...odoo-8.0.20) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [teedy-7.0.18](https://github.com/truecharts/apps/compare/teedy-7.0.17...teedy-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [teedy-7.0.17](https://github.com/truecharts/apps/compare/teedy-7.0.15...teedy-7.0.17) (2022-07-14)
 
 ### Fix

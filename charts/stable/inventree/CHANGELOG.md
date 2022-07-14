@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [inventree-3.0.22](https://github.com/truecharts/apps/compare/inventree-3.0.21...inventree-3.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [inventree-3.0.21](https://github.com/truecharts/apps/compare/inventree-3.0.19...inventree-3.0.21) (2022-07-14)
 
 ### Fix

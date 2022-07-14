@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [scrutiny-3.0.16](https://github.com/truecharts/apps/compare/scrutiny-3.0.15...scrutiny-3.0.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [scrutiny-3.0.15](https://github.com/truecharts/apps/compare/scrutiny-3.0.13...scrutiny-3.0.15) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [recipes-8.0.22](https://github.com/truecharts/apps/compare/recipes-8.0.21...recipes-8.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [recipes-8.0.21](https://github.com/truecharts/apps/compare/recipes-8.0.19...recipes-8.0.21) (2022-07-14)
 
 ### Fix

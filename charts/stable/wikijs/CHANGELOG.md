@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wikijs-7.0.19](https://github.com/truecharts/apps/compare/wikijs-7.0.18...wikijs-7.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [wikijs-7.0.18](https://github.com/truecharts/apps/compare/wikijs-7.0.16...wikijs-7.0.18) (2022-07-14)
 
 ### Fix

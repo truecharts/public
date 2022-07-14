@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deconz-8.0.20](https://github.com/truecharts/apps/compare/deconz-8.0.19...deconz-8.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [deconz-8.0.19](https://github.com/truecharts/apps/compare/deconz-8.0.17...deconz-8.0.19) (2022-07-14)
 
 ### Fix

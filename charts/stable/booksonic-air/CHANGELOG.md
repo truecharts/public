@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [booksonic-air-6.0.20](https://github.com/truecharts/apps/compare/booksonic-air-6.0.19...booksonic-air-6.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [booksonic-air-6.0.19](https://github.com/truecharts/apps/compare/booksonic-air-6.0.17...booksonic-air-6.0.19) (2022-07-14)
 
 ### Fix

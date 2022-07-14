@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [iyuuplus-2.0.17](https://github.com/truecharts/apps/compare/iyuuplus-2.0.16...iyuuplus-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [iyuuplus-2.0.16](https://github.com/truecharts/apps/compare/iyuuplus-2.0.14...iyuuplus-2.0.16) (2022-07-14)
 
 ### Fix

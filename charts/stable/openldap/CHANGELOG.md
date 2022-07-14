@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openldap-7.0.18](https://github.com/truecharts/apps/compare/openldap-7.0.17...openldap-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [openldap-7.0.17](https://github.com/truecharts/apps/compare/openldap-7.0.15...openldap-7.0.17) (2022-07-14)
 
 ### Fix

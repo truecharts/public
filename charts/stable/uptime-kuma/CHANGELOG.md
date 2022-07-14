@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [uptime-kuma-3.0.18](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.17...uptime-kuma-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [uptime-kuma-3.0.17](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.15...uptime-kuma-3.0.17) (2022-07-14)
 
 ### Fix

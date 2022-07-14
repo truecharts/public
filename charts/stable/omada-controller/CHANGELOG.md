@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [omada-controller-6.0.30](https://github.com/truecharts/apps/compare/omada-controller-6.0.29...omada-controller-6.0.30) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [omada-controller-6.0.29](https://github.com/truecharts/apps/compare/omada-controller-6.0.27...omada-controller-6.0.29) (2022-07-14)
 
 ### Fix

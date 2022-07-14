@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [home-assistant-15.0.26](https://github.com/truecharts/apps/compare/home-assistant-15.0.25...home-assistant-15.0.26) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [home-assistant-15.0.25](https://github.com/truecharts/apps/compare/home-assistant-15.0.23...home-assistant-15.0.25) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [piaware-6.0.18](https://github.com/truecharts/apps/compare/piaware-6.0.17...piaware-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [piaware-6.0.17](https://github.com/truecharts/apps/compare/piaware-6.0.15...piaware-6.0.17) (2022-07-14)
 
 ### Fix

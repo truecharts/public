@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [handbrake-13.0.19](https://github.com/truecharts/apps/compare/handbrake-13.0.18...handbrake-13.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [handbrake-13.0.18](https://github.com/truecharts/apps/compare/handbrake-13.0.16...handbrake-13.0.18) (2022-07-14)
 
 ### Fix

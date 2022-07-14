@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [external-service-6.0.17](https://github.com/truecharts/apps/compare/external-service-6.0.16...external-service-6.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [external-service-6.0.16](https://github.com/truecharts/apps/compare/external-service-6.0.14...external-service-6.0.16) (2022-07-14)
 
 ### Fix

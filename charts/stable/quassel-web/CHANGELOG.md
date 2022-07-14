@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [quassel-web-2.0.17](https://github.com/truecharts/apps/compare/quassel-web-2.0.16...quassel-web-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [quassel-web-2.0.16](https://github.com/truecharts/apps/compare/quassel-web-2.0.14...quassel-web-2.0.16) (2022-07-14)
 
 ### Fix

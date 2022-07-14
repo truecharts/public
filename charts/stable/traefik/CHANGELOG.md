@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [traefik-12.0.22](https://github.com/truecharts/apps/compare/traefik-12.0.20...traefik-12.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+- don't set xrobots header by default ([#3183](https://github.com/truecharts/apps/issues/3183))
+
+
+
 ## [traefik-12.0.20](https://github.com/truecharts/apps/compare/traefik-12.0.18...traefik-12.0.20) (2022-07-14)
 
 ### Fix

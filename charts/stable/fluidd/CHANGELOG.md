@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fluidd-2.0.19](https://github.com/truecharts/apps/compare/fluidd-2.0.18...fluidd-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [fluidd-2.0.18](https://github.com/truecharts/apps/compare/fluidd-2.0.16...fluidd-2.0.18) (2022-07-14)
 
 ### Fix

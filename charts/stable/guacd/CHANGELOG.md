@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [guacd-2.0.19](https://github.com/truecharts/apps/compare/guacd-2.0.18...guacd-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [guacd-2.0.18](https://github.com/truecharts/apps/compare/guacd-2.0.16...guacd-2.0.18) (2022-07-14)
 
 ### Fix

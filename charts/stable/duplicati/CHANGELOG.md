@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [duplicati-6.0.19](https://github.com/truecharts/apps/compare/duplicati-6.0.18...duplicati-6.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [duplicati-6.0.18](https://github.com/truecharts/apps/compare/duplicati-6.0.16...duplicati-6.0.18) (2022-07-14)
 
 ### Fix

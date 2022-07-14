@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nntp2nntp-2.0.17](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.16...nntp2nntp-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [nntp2nntp-2.0.16](https://github.com/truecharts/apps/compare/nntp2nntp-2.0.14...nntp2nntp-2.0.16) (2022-07-14)
 
 ### Fix

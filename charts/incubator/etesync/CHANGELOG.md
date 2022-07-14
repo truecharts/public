@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [etesync-0.0.14](https://github.com/truecharts/apps/compare/etesync-0.0.13...etesync-0.0.14) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [etesync-0.0.13](https://github.com/truecharts/apps/compare/etesync-0.0.11...etesync-0.0.13) (2022-07-14)
 
 ### Fix

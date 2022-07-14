@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [drawio-2.0.24](https://github.com/truecharts/apps/compare/drawio-2.0.23...drawio-2.0.24) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [drawio-2.0.23](https://github.com/truecharts/apps/compare/drawio-2.0.21...drawio-2.0.23) (2022-07-14)
 
 ### Fix

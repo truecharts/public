@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [technitium-1.0.19](https://github.com/truecharts/apps/compare/technitium-1.0.18...technitium-1.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [technitium-1.0.18](https://github.com/truecharts/apps/compare/technitium-1.0.16...technitium-1.0.18) (2022-07-14)
 
 ### Fix

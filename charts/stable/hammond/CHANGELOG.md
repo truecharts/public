@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [hammond-2.0.17](https://github.com/truecharts/apps/compare/hammond-2.0.16...hammond-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [hammond-2.0.16](https://github.com/truecharts/apps/compare/hammond-2.0.14...hammond-2.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [phpldapadmin-6.0.17](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.16...phpldapadmin-6.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [phpldapadmin-6.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.14...phpldapadmin-6.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snipe-it-4.0.25](https://github.com/truecharts/apps/compare/snipe-it-4.0.24...snipe-it-4.0.25) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [snipe-it-4.0.24](https://github.com/truecharts/apps/compare/snipe-it-4.0.22...snipe-it-4.0.24) (2022-07-14)
 
 ### Fix

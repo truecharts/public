@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gonic-6.0.18](https://github.com/truecharts/apps/compare/gonic-6.0.17...gonic-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [gonic-6.0.17](https://github.com/truecharts/apps/compare/gonic-6.0.15...gonic-6.0.17) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [aria2-5.0.18](https://github.com/truecharts/apps/compare/aria2-5.0.17...aria2-5.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [aria2-5.0.17](https://github.com/truecharts/apps/compare/aria2-5.0.15...aria2-5.0.17) (2022-07-14)
 
 ### Fix

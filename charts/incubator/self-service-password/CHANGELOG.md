@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [self-service-password-1.0.21](https://github.com/truecharts/apps/compare/self-service-password-1.0.20...self-service-password-1.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [self-service-password-1.0.20](https://github.com/truecharts/apps/compare/self-service-password-1.0.18...self-service-password-1.0.20) (2022-07-14)
 
 ### Fix

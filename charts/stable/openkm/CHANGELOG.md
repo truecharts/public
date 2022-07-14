@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openkm-7.0.18](https://github.com/truecharts/apps/compare/openkm-7.0.17...openkm-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [openkm-7.0.17](https://github.com/truecharts/apps/compare/openkm-7.0.15...openkm-7.0.17) (2022-07-14)
 
 ### Fix

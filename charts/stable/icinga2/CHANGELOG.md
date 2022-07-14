@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [icinga2-3.0.19](https://github.com/truecharts/apps/compare/icinga2-3.0.18...icinga2-3.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [icinga2-3.0.18](https://github.com/truecharts/apps/compare/icinga2-3.0.16...icinga2-3.0.18) (2022-07-14)
 
 ### Fix

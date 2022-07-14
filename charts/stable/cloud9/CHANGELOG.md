@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloud9-4.0.17](https://github.com/truecharts/apps/compare/cloud9-4.0.16...cloud9-4.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [cloud9-4.0.16](https://github.com/truecharts/apps/compare/cloud9-4.0.14...cloud9-4.0.16) (2022-07-14)
 
 ### Fix

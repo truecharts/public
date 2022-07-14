@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ddns-go-2.0.18](https://github.com/truecharts/apps/compare/ddns-go-2.0.17...ddns-go-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ddns-go-2.0.17](https://github.com/truecharts/apps/compare/ddns-go-2.0.15...ddns-go-2.0.17) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [teamspeak3-4.0.19](https://github.com/truecharts/apps/compare/teamspeak3-4.0.18...teamspeak3-4.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [teamspeak3-4.0.18](https://github.com/truecharts/apps/compare/teamspeak3-4.0.16...teamspeak3-4.0.18) (2022-07-14)
 
 ### Fix

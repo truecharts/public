@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [custom-app-5.1.15](https://github.com/truecharts/apps/compare/custom-app-5.1.14...custom-app-5.1.15) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [custom-app-5.1.14](https://github.com/truecharts/apps/compare/custom-app-5.1.12...custom-app-5.1.14) (2022-07-14)
 
 ### Fix

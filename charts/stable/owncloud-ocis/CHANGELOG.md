@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [owncloud-ocis-7.0.17](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.16...owncloud-ocis-7.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [owncloud-ocis-7.0.16](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.14...owncloud-ocis-7.0.16) (2022-07-14)
 
 ### Fix

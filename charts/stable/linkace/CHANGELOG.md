@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [linkace-4.0.25](https://github.com/truecharts/apps/compare/linkace-4.0.24...linkace-4.0.25) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [linkace-4.0.24](https://github.com/truecharts/apps/compare/linkace-4.0.22...linkace-4.0.24) (2022-07-14)
 
 ### Fix

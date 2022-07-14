@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snapdrop-2.0.22](https://github.com/truecharts/apps/compare/snapdrop-2.0.21...snapdrop-2.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [snapdrop-2.0.21](https://github.com/truecharts/apps/compare/snapdrop-2.0.19...snapdrop-2.0.21) (2022-07-14)
 
 ### Fix

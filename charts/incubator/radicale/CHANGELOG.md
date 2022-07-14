@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [radicale-0.0.15](https://github.com/truecharts/apps/compare/radicale-0.0.14...radicale-0.0.15) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [radicale-0.0.14](https://github.com/truecharts/apps/compare/radicale-0.0.12...radicale-0.0.14) (2022-07-14)
 
 ### Fix

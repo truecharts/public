@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mosquitto-6.0.17](https://github.com/truecharts/apps/compare/mosquitto-6.0.16...mosquitto-6.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mosquitto-6.0.16](https://github.com/truecharts/apps/compare/mosquitto-6.0.14...mosquitto-6.0.16) (2022-07-14)
 
 ### Fix

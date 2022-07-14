@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [joplin-server-8.0.17](https://github.com/truecharts/apps/compare/joplin-server-8.0.16...joplin-server-8.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [joplin-server-8.0.16](https://github.com/truecharts/apps/compare/joplin-server-8.0.14...joplin-server-8.0.16) (2022-07-14)
 
 ### Fix

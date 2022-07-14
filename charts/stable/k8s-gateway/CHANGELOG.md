@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [k8s-gateway-6.1.1](https://github.com/truecharts/apps/compare/k8s-gateway-6.1.0...k8s-gateway-6.1.1) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [k8s-gateway-6.1.0](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.16...k8s-gateway-6.1.0) (2022-07-14)
 
 ### Feat

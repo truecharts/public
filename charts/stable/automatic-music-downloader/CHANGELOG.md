@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [automatic-music-downloader-2.0.18](https://github.com/truecharts/apps/compare/automatic-music-downloader-2.0.17...automatic-music-downloader-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [automatic-music-downloader-2.0.17](https://github.com/truecharts/apps/compare/automatic-music-downloader-2.0.15...automatic-music-downloader-2.0.17) (2022-07-14)
 
 ### Fix

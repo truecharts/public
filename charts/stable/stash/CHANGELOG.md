@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [stash-7.0.19](https://github.com/truecharts/apps/compare/stash-7.0.18...stash-7.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [stash-7.0.18](https://github.com/truecharts/apps/compare/stash-7.0.16...stash-7.0.18) (2022-07-14)
 
 ### Fix

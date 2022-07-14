@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [budge-2.0.20](https://github.com/truecharts/apps/compare/budge-2.0.19...budge-2.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [budge-2.0.19](https://github.com/truecharts/apps/compare/budge-2.0.17...budge-2.0.19) (2022-07-14)
 
 ### Fix

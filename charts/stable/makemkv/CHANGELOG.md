@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [makemkv-2.0.19](https://github.com/truecharts/apps/compare/makemkv-2.0.18...makemkv-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [makemkv-2.0.18](https://github.com/truecharts/apps/compare/makemkv-2.0.16...makemkv-2.0.18) (2022-07-14)
 
 ### Fix

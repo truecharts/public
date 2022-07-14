@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plex-meta-manager-0.0.4](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.3...plex-meta-manager-0.0.4) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [plex-meta-manager-0.0.3](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.1...plex-meta-manager-0.0.3) (2022-07-14)
 
 ### Chore

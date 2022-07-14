@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [prometheus-4.0.34](https://github.com/truecharts/apps/compare/prometheus-4.0.33...prometheus-4.0.34) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [prometheus-4.0.33](https://github.com/truecharts/apps/compare/prometheus-4.0.31...prometheus-4.0.33) (2022-07-14)
 
 ### Fix

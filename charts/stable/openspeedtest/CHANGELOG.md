@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openspeedtest-1.0.16](https://github.com/truecharts/apps/compare/openspeedtest-1.0.15...openspeedtest-1.0.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [openspeedtest-1.0.15](https://github.com/truecharts/apps/compare/openspeedtest-1.0.13...openspeedtest-1.0.15) (2022-07-14)
 
 ### Fix

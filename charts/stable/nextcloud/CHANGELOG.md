@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextcloud-15.2.16](https://github.com/truecharts/apps/compare/nextcloud-15.2.15...nextcloud-15.2.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [nextcloud-15.2.15](https://github.com/truecharts/apps/compare/nextcloud-15.2.13...nextcloud-15.2.15) (2022-07-14)
 
 ### Fix

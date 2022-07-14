@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [flexget-2.0.22](https://github.com/truecharts/apps/compare/flexget-2.0.21...flexget-2.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [flexget-2.0.21](https://github.com/truecharts/apps/compare/flexget-2.0.19...flexget-2.0.21) (2022-07-14)
 
 ### Fix

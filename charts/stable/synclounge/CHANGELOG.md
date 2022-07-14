@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [synclounge-2.0.22](https://github.com/truecharts/apps/compare/synclounge-2.0.21...synclounge-2.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [synclounge-2.0.21](https://github.com/truecharts/apps/compare/synclounge-2.0.19...synclounge-2.0.21) (2022-07-14)
 
 ### Fix

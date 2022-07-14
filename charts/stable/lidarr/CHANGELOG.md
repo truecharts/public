@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lidarr-11.0.17](https://github.com/truecharts/apps/compare/lidarr-11.0.16...lidarr-11.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [lidarr-11.0.16](https://github.com/truecharts/apps/compare/lidarr-11.0.14...lidarr-11.0.16) (2022-07-14)
 
 ### Fix

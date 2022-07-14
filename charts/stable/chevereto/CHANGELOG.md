@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [chevereto-3.0.18](https://github.com/truecharts/apps/compare/chevereto-3.0.17...chevereto-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [chevereto-3.0.17](https://github.com/truecharts/apps/compare/chevereto-3.0.15...chevereto-3.0.17) (2022-07-14)
 
 ### Fix

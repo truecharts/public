@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [theme-park-1.0.19](https://github.com/truecharts/apps/compare/theme-park-1.0.18...theme-park-1.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [theme-park-1.0.18](https://github.com/truecharts/apps/compare/theme-park-1.0.16...theme-park-1.0.18) (2022-07-14)
 
 ### Fix

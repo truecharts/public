@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [libreoffice-2.0.17](https://github.com/truecharts/apps/compare/libreoffice-2.0.16...libreoffice-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [libreoffice-2.0.16](https://github.com/truecharts/apps/compare/libreoffice-2.0.14...libreoffice-2.0.16) (2022-07-14)
 
 ### Fix

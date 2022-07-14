@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [collabora-online-12.1.16](https://github.com/truecharts/apps/compare/collabora-online-12.1.15...collabora-online-12.1.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [collabora-online-12.1.15](https://github.com/truecharts/apps/compare/collabora-online-12.1.13...collabora-online-12.1.15) (2022-07-14)
 
 ### Fix

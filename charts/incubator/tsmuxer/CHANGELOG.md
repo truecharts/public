@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tsmuxer-0.0.10](https://github.com/truecharts/apps/compare/tsmuxer-0.0.9...tsmuxer-0.0.10) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [tsmuxer-0.0.9](https://github.com/truecharts/apps/compare/tsmuxer-0.0.7...tsmuxer-0.0.9) (2022-07-14)
 
 ### Fix

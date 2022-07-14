@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jdownloader2-8.0.18](https://github.com/truecharts/apps/compare/jdownloader2-8.0.17...jdownloader2-8.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [jdownloader2-8.0.17](https://github.com/truecharts/apps/compare/jdownloader2-8.0.15...jdownloader2-8.0.17) (2022-07-14)
 
 ### Fix

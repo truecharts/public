@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deepstack-4.0.17](https://github.com/truecharts/apps/compare/deepstack-4.0.16...deepstack-4.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [deepstack-4.0.16](https://github.com/truecharts/apps/compare/deepstack-4.0.14...deepstack-4.0.16) (2022-07-14)
 
 ### Fix

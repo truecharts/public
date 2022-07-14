@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [clamav-3.0.19](https://github.com/truecharts/apps/compare/clamav-3.0.18...clamav-3.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [clamav-3.0.18](https://github.com/truecharts/apps/compare/clamav-3.0.16...clamav-3.0.18) (2022-07-14)
 
 ### Fix

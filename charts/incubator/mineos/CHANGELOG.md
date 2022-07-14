@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mineos-0.0.9](https://github.com/truecharts/apps/compare/mineos-0.0.8...mineos-0.0.9) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mineos-0.0.8](https://github.com/truecharts/apps/compare/mineos-0.0.6...mineos-0.0.8) (2022-07-14)
 
 ### Fix

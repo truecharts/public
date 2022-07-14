@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [promtail-3.0.28](https://github.com/truecharts/apps/compare/promtail-3.0.27...promtail-3.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [promtail-3.0.27](https://github.com/truecharts/apps/compare/promtail-3.0.25...promtail-3.0.27) (2022-07-14)
 
 ### Fix

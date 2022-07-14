@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pihole-6.0.20](https://github.com/truecharts/apps/compare/pihole-6.0.19...pihole-6.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [pihole-6.0.19](https://github.com/truecharts/apps/compare/pihole-6.0.17...pihole-6.0.19) (2022-07-14)
 
 ### Fix

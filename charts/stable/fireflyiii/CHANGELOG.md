@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fireflyiii-16.0.20](https://github.com/truecharts/apps/compare/fireflyiii-16.0.19...fireflyiii-16.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [fireflyiii-16.0.19](https://github.com/truecharts/apps/compare/fireflyiii-16.0.17...fireflyiii-16.0.19) (2022-07-14)
 
 ### Fix

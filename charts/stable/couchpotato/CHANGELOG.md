@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [couchpotato-2.0.17](https://github.com/truecharts/apps/compare/couchpotato-2.0.16...couchpotato-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [couchpotato-2.0.16](https://github.com/truecharts/apps/compare/couchpotato-2.0.14...couchpotato-2.0.16) (2022-07-14)
 
 ### Fix

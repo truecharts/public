@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [etherpad-8.0.18](https://github.com/truecharts/apps/compare/etherpad-8.0.17...etherpad-8.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [etherpad-8.0.17](https://github.com/truecharts/apps/compare/etherpad-8.0.15...etherpad-8.0.17) (2022-07-14)
 
 ### Fix

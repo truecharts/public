@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jitsi-0.0.13](https://github.com/truecharts/apps/compare/jitsi-0.0.12...jitsi-0.0.13) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [jitsi-0.0.12](https://github.com/truecharts/apps/compare/jitsi-0.0.10...jitsi-0.0.12) (2022-07-14)
 
 ### Fix

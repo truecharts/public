@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [outline-3.0.20](https://github.com/truecharts/apps/compare/outline-3.0.19...outline-3.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [outline-3.0.19](https://github.com/truecharts/apps/compare/outline-3.0.17...outline-3.0.19) (2022-07-14)
 
 ### Fix

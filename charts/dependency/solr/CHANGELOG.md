@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [solr-0.0.10](https://github.com/truecharts/apps/compare/solr-0.0.9...solr-0.0.10) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [solr-0.0.9](https://github.com/truecharts/apps/compare/solr-0.0.7...solr-0.0.9) (2022-07-14)
 
 ### Fix

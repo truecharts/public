@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tinymediamanager-2.0.17](https://github.com/truecharts/apps/compare/tinymediamanager-2.0.16...tinymediamanager-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [tinymediamanager-2.0.16](https://github.com/truecharts/apps/compare/tinymediamanager-2.0.14...tinymediamanager-2.0.16) (2022-07-14)
 
 ### Fix

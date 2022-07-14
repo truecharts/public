@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [postgresql-8.0.37](https://github.com/truecharts/apps/compare/postgresql-8.0.36...postgresql-8.0.37) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [postgresql-8.0.36](https://github.com/truecharts/apps/compare/postgresql-8.0.34...postgresql-8.0.36) (2022-07-14)
 
 ### Fix

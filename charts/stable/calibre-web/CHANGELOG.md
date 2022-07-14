@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [calibre-web-11.0.20](https://github.com/truecharts/apps/compare/calibre-web-11.0.19...calibre-web-11.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [calibre-web-11.0.19](https://github.com/truecharts/apps/compare/calibre-web-11.0.17...calibre-web-11.0.19) (2022-07-14)
 
 ### Fix

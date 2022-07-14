@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grocy-11.0.22](https://github.com/truecharts/apps/compare/grocy-11.0.21...grocy-11.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [grocy-11.0.21](https://github.com/truecharts/apps/compare/grocy-11.0.19...grocy-11.0.21) (2022-07-14)
 
 ### Fix

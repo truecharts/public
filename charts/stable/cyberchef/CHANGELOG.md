@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cyberchef-2.0.37](https://github.com/truecharts/apps/compare/cyberchef-2.0.36...cyberchef-2.0.37) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [cyberchef-2.0.36](https://github.com/truecharts/apps/compare/cyberchef-2.0.34...cyberchef-2.0.36) (2022-07-14)
 
 ### Fix

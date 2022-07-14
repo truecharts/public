@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fileflows-2.0.23](https://github.com/truecharts/apps/compare/fileflows-2.0.22...fileflows-2.0.23) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [fileflows-2.0.22](https://github.com/truecharts/apps/compare/fileflows-2.0.20...fileflows-2.0.22) (2022-07-14)
 
 ### Fix

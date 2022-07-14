@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [apache-musicindex-4.0.18](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.17...apache-musicindex-4.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [apache-musicindex-4.0.17](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.15...apache-musicindex-4.0.17) (2022-07-14)
 
 ### Fix

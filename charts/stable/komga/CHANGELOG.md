@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [komga-6.0.20](https://github.com/truecharts/apps/compare/komga-6.0.19...komga-6.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [komga-6.0.19](https://github.com/truecharts/apps/compare/komga-6.0.17...komga-6.0.19) (2022-07-14)
 
 ### Fix

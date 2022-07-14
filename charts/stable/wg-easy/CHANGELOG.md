@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wg-easy-1.0.10](https://github.com/truecharts/apps/compare/wg-easy-1.0.9...wg-easy-1.0.10) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [wg-easy-1.0.9](https://github.com/truecharts/apps/compare/wg-easy-1.0.7...wg-easy-1.0.9) (2022-07-14)
 
 ### Fix

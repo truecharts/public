@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [avidemux-0.0.11](https://github.com/truecharts/apps/compare/avidemux-0.0.10...avidemux-0.0.11) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [avidemux-0.0.10](https://github.com/truecharts/apps/compare/avidemux-0.0.8...avidemux-0.0.10) (2022-07-14)
 
 ### Fix

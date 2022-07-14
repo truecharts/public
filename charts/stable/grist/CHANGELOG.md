@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grist-3.0.18](https://github.com/truecharts/apps/compare/grist-3.0.17...grist-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [grist-3.0.17](https://github.com/truecharts/apps/compare/grist-3.0.15...grist-3.0.17) (2022-07-14)
 
 ### Fix

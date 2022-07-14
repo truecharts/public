@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [senseai-server-0.0.16](https://github.com/truecharts/apps/compare/senseai-server-0.0.15...senseai-server-0.0.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [senseai-server-0.0.15](https://github.com/truecharts/apps/compare/senseai-server-0.0.13...senseai-server-0.0.15) (2022-07-14)
 
 ### Fix

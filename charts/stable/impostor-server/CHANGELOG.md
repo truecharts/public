@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [impostor-server-1.0.21](https://github.com/truecharts/apps/compare/impostor-server-1.0.20...impostor-server-1.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [impostor-server-1.0.20](https://github.com/truecharts/apps/compare/impostor-server-1.0.18...impostor-server-1.0.20) (2022-07-14)
 
 ### Fix

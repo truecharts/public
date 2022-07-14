@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kodi-headless-2.0.17](https://github.com/truecharts/apps/compare/kodi-headless-2.0.16...kodi-headless-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [kodi-headless-2.0.16](https://github.com/truecharts/apps/compare/kodi-headless-2.0.14...kodi-headless-2.0.16) (2022-07-14)
 
 ### Fix

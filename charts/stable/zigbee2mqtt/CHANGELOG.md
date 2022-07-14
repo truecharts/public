@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [zigbee2mqtt-4.0.19](https://github.com/truecharts/apps/compare/zigbee2mqtt-4.0.18...zigbee2mqtt-4.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [zigbee2mqtt-4.0.18](https://github.com/truecharts/apps/compare/zigbee2mqtt-4.0.16...zigbee2mqtt-4.0.18) (2022-07-14)
 
 ### Fix

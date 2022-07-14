@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nano-wallet-2.0.17](https://github.com/truecharts/apps/compare/nano-wallet-2.0.16...nano-wallet-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [nano-wallet-2.0.16](https://github.com/truecharts/apps/compare/nano-wallet-2.0.14...nano-wallet-2.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ombi-11.0.19](https://github.com/truecharts/apps/compare/ombi-11.0.18...ombi-11.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ombi-11.0.18](https://github.com/truecharts/apps/compare/ombi-11.0.16...ombi-11.0.18) (2022-07-14)
 
 ### Fix

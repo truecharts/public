@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [uptimerobot-prometheus-4.0.19](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.18...uptimerobot-prometheus-4.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [uptimerobot-prometheus-4.0.18](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.16...uptimerobot-prometheus-4.0.18) (2022-07-14)
 
 ### Fix

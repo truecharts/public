@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mstream-3.0.17](https://github.com/truecharts/apps/compare/mstream-3.0.16...mstream-3.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mstream-3.0.16](https://github.com/truecharts/apps/compare/mstream-3.0.14...mstream-3.0.16) (2022-07-14)
 
 ### Fix

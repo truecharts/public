@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ser2sock-6.0.18](https://github.com/truecharts/apps/compare/ser2sock-6.0.17...ser2sock-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ser2sock-6.0.17](https://github.com/truecharts/apps/compare/ser2sock-6.0.15...ser2sock-6.0.17) (2022-07-14)
 
 ### Fix

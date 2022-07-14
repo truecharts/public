@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mylar-6.0.18](https://github.com/truecharts/apps/compare/mylar-6.0.17...mylar-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mylar-6.0.17](https://github.com/truecharts/apps/compare/mylar-6.0.15...mylar-6.0.17) (2022-07-14)
 
 ### Fix

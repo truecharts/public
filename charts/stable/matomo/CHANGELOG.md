@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [matomo-3.0.28](https://github.com/truecharts/apps/compare/matomo-3.0.27...matomo-3.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [matomo-3.0.27](https://github.com/truecharts/apps/compare/matomo-3.0.25...matomo-3.0.27) (2022-07-14)
 
 ### Fix

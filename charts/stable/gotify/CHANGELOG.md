@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gotify-8.0.18](https://github.com/truecharts/apps/compare/gotify-8.0.17...gotify-8.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [gotify-8.0.17](https://github.com/truecharts/apps/compare/gotify-8.0.15...gotify-8.0.17) (2022-07-14)
 
 ### Fix

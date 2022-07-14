@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [adguard-home-1.0.20](https://github.com/truecharts/apps/compare/adguard-home-1.0.19...adguard-home-1.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [adguard-home-1.0.19](https://github.com/truecharts/apps/compare/adguard-home-1.0.17...adguard-home-1.0.19) (2022-07-14)
 
 ### Fix

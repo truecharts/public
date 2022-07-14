@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sickchill-3.0.19](https://github.com/truecharts/apps/compare/sickchill-3.0.18...sickchill-3.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [sickchill-3.0.18](https://github.com/truecharts/apps/compare/sickchill-3.0.16...sickchill-3.0.18) (2022-07-14)
 
 ### Fix

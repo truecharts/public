@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [node-red-11.0.18](https://github.com/truecharts/apps/compare/node-red-11.0.17...node-red-11.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [node-red-11.0.17](https://github.com/truecharts/apps/compare/node-red-11.0.15...node-red-11.0.17) (2022-07-14)
 
 ### Fix

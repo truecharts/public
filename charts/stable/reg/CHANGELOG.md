@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [reg-6.0.18](https://github.com/truecharts/apps/compare/reg-6.0.17...reg-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [reg-6.0.17](https://github.com/truecharts/apps/compare/reg-6.0.15...reg-6.0.17) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [redis-3.0.37](https://github.com/truecharts/apps/compare/redis-3.0.36...redis-3.0.37) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [redis-3.0.36](https://github.com/truecharts/apps/compare/redis-3.0.34...redis-3.0.36) (2022-07-14)
 
 ### Fix

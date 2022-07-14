@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kimai-3.0.18](https://github.com/truecharts/apps/compare/kimai-3.0.17...kimai-3.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [kimai-3.0.17](https://github.com/truecharts/apps/compare/kimai-3.0.15...kimai-3.0.17) (2022-07-14)
 
 ### Fix

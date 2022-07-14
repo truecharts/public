@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mattermost-3.0.20](https://github.com/truecharts/apps/compare/mattermost-3.0.19...mattermost-3.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mattermost-3.0.19](https://github.com/truecharts/apps/compare/mattermost-3.0.17...mattermost-3.0.19) (2022-07-14)
 
 ### Fix

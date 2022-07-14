@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dashdot-1.0.28](https://github.com/truecharts/apps/compare/dashdot-1.0.27...dashdot-1.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [dashdot-1.0.27](https://github.com/truecharts/apps/compare/dashdot-1.0.25...dashdot-1.0.27) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [qbittorrent-11.0.20](https://github.com/truecharts/apps/compare/qbittorrent-11.0.19...qbittorrent-11.0.20) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [qbittorrent-11.0.19](https://github.com/truecharts/apps/compare/qbittorrent-11.0.17...qbittorrent-11.0.19) (2022-07-14)
 
 ### Fix

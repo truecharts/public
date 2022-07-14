@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mosdns-2.0.19](https://github.com/truecharts/apps/compare/mosdns-2.0.18...mosdns-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [mosdns-2.0.18](https://github.com/truecharts/apps/compare/mosdns-2.0.16...mosdns-2.0.18) (2022-07-14)
 
 ### Fix

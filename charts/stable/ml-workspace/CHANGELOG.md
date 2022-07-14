@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ml-workspace-2.0.17](https://github.com/truecharts/apps/compare/ml-workspace-2.0.16...ml-workspace-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ml-workspace-2.0.16](https://github.com/truecharts/apps/compare/ml-workspace-2.0.14...ml-workspace-2.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tdarr-node-2.0.18](https://github.com/truecharts/apps/compare/tdarr-node-2.0.17...tdarr-node-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [tdarr-node-2.0.17](https://github.com/truecharts/apps/compare/tdarr-node-1.0.6...tdarr-node-2.0.17) (2022-07-14)
 
 ### Chore

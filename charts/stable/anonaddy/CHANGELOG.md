@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [anonaddy-9.0.22](https://github.com/truecharts/apps/compare/anonaddy-9.0.21...anonaddy-9.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [anonaddy-9.0.21](https://github.com/truecharts/apps/compare/anonaddy-9.0.19...anonaddy-9.0.21) (2022-07-14)
 
 ### Fix

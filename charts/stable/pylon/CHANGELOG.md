@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pylon-2.0.17](https://github.com/truecharts/apps/compare/pylon-2.0.16...pylon-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [pylon-2.0.16](https://github.com/truecharts/apps/compare/pylon-2.0.14...pylon-2.0.16) (2022-07-14)
 
 ### Fix

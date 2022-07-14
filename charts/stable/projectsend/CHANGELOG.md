@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [projectsend-3.0.19](https://github.com/truecharts/apps/compare/projectsend-3.0.18...projectsend-3.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [projectsend-3.0.18](https://github.com/truecharts/apps/compare/projectsend-3.0.16...projectsend-3.0.18) (2022-07-14)
 
 ### Fix

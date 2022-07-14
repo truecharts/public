@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lanraragi-2.0.17](https://github.com/truecharts/apps/compare/lanraragi-2.0.16...lanraragi-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [lanraragi-2.0.16](https://github.com/truecharts/apps/compare/lanraragi-2.0.14...lanraragi-2.0.16) (2022-07-14)
 
 ### Fix

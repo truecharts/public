@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ispy-agent-dvr-2.0.23](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.22...ispy-agent-dvr-2.0.23) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ispy-agent-dvr-2.0.22](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.20...ispy-agent-dvr-2.0.22) (2022-07-14)
 
 ### Fix

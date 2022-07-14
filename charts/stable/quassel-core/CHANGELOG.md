@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [quassel-core-3.0.17](https://github.com/truecharts/apps/compare/quassel-core-3.0.16...quassel-core-3.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [quassel-core-3.0.16](https://github.com/truecharts/apps/compare/quassel-core-3.0.14...quassel-core-3.0.16) (2022-07-14)
 
 ### Fix

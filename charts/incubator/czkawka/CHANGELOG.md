@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [czkawka-0.0.12](https://github.com/truecharts/apps/compare/czkawka-0.0.11...czkawka-0.0.12) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [czkawka-0.0.11](https://github.com/truecharts/apps/compare/czkawka-0.0.9...czkawka-0.0.11) (2022-07-14)
 
 ### Chore

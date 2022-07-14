@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jackett-11.0.31](https://github.com/truecharts/apps/compare/jackett-11.0.30...jackett-11.0.31) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [jackett-11.0.30](https://github.com/truecharts/apps/compare/jackett-11.0.28...jackett-11.0.30) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dizquetv-7.0.18](https://github.com/truecharts/apps/compare/dizquetv-7.0.17...dizquetv-7.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [dizquetv-7.0.17](https://github.com/truecharts/apps/compare/dizquetv-7.0.15...dizquetv-7.0.17) (2022-07-14)
 
 ### Fix

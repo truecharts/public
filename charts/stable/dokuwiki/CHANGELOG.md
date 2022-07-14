@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dokuwiki-3.0.29](https://github.com/truecharts/apps/compare/dokuwiki-3.0.28...dokuwiki-3.0.29) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [dokuwiki-3.0.28](https://github.com/truecharts/apps/compare/dokuwiki-3.0.26...dokuwiki-3.0.28) (2022-07-14)
 
 ### Fix

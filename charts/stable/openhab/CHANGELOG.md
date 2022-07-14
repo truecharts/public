@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openhab-2.0.19](https://github.com/truecharts/apps/compare/openhab-2.0.18...openhab-2.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [openhab-2.0.18](https://github.com/truecharts/apps/compare/openhab-2.0.16...openhab-2.0.18) (2022-07-14)
 
 ### Fix

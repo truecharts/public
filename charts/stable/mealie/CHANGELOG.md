@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mealie-8.0.18](https://github.com/truecharts/apps/compare/mealie-8.0.17...mealie-8.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 
 ## [mealie-8.0.15](https://github.com/truecharts/apps/compare/mealie-8.0.13...mealie-8.0.15) (2022-07-12)
 

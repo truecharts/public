@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextpvr-2.0.17](https://github.com/truecharts/apps/compare/nextpvr-2.0.16...nextpvr-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [nextpvr-2.0.16](https://github.com/truecharts/apps/compare/nextpvr-2.0.14...nextpvr-2.0.16) (2022-07-14)
 
 ### Fix

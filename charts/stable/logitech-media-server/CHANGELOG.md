@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [logitech-media-server-4.0.19](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.18...logitech-media-server-4.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [logitech-media-server-4.0.18](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.16...logitech-media-server-4.0.18) (2022-07-14)
 
 ### Fix

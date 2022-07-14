@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [trilium-notes-5.0.18](https://github.com/truecharts/apps/compare/trilium-notes-5.0.17...trilium-notes-5.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [trilium-notes-5.0.17](https://github.com/truecharts/apps/compare/trilium-notes-5.0.15...trilium-notes-5.0.17) (2022-07-14)
 
 ### Fix

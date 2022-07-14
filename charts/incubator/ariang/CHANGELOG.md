@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ariang-0.0.10](https://github.com/truecharts/apps/compare/ariang-0.0.9...ariang-0.0.10) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [ariang-0.0.9](https://github.com/truecharts/apps/compare/ariang-0.0.7...ariang-0.0.9) (2022-07-14)
 
 ### Fix

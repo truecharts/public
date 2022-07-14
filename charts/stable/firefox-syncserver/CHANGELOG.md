@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [firefox-syncserver-9.0.17](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.16...firefox-syncserver-9.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [firefox-syncserver-9.0.16](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.14...firefox-syncserver-9.0.16) (2022-07-14)
 
 ### Fix

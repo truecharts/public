@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nocodb-3.0.23](https://github.com/truecharts/apps/compare/nocodb-3.0.22...nocodb-3.0.23) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [nocodb-3.0.22](https://github.com/truecharts/apps/compare/nocodb-3.0.20...nocodb-3.0.22) (2022-07-14)
 
 ### Fix

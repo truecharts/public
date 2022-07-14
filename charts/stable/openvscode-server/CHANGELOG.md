@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openvscode-server-2.0.21](https://github.com/truecharts/apps/compare/openvscode-server-2.0.20...openvscode-server-2.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [openvscode-server-2.0.20](https://github.com/truecharts/apps/compare/openvscode-server-2.0.18...openvscode-server-2.0.20) (2022-07-14)
 
 ### Fix

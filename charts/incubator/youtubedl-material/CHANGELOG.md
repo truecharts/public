@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [youtubedl-material-0.0.16](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.15...youtubedl-material-0.0.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [youtubedl-material-0.0.15](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.13...youtubedl-material-0.0.15) (2022-07-14)
 
 ### Fix

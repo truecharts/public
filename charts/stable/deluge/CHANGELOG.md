@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deluge-11.0.19](https://github.com/truecharts/apps/compare/deluge-11.0.18...deluge-11.0.19) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [deluge-11.0.18](https://github.com/truecharts/apps/compare/deluge-11.0.16...deluge-11.0.18) (2022-07-14)
 
 ### Fix

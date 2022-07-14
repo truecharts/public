@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [vaultwarden-16.0.18](https://github.com/truecharts/apps/compare/vaultwarden-16.0.17...vaultwarden-16.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [vaultwarden-16.0.17](https://github.com/truecharts/apps/compare/vaultwarden-16.0.15...vaultwarden-16.0.17) (2022-07-14)
 
 ### Fix

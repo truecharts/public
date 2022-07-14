@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [headphones-4.0.17](https://github.com/truecharts/apps/compare/headphones-4.0.16...headphones-4.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [headphones-4.0.16](https://github.com/truecharts/apps/compare/headphones-4.0.14...headphones-4.0.16) (2022-07-14)
 
 ### Fix

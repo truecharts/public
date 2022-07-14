@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minecraft-bedrock-1.0.18](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.17...minecraft-bedrock-1.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [minecraft-bedrock-1.0.17](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.15...minecraft-bedrock-1.0.17) (2022-07-14)
 
 ### Fix

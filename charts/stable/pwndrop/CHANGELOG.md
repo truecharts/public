@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pwndrop-2.0.17](https://github.com/truecharts/apps/compare/pwndrop-2.0.16...pwndrop-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [pwndrop-2.0.16](https://github.com/truecharts/apps/compare/pwndrop-2.0.14...pwndrop-2.0.16) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [rsshub-3.0.39](https://github.com/truecharts/apps/compare/rsshub-3.0.38...rsshub-3.0.39) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [rsshub-3.0.38](https://github.com/truecharts/apps/compare/rsshub-3.0.36...rsshub-3.0.38) (2022-07-14)
 
 ### Fix

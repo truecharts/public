@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lancache-monolithic-0.0.8](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.7...lancache-monolithic-0.0.8) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [lancache-monolithic-0.0.7](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.5...lancache-monolithic-0.0.7) (2022-07-14)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minio-3.0.27](https://github.com/truecharts/apps/compare/minio-3.0.26...minio-3.0.27) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [minio-3.0.26](https://github.com/truecharts/apps/compare/minio-3.0.24...minio-3.0.26) (2022-07-14)
 
 ### Fix

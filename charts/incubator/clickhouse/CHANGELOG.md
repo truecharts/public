@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [clickhouse-0.0.11](https://github.com/truecharts/apps/compare/clickhouse-0.0.10...clickhouse-0.0.11) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [clickhouse-0.0.10](https://github.com/truecharts/apps/compare/clickhouse-0.0.8...clickhouse-0.0.10) (2022-07-14)
 
 ### Fix

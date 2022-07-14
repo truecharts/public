@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [embystat-2.0.18](https://github.com/truecharts/apps/compare/embystat-2.0.17...embystat-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [embystat-2.0.17](https://github.com/truecharts/apps/compare/embystat-2.0.15...embystat-2.0.17) (2022-07-14)
 
 ### Fix

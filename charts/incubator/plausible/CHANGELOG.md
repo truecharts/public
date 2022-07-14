@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plausible-0.0.8](https://github.com/truecharts/apps/compare/plausible-0.0.7...plausible-0.0.8) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [plausible-0.0.7](https://github.com/truecharts/apps/compare/plausible-0.0.5...plausible-0.0.7) (2022-07-14)
 
 ### Fix

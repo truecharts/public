@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflareddns-0.0.15](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.14...cloudflareddns-0.0.15) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [cloudflareddns-0.0.14](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.12...cloudflareddns-0.0.14) (2022-07-14)
 
 ### Fix

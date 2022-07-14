@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [littlelink-6.0.31](https://github.com/truecharts/apps/compare/littlelink-6.0.30...littlelink-6.0.31) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [littlelink-6.0.30](https://github.com/truecharts/apps/compare/littlelink-6.0.28...littlelink-6.0.30) (2022-07-14)
 
 ### Fix

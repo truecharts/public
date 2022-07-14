@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [overseerr-6.0.18](https://github.com/truecharts/apps/compare/overseerr-6.0.17...overseerr-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [overseerr-6.0.17](https://github.com/truecharts/apps/compare/overseerr-6.0.15...overseerr-6.0.17) (2022-07-14)
 
 ### Fix

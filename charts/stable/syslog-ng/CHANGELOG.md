@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [syslog-ng-2.0.18](https://github.com/truecharts/apps/compare/syslog-ng-2.0.17...syslog-ng-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [syslog-ng-2.0.17](https://github.com/truecharts/apps/compare/syslog-ng-2.0.15...syslog-ng-2.0.17) (2022-07-14)
 
 ### Fix

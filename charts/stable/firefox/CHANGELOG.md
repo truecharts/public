@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [firefox-2.0.17](https://github.com/truecharts/apps/compare/firefox-2.0.16...firefox-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
 ## [firefox-2.0.16](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.14...firefox-2.0.16) (2022-07-14)
 
 ### Fix
