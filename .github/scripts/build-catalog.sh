@@ -213,6 +213,8 @@ patch_apps() {
     rm -rf ${target}/security.md
     rm -rf ${target}/helm-values.md
     rm -rf ${target}/CONFIG.md
+    rm -rf ${target}/docs
+    rm -rf ${target}/icon.png
     # Generate item.yaml
     cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
     sed -i "s|^icon:|icon_url:|g" catalog/${train}/${chartname}/item.yaml
