@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoshow-3.0.16](https://github.com/truecharts/apps/compare/photoshow-3.0.14...photoshow-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [photoshow-3.0.14](https://github.com/truecharts/apps/compare/photoshow-3.0.12...photoshow-3.0.14) (2022-07-12)
 
 ### Chore

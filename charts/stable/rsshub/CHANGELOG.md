@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [rsshub-3.0.38](https://github.com/truecharts/apps/compare/rsshub-3.0.36...rsshub-3.0.38) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [rsshub-3.0.36](https://github.com/truecharts/apps/compare/rsshub-3.0.35...rsshub-3.0.36) (2022-07-14)
 
 ### Chore

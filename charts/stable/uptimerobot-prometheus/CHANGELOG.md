@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [uptimerobot-prometheus-4.0.18](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.16...uptimerobot-prometheus-4.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [uptimerobot-prometheus-4.0.16](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.14...uptimerobot-prometheus-4.0.16) (2022-07-12)
 
 ### Chore

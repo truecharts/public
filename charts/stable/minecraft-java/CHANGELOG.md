@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minecraft-java-1.0.23](https://github.com/truecharts/apps/compare/minecraft-java-1.0.21...minecraft-java-1.0.23) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [minecraft-java-1.0.21](https://github.com/truecharts/apps/compare/minecraft-java-1.0.19...minecraft-java-1.0.21) (2022-07-12)
 
 ### Chore

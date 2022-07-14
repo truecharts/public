@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mosquitto-6.0.16](https://github.com/truecharts/apps/compare/mosquitto-6.0.14...mosquitto-6.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [mosquitto-6.0.14](https://github.com/truecharts/apps/compare/mosquitto-6.0.12...mosquitto-6.0.14) (2022-07-12)
 
 ### Chore

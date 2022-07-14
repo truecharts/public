@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [vikunja-3.0.22](https://github.com/truecharts/apps/compare/vikunja-3.0.20...vikunja-3.0.22) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [vikunja-3.0.20](https://github.com/truecharts/apps/compare/vikunja-3.0.19...vikunja-3.0.20) (2022-07-14)
 
 ### Chore

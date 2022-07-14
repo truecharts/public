@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [traefik-12.0.20](https://github.com/truecharts/apps/compare/traefik-12.0.18...traefik-12.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+- disable HTTP probes temporarily ([#3173](https://github.com/truecharts/apps/issues/3173))
+
+
+
 ## [traefik-12.0.18](https://github.com/truecharts/apps/compare/traefik-12.0.17...traefik-12.0.18) (2022-07-13)
 
 

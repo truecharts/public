@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kutt-3.0.17](https://github.com/truecharts/apps/compare/kutt-3.0.15...kutt-3.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [kutt-3.0.15](https://github.com/truecharts/apps/compare/kutt-3.0.13...kutt-3.0.15) (2022-07-12)
 
 ### Chore

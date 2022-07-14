@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [omada-controller-6.0.29](https://github.com/truecharts/apps/compare/omada-controller-6.0.27...omada-controller-6.0.29) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [omada-controller-6.0.27](https://github.com/truecharts/apps/compare/omada-controller-6.0.26...omada-controller-6.0.27) (2022-07-14)
 
 ### Chore

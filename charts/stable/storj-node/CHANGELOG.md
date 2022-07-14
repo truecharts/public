@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [storj-node-2.0.27](https://github.com/truecharts/apps/compare/storj-node-2.0.25...storj-node-2.0.27) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [storj-node-2.0.25](https://github.com/truecharts/apps/compare/storj-node-2.0.24...storj-node-2.0.25) (2022-07-14)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cryptofolio-4.0.17](https://github.com/truecharts/apps/compare/cryptofolio-4.0.15...cryptofolio-4.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [cryptofolio-4.0.15](https://github.com/truecharts/apps/compare/cryptofolio-4.0.13...cryptofolio-4.0.15) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tautulli-11.0.17](https://github.com/truecharts/apps/compare/tautulli-11.0.15...tautulli-11.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [tautulli-11.0.15](https://github.com/truecharts/apps/compare/tautulli-11.0.13...tautulli-11.0.15) (2022-07-12)
 
 ### Chore

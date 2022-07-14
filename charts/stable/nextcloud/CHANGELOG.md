@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextcloud-15.2.15](https://github.com/truecharts/apps/compare/nextcloud-15.2.13...nextcloud-15.2.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [nextcloud-15.2.13](https://github.com/truecharts/apps/compare/nextcloud-15.2.12...nextcloud-15.2.13) (2022-07-14)
 
 ### Chore

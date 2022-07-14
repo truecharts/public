@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [onlyoffice-document-server-6.0.17](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.15...onlyoffice-document-server-6.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [onlyoffice-document-server-6.0.15](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.13...onlyoffice-document-server-6.0.15) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [hedgedoc-4.0.17](https://github.com/truecharts/apps/compare/hedgedoc-4.0.15...hedgedoc-4.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [hedgedoc-4.0.15](https://github.com/truecharts/apps/compare/hedgedoc-4.0.14...hedgedoc-4.0.15) (2022-07-14)
 
 ### Chore

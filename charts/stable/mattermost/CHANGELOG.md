@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mattermost-3.0.19](https://github.com/truecharts/apps/compare/mattermost-3.0.17...mattermost-3.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [mattermost-3.0.17](https://github.com/truecharts/apps/compare/mattermost-3.0.15...mattermost-3.0.17) (2022-07-12)
 
 ### Chore

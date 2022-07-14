@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [endlessh-2.0.16](https://github.com/truecharts/apps/compare/endlessh-2.0.14...endlessh-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [endlessh-2.0.14](https://github.com/truecharts/apps/compare/endlessh-2.0.12...endlessh-2.0.14) (2022-07-12)
 
 ### Chore

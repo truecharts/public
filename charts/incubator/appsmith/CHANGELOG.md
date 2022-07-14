@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [appsmith-2.0.22](https://github.com/truecharts/apps/compare/appsmith-2.0.20...appsmith-2.0.22) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [appsmith-2.0.20](https://github.com/truecharts/apps/compare/appsmith-2.0.19...appsmith-2.0.20) (2022-07-14)
 
 ### Chore

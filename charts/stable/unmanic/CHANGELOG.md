@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [unmanic-3.0.16](https://github.com/truecharts/apps/compare/unmanic-3.0.14...unmanic-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [unmanic-3.0.14](https://github.com/truecharts/apps/compare/unmanic-3.0.12...unmanic-3.0.14) (2022-07-12)
 
 ### Chore

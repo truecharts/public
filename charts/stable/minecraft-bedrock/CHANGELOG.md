@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minecraft-bedrock-1.0.17](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.15...minecraft-bedrock-1.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [minecraft-bedrock-1.0.15](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.13...minecraft-bedrock-1.0.15) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [firefox-2.0.16](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.14...firefox-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [firefox-2.0.14](https://github.com/truecharts/apps/compare/firefox-syncserver-9.0.12...firefox-2.0.14) (2022-07-12)
 
 ### Chore

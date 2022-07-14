@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [xwiki-3.0.22](https://github.com/truecharts/apps/compare/xwiki-3.0.20...xwiki-3.0.22) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [xwiki-3.0.20](https://github.com/truecharts/apps/compare/xwiki-3.0.19...xwiki-3.0.20) (2022-07-14)
 
 ### Chore

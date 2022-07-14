@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [collabora-online-12.1.15](https://github.com/truecharts/apps/compare/collabora-online-12.1.13...collabora-online-12.1.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [collabora-online-12.1.13](https://github.com/truecharts/apps/compare/collabora-online-12.1.12...collabora-online-12.1.13) (2022-07-14)
 
 ### Chore

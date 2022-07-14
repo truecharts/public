@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [aria2-5.0.17](https://github.com/truecharts/apps/compare/aria2-5.0.15...aria2-5.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [aria2-5.0.15](https://github.com/truecharts/apps/compare/aria2-5.0.13...aria2-5.0.15) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [logitech-media-server-4.0.18](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.16...logitech-media-server-4.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [logitech-media-server-4.0.16](https://github.com/truecharts/apps/compare/logitech-media-server-4.0.14...logitech-media-server-4.0.16) (2022-07-12)
 
 ### Chore

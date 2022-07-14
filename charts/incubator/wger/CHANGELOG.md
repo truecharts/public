@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wger-0.0.21](https://github.com/truecharts/apps/compare/wger-0.0.19...wger-0.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [wger-0.0.19](https://github.com/truecharts/apps/compare/wger-0.0.18...wger-0.0.19) (2022-07-14)
 
 ### Chore

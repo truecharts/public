@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [booksonic-air-6.0.19](https://github.com/truecharts/apps/compare/booksonic-air-6.0.17...booksonic-air-6.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [booksonic-air-6.0.17](https://github.com/truecharts/apps/compare/booksonic-air-6.0.15...booksonic-air-6.0.17) (2022-07-12)
 
 ### Chore

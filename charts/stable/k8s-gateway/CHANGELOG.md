@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [k8s-gateway-6.0.16](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.14...k8s-gateway-6.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [k8s-gateway-6.0.14](https://github.com/truecharts/apps/compare/k8s-gateway-6.0.12...k8s-gateway-6.0.14) (2022-07-12)
 
 ### Chore

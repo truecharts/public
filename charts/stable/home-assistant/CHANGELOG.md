@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [home-assistant-15.0.25](https://github.com/truecharts/apps/compare/home-assistant-15.0.23...home-assistant-15.0.25) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [home-assistant-15.0.23](https://github.com/truecharts/apps/compare/home-assistant-15.0.22...home-assistant-15.0.23) (2022-07-14)
 
 ### Chore

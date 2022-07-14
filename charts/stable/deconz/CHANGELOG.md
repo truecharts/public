@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deconz-8.0.19](https://github.com/truecharts/apps/compare/deconz-8.0.17...deconz-8.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [deconz-8.0.17](https://github.com/truecharts/apps/compare/deconz-8.0.15...deconz-8.0.17) (2022-07-12)
 
 ### Chore

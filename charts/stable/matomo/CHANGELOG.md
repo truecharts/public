@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [matomo-3.0.27](https://github.com/truecharts/apps/compare/matomo-3.0.25...matomo-3.0.27) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [matomo-3.0.25](https://github.com/truecharts/apps/compare/matomo-3.0.23...matomo-3.0.25) (2022-07-12)
 
 ### Chore

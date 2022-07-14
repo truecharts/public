@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [smokeping-3.0.16](https://github.com/truecharts/apps/compare/smokeping-3.0.14...smokeping-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [smokeping-3.0.14](https://github.com/truecharts/apps/compare/smokeping-3.0.12...smokeping-3.0.14) (2022-07-12)
 
 ### Chore

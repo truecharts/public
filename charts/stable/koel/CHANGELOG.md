@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [koel-3.0.18](https://github.com/truecharts/apps/compare/koel-3.0.16...koel-3.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [koel-3.0.16](https://github.com/truecharts/apps/compare/koel-3.0.14...koel-3.0.16) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nocodb-3.0.22](https://github.com/truecharts/apps/compare/nocodb-3.0.20...nocodb-3.0.22) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [nocodb-3.0.20](https://github.com/truecharts/apps/compare/nocodb-3.0.18...nocodb-3.0.20) (2022-07-12)
 
 ### Chore

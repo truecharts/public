@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [code-server-4.0.19](https://github.com/truecharts/apps/compare/openvscode-server-2.0.18...code-server-4.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [collabora-online-12.1.12](https://github.com/truecharts/apps/compare/collabora-online-12.1.11...collabora-online-12.1.12) (2022-07-13)
 
 ### Chore

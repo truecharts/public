@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dashdot-1.0.27](https://github.com/truecharts/apps/compare/dashdot-1.0.25...dashdot-1.0.27) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [dashdot-1.0.25](https://github.com/truecharts/apps/compare/dashdot-1.0.23...dashdot-1.0.25) (2022-07-12)
 
 ### Chore

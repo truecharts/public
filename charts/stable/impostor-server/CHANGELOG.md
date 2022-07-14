@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [impostor-server-1.0.20](https://github.com/truecharts/apps/compare/impostor-server-1.0.18...impostor-server-1.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [impostor-server-1.0.18](https://github.com/truecharts/apps/compare/impostor-server-1.0.16...impostor-server-1.0.18) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lazylibrarian-11.0.23](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.21...lazylibrarian-11.0.23) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [lazylibrarian-11.0.21](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.20...lazylibrarian-11.0.21) (2022-07-13)
 
 ### Fix

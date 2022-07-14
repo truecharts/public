@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [lancache-monolithic-0.0.7](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.5...lancache-monolithic-0.0.7) (2022-07-14)
+
+### Chore
+
+- update some last icons ([#3160](https://github.com/truecharts/apps/issues/3160))
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [lancache-monolithic-0.0.5](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.4...lancache-monolithic-0.0.5) (2022-07-13)
 
 

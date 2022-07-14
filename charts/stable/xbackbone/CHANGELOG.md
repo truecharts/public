@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [xbackbone-3.0.18](https://github.com/truecharts/apps/compare/xbackbone-3.0.16...xbackbone-3.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [xbackbone-3.0.16](https://github.com/truecharts/apps/compare/xbackbone-3.0.14...xbackbone-3.0.16) (2022-07-12)
 
 ### Chore

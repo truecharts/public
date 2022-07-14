@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lychee-13.0.18](https://github.com/truecharts/apps/compare/lychee-13.0.16...lychee-13.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [lychee-13.0.16](https://github.com/truecharts/apps/compare/lychee-13.0.14...lychee-13.0.16) (2022-07-12)
 
 ### Chore

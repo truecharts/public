@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [verysync-2.0.19](https://github.com/truecharts/apps/compare/verysync-2.0.17...verysync-2.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [verysync-2.0.17](https://github.com/truecharts/apps/compare/verysync-2.0.14...verysync-2.0.17) (2022-07-12)
 
 ### Chore

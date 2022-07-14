@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minetest-1.0.16](https://github.com/truecharts/apps/compare/minetest-1.0.14...minetest-1.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [minetest-1.0.14](https://github.com/truecharts/apps/compare/minetest-1.0.12...minetest-1.0.14) (2022-07-12)
 
 ### Chore

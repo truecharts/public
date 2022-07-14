@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [baserow-3.0.20](https://github.com/truecharts/apps/compare/baserow-3.0.18...baserow-3.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [baserow-3.0.18](https://github.com/truecharts/apps/compare/baserow-3.0.16...baserow-3.0.18) (2022-07-12)
 
 ### Chore

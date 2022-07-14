@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [littlelink-6.0.30](https://github.com/truecharts/apps/compare/littlelink-6.0.28...littlelink-6.0.30) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [littlelink-6.0.28](https://github.com/truecharts/apps/compare/littlelink-6.0.26...littlelink-6.0.28) (2022-07-12)
 
 ### Chore

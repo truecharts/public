@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deemix-3.0.16](https://github.com/truecharts/apps/compare/deemix-3.0.14...deemix-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [deemix-3.0.14](https://github.com/truecharts/apps/compare/deemix-3.0.12...deemix-3.0.14) (2022-07-12)
 
 ### Chore

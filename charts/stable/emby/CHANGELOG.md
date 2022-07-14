@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [emby-11.0.16](https://github.com/truecharts/apps/compare/embystat-2.0.15...emby-11.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [emby-11.0.14](https://github.com/truecharts/apps/compare/emby-11.0.12...emby-11.0.14) (2022-07-12)
 
 ### Chore

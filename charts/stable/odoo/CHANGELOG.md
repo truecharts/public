@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [odoo-8.0.20](https://github.com/truecharts/apps/compare/odoo-8.0.18...odoo-8.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [odoo-8.0.18](https://github.com/truecharts/apps/compare/odoo-8.0.16...odoo-8.0.18) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sonarr-11.0.17](https://github.com/truecharts/apps/compare/sonarr-11.0.15...sonarr-11.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [sonarr-11.0.15](https://github.com/truecharts/apps/compare/sonarr-11.0.13...sonarr-11.0.15) (2022-07-12)
 
 ### Chore

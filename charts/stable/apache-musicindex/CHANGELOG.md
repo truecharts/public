@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [apache-musicindex-4.0.17](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.15...apache-musicindex-4.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [apache-musicindex-4.0.15](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.13...apache-musicindex-4.0.15) (2022-07-12)
 
 ### Chore

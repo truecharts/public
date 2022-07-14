@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snipe-it-4.0.24](https://github.com/truecharts/apps/compare/snipe-it-4.0.22...snipe-it-4.0.24) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [snipe-it-4.0.22](https://github.com/truecharts/apps/compare/snipe-it-4.0.20...snipe-it-4.0.22) (2022-07-12)
 
 ### Chore

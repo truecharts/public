@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [clickhouse-0.0.10](https://github.com/truecharts/apps/compare/clickhouse-0.0.8...clickhouse-0.0.10) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [clickhouse-0.0.8](https://github.com/truecharts/apps/compare/clickhouse-0.0.6...clickhouse-0.0.8) (2022-07-12)
 
 ### Chore

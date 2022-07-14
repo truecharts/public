@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ferdi-server-3.0.16](https://github.com/truecharts/apps/compare/ferdi-server-3.0.14...ferdi-server-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [ferdi-server-3.0.14](https://github.com/truecharts/apps/compare/ferdi-server-3.0.12...ferdi-server-3.0.14) (2022-07-12)
 
 ### Chore

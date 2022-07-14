@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ghost-3.0.23](https://github.com/truecharts/apps/compare/ghost-3.0.21...ghost-3.0.23) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [ghost-3.0.21](https://github.com/truecharts/apps/compare/ghost-3.0.20...ghost-3.0.21) (2022-07-14)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [privatebin-0.0.16](https://github.com/truecharts/apps/compare/privatebin-0.0.14...privatebin-0.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [privatebin-0.0.14](https://github.com/truecharts/apps/compare/privatebin-0.0.12...privatebin-0.0.14) (2022-07-12)
 
 ### Chore

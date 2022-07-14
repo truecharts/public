@@ -1,7 +1,15 @@
 # Changelog
 
 
-## [medusa-3.0.18](https://github.com/truecharts/apps/compare/medusa-3.0.16...medusa-3.0.18) (2022-07-12)
+## [mealie-8.0.17](https://github.com/truecharts/apps/compare/mealie-8.0.15...mealie-8.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [mealie-8.0.15](https://github.com/truecharts/apps/compare/mealie-8.0.13...mealie-8.0.15) (2022-07-12)
 
 ### Chore
 
@@ -10,7 +18,7 @@
 
 
 
-## [medusa-3.0.16](https://github.com/truecharts/apps/compare/medusa-3.0.15...medusa-3.0.16) (2022-07-12)
+## [mealie-8.0.13](https://github.com/truecharts/apps/compare/mealie-8.0.12...mealie-8.0.13) (2022-07-12)
 
 ### Chore
 
@@ -18,8 +26,8 @@
 
 
 
-<a name="medusa-3.0.15"></a>
-### [medusa-3.0.15](https://github.com/truecharts/apps/compare/medusa-3.0.14...medusa-3.0.15) (2022-07-12)
+<a name="mealie-8.0.12"></a>
+### [mealie-8.0.12](https://github.com/truecharts/apps/compare/mealie-8.0.11...mealie-8.0.12) (2022-07-12)
 
 #### Chore
 
@@ -27,8 +35,8 @@
 
 
 
-<a name="medusa-3.0.14"></a>
-### [medusa-3.0.14](https://github.com/truecharts/apps/compare/medusa-3.0.13...medusa-3.0.14) (2022-07-11)
+<a name="mealie-8.0.11"></a>
+### [mealie-8.0.11](https://github.com/truecharts/apps/compare/mealie-8.0.10...mealie-8.0.11) (2022-07-11)
 
 #### Chore
 
@@ -36,8 +44,8 @@
 
 
 
-<a name="medusa-3.0.13"></a>
-### [medusa-3.0.13](https://github.com/truecharts/apps/compare/medusa-3.0.12...medusa-3.0.13) (2022-07-09)
+<a name="mealie-8.0.10"></a>
+### [mealie-8.0.10](https://github.com/truecharts/apps/compare/mealie-8.0.9...mealie-8.0.10) (2022-07-09)
 
 #### Chore
 
@@ -45,26 +53,17 @@
 
 
 
-<a name="medusa-3.0.12"></a>
-### [medusa-3.0.12](https://github.com/truecharts/apps/compare/medusa-3.0.11...medusa-3.0.12) (2022-07-07)
+<a name="mealie-8.0.9"></a>
+### [mealie-8.0.9](https://github.com/truecharts/apps/compare/mealie-8.0.8...mealie-8.0.9) (2022-07-05)
 
 #### Chore
 
-* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
 
 
 
-<a name="medusa-3.0.11"></a>
-### [medusa-3.0.11](https://github.com/truecharts/apps/compare/medusa-3.0.10...medusa-3.0.11) (2022-07-06)
-
-#### Chore
-
-* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
-
-
-
-<a name="medusa-3.0.10"></a>
-### [medusa-3.0.10](https://github.com/truecharts/apps/compare/medusa-3.0.9...medusa-3.0.10) (2022-07-04)
+<a name="mealie-8.0.8"></a>
+### [mealie-8.0.8](https://github.com/truecharts/apps/compare/mealie-8.0.7...mealie-8.0.8) (2022-07-04)
 
 #### Chore
 
@@ -72,17 +71,8 @@
 
 
 
-<a name="medusa-3.0.9"></a>
-### [medusa-3.0.9](https://github.com/truecharts/apps/compare/medusa-3.0.8...medusa-3.0.9) (2022-07-04)
-
-#### Chore
-
-* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
-
-
-
-<a name="medusa-3.0.8"></a>
-### [medusa-3.0.8](https://github.com/truecharts/apps/compare/medusa-3.0.7...medusa-3.0.8) (2022-06-25)
+<a name="mealie-8.0.7"></a>
+### [mealie-8.0.7](https://github.com/truecharts/apps/compare/mealie-8.0.6...mealie-8.0.7) (2022-06-25)
 
 #### Chore
 
@@ -90,8 +80,8 @@
 
 
 
-<a name="medusa-3.0.7"></a>
-### [medusa-3.0.7](https://github.com/truecharts/apps/compare/medusa-3.0.6...medusa-3.0.7) (2022-06-22)
+<a name="mealie-8.0.6"></a>
+### [mealie-8.0.6](https://github.com/truecharts/apps/compare/mealie-8.0.5...mealie-8.0.6) (2022-06-22)
 
 #### Chore
 
@@ -99,8 +89,8 @@
 
 
 
-<a name="medusa-3.0.6"></a>
-### [medusa-3.0.6](https://github.com/truecharts/apps/compare/medusa-3.0.5...medusa-3.0.6) (2022-06-21)
+<a name="mealie-8.0.5"></a>
+### [mealie-8.0.5](https://github.com/truecharts/apps/compare/mealie-8.0.4...mealie-8.0.5) (2022-06-21)
 
 #### Chore
 
@@ -108,8 +98,26 @@
 
 
 
-<a name="medusa-3.0.5"></a>
-### [medusa-3.0.5](https://github.com/truecharts/apps/compare/medusa-3.0.4...medusa-3.0.5) (2022-06-14)
+<a name="mealie-8.0.4"></a>
+### [mealie-8.0.4](https://github.com/truecharts/apps/compare/mealie-8.0.3...mealie-8.0.4) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
+<a name="mealie-8.0.3"></a>
+### [mealie-8.0.3](https://github.com/truecharts/apps/compare/mealie-8.0.2...mealie-8.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="mealie-8.0.2"></a>
+### [mealie-8.0.2](https://github.com/truecharts/apps/compare/mealie-8.0.1...mealie-8.0.2) (2022-06-14)
 
 #### Chore
 
@@ -117,8 +125,8 @@
 
 
 
-<a name="medusa-3.0.4"></a>
-### [medusa-3.0.4](https://github.com/truecharts/apps/compare/medusa-3.0.3...medusa-3.0.4) (2022-06-11)
+<a name="mealie-8.0.1"></a>
+### [mealie-8.0.1](https://github.com/truecharts/apps/compare/mealie-8.0.0...mealie-8.0.1) (2022-06-11)
 
 #### Chore
 
@@ -126,17 +134,12 @@
 
 
 
-<a name="medusa-3.0.3"></a>
-### [medusa-3.0.3](https://github.com/truecharts/apps/compare/medusa-3.0.2...medusa-3.0.3) (2022-06-11)
+<a name="mealie-8.0.0"></a>
+### [mealie-8.0.0](https://github.com/truecharts/apps/compare/mealie-7.0.1...mealie-8.0.0) (2022-06-07)
 
 #### Chore
 
-* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
-
-
-
-<a name="medusa-3.0.2"></a>
-### [medusa-3.0.2](https://github.com/truecharts/apps/compare/medusa-3.0.1...medusa-3.0.2) (2022-06-07)
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
 
 #### Fix
 
@@ -144,13 +147,14 @@
 
 
 
-<a name="medusa-3.0.1"></a>
-### [medusa-3.0.1](https://github.com/truecharts/apps/compare/medusa-2.0.29...medusa-3.0.1) (2022-06-07)
+<a name="mealie-7.0.1"></a>
+### [mealie-7.0.1](https://github.com/truecharts/apps/compare/mealie-6.0.23...mealie-7.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
 * sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 
 #### Fix
 
@@ -162,8 +166,8 @@
 
 
 
-<a name="medusa-3.0.0"></a>
-### [medusa-3.0.0](https://github.com/truecharts/apps/compare/medusa-2.0.29...medusa-3.0.0) (2022-06-07)
+<a name="mealie-7.0.0"></a>
+### [mealie-7.0.0](https://github.com/truecharts/apps/compare/mealie-6.0.23...mealie-7.0.0) (2022-06-07)
 
 #### Chore
 
@@ -175,8 +179,8 @@
 
 
 
-<a name="medusa-2.0.29"></a>
-### [medusa-2.0.29](https://github.com/truecharts/apps/compare/medusa-2.0.28...medusa-2.0.29) (2022-05-31)
+<a name="mealie-6.0.23"></a>
+### [mealie-6.0.23](https://github.com/truecharts/apps/compare/mealie-6.0.22...mealie-6.0.23) (2022-05-31)
 
 #### Chore
 
@@ -184,8 +188,8 @@
 
 
 
-<a name="medusa-2.0.28"></a>
-### [medusa-2.0.28](https://github.com/truecharts/apps/compare/medusa-2.0.27...medusa-2.0.28) (2022-05-26)
+<a name="mealie-6.0.22"></a>
+### [mealie-6.0.22](https://github.com/truecharts/apps/compare/mealie-6.0.21...mealie-6.0.22) (2022-05-26)
 
 #### Chore
 
@@ -194,8 +198,8 @@
 
 
 
-<a name="medusa-2.0.28"></a>
-### [medusa-2.0.28](https://github.com/truecharts/apps/compare/medusa-2.0.27...medusa-2.0.28) (2022-05-26)
+<a name="mealie-6.0.22"></a>
+### [mealie-6.0.22](https://github.com/truecharts/apps/compare/mealie-6.0.21...mealie-6.0.22) (2022-05-26)
 
 #### Chore
 
@@ -203,8 +207,8 @@
 
 
 
-<a name="medusa-2.0.27"></a>
-### [medusa-2.0.27](https://github.com/truecharts/apps/compare/medusa-2.0.26...medusa-2.0.27) (2022-05-24)
+<a name="mealie-6.0.21"></a>
+### [mealie-6.0.21](https://github.com/truecharts/apps/compare/mealie-6.0.20...mealie-6.0.21) (2022-05-24)
 
 #### Chore
 
@@ -212,8 +216,8 @@
 
 
 
-<a name="medusa-2.0.26"></a>
-### [medusa-2.0.26](https://github.com/truecharts/apps/compare/medusa-2.0.25...medusa-2.0.26) (2022-05-17)
+<a name="mealie-6.0.20"></a>
+### [mealie-6.0.20](https://github.com/truecharts/apps/compare/mealie-6.0.19...mealie-6.0.20) (2022-05-17)
 
 #### Chore
 
@@ -222,8 +226,8 @@
 
 
 
-<a name="medusa-2.0.26"></a>
-### [medusa-2.0.26](https://github.com/truecharts/apps/compare/medusa-2.0.25...medusa-2.0.26) (2022-05-17)
+<a name="mealie-6.0.20"></a>
+### [mealie-6.0.20](https://github.com/truecharts/apps/compare/mealie-6.0.19...mealie-6.0.20) (2022-05-17)
 
 #### Chore
 
@@ -231,8 +235,8 @@
 
 
 
-<a name="medusa-2.0.25"></a>
-### [medusa-2.0.25](https://github.com/truecharts/apps/compare/medusa-2.0.24...medusa-2.0.25) (2022-05-17)
+<a name="mealie-6.0.19"></a>
+### [mealie-6.0.19](https://github.com/truecharts/apps/compare/mealie-6.0.18...mealie-6.0.19) (2022-05-17)
 
 #### Chore
 
@@ -240,17 +244,8 @@
 
 
 
-<a name="medusa-2.0.24"></a>
-### [medusa-2.0.24](https://github.com/truecharts/apps/compare/medusa-2.0.23...medusa-2.0.24) (2022-05-11)
-
-#### Chore
-
-* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
-
-
-
-<a name="medusa-2.0.23"></a>
-### [medusa-2.0.23](https://github.com/truecharts/apps/compare/medusa-2.0.22...medusa-2.0.23) (2022-05-10)
+<a name="mealie-6.0.18"></a>
+### [mealie-6.0.18](https://github.com/truecharts/apps/compare/mealie-6.0.17...mealie-6.0.18) (2022-05-10)
 
 #### Chore
 
@@ -258,17 +253,8 @@
 
 
 
-<a name="medusa-2.0.22"></a>
-### [medusa-2.0.22](https://github.com/truecharts/apps/compare/medusa-2.0.21...medusa-2.0.22) (2022-05-09)
-
-#### Chore
-
-* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
-
-
-
-<a name="medusa-2.0.21"></a>
-### [medusa-2.0.21](https://github.com/truecharts/apps/compare/medusa-2.0.20...medusa-2.0.21) (2022-05-05)
+<a name="mealie-6.0.17"></a>
+### [mealie-6.0.17](https://github.com/truecharts/apps/compare/mealie-6.0.16...mealie-6.0.17) (2022-05-05)
 
 #### Chore
 
@@ -276,17 +262,17 @@
 
 
 
-<a name="medusa-2.0.20"></a>
-### [medusa-2.0.20](https://github.com/truecharts/apps/compare/medusa-2.0.19...medusa-2.0.20) (2022-05-04)
+<a name="mealie-6.0.16"></a>
+### [mealie-6.0.16](https://github.com/truecharts/apps/compare/mealie-6.0.15...mealie-6.0.16) (2022-05-04)
 
 #### Chore
 
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
 
 
 
-<a name="medusa-2.0.19"></a>
-### [medusa-2.0.19](https://github.com/truecharts/apps/compare/medusa-2.0.18...medusa-2.0.19) (2022-04-26)
+<a name="mealie-6.0.15"></a>
+### [mealie-6.0.15](https://github.com/truecharts/apps/compare/mealie-6.0.14...mealie-6.0.15) (2022-04-26)
 
 #### Chore
 
@@ -294,8 +280,8 @@
 
 
 
-<a name="medusa-2.0.18"></a>
-### [medusa-2.0.18](https://github.com/truecharts/apps/compare/medusa-2.0.17...medusa-2.0.18) (2022-04-20)
+<a name="mealie-6.0.14"></a>
+### [mealie-6.0.14](https://github.com/truecharts/apps/compare/mealie-6.0.13...mealie-6.0.14) (2022-04-20)
 
 #### Chore
 
@@ -304,17 +290,8 @@
 
 
 
-<a name="medusa-2.0.17"></a>
-### [medusa-2.0.17](https://github.com/truecharts/apps/compare/medusa-2.0.16...medusa-2.0.17) (2022-04-18)
-
-#### Chore
-
-* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
-
-
-
-<a name="medusa-2.0.16"></a>
-### [medusa-2.0.16](https://github.com/truecharts/apps/compare/medusa-2.0.15...medusa-2.0.16) (2022-04-12)
+<a name="mealie-6.0.13"></a>
+### [mealie-6.0.13](https://github.com/truecharts/apps/compare/mealie-6.0.12...mealie-6.0.13) (2022-04-12)
 
 #### Chore
 
@@ -322,26 +299,8 @@
 
 
 
-<a name="medusa-2.0.15"></a>
-### [medusa-2.0.15](https://github.com/truecharts/apps/compare/medusa-2.0.14...medusa-2.0.15) (2022-04-12)
-
-#### Chore
-
-* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
-
-
-
-<a name="medusa-2.0.14"></a>
-### [medusa-2.0.14](https://github.com/truecharts/apps/compare/medusa-2.0.13...medusa-2.0.14) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
-
-
-
-<a name="medusa-2.0.13"></a>
-### [medusa-2.0.13](https://github.com/truecharts/apps/compare/medusa-2.0.12...medusa-2.0.13) (2022-04-03)
+<a name="mealie-6.0.12"></a>
+### [mealie-6.0.12](https://github.com/truecharts/apps/compare/mealie-6.0.11...mealie-6.0.12) (2022-04-03)
 
 #### Chore
 
@@ -349,36 +308,45 @@
 
 
 
-<a name="medusa-2.0.12"></a>
-### [medusa-2.0.12](https://github.com/truecharts/apps/compare/medusa-2.0.10...medusa-2.0.12) (2022-03-31)
+<a name="mealie-6.0.11"></a>
+### [mealie-6.0.11](https://github.com/truecharts/apps/compare/mealie-6.0.10...mealie-6.0.11) (2022-03-31)
 
 #### Chore
 
-* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="mealie-6.0.10"></a>
+### [mealie-6.0.10](https://github.com/truecharts/apps/compare/mealie-6.0.9...mealie-6.0.10) (2022-03-31)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
 
 
 
-<a name="medusa-2.0.10"></a>
-### [medusa-2.0.10](https://github.com/truecharts/apps/compare/medusa-2.0.9...medusa-2.0.10) (2022-03-30)
+<a name="mealie-6.0.9"></a>
+### [mealie-6.0.9](https://github.com/truecharts/apps/compare/mealie-6.0.8...mealie-6.0.9) (2022-03-30)
 
 #### Chore
 
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="medusa-2.0.9"></a>
-### [medusa-2.0.9](https://github.com/truecharts/apps/compare/medusa-2.0.8...medusa-2.0.9) (2022-03-30)
+<a name="mealie-6.0.8"></a>
+### [mealie-6.0.8](https://github.com/truecharts/apps/compare/mealie-6.0.7...mealie-6.0.8) (2022-03-26)
 
 #### Chore
 
-* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
 
 
 
-<a name="medusa-2.0.8"></a>
-### [medusa-2.0.8](https://github.com/truecharts/apps/compare/medusa-2.0.7...medusa-2.0.8) (2022-03-26)
+<a name="mealie-6.0.7"></a>
+### [mealie-6.0.7](https://github.com/truecharts/apps/compare/mealie-6.0.6...mealie-6.0.7) (2022-03-26)
 
 #### Chore
 
@@ -386,43 +354,33 @@
 
 
 
-<a name="medusa-2.0.4"></a>
-### [medusa-2.0.4](https://github.com/truecharts/apps/compare/medusa-2.0.3...medusa-2.0.4) (2022-03-17)
+<a name="mealie-6.0.2"></a>
+### [mealie-6.0.2](https://github.com/truecharts/apps/compare/mealie-6.0.1...mealie-6.0.2) (2022-03-08)
 
 #### Chore
 
-* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
-* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
 
 
 
-<a name="medusa-2.0.2"></a>
-### [medusa-2.0.2](https://github.com/truecharts/apps/compare/medusa-2.0.1...medusa-2.0.2) (2022-03-07)
+<a name="mealie-6.0.1"></a>
+### [mealie-6.0.1](https://github.com/truecharts/apps/compare/mealie-6.0.0...mealie-6.0.1) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
-
-
-
-<a name="medusa-2.0.1"></a>
-### [medusa-2.0.1](https://github.com/truecharts/apps/compare/medusa-2.0.0...medusa-2.0.1) (2022-03-07)
-
-#### Chore
-
-* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
 * Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="medusa-2.0.0"></a>
-### [medusa-2.0.0](https://github.com/truecharts/apps/compare/medusa-1.0.50...medusa-2.0.0) (2022-03-03)
+<a name="mealie-6.0.0"></a>
+### [mealie-6.0.0](https://github.com/truecharts/apps/compare/mealie-5.0.25...mealie-6.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove PUID from per-app env-vars if set to 568
 * remove empty env var declaration from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -431,27 +389,18 @@
 
 
 
-<a name="medusa-1.0.50"></a>
-### [medusa-1.0.50](https://github.com/truecharts/apps/compare/medusa-1.0.49...medusa-1.0.50) (2022-03-02)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
-
-
-
-<a name="medusa-1.0.49"></a>
-### [medusa-1.0.49](https://github.com/truecharts/apps/compare/medusa-1.0.48...medusa-1.0.49) (2022-02-28)
+<a name="mealie-5.0.25"></a>
+### [mealie-5.0.25](https://github.com/truecharts/apps/compare/mealie-5.0.24...mealie-5.0.25) (2022-03-02)
 
 #### Chore
 
 * rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
-* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="medusa-1.0.48"></a>
-### [medusa-1.0.48](https://github.com/truecharts/apps/compare/medusa-1.0.47...medusa-1.0.48) (2022-02-21)
+<a name="mealie-5.0.24"></a>
+### [mealie-5.0.24](https://github.com/truecharts/apps/compare/mealie-5.0.23...mealie-5.0.24) (2022-02-21)
 
 #### Chore
 
@@ -459,8 +408,8 @@
 
 
 
-<a name="medusa-1.0.47"></a>
-### [medusa-1.0.47](https://github.com/truecharts/apps/compare/medusa-1.0.46...medusa-1.0.47) (2022-02-15)
+<a name="mealie-5.0.23"></a>
+### [mealie-5.0.23](https://github.com/truecharts/apps/compare/mealie-5.0.22...mealie-5.0.23) (2022-02-15)
 
 #### Chore
 
@@ -468,8 +417,8 @@
 
 
 
-<a name="medusa-1.0.46"></a>
-### [medusa-1.0.46](https://github.com/truecharts/apps/compare/medusa-1.0.45...medusa-1.0.46) (2022-02-08)
+<a name="mealie-5.0.22"></a>
+### [mealie-5.0.22](https://github.com/truecharts/apps/compare/mealie-5.0.21...mealie-5.0.22) (2022-02-08)
 
 #### Chore
 
@@ -477,17 +426,8 @@
 
 
 
-<a name="medusa-1.0.45"></a>
-### [medusa-1.0.45](https://github.com/truecharts/apps/compare/medusa-1.0.44...medusa-1.0.45) (2022-02-07)
-
-#### Chore
-
-* update docker general non-major ([#1863](https://github.com/truecharts/apps/issues/1863))
-
-
-
-<a name="medusa-1.0.44"></a>
-### [medusa-1.0.44](https://github.com/truecharts/apps/compare/medusa-1.0.43...medusa-1.0.44) (2022-02-06)
+<a name="mealie-5.0.21"></a>
+### [mealie-5.0.21](https://github.com/truecharts/apps/compare/mealie-5.0.20...mealie-5.0.21) (2022-02-06)
 
 #### Chore
 
@@ -495,17 +435,18 @@
 
 
 
-<a name="medusa-1.0.43"></a>
-### [medusa-1.0.43](https://github.com/truecharts/apps/compare/medusa-1.0.42...medusa-1.0.43) (2022-02-05)
+<a name="mealie-5.0.20"></a>
+### [mealie-5.0.20](https://github.com/truecharts/apps/compare/mealie-5.0.19...mealie-5.0.20) (2022-02-05)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
 
 
 
-<a name="medusa-1.0.42"></a>
-### [medusa-1.0.42](https://github.com/truecharts/apps/compare/medusa-1.0.41...medusa-1.0.42) (2022-02-02)
+<a name="mealie-5.0.19"></a>
+### [mealie-5.0.19](https://github.com/truecharts/apps/compare/mealie-5.0.18...mealie-5.0.19) (2022-02-02)
 
 #### Chore
 
@@ -513,8 +454,8 @@
 
 
 
-<a name="medusa-1.0.41"></a>
-### [medusa-1.0.41](https://github.com/truecharts/apps/compare/medusa-1.0.40...medusa-1.0.41) (2022-01-25)
+<a name="mealie-5.0.18"></a>
+### [mealie-5.0.18](https://github.com/truecharts/apps/compare/mealie-5.0.17...mealie-5.0.18) (2022-01-25)
 
 #### Chore
 
@@ -522,8 +463,8 @@
 
 
 
-<a name="medusa-1.0.40"></a>
-### [medusa-1.0.40](https://github.com/truecharts/apps/compare/medusa-1.0.39...medusa-1.0.40) (2022-01-22)
+<a name="mealie-5.0.17"></a>
+### [mealie-5.0.17](https://github.com/truecharts/apps/compare/mealie-5.0.16...mealie-5.0.17) (2022-01-22)
 
 #### Chore
 
@@ -531,21 +472,21 @@
 
 
 
-<a name="medusa-1.0.39"></a>
-### [medusa-1.0.39](https://github.com/truecharts/apps/compare/medusa-1.0.38...medusa-1.0.39) (2022-01-21)
+<a name="mealie-5.0.16"></a>
+### [mealie-5.0.16](https://github.com/truecharts/apps/compare/mealie-5.0.15...mealie-5.0.16) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="mealie-5.0.15"></a>
+### [mealie-5.0.15](https://github.com/truecharts/apps/compare/mealie-5.0.14...mealie-5.0.15) (2022-01-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
-
-
-
-<a name="medusa-1.0.38"></a>
-### [medusa-1.0.38](https://github.com/truecharts/apps/compare/medusa-1.0.37...medusa-1.0.38) (2022-01-21)
-
-#### Chore
-
-* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
 
 #### Fix
 
@@ -553,8 +494,8 @@
 
 
 
-<a name="medusa-1.0.37"></a>
-### [medusa-1.0.37](https://github.com/truecharts/apps/compare/medusa-1.0.36...medusa-1.0.37) (2022-01-18)
+<a name="mealie-5.0.14"></a>
+### [mealie-5.0.14](https://github.com/truecharts/apps/compare/mealie-5.0.13...mealie-5.0.14) (2022-01-18)
 
 #### Chore
 
@@ -562,8 +503,8 @@
 
 
 
-<a name="medusa-1.0.36"></a>
-### [medusa-1.0.36](https://github.com/truecharts/apps/compare/medusa-1.0.35...medusa-1.0.36) (2022-01-13)
+<a name="mealie-5.0.13"></a>
+### [mealie-5.0.13](https://github.com/truecharts/apps/compare/mealie-5.0.12...mealie-5.0.13) (2022-01-13)
 
 #### Chore
 
@@ -575,8 +516,8 @@
 
 
 
-<a name="medusa-1.0.35"></a>
-### [medusa-1.0.35](https://github.com/truecharts/apps/compare/medusa-1.0.34...medusa-1.0.35) (2022-01-12)
+<a name="mealie-5.0.12"></a>
+### [mealie-5.0.12](https://github.com/truecharts/apps/compare/mealie-5.0.11...mealie-5.0.12) (2022-01-12)
 
 #### Chore
 
@@ -584,8 +525,8 @@
 
 
 
-<a name="medusa-1.0.34"></a>
-### [medusa-1.0.34](https://github.com/truecharts/apps/compare/medusa-1.0.33...medusa-1.0.34) (2022-01-11)
+<a name="mealie-5.0.11"></a>
+### [mealie-5.0.11](https://github.com/truecharts/apps/compare/mealie-5.0.10...mealie-5.0.11) (2022-01-11)
 
 #### Chore
 
@@ -593,8 +534,8 @@
 
 
 
-<a name="medusa-1.0.33"></a>
-### [medusa-1.0.33](https://github.com/truecharts/apps/compare/medusa-1.0.32...medusa-1.0.33) (2022-01-04)
+<a name="mealie-5.0.10"></a>
+### [mealie-5.0.10](https://github.com/truecharts/apps/compare/mealie-5.0.9...mealie-5.0.10) (2022-01-04)
 
 #### Chore
 
@@ -602,8 +543,8 @@
 
 
 
-<a name="medusa-1.0.32"></a>
-### [medusa-1.0.32](https://github.com/truecharts/apps/compare/medusa-1.0.31...medusa-1.0.32) (2021-12-28)
+<a name="mealie-5.0.9"></a>
+### [mealie-5.0.9](https://github.com/truecharts/apps/compare/mealie-5.0.8...mealie-5.0.9) (2021-12-28)
 
 #### Chore
 
@@ -611,17 +552,8 @@
 
 
 
-<a name="medusa-1.0.31"></a>
-### [medusa-1.0.31](https://github.com/truecharts/apps/compare/medusa-1.0.30...medusa-1.0.31) (2021-12-24)
-
-#### Chore
-
-* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
-
-
-
-<a name="medusa-1.0.30"></a>
-### [medusa-1.0.30](https://github.com/truecharts/apps/compare/medusa-1.0.29...medusa-1.0.30) (2021-12-21)
+<a name="mealie-5.0.8"></a>
+### [mealie-5.0.8](https://github.com/truecharts/apps/compare/mealie-5.0.7...mealie-5.0.8) (2021-12-21)
 
 #### Chore
 
@@ -629,18 +561,19 @@
 
 
 
-<a name="medusa-1.0.29"></a>
-### [medusa-1.0.29](https://github.com/truecharts/apps/compare/medusa-1.0.28...medusa-1.0.29) (2021-12-19)
+<a name="mealie-5.0.7"></a>
+### [mealie-5.0.7](https://github.com/truecharts/apps/compare/mealie-5.0.6...mealie-5.0.7) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
 * remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
 
 
 
-<a name="medusa-1.0.28"></a>
-### [medusa-1.0.28](https://github.com/truecharts/apps/compare/medusa-1.0.27...medusa-1.0.28) (2021-12-19)
+<a name="mealie-5.0.6"></a>
+### [mealie-5.0.6](https://github.com/truecharts/apps/compare/mealie-5.0.5...mealie-5.0.6) (2021-12-19)
 
 #### Chore
 
@@ -649,17 +582,8 @@
 
 
 
-<a name="medusa-1.0.27"></a>
-### [medusa-1.0.27](https://github.com/truecharts/apps/compare/medusa-1.0.26...medusa-1.0.27) (2021-12-19)
-
-#### Chore
-
-* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
-
-
-
-<a name="medusa-1.0.26"></a>
-### [medusa-1.0.26](https://github.com/truecharts/apps/compare/medusa-1.0.25...medusa-1.0.26) (2021-12-18)
+<a name="mealie-5.0.5"></a>
+### [mealie-5.0.5](https://github.com/truecharts/apps/compare/mealie-5.0.4...mealie-5.0.5) (2021-12-18)
 
 #### Chore
 
@@ -668,8 +592,8 @@
 
 
 
-<a name="medusa-1.0.25"></a>
-### [medusa-1.0.25](https://github.com/truecharts/apps/compare/medusa-1.0.24...medusa-1.0.25) (2021-12-14)
+<a name="mealie-5.0.4"></a>
+### [mealie-5.0.4](https://github.com/truecharts/apps/compare/mealie-5.0.3...mealie-5.0.4) (2021-12-14)
 
 #### Chore
 
@@ -677,8 +601,8 @@
 
 
 
-<a name="medusa-1.0.24"></a>
-### [medusa-1.0.24](https://github.com/truecharts/apps/compare/medusa-1.0.23...medusa-1.0.24) (2021-12-13)
+<a name="mealie-5.0.3"></a>
+### [mealie-5.0.3](https://github.com/truecharts/apps/compare/mealie-5.0.2...mealie-5.0.3) (2021-12-13)
 
 #### Chore
 
@@ -686,8 +610,8 @@
 
 
 
-<a name="medusa-1.0.23"></a>
-### [medusa-1.0.23](https://github.com/truecharts/apps/compare/medusa-1.0.22...medusa-1.0.23) (2021-12-11)
+<a name="mealie-5.0.2"></a>
+### [mealie-5.0.2](https://github.com/truecharts/apps/compare/mealie-5.0.1...mealie-5.0.2) (2021-12-11)
 
 #### Chore
 
@@ -695,8 +619,26 @@
 
 
 
-<a name="medusa-1.0.22"></a>
-### [medusa-1.0.22](https://github.com/truecharts/apps/compare/medusa-1.0.21...medusa-1.0.22) (2021-12-07)
+<a name="mealie-5.0.1"></a>
+### [mealie-5.0.1](https://github.com/truecharts/apps/compare/mealie-5.0.0...mealie-5.0.1) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
+<a name="mealie-5.0.0"></a>
+### [mealie-5.0.0](https://github.com/truecharts/apps/compare/mealie-4.0.20...mealie-5.0.0) (2021-12-11)
+
+#### Feat
+
+* add pgsql support ([#1504](https://github.com/truecharts/apps/issues/1504))
+
+
+
+<a name="mealie-4.0.20"></a>
+### [mealie-4.0.20](https://github.com/truecharts/apps/compare/mealie-4.0.19...mealie-4.0.20) (2021-12-07)
 
 #### Chore
 
@@ -704,19 +646,17 @@
 
 
 
-<a name="medusa-1.0.21"></a>
-### medusa-1.0.21 (2021-12-05)
+<a name="mealie-4.0.19"></a>
+### mealie-4.0.19 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
-* ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
-* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
-* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 * update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
 #### Fix
@@ -725,8 +665,8 @@
 
 
 
-<a name="medusa-1.0.20"></a>
-### [medusa-1.0.20](https://github.com/truecharts/apps/compare/medusa-1.0.19...medusa-1.0.20) (2021-12-05)
+<a name="mealie-4.0.18"></a>
+### [mealie-4.0.18](https://github.com/truecharts/apps/compare/mealie-4.0.17...mealie-4.0.18) (2021-12-05)
 
 #### Chore
 
@@ -734,17 +674,8 @@
 
 
 
-<a name="medusa-1.0.19"></a>
-### [medusa-1.0.19](https://github.com/truecharts/apps/compare/medusa-1.0.18...medusa-1.0.19) (2021-12-05)
-
-#### Chore
-
-* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
-
-
-
-<a name="medusa-1.0.18"></a>
-### [medusa-1.0.18](https://github.com/truecharts/apps/compare/medusa-1.0.17...medusa-1.0.18) (2021-12-04)
+<a name="mealie-4.0.17"></a>
+### [mealie-4.0.17](https://github.com/truecharts/apps/compare/mealie-4.0.16...mealie-4.0.17) (2021-12-04)
 
 #### Chore
 
@@ -752,8 +683,8 @@
 
 
 
-<a name="medusa-1.0.17"></a>
-### [medusa-1.0.17](https://github.com/truecharts/apps/compare/medusa-1.0.16...medusa-1.0.17) (2021-12-04)
+<a name="mealie-4.0.16"></a>
+### [mealie-4.0.16](https://github.com/truecharts/apps/compare/mealie-4.0.15...mealie-4.0.16) (2021-12-04)
 
 #### Chore
 
@@ -761,19 +692,18 @@
 
 
 
-<a name="medusa-1.0.16"></a>
-### [medusa-1.0.16](https://github.com/truecharts/apps/compare/medusa-1.0.15...medusa-1.0.16) (2021-12-03)
+<a name="mealie-4.0.15"></a>
+### [mealie-4.0.15](https://github.com/truecharts/apps/compare/mealie-4.0.14...mealie-4.0.15) (2021-12-03)
 
 #### Chore
 
-* ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 
 
 
-<a name="medusa-1.0.15"></a>
-### [medusa-1.0.15](https://github.com/truecharts/apps/compare/medusa-1.0.14...medusa-1.0.15) (2021-11-30)
+<a name="mealie-4.0.14"></a>
+### [mealie-4.0.14](https://github.com/truecharts/apps/compare/mealie-4.0.13...mealie-4.0.14) (2021-11-30)
 
 #### Chore
 
@@ -785,8 +715,8 @@
 
 
 
-<a name="medusa-1.0.14"></a>
-### [medusa-1.0.14](https://github.com/truecharts/apps/compare/medusa-1.0.13...medusa-1.0.14) (2021-11-23)
+<a name="mealie-4.0.13"></a>
+### [mealie-4.0.13](https://github.com/truecharts/apps/compare/mealie-4.0.12...mealie-4.0.13) (2021-11-23)
 
 #### Chore
 
@@ -794,8 +724,8 @@
 
 
 
-<a name="medusa-1.0.13"></a>
-### [medusa-1.0.13](https://github.com/truecharts/apps/compare/medusa-1.0.12...medusa-1.0.13) (2021-11-22)
+<a name="mealie-4.0.12"></a>
+### [mealie-4.0.12](https://github.com/truecharts/apps/compare/mealie-4.0.11...mealie-4.0.12) (2021-11-22)
 
 #### Chore
 
@@ -803,17 +733,8 @@
 
 
 
-<a name="medusa-1.0.12"></a>
-### [medusa-1.0.12](https://github.com/truecharts/apps/compare/medusa-1.0.11...medusa-1.0.12) (2021-11-22)
-
-#### Chore
-
-* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
-
-
-
-<a name="medusa-1.0.11"></a>
-### [medusa-1.0.11](https://github.com/truecharts/apps/compare/medusa-1.0.10...medusa-1.0.11) (2021-11-16)
+<a name="mealie-4.0.11"></a>
+### [mealie-4.0.11](https://github.com/truecharts/apps/compare/mealie-4.0.10...mealie-4.0.11) (2021-11-16)
 
 #### Chore
 
@@ -821,8 +742,8 @@
 
 
 
-<a name="medusa-1.0.10"></a>
-### [medusa-1.0.10](https://github.com/truecharts/apps/compare/medusa-1.0.9...medusa-1.0.10) (2021-11-15)
+<a name="mealie-4.0.10"></a>
+### [mealie-4.0.10](https://github.com/truecharts/apps/compare/mealie-4.0.9...mealie-4.0.10) (2021-11-15)
 
 #### Chore
 
@@ -831,8 +752,8 @@
 
 
 
-<a name="medusa-1.0.9"></a>
-### [medusa-1.0.9](https://github.com/truecharts/apps/compare/medusa-1.0.8...medusa-1.0.9) (2021-11-14)
+<a name="mealie-4.0.9"></a>
+### [mealie-4.0.9](https://github.com/truecharts/apps/compare/mealie-4.0.8...mealie-4.0.9) (2021-11-14)
 
 #### Chore
 
@@ -848,8 +769,8 @@
 
 
 
-<a name="medusa-1.0.8"></a>
-### [medusa-1.0.8](https://github.com/truecharts/apps/compare/medusa-1.0.7...medusa-1.0.8) (2021-11-09)
+<a name="mealie-4.0.8"></a>
+### [mealie-4.0.8](https://github.com/truecharts/apps/compare/mealie-4.0.7...mealie-4.0.8) (2021-11-09)
 
 #### Chore
 
@@ -857,17 +778,8 @@
 
 
 
-<a name="medusa-1.0.7"></a>
-### [medusa-1.0.7](https://github.com/truecharts/apps/compare/medusa-1.0.6...medusa-1.0.7) (2021-11-07)
-
-#### Fix
-
-* update medusa manually
-
-
-
-<a name="medusa-1.0.6"></a>
-### [medusa-1.0.6](https://github.com/truecharts/apps/compare/medusa-1.0.5...medusa-1.0.6) (2021-11-07)
+<a name="mealie-4.0.7"></a>
+### [mealie-4.0.7](https://github.com/truecharts/apps/compare/mealie-4.0.6...mealie-4.0.7) (2021-11-07)
 
 #### Chore
 
@@ -875,8 +787,8 @@
 
 
 
-<a name="medusa-1.0.5"></a>
-### [medusa-1.0.5](https://github.com/truecharts/apps/compare/medusa-1.0.4...medusa-1.0.5) (2021-11-07)
+<a name="mealie-4.0.6"></a>
+### [mealie-4.0.6](https://github.com/truecharts/apps/compare/mealie-4.0.5...mealie-4.0.6) (2021-11-07)
 
 #### Chore
 
@@ -892,8 +804,8 @@
 
 
 
-<a name="medusa-1.0.4"></a>
-### [medusa-1.0.4](https://github.com/truecharts/apps/compare/medusa-1.0.3...medusa-1.0.4) (2021-11-02)
+<a name="mealie-4.0.5"></a>
+### [mealie-4.0.5](https://github.com/truecharts/apps/compare/mealie-4.0.4...mealie-4.0.5) (2021-11-02)
 
 #### Chore
 
@@ -901,8 +813,8 @@
 
 
 
-<a name="medusa-1.0.3"></a>
-### [medusa-1.0.3](https://github.com/truecharts/apps/compare/medusa-1.0.2...medusa-1.0.3) (2021-11-01)
+<a name="mealie-4.0.4"></a>
+### [mealie-4.0.4](https://github.com/truecharts/apps/compare/mealie-4.0.3...mealie-4.0.4) (2021-11-01)
 
 #### Chore
 
@@ -910,8 +822,17 @@
 
 
 
-<a name="medusa-1.0.2"></a>
-### [medusa-1.0.2](https://github.com/truecharts/apps/compare/medusa-1.0.1...medusa-1.0.2) (2021-10-26)
+<a name="mealie-4.0.3"></a>
+### [mealie-4.0.3](https://github.com/truecharts/apps/compare/mealie-4.0.2...mealie-4.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
+<a name="mealie-4.0.2"></a>
+### [mealie-4.0.2](https://github.com/truecharts/apps/compare/mealie-4.0.1...mealie-4.0.2) (2021-10-26)
 
 #### Chore
 
@@ -919,8 +840,8 @@
 
 
 
-<a name="medusa-1.0.1"></a>
-### [medusa-1.0.1](https://github.com/truecharts/apps/compare/medusa-1.0.0...medusa-1.0.1) (2021-10-26)
+<a name="mealie-4.0.1"></a>
+### [mealie-4.0.1](https://github.com/truecharts/apps/compare/mealie-4.0.0...mealie-4.0.1) (2021-10-26)
 
 #### Chore
 
@@ -928,8 +849,8 @@
 
 
 
-<a name="medusa-1.0.0"></a>
-### [medusa-1.0.0](https://github.com/truecharts/apps/compare/medusa-0.0.12...medusa-1.0.0) (2021-10-25)
+<a name="mealie-4.0.0"></a>
+### [mealie-4.0.0](https://github.com/truecharts/apps/compare/mealie-3.0.16...mealie-4.0.0) (2021-10-25)
 
 #### Chore
 
@@ -937,26 +858,36 @@
 
 
 
-<a name="medusa-0.0.12"></a>
-### [medusa-0.0.12](https://github.com/truecharts/apps/compare/medusa-0.0.9...medusa-0.0.12) (2021-10-20)
+<a name="mealie-3.0.16"></a>
+### [mealie-3.0.16](https://github.com/truecharts/apps/compare/mealie-3.0.13...mealie-3.0.16) (2021-10-20)
 
 #### Chore
 
 * bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
 
 
 
-<a name="medusa-0.0.9"></a>
-### [medusa-0.0.9](https://github.com/truecharts/apps/compare/medusa-0.0.8...medusa-0.0.9) (2021-10-20)
+<a name="mealie-3.0.13"></a>
+### [mealie-3.0.13](https://github.com/truecharts/apps/compare/mealie-3.0.12...mealie-3.0.13) (2021-10-20)
 
 #### Chore
 
 * bump versions to rerelease and fix icons
 
+#### Fix
+
+* Use shorted description
 
 
-<a name="medusa-0.0.8"></a>
-### [medusa-0.0.8](https://github.com/truecharts/apps/compare/medusa-0.0.7...medusa-0.0.8) (2021-10-19)
+
+<a name="mealie-3.0.12"></a>
+### [mealie-3.0.12](https://github.com/truecharts/apps/compare/mealie-3.0.11...mealie-3.0.12) (2021-10-19)
 
 #### Change
 
@@ -978,8 +909,8 @@
 
 
 
-<a name="medusa-0.0.7"></a>
-### [medusa-0.0.7](https://github.com/truecharts/apps/compare/medusa-0.0.6...medusa-0.0.7) (2021-10-19)
+<a name="mealie-3.0.11"></a>
+### [mealie-3.0.11](https://github.com/truecharts/apps/compare/mealie-3.0.10...mealie-3.0.11) (2021-10-19)
 
 #### Fix
 
@@ -987,8 +918,8 @@
 
 
 
-<a name="medusa-0.0.6"></a>
-### [medusa-0.0.6](https://github.com/truecharts/apps/compare/medusa-0.0.5...medusa-0.0.6) (2021-10-19)
+<a name="mealie-3.0.10"></a>
+### [mealie-3.0.10](https://github.com/truecharts/apps/compare/mealie-3.0.9...mealie-3.0.10) (2021-10-19)
 
 #### Fix
 
@@ -996,12 +927,8 @@
 
 
 
-<a name="medusa-0.0.5"></a>
-### [medusa-0.0.5](https://github.com/truecharts/apps/compare/medusa-0.0.4...medusa-0.0.5) (2021-10-18)
-
-#### Chore
-
-* Add description on persistence ([#1172](https://github.com/truecharts/apps/issues/1172))
+<a name="mealie-3.0.9"></a>
+### [mealie-3.0.9](https://github.com/truecharts/apps/compare/mealie-3.0.8...mealie-3.0.9) (2021-10-18)
 
 #### Refactor
 
@@ -1009,8 +936,8 @@
 
 
 
-<a name="medusa-0.0.4"></a>
-### [medusa-0.0.4](https://github.com/truecharts/apps/compare/medusa-0.0.3...medusa-0.0.4) (2021-10-17)
+<a name="mealie-3.0.8"></a>
+### [mealie-3.0.8](https://github.com/truecharts/apps/compare/mealie-3.0.7...mealie-3.0.8) (2021-10-17)
 
 #### Chore
 
@@ -1022,8 +949,8 @@
 
 
 
-<a name="medusa-0.0.3"></a>
-### [medusa-0.0.3](https://github.com/truecharts/apps/compare/medusa-0.0.2...medusa-0.0.3) (2021-10-13)
+<a name="mealie-3.0.7"></a>
+### [mealie-3.0.7](https://github.com/truecharts/apps/compare/mealie-3.0.6...mealie-3.0.7) (2021-10-13)
 
 #### Chore
 
@@ -1031,14 +958,79 @@
 
 
 
-<a name="medusa-0.0.2"></a>
-### [medusa-0.0.2](https://github.com/truecharts/apps/compare/medusa-0.0.1...medusa-0.0.2) (2021-10-13)
+<a name="mealie-3.0.6"></a>
+### [mealie-3.0.6](https://github.com/truecharts/apps/compare/mealie-3.0.5...mealie-3.0.6) (2021-10-12)
 
 #### Chore
 
-* update non-major docker tags ([#1134](https://github.com/truecharts/apps/issues/1134))
+* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
 
 
 
-<a name="medusa-0.0.1"></a>
-### medusa-0.0.1 (2021-10-04)
+<a name="mealie-3.0.5"></a>
+### [mealie-3.0.5](https://github.com/truecharts/apps/compare/mealie-3.0.4...mealie-3.0.5) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
+
+
+
+<a name="mealie-3.0.4"></a>
+### [mealie-3.0.4](https://github.com/truecharts/apps/compare/mealie-3.0.3...mealie-3.0.4) (2021-10-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
+
+
+
+<a name="mealie-3.0.3"></a>
+### [mealie-3.0.3](https://github.com/truecharts/apps/compare/mealie-3.0.2...mealie-3.0.3) (2021-09-29)
+
+#### Chore
+
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
+
+
+
+<a name="mealie-3.0.1"></a>
+### [mealie-3.0.1](https://github.com/truecharts/apps/compare/mealie-3.0.0...mealie-3.0.1) (2021-09-26)
+
+
+
+<a name="mealie-3.0.0"></a>
+### [mealie-3.0.0](https://github.com/truecharts/apps/compare/mealie-2.0.2...mealie-3.0.0) (2021-09-26)
+
+
+
+<a name="mealie-2.0.2"></a>
+### [mealie-2.0.2](https://github.com/truecharts/apps/compare/mealie-2.0.1...mealie-2.0.2) (2021-09-21)
+
+#### Chore
+
+* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+
+
+
+<a name="mealie-2.0.1"></a>
+### [mealie-2.0.1](https://github.com/truecharts/apps/compare/mealie-1.11.15...mealie-2.0.1) (2021-09-13)
+
+#### Chore
+
+* move more dockerhub containers to GHCR mirror ([#958](https://github.com/truecharts/apps/issues/958))
+* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
+
+#### Feat
+
+* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
+* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
+* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
+* Move some common containers to our own containers
+
+<a name="mealie-1.11.15"></a>
+## [mealie-1.11.15](https://github.com/truecharts/apps/compare/mealie-1.11.14...mealie-1.11.15) (2021-09-08)
+
+### Fix
+
+* repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))

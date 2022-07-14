@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflared-0.0.14](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.12...cloudflared-0.0.14) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [cloudflared-0.0.12](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.10...cloudflared-0.0.12) (2022-07-12)
 
 ### Chore

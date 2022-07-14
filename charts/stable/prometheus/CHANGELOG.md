@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [prometheus-4.0.33](https://github.com/truecharts/apps/compare/prometheus-4.0.31...prometheus-4.0.33) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [prometheus-4.0.31](https://github.com/truecharts/apps/compare/prometheus-4.0.30...prometheus-4.0.31) (2022-07-13)
 
 ### Chore

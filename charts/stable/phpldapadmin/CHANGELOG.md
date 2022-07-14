@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [phpldapadmin-6.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.14...phpldapadmin-6.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [phpldapadmin-6.0.14](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.12...phpldapadmin-6.0.14) (2022-07-12)
 
 ### Chore

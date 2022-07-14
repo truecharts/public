@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dsmr-reader-8.0.17](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.15...dsmr-reader-8.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [dsmr-reader-8.0.15](https://github.com/truecharts/apps/compare/dsmr-reader-8.0.13...dsmr-reader-8.0.15) (2022-07-12)
 
 ### Chore

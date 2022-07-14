@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minisatip-2.0.16](https://github.com/truecharts/apps/compare/minisatip-2.0.14...minisatip-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [minisatip-2.0.14](https://github.com/truecharts/apps/compare/minisatip-2.0.12...minisatip-2.0.14) (2022-07-12)
 
 ### Chore

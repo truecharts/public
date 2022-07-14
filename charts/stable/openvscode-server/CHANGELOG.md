@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openvscode-server-2.0.20](https://github.com/truecharts/apps/compare/openvscode-server-2.0.18...openvscode-server-2.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [openvscode-server-2.0.18](https://github.com/truecharts/apps/compare/openvscode-server-2.0.17...openvscode-server-2.0.18) (2022-07-13)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pihole-6.0.19](https://github.com/truecharts/apps/compare/pihole-6.0.17...pihole-6.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [pihole-6.0.17](https://github.com/truecharts/apps/compare/pihole-6.0.15...pihole-6.0.17) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,6 @@
 # lancache-monolithic
 
-A monolithic lancache service capable of caching all cdn's in a single instance.
+A monolithic lancache service capable of caching all CDN's in a single instance.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**

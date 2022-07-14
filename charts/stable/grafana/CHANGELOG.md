@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grafana-4.0.27](https://github.com/truecharts/apps/compare/grafana-4.0.25...grafana-4.0.27) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [grafana-4.0.25](https://github.com/truecharts/apps/compare/grafana-4.0.23...grafana-4.0.25) (2022-07-12)
 
 ### Chore

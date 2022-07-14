@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gotify-8.0.17](https://github.com/truecharts/apps/compare/gotify-8.0.15...gotify-8.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [gotify-8.0.15](https://github.com/truecharts/apps/compare/gotify-8.0.13...gotify-8.0.15) (2022-07-12)
 
 ### Chore

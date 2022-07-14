@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [readarr-11.0.16](https://github.com/truecharts/apps/compare/readarr-11.0.14...readarr-11.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [readarr-11.0.14](https://github.com/truecharts/apps/compare/readarr-11.0.12...readarr-11.0.14) (2022-07-12)
 
 ### Chore

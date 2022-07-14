@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [appdaemon-9.0.17](https://github.com/truecharts/apps/compare/appdaemon-9.0.15...appdaemon-9.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [appdaemon-9.0.15](https://github.com/truecharts/apps/compare/appdaemon-9.0.13...appdaemon-9.0.15) (2022-07-12)
 
 ### Chore

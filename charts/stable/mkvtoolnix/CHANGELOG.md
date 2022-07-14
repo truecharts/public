@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mkvtoolnix-2.0.17](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.15...mkvtoolnix-2.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [mkvtoolnix-2.0.15](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.13...mkvtoolnix-2.0.15) (2022-07-12)
 
 ### Chore

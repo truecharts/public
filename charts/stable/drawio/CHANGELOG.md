@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [drawio-2.0.23](https://github.com/truecharts/apps/compare/drawio-2.0.21...drawio-2.0.23) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [drawio-2.0.21](https://github.com/truecharts/apps/compare/drawio-2.0.20...drawio-2.0.21) (2022-07-13)
 
 ### Chore

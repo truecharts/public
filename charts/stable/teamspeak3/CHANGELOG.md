@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [teamspeak3-4.0.18](https://github.com/truecharts/apps/compare/teamspeak3-4.0.16...teamspeak3-4.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [teamspeak3-4.0.16](https://github.com/truecharts/apps/compare/teamspeak3-4.0.14...teamspeak3-4.0.16) (2022-07-12)
 
 ### Chore

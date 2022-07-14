@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [czkawka-0.0.11](https://github.com/truecharts/apps/compare/czkawka-0.0.9...czkawka-0.0.11) (2022-07-14)
+
+### Chore
+
+- update some last icons ([#3160](https://github.com/truecharts/apps/issues/3160))
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [czkawka-0.0.9](https://github.com/truecharts/apps/compare/czkawka-0.0.7...czkawka-0.0.9) (2022-07-12)
 
 ### Chore

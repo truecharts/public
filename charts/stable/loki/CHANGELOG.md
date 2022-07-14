@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [loki-5.0.19](https://github.com/truecharts/apps/compare/loki-5.0.17...loki-5.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [loki-5.0.17](https://github.com/truecharts/apps/compare/loki-5.0.15...loki-5.0.17) (2022-07-12)
 
 ### Chore

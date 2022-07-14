@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mariadb-3.0.34](https://github.com/truecharts/apps/compare/mariadb-3.0.32...mariadb-3.0.34) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [mariadb-3.0.32](https://github.com/truecharts/apps/compare/mariadb-3.0.30...mariadb-3.0.32) (2022-07-12)
 
 ### Chore

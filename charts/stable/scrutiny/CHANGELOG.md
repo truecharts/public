@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [scrutiny-3.0.15](https://github.com/truecharts/apps/compare/scrutiny-3.0.13...scrutiny-3.0.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [scrutiny-3.0.13](https://github.com/truecharts/apps/compare/scrutiny-3.0.12...scrutiny-3.0.13) (2022-07-13)
 
 ### Chore

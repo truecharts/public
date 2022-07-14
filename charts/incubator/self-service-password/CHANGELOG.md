@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [self-service-password-1.0.20](https://github.com/truecharts/apps/compare/self-service-password-1.0.18...self-service-password-1.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [self-service-password-1.0.18](https://github.com/truecharts/apps/compare/self-service-password-1.0.16...self-service-password-1.0.18) (2022-07-12)
 
 ### Chore

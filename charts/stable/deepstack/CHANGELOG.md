@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deepstack-4.0.16](https://github.com/truecharts/apps/compare/deepstack-4.0.14...deepstack-4.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [deepstack-4.0.14](https://github.com/truecharts/apps/compare/deepstack-4.0.12...deepstack-4.0.14) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lanraragi-2.0.16](https://github.com/truecharts/apps/compare/lanraragi-2.0.14...lanraragi-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [lanraragi-2.0.14](https://github.com/truecharts/apps/compare/lanraragi-2.0.12...lanraragi-2.0.14) (2022-07-12)
 
 ### Chore

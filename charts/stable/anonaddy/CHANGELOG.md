@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [anonaddy-9.0.21](https://github.com/truecharts/apps/compare/anonaddy-9.0.19...anonaddy-9.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [anonaddy-9.0.19](https://github.com/truecharts/apps/compare/anonaddy-9.0.18...anonaddy-9.0.19) (2022-07-14)
 
 ### Chore

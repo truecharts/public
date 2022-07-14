@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [redis-3.0.36](https://github.com/truecharts/apps/compare/redis-3.0.34...redis-3.0.36) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [mongodb-1.0.36](https://github.com/truecharts/apps/compare/mongodb-1.0.35...mongodb-1.0.36) (2022-07-13)
 
 ### Chore

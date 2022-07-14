@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ipfs-3.0.20](https://github.com/truecharts/apps/compare/ipfs-3.0.18...ipfs-3.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [ipfs-3.0.18](https://github.com/truecharts/apps/compare/ipfs-3.0.16...ipfs-3.0.18) (2022-07-12)
 
 ### Chore

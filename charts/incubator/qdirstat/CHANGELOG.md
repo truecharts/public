@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [qdirstat-0.0.10](https://github.com/truecharts/apps/compare/qdirstat-0.0.8...qdirstat-0.0.10) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [qdirstat-0.0.8](https://github.com/truecharts/apps/compare/qdirstat-0.0.6...qdirstat-0.0.8) (2022-07-12)
 
 ### Chore

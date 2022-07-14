@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [solr-0.0.9](https://github.com/truecharts/apps/compare/solr-0.0.7...solr-0.0.9) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [solr-0.0.7](https://github.com/truecharts/apps/compare/solr-0.0.5...solr-0.0.7) (2022-07-12)
 
 ### Chore

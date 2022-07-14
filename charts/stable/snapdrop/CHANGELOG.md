@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snapdrop-2.0.21](https://github.com/truecharts/apps/compare/snapdrop-2.0.19...snapdrop-2.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [snapdrop-2.0.19](https://github.com/truecharts/apps/compare/snapdrop-2.0.17...snapdrop-2.0.19) (2022-07-12)
 
 ### Chore

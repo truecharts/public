@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [postgresql-8.0.36](https://github.com/truecharts/apps/compare/postgresql-8.0.34...postgresql-8.0.36) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [postgresql-8.0.34](https://github.com/truecharts/apps/compare/postgresql-8.0.33...postgresql-8.0.34) (2022-07-13)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [vaultwarden-16.0.17](https://github.com/truecharts/apps/compare/vaultwarden-16.0.15...vaultwarden-16.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [vaultwarden-16.0.15](https://github.com/truecharts/apps/compare/vaultwarden-16.0.13...vaultwarden-16.0.15) (2022-07-12)
 
 ### Chore

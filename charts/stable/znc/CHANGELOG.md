@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [znc-2.0.17](https://github.com/truecharts/apps/compare/znc-2.0.15...znc-2.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [znc-2.0.15](https://github.com/truecharts/apps/compare/znc-2.0.14...znc-2.0.15) (2022-07-13)
 
 ### Fix

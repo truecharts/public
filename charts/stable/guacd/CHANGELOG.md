@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [guacd-2.0.18](https://github.com/truecharts/apps/compare/guacd-2.0.16...guacd-2.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [guacd-2.0.16](https://github.com/truecharts/apps/compare/guacd-2.0.14...guacd-2.0.16) (2022-07-12)
 
 ### Chore

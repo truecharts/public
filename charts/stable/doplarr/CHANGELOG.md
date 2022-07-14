@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [doplarr-2.0.17](https://github.com/truecharts/apps/compare/doplarr-2.0.15...doplarr-2.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [doplarr-2.0.15](https://github.com/truecharts/apps/compare/doplarr-2.0.13...doplarr-2.0.15) (2022-07-12)
 
 ### Chore

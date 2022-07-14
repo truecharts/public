@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [synapse-4.0.19](https://github.com/truecharts/apps/compare/synapse-4.0.17...synapse-4.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [synapse-4.0.17](https://github.com/truecharts/apps/compare/synapse-4.0.15...synapse-4.0.17) (2022-07-12)
 
 ### Chore

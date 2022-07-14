@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [trilium-notes-5.0.17](https://github.com/truecharts/apps/compare/trilium-notes-5.0.15...trilium-notes-5.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [trilium-notes-5.0.15](https://github.com/truecharts/apps/compare/trilium-notes-5.0.13...trilium-notes-5.0.15) (2022-07-12)
 
 ### Chore

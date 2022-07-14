@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [n8n-4.0.25](https://github.com/truecharts/apps/compare/n8n-4.0.23...n8n-4.0.25) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [n8n-4.0.23](https://github.com/truecharts/apps/compare/n8n-4.0.22...n8n-4.0.23) (2022-07-14)
 
 ### Chore

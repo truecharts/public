@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ispy-agent-dvr-2.0.22](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.20...ispy-agent-dvr-2.0.22) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [ispy-agent-dvr-2.0.20](https://github.com/truecharts/apps/compare/ispy-agent-dvr-2.0.18...ispy-agent-dvr-2.0.20) (2022-07-12)
 
 ### Chore

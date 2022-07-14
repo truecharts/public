@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gitea-8.0.19](https://github.com/truecharts/apps/compare/gitea-8.0.17...gitea-8.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [gitea-8.0.17](https://github.com/truecharts/apps/compare/gitea-8.0.16...gitea-8.0.17) (2022-07-13)
 
 ### Chore

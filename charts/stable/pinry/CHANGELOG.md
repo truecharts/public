@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pinry-2.0.16](https://github.com/truecharts/apps/compare/pinry-2.0.14...pinry-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [pinry-2.0.14](https://github.com/truecharts/apps/compare/pinry-2.0.12...pinry-2.0.14) (2022-07-12)
 
 ### Chore

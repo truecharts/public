@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [youtubedl-material-0.0.15](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.13...youtubedl-material-0.0.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [youtubedl-material-0.0.13](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.11...youtubedl-material-0.0.13) (2022-07-12)
 
 ### Chore

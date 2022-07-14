@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [shorturl-3.0.16](https://github.com/truecharts/apps/compare/shorturl-3.0.14...shorturl-3.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [shorturl-3.0.14](https://github.com/truecharts/apps/compare/shorturl-3.0.12...shorturl-3.0.14) (2022-07-12)
 
 ### Chore

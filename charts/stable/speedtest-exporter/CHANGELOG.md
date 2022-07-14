@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [speedtest-exporter-3.0.18](https://github.com/truecharts/apps/compare/speedtest-exporter-3.0.16...speedtest-exporter-3.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [speedtest-exporter-3.0.16](https://github.com/truecharts/apps/compare/speedtest-exporter-3.0.14...speedtest-exporter-3.0.16) (2022-07-12)
 
 ### Chore

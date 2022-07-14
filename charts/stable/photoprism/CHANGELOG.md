@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoprism-10.0.21](https://github.com/truecharts/apps/compare/photoprism-10.0.19...photoprism-10.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [photoprism-10.0.19](https://github.com/truecharts/apps/compare/photoprism-10.0.17...photoprism-10.0.19) (2022-07-12)
 
 ### Chore

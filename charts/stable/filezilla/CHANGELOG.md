@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [filezilla-4.0.17](https://github.com/truecharts/apps/compare/filezilla-4.0.15...filezilla-4.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [filezilla-4.0.15](https://github.com/truecharts/apps/compare/filezilla-4.0.13...filezilla-4.0.15) (2022-07-12)
 
 ### Chore

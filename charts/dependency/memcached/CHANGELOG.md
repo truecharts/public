@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [memcached-3.0.35](https://github.com/truecharts/apps/compare/memcached-3.0.33...memcached-3.0.35) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 
 ## [memcached-3.0.32](https://github.com/truecharts/apps/compare/memcached-3.0.30...memcached-3.0.32) (2022-07-12)
 

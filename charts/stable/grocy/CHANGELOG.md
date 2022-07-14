@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grocy-11.0.21](https://github.com/truecharts/apps/compare/grocy-11.0.19...grocy-11.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [grocy-11.0.19](https://github.com/truecharts/apps/compare/grocy-11.0.17...grocy-11.0.19) (2022-07-12)
 
 ### Chore

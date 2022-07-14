@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openspeedtest-1.0.15](https://github.com/truecharts/apps/compare/openspeedtest-1.0.13...openspeedtest-1.0.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [openspeedtest-1.0.13](https://github.com/truecharts/apps/compare/openspeedtest-1.0.11...openspeedtest-1.0.13) (2022-07-12)
 
 ### Chore

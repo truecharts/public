@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kms-11.0.17](https://github.com/truecharts/apps/compare/kms-11.0.15...kms-11.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [kms-11.0.15](https://github.com/truecharts/apps/compare/kms-11.0.14...kms-11.0.15) (2022-07-13)
 
 ### Chore

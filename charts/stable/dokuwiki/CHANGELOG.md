@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dokuwiki-3.0.28](https://github.com/truecharts/apps/compare/dokuwiki-3.0.26...dokuwiki-3.0.28) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [dokuwiki-3.0.26](https://github.com/truecharts/apps/compare/dokuwiki-3.0.25...dokuwiki-3.0.26) (2022-07-13)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tvheadend-12.0.16](https://github.com/truecharts/apps/compare/tvheadend-12.0.14...tvheadend-12.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [tvheadend-12.0.14](https://github.com/truecharts/apps/compare/tvheadend-12.0.12...tvheadend-12.0.14) (2022-07-12)
 
 ### Chore

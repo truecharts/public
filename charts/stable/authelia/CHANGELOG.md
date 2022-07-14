@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authelia-11.0.21](https://github.com/truecharts/apps/compare/authelia-11.0.19...authelia-11.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [authelia-11.0.19](https://github.com/truecharts/apps/compare/authelia-11.0.18...authelia-11.0.19) (2022-07-14)
 
 ### Fix

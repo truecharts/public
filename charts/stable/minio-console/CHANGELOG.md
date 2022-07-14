@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minio-console-3.0.19](https://github.com/truecharts/apps/compare/minio-console-3.0.17...minio-console-3.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [minio-console-3.0.17](https://github.com/truecharts/apps/compare/minio-console-3.0.16...minio-console-3.0.17) (2022-07-13)
 
 ### Chore

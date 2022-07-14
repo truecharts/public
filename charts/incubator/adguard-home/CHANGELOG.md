@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [adguard-home-1.0.19](https://github.com/truecharts/apps/compare/adguard-home-1.0.17...adguard-home-1.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [adguard-home-1.0.17](https://github.com/truecharts/apps/compare/adguard-home-1.0.16...adguard-home-1.0.17) (2022-07-14)
 
 ### Chore

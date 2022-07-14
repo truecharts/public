@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [podgrab-10.0.18](https://github.com/truecharts/apps/compare/podgrab-10.0.16...podgrab-10.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [podgrab-10.0.16](https://github.com/truecharts/apps/compare/podgrab-10.0.14...podgrab-10.0.16) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gonic-6.0.17](https://github.com/truecharts/apps/compare/gonic-6.0.15...gonic-6.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [gonic-6.0.15](https://github.com/truecharts/apps/compare/gonic-6.0.13...gonic-6.0.15) (2022-07-12)
 
 ### Chore

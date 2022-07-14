@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [libreddit-1.0.10](https://github.com/truecharts/apps/compare/libreddit-1.0.8...libreddit-1.0.10) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [libreddit-1.0.8](https://github.com/truecharts/apps/compare/libreddit-1.0.6...libreddit-1.0.8) (2022-07-12)
 
 ### Chore

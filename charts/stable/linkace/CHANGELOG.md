@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [linkace-4.0.24](https://github.com/truecharts/apps/compare/linkace-4.0.22...linkace-4.0.24) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [linkace-4.0.22](https://github.com/truecharts/apps/compare/linkace-4.0.20...linkace-4.0.22) (2022-07-12)
 
 ### Chore

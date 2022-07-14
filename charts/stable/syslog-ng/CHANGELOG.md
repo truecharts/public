@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [syslog-ng-2.0.17](https://github.com/truecharts/apps/compare/syslog-ng-2.0.15...syslog-ng-2.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [syslog-ng-2.0.15](https://github.com/truecharts/apps/compare/syslog-ng-2.0.13...syslog-ng-2.0.15) (2022-07-12)
 
 ### Chore

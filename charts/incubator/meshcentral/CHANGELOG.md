@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [meshcentral-3.0.21](https://github.com/truecharts/apps/compare/meshcentral-3.0.19...meshcentral-3.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [meshcentral-3.0.19](https://github.com/truecharts/apps/compare/meshcentral-3.0.17...meshcentral-3.0.19) (2022-07-12)
 
 ### Chore

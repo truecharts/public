@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [quassel-web-2.0.16](https://github.com/truecharts/apps/compare/quassel-web-2.0.14...quassel-web-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [quassel-web-2.0.14](https://github.com/truecharts/apps/compare/quassel-web-2.0.12...quassel-web-2.0.14) (2022-07-12)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jackett-11.0.30](https://github.com/truecharts/apps/compare/jackett-11.0.28...jackett-11.0.30) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [jackett-11.0.28](https://github.com/truecharts/apps/compare/jackett-11.0.27...jackett-11.0.28) (2022-07-14)
 
 ### Chore

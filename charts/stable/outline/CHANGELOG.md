@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [outline-3.0.19](https://github.com/truecharts/apps/compare/outline-3.0.17...outline-3.0.19) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [outline-3.0.17](https://github.com/truecharts/apps/compare/outline-3.0.15...outline-3.0.17) (2022-07-12)
 
 ### Chore

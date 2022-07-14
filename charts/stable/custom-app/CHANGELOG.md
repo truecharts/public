@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [custom-app-5.1.14](https://github.com/truecharts/apps/compare/custom-app-5.1.12...custom-app-5.1.14) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [custom-app-5.1.12](https://github.com/truecharts/apps/compare/custom-app-5.1.11...custom-app-5.1.12) (2022-07-14)
 
 ### Chore

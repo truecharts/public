@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [netdata-2.0.18](https://github.com/truecharts/apps/compare/netdata-2.0.16...netdata-2.0.18) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [netdata-2.0.16](https://github.com/truecharts/apps/compare/netdata-2.0.14...netdata-2.0.16) (2022-07-12)
 
 ### Chore

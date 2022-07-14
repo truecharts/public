@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [redmine-3.0.21](https://github.com/truecharts/apps/compare/redmine-3.0.19...redmine-3.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [redmine-3.0.19](https://github.com/truecharts/apps/compare/redmine-3.0.18...redmine-3.0.19) (2022-07-14)
 
 ### Chore

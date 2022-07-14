@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [domoticz-2.0.20](https://github.com/truecharts/apps/compare/domoticz-2.0.18...domoticz-2.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [domoticz-2.0.18](https://github.com/truecharts/apps/compare/domoticz-2.0.16...domoticz-2.0.18) (2022-07-12)
 
 ### Chore

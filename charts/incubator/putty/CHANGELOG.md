@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [putty-0.0.10](https://github.com/truecharts/apps/compare/putty-0.0.8...putty-0.0.10) (2022-07-14)
+
+### Chore
+
+- update some last icons ([#3160](https://github.com/truecharts/apps/issues/3160))
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [putty-0.0.8](https://github.com/truecharts/apps/compare/putty-0.0.6...putty-0.0.8) (2022-07-12)
 
 ### Chore

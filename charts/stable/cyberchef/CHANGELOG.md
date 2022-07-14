@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cyberchef-2.0.36](https://github.com/truecharts/apps/compare/cyberchef-2.0.34...cyberchef-2.0.36) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [cyberchef-2.0.34](https://github.com/truecharts/apps/compare/cyberchef-2.0.33...cyberchef-2.0.34) (2022-07-14)
 
 ### Chore

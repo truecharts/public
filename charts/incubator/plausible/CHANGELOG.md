@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plausible-0.0.7](https://github.com/truecharts/apps/compare/plausible-0.0.5...plausible-0.0.7) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [plausible-0.0.5](https://github.com/truecharts/apps/compare/plausible-0.0.3...plausible-0.0.5) (2022-07-12)
 
 ### Chore

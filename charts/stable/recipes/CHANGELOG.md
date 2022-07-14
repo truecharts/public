@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [recipes-8.0.21](https://github.com/truecharts/apps/compare/recipes-8.0.19...recipes-8.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [recipes-8.0.19](https://github.com/truecharts/apps/compare/recipes-8.0.18...recipes-8.0.19) (2022-07-14)
 
 ### Chore

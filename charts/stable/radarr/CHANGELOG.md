@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [radarr-11.0.17](https://github.com/truecharts/apps/compare/radarr-11.0.15...radarr-11.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
 ## [radarr-11.0.15](https://github.com/truecharts/apps/compare/radarr-11.0.13...radarr-11.0.15) (2022-07-12)
 
 ### Chore
