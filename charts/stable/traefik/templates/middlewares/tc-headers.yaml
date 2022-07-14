@@ -27,7 +27,6 @@ spec:
     customRequestHeaders:
       X-Forwarded-Proto: https
     customResponseHeaders:
-      X-Robots-Tag: none
       server: ""
     forceSTSHeader: true
     referrerPolicy: same-origin
@@ -60,5 +59,4 @@ spec:
     customRequestHeaders:
       X-Forwarded-Proto: "https"
     customResponseHeaders:
-      X-Robots-Tag: 'none'
       server: ''
