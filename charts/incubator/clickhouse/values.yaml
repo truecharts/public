@@ -34,16 +34,16 @@ volumeClaimTemplates:
     enabled: true
     mountPath: /var/lib/clickhouse
 
-# probes:
-#   liveness:
-#     type: HTTP
-#     path: /ping
-#   readiness:
-#     type: HTTP
-#     path: /ping
-#   startup:
-#     type: HTTP
-#     path: /ping
+probes:
+  liveness:
+    type: HTTP
+    path: /ping
+  readiness:
+    type: HTTP
+    path: /ping
+  startup:
+    type: HTTP
+    path: /ping
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
