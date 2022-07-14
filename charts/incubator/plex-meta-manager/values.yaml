@@ -1,0 +1,39 @@
+image:
+  repository: linuxserver/plex-meta-manager
+  pullPolicy: IfNotPresent
+  tag: v1.17.1@sha256:af30bf9e2a48a2d359e097854becde159befc6e4dfd33b6b1d1c529fed565537
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PMM_TIME: "03:00"
+  PMM_RUN: false
+  PMM_TEST: false
+  PMM_NO_MISSING: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10281
+        targetPort: 10281
+        protocol: HTTP
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
