@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-107-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-108-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -273,6 +273,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/lps-rocks"><img src="https://avatars.githubusercontent.com/u/10893911?v=4?s=100" width="100px;" alt=""/><br /><sub><b>lps-rocks</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Alps-rocks" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Faustvii"><img src="https://avatars.githubusercontent.com/u/4357216?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Faust</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AFaustvii" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/uranderu"><img src="https://avatars.githubusercontent.com/u/71091366?v=4?s=100" width="100px;" alt=""/><br /><sub><b>uranderu</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Auranderu" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
