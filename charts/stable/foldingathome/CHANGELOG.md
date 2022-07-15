@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [foldingathome-2.0.18](https://github.com/truecharts/apps/compare/foldingathome-2.0.17...foldingathome-2.0.18) (2022-07-15)
+
+### Fix
+
+- make root fs writable ([#3191](https://github.com/truecharts/apps/issues/3191))
+
+
+
 ## [foldingathome-2.0.17](https://github.com/truecharts/apps/compare/foldingathome-2.0.16...foldingathome-2.0.17) (2022-07-14)
 
 ### Fix
