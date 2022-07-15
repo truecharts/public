@@ -4,8 +4,8 @@ image:
   tag: latest@sha256:45097c40dddec95b10b2679c6400aeb9b3ca291a11792921ddd07a203df6433e
 
 env:
-  MS_UPDATE_FREQ: 10 # delay (in minutes) between updates of MinecraftStats database
-  MS_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}" # listening port for the python webserver
+  MS_UPDATE_FREQ: 10
+  MS_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
