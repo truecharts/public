@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/domoticz
   pullPolicy: IfNotPresent
-  tag: v2022.1.20220630
+  tag: v2022.1.20220714
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
