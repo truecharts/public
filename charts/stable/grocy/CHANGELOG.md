@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grocy-11.0.23](https://github.com/truecharts/apps/compare/grocy-11.0.22...grocy-11.0.23) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
 ## [grocy-11.0.22](https://github.com/truecharts/apps/compare/grocy-11.0.21...grocy-11.0.22) (2022-07-14)
 
 ### Fix

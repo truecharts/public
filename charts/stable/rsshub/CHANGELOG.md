@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [rsshub-3.0.40](https://github.com/truecharts/apps/compare/rsshub-3.0.39...rsshub-3.0.40) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
 ## [rsshub-3.0.39](https://github.com/truecharts/apps/compare/rsshub-3.0.38...rsshub-3.0.39) (2022-07-14)
 
 ### Fix

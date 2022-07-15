@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sickchill-3.0.20](https://github.com/truecharts/apps/compare/sickchill-3.0.19...sickchill-3.0.20) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
 ## [sickchill-3.0.19](https://github.com/truecharts/apps/compare/sickchill-3.0.18...sickchill-3.0.19) (2022-07-14)
 
 ### Fix
