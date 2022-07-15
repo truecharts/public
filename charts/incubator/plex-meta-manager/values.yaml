@@ -12,8 +12,9 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
+  PMM_CONFIG: "/config/config.yaml"
   PMM_TIME: "03:00"
-  PMM_RUN: false
+  PMM_RUN: true
   PMM_TEST: false
   PMM_NO_MISSING: false
 

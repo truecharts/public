@@ -60,32 +60,32 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: CUSTOM_CONFIG_FILE
-          label: "Set Custom config file"
-          description: "enable this and point the config.yaml to a dir"
+        - variable: PMM_CONFIG
+          label: "PMM CONFIG"
+          description: "Specify a internal config.yaml"
           schema:
+            type: string
+            default: "/config/config.yaml"
+        - variable: PMM_RUN
+          label: "PMM RUN"
+          description: "Set to false to run with a scheduler."
+          schema:
+            type: boolean
+            default: true
+        - variable: customtime
+          label: "Set PMM Time"
+          schema:
+            show_if: [["PMM_RUN", "=", false]]
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: PMM_CONFIG
-                label: "PMM CONFIG"
-                description: "Specify a custom config file to use internally ex: /config/config.yaml"
+              - variable: PMM_TIME
+                label: "PMM TIME"
+                description: "Comma-separated list of times to update each day. Format: HH:MM"
                 schema:
                   type: string
                   default: ""
-        - variable: PMM_TIME
-          label: "PMM TIME"
-          description: "Comma-separated list of times to update each day. Format: HH:MM"
-          schema:
-            type: string
-            default: "03:00"
-        - variable: PMM_RUN
-          label: "PMM RUN"
-          description: "Set to True to run without the scheduler."
-          schema:
-            type: boolean
-            default: false
         - variable: PMM_TEST
           label: "PMM TEST"
           description: "Set to True to run in debug mode with only collections that have test: true"
