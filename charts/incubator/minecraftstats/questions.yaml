@@ -192,15 +192,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: app
-          label: "App src Storage"
-          description: "Stores the Application src."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."

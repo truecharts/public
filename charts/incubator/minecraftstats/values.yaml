@@ -16,9 +16,6 @@ service:
         protocol: HTTP
 
 persistence:
-  app:
-    enabled: true
-    mountPath: "/usr/src/app"
   config:
     enabled: true
     mountPath: "/config"
