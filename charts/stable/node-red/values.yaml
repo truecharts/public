@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/node-red
   pullPolicy: IfNotPresent
-  tag: v2.2.2@sha256:7c181ad1464aebe7e41401acbbb024a3dd1505ce687b0b049fc52a6affe98e54
+  tag: v3.0.0@sha256:c1e4e4d7069b1add7907dd6653914318aaa7b78bde190dd58eb1a0f0a04afc30
 
 env:
   TZ: "{{ .Values.TZ }}"
