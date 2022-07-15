@@ -1,0 +1,27 @@
+image:
+  repository: jeromelabidurie/minecraftstats
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:45097c40dddec95b10b2679c6400aeb9b3ca291a11792921ddd07a203df6433e
+
+env:
+  MS_UPDATE_FREQ: 10 # delay (in minutes) between updates of MinecraftStats database
+  MS_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}" # listening port for the python webserver
+
+service:
+  main:
+    ports:
+      main:
+        port: 10282
+        targetPort: 8000
+        protocol: HTTP
+
+persistence:
+  app:
+    enabled: true
+    mountPath: "/usr/src/app"
+  config:
+    enabled: true
+    mountPath: "/config"
+  minecraft:
+    enabled: true
+    mountPath: "/minecraft"

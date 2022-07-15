@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: minecraftstats
+version: 0.0.1
+appVersion: "latest"
+description: MinecraftStats is a web browser application for the statistics that Minecraft servers collect about players.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/minecraftstats
+icon: https://truecharts.org/img/chart-icons/minecraftstats.png
+keywords:
+  - minecraftstats
+  - minecraft
+sources:
+  - https://github.com/pdinklag/MinecraftStats
+  - https://github.com/jerome-labidurie/docker-MinecraftStats
+  - https://hub.docker.com/r/jeromelabidurie/minecraftstats
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
