@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [plex-meta-manager-0.0.5](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.4...plex-meta-manager-0.0.5) (2022-07-15)
+
+
+
 ## [plex-meta-manager-0.0.4](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.3...plex-meta-manager-0.0.4) (2022-07-14)
 
 ### Fix
