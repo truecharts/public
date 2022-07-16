@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [flexget-2.0.23](https://github.com/truecharts/apps/compare/flexget-2.0.22...flexget-2.0.23) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [flexget-2.0.22](https://github.com/truecharts/apps/compare/flexget-2.0.21...flexget-2.0.22) (2022-07-14)
 
 ### Fix

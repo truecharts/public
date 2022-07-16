@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [homer-2.0.22](https://github.com/truecharts/apps/compare/homer-2.0.21...homer-2.0.22) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [homer-2.0.21](https://github.com/truecharts/apps/compare/homer-2.0.20...homer-2.0.21) (2022-07-14)
 
 ### Fix

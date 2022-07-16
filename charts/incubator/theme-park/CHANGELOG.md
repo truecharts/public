@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [theme-park-1.0.20](https://github.com/truecharts/apps/compare/theme-park-1.0.19...theme-park-1.0.20) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [theme-park-1.0.19](https://github.com/truecharts/apps/compare/theme-park-1.0.18...theme-park-1.0.19) (2022-07-14)
 
 ### Fix

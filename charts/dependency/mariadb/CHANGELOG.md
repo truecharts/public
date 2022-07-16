@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mariadb-3.0.36](https://github.com/truecharts/apps/compare/mariadb-3.0.35...mariadb-3.0.36) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [memcached-3.0.36](https://github.com/truecharts/apps/compare/memcached-3.0.35...memcached-3.0.36) (2022-07-14)
 
 ### Fix

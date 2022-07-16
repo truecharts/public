@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dupeguru-0.0.12](https://github.com/truecharts/apps/compare/dupeguru-0.0.11...dupeguru-0.0.12) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [dupeguru-0.0.11](https://github.com/truecharts/apps/compare/dupeguru-0.0.10...dupeguru-0.0.11) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [komga-6.0.21](https://github.com/truecharts/apps/compare/komga-6.0.20...komga-6.0.21) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [komga-6.0.20](https://github.com/truecharts/apps/compare/komga-6.0.19...komga-6.0.20) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [qinglong-2.0.19](https://github.com/truecharts/apps/compare/qinglong-2.0.18...qinglong-2.0.19) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
 ## [qinglong-2.0.18](https://github.com/truecharts/apps/compare/qinglong-2.0.17...qinglong-2.0.18) (2022-07-14)
 
 ### Fix
