@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ghost-3.0.26](https://github.com/truecharts/apps/compare/ghost-3.0.25...ghost-3.0.26) (2022-07-16)
+
+### Chore
+
+- remove duplice gui entry ([#3194](https://github.com/truecharts/apps/issues/3194))
+
+
+
 ## [ghost-3.0.25](https://github.com/truecharts/apps/compare/ghost-3.0.24...ghost-3.0.25) (2022-07-15)
 
 ### Chore
