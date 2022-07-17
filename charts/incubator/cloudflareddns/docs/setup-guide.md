@@ -1,6 +1,6 @@
 # How-To
 
-So you've followed some of our TrueNAS guides, setup your domain name, certificates and use  Cloudflare for your DNS management, however you don't have a static IP, then this guide is for you. This quick guide will help you go through the steps to use Cloudflareddns to update your dynamic IP along with your entire deployment so that even if you change IP your domain will point to the right address. 
+So you've followed some of our TrueNAS guides, setup your domain name, certificates and use  Cloudflare for your DNS management, however you don't have a static IP, then this guide is for you. This quick guide will help you go through the steps to use Cloudflareddns to update your dynamic IP along with your entire deployment so that even if you change IP your domain will point to the right address.
 
 ## Requirements
 
@@ -28,11 +28,11 @@ Take note of the `Zone ID` and `Account ID`, that's what we'll use inside the Cl
 
 ## Cloudflareddns chart setup
 
-Step 1-2: Name chart and leave defaults for Step 2 
+Step 1-2: Name chart and leave defaults for Step 2
 
 ![Step 1](https://user-images.githubusercontent.com/89483932/179336761-2ce2da3a-cd75-43ba-befe-4c3775f04027.png)
 
-Step 3: 
+Step 3:
 
 ![Step 3 Part 1](https://user-images.githubusercontent.com/89483932/179336779-e2aa5273-8527-40f1-bc3c-3768931ea289.png)
 
@@ -51,7 +51,7 @@ Steps 4-8: Adjust as necessary but defaults are fine
 ## Support
 
 - If you need more details or have a more custom setup the documentation on the upstream chart (https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
-- You can also reach us using Discord for real-time feedback and support 
+- You can also reach us using Discord for real-time feedback and support
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - If yoOpen a [issue](https://github.com/truecharts/apps/issues/new/choose)
 

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [leantime-4.0.20](https://github.com/truecharts/apps/compare/leantime-4.0.19...leantime-4.0.20) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
 ## [leantime-4.0.19](https://github.com/truecharts/apps/compare/leantime-4.0.18...leantime-4.0.19) (2022-07-14)
 
 ### Fix

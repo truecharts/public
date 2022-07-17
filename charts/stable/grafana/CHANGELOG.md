@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grafana-4.0.29](https://github.com/truecharts/apps/compare/grafana-4.0.28...grafana-4.0.29) (2022-07-17)
+
+### Chore
+
+- update container image tccr.io/truecharts/grafana to v9.0.3 ([#3186](https://github.com/truecharts/apps/issues/3186))
+
+
+
 ## [grafana-4.0.28](https://github.com/truecharts/apps/compare/grafana-4.0.27...grafana-4.0.28) (2022-07-14)
 
 ### Fix
