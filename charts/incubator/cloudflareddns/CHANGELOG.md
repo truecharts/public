@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [cloudflareddns-0.0.16](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.15...cloudflareddns-0.0.16) (2022-07-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- extend linter and apply lint ([#3200](https://github.com/truecharts/apps/issues/3200))
+
+### Feat
+
+- Add Setup-Guide for cloudflareddns ([#3197](https://github.com/truecharts/apps/issues/3197))
+
+
+
 ## [cloudflareddns-0.0.15](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.14...cloudflareddns-0.0.15) (2022-07-14)
 
 ### Fix
