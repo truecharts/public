@@ -1,14 +1,15 @@
 # How-To
 
-So you've followed some of our TrueNAS guides, setup your domain name, certificates and use  Cloudflare for your DNS management, however you don't have a static IP, then this guide is for you. This quick guide will help you go through the steps to use Cloudflareddns to update your dynamic IP along with your entire deployment so that even if you change IP your domain will point to the right address.
+So you've followed some of our TrueNAS guides, setup your domain name, certificates and use Cloudflare for your DNS management, however you don't have a static IP, then this guide is for you. This quick guide will help you go through the steps to use Cloudflareddns to update your dynamic IP along with your entire deployment so that even if you change IP your domain will point to the right address.
 
 ## Requirements
 
 Domain name (can be purchased through Cloudflare or etc)
 
 Cloudflare DNS management
- - Sign up for Cloudflare free
- - Point your nameservers to the ones Cloudflare assigns to you
+
+- Sign up for Cloudflare free
+- Point your nameservers to the ones Cloudflare assigns to you
   ![image](https://user-images.githubusercontent.com/89483932/179332161-e903e46e-ed8c-4b58-81fc-6fcadf1a9851.png)
 
 Cloudflareddns chart
@@ -24,7 +25,6 @@ The recommended way is to setup CNAMEs for your subdomains (charts) and keep you
 Take note of the `Zone ID` and `Account ID`, that's what we'll use inside the Cloudflareddns chart.
 
 ![Overview](https://user-images.githubusercontent.com/89483932/179336819-64a32521-c64b-4ae6-8d5d-225b7342b786.png)
-
 
 ## Cloudflareddns chart setup
 
@@ -53,9 +53,8 @@ Steps 4-8: Adjust as necessary but defaults are fine
 - If you need more details or have a more custom setup the documentation on the upstream chart (https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
 - You can also reach us using Discord for real-time feedback and support
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
-- If yoOpen a [issue](https://github.com/truecharts/apps/issues/new/choose)
+- If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
 
 ---
 
 All Rights Reserved - The TrueCharts Project
-Footer
