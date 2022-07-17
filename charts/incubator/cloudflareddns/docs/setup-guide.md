@@ -16,7 +16,7 @@ Cloudflareddns chart
 ## Prerequisites
 
 This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare (see https://www.youtube.com/watch?v=hJVghecs3rE on our YouTube channel)
- 
+
 The recommended way is to setup CNAMEs for your subdomains (charts) and keep your A record pointed to your base domain, such as below
 
 ![image](https://user-images.githubusercontent.com/89483932/179334653-316e462f-7bf7-4cda-a9dc-dd8842e76021.png)
@@ -58,3 +58,4 @@ Steps 4-8: Adjust as necessary but defaults are fine
 ---
 
 All Rights Reserved - The TrueCharts Project
+Footer
