@@ -58,4 +58,3 @@ Steps 4-8: Adjust as necessary but defaults are fine
 ---
 
 All Rights Reserved - The TrueCharts Project
-Footer
