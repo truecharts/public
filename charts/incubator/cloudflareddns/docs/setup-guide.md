@@ -16,7 +16,7 @@ Cloudflareddns chart
 
 ## Prerequisites
 
-This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare (see https://www.youtube.com/watch?v=hJVghecs3rE on our YouTube channel)
+This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare (see [this video](https://www.youtube.com/watch?v=hJVghecs3rE) on our YouTube channel)
 
 The recommended way is to setup CNAMEs for your subdomains (charts) and keep your A record pointed to your base domain, such as below
 
@@ -42,7 +42,7 @@ Use Account ID from Cloudflare Domain Overview page (see above) for the `CF_APIT
 
 ![Step 3 Part 2](https://user-images.githubusercontent.com/89483932/179336787-338b1939-546c-42fa-86a2-afe89da91e8d.png)
 
-You can leave everything but the `CF_RECORDTYPES` to defaults if you're only changing your A record, (refer to the upstream documentation for more options here(https://hotio.dev/containers/cloudflareddns/))
+You can leave everything but the `CF_RECORDTYPES` to defaults if you're only changing your A record, (refer to the upstream documentation for more options [here](https://hotio.dev/containers/cloudflareddns/))
 
 Change `CF_RECORDTYPES` to A if you're only changing your main domain
 
@@ -50,7 +50,7 @@ Steps 4-8: Adjust as necessary but defaults are fine
 
 ## Support
 
-- If you need more details or have a more custom setup the documentation on the upstream chart (https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
+- If you need more details or have a more custom setup the documentation on the [upstream](https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
 - You can also reach us using Discord for real-time feedback and support
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
