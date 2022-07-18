@@ -1,6 +1,6 @@
 # st-reborn-server
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
 
 Skyrim Together Reborn server files.
 
@@ -30,20 +30,17 @@ Kubernetes: `>=1.16.0-0`
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tiltedphoques/st-reborn-server"` |  |
-| image.tag | string | `"v1.2.0@sha256:d8322e41e8d3f3e347eef10c50cce977348b24de6f90c98b78a3b4757f2fde57"` |  |
+| image.repository | string | `"tccr.io/truecharts/st-reborn-server"` |  |
+| image.tag | string | `"v1.2.0@sha256:0e1fe6f85a8d637aaaa5a522e7418dc9e817da2b1e6589842a2b56c5cc9e0fbc"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/home/server/config"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/home/server/Data"` |  |
 | persistence.logs.enabled | bool | `true` |  |
 | persistence.logs.mountPath | string | `"/home/server/logs"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10578` |  |
 | service.main.ports.main.protocol | string | `"UDP"` |  |
 | service.main.ports.main.targetPort | int | `10578` |  |

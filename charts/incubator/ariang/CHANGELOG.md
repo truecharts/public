@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ariang-0.0.11](https://github.com/truecharts/apps/compare/ariang-0.0.10...ariang-0.0.11) (2022-07-18)
+
+### Chore
+
+- update image refs ([#3210](https://github.com/truecharts/apps/issues/3210))
+
+
+
 ## [ariang-0.0.10](https://github.com/truecharts/apps/compare/ariang-0.0.9...ariang-0.0.10) (2022-07-14)
 
 ### Fix
