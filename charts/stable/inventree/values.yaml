@@ -20,11 +20,6 @@ secretEnv:
   INVENTREE_ADMIN_PASSWORD: "secret"
 
 configmap:
-  inventree:
-    enabled: true
-    data:
-      invent-env:
-
   config:
     enabled: true
     data:
