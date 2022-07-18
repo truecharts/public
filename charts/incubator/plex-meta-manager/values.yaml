@@ -49,7 +49,7 @@ initContainers:
         echo "Creating config.yaml file..."
         echo "current tag {{ .Values.image.tag }}"
         if [ -e /config/config.yaml ]; then
-          echo "Init file exists!"
+          echo "Config file exists!"
           exit 0
         else
           curl -fLvo /config/config.yaml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template
