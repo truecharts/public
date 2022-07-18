@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plex-meta-manager-0.0.6](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.5...plex-meta-manager-0.0.6) (2022-07-18)
+
+### Fix
+
+- Change upstream image, update env, add docs ([#3206](https://github.com/truecharts/apps/issues/3206))
+
+
+
 ## [plex-meta-manager-0.0.5](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.4...plex-meta-manager-0.0.5) (2022-07-15)
 
 

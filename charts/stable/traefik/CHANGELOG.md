@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [traefik-12.0.23](https://github.com/truecharts/apps/compare/traefik-12.0.22...traefik-12.0.23) (2022-07-18)
+
+### Fix
+
+- don't set xrobots header on default middleware ([#3211](https://github.com/truecharts/apps/issues/3211))
+
+
+
 ## [traefik-12.0.22](https://github.com/truecharts/apps/compare/traefik-12.0.20...traefik-12.0.22) (2022-07-14)
 
 ### Fix
