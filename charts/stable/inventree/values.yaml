@@ -78,12 +78,6 @@ env:
   INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   INVENTREE_DB_PORT: "5432"
   INVENTREE_CACHE_PORT: "6379"
-  # User Defined
-  INVENTREE_DEBUG: false
-  INVENTREE_LOG_LEVEL: "INFO"
-  INVENTREE_PLUGINS_ENABLED: false
-  INVENTREE_LOGIN_CONFIRM_DAYS: 3
-  INVENTREE_LOGIN_ATTEMPTS: 5
   INVENTREE_CACHE_HOST:
     secretKeyRef:
       name: rediscreds
@@ -100,6 +94,20 @@ env:
     secretKeyRef:
       name: inventree-secrets
       key: INVENTREE_SECRET_KEY
+  # User Defined
+  INVENTREE_DEBUG: false
+  INVENTREE_LOG_LEVEL: "INFO"
+  INVENTREE_PLUGINS_ENABLED: false
+  INVENTREE_LOGIN_CONFIRM_DAYS: 3
+  INVENTREE_LOGIN_ATTEMPTS: 5
+  # INVENTREE_EMAIL_BACKEND: "django.core.mail.backends.smtp.EmailBackend"
+  # INVENTREE_EMAIL_HOST:	""
+  # INVENTREE_EMAIL_PORT:	587
+  # INVENTREE_EMAIL_USERNAME:	""
+  # INVENTREE_EMAIL_PASSWORD: ""
+  # INVENTREE_EMAIL_TLS: False
+  # INVENTREE_EMAIL_SSL: False
+  # INVENTREE_EMAIL_SENDER:	""
 
 service:
   main:

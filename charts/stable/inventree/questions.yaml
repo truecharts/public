@@ -148,6 +148,62 @@ questions:
                 description: "ERROR"
               - value: "CRITICAL"
                 description: "CRITICAL"
+        - variable: email_settings
+          label: 'Show Email Settings'
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if:
+            subquestions:
+              - variable: INVENTREE_EMAIL_BACKEND
+                label: 'INVENTREE_EMAIL_BACKEND'
+                description: "Email backend module"
+                schema:
+                  type: string
+                  default: "django.core.mail.backends.smtp.EmailBackend"
+              - variable: INVENTREE_EMAIL_HOST
+                label: 'INVENTREE_EMAIL_HOST'
+                description: "Email server host"
+                schema:
+                  type: string
+                  default: ""
+              - variable: INVENTREE_EMAIL_PORT
+                label: 'INVENTREE_EMAIL_PORT'
+                description: "Email server port"
+                schema:
+                  type: int
+                  default: ""
+              - variable: INVENTREE_EMAIL_USERNAME
+                label: 'INVENTREE_EMAIL_USERNAME'
+                description: "Email account username"
+                schema:
+                  type: string
+                  default: ""
+              - variable: INVENTREE_EMAIL_PASSWORD
+                label: 'INVENTREE_EMAIL_PASSWORD'
+                description: "Email account password"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: INVENTREE_EMAIL_TLS
+                label: 'INVENTREE_EMAIL_TLS'
+                description: "Enable TLS support"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: INVENTREE_EMAIL_SSL
+                label: 'INVENTREE_EMAIL_SSL'
+                description: "Enable SSL support"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: INVENTREE_EMAIL_SENDER
+                label: 'INVENTREE_EMAIL_SENDER'
+                description: "Name of sender"
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 
   - variable: service
