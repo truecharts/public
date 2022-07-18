@@ -1,7 +1,7 @@
 image:
-  repository: linuxserver/plex-meta-manager
+  repository: meisnate12/plex-meta-manager
   pullPolicy: IfNotPresent
-  tag: v1.17.1@sha256:af30bf9e2a48a2d359e097854becde159befc6e4dfd33b6b1d1c529fed565537
+  tag: v1.17.1@sha256:3196b83d601500bb6cfa1d01e63d62b38bce5d3c121a4a1ec3d084fd46eebba2
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,11 +12,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PMM_CONFIG: "/config/config.yaml"
-  PMM_TIME: "03:00"
   PMM_RUN: true
-  PMM_TEST: false
-  PMM_NO_MISSING: false
+  PMM_NO_COUNTDOWN: true
 
 service:
   main:
