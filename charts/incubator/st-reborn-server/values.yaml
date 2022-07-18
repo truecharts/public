@@ -3,12 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.2.0@sha256:0e1fe6f85a8d637aaaa5a522e7418dc9e817da2b1e6589842a2b56c5cc9e0fbc
 
-securityContext:
-  runAsNonRoot: false
+# securityContext:
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 service:
   main:
