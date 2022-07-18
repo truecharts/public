@@ -12,6 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
+  PMM_CONFIG: "/config/config.yml"
   PMM_RUN: true
   PMM_NO_COUNTDOWN: true
 

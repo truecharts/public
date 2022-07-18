@@ -60,6 +60,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: PMM_CONFIG
+          label: "PMM CONFIG"
+          description: "Specify the location of the configuration YAML file."
+          schema:
+            type: string
+            default: "/config/config.yml"
         - variable: PMM_RUN
           label: "PMM RUN"
           description: "Perform a run immediately, bypassing the time to run flag."
