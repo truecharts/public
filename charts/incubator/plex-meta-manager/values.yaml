@@ -1,7 +1,7 @@
 image:
-  repository: linuxserver/plex-meta-manager
+  repository: tccr.io/truecharts/plex-meta-manager
   pullPolicy: IfNotPresent
-  tag: v1.17.1@sha256:af30bf9e2a48a2d359e097854becde159befc6e4dfd33b6b1d1c529fed565537
+  tag: v1.17.1@sha256:138b60cdde3cd08ae25a78c44d8a03da715538d76dc137318dc3fdde19ba4bcd
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,11 +12,10 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PMM_CONFIG: "/config/config.yaml"
-  PMM_TIME: "03:00"
+  PMM_CONFIG: "/config/config.yml"
+  # PMM_TIME: ""
   PMM_RUN: true
-  PMM_TEST: false
-  PMM_NO_MISSING: false
+  PMM_NO_COUNTDOWN: true
 
 service:
   main:
@@ -38,3 +37,20 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+initContainers:
+  1-create-init-config-file:
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    volumeMounts:
+      - name: config
+        mountPath: "/config"
+    command: ["/bin/sh", "-c"]
+    args:
+      - |-
+        echo "Creating config.yml file..."
+        if [ -f /config/config.yml ]; then
+          echo "Config file exists!, Skipping..."
+        else
+          echo "Config file is missing, getting a new one!"
+          curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || ( echo "Downloading config file, FAILED..." && exit 1 )
+        fi

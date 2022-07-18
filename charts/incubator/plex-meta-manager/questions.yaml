@@ -2,7 +2,6 @@
 portals: {}
 questions:
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -60,44 +59,26 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PMM_CONFIG
-          label: "PMM CONFIG"
-          description: "Specify a internal config.yaml"
-          schema:
-            type: string
-            default: "/config/config.yaml"
         - variable: PMM_RUN
           label: "PMM RUN"
-          description: "Set to false to run with a scheduler."
+          description: "Perform a run immediately, bypassing the time to run flag."
           schema:
             type: boolean
             default: true
-        - variable: customtime
-          label: "Set PMM Time"
-          schema:
-            show_if: [["PMM_RUN", "=", false]]
-            type: boolean
-            default: false
-            show_subquestions_if: true
+            show_subquestions_if: false
             subquestions:
               - variable: PMM_TIME
                 label: "PMM TIME"
-                description: "Comma-separated list of times to update each day. Format: HH:MM"
+                description: "Specify the time of day that Plex Meta Manager will run. Format: HH:MM"
                 schema:
                   type: string
                   default: ""
-        - variable: PMM_TEST
-          label: "PMM TEST"
-          description: "Set to True to run in debug mode with only collections that have test: true"
-          schema:
-            type: boolean
-            default: false
-        - variable: PMM_NO_MISSING
-          label: "PMM NO MISSING"
-          description: "Set to True to run without any of the missing movie/show functions."
-          schema:
-            type: boolean
-            default: false
+              - variable: PMM_NO_COUNTDOWN
+                label: "PMM NO COUNTDOWN"
+                description: "Run without displaying a countdown to the next scheduled run."
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 
   - variable: service
