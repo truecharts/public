@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflareddns-1.0.0](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.16...cloudflareddns-1.0.0) (2022-07-18)
+
+### Feat
+
+- Moving cloudflareddns to stable ([#3205](https://github.com/truecharts/apps/issues/3205))
+
+
+
 ## [cloudflareddns-0.0.16](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.15...cloudflareddns-0.0.16) (2022-07-17)
 
 ### Chore
