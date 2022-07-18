@@ -53,7 +53,7 @@ Steps 4-8: Adjust as necessary but defaults are fine
 ## Support
 
 - If you need more details or have a more custom setup the documentation on the [upstream](https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
-- You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support 
+- You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
 
 ---
