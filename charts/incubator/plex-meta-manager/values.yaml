@@ -54,5 +54,4 @@ initContainers:
         else
           curl -fLvo /config/config.yaml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template
           echo "Init file created successfully!"
-          exit 0
         fi
