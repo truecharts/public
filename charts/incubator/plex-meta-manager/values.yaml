@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PMM_CONFIG: "/config/config.yml"
+  PMM_CONFIG: "/config/config.yaml"
   PMM_RUN: true
   PMM_NO_COUNTDOWN: true
 
@@ -46,13 +46,13 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - |-
-        echo "Creating config.yml file..."
+        echo "Creating config.yaml file..."
         echo "current tag {{ .Values.image.tag }}"
-        if [ -e /config/config.yml ]; then
+        if [ -e /config/config.yaml ]; then
           echo "Init file exists!"
           exit 0
         else
-          curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template
+          curl -fLvo /config/config.yaml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template
           echo "Init file created successfully!"
           exit 0
         fi
