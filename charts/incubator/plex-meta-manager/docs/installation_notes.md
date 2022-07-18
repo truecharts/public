@@ -10,7 +10,7 @@ Additional env are available [here](https://metamanager.wiki/en/latest/home/envi
 
 ## configuration file setup
 
-an example [config.yml](https://metamanager.wiki/en/latest/config/configuration.html#configuration-file-walkthrough):
+An example [config.yml](https://metamanager.wiki/en/latest/config/configuration.html#configuration-file-walkthrough):
 
 ```yaml
 libraries:                                      # This is called out once within the config.yml file                                       
