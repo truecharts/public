@@ -22,9 +22,9 @@ The recommended way is to setup CNAMEs for your subdomains (charts) and keep you
 
 ![image](https://user-images.githubusercontent.com/89483932/179334653-316e462f-7bf7-4cda-a9dc-dd8842e76021.png)
 
-Take note of the `Zone ID` and `Account ID`, that's what we'll use inside the Cloudflareddns chart.
+To keep things simple, one can simply using the Global API key from Cloudflare that you previously used inside our guides to setup your certificates, in case you forget it's in the page below
 
-![Overview](https://user-images.githubusercontent.com/89483932/179336819-64a32521-c64b-4ae6-8d5d-225b7342b786.png)
+![Overview](https://user-images.githubusercontent.com/89483932/179630007-5a4136ee-05ef-48e6-a900-74c2841ba312.png)
 
 ## Cloudflareddns chart setup
 
@@ -34,25 +34,26 @@ Step 1-2: Name chart and leave defaults for Step 2
 
 Step 3:
 
-![Step 3 Part 1](https://user-images.githubusercontent.com/89483932/179336779-e2aa5273-8527-40f1-bc3c-3768931ea289.png)
+![Container Configuration](https://user-images.githubusercontent.com/89483932/179630166-b3b9e673-ec0e-4db2-a5ac-8fec4e9d319e.png)
 
-Use ZoneID from Cloudflare Domain Overview page (see above) for the `CF_APITOKEN_ZONE` field
+Use Global API ley from Cloudflare Domain Overview page (see above) for the `CF_APITKEY` field
 
-Use Account ID from Cloudflare Domain Overview page (see above) for the `CF_APITOKEN` field
+Change `CF_USER` to your Cloudflare Email Account
 
-![Step 3 Part 2](https://user-images.githubusercontent.com/89483932/179336787-338b1939-546c-42fa-86a2-afe89da91e8d.png)
+Change `CF_HOSTS` to your DNS Zone A record (mydomain.com)
 
-You can leave everything but the `CF_RECORDTYPES` to defaults if you're only changing your A record, (refer to the upstream documentation for more options [here](https://hotio.dev/containers/cloudflareddns/))
+Change `CF_ZONES` to the same Zone (mydomain.com)
 
 Change `CF_RECORDTYPES` to A if you're only changing your main domain
+
+If you're using or changing specific A records or CNAMEs you may want to refer to the upstream documentation for more examples [here](https://hotio.dev/containers/cloudflareddns/))
 
 Steps 4-8: Adjust as necessary but defaults are fine
 
 ## Support
 
 - If you need more details or have a more custom setup the documentation on the [upstream](https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
-- You can also reach us using Discord for real-time feedback and support
-- Check our [Discord](https://discord.gg/tVsPTHWTtr)
+- You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support 
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
 
 ---
