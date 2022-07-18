@@ -1,0 +1,38 @@
+image:
+  repository: tiltedphoques/st-reborn-server
+  pullPolicy: IfNotPresent
+  tag: v1.2.0@sha256:d8322e41e8d3f3e347eef10c50cce977348b24de6f90c98b78a3b4757f2fde57
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 10578
+        port: 10578
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/home/server/config"
+  logs:
+    enabled: true
+    mountPath: "/home/server/logs"
+  data:
+    enabled: true
+    mountPath: "/home/server/Data"
