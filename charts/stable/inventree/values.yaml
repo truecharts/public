@@ -128,7 +128,6 @@ initContainers:
   init-migrate:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["invoke", "update"]
     volumeMounts:
     - name: data
       mountPath: "/home/inventree/data"
@@ -163,7 +162,11 @@ initContainers:
           secretKeyRef:
             name: inventree-secrets
             key: INVENTREE_SECRET_KEY
-
+    command: ["sh", "-c"]
+    args:
+      - |-
+        cd /home/inventree;
+        invoke update;
 additionalContainers:
   nginx:
     name: nginx
