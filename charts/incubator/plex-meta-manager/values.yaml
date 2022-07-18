@@ -36,3 +36,23 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+initContainers:
+  1-create-init-config-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: config
+        mountPath: "/config"
+    command: ["/bin/sh", "-c"]
+    args:
+      - |-
+        echo "Creating config.yml file..."
+        echo "current tag {{ .Values.image.tag }}"
+        if [ -e /config/config.yml ]; then
+          echo "Init file exists!"
+          exit 0
+        else
+          curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template
+          echo "Init file created successfully!"
+          exit 0
+        fi
