@@ -2,7 +2,6 @@
 portals: {}
 questions:
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -60,19 +59,13 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PMM_CONFIG
-          label: "PMM CONFIG"
-          description: "Specify the location of the configuration YAML file."
-          schema:
-            type: string
-            default: "/config/config.yml"
         - variable: PMM_RUN
           label: "PMM RUN"
           description: "Perform a run immediately, bypassing the time to run flag."
           schema:
             type: boolean
             default: true
-            show_subquestions_if: [["PMM_RUN", "=", false]]
+            show_subquestions_if: false
             subquestions:
               - variable: PMM_TIME
                 label: "PMM TIME"
