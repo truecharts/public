@@ -1,14 +1,8 @@
 image:
-  repository: tiltedphoques/st-reborn-server
+  repository: tccr.io/truecharts/st-reborn-server
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:d8322e41e8d3f3e347eef10c50cce977348b24de6f90c98b78a3b4757f2fde57
+  tag: v1.2.0@sha256:0e1fe6f85a8d637aaaa5a522e7418dc9e817da2b1e6589842a2b56c5cc9e0fbc
 
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 
 service:
   main:
