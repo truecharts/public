@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jackett-11.0.35](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.35) (2022-07-19)
+
+### Fix
+
+- revert part of the readme changes
+
+
+
 ## [jackett-11.0.34](https://github.com/truecharts/apps/compare/jackett-11.0.33...jackett-11.0.34) (2022-07-17)
 
 ### Chore
