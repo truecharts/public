@@ -1,4 +1,5 @@
-# Changelog<br>
+# Changelog
+
 
 
 <a name="archiveteam-warrior-0.0.5"></a>

@@ -1,4 +1,5 @@
-# Changelog<br>
+# Changelog
+
 
 
 <a name="amule-0.0.5"></a>
