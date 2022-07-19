@@ -23,6 +23,13 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+probes:
+   liveness:
+     enabled: false
+   readiness:
+     enabled: false
+   startup:
+     enabled: false
 service:
   main:
     enabled: true
