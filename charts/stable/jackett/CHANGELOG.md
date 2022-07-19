@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [jackett-11.0.40](https://github.com/truecharts/apps/compare/jackett-11.0.38...jackett-11.0.40) (2022-07-19)
+
+
+
 ## [jackett-11.0.38](https://github.com/truecharts/apps/compare/jackett-11.0.37...jackett-11.0.38) (2022-07-19)
 
 
