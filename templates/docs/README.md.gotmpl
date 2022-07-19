@@ -14,7 +14,7 @@ https://truecharts.org
 {{ template "custom.repository.organization" . }}/{{ template "chart.name" . }}
 {{- end -}}
 {{- define "custom.notes" -}}
-TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE. Please refer to your specific platform for more detailed instructions.
+TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a standalone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 {{- end -}}
 {{- define "custom.requirements" -}}
