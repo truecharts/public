@@ -1,5 +1,7 @@
 # jackett
 
+![Version: 11.0.42](https://img.shields.io/badge/Version-11.0.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1316](https://img.shields.io/badge/AppVersion-0.20.1316-informational?style=flat-square)
+
 API Support for your favorite torrent trackers.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
@@ -81,3 +83,25 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 ```console
 helm install jackett TrueCharts/jackett -f values.yaml
 ```
+
+#### Connecting to other apps
+
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+
+## Support
+
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Important-MUST-READ).
+- See the [Website](https://truecharts.org)
+- Check our [Discord](https://discord.gg/tVsPTHWTtr)
+- Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+
+---
+
+## Sponsor TrueCharts
+
+TrueCharts can only exist due to the incredible effort of our staff.
+Please consider making a [donation](https://truecharts.org/docs/about/sponsor) or contributing back to the project any way you can!
+
+---
+
+All Rights Reserved - The TrueCharts Project
