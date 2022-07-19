@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [mosquitto-6.0.19](https://github.com/truecharts/apps/compare/mosquitto-6.0.17...mosquitto-6.0.19) (2022-07-19)
+
+### Feat
+
+- Create setup-guide.md ([#3212](https://github.com/truecharts/apps/issues/3212))
+
+### Fix
+
+- fixup ([#3209](https://github.com/truecharts/apps/issues/3209))
+- set password file when auth is enabled ([#3216](https://github.com/truecharts/apps/issues/3216))
+
+
+
 ## [mosquitto-6.0.17](https://github.com/truecharts/apps/compare/mosquitto-6.0.16...mosquitto-6.0.17) (2022-07-14)
 
 ### Fix

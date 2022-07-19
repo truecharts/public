@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [cloudflareddns-1.0.2](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.1...cloudflareddns-1.0.2) (2022-07-19)
+
+### Fix
+
+- Updated How-To for more complete setup ([#3213](https://github.com/truecharts/apps/issues/3213))
+- fixup ([#3209](https://github.com/truecharts/apps/issues/3209))
+
+
+
 ## [cloudflareddns-1.0.1](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.0...cloudflareddns-1.0.1) (2022-07-18)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [inventree-3.0.24](https://github.com/truecharts/apps/compare/inventree-3.0.23...inventree-3.0.24) (2022-07-19)
+
+### Fix
+
+- fixup ([#3209](https://github.com/truecharts/apps/issues/3209))
+
+
+
 ## [inventree-3.0.23](https://github.com/truecharts/apps/compare/inventree-3.0.22...inventree-3.0.23) (2022-07-16)
 
 ### Chore
