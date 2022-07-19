@@ -70,10 +70,6 @@ configmap:
           }
         }
 
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventreeenv'
-
 env:
   INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
   INVENTREE_DB_ENGINE: "postgresql"
@@ -81,6 +77,10 @@ env:
   INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   INVENTREE_DB_PORT: "5432"
   INVENTREE_CACHE_PORT: "6379"
+  INVENTREE_CACHE_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhostpass
   INVENTREE_DB_HOST:
     secretKeyRef:
       name: dbcreds
@@ -147,7 +147,10 @@ initContainers:
       - name: INVENTREE_CACHE_PORT
         value: "6379"
       - name: INVENTREE_CACHE_HOST
-        value: "{{ .Values.env.REDIS_HOST }}"
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhostpass
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
@@ -206,7 +209,10 @@ additionalContainers:
       - name: INVENTREE_CACHE_PORT
         value: "6379"
       - name: INVENTREE_CACHE_HOST
-        value: "{{ .Values.env.REDIS_HOST }}"
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhostpass
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
