@@ -10,7 +10,7 @@ Cloudflare DNS management
 
 - Sign up for Cloudflare free
 - Point your nameservers to the ones Cloudflare assigns to you
-  ![image](https://user-images.githubusercontent.com/89483932/179332161-e903e46e-ed8c-4b58-81fc-6fcadf1a9851.png)
+  ![cloudflare-ns](img/cloudflare-ns.png)
 
 Cloudflareddns chart
 
@@ -20,23 +20,23 @@ This guide assumes you've followed our main [Quick-Start Guide](https://truechar
 
 The recommended way is to setup CNAMEs for your subdomains (charts) and keep your A record pointed to your base domain, such as below
 
-![image](https://user-images.githubusercontent.com/89483932/179334653-316e462f-7bf7-4cda-a9dc-dd8842e76021.png)
+![cloudflare-dns](img/cloudflare-dns.png)
 
-To keep things simple, one can simply using the Global API key from Cloudflare that you previously used inside our guides to setup your certificates, in case you forget it's in the page below
+To keep things simple, one can simply use the Global API key from Cloudflare that you previously used inside our guides to setup your certificates, in case you forget it's in the page below
 
-![Overview](https://user-images.githubusercontent.com/89483932/179630007-5a4136ee-05ef-48e6-a900-74c2841ba312.png)
+![cloudflare-api-keys](img/cloudflare-api-keys.png)
 
 ## Cloudflareddns chart setup
 
 Step 1-2: Name chart and leave defaults for Step 2
 
-![Step 1](https://user-images.githubusercontent.com/89483932/179336761-2ce2da3a-cd75-43ba-befe-4c3775f04027.png)
+![cloudflare-name](img/cloudflare-name.png)
 
 Step 3:
 
-![Container Configuration](https://user-images.githubusercontent.com/89483932/179630166-b3b9e673-ec0e-4db2-a5ac-8fec4e9d319e.png)
+![cloudflare-config](img/cloudflare-config.png)
 
-Use Global API ley from Cloudflare Domain Overview page (see above) for the `CF_APITKEY` field
+Use Global API key from Cloudflare Domain Overview page (see above) for the `CF_APIKEY` field
 
 Change `CF_USER` to your Cloudflare Email Account
 
