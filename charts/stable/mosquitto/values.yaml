@@ -22,6 +22,7 @@ configmap:
         listener {{ .Values.service.main.ports.main.port }}
         {{- if .Values.auth.enabled }}
         allow_anonymous false
+        password_file /mosquitto/data/passwords.txt
         {{- else }}
         allow_anonymous true
         {{- end }}
