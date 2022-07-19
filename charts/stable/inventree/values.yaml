@@ -20,6 +20,10 @@ secretEnv:
   INVENTREE_ADMIN_PASSWORD: "secret"
 
 configmap:
+  inventreeenv:
+    enabled: true
+    data:
+      REDIS_HOST: '{{ printf "%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername .Values.redis.redis-password .Release.Name .Values.redis.redisDatabase }}'
   config:
     enabled: true
     data:
@@ -66,6 +70,10 @@ configmap:
           }
         }
 
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-inventreeenv'
+
 env:
   INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
   INVENTREE_DB_ENGINE: "postgresql"
@@ -73,10 +81,6 @@ env:
   INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   INVENTREE_DB_PORT: "5432"
   INVENTREE_CACHE_PORT: "6379"
-  INVENTREE_CACHE_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
   INVENTREE_DB_HOST:
     secretKeyRef:
       name: dbcreds
@@ -143,10 +147,7 @@ initContainers:
       - name: INVENTREE_CACHE_PORT
         value: "6379"
       - name: INVENTREE_CACHE_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
+        value: "{{ .Values.env.REDIS_HOST }}"
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
@@ -205,10 +206,7 @@ additionalContainers:
       - name: INVENTREE_CACHE_PORT
         value: "6379"
       - name: INVENTREE_CACHE_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
+        value: "{{ .Values.env.REDIS_HOST }}"
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
