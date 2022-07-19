@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [komga-6.0.22](https://github.com/truecharts/apps/compare/komga-6.0.21...komga-6.0.22) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [komga-6.0.21](https://github.com/truecharts/apps/compare/komga-6.0.20...komga-6.0.21) (2022-07-16)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [promtail-3.0.29](https://github.com/truecharts/apps/compare/promtail-3.0.28...promtail-3.0.29) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [promtail-3.0.28](https://github.com/truecharts/apps/compare/promtail-3.0.27...promtail-3.0.28) (2022-07-14)
 
 ### Fix

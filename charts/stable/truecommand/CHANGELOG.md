@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [truecommand-11.0.18](https://github.com/truecharts/apps/compare/truecommand-11.0.17...truecommand-11.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [truecommand-11.0.17](https://github.com/truecharts/apps/compare/truecommand-11.0.16...truecommand-11.0.17) (2022-07-14)
 
 ### Fix

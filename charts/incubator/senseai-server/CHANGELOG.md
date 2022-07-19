@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [senseai-server-0.0.17](https://github.com/truecharts/apps/compare/senseai-server-0.0.16...senseai-server-0.0.17) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [senseai-server-0.0.16](https://github.com/truecharts/apps/compare/senseai-server-0.0.15...senseai-server-0.0.16) (2022-07-14)
 
 ### Fix

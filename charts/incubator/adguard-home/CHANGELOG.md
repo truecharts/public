@@ -1,7 +1,23 @@
 # Changelog
 
 
-## [adguard-home-1.0.20](https://github.com/truecharts/apps/compare/adguard-home-1.0.19...adguard-home-1.0.20) (2022-07-14)
+## [ariang-0.0.12](https://github.com/truecharts/apps/compare/ariang-0.0.11...ariang-0.0.12) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [ariang-0.0.11](https://github.com/truecharts/apps/compare/ariang-0.0.10...ariang-0.0.11) (2022-07-18)
+
+### Chore
+
+- update image refs ([#3210](https://github.com/truecharts/apps/issues/3210))
+
+
+
+## [ariang-0.0.10](https://github.com/truecharts/apps/compare/ariang-0.0.9...ariang-0.0.10) (2022-07-14)
 
 ### Fix
 
@@ -9,7 +25,7 @@
 
 
 
-## [adguard-home-1.0.19](https://github.com/truecharts/apps/compare/adguard-home-1.0.17...adguard-home-1.0.19) (2022-07-14)
+## [ariang-0.0.9](https://github.com/truecharts/apps/compare/ariang-0.0.7...ariang-0.0.9) (2022-07-14)
 
 ### Fix
 
@@ -17,15 +33,7 @@
 
 
 
-## [adguard-home-1.0.17](https://github.com/truecharts/apps/compare/adguard-home-1.0.16...adguard-home-1.0.17) (2022-07-14)
-
-### Chore
-
-- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
-
-
-
-## [adguard-home-1.0.16](https://github.com/truecharts/apps/compare/adguard-home-1.0.14...adguard-home-1.0.16) (2022-07-12)
+## [ariang-0.0.7](https://github.com/truecharts/apps/compare/ariang-0.0.5...ariang-0.0.7) (2022-07-12)
 
 ### Chore
 
@@ -34,7 +42,7 @@
 
 
 
-## [adguard-home-1.0.14](https://github.com/truecharts/apps/compare/adguard-home-1.0.13...adguard-home-1.0.14) (2022-07-12)
+## [ariang-0.0.5](https://github.com/truecharts/apps/compare/ariang-0.0.4...ariang-0.0.5) (2022-07-12)
 
 ### Chore
 
@@ -42,8 +50,8 @@
 
 
 
-<a name="adguard-home-1.0.13"></a>
-### [adguard-home-1.0.13](https://github.com/truecharts/apps/compare/adguard-home-1.0.12...adguard-home-1.0.13) (2022-07-12)
+<a name="ariang-0.0.4"></a>
+### [ariang-0.0.4](https://github.com/truecharts/apps/compare/ariang-0.0.3...ariang-0.0.4) (2022-07-12)
 
 #### Chore
 
@@ -51,8 +59,8 @@
 
 
 
-<a name="adguard-home-1.0.12"></a>
-### [adguard-home-1.0.12](https://github.com/truecharts/apps/compare/adguard-home-1.0.11...adguard-home-1.0.12) (2022-07-11)
+<a name="ariang-0.0.3"></a>
+### [ariang-0.0.3](https://github.com/truecharts/apps/compare/ariang-0.0.2...ariang-0.0.3) (2022-07-11)
 
 #### Chore
 
@@ -60,12 +68,23 @@
 
 
 
-<a name="adguard-home-1.0.11"></a>
-### [adguard-home-1.0.11](https://github.com/truecharts/apps/compare/adguard-home-1.0.10...adguard-home-1.0.11) (2022-07-10)
+<a name="ariang-0.0.2"></a>
+### [ariang-0.0.2](https://github.com/truecharts/apps/compare/ariang-0.0.1...ariang-0.0.2) (2022-07-09)
 
-#### Fix
+#### Chore
 
-* revert combine ports ([#3119](https://github.com/truecharts/apps/issues/3119))
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="ariang-0.0.1"></a>
+### ariang-0.0.1 (2022-07-08)
+
+#### Feat
+
+* add Ariang ([#3098](https://github.com/truecharts/apps/issues/3098))
+es/3119))
 
 
 

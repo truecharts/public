@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [n8n-4.0.28](https://github.com/truecharts/apps/compare/n8n-4.0.27...n8n-4.0.28) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [n8n-4.0.27](https://github.com/truecharts/apps/compare/n8n-4.0.26...n8n-4.0.27) (2022-07-15)
 
 ### Chore

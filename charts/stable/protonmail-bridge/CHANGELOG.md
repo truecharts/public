@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [protonmail-bridge-6.0.19](https://github.com/truecharts/apps/compare/protonmail-bridge-6.0.18...protonmail-bridge-6.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [protonmail-bridge-6.0.18](https://github.com/truecharts/apps/compare/protonmail-bridge-6.0.17...protonmail-bridge-6.0.18) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nocodb-3.0.25](https://github.com/truecharts/apps/compare/nocodb-3.0.24...nocodb-3.0.25) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [nocodb-3.0.24](https://github.com/truecharts/apps/compare/nocodb-3.0.23...nocodb-3.0.24) (2022-07-17)
 
 ### Chore

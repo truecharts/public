@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deluge-11.0.20](https://github.com/truecharts/apps/compare/deluge-11.0.19...deluge-11.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [deluge-11.0.19](https://github.com/truecharts/apps/compare/deluge-11.0.18...deluge-11.0.19) (2022-07-14)
 
 ### Fix

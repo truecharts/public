@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authelia-11.0.23](https://github.com/truecharts/apps/compare/authelia-11.0.22...authelia-11.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [authelia-11.0.22](https://github.com/truecharts/apps/compare/authelia-11.0.21...authelia-11.0.22) (2022-07-14)
 
 ### Fix

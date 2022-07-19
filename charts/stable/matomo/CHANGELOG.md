@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [matomo-3.0.30](https://github.com/truecharts/apps/compare/matomo-3.0.29...matomo-3.0.30) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [matomo-3.0.29](https://github.com/truecharts/apps/compare/matomo-3.0.28...matomo-3.0.29) (2022-07-16)
 
 ### Chore

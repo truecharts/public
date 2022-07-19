@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [awesome-ttrss-0.0.20](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.19...awesome-ttrss-0.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [awesome-ttrss-0.0.19](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.18...awesome-ttrss-0.0.19) (2022-07-14)
 
 ### Fix

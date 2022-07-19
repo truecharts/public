@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [healthchecks-7.0.20](https://github.com/truecharts/apps/compare/healthchecks-7.0.19...healthchecks-7.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [healthchecks-7.0.19](https://github.com/truecharts/apps/compare/healthchecks-7.0.18...healthchecks-7.0.19) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [xbackbone-3.0.20](https://github.com/truecharts/apps/compare/xbackbone-3.0.19...xbackbone-3.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [xbackbone-3.0.19](https://github.com/truecharts/apps/compare/xbackbone-3.0.18...xbackbone-3.0.19) (2022-07-14)
 
 ### Fix

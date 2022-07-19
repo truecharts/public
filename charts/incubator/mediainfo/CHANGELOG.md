@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mediainfo-0.0.12](https://github.com/truecharts/apps/compare/mediainfo-0.0.11...mediainfo-0.0.12) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [mediainfo-0.0.11](https://github.com/truecharts/apps/compare/mediainfo-0.0.10...mediainfo-0.0.11) (2022-07-14)
 
 ### Fix

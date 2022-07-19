@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plausible-0.0.9](https://github.com/truecharts/apps/compare/plausible-0.0.8...plausible-0.0.9) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [plausible-0.0.8](https://github.com/truecharts/apps/compare/plausible-0.0.7...plausible-0.0.8) (2022-07-14)
 
 ### Fix

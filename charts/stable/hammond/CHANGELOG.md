@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [hammond-2.0.18](https://github.com/truecharts/apps/compare/hammond-2.0.17...hammond-2.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [hammond-2.0.17](https://github.com/truecharts/apps/compare/hammond-2.0.16...hammond-2.0.17) (2022-07-14)
 
 ### Fix

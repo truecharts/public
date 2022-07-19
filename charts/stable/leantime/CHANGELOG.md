@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [leantime-4.0.21](https://github.com/truecharts/apps/compare/leantime-4.0.20...leantime-4.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [leantime-4.0.20](https://github.com/truecharts/apps/compare/leantime-4.0.19...leantime-4.0.20) (2022-07-17)
 
 ### Chore

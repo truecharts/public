@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [plex-meta-manager-0.0.7](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.6...plex-meta-manager-0.0.7) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [plex-meta-manager-0.0.6](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.5...plex-meta-manager-0.0.6) (2022-07-18)
 
 ### Fix

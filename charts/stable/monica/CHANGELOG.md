@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [monica-3.0.27](https://github.com/truecharts/apps/compare/monica-3.0.26...monica-3.0.27) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [monica-3.0.26](https://github.com/truecharts/apps/compare/monica-3.0.25...monica-3.0.26) (2022-07-15)
 
 ### Chore

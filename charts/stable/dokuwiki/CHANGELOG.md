@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dokuwiki-3.0.31](https://github.com/truecharts/apps/compare/dokuwiki-3.0.30...dokuwiki-3.0.31) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [dokuwiki-3.0.30](https://github.com/truecharts/apps/compare/dokuwiki-3.0.29...dokuwiki-3.0.30) (2022-07-16)
 
 ### Chore

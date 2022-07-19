@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [dupeguru-0.0.13](https://github.com/truecharts/apps/compare/dupeguru-0.0.12...dupeguru-0.0.13) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [dupeguru-0.0.12](https://github.com/truecharts/apps/compare/dupeguru-0.0.11...dupeguru-0.0.12) (2022-07-16)
 
 ### Chore

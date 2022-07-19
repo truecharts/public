@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [shiori-7.0.19](https://github.com/truecharts/apps/compare/shiori-7.0.18...shiori-7.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [shiori-7.0.18](https://github.com/truecharts/apps/compare/shiori-7.0.17...shiori-7.0.18) (2022-07-14)
 
 ### Fix

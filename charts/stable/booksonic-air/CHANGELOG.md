@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [booksonic-air-6.0.21](https://github.com/truecharts/apps/compare/booksonic-air-6.0.20...booksonic-air-6.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [booksonic-air-6.0.20](https://github.com/truecharts/apps/compare/booksonic-air-6.0.19...booksonic-air-6.0.20) (2022-07-14)
 
 ### Fix

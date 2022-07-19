@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [focalboard-9.0.20](https://github.com/truecharts/apps/compare/focalboard-9.0.19...focalboard-9.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [focalboard-9.0.19](https://github.com/truecharts/apps/compare/focalboard-9.0.18...focalboard-9.0.19) (2022-07-14)
 
 ### Fix

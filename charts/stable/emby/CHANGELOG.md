@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [emby-11.0.18](https://github.com/truecharts/apps/compare/emby-11.0.17...emby-11.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [emby-11.0.17](https://github.com/truecharts/apps/compare/emby-11.0.16...emby-11.0.17) (2022-07-14)
 
 ### Fix

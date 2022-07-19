@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [etesync-0.0.15](https://github.com/truecharts/apps/compare/etesync-0.0.14...etesync-0.0.15) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [etesync-0.0.14](https://github.com/truecharts/apps/compare/etesync-0.0.13...etesync-0.0.14) (2022-07-14)
 
 ### Fix

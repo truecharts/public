@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [aria2-5.0.19](https://github.com/truecharts/apps/compare/aria2-5.0.18...aria2-5.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [aria2-5.0.18](https://github.com/truecharts/apps/compare/aria2-5.0.17...aria2-5.0.18) (2022-07-14)
 
 ### Fix

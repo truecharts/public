@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [qinglong-2.0.20](https://github.com/truecharts/apps/compare/qinglong-2.0.19...qinglong-2.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [qinglong-2.0.19](https://github.com/truecharts/apps/compare/qinglong-2.0.18...qinglong-2.0.19) (2022-07-16)
 
 ### Chore

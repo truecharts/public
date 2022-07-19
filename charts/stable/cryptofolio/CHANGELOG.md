@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cryptofolio-4.0.19](https://github.com/truecharts/apps/compare/cryptofolio-4.0.18...cryptofolio-4.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [cryptofolio-4.0.18](https://github.com/truecharts/apps/compare/cryptofolio-4.0.17...cryptofolio-4.0.18) (2022-07-14)
 
 ### Fix

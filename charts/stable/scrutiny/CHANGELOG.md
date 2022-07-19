@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [scrutiny-3.0.17](https://github.com/truecharts/apps/compare/scrutiny-3.0.16...scrutiny-3.0.17) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [scrutiny-3.0.16](https://github.com/truecharts/apps/compare/scrutiny-3.0.15...scrutiny-3.0.16) (2022-07-14)
 
 ### Fix

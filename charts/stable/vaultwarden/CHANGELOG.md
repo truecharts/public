@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [vaultwarden-16.0.20](https://github.com/truecharts/apps/compare/vaultwarden-16.0.19...vaultwarden-16.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [vaultwarden-16.0.19](https://github.com/truecharts/apps/compare/vaultwarden-16.0.18...vaultwarden-16.0.19) (2022-07-17)
 
 ### Chore

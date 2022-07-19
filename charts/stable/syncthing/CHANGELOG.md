@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [syncthing-11.0.21](https://github.com/truecharts/apps/compare/syncthing-11.0.20...syncthing-11.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [syncthing-11.0.20](https://github.com/truecharts/apps/compare/syncthing-11.0.19...syncthing-11.0.20) (2022-07-14)
 
 ### Fix

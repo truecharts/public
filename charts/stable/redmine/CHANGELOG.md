@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [redmine-3.0.23](https://github.com/truecharts/apps/compare/redmine-3.0.22...redmine-3.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [redmine-3.0.22](https://github.com/truecharts/apps/compare/redmine-3.0.21...redmine-3.0.22) (2022-07-14)
 
 ### Fix

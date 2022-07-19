@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fileflows-2.0.25](https://github.com/truecharts/apps/compare/fileflows-2.0.24...fileflows-2.0.25) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [fileflows-2.0.24](https://github.com/truecharts/apps/compare/fileflows-2.0.23...fileflows-2.0.24) (2022-07-15)
 
 ### Chore

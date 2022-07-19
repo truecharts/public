@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [minio-console-3.0.21](https://github.com/truecharts/apps/compare/minio-console-3.0.20...minio-console-3.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [minio-console-3.0.20](https://github.com/truecharts/apps/compare/minio-console-3.0.19...minio-console-3.0.20) (2022-07-14)
 
 ### Fix

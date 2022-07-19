@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lazylibrarian-11.0.26](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.25...lazylibrarian-11.0.26) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [lazylibrarian-11.0.25](https://github.com/truecharts/apps/compare/lazylibrarian-11.0.24...lazylibrarian-11.0.25) (2022-07-17)
 
 ### Chore

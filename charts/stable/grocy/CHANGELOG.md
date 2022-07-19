@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grocy-11.0.24](https://github.com/truecharts/apps/compare/grocy-11.0.23...grocy-11.0.24) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [grocy-11.0.23](https://github.com/truecharts/apps/compare/grocy-11.0.22...grocy-11.0.23) (2022-07-15)
 
 ### Chore

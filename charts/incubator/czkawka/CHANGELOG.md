@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [czkawka-0.0.13](https://github.com/truecharts/apps/compare/czkawka-0.0.12...czkawka-0.0.13) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [czkawka-0.0.12](https://github.com/truecharts/apps/compare/czkawka-0.0.11...czkawka-0.0.12) (2022-07-14)
 
 ### Fix

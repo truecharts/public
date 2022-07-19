@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [filezilla-4.0.20](https://github.com/truecharts/apps/compare/filezilla-4.0.19...filezilla-4.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [filezilla-4.0.19](https://github.com/truecharts/apps/compare/filezilla-4.0.18...filezilla-4.0.19) (2022-07-15)
 
 ### Chore

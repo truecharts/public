@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [memcached-3.0.38](https://github.com/truecharts/apps/compare/memcached-3.0.37...memcached-3.0.38) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [memcached-3.0.37](https://github.com/truecharts/apps/compare/memcached-3.0.36...memcached-3.0.37) (2022-07-15)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [clamav-3.0.20](https://github.com/truecharts/apps/compare/clamav-3.0.19...clamav-3.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [clamav-3.0.19](https://github.com/truecharts/apps/compare/clamav-3.0.18...clamav-3.0.19) (2022-07-14)
 
 ### Fix

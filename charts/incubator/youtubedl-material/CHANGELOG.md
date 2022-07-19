@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [youtubedl-material-0.0.17](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.16...youtubedl-material-0.0.17) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [youtubedl-material-0.0.16](https://github.com/truecharts/apps/compare/youtubedl-material-0.0.15...youtubedl-material-0.0.16) (2022-07-14)
 
 ### Fix

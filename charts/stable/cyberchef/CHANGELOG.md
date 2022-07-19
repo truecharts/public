@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cyberchef-2.0.40](https://github.com/truecharts/apps/compare/cyberchef-2.0.39...cyberchef-2.0.40) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [cyberchef-2.0.39](https://github.com/truecharts/apps/compare/cyberchef-2.0.38...cyberchef-2.0.39) (2022-07-16)
 
 ### Chore

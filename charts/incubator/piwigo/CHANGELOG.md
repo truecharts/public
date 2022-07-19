@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [piwigo-3.0.18](https://github.com/truecharts/apps/compare/piwigo-3.0.17...piwigo-3.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [piwigo-3.0.17](https://github.com/truecharts/apps/compare/piwigo-3.0.16...piwigo-3.0.17) (2022-07-14)
 
 ### Fix

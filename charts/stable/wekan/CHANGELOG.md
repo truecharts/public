@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wekan-4.0.23](https://github.com/truecharts/apps/compare/wekan-4.0.22...wekan-4.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [wekan-4.0.22](https://github.com/truecharts/apps/compare/wekan-4.0.21...wekan-4.0.22) (2022-07-14)
 
 ### Fix

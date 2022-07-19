@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tsmuxer-0.0.11](https://github.com/truecharts/apps/compare/tsmuxer-0.0.10...tsmuxer-0.0.11) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [tsmuxer-0.0.10](https://github.com/truecharts/apps/compare/tsmuxer-0.0.9...tsmuxer-0.0.10) (2022-07-14)
 
 ### Fix

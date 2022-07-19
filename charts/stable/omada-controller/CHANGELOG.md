@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [omada-controller-6.0.34](https://github.com/truecharts/apps/compare/omada-controller-6.0.33...omada-controller-6.0.34) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [omada-controller-6.0.33](https://github.com/truecharts/apps/compare/omada-controller-6.0.32...omada-controller-6.0.33) (2022-07-17)
 
 ### Chore

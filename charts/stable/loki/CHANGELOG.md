@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [loki-5.0.21](https://github.com/truecharts/apps/compare/loki-5.0.20...loki-5.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [loki-5.0.20](https://github.com/truecharts/apps/compare/loki-5.0.19...loki-5.0.20) (2022-07-14)
 
 ### Fix

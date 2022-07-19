@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [calibre-web-11.0.22](https://github.com/truecharts/apps/compare/calibre-web-11.0.21...calibre-web-11.0.22) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [calibre-web-11.0.21](https://github.com/truecharts/apps/compare/calibre-web-11.0.20...calibre-web-11.0.21) (2022-07-16)
 
 ### Chore

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [grafana-4.0.30](https://github.com/truecharts/apps/compare/grafana-4.0.29...grafana-4.0.30) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [grafana-4.0.29](https://github.com/truecharts/apps/compare/grafana-4.0.28...grafana-4.0.29) (2022-07-17)
 
 ### Chore

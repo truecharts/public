@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [handbrake-13.0.20](https://github.com/truecharts/apps/compare/handbrake-13.0.19...handbrake-13.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [handbrake-13.0.19](https://github.com/truecharts/apps/compare/handbrake-13.0.18...handbrake-13.0.19) (2022-07-14)
 
 ### Fix

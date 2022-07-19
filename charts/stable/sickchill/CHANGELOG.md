@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [sickchill-3.0.21](https://github.com/truecharts/apps/compare/sickchill-3.0.20...sickchill-3.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [sickchill-3.0.20](https://github.com/truecharts/apps/compare/sickchill-3.0.19...sickchill-3.0.20) (2022-07-15)
 
 ### Chore

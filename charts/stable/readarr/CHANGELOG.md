@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [readarr-11.0.18](https://github.com/truecharts/apps/compare/readarr-11.0.17...readarr-11.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [readarr-11.0.17](https://github.com/truecharts/apps/compare/readarr-11.0.16...readarr-11.0.17) (2022-07-14)
 
 ### Fix

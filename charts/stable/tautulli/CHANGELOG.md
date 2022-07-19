@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tautulli-11.0.19](https://github.com/truecharts/apps/compare/tautulli-11.0.18...tautulli-11.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [tautulli-11.0.18](https://github.com/truecharts/apps/compare/tautulli-11.0.17...tautulli-11.0.18) (2022-07-14)
 
 ### Fix

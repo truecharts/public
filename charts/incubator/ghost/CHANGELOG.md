@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ghost-3.0.27](https://github.com/truecharts/apps/compare/ghost-3.0.26...ghost-3.0.27) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [ghost-3.0.26](https://github.com/truecharts/apps/compare/ghost-3.0.25...ghost-3.0.26) (2022-07-16)
 
 ### Chore

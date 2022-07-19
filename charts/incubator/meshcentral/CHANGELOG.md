@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [meshcentral-3.0.23](https://github.com/truecharts/apps/compare/meshcentral-3.0.22...meshcentral-3.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [meshcentral-3.0.22](https://github.com/truecharts/apps/compare/meshcentral-3.0.21...meshcentral-3.0.22) (2022-07-14)
 
 ### Fix

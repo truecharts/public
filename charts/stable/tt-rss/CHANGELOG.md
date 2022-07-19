@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [tt-rss-7.0.19](https://github.com/truecharts/apps/compare/tt-rss-7.0.18...tt-rss-7.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [tt-rss-7.0.18](https://github.com/truecharts/apps/compare/tt-rss-7.0.17...tt-rss-7.0.18) (2022-07-14)
 
 ### Fix

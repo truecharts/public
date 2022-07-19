@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [librephotos-4.0.21](https://github.com/truecharts/apps/compare/librephotos-4.0.20...librephotos-4.0.21) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [librephotos-4.0.20](https://github.com/truecharts/apps/compare/librephotos-4.0.19...librephotos-4.0.20) (2022-07-14)
 
 ### Fix

@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [typecho-3.0.19](https://github.com/truecharts/apps/compare/typecho-3.0.18...typecho-3.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [typecho-3.0.18](https://github.com/truecharts/apps/compare/typecho-3.0.17...typecho-3.0.18) (2022-07-14)
 
 ### Fix

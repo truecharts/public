@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextcloud-15.2.19](https://github.com/truecharts/apps/compare/nextcloud-15.2.18...nextcloud-15.2.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [nextcloud-15.2.18](https://github.com/truecharts/apps/compare/nextcloud-15.2.17...nextcloud-15.2.18) (2022-07-16)
 
 ### Chore

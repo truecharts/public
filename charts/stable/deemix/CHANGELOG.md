@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [deemix-3.0.18](https://github.com/truecharts/apps/compare/deemix-3.0.17...deemix-3.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [deemix-3.0.17](https://github.com/truecharts/apps/compare/deemix-3.0.16...deemix-3.0.17) (2022-07-14)
 
 ### Fix

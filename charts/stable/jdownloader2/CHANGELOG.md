@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jdownloader2-8.0.19](https://github.com/truecharts/apps/compare/jdownloader2-8.0.18...jdownloader2-8.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [jdownloader2-8.0.18](https://github.com/truecharts/apps/compare/jdownloader2-8.0.17...jdownloader2-8.0.18) (2022-07-14)
 
 ### Fix

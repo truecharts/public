@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [kutt-3.0.19](https://github.com/truecharts/apps/compare/kutt-3.0.18...kutt-3.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [kutt-3.0.18](https://github.com/truecharts/apps/compare/kutt-3.0.17...kutt-3.0.18) (2022-07-14)
 
 ### Fix

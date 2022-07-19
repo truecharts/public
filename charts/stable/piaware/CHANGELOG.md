@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [piaware-6.0.20](https://github.com/truecharts/apps/compare/piaware-6.0.19...piaware-6.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [piaware-6.0.19](https://github.com/truecharts/apps/compare/piaware-6.0.18...piaware-6.0.19) (2022-07-17)
 
 ### Chore

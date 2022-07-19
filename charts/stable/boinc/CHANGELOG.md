@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [boinc-2.0.26](https://github.com/truecharts/apps/compare/boinc-2.0.25...boinc-2.0.26) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [boinc-2.0.25](https://github.com/truecharts/apps/compare/boinc-2.0.24...boinc-2.0.25) (2022-07-17)
 
 ### Chore

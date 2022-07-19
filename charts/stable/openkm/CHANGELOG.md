@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openkm-7.0.19](https://github.com/truecharts/apps/compare/openkm-7.0.18...openkm-7.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [openkm-7.0.18](https://github.com/truecharts/apps/compare/openkm-7.0.17...openkm-7.0.18) (2022-07-14)
 
 ### Fix

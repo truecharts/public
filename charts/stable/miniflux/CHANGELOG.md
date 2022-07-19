@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [miniflux-7.0.20](https://github.com/truecharts/apps/compare/miniflux-7.0.19...miniflux-7.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [miniflux-7.0.19](https://github.com/truecharts/apps/compare/miniflux-7.0.18...miniflux-7.0.19) (2022-07-14)
 
 ### Fix

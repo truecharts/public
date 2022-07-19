@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloud9-4.0.18](https://github.com/truecharts/apps/compare/cloud9-4.0.17...cloud9-4.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [cloud9-4.0.17](https://github.com/truecharts/apps/compare/cloud9-4.0.16...cloud9-4.0.17) (2022-07-14)
 
 ### Fix

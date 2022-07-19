@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [mineos-0.0.10](https://github.com/truecharts/apps/compare/mineos-0.0.9...mineos-0.0.10) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [mineos-0.0.9](https://github.com/truecharts/apps/compare/mineos-0.0.8...mineos-0.0.9) (2022-07-14)
 
 ### Fix

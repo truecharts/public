@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [openspeedtest-1.0.17](https://github.com/truecharts/apps/compare/openspeedtest-1.0.16...openspeedtest-1.0.17) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [openspeedtest-1.0.16](https://github.com/truecharts/apps/compare/openspeedtest-1.0.15...openspeedtest-1.0.16) (2022-07-14)
 
 ### Fix

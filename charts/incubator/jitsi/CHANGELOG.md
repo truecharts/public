@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jitsi-0.0.14](https://github.com/truecharts/apps/compare/jitsi-0.0.13...jitsi-0.0.14) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [jitsi-0.0.13](https://github.com/truecharts/apps/compare/jitsi-0.0.12...jitsi-0.0.13) (2022-07-14)
 
 ### Fix

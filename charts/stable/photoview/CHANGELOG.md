@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoview-4.0.18](https://github.com/truecharts/apps/compare/photoview-4.0.17...photoview-4.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [photoview-4.0.17](https://github.com/truecharts/apps/compare/photoview-4.0.16...photoview-4.0.17) (2022-07-14)
 
 ### Fix

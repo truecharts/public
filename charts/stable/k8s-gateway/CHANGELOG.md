@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [k8s-gateway-6.1.2](https://github.com/truecharts/apps/compare/k8s-gateway-6.1.1...k8s-gateway-6.1.2) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [k8s-gateway-6.1.1](https://github.com/truecharts/apps/compare/k8s-gateway-6.1.0...k8s-gateway-6.1.1) (2022-07-14)
 
 ### Fix

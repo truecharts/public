@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [authentik-2.0.23](https://github.com/truecharts/apps/compare/authentik-2.0.22...authentik-2.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [authentik-2.0.22](https://github.com/truecharts/apps/compare/authentik-2.0.21...authentik-2.0.22) (2022-07-14)
 
 ### Fix

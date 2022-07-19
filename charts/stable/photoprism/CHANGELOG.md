@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [photoprism-10.0.23](https://github.com/truecharts/apps/compare/photoprism-10.0.22...photoprism-10.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [photoprism-10.0.22](https://github.com/truecharts/apps/compare/photoprism-10.0.21...photoprism-10.0.22) (2022-07-14)
 
 ### Fix

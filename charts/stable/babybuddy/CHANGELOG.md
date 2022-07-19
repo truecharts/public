@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [babybuddy-8.0.25](https://github.com/truecharts/apps/compare/babybuddy-8.0.24...babybuddy-8.0.25) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [babybuddy-8.0.24](https://github.com/truecharts/apps/compare/babybuddy-8.0.23...babybuddy-8.0.24) (2022-07-14)
 
 ### Fix

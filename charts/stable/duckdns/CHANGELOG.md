@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [duckdns-2.0.22](https://github.com/truecharts/apps/compare/duckdns-2.0.21...duckdns-2.0.22) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [duckdns-2.0.21](https://github.com/truecharts/apps/compare/duckdns-2.0.20...duckdns-2.0.21) (2022-07-14)
 
 ### Fix

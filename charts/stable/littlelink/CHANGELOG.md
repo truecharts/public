@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [littlelink-6.0.33](https://github.com/truecharts/apps/compare/littlelink-6.0.32...littlelink-6.0.33) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [littlelink-6.0.32](https://github.com/truecharts/apps/compare/littlelink-6.0.31...littlelink-6.0.32) (2022-07-16)
 
 ### Chore

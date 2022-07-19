@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [resilio-sync-6.0.20](https://github.com/truecharts/apps/compare/resilio-sync-6.0.19...resilio-sync-6.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [resilio-sync-6.0.19](https://github.com/truecharts/apps/compare/resilio-sync-6.0.18...resilio-sync-6.0.19) (2022-07-14)
 
 ### Fix

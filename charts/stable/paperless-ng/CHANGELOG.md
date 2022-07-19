@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [paperless-ng-4.0.20](https://github.com/truecharts/apps/compare/paperless-ng-4.0.19...paperless-ng-4.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [paperless-ng-4.0.19](https://github.com/truecharts/apps/compare/paperless-ng-4.0.18...paperless-ng-4.0.19) (2022-07-14)
 
 ### Fix

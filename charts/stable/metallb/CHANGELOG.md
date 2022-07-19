@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [metallb-2.0.12](https://github.com/truecharts/apps/compare/metallb-2.0.11...metallb-2.0.12) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [metallb-2.0.11](https://github.com/truecharts/apps/compare/metallb-2.0.10...metallb-2.0.11) (2022-07-14)
 
 ### Fix

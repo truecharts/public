@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [snapdrop-2.0.24](https://github.com/truecharts/apps/compare/snapdrop-2.0.23...snapdrop-2.0.24) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [snapdrop-2.0.23](https://github.com/truecharts/apps/compare/snapdrop-2.0.22...snapdrop-2.0.23) (2022-07-16)
 
 ### Chore

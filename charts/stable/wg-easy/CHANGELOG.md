@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wg-easy-1.0.11](https://github.com/truecharts/apps/compare/wg-easy-1.0.10...wg-easy-1.0.11) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [wg-easy-1.0.10](https://github.com/truecharts/apps/compare/wg-easy-1.0.9...wg-easy-1.0.10) (2022-07-14)
 
 ### Fix

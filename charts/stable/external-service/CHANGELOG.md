@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [external-service-6.0.18](https://github.com/truecharts/apps/compare/external-service-6.0.17...external-service-6.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [external-service-6.0.17](https://github.com/truecharts/apps/compare/external-service-6.0.16...external-service-6.0.17) (2022-07-14)
 
 ### Fix

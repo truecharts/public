@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [gotify-8.0.19](https://github.com/truecharts/apps/compare/gotify-8.0.18...gotify-8.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [gotify-8.0.18](https://github.com/truecharts/apps/compare/gotify-8.0.17...gotify-8.0.18) (2022-07-14)
 
 ### Fix

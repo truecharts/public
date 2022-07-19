@@ -1,8 +1,14 @@
 # ngircd
 
+![Version: 2.0.18](https://img.shields.io/badge/Version-2.0.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.11.21](https://img.shields.io/badge/AppVersion-2021.11.21-informational?style=flat-square)
+
 Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks.
 
-TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
+TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
+
+This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
+For more information, please click here: [ngircd](https://truecharts.org/charts/stable/ngircd)
+
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
@@ -21,21 +27,80 @@ Kubernetes: `>=1.16.0-0`
 
 ## Installing the Chart
 
+### TrueNAS SCALE
+
 To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/02-Installing-an-App/).
 
-## Upgrading, Rolling Back and Uninstalling the Chart
+### Helm
+
+To install the chart with the release name `ngircd`
+
+```console
+helm repo add TrueCharts https://helm.truecharts.org
+helm repo update
+helm install ngircd TrueCharts/ngircd
+```
+
+## Uninstall
+
+### TrueNAS SCALE
+
+**Upgrading, Rolling Back and Uninstalling the Chart**
 
 To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
 
-##### Connecting to other apps
+### Helm
+
+To uninstall the `ngircd` deployment
+
+```console
+helm uninstall ngircd
+```
+
+## Configuration
+
+### Helm
+
+#### Available Settings
+
+Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
+
+#### Configure using the Commandline
+
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
+
+```console
+helm install ngircd \
+  --set env.TZ="America/New York" \
+    TrueCharts/ngircd
+```
+
+#### Configure using a yaml file
+
+Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
+
+```console
+helm install ngircd TrueCharts/ngircd -f values.yaml
+```
+
+#### Connecting to other apps
+
 If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
 
 ## Support
 
-- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) first.
-- See the [Wiki](https://truecharts.org)
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Important-MUST-READ).
+- See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+
+---
+
+## Sponsor TrueCharts
+
+TrueCharts can only exist due to the incredible effort of our staff.
+Please consider making a [donation](https://truecharts.org/docs/about/sponsor) or contributing back to the project any way you can!
 
 ---
 

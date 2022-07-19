@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nullserv-6.0.19](https://github.com/truecharts/apps/compare/nullserv-6.0.18...nullserv-6.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [nullserv-6.0.18](https://github.com/truecharts/apps/compare/nullserv-6.0.17...nullserv-6.0.18) (2022-07-14)
 
 ### Fix

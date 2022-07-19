@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [rsshub-3.0.43](https://github.com/truecharts/apps/compare/rsshub-3.0.42...rsshub-3.0.43) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [rsshub-3.0.42](https://github.com/truecharts/apps/compare/rsshub-3.0.41...rsshub-3.0.42) (2022-07-17)
 
 ### Chore

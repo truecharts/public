@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [home-assistant-15.0.28](https://github.com/truecharts/apps/compare/home-assistant-15.0.27...home-assistant-15.0.28) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [home-assistant-15.0.27](https://github.com/truecharts/apps/compare/home-assistant-15.0.26...home-assistant-15.0.27) (2022-07-16)
 
 ### Chore

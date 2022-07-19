@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [transmission-12.0.20](https://github.com/truecharts/apps/compare/transmission-12.0.19...transmission-12.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [transmission-12.0.19](https://github.com/truecharts/apps/compare/transmission-12.0.18...transmission-12.0.19) (2022-07-14)
 
 ### Fix

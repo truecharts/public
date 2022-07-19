@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [chevereto-3.0.19](https://github.com/truecharts/apps/compare/chevereto-3.0.18...chevereto-3.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [chevereto-3.0.18](https://github.com/truecharts/apps/compare/chevereto-3.0.17...chevereto-3.0.18) (2022-07-14)
 
 ### Fix

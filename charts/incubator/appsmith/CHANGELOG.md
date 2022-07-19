@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [appsmith-2.0.24](https://github.com/truecharts/apps/compare/appsmith-2.0.23...appsmith-2.0.24) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [appsmith-2.0.23](https://github.com/truecharts/apps/compare/appsmith-2.0.22...appsmith-2.0.23) (2022-07-14)
 
 ### Fix

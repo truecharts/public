@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [pylon-2.0.18](https://github.com/truecharts/apps/compare/pylon-2.0.17...pylon-2.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [pylon-2.0.17](https://github.com/truecharts/apps/compare/pylon-2.0.16...pylon-2.0.17) (2022-07-14)
 
 ### Fix

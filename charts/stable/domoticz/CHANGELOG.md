@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [domoticz-2.0.23](https://github.com/truecharts/apps/compare/domoticz-2.0.22...domoticz-2.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [domoticz-2.0.22](https://github.com/truecharts/apps/compare/domoticz-2.0.21...domoticz-2.0.22) (2022-07-15)
 
 ### Chore

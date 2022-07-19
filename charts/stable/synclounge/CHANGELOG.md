@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [synclounge-2.0.24](https://github.com/truecharts/apps/compare/synclounge-2.0.23...synclounge-2.0.24) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [synclounge-2.0.23](https://github.com/truecharts/apps/compare/synclounge-2.0.22...synclounge-2.0.23) (2022-07-16)
 
 ### Chore
