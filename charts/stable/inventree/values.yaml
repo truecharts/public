@@ -76,7 +76,7 @@ env:
   INVENTREE_CACHE_HOST:
     secretKeyRef:
       name: rediscreds
-      key: url
+      key: plainhost
   INVENTREE_DB_HOST:
     secretKeyRef:
       name: dbcreds
@@ -146,7 +146,7 @@ initContainers:
         valueFrom:
           secretKeyRef:
             name: rediscreds
-            key: url
+            key: plainhost
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
@@ -208,7 +208,7 @@ additionalContainers:
         valueFrom:
           secretKeyRef:
             name: rediscreds
-            key: url
+            key: plainhost
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
