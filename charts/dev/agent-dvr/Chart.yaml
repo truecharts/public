@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'false'
+  truecharts.org/catagories: |
+    - Security
+    - Network-Other
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Agent DVR (next gen version of iSpy) is a super advanced video surveillance\
+  \ platform\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/agent-dvr
+icon: https://truecharts.org/_static/img/appicons/agent-dvr.png
+keywords:
+- agent-dvr
+- Security
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: agent-dvr
+sources:
+- https://www.ispyconnect.com/
+- https://hub.docker.com/r/doitandbedone/ispyagentdvr
+type: application
+version: 0.0.1

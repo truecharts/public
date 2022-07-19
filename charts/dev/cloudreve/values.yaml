@@ -1,0 +1,33 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/cloudreve
+  tag: latest
+persistence:
+  avatarpath:
+    enabled: true
+    mountPath: /cloudreve/avatar
+  config:
+    enabled: true
+    mountPath: /cloudreve/config
+  databasepath:
+    enabled: true
+    mountPath: /cloudreve/db
+  uploadpath:
+    enabled: true
+    mountPath: /cloudreve/uploads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5212
+        protocol: TCP
+        targetPort: 5212

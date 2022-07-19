@@ -1,0 +1,31 @@
+env:
+  GAME_ID: '1963720'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+  WORLD_INDEX: '0'
+  WORLD_NAME: Core Keeper Docker
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/corekeeper
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

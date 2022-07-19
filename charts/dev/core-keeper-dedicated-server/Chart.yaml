@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'false'
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/grade: U
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 9.2.6
+deprecated: false
+description: "Docker file for the new Core Keeper dedicated server running from SteamCMD.\
+  \ (No account etc needed)\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/core-keeper-dedicated-server
+icon: https://truecharts.org/_static/img/appicons/core-keeper-dedicated-server.png
+keywords:
+- core-keeper-dedicated-server
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: core-keeper-dedicated-server
+sources:
+- https://github.com/escapingnetwork/core-keeper-dedicated/
+- https://hub.docker.com/r/escaping/core-keeper-dedicated
+type: application
+version: 0.0.1

@@ -1,0 +1,27 @@
+env:
+  EULA: 'false'
+  JVM_OPTS: -Xms2048m -Xmx4096m
+  OPS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/allthemods7
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 25565
+        protocol: TCP
+        targetPort: 25565
