@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [jackett-11.0.37](https://github.com/truecharts/apps/compare/jackett-11.0.36...jackett-11.0.37) (2022-07-19)
+
+### Chore
+
+- ReadmeCI is barfing
+
+
+
 ## [jackett-11.0.36](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.36) (2022-07-19)
 
 ### Chore
