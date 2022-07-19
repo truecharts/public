@@ -17,7 +17,10 @@ Cloudflareddns chart
 
 ## Prerequisites
 
-This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare (see [this video](https://www.youtube.com/watch?v=hJVghecs3rE) on our YouTube channel)
+This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare
+(see this video on our YouTube channel)
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=hJVghecs3rE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The recommended way is to setup CNAMEs for your subdomains (charts) and keep your A record pointed to your base domain, such as below
 
@@ -66,6 +69,7 @@ Use Global API key from Cloudflare Domain Overview page (see above) for the `CF_
 If you're using or changing specific A records or CNAMEs you may want to refer to the upstream documentation for more examples [here](https://hotio.dev/containers/cloudflareddns/))
 
 Steps 4-8: Adjust as necessary but defaults are fine
+
 ## Support
 
 - If you need more details or have a more custom setup the documentation on the [upstream](https://hotio.dev/containers/cloudflareddns/) is very complete so check the descriptions of the options there.
