@@ -1,6 +1,38 @@
 # Changelog
 
 
+## [jackett-11.0.38](https://github.com/truecharts/apps/compare/jackett-11.0.37...jackett-11.0.38) (2022-07-19)
+
+
+
+## [jackett-11.0.37](https://github.com/truecharts/apps/compare/jackett-11.0.36...jackett-11.0.37) (2022-07-19)
+
+### Chore
+
+- ReadmeCI is barfing
+
+
+
+## [jackett-11.0.36](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.36) (2022-07-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+### Fix
+
+- revert part of the readme changes
+
+
+
+## [jackett-11.0.35](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.35) (2022-07-19)
+
+### Fix
+
+- revert part of the readme changes
+
+
+
 ## [jackett-11.0.34](https://github.com/truecharts/apps/compare/jackett-11.0.33...jackett-11.0.34) (2022-07-17)
 
 ### Chore
