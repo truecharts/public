@@ -36,7 +36,7 @@ sync_helmignore() {
     local chartversion="$4"
     echo "Attempting to sync HelmIgnore file for: ${chartname}"
     rm -rf ${chart}/.helmignore
-    cp templates/app/.helmignore ${chart}/
+    cp templates/chart/.helmignore ${chart}/
     }
 export -f sync_helmignore
 
@@ -72,7 +72,7 @@ generate_docs() {
         helm-docs \
             --ignore-file=".helmdocsignore" \
             --output-file="README.md" \
-            --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
+            --template-files="/__w/charts/charts/templates/docs/README.md.gotmpl" \
             --chart-search-root="${chart}"
     }
     export -f generate_docs
