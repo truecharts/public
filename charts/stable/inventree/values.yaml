@@ -16,7 +16,7 @@ podSecurityContext:
 
 secretEnv:
   INVENTREE_ADMIN_EMAIL: "test@example.com"
-  INVENTREE_ADMIN_USER: "super"
+  INVENTREE_ADMIN_USER: "testuser"
   INVENTREE_ADMIN_PASSWORD: "secret"
 
 configmap:
@@ -25,59 +25,41 @@ configmap:
     data:
       nginx-config: |-
         server {
-          # Listen for connection on (internal) port 80
           listen 10231;
-
           real_ip_header proxy_protocol;
-
           location / {
-
               proxy_set_header      Host              $http_host;
               proxy_set_header      X-Forwarded-By    $server_addr:$server_port;
               proxy_set_header      X-Forwarded-For   $remote_addr;
               proxy_set_header      X-Forwarded-Proto $scheme;
               proxy_set_header      X-Real-IP         $remote_addr;
               proxy_set_header      CLIENT_IP         $remote_addr;
-
               proxy_pass_request_headers on;
-
               proxy_redirect off;
-
               client_max_body_size 100M;
-
               proxy_buffering off;
               proxy_request_buffering off;
-
-              # Change 'inventree-server' to the name of the inventree server container,
-              # and '8000' to the INVENTREE_WEB_PORT (if not default)
               proxy_pass http://localhost:8000;
           }
-
           # Redirect any requests for static files
           location /static/ {
               alias /var/www/static/;
               autoindex on;
-
               # Caching settings
               expires 30d;
               add_header Pragma public;
               add_header Cache-Control "public";
           }
-
           # Redirect any requests for media files
           location /media/ {
               alias /var/www/media/;
-
               # Media files require user authentication
               auth_request /auth;
           }
-
           # Use the 'user' API endpoint for auth
           location /auth {
               internal;
-
               proxy_pass http://localhost:8000/auth/;
-
               proxy_pass_request_body off;
               proxy_set_header Content-Length "";
               proxy_set_header X-Original-URI $request_uri;
@@ -85,29 +67,42 @@ configmap:
         }
 
 env:
+  INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
   INVENTREE_DB_ENGINE: "postgresql"
   INVENTREE_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   INVENTREE_DB_PORT: "5432"
-  INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
+  INVENTREE_CACHE_PORT: "6379"
+  INVENTREE_CACHE_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhostpass
+  INVENTREE_DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  INVENTREE_DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  INVENTREE_SECRET_KEY:
+    secretKeyRef:
+      name: inventree-secrets
+      key: INVENTREE_SECRET_KEY
   # User Defined
   INVENTREE_DEBUG: false
   INVENTREE_LOG_LEVEL: "INFO"
   INVENTREE_PLUGINS_ENABLED: false
   INVENTREE_LOGIN_CONFIRM_DAYS: 3
   INVENTREE_LOGIN_ATTEMPTS: 5
-  INVENTREE_DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  INVENTREE_DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  INVENTREE_SECRET_KEY:
-    secretKeyRef:
-      name: inventree-secrets
-      key: INVENTREE_SECRET_KEY
+  # INVENTREE_EMAIL_BACKEND: "django.core.mail.backends.smtp.EmailBackend"
+  # INVENTREE_EMAIL_HOST: ""
+  # INVENTREE_EMAIL_PORT: 587
+  # INVENTREE_EMAIL_USERNAME: ""
+  # INVENTREE_EMAIL_PASSWORD: ""
+  # INVENTREE_EMAIL_TLS: False
+  # INVENTREE_EMAIL_SSL: False
+  # INVENTREE_EMAIL_SENDER: ""
 
 service:
   main:
@@ -137,8 +132,6 @@ initContainers:
     - name: data
       mountPath: "/home/inventree/data"
     env:
-      - name: INVENTREE_TIMEZONE
-        value: "{{ .Values.TZ }}"
       - name: INVENTREE_DB_ENGINE
         value: "postgresql"
       - name: INVENTREE_DB_NAME
@@ -147,6 +140,13 @@ initContainers:
         value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: INVENTREE_DB_PORT
         value: "5432"
+      - name: INVENTREE_CACHE_PORT
+        value: "6379"
+      - name: INVENTREE_CACHE_HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhostpass
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
@@ -162,22 +162,11 @@ initContainers:
           secretKeyRef:
             name: inventree-secrets
             key: INVENTREE_SECRET_KEY
-      - name: INVENTREE_LOG_LEVEL
-        value: "{{ .Values.env.INVENTREE_LOG_LEVEL }}"
-      - name: INVENTREE_DEBUG
-        value: "{{ .Values.env.INVENTREE_DEBUG }}"
-      - name: INVENTREE_LOGIN_CONFIRM_DAYS
-        value: "{{ .Values.env.INVENTREE_LOGIN_CONFIRM_DAYS }}"
-      - name: INVENTREE_LOGIN_ATTEMPTS
-        value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
-      - name: INVENTREE_PLUGINS_ENABLED
-        value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
     command: ["sh", "-c"]
     args:
-      - >
+      - |-
         cd /home/inventree;
         invoke update;
-
 additionalContainers:
   nginx:
     name: nginx
@@ -205,14 +194,6 @@ additionalContainers:
     - name: data
       mountPath: "/home/inventree/data"
     env:
-      - name: INVENTREE_ADMIN_EMAIL
-        value: "{{ .Values.secret.INVENTREE_ADMIN_EMAIL }}"
-      - name: INVENTREE_ADMIN_USER
-        value: "{{ .Values.secret.INVENTREE_ADMIN_USER }}"
-      - name: INVENTREE_ADMIN_PASSWORD
-        value: "{{ .Values.secret.INVENTREE_ADMIN_PASSWORD }}"
-      - name: INVENTREE_TIMEZONE
-        value: "{{ .Values.TZ }}"
       - name: INVENTREE_DB_ENGINE
         value: "postgresql"
       - name: INVENTREE_DB_NAME
@@ -221,6 +202,13 @@ additionalContainers:
         value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: INVENTREE_DB_PORT
         value: "5432"
+      - name: INVENTREE_CACHE_PORT
+        value: "6379"
+      - name: INVENTREE_CACHE_HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhostpass
       - name: INVENTREE_DB_HOST
         valueFrom:
           secretKeyRef:
@@ -236,20 +224,13 @@ additionalContainers:
           secretKeyRef:
             name: inventree-secrets
             key: INVENTREE_SECRET_KEY
-      - name: INVENTREE_LOG_LEVEL
-        value: "{{ .Values.env.INVENTREE_LOG_LEVEL }}"
-      - name: INVENTREE_DEBUG
-        value: "{{ .Values.env.INVENTREE_DEBUG }}"
-      - name: INVENTREE_LOGIN_CONFIRM_DAYS
-        value: "{{ .Values.env.INVENTREE_LOGIN_CONFIRM_DAYS }}"
-      - name: INVENTREE_LOGIN_ATTEMPTS
-        value: "{{ .Values.env.INVENTREE_LOGIN_ATTEMPTS }}"
-      - name: INVENTREE_PLUGINS_ENABLED
-        value: "{{ .Values.env.INVENTREE_PLUGINS_ENABLED }}"
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: inventree
   postgresqlDatabase: inventree
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
