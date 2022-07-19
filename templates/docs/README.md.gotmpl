@@ -1,6 +1,3 @@
-{{- define "custom.introheader" -}}
-# {{ template "chart.name" . }}
-{{- end -}}
 {{- define "custom.repository.organization" -}}
 TrueCharts
 {{- end -}}
@@ -119,7 +116,9 @@ Please consider making a [donation](https://truecharts.org/docs/about/sponsor) o
 {{- define "custom.copyright" -}}
 All Rights Reserved - The TrueCharts Project
 {{- end -}}
-{{ template "custom.introheader" . }}
+{{ template "chart.header" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
 
 {{ template "chart.description" . }}
 
