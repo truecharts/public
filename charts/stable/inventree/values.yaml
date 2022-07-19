@@ -20,10 +20,6 @@ secretEnv:
   INVENTREE_ADMIN_PASSWORD: "secret"
 
 configmap:
-  inventreeenv:
-    enabled: true
-    data:
-      REDIS_HOST: '{{ printf "%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername .Values.redis.redis-password .Release.Name .Values.redis.redisDatabase }}'
   config:
     enabled: true
     data:
