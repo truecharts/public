@@ -2,6 +2,7 @@
 
 
 
+
 <a name="ama-0.0.5"></a>
 ### [ama-0.0.5](https://github.com/truecharts/apps/compare/clamav-2.1.12...ama-0.0.5) (2022-05-05)
 

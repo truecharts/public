@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wg-easy-1.0.12](https://github.com/truecharts/apps/compare/wg-easy-1.0.11...wg-easy-1.0.12) (2022-07-20)
+
+### Feat
+
+- Add How-To or setup guide ([#3220](https://github.com/truecharts/apps/issues/3220))
+
+
+
 ## [wg-easy-1.0.11](https://github.com/truecharts/apps/compare/wg-easy-1.0.10...wg-easy-1.0.11) (2022-07-19)
 
 ### Chore
