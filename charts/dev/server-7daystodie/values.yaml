@@ -88,5 +88,3 @@ service:
         port: 8082
         protocol: TCP
         targetPort: 8082
-command: ["/bin/sh"]
-args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
