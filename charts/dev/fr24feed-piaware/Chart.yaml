@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Web
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "All-in-one image for feeding FlightRadar24/FlightAware ADS-B/MLAT data\
+  \ with an RTL-SDR device and local web server for displaying aircraft positions\
+  \ on a map.[br][br]\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/fr24feed-piaware
+icon: https://truecharts.org/img/chart-icons/fr24feed-piaware.png
+keywords:
+- fr24feed-piaware
+- Network-Web
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: fr24feed-piaware
+sources:
+- https://github.com/Thom-x/docker-fr24feed-piaware-dump1090-mutability
+- https://hub.docker.com/r/thomx/fr24feed-piaware/
+type: application
+version: 0.0.10

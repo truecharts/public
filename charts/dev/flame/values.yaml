@@ -1,0 +1,25 @@
+env:
+  PASSWORD: flame_password
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/flame
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5030
+        protocol: TCP
+        targetPort: 5005

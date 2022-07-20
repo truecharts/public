@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: A Docker container designed to watch a directory and encode media files.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ffmpeg-mkvdts2ac3
+icon: https://truecharts.org/img/chart-icons/ffmpeg-mkvdts2ac3.png
+keywords:
+- ffmpeg-mkvdts2ac3
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: ffmpeg-mkvdts2ac3
+sources:
+- https://registry.hub.docker.com/r/snoopy86/ffmpeg/
+type: application
+version: 0.0.10

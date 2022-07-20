@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Flarum is the next-generation forum software that makes online discussion
+  fun. It''s simple, fast, and free. [br][br][b][u][span style=''color: #ff9900;'']Default
+  user/password[/span][/u][/b][br]User: [B][u]flarum[/B][/u][br]Password: [B][u]flarum[/B][/u][/b]'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/flarum
+icon: https://truecharts.org/img/chart-icons/flarum.png
+keywords:
+- flarum
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: flarum
+sources:
+- https://flarum.org/
+- https://hub.docker.com/r/crazymax/flarum/
+type: application
+version: 0.0.10

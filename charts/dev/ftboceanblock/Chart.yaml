@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'FTB OceanBlock Modded Minecraft Server[br][br][b]FTB OceanBlock[/b][br]Time
+  to dive in![br][br]Setup:[br][li]You must accept the EULA by setting the [b]EULA[/b]
+  variable to [span style=''color: #00E800;'']true[/span] or the install will fail.[br]Optional:[br][li]You
+  can setup a comma separated list of players who will have admin privileges in game
+  by setting [b]OPS[/b]'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ftboceanblock
+icon: https://truecharts.org/img/chart-icons/ftboceanblock.png
+keywords:
+- ftboceanblock
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: ftboceanblock
+sources:
+- https://feed-the-beast.com/modpack/ftb_oceanblock
+- https://hub.docker.com/repository/docker/goobaroo/ftboceanblock
+type: application
+version: 0.0.10

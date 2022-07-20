@@ -1,0 +1,29 @@
+env:
+  MQTT_DOWN: ''
+  MQTT_SERVER: ''
+  MQTT_UP: ''
+  SLEEP: '3600'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fastcom-mqtt
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

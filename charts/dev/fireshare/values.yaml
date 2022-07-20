@@ -1,0 +1,32 @@
+env:
+  ADMIN_PASSWORD: admin
+  MINUTES_BETWEEN_VIDEO_SCANS: '5'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fireshare
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  processeddata:
+    enabled: true
+    mountPath: /processed
+  videos:
+    enabled: true
+    mountPath: /videos
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 80

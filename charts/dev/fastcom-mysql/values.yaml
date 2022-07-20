@@ -1,0 +1,32 @@
+env:
+  LOC: ''
+  MYSQL_DATABASE: ''
+  MYSQL_PASS: ''
+  MYSQL_SERVER: ''
+  MYSQL_TABLE: ''
+  MYSQL_USER: ''
+  SLEEP: '3600'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fastcom-mysql
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

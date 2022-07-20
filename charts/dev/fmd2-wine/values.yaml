@@ -1,0 +1,37 @@
+env:
+  UMASK: '002'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fmd2-wine
+  tag: latest
+persistence:
+  appluamodulespath:
+    enabled: true
+    mountPath: /app/FMD2/lua
+  appuserdata:
+    enabled: true
+    mountPath: /app/FMD2/userdata
+  appwineconfig:
+    enabled: true
+    mountPath: /config/.wine
+  data:
+    enabled: true
+    mountPath: /app/FMD2/data
+  downloaddirectory:
+    enabled: true
+    mountPath: /downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6080
+        protocol: TCP
+        targetPort: 6080

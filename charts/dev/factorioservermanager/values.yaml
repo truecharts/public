@@ -1,0 +1,38 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/factorioservermanager
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/factorio/config
+  fsmmods:
+    enabled: true
+    mountPath: /opt/factorio/mods
+  fsmsaves:
+    enabled: true
+    mountPath: /opt/factorio/saves
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  factorioport:
+    enabled: true
+    ports:
+      factorioport:
+        enabled: true
+        port: 34197
+        protocol: UDP
+        targetPort: 34197
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8888
+        protocol: HTTP
+        targetPort: 80

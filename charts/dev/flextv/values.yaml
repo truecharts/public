@@ -1,0 +1,33 @@
+env:
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/flextv
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5666
+        protocol: HTTP
+        targetPort: 80
+  tcpport1:
+    enabled: true
+    ports:
+      tcpport1:
+        enabled: true
+        port: 5667
+        protocol: TCP
+        targetPort: 443
