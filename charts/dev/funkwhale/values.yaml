@@ -1,0 +1,30 @@
+env:
+  FUNKWHALE_HOSTNAME: yourdomain.funkwhale
+  NESTED_PROXY: '0'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/funkwhale
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  musicpath:
+    enabled: true
+    mountPath: /music
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3030
+        protocol: TCP
+        targetPort: 80

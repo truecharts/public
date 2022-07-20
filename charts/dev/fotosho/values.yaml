@@ -1,0 +1,30 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fotosho
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  photos:
+    enabled: true
+    mountPath: /photos
+  thumbs:
+    enabled: true
+    mountPath: /thumbnails
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 13377
+        protocol: TCP
+        targetPort: 80

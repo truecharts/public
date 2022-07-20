@@ -1,0 +1,41 @@
+env:
+  mkvdts2ac3_params: --compress none;-d;-n;-w /output;--new
+  output_format: mkv
+  parameters: -map 0;-vcodec copy;-scodec copy;-acodec ac3;-b:a 640k
+  script: encode.sh
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ffmpeg-mkvdts2ac3
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  copy:
+    enabled: true
+    mountPath: /copy
+  output:
+    enabled: true
+    mountPath: /output
+  watch:
+    enabled: true
+    mountPath: /watch
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

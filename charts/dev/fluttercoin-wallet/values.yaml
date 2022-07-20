@@ -1,0 +1,45 @@
+env:
+  CUSTOM_RES_H: '768'
+  CUSTOM_RES_W: '1024'
+  DATA_PERM: '770'
+  EXTRA_PARAMS: -bind=0.0.0.0
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fluttercoin-wallet
+  tag: latest
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /fluttercoin
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  jsonremoteport:
+    enabled: true
+    ports:
+      jsonremoteport:
+        enabled: true
+        port: 7474
+        protocol: TCP
+        targetPort: 7474
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: HTTP
+        targetPort: 8080
+  peertopeerconn:
+    enabled: true
+    ports:
+      peertopeerconn:
+        enabled: true
+        port: 7408
+        protocol: TCP
+        targetPort: 7408

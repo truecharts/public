@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "With this Docker you can run FiveM (GTA V MOD SERVER) it will automatically\
+  \ download the latest version or if you want to updated it yourself set the \u2018\
+  Manual Updates\u2019 (in the 'Show more settings' tab down below) to \u2018true\u2019\
+  \ (without quotes). The Docker will automatically extract it and download all other\
+  \ required files (resources, server.cfg). You can get fx.tar.xz from here: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/\
+  \ To run this container you must provide a valid Server Key (you can get them from\
+  \ here: https://keymaster.fivem.net/) and your prefered Server Name.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/fivem
+icon: https://truecharts.org/img/chart-icons/fivem.png
+keywords:
+- fivem
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: fivem
+sources:
+- https://fivem.net/
+- https://hub.docker.com/r/ich777/fivemserver/
+type: application
+version: 0.0.10
