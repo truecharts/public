@@ -6,6 +6,8 @@ env:
   UMASK: '000'
   USERNAME: ''
   VALIDATE: ''
+stdin: true
+tty: true
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/avorion
