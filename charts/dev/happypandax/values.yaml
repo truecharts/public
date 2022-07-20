@@ -1,0 +1,46 @@
+env:
+  AUTOSTART_ON_BOOT: always
+  RUN_IN_BACKGROUND: 'true'
+  UMASK: '002'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/happypandax
+  tag: latest
+persistence:
+  contentpath:
+    enabled: true
+    mountPath: /content
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  hpxport:
+    enabled: true
+    ports:
+      hpxport:
+        enabled: true
+        port: 7007
+        protocol: TCP
+        targetPort: 7007
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7008
+        protocol: HTTP
+        targetPort: 7008
+  torrentport:
+    enabled: true
+    ports:
+      torrentport:
+        enabled: true
+        port: 7006
+        protocol: TCP
+        targetPort: 7006

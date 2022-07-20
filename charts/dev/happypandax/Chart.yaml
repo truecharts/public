@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaServer-Books
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: A cross-platform server and client application for managing and reading
+  manga and doujinshi.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/happypandax
+icon: https://truecharts.org/img/chart-icons/happypandax.png
+keywords:
+- happypandax
+- Downloaders
+- MediaServer-Books
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: happypandax
+sources:
+- https://github.com/happypandax/happypandax/
+- https://hub.docker.com/r/twiddly/happypandax/
+type: application
+version: 0.0.10
