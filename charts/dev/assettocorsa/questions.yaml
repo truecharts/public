@@ -366,16 +366,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 50041
-        - variable: assetto-
-          label: 'assetto- service'
+        - variable: assetto
+          label: 'assetto service'
           description: "Only needed if you installed Assetto-Server-Manager (Webserver Address http[IPOFYOURSERVER]8771)."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: assetto-
-                      label: "assetto- Service Port Configuration"
+                    - variable: assetto
+                      label: "assetto Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict

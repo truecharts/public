@@ -22,11 +22,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
+    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
   readiness:
-    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
+    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
   startup:
-    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
+    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -39,10 +39,10 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-  tcp-rconport:
+  tcprconport:
     enabled: true
     ports:
-      tcp-rconport:
+      tcprconport:
         enabled: true
         port: 27015
         protocol: TCP

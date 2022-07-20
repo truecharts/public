@@ -30,10 +30,10 @@ service:
         port: 8787
         protocol: TCP
         targetPort: 8787
-  udp-gameport:
+  udpgameport:
     enabled: true
     ports:
-      udp-gameport:
+      udpgameport:
         enabled: true
         port: 8787
         protocol: UDP
