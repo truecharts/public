@@ -5,7 +5,7 @@ module.exports = {
   onboarding: false,
   platform: 'github',
   repositories: [
-    'truecharts/apps',
+    'truecharts/charts',
   ],
   packageRules: [
     {
