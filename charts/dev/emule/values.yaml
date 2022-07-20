@@ -1,0 +1,47 @@
+env:
+  EMULE_CAP_DOWNLOAD: '1000000'
+  EMULE_CAP_UPLOAD: '1000000'
+  EMULE_LANGUAGE: '1033'
+  EMULE_MAX_UPLOAD: '100000'
+  EMULE_NICK: eMule_DOCKER
+  EMULE_RECONNECT: '1'
+  EMULE_UPDATE_FROM_SERVER: '1'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/emule
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4711
+        protocol: HTTP
+        targetPort: 4711
+  porttcp:
+    enabled: true
+    ports:
+      porttcp:
+        enabled: true
+        port: 23732
+        protocol: TCP
+        targetPort: 23732
+  portudp:
+    enabled: true
+    ports:
+      portudp:
+        enabled: true
+        port: 23733
+        protocol: TCP
+        targetPort: 23733

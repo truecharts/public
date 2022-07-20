@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Other
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Enpass is a cross-platform password management app to securely store\
+  \ passwords and other credentials in a virtual vault locked with a master password.\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/enpass
+icon: https://truecharts.org/img/chart-icons/enpass.png
+keywords:
+- enpass
+- Network-Other
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: enpass
+sources:
+- https://www.enpass.io/
+- https://hub.docker.com/r/ich777/enpass
+type: application
+version: 0.0.10

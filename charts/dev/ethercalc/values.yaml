@@ -1,0 +1,23 @@
+env:
+  REDIS_PORT_6379_TCP_ADDR: ''
+  REDIS_PORT_6379_TCP_PORT: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ethercalc
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8084
+        protocol: TCP
+        targetPort: 8000

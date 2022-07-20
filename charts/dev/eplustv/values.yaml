@@ -1,0 +1,31 @@
+env:
+  ACCESS_URI: ''
+  ESPN_PASS: ''
+  ESPN_USER: ''
+  START_CHANNEL: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/eplustv
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+  tempdirectory:
+    enabled: true
+    mountPath: /app/tmp
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

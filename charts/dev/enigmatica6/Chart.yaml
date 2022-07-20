@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Enigmatica 6 1.3.0 Modded Minecraft Server[br][br][b]Enigmatica 6 1.3.0[/b][br]Play
+  with new mods and old favorites in Minecraft 1.16.5! E6 offers a boatload of custom
+  content including quests![br][br]Setup:[br][li]You must accept the EULA by setting
+  the [b]EULA[/b] variable to [span style=''color: #00E800;'']true[/span] or the install
+  will fail.[br]Optional:[br][li]You can setup a comma separated list of players who
+  will have admin privileges in game by setting [b]OPS[/b]'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/enigmatica6
+icon: https://truecharts.org/img/chart-icons/enigmatica6.png
+keywords:
+- enigmatica6
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: enigmatica6
+sources:
+- https://www.curseforge.com/minecraft/modpacks/enigmatica6
+- https://hub.docker.com/repository/docker/goobaroo/enigmatica6
+type: application
+version: 0.0.10

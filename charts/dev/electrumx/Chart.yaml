@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Other
+    - Crypto
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Serve your Electrum clients from your own Bitcoin node! Avoid trusting
+  public Electrum nodes, and maintain your own privacy. Expose ElectrumX to the public
+  Internet to support other Electrum users who can''t run their own nodes.
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/electrumx
+icon: https://truecharts.org/img/chart-icons/electrumx.png
+keywords:
+- electrumx
+- Tools-Utilities
+- Network-Other
+- Crypto
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: electrumx
+sources:
+- https://github.com/spesmilo/electrumx/
+- https://hub.docker.com/r/ofawx/electrumx/
+type: application
+version: 0.0.10
