@@ -168,9 +168,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -216,9 +213,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -264,9 +258,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -311,9 +302,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -358,9 +346,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
@@ -405,9 +390,6 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Remove node taints
-        run: |
-          sed -i 's/tccr.io/ghcr.io/g' ${{ matrix.chart }}/values.yaml
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
