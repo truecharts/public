@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflared-0.0.17](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.2...cloudflared-0.0.17) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
 ## [cloudflared-0.0.16](https://github.com/truecharts/apps/compare/cloudflareddns-0.0.15...cloudflared-0.0.16) (2022-07-17)
 
 ### Chore
