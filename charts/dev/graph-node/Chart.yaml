@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+    - Crypto
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "The Graph is a protocol for building decentralized applications (dApps)\
+  \ quickly on Ethereum and IPFS using GraphQL.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/graph-node
+icon: https://truecharts.org/img/chart-icons/graph-node.png
+keywords:
+- graph-node
+- Other
+- Crypto
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: graph-node
+sources:
+- https://github.com/graphprotocol/graph-node
+- https://hub.docker.com/r/graphprotocol/graph-node/
+type: application
+version: 0.0.10

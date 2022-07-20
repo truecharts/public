@@ -1,0 +1,30 @@
+env:
+  ACCESS_TOKEN_SALT: GHOSTFOLIO
+  ALPHA_VANTAGE_API_KEY: ''
+  BASE_CURRENCY: USD
+  DATABASE_URL: postgresql://[USER]:[PASSWORD]@[HOST]:5432/ghostfolio-db?sslmode=prefer
+  EOD_HISTORICAL_DATA_API_KEY: ''
+  JWT_SECRET_KEY: '123456'
+  REDIS_HOST: ''
+  REDIS_PASSWORD: ''
+  REDIS_PORT: '6379'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ghostfolio
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3333
+        protocol: TCP
+        targetPort: 3333

@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: This is a simple container that sends a message when the container is
+  started (needed this for a headless machine to know when I can connect or better
+  speaking start up the VM's with WOL).
+home: https://github.com/truecharts/apps/tree/master/charts/stable/gotify-on-start
+icon: https://truecharts.org/img/chart-icons/gotify-on-start.png
+keywords:
+- gotify-on-start
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: gotify-on-start
+sources:
+- https://hub.docker.com/r/ich777/gotify-on-start
+- https://hub.docker.com/r/ich777/gotify-on-start
+type: application
+version: 0.0.10

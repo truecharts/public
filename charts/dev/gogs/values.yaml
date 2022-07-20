@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/gogs
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8930
+        protocol: HTTP
+        targetPort: 3000
+  tcpport0:
+    enabled: true
+    ports:
+      tcpport0:
+        enabled: true
+        port: 8922
+        protocol: TCP
+        targetPort: 22

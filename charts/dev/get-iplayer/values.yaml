@@ -1,0 +1,32 @@
+env:
+  SCHEDULE: 12h
+  SHOWS: ''
+  SHOWS_PID: ''
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/get-iplayer
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

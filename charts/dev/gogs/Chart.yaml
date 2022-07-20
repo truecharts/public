@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: gogs https://gogs.io/ is a painless self-hosted Git service [br][br]
+home: https://github.com/truecharts/apps/tree/master/charts/stable/gogs
+icon: https://truecharts.org/img/chart-icons/gogs.png
+keywords:
+- gogs
+- Cloud
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: gogs
+sources:
+- https://hub.docker.com/r/gogs/gogs/
+type: application
+version: 0.0.10
