@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "tahskr is a simple, open source, self-hosted todo manager.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/tahskr
+icon: https://truecharts.org/img/chart-icons/tahskr.png
+keywords:
+- tahskr
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: tahskr
+sources:
+- https://github.com/Dullage/tahskr-server
+- https://github.com/Dullage/tahskr-server
+type: application
+version: 0.0.10

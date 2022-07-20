@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker will download and install Multi Theft Auto SERVERNAME: Docker\
+  \ MTA Server SERVERPASSWORD: Docker.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/multitheftauto
+icon: https://truecharts.org/img/chart-icons/multitheftauto.png
+keywords:
+- multitheftauto
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: multitheftauto
+sources:
+- https://www.minecraft.net/
+- https://hub.docker.com/r/ich777/mtaserver/
+type: application
+version: 0.0.10

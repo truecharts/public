@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/yacy
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /opt/yacy_search_server/DATA
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 8443
+        protocol: TCP
+        targetPort: 8443
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8090
+        protocol: HTTP
+        targetPort: 8090

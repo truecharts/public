@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'KDE In Docker + VNC + noVNC Web UI
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/kdeindocker
+icon: https://truecharts.org/img/chart-icons/kdeindocker.png
+keywords:
+- kdeindocker
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: kdeindocker
+sources:
+- https://github.com/ms-jpq/kde-in-docker
+- https://hub.docker.com/r/msjpq/firefox-vnc/
+type: application
+version: 0.0.10

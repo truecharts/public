@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/urbit
+  tag: v1.8
+persistence:
+  urbitconfigpath:
+    enabled: true
+    mountPath: /urbit
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 8088
+  udpamesport:
+    enabled: true
+    ports:
+      udpamesport:
+        enabled: true
+        port: 34343
+        protocol: UDP
+        targetPort: 34343

@@ -1,0 +1,27 @@
+env:
+  ATL_PROXY_NAME: support.ibracorp.io
+  ATL_PROXY_PORT: '443'
+  ATL_TOMCAT_SCHEME: https
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/jira-service-desk
+  tag: latest
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /var/atlassian/application-data/jira
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8585
+        protocol: TCP
+        targetPort: 8080

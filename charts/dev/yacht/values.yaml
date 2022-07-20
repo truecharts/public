@@ -1,0 +1,28 @@
+env:
+  ADMIN_EMAIL: admin@yacht.local
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/yacht
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  dockersocket:
+    enabled: true
+    mountPath: /var/run/docker.sock
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

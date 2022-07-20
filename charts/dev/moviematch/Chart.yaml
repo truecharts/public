@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - MediaApp-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This is an app that helps you and your friends pick a movie to watch\
+  \ from a Plex server.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/moviematch
+icon: https://truecharts.org/img/chart-icons/moviematch.png
+keywords:
+- moviematch
+- Tools-Utilities
+- MediaApp-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: moviematch
+sources:
+- https://github.com/LukeChannings/moviematch
+- https://registry.hub.docker.com/r/lukechannings/moviematch
+type: application
+version: 0.0.10

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Joomla is a free and open-source content management system (CMS) for\
+  \ publishing web content. It is built on a model\u2013view\u2013controller web application\
+  \ framework that can be used independently of the CMS. Joomla is written in PHP,\
+  \ uses object-oriented programming (OOP) techniques and software design patterns,\
+  \ stores data in a MySQL, MS SQL, or PostgreSQL database, and includes features\
+  \ such as page caching, RSS feeds, printable versions of pages, news flashes, blogs,\
+  \ search, and support for language internationalization."
+home: https://github.com/truecharts/apps/tree/master/charts/stable/joomla
+icon: https://truecharts.org/img/chart-icons/joomla.png
+keywords:
+- joomla
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: joomla
+sources:
+- https://github.com/joomla/joomla-cms
+- https://hub.docker.com/_/joomla/
+type: application
+version: 0.0.10

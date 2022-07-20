@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Swatch: Color detection in images to capture presence of known objects.\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/swatch
+icon: https://truecharts.org/img/chart-icons/swatch.png
+keywords:
+- swatch
+- HomeAutomation
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: swatch
+sources:
+- https://github.com/NickM-27/swatch
+- https://hub.docker.com/repository/docker/crzynik/swatch/general
+type: application
+version: 0.0.10

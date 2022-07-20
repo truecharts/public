@@ -1,0 +1,30 @@
+env:
+  APACHE_PORT: '11000'
+  NEXTCLOUD_DATADIR: /mnt/user/my_files
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/nextcloud-aio-mastercontainer
+  tag: latest
+persistence:
+  nextcloud_aio_mastercontainer:
+    enabled: true
+    mountPath: /mnt/docker-aio-config
+  varrundocker-sock:
+    enabled: true
+    mountPath: /var/run/docker.sock
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

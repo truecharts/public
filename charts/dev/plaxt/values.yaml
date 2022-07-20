@@ -1,0 +1,26 @@
+env:
+  TRAKT_ID: ''
+  TRAKT_SECRET: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plaxt
+  tag: latest
+persistence:
+  hostpathforkeystore:
+    enabled: true
+    mountPath: /app/keystore
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

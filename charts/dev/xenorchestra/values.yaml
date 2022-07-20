@@ -1,0 +1,35 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/xenorchestra
+  tag: latest
+persistence:
+  dataredis:
+    enabled: true
+    mountPath: /var/lib/redis
+  dataxo-server:
+    enabled: true
+    mountPath: /var/lib/xo-server
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: HTTP
+        targetPort: 80
+  webuihttps:
+    enabled: true
+    ports:
+      webuihttps:
+        enabled: true
+        port: 8443
+        protocol: TCP
+        targetPort: 443

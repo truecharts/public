@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rssnotipy
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /RSSNotipy/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3247
+        protocol: TCP
+        targetPort: 3247

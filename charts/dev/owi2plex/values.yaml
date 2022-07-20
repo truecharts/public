@@ -1,0 +1,34 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/owi2plex
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  owi2plex:
+    enabled: true
+    mountPath: /owi2plex
+  tvh:
+    enabled: true
+    mountPath: /TVH
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

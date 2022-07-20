@@ -1,0 +1,35 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/zoneminder
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  datapath:
+    enabled: true
+    mountPath: /var/cache/zoneminder
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8443
+        protocol: HTTP
+        targetPort: 443
+  zmninjaeventno:
+    enabled: true
+    ports:
+      zmninjaeventno:
+        enabled: true
+        port: 9000
+        protocol: TCP
+        targetPort: 9000

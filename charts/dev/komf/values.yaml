@@ -1,0 +1,28 @@
+env:
+  KOMF_KOMGA_BASE_URI: ''
+  KOMF_KOMGA_PASSWORD: ''
+  KOMF_KOMGA_USER: ''
+  KOMF_LOG_LEVEL: INFO
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/komf
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8085
+        protocol: TCP
+        targetPort: 8085

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker will download and install SteamCMD. It will also install\
+  \ Zombie Panic! Source and run it.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/zombiepanic-source
+icon: https://truecharts.org/img/chart-icons/zombiepanic-source.png
+keywords:
+- zombiepanic-source
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: zombiepanic-source
+sources:
+- https://www.steampowered.com/
+- https://hub.docker.com/r/ich777/steamcmd/
+type: application
+version: 0.0.10

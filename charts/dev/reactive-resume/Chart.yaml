@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: A one-of-a-kind resume builder that keeps your privacy in mind.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/reactive-resume
+icon: https://truecharts.org/img/chart-icons/reactive-resume.png
+keywords:
+- reactive-resume
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: reactive-resume
+sources:
+- https://rxresu.me/
+- https://hub.docker.com/r/amruthpillai/reactive-resume/
+type: application
+version: 0.0.10

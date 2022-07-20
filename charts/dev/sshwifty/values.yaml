@@ -1,0 +1,29 @@
+env:
+  SSHWIFTY_TLSCERTIFICATEFILE: /certs/cert.crt
+  SSHWIFTY_TLSCERTIFICATEKEYFILE: /certs/cert.key
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/sshwifty
+  tag: latest
+persistence:
+  certs:
+    enabled: true
+    mountPath: /certs/
+  configurationpathforsshwifty-conf-jsonfile:
+    enabled: true
+    mountPath: /home/sshwifty/.config/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8182
+        protocol: TCP
+        targetPort: 8182

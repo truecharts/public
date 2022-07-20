@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - MediaApp-Music
+    - MediaApp-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Software-defined radio receiver application built on GNU Radio with\
+  \ a web-based UI and plugins.[br][br]\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/shinysdr
+icon: https://truecharts.org/img/chart-icons/shinysdr.png
+keywords:
+- shinysdr
+- MediaApp-Music
+- MediaApp-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: shinysdr
+sources:
+- https://github.com/kpreid/shinysdr
+- https://hub.docker.com/r/jeffersonjhunt/shinysdr
+type: application
+version: 0.0.10

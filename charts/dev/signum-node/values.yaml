@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/signum-node
+  tag: vlatest-h2
+persistence:
+  signum-node:
+    enabled: true
+    mountPath: /db
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8125
+        protocol: HTTP
+        targetPort: 8125
+  tcpport0:
+    enabled: true
+    ports:
+      tcpport0:
+        enabled: true
+        port: 8123
+        protocol: TCP
+        targetPort: 8123

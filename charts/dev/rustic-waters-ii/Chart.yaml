@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Docker Container for Rustic Waters II Minecraft Modpack\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rustic-waters-ii
+icon: https://truecharts.org/img/chart-icons/rustic-waters-ii.png
+keywords:
+- rustic-waters-ii
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: rustic-waters-ii
+sources:
+- https://www.curseforge.com/minecraft/modpacks/rustic-waters-ii
+- https://hub.docker.com/r/ratomas/rustic-waters-ii
+type: application
+version: 0.0.10

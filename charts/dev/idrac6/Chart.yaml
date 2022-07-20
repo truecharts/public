@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Management
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Allows access to the iDRAC 6 console without installing Java or messing
+  with Java Web Start. Java is only run inside of the container and access is provided
+  via web interface or directly with VNC.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/idrac6
+icon: https://truecharts.org/img/chart-icons/idrac6.png
+keywords:
+- idrac6
+- Tools-Utilities
+- Network-Management
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: idrac6
+sources:
+- https://github.com/DomiStyle/docker-idrac6/
+- https://hub.docker.com/r/domistyle/idrac6/
+type: application
+version: 0.0.10

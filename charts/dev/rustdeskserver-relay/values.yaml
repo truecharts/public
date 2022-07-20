@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rustdeskserver-relay
+  tag: latest
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /root
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  hostport2:
+    enabled: true
+    ports:
+      hostport2:
+        enabled: true
+        port: 21119
+        protocol: TCP
+        targetPort: 21119
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 21117
+        protocol: TCP
+        targetPort: 21117

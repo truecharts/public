@@ -1,0 +1,25 @@
+env:
+  ML_DB_HOST: ''
+  ML_DB_NAME: ''
+  ML_DB_PASSWORD: ''
+  ML_DB_USER: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mailgun-logger
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5050
+        protocol: TCP
+        targetPort: 5050

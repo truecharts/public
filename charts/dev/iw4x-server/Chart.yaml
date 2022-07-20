@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker will download and install a simple IW4x Server.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/iw4x-server
+icon: https://truecharts.org/img/chart-icons/iw4x-server.png
+keywords:
+- iw4x-server
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: iw4x-server
+sources:
+- https://iw4x.org/
+- https://hub.docker.com/r/ich777/iw4x-server/
+type: application
+version: 0.0.10

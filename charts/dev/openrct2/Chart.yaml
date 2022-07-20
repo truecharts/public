@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker will download and install the preferred version of OpenRCT2\
+  \ (don't forget to put in the server version to download).\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/openrct2
+icon: https://truecharts.org/img/chart-icons/openrct2.png
+keywords:
+- openrct2
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: openrct2
+sources:
+- https://openrct2.org/
+- https://hub.docker.com/r/ich777/openrct2server/
+type: application
+version: 0.0.10

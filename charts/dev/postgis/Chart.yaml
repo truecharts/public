@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: PostGIS is a spatial database extender for PostgreSQL object-relational
+  database. The postgis/postgis image provides tags for running Postgres with PostGIS
+  extensions installed.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/postgis
+icon: https://truecharts.org/img/chart-icons/postgis.png
+keywords:
+- postgis
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: postgis
+sources:
+- http://postgis.net/
+- https://hub.docker.com/r/postgis/postgis/
+type: application
+version: 0.0.10

@@ -1,0 +1,494 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: MYSQL_DATABASE
+          label: 'MYSQL_DATABASE'
+          description: "Container Variable MYSQLDATABASE"
+          schema:
+            type: string
+            default: ""
+        - variable: MYSQL_USER
+          label: 'MYSQL_USER'
+          description: "Container Variable MYSQLUSER"
+          schema:
+            type: string
+            default: ""
+        - variable: MYSQL_PASSWORD
+          label: 'MYSQL_PASSWORD'
+          description: "Container Variable MYSQLPASSWORD"
+          schema:
+            type: string
+            default: ""
+        - variable: MYSQL_HOST
+          label: 'MYSQL_HOST'
+          description: "Container Variable MYSQLHOST"
+          schema:
+            type: string
+            default: ""
+        - variable: MYSQL_PORT
+          label: 'MYSQL_PORT'
+          description: "Container Variable MYSQLPORT"
+          schema:
+            type: string
+            default: ""
+        - variable: MYSQL_BACKUP_ENABLED
+          label: 'MYSQL_BACKUP_ENABLED'
+          description: "Container Variable MYSQLBACKUPENABLED"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_SERVER
+          label: 'CMS_SMTP_SERVER'
+          description: "Container Variable CMSSMTPSERVER"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_USERNAME
+          label: 'CMS_SMTP_USERNAME'
+          description: "Container Variable CMSSMTPUSERNAME"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_PASSWORD
+          label: 'CMS_SMTP_PASSWORD'
+          description: "Container Variable CMSSMTPPASSWORD"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_USE_TLS
+          label: 'CMS_SMTP_USE_TLS'
+          description: "Container Variable CMSSMTPUSETLS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_USE_STARTTLS
+          label: 'CMS_SMTP_USE_STARTTLS'
+          description: "Container Variable CMSSMTPUSESTARTTLS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_REWRITE_DOMAIN
+          label: 'CMS_SMTP_REWRITE_DOMAIN'
+          description: "Container Variable CMSSMTPREWRITEDOMAIN"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_HOSTNAME
+          label: 'CMS_SMTP_HOSTNAME'
+          description: "Container Variable CMSSMTPHOSTNAME"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SMTP_FROM_LINE_OVERRIDE
+          label: 'CMS_SMTP_FROM_LINE_OVERRIDE'
+          description: "Container Variable CMSSMTPFROMLINEOVERRIDE"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_ALIAS
+          label: 'CMS_ALIAS'
+          description: "Container Variable CMSALIAS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_PHP_SESSION_GC_MAXLIFETIME
+          label: 'CMS_PHP_SESSION_GC_MAXLIFETIME'
+          description: "Container Variable CMSPHPSESSIONGCMAXLIFETIME"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_PHP_POST_MAX_SIZE
+          label: 'CMS_PHP_POST_MAX_SIZE'
+          description: "Container Variable CMSPHPPOSTMAXSIZE"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_PHP_UPLOAD_MAX_FILESIZE
+          label: 'CMS_PHP_UPLOAD_MAX_FILESIZE'
+          description: "Container Variable CMSPHPUPLOADMAXFILESIZE"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_PHP_MAX_EXECUTION_TIME
+          label: 'CMS_PHP_MAX_EXECUTION_TIME'
+          description: "Container Variable CMSPHPMAXEXECUTIONTIME"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_PHP_MEMORY_LIMIT
+          label: 'CMS_PHP_MEMORY_LIMIT'
+          description: "Container Variable CMSPHPMEMORYLIMIT"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_START_SERVERS
+          label: 'CMS_APACHE_START_SERVERS'
+          description: "Container Variable CMSAPACHESTARTSERVERS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_MIN_SPARE_SERVERS
+          label: 'CMS_APACHE_MIN_SPARE_SERVERS'
+          description: "Container Variable CMSAPACHEMINSPARESERVERS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_MAX_SPARE_SERVERS
+          label: 'CMS_APACHE_MAX_SPARE_SERVERS'
+          description: "Container Variable CMSAPACHEMAXSPARESERVERS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_MAX_REQUEST_WORKERS
+          label: 'CMS_APACHE_MAX_REQUEST_WORKERS'
+          description: "Container Variable CMSAPACHEMAXREQUESTWORKERS"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_MAX_CONNECTIONS_PER_CHILD
+          label: 'CMS_APACHE_MAX_CONNECTIONS_PER_CHILD'
+          description: "Container Variable CMSAPACHEMAXCONNECTIONSPERCHILD"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_APACHE_TIMEOUT
+          label: 'CMS_APACHE_TIMEOUT'
+          description: "Container Variable CMSAPACHETIMEOUT"
+          schema:
+            type: string
+            default: ""
+        - variable: CMS_SERVER_NAME
+          label: 'CMS_SERVER_NAME'
+          description: "Container Variable CMSSERVERNAME"
+          schema:
+            type: string
+            default: ""
+        - variable: XMR_HOST
+          label: 'XMR_HOST'
+          description: "Container Variable XMRHOST"
+          schema:
+            type: string
+            default: ""
+
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 80
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 80
+
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: customfiles
+          label: "customfiles Storage"
+          description: "Container Path varwwwcmscustom"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: backup
+          label: "backup Storage"
+          description: "Container Path varwwwbackup"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: customtheme
+          label: "customtheme Storage"
+          description: "Container Path varwwwcmswebthemecustom"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: library
+          label: "library Storage"
+          description: "Container Path varwwwcmslibrary"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: userscritps
+          label: "userscritps Storage"
+          description: "Container Path varwwwcmswebuserscripts"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+
+
+# Include{persistenceList}
+
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

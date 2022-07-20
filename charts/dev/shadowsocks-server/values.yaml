@@ -1,0 +1,32 @@
+env:
+  CIPHER: chacha20-ietf-poly1305
+  PASSWORD: ''
+  PROFILING: 'off'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shadowsocks-server
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8388
+        protocol: TCP
+        targetPort: 8388
+  port_udp:
+    enabled: true
+    ports:
+      port_udp:
+        enabled: true
+        port: 8388
+        protocol: UDP
+        targetPort: 8388

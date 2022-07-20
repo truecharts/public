@@ -1,0 +1,53 @@
+env:
+  ALLOW_GUEST_USERS: ''
+  ALLOW_REGISTRATION: ''
+  DJANGO_CACHE_BACKEND: ''
+  DJANGO_CACHE_CLIENT_CLASS: "django_redis.client.DefaultClient\n    "
+  DJANGO_CACHE_LOCATION: ''
+  DJANGO_CACHE_TIMEOUT: ''
+  DJANGO_DB_DATABASE: "wger\n    "
+  DJANGO_DB_ENGINE: "\n        django.db.backends.postgresql\n    "
+  DJANGO_DB_HOST: ''
+  DJANGO_DB_PASSWORD: ''
+  DJANGO_DB_PORT: "5432\n    "
+  DJANGO_DB_USER: "wger\n    "
+  EMAIL_HOST: ''
+  EMAIL_HOST_PASSWORD: ''
+  EMAIL_HOST_USER: ''
+  EMAIL_PORT: ''
+  EMAIL_USE_SSL: "False\n    "
+  EMAIL_USE_TLS: "True\n    "
+  ENABLE_EMAIL: "False\n    "
+  FROM_EMAIL: ''
+  NOCAPTCHA: "False\n    "
+  RECAPTCHA_PRIVATE_KEY: ''
+  RECAPTCHA_PUBLIC_KEY: ''
+  SECRET_KEY: ''
+  SITE_URL: ''
+  TIME_ZONE: "US/Central\n    "
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/wger-unraid
+  tag: latest
+persistence:
+  django_media_root:
+    enabled: true
+    mountPath: /home/wger/media
+  django_static_root:
+    enabled: true
+    mountPath: /home/wger/static
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8555
+        protocol: TCP
+        targetPort: 8000

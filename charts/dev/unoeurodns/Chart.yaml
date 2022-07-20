@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-DNS
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Keep your DNS records for your own domains updated with this UnoEuro
+  DDNS script.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/unoeurodns
+icon: https://truecharts.org/img/chart-icons/unoeurodns.png
+keywords:
+- unoeurodns
+- Network-DNS
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: unoeurodns
+sources:
+- https://hub.docker.com/r/tynor88/unoeuro-dns
+type: application
+version: 0.0.10

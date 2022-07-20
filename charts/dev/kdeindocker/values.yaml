@@ -1,0 +1,39 @@
+env:
+  PAGE_TITLE: KID
+  RECON_DELAY: '20'
+  ROOT_PASSWORD: admin
+  SCR_HEIGHT: '900'
+  SCR_WIDTH: '1600'
+  VNC_RESIZE: scale
+  noVNC PATH_PREFIX: /
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kdeindocker
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4686
+        protocol: HTTP
+        targetPort: 8080
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 4900
+        protocol: TCP
+        targetPort: 5900

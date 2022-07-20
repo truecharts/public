@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Network-Management
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Unifi Video Controller (NVR) is a NVR software from the company Ubiquiti
+  Networks to use with their UniFi Video IP Cameras.  To use the latest BETA version,
+  add a :beta in the Repository field in Advanced view.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/unifi-video
+icon: https://truecharts.org/img/chart-icons/unifi-video.png
+keywords:
+- unifi-video
+- HomeAutomation
+- Network-Management
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: unifi-video
+sources:
+- https://registry.hub.docker.com/r/pducharme/unifi-video-controller/
+type: application
+version: 0.0.10

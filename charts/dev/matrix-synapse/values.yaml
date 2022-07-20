@@ -1,0 +1,26 @@
+env:
+  SYNAPSE_REPORT_STATS: 'no'
+  SYNAPSE_SERVER_NAME: matrix.domain.com
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/matrix-synapse
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8008
+        protocol: TCP
+        targetPort: 8008

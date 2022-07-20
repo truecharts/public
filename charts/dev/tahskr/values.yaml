@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tahskr
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8612
+        protocol: TCP
+        targetPort: 8080

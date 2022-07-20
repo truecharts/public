@@ -1,0 +1,73 @@
+env:
+  GAME_ID: '319060'
+  GAME_NAME: lambdawars
+  GAME_PARAMS: +maxplayers 8 +map gamelobby
+  GAME_PORT: '27015'
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/lambdawars
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+  startup:
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+  tcprcon:
+    enabled: true
+    ports:
+      tcprcon:
+        enabled: true
+        port: 27015
+        protocol: TCP
+        targetPort: 27015
+  udp2:
+    enabled: true
+    ports:
+      udp2:
+        enabled: true
+        port: 27005
+        protocol: UDP
+        targetPort: 27005
+  udp3:
+    enabled: true
+    ports:
+      udp3:
+        enabled: true
+        port: 27020
+        protocol: UDP
+        targetPort: 27020
+  udp4:
+    enabled: true
+    ports:
+      udp4:
+        enabled: true
+        port: 26901
+        protocol: UDP
+        targetPort: 26901

@@ -1,0 +1,27 @@
+env:
+  SEAFILE_ADMIN_EMAIL: admin@test.fr
+  SEAFILE_ADMIN_PASSWORD: changeme
+  SEAFILE_SERVER_HOSTNAME: 192.168.0.59
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/seafile
+  tag: latest
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /shared
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 98
+        protocol: TCP
+        targetPort: 80

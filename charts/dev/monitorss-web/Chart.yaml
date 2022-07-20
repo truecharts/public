@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Messenger
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'WebUI for the Discord RSS bot (formerly known as Discord.RSS) with customizable
+  feeds.
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/monitorss-web
+icon: https://truecharts.org/img/chart-icons/monitorss-web.png
+keywords:
+- monitorss-web
+- Network-Messenger
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: monitorss-web
+sources:
+- https://github.com/synzen/MonitoRSS
+- https://hub.docker.com/r/synzen/monitorss
+type: application
+version: 0.0.10

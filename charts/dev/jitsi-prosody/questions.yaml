@@ -1,0 +1,692 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: AUTH_TYPE
+          label: 'AUTH_TYPE'
+          description: "Select authentication type (internal, jwt or ldap)"
+          schema:
+            type: string
+            default: "internal"
+        - variable: ENABLE_AUTH
+          label: 'ENABLE_AUTH'
+          description: "Enable authentication"
+          schema:
+            type: string
+            default: "1"
+        - variable: ENABLE_GUESTS
+          label: 'ENABLE_GUESTS'
+          description: "Enable guest access"
+          schema:
+            type: string
+            default: "1"
+        - variable: GLOBAL_MODULES
+          label: 'GLOBAL_MODULES'
+          description: "Custom prosody modules to load in global configuration (comma separated)"
+          schema:
+            type: string
+            default: "statistics,alert"
+        - variable: GLOBAL_CONFIG
+          label: 'GLOBAL_CONFIG'
+          description: "Custom configuration string with escaped newlines"
+          schema:
+            type: string
+            default: "foo = bar;\nkey = val;"
+        - variable: XMPP_DOMAIN
+          label: 'XMPP_DOMAIN'
+          description: "Internal XMPP domain"
+          schema:
+            type: string
+            default: "meet.jitsi"
+        - variable: XMPP_AUTH_DOMAIN
+          label: 'XMPP_AUTH_DOMAIN'
+          description: "Internal XMPP domain for authenticated services"
+          schema:
+            type: string
+            default: "auth.meet.jitsi"
+        - variable: XMPP_GUEST_DOMAIN
+          label: 'XMPP_GUEST_DOMAIN'
+          description: "XMPP domain for unauthenticated users"
+          schema:
+            type: string
+            default: "guest.meet.jitsi"
+        - variable: XMPP_MUC_DOMAIN
+          label: 'XMPP_MUC_DOMAIN'
+          description: "XMPP domain for the MUC"
+          schema:
+            type: string
+            default: "muc.meet.jitsi"
+        - variable: XMPP_INTERNAL_MUC_DOMAIN
+          label: 'XMPP_INTERNAL_MUC_DOMAIN'
+          description: "XMPP domain for the internal MUC"
+          schema:
+            type: string
+            default: "internal-muc.meet.jitsi"
+        - variable: XMPP_MODULES
+          label: 'XMPP_MODULES'
+          description: "Custom Prosody modules for XMPPDOMAIN (comma separated)"
+          schema:
+            type: string
+            default: "info,alert"
+        - variable: XMPP_MUC_MODULES
+          label: 'XMPP_MUC_MODULES'
+          description: "Custom Prosody modules for MUC component (comma separated)"
+          schema:
+            type: string
+            default: "info,alert"
+        - variable: XMPP_INTERNAL_MUC_MODULES
+          label: 'XMPP_INTERNAL_MUC_MODULES'
+          description: "Custom Prosody modules for internal MUC component (comma separated)"
+          schema:
+            type: string
+            default: "info,alert"
+        - variable: XMPP_RECORDER_DOMAIN
+          label: 'XMPP_RECORDER_DOMAIN'
+          description: "Domain for the jibri recorder"
+          schema:
+            type: string
+            default: "recorder.meet.jitsi"
+        - variable: JICOFO_COMPONENT_SECRET
+          label: 'JICOFO_COMPONENT_SECRET'
+          description: "XMPP component password for Jicofo"
+          schema:
+            type: string
+            default: "s3cr37"
+        - variable: JICOFO_AUTH_USER
+          label: 'JICOFO_AUTH_USER'
+          description: "XMPP user for Jicofo client connections"
+          schema:
+            type: string
+            default: "focus"
+        - variable: JICOFO_AUTH_PASSWORD
+          label: 'JICOFO_AUTH_PASSWORD'
+          description: "XMPP password for Jicofo client connections"
+          schema:
+            type: string
+            default: "passw0rd"
+        - variable: JVB_AUTH_USER
+          label: 'JVB_AUTH_USER'
+          description: "XMPP user for JVB MUC client connections"
+          schema:
+            type: string
+            default: "jvb"
+        - variable: JVB_AUTH_PASSWORD
+          label: 'JVB_AUTH_PASSWORD'
+          description: "XMPP password for JVB MUC client connections"
+          schema:
+            type: string
+            default: "passw0rd"
+        - variable: JIGASI_XMPP_USER
+          label: 'JIGASI_XMPP_USER'
+          description: "XMPP user for Jigasi MUC client connections"
+          schema:
+            type: string
+            default: "jigasi"
+        - variable: JIGASI_XMPP_PASSWORD
+          label: 'JIGASI_XMPP_PASSWORD'
+          description: "XMPP password for Jigasi MUC client connections"
+          schema:
+            type: string
+            default: "passw0rd"
+        - variable: JIBRI_XMPP_USER
+          label: 'JIBRI_XMPP_USER'
+          description: "Internal user for Jibri client connections."
+          schema:
+            type: string
+            default: "jibri"
+        - variable: JIBRI_XMPP_PASSWORD
+          label: 'JIBRI_XMPP_PASSWORD'
+          description: "Internal password for Jibri client connections."
+          schema:
+            type: string
+            default: "passw0rd"
+        - variable: JIBRI_RECORDER_USER
+          label: 'JIBRI_RECORDER_USER'
+          description: "Internal recorder user for Jibri client connections"
+          schema:
+            type: string
+            default: "recorder"
+        - variable: JIBRI_RECORDER_PASSWORD
+          label: 'JIBRI_RECORDER_PASSWORD'
+          description: "Internal recorder password for Jibri client connections"
+          schema:
+            type: string
+            default: "passw0rd"
+        - variable: JWT_APP_ID
+          label: 'JWT_APP_ID'
+          description: "Application identifier"
+          schema:
+            type: string
+            default: "my_jitsi_app_id"
+        - variable: JWT_APP_SECRET
+          label: 'JWT_APP_SECRET'
+          description: "Application secret known only to your token"
+          schema:
+            type: string
+            default: "my_jitsi_app_secret"
+        - variable: JWT_ACCEPTED_ISSUERS
+          label: 'JWT_ACCEPTED_ISSUERS'
+          description: "(Optional) Set asapacceptedissuers as a comma separated list"
+          schema:
+            type: string
+            default: "my_web_client,my_app_client"
+        - variable: JWT_ACCEPTED_AUDIENCES
+          label: 'JWT_ACCEPTED_AUDIENCES'
+          description: "(Optional) Set asapacceptedaudiences as a comma separated list"
+          schema:
+            type: string
+            default: "my_server1,my_server2"
+        - variable: JWT_ASAP_KEYSERVER
+          label: 'JWT_ASAP_KEYSERVER'
+          description: "(Optional) Set asapkeyserver to a url where public keys can be found"
+          schema:
+            type: string
+            default: "https://example.com/asap"
+        - variable: JWT_ALLOW_EMPTY
+          label: 'JWT_ALLOW_EMPTY'
+          description: "(Optional) Allow anonymous users with no JWT while validating JWTs when provided"
+          schema:
+            type: string
+            default: "0"
+        - variable: JWT_AUTH_TYPE
+          label: 'JWT_AUTH_TYPE'
+          description: "(Optional) Controls which module is used for processing incoming JWTs"
+          schema:
+            type: string
+            default: "token"
+        - variable: JWT_TOKEN_AUTH_MODULE
+          label: 'JWT_TOKEN_AUTH_MODULE'
+          description: "(Optional) Controls which module is used for validating JWTs"
+          schema:
+            type: string
+            default: "token_verification"
+        - variable: LOG_LEVEL
+          label: 'LOG_LEVEL'
+          description: "Controls which logs are output from prosody and associated modules"
+          schema:
+            type: string
+            default: "info"
+        - variable: LDAP_URL
+          label: 'LDAP_URL'
+          description: "URL for ldap connection"
+          schema:
+            type: string
+            default: "ldaps://ldap.domain.com/"
+        - variable: LDAP_BASE
+          label: 'LDAP_BASE'
+          description: "LDAP base DN. Can be empty."
+          schema:
+            type: string
+            default: "DC=example,DC=domain,DC=com"
+        - variable: LDAP_BINDDN
+          label: 'LDAP_BINDDN'
+          description: "LDAP user DN. Do not specify this parameter for the anonymous bind."
+          schema:
+            type: string
+            default: "CN=binduser,OU=users,DC=example,DC=domain,DC=com"
+        - variable: LDAP_BINDPW
+          label: 'LDAP_BINDPW'
+          description: "LDAP user password. Do not specify this parameter for the anonymous bind."
+          schema:
+            type: string
+            default: "LdapUserPassw0rd"
+        - variable: LDAP_FILTER
+          label: 'LDAP_FILTER'
+          description: "LDAP filter."
+          schema:
+            type: string
+            default: "(sAMAccountName=%u)"
+        - variable: LDAP_AUTH_METHOD
+          label: 'LDAP_AUTH_METHOD'
+          description: "LDAP authentication method."
+          schema:
+            type: string
+            default: "bind"
+        - variable: LDAP_VERSION
+          label: 'LDAP_VERSION'
+          description: "LDAP protocol version"
+          schema:
+            type: string
+            default: "3"
+        - variable: LDAP_USE_TLS
+          label: 'LDAP_USE_TLS'
+          description: "Enable LDAP TLS"
+          schema:
+            type: string
+            default: "1"
+        - variable: LDAP_TLS_CIPHERS
+          label: 'LDAP_TLS_CIPHERS'
+          description: "Set TLS ciphers list to allow"
+          schema:
+            type: string
+            default: "SECURE256:SECURE128"
+        - variable: LDAP_TLS_CHECK_PEER
+          label: 'LDAP_TLS_CHECK_PEER'
+          description: "Require and verify LDAP server certificate"
+          schema:
+            type: string
+            default: "1"
+        - variable: LDAP_TLS_CACERT_FILE
+          label: 'LDAP_TLS_CACERT_FILE'
+          description: "Path to CA cert file. Used when server certificate verification is enabled"
+          schema:
+            type: string
+            default: "/etc/ssl/certs/ca-certificates.crt"
+        - variable: LDAP_TLS_CACERT_DIR
+          label: 'LDAP_TLS_CACERT_DIR'
+          description: "Path to CA certs directory. Used when server certificate verification is enabled."
+          schema:
+            type: string
+            default: "/etc/ssl/certs"
+        - variable: LDAP_START_TLS
+          label: 'LDAP_START_TLS'
+          description: "Enable STARTTLS, requires LDAPv3, URL must be ldap not ldaps"
+          schema:
+            type: string
+            default: "0"
+
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5222
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 5222
+
+        - variable: port2
+          label: 'port2 service'
+          description: "Container Port 5347"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: port2
+                      label: "port2 Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5347
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 5347
+        - variable: port3
+          label: 'port3 service'
+          description: "Container Port 5280"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: port3
+                      label: "port3 Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5280
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 5280
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: config
+          label: "config Storage"
+          description: "IMPORTENT Change to mntuserappdatajitsiprosody"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+
+
+# Include{persistenceList}
+
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

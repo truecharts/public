@@ -1,0 +1,22 @@
+env:
+  QUX_PROXY_URL: http://server-ip:8383
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/quant-ux-frontend
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8082
+        protocol: TCP
+        targetPort: 8082

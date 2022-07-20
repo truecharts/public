@@ -1,0 +1,28 @@
+env:
+  EULA: 'false'
+  JVM_OPTS: -Xms4096m -Xmx4096m
+  LEVEL: world
+  OPS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/infinityevolved1-7
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 25565
+        protocol: TCP
+        targetPort: 25565

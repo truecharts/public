@@ -1,0 +1,31 @@
+env:
+  -log-level: '2'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/signtools
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  dataprofiles:
+    enabled: true
+    mountPath: /data/profiles/
+  signer-cfg-yml:
+    enabled: true
+    mountPath: /signer-cfg.yml
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3344
+        protocol: TCP
+        targetPort: 8080

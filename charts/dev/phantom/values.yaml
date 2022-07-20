@@ -1,0 +1,52 @@
+env:
+  CLEANUP_TIMEOUT: '60'
+  REMOTE_MINECRAFT_IP: ''
+  REMOTE_MINECRAFT_PORT: '19132'
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phantom
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 19132
+        protocol: TCP
+        targetPort: 19132
+  tcpport2:
+    enabled: true
+    ports:
+      tcpport2:
+        enabled: true
+        port: 19133
+        protocol: TCP
+        targetPort: 19133
+  udpport1:
+    enabled: true
+    ports:
+      udpport1:
+        enabled: true
+        port: 19132
+        protocol: UDP
+        targetPort: 19132
+  udpport3:
+    enabled: true
+    ports:
+      udpport3:
+        enabled: true
+        port: 19133
+        protocol: UDP
+        targetPort: 19133

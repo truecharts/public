@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Crypto
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Proof of Commitment - ASIC proof / Energy efficient and sustainable
+  mining
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/signum-node
+icon: https://truecharts.org/img/chart-icons/signum-node.png
+keywords:
+- signum-node
+- Crypto
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: signum-node
+sources:
+- https://github.com/signum-network/signum-node/
+- https://hub.docker.com/r/signumnetwork/node
+type: application
+version: 0.0.10

@@ -1,0 +1,27 @@
+env:
+  ADMIN: ''
+  FORCE_UPDATE: ''
+  GAME_PARAMS: -name "Docker Windward" -world "World" -tcp 5127 -public
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/windward
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /windward
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5127
+        protocol: TCP
+        targetPort: 5127

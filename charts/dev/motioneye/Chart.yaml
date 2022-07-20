@@ -1,0 +1,27 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "MotionEye Docker&lt;br /&gt;\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/motioneye
+icon: https://truecharts.org/img/chart-icons/motioneye.png
+keywords:
+- motioneye
+- Network
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: motioneye
+sources:
+- https://hub.docker.com/r/malvarez00/docker-motioneye
+type: application
+version: 0.0.10

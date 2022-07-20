@@ -1,0 +1,27 @@
+env:
+  SSH_AUTH_KEY_1: enter_ssh_key_of_client
+  SSH_AUTH_KEY_2: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rsync-server
+  tag: latest
+persistence:
+  filepath:
+    enabled: true
+    mountPath: /mnt/user/
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5533
+        protocol: TCP
+        targetPort: 22

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Messenger
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: WeeChat is a free and open-source Internet Relay Chat client, which is
+  designed to be light and fast.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/weechat
+icon: https://truecharts.org/img/chart-icons/weechat.png
+keywords:
+- weechat
+- Network-Messenger
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: weechat
+sources:
+- https://weechat.org/
+- https://hub.docker.com/r/jkaberg/weechat/
+type: application
+version: 0.0.10

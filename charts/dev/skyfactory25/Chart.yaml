@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'FTB Presents Skyfactory 2.5 Modded Minecraft Server[br][br][b]FTB Presents
+  Skyfactory 2.5[/b][br]It''s skyblock like you''ve never seen it before![br][br]Setup:[br][li]You
+  must accept the EULA by setting the [b]EULA[/b] variable to [span style=''color:
+  #00E800;'']true[/span] or the install will fail.[br]Optional:[br][li]You can setup
+  a comma separated list of players who will have admin privileges in game by setting
+  [b]OPS[/b]'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/skyfactory25
+icon: https://truecharts.org/img/chart-icons/skyfactory25.png
+keywords:
+- skyfactory25
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: skyfactory25
+sources:
+- https://feed-the-beast.com/modpack/ftb_presents_skyfactory_2_5
+- https://hub.docker.com/repository/docker/goobaroo/ftbskyfactory25
+type: application
+version: 0.0.10

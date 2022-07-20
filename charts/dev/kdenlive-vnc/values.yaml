@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kdenlive-vnc
+  tag: latest
+persistence:
+  content:
+    enabled: true
+    mountPath: /sharedContent
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900

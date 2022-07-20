@@ -1,0 +1,29 @@
+env:
+  RUST_LOG: debug
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rustypaste
+  tag: latest
+persistence:
+  storageconfigfile:
+    enabled: true
+    mountPath: /app/config.toml
+    readOnly: true
+  storageuploads:
+    enabled: true
+    mountPath: /app/upload
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

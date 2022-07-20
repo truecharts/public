@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Messenger
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "tmpmail is a command line utility written in POSIX sh that allows you\
+  \ to create a temporary email address and receive emails to the temporary email\
+  \ address. It uses 1secmail's API to receive emails.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/temp-mail
+icon: https://truecharts.org/img/chart-icons/temp-mail.png
+keywords:
+- temp-mail
+- Network-Messenger
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: temp-mail
+sources:
+- https://github.com/sdushantha/tmpmail
+- https://hub.docker.com/repository/docker/olprog/tmpmail
+type: application
+version: 0.0.10

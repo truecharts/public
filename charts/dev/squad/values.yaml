@@ -1,0 +1,71 @@
+env:
+  GAME_ID: '403240'
+  GAME_PARAMS: Port=7787 QueryPort=27165
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/squad
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.queryport2.ports.queryport2.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.queryport2.ports.queryport2.targetPort }}'
+  startup:
+    port: '{{ .Values.service.queryport2.ports.queryport2.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  gameport2:
+    enabled: true
+    ports:
+      gameport2:
+        enabled: true
+        port: 7788
+        protocol: UDP
+        targetPort: 7788
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7787
+        protocol: UDP
+        targetPort: 7787
+  queryport1:
+    enabled: true
+    ports:
+      queryport1:
+        enabled: true
+        port: 27165
+        protocol: UDP
+        targetPort: 27165
+  queryport2:
+    enabled: true
+    ports:
+      queryport2:
+        enabled: true
+        port: 27166
+        protocol: TCP
+        targetPort: 27166
+  rconport:
+    enabled: true
+    ports:
+      rconport:
+        enabled: true
+        port: 21114
+        protocol: UDP
+        targetPort: 21114

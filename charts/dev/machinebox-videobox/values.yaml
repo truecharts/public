@@ -1,0 +1,30 @@
+env:
+  MB_ADDRESS: 0.0.0.0
+  MB_BASICAUTH_PASS: ''
+  MB_BASICAUTH_USER: ''
+  MB_DISABLE_CORS: 'false'
+  MB_KEY: ''
+  MB_VIDEOBOX_FACEBOX_ADDR: http://192.168.2.254:8085
+  MB_VIDEOBOX_NUDEBOX_ADDR: ''
+  MB_VIDEOBOX_RESULT_DURATION: 1h
+  MB_VIDEOBOX_TAGBOX_ADDR: http://192.168.2.254:8082
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/machinebox-videobox
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8084
+        protocol: TCP
+        targetPort: 8080

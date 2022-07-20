@@ -1,0 +1,25 @@
+env:
+  POSTGRES_PASSWORD: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/postgis
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/lib/postgresql/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5432
+        protocol: TCP
+        targetPort: 5432

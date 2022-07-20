@@ -1,0 +1,30 @@
+env:
+  youtubedl_interval: 12h
+  youtubedl_quality: 1080p
+  youtubedl_webui: 'true'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/youtube-dl
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storagemedia:
+    enabled: true
+    mountPath: /downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8013
+        protocol: TCP
+        targetPort: 8080

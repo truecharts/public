@@ -1,0 +1,40 @@
+env:
+  GAME_CONFIG: dm.cfg
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/teeworlds
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.tcp.ports.tcp.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.tcp.ports.tcp.targetPort }}'
+  startup:
+    port: '{{ .Values.service.tcp.ports.tcp.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8303
+        protocol: UDP
+        targetPort: 8303
+  tcp:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 8303
+        protocol: TCP
+        targetPort: 8303

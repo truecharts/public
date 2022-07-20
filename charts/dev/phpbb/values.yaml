@@ -1,0 +1,36 @@
+env:
+  ALLOW_EMPTY_PASSWORD: 'no'
+  PHPBB_DATABASE_HOST: mariadb
+  PHPBB_DATABASE_NAME: bitnami_phpbb
+  PHPBB_DATABASE_PASSWORD: password
+  PHPBB_DATABASE_PORT_NUMBER: '3306'
+  PHPBB_DATABASE_USER: bn_phpbb
+  PHPBB_EMAIL: user@example.com
+  PHPBB_FORUM_DESCRIPTION: A little text to describe your forum
+  PHPBB_FORUM_NAME: Phpbb
+  PHPBB_PASSWORD: bitnami
+  PHPBB_USERNAME: user
+  PHP_MEMORY_LIMIT: 256M
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phpbb
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /bitnami/phpbb
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

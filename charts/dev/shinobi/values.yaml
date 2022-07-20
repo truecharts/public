@@ -1,0 +1,39 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shinobi
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  customautoloadlibs:
+    enabled: true
+    mountPath: /home/Shinobi/libs/customAutoLoad
+  localtime:
+    enabled: true
+    mountPath: /etc/localtime
+  mysql:
+    enabled: true
+    mountPath: /var/lib/mysql
+  plugins:
+    enabled: true
+    mountPath: /home/Shinobi/plugins
+  videos:
+    enabled: true
+    mountPath: /home/Shinobi/videos
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+    - Other
+    - Network-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "STORJ DAEMON Docker - using Storj public automated build. This template,\
+  \ nor author, are affiliated with storj.io. \r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/storj
+icon: https://truecharts.org/img/chart-icons/storj.png
+keywords:
+- storj
+- Cloud
+- Tools-Utilities
+- Other
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: storj
+sources:
+- https://storj.io
+- https://hub.docker.com/r/oreandawe/storjshare-cli/
+type: application
+version: 0.0.10

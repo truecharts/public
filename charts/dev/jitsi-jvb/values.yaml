@@ -1,0 +1,49 @@
+env:
+  DOCKER_HOST_ADDRESS: 192.168.1.1
+  JVB_AUTH_PASSWORD: passw0rd
+  JVB_AUTH_USER: jvb
+  JVB_BREWERY_MUC: jvbbrewery
+  JVB_ENABLE_APIS: none
+  JVB_STUN_SERVERS: stun.l.google.com:19302, stun1.l.google.com:19302, stun2.l.google.com:19302
+  JVB_TCP_HARVESTER_DISABLED: 'true'
+  XMPP_AUTH_DOMAIN: auth.meet.jitsi
+  XMPP_INTERNAL_MUC_DOMAIN: internal-muc.meet.jitsi
+  XMPP_SERVER: xmpp.meet.jitsi
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/jitsi-jvb
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.jvb_tcp_port.ports.jvb_tcp_port.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.jvb_tcp_port.ports.jvb_tcp_port.targetPort }}'
+  startup:
+    port: '{{ .Values.service.jvb_tcp_port.ports.jvb_tcp_port.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  jvb_tcp_port:
+    enabled: true
+    ports:
+      jvb_tcp_port:
+        enabled: true
+        port: 4443
+        protocol: TCP
+        targetPort: 4443
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 10000
+        protocol: UDP
+        targetPort: 10000

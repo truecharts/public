@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "A containerized IDE-like text editor that runs on a web server. This\
+  \ tool is for running NeoVim remotely and continuing the development process at\
+  \ \U0001F680 speed."
+home: https://github.com/truecharts/apps/tree/master/charts/stable/nvim-server
+icon: https://truecharts.org/img/chart-icons/nvim-server.png
+keywords:
+- nvim-server
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: nvim-server
+sources:
+- https://github.com/yqlbu/neovim-server
+- https://hub.docker.com/r/hikariai/nvim-server
+type: application
+version: 0.0.10

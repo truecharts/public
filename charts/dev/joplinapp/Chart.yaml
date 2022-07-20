@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This container allows you to have a working Joplin desktop app, reachable\
+  \ via a http noVNC that can be placed behind a reverse proxy.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/joplinapp
+icon: https://truecharts.org/img/chart-icons/joplinapp.png
+keywords:
+- joplinapp
+- Productivity
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: joplinapp
+sources:
+- https://github.com/acaranta/docker-joplin
+- https://hub.docker.com/r/acaranta/docker-joplin/
+type: application
+version: 0.0.10

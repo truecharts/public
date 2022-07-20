@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - MediaApp-Music
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Picard is a cross-platform music tagger written in Python.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/musicbrainz-picard
+icon: https://truecharts.org/img/chart-icons/musicbrainz-picard.png
+keywords:
+- musicbrainz-picard
+- MediaApp-Music
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: musicbrainz-picard
+sources:
+- https://picard.musicbrainz.org/
+- https://hub.docker.com/r/mikenye/picard
+type: application
+version: 0.0.10

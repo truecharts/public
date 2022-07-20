@@ -1,0 +1,31 @@
+env:
+  DISPLAY_HEIGHT: ''
+  DISPLAY_WIDTH: ''
+  GROUP_ID: ''
+  USER_ID: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/musicbrainz-picard
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  hostpathforstorage:
+    enabled: true
+    mountPath: /storage
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: TCP
+        targetPort: 5800

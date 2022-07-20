@@ -1,0 +1,24 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tonido
+  tag: latest
+persistence:
+  tonido:
+    enabled: true
+    mountPath: /unRAID
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 10001
+        protocol: TCP
+        targetPort: 10001

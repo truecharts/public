@@ -1,0 +1,45 @@
+env:
+  BACKUP_KEEP_DAYS: '7'
+  BACKUP_KEEP_MONTHS: '6'
+  BACKUP_KEEP_WEEKS: '4'
+  HEALTHCHECK_PORT: '9080'
+  POSTGRES_DB: postgres, nextcloud, traccar, joplin, wikijs, authelia
+  POSTGRES_EXTRA_OPTS: -Z9 --schema=public --blobs
+  POSTGRES_HOST: 192.168.1.7
+  POSTGRES_PASSWORD: postgres_root_password
+  POSTGRES_PORT: '5432'
+  POSTGRES_USER: postgres_root_user
+  SCHEDULE: '@hourly'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/postgres-backup-local
+  tag: latest
+persistence:
+  backups:
+    enabled: true
+    mountPath: /backups
+  data:
+    enabled: true
+    mountPath: /var/lib/postgresql/data
+  varoptpgbackups:
+    enabled: true
+    mountPath: /var/opt/pgbackups
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: This is a simple email relay server that handles emails from Kavita application.
+  By default, Kavita installations will use the Kavita hosted email service. However,
+  if a user wants to setup their own SMTP service, then they can run their own instance
+  of this microService.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/kavitaemail
+icon: https://truecharts.org/img/chart-icons/kavitaemail.png
+keywords:
+- kavitaemail
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: kavitaemail
+sources:
+- https://github.com/Kareadita/KavitaEmail
+- https://hub.docker.com/r/kizaing/kavitaemail
+type: application
+version: 0.0.10

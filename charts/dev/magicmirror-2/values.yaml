@@ -1,0 +1,26 @@
+env:
+  FORCE_UPDATE: ''
+  FORCE_UPDATE_MODULES: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/magicmirror-2
+  tag: latest
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /magicmirror2
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

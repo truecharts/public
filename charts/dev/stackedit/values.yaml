@@ -1,0 +1,22 @@
+env:
+  ROOT_URL: /
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/stackedit
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 8000

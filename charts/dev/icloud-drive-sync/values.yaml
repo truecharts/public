@@ -1,0 +1,31 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/icloud-drive-sync
+  tag: latest
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /app/config.yaml
+  drivepath:
+    enabled: true
+    mountPath: /app/icloud/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,48 @@
+env:
+  ADMIN_PASSWORD: changeme2019
+  SPLUNK_CLI_ARGS: --accept-license --no-prompt
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/splunk
+  tag: latest
+persistence:
+  appcredspersist:
+    enabled: true
+    mountPath: /opt/splunk/etc/auth
+  configpersist:
+    enabled: true
+    mountPath: /opt/splunk/etc/apps
+  datapersist:
+    enabled: true
+    mountPath: /splunkdata
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  dataingest:
+    enabled: true
+    ports:
+      dataingest:
+        enabled: true
+        port: 9997
+        protocol: TCP
+        targetPort: 9997
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: HTTP
+        targetPort: 8000
+  management:
+    enabled: true
+    ports:
+      management:
+        enabled: true
+        port: 8089
+        protocol: TCP
+        targetPort: 8089

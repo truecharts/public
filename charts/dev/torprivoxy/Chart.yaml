@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Proxy
+    - Network-Privacy
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Small TOR and Privoxy container with just 8 MB
+home: https://github.com/truecharts/apps/tree/master/charts/stable/torprivoxy
+icon: https://truecharts.org/img/chart-icons/torprivoxy.png
+keywords:
+- torprivoxy
+- Network-Proxy
+- Network-Privacy
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: torprivoxy
+sources:
+- https://github.com/avpnusr/torprivoxy
+- https://hub.docker.com/r/avpnusr/torprivoxy/
+type: application
+version: 0.0.10

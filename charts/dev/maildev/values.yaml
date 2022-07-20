@@ -1,0 +1,29 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/maildev
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1080
+        protocol: HTTP
+        targetPort: 80
+  portsmtp:
+    enabled: true
+    ports:
+      portsmtp:
+        enabled: true
+        port: 1025
+        protocol: TCP
+        targetPort: 25

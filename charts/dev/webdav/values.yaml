@@ -1,0 +1,27 @@
+env:
+  PUMASK: '0000'
+  WEBDAV_PASSWORD: PASSWORD
+  WEBDAV_USERNAME: USERNAME
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/webdav
+  tag: latest
+persistence:
+  files_location:
+    enabled: true
+    mountPath: /var/webdav/public
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 80

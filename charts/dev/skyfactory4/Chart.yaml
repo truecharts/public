@@ -1,0 +1,36 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'SkyFactory 4 - 4.2.4 Modded Minecraft Server[br]Back again for more
+  modded skyblock fun! SkyFactory 4 offers a brand-new experience never before seen
+  in the series. Full automation, tech, magic, and bacon resources! This iteration
+  offers over 30+ world types so you can play the pack like never before! While some
+  world types are based on the classic tree on dirt others are designed with unique
+  recipes and advancements.[br]Version 4.2.2[br][br]Setup:[br][li]You must accept
+  the EULA by setting the [b]EULA[/b] variable to [span style=''color: #00E800;'']true[/span]
+  or the install will fail.[br]Optional:[br][li]You can setup a comma separated list
+  of players who will have admin privileges in game by setting [b]OPS[/b]'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/skyfactory4
+icon: https://truecharts.org/img/chart-icons/skyfactory4.png
+keywords:
+- skyfactory4
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: skyfactory4
+sources:
+- https://www.curseforge.com/minecraft/modpacks/skyfactory-4
+- https://hub.docker.com/repository/docker/goobaroo/skyfactory4
+type: application
+version: 0.0.10

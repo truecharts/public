@@ -1,0 +1,79 @@
+env:
+  GAME_ID: '215360'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/killingfloor
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.adminport.ports.adminport.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.adminport.ports.adminport.targetPort }}'
+  startup:
+    port: '{{ .Values.service.adminport.ports.adminport.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  adminport:
+    enabled: true
+    ports:
+      adminport:
+        enabled: true
+        port: 8075
+        protocol: TCP
+        targetPort: 8075
+  gamespyquery:
+    enabled: true
+    ports:
+      gamespyquery:
+        enabled: true
+        port: 7717
+        protocol: UDP
+        targetPort: 7717
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7707
+        protocol: UDP
+        targetPort: 7707
+  masterserverbr:
+    enabled: true
+    ports:
+      masterserverbr:
+        enabled: true
+        port: 28852
+        protocol: UDP
+        targetPort: 28852
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        port: 7708
+        protocol: UDP
+        targetPort: 7708
+  steamport:
+    enabled: true
+    ports:
+      steamport:
+        enabled: true
+        port: 20560
+        protocol: UDP
+        targetPort: 20560

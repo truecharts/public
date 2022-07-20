@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: PyCharm is an Integrated Development Environment (IDE) used in computer
+  programming, specifically for the Python language. It is developed by the Czech
+  company JetBrains.[2] It provides code analysis, a graphical debugger, an integrated
+  unit tester, integration with version control systems (VCSes), and supports web
+  development with Django.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/pycharm
+icon: https://truecharts.org/img/chart-icons/pycharm.png
+keywords:
+- pycharm
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: pycharm
+sources:
+- https://www.jetbrains.com/pycharm/
+- https://registry.hub.docker.com/r/binhex/arch-pycharm/
+- https://github.com/binhex/documentation
+type: application
+version: 0.0.10

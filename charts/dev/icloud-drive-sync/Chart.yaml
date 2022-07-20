@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+    - Downloaders
+    - HomeAutomation
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This container will DOWNLOAD (not upload - yet) all your files / photos\
+  \ from iCloud.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/icloud-drive-sync
+icon: https://truecharts.org/img/chart-icons/icloud-drive-sync.png
+keywords:
+- icloud-drive-sync
+- Backup
+- Cloud
+- Downloaders
+- HomeAutomation
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: icloud-drive-sync
+sources:
+- https://hub.docker.com/r/mandarons/icloud-drive
+- https://github.com/mandarons/icloud-drive-docker
+type: application
+version: 0.0.10

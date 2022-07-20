@@ -1,0 +1,48 @@
+env:
+  GAME_ID: '361580'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/wreckfest
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9028
+        protocol: HTTP
+        targetPort: 8080
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 33540
+        protocol: UDP
+        targetPort: 33540
+  udpsteamquery:
+    enabled: true
+    ports:
+      udpsteamquery:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015

@@ -1,0 +1,24 @@
+env:
+  MACHINEID: ''
+  SERVERNAME: ''
+  TOKEN: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ldapforplex
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 2389
+        protocol: TCP
+        targetPort: 2389

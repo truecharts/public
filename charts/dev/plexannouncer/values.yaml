@@ -1,0 +1,25 @@
+env:
+  DISCORD_WEBHOOK_URL: ''
+  PLEX_SERVER_URL: ''
+  PLEX_WEBHOOK_TOKEN: ''
+  UPDATED_LIBRARIES: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plexannouncer
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 32500
+        protocol: TCP
+        targetPort: 32500

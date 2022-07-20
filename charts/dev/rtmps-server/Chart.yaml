@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+    - Network-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker image can be used to create a video streaming server that\
+  \ supports RTMP, RTMPS, HLS, DASH out of the box. It also allows adaptive streaming\
+  \ and custom transcoding of video streams. All modules are built from source on\
+  \ Debian and Alpine Linux base images.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rtmps-server
+icon: https://truecharts.org/img/chart-icons/rtmps-server.png
+keywords:
+- rtmps-server
+- GameServers
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: rtmps-server
+sources:
+- https://github.com/JamiePhonic/rtmps-hls-server
+- https://hub.docker.com/r/jamiephonic/rtmps-hls-server
+type: application
+version: 0.0.10

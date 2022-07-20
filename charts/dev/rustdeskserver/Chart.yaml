@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Yet another remote desktop software, written in Rust. Works out of the
+  box, no configuration required. You have full control of your data, with no concerns
+  about security.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rustdeskserver
+icon: https://truecharts.org/img/chart-icons/rustdeskserver.png
+keywords:
+- rustdeskserver
+- Tools-Utilities
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: rustdeskserver
+sources:
+- https://github.com/rustdesk/rustdesk-server
+- https://hub.docker.com/r/rustdesk/rustdesk-server
+type: application
+version: 0.0.10

@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Web
+    - Network-Proxy
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Nginx(https://nginx.org/) is a simple webserver with php support. The\
+  \ config is in the docker side go in the console.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/nginx-php8
+icon: https://truecharts.org/img/chart-icons/nginx-php8.png
+keywords:
+- nginx-php8
+- Network-Web
+- Network-Proxy
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: nginx-php8
+sources:
+- https://nginx.org/
+- https://hub.docker.com/r/tangramor/nginx-php8-fpm
+type: application
+version: 0.0.10

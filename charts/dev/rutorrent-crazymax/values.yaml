@@ -1,0 +1,47 @@
+env:
+  RT_INC_PORT: '50000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rutorrent-crazymax
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  dossierdetelechargement:
+    enabled: true
+    mountPath: /downloads
+  stockageduhtpassword:
+    enabled: true
+    mountPath: /passwd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8095
+        protocol: HTTP
+        targetPort: 8080
+  "portallou\xE9ause":
+    enabled: true
+    ports:
+      "portallou\xE9ause":
+        enabled: true
+        port: 6881
+        protocol: UDP
+        targetPort: 6881
+  portforwarddoi:
+    enabled: true
+    ports:
+      portforwarddoi:
+        enabled: true
+        port: 50000
+        protocol: TCP
+        targetPort: 50000

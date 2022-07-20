@@ -1,0 +1,25 @@
+env:
+  MB_DB_FILE: /tmp/metabase.db
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/metabase
+  tag: latest
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /tmp
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: TCP
+        targetPort: 3000

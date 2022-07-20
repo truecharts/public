@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Petio is a third party companion app available to Plex server owners
+  to allow their users to request, review and discover content
+home: https://github.com/truecharts/apps/tree/master/charts/stable/petio
+icon: https://truecharts.org/img/chart-icons/petio.png
+keywords:
+- petio
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: petio
+sources:
+- https://github.com/petio-team/petio
+- https://registry.hub.docker.com/r/ghcr.io/petio-team/petio
+type: application
+version: 0.0.10

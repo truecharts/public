@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Docker for Rclone - a command line program to sync files and directories
+  to and from various cloud services.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rclone
+icon: https://truecharts.org/img/chart-icons/rclone.png
+keywords:
+- rclone
+- Backup
+- Cloud
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: rclone
+sources:
+- http://rclone.org/
+- https://hub.docker.com/r/tynor88/rclone/
+type: application
+version: 0.0.10

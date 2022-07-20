@@ -1,0 +1,29 @@
+env:
+  ALGO: ethash
+  API_PASSWORD: ''
+  SERVER: ''
+  WALLET: ''
+  WORKER: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/trex-miner
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4067
+        protocol: TCP
+        targetPort: 4067

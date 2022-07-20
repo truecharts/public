@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'This is an MQTT Home Assistant Bridge with a rest endpoint as well that
+  allows control of unraid from this docker, homeassistant and MQTT/REST generally.
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/unraid-api
+icon: https://truecharts.org/img/chart-icons/unraid-api.png
+keywords:
+- unraid-api
+- HomeAutomation
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: unraid-api
+sources:
+- https://cloud.docker.com/repository/docker/electricbrainuk/unraidapi
+type: application
+version: 0.0.10

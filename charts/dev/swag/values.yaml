@@ -1,0 +1,44 @@
+env:
+  CERTPROVIDER: ''
+  DNSPLUGIN: ''
+  DUCKDNSTOKEN: ''
+  EMAIL: ''
+  EXTRA_DOMAINS: ''
+  ONLY_SUBDOMAINS: ''
+  PROPAGATION: ''
+  STAGING: ''
+  SUBDOMAINS: ''
+  UMASK: ''
+  URL: ''
+  VALIDATION: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/swag
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 443
+        protocol: TCP
+        targetPort: 443
+  port80:
+    enabled: true
+    ports:
+      port80:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 80

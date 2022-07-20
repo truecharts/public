@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/unbound
+  tag: latest
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /opt/unbound/etc/unbound/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5335
+        protocol: TCP
+        targetPort: 53
+  udpdnsport:
+    enabled: true
+    ports:
+      udpdnsport:
+        enabled: true
+        port: 5335
+        protocol: UDP
+        targetPort: 53

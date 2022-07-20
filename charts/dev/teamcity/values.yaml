@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/teamcity
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data/teamcity_server/datadir
+  logs:
+    enabled: true
+    mountPath: /opt/teamcity/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8111
+        protocol: TCP
+        targetPort: 8111

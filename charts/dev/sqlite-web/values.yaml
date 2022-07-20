@@ -1,0 +1,25 @@
+env:
+  SQLITE_DATABASE: db_name.db
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/sqlite-web
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

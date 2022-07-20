@@ -1,0 +1,34 @@
+env:
+  GAME_PARAMS: -config serverconfig.txt
+  TERRARIA_SRV_V: 1.4.3.6
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/terraria
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9012
+        protocol: HTTP
+        targetPort: 8080
+  tcp:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 7777
+        protocol: TCP
+        targetPort: 7777

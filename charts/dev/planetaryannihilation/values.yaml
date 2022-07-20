@@ -1,0 +1,42 @@
+env:
+  GAME_MODE: lobby
+  GAME_PARAMS: ''
+  GAME_PORT: '20545'
+  GAME_STREAM: stable
+  MAX_PLAYERS: '12'
+  PA_ACC_NAME: ''
+  PA_ACC_PWD: ''
+  SERVER_NAME: DockerServer
+  SERVER_PWD: Docker
+  UPDATE_ON_START: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/planetaryannihilation
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 20545
+        protocol: TCP
+        targetPort: 20545
+  udplanbeacon:
+    enabled: true
+    ports:
+      udplanbeacon:
+        enabled: true
+        port: 8192
+        protocol: UDP
+        targetPort: 8192

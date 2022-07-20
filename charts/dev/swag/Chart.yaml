@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "SWAG - Secure Web Application Gateway (formerly known as letsencrypt,\
+  \ no relation to Let's Encrypt\u2122) sets up an Nginx webserver and reverse proxy\
+  \ with php support and a built-in certbot client that automates free SSL server\
+  \ certificate generation and renewal processes (Let's Encrypt and ZeroSSL). It also\
+  \ contains fail2ban for intrusion prevention."
+home: https://github.com/truecharts/apps/tree/master/charts/stable/swag
+icon: https://truecharts.org/img/chart-icons/swag.png
+keywords:
+- swag
+- Tools-Utilities
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: swag
+sources:
+- https://linuxserver.io
+- https://github.com/orgs/linuxserver/packages/container/package/swag
+- https://github.com/linuxserver/docker-swag#readme
+type: application
+version: 0.0.10

@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Jira Service Desk is a fully featured service desk tool used by modern
+  IT teams.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jira-service-desk
+icon: https://truecharts.org/img/chart-icons/jira-service-desk.png
+keywords:
+- jira-service-desk
+- Cloud
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: jira-service-desk
+sources:
+- https://www.atlassian.com/software/jira/service-desk
+- https://hub.docker.com/r/atlassian/jira-servicedesk
+type: application
+version: 0.0.10

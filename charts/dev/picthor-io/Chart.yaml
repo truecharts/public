@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - MediaApp-Photos
+    - MediaServer-Photos
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "&lt;h1&gt;\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/picthor-io
+icon: https://truecharts.org/img/chart-icons/picthor-io.png
+keywords:
+- picthor-io
+- MediaApp-Photos
+- MediaServer-Photos
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: picthor-io
+sources:
+- https://github.com/picthor-io/picthor-io-server
+- https://hub.docker.com/r/picthorio/picthor-io
+type: application
+version: 0.0.10

@@ -1,0 +1,49 @@
+env:
+  NVIDIA_DRIVER_CAPABILITIES: ''
+  NVIDIA_VISIBLE_DEVICES: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shinobi-pro-cctv
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  customautoload:
+    enabled: true
+    mountPath: /home/Shinobi/libs/customAutoLoad
+  database:
+    enabled: true
+    mountPath: /var/lib/mysql
+  localtime:
+    enabled: true
+    mountPath: /etc/localtime
+    readOnly: true
+  plugins:
+    enabled: true
+    mountPath: /home/Shinobi/plugins
+  streams:
+    enabled: true
+    mountPath: /dev/shm/Shinobi/streams
+  videos:
+    enabled: true
+    mountPath: /home/Shinobi/videos
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

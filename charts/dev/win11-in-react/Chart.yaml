@@ -1,0 +1,27 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Windows 11 in React is a Windows 11 web clone written in React.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/win11-in-react
+icon: https://truecharts.org/img/chart-icons/win11-in-react.png
+keywords:
+- win11-in-react
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: win11-in-react
+sources:
+- https://hub.docker.com/r/blueedge/win11react/
+type: application
+version: 0.0.10

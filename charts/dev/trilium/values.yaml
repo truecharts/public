@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/trilium
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /home/node/trilium-data
+  backups:
+    enabled: true
+    mountPath: /home/node/trilium-data/backup
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8888
+        protocol: TCP
+        targetPort: 8080

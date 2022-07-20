@@ -1,0 +1,25 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/todomini
+  tag: latest
+persistence:
+  storagebackground:
+    enabled: true
+    mountPath: /var/www/public/img/stardust.png
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8047
+        protocol: TCP
+        targetPort: 80

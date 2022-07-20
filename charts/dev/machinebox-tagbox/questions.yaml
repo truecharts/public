@@ -1,0 +1,337 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: MB_ADDRESS
+          label: 'MB_ADDRESS'
+          description: "(string) Defaults to 0.0.0.0 - Address where the service will listen. "
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: MB_TAGBOX_READ_ONLY
+          label: 'MB_TAGBOX_READ_ONLY'
+          description: " (bool) Defaults to false - If true Tagbox will be read only. Teaching and updating state will be disabled. Be sure to provide MBTAGBOXSTATEURL to set the initial state, otherwise the box will be useless. "
+          schema:
+            type: string
+            default: "false"
+        - variable: MB_TAGBOX_ONLY_CUSTOM_TAGS
+          label: 'MB_TAGBOX_ONLY_CUSTOM_TAGS'
+          description: "Container Variable MBTAGBOXONLYCUSTOMTAGS"
+          schema:
+            type: string
+            default: "false"
+        - variable: MB_DOWNLOAD_TIMEOUT_SECONDS
+          label: 'MB_DOWNLOAD_TIMEOUT_SECONDS'
+          description: "(integer) Default to 60. Timeout in seconds that Tagbox will use when it downloads files, for example to download the state file. "
+          schema:
+            type: string
+            default: "60"
+        - variable: MB_KEY
+          label: 'MB_KEY'
+          description: "Container Variable MBKEYGet one here httpsmachinebox.iologin"
+          schema:
+            type: string
+            default: ""
+        - variable: MB_DISABLE_CORS
+          label: 'MB_DISABLE_CORS'
+          description: "(bool) Defaults to false - If true will turn off CORS support for the box. "
+          schema:
+            type: string
+            default: "false"
+        - variable: MB_BASICAUTH_USER
+          label: 'MB_BASICAUTH_USER'
+          description: "(string) The Basic Authentication username and password that every request must use. Recommended for sitautions where the boxes are publicly accessible. "
+          schema:
+            type: string
+            default: ""
+        - variable: MB_BASICAUTH_PASS
+          label: 'MB_BASICAUTH_PASS'
+          description: "Container Variable MBBASICAUTHPASS"
+          schema:
+            type: string
+            default: ""
+        - variable: MB_TAGBOX_STATE_URL
+          label: 'MB_TAGBOX_STATE_URL'
+          description: "(string) URL to a .tagbox state file to initialize the box with. Useful for spinning up many instances of Tagbox with the same state. "
+          schema:
+            type: string
+            default: ""
+        - variable: MB_TAGBOX_STATE_POLL_SECONDS
+          label: 'MB_TAGBOX_STATE_POLL_SECONDS'
+          description: "(integer) Default to 0 (No polling). If this variable is set, Tagbox would poll the MBTAGBOXSTATEURL for changes on the file, based on the ETag or Last-Modified http headers. If the file changes Tagbox will download the new file and update the state of the teaching. This variable is useful for updating multiple running instances of Tagbox. "
+          schema:
+            type: string
+            default: ""
+        - variable: MB_TAGBOX_INDEX_REFRESH_SECONDS
+          label: 'MB_TAGBOX_INDEX_REFRESH_SECONDS'
+          description: "(integer) Defaults to 2 - Number of seconds that Tagbox will wait to update the index for new data, or changes in the data. Tagbox will accumulate changes to perform an update on the search index, because changes are an expensive operation, with this variable you can adjust the time interval for that operation. "
+          schema:
+            type: string
+            default: ""
+
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8082
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8080
+
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+
+# Include{persistenceList}
+
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Web / REST interface for downloading youtube videos onto a server.[br]\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/youtube-dl-server
+icon: https://truecharts.org/img/chart-icons/youtube-dl-server.png
+keywords:
+- youtube-dl-server
+- Downloaders
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: youtube-dl-server
+sources:
+- https://github.com/manbearwiz/youtube-dl-server
+- https://hub.docker.com/r/kmb32123/youtube-dl-server/
+type: application
+version: 0.0.10

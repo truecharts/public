@@ -1,0 +1,31 @@
+env:
+  PHANTOMBOT_APIOAUTH: ''
+  PHANTOMBOT_CHANNEL: ''
+  PHANTOMBOT_OAUTH: ''
+  PHANTOMBOT_PANELPASSWORD: changeme
+  PHANTOMBOT_PANELUSER: Admin
+  PHANTOMBOT_USEHTTPS: 'false'
+  PHANTOMBOT_USER: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phantombot-1
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/PhantomBot/config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 25000
+        protocol: TCP
+        targetPort: 25000

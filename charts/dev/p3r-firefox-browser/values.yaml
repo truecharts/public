@@ -1,0 +1,38 @@
+env:
+  DISPLAY_HEIGHT: '1080'
+  DISPLAY_WIDTH: '1920'
+  VNC_PASSWORD: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/p3r-firefox-browser
+  tag: latest
+persistence:
+  browserdownloadsfolder:
+    enabled: true
+    mountPath: /Downloads/
+  config:
+    enabled: true
+    mountPath: /config/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900

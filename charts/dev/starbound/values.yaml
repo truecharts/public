@@ -1,0 +1,48 @@
+env:
+  GAME_ID: '533830'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/starbound
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 21025
+        protocol: TCP
+        targetPort: 21025
+  tcprconport:
+    enabled: true
+    ports:
+      tcprconport:
+        enabled: true
+        port: 21026
+        protocol: TCP
+        targetPort: 21026
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 21025
+        protocol: UDP
+        targetPort: 21025

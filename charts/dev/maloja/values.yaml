@@ -1,0 +1,26 @@
+env:
+  MALOJA_DATA_DIRECTORY: /config
+  MALOJA_HOST: 0.0.0.0
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/maloja
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 42010
+        protocol: TCP
+        targetPort: 42010

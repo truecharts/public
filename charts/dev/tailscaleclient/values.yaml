@@ -1,0 +1,28 @@
+env:
+  AUTHKEY: tskey-xxxxxxxxxxxxxxxxxxxxxxxxx
+  HOSTNAME: tailscaleunraid
+  ROUTES: 192.168.88.0/24
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tailscaleclient
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,33 @@
+env:
+  GAME_PARAMS: -config serverconfig.txt
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/terraria-tshock
+  tag: vtshock
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9014
+        protocol: HTTP
+        targetPort: 8080
+  tcp:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 7777
+        protocol: TCP
+        targetPort: 7777

@@ -1,0 +1,33 @@
+env:
+  UMASK: '022'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/nginx-php8
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /var/www/html/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: HTTP
+        targetPort: 80
+  port443:
+    enabled: true
+    ports:
+      port443:
+        enabled: true
+        port: 443
+        protocol: TCP
+        targetPort: 443

@@ -1,0 +1,26 @@
+env:
+  EMAIL: olprog@1secmail.org
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/temp-mail
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

@@ -1,0 +1,27 @@
+env:
+  EULA: 'false'
+  JVM_OPTS: -Xms6144m -Xmx8192m
+  OPS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/vaulthunters
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 25565
+        protocol: TCP
+        targetPort: 25565

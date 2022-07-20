@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This Docker will download and install a simple Teeworlds Dedicated server\
+  \ with a autoexec.cfg, dm.cfg, tdm.cfg &amp; ctf.cfg preconfigured (the only thing\
+  \ that need to be changed is the Server Name and the RCON Password in the autoexec.cfg).\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/teeworlds
+icon: https://truecharts.org/img/chart-icons/teeworlds.png
+keywords:
+- teeworlds
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: teeworlds
+sources:
+- https://www.teeworlds.com/
+- https://hub.docker.com/r/ich777/teeworldsserver/
+type: application
+version: 0.0.10

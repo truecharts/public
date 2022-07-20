@@ -1,0 +1,32 @@
+env:
+  REDDIT_CLIENT_ID: client id
+  REDDIT_CLIENT_SECRET: client secret
+  REDDIT_PASSWORD: password
+  REDDIT_USERNAME: username
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/llalon-shreddit
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

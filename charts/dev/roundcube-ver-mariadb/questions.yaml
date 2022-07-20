@@ -1,0 +1,389 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: ROUNDCUBEMAIL_DB_TYPE
+          label: 'ROUNDCUBEMAIL_DB_TYPE'
+          description: "Container Variable ROUNDCUBEMAILDBTYPE"
+          schema:
+            type: string
+            default: "mysql"
+        - variable: ROUNDCUBEMAIL_DB_HOST
+          label: 'ROUNDCUBEMAIL_DB_HOST'
+          description: "Container Variable ROUNDCUBEMAILDBHOST"
+          schema:
+            type: string
+            default: "192.168.1.1"
+        - variable: ROUNDCUBEMAIL_DB_PORT
+          label: 'ROUNDCUBEMAIL_DB_PORT'
+          description: "Container Variable ROUNDCUBEMAILDBPORT"
+          schema:
+            type: string
+            default: "3306"
+        - variable: ROUNDCUBEMAIL_DB_USER
+          label: 'ROUNDCUBEMAIL_DB_USER'
+          description: "Container Variable ROUNDCUBEMAILDBUSER"
+          schema:
+            type: string
+            default: "rc_user"
+        - variable: ROUNDCUBEMAIL_DB_PASSWORD
+          label: 'ROUNDCUBEMAIL_DB_PASSWORD'
+          description: "Container Variable ROUNDCUBEMAILDBPASSWORD"
+          schema:
+            type: string
+            default: "rc_password"
+        - variable: ROUNDCUBEMAIL_DB_NAME
+          label: 'ROUNDCUBEMAIL_DB_NAME'
+          description: "Container Variable ROUNDCUBEMAILDBNAME"
+          schema:
+            type: string
+            default: "rc_db"
+        - variable: ROUNDCUBEMAIL_DEFAULT_HOST
+          label: 'ROUNDCUBEMAIL_DEFAULT_HOST'
+          description: "Container Variable ROUNDCUBEMAILDEFAULTHOST"
+          schema:
+            type: string
+            default: "tls://imap.mailserver.com"
+        - variable: ROUNDCUBEMAIL_DEFAULT_PORT
+          label: 'ROUNDCUBEMAIL_DEFAULT_PORT'
+          description: "Container Variable ROUNDCUBEMAILDEFAULTPORT"
+          schema:
+            type: string
+            default: "143"
+        - variable: ROUNDCUBEMAIL_SMTP_SERVER
+          label: 'ROUNDCUBEMAIL_SMTP_SERVER'
+          description: "Container Variable ROUNDCUBEMAILSMTPSERVER"
+          schema:
+            type: string
+            default: "tls://smtp.mailserver.com"
+        - variable: ROUNDCUBEMAIL_SMTP_PORT
+          label: 'ROUNDCUBEMAIL_SMTP_PORT'
+          description: "Container Variable ROUNDCUBEMAILSMTPPORT"
+          schema:
+            type: string
+            default: "587"
+        - variable: ROUNDCUBEMAIL_PLUGINS
+          label: 'ROUNDCUBEMAIL_PLUGINS'
+          description: "Container Variable ROUNDCUBEMAILPLUGINS"
+          schema:
+            type: string
+            default: "archive,zipdownload"
+        - variable: ROUNDCUBEMAIL_SKIN
+          label: 'ROUNDCUBEMAIL_SKIN'
+          description: "Container Variable ROUNDCUBEMAILSKIN"
+          schema:
+            type: string
+            default: "elastic"
+
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 1154
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 80
+
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: roundcube-templocation
+          label: "roundcube-templocation Storage"
+          description: "Container Path tmproundcube-temp"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: htmllocation
+          label: "htmllocation Storage"
+          description: "Container Path varwwwhtml"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: dblocation
+          label: "dblocation Storage"
+          description: "Container Path varroundcubedb"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: config
+          label: "config Storage"
+          description: "Container Path varroundcubeconfig"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+
+
+# Include{persistenceList}
+
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

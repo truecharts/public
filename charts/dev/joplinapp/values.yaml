@@ -1,0 +1,35 @@
+env:
+  DISPLAY_HEIGHT: '768'
+  DISPLAY_WIDTH: '1280'
+  VNC_PASSWORD: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/joplinapp
+  tag: latest
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /app/.config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: HTTP
+        targetPort: 5800
+  webclipperport:
+    enabled: true
+    ports:
+      webclipperport:
+        enabled: true
+        port: 41184
+        protocol: TCP
+        targetPort: 41184

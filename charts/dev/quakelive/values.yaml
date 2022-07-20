@@ -1,0 +1,47 @@
+env:
+  GAME_ID: '349090'
+  GAME_PARAMS: ''
+  PASSWRD: ''
+  USERNAME: ''
+  VALIDATE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/quakelive
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: '{{ .Values.service.rconport.ports.rconport.targetPort }}'
+  readiness:
+    port: '{{ .Values.service.rconport.ports.rconport.targetPort }}'
+  startup:
+    port: '{{ .Values.service.rconport.ports.rconport.targetPort }}'
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27960
+        protocol: UDP
+        targetPort: 27960
+  rconport:
+    enabled: true
+    ports:
+      rconport:
+        enabled: true
+        port: 28690
+        protocol: TCP
+        targetPort: 28690

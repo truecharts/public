@@ -1,0 +1,29 @@
+env:
+  VAULT_LOCAL_CONFIG: '{"backend": {"file": {"path": "/vault/file"}},"listener": {"tcp":
+    {"address": "0.0.0.0:8200", "tls_disable": 1}}, "ui": true}'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/vault
+  tag: latest
+persistence:
+  file:
+    enabled: true
+    mountPath: /vault/file
+  logs:
+    enabled: true
+    mountPath: /vault/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8200
+        protocol: TCP
+        targetPort: 8200

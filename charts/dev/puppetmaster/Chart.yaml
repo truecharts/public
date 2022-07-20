@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - Network-Management
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Simple puppet master docker based on Centos7
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/puppetmaster
+icon: https://truecharts.org/img/chart-icons/puppetmaster.png
+keywords:
+- puppetmaster
+- Tools-Utilities
+- Network-Management
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: puppetmaster
+sources:
+- http://www.puppet.com/
+- https://hub.docker.com/r/deasmi/docker-puppetmaster/
+type: application
+version: 0.0.10

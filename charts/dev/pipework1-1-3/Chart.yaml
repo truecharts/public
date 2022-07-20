@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: This is the version 1.1.3 of the pipework docker container, the latest
+  container maybe broken so this might work better. Pipework allows you to have a
+  static or dynamic ip for a docker container. This is the unraid implementation of
+  the dreamcat4 pipework docker container
+home: https://github.com/truecharts/apps/tree/master/charts/stable/pipework1-1-3
+icon: https://truecharts.org/img/chart-icons/pipework1-1-3.png
+keywords:
+- pipework1-1-3
+- Network-Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: pipework1-1-3
+sources:
+- https://hub.docker.com/r/dreamcat4/pipework/
+type: application
+version: 0.0.10

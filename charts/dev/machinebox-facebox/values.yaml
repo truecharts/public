@@ -1,0 +1,35 @@
+env:
+  MB_ADDRESS: 0.0.0.0
+  MB_BASICAUTH_PASS: ''
+  MB_BASICAUTH_USER: ''
+  MB_DISABLE_CORS: 'false'
+  MB_DOWNLOAD_TIMEOUT_SECONDS: '60'
+  MB_FACEBOX_DISABLE_RECOGNITION: ' false'
+  MB_FACEBOX_INDEX_REFRESH_SECONDS: '2'
+  MB_FACEBOX_READ_ONLY: 'false'
+  MB_FACEBOX_REDIS: ''
+  MB_FACEBOX_REDIS_DB: ''
+  MB_FACEBOX_REDIS_PASSWORD: ''
+  'MB_FACEBOX_STATE_POLL_SECONDS ': '0'
+  'MB_FACEBOX_STATE_URL ': ''
+  MB_KEY: OTRmNWYwN2Q0M2Q4MGM3ZDY4NzJlYTIyODFhYjA5NTU.OxrrQ_6G4gvArMZ2KPz0mtUsDjjgy44Uy83QW_ajLaP52Ts6Z85PR8i8WuG2ywqebBPNm7cHu8P3tlWGHXGAwA
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/machinebox-facebox
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8085
+        protocol: TCP
+        targetPort: 8080

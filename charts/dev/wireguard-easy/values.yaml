@@ -1,0 +1,34 @@
+env:
+  PASSWORD: unraid
+  WG_HOST: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/wireguard-easy
+  tag: latest
+persistence:
+  app'sdata:
+    enabled: true
+    mountPath: /etc/wireguard
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 51821
+        protocol: HTTP
+        targetPort: 51821
+  portvpn:
+    enabled: true
+    ports:
+      portvpn:
+        enabled: true
+        port: 51820
+        protocol: UDP
+        targetPort: 51820

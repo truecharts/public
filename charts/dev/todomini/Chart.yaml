@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/todomini
+icon: https://truecharts.org/img/chart-icons/todomini.png
+keywords:
+- todomini
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: todomini
+sources:
+- https://github.com/appMini/todoMini
+- https://hub.docker.com/r/brettdocker/minitodo
+type: application
+version: 0.0.10

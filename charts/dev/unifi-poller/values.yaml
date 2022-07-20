@@ -1,0 +1,43 @@
+env:
+  UP_INFLUXDB_DB: ''
+  UP_INFLUXDB_DISABLE: ''
+  UP_INFLUXDB_INTERVAL: 30s
+  UP_INFLUXDB_PASS: ''
+  UP_INFLUXDB_URL: ''
+  UP_INFLUXDB_USER: unifipoller
+  UP_POLLER_DEBUG: ''
+  UP_POLLER_QUIET: ''
+  UP_PROMETHEUS_DISABLE: ''
+  UP_PROMETHEUS_HTTP_LISTEN: 0.0.0.0:9031
+  UP_UNIFI_CONTROLLER_0_PASS: ''
+  UP_UNIFI_CONTROLLER_0_SAVE_DPI: ''
+  UP_UNIFI_CONTROLLER_0_SAVE_IDS: ''
+  UP_UNIFI_CONTROLLER_0_SAVE_SITES: ''
+  UP_UNIFI_CONTROLLER_0_SITES_0: all
+  UP_UNIFI_CONTROLLER_0_URL: ''
+  UP_UNIFI_CONTROLLER_0_USER: unifipoller
+  UP_UNIFI_CONTROLLER_0_VERIFY_SSL: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/unifi-poller
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

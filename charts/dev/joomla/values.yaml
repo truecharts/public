@@ -1,0 +1,25 @@
+env:
+  JOOMLA_DB_HOST: 192.168.178.104:3307
+  JOOMLA_DB_NAME: joomla
+  JOOMLA_DB_PASSWORD: MySql_1a4B00MER
+  JOOMLA_DB_USER: Joomla
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/joomla
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8777
+        protocol: TCP
+        targetPort: 80

@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shinysdr
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8100
+        protocol: HTTP
+        targetPort: 8100
+  websockets:
+    enabled: true
+    ports:
+      websockets:
+        enabled: true
+        port: 8101
+        protocol: TCP
+        targetPort: 8101

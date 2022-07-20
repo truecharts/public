@@ -1,0 +1,38 @@
+env:
+  DL_URL: https://files.ioquake3.org/Linux.zip
+  DL_URL_PATCH: https://files.ioquake3.org/quake3-latest-pk3s.zip
+  GAME_PARAMS: +set dedicated 2 +set sv_allowDownload 1 +set com_hunkmegs 64
+  IOQ3_PORT: '27960'
+  Q3_MAP: q3dm1
+  UMASK: '000'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ioquake3
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /ioquake3
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9029
+        protocol: HTTP
+        targetPort: 8080
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 27960
+        protocol: UDP
+        targetPort: 27960

@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Management
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Portainer is a simple management solution for Docker. It consists of
+  a web UI that allows you to easily manage your Docker containers, images, networks
+  and volumes.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/portainerci
+icon: https://truecharts.org/img/chart-icons/portainerci.png
+keywords:
+- portainerci
+- Network-Management
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: portainerci
+sources:
+- https://portainer.io
+- https://registry.hub.docker.com/r/portainerci/portainer/
+type: application
+version: 0.0.10

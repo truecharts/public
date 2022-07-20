@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Network-Web
+    - MediaServer-Books
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "This is Currently API only! [br][br]\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/komf
+icon: https://truecharts.org/img/chart-icons/komf.png
+keywords:
+- komf
+- Network-Web
+- MediaServer-Books
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: komf
+sources:
+- https://github.com/Snd-R/komf
+- https://github.com/Snd-R/komf
+type: application
+version: 0.0.10

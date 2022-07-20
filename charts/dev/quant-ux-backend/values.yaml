@@ -1,0 +1,31 @@
+env:
+  QUX_HTTP_HOST: http://server-ip:8082
+  QUX_IMAGE_FOLDER_APPS: /qux-image-apps
+  QUX_IMAGE_FOLDER_USER: '/qux-images '
+  QUX_JWT_PASSWORD: ''
+  QUX_MAIL_HOST: ''
+  QUX_MAIL_PASSWORD: ''
+  QUX_MAIL_USER: ''
+  QUX_MONGO_CONNECTION_STRING: mongodb://server-ip:27017
+  QUX_MONGO_DB_NAME: quantux
+  QUX_MONGO_TABLE_PREFIX: quantux
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/quant-ux-backend
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8383
+        protocol: TCP
+        targetPort: 8080

@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/youtransfer
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/youtransfer/config
+  hostpath3:
+    enabled: true
+    mountPath: /opt/youtransfer/uploads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/unms
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  hostport1:
+    enabled: true
+    ports:
+      hostport1:
+        enabled: true
+        port: 6080
+        protocol: TCP
+        targetPort: 80
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6443
+        protocol: HTTP
+        targetPort: 443

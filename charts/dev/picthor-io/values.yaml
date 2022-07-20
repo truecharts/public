@@ -1,0 +1,35 @@
+env:
+  PICTHOR_CACHE_DIR: /root/picthor/cache
+  PICTHOR_POSTGRES_DB: ''
+  PICTHOR_POSTGRES_HOST: ''
+  PICTHOR_POSTGRES_PASSWORD: ''
+  PICTHOR_POSTGRES_PORT: ''
+  PICTHOR_POSTGRES_USERNAME: ''
+  PICTHOR_WEB_ADDRESS: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/picthor-io
+  tag: latest
+persistence:
+  cachepath:
+    enabled: true
+    mountPath: /root/picthor/cache
+  rootdirectorypath:
+    enabled: true
+    mountPath: /root/picthor-root-1
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

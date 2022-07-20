@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/portainer-agent
+  tag: latest
+persistence:
+  dockersocket:
+    enabled: true
+    mountPath: /var/run/docker.sock
+  dockervolumes:
+    enabled: true
+    mountPath: /var/lib/docker/volumes
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9001
+        protocol: TCP
+        targetPort: 9001

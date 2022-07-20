@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Trackarr monitors tracker announce IRC channel, parses the announcements,
+  and forwards those announcements to ARR PVRs (eg Sonarr).
+home: https://github.com/truecharts/apps/tree/master/charts/stable/trackarr
+icon: https://truecharts.org/img/chart-icons/trackarr.png
+keywords:
+- trackarr
+- Downloaders
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: trackarr
+sources:
+- https://hotio.dev/containers/trackarr
+- https://hub.docker.com/r/hotio/trackarr
+type: application
+version: 0.0.10

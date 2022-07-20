@@ -1,0 +1,32 @@
+env:
+  MB_ADDRESS: 0.0.0.0
+  MB_BASICAUTH_PASS: ''
+  MB_BASICAUTH_USER: ''
+  MB_DISABLE_CORS: 'false'
+  MB_DOWNLOAD_TIMEOUT_SECONDS: '60'
+  MB_KEY: ''
+  MB_TAGBOX_INDEX_REFRESH_SECONDS: ''
+  MB_TAGBOX_ONLY_CUSTOM_TAGS: 'false'
+  MB_TAGBOX_READ_ONLY: 'false'
+  MB_TAGBOX_STATE_POLL_SECONDS: ''
+  MB_TAGBOX_STATE_URL: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/machinebox-tagbox
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8082
+        protocol: TCP
+        targetPort: 8080

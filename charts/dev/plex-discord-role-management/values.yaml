@@ -1,0 +1,41 @@
+env:
+  DEBUG_MODE: ''
+  botToken: ''
+  defaultPrefix: ''
+  node_hook_ip: ''
+  node_hook_port: ''
+  sonarr_api_key: ''
+  sonarr_api_key_2: ''
+  sonarr_api_key_3: ''
+  sonarr_ip: ''
+  sonarr_ip_2: ''
+  sonarr_ip_3: ''
+  sonarr_port: ''
+  sonarr_port_2: ''
+  sonarr_port_3: ''
+  tautulli_api_key: ''
+  tautulli_ip: ''
+  tautulli_port: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plex-discord-role-management
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: TCP
+        targetPort: 3000

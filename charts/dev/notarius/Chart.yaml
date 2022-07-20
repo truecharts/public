@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: ''
+home: https://github.com/truecharts/apps/tree/master/charts/stable/notarius
+icon: https://truecharts.org/img/chart-icons/notarius.png
+keywords:
+- notarius
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: notarius
+sources:
+- https://github.com/agusalex/Notarius
+- https://hub.docker.com/r/agusalex/Notarius
+type: application
+version: 0.0.10

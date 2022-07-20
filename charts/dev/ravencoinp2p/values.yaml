@@ -1,0 +1,29 @@
+env:
+  APP_NICENESS: ''
+  BOOTSTRAP: ''
+  GROUP_ID: ''
+  UMASK: ''
+  USER_ID: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ravencoinp2p
+  tag: latest
+persistence:
+  storage:
+    enabled: true
+    mountPath: /storage/.raven/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8767
+        protocol: TCP
+        targetPort: 8767

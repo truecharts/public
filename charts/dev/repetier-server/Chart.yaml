@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Tools-Utilities
+    - MediaServer-Other
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Repetier server:\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/repetier-server
+icon: https://truecharts.org/img/chart-icons/repetier-server.png
+keywords:
+- repetier-server
+- HomeAutomation
+- Tools-Utilities
+- MediaServer-Other
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: repetier-server
+sources:
+- https://www.repetier-server.com/
+- https://hub.docker.com/repository/docker/codeluxe1/repetier-server
+type: application
+version: 0.0.10

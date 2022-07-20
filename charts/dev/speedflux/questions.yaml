@@ -1,0 +1,243 @@
+# Include{groups}
+portals: {}
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: false
+# Include{global}
+
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: INFLUX_DB_ADDRESS
+          label: 'INFLUX_DB_ADDRESS'
+          description: "Container Variable INFLUXDBADDRESSIP or Hostname of Influx DB"
+          schema:
+            type: string
+            default: "influxdb"
+        - variable: INFLUX_DB_PORT
+          label: 'INFLUX_DB_PORT'
+          description: "Container Variable INFLUXDBPORT"
+          schema:
+            type: string
+            default: "8086"
+        - variable: INFLUX_DB_USER
+          label: 'INFLUX_DB_USER'
+          description: "Container Variable INFLUXDBUSER"
+          schema:
+            type: string
+            default: ""
+        - variable: INFLUX_DB_PASSWORD
+          label: 'INFLUX_DB_PASSWORD'
+          description: "Container Variable INFLUXDBPASSWORD"
+          schema:
+            type: string
+            default: ""
+        - variable: INFLUX_DB_DATABASE
+          label: 'INFLUX_DB_DATABASE'
+          description: "Container Variable INFLUXDBDATABASEIf the database doesnt exist, it will be created. "
+          schema:
+            type: string
+            default: "speedtest"
+        - variable: SPEEDTEST_INTERVAL
+          label: 'SPEEDTEST_INTERVAL'
+          description: "How often should speed be tested, in minutes. Default is set at 230 as I like to see changes over time at different times of day. "
+          schema:
+            type: string
+            default: "150"
+        - variable: INFLUX_DB_TAGS
+          label: 'INFLUX_DB_TAGS'
+          description: "Tags to be added to the datasets. See httpsgithub.combreadlysmspeedtest-to-influxdb#tag-options. Tags must be comma seperated"
+          schema:
+            type: string
+            default: "isp, external_ip, server_id, server_name, server_location, speedtest_url"
+        - variable: PING_INTERVAL
+          label: 'PING_INTERVAL'
+          description: "Interval is in seconds. This is how often your latency will be checked. "
+          schema:
+            type: string
+            default: "60"
+        - variable: PING_TARGETS
+          label: 'PING_TARGETS'
+          description: "hostnames or domains to use to test ping. On every ping interval, all servers input will be tested. Must be comma seperated. "
+          schema:
+            type: string
+            default: "1.1.1.1, 8.8.8.8"
+        - variable: LOG_TYPE
+          label: 'LOG_TYPE'
+          description: "Options are info or debug "
+          schema:
+            type: string
+            default: "info"
+        - variable: SPEEDTEST_SERVER_ID
+          label: 'SPEEDTEST_SERVER_ID'
+          description: "Input a Ookla Speedtest server ID to use for your tests. This will use this server for every test. "
+          schema:
+            type: string
+            default: ""
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+
+# Include{persistenceList}
+
+
+# Include{ingressList}
+
+# Include{security}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

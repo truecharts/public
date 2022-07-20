@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "PhantomBot is a Twitch chat bot powered by Java. PhantomBot has many\
+  \ modern features out of the box such as a built-in webpanel, enhanced moderation,\
+  \ games, a point system, raffles, custom commands, a music player, and more. PhantomBot\
+  \ can also be integrated with many services such as Discord, Twitter, TipeeeStream,\
+  \ StreamLabs and StreamElements!\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/phantombot-1
+icon: https://truecharts.org/img/chart-icons/phantombot-1.png
+keywords:
+- phantombot-1
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: phantombot-1
+sources:
+- https://github.com/phantombot/PhantomBot
+- https://hub.docker.com/r/gmt2001/phantombot-stable
+type: application
+version: 0.0.10

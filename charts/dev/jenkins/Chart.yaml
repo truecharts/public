@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: The leading open source automation server, Jenkins provides hundreds
+  of plugins to support building, deploying and automating any project.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jenkins
+icon: https://truecharts.org/img/chart-icons/jenkins.png
+keywords:
+- jenkins
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: jenkins
+sources:
+- https://www.jenkins.io/
+- https://hub.docker.com/r/jenkins/jenkins/
+type: application
+version: 0.0.10

@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: '- Rebuild Docker Network Dependent Containers, e.g. Monitor a VPN or
+  any container and rebuild dependent containers using the VPN container network stack
+  --net=container:vpn_cotnainer_name. [br]
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/rebuild-dndc
+icon: https://truecharts.org/img/chart-icons/rebuild-dndc.png
+keywords:
+- rebuild-dndc
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: rebuild-dndc
+sources:
+- https://github.com/elmerfdz/unRAIDscripts
+- https://hub.docker.com/r/eafxx/rebuild-dndc
+type: application
+version: 0.0.10

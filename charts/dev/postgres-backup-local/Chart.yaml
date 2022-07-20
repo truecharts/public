@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Backup
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Backup PostgresSQL to the local filesystem with periodic rotating backups,
+  based on schickling/postgres-backup-s3. Backup multiple databases from the same
+  host by setting the database names in POSTGRES_DB separated by commas or spaces.
+
+  '
+home: https://github.com/truecharts/apps/tree/master/charts/stable/postgres-backup-local
+icon: https://truecharts.org/img/chart-icons/postgres-backup-local.png
+keywords:
+- postgres-backup-local
+- Backup
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: postgres-backup-local
+sources:
+- https://github.com/prodrigestivill/docker-postgres-backup-local
+- https://hub.docker.com/r/prodrigestivill/postgres-backup-local
+type: application
+version: 0.0.10

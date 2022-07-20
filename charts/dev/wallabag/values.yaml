@@ -1,0 +1,30 @@
+env:
+  SYMFONY__ENV__DOMAIN_NAME: http://<IP>:6500
+  SYMFONY__ENV__FOSUSER_REGISTRATION: 'false'
+  SYMFONY__ENV__SECRET: LongRandomSecretHere
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/wallabag
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/wallabag/data
+  images:
+    enabled: true
+    mountPath: /var/www/wallabag/web/assets/images
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6500
+        protocol: TCP
+        targetPort: 80
