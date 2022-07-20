@@ -23,10 +23,10 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:
-  assetto-:
+  assetto:
     enabled: true
     ports:
-      assetto-:
+      assetto:
         enabled: true
         port: 8772
         protocol: TCP

@@ -1,16 +1,20 @@
 env:
   AUTOSTART: ''
   CountryCode: ''
+  FilePermissions: ''
+  FolderPermissions: ''
   LidarrAPIkey: ''
   LidarrUrl: ''
   MBRAINZMIRROR: ''
   MBRATELIMIT: ''
+  RequireVideoMatch: ''
   SCRIPTINTERVAL: ''
   SOURCE_CONNECTION: ''
   USEFOLDERS: ''
   USEVIDEOFOLDERS: ''
   WriteNFOs: ''
   subtitlelanguage: ''
+  videofilter: ''
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/amvd
@@ -25,13 +29,6 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

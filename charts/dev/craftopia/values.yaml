@@ -38,3 +38,5 @@ service:
         port: 8787
         protocol: UDP
         targetPort: 8787
+command: ["/bin/sh"]
+args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
