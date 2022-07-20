@@ -2,7 +2,7 @@
 
 ![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-This Docker will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it. (!!!This container will only run on systems with less than 32 CPU cores!!!) 
+This Docker will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it. (!!!This container will only run on systems with less than 32 CPU cores!!!)
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 

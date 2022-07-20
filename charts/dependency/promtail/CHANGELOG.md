@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [promtail-3.0.31](https://github.com/truecharts/apps/compare/promtail-3.0.30...promtail-3.0.31) (2022-07-20)
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [promtail-3.0.30](https://github.com/truecharts/apps/compare/promtail-3.0.29...promtail-3.0.30) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [promtail-3.0.29](https://github.com/truecharts/apps/compare/promtail-3.0.28...promtail-3.0.29) (2022-07-19)
 
 ### Chore

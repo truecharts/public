@@ -1,6 +1,6 @@
 # dizquetv
 
-![Version: 7.0.19](https://img.shields.io/badge/Version-7.0.19-informational?style=flat-square) ![AppVersion: 1.5.0](https://img.shields.io/badge/AppVersion-1.5.0-informational?style=flat-square)
+![Version: 7.0.20](https://img.shields.io/badge/Version-7.0.20-informational?style=flat-square) ![AppVersion: 1.5.0](https://img.shields.io/badge/AppVersion-1.5.0-informational?style=flat-square)
 
 Create live TV channel streams from media on your Plex servers.
 

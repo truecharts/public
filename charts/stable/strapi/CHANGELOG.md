@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [strapi-4.0.19](https://github.com/truecharts/apps/compare/strapi-4.0.18...strapi-4.0.19) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [strapi-4.0.18](https://github.com/truecharts/apps/compare/strapi-4.0.17...strapi-4.0.18) (2022-07-19)
 
 ### Chore

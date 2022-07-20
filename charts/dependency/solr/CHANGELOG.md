@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [solr-0.0.14](https://github.com/truecharts/apps/compare/solr-0.0.13...solr-0.0.14) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [solr-0.0.13](https://github.com/truecharts/apps/compare/solr-0.0.12...solr-0.0.13) (2022-07-19)
 
 ### Chore

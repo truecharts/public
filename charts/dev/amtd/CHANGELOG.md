@@ -2,6 +2,7 @@
 
 
 
+
 <a name="amtd-0.0.5"></a>
 ### [amtd-0.0.5](https://github.com/truecharts/apps/compare/amtd-0.0.4...amtd-0.0.5) (2022-05-05)
 

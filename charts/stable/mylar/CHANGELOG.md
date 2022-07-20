@@ -1,7 +1,15 @@
 # Changelog
 
 
-## [mylar-6.0.19](https://github.com/truecharts/apps/compare/mylar-6.0.18...mylar-6.0.19) (2022-07-19)
+## [mosquitto-6.0.21](https://github.com/truecharts/apps/compare/mosquitto-6.0.20...mosquitto-6.0.21) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [mosquitto-6.0.20](https://github.com/truecharts/apps/compare/mosquitto-6.0.19...mosquitto-6.0.20) (2022-07-19)
 
 ### Chore
 
@@ -9,7 +17,20 @@
 
 
 
-## [mylar-6.0.18](https://github.com/truecharts/apps/compare/mylar-6.0.17...mylar-6.0.18) (2022-07-14)
+## [mosquitto-6.0.19](https://github.com/truecharts/apps/compare/mosquitto-6.0.17...mosquitto-6.0.19) (2022-07-19)
+
+### Feat
+
+- Create setup-guide.md ([#3212](https://github.com/truecharts/apps/issues/3212))
+
+### Fix
+
+- fixup ([#3209](https://github.com/truecharts/apps/issues/3209))
+- set password file when auth is enabled ([#3216](https://github.com/truecharts/apps/issues/3216))
+
+
+
+## [mosquitto-6.0.17](https://github.com/truecharts/apps/compare/mosquitto-6.0.16...mosquitto-6.0.17) (2022-07-14)
 
 ### Fix
 
@@ -17,7 +38,7 @@
 
 
 
-## [mylar-6.0.17](https://github.com/truecharts/apps/compare/mylar-6.0.15...mylar-6.0.17) (2022-07-14)
+## [mosquitto-6.0.16](https://github.com/truecharts/apps/compare/mosquitto-6.0.14...mosquitto-6.0.16) (2022-07-14)
 
 ### Fix
 
@@ -25,15 +46,7 @@
 
 
 
-## [mylar-6.0.15](https://github.com/truecharts/apps/compare/mylar-6.0.14...mylar-6.0.15) (2022-07-13)
-
-### Fix
-
-- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
-
-
-
-## [mylar-6.0.14](https://github.com/truecharts/apps/compare/mylar-6.0.12...mylar-6.0.14) (2022-07-12)
+## [mosquitto-6.0.14](https://github.com/truecharts/apps/compare/mosquitto-6.0.12...mosquitto-6.0.14) (2022-07-12)
 
 ### Chore
 
@@ -42,7 +55,7 @@
 
 
 
-## [mylar-6.0.12](https://github.com/truecharts/apps/compare/mylar-6.0.11...mylar-6.0.12) (2022-07-12)
+## [mosquitto-6.0.12](https://github.com/truecharts/apps/compare/mosquitto-6.0.11...mosquitto-6.0.12) (2022-07-12)
 
 ### Chore
 
@@ -50,18 +63,17 @@
 
 
 
-<a name="mylar-6.0.11"></a>
-### [mylar-6.0.11](https://github.com/truecharts/apps/compare/mylar-6.0.10...mylar-6.0.11) (2022-07-12)
+<a name="mosquitto-6.0.11"></a>
+### [mosquitto-6.0.11](https://github.com/truecharts/apps/compare/mosquitto-6.0.10...mosquitto-6.0.11) (2022-07-12)
 
 #### Chore
 
 * update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
-* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
 
 
 
-<a name="mylar-6.0.10"></a>
-### [mylar-6.0.10](https://github.com/truecharts/apps/compare/mylar-6.0.9...mylar-6.0.10) (2022-07-11)
+<a name="mosquitto-6.0.10"></a>
+### [mosquitto-6.0.10](https://github.com/truecharts/apps/compare/mosquitto-6.0.9...mosquitto-6.0.10) (2022-07-11)
 
 #### Chore
 
@@ -69,8 +81,8 @@
 
 
 
-<a name="mylar-6.0.9"></a>
-### [mylar-6.0.9](https://github.com/truecharts/apps/compare/mylar-6.0.8...mylar-6.0.9) (2022-07-09)
+<a name="mosquitto-6.0.9"></a>
+### [mosquitto-6.0.9](https://github.com/truecharts/apps/compare/mosquitto-6.0.8...mosquitto-6.0.9) (2022-07-09)
 
 #### Chore
 
@@ -78,8 +90,8 @@
 
 
 
-<a name="mylar-6.0.8"></a>
-### [mylar-6.0.8](https://github.com/truecharts/apps/compare/mylar-6.0.7...mylar-6.0.8) (2022-07-04)
+<a name="mosquitto-6.0.8"></a>
+### [mosquitto-6.0.8](https://github.com/truecharts/apps/compare/mosquitto-6.0.7...mosquitto-6.0.8) (2022-07-04)
 
 #### Chore
 
@@ -87,8 +99,8 @@
 
 
 
-<a name="mylar-6.0.7"></a>
-### [mylar-6.0.7](https://github.com/truecharts/apps/compare/mylar-6.0.6...mylar-6.0.7) (2022-06-25)
+<a name="mosquitto-6.0.7"></a>
+### [mosquitto-6.0.7](https://github.com/truecharts/apps/compare/mosquitto-6.0.6...mosquitto-6.0.7) (2022-06-25)
 
 #### Chore
 
@@ -96,8 +108,8 @@
 
 
 
-<a name="mylar-6.0.6"></a>
-### [mylar-6.0.6](https://github.com/truecharts/apps/compare/mylar-6.0.5...mylar-6.0.6) (2022-06-22)
+<a name="mosquitto-6.0.6"></a>
+### [mosquitto-6.0.6](https://github.com/truecharts/apps/compare/mosquitto-6.0.5...mosquitto-6.0.6) (2022-06-22)
 
 #### Chore
 
@@ -105,8 +117,8 @@
 
 
 
-<a name="mylar-6.0.5"></a>
-### [mylar-6.0.5](https://github.com/truecharts/apps/compare/mylar-6.0.4...mylar-6.0.5) (2022-06-21)
+<a name="mosquitto-6.0.5"></a>
+### [mosquitto-6.0.5](https://github.com/truecharts/apps/compare/mosquitto-6.0.4...mosquitto-6.0.5) (2022-06-21)
 
 #### Chore
 
@@ -114,8 +126,8 @@
 
 
 
-<a name="mylar-6.0.4"></a>
-### [mylar-6.0.4](https://github.com/truecharts/apps/compare/mylar-6.0.3...mylar-6.0.4) (2022-06-14)
+<a name="mosquitto-6.0.4"></a>
+### [mosquitto-6.0.4](https://github.com/truecharts/apps/compare/mosquitto-6.0.3...mosquitto-6.0.4) (2022-06-14)
 
 #### Chore
 
@@ -123,8 +135,8 @@
 
 
 
-<a name="mylar-6.0.3"></a>
-### [mylar-6.0.3](https://github.com/truecharts/apps/compare/mylar-6.0.2...mylar-6.0.3) (2022-06-11)
+<a name="mosquitto-6.0.3"></a>
+### [mosquitto-6.0.3](https://github.com/truecharts/apps/compare/mosquitto-6.0.2...mosquitto-6.0.3) (2022-06-11)
 
 #### Chore
 
@@ -132,8 +144,8 @@
 
 
 
-<a name="mylar-6.0.2"></a>
-### [mylar-6.0.2](https://github.com/truecharts/apps/compare/mylar-6.0.1...mylar-6.0.2) (2022-06-07)
+<a name="mosquitto-6.0.2"></a>
+### [mosquitto-6.0.2](https://github.com/truecharts/apps/compare/mosquitto-6.0.1...mosquitto-6.0.2) (2022-06-07)
 
 #### Fix
 
@@ -141,8 +153,8 @@
 
 
 
-<a name="mylar-6.0.1"></a>
-### [mylar-6.0.1](https://github.com/truecharts/apps/compare/mylar-5.0.25...mylar-6.0.1) (2022-06-07)
+<a name="mosquitto-6.0.1"></a>
+### [mosquitto-6.0.1](https://github.com/truecharts/apps/compare/mosquitto-5.0.27...mosquitto-6.0.1) (2022-06-07)
 
 #### Chore
 
@@ -159,8 +171,8 @@
 
 
 
-<a name="mylar-6.0.0"></a>
-### [mylar-6.0.0](https://github.com/truecharts/apps/compare/mylar-5.0.25...mylar-6.0.0) (2022-06-07)
+<a name="mosquitto-6.0.0"></a>
+### [mosquitto-6.0.0](https://github.com/truecharts/apps/compare/mosquitto-5.0.27...mosquitto-6.0.0) (2022-06-07)
 
 #### Chore
 
@@ -172,8 +184,8 @@
 
 
 
-<a name="mylar-5.0.25"></a>
-### [mylar-5.0.25](https://github.com/truecharts/apps/compare/mylar-5.0.24...mylar-5.0.25) (2022-05-31)
+<a name="mosquitto-5.0.27"></a>
+### [mosquitto-5.0.27](https://github.com/truecharts/apps/compare/mosquitto-5.0.26...mosquitto-5.0.27) (2022-05-31)
 
 #### Chore
 
@@ -181,8 +193,8 @@
 
 
 
-<a name="mylar-5.0.24"></a>
-### [mylar-5.0.24](https://github.com/truecharts/apps/compare/mylar-5.0.23...mylar-5.0.24) (2022-05-26)
+<a name="mosquitto-5.0.26"></a>
+### [mosquitto-5.0.26](https://github.com/truecharts/apps/compare/mosquitto-5.0.25...mosquitto-5.0.26) (2022-05-26)
 
 #### Chore
 
@@ -191,8 +203,8 @@
 
 
 
-<a name="mylar-5.0.24"></a>
-### [mylar-5.0.24](https://github.com/truecharts/apps/compare/mylar-5.0.23...mylar-5.0.24) (2022-05-26)
+<a name="mosquitto-5.0.26"></a>
+### [mosquitto-5.0.26](https://github.com/truecharts/apps/compare/mosquitto-5.0.25...mosquitto-5.0.26) (2022-05-26)
 
 #### Chore
 
@@ -200,8 +212,8 @@
 
 
 
-<a name="mylar-5.0.23"></a>
-### [mylar-5.0.23](https://github.com/truecharts/apps/compare/mylar-5.0.22...mylar-5.0.23) (2022-05-24)
+<a name="mosquitto-5.0.25"></a>
+### [mosquitto-5.0.25](https://github.com/truecharts/apps/compare/mosquitto-5.0.24...mosquitto-5.0.25) (2022-05-24)
 
 #### Chore
 
@@ -209,17 +221,8 @@
 
 
 
-<a name="mylar-5.0.22"></a>
-### [mylar-5.0.22](https://github.com/truecharts/apps/compare/mylar-5.0.21...mylar-5.0.22) (2022-05-19)
-
-#### Chore
-
-* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
-
-
-
-<a name="mylar-5.0.21"></a>
-### [mylar-5.0.21](https://github.com/truecharts/apps/compare/mylar-5.0.20...mylar-5.0.21) (2022-05-17)
+<a name="mosquitto-5.0.24"></a>
+### [mosquitto-5.0.24](https://github.com/truecharts/apps/compare/mosquitto-5.0.23...mosquitto-5.0.24) (2022-05-17)
 
 #### Chore
 
@@ -228,8 +231,8 @@
 
 
 
-<a name="mylar-5.0.21"></a>
-### [mylar-5.0.21](https://github.com/truecharts/apps/compare/mylar-5.0.20...mylar-5.0.21) (2022-05-17)
+<a name="mosquitto-5.0.24"></a>
+### [mosquitto-5.0.24](https://github.com/truecharts/apps/compare/mosquitto-5.0.23...mosquitto-5.0.24) (2022-05-17)
 
 #### Chore
 
@@ -237,8 +240,8 @@
 
 
 
-<a name="mylar-5.0.20"></a>
-### [mylar-5.0.20](https://github.com/truecharts/apps/compare/mylar-5.0.19...mylar-5.0.20) (2022-05-17)
+<a name="mosquitto-5.0.23"></a>
+### [mosquitto-5.0.23](https://github.com/truecharts/apps/compare/mosquitto-5.0.22...mosquitto-5.0.23) (2022-05-17)
 
 #### Chore
 
@@ -246,8 +249,8 @@
 
 
 
-<a name="mylar-5.0.19"></a>
-### [mylar-5.0.19](https://github.com/truecharts/apps/compare/mylar-5.0.18...mylar-5.0.19) (2022-05-10)
+<a name="mosquitto-5.0.22"></a>
+### [mosquitto-5.0.22](https://github.com/truecharts/apps/compare/mosquitto-5.0.21...mosquitto-5.0.22) (2022-05-10)
 
 #### Chore
 
@@ -255,8 +258,8 @@
 
 
 
-<a name="mylar-5.0.18"></a>
-### [mylar-5.0.18](https://github.com/truecharts/apps/compare/mylar-5.0.17...mylar-5.0.18) (2022-05-05)
+<a name="mosquitto-5.0.21"></a>
+### [mosquitto-5.0.21](https://github.com/truecharts/apps/compare/mosquitto-5.0.20...mosquitto-5.0.21) (2022-05-05)
 
 #### Chore
 
@@ -264,17 +267,8 @@
 
 
 
-<a name="mylar-5.0.17"></a>
-### [mylar-5.0.17](https://github.com/truecharts/apps/compare/mylar-5.0.16...mylar-5.0.17) (2022-05-04)
-
-#### Chore
-
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
-
-
-
-<a name="mylar-5.0.16"></a>
-### [mylar-5.0.16](https://github.com/truecharts/apps/compare/mylar-5.0.15...mylar-5.0.16) (2022-04-26)
+<a name="mosquitto-5.0.20"></a>
+### [mosquitto-5.0.20](https://github.com/truecharts/apps/compare/mosquitto-5.0.19...mosquitto-5.0.20) (2022-04-26)
 
 #### Chore
 
@@ -282,8 +276,8 @@
 
 
 
-<a name="mylar-5.0.15"></a>
-### [mylar-5.0.15](https://github.com/truecharts/apps/compare/mylar-5.0.14...mylar-5.0.15) (2022-04-20)
+<a name="mosquitto-5.0.19"></a>
+### [mosquitto-5.0.19](https://github.com/truecharts/apps/compare/mosquitto-5.0.18...mosquitto-5.0.19) (2022-04-20)
 
 #### Chore
 
@@ -292,26 +286,8 @@
 
 
 
-<a name="mylar-5.0.14"></a>
-### [mylar-5.0.14](https://github.com/truecharts/apps/compare/mylar-5.0.13...mylar-5.0.14) (2022-04-17)
-
-#### Chore
-
-* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
-
-
-
-<a name="mylar-5.0.13"></a>
-### [mylar-5.0.13](https://github.com/truecharts/apps/compare/mylar-5.0.12...mylar-5.0.13) (2022-04-12)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="mylar-5.0.12"></a>
-### [mylar-5.0.12](https://github.com/truecharts/apps/compare/mylar-5.0.11...mylar-5.0.12) (2022-04-12)
+<a name="mosquitto-5.0.18"></a>
+### [mosquitto-5.0.18](https://github.com/truecharts/apps/compare/mosquitto-5.0.17...mosquitto-5.0.18) (2022-04-12)
 
 #### Chore
 
@@ -319,8 +295,8 @@
 
 
 
-<a name="mylar-5.0.11"></a>
-### [mylar-5.0.11](https://github.com/truecharts/apps/compare/mylar-5.0.10...mylar-5.0.11) (2022-04-09)
+<a name="mosquitto-5.0.17"></a>
+### [mosquitto-5.0.17](https://github.com/truecharts/apps/compare/mosquitto-5.0.16...mosquitto-5.0.17) (2022-04-09)
 
 #### Chore
 
@@ -328,18 +304,17 @@
 
 
 
-<a name="mylar-5.0.10"></a>
-### [mylar-5.0.10](https://github.com/truecharts/apps/compare/mylar-5.0.9...mylar-5.0.10) (2022-04-03)
+<a name="mosquitto-5.0.16"></a>
+### [mosquitto-5.0.16](https://github.com/truecharts/apps/compare/mosquitto-5.0.15...mosquitto-5.0.16) (2022-04-03)
 
 #### Chore
 
-* Auto-update chart README [skip ci]
 * update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
 
 
 
-<a name="mylar-5.0.8"></a>
-### [mylar-5.0.8](https://github.com/truecharts/apps/compare/mylar-5.0.7...mylar-5.0.8) (2022-03-31)
+<a name="mosquitto-5.0.15"></a>
+### [mosquitto-5.0.15](https://github.com/truecharts/apps/compare/mosquitto-5.0.14...mosquitto-5.0.15) (2022-03-31)
 
 #### Chore
 
@@ -347,17 +322,36 @@
 
 
 
-<a name="mylar-5.0.7"></a>
-### [mylar-5.0.7](https://github.com/truecharts/apps/compare/mylar-5.0.6...mylar-5.0.7) (2022-03-30)
+<a name="mosquitto-5.0.14"></a>
+### [mosquitto-5.0.14](https://github.com/truecharts/apps/compare/mosquitto-5.0.13...mosquitto-5.0.14) (2022-03-30)
 
 #### Chore
 
+* Auto-update chart README [skip ci]
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="mylar-5.0.6"></a>
-### [mylar-5.0.6](https://github.com/truecharts/apps/compare/mylar-5.0.5...mylar-5.0.6) (2022-03-26)
+<a name="mosquitto-5.0.13"></a>
+### [mosquitto-5.0.13](https://github.com/truecharts/apps/compare/mosquitto-5.0.12...mosquitto-5.0.13) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2349](https://github.com/truecharts/apps/issues/2349))
+
+
+
+<a name="mosquitto-5.0.12"></a>
+### [mosquitto-5.0.12](https://github.com/truecharts/apps/compare/mosquitto-5.0.11...mosquitto-5.0.12) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
+<a name="mosquitto-5.0.11"></a>
+### [mosquitto-5.0.11](https://github.com/truecharts/apps/compare/mosquitto-5.0.10...mosquitto-5.0.11) (2022-03-26)
 
 #### Chore
 
@@ -365,8 +359,54 @@
 
 
 
-<a name="mylar-5.0.1"></a>
-### [mylar-5.0.1](https://github.com/truecharts/apps/compare/mylar-5.0.0...mylar-5.0.1) (2022-03-07)
+<a name="mosquitto-5.0.9"></a>
+### [mosquitto-5.0.9](https://github.com/truecharts/apps/compare/mosquitto-5.0.8...mosquitto-5.0.9) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="mosquitto-5.0.7"></a>
+### [mosquitto-5.0.7](https://github.com/truecharts/apps/compare/mosquitto-5.0.6...mosquitto-5.0.7) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="mosquitto-5.0.6"></a>
+### [mosquitto-5.0.6](https://github.com/truecharts/apps/compare/mosquitto-5.0.5...mosquitto-5.0.6) (2022-03-18)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="mosquitto-5.0.3"></a>
+### [mosquitto-5.0.3](https://github.com/truecharts/apps/compare/mosquitto-5.0.2...mosquitto-5.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
+<a name="mosquitto-5.0.2"></a>
+### [mosquitto-5.0.2](https://github.com/truecharts/apps/compare/mosquitto-5.0.1...mosquitto-5.0.2) (2022-03-14)
+
+#### Fix
+
+* remove portal button ([#2164](https://github.com/truecharts/apps/issues/2164))
+
+
+
+<a name="mosquitto-5.0.1"></a>
+### [mosquitto-5.0.1](https://github.com/truecharts/apps/compare/mosquitto-5.0.0...mosquitto-5.0.1) (2022-03-07)
 
 #### Chore
 
@@ -375,24 +415,23 @@
 
 
 
-<a name="mylar-5.0.0"></a>
-### [mylar-5.0.0](https://github.com/truecharts/apps/compare/mylar-4.0.43...mylar-5.0.0) (2022-03-03)
+<a name="mosquitto-5.0.0"></a>
+### [mosquitto-5.0.0](https://github.com/truecharts/apps/compare/mosquitto-4.0.44...mosquitto-5.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove PUID from per-app env-vars if set to 568
-* remove empty env var declaration from questions.yaml
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
 
 * BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* correct some questions.yaml mistakes
 
 
 
-<a name="mylar-4.0.43"></a>
-### [mylar-4.0.43](https://github.com/truecharts/apps/compare/mylar-4.0.42...mylar-4.0.43) (2022-03-02)
+<a name="mosquitto-4.0.44"></a>
+### [mosquitto-4.0.44](https://github.com/truecharts/apps/compare/mosquitto-4.0.43...mosquitto-4.0.44) (2022-03-02)
 
 #### Chore
 
@@ -401,17 +440,8 @@
 
 
 
-<a name="mylar-4.0.42"></a>
-### [mylar-4.0.42](https://github.com/truecharts/apps/compare/mylar-4.0.41...mylar-4.0.42) (2022-02-23)
-
-#### Fix
-
-* fix image reference ([#1944](https://github.com/truecharts/apps/issues/1944))
-
-
-
-<a name="mylar-4.0.41"></a>
-### [mylar-4.0.41](https://github.com/truecharts/apps/compare/mylar-4.0.40...mylar-4.0.41) (2022-02-21)
+<a name="mosquitto-4.0.43"></a>
+### [mosquitto-4.0.43](https://github.com/truecharts/apps/compare/mosquitto-4.0.42...mosquitto-4.0.43) (2022-02-21)
 
 #### Chore
 
@@ -419,8 +449,8 @@
 
 
 
-<a name="mylar-4.0.40"></a>
-### [mylar-4.0.40](https://github.com/truecharts/apps/compare/mylar-4.0.39...mylar-4.0.40) (2022-02-15)
+<a name="mosquitto-4.0.42"></a>
+### [mosquitto-4.0.42](https://github.com/truecharts/apps/compare/mosquitto-4.0.41...mosquitto-4.0.42) (2022-02-15)
 
 #### Chore
 
@@ -428,18 +458,17 @@
 
 
 
-<a name="mylar-4.0.39"></a>
-### [mylar-4.0.39](https://github.com/truecharts/apps/compare/mylar-4.0.38...mylar-4.0.39) (2022-02-08)
+<a name="mosquitto-4.0.41"></a>
+### [mosquitto-4.0.41](https://github.com/truecharts/apps/compare/mosquitto-4.0.40...mosquitto-4.0.41) (2022-02-08)
 
 #### Chore
 
-* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
 * update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
 
 
 
-<a name="mylar-4.0.38"></a>
-### [mylar-4.0.38](https://github.com/truecharts/apps/compare/mylar-4.0.37...mylar-4.0.38) (2022-02-06)
+<a name="mosquitto-4.0.40"></a>
+### [mosquitto-4.0.40](https://github.com/truecharts/apps/compare/mosquitto-4.0.39...mosquitto-4.0.40) (2022-02-06)
 
 #### Chore
 
@@ -447,8 +476,8 @@
 
 
 
-<a name="mylar-4.0.37"></a>
-### [mylar-4.0.37](https://github.com/truecharts/apps/compare/mylar-4.0.36...mylar-4.0.37) (2022-02-05)
+<a name="mosquitto-4.0.39"></a>
+### [mosquitto-4.0.39](https://github.com/truecharts/apps/compare/mosquitto-4.0.38...mosquitto-4.0.39) (2022-02-05)
 
 #### Chore
 
@@ -456,8 +485,8 @@
 
 
 
-<a name="mylar-4.0.36"></a>
-### [mylar-4.0.36](https://github.com/truecharts/apps/compare/mylar-4.0.35...mylar-4.0.36) (2022-02-02)
+<a name="mosquitto-4.0.38"></a>
+### [mosquitto-4.0.38](https://github.com/truecharts/apps/compare/mosquitto-4.0.37...mosquitto-4.0.38) (2022-02-02)
 
 #### Chore
 
@@ -465,8 +494,8 @@
 
 
 
-<a name="mylar-4.0.35"></a>
-### [mylar-4.0.35](https://github.com/truecharts/apps/compare/mylar-4.0.34...mylar-4.0.35) (2022-01-25)
+<a name="mosquitto-4.0.37"></a>
+### [mosquitto-4.0.37](https://github.com/truecharts/apps/compare/mosquitto-4.0.36...mosquitto-4.0.37) (2022-01-25)
 
 #### Chore
 
@@ -474,8 +503,8 @@
 
 
 
-<a name="mylar-4.0.34"></a>
-### [mylar-4.0.34](https://github.com/truecharts/apps/compare/mylar-4.0.33...mylar-4.0.34) (2022-01-22)
+<a name="mosquitto-4.0.36"></a>
+### [mosquitto-4.0.36](https://github.com/truecharts/apps/compare/mosquitto-4.0.35...mosquitto-4.0.36) (2022-01-22)
 
 #### Chore
 
@@ -483,8 +512,8 @@
 
 
 
-<a name="mylar-4.0.33"></a>
-### [mylar-4.0.33](https://github.com/truecharts/apps/compare/mylar-4.0.32...mylar-4.0.33) (2022-01-21)
+<a name="mosquitto-4.0.35"></a>
+### [mosquitto-4.0.35](https://github.com/truecharts/apps/compare/mosquitto-4.0.34...mosquitto-4.0.35) (2022-01-21)
 
 #### Chore
 
@@ -496,8 +525,8 @@
 
 
 
-<a name="mylar-4.0.32"></a>
-### [mylar-4.0.32](https://github.com/truecharts/apps/compare/mylar-4.0.31...mylar-4.0.32) (2022-01-18)
+<a name="mosquitto-4.0.34"></a>
+### [mosquitto-4.0.34](https://github.com/truecharts/apps/compare/mosquitto-4.0.33...mosquitto-4.0.34) (2022-01-18)
 
 #### Chore
 
@@ -505,8 +534,8 @@
 
 
 
-<a name="mylar-4.0.31"></a>
-### [mylar-4.0.31](https://github.com/truecharts/apps/compare/mylar-4.0.30...mylar-4.0.31) (2022-01-13)
+<a name="mosquitto-4.0.33"></a>
+### [mosquitto-4.0.33](https://github.com/truecharts/apps/compare/mosquitto-4.0.32...mosquitto-4.0.33) (2022-01-13)
 
 #### Chore
 
@@ -518,8 +547,8 @@
 
 
 
-<a name="mylar-4.0.30"></a>
-### [mylar-4.0.30](https://github.com/truecharts/apps/compare/mylar-4.0.29...mylar-4.0.30) (2022-01-12)
+<a name="mosquitto-4.0.32"></a>
+### [mosquitto-4.0.32](https://github.com/truecharts/apps/compare/mosquitto-4.0.31...mosquitto-4.0.32) (2022-01-12)
 
 #### Chore
 
@@ -527,8 +556,8 @@
 
 
 
-<a name="mylar-4.0.29"></a>
-### [mylar-4.0.29](https://github.com/truecharts/apps/compare/mylar-4.0.28...mylar-4.0.29) (2022-01-11)
+<a name="mosquitto-4.0.31"></a>
+### [mosquitto-4.0.31](https://github.com/truecharts/apps/compare/mosquitto-4.0.30...mosquitto-4.0.31) (2022-01-11)
 
 #### Chore
 
@@ -536,8 +565,8 @@
 
 
 
-<a name="mylar-4.0.28"></a>
-### [mylar-4.0.28](https://github.com/truecharts/apps/compare/mylar-4.0.27...mylar-4.0.28) (2022-01-04)
+<a name="mosquitto-4.0.30"></a>
+### [mosquitto-4.0.30](https://github.com/truecharts/apps/compare/mosquitto-4.0.29...mosquitto-4.0.30) (2022-01-04)
 
 #### Chore
 
@@ -545,8 +574,8 @@
 
 
 
-<a name="mylar-4.0.27"></a>
-### [mylar-4.0.27](https://github.com/truecharts/apps/compare/mylar-4.0.26...mylar-4.0.27) (2021-12-28)
+<a name="mosquitto-4.0.29"></a>
+### [mosquitto-4.0.29](https://github.com/truecharts/apps/compare/mosquitto-4.0.28...mosquitto-4.0.29) (2021-12-28)
 
 #### Chore
 
@@ -554,8 +583,8 @@
 
 
 
-<a name="mylar-4.0.26"></a>
-### [mylar-4.0.26](https://github.com/truecharts/apps/compare/mylar-4.0.25...mylar-4.0.26) (2021-12-21)
+<a name="mosquitto-4.0.28"></a>
+### [mosquitto-4.0.28](https://github.com/truecharts/apps/compare/mosquitto-4.0.27...mosquitto-4.0.28) (2021-12-21)
 
 #### Chore
 
@@ -563,8 +592,8 @@
 
 
 
-<a name="mylar-4.0.25"></a>
-### [mylar-4.0.25](https://github.com/truecharts/apps/compare/mylar-4.0.24...mylar-4.0.25) (2021-12-19)
+<a name="mosquitto-4.0.27"></a>
+### [mosquitto-4.0.27](https://github.com/truecharts/apps/compare/mosquitto-4.0.26...mosquitto-4.0.27) (2021-12-19)
 
 #### Chore
 
@@ -573,8 +602,8 @@
 
 
 
-<a name="mylar-4.0.24"></a>
-### [mylar-4.0.24](https://github.com/truecharts/apps/compare/mylar-4.0.23...mylar-4.0.24) (2021-12-19)
+<a name="mosquitto-4.0.26"></a>
+### [mosquitto-4.0.26](https://github.com/truecharts/apps/compare/mosquitto-4.0.25...mosquitto-4.0.26) (2021-12-19)
 
 #### Chore
 
@@ -583,8 +612,8 @@
 
 
 
-<a name="mylar-4.0.23"></a>
-### [mylar-4.0.23](https://github.com/truecharts/apps/compare/mylar-4.0.22...mylar-4.0.23) (2021-12-18)
+<a name="mosquitto-4.0.25"></a>
+### [mosquitto-4.0.25](https://github.com/truecharts/apps/compare/mosquitto-4.0.24...mosquitto-4.0.25) (2021-12-18)
 
 #### Chore
 
@@ -593,8 +622,8 @@
 
 
 
-<a name="mylar-4.0.22"></a>
-### [mylar-4.0.22](https://github.com/truecharts/apps/compare/mylar-4.0.21...mylar-4.0.22) (2021-12-14)
+<a name="mosquitto-4.0.24"></a>
+### [mosquitto-4.0.24](https://github.com/truecharts/apps/compare/mosquitto-4.0.23...mosquitto-4.0.24) (2021-12-14)
 
 #### Chore
 
@@ -602,8 +631,8 @@
 
 
 
-<a name="mylar-4.0.21"></a>
-### [mylar-4.0.21](https://github.com/truecharts/apps/compare/mylar-4.0.20...mylar-4.0.21) (2021-12-13)
+<a name="mosquitto-4.0.23"></a>
+### [mosquitto-4.0.23](https://github.com/truecharts/apps/compare/mosquitto-4.0.22...mosquitto-4.0.23) (2021-12-13)
 
 #### Chore
 
@@ -611,18 +640,17 @@
 
 
 
-<a name="mylar-4.0.20"></a>
-### [mylar-4.0.20](https://github.com/truecharts/apps/compare/mylar-4.0.19...mylar-4.0.20) (2021-12-11)
+<a name="mosquitto-4.0.22"></a>
+### [mosquitto-4.0.22](https://github.com/truecharts/apps/compare/mosquitto-4.0.21...mosquitto-4.0.22) (2021-12-11)
 
 #### Chore
 
-* set PUID to `int` instead of `string` ([#1506](https://github.com/truecharts/apps/issues/1506))
 * update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
 
 
 
-<a name="mylar-4.0.19"></a>
-### [mylar-4.0.19](https://github.com/truecharts/apps/compare/mylar-4.0.18...mylar-4.0.19) (2021-12-07)
+<a name="mosquitto-4.0.21"></a>
+### [mosquitto-4.0.21](https://github.com/truecharts/apps/compare/mosquitto-4.0.20...mosquitto-4.0.21) (2021-12-07)
 
 #### Chore
 
@@ -630,17 +658,18 @@
 
 
 
-<a name="mylar-4.0.18"></a>
-### mylar-4.0.18 (2021-12-05)
+<a name="mosquitto-4.0.20"></a>
+### mosquitto-4.0.20 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* ensure container references are prefixed with v
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
 * update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
 #### Fix
@@ -649,8 +678,8 @@
 
 
 
-<a name="mylar-4.0.17"></a>
-### [mylar-4.0.17](https://github.com/truecharts/apps/compare/mylar-4.0.16...mylar-4.0.17) (2021-12-05)
+<a name="mosquitto-4.0.19"></a>
+### [mosquitto-4.0.19](https://github.com/truecharts/apps/compare/mosquitto-4.0.18...mosquitto-4.0.19) (2021-12-05)
 
 #### Chore
 
@@ -658,8 +687,8 @@
 
 
 
-<a name="mylar-4.0.16"></a>
-### [mylar-4.0.16](https://github.com/truecharts/apps/compare/mylar-4.0.15...mylar-4.0.16) (2021-12-04)
+<a name="mosquitto-4.0.18"></a>
+### [mosquitto-4.0.18](https://github.com/truecharts/apps/compare/mosquitto-4.0.17...mosquitto-4.0.18) (2021-12-04)
 
 #### Chore
 
@@ -667,8 +696,8 @@
 
 
 
-<a name="mylar-4.0.15"></a>
-### [mylar-4.0.15](https://github.com/truecharts/apps/compare/mylar-4.0.14...mylar-4.0.15) (2021-12-04)
+<a name="mosquitto-4.0.17"></a>
+### [mosquitto-4.0.17](https://github.com/truecharts/apps/compare/mosquitto-4.0.16...mosquitto-4.0.17) (2021-12-04)
 
 #### Chore
 
@@ -676,18 +705,19 @@
 
 
 
-<a name="mylar-4.0.14"></a>
-### [mylar-4.0.14](https://github.com/truecharts/apps/compare/mylar-4.0.13...mylar-4.0.14) (2021-12-03)
+<a name="mosquitto-4.0.16"></a>
+### [mosquitto-4.0.16](https://github.com/truecharts/apps/compare/mosquitto-4.0.15...mosquitto-4.0.16) (2021-12-03)
 
 #### Chore
 
+* ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 
 
 
-<a name="mylar-4.0.13"></a>
-### [mylar-4.0.13](https://github.com/truecharts/apps/compare/mylar-4.0.12...mylar-4.0.13) (2021-11-30)
+<a name="mosquitto-4.0.15"></a>
+### [mosquitto-4.0.15](https://github.com/truecharts/apps/compare/mosquitto-4.0.14...mosquitto-4.0.15) (2021-11-30)
 
 #### Chore
 
@@ -695,8 +725,8 @@
 
 
 
-<a name="mylar-4.0.12"></a>
-### [mylar-4.0.12](https://github.com/truecharts/apps/compare/mylar-4.0.11...mylar-4.0.12) (2021-11-23)
+<a name="mosquitto-4.0.14"></a>
+### [mosquitto-4.0.14](https://github.com/truecharts/apps/compare/mosquitto-4.0.13...mosquitto-4.0.14) (2021-11-23)
 
 #### Chore
 
@@ -704,17 +734,30 @@
 
 
 
-<a name="mylar-4.0.11"></a>
-### [mylar-4.0.11](https://github.com/truecharts/apps/compare/mylar-4.0.10...mylar-4.0.11) (2021-11-22)
+<a name="mosquitto-4.0.13"></a>
+### [mosquitto-4.0.13](https://github.com/truecharts/apps/compare/mosquitto-4.0.12...mosquitto-4.0.13) (2021-11-22)
 
 #### Chore
 
 * update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
 
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
 
 
-<a name="mylar-4.0.10"></a>
-### [mylar-4.0.10](https://github.com/truecharts/apps/compare/mylar-4.0.9...mylar-4.0.10) (2021-11-16)
+
+<a name="mosquitto-4.0.12"></a>
+### [mosquitto-4.0.12](https://github.com/truecharts/apps/compare/mosquitto-4.0.11...mosquitto-4.0.12) (2021-11-18)
+
+#### Chore
+
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
+
+
+
+<a name="mosquitto-4.0.11"></a>
+### [mosquitto-4.0.11](https://github.com/truecharts/apps/compare/mosquitto-4.0.10...mosquitto-4.0.11) (2021-11-16)
 
 #### Chore
 
@@ -722,8 +765,8 @@
 
 
 
-<a name="mylar-4.0.9"></a>
-### [mylar-4.0.9](https://github.com/truecharts/apps/compare/mylar-4.0.8...mylar-4.0.9) (2021-11-15)
+<a name="mosquitto-4.0.10"></a>
+### [mosquitto-4.0.10](https://github.com/truecharts/apps/compare/mosquitto-4.0.9...mosquitto-4.0.10) (2021-11-15)
 
 #### Chore
 
@@ -732,8 +775,8 @@
 
 
 
-<a name="mylar-4.0.8"></a>
-### [mylar-4.0.8](https://github.com/truecharts/apps/compare/mylar-4.0.7...mylar-4.0.8) (2021-11-14)
+<a name="mosquitto-4.0.9"></a>
+### [mosquitto-4.0.9](https://github.com/truecharts/apps/compare/mosquitto-4.0.8...mosquitto-4.0.9) (2021-11-14)
 
 #### Chore
 
@@ -741,6 +784,7 @@
 * move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
 * clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
 * update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
 
 #### Fix
 
@@ -749,17 +793,18 @@
 
 
 
-<a name="mylar-4.0.7"></a>
-### [mylar-4.0.7](https://github.com/truecharts/apps/compare/mylar-4.0.6...mylar-4.0.7) (2021-11-09)
+<a name="mosquitto-4.0.8"></a>
+### [mosquitto-4.0.8](https://github.com/truecharts/apps/compare/mosquitto-4.0.7...mosquitto-4.0.8) (2021-11-09)
 
 #### Chore
 
 * update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
 
 
 
-<a name="mylar-4.0.6"></a>
-### [mylar-4.0.6](https://github.com/truecharts/apps/compare/mylar-4.0.5...mylar-4.0.6) (2021-11-07)
+<a name="mosquitto-4.0.7"></a>
+### [mosquitto-4.0.7](https://github.com/truecharts/apps/compare/mosquitto-4.0.6...mosquitto-4.0.7) (2021-11-07)
 
 #### Chore
 
@@ -767,8 +812,8 @@
 
 
 
-<a name="mylar-4.0.5"></a>
-### [mylar-4.0.5](https://github.com/truecharts/apps/compare/mylar-4.0.4...mylar-4.0.5) (2021-11-07)
+<a name="mosquitto-4.0.6"></a>
+### [mosquitto-4.0.6](https://github.com/truecharts/apps/compare/mosquitto-4.0.5...mosquitto-4.0.6) (2021-11-07)
 
 #### Chore
 
@@ -784,8 +829,8 @@
 
 
 
-<a name="mylar-4.0.4"></a>
-### [mylar-4.0.4](https://github.com/truecharts/apps/compare/mylar-4.0.3...mylar-4.0.4) (2021-11-02)
+<a name="mosquitto-4.0.5"></a>
+### [mosquitto-4.0.5](https://github.com/truecharts/apps/compare/mosquitto-4.0.4...mosquitto-4.0.5) (2021-11-02)
 
 #### Chore
 
@@ -793,8 +838,8 @@
 
 
 
-<a name="mylar-4.0.3"></a>
-### [mylar-4.0.3](https://github.com/truecharts/apps/compare/mylar-4.0.2...mylar-4.0.3) (2021-11-01)
+<a name="mosquitto-4.0.4"></a>
+### [mosquitto-4.0.4](https://github.com/truecharts/apps/compare/mosquitto-4.0.3...mosquitto-4.0.4) (2021-11-01)
 
 #### Chore
 
@@ -802,8 +847,17 @@
 
 
 
-<a name="mylar-4.0.2"></a>
-### [mylar-4.0.2](https://github.com/truecharts/apps/compare/mylar-4.0.1...mylar-4.0.2) (2021-10-26)
+<a name="mosquitto-4.0.3"></a>
+### [mosquitto-4.0.3](https://github.com/truecharts/apps/compare/mosquitto-4.0.2...mosquitto-4.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
+<a name="mosquitto-4.0.2"></a>
+### [mosquitto-4.0.2](https://github.com/truecharts/apps/compare/mosquitto-4.0.1...mosquitto-4.0.2) (2021-10-26)
 
 #### Chore
 
@@ -811,8 +865,8 @@
 
 
 
-<a name="mylar-4.0.1"></a>
-### [mylar-4.0.1](https://github.com/truecharts/apps/compare/mylar-4.0.0...mylar-4.0.1) (2021-10-26)
+<a name="mosquitto-4.0.1"></a>
+### [mosquitto-4.0.1](https://github.com/truecharts/apps/compare/mosquitto-4.0.0...mosquitto-4.0.1) (2021-10-26)
 
 #### Chore
 
@@ -820,8 +874,8 @@
 
 
 
-<a name="mylar-4.0.0"></a>
-### [mylar-4.0.0](https://github.com/truecharts/apps/compare/mylar-3.0.16...mylar-4.0.0) (2021-10-25)
+<a name="mosquitto-4.0.0"></a>
+### [mosquitto-4.0.0](https://github.com/truecharts/apps/compare/mosquitto-3.0.15...mosquitto-4.0.0) (2021-10-25)
 
 #### Chore
 
@@ -829,8 +883,8 @@
 
 
 
-<a name="mylar-3.0.16"></a>
-### [mylar-3.0.16](https://github.com/truecharts/apps/compare/mylar-3.0.13...mylar-3.0.16) (2021-10-20)
+<a name="mosquitto-3.0.15"></a>
+### [mosquitto-3.0.15](https://github.com/truecharts/apps/compare/mosquitto-3.0.12...mosquitto-3.0.15) (2021-10-20)
 
 #### Chore
 
@@ -844,17 +898,8 @@
 
 
 
-<a name="mylar-3.0.13"></a>
-### [mylar-3.0.13](https://github.com/truecharts/apps/compare/mylar-3.0.12...mylar-3.0.13) (2021-10-20)
-
-#### Chore
-
-* bump versions to rerelease and fix icons
-
-
-
-<a name="mylar-3.0.12"></a>
-### [mylar-3.0.12](https://github.com/truecharts/apps/compare/mylar-3.0.11...mylar-3.0.12) (2021-10-19)
+<a name="mosquitto-3.0.12"></a>
+### [mosquitto-3.0.12](https://github.com/truecharts/apps/compare/mosquitto-3.0.11...mosquitto-3.0.12) (2021-10-20)
 
 #### Change
 
@@ -862,9 +907,9 @@
 
 #### Chore
 
+* bump versions to rerelease and fix icons
 * Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
 * Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
-* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
 
 #### Feat
 
@@ -876,8 +921,8 @@
 
 
 
-<a name="mylar-3.0.11"></a>
-### [mylar-3.0.11](https://github.com/truecharts/apps/compare/mylar-3.0.10...mylar-3.0.11) (2021-10-19)
+<a name="mosquitto-3.0.11"></a>
+### [mosquitto-3.0.11](https://github.com/truecharts/apps/compare/mosquitto-3.0.10...mosquitto-3.0.11) (2021-10-19)
 
 #### Fix
 
@@ -885,8 +930,8 @@
 
 
 
-<a name="mylar-3.0.10"></a>
-### [mylar-3.0.10](https://github.com/truecharts/apps/compare/mylar-3.0.9...mylar-3.0.10) (2021-10-19)
+<a name="mosquitto-3.0.10"></a>
+### [mosquitto-3.0.10](https://github.com/truecharts/apps/compare/mosquitto-3.0.9...mosquitto-3.0.10) (2021-10-19)
 
 #### Fix
 
@@ -894,8 +939,8 @@
 
 
 
-<a name="mylar-3.0.9"></a>
-### [mylar-3.0.9](https://github.com/truecharts/apps/compare/mylar-3.0.8...mylar-3.0.9) (2021-10-18)
+<a name="mosquitto-3.0.9"></a>
+### [mosquitto-3.0.9](https://github.com/truecharts/apps/compare/mosquitto-3.0.8...mosquitto-3.0.9) (2021-10-18)
 
 #### Chore
 
@@ -907,8 +952,8 @@
 
 
 
-<a name="mylar-3.0.8"></a>
-### [mylar-3.0.8](https://github.com/truecharts/apps/compare/mylar-3.0.7...mylar-3.0.8) (2021-10-17)
+<a name="mosquitto-3.0.8"></a>
+### [mosquitto-3.0.8](https://github.com/truecharts/apps/compare/mosquitto-3.0.7...mosquitto-3.0.8) (2021-10-17)
 
 #### Chore
 
@@ -920,8 +965,8 @@
 
 
 
-<a name="mylar-3.0.7"></a>
-### [mylar-3.0.7](https://github.com/truecharts/apps/compare/mylar-3.0.6...mylar-3.0.7) (2021-10-13)
+<a name="mosquitto-3.0.7"></a>
+### [mosquitto-3.0.7](https://github.com/truecharts/apps/compare/mosquitto-3.0.6...mosquitto-3.0.7) (2021-10-13)
 
 #### Chore
 
@@ -929,8 +974,8 @@
 
 
 
-<a name="mylar-3.0.6"></a>
-### [mylar-3.0.6](https://github.com/truecharts/apps/compare/mylar-3.0.5...mylar-3.0.6) (2021-10-12)
+<a name="mosquitto-3.0.6"></a>
+### [mosquitto-3.0.6](https://github.com/truecharts/apps/compare/mosquitto-3.0.5...mosquitto-3.0.6) (2021-10-12)
 
 #### Chore
 
@@ -938,8 +983,8 @@
 
 
 
-<a name="mylar-3.0.5"></a>
-### [mylar-3.0.5](https://github.com/truecharts/apps/compare/mylar-3.0.4...mylar-3.0.5) (2021-10-12)
+<a name="mosquitto-3.0.5"></a>
+### [mosquitto-3.0.5](https://github.com/truecharts/apps/compare/mosquitto-3.0.4...mosquitto-3.0.5) (2021-10-12)
 
 #### Chore
 
@@ -947,8 +992,8 @@
 
 
 
-<a name="mylar-3.0.4"></a>
-### [mylar-3.0.4](https://github.com/truecharts/apps/compare/mylar-3.0.3...mylar-3.0.4) (2021-10-05)
+<a name="mosquitto-3.0.4"></a>
+### [mosquitto-3.0.4](https://github.com/truecharts/apps/compare/mosquitto-3.0.3...mosquitto-3.0.4) (2021-10-05)
 
 #### Chore
 
@@ -956,8 +1001,8 @@
 
 
 
-<a name="mylar-3.0.3"></a>
-### [mylar-3.0.3](https://github.com/truecharts/apps/compare/mylar-3.0.2...mylar-3.0.3) (2021-09-29)
+<a name="mosquitto-3.0.3"></a>
+### [mosquitto-3.0.3](https://github.com/truecharts/apps/compare/mosquitto-3.0.2...mosquitto-3.0.3) (2021-09-29)
 
 #### Chore
 
@@ -965,18 +1010,18 @@
 
 
 
-<a name="mylar-3.0.1"></a>
-### [mylar-3.0.1](https://github.com/truecharts/apps/compare/mylar-3.0.0...mylar-3.0.1) (2021-09-26)
+<a name="mosquitto-3.0.1"></a>
+### [mosquitto-3.0.1](https://github.com/truecharts/apps/compare/mosquitto-3.0.0...mosquitto-3.0.1) (2021-09-26)
 
 
 
-<a name="mylar-3.0.0"></a>
-### [mylar-3.0.0](https://github.com/truecharts/apps/compare/mylar-2.0.2...mylar-3.0.0) (2021-09-26)
+<a name="mosquitto-3.0.0"></a>
+### [mosquitto-3.0.0](https://github.com/truecharts/apps/compare/mosquitto-2.0.2...mosquitto-3.0.0) (2021-09-26)
 
 
 
-<a name="mylar-2.0.2"></a>
-### [mylar-2.0.2](https://github.com/truecharts/apps/compare/mylar-2.0.1...mylar-2.0.2) (2021-09-21)
+<a name="mosquitto-2.0.2"></a>
+### [mosquitto-2.0.2](https://github.com/truecharts/apps/compare/mosquitto-2.0.1...mosquitto-2.0.2) (2021-09-21)
 
 #### Chore
 
@@ -984,11 +1029,13 @@
 
 
 
-<a name="mylar-2.0.1"></a>
-### [mylar-2.0.1](https://github.com/truecharts/apps/compare/mylar-1.9.15...mylar-2.0.1) (2021-09-13)
+<a name="mosquitto-2.0.1"></a>
+### [mosquitto-2.0.1](https://github.com/truecharts/apps/compare/mosquitto-1.11.16...mosquitto-2.0.1) (2021-09-13)
 
 #### Chore
 
+* move most remaining Apps to GHCR mirror ([#959](https://github.com/truecharts/apps/issues/959))
+* move more dockerhub containers to GHCR mirror ([#958](https://github.com/truecharts/apps/issues/958))
 * update non-major ([#962](https://github.com/truecharts/apps/issues/962))
 
 #### Feat
@@ -1002,8 +1049,8 @@
 
 * make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
 
-<a name="mylar-1.9.15"></a>
-## [mylar-1.9.15](https://github.com/truecharts/apps/compare/mylar-1.9.14...mylar-1.9.15) (2021-09-08)
+<a name="mosquitto-1.11.16"></a>
+## [mosquitto-1.11.16](https://github.com/truecharts/apps/compare/mosquitto-1.11.15...mosquitto-1.11.16) (2021-09-08)
 
 ### Fix
 

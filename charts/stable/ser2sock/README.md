@@ -1,6 +1,6 @@
 # ser2sock
 
-![Version: 6.0.19](https://img.shields.io/badge/Version-6.0.19-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 6.0.20](https://img.shields.io/badge/Version-6.0.20-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Serial to Socket Redirector
 

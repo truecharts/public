@@ -2,6 +2,7 @@
 
 
 
+
 <a name="autoscan-0.0.5"></a>
 ### [autoscan-0.0.5](https://github.com/truecharts/apps/compare/autoscan-0.0.4...autoscan-0.0.5) (2022-05-05)
 

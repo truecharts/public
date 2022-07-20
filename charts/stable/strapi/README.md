@@ -1,6 +1,6 @@
 # strapi
 
-![Version: 4.0.18](https://img.shields.io/badge/Version-4.0.18-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
+![Version: 4.0.19](https://img.shields.io/badge/Version-4.0.19-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
 
 Strapi is the leading open-source headless CMS. It’s 100% JavaScript, fully customizable and developer-first.
 

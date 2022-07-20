@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [piaware-6.0.21](https://github.com/truecharts/apps/compare/piaware-6.0.20...piaware-6.0.21) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [piaware-6.0.20](https://github.com/truecharts/apps/compare/piaware-6.0.19...piaware-6.0.20) (2022-07-19)
 
 ### Chore
