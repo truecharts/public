@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Docker Container for FTB Presents Direwolf20 1.18 Minecraft Modpack\r\
+  \n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/direwolf20
+icon: https://truecharts.org/img/chart-icons/direwolf20.png
+keywords:
+- direwolf20
+- GameServers
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: direwolf20
+sources:
+- https://www.feed-the-beast.com/modpack/95_ftb_presents_direwolf20_1_18
+- https://hub.docker.com/r/ratomas/direwolf20
+type: application
+version: 0.0.10

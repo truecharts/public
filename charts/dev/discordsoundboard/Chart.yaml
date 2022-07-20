@@ -1,0 +1,38 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+    - MediaApp-Music
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: 'Simple soundboard for discord. You can trigger sounds by commands typed
+  in the Discord chat, or you can choose the sound from the web UI. You will need
+  to create a bot account that the bot will use to join and play sounds. The bot can
+  only play sounds/respond to commands for servers it has been given access. Get your
+  bot token from here - https://discord.com/developers/applications. This will not
+  work correctly without a proper Bot Token and the bot application being added to
+  your discord server. Join the official discord: https://discord.gg/kZTNtfW for support'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/discordsoundboard
+icon: https://truecharts.org/img/chart-icons/discordsoundboard.png
+keywords:
+- discordsoundboard
+- Other
+- MediaApp-Music
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: discordsoundboard
+sources:
+- https://github.com/Darkside138/DiscordSoundboard
+- https://hub.docker.com/r/davefurrer/discordsoundboard
+type: application
+version: 0.0.10

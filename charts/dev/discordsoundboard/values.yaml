@@ -1,0 +1,32 @@
+env:
+  bottoken: ''
+  username: Darkside
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/discordsoundboard
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /etc/DiscordSoundboard/config
+  databasepath:
+    enabled: true
+    mountPath: /discordDB
+  sounddirs:
+    enabled: true
+    mountPath: /etc/DiscordSoundboard/bin/sounds
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8585
+        protocol: TCP
+        targetPort: 8080

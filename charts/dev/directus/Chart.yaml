@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+    - Network-Web
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "An Instant App &amp; API for your SQL Database.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/directus
+icon: https://truecharts.org/img/chart-icons/directus.png
+keywords:
+- directus
+- Productivity
+- Tools-Utilities
+- Network-Web
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: directus
+sources:
+- https://github.com/directus/directus
+- https://hub.docker.com/r/directus/directus/
+type: application
+version: 0.0.10

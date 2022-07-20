@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: "Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application\
+  \ that is damn vulnerable. Its main goal is to be an aid for security professionals\
+  \ to test their skills and tools in a legal environment, help web developers better\
+  \ understand the processes of securing web applications and to aid both students\
+  \ &amp; teachers to learn about web application security in a controlled class room\
+  \ environment.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/dvwa-web
+icon: https://truecharts.org/img/chart-icons/dvwa-web.png
+keywords:
+- dvwa-web
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: dvwa-web
+sources:
+- https://dvwa.co.uk/
+- https://hub.docker.com/r/vulnerables/web-dvwa/
+type: application
+version: 0.0.10

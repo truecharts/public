@@ -1,0 +1,29 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/dns-doh-companion
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  dnsudp:
+    enabled: true
+    ports:
+      dnsudp:
+        enabled: true
+        port: 53
+        protocol: UDP
+        targetPort: 53
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 53
+        protocol: TCP
+        targetPort: 53

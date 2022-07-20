@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - MediaApp-Video
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: Dim is a self-hosted media manager. With minimal setup, Dim will organize
+  and beautify your media collections, letting you access and play them anytime from
+  anywhere
+home: https://github.com/truecharts/apps/tree/master/charts/stable/dim
+icon: https://truecharts.org/img/chart-icons/dim.png
+keywords:
+- dim
+- MediaApp-Video
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: dim
+sources:
+- https://github.com/Dusk-Labs/dim
+- https://github.com/Dusk-Labs/dim/pkgs/container/dim
+type: application
+version: 0.0.10

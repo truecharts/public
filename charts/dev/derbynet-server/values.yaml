@@ -1,0 +1,36 @@
+env:
+  PHOTO_PASSWORD: flashbulb
+  RACE_COORD_PASSWORD: doyourbest
+  RACE_CREW_PASSWORD: murphy
+  TIMER_PASSWORD: '555'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/derbynet-server
+  tag: latest
+persistence:
+  database:
+    enabled: true
+    mountPath: /var/lib/derbynet
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8050
+        protocol: TCP
+        targetPort: 80
+  securewebserve:
+    enabled: true
+    ports:
+      securewebserve:
+        enabled: true
+        port: 8051
+        protocol: TCP
+        targetPort: 443

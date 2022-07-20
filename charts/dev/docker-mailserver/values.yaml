@@ -1,0 +1,91 @@
+env:
+  ENABLE_CLAMAV: '1'
+  ENABLE_FAIL2BAN: '0'
+  ENABLE_MANAGESIEVE: '1'
+  ENABLE_POSTGREY: '1'
+  ENABLE_SPAMASSASSIN: '1'
+  ONE_DIR: '1'
+  POSTFIX_MESSAGE_SIZE_LIMIT: '10240000'
+  SPAMASSASSIN_SPAM_TO_INBOX: '1'
+  SSL_CERT_PATH: ''
+  SSL_KEY_PATH: ''
+  SSL_TYPE: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/docker-mailserver
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /tmp/docker-mailserver/
+  localtime:
+    enabled: true
+    mountPath: /etc/localtime
+    readOnly: true
+  logfiles:
+    enabled: true
+    mountPath: /var/log/mail/
+  mails:
+    enabled: true
+    mountPath: /var/mail/
+  mailstate:
+    enabled: true
+    mountPath: /var/mail-state/
+  mountsslpath:
+    enabled: true
+    mountPath: /etc/letsencrypt/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 25
+        protocol: TCP
+        targetPort: 25
+  portesmtp:
+    enabled: true
+    ports:
+      portesmtp:
+        enabled: true
+        port: 465
+        protocol: TCP
+        targetPort: 465
+  portesmtpssl:
+    enabled: true
+    ports:
+      portesmtpssl:
+        enabled: true
+        port: 587
+        protocol: TCP
+        targetPort: 587
+  portimap4:
+    enabled: true
+    ports:
+      portimap4:
+        enabled: true
+        port: 143
+        protocol: TCP
+        targetPort: 143
+  portimap4ssl:
+    enabled: true
+    ports:
+      portimap4ssl:
+        enabled: true
+        port: 993
+        protocol: TCP
+        targetPort: 993
+  portmanagesiev:
+    enabled: true
+    ports:
+      portmanagesiev:
+        enabled: true
+        port: 4190
+        protocol: TCP
+        targetPort: 4190
