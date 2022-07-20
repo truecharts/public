@@ -1,0 +1,28 @@
+env:
+  API_TOKEN: my-secret-api-token
+  RECORD_TYPE: A
+  ZONE_NAME: example.com
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/hetzner-ddns
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

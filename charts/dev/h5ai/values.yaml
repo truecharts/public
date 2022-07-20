@@ -1,0 +1,28 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/h5ai
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  directorystorage:
+    enabled: true
+    mountPath: /h5ai
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 80
