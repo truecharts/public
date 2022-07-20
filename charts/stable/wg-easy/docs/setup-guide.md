@@ -8,8 +8,8 @@ This can be applied to other systems but this specific guide is SCALE specific w
 - Domain name (can be free using DuckDNS or any DDNS) that has your current WAN IP, WAN IP not recommended unless you have a static IP
 - UDP Port 51820 (or whichever port you specify in Step 4 of the chart setup) Open on your firewall with port-forwarding to your TrueNAS box (this is for the Wireguard Tunnel). This will vary based on the router/firewall setup you're using, for example my Mikrotik has a Firewall rule setup
 
-  ![firewall-ex1](img/firewall-ex1.png)
-  ![firewall-ex2](img/firewall-ex2.png)
+  ![wg-easy-firewall-ex1](img/wg-easy-firewall-ex1.png)
+  ![wg-easy-firewall-ex2](img/wg-easy-firewall-ex2.png)
 
 - WG-Easy Charts chart
 
@@ -22,7 +22,7 @@ For proper access to your local network (LAN), this chart requires two `sysctl` 
 
 Set them to `1` and `Enabled`
 
-![sysctl](img/Sysctl.png)
+![wg-easy-sysctl](img/wg-easy-sysctl.png)
 
 ## Wg-Easy Chart Setup
 
