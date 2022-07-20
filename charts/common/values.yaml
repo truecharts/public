@@ -455,6 +455,10 @@ probes:
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
+    # -- set to override the default port without using custom startupProbe
+    # Accepts TPL
+    # @default -- ""
+    port: ""
     # -- The spec field contains the values for the default startupProbe.
     # If you selected `custom: true`, this field holds the definition of the startupProbe.
     # @default -- See below

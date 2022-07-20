@@ -33,7 +33,9 @@ Probes selection logic.
             {{- "tcpSocket:" | nindent 2 }}
           {{- end }}
 
-          {{- if $primaryPort.targetPort }}
+          {{- if $probe.port }}
+            {{- printf "port: %v" ( tpl ( $probe.port | toString ) $ ) | nindent 4 }}
+          {{- else if $primaryPort.targetPort }}
             {{- printf "port: %v" $primaryPort.targetPort | nindent 4 }}
           {{- else}}
             {{- printf "port: %v" $primaryPort.port | nindent 4 }}
