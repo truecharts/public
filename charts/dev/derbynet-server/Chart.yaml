@@ -1,0 +1,34 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+    - Other
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: DerbyNet is the new standard in race management software for Pinewood
+  Derby events. It's free, and it's open source. With DerbyNet, multiple browsers
+  connect to a web server running on your laptop or in the cloud.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/derbynet-server
+icon: https://truecharts.org/img/chart-icons/derbynet-server.png
+keywords:
+- derbynet-server
+- Cloud
+- Tools-Utilities
+- Other
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: derbynet-server
+sources:
+- http://jeffpiazza.github.io/derbynet/
+- https://registry.hub.docker.com/r/mitchellriley/derbynet_server
+type: application
+version: 0.0.10

@@ -1,0 +1,34 @@
+env:
+  '443': '8443'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/docpht
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/app/src/config
+  data:
+    enabled: true
+    mountPath: /var/www/app/data
+  pages:
+    enabled: true
+    mountPath: /var/www/app/pages
+  ssl:
+    enabled: true
+    mountPath: /etc/nginx/ssl
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 80

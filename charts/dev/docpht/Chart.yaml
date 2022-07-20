@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.6
+deprecated: false
+description: DocPHT you can take notes and quickly document anything and without the
+  use of any database.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/docpht
+icon: https://truecharts.org/img/chart-icons/docpht.png
+keywords:
+- docpht
+- Productivity
+- Tools-Utilities
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: docpht
+sources:
+- https://docpht.org/
+- https://hub.docker.com/r/docpht/docpht/
+type: application
+version: 0.0.10
