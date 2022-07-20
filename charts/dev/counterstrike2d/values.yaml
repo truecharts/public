@@ -12,6 +12,13 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -24,12 +31,3 @@ service:
         port: 36963
         protocol: UDP
         targetPort: 36963
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-command: ["/bin/sh"]
-args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
