@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [ghost-3.0.28](https://github.com/truecharts/apps/compare/ghost-3.0.27...ghost-3.0.28) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [ghost-3.0.27](https://github.com/truecharts/apps/compare/ghost-3.0.26...ghost-3.0.27) (2022-07-19)
 
 ### Chore

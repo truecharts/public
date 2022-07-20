@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [matomo-3.0.31](https://github.com/truecharts/apps/compare/matomo-3.0.30...matomo-3.0.31) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [matomo-3.0.30](https://github.com/truecharts/apps/compare/matomo-3.0.29...matomo-3.0.30) (2022-07-19)
 
 ### Chore

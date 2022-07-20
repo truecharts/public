@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [promtail-3.0.30](https://github.com/truecharts/apps/compare/promtail-3.0.29...promtail-3.0.30) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [promtail-3.0.29](https://github.com/truecharts/apps/compare/promtail-3.0.28...promtail-3.0.29) (2022-07-19)
 
 ### Chore

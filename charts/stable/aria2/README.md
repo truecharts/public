@@ -1,6 +1,6 @@
 # aria2
 
-![Version: 5.0.19](https://img.shields.io/badge/Version-5.0.19-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 5.0.20](https://img.shields.io/badge/Version-5.0.20-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 aria server for downloading web content
 

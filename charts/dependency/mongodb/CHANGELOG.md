@@ -1,11 +1,12 @@
 # Changelog
 
 
-## [mariadb-3.0.37](https://github.com/truecharts/apps/compare/mariadb-3.0.36...mariadb-3.0.37) (2022-07-19)
+## [mariadb-3.0.38](https://github.com/truecharts/apps/compare/mariadb-3.0.37...mariadb-3.0.38) (2022-07-20)
 
 ### Chore
 
-- Update Readme and Description on SCALE
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
 
 
 

@@ -1,6 +1,6 @@
 # joplin-server
 
-![Version: 8.0.18](https://img.shields.io/badge/Version-8.0.18-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
+![Version: 8.0.19](https://img.shields.io/badge/Version-8.0.19-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
 
 This server allows you to sync any Joplin client
 

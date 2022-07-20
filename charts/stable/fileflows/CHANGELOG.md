@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [fileflows-2.0.26](https://github.com/truecharts/apps/compare/fileflows-2.0.25...fileflows-2.0.26) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
 ## [fileflows-2.0.25](https://github.com/truecharts/apps/compare/fileflows-2.0.24...fileflows-2.0.25) (2022-07-19)
 
 ### Chore

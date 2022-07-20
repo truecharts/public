@@ -1,6 +1,6 @@
 # pretend-youre-xyzzy
 
-![Version: 6.0.19](https://img.shields.io/badge/Version-6.0.19-informational?style=flat-square) ![AppVersion: 4](https://img.shields.io/badge/AppVersion-4-informational?style=flat-square)
+![Version: 6.0.20](https://img.shields.io/badge/Version-6.0.20-informational?style=flat-square) ![AppVersion: 4](https://img.shields.io/badge/AppVersion-4-informational?style=flat-square)
 
 pretend-youre-xyzzy, a cards against humanity clone
 
