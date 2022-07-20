@@ -6,6 +6,8 @@ env:
   UMASK: '000'
   USERNAME: ''
   VALIDATE: ''
+stdin: true
+tty: true
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/avorion
@@ -64,9 +66,6 @@ service:
         port: 27000
         protocol: TCP
         targetPort: 27000
-command: ["/bin/sh"]
-args: ["-c", "groupmod -g ${GID} ${USER} && bash /opt/scripts/start.sh"]
-tty: true
 probes:
   liveness:
     enabled: false

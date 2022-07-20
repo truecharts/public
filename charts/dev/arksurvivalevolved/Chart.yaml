@@ -1,20 +1,19 @@
 annotations:
-  truecharts.org/SCALE-support: 'false'
+  truecharts.org/SCALE-support: 'true'
   truecharts.org/catagories: |
     - GameServers
-  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 10.4.6
 deprecated: false
 description: "This Docker will download and install SteamCMD. It will also install\
   \ ARK:SurvivalEvolved and run it (Normal server startup of ARK can take a long time!).\r\
   \n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/arksurvivalevolved
-icon: https://truecharts.org/_static/img/appicons/arksurvivalevolved.png
+icon: https://truecharts.org/img/chart-icons/arksurvivalevolved.png
 keywords:
 - arksurvivalevolved
 - GameServers
@@ -28,4 +27,4 @@ sources:
 - https://survivetheark.com/
 - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.5
+version: 0.0.10

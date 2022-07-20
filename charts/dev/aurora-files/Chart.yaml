@@ -1,20 +1,19 @@
 annotations:
-  truecharts.org/SCALE-support: 'false'
+  truecharts.org/SCALE-support: 'true'
   truecharts.org/catagories: |
     - Cloud
     - Tools-Utilities
     - Network-FTP
-  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  version: 10.4.6
 deprecated: false
 description: "DESCRIPTION\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/aurora-files
-icon: https://truecharts.org/_static/img/appicons/aurora-files.png
+icon: https://truecharts.org/img/chart-icons/aurora-files.png
 keywords:
 - aurora-files
 - Cloud
@@ -30,4 +29,4 @@ sources:
 - https://github.com/afterlogic/docker-aurora-files
 - https://hub.docker.com/r/afterlogic/docker-aurora-files
 type: application
-version: 0.0.5
+version: 0.0.10
