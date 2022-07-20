@@ -1,0 +1,31 @@
+env:
+  GOKAPI_LENGTH_ID: '10'
+  GOKAPI_MAX_FILESIZE: '5'
+  GOKAPI_PASSWORD: unraid
+  GOKAPI_USERNAME: unraid
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/gokapi
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+  data:
+    enabled: true
+    mountPath: /app/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 53842
+        protocol: TCP
+        targetPort: 53842

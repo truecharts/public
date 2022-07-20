@@ -1,0 +1,28 @@
+env:
+  UMASK_SET: '0022'
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/go-auto-yt
+  tag: vstable
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+  mounteddownloadsfolder:
+    enabled: true
+    mountPath: /app/downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9000
+        protocol: TCP
+        targetPort: 8080

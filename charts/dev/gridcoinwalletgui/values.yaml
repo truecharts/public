@@ -1,0 +1,37 @@
+env:
+  VNC_PW: vncpassword
+  VNC_RESOLUTION: 1920x1080
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/gridcoinwalletgui
+  tag: latest
+persistence:
+  appdataconfigpath:
+    enabled: true
+    mountPath: /headless/.GridcoinResearch/
+  boincdatadir:
+    enabled: true
+    mountPath: /var/lib/boinc-client/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6901
+        protocol: HTTP
+        targetPort: 6901
+  vncport:
+    enabled: true
+    ports:
+      vncport:
+        enabled: true
+        port: 5901
+        protocol: TCP
+        targetPort: 5901
