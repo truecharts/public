@@ -23,11 +23,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    enabled: false
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
   readiness:
-    enabled: false
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
   startup:
-    enabled: false
+    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

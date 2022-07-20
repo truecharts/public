@@ -22,11 +22,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    enabled: false
+    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
   readiness:
-    enabled: false
+    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
   startup:
-    enabled: false
+    port: '{{ .Values.service.tcp-rconport.ports.tcp-rconport.targetPort }}'
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
