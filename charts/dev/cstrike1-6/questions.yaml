@@ -200,7 +200,7 @@ questions:
 
         - variable: tcprcon
           label: 'tcprcon service'
-        - variable: tcprcon
+          description: "TCP RCON Port (not required)"
           schema:
             additional_attrs: true
             type: dict

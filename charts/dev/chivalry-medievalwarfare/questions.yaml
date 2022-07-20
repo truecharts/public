@@ -200,7 +200,7 @@ questions:
 
         - variable: gamequeryport
           label: 'gamequeryport service'
-        - variable: gamequeryport
+          description: "UDP Gamequeryport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to change the Ports in your Game Parameters Variable)"
           schema:
             additional_attrs: true
             type: dict
@@ -260,7 +260,7 @@ questions:
                                     default: 7010
         - variable: steamqueryport
           label: 'steamqueryport service'
-        - variable: steamqueryport
+          description: "UDP Steamqueryport (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to change the Ports in your Game Parameters Variable)"
           schema:
             additional_attrs: true
             type: dict

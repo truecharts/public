@@ -212,7 +212,7 @@ questions:
 
         - variable: udp2
           label: 'udp2 service'
-        - variable: udp2
+          description: "Container Port 7778"
           schema:
             additional_attrs: true
             type: dict
@@ -272,7 +272,7 @@ questions:
                                     default: 7778
         - variable: udpsteam
           label: 'udpsteam service'
-        - variable: udpsteam
+          description: "Container Port 27015"
           schema:
             additional_attrs: true
             type: dict
@@ -332,7 +332,7 @@ questions:
                                     default: 27015
         - variable: rcontcp
           label: 'rcontcp service'
-        - variable: rcontcp
+          description: "Container Port 27020"
           schema:
             additional_attrs: true
             type: dict

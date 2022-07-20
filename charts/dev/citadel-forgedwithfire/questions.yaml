@@ -188,7 +188,7 @@ questions:
 
         - variable: queryport
           label: 'queryport service'
-        - variable: queryport
+          description: "UDP Query Port (if you need another port, please delete this entry and create a new UDP Port with the corresponding port number, also dont forget to change the port in your game settings file)"
           schema:
             additional_attrs: true
             type: dict

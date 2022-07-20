@@ -188,7 +188,7 @@ questions:
 
         - variable: udpgameport
           label: 'udpgameport service'
-        - variable: udpgameport
+          description: "Same as TCP Game Port"
           schema:
             additional_attrs: true
             type: dict
@@ -248,7 +248,7 @@ questions:
                                     default: 2302
         - variable: udpsteamquerry
           label: 'udpsteamquerry service'
-        - variable: udpsteamquerry
+          description: "UDP Game Port 1"
           schema:
             additional_attrs: true
             type: dict
@@ -308,7 +308,7 @@ questions:
                                     default: 2303
         - variable: udpsteammaster
           label: 'udpsteammaster service'
-        - variable: udpsteammaster
+          description: "UDP Game Port 2"
           schema:
             additional_attrs: true
             type: dict
@@ -368,7 +368,7 @@ questions:
                                     default: 2304
         - variable: udpvonport
           label: 'udpvonport service'
-        - variable: udpvonport
+          description: "UDP Game Port 3"
           schema:
             additional_attrs: true
             type: dict
@@ -428,7 +428,7 @@ questions:
                                     default: 2305
         - variable: udpbattleyetra
           label: 'udpbattleyetra service'
-        - variable: udpbattleyetra
+          description: "UDP Game Port 4"
           schema:
             additional_attrs: true
             type: dict

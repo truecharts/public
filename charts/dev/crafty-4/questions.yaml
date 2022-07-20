@@ -144,7 +144,7 @@ questions:
 
         - variable: minecraftports
           label: 'minecraftports service'
-        - variable: minecraftports
+          description: "Container Port 25500-25600 yes, 100 ports for 100 possible Servers"
           schema:
             additional_attrs: true
             type: dict
@@ -204,7 +204,7 @@ questions:
                                     default: 25500
         - variable: portfordynmap
           label: 'portfordynmap service'
-        - variable: portfordynmap
+          description: "Dynmap Port"
           schema:
             additional_attrs: true
             type: dict
@@ -264,7 +264,7 @@ questions:
                                     default: 8123
         - variable: portforbedrock
           label: 'portforbedrock service'
-        - variable: portforbedrock
+          description: "Bedrock server port"
           schema:
             additional_attrs: true
             type: dict

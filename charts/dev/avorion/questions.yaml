@@ -194,7 +194,7 @@ questions:
 
         - variable: hostport2
           label: 'hostport2 service'
-        - variable: hostport2
+          description: "Container Port 27000"
           schema:
             additional_attrs: true
             type: dict
@@ -254,7 +254,7 @@ questions:
                                     default: 27000
         - variable: hostport3
           label: 'hostport3 service'
-        - variable: hostport3
+          description: "Container Port 27003"
           schema:
             additional_attrs: true
             type: dict
@@ -314,7 +314,7 @@ questions:
                                     default: 27003
         - variable: hostport4
           label: 'hostport4 service'
-        - variable: hostport4
+          description: "Container Port 27020"
           schema:
             additional_attrs: true
             type: dict
@@ -374,7 +374,7 @@ questions:
                                     default: 27020
         - variable: hostport5
           label: 'hostport5 service'
-        - variable: hostport5
+          description: "Container Port 27021"
           schema:
             additional_attrs: true
             type: dict

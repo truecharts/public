@@ -188,7 +188,7 @@ questions:
 
         - variable: gameport1
           label: 'gameport1 service'
-        - variable: gameport1
+          description: "UDP Game Port 1 (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to change your server settings)"
           schema:
             additional_attrs: true
             type: dict
@@ -248,7 +248,7 @@ questions:
                                     default: 7778
         - variable: steamport
           label: 'steamport service'
-        - variable: steamport
+          description: "UDP Steam Port (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to change your server settings)"
           schema:
             additional_attrs: true
             type: dict

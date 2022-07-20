@@ -164,7 +164,7 @@ questions:
 
         - variable: porttcp
           label: 'porttcp service'
-        - variable: porttcp
+          description: "Client to client transfers"
           schema:
             additional_attrs: true
             type: dict
@@ -224,7 +224,7 @@ questions:
                                     default: 4662
         - variable: portudp
           label: 'portudp service'
-        - variable: portudp
+          description: "Extended aMule protocol, Queue Rating, File Reask Ping"
           schema:
             additional_attrs: true
             type: dict

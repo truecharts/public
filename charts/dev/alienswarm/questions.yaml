@@ -194,7 +194,7 @@ questions:
 
         - variable: tcp-rconport
           label: 'tcp-rconport service'
-        - variable: tcp-rconport
+          description: "TCP RCON Port (not required)"
           schema:
             additional_attrs: true
             type: dict

@@ -144,7 +144,7 @@ questions:
 
         - variable: dnsserver
           label: 'dnsserver service'
-        - variable: dnsserver
+          description: "Port that is used for the DNS Server (Changing this is not recomended)"
           schema:
             additional_attrs: true
             type: dict

@@ -144,7 +144,7 @@ questions:
 
         - variable: minecraftports
           label: 'minecraftports service'
-        - variable: minecraftports
+          description: "Container Port 25500-25600 yes, 100 ports for 100 possible Servers"
           schema:
             additional_attrs: true
             type: dict

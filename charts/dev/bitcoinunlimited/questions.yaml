@@ -144,7 +144,7 @@ questions:
 
         - variable: communicationp
           label: 'communicationp service'
-        - variable: communicationp
+          description: "Main Port Used"
           schema:
             additional_attrs: true
             type: dict
@@ -204,7 +204,7 @@ questions:
                                     default: 8333
         - variable: testnetrpcport
           label: 'testnetrpcport service'
-        - variable: testnetrpcport
+          description: "Testnet RPC Port"
           schema:
             additional_attrs: true
             type: dict
@@ -264,7 +264,7 @@ questions:
                                     default: 18332
         - variable: testnetcommuni
           label: 'testnetcommuni service'
-        - variable: testnetcommuni
+          description: "Testnet Communication Port"
           schema:
             additional_attrs: true
             type: dict

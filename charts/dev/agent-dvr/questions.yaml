@@ -144,7 +144,7 @@ questions:
 
         - variable: turnserver
           label: 'turnserver service'
-        - variable: turnserver
+          description: "Main port used for TURN server communication."
           schema:
             additional_attrs: true
             type: dict
@@ -204,7 +204,7 @@ questions:
                                     default: 3478
         - variable: webrtc
           label: 'webrtc service'
-        - variable: webrtc
+          description: "Ports used to create connections or WebRTC. These will be used as needed.Additional 50000-50010 may be required based on use"
           schema:
             additional_attrs: true
             type: dict

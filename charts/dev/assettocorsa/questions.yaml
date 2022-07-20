@@ -188,7 +188,7 @@ questions:
 
         - variable: udp
           label: 'udp service'
-        - variable: udp
+          description: "Container Port 9600"
           schema:
             additional_attrs: true
             type: dict
@@ -248,7 +248,7 @@ questions:
                                     default: 9600
         - variable: tcp2
           label: 'tcp2 service'
-        - variable: tcp2
+          description: "Container Port 8081"
           schema:
             additional_attrs: true
             type: dict
@@ -308,7 +308,7 @@ questions:
                                     default: 8081
         - variable: stracker
           label: 'stracker service'
-        - variable: stracker
+          description: "Only needed if you installed Stacker (Webserver Address http[IPOFYOURSERVER]50041)."
           schema:
             additional_attrs: true
             type: dict
@@ -368,7 +368,7 @@ questions:
                                     default: 50041
         - variable: assetto-
           label: 'assetto- service'
-        - variable: assetto-
+          description: "Only needed if you installed Assetto-Server-Manager (Webserver Address http[IPOFYOURSERVER]8771)."
           schema:
             additional_attrs: true
             type: dict

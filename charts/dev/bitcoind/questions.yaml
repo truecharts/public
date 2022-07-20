@@ -144,7 +144,7 @@ questions:
 
         - variable: localrpc
           label: 'localrpc service'
-        - variable: localrpc
+          description: "Port to listen for RPC connections (Optional)"
           schema:
             additional_attrs: true
             type: dict
