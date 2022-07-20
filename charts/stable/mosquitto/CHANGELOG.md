@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [mosquitto-6.0.22](https://github.com/truecharts/apps/compare/mosquitto-6.0.21...mosquitto-6.0.22) (2022-07-20)
+
+
+
 
 ## [mosquitto-6.0.20](https://github.com/truecharts/apps/compare/mosquitto-6.0.19...mosquitto-6.0.20) (2022-07-19)
 
