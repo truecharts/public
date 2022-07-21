@@ -5,6 +5,15 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [prometheus-4.0.40](https://github.com/truecharts/apps/compare/prometheus-4.0.39...prometheus-4.0.40) (2022-07-21)
+
+### Chore
+
 - update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
 
 

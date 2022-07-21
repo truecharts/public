@@ -1,6 +1,7 @@
 # Changelog
 
 
+
 ## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-21)
 
 ### Chore
