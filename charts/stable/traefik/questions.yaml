@@ -571,20 +571,19 @@ questions:
                         attrs:
                           - variable: name
                             label: "Name"
-                            description: Requires enabling `theme.park` plugin in Traefik Pilot section.
                             schema:
                               type: string
                               required: true
                           - variable: appName
                             label: App Name
-                            description: The name of the app to be themed.
+                            description: Lower case, name of the app to be themed.
                               Go to https://docs.theme-park.dev/themes/ to see supported apps.
                             schema:
                               type: string
                               required: true
                           - variable: themeName
                             label: Theme Name
-                            description: The name of the theme to be applied.
+                            description: Lower case, name of the theme to be applied.
                               Go to https://docs.theme-park.dev/theme-options/ to see supported themes.
                             schema:
                               type: string
