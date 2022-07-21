@@ -3,7 +3,7 @@
 {{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
 {{- $namespace = "default" }}
 {{- end }}
-{{ range $index, $middlewareData := .Values.middlewares.redirectScheme }}
+{{- range $index, $middlewareData := .Values.middlewares.redirectScheme }}
 
 ---
 # Declaring the user list
@@ -17,7 +17,4 @@ spec:
         traefik-themepark:
             app: {{ $middlewareData.app }}
             theme: {{ $middlewareData.theme }}
-{{ end }}
-
-
-
+{{- end }}

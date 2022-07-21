@@ -141,14 +141,6 @@ args:
   {{- end }}
   {{- end }}
   {{- end }}
-  {{/* Deprecated (Will be removed later) */}}
-  {{- if .Values.pilot.enabled }}
-  - "--pilot.token={{ .Values.pilot.token }}"
-  {{- end }}
-  {{- if hasKey .Values.pilot "dashboard" }}
-  - "--pilot.dashboard={{ .Values.pilot.dashboard }}"
-  {{- end }}
-  {{/* End of deprecation */}}
   {{/* theme.park */}}
   {{- if .Values.themePark}}
   - "--experimental.plugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
