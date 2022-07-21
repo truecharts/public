@@ -3,8 +3,8 @@
 {{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
 {{- $namespace = "default" }}
 {{- end }}
+{{- range $index, $middlewareData := .Values.middlewares.themePark }}
 
-{{ range $index, $middlewareData := .Values.middlewares.themePark }}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
