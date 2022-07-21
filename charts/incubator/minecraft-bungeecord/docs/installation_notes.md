@@ -1,9 +1,6 @@
 # Installation Notes
 
-- Set `imageSelector` to any of values from the list default is `image`:
-  - `image`(java17)
-  - `j11Image`(java11)
-  - `j8Image`(java8)
+- Set `imageSelector` to any of values from the list default is `image`. ex: `image` (java17), `j11Image`(java11), `j8Image`(java8)
 
 - Set `ENABLE_RCON` to **true** in order to show `RCON_PASSWORD` and `RCON_PORT`.
 
