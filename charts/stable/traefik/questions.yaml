@@ -455,6 +455,7 @@ questions:
                         type: int
                         required: true
                         default: 200
+
         - variable: redirectRegex
           label: "redirectRegex"
           schema:
@@ -489,6 +490,7 @@ questions:
                       schema:
                         type: boolean
                         default: false
+
         - variable: stripPrefixRegex
           label: "stripPrefixRegex"
           schema:
@@ -572,6 +574,43 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
+        - variable: themePark
+          label: "theme.park"
+          description: "Currently requires to enable Traefik Pilot. Until it's deprecated."
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: themeParkEntry
+                label: ""
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: app
+                      label: "Application Name"
+                      description: "Lower case, supported list https://docs.theme-park.dev/themes."
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: theme
+                      label: "Theme Name"
+                      description: "Lower case, supported lists https://docs.theme-park.dev/theme-options and https://docs.theme-park.dev/community-themes"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: baseUrl
+                      label: "Base URL for theme"
+                      description: "https://theme-park.dev or a self hosted url"
+                      schema:
+                        type: string
+                        default: "https://theme-park.dev"
 
   - variable: service
     group: "Networking and Services"

@@ -334,6 +334,20 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
+  # -- Currently requires to enable Traefik Pilot.
+  # -- Until it's deprecated.
+  themePark: []
+  # - name: themeParkName
+  # -- Supported apps, lower case name
+  # -- https://docs.theme-park.dev/themes
+  #   app: appnamehere
+  # -- Supported themes, lower case name
+  # -- https://docs.theme-park.dev/themes/APPNAMEHERE
+  # -- https://docs.theme-park.dev/community-themes
+  #   theme: themenamehere
+  # -- https://theme-park.dev or a self hosted url
+  #   baseUrl: https://theme-park.dev
+  themeParkVersion: v1.1.0
 
 portalhook:
   enabled: true

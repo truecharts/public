@@ -149,6 +149,12 @@ args:
   - "--pilot.dashboard={{ .Values.pilot.dashboard }}"
   {{- end }}
   {{/* End of deprecation */}}
+  {{/* theme.park */}}
+  {{- if .Values.themePark}}
+  - "--experimental.plugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
+  - "--experimental.plugins.traefik-themepark.version={{ .Values.themeParkVersion }}"
+  {{- end }}
+  {{/* End of theme.park */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}
