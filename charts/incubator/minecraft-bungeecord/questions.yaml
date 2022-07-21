@@ -1,21 +1,6 @@
 # Include{groups}
 portals: {}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
   - variable: imageSelector
     group: "Container Image"
@@ -25,12 +10,11 @@ questions:
       default: "image"
       enum:
         - value: "image"
-          description: "Java 17 HotSpot"
+          description: "Java 17"
         - value: "j11Image"
-          description: "Java 11 HotSpot"
+          description: "Java 11"
         - value: "j8Image"
-          description: "Java 8 HotSpot"
-
+          description: "Java 8"
   - variable: controller
     group: "Controller"
     label: ""
@@ -89,7 +73,7 @@ questions:
       type: dict
       attrs:
         - variable: RCON_PASSWORD
-          label: "RCON_PASSWORD"
+          label: "RCON Password"
           description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
           schema:
             type: string
@@ -119,7 +103,7 @@ questions:
               - value: "CUSTOM"
                 description: "Custom"
         - variable: BUNGEE_JAR_URL
-          label: "BUNGEE JAR URL"
+          label: "Bunge Jar URL"
           description: "Used to download a comma separated list of *.jar urls to the plugins folder."
           schema:
             type: string
@@ -127,41 +111,35 @@ questions:
             required: [[TYPE, "=", "CUSTOM"]]
             show_if: [[TYPE, "=", "CUSTOM"]]
         - variable: PLUGINS
-          label: "PLUGINS"
-          description: "Used to download a comma seperated list of *.jar urls to the plugins folder."
+          label: "Plugins"
+          description: "Used to download a comma separated list of *.jar urls to the plugins folder."
           schema:
             type: string
             default: ""
         - variable: SPIGET_PLUGINS
-          label: "SPIGET PLUGINS"
+          label: "Spiget Plugins"
           description: "The SPIGET_PLUGINS variable can be set with a comma-separated list of SpigotMC resource IDs."
           schema:
             type: string
             default: ""
         - variable: ENABLE_RCON
-          label: "ENABLE RCON"
+          label: "Enable RCON"
           schema:
             type: boolean
             default: true
-        - variable: RCON_PORT
-          label: "RCON PORT"
-          description: "Define the port for rcon"
-          schema:
-            type: string
-            default: "25575"
-            show_if: [[TYPE, "=", "ENABLE_RCON"]]
         - variable: REPLACE_ENV_VARIABLES
-          label: "REPLACE ENV VARIABLES"
-          description: "replace variables that match your defined environment variables in all the files in /server."
+          label: "Replace Env Variables"
+          description: "Replace variables that match your defined environment variables in all the files in /server."
           schema:
             type: boolean
             default: false
         - variable: ONLINE_MODE
-          label: "Enable/Disable Online Mode"
+          label: "Enable Online Mode"
+          description: "MUST set to false which is required by bungeecord"
           schema:
             type: boolean
             default: false
-        - variable: advanced
+        - variable: advancedenvironment
           label: "Show Advanced Server Settings"
           schema:
             type: boolean
@@ -169,11 +147,32 @@ questions:
             show_subquestions_if: true
             subquestions:
               - variable: MEMORY
-                label: "Server Memory"
+                label: "Memory"
+                description: "The Java memory heap size to specify to the JVM."
                 schema:
                   type: string
                   required: true
                   default: "512M"
+              - variable: INIT_MEMORY
+                label: "Init Memory"
+                description: "Can be set to use a different initial heap size."
+                schema:
+                  type: string
+                  required: true
+                  default: "512M"
+              - variable: MAX_MEMORY
+                label: "Max Memory"
+                description: "Can be set to use a different max heap size."
+                schema:
+                  type: string
+                  required: true
+                  default: "512M"
+              - variable: NETWORKADDRESS_CACHE_TTL
+                label: "Network Address Cache TTL"
+                description: "Number of seconds to cache the successful network address lookups."
+                schema:
+                  type: string
+                  default: ""
               - variable: JVM_OPTS
                 label: "JVM Options"
                 schema:
@@ -256,7 +255,7 @@ questions:
                                     default: 25577
         - variable: rcon
           label: "RCON Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          description: "RCON service"
           schema:
             additional_attrs: true
             type: dict
@@ -273,7 +272,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 25575
+                              default: 25578
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -313,7 +312,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 25575
+                                    default: 25578
 
   - variable: serviceexpert
     group: "Networking and Services"

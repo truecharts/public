@@ -23,14 +23,14 @@ secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
 env:
+  RCON_PORT: 25578
   TYPE: "BUNGEECORD"
   ONLINE_MODE: false
   MEMORY: 512M
-  INIT_MEMORY: "{{ .Values.env.MEMORY }}"
-  MAX_MEMORY: "{{ .Values.env.MEMORY }}"
+  INIT_MEMORY: 512M
+  MAX_MEMORY: 512M
   NETWORKADDRESS_CACHE_TTL: 60
   REPLACE_ENV_VARIABLES: true
-  # VERSION: "LATEST"
   # JVM_OPTS: ""
   # JVM_XX_OPTS: ""
   # PLUGINS: ""
@@ -43,12 +43,12 @@ service:
         targetPort: 25577
         protocol: HTTP
 rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: "{{ .Values.env.RCON_PORT }}"
-        targetPort: "{{ .Values.env.RCON_PORT }}"
+  enabled: true
+  ports:
+    rcon:
+      enabled: true
+      port: "{{ .Values.env.RCON_PORT }}"
+      targetPort: "{{ .Values.env.RCON_PORT }}"
 
 persistence:
   config:
