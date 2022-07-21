@@ -1,0 +1,62 @@
+image:
+  repository: itzg/bungeecord/bungeecord-java17
+  tag: java17-2022.4.1@sha256:09204c4452e0c865258a13b93d86fa1adc21469ab49e66337379e858d2f83029
+  pullPolicy: Always
+j11Image:
+  repository: itzg/bungeecord/bungeecord-java11
+  tag: java11-2022.4.1@sha256:fe5af3659c3e25b110edf83025a15725988770baee340ceecd97822bac6dcc09
+  pullPolicy: Always
+j8Image:
+  repository: itzg/bungeecord/bungeecord-java8
+  tag: java8-2022.4.1@sha256:b949350264b2eab450fc68485defd9c9c1cd281c012250493a1670ad38a88848
+  pullPolicy: Always
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  RCON_PASSWORD: "secretrconpass"
+
+env:
+  TYPE: "BUNGEECORD"
+  ONLINE_MODE: false
+  MEMORY: 512M
+  INIT_MEMORY: "{{ .Values.env.MEMORY }}"
+  MAX_MEMORY: "{{ .Values.env.MEMORY }}"
+  NETWORKADDRESS_CACHE_TTL: 60
+  REPLACE_ENV_VARIABLES: true
+  # VERSION: "LATEST"
+  # JVM_OPTS: ""
+  # JVM_XX_OPTS: ""
+  # PLUGINS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+        protocol: HTTP
+rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: "{{ .Values.env.RCON_PORT }}"
+        targetPort: "{{ .Values.env.RCON_PORT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  server:
+    enabled: true
+    mountPath: "/server"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
