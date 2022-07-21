@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+
+
 ## [solr-0.0.14](https://github.com/truecharts/apps/compare/solr-0.0.13...solr-0.0.14) (2022-07-20)
 
 ### Chore

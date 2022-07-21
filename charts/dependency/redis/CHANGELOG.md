@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
 ## [redis-3.0.40](https://github.com/truecharts/apps/compare/redis-3.0.39...redis-3.0.40) (2022-07-20)
 
 ### Chore

@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
 
 
 ## [mariadb-3.0.36](https://github.com/truecharts/apps/compare/mariadb-3.0.35...mariadb-3.0.36) (2022-07-16)
