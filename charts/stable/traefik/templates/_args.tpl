@@ -142,7 +142,7 @@ args:
   {{- end }}
   {{- end }}
   {{/* theme.park */}}
-  {{- if .Values.middlewares.enableThemePark}}
+  {{- if .Values.middlewares.themePark }}
   - "--experimental.plugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
   - "--experimental.plugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
   {{- end }}
