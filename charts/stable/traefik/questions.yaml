@@ -78,33 +78,6 @@ questions:
 
 # Include{containerConfig}
 
-  # -- Deprecated (will be removed later)
-  - variable: pilot
-    label: "Traefik Pilot"
-    description: "This is deprecated and will be removed later"
-    group: "App Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: token
-                label: "token"
-                schema:
-                  type: string
-                  default: ""
-              - variable: dashboard
-                label: "Pilot Dashboard"
-                schema:
-                  type: boolean
-                  default: false
-
   - variable: ingressClass
     label: "ingressClass"
     group: "App Configuration"
