@@ -141,12 +141,14 @@ args:
   {{- end }}
   {{- end }}
   {{- end }}
+  {{/* Deprecated (Will be removed later) */}}
   {{- if .Values.pilot.enabled }}
   - "--pilot.token={{ .Values.pilot.token }}"
   {{- end }}
   {{- if hasKey .Values.pilot "dashboard" }}
   - "--pilot.dashboard={{ .Values.pilot.dashboard }}"
   {{- end }}
+  {{/* End of deprecation */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}

@@ -78,8 +78,10 @@ questions:
 
 # Include{containerConfig}
 
+  # -- Deprecated (will be removed later)
   - variable: pilot
     label: "Traefik Pilot"
+    description: "This is deprecated and will be removed later"
     group: "App Configuration"
     schema:
       additional_attrs: true
