@@ -1,15 +1,15 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
-name: bungeecord
-version: 0.0.1
+name: minecraft-bungeecord
+version: 0.0.10
 appVersion: "2022.4.1"
 description: A Spigot BungeeCord server.
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/bungeecord
-icon: https://truecharts.org/img/chart-icons/bungeecord.png
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/minecraft-bungeecord
+icon: https://truecharts.org/img/chart-icons/minecraft-bungeecord.png
 keywords:
-  - bungeecord
+  - gameserver
   - minecraft
 sources:
   - https://hub.docker.com/r/itzg/bungeecord
@@ -18,6 +18,7 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.6
+    # condition:
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
