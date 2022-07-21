@@ -548,59 +548,53 @@ questions:
                                     required: true
                                     default: ""
 
-        - variable: enableThemePark
-          label: "Enable `theme.park` Plugin"
-          description: This is a 3rd party plugin and not maintained by TrueCharts,
-            for more information go to <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
+        - variable: themePark
+          label: "theme.park"
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: themePark
-                label: "theme.park"
+            type: list
+            default: []
+            items:
+              - variable: themeParkEntry
+                label: ""
                 schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: themeParkEntry
-                      label: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      description: This is a 3rd party plugin and not maintained by TrueCharts,
+                        for more information go to <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
+                        type: string
+                        required: true
+                    - variable: appName
+                      label: App Name
+                      description: Lower case, name of the app to be themed.
+                        Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
+                      schema:
+                        type: string
+                        required: true
+                    - variable: themeName
+                      label: Theme Name
+                      description: Lower case, name of the theme to be applied.
+                        Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
+                      schema:
+                        type: string
+                        required: true
+                    - variable: enableBaseUrl
+                      label: Enable Custom Base URL
+                      description: Replace `https://theme-park.dev` URL for self-hosting reference.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: baseUrl
+                            label: Base URL
                             schema:
                               type: string
                               required: true
-                          - variable: appName
-                            label: App Name
-                            description: Lower case, name of the app to be themed.
-                              Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
-                            schema:
-                              type: string
-                              required: true
-                          - variable: themeName
-                            label: Theme Name
-                            description: Lower case, name of the theme to be applied.
-                              Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
-                            schema:
-                              type: string
-                              required: true
-                          - variable: enableBaseUrl
-                            label: Enable Custom Base URL
-                            description: Replace `https://theme-park.dev` URL for self-hosting reference.
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: baseUrl
-                                  label: Base URL
-                                  schema:
-                                    type: string
-                                    required: true
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
