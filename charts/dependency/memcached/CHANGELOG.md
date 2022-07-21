@@ -1,6 +1,35 @@
 # Changelog
 
 
+## [memcached-3.0.41](https://github.com/truecharts/apps/compare/memcached-3.0.39...memcached-3.0.41) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [memcached-3.0.41](https://github.com/truecharts/apps/compare/memcached-3.0.39...memcached-3.0.41) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
 ## [memcached-3.0.40](https://github.com/truecharts/apps/compare/memcached-3.0.39...memcached-3.0.40) (2022-07-20)
 
 ### Chore

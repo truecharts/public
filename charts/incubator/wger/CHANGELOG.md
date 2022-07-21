@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [wger-0.0.25](https://github.com/truecharts/apps/compare/wger-0.0.24...wger-0.0.25) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [wger-0.0.25](https://github.com/truecharts/apps/compare/wger-0.0.24...wger-0.0.25) (2022-07-21)
+
+### Chore
+
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
 ## [wger-0.0.24](https://github.com/truecharts/apps/compare/wger-0.0.23...wger-0.0.24) (2022-07-20)
 
 ### Chore
