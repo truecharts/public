@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [jellyseerr-2.0.19](https://github.com/truecharts/apps/compare/jellyseerr-2.0.18...jellyseerr-2.0.19) (2022-07-21)
+
+
+
 ## [jellyseerr-2.0.18](https://github.com/truecharts/apps/compare/jellyseerr-2.0.17...jellyseerr-2.0.18) (2022-07-19)
 
 ### Chore
