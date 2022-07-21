@@ -1,7 +1,6 @@
 # Installation Notes
 
 - Set `imageSelector` to any of values from the list default is `image`:
-  
   - `image`(java17)
   - `j11Image`(java11)
   - `j8Image`(java8)
