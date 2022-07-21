@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [awesome-ttrss-0.0.22](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.21...awesome-ttrss-0.0.22) (2022-07-21)
+
+### Chore
+
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
 ## [awesome-ttrss-0.0.21](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.20...awesome-ttrss-0.0.21) (2022-07-20)
 
 ### Chore

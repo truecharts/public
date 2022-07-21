@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [cloudflared-1.0.0](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.4...cloudflared-1.0.0) (2022-07-21)
+
+### Fix
+
+- move to stable updated docs ([#3237](https://github.com/truecharts/apps/issues/3237))
+
+
+
 ## [cloudflared-0.0.17](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.2...cloudflared-0.0.17) (2022-07-19)
 
 ### Chore
