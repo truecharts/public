@@ -41,7 +41,6 @@ service:
       main:
         port: 25565
         targetPort: 25577
-        protocol: HTTP
 rcon:
   enabled: true
   ports:
