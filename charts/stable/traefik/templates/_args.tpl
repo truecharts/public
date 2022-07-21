@@ -141,12 +141,12 @@ args:
   {{- end }}
   {{- end }}
   {{- end }}
-  {{- if .Values.pilot.enabled }}
-  - "--pilot.token={{ .Values.pilot.token }}"
+  {{/* theme.park */}}
+  {{- if .Values.themePark}}
+  - "--experimental.plugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
+  - "--experimental.plugins.traefik-themepark.version={{ .Values.themeParkVersion }}"
   {{- end }}
-  {{- if hasKey .Values.pilot "dashboard" }}
-  - "--pilot.dashboard={{ .Values.pilot.dashboard }}"
-  {{- end }}
+  {{/* End of theme.park */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}
