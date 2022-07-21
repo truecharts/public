@@ -1,6 +1,48 @@
 # Changelog
 
 
+## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
 ## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-20)
 
 ### Chore

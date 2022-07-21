@@ -1,6 +1,36 @@
 # Changelog
 
 
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
 ## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-20)
 
 ### Chore

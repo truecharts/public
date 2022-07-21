@@ -1,20 +1,20 @@
-# dashboard
+# clickhouse
 
-![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.6.3.35](https://img.shields.io/badge/AppVersion-22.6.3.35-informational?style=flat-square)
 
-&lt;p&gt;Dashboard is just that - a dashboard. It's inspired by SUI and has all the same features as SUI, such as simple customization through JSON-files and a handy search bar to search the internet more efficiently.
+ClickHouse is a column-oriented database management system (DBMS) for online analytical processing of queries (OLAP).
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [dashboard](https://truecharts.org/charts/stable/dashboard)
+For more information, please click here: [clickhouse](https://truecharts.org/charts/stable/clickhouse)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/phntxx/dashboard>
-* <https://hub.docker.com/r/phntxx/dashboard/>
+* <https://clickhouse.com/>
+* <https://hub.docker.com/r/yandex/clickhouse-server>
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.4 |
 
 ## Installing the Chart
 
@@ -34,12 +34,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 ### Helm
 
-To install the chart with the release name `dashboard`
+To install the chart with the release name `clickhouse`
 
 ```console
 helm repo add TrueCharts https://helm.truecharts.org
 helm repo update
-helm install dashboard TrueCharts/dashboard
+helm install clickhouse TrueCharts/clickhouse
 ```
 
 ## Uninstall
@@ -52,10 +52,10 @@ To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Star
 
 ### Helm
 
-To uninstall the `dashboard` deployment
+To uninstall the `clickhouse` deployment
 
 ```console
-helm uninstall dashboard
+helm uninstall clickhouse
 ```
 
 ## Configuration
@@ -72,9 +72,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install dashboard \
+helm install clickhouse \
   --set env.TZ="America/New York" \
-    TrueCharts/dashboard
+    TrueCharts/clickhouse
 ```
 
 #### Configure using a yaml file
@@ -82,7 +82,7 @@ helm install dashboard \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install dashboard TrueCharts/dashboard -f values.yaml
+helm install clickhouse TrueCharts/clickhouse -f values.yaml
 ```
 
 #### Connecting to other apps
