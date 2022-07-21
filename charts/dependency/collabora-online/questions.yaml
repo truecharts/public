@@ -136,7 +136,7 @@ questions:
             default: true
         - variable: server_name
           label: "Server Name"
-          description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
+          description: "When this environment variable is set (is not Ã¢â‚¬Å“Ã¢â‚¬Â), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
           schema:
             type: string
             default: 'collabora.domain.tld'

@@ -92,19 +92,19 @@ questions:
             default: "555"
         - variable: RACE_CREW_PASSWORD
           label: 'RACE_CREW_PASSWORD'
-          description: "RaceCrew, password �murphy� (as in Don Murphy, not Murphy�s Law) this role can do thingslike check racers in, but not erase the database."
+          description: "RaceCrew, password â€œmurphyâ€ (as in Don Murphy, not Murphyâ€™s Law) this role can do thingslike check racers in, but not erase the database."
           schema:
             type: string
             default: "murphy"
         - variable: RACE_COORD_PASSWORD
           label: 'RACE_COORD_PASSWORD'
-          description: "RaceCoordinator, password default is �doyourbest� This role can do anything at all."
+          description: "RaceCoordinator, password default is â€œdoyourbestâ€ This role can do anything at all."
           schema:
             type: string
             default: "doyourbest"
         - variable: PHOTO_PASSWORD
           label: 'PHOTO_PASSWORD'
-          description: "You can upload photos to the web server via HTTP, using the Photo role. The default password for the Photo role is �flashbulb.�For an example of this, see extrasphotostandphotostand.sh, a shell script for automated photo capture.(More description at httpwww.derbytalk.comviewtopic.php?f=25&amp;t=8253.)"
+          description: "You can upload photos to the web server via HTTP, using the Photo role. The default password for the Photo role is â€œflashbulb.â€For an example of this, see extrasphotostandphotostand.sh, a shell script for automated photo capture.(More description at httpwww.derbytalk.comviewtopic.php?f=25&amp;t=8253.)"
           schema:
             type: string
             default: "flashbulb"
