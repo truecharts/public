@@ -74,7 +74,7 @@ questions:
       attrs:
         - variable: RCON_PASSWORD
           label: "RCON Password"
-          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
+          description: "Thit uses a third-party plugin to work, orblazer/bungee-rcon, which is automatically downloaded"
           schema:
             type: string
             private: true
@@ -171,8 +171,8 @@ questions:
                 label: "Network Address Cache TTL"
                 description: "Number of seconds to cache the successful network address lookups."
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  default: 60
               - variable: JVM_OPTS
                 label: "JVM Options"
                 schema:
