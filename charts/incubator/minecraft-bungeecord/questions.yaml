@@ -108,7 +108,7 @@ questions:
           schema:
             type: string
             default: ""
-            required: [[TYPE, "=", "CUSTOM"]]
+            required: true
             show_if: [[TYPE, "=", "CUSTOM"]]
         - variable: PLUGINS
           label: "Plugins"
