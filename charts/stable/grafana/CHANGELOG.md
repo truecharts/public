@@ -6,6 +6,16 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
 - update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
 
 

@@ -1,21 +1,20 @@
-# collabora-online
+# clickhouse
 
-![Version: 12.1.19](https://img.shields.io/badge/Version-12.1.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.05.4.1](https://img.shields.io/badge/AppVersion-22.05.4.1-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.6.3.35](https://img.shields.io/badge/AppVersion-22.6.3.35-informational?style=flat-square)
 
-An awesome Online Office suite.
+ClickHouse is a column-oriented database management system (DBMS) for online analytical processing of queries (OLAP).
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [collabora-online](https://truecharts.org/charts/stable/collabora-online)
+For more information, please click here: [clickhouse](https://truecharts.org/charts/stable/clickhouse)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/collabora/code>
-* <https://sdk.collaboraonline.com/contents.html>
-* <https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm>
+* <https://clickhouse.com/>
+* <https://hub.docker.com/r/yandex/clickhouse-server>
 
 ## Requirements
 
@@ -25,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.4 |
 
 ## Installing the Chart
 
@@ -35,12 +34,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 ### Helm
 
-To install the chart with the release name `collabora-online`
+To install the chart with the release name `clickhouse`
 
 ```console
 helm repo add TrueCharts https://helm.truecharts.org
 helm repo update
-helm install collabora-online TrueCharts/collabora-online
+helm install clickhouse TrueCharts/clickhouse
 ```
 
 ## Uninstall
@@ -53,10 +52,10 @@ To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Star
 
 ### Helm
 
-To uninstall the `collabora-online` deployment
+To uninstall the `clickhouse` deployment
 
 ```console
-helm uninstall collabora-online
+helm uninstall clickhouse
 ```
 
 ## Configuration
@@ -73,9 +72,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install collabora-online \
+helm install clickhouse \
   --set env.TZ="America/New York" \
-    TrueCharts/collabora-online
+    TrueCharts/clickhouse
 ```
 
 #### Configure using a yaml file
@@ -83,7 +82,7 @@ helm install collabora-online \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install collabora-online TrueCharts/collabora-online -f values.yaml
+helm install clickhouse TrueCharts/clickhouse -f values.yaml
 ```
 
 #### Connecting to other apps

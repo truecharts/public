@@ -1,6 +1,17 @@
 # Changelog
 
 
+## [promtail-3.0.32](https://github.com/truecharts/apps/compare/promtail-3.0.31...promtail-3.0.32) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
 ## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-21)
 
 ### Chore

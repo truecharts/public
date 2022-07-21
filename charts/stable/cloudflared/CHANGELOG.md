@@ -6,6 +6,19 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+
+### Fix
+
+- move to stable updated docs ([#3237](https://github.com/truecharts/apps/issues/3237))
+
+
+
+## [cloudflared-1.0.0](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.4...cloudflared-1.0.0) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
 
 ### Fix
 
