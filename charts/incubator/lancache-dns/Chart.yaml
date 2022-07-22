@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lancache-dns
-version: 0.0.6
+version: 0.0.7
 appVersion: "latest"
 description: DNS Docker service for a steamcache.
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.4
+    version: 10.4.6
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
