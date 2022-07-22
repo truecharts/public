@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [traefik-13.1.0](https://github.com/truecharts/apps/compare/traefik-13.0.0...traefik-13.1.0) (2022-07-22)
+
+
+
 ## [traefik-13.0.0](https://github.com/truecharts/apps/compare/traefik-12.0.24...traefik-13.0.0) (2022-07-21)
 
 ### Feat
