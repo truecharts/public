@@ -16,7 +16,5 @@ spec:
     traefik-themepark:
       app: {{ $middlewareData.appName }}
       theme: {{ $middlewareData.themeName }}
-      {{- if $middlewareData.enableBaseUrl }}
       baseUrl: {{ $middlewareData.baseUrl }}
-      {{- end -}}
 {{- end }}
