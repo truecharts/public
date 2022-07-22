@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description: This is a Dockerized version of the Satisfactory dedicated server.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/satisfactory-server
+icon: https://truecharts.org/img/chart-icons/satisfactory-server.png
+keywords:
+  - satisfactory-server
+  - GameServers
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: satisfactory-server
+sources:
+  - https://hub.docker.com/r/wolveix/satisfactory-server
+  - https://hub.docker.com/r/wolveix/satisfactory-server
+type: application
+version: 0.0.10

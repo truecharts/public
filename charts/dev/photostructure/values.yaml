@@ -1,0 +1,35 @@
+env:
+  PS_LOG_LEVEL: ""
+  UMASK: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/photostructure
+  tag: vstable
+persistence:
+  config:
+    enabled: true
+    mountPath: /ps/config
+  library:
+    enabled: true
+    mountPath: /ps/library
+  logs:
+    enabled: true
+    mountPath: /ps/logs
+  tempscratchdisk:
+    enabled: true
+    mountPath: /ps/tmp
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1787
+        protocol: TCP
+        targetPort: 1787

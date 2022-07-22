@@ -1,0 +1,56 @@
+env:
+  GAME_ID: "622970"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/pavlovvr
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: TCP
+        targetPort: 7777
+  udp2:
+    enabled: true
+    ports:
+      udp2:
+        enabled: true
+        port: 8177
+        protocol: UDP
+        targetPort: 8177
+  udp3:
+    enabled: true
+    ports:
+      udp3:
+        enabled: true
+        port: 7977
+        protocol: UDP
+        targetPort: 7977
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 7777
+        protocol: UDP
+        targetPort: 7777

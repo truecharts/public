@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/observium
+  tag: latest
+persistence:
+  observium:
+    enabled: true
+    mountPath: /opt/observium/rrd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8668
+        protocol: HTTP
+        targetPort: 8668
+  udpport1:
+    enabled: true
+    ports:
+      udpport1:
+        enabled: true
+        port: 8514
+        protocol: UDP
+        targetPort: 514

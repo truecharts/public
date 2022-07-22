@@ -1,0 +1,27 @@
+env:
+  UMASK: "000"
+  VNC_PASSWORD: ""
+  WEBPAGE_TITLE: Preclear
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/preclear
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6080
+        protocol: TCP
+        targetPort: 6080

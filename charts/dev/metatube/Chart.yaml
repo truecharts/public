@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/metatube
+icon: https://truecharts.org/img/chart-icons/metatube.png
+keywords:
+  - metatube
+  - Downloaders
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: metatube
+sources:
+  - https://github.com/JVT038/MetaTube
+  - https://hub.docker.com/r/jvt038/metatube
+type: application
+version: 0.0.10

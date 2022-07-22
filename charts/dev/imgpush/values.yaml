@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/imgpush
+  tag: latest
+persistence:
+  storagecache:
+    enabled: true
+    mountPath: /cache
+  storageimages:
+    enabled: true
+    mountPath: /images
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

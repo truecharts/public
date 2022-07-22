@@ -1,0 +1,32 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/trango
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  hostport2:
+    enabled: true
+    ports:
+      hostport2:
+        enabled: true
+        port: 5533
+        protocol: TCP
+        targetPort: 443
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7755
+        protocol: TCP
+        targetPort: 80

@@ -1,0 +1,30 @@
+env:
+  PLEX_TOKEN: VOTRE_TOKEN_PLEX
+  PLEX_URL: http://plex:32400
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plex-auto-languages
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

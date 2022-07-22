@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+    - Network-Web
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description: Sourcegraph docker image.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/sourcegraph
+icon: https://truecharts.org/img/chart-icons/sourcegraph.png
+keywords:
+  - sourcegraph
+  - Backup
+  - Cloud
+  - Network-Web
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: sourcegraph
+sources:
+  - https://hub.docker.com/r/sourcegraph/server/
+type: application
+version: 0.0.10

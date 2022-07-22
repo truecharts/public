@@ -1,0 +1,30 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plex-utills
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  logs:
+    enabled: true
+    mountPath: /logs
+  plexlibrary:
+    enabled: true
+    mountPath: /films
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 80

@@ -1,0 +1,26 @@
+env:
+  DBNAME: data/tasmobackup
+  DBTYPE: sqlite
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tasmobackup
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8259
+        protocol: TCP
+        targetPort: 80

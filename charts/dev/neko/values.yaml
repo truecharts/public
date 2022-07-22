@@ -1,0 +1,34 @@
+env:
+  NEKO_EPR: 52000-52100
+  NEKO_NAT1TO1: 192.168.1.x
+  NEKO_PASSWORD: ChangeMePls-<3
+  NEKO_PASSWORD_ADMIN: ChangeMeAlsoPls_:)
+  NEKO_SCREEN: 1920x1080@30
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/neko
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6530
+        protocol: HTTP
+        targetPort: 8080
+  port52000:
+    enabled: true
+    ports:
+      port52000:
+        enabled: true
+        port: 52000
+        protocol: UDP
+        targetPort: 52000

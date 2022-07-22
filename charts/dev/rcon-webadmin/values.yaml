@@ -1,0 +1,36 @@
+env:
+  RWA_ADMIN: "TRUE"
+  RWA_ENV: "False"
+  RWA_PASSWORD: admin
+  RWA_USERNAME: admin
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rcon-webadmin
+  tag: latest
+persistence:
+  db:
+    enabled: true
+    mountPath: /opt/rcon-web-admin/db
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4326
+        protocol: HTTP
+        targetPort: 4326
+  websocketacces:
+    enabled: true
+    ports:
+      websocketacces:
+        enabled: true
+        port: 4327
+        protocol: TCP
+        targetPort: 4327

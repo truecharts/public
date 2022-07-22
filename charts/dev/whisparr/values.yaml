@@ -1,0 +1,25 @@
+env:
+  UMASK: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/whisparr
+  tag: vnightly
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6969
+        protocol: TCP
+        targetPort: 6969

@@ -1,0 +1,27 @@
+env:
+  APP_IPMI_HOST: ""
+  APP_IPMI_PASS: ""
+  APP_IPMI_USER: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ipmi-tools
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4017
+        protocol: TCP
+        targetPort: 80

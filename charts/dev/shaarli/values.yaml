@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shaarli
+  tag: vmaster
+persistence:
+  cache:
+    enabled: true
+    mountPath: /var/www/shaarli/cache
+  data:
+    enabled: true
+    mountPath: /var/www/shaarli/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 80

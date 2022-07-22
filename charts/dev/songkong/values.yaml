@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/songkong
+  tag: latest
+persistence:
+  music:
+    enabled: true
+    mountPath: /music
+  songkongconfig:
+    enabled: true
+    mountPath: /songkong
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4567
+        protocol: TCP
+        targetPort: 4567

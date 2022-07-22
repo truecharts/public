@@ -1,0 +1,40 @@
+env:
+  DEBUG_OUTPUT: "false"
+  GAME_ID: "1502300"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/survivethenights
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7950
+        protocol: UDP
+        targetPort: 7950

@@ -1,0 +1,26 @@
+env:
+  FLOOD_AUTH: ""
+  UMASK: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rflood
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: TCP
+        targetPort: 3000

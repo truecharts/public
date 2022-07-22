@@ -1,0 +1,34 @@
+env:
+  CHECK_FOR_UPDATES: "true"
+  START_PARAMS: ""
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/urban-terror
+  tag: latest
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /urbanterror
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27960
+        protocol: UDP
+        targetPort: 27960

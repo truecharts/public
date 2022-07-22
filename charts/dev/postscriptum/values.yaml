@@ -1,0 +1,49 @@
+env:
+  DATA_PERM: "770"
+  GAME_ID: "746200"
+  GAME_PARAMS: Port=10027 QueryPort=10037 -log
+  PASSWRD: ""
+  UMASK: "000"
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/postscriptum
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 10027
+        protocol: UDP
+        targetPort: 10027
+  queryport:
+    enabled: true
+    ports:
+      queryport:
+        enabled: true
+        port: 10037
+        protocol: UDP
+        targetPort: 10037

@@ -1,0 +1,62 @@
+env:
+  GAME_ID: "824360"
+  GAME_PARAMS: ?MaxPlayers=10
+  GAME_PARAMS_EXTRA:
+    -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
+    -game -server -log
+  MAP: CubeWorld_Light
+  PASSWRD: ""
+  SERVER_NAME: PIXARKDocker
+  SRV_ADMIN_PWD: adminDocker
+  SRV_PWD: Docker
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/pixark
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  cubeport:
+    enabled: true
+    ports:
+      cubeport:
+        enabled: true
+        port: 27018
+        protocol: UDP
+        targetPort: 27018
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+  queryport:
+    enabled: true
+    ports:
+      queryport:
+        enabled: true
+        port: 27016
+        protocol: UDP
+        targetPort: 27016

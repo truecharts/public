@@ -1,0 +1,28 @@
+env:
+  BASEPATH: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/posterr
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/src/app/config
+  custom:
+    enabled: true
+    mountPath: /usr/src/app/public/custom
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9876
+        protocol: TCP
+        targetPort: 3000

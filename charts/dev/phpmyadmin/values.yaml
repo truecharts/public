@@ -1,0 +1,25 @@
+env:
+  MYSQL_PASSWORD: root
+  MYSQL_USER: root
+  PMA_HOST: 192.168.70.99
+  PMA_PORT: "3306"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phpmyadmin
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 80

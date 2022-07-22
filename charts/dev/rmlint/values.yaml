@@ -1,0 +1,29 @@
+env:
+  GUAC_PASS: ""
+  GUAC_USER: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rmlint
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  searchlocation:
+    enabled: true
+    mountPath: /root
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8322
+        protocol: TCP
+        targetPort: 8080

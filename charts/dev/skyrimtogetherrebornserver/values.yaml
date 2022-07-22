@@ -1,0 +1,31 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/skyrimtogetherrebornserver
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/server/config/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 10578
+        protocol: UDP
+        targetPort: 10578

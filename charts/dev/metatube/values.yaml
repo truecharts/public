@@ -1,0 +1,31 @@
+env:
+  DEBUG: "False"
+  LOG: "False"
+  LOG_LEVEL: "10"
+  SOCKET_LOG: "False"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/metatube
+  tag: latest
+persistence:
+  storagedatabase:
+    enabled: true
+    mountPath: /database
+  storagedownloads:
+    enabled: true
+    mountPath: /downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

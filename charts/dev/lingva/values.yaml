@@ -1,0 +1,22 @@
+env:
+  site_domain: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/lingva
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: TCP
+        targetPort: 3000

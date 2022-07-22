@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mailpile
+  tag: latest
+persistence:
+  path1:
+    enabled: true
+    mountPath: /root/.local/share/Mailpile
+  path2:
+    enabled: true
+    mountPath: /root/.gnupg
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 33411
+        protocol: TCP
+        targetPort: 33411

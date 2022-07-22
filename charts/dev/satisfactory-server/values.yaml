@@ -1,0 +1,49 @@
+env:
+  MAXPLAYERS: "4"
+  STEAMBETA: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/satisfactory-server
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  beaconport:
+    enabled: true
+    ports:
+      beaconport:
+        enabled: true
+        port: 15000
+        protocol: UDP
+        targetPort: 15000
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: UDP
+        targetPort: 7777
+  queryport:
+    enabled: true
+    ports:
+      queryport:
+        enabled: true
+        port: 15777
+        protocol: UDP
+        targetPort: 15777

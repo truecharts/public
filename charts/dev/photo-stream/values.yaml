@@ -1,0 +1,28 @@
+env:
+  AUTHOR_NAME: unRAID
+  DESCRIPTION: My unRAID Photo Stream collection.
+  SHOW_OFFICIAL_GITHUB: "0"
+  TITLE: Photo Stream for unRAID
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/photo-stream
+  tag: latest
+persistence:
+  storageimages:
+    enabled: true
+    mountPath: /photo-stream/photos/original
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 4000
+        protocol: TCP
+        targetPort: 4000

@@ -1,0 +1,30 @@
+env:
+  CUSTOM_RES_H: "768"
+  CUSTOM_RES_W: "1280"
+  EXTRA_PARAMETERS: ""
+  THUNDERBIRD_LANG: en-US
+  THUNDERBIRD_V: latest
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/thunderbird
+  tag: latest
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /thunderbird
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080

@@ -1,0 +1,34 @@
+env:
+  BASIC_URL: https://dl.xonotic.org/
+  GAME_PARAMS: ""
+  GAME_VERSION: 0.8.2
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/xonotic
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 26000
+        protocol: UDP
+        targetPort: 26000

@@ -1,0 +1,27 @@
+env:
+  ARGS:
+    -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4
+    -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shapeshifter-obfuscator
+  tag: latest
+persistence:
+  config:
+    enabled: true
+    mountPath: /state
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 2222
+        protocol: TCP
+        targetPort: 2222

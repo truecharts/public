@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description:
+  "Ungoogled-Chromium is a lightweight approach to removing Google web\
+  \ service dependency from the Chromium project web browser.\r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/ungoogled-chromium
+icon: https://truecharts.org/img/chart-icons/ungoogled-chromium.png
+keywords:
+  - ungoogled-chromium
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: ungoogled-chromium
+sources:
+  - https://www.google.com/chrome/
+  - https://hub.docker.com/r/ich777/ungoogled-chromium/
+type: application
+version: 0.0.10

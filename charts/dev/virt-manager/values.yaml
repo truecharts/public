@@ -1,0 +1,34 @@
+env:
+  HOSTS: "['qemu:///system']"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/virt-manager
+  tag: latest
+persistence:
+  devkvm:
+    enabled: true
+    mountPath: /dev/kvm
+  images:
+    enabled: true
+    mountPath: /var/lib/libvirt/images
+  libvirt-sock:
+    enabled: true
+    mountPath: /var/run/libvirt/libvirt-sock
+  rootfolder:
+    enabled: true
+    mountPath: /root
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8185
+        protocol: TCP
+        targetPort: 80

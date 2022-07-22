@@ -1,0 +1,37 @@
+env:
+  APP_NAME: Vorta
+  GROUP_ID: "100"
+  SECURE_CONNECTION: "0"
+  UMASK: "022"
+  USER_ID: "99"
+  VNC_PASSWORD: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/vorta
+  tag: latest
+persistence:
+  backupsfrom:
+    enabled: true
+    mountPath: /data/bkp_from
+    readOnly: true
+  backupsto:
+    enabled: true
+    mountPath: /data/bkp_to
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: TCP
+        targetPort: 5800

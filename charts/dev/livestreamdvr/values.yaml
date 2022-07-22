@@ -1,0 +1,35 @@
+env:
+  TCD_ENABLE_FILES_API: "0"
+  UMASK: "022"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/livestreamdvr
+  tag: vmaster
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/local/share/twitchautomator/data/config
+  hostpath1:
+    enabled: true
+    mountPath: /usr/local/share/twitchautomator/data/storage
+  hostpath2:
+    enabled: true
+    mountPath: /usr/local/share/twitchautomator/data/cache
+  hostpath4:
+    enabled: true
+    mountPath: /usr/local/share/twitchautomator/data/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8146
+        protocol: TCP
+        targetPort: 8080

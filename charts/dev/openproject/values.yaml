@@ -1,0 +1,32 @@
+env:
+  SECRET_KEY_BASE: secret
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/openproject
+  tag: v12
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /var/openproject/pgdata
+  hostpath2:
+    enabled: true
+    mountPath: /var/openproject/assets
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false

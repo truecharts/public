@@ -1,0 +1,24 @@
+env:
+  S_HOST: unraid.local
+  S_NAME: Unraid
+  S_PORT: "5450"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phoenixstats
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5449
+        protocol: TCP
+        targetPort: 80

@@ -1,0 +1,32 @@
+env:
+  PASTEY_BEHIND_PROXY: "False"
+  PASTEY_GUESS_THRESHOLD: "0.20"
+  PASTEY_RATE_LIMIT: 5/hour
+  PASTEY_RECENT_PASTES: "10"
+  PASTEY_RESTRICT_PASTING: "False"
+  PASTEY_RESTRICT_RAW_PASTING: "True"
+  PASTEY_USE_WHITELIST: "True"
+  PASTEY_WHITELIST_CIDR: 127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/pastey
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000

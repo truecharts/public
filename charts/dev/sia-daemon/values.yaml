@@ -1,0 +1,42 @@
+env:
+  SIA_API_PASSWORD: ""
+  SIA_WALLET_PASSWORD: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/sia-daemon
+  tag: vmaster
+persistence:
+  datadirectory:
+    enabled: true
+    mountPath: /sia-data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  hostrhp2port:
+    enabled: true
+    ports:
+      hostrhp2port:
+        enabled: true
+        port: 9982
+        protocol: TCP
+        targetPort: 9982
+  hostrhp3port:
+    enabled: true
+    ports:
+      hostrhp3port:
+        enabled: true
+        port: 9983
+        protocol: TCP
+        targetPort: 9983
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9981
+        protocol: TCP
+        targetPort: 9981

@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - HomeAutomation
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description: "Vertex  , , , ,   PT \r\n"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/vertex
+icon: https://truecharts.org/img/chart-icons/vertex.png
+keywords:
+  - vertex
+  - Tools-Utilities
+  - HomeAutomation
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: vertex
+sources:
+  - https://gitlab.lswl.in/lswl/vertex
+  - https://hub.docker.com/r/lswl/vertex
+type: application
+version: 0.0.10

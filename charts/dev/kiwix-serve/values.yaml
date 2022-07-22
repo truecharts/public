@@ -1,0 +1,25 @@
+env:
+  DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kiwix-serve
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8040
+        protocol: TCP
+        targetPort: 80

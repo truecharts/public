@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
+deprecated: false
+description:
+  Alternative front-end for Google Translate, serving as a Free and Open
+  Source translator with over a hundred languages available
+home: https://github.com/truecharts/apps/tree/master/charts/stable/lingva
+icon: https://truecharts.org/img/chart-icons/lingva.png
+keywords:
+  - lingva
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: lingva
+sources:
+  - https://github.com/TheDavidDelta/lingva-translate
+  - https://hub.docker.com/r/thedaviddelta/lingva-translate
+type: application
+version: 0.0.10

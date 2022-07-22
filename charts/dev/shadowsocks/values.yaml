@@ -1,0 +1,33 @@
+env:
+  DNS_ADDRS: 8.8.8.8,8.8.4.4
+  METHOD: chacha20-ietf-poly1305
+  PASSWORD: ""
+  TIMEOUT: "300"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/shadowsocks
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8388
+        protocol: TCP
+        targetPort: 8388
+  portudp:
+    enabled: true
+    ports:
+      portudp:
+        enabled: true
+        port: 8388
+        protocol: UDP
+        targetPort: 8388

@@ -1,0 +1,96 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/poste
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  containerhttps:
+    enabled: true
+    ports:
+      containerhttps:
+        enabled: true
+        port: 443
+        protocol: TCP
+        targetPort: 443
+  containerimaps:
+    enabled: true
+    ports:
+      containerimaps:
+        enabled: true
+        port: 993
+        protocol: TCP
+        targetPort: 993
+  containermsa:
+    enabled: true
+    ports:
+      containermsa:
+        enabled: true
+        port: 587
+        protocol: TCP
+        targetPort: 587
+  containerpop3s:
+    enabled: true
+    ports:
+      containerpop3s:
+        enabled: true
+        port: 995
+        protocol: TCP
+        targetPort: 995
+  containersmtps:
+    enabled: true
+    ports:
+      containersmtps:
+        enabled: true
+        port: 465
+        protocol: TCP
+        targetPort: 465
+  externalsievef:
+    enabled: true
+    ports:
+      externalsievef:
+        enabled: true
+        port: 4190
+        protocol: TCP
+        targetPort: 4190
+  imap:
+    enabled: true
+    ports:
+      imap:
+        enabled: true
+        port: 143
+        protocol: TCP
+        targetPort: 143
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8280
+        protocol: HTTP
+        targetPort: 80
+  pop3port:
+    enabled: true
+    ports:
+      pop3port:
+        enabled: true
+        port: 110
+        protocol: TCP
+        targetPort: 110
+  port25:
+    enabled: true
+    ports:
+      port25:
+        enabled: true
+        port: 25
+        protocol: TCP
+        targetPort: 25

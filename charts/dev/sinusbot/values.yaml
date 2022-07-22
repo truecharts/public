@@ -1,0 +1,28 @@
+env:
+  OVERRIDE_PASSWORD: foobar
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/sinusbot
+  tag: latest
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt/sinusbot/data
+  scriptspath:
+    enabled: true
+    mountPath: /opt/sinusbot/scripts
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8087
+        protocol: TCP
+        targetPort: 8087

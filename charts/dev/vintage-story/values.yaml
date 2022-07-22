@@ -1,0 +1,26 @@
+env:
+  GAME_PARAMS: ""
+  VS_CHANNEL: stable
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/vintage-story
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /vintagestory
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 42420
+        protocol: TCP
+        targetPort: 42420

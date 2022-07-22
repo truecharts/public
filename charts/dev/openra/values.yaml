@@ -1,0 +1,31 @@
+env:
+  AdvertiseOnline: "True"
+  Ban: ""
+  EnableSingleplayer: "False"
+  ExternalPort: "1234"
+  ListenPort: "1234"
+  MAP: ""
+  MOTD: Have Fun!!
+  Mod: ra
+  Name: DEDICATED SERVER
+  Password: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/openra
+  tag: latest
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1234
+        protocol: TCP
+        targetPort: 1234

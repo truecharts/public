@@ -1,0 +1,26 @@
+env:
+  LOG_LEVEL: info
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/socials
+  tag: vmain
+persistence:
+  socials:
+    enabled: true
+    mountPath: /app/people
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7574
+        protocol: TCP
+        targetPort: 7574

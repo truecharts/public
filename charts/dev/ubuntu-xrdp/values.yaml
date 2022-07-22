@@ -1,0 +1,40 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ubuntu-xrdp
+  tag: latest
+persistence:
+  ubuntu-xrdp:
+    enabled: true
+    mountPath: /home/ubuntu/unraid
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3389
+        protocol: TCP
+        targetPort: 3389
+  tcpport1:
+    enabled: true
+    ports:
+      tcpport1:
+        enabled: true
+        port: 6080
+        protocol: TCP
+        targetPort: 6080
+  tcpport2:
+    enabled: true
+    ports:
+      tcpport2:
+        enabled: true
+        port: 5900
+        protocol: TCP
+        targetPort: 5900

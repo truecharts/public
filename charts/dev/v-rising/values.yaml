@@ -1,0 +1,42 @@
+env:
+  ENABLE_BEPINEX: ""
+  GAME_ID: "1829350"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  SERVER_NAME: V Rising Docker
+  USERNAME: ""
+  VALIDATE: ""
+  WORLD_NAME: world1
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/v-rising
+  tag: latest
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9876
+        protocol: UDP
+        targetPort: 9876
