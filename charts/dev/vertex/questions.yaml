@@ -86,6 +86,7 @@ questions:
 
         - variable: PORT
           label: 'PORT'
+          description: "Vertex "
           schema:
             type: string
             default: "3000"
@@ -187,6 +188,7 @@ questions:
 
         - variable: config
           label: "config Storage"
+          description: ""
           schema:
             additional_attrs: true
             type: dict

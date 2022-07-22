@@ -1,32 +1,32 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Productivity
     - Tools-Utilities
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "StackEdit\u2019s Markdown syntax highlighting is unique. The refined\
-  \ text formatting of the editor helps you visualize the final rendering of your\
-  \ files."
+description:
+  StackEdits Markdown syntax highlighting is unique. The refined text formatting
+  of the editor helps you visualize the final rendering of your files.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/stackedit
 icon: https://truecharts.org/img/chart-icons/stackedit.png
 keywords:
-- stackedit
-- Productivity
-- Tools-Utilities
-kubeVersion: '>=1.16.0-0'
+  - stackedit
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: stackedit
 sources:
-- https://stackedit.io/
-- https://hub.docker.com/r/qmcgaw/stackedit/
+  - https://stackedit.io/
+  - https://hub.docker.com/r/qmcgaw/stackedit/
 type: application
 version: 0.0.10

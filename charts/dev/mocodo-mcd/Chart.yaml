@@ -1,29 +1,30 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Productivity
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "Mocodo est un logiciel d'aide \xE0 l'enseignement et \xE0 la conception\
-  \ des bases de donn\xE9es relationnelles.\r\n"
+description:
+  "Mocodo est un logiciel d'aide  l'enseignement et  la conception des\
+  \ bases de donnes relationnelles.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/mocodo-mcd
 icon: https://truecharts.org/img/chart-icons/mocodo-mcd.png
 keywords:
-- mocodo-mcd
-- Productivity
-kubeVersion: '>=1.16.0-0'
+  - mocodo-mcd
+  - Productivity
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: mocodo-mcd
 sources:
-- https://rawgit.com/laowantong/mocodo/master/doc/fr_refman.html#utiliser_mocodo_en_ligne_de_commande
-- https://hub.docker.com/r/olprog/mocodo
+  - https://rawgit.com/laowantong/mocodo/master/doc/fr_refman.html#utiliser_mocodo_en_ligne_de_commande
+  - https://hub.docker.com/r/olprog/mocodo
 type: application
 version: 0.0.10
