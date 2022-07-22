@@ -1,0 +1,65 @@
+image:
+  repository: tccr.io/truecharts/bungeecord
+  tag: v2022.4.1@sha256:b6e21cbc222cb4022baa342749c6364ccb26a8678e4de5d42db5cc592a682a5e
+  pullPolicy: Always
+j17Image:
+  repository: tccr.io/truecharts/bungeecord-java17
+  tag: v2022.4.1@sha256:21121f66eba1d3594ab1719c61c139336f04ef0585e6d60a929aa12a24f37e19
+  pullPolicy: Always
+j11Image:
+  repository: tccr.io/truecharts/bungeecord-java11
+  tag: v2022.4.1@sha256:7594351f800ceddc45a00b013cb57d2867d1abbbbf573ceeec83c335acc21a1b
+  pullPolicy: Always
+j8Image:
+  repository: tccr.io/truecharts/bungeecord-java8
+  tag: v2022.4.1@sha256:7291e010fa9e029e37c9a260b657c4404dbe08da51a45f862ee22d480ff6494d
+  pullPolicy: Always
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  RCON_PASSWORD: "secretrconpass"
+
+env:
+  RCON_PORT: 25578
+  TYPE: "BUNGEECORD"
+  ONLINE_MODE: false
+  MEMORY: 512M
+  INIT_MEMORY: 512M
+  MAX_MEMORY: 512M
+  NETWORKADDRESS_CACHE_TTL: 60
+  REPLACE_ENV_VARIABLES: true
+  # JVM_OPTS: ""
+  # JVM_XX_OPTS: ""
+  # PLUGINS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+rcon:
+  enabled: true
+  ports:
+    rcon:
+      enabled: true
+      port: "{{ .Values.env.RCON_PORT }}"
+      targetPort: "{{ .Values.env.RCON_PORT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  server:
+    enabled: true
+    mountPath: "/server"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
