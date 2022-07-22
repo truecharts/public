@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [solr-0.0.16](https://github.com/truecharts/apps/compare/solr-0.0.15...solr-0.0.16) (2022-07-22)
+
+### Chore
+
+- update image refs ([#3261](https://github.com/truecharts/apps/issues/3261))
+
+
+
 ## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
 
 ### Chore

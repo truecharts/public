@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [lancache-dns-0.0.6](https://github.com/truecharts/apps/compare/lancache-dns-0.0.5...lancache-dns-0.0.6) (2022-07-22)
+
+### Chore
+
+- update image refs ([#3261](https://github.com/truecharts/apps/issues/3261))
+
+
+
 ## [lancache-dns-0.0.5](https://github.com/truecharts/apps/compare/lancache-dns-0.0.4...lancache-dns-0.0.5) (2022-07-19)
 
 ### Chore
