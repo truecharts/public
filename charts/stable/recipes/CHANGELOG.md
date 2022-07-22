@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [recipes-8.0.24](https://github.com/truecharts/apps/compare/recipes-8.0.23...recipes-8.0.24) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
 ## [recipes-8.0.23](https://github.com/truecharts/apps/compare/recipes-8.0.22...recipes-8.0.23) (2022-07-19)
 
 ### Chore

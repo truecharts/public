@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [snipe-it-4.0.27](https://github.com/truecharts/apps/compare/snipe-it-4.0.26...snipe-it-4.0.27) (2022-07-22)
+
+### Chore
+
+- move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+### Fix
+
+- remove some non-utf8 characters
+
+
+
 ## [snipe-it-4.0.26](https://github.com/truecharts/apps/compare/snipe-it-4.0.25...snipe-it-4.0.26) (2022-07-19)
 
 ### Chore
