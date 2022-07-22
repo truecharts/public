@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Get all your books, like series with Sonarr...
 home: https://github.com/truecharts/apps/tree/master/charts/stable/lazylibrarian
 icon: https://truecharts.org/img/chart-icons/lazylibrarian.png
 keywords:
-- lazylibrarian
-- ebooks
-kubeVersion: '>=1.16.0-0'
+  - lazylibrarian
+  - ebooks
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: lazylibrarian
 sources:
-- https://gitlab.com/LazyLibrarian/LazyLibrarian.git
-- https://lazylibrarian.gitlab.io
+  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+  - https://lazylibrarian.gitlab.io
 type: application
 version: 11.0.26
 annotations:

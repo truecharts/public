@@ -1,26 +1,26 @@
 apiVersion: v2
 appVersion: "63784405"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: TVheadend - a TV streaming server and digital video recorder
 home: https://github.com/truecharts/apps/tree/master/charts/stable/tvheadend
 icon: https://truecharts.org/img/chart-icons/tvheadend.png
 keywords:
-- tvheadend
-- tv
-- streaming
-- dvb
-kubeVersion: '>=1.16.0-0'
+  - tvheadend
+  - tv
+  - streaming
+  - dvb
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: tvheadend
 sources:
-- https://github.com/tvheadend/tvheadend
+  - https://github.com/tvheadend/tvheadend
 type: application
 version: 12.0.18
 annotations:

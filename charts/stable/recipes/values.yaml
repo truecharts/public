@@ -78,14 +78,14 @@ additionalContainers:
       - containerPort: 80
         name: main
     volumeMounts:
-    - name: recipes-config
-      mountPath: "/etc/nginx/nginx.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: media
-      mountPath: "/media"
-    - name: static
-      mountPath: "/static"
+      - name: recipes-config
+        mountPath: "/etc/nginx/nginx.conf"
+        subPath: nginx-config
+        readOnly: true
+      - name: media
+        mountPath: "/media"
+      - name: static
+        mountPath: "/static"
 
 service:
   main:

@@ -15,17 +15,17 @@ sources:
   - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
   - https://github.com/rodber/chevereto-free
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: mariadb.enabled
-  name: mariadb
-  repository: https://charts.truecharts.org/
-  version: 3.0.29
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://charts.truecharts.org/
+    version: 3.0.29
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - incubator

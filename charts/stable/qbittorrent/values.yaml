@@ -33,7 +33,6 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-
 additionalVolumes:
   - name: qbittorrent-scripts
     emptyDir: {}

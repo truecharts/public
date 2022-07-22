@@ -55,20 +55,20 @@ configmap:
   makemkv:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.makemkv.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.makemkv.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.makemkv.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.makemkv.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.makemkv.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.makemkv.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.makemkv.DISPLAY_HEIGHT }}"
       MAKEMKV_KEY: "{{ .Values.makemkv.MAKEMKV_KEY }}"
       AUTO_DISC_RIPPER_INTERVAL: "{{ .Values.makemkv.AUTO_DISC_RIPPER_INTERVAL }}"
       AUTO_DISC_RIPPER_BD_MODE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_BD_MODE }}"
       AUTO_DISC_RIPPER_MAKEMKV_PROFILE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_MAKEMKV_PROFILE }}"
-      AUTO_DISC_RIPPER: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER }}"
-      AUTO_DISC_RIPPER_EJECT: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_EJECT }}"
-      AUTO_DISC_RIPPER_PARALLEL_RIP: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_PARALLEL_RIP }}"
-      AUTO_DISC_RIPPER_NO_GUI_PROGRESS: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_NO_GUI_PROGRESS }}"
-      AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR }}"
+      AUTO_DISC_RIPPER: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER }}'
+      AUTO_DISC_RIPPER_EJECT: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_EJECT }}'
+      AUTO_DISC_RIPPER_PARALLEL_RIP: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_PARALLEL_RIP }}'
+      AUTO_DISC_RIPPER_NO_GUI_PROGRESS: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_NO_GUI_PROGRESS }}'
+      AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR }}'
 
 persistence:
   config:

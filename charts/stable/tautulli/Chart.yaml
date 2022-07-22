@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "2.10.2"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: A Python based monitoring and tracking tool for Plex Media Server
 home: https://github.com/truecharts/apps/tree/master/charts/stable/tautulli
 icon: https://truecharts.org/img/chart-icons/tautulli.png
 keywords:
-- tautulli
-- plex
-kubeVersion: '>=1.16.0-0'
+  - tautulli
+  - plex
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: tautulli
 sources:
-- https://github.com/Tautulli/Tautulli
+  - https://github.com/Tautulli/Tautulli
 type: application
 version: 11.0.19
 annotations:

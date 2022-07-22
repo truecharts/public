@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Network-Other
     - Productivity
@@ -7,29 +7,30 @@ annotations:
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "Electrum is a Bitcoin wallet focused on speed and simplicity, with low\
+description:
+  "Electrum is a Bitcoin wallet focused on speed and simplicity, with low\
   \ resource usage. It uses remote servers that handle the most complicated parts\
   \ of the Bitcoin system, and it allows you to recover your wallet from a secret\
   \ phrase.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/electrum
 icon: https://truecharts.org/img/chart-icons/electrum.png
 keywords:
-- electrum
-- Network-Other
-- Productivity
-- Tools-Utilities
-kubeVersion: '>=1.16.0-0'
+  - electrum
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: electrum
 sources:
-- https://electrum.org/
-- https://hub.docker.com/r/ich777/electrum
+  - https://electrum.org/
+  - https://hub.docker.com/r/ich777/electrum
 type: application
 version: 0.0.10

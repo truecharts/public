@@ -186,15 +186,15 @@ matrix:
 
     # IP addresses to blacklist federation requests to
     blacklist:
-      - '127.0.0.0/8'
-      - '10.0.0.0/8'
-      - '172.16.0.0/12'
-      - '192.168.0.0/16'
-      - '100.64.0.0/10'
-      - '169.254.0.0/16'
-      - '::1/128'
-      - 'fe80::/64'
-      - 'fc00::/7'
+      - "127.0.0.0/8"
+      - "10.0.0.0/8"
+      - "172.16.0.0/12"
+      - "192.168.0.0/16"
+      - "100.64.0.0/10"
+      - "169.254.0.0/16"
+      - "::1/128"
+      - "fe80::/64"
+      - "fc00::/7"
 
   # User registration settings
   registration:
@@ -222,7 +222,6 @@ matrix:
   retentionPeriod: 7d
 
   security:
-
     # This disables the warning that is emitted when the
     # trustedKeyServers include 'matrix.org'. See below.
     # Set to false to re-enable the warning.
@@ -285,7 +284,6 @@ matrix:
     # The log level for the synapse server
     synapseLogLevel: WARNING
 
-
 # Settings for email notifications
 mail:
   # Set to false to disable all email notifications
@@ -299,7 +297,7 @@ mail:
   riotUrl: ""
 
   host: ""
-  port: 25  # SSL: 465, STARTTLS: 587
+  port: 25 # SSL: 465, STARTTLS: 587
   username: ""
   password: ""
   requireTransportSecurity: true

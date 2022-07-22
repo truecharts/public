@@ -43,9 +43,9 @@ configmap:
   czkawka:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.czkawka.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.czkawka.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.czkawka.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.czkawka.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.czkawka.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.czkawka.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
 

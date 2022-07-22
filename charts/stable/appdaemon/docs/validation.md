@@ -1,6 +1,6 @@
 # Input Validation
 
-__`LATITUDE`__ and __`LONGITUDE`__
+**`LATITUDE`** and **`LONGITUDE`**
 Accepted formats are:
 
 - Float (eg. `24.2028`)

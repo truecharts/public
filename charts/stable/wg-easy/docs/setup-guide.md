@@ -30,10 +30,10 @@ Step 1-2: Name chart and leave defaults for Step 2
 
 Step 3:
 
-- Change `WG_HOST` *required* domain name (or WAN IP if you have a Static IP)
+- Change `WG_HOST` _required_ domain name (or WAN IP if you have a Static IP)
 - Change `WG_DEFAULT_ADDRESS` only if it conflicts with other IP addresses on your network
 - Change `WG_DEFAULT_DNS` can be set to your local DNS (eg my PiHole box) or a generic one like `1.1.1.1`
-- Change `ADMIN_PASSWORD` *required* - Always best to have some security in front of the GUI page
+- Change `ADMIN_PASSWORD` _required_ - Always best to have some security in front of the GUI page
 
 ![wg-easy-chart-config](img/wg-easy-chart-config.png)
 

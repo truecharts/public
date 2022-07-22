@@ -1,23 +1,23 @@
 apiVersion: v2
 appVersion: "5.3"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: Omada is a SDN tool for TP-Link Omada hardware
 home: https://github.com/truecharts/apps/tree/master/charts/stable/omada-controller
 icon: https://truecharts.org/img/chart-icons/omada-controller.png
 keywords:
-- omada-controller
-kubeVersion: '>=1.16.0-0'
+  - omada-controller
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: omada-controller
 sources:
-- https://github.com/mbentley/docker-omada-controller
-- https://github.com/truecharts/apps/tree/master/charts/omada-controller
+  - https://github.com/mbentley/docker-omada-controller
+  - https://github.com/truecharts/apps/tree/master/charts/omada-controller
 version: 6.0.34
 annotations:
   truecharts.org/catagories: |

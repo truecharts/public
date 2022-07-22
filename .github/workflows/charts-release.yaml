@@ -58,7 +58,6 @@ jobs:
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
 
-
       - name: Fix Pre-Commit issues
         shell: bash
         if: |
@@ -170,7 +169,6 @@ jobs:
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
 
-
       - name: Generate docker-hub Catalog
         shell: bash
         if: |
@@ -189,7 +187,6 @@ jobs:
         run: |
           echo "Starting Catalog Validation"
           /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
-
 
       - name: Commit Catalog
         if: |

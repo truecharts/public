@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "4.2.8"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: TinyMediaManager is a full featured media manager to organize and clean up your media library.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/tinymediamanager
 icon: https://truecharts.org/img/chart-icons/tinymediamanager.png
 keywords:
-- tiny
-- media
-- manager
-kubeVersion: '>=1.16.0-0'
+  - tiny
+  - media
+  - manager
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: tinymediamanager
 sources:
-- https://hub.docker.com/r/tinymediamanager/tinymediamanager
-- https://gitlab.com/tinyMediaManager/tinyMediaManager
+  - https://hub.docker.com/r/tinymediamanager/tinymediamanager
+  - https://gitlab.com/tinyMediaManager/tinyMediaManager
 version: 2.0.18
 annotations:
   truecharts.org/catagories: |

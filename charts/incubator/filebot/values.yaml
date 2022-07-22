@@ -62,9 +62,9 @@ configmap:
   filebot:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.filebot.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.filebot.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.filebot.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.filebot.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.filebot.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.filebot.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.filebot.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.filebot.DISPLAY_HEIGHT }}"
       OPENSUBTITLES_USERNAME: "{{ .Values.filebot.OPENSUBTITLES_USERNAME }}"
@@ -75,17 +75,17 @@ configmap:
       AMC_ACTION: "{{ .Values.filebot.AMC_ACTION }}"
       AMC_CONFLICT: "{{ .Values.filebot.AMC_CONFLICT }}"
       AMC_MATCH_MODE: "{{ .Values.filebot.AMC_MATCH_MODE }}"
-      AMC_ARTWORK: "{{ ternary \"y\" \"n\" .Values.filebot.AMC_ARTWORK }}"
+      AMC_ARTWORK: '{{ ternary "y" "n" .Values.filebot.AMC_ARTWORK }}'
       AMC_LANG: "{{ .Values.filebot.AMC_LANG }}"
       AMC_MUSIC_FORMAT: "{{ .Values.filebot.AMC_MUSIC_FORMAT }}"
       AMC_MOVIE_FORMAT: "{{ .Values.filebot.AMC_MOVIE_FORMAT }}"
       AMC_SERIES_FORMAT: "{{ .Values.filebot.AMC_SERIES_FORMAT }}"
       AMC_ANIME_FORMAT: "{{ .Values.filebot.AMC_ANIME_FORMAT }}"
-      AMC_PROCESS_MUSIC: "{{ ternary \"y\" \"n\" .Values.filebot.AMC_PROCESS_MUSIC }}"
+      AMC_PROCESS_MUSIC: '{{ ternary "y" "n" .Values.filebot.AMC_PROCESS_MUSIC }}'
       AMC_SUBTITLE_LANG: "{{ .Values.filebot.AMC_SUBTITLE_LANG }}"
       AMC_CUSTOM_OPTIONS: "{{ .Values.filebot.AMC_CUSTOM_OPTIONS }}"
       AMC_INSTALL_PKGS: "{{ .Values.filebot.AMC_INSTALL_PKGS }}"
-      USE_FILEBOT_BETA: "{{ ternary \"1\" \"0\" .Values.filebot.USE_FILEBOT_BETA }}"
+      USE_FILEBOT_BETA: '{{ ternary "1" "0" .Values.filebot.USE_FILEBOT_BETA }}'
 
 persistence:
   config:

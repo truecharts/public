@@ -15,17 +15,17 @@ sources:
   - https://docs.rsshub.app/en/install/
   - https://github.com/DIYgod/RSSHub
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 3.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.30
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,21 +1,21 @@
 apiVersion: v2
 appVersion: "2.6.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: Promtail is an agent which ships the contents of local logs to a Loki instance
 icon: https://truecharts.org/img/chart-icons/promtail.png
 home: https://github.com/truecharts/apps/tree/master/charts/dependency/promtail
 keywords:
-- metrics
-- logs
-kubeVersion: '>=1.16.0-0'
+  - metrics
+  - logs
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: promtail
 sources:
   - https://github.com/grafana/loki

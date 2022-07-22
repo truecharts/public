@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "1.1.0.2600"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Looks and smells like Sonarr but made for music
 home: https://github.com/truecharts/apps/tree/master/charts/stable/lidarr
 icon: https://truecharts.org/img/chart-icons/lidarr.png
 keywords:
-- lidarr
-- torrent
-- usenet
-kubeVersion: '>=1.16.0-0'
+  - lidarr
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: lidarr
 sources:
-- https://github.com/Lidarr/Lidarr
+  - https://github.com/Lidarr/Lidarr
 type: application
 version: 11.0.18
 annotations:

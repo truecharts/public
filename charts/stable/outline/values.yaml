@@ -92,7 +92,6 @@ probes:
   startup:
     path: "/_health"
 
-
 # Enabled redis
 redis:
   enabled: true
@@ -130,4 +129,5 @@ initContainers:
           secretKeyRef:
             name: outline-secrets
             key: UTILS_SECRET
-    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+    command:
+      ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]

@@ -1,29 +1,29 @@
 apiVersion: v2
 appVersion: "6.3"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 8.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.30
 description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/mattermost
 icon: https://truecharts.org/img/chart-icons/mattermost.png
 keywords:
-- team
-- mattermost
-- development
-kubeVersion: '>=1.16.0-0'
+  - team
+  - mattermost
+  - development
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: mattermost
 sources:
-- https://github.com/mattermost/mattermost-server
-- https://github.com/mattermost/docker
+  - https://github.com/mattermost/mattermost-server
+  - https://github.com/mattermost/docker
 version: 3.0.21
 annotations:
   truecharts.org/catagories: |

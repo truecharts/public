@@ -129,8 +129,8 @@ initContainers:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
-    - name: data
-      mountPath: "/home/inventree/data"
+      - name: data
+        mountPath: "/home/inventree/data"
     env:
       - name: INVENTREE_DB_ENGINE
         value: "postgresql"
@@ -180,19 +180,19 @@ additionalContainers:
       readOnlyRootFilesystem: false
       runAsNonRoot: false
     volumeMounts:
-    - name: inventree-config
-      mountPath: "/etc/nginx/conf.d/default.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: data
-      mountPath: "/var/www"
+      - name: inventree-config
+        mountPath: "/etc/nginx/conf.d/default.conf"
+        subPath: nginx-config
+        readOnly: true
+      - name: data
+        mountPath: "/var/www"
   worker:
     name: worker
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["invoke", "worker"]
     volumeMounts:
-    - name: data
-      mountPath: "/home/inventree/data"
+      - name: data
+        mountPath: "/home/inventree/data"
     env:
       - name: INVENTREE_DB_ENGINE
         value: "postgresql"

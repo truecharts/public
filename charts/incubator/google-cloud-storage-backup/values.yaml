@@ -1,9 +1,9 @@
 env:
-  ACCESS_KEY: 'Container Variable: ACCESS_KEY'
+  ACCESS_KEY: "Container Variable: ACCESS_KEY"
   CRON_SCHEDULE: 0 * * * *
-  GCSOPTIONS: ''
+  GCSOPTIONS: ""
   GCSPATH: gs://mybucket/
-  SECRET_KEY: 'Container Variable: SECRET_KEY'
+  SECRET_KEY: "Container Variable: SECRET_KEY"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/google-cloud-storage-backup

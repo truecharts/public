@@ -39,12 +39,14 @@ podAnnotations:
 providers:
   kubernetesCRD:
     enabled: true
-    namespaces: []
+    namespaces:
+      []
       # - "default"
   kubernetesIngress:
     enabled: true
     # labelSelector: environment=production,method=traefik
-    namespaces: []
+    namespaces:
+      []
       # - "default"
     # IP used for Kubernetes Ingress endpoints
     publishedService:
@@ -70,7 +72,8 @@ logs:
     # them to the selected output. In some cases, this option can greatly help performances.
     # bufferingSize: 100
     # Filtering https://docs.traefik.io/observability/access-logs/#filtering
-    filters: {}
+    filters:
+      {}
       # statuscodes: "200,300-302"
       # retryattempts: true
       # minduration: 10ms
@@ -79,12 +82,14 @@ logs:
     fields:
       general:
         defaultmode: keep
-        names: {}
+        names:
+          {}
           # Examples:
           # ClientUsername: drop
       headers:
         defaultmode: drop
-        names: {}
+        names:
+          {}
           # Examples:
           # User-Agent: redact
           # Authorization: drop
@@ -176,20 +181,20 @@ service:
           trustedIPs: []
           # -- Trust all forwarded headers
           insecureMode: false
-#      tcpexample:
-#        enabled: true
-#        targetPort: 9443
-#        protocol: TCP
-#        tls:
-#          enabled: false
-#          # this is the name of a TLSOption definition
-#          options: ""
-#          certResolver: ""
-#          domains: []
-#          # - main: example.com
-#          #   sans:
-#          #     - foo.example.com
-#          #     - bar.example.com
+  #      tcpexample:
+  #        enabled: true
+  #        targetPort: 9443
+  #        protocol: TCP
+  #        tls:
+  #          enabled: false
+  #          # this is the name of a TLSOption definition
+  #          options: ""
+  #          certResolver: ""
+  #          domains: []
+  #          # - main: example.com
+  #          #   sans:
+  #          #     - foo.example.com
+  #          #     - bar.example.com
   metrics:
     enabled: true
     type: ClusterIP

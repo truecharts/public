@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "0.11.3"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: Kopia is a simple, cross-platform tool for managing encrypted backups in the cloud. It provides fast, incremental backups, secure, client-side end-to-end encryption, compression and data deduplication.
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/kopia
 icon: https://truecharts.org/img/chart-icons/kopia.png
 keywords:
-- backup
-kubeVersion: '>=1.16.0-0'
+  - backup
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: kopia
 sources:
-- https://kopia.io/docs/installation/#docker-images
-- https://hub.docker.com/r/kopia/kopia
-- https://github.com/kopia/kopia
+  - https://kopia.io/docs/installation/#docker-images
+  - https://hub.docker.com/r/kopia/kopia
+  - https://github.com/kopia/kopia
 version: 2.0.26
 annotations:
   truecharts.org/catagories: |

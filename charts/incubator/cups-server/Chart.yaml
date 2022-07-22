@@ -1,23 +1,23 @@
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: CUPS printing server
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/cups-server
 icon: https://truecharts.org/img/chart-icons/cups-server.png
 keywords:
-- print
-- cups
-kubeVersion: '>=1.16.0-0'
+  - print
+  - cups
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: cups-server
 sources:
-- https://hub.docker.com/r/ydkn/cups
+  - https://hub.docker.com/r/ydkn/cups
 version: 1.0.23
 annotations:
   truecharts.org/catagories: |

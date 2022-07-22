@@ -1,9 +1,9 @@
 env:
-  CUSTOM_RES_H: '768'
-  CUSTOM_RES_W: '1024'
-  DATA_PERM: '770'
+  CUSTOM_RES_H: "768"
+  CUSTOM_RES_W: "1024"
+  DATA_PERM: "770"
   EXTRA_PARAMS: -bind=0.0.0.0
-  UMASK: '000'
+  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fluttercoin-wallet

@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Productivity
     - Tools-Utilities
@@ -8,30 +8,31 @@ annotations:
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "CadQuery is an intuitive, easy-to-use Python module for building parametric\
+description:
+  "CadQuery is an intuitive, easy-to-use Python module for building parametric\
   \ 3D CAD models. Using CadQuery, you can write short, simple scripts that produce\
   \ high quality CAD models. It is easy to make many different objects using a single\
   \ script that can be customized.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/cadquery-server
 icon: https://truecharts.org/img/chart-icons/cadquery-server.png
 keywords:
-- cadquery-server
-- Productivity
-- Tools-Utilities
-- Other
-- Network-Other
-kubeVersion: '>=1.16.0-0'
+  - cadquery-server
+  - Productivity
+  - Tools-Utilities
+  - Other
+  - Network-Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: cadquery-server
 sources:
-- https://github.com/roipoussiere/cadquery
-- https://hub.docker.com/r/cadquery/cadquery-server
+  - https://github.com/roipoussiere/cadquery
+  - https://hub.docker.com/r/cadquery/cadquery-server
 type: application
 version: 0.0.10

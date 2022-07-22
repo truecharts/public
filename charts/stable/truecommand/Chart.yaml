@@ -1,23 +1,23 @@
 apiVersion: v2
 appVersion: "2.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Aggregated management of TrueNAS devices
 home: https://github.com/truecharts/apps/tree/master/charts/stable/truecommand
 icon: https://truecharts.org/img/chart-icons/truecommand.png
 keywords:
-- truecommand
-kubeVersion: '>=1.16.0-0'
+  - truecommand
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: truecommand
 sources:
-- https://hub.docker.com/r/ixsystems/truecommand
+  - https://hub.docker.com/r/ixsystems/truecommand
 type: application
 version: 11.0.18
 annotations:

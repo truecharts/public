@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "4.4.3.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
 home: https://github.com/truecharts/apps/tree/master/charts/stable/qbittorrent
 icon: https://truecharts.org/img/chart-icons/qbittorrent.png
 keywords:
-- qbittorrent
-- torrrent
-kubeVersion: '>=1.16.0-0'
+  - qbittorrent
+  - torrrent
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: qbittorrent
 sources:
-- https://github.com/qbittorrent/qBittorrent
+  - https://github.com/qbittorrent/qBittorrent
 type: application
 version: 11.0.21
 annotations:

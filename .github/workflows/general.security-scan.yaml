@@ -4,12 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - master
+      - master
     paths:
-    - ".github/workflows/general.security-scan.yaml"
+      - ".github/workflows/general.security-scan.yaml"
   schedule:
     - cron: "0 0 * * 0"
-
 
 jobs:
   directories: # Job that list subdirectories
@@ -24,29 +23,27 @@ jobs:
         run: echo "::set-output name=dir::$({ ls -d containers/apps/*/ & ls -d containers/base/*/; } | tr '\n' '\0' | xargs -0 -n 1 basename | jq -R -s -c 'split("\n")[:-1]')"
         # Define step output named dir base on ls command transformed to JSON thanks to jq
 
-
   scan_files:
     name: Scan Files
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
 
-    - name: Run Trivy vulnerability scanner in repo mode
-      uses: aquasecurity/trivy-action@master
-      with:
-        scan-type: 'fs'
-        ignore-unfixed: true
-        format: 'template'
-        template: '@/contrib/sarif.tpl'
-        output: 'trivy-repo-results.sarif'
-        severity: 'CRITICAL'
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          ignore-unfixed: true
+          format: "template"
+          template: "@/contrib/sarif.tpl"
+          output: "trivy-repo-results.sarif"
+          severity: "CRITICAL"
 
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@3e7e3b32d0fb8283594bb0a76cc60a00918b0969 # tag=v2
-      with:
-        sarif_file: 'trivy-repo-results.sarif'
-
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@3e7e3b32d0fb8283594bb0a76cc60a00918b0969 # tag=v2
+        with:
+          sarif_file: "trivy-repo-results.sarif"
 
   scan_containers:
     name: Scan Containers
@@ -57,8 +54,8 @@ jobs:
         dir: ${{fromJson(needs.directories.outputs.dir)}} # List matrix strategy from directories dynamically
       fail-fast: false
     steps:
-    - name: Container Security scan
-      uses: Azure/container-scan@f9af925b897d8af5f7e0026b8bca9346261abc93 # tag=v0
-      with:
-        image-name: ghcr.io/${{ github.repository_owner }}/${{matrix.dir}}:latest
-        severity-threshold: HIGH
+      - name: Container Security scan
+        uses: Azure/container-scan@f9af925b897d8af5f7e0026b8bca9346261abc93 # tag=v0
+        with:
+          image-name: ghcr.io/${{ github.repository_owner }}/${{matrix.dir}}:latest
+          severity-threshold: HIGH

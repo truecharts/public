@@ -1,6 +1,6 @@
 # Input Validation
 
-__`APP_KEY`__
+**`APP_KEY`**
 Accepted formats are:
 
 - Letters, Numbers, Symbols, Exactly 32 characters (eg. `!oqVA9o2@br#$6vAyk8LLrDm54X5EtjD`) - It accepts `a-z`, `A-Z`, `0-9` and `!@#$%^&*?`

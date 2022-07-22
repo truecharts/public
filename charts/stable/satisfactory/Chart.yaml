@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "1.2.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Satisfactory Dedicated Server
 home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
 icon: https://truecharts.org/img/chart-icons/satisfactory.png
 keywords:
-- satisfactory
-kubeVersion: '>=1.16.0-0'
+  - satisfactory
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: satisfactory
 sources:
-- https://github.com/wolveix/satisfactory-server
-- https://hub.docker.com/r/wolveix/satisfactory-server
+  - https://github.com/wolveix/satisfactory-server
+  - https://hub.docker.com/r/wolveix/satisfactory-server
 type: application
 version: 2.0.20
 annotations:

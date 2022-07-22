@@ -26,7 +26,8 @@ ingress:
     # - name: somename
     #   value: somevalue
     # -- Provide additional annotations which may be required.
-    annotations: {}
+    annotations:
+      {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
@@ -40,15 +41,15 @@ ingress:
 
     # -- Set the ingressClass that is used for this ingress.
     # Requires Kubernetes >=1.19
-    ingressClassName:  # "nginx"
+    ingressClassName: # "nginx"
 
     ## Configure the hosts for the ingress
     hosts:
-      -  # -- Host address. Helm template can be passed.
+      - # -- Host address. Helm template can be passed.
         host: chart-example.local
         ## Configure the paths for the host
         paths:
-          -  # -- Path.  Helm template can be passed.
+          - # -- Path.  Helm template can be passed.
             path: /
             # -- Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix

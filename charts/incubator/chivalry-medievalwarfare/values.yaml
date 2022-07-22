@@ -1,12 +1,12 @@
 env:
   ADMIN_PWD: adminDocker
-  GAME_ID: '220070'
+  GAME_ID: "220070"
   GAME_PARAMS: ?port=7000?queryport=7010
   GAME_PARAMS_EXTRA: -seekfreeloadingserver
   MAP: aocffa-moor_p
-  PASSWRD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chivalry-medievalwarfare

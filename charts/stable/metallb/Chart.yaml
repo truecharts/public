@@ -5,17 +5,17 @@ description: A network load-balancer implementation for Kubernetes using standar
 home: https://github.com/truecharts/apps/tree/master/charts/core/metallb
 icon: https://truecharts.org/img/chart-icons/metallb.png
 keywords:
-- metallb
-- loadbalancer
+  - metallb
+  - loadbalancer
 dependencies:
-- name: metallb
-  repository: https://metallb.github.io/metallb
-  version: 0.12.1
-kubeVersion: '>=1.16.0-0'
+  - name: metallb
+    repository: https://metallb.github.io/metallb
+    version: 0.12.1
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: metallb
 sources:
   - https://github.com/metallb/metallb

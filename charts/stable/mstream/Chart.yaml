@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "5.2.5"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: A personal music streaming server
 home: https://github.com/truecharts/apps/tree/master/charts/stable/mstream
 icon: https://truecharts.org/img/chart-icons/mstream.png
 keywords:
-- mstream
-- server
-- music
-kubeVersion: '>=1.16.0-0'
+  - mstream
+  - server
+  - music
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: mstream
 sources:
-- https://github.com/linuxserver/docker-mstream
-- https://mstream.io/
+  - https://github.com/linuxserver/docker-mstream
+  - https://mstream.io/
 type: application
 version: 3.0.18
 annotations:

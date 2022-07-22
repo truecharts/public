@@ -31,7 +31,8 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules: []
+    rules:
+      []
       # - alert: PromcordAbsent
       #   annotations:
       #     description: Promcord has disappeared from Prometheus service discovery.

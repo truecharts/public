@@ -1,10 +1,10 @@
 env:
-  BASIC_AUTH: 'True'
+  BASIC_AUTH: "True"
   BASIC_AUTH_PASSWORD: x
   BASIC_AUTH_USERNAME: x
-  DEBUG: 'False'
-  EXCLUDE_IPS: ''
-  SKIP_ARCHIVED_LOGS: 'False'
+  DEBUG: "False"
+  EXCLUDE_IPS: ""
+  SKIP_ARCHIVED_LOGS: "False"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/goaccess-npm-logs

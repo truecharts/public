@@ -1,21 +1,21 @@
 apiVersion: v2
 appVersion: "4.5.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: true
 description: Usenet meta search
 home: https://github.com/truecharts/apps/tree/master/charts/stable/nzbhydra
 icon: https://truecharts.org/img/chart-icons/nzbhydra.png
 keywords:
-- nzbhydra
-- usenet
-kubeVersion: '>=1.16.0-0'
+  - nzbhydra
+  - usenet
+kubeVersion: ">=1.16.0-0"
 maintainers: []
 name: nzbhydra
 sources:
-- https://github.com/theotherp/nzbhydra2
+  - https://github.com/theotherp/nzbhydra2
 type: application
 version: 11.0.22
 annotations:

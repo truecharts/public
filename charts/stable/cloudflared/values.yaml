@@ -3,7 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v2022.7.1@sha256:eb30a8a7a410e7b6be3fa07112a8295360c153518438cd5a94c8d42f5ccbe233
 
-extraArgs: ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
+extraArgs:
+  ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
 
 env:
   token: ""

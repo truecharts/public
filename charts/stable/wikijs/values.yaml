@@ -38,7 +38,6 @@ postgresql:
   postgresqlUsername: wikijs
   postgresqlDatabase: wikijs
 
-
 # /wiki/data is a temporary dir. Without mounting as emptyDir it's only writable by root.
 # https://docs.requarks.io/en/install/config#data-paths
 persistence:

@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "3.3.21"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: FlexGet is a multipurpose automation tool for all of your media
 home: https://github.com/truecharts/apps/tree/master/charts/stable/flexget
 icon: https://truecharts.org/img/chart-icons/flexget.png
 keywords:
-- flexget
-- automation
-kubeVersion: '>=1.16.0-0'
+  - flexget
+  - automation
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: flexget
 sources:
-- https://hub.docker.com/r/wiserain/flexget
-- https://github.com/wiserain/docker-flexget
+  - https://hub.docker.com/r/wiserain/flexget
+  - https://github.com/wiserain/docker-flexget
 type: application
 version: 2.0.24
 annotations:

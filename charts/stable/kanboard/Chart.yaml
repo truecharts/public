@@ -5,24 +5,24 @@ name: kanboard
 version: 8.0.19
 kubeVersion: ">=1.16.0-0"
 keywords:
-- kanboard
-- kanban
+  - kanboard
+  - kanban
 home: https://github.com/truecharts/apps/tree/master/charts/stable/kanboard
 icon: https://truecharts.org/img/chart-icons/kanboard.png
 sources:
-- https://github.com/kanboard/kanboard
+  - https://github.com/kanboard/kanboard
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 8.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.30
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - media

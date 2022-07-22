@@ -44,10 +44,10 @@ configmap:
   putty:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.putty.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.putty.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.putty.SECURE_CONNECTION }}"
-      DISABLE_RESTART_SESSION_DIALOG_WINDOW: "{{ ternary \"1\" \"0\" .Values.putty.DISABLE_RESTART_SESSION_DIALOG_WINDOW }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.putty.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.putty.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.putty.SECURE_CONNECTION }}'
+      DISABLE_RESTART_SESSION_DIALOG_WINDOW: '{{ ternary "1" "0" .Values.putty.DISABLE_RESTART_SESSION_DIALOG_WINDOW }}'
       DISPLAY_WIDTH: "{{ .Values.putty.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.putty.DISPLAY_HEIGHT }}"
 

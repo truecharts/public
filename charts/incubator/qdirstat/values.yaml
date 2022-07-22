@@ -43,9 +43,9 @@ configmap:
   qdirstat:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.qdirstat.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.qdirstat.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.qdirstat.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.qdirstat.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.qdirstat.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.qdirstat.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.qdirstat.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.qdirstat.DISPLAY_HEIGHT }}"
 

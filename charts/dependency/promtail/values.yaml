@@ -15,7 +15,7 @@ secret:
     enabled: true
     data:
       promtail.yaml: |
-          {{- tpl .Values.config.file . | nindent 4 }}
+        {{- tpl .Values.config.file . | nindent 4 }}
 
 env:
   HOSTNAME:
@@ -76,24 +76,23 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-config'
     mountPath: /etc/promtail
 
-
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
     enabled: true
     rules:
-    - apiGroups:
-        - ""
-      resources:
-        - nodes
-        - nodes/proxy
-        - services
-        - endpoints
-        - pods
-      verbs:
-        - get
-        - watch
-        - list
+      - apiGroups:
+          - ""
+        resources:
+          - nodes
+          - nodes/proxy
+          - services
+          - endpoints
+          - pods
+        verbs:
+          - get
+          - watch
+          - list
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:

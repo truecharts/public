@@ -1,20 +1,20 @@
 apiVersion: v2
 appVersion: "2022.1.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Minecraft Bedrock Dedicated Server
 home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
 icon: https://truecharts.org/img/chart-icons/minecraft-bedrock.png
 keywords:
-- minecraft
-kubeVersion: '>=1.16.0-0'
+  - minecraft
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: minecraft-bedrock
 sources:
   - https://github.com/itzg/docker-minecraft-server

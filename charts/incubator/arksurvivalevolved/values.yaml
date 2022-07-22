@@ -1,14 +1,14 @@
 env:
-  GAME_ID: '376030'
-  GAME_PARAMS: ''
+  GAME_ID: "376030"
+  GAME_PARAMS: ""
   GAME_PARAMS_EXTRA: -server -log
   MAP: TheIsland
-  PASSWRD: ''
-  SERVER_NAME: ''
-  SRV_ADMIN_PWD: ''
-  SRV_PWD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  PASSWRD: ""
+  SERVER_NAME: ""
+  SRV_ADMIN_PWD: ""
+  SRV_PWD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arksurvivalevolved
@@ -25,11 +25,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}'
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
   readiness:
-    port: '{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}'
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
   startup:
-    port: '{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}'
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

@@ -1,29 +1,29 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: 'Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
+description: "Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
 
-  '
+  "
 home: https://github.com/truecharts/apps/tree/master/charts/stable/bitcoinwalletgui
 icon: https://truecharts.org/img/chart-icons/bitcoinwalletgui.png
 keywords:
-- bitcoinwalletgui
-- Other
-kubeVersion: '>=1.16.0-0'
+  - bitcoinwalletgui
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: bitcoinwalletgui
 sources:
-- https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
+  - https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
 type: application
 version: 0.0.10

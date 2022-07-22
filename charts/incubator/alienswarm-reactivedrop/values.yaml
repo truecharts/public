@@ -1,11 +1,11 @@
 env:
-  GAME_ID: '563560'
+  GAME_ID: "563560"
   GAME_NAME: reactivedrop
   GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/alienswarm-reactivedrop
@@ -22,11 +22,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
   readiness:
-    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
   startup:
-    port: '{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}'
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

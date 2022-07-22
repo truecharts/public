@@ -24,7 +24,7 @@ service:
         targetPort: 10159
 
 persistence:
-# Don't use emptyDir, it stores, thumbnails and optimized media
+  # Don't use emptyDir, it stores, thumbnails and optimized media
   cache:
     enabled: true
     mountPath: "/cache"

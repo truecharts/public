@@ -101,22 +101,22 @@ frontendConfig:
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 additionalContainers:
-#   agent:
-#     name: agent
-#     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
-#     env:
-#       - name: ZBX_HOSTNAME
-#         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
-#       - name: ZBX_SERVER_HOST
-#         value: "localhost"
-#       - name: ZBX_SERVER_PORT
-#         value: "{{ .Values.service.server.ports.server.targetPort }}"
+  #   agent:
+  #     name: agent
+  #     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
+  #     env:
+  #       - name: ZBX_HOSTNAME
+  #         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+  #       - name: ZBX_SERVER_HOST
+  #         value: "localhost"
+  #       - name: ZBX_SERVER_PORT
+  #         value: "{{ .Values.service.server.ports.server.targetPort }}"
   snmptraps:
     name: snmptraps
     image: "{{ .Values.snmptrapsImage.repository }}:{{ .Values.snmptrapsImage.tag }}"
     volumeMounts:
-    - name: snmptraps
-      mountPath: "/var/lib/zabbix/snmptraps"
+      - name: snmptraps
+        mountPath: "/var/lib/zabbix/snmptraps"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"

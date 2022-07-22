@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "2.6.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- name: "promtail"
-  condition: promtail.enabled
-  repository: https://charts.truecharts.org
-  version: "3.0.22"
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - name: "promtail"
+    condition: promtail.enabled
+    repository: https://charts.truecharts.org
+    version: "3.0.22"
 deprecated: false
 description: "Loki: like Prometheus, but for logs."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/loki
 icon: https://truecharts.org/img/chart-icons/loki.png
 keywords:
-- logs
-kubeVersion: '>=1.16.0-0'
+  - logs
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: loki
 sources:
   - https://github.com/grafana/loki

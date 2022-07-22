@@ -1,24 +1,25 @@
 apiVersion: v2
 appVersion: "2.15.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-description: A simple, high-reliability, distributed software configuration management
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+description:
+  A simple, high-reliability, distributed software configuration management
   system
 home: https://github.com/truecharts/apps/tree/master/charts/stable/fossil
 icon: https://truecharts.org/img/chart-icons/fossil.png
 keywords:
-- fossil
-- scm
-kubeVersion: '>=1.16.0-0'
+  - fossil
+  - scm
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: fossil
 sources:
-- https://fossil-scm.org/
+  - https://fossil-scm.org/
 type: application
 version: 4.0.18
 annotations:
