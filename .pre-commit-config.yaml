@@ -26,6 +26,12 @@ repos:
         exclude: (templates\/.*|questions.yaml|chart_schema.yaml)
       - id: detect-private-key # detects the presence of private keys.
 
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+      - id: text-unicode-replacement-char
+      - id: rst-backticks
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.5.1
     hooks:
