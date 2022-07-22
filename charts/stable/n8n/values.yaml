@@ -44,9 +44,11 @@ probes:
   startup:
     path: "/healthz"
 
-timezoneandlocale: {}
+timezoneandlocale:
+  {}
   # N8N_DEFAULT_LOCALE: "en"
-credentials: {}
+credentials:
+  {}
   # CREDENTIALS_OVERWRITE_DATA: ""
   # CREDENTIALS_OVERWRITE_ENDPOINT: ""
   # CREDENTIALS_DEFAULT_NAME: "My credentials"
@@ -63,7 +65,8 @@ deployment:
   # N8N_VERSION_NOTIFICATIONS_ENABLED: true
   # N8N_DIAGNOSTICS_ENABLED: false
   # N8N_HIRING_BANNER_ENABLED: false
-endpoints: {}
+endpoints:
+  {}
   # WEBHOOK_URL: ""
   # N8N_PAYLOAD_SIZE_MAX: 16
   # N8N_METRICS: false
@@ -74,7 +77,8 @@ endpoints: {}
   # N8N_ENDPOINT_WEBHOOK_WAIT: "webhook-waiting"
   # N8N_DISABLE_PRODUCTION_MAIN_PROCESS: false
   # N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: false
-executions: {}
+executions:
+  {}
   # EXECUTIONS_PROCESS: "own"
   # EXECUTIONS_MODE: "regular"
   # EXECUTIONS_TIMEOUT: "-1"
@@ -92,7 +96,8 @@ logs:
   # N8N_LOG_FILE_COUNT_MAX: 100
   # N8N_LOG_FILE_SIZE_MAX: 16
   N8N_LOG_FILE_LOCATION: "/data/logs"
-n8n_security: {}
+n8n_security:
+  {}
   # N8N_BLOCK_ENV_ACCESS_IN_NODE: false
   # N8N_BASIC_AUTH_ACTIVE: false
   # N8N_BASIC_AUTH_USER: ""
@@ -107,13 +112,16 @@ n8n_security: {}
   # N8N_JWT_ALLOWED_TENANT: ""
   # N8N_JWT_ALLOWED_TENANT_KEY: ""
   # N8N_AUTH_EXCLUDE_ENDPOINTS: ""
-workflows: {}
+workflows:
+  {}
   # WORKFLOWS_DEFAULT_NAME: "My workflow"
   # N8N_ONBOARDING_FLOW_DISABLED: false
   # N8N_WORKFLOW_TAGS_DISABLED: false
-externalhooks: {}
+externalhooks:
+  {}
   # EXTERNAL_HOOK_FILES: ""
-usermanagement: {}
+usermanagement:
+  {}
   # N8N_USER_MANAGEMENT_DISABLED: false
   # N8N_EMAIL_MODE: "smtp"
   # N8N_SMTP_HOST: ""

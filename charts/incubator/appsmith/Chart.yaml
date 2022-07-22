@@ -1,13 +1,13 @@
 apiVersion: v2
 appVersion: "1.7.8"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 3.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.30
 # - condition: mongodb.enabled
 #   name: mongodb
 #   repository: https://charts.truecharts.org
@@ -16,15 +16,15 @@ description: Turn any datasource into an internal app in minutes. Appsmith lets 
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/appsmith
 icon: https://truecharts.org/img/chart-icons/appsmith.png
 keywords:
-- appsmith
-kubeVersion: '>=1.16.0-0'
+  - appsmith
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: appsmith
 sources:
-- https://github.com/appsmithorg/appsmith
+  - https://github.com/appsmithorg/appsmith
 version: 2.0.24
 annotations:
   truecharts.org/catagories: |

@@ -106,14 +106,14 @@ additionalContainers:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     args: ["worker"]
     volumeMounts:
-    - name: media
-      mountPath: "/media"
-    - name: templates
-      mountPath: "/templates"
-    - name: certs
-      mountPath: "/certs"
-    - name: geoip
-      mountPath: "/geoip"
+      - name: media
+        mountPath: "/media"
+      - name: templates
+        mountPath: "/templates"
+      - name: certs
+        mountPath: "/certs"
+      - name: geoip
+        mountPath: "/geoip"
     env:
       - name: AUTHENTIK_REDIS__PORT
         value: "6379"

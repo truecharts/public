@@ -25,33 +25,33 @@ configmap:
     enabled: true
     data:
       netdata-conf: |-
-          [global]
-          memory mode = dbengine
-          dbengine multihost disk space = 4096
-          page cache size = 64
+        [global]
+        memory mode = dbengine
+        dbengine multihost disk space = 4096
+        page cache size = 64
 
 rbac:
   main:
     enabled: true
     rules:
-    - apiGroups:
-      - ""
-      resources:
-        - "pods"
-        - "nodes"
-        - "nodes/metrics"
-        # - "services"       # used by agent service discovery
-        # - "configmaps"     # used by agent service discovery
-        # - "secrets"        # used by agent service discovery
-      verbs:
-        - "get"
-        - "list"
-        - "watch"
-    - apiGroups: [""]
-      resources:
-        - "namespaces"
-      verbs:
-        - "get"
+      - apiGroups:
+          - ""
+        resources:
+          - "pods"
+          - "nodes"
+          - "nodes/metrics"
+          # - "services"       # used by agent service discovery
+          # - "configmaps"     # used by agent service discovery
+          # - "secrets"        # used by agent service discovery
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+      - apiGroups: [""]
+        resources:
+          - "namespaces"
+        verbs:
+          - "get"
 
 env:
   MY_NODE_NAME:
@@ -144,12 +144,12 @@ initContainers:
     name: create-config
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
-    - name: config
-      mountPath: "/etc/netdata"
-    - name: netdata-configs
-      mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
-      subPath: netdata-conf
-      readOnly: true
+      - name: config
+        mountPath: "/etc/netdata"
+      - name: netdata-configs
+        mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
+        subPath: netdata-conf
+        readOnly: true
     command: ["/bin/sh", "-c"]
     args:
       - >

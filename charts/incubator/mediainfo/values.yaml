@@ -43,9 +43,9 @@ configmap:
   mediainfo:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.mediainfo.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mediainfo.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mediainfo.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.mediainfo.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.mediainfo.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mediainfo.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.mediainfo.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.mediainfo.DISPLAY_HEIGHT }}"
 

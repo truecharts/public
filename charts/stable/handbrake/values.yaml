@@ -47,12 +47,12 @@ configmap:
   handbrake:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.handbrake.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.handbrake.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.handbrake.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.handbrake.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.handbrake.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.handbrake.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.handbrake.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.handbrake.DISPLAY_HEIGHT }}"
-      AUTOMATED_CONVERSION_KEEP_SOURCE: "{{ ternary \"1\" \"0\" .Values.handbrake.AUTOMATED_CONVERSION_KEEP_SOURCE }}"
+      AUTOMATED_CONVERSION_KEEP_SOURCE: '{{ ternary "1" "0" .Values.handbrake.AUTOMATED_CONVERSION_KEEP_SOURCE }}'
       AUTOMATED_CONVERSION_PRESET: "{{ .Values.handbrake.AUTOMATED_CONVERSION_PRESET }}"
       AUTOMATED_CONVERSION_FORMAT: "{{ .Values.handbrake.AUTOMATED_CONVERSION_FORMAT }}"
       AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "{{ .Values.handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION }}"

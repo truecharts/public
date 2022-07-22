@@ -8,8 +8,8 @@ securityContext:
   runAsNonRoot: false
   capabilities:
     add:
-    - NET_ADMIN
-    - SYS_MODULE
+      - NET_ADMIN
+      - SYS_MODULE
 
 security:
   PUID: 0

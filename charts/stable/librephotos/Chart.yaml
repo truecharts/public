@@ -1,32 +1,32 @@
 apiVersion: v2
 appVersion: "2022w6"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 8.0.30
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 3.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.30
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.30
 description: "A self-hosted open source photo management service."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
 icon: https://truecharts.org/img/chart-icons/librephotos.png
 keywords:
-- photos
-- gallery
-kubeVersion: '>=1.16.0-0'
+  - photos
+  - gallery
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: librephotos
 sources:
-- https://github.com/LibrePhotos/librephotos
-- https://hub.docker.com/r/reallibrephotos/librephotos
+  - https://github.com/LibrePhotos/librephotos
+  - https://hub.docker.com/r/reallibrephotos/librephotos
 version: 4.0.21
 annotations:
   truecharts.org/catagories: |

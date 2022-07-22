@@ -1,30 +1,31 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - HomeAutomation
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: 'Docker Container with Fast.com CLI sending data directly to MQTT Broker
+description:
+  "Docker Container with Fast.com CLI sending data directly to MQTT Broker
 
-  '
+  "
 home: https://github.com/truecharts/apps/tree/master/charts/stable/fastcom-mqtt
 icon: https://truecharts.org/img/chart-icons/fastcom-mqtt.png
 keywords:
-- fastcom-mqtt
-- HomeAutomation
-kubeVersion: '>=1.16.0-0'
+  - fastcom-mqtt
+  - HomeAutomation
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: fastcom-mqtt
 sources:
-- https://github.com/simonjenny/fastcom-mqtt
-- https://hub.docker.com/r/simonjenny/fastcom-mqtt/
+  - https://github.com/simonjenny/fastcom-mqtt
+  - https://hub.docker.com/r/simonjenny/fastcom-mqtt/
 type: application
 version: 0.0.10

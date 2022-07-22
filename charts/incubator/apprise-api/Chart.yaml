@@ -1,33 +1,34 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: 'Apprise-api(https://github.com/caronc/apprise-api) Takes advantage of
+description:
+  "Apprise-api(https://github.com/caronc/apprise-api) Takes advantage of
   Apprise(https://github.com/caronc/apprise) through your network with a user-friendly
   API.
 
-  '
+  "
 home: https://github.com/truecharts/apps/tree/master/charts/stable/apprise-api
 icon: https://truecharts.org/img/chart-icons/apprise-api.png
 keywords:
-- apprise-api
-- Other
-kubeVersion: '>=1.16.0-0'
+  - apprise-api
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: apprise-api
 sources:
-- https://github.com/caronc/apprise-api
-- https://github.com/orgs/linuxserver/packages/container/package/apprise-api
-- https://github.com/linuxserver/docker-apprise-api#readme
+  - https://github.com/caronc/apprise-api
+  - https://github.com/orgs/linuxserver/packages/container/package/apprise-api
+  - https://github.com/linuxserver/docker-apprise-api#readme
 type: application
 version: 0.0.10

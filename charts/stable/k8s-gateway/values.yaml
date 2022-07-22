@@ -36,7 +36,7 @@ apex: ""
 
 # -- list of processed domains
 domains:
-    # -- Delegated domain
+  # -- Delegated domain
   - domain: "example.com"
     # -- Optional configuration option for DNS01 challenge that will redirect all acme
     # challenge requests to external cloud domain (e.g. managed by cert-manager)
@@ -67,22 +67,22 @@ rbac:
 
     # -- Set Rules on the ClusterRole
     rules:
-    - apiGroups:
-      - ""
-      resources:
-      - services
-      - namespaces
-      verbs:
-      - list
-      - watch
-    - apiGroups:
-      - extensions
-      - networking.k8s.io
-      resources:
-      - ingresses
-      verbs:
-      - list
-      - watch
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - namespaces
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+        verbs:
+          - list
+          - watch
 
 service:
   main:

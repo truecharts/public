@@ -40,7 +40,8 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules: []
+    rules:
+      []
       # - alert: SpeedtestSlowInternetDownload
       #   annotations:
       #     description: Internet download speed is averaging {{ "{{ humanize $value }}" }} Mbps.

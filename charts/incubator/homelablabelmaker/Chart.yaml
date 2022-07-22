@@ -1,31 +1,32 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Tools-Utilities
     - Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: DIY tool to create and print labels for Dell Poweredge and HP Proliant
+description:
+  DIY tool to create and print labels for Dell Poweredge and HP Proliant
   drive caddies.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/homelablabelmaker
 icon: https://truecharts.org/img/chart-icons/homelablabelmaker.png
 keywords:
-- homelablabelmaker
-- Tools-Utilities
-- Other
-kubeVersion: '>=1.16.0-0'
+  - homelablabelmaker
+  - Tools-Utilities
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: homelablabelmaker
 sources:
-- https://github.com/DavidSpek/homelablabelmaker
-- https://hub.docker.com/r/davidspek/homelablabelmaker/
+  - https://github.com/DavidSpek/homelablabelmaker
+  - https://hub.docker.com/r/davidspek/homelablabelmaker/
 type: application
 version: 0.0.10

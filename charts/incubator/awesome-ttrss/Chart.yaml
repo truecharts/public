@@ -5,24 +5,24 @@ name: awesome-ttrss
 version: 0.0.22
 kubeVersion: ">=1.16.0-0"
 keywords:
-- tt-rss
-- awesome-ttrss
+  - tt-rss
+  - awesome-ttrss
 home: https://github.com/truecharts/apps/tree/master/charts/stable/awesome-ttrss
 icon: https://truecharts.org/img/chart-icons/awesome-ttrss.png
 sources:
-- https://github.com/HenryQW/Awesome-TTRSS
+  - https://github.com/HenryQW/Awesome-TTRSS
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 8.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.30
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - media

@@ -43,9 +43,9 @@ configmap:
   dupeguru:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.dupeguru.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.dupeguru.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.dupeguru.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.dupeguru.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.dupeguru.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
 

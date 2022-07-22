@@ -1,9 +1,9 @@
 apiVersion: v2
 appVersion: "5.0.9"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
 home: https://github.com/truecharts/apps/tree/master/charts/dependency/mongodb
@@ -12,11 +12,11 @@ keywords:
   - mongodb
   - database
   - nosql
-kubeVersion: '>=1.16.0-0'
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: mongodb
 sources:
   - https://hub.docker.com/r/bitnami/mongodb

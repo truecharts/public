@@ -51,7 +51,7 @@ service:
 hostAliases:
   - ip: '{{ .Values.env.AccessIP | default "127.0.0.1" }}'
     hostnames:
-    - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
+      - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
 
 secretEnv:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -66,8 +66,8 @@ probes:
         path: /status.php
         port: 8080
         httpHeaders:
-        - name: Host
-          value: "test.fakedomain.dns"
+          - name: Host
+            value: "test.fakedomain.dns"
 
   readiness:
     custom: true
@@ -77,8 +77,8 @@ probes:
         path: /status.php
         port: 8080
         httpHeaders:
-        - name: Host
-          value: "test.fakedomain.dns"
+          - name: Host
+            value: "test.fakedomain.dns"
 
   startup:
     custom: true
@@ -88,8 +88,8 @@ probes:
         path: /status.php
         port: 8080
         httpHeaders:
-        - name: Host
-          value: "test.fakedomain.dns"
+          - name: Host
+            value: "test.fakedomain.dns"
 
 initContainers:
   prestart:
@@ -184,8 +184,8 @@ persistence:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-nginx'
         items:
-        - key: nginx.conf
-          path: nginx.conf
+          - key: nginx.conf
+            path: nginx.conf
 
 configmap:
   nginx:

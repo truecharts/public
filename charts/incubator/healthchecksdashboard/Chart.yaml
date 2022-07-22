@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Tools-Utilities
     - Other
@@ -7,27 +7,28 @@ annotations:
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "A standalone dashboard page showing the status of the checks in your\
+description:
+  "A standalone dashboard page showing the status of the checks in your\
   \ Healthchecks.io account.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/healthchecksdashboard
 icon: https://truecharts.org/img/chart-icons/healthchecksdashboard.png
 keywords:
-- healthchecksdashboard
-- Tools-Utilities
-- Other
-- Network-Other
-kubeVersion: '>=1.16.0-0'
+  - healthchecksdashboard
+  - Tools-Utilities
+  - Other
+  - Network-Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: healthchecksdashboard
 sources:
-- https://github.com/healthchecks/dashboard
-- https://hub.docker.com/r/healthchecks/dashboard
+  - https://github.com/healthchecks/dashboard
+  - https://hub.docker.com/r/healthchecks/dashboard
 type: application
 version: 0.0.10

@@ -47,23 +47,28 @@ header:
   HEADER_ENABLED: false
   # HTTP_AUTH_HEADER: "REMOTE_USER"
 
-api: {}
+api:
+  {}
   # API_SESSION_TIMEOUT: "60"
 
-general: {}
+general:
+  {}
   # EXTENSION_PRIORITY: "openid"
 
-json: {}
+json:
+  {}
   # JSON_SECRET_KEY: "random32charkey"
   # JSON_TRUSTED_NETWORKS: "127.0.0.0/8, 10.0.0.0/8"
 
-duo: {}
+duo:
+  {}
   # DUO_API_HOSTNAME: "api-XXXXXXXX.duosecurity.com"
   # DUO_INTEGRATION_KEY: "exactly20charkey"
   # DUO_SECRET_KEY: "exactly40charkey"
   # DUO_APPLICATION_KEY: "atleast40charkey"
 
-cas: {}
+cas:
+  {}
   # CAS_AUTHORIZATION_ENDPOINT: ""
   # CAS_REDIRECT_URI: ""
   # CAS_CLEARPASS_KEY: ""
@@ -72,7 +77,8 @@ cas: {}
   # CAS_GROUP_LDAP_BASE_DN: ""
   # CAS_GROUP_LDAP_ATTRIBUTE: ""
 
-openid: {}
+openid:
+  {}
   # OPENID_AUTHORIZATION_ENDPOINT: ""
   # OPENID_JWKS_ENDPOINT: ""
   # OPENID_ISSUER: ""
@@ -82,7 +88,8 @@ openid: {}
   # OPENID_GROUPS_CLAIM_TYPE: "groups"
   # OPENID_MAX_TOKEN_VALIDITY: "300"
 
-radius: {}
+radius:
+  {}
   # RADIUS_HOSTNAME: "localhost"
   # RADIUS_AUTH_PORT: "1812"
   # RADIUS_SHARED_SECRET: ""
@@ -98,7 +105,8 @@ radius: {}
   # RADIUS_TIMEOUT: "60"
   # RADIUS_EAP_TTLS_INNER_PROTOCOL: "eap-tls"
 
-ldap: {}
+ldap:
+  {}
   # LDAP_HOSTNAME: "localhost"
   # LDAP_USER_BASE_DN: ""
   # LDAP_PORT: "389"
@@ -120,7 +128,8 @@ ldap: {}
   # LDAP_MAX_REFERRAL_HOPS: "5"
   # LDAP_OPERATION_TIMEOUT: "30"
 
-saml: {}
+saml:
+  {}
   # SAML_IDP_METADATA_URL: ""
   # SAML_IDP_URL:
   # SAML_ENTITY_ID:
@@ -130,7 +139,6 @@ saml: {}
   # SAML_COMPRESS_REQUEST:
   # SAML_COMPRESS_RESPONSE:
   # SAML_GROUP_ATTRIBUTE:
-
 
 postgresql:
   enabled: true
@@ -150,7 +158,7 @@ persistence:
   initdbdata:
     enabled: true
     mountPath: "/initdbdata"
-# Both temphack and temphackalso will be removed on the next image release
+  # Both temphack and temphackalso will be removed on the next image release
   temphack:
     enabled: true
     mountPath: "/opt/guacamole/postgresql-hack"
@@ -231,33 +239,33 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql-hack"
     command: ["/bin/sh", "-c"]
     args:
-    - |-
-      echo "Checking postgresql driver version..."
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
-        echo "Version found is correct."
-        exit 0
-      else
-        echo "Old version found. Will try to download a known-to-work version."
-        echo "Downloading (postgresql-42.2.24.jre7.jar)..."
-        curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" >"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar"
-        if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ]; then
-          echo "Downloaded successfully!"
-          cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/
-          if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ]; then
-            echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)"
-            rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar"
-            if [ $? -eq 0 ]; then
-              echo "Removed successfully!"
-            else
-              echo "Failed to remove."
-              exit 1
-            fi
-          fi
+      - |-
+        echo "Checking postgresql driver version..."
+        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+          echo "Version found is correct."
+          exit 0
         else
-          echo "Failed to download."
-          exit 1
+          echo "Old version found. Will try to download a known-to-work version."
+          echo "Downloading (postgresql-42.2.24.jre7.jar)..."
+          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" >"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar"
+          if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ]; then
+            echo "Downloaded successfully!"
+            cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/
+            if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ]; then
+              echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)"
+              rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar"
+              if [ $? -eq 0 ]; then
+                echo "Removed successfully!"
+              else
+                echo "Failed to remove."
+                exit 1
+              fi
+            fi
+          else
+            echo "Failed to download."
+            exit 1
+          fi
         fi
-      fi
 
   4-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -271,11 +279,11 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql"
     command: ["/bin/sh", "-c"]
     args:
-    - |-
-      echo "Copying postgres driver into the final destination."
-      cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
-        echo "Driver copied successfully!"
-      else
-        echo "Failed to copy the driver"
-      fi
+      - |-
+        echo "Copying postgres driver into the final destination."
+        cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
+        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+          echo "Driver copied successfully!"
+        else
+          echo "Failed to copy the driver"
+        fi

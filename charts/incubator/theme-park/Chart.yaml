@@ -1,24 +1,24 @@
 apiVersion: v2
 appVersion: "1.9.8"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 deprecated: false
 description: Custom themes for your favorite apps!
 home: https://github.com/truecharts/apps/tree/master/charts/incubator/theme-park
 icon: https://truecharts.org/img/chart-icons/theme-park.png
 keywords:
-- theme-park
-- customization
-kubeVersion: '>=1.16.0-0'
+  - theme-park
+  - customization
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: theme-park
 sources:
-- https://github.com/gilbn/theme.park
+  - https://github.com/gilbn/theme.park
 type: application
 version: 1.0.21
 annotations:

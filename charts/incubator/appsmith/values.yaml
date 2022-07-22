@@ -37,12 +37,10 @@ persistence:
     enabled: true
     mountPath: "/appsmith-stacks"
 
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: appsmith
-
 # mongodb:
 #   enabled: true
 #   mongodbUsername: appsmith

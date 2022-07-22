@@ -1,11 +1,11 @@
 env:
-  ENABLE_BEPINEX: 'false'
-  GAME_ID: '294420'
+  ENABLE_BEPINEX: "false"
+  GAME_ID: "294420"
   GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
-  PASSWRD: ''
+  PASSWRD: ""
   SERVERCONFIG: serverconfig.xml
-  USERNAME: ''
-  VALIDATE: ''
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/7daystodie

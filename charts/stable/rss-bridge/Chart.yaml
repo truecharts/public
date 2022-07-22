@@ -1,22 +1,22 @@
 apiVersion: v2
 appVersion: "2022"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: RSS-Bridge is a PHP project capable of generating RSS and Atom feeds for websites that don't have one.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/rss-bridge
 icon: https://truecharts.org/img/chart-icons/rss-bridge.png
 keywords:
-- rss-bridge
-kubeVersion: '>=1.16.0-0'
+  - rss-bridge
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: rss-bridge
 sources:
-- https://github.com/RSS-Bridge/rss-bridge
+  - https://github.com/RSS-Bridge/rss-bridge
 version: 2.0.18
 annotations:
   truecharts.org/catagories: |

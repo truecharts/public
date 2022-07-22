@@ -5,9 +5,9 @@ env:
   SMTP_DOMAIN: smtp.yourhost.com
   SMTP_EMAIL_FROM: ciao@yourhost.com
   SMTP_EMAIL_TO: you@yourhost.com
-  SMTP_ENABLE_STARTTLS_AUTO: 'true'
+  SMTP_ENABLE_STARTTLS_AUTO: "true"
   SMTP_PASSWORD: sensitive_password
-  SMTP_PORT: '587'
+  SMTP_PORT: "587"
   SMTP_USERNAME: ciao
 image:
   pullPolicy: IfNotPresent

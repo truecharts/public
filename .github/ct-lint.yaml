@@ -3,19 +3,19 @@ target-branch: master
 chart-yaml-schema: .github/chart_schema.yaml
 helm-extra-args: --timeout 600s
 chart-dirs:
-- charts/incubator
-- charts/stable
-- charts/dependency
-- charts/core
-- charts/dev
-- charts/games
-- charts/enterprise
-- charts/SCALE
+  - charts/incubator
+  - charts/stable
+  - charts/dependency
+  - charts/core
+  - charts/dev
+  - charts/games
+  - charts/enterprise
+  - charts/SCALE
 excluded-charts: []
 chart-repos:
-- truecharts=https://charts.truecharts.org
-- truecharts-library=https://library-charts.truecharts.org
-- bitnami=https://charts.bitnami.com/bitnami
-- metallb=https://metallb.github.io/metallb
-- grafana=https://grafana.github.io/helm-charts
-- prometheus=https://prometheus-community.github.io/helm-charts
+  - truecharts=https://charts.truecharts.org
+  - truecharts-library=https://library-charts.truecharts.org
+  - bitnami=https://charts.bitnami.com/bitnami
+  - metallb=https://metallb.github.io/metallb
+  - grafana=https://grafana.github.io/helm-charts
+  - prometheus=https://prometheus-community.github.io/helm-charts

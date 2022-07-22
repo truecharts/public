@@ -3,10 +3,10 @@ env:
   GAME_MOD: 90 mod czero
   GAME_NAME: czero
   GAME_PARAMS: -secure +maxplayers 32 +map as_oilrig
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cstrikeconditionzero
@@ -23,11 +23,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   readiness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

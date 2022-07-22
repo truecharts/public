@@ -81,12 +81,11 @@ service:
         port: 10204
         targetPort: 8053
 
-
 # Not sure if those will work on k8s
-  # - "443:443/tcp" #DNS-over-HTTPS service
-  # - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
+# - "443:443/tcp" #DNS-over-HTTPS service
+# - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
 # Note sure if this will work with traefik
-  # - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
+# - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
 
 persistence:
   config:

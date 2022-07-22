@@ -1,26 +1,27 @@
 apiVersion: v2
 appVersion: "2.2.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-description: An FTP automation tool that periodically scans given host locations for
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+description:
+  An FTP automation tool that periodically scans given host locations for
   new files.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/davos
 icon: https://truecharts.org/img/chart-icons/davos.png
 keywords:
-- davos
-- ftp
-- automation
-kubeVersion: '>=1.16.0-0'
+  - davos
+  - ftp
+  - automation
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: davos
 sources:
-- https://github.com/linuxserver/docker-davos
-- https://github.com/linuxserver/davos/
+  - https://github.com/linuxserver/docker-davos
+  - https://github.com/linuxserver/davos/
 type: application
 version: 4.0.18
 annotations:

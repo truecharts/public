@@ -15,17 +15,17 @@ keywords:
 sources:
   - https://github.com/Ylianst/MeshCentral
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: mongodb.enabled
-  name: mongodb
-  repository: https://charts.truecharts.org/
-  version: 1.0.32
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: mongodb.enabled
+    name: mongodb
+    repository: https://charts.truecharts.org/
+    version: 1.0.32
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - cloud

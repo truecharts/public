@@ -1,3 +1,3 @@
 # Default Password
 
-__password__: `kamimamita`
+**password**: `kamimamita`

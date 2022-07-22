@@ -1,5 +1,5 @@
 # Default Username/Password
 
-__Username__: `admin`
+**Username**: `admin`
 
-__Password__: `adminadmin`
+**Password**: `adminadmin`

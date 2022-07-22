@@ -12,8 +12,8 @@ podSecurityContext:
 
 env:
   ENABLE_MJPG_STREAMER: "true"
-  MJPG_STREAMER_INPUT:  # "-y -n -r 640x480"
-  CAMERA_DEV:  # /dev/video0
+  MJPG_STREAMER_INPUT: # "-y -n -r 640x480"
+  CAMERA_DEV: # /dev/video0
 
 service:
   main:

@@ -5,20 +5,20 @@ name: jitsi
 version: 0.0.14
 kubeVersion: ">=1.16.0-0"
 keywords:
-- jitsi
+  - jitsi
 home: https://github.com/truecharts/apps/tree/master/charts/stable/jitsi
 icon: https://truecharts.org/img/chart-icons/jitsi.png
 sources:
-- https://jitsi.org
-- https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start
+  - https://jitsi.org
+  - https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - work

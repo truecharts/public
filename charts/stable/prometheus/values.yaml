@@ -117,20 +117,20 @@ rbac:
           - probes
           - prometheusrules
         verbs:
-          - '*'
+          - "*"
       - apiGroups:
           - apps
         resources:
           - statefulsets
         verbs:
-          - '*'
+          - "*"
       - apiGroups:
           - ""
         resources:
           - configmaps
           - secrets
         verbs:
-          - '*'
+          - "*"
       - apiGroups:
           - ""
         resources:
@@ -212,7 +212,6 @@ probes:
         port: promop
         scheme: HTTP
 
-
 operator:
   enabled: true
   ## Create a servicemonitor for the operator
@@ -234,7 +233,6 @@ operator:
     ##
     relabelings: []
 
-
   ## @param operator.logLevel Log level for Prometheus Operator
   ##
   logLevel: info
@@ -254,7 +252,6 @@ operator:
   ## defaults to Bitnami Prometheus Operator (ref: https://hub.docker.com/r/tccr.io/truecharts/prometheus-operator/tags/)
   ##
   prometheusConfigReloader:
-
     containerSecurityContext:
       enabled: true
       readOnlyRootFilesystem: false
@@ -280,11 +277,9 @@ operator:
       failureThreshold: 6
       successThreshold: 1
 
-
 ####
 ## Prometheus Config (Spawned by Operator)
 ####
-
 
 ## Deploy a Prometheus instance
 ##
@@ -853,7 +848,6 @@ prometheus:
 ## Alert Manager Config
 ####
 
-
 ## @section Alertmanager Parameters
 
 ## Configuration for alertmanager
@@ -987,17 +981,17 @@ alertmanager:
     global:
       resolve_timeout: 5m
     route:
-      group_by: ['job']
+      group_by: ["job"]
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
-      receiver: 'null'
+      receiver: "null"
       routes:
         - match:
             alertname: Watchdog
-          receiver: 'null'
+          receiver: "null"
     receivers:
-      - name: 'null'
+      - name: "null"
   ## @param alertmanager.externalConfig Alertmanager configuration is created externally. If true, `alertmanager.config` is ignored, and a secret will not be created.
   ## Alertmanager requires a secret named `alertmanager-{{ template "kube-prometheus.alertmanager.fullname" . }}`
   ## It must contain:
@@ -1127,11 +1121,9 @@ alertmanager:
   ##
   configSelector: {}
 
-
 ####
 ## Exporters
 ####
-
 
 ## @section Exporters
 

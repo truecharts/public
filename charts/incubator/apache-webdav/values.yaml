@@ -1,13 +1,13 @@
 env:
-  ANONYMOUS_METHODS: ''
+  ANONYMOUS_METHODS: ""
   AUTH_TYPE: Basic
   LOCATION: /
-  PASSWORD: ''
-  PUMASK: '0000'
+  PASSWORD: ""
+  PUMASK: "0000"
   REALM: WebDAV-Login
   SERVER_NAMES: localhost
-  SSL_CERT: ''
-  USERNAME: ''
+  SSL_CERT: ""
+  USERNAME: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/apache-webdav

@@ -1,11 +1,11 @@
 env:
-  GAME_ID: '232330'
+  GAME_ID: "232330"
   GAME_NAME: cstrike
   GAME_PARAMS: -secure +maxplayers 32 +map de_dust2
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cssource
@@ -22,11 +22,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   readiness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

@@ -13,7 +13,7 @@ auth:
 
 ## Create password and config files
 
-Open the Mosquitto container shell and execute the following commands, *one by one*, in order:
+Open the Mosquitto container shell and execute the following commands, _one by one_, in order:
 
 ```sh
 cd /mosquitto/configinc

@@ -43,9 +43,9 @@ configmap:
   avidemux:
     enabled: true
     data:
-      ENABLE_CJK_FONT: "{{ ternary \"1\" \"0\" .Values.avidemux.ENABLE_CJK_FONT }}"
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.avidemux.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.avidemux.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.avidemux.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.avidemux.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.avidemux.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.avidemux.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.avidemux.DISPLAY_HEIGHT }}"
 

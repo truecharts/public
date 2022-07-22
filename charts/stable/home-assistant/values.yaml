@@ -34,7 +34,6 @@ initContainers:
 # # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
 
-
 # Enable a prometheus-operator servicemonitor
 prometheus:
   serviceMonitor:
@@ -55,7 +54,6 @@ persistence:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-init'
         defaultMode: 0777
-
 
 configmap:
   init:

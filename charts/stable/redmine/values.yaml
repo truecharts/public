@@ -9,8 +9,8 @@ env:
   REDMINE_DB_PORT: "5432"
 
   # Anything but empty means true, empty means false
-  REDMINE_NO_DB_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.no_db_migrate }}"
-  REDMINE_PLUGINS_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.plugins_migrate }}"
+  REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'
+  REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
   REDMINE_DB_PASSWORD:
     secretKeyRef:
       name: dbcreds

@@ -5,25 +5,25 @@ name: statping
 version: 7.0.19
 kubeVersion: ">=1.16.0-0"
 keywords:
-- statping
-- status
-- status-page
+  - statping
+  - status
+  - status-page
 home: https://github.com/truecharts/apps/tree/master/charts/stable/statping
 icon: https://truecharts.org/img/chart-icons/statping.png
 sources:
-- https://github.com/statping/statping
+  - https://github.com/statping/statping
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 8.0.30
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.30
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - media

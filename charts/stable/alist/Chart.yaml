@@ -18,14 +18,15 @@ keywords:
 sources:
   - https://github.com/Xhofe/alist
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
-    # condition:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version:
+      10.4.4
+      # condition:
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - cloud

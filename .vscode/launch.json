@@ -10,12 +10,7 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "program": "/usr/local/bin/bundle",
-            "args": [
-                "exec",
-                "m",
-                "-r",
-                "${workspaceFolder}/tests"
-            ]
+            "args": ["exec", "m", "-r", "${workspaceFolder}/tests"]
         },
         {
             "name": "Common UnitTest - active spec file only",
@@ -23,12 +18,7 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "program": "/usr/local/bin/bundle",
-            "args": [
-                "exec",
-                "m",
-                "-r",
-                "${relativeFile}"
-            ]
+            "args": ["exec", "m", "-r", "${relativeFile}"]
         }
     ]
 }

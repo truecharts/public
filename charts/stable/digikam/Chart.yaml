@@ -1,27 +1,27 @@
 apiVersion: v2
 appVersion: "7.3.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.4
 description: Professional Photo Management with the Power of Open Source
 home: https://github.com/truecharts/apps/tree/master/charts/stable/digikam
 icon: https://truecharts.org/img/chart-icons/digikam.png
 keywords:
-- digikam
-- photo
-- management
-- image
-- gallery
-kubeVersion: '>=1.16.0-0'
+  - digikam
+  - photo
+  - management
+  - image
+  - gallery
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: digikam
 sources:
-- https://github.com/linuxserver/docker-digikam
-- https://www.digikam.org/
+  - https://github.com/linuxserver/docker-digikam
+  - https://www.digikam.org/
 type: application
 version: 4.0.18
 annotations:

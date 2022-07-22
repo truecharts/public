@@ -1,30 +1,31 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: Docker image to provide a DDNS service for godaddy domains. Uses the
+description:
+  Docker image to provide a DDNS service for godaddy domains. Uses the
   GoDaddy REST API to update the given domain's DNS IP address to the public IP address
   of the host it is executing on. Performs a check every 10 minutes, but you can alter
   this if you like by modifying /etc/cron.d/godaddy-ddns inside the container.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/godaddy-ddns
 icon: https://truecharts.org/img/chart-icons/godaddy-ddns.png
 keywords:
-- godaddy-ddns
-- Network-Web
-kubeVersion: '>=1.16.0-0'
+  - godaddy-ddns
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: godaddy-ddns
 sources:
-- https://hub.docker.com/r/jwater7/godaddy-publicip-updater/
+  - https://hub.docker.com/r/jwater7/godaddy-publicip-updater/
 type: application
 version: 0.0.10

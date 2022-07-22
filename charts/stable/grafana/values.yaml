@@ -39,7 +39,6 @@ env:
   GF_PATHS_DATA: "/opt/bitnami/grafana/data"
   GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
 
-
 persistence:
   config:
     enabled: true
@@ -60,7 +59,8 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules: []
+    rules:
+      []
       # - alert: UnifiPollerAbsent
       #   annotations:
       #     description: Unifi Poller has disappeared from Prometheus service discovery.

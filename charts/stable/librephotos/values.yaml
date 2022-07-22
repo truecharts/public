@@ -151,14 +151,14 @@ additionalContainers:
       - containerPort: 80
         name: main
     volumeMounts:
-    - name: librephotos-config
-      mountPath: "/etc/nginx/nginx.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: media
-      mountPath: "/data"
-    - name: protected-media
-      mountPath: "/protected_media"
+      - name: librephotos-config
+        mountPath: "/etc/nginx/nginx.conf"
+        subPath: nginx-config
+        readOnly: true
+      - name: media
+        mountPath: "/data"
+      - name: protected-media
+        mountPath: "/protected_media"
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
