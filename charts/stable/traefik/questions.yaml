@@ -547,9 +547,9 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
+
         - variable: themePark
           label: "theme.park"
-          description: "Currently requires to enable Traefik Pilot. Until it's deprecated."
           schema:
             type: list
             default: []
@@ -562,28 +562,32 @@ questions:
                   attrs:
                     - variable: name
                       label: "Name"
+                      description: This is a 3rd party plugin and not maintained by TrueCharts,
+                        for more information go to <a href="https://github.com/packruler/traefik-themepark">traefik-themepark</a>
                       schema:
                         type: string
                         required: true
-                    - variable: app
-                      label: "Application Name"
-                      description: "Lower case, supported list https://docs.theme-park.dev/themes."
+                    - variable: appName
+                      label: App Name
+                      description: Lower case, name of the app to be themed.
+                        Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
                       schema:
                         type: string
                         required: true
-                        default: ""
-                    - variable: theme
-                      label: "Theme Name"
-                      description: "Lower case, supported lists https://docs.theme-park.dev/theme-options and https://docs.theme-park.dev/community-themes"
+                    - variable: themeName
+                      label: Theme Name
+                      description: Lower case, name of the theme to be applied.
+                        Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
                       schema:
                         type: string
-                        default: ""
+                        required: true
                     - variable: baseUrl
-                      label: "Base URL for theme"
-                      description: "https://theme-park.dev or a self hosted url"
+                      label: Base URL
+                      description: Replace `https://theme-park.dev` URL for self-hosting reference.
                       schema:
                         type: string
-                        default: "https://theme-park.dev"
+                        required: true
+                        default: https://theme-park.dev
 
   - variable: service
     group: "Networking and Services"

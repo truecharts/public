@@ -351,3 +351,9 @@ middlewares:
 
 portalhook:
   enabled: true
+
+persistence:
+  plugins:
+    enabled: true
+    mountPath: "/plugins-storage"
+    type: emptyDir
