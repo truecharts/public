@@ -89,13 +89,13 @@ questions:
           description: "Server name for miner (Can be set to anything)"
           schema:
             type: string
-            default: "Unraid"
+            default: "TrueNAS"
         - variable: S_HOST
           label: 'S_HOST'
           description: "Host for miner (usually an IP)"
           schema:
             type: string
-            default: "unraid.local"
+            default: "TrueNAS.local"
         - variable: S_PORT
           label: 'S_PORT'
           description: "Port shared by miner over http (usually 5450)"

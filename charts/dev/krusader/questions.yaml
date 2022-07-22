@@ -221,7 +221,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: datapath
           label: "datapath Storage"
-          description: "Main data path to your unRAID shares (if you want to get access to a disk mounted through UnassignedDevices change the Host and Container Path to mnt and change the Access Mode to ReadWrite Slave, if you want to get system level access change the Host Path to  and the Container Path to mnt, you will then find the mounted path in Kruser in mnt)."
+          description: "Main data path to your TrueNAS shares (if you want to get access to a disk mounted through UnassignedDevices change the Host and Container Path to mnt and change the Access Mode to ReadWrite Slave, if you want to get system level access change the Host Path to  and the Container Path to mnt, you will then find the mounted path in Kruser in mnt)."
           schema:
             additional_attrs: true
             type: dict

@@ -125,7 +125,7 @@ questions:
           description: "Server Description goes here"
           schema:
             type: string
-            default: "Simple Unraid Rust Docker Server"
+            default: "Simple TrueNAS Rust Docker Server"
         - variable: OXIDE_MOD
           label: 'OXIDE_MOD'
           description: "Set to true (without quotes) to enable Oxide Mod, otherwise leave empty (the container will check on every startrestart if there is a newer version available)."

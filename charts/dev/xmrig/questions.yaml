@@ -91,13 +91,13 @@ questions:
             default: "84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw"
         - variable: WORKER
           label: 'WORKER'
-          description: "Enter a name for your worker. Some pools use a hidden option with this (Nanopool included) that allows you to change your payment threshold on their website. If you want to use this option, you can change this to workernameemail, eg. Unraidtest@example.com, where test@example.com is your own email address. This option is basically a password. Please take note that if you post your logs in the support thread you would be best to redact the email address, eg. change out the instances of your email with @. to prevent your email address being posted in a public forum."
+          description: "Enter a name for your worker. Some pools use a hidden option with this (Nanopool included) that allows you to change your payment threshold on their website. If you want to use this option, you can change this to workernameemail, eg. TrueNAStest@example.com, where test@example.com is your own email address. This option is basically a password. Please take note that if you post your logs in the support thread you would be best to redact the email address, eg. change out the instances of your email with @. to prevent your email address being posted in a public forum."
           schema:
             type: string
-            default: "Unraid"
+            default: "TrueNAS"
         - variable: ADDITIONAL
           label: 'ADDITIONAL'
-          description: "Please leave --no-colour, as Unraids webUI log viewer does not respond well to this option being disabled.  If you plan on using an AMD card for GPU mining, please add --opencl; the field would then read --no-colour --opencl, please dont miss the variables below.  If you plan on using an Nvidia card for GPU mining, please add --cuda; the field would then read --no-colour --cuda "
+          description: "Please leave --no-colour, as TrueNASs webUI log viewer does not respond well to this option being disabled.  If you plan on using an AMD card for GPU mining, please add --opencl; the field would then read --no-colour --opencl, please dont miss the variables below.  If you plan on using an Nvidia card for GPU mining, please add --cuda; the field would then read --no-colour --cuda "
           schema:
             type: string
             default: "--no-color "
