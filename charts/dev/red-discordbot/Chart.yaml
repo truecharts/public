@@ -1,28 +1,28 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Tools-Utilities
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: "The newest Red-Discordbot in a convenient multi-arch container \r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/red-discordbot
 icon: https://truecharts.org/img/chart-icons/red-discordbot.png
 keywords:
-- red-discordbot
-- Tools-Utilities
-kubeVersion: '>=1.16.0-0'
+  - red-discordbot
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: red-discordbot
 sources:
-- https://github.com/PhasecoreX/docker-red-discordbot
-- https://hub.docker.com/r/phasecorex/red-discordbot/
+  - https://github.com/PhasecoreX/docker-red-discordbot
+  - https://hub.docker.com/r/phasecorex/red-discordbot/
 type: application
 version: 0.0.10

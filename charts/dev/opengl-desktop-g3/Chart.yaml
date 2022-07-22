@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Productivity
     - Tools-Utilities
@@ -8,27 +8,27 @@ annotations:
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: "DESCRIPTION\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/opengl-desktop-g3
 icon: https://truecharts.org/img/chart-icons/opengl-desktop-g3.png
 keywords:
-- opengl-desktop-g3
-- Productivity
-- Tools-Utilities
-- MediaApp-Photos
-- MediaApp-Other
-kubeVersion: '>=1.16.0-0'
+  - opengl-desktop-g3
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Photos
+  - MediaApp-Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: opengl-desktop-g3
 sources:
-- https://github.com/accetto/headless-drawing-g3/
-- https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-opengl-g3
+  - https://github.com/accetto/headless-drawing-g3/
+  - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-opengl-g3
 type: application
 version: 0.0.10

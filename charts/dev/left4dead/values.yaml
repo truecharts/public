@@ -1,11 +1,11 @@
 env:
-  GAME_ID: '222840'
+  GAME_ID: "222840"
   GAME_NAME: left4dead
   GAME_PARAMS: +maxplayers 4 +map l4d_farm04_barn
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  USERNAME: ''
-  VALIDATE: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/left4dead
@@ -22,11 +22,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   readiness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

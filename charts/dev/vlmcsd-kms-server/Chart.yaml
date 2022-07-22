@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Cloud
     - Tools-Utilities
@@ -7,26 +7,26 @@ annotations:
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: "DESCRIPTION\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/vlmcsd-kms-server
 icon: https://truecharts.org/img/chart-icons/vlmcsd-kms-server.png
 keywords:
-- vlmcsd-kms-server
-- Cloud
-- Tools-Utilities
-- Network-Other
-kubeVersion: '>=1.16.0-0'
+  - vlmcsd-kms-server
+  - Cloud
+  - Tools-Utilities
+  - Network-Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: vlmcsd-kms-server
 sources:
-- https://github.com/mikolatero/docker-vlmcsd
-- https://hub.docker.com/r/mikolatero/vlmcsd/
+  - https://github.com/mikolatero/docker-vlmcsd
+  - https://hub.docker.com/r/mikolatero/vlmcsd/
 type: application
 version: 0.0.10

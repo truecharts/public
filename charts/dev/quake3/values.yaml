@@ -3,8 +3,8 @@ env:
   DL_URL_PR: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/linux/linuxq3apoint-1.32b-3.x86.run
   GAME_PARAMS: +set sv_punkbuster 0 +set fs_game osp +set com_hunkMegs 32
   Q3_MAP: q3dm1
-  Q3_PORT: '27960'
-  UMASK: '000'
+  Q3_PORT: "27960"
+  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/quake3

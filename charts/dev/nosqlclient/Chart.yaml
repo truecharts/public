@@ -1,31 +1,32 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Tools-Utilities
     - Other
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: Cross-platform and self hosted, easy to use, intuitive mongodb management
+description:
+  Cross-platform and self hosted, easy to use, intuitive mongodb management
   tool - Formerly Mongoclient
 home: https://github.com/truecharts/apps/tree/master/charts/stable/nosqlclient
 icon: https://truecharts.org/img/chart-icons/nosqlclient.png
 keywords:
-- nosqlclient
-- Tools-Utilities
-- Other
-kubeVersion: '>=1.16.0-0'
+  - nosqlclient
+  - Tools-Utilities
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: nosqlclient
 sources:
-- https://github.com/nosqlclient/nosqlclient
-- https://hub.docker.com/r/mongoclient/mongoclient/
+  - https://github.com/nosqlclient/nosqlclient
+  - https://hub.docker.com/r/mongoclient/mongoclient/
 type: application
 version: 0.0.10

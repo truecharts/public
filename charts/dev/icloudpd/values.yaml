@@ -1,16 +1,16 @@
 env:
-  UMASK: '000'
+  UMASK: "000"
   apple_id: your@appleid.com
   authentication_type: 2FA
-  command_line_options: ''
-  directory_permissions: '777'
-  file_permissions: '666'
-  notification_type: ''
-  prowl_api_key: ''
-  pushbullet_api_key: ''
-  synchronisation_interval: '86400'
-  telegram_chat_id: ''
-  telegram_token: ''
+  command_line_options: ""
+  directory_permissions: "777"
+  file_permissions: "666"
+  notification_type: ""
+  prowl_api_key: ""
+  pushbullet_api_key: ""
+  synchronisation_interval: "86400"
+  telegram_chat_id: ""
+  telegram_token: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/icloudpd

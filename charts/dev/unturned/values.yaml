@@ -1,13 +1,13 @@
 env:
-  GAME_ID: '1110390'
+  GAME_ID: "1110390"
   GAME_PARAMS: -pei -normal -nosync -pve
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  ROCKET_FORCE_UPDATE: ''
-  ROCKET_MOD: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  ROCKET_FORCE_UPDATE: ""
+  ROCKET_MOD: ""
   ROCKET_URL: https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip
-  USERNAME: ''
-  VALIDATE: ''
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/unturned

@@ -1,16 +1,17 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Network-Other
     - Tools-Utilities
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "Trango self-hosted is a calling and file sharing solution that works\
+description:
+  "Trango self-hosted is a calling and file sharing solution that works\
   \ over LAN (local area networks). It does not need to involve the internet for calling\
   \ or file sharing. Ideal for offices, hotels, houses, restaurants, and any space\
   \ where people use the same Public IP address or the same Wi-Fi network. The package\
@@ -19,17 +20,17 @@ description: "Trango self-hosted is a calling and file sharing solution that wor
 home: https://github.com/truecharts/apps/tree/master/charts/stable/trango
 icon: https://truecharts.org/img/chart-icons/trango.png
 keywords:
-- trango
-- Network-Other
-- Tools-Utilities
-kubeVersion: '>=1.16.0-0'
+  - trango
+  - Network-Other
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: trango
 sources:
-- https://trango.io/
-- https://hub.docker.com/r/tak786/trango-self-hosted
+  - https://trango.io/
+  - https://hub.docker.com/r/tak786/trango-self-hosted
 type: application
 version: 0.0.10

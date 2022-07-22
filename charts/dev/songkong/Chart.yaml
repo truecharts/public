@@ -1,29 +1,30 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - MediaApp-Music
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: Official SongKong Docker repository, Identify your songs and add metadata
+description:
+  Official SongKong Docker repository, Identify your songs and add metadata
   and artwork automatically
 home: https://github.com/truecharts/apps/tree/master/charts/stable/songkong
 icon: https://truecharts.org/img/chart-icons/songkong.png
 keywords:
-- songkong
-- MediaApp-Music
-kubeVersion: '>=1.16.0-0'
+  - songkong
+  - MediaApp-Music
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: songkong
 sources:
-- http://www.jthink.net/songkong
-- https://hub.docker.com/r/songkong/songkong/
+  - http://www.jthink.net/songkong
+  - https://hub.docker.com/r/songkong/songkong/
 type: application
 version: 0.0.10

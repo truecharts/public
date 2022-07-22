@@ -1,15 +1,16 @@
 env:
-  GAME_ID: '824360'
+  GAME_ID: "824360"
   GAME_PARAMS: ?MaxPlayers=10
-  GAME_PARAMS_EXTRA: -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
+  GAME_PARAMS_EXTRA:
+    -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
     -game -server -log
   MAP: CubeWorld_Light
-  PASSWRD: ''
+  PASSWRD: ""
   SERVER_NAME: PIXARKDocker
   SRV_ADMIN_PWD: adminDocker
   SRV_PWD: Docker
-  USERNAME: ''
-  VALIDATE: ''
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pixark

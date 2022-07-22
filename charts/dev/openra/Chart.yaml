@@ -1,29 +1,30 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Network-Other
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "Mudislanders Template for mounting OpenRA's dedicated server by rmoriz\
+description:
+  "Mudislanders Template for mounting OpenRA's dedicated server by rmoriz\
   \ [br][br]\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/openra
 icon: https://truecharts.org/img/chart-icons/openra.png
 keywords:
-- openra
-- Network-Other
-kubeVersion: '>=1.16.0-0'
+  - openra
+  - Network-Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: openra
 sources:
-- http://openra.net/
-- https://hub.docker.com/r/rmoriz/openra
+  - http://openra.net/
+  - https://hub.docker.com/r/rmoriz/openra
 type: application
 version: 0.0.10

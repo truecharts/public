@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Productivity
     - Tools-Utilities
@@ -7,27 +7,28 @@ annotations:
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "SinusBot is a MusicBot that will let you listen to music together with\
+description:
+  "SinusBot is a MusicBot that will let you listen to music together with\
   \ your friends on either TeamSpeak 3 or Discord. \r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/sinusbot
 icon: https://truecharts.org/img/chart-icons/sinusbot.png
 keywords:
-- sinusbot
-- Productivity
-- Tools-Utilities
-- MediaServer-Music
-kubeVersion: '>=1.16.0-0'
+  - sinusbot
+  - Productivity
+  - Tools-Utilities
+  - MediaServer-Music
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: sinusbot
 sources:
-- https://forum.sinusbot.com
-- https://hub.docker.com/r/sinusbot/docker
+  - https://forum.sinusbot.com
+  - https://hub.docker.com/r/sinusbot/docker
 type: application
 version: 0.0.10

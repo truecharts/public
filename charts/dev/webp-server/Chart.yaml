@@ -1,5 +1,5 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Cloud
     - Productivity
@@ -10,29 +10,29 @@ annotations:
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
 description: "DESCRIPTION\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/webp-server
 icon: https://truecharts.org/img/chart-icons/webp-server.png
 keywords:
-- webp-server
-- Cloud
-- Productivity
-- Tools-Utilities
-- MediaServer-Photos
-- Network-Web
-- Network-FTP
-kubeVersion: '>=1.16.0-0'
+  - webp-server
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - MediaServer-Photos
+  - Network-Web
+  - Network-FTP
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: webp-server
 sources:
-- https://github.com/webp-sh/webp_server_go
-- https://hub.docker.com/r/webpsh/webps
+  - https://github.com/webp-sh/webp_server_go
+  - https://hub.docker.com/r/webpsh/webps
 type: application
 version: 0.0.10

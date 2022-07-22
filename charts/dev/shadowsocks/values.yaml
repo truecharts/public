@@ -1,8 +1,8 @@
 env:
   DNS_ADDRS: 8.8.8.8,8.8.4.4
   METHOD: chacha20-ietf-poly1305
-  PASSWORD: ''
-  TIMEOUT: '300'
+  PASSWORD: ""
+  TIMEOUT: "300"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/shadowsocks

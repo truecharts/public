@@ -1,33 +1,34 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Other
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: 'Z80Pack is an emulator for emulating CP/M 1, CP/M 2, CP/M 3, and MP/M
+description:
+  "Z80Pack is an emulator for emulating CP/M 1, CP/M 2, CP/M 3, and MP/M
   II on Linux.  This is a command line Docker only.  There is a built in Shell in
   a Box WebGUI that is a command line browser window.  You can also execute bash in
   the Docker.[br]
 
-  '
+  "
 home: https://github.com/truecharts/apps/tree/master/charts/stable/z80pack
 icon: https://truecharts.org/img/chart-icons/z80pack.png
 keywords:
-- z80pack
-- Other
-kubeVersion: '>=1.16.0-0'
+  - z80pack
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: z80pack
 sources:
-- http://www.autometer.de/unix4fun/z80pack/index.html
-- https://registry.hub.docker.com/r/dlandon/z80pack/
+  - http://www.autometer.de/unix4fun/z80pack/index.html
+  - https://registry.hub.docker.com/r/dlandon/z80pack/
 type: application
 version: 0.0.10

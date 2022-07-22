@@ -1,7 +1,7 @@
 env:
-  DATA_PERM: '770'
+  DATA_PERM: "770"
   LMP_V: latest
-  UMASK: '0000'
+  UMASK: "0000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kerbalspaceprogram-lmp

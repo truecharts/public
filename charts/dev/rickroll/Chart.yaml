@@ -1,29 +1,30 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Other
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: Self-hosted Rickrolls. Image is based on Nginx stable alpine, and all
+description:
+  Self-hosted Rickrolls. Image is based on Nginx stable alpine, and all
   the content is local to the container.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/rickroll
 icon: https://truecharts.org/img/chart-icons/rickroll.png
 keywords:
-- rickroll
-- Other
-kubeVersion: '>=1.16.0-0'
+  - rickroll
+  - Other
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: rickroll
 sources:
-- https://github.com/modem7/docker-rickroll
-- https://hub.docker.com/r/modem7/docker-rickroll
+  - https://github.com/modem7/docker-rickroll
+  - https://hub.docker.com/r/modem7/docker-rickroll
 type: application
 version: 0.0.10

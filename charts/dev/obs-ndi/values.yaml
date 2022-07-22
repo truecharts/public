@@ -1,7 +1,7 @@
 env:
   NVIDIA_DRIVER_CAPABILITIES: all
-  NVIDIA_VISIBLE_DEVICES: ''
-  VNC_PASSWD: '123456'
+  NVIDIA_VISIBLE_DEVICES: ""
+  VNC_PASSWD: "123456"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/obs-ndi

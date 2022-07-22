@@ -3,7 +3,7 @@ env:
   CRON_SCHEDULE: 0 * * * *
   REGION: bucket_region_here
   S3PATH: s3://your_bucket_name
-  S3SYNCPARAMS: ''
+  S3SYNCPARAMS: ""
   SECRET_KEY: your_secret_key_here
 image:
   pullPolicy: IfNotPresent

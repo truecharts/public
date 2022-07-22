@@ -1,13 +1,13 @@
 env:
   HOST: google.com
-  PING_INTERVAL: '300'
-  PING_RETRY: '3600'
-  PING_TIMEOUT: '10'
-  PUSHOVER_APP_TOKEN: ''
+  PING_INTERVAL: "300"
+  PING_RETRY: "3600"
+  PING_TIMEOUT: "10"
+  PUSHOVER_APP_TOKEN: ""
   PUSHOVER_MESSAGE: google.com is offline!
-  PUSHOVER_PRIORITY: '0'
+  PUSHOVER_PRIORITY: "0"
   PUSHOVER_TITLE: Online Check
-  PUSHOVER_USER_TOKEN: ''
+  PUSHOVER_USER_TOKEN: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/onlinecheckyourserver

@@ -1,12 +1,12 @@
 env:
-  DATA_PERM: '770'
+  DATA_PERM: "770"
   DL_URL: http://files.star-made.org/StarMade-Starter.jar
-  GAME_PARAMS: ''
+  GAME_PARAMS: ""
   RUNTIME_NAME: basicjre
   STARTER_PARAMS: -nogui
-  UMASK: '000'
-  XMS_SIZE: '1024'
-  XMX_SIZE: '1024'
+  UMASK: "000"
+  XMS_SIZE: "1024"
+  XMX_SIZE: "1024"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/starmade

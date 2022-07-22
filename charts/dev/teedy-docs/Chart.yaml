@@ -1,31 +1,32 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Cloud
     - Productivity
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "Teedy is an open-source, lightweight document management system (DMS)\
+description:
+  "Teedy is an open-source, lightweight document management system (DMS)\
   \ for individuals and businesses.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/teedy-docs
 icon: https://truecharts.org/img/chart-icons/teedy-docs.png
 keywords:
-- teedy-docs
-- Cloud
-- Productivity
-kubeVersion: '>=1.16.0-0'
+  - teedy-docs
+  - Cloud
+  - Productivity
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: teedy-docs
 sources:
-- https://github.com/sismics/docs
-- https://hub.docker.com/r/sismics/docs/
+  - https://github.com/sismics/docs
+  - https://hub.docker.com/r/sismics/docs/
 type: application
 version: 0.0.10

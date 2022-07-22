@@ -1,10 +1,10 @@
 env:
-  DATABASE_CONNECTION: ''
-  HTTP_PASS: ''
-  HTTP_USER: ''
-  TUBESYNC_DEBUG: 'False'
-  TUBESYNC_HOSTS: ''
-  TUBESYNC_WORKERS: '2'
+  DATABASE_CONNECTION: ""
+  HTTP_PASS: ""
+  HTTP_USER: ""
+  TUBESYNC_DEBUG: "False"
+  TUBESYNC_HOSTS: ""
+  TUBESYNC_WORKERS: "2"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubesync

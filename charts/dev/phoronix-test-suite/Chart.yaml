@@ -1,30 +1,31 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Tools-Utilities
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: "The Phoronix Test Suite is the most comprehensive testing and benchmarking\
+description:
+  "The Phoronix Test Suite is the most comprehensive testing and benchmarking\
   \ platform available that provides an extensible framework for which new tests can\
   \ be easily added.\r\n"
 home: https://github.com/truecharts/apps/tree/master/charts/stable/phoronix-test-suite
 icon: https://truecharts.org/img/chart-icons/phoronix-test-suite.png
 keywords:
-- phoronix-test-suite
-- Tools-Utilities
-kubeVersion: '>=1.16.0-0'
+  - phoronix-test-suite
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: phoronix-test-suite
 sources:
-- https://github.com/phoronix-test-suite/phoronix-test-suite
-- https://hub.docker.com/r/phoronix/pts/
+  - https://github.com/phoronix-test-suite/phoronix-test-suite
+  - https://hub.docker.com/r/phoronix/pts/
 type: application
 version: 0.0.10

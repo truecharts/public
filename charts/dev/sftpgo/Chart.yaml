@@ -1,31 +1,32 @@
 annotations:
-  truecharts.org/SCALE-support: 'true'
+  truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - Network-FTP
 apiVersion: v2
 appVersion: latest
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 10.4.6
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.6
 deprecated: false
-description: 'Fully featured and highly configurable SFTP server with optional HTTP/S,
+description:
+  "Fully featured and highly configurable SFTP server with optional HTTP/S,
   FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem,
   encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage,
-  Azure Blob Storage, SFTP.'
+  Azure Blob Storage, SFTP."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/sftpgo
 icon: https://truecharts.org/img/chart-icons/sftpgo.png
 keywords:
-- sftpgo
-- Network-FTP
-kubeVersion: '>=1.16.0-0'
+  - sftpgo
+  - Network-FTP
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: sftpgo
 sources:
-- https://github.com/drakkan/sftpgo
-- https://hub.docker.com/r/drakkan/sftpgo
+  - https://github.com/drakkan/sftpgo
+  - https://hub.docker.com/r/drakkan/sftpgo
 type: application
 version: 0.0.10

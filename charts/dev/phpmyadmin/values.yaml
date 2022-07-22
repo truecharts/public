@@ -2,7 +2,7 @@ env:
   MYSQL_PASSWORD: root
   MYSQL_USER: root
   PMA_HOST: 192.168.70.99
-  PMA_PORT: '3306'
+  PMA_PORT: "3306"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/phpmyadmin

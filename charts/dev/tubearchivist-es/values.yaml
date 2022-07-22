@@ -2,7 +2,7 @@ env:
   ELASTIC_PASSWORD: verysecret
   ES_JAVA_OPTS: -Xms512m -Xmx512m
   discovery.type: single-node
-  xpack.security.enabled: 'true'
+  xpack.security.enabled: "true"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubearchivist-es

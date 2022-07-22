@@ -1,13 +1,13 @@
 env:
-  DATA_PERM: '770'
-  GAME_ID: '17575'
+  DATA_PERM: "770"
+  GAME_ID: "17575"
   GAME_NAME: pvkii
   GAME_PARAMS: -maxplayers 18 +map bt_island
-  GAME_PORT: '27015'
-  PASSWRD: ''
-  UMASK: '000'
-  USERNAME: ''
-  VALIDATE: ''
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  UMASK: "000"
+  USERNAME: ""
+  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pvk-ii
@@ -24,11 +24,11 @@ podSecurityContext:
   runAsUser: 0
 probes:
   liveness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   readiness:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
-    port: '{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}'
+    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
