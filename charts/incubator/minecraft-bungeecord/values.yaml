@@ -1,14 +1,18 @@
 image:
-  repository: itzg/bungeecord
-  tag: java17-2022.4.1@sha256:09204c4452e0c865258a13b93d86fa1adc21469ab49e66337379e858d2f83029
+  repository: tccr.io/truecharts/bungeecord
+  tag: v2022.4.1@sha256:b6e21cbc222cb4022baa342749c6364ccb26a8678e4de5d42db5cc592a682a5e
+  pullPolicy: Always
+j17Image:
+  repository: tccr.io/truecharts/bungeecord-java17
+  tag: v2022.4.1@sha256:21121f66eba1d3594ab1719c61c139336f04ef0585e6d60a929aa12a24f37e19
   pullPolicy: Always
 j11Image:
-  repository: itzg/bungeecord
-  tag: java11-2022.4.1@sha256:fe5af3659c3e25b110edf83025a15725988770baee340ceecd97822bac6dcc09
+  repository: tccr.io/truecharts/bungeecord-java11
+  tag: v2022.4.1@sha256:7594351f800ceddc45a00b013cb57d2867d1abbbbf573ceeec83c335acc21a1b
   pullPolicy: Always
 j8Image:
-  repository: itzg/bungeecord
-  tag: java8-2022.4.1@sha256:b949350264b2eab450fc68485defd9c9c1cd281c012250493a1670ad38a88848
+  repository: tccr.io/truecharts/bungeecord-java8
+  tag: v2022.4.1@sha256:7291e010fa9e029e37c9a260b657c4404dbe08da51a45f862ee22d480ff6494d
   pullPolicy: Always
 
 securityContext:
