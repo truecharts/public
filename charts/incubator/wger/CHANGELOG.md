@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [wger-0.0.26](https://github.com/truecharts/apps/compare/wger-0.0.25...wger-0.0.26) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
 ## [wger-0.0.25](https://github.com/truecharts/apps/compare/wger-0.0.24...wger-0.0.25) (2022-07-21)
 
 ### Chore

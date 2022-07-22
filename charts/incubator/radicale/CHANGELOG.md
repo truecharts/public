@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [radicale-0.0.17](https://github.com/truecharts/apps/compare/radicale-0.0.16...radicale-0.0.17) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
 ## [radicale-0.0.16](https://github.com/truecharts/apps/compare/radicale-0.0.15...radicale-0.0.16) (2022-07-19)
 
 ### Chore

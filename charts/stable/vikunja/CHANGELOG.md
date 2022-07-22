@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [vikunja-3.0.25](https://github.com/truecharts/apps/compare/vikunja-3.0.24...vikunja-3.0.25) (2022-07-22)
+
+### Chore
+
+- move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+### Fix
+
+- remove some non-utf8 characters
+
+
+
 ## [vikunja-3.0.24](https://github.com/truecharts/apps/compare/vikunja-3.0.23...vikunja-3.0.24) (2022-07-19)
 
 ### Chore

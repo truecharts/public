@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [nextcloud-15.2.21](https://github.com/truecharts/apps/compare/nextcloud-15.2.20...nextcloud-15.2.21) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
 ## [nextcloud-15.2.20](https://github.com/truecharts/apps/compare/nextcloud-15.2.19...nextcloud-15.2.20) (2022-07-20)
 
 ### Chore

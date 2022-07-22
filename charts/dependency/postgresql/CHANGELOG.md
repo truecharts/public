@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [postgresql-8.0.42](https://github.com/truecharts/apps/compare/postgresql-8.0.41...postgresql-8.0.42) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
 ## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-21)
 
 ### Chore
