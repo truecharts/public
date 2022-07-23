@@ -1,29 +1,28 @@
 apiVersion: v2
-appVersion: "1.5.1"
+appVersion: "1.9.9"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.7
 deprecated: false
-description: tsMuxer is a Transport Stream muxer.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/tsmuxer
-icon: https://truecharts.org/img/chart-icons/tsmuxer.png
+description: Custom themes for your favorite apps!
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/theme-park
+icon: https://truecharts.org/img/chart-icons/theme-park.png
 keywords:
-  - media
-  - tsmuxer
+  - theme-park
+  - customization
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: tsmuxer
+name: theme-park
 sources:
-  - https://github.com/jlesage/docker-tsmuxer
-  - https://hub.docker.com/r/jlesage/tsmuxer/
+  - https://github.com/gilbn/theme.park
 type: application
-version: 0.0.14
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
-    - media
+    - customization
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

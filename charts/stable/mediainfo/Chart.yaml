@@ -1,27 +1,27 @@
 apiVersion: v2
-appVersion: "1.4.0"
+appVersion: "1.10.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.7
 deprecated: false
-description: Avidemux is a free video editor designed for simple cutting, filtering and encoding tasks.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/avidemux
-icon: https://truecharts.org/img/chart-icons/avidemux.png
+description: MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/mediainfo
+icon: https://truecharts.org/img/chart-icons/mediainfo.png
 keywords:
+  - info
   - media
-  - avidemux
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: avidemux
+name: mediainfo
 sources:
-  - https://github.com/jlesage/docker-avidemux
-  - https://hub.docker.com/r/jlesage/avidemux/
+  - https://github.com/jlesage/docker-mediainfo
+  - https://hub.docker.com/r/jlesage/mediainfo/
 type: application
-version: 0.0.15
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - media
