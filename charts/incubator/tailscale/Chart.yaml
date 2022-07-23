@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: zerotier
+version: 1.29.20
+appVersion: "0.0.1"
+description: Connect your devices and users together in your own secure virtual private network.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/tailscale
+icon: https://truecharts.org/img/chart-icons/tailscale.png
+keywords:
+  - tailscale
+  - network
+sources:
+  - https://hub.docker.com/r/tailscale/tailscale
+  - https://github.com/tailscale/tailscale
+dependencies:
+- name: common
+  repository: https://library-charts.truecharts.org
+  version: 10.4.4
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
