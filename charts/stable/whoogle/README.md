@@ -1,6 +1,6 @@
 # whoogle
 
-![Version: 3.0.22](https://img.shields.io/badge/Version-3.0.22-informational?style=flat-square) ![AppVersion: 0.7.4](https://img.shields.io/badge/AppVersion-0.7.4-informational?style=flat-square)
+![Version: 3.0.23](https://img.shields.io/badge/Version-3.0.23-informational?style=flat-square) ![AppVersion: 0.7.4](https://img.shields.io/badge/AppVersion-0.7.4-informational?style=flat-square)
 
 A self-hosted, ad-free, privacy-respecting metasearch engine
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

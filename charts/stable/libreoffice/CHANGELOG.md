@@ -2,6 +2,15 @@
 
 
 
+## [libreoffice-2.0.21](https://github.com/truecharts/apps/compare/libreoffice-2.0.20...libreoffice-2.0.21) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [libreoffice-2.0.20](https://github.com/truecharts/apps/compare/libreoffice-2.0.18...libreoffice-2.0.20) (2022-07-22)
 
 ### Chore

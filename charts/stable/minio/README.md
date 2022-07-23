@@ -1,6 +1,6 @@
 # minio
 
-![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 3.0.34](https://img.shields.io/badge/Version-3.0.34-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Minio is a self-hosted S3 storage server
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

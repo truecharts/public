@@ -2,6 +2,15 @@
 
 
 
+## [makemkv-2.0.24](https://github.com/truecharts/apps/compare/makemkv-2.0.23...makemkv-2.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [makemkv-2.0.23](https://github.com/truecharts/apps/compare/makemkv-2.0.21...makemkv-2.0.23) (2022-07-22)
 
 ### Chore

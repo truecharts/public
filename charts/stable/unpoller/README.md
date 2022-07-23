@@ -1,6 +1,6 @@
 # unpoller
 
-![Version: 3.0.23](https://img.shields.io/badge/Version-3.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.3](https://img.shields.io/badge/AppVersion-2.1.3-informational?style=flat-square)
+![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.3](https://img.shields.io/badge/AppVersion-2.1.3-informational?style=flat-square)
 
 Collect ALL UniFi Controller, Site, Device & Client Data - Export to InfluxDB or Prometheus
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

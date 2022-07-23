@@ -1,6 +1,6 @@
 # snapdrop
 
-![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 2.0.27](https://img.shields.io/badge/Version-2.0.27-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

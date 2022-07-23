@@ -2,6 +2,15 @@
 
 
 
+## [halflife2deathmatch-0.0.12](https://github.com/truecharts/apps/compare/halflife2deathmatch-0.0.11...halflife2deathmatch-0.0.12) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [halflife2deathmatch-0.0.11](https://github.com/truecharts/apps/compare/halflife2deathmatch-0.0.10...halflife2deathmatch-0.0.11) (2022-07-22)
 
 ### Chore

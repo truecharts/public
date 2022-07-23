@@ -2,6 +2,16 @@
 
 
 
+## [theme-park-1.0.24](https://github.com/truecharts/apps/compare/theme-park-1.0.23...theme-park-1.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
+
+
+
+
 ## [theme-park-1.0.23](https://github.com/truecharts/apps/compare/theme-park-1.0.21...theme-park-1.0.23) (2022-07-22)
 
 ### Chore

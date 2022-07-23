@@ -2,6 +2,15 @@
 
 
 
+## [ghost-3.0.32](https://github.com/truecharts/apps/compare/ghost-3.0.31...ghost-3.0.32) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [ghost-3.0.31](https://github.com/truecharts/apps/compare/ghost-3.0.30...ghost-3.0.31) (2022-07-23)
 
 ### Chore

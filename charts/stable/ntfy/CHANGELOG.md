@@ -2,6 +2,15 @@
 
 
 
+## [ntfy-2.0.24](https://github.com/truecharts/apps/compare/ntfy-2.0.23...ntfy-2.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [ntfy-2.0.23](https://github.com/truecharts/apps/compare/ntfy-2.0.21...ntfy-2.0.23) (2022-07-22)
 
 ### Chore

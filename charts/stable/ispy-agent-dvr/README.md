@@ -1,6 +1,6 @@
 # ispy-agent-dvr
 
-![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![AppVersion: 4.1.1.0](https://img.shields.io/badge/AppVersion-4.1.1.0-informational?style=flat-square)
+![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![AppVersion: 4.1.1.0](https://img.shields.io/badge/AppVersion-4.1.1.0-informational?style=flat-square)
 
 iSpy's Agent DVR, a standalone DVR service to manage IP cameras.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

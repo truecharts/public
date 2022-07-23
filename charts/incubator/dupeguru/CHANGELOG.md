@@ -2,6 +2,15 @@
 
 
 
+## [dupeguru-0.0.16](https://github.com/truecharts/apps/compare/dupeguru-0.0.15...dupeguru-0.0.16) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [dupeguru-0.0.15](https://github.com/truecharts/apps/compare/dupeguru-0.0.13...dupeguru-0.0.15) (2022-07-22)
 
 ### Chore

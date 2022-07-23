@@ -2,6 +2,15 @@
 
 
 
+## [mineos-0.0.13](https://github.com/truecharts/apps/compare/mineos-0.0.12...mineos-0.0.13) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [mineos-0.0.12](https://github.com/truecharts/apps/compare/mineos-0.0.10...mineos-0.0.12) (2022-07-22)
 
 ### Chore

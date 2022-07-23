@@ -1,6 +1,6 @@
 # cyberchef
 
-![Version: 2.0.43](https://img.shields.io/badge/Version-2.0.43-informational?style=flat-square) ![AppVersion: 9.46.0](https://img.shields.io/badge/AppVersion-9.46.0-informational?style=flat-square)
+![Version: 2.0.44](https://img.shields.io/badge/Version-2.0.44-informational?style=flat-square) ![AppVersion: 9.46.0](https://img.shields.io/badge/AppVersion-9.46.0-informational?style=flat-square)
 
 CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

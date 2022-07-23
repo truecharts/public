@@ -2,6 +2,15 @@
 
 
 
+## [dashdot-1.0.34](https://github.com/truecharts/apps/compare/dashdot-1.0.33...dashdot-1.0.34) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [dashdot-1.0.33](https://github.com/truecharts/apps/compare/dashdot-1.0.31...dashdot-1.0.33) (2022-07-22)
 
 ### Chore

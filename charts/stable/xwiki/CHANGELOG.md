@@ -2,6 +2,15 @@
 
 
 
+## [xwiki-3.0.28](https://github.com/truecharts/apps/compare/xwiki-3.0.27...xwiki-3.0.28) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [xwiki-3.0.27](https://github.com/truecharts/apps/compare/xwiki-3.0.26...xwiki-3.0.27) (2022-07-23)
 
 ### Chore

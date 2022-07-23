@@ -2,6 +2,15 @@
 
 
 
+## [cloudflared-1.0.3](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.6...cloudflared-1.0.3) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [cloudflared-1.0.2](https://github.com/truecharts/apps/compare/cloudflared-1.0.0...cloudflared-1.0.2) (2022-07-22)
 
 ### Chore

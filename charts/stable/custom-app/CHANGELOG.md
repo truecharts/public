@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.23](https://github.com/truecharts/apps/compare/custom-app-5.1.22...custom-app-5.1.23) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
+
+
+
+
 ## [custom-app-5.1.22](https://github.com/truecharts/apps/compare/custom-app-5.1.20...custom-app-5.1.22) (2022-07-22)
 
 ### Chore

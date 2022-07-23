@@ -2,6 +2,15 @@
 
 
 
+## [libreddit-1.0.15](https://github.com/truecharts/apps/compare/libreddit-1.0.14...libreddit-1.0.15) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [libreddit-1.0.14](https://github.com/truecharts/apps/compare/libreddit-1.0.12...libreddit-1.0.14) (2022-07-22)
 
 ### Chore

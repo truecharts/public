@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-java-1.0.31](https://github.com/truecharts/apps/compare/minecraft-java-1.0.30...minecraft-java-1.0.31) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [minecraft-java-1.0.30](https://github.com/truecharts/apps/compare/minecraft-java-1.0.29...minecraft-java-1.0.30) (2022-07-23)
 
 ### Chore

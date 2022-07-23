@@ -2,6 +2,15 @@
 
 
 
+## [mealie-8.0.24](https://github.com/truecharts/apps/compare/mealie-8.0.23...mealie-8.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [mealie-8.0.23](https://github.com/truecharts/apps/compare/mealie-8.0.22...mealie-8.0.23) (2022-07-23)
 
 ### Chore

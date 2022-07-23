@@ -2,6 +2,15 @@
 
 
 
+## [pixark-0.0.12](https://github.com/truecharts/apps/compare/pixark-0.0.11...pixark-0.0.12) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [pixark-0.0.11]pixark-0.0.11 (2022-07-22)
 
 ### Chore

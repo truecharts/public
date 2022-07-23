@@ -2,6 +2,15 @@
 
 
 
+## [mkvcleaver-0.0.15](https://github.com/truecharts/apps/compare/mkvcleaver-0.0.14...mkvcleaver-0.0.15) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [mkvcleaver-0.0.14](https://github.com/truecharts/apps/compare/mkvcleaver-0.0.12...mkvcleaver-0.0.14) (2022-07-22)
 
 ### Chore

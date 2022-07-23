@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bungeecord-0.0.6](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.5...minecraft-bungeecord-0.0.6) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [minecraft-bungeecord-0.0.5](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.4...minecraft-bungeecord-0.0.5) (2022-07-23)
 
 ### Chore

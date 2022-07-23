@@ -1,6 +1,6 @@
 # fireflyiii
 
-![Version: 16.0.24](https://img.shields.io/badge/Version-16.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.7.9](https://img.shields.io/badge/AppVersion-5.7.9-informational?style=flat-square)
+![Version: 16.0.25](https://img.shields.io/badge/Version-16.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.7.9](https://img.shields.io/badge/AppVersion-5.7.9-informational?style=flat-square)
 
 A free and open source personal finance manager
 
@@ -23,9 +23,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.43 |
-| https://charts.truecharts.org | redis | 3.0.42 |
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.45 |
+| https://charts.truecharts.org | redis | 3.0.44 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

@@ -2,6 +2,15 @@
 
 
 
+## [gonic-6.0.23](https://github.com/truecharts/apps/compare/gonic-6.0.22...gonic-6.0.23) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [gonic-6.0.22](https://github.com/truecharts/apps/compare/gonic-6.0.20...gonic-6.0.22) (2022-07-22)
 
 ### Chore

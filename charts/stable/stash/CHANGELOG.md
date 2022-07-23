@@ -2,6 +2,15 @@
 
 
 
+## [stash-7.0.23](https://github.com/truecharts/apps/compare/stash-7.0.22...stash-7.0.23) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [stash-7.0.22](https://github.com/truecharts/apps/compare/filestash-0.0.10...stash-7.0.22) (2022-07-22)
 
 ### Chore

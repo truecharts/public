@@ -2,6 +2,15 @@
 
 
 
+## [gitea-8.0.25](https://github.com/truecharts/apps/compare/gitea-8.0.24...gitea-8.0.25) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [gitea-8.0.24](https://github.com/truecharts/apps/compare/gitea-8.0.23...gitea-8.0.24) (2022-07-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [czkawka-0.0.16](https://github.com/truecharts/apps/compare/czkawka-0.0.15...czkawka-0.0.16) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [czkawka-0.0.15](https://github.com/truecharts/apps/compare/czkawka-0.0.13...czkawka-0.0.15) (2022-07-22)
 
 ### Chore

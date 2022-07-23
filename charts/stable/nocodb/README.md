@@ -1,6 +1,6 @@
 # nocodb
 
-![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![AppVersion: 0.92.4](https://img.shields.io/badge/AppVersion-0.92.4-informational?style=flat-square)
+![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![AppVersion: 0.92.4](https://img.shields.io/badge/AppVersion-0.92.4-informational?style=flat-square)
 
 Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
 
@@ -24,9 +24,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.43 |
-| https://charts.truecharts.org | redis | 3.0.42 |
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.45 |
+| https://charts.truecharts.org | redis | 3.0.44 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

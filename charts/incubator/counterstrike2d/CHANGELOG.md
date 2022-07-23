@@ -2,6 +2,15 @@
 
 
 
+## [counterstrike2d-0.0.12](https://github.com/truecharts/apps/compare/counterstrike2d-0.0.11...counterstrike2d-0.0.12) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [counterstrike2d-0.0.11](https://github.com/truecharts/apps/compare/counterstrike2d-0.0.10...counterstrike2d-0.0.11) (2022-07-22)
 
 ### Chore

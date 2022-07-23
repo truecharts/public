@@ -2,6 +2,15 @@
 
 
 
+## [zwavejs2mqtt-11.0.24](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.23...zwavejs2mqtt-11.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [zwavejs2mqtt-11.0.23](https://github.com/truecharts/apps/compare/zwavejs2mqtt-11.0.21...zwavejs2mqtt-11.0.23) (2022-07-22)
 
 ### Chore

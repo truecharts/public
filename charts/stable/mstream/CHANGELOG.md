@@ -2,6 +2,15 @@
 
 
 
+## [mstream-3.0.21](https://github.com/truecharts/apps/compare/mstream-3.0.20...mstream-3.0.21) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [mstream-3.0.20](https://github.com/truecharts/apps/compare/mstream-3.0.18...mstream-3.0.20) (2022-07-22)
 
 ### Chore

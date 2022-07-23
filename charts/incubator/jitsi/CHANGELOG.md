@@ -2,6 +2,15 @@
 
 
 
+## [jitsi-0.0.17](https://github.com/truecharts/apps/compare/jitsi-0.0.16...jitsi-0.0.17) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [jitsi-0.0.16](https://github.com/truecharts/apps/compare/jitsi-0.0.14...jitsi-0.0.16) (2022-07-22)
 
 ### Chore

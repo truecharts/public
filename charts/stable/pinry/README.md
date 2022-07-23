@@ -1,6 +1,6 @@
 # pinry
 
-![Version: 2.0.20](https://img.shields.io/badge/Version-2.0.20-informational?style=flat-square) ![AppVersion: 2.1.12](https://img.shields.io/badge/AppVersion-2.1.12-informational?style=flat-square)
+![Version: 2.0.21](https://img.shields.io/badge/Version-2.0.21-informational?style=flat-square) ![AppVersion: 2.1.12](https://img.shields.io/badge/AppVersion-2.1.12-informational?style=flat-square)
 
 The open-source core of Pinry, a tiling image board system for people who want to save, tag, and share images, videos and webpages in an easy to skim through format.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

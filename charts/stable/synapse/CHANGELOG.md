@@ -2,6 +2,15 @@
 
 
 
+## [synapse-4.0.26](https://github.com/truecharts/apps/compare/synapse-4.0.25...synapse-4.0.26) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [synapse-4.0.25](https://github.com/truecharts/apps/compare/synapse-4.0.24...synapse-4.0.25) (2022-07-23)
 
 ### Chore

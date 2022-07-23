@@ -2,6 +2,15 @@
 
 
 
+## [self-service-password-1.0.25](https://github.com/truecharts/apps/compare/self-service-password-1.0.24...self-service-password-1.0.25) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [self-service-password-1.0.24](https://github.com/truecharts/apps/compare/self-service-password-1.0.22...self-service-password-1.0.24) (2022-07-22)
 
 ### Chore

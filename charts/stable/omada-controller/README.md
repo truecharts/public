@@ -1,6 +1,6 @@
 # omada-controller
 
-![Version: 6.0.36](https://img.shields.io/badge/Version-6.0.36-informational?style=flat-square) ![AppVersion: 5.3](https://img.shields.io/badge/AppVersion-5.3-informational?style=flat-square)
+![Version: 6.0.37](https://img.shields.io/badge/Version-6.0.37-informational?style=flat-square) ![AppVersion: 5.3](https://img.shields.io/badge/AppVersion-5.3-informational?style=flat-square)
 
 Omada is a SDN tool for TP-Link Omada hardware
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

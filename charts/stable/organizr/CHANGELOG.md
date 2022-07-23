@@ -2,6 +2,15 @@
 
 
 
+## [organizr-11.0.21](https://github.com/truecharts/apps/compare/organizr-11.0.20...organizr-11.0.21) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [organizr-11.0.20](https://github.com/truecharts/apps/compare/organizr-11.0.18...organizr-11.0.20) (2022-07-22)
 
 ### Chore

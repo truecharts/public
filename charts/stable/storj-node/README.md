@@ -1,6 +1,6 @@
 # storj-node
 
-![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![AppVersion: 1.59.1](https://img.shields.io/badge/AppVersion-1.59.1-informational?style=flat-square)
+![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![AppVersion: 1.59.1](https://img.shields.io/badge/AppVersion-1.59.1-informational?style=flat-square)
 
 Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

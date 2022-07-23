@@ -2,6 +2,15 @@
 
 
 
+## [radicale-0.0.20](https://github.com/truecharts/apps/compare/radicale-0.0.19...radicale-0.0.20) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [radicale-0.0.19](https://github.com/truecharts/apps/compare/radicale-0.0.17...radicale-0.0.19) (2022-07-22)
 
 ### Chore

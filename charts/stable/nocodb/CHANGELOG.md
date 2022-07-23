@@ -2,6 +2,15 @@
 
 
 
+## [nocodb-3.0.29](https://github.com/truecharts/apps/compare/nocodb-3.0.28...nocodb-3.0.29) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [nocodb-3.0.28](https://github.com/truecharts/apps/compare/nocodb-3.0.27...nocodb-3.0.28) (2022-07-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [n8n-4.0.32](https://github.com/truecharts/apps/compare/n8n-4.0.31...n8n-4.0.32) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [n8n-4.0.31](https://github.com/truecharts/apps/compare/n8n-4.0.30...n8n-4.0.31) (2022-07-23)
 
 ### Chore

@@ -1,6 +1,6 @@
 # external-service
 
-![Version: 6.0.20](https://img.shields.io/badge/Version-6.0.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.66.6](https://img.shields.io/badge/AppVersion-0.66.6-informational?style=flat-square)
+![Version: 6.0.21](https://img.shields.io/badge/Version-6.0.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.66.6](https://img.shields.io/badge/AppVersion-0.66.6-informational?style=flat-square)
 
 Allow external services to be used like Apps.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # fluidd
 
-![Version: 2.0.22](https://img.shields.io/badge/Version-2.0.22-informational?style=flat-square) ![AppVersion: 1.19.0](https://img.shields.io/badge/AppVersion-1.19.0-informational?style=flat-square)
+![Version: 2.0.23](https://img.shields.io/badge/Version-2.0.23-informational?style=flat-square) ![AppVersion: 1.19.0](https://img.shields.io/badge/AppVersion-1.19.0-informational?style=flat-square)
 
 Fluidd is a free and open-source Klipper web interface for managing your 3d printer.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.6 |
+| https://library-charts.truecharts.org | common | 10.4.7 |
 
 ## Installing the Chart
 
