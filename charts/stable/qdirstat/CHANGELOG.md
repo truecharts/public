@@ -2,6 +2,15 @@
 
 
 
+## [qdirstat-1.0.0](https://github.com/truecharts/apps/compare/qdirstat-0.0.14...qdirstat-1.0.0) (2022-07-23)
+
+### Feat
+
+- move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
+
+
+
+
 ## [qdirstat-0.0.15](https://github.com/truecharts/apps/compare/qdirstat-0.0.14...qdirstat-0.0.15) (2022-07-23)
 
 ### Chore

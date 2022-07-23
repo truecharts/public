@@ -2,6 +2,15 @@
 
 
 
+## [czkawka-1.0.0](https://github.com/truecharts/apps/compare/czkawka-0.0.15...czkawka-1.0.0) (2022-07-23)
+
+### Feat
+
+- move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
+
+
+
+
 ## [czkawka-0.0.16](https://github.com/truecharts/apps/compare/czkawka-0.0.15...czkawka-0.0.16) (2022-07-23)
 
 ### Chore

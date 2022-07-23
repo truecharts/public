@@ -2,6 +2,15 @@
 
 
 
+## [theme-park-2.0.0](https://github.com/truecharts/apps/compare/theme-park-1.0.23...theme-park-2.0.0) (2022-07-23)
+
+### Feat
+
+- move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
+
+
+
+
 ## [theme-park-1.0.24](https://github.com/truecharts/apps/compare/theme-park-1.0.23...theme-park-1.0.24) (2022-07-23)
 
 ### Chore
