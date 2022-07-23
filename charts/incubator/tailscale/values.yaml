@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/tailscale
+  pullPolicy: IfNotPresent
+  tag: v1.29.20@sha256:8139d7cbeea8a8d2329f1afef0a65674153087cf5bb50890580049654ebe3067
+
+securityContext:
+  privileged: true
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+
+hostNetwork: true
+
+secretEnv:
+  authkey: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 41641
+        port: 41641
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
