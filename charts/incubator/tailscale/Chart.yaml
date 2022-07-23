@@ -1,6 +1,6 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
-name: zerotier
+name: tailscale
 version: 1.29.20
 appVersion: "0.0.1"
 description: Connect your devices and users together in your own secure virtual private network.
@@ -17,7 +17,7 @@ sources:
 dependencies:
 - name: common
   repository: https://library-charts.truecharts.org
-  version: 10.4.4
+  version: 10.4.7
     # condition:
 maintainers:
 - email: info@truecharts.org
