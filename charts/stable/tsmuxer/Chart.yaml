@@ -1,27 +1,27 @@
 apiVersion: v2
-appVersion: "1.10.0"
+appVersion: "1.5.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.7
 deprecated: false
-description: MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/mediainfo
-icon: https://truecharts.org/img/chart-icons/mediainfo.png
+description: tsMuxer is a Transport Stream muxer.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/tsmuxer
+icon: https://truecharts.org/img/chart-icons/tsmuxer.png
 keywords:
-  - info
   - media
+  - tsmuxer
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: mediainfo
+name: tsmuxer
 sources:
-  - https://github.com/jlesage/docker-mediainfo
-  - https://hub.docker.com/r/jlesage/mediainfo/
+  - https://github.com/jlesage/docker-tsmuxer
+  - https://hub.docker.com/r/jlesage/tsmuxer/
 type: application
-version: 0.0.15
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - media
