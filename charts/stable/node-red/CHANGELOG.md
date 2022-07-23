@@ -2,6 +2,15 @@
 
 
 
+## [node-red-11.0.23](https://github.com/truecharts/apps/compare/node-red-11.0.22...node-red-11.0.23) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+
+
+
+
 ## [node-red-11.0.22](https://github.com/truecharts/apps/compare/node-red-11.0.20...node-red-11.0.22) (2022-07-22)
 
 ### Chore

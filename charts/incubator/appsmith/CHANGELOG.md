@@ -2,6 +2,15 @@
 
 
 
+## [appsmith-2.0.28](https://github.com/truecharts/apps/compare/appsmith-2.0.27...appsmith-2.0.28) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+
+
+
+
 ## [appsmith-2.0.27](https://github.com/truecharts/apps/compare/appsmith-2.0.26...appsmith-2.0.27) (2022-07-23)
 
 ### Chore

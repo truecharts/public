@@ -2,6 +2,15 @@
 
 
 
+## [grafana-4.0.34](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.11...grafana-4.0.34) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+
+
+
+
 ## [grafana-4.0.33](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.10...grafana-4.0.33) (2022-07-22)
 
 ### Chore
