@@ -4,7 +4,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: ghcr.io/truecharts/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:bc3a56b2c195a4b4ce5c67fb0c209f38036521ebd316df2a7d68b425b9c48b30
+  tag: latest@sha256:840ca35ddaaf96324b673bee5154c13484908286dc4390557a8d635fbf4e0476
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,7 +24,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.6.0@sha256:3322a388a2367fae4860735a4b0440f93a4e0a4c0629efd11db7d218c307d99c
+  tag: v2.6.1@sha256:5cb08b84c0fe2dd0eff2b22eae6b6e341191e79dba8d863eaaf38b8282870108
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v4.5.0@sha256:688d7ee25d5a42e78d3bf47c46f0d32ec1689f5539869af787752faf9e6f7dc5
+  tag: v4.5.1@sha256:bef266a1988247a18a1f1249604c435e7cf1c96cc1966c2a4809e5b0a170cf6b
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -54,7 +54,7 @@ alpineImage:
   # -- Specify the Alpine image
   repository: ghcr.io/truecharts/alpine
   # -- Specify the Alpine image tag
-  tag: v3.16.0@sha256:16dc15f3d61a1e30b1df9f839e53636847b6097286b2b74c637b25fd8264f730
+  tag: v3.16.1@sha256:b1b492d2ee26a2ee6fb68dc34c00bbd2bb7f9cd87d2aa6c3f7bf46f607ded1cb
   # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
 
@@ -62,7 +62,7 @@ multiinitImage:
   # -- Specify the multi-init image
   repository: ghcr.io/truecharts/multi-init
   # -- Specify the redis image tag
-  tag: v0.0.1@sha256:41185dcea1e6f6a035d8090da40aecc6a69cef66b91dc1332a90c9d22861d367
+  tag: v0.0.1@sha256:d947b94180365c8b7294b610dcd7138f7997134050a95bcd52bdef957247f33a
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
