@@ -1,6 +1,6 @@
 # home-assistant
 
-![Version: 15.0.30](https://img.shields.io/badge/Version-15.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.7.6](https://img.shields.io/badge/AppVersion-2022.7.6-informational?style=flat-square)
+![Version: 15.0.31](https://img.shields.io/badge/Version-15.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.7.6](https://img.shields.io/badge/AppVersion-2022.7.6-informational?style=flat-square)
 
 home-assistant App for TrueNAS SCALE
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

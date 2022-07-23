@@ -2,6 +2,15 @@
 
 
 
+## [linkace-4.0.29](https://github.com/truecharts/apps/compare/linkace-4.0.28...linkace-4.0.29) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [linkace-4.0.28](https://github.com/truecharts/apps/compare/linkace-4.0.26...linkace-4.0.28) (2022-07-22)
 
 ### Chore

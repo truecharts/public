@@ -2,6 +2,15 @@
 
 
 
+## [plausible-1.0.3](https://github.com/truecharts/apps/compare/plausible-1.0.2...plausible-1.0.3) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [plausible-1.0.2](https://github.com/truecharts/apps/compare/plausible-0.0.9...plausible-1.0.2) (2022-07-22)
 
 ### Chore

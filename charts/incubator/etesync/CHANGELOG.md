@@ -2,6 +2,15 @@
 
 
 
+## [etesync-0.0.18](https://github.com/truecharts/apps/compare/etesync-0.0.17...etesync-0.0.18) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [etesync-0.0.17](https://github.com/truecharts/apps/compare/etesync-0.0.15...etesync-0.0.17) (2022-07-22)
 
 ### Chore

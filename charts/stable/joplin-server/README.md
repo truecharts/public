@@ -1,6 +1,6 @@
 # joplin-server
 
-![Version: 8.0.21](https://img.shields.io/badge/Version-8.0.21-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
+![Version: 8.0.22](https://img.shields.io/badge/Version-8.0.22-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
 
 This server allows you to sync any Joplin client
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

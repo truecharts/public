@@ -1,6 +1,6 @@
 # awesome-ttrss
 
-![Version: 0.0.24](https://img.shields.io/badge/Version-0.0.24-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
+![Version: 0.0.25](https://img.shields.io/badge/Version-0.0.25-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
 
 Awesome TTRSS aims to provide a powerful Dockerized all-in-one solution for Tiny Tiny RSS
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

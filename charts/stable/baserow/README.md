@@ -1,6 +1,6 @@
 # baserow
 
-![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![AppVersion: 1.10.2](https://img.shields.io/badge/AppVersion-1.10.2-informational?style=flat-square)
+![Version: 3.0.25](https://img.shields.io/badge/Version-3.0.25-informational?style=flat-square) ![AppVersion: 1.10.2](https://img.shields.io/badge/AppVersion-1.10.2-informational?style=flat-square)
 
 Baserow is an open source no-code database tool and Airtable alternative.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
-| https://charts.truecharts.org | redis | 3.0.41 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
+| https://charts.truecharts.org | redis | 3.0.42 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

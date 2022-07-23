@@ -1,6 +1,6 @@
 # inventree
 
-![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![AppVersion: 0.7.6](https://img.shields.io/badge/AppVersion-0.7.6-informational?style=flat-square)
+![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![AppVersion: 0.7.6](https://img.shields.io/badge/AppVersion-0.7.6-informational?style=flat-square)
 
 InvenTree is an open-source Inventory Management System which provides powerful low-level stock control and part tracking.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
-| https://charts.truecharts.org | redis | 3.0.41 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
+| https://charts.truecharts.org | redis | 3.0.42 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

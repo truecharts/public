@@ -2,6 +2,15 @@
 
 
 
+## [rsshub-3.0.48](https://github.com/truecharts/apps/compare/rsshub-3.0.47...rsshub-3.0.48) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [rsshub-3.0.47](https://github.com/truecharts/apps/compare/rsshub-3.0.46...rsshub-3.0.47) (2022-07-23)
 
 ### Chore

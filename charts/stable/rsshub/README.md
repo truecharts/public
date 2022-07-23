@@ -1,6 +1,6 @@
 # rsshub
 
-![Version: 3.0.47](https://img.shields.io/badge/Version-3.0.47-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 3.0.48](https://img.shields.io/badge/Version-3.0.48-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 RSSHub can generate RSS feeds from pretty much everything
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.41 |
+| https://charts.truecharts.org | redis | 3.0.42 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

@@ -2,6 +2,15 @@
 
 
 
+## [nextcloud-15.2.24](https://github.com/truecharts/apps/compare/nextcloud-15.2.23...nextcloud-15.2.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [nextcloud-15.2.23](https://github.com/truecharts/apps/compare/nextcloud-15.2.21...nextcloud-15.2.23) (2022-07-22)
 
 ### Chore

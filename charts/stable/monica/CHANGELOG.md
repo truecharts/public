@@ -2,6 +2,15 @@
 
 
 
+## [monica-3.0.30](https://github.com/truecharts/apps/compare/monica-3.0.29...monica-3.0.30) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [monica-3.0.29](https://github.com/truecharts/apps/compare/monica-3.0.27...monica-3.0.29) (2022-07-22)
 
 ### Chore

@@ -1,6 +1,6 @@
 # gitea
 
-![Version: 8.0.23](https://img.shields.io/badge/Version-8.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.9](https://img.shields.io/badge/AppVersion-1.16.9-informational?style=flat-square)
+![Version: 8.0.24](https://img.shields.io/badge/Version-8.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.9](https://img.shields.io/badge/AppVersion-1.16.9-informational?style=flat-square)
 
 Self hosted GIT repositories
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | memcached | 3.0.41 |
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://charts.truecharts.org/ | memcached | 3.0.42 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart

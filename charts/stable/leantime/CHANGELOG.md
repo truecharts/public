@@ -2,6 +2,15 @@
 
 
 
+## [leantime-4.0.24](https://github.com/truecharts/apps/compare/leantime-4.0.23...leantime-4.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [leantime-4.0.23](https://github.com/truecharts/apps/compare/leantime-4.0.21...leantime-4.0.23) (2022-07-22)
 
 ### Chore

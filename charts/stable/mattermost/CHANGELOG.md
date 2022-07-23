@@ -2,6 +2,15 @@
 
 
 
+## [mattermost-3.0.24](https://github.com/truecharts/apps/compare/mattermost-3.0.23...mattermost-3.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [mattermost-3.0.23](https://github.com/truecharts/apps/compare/mattermost-3.0.21...mattermost-3.0.23) (2022-07-22)
 
 ### Chore

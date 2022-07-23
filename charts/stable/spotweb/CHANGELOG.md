@@ -2,6 +2,15 @@
 
 
 
+## [spotweb-4.0.23](https://github.com/truecharts/apps/compare/spotweb-4.0.22...spotweb-4.0.23) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [spotweb-4.0.22](https://github.com/truecharts/apps/compare/spotweb-4.0.20...spotweb-4.0.22) (2022-07-22)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [authelia-11.0.26](https://github.com/truecharts/apps/compare/authelia-11.0.25...authelia-11.0.26) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
 ## [authelia-11.0.25](https://github.com/truecharts/apps/compare/authelia-11.0.23...authelia-11.0.25) (2022-07-22)
 
 ### Chore

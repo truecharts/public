@@ -1,6 +1,6 @@
 # miniflux
 
-![Version: 7.0.22](https://img.shields.io/badge/Version-7.0.22-informational?style=flat-square) ![AppVersion: 2.0.37](https://img.shields.io/badge/AppVersion-2.0.37-informational?style=flat-square)
+![Version: 7.0.23](https://img.shields.io/badge/Version-7.0.23-informational?style=flat-square) ![AppVersion: 2.0.37](https://img.shields.io/badge/AppVersion-2.0.37-informational?style=flat-square)
 
 Miniflux is a minimalist and opinionated feed reader.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://charts.truecharts.org/ | postgresql | 8.0.43 |
 | https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart
