@@ -2,6 +2,15 @@
 
 
 
+## [memcached-3.0.44](https://github.com/truecharts/apps/compare/memcached-3.0.43...memcached-3.0.44) (2022-07-23)
+
+### Chore
+
+- update helm chart common to v10.4.7 ([#3277](https://github.com/truecharts/apps/issues/3277))
+
+
+
+
 ## [postgresql-8.0.44](https://github.com/truecharts/apps/compare/postgresql-8.0.43...postgresql-8.0.44) (2022-07-23)
 
 ### Chore

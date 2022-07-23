@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.45](https://github.com/truecharts/apps/compare/postgresql-8.0.44...postgresql-8.0.45) (2022-07-23)
+
+### Chore
+
+- update helm chart common to v10.4.7 ([#3277](https://github.com/truecharts/apps/issues/3277))
+
+
+
+
 
 ## [postgresql-8.0.43](https://github.com/truecharts/apps/compare/postgresql-8.0.42...postgresql-8.0.43) (2022-07-22)
 
