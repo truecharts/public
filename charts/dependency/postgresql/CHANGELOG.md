@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [postgresql-8.0.43](https://github.com/truecharts/apps/compare/postgresql-8.0.42...postgresql-8.0.43) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [postgresql-8.0.42](https://github.com/truecharts/apps/compare/postgresql-8.0.41...postgresql-8.0.42) (2022-07-22)
 
 ### Chore

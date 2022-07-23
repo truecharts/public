@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [phpldapadmin-6.0.21](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.19...phpldapadmin-6.0.21) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [phpldapadmin-6.0.19](https://github.com/truecharts/apps/compare/phpldapadmin-6.0.18...phpldapadmin-6.0.19) (2022-07-20)
 
 ### Chore

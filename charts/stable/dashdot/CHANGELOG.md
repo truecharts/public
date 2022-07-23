@@ -1,6 +1,17 @@
 # Changelog
 
 
+
+## [dashdot-1.0.33](https://github.com/truecharts/apps/compare/dashdot-1.0.31...dashdot-1.0.33) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [dashdot-1.0.31](https://github.com/truecharts/apps/compare/dashdot-1.0.30...dashdot-1.0.31) (2022-07-22)
 
 ### Chore

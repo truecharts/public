@@ -1,6 +1,17 @@
 # Changelog
 
 
+
+## [rsshub-3.0.46](https://github.com/truecharts/apps/compare/rsshub-3.0.44...rsshub-3.0.46) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [rsshub-3.0.44](https://github.com/truecharts/apps/compare/rsshub-3.0.43...rsshub-3.0.44) (2022-07-20)
 
 ### Chore

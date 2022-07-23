@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [mkvtoolnix-2.0.21](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.19...mkvtoolnix-2.0.21) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [mkvtoolnix-2.0.19](https://github.com/truecharts/apps/compare/mkvtoolnix-2.0.18...mkvtoolnix-2.0.19) (2022-07-19)
 
 ### Chore

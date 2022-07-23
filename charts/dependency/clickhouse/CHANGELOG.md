@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [clickhouse-1.0.1](https://github.com/truecharts/apps/compare/clickhouse-1.0.0...clickhouse-1.0.1) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [clickhouse-1.0.0](https://github.com/truecharts/apps/compare/clickhouse-0.0.12...clickhouse-1.0.0) (2022-07-21)
 
 ### Chore

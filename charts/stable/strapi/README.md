@@ -1,15 +1,15 @@
 # strapi
 
-![Version: 4.0.19](https://img.shields.io/badge/Version-4.0.19-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
+![Version: 4.0.21](https://img.shields.io/badge/Version-4.0.21-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
 
-Strapi is the leading open-source headless CMS. It’s 100% JavaScript, fully customizable and developer-first.
+Strapi is the leading open-source headless CMS. JavaScript, fully customizable and developer-first.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [strapi](https://truecharts.org/charts/stable/strapi)
+For more information, please click here: [strapi](https://truecharts.org/docs/charts/stable/strapi)
 
-**This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
+**This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
@@ -25,14 +25,14 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.30 |
-| https://library-charts.truecharts.org | common | 10.4.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.42 |
+| https://library-charts.truecharts.org | common | 10.4.6 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/02-Installing-an-App/).
 
 ### Helm
 
@@ -50,7 +50,7 @@ helm install strapi TrueCharts/strapi
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
 
 ### Helm
 
@@ -89,7 +89,7 @@ helm install strapi TrueCharts/strapi -f values.yaml
 
 #### Connecting to other apps
 
-If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/docs/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
 
 ## Support
 

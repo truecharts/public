@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [mongodb-1.0.44](https://github.com/truecharts/apps/compare/mongodb-1.0.43...mongodb-1.0.44) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
 
 ### Chore

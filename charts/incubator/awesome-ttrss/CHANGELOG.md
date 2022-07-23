@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [awesome-ttrss-0.0.24](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.22...awesome-ttrss-0.0.24) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [awesome-ttrss-0.0.22](https://github.com/truecharts/apps/compare/awesome-ttrss-0.0.21...awesome-ttrss-0.0.22) (2022-07-21)
 
 ### Chore

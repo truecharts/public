@@ -1,6 +1,17 @@
 # Changelog
 
 
+
+## [owncloud-ocis-7.0.20](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.18...owncloud-ocis-7.0.20) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update container image tccr.io/truecharts/ocis to v2.0.0 ([#3269](https://github.com/truecharts/apps/issues/3269))
+
+
+
 ## [owncloud-ocis-7.0.18](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.17...owncloud-ocis-7.0.18) (2022-07-19)
 
 ### Chore

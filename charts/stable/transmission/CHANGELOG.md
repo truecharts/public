@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [transmission-12.0.22](https://github.com/truecharts/apps/compare/transmission-12.0.20...transmission-12.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [transmission-12.0.20](https://github.com/truecharts/apps/compare/transmission-12.0.19...transmission-12.0.20) (2022-07-19)
 
 ### Chore

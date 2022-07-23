@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [cloudflared-1.0.2](https://github.com/truecharts/apps/compare/cloudflared-1.0.0...cloudflared-1.0.2) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [cloudflared-1.0.0](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.4...cloudflared-1.0.0) (2022-07-21)
 
 ### Chore

@@ -1,6 +1,21 @@
 # Changelog
 
 
+
+## [strapi-4.0.21](https://github.com/truecharts/apps/compare/strapi-4.0.19...strapi-4.0.21) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+  ### Fix
+
+- remove some non-utf8 characters
+
+
+
 ## [strapi-4.0.19](https://github.com/truecharts/apps/compare/strapi-4.0.18...strapi-4.0.19) (2022-07-20)
 
 ### Chore

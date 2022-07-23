@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [avidemux-0.0.14](https://github.com/truecharts/apps/compare/avidemux-0.0.12...avidemux-0.0.14) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [avidemux-0.0.12](https://github.com/truecharts/apps/compare/avidemux-0.0.11...avidemux-0.0.12) (2022-07-19)
 
 ### Chore

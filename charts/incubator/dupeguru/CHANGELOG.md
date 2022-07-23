@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [dupeguru-0.0.15](https://github.com/truecharts/apps/compare/dupeguru-0.0.13...dupeguru-0.0.15) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [dupeguru-0.0.13](https://github.com/truecharts/apps/compare/dupeguru-0.0.12...dupeguru-0.0.13) (2022-07-19)
 
 ### Chore

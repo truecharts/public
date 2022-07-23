@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [healthchecks-7.0.22](https://github.com/truecharts/apps/compare/healthchecksdashboard-0.0.10...healthchecks-7.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [healthchecks-7.0.20](https://github.com/truecharts/apps/compare/healthchecks-7.0.19...healthchecks-7.0.20) (2022-07-19)
 
 ### Chore

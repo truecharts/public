@@ -1,6 +1,17 @@
 # Changelog
 
 
+
+## [custom-app-5.1.22](https://github.com/truecharts/apps/compare/custom-app-5.1.20...custom-app-5.1.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update container image tccr.io/truecharts/jackett to v0.20.1326 ([#3267](https://github.com/truecharts/apps/issues/3267))
+
+
+
 ## [custom-app-5.1.20](https://github.com/truecharts/apps/compare/custom-app-5.1.19...custom-app-5.1.20) (2022-07-20)
 
 ### Chore

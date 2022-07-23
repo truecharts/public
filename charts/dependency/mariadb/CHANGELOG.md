@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [mariadb-3.0.41](https://github.com/truecharts/apps/compare/mariadb-3.0.40...mariadb-3.0.41) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [mariadb-3.0.40](https://github.com/truecharts/apps/compare/mariadb-3.0.39...mariadb-3.0.40) (2022-07-22)
 
 ### Chore

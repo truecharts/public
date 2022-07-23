@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [meshcentral-3.0.25](https://github.com/truecharts/apps/compare/meshcentral-3.0.23...meshcentral-3.0.25) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [meshcentral-3.0.23](https://github.com/truecharts/apps/compare/meshcentral-3.0.22...meshcentral-3.0.23) (2022-07-19)
 
 ### Chore

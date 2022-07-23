@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [booksonic-air-6.0.24](https://github.com/truecharts/apps/compare/booksonic-air-6.0.22...booksonic-air-6.0.24) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [booksonic-air-6.0.22](https://github.com/truecharts/apps/compare/booksonic-air-6.0.21...booksonic-air-6.0.22) (2022-07-20)
 
 ### Chore

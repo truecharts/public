@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [solr-0.0.17](https://github.com/truecharts/apps/compare/solr-0.0.16...solr-0.0.17) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [solr-0.0.16](https://github.com/truecharts/apps/compare/solr-0.0.15...solr-0.0.16) (2022-07-22)
 
 ### Chore

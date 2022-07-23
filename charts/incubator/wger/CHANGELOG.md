@@ -1,6 +1,18 @@
 # Changelog
 
 
+
+## [wger-0.0.28](https://github.com/truecharts/apps/compare/wger-0.0.26...wger-0.0.28) (2022-07-22)
+
+### Chore
+
+- update image refs ([#3261](https://github.com/truecharts/apps/issues/3261))
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [wger-0.0.26](https://github.com/truecharts/apps/compare/wger-0.0.25...wger-0.0.26) (2022-07-22)
 
 ### Chore

@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [promtail-3.0.33](https://github.com/truecharts/apps/compare/promtail-3.0.32...promtail-3.0.33) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [promtail-3.0.32](https://github.com/truecharts/apps/compare/promtail-3.0.31...promtail-3.0.32) (2022-07-21)
 
 ### Chore

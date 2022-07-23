@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [plex-10.0.24](https://github.com/truecharts/apps/compare/plex-10.0.22...plex-10.0.24) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [plex-10.0.22](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.6...plex-10.0.22) (2022-07-19)
 
 ### Chore

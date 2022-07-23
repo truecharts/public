@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [mylar-6.0.22](https://github.com/truecharts/apps/compare/mylar-6.0.20...mylar-6.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [mosquitto-6.0.21](https://github.com/truecharts/apps/compare/mosquitto-6.0.20...mosquitto-6.0.21) (2022-07-20)
 
 ### Chore

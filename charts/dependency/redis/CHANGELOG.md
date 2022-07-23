@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [redis-3.0.42](https://github.com/truecharts/apps/compare/redis-3.0.41...redis-3.0.42) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore

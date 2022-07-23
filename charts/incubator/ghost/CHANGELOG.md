@@ -1,6 +1,22 @@
 # Changelog
 
 
+
+## [ghost-3.0.30](https://github.com/truecharts/apps/compare/ghost-3.0.28...ghost-3.0.30) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+  ### Fix
+
+- remove some non-utf8 characters
+
+
+
 ## [ghost-3.0.28](https://github.com/truecharts/apps/compare/ghost-3.0.27...ghost-3.0.28) (2022-07-20)
 
 ### Chore

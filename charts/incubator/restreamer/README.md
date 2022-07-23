@@ -1,6 +1,6 @@
 # restreamer
 
-![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.11](https://img.shields.io/badge/Version-0.0.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Datarhei/Restreamer allows smart free video streaming in real time. Stream H.264 video of IP cameras live to your website. Pump your live video to YouTube-Live, Ustream, Twitch, Livestream.com or any other streaming-solutions e.g. Wowza-Streaming-Engine. Our Docker-Image is easy to install and runs on Linux, MacOS and Windows. Datarhei/Restreamer can be perfectly combined with single-board computers like Raspberry Pi and Odroid.
 

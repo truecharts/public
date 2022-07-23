@@ -1,6 +1,17 @@
 # Changelog
 
 
+
+## [plex-meta-manager-0.0.9](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.7...plex-meta-manager-0.0.9) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
 ## [plex-meta-manager-0.0.7](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.6...plex-meta-manager-0.0.7) (2022-07-19)
 
 ### Chore

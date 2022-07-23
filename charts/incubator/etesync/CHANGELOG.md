@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [etesync-0.0.17](https://github.com/truecharts/apps/compare/etesync-0.0.15...etesync-0.0.17) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [etesync-0.0.15](https://github.com/truecharts/apps/compare/etesync-0.0.14...etesync-0.0.15) (2022-07-19)
 
 ### Chore

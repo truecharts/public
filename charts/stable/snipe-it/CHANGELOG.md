@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [snipe-it-4.0.29](https://github.com/truecharts/apps/compare/snipe-it-4.0.27...snipe-it-4.0.29) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [snipe-it-4.0.27](https://github.com/truecharts/apps/compare/snipe-it-4.0.26...snipe-it-4.0.27) (2022-07-22)
 
 ### Chore

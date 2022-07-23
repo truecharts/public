@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [collabora-online-12.1.20](https://github.com/truecharts/apps/compare/collabora-online-12.1.19...collabora-online-12.1.20) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [collabora-online-12.1.19](https://github.com/truecharts/apps/compare/collabora-online-12.1.18...collabora-online-12.1.19) (2022-07-21)
 
 ### Chore

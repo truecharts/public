@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [remmina-3.0.20](https://github.com/truecharts/apps/compare/remmina-3.0.18...remmina-3.0.20) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [remmina-3.0.18](https://github.com/truecharts/apps/compare/remmina-3.0.17...remmina-3.0.18) (2022-07-19)
 
 ### Chore

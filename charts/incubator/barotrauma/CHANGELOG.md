@@ -4,6 +4,7 @@
 
 
 
+
 <a name="barotrauma-0.0.5"></a>
 ### [barotrauma-0.0.5](https://github.com/truecharts/apps/compare/barotrauma-0.0.4...barotrauma-0.0.5) (2022-05-05)
 

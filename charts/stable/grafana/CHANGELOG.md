@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [grafana-4.0.33](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.10...grafana-4.0.33) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
 
 ### Chore

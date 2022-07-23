@@ -1,6 +1,16 @@
 # Changelog
 
 
+
+## [openldap-7.0.22](https://github.com/truecharts/apps/compare/openldap-7.0.20...openldap-7.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
 ## [openldap-7.0.20](https://github.com/truecharts/apps/compare/openldap-7.0.19...openldap-7.0.20) (2022-07-20)
 
 ### Chore

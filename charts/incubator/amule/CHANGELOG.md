@@ -4,8 +4,9 @@
 
 
 
-<a name="amule-0.0.5"></a>
-### [amule-0.0.5](https://github.com/truecharts/apps/compare/amule-0.0.4...amule-0.0.5) (2022-05-05)
+
+<a name="androiddebugbridge-0.0.5"></a>
+### [androiddebugbridge-0.0.5](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.4...androiddebugbridge-0.0.5) (2022-05-05)
 
 #### Chore
 
@@ -13,8 +14,8 @@
 
 
 
-<a name="amule-0.0.4"></a>
-### [amule-0.0.4](https://github.com/truecharts/apps/compare/amule-0.0.3...amule-0.0.4) (2022-04-26)
+<a name="androiddebugbridge-0.0.4"></a>
+### [androiddebugbridge-0.0.4](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.3...androiddebugbridge-0.0.4) (2022-04-26)
 
 #### Chore
 
@@ -22,8 +23,8 @@
 
 
 
-<a name="amule-0.0.3"></a>
-### [amule-0.0.3](https://github.com/truecharts/apps/compare/amule-0.0.2...amule-0.0.3) (2022-04-20)
+<a name="androiddebugbridge-0.0.3"></a>
+### [androiddebugbridge-0.0.3](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.2...androiddebugbridge-0.0.3) (2022-04-20)
 
 #### Chore
 
@@ -32,8 +33,8 @@
 
 
 
-<a name="amule-0.0.2"></a>
-### [amule-0.0.2](https://github.com/truecharts/apps/compare/amule-0.0.1...amule-0.0.2) (2022-04-12)
+<a name="androiddebugbridge-0.0.2"></a>
+### [androiddebugbridge-0.0.2](https://github.com/truecharts/apps/compare/androiddebugbridge-0.0.1...androiddebugbridge-0.0.2) (2022-04-12)
 
 #### Chore
 
@@ -42,8 +43,8 @@
 
 
 
-<a name="amule-0.0.1"></a>
-### amule-0.0.1 (2022-04-08)
+<a name="androiddebugbridge-0.0.1"></a>
+### androiddebugbridge-0.0.1 (2022-04-08)
 
 #### Feat
 

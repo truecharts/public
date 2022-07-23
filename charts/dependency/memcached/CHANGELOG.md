@@ -1,6 +1,15 @@
 # Changelog
 
 
+
+## [memcached-3.0.42](https://github.com/truecharts/apps/compare/memcached-3.0.41...memcached-3.0.42) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
 ## [memcached-3.0.41](https://github.com/truecharts/apps/compare/memcached-3.0.39...memcached-3.0.41) (2022-07-21)
 
 ### Chore

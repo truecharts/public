@@ -1,6 +1,21 @@
 # Changelog
 
 
+
+## [clamav-3.0.22](https://github.com/truecharts/apps/compare/clamav-3.0.20...clamav-3.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+  ### Fix
+
+- remove some non-utf8 characters
+
+
+
 ## [clamav-3.0.20](https://github.com/truecharts/apps/compare/clamav-3.0.19...clamav-3.0.20) (2022-07-19)
 
 ### Chore
