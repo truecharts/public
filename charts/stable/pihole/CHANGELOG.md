@@ -2,6 +2,15 @@
 
 
 
+## [pihole-6.0.24](https://github.com/truecharts/apps/compare/pihole-6.0.23...pihole-6.0.24) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
 ## [pihole-6.0.23](https://github.com/truecharts/apps/compare/pihole-6.0.21...pihole-6.0.23) (2022-07-22)
 
 ### Chore

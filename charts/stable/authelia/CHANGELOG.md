@@ -2,6 +2,15 @@
 
 
 
+## [authelia-11.0.27](https://github.com/truecharts/apps/compare/authelia-11.0.26...authelia-11.0.27) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
 ## [authelia-11.0.26](https://github.com/truecharts/apps/compare/authelia-11.0.25...authelia-11.0.26) (2022-07-23)
 
 ### Chore

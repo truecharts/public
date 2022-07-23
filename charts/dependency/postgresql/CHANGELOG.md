@@ -2,6 +2,7 @@
 
 
 
+
 ## [postgresql-8.0.43](https://github.com/truecharts/apps/compare/postgresql-8.0.42...postgresql-8.0.43) (2022-07-22)
 
 ### Chore
