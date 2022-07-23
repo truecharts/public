@@ -2,6 +2,15 @@
 
 
 
+## [drawio-2.0.28](https://github.com/truecharts/apps/compare/drawio-2.0.27...drawio-2.0.28) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3272](https://github.com/truecharts/apps/issues/3272))
+
+
+
+
 ## [drawio-2.0.27](https://github.com/truecharts/apps/compare/drawio-2.0.25...drawio-2.0.27) (2022-07-22)
 
 ### Chore

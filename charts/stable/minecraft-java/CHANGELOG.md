@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-java-1.0.30](https://github.com/truecharts/apps/compare/minecraft-java-1.0.29...minecraft-java-1.0.30) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3272](https://github.com/truecharts/apps/issues/3272))
+
+
+
+
 ## [minecraft-java-1.0.29](https://github.com/truecharts/apps/compare/minecraft-java-1.0.27...minecraft-java-1.0.29) (2022-07-22)
 
 ### Chore

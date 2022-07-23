@@ -2,6 +2,15 @@
 
 
 
+## [ombi-11.0.23](https://github.com/truecharts/apps/compare/ombi-11.0.22...ombi-11.0.23) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3272](https://github.com/truecharts/apps/issues/3272))
+
+
+
+
 ## [ombi-11.0.22](https://github.com/truecharts/apps/compare/ombi-11.0.20...ombi-11.0.22) (2022-07-22)
 
 ### Chore
