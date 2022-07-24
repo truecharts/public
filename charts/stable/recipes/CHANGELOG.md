@@ -2,6 +2,18 @@
 
 
 
+## [recipes-8.0.29](https://github.com/truecharts/apps/compare/recipes-8.0.27...recipes-8.0.29) (2022-07-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [recipes-8.0.28](https://github.com/truecharts/apps/compare/recipes-8.0.27...recipes-8.0.28) (2022-07-23)
 
 ### Chore
