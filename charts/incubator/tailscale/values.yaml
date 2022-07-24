@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/tailscale
+  repository: docker.io/tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.29.20@sha256:8139d7cbeea8a8d2329f1afef0a65674153087cf5bb50890580049654ebe3067
+  tag: stable@sha256:4d36e69677aa9b88568c8d883306da251a7125a589ebf57f7ac5aa6d76797b83
 
 securityContext:
   privileged: true
