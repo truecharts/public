@@ -2,7 +2,18 @@
 
 
 
-## [cowyo-0.0.12](https://github.com/truecharts/apps/compare/cowyo-0.0.11...cowyo-0.0.12) (2022-07-23)
+## [craftopia-0.0.12](https://github.com/truecharts/apps/compare/craftopia-0.0.11...craftopia-0.0.12) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [craftopia-0.0.12](https://github.com/truecharts/apps/compare/craftopia-0.0.11...craftopia-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -12,7 +23,7 @@
 
 
 
-## [cowyo-0.0.12](https://github.com/truecharts/apps/compare/cowyo-0.0.11...cowyo-0.0.12) (2022-07-23)
+## [craftopia-0.0.12](https://github.com/truecharts/apps/compare/craftopia-0.0.11...craftopia-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -21,7 +32,7 @@
 
 
 
-## [cowyo-0.0.11](https://github.com/truecharts/apps/compare/cowyo-0.0.10...cowyo-0.0.11) (2022-07-22)
+## [craftopia-0.0.11](https://github.com/truecharts/apps/compare/craftopia-0.0.10...craftopia-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -30,7 +41,7 @@
 
 
 
-## [cowyo-0.0.10]cowyo-0.0.10 (2022-07-20)
+## [craftopia-0.0.10]craftopia-0.0.10 (2022-07-20)
 
 ### Feat
 

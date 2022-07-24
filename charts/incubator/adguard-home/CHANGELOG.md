@@ -2,6 +2,7 @@
 
 
 
+
 ## [adguard-home-1.0.24](https://github.com/truecharts/apps/compare/adguard-home-1.0.23...adguard-home-1.0.24) (2022-07-23)
 
 ### Chore

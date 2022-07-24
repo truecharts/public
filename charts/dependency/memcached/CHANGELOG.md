@@ -2,6 +2,15 @@
 
 
 
+## [memcached-3.0.45](https://github.com/truecharts/apps/compare/memcached-3.0.44...memcached-3.0.45) (2022-07-24)
+
+### Chore
+
+- update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+
+
+
+
 ## [memcached-3.0.44](https://github.com/truecharts/apps/compare/memcached-3.0.43...memcached-3.0.44) (2022-07-23)
 
 ### Chore

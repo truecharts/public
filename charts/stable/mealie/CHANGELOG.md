@@ -2,7 +2,18 @@
 
 
 
-## [mealie-8.0.24](https://github.com/truecharts/apps/compare/mealie-8.0.23...mealie-8.0.24) (2022-07-23)
+## [medusa-3.0.26](https://github.com/truecharts/apps/compare/medusa-3.0.25...medusa-3.0.26) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [medusa-3.0.26](https://github.com/truecharts/apps/compare/medusa-3.0.25...medusa-3.0.26) (2022-07-23)
 
 ### Chore
 
@@ -12,7 +23,7 @@
 
 
 
-## [mealie-8.0.24](https://github.com/truecharts/apps/compare/mealie-8.0.23...mealie-8.0.24) (2022-07-23)
+## [medusa-3.0.26](https://github.com/truecharts/apps/compare/medusa-3.0.25...medusa-3.0.26) (2022-07-23)
 
 ### Chore
 
@@ -21,16 +32,7 @@
 
 
 
-## [mealie-8.0.23](https://github.com/truecharts/apps/compare/mealie-8.0.22...mealie-8.0.23) (2022-07-23)
-
-### Chore
-
-- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
-
-
-
-
-## [mealie-8.0.22](https://github.com/truecharts/apps/compare/mealie-8.0.20...mealie-8.0.22) (2022-07-22)
+## [medusa-3.0.25](https://github.com/truecharts/apps/compare/medusa-3.0.23...medusa-3.0.25) (2022-07-22)
 
 ### Chore
 
@@ -39,7 +41,7 @@
 
 
 
-## [mealie-8.0.20](https://github.com/truecharts/apps/compare/mealie-8.0.19...mealie-8.0.20) (2022-07-20)
+## [medusa-3.0.23](https://github.com/truecharts/apps/compare/medusa-3.0.22...medusa-3.0.23) (2022-07-20)
 
 ### Chore
 
@@ -47,7 +49,7 @@
 
 
 
-## [mealie-8.0.19](https://github.com/truecharts/apps/compare/mealie-8.0.18...mealie-8.0.19) (2022-07-19)
+## [medusa-3.0.22](https://github.com/truecharts/apps/compare/medusa-3.0.21...medusa-3.0.22) (2022-07-19)
 
 ### Chore
 
@@ -55,12 +57,19 @@
 
 
 
-## [mealie-8.0.18](https://github.com/truecharts/apps/compare/mealie-8.0.17...mealie-8.0.18) (2022-07-14)
+## [medusa-3.0.21](https://github.com/truecharts/apps/compare/medusa-3.0.20...medusa-3.0.21) (2022-07-14)
 
 ### Fix
 
 - regenerate catalog and update template
 
+
+
+## [mealie-8.0.17](https://github.com/truecharts/apps/compare/mealie-8.0.15...mealie-8.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
 
 
 

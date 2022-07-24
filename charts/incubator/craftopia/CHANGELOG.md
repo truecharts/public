@@ -2,6 +2,7 @@
 
 
 
+
 ## [craftopia-0.0.12](https://github.com/truecharts/apps/compare/craftopia-0.0.11...craftopia-0.0.12) (2022-07-23)
 
 ### Chore
