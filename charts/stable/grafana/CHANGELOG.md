@@ -2,6 +2,18 @@
 
 
 
+## [grafana-4.0.36](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.36) (2022-07-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
 ## [grafana-4.0.35](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.35) (2022-07-23)
 
 ### Chore
