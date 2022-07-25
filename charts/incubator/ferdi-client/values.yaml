@@ -1,12 +1,12 @@
 env:
   CUSTOM_RES_H: "768"
   CUSTOM_RES_W: "1280"
-  FERDI_V: stable
+  FERDI_V: stable@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ferdi-client
-  tag: latest
+  tag: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
 persistence:
   datadir:
     enabled: true
