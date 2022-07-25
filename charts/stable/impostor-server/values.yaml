@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/impostor-server
   pullPolicy: IfNotPresent
-  tag: v1.7.1@sha256:523b9570b1eb8cf3579ba019f1ff07ea4fe99c5f8d7f0901593821ecb8e5c148
+  tag: v1.7.1@sha256:6958d1db56c544f612157334a0a6b9aa4c13edc8a5df5b154ae4918608da4035
 
 nightlyImage:
   repository: tccr.io/truecharts/impostor-server-nightly
   pullPolicy: IfNotPresent
-  tag: vnightly@sha256:2783d83a6d2c23fb2534ec45dcc9f96cb969357aa9f3846faeeea09a82a3a842
+  tag: vnightly@sha256:84ff3191df60fc17bfcd0e5c903eb7545ce0e5402a7cc7b019cf1614d97687bd
 
 env:
   IMPOSTOR_Server__PublicIp: "127.0.0.1"
