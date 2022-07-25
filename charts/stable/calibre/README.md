@@ -1,6 +1,6 @@
 # calibre
 
-![Version: 7.0.27](https://img.shields.io/badge/Version-7.0.27-informational?style=flat-square) ![AppVersion: 6.1.0](https://img.shields.io/badge/AppVersion-6.1.0-informational?style=flat-square)
+![Version: 7.0.28](https://img.shields.io/badge/Version-7.0.28-informational?style=flat-square) ![AppVersion: 6.1.0](https://img.shields.io/badge/AppVersion-6.1.0-informational?style=flat-square)
 
 Calibre is a powerful and easy to use e-book manager.
 
