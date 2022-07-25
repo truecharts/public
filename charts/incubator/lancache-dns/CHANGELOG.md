@@ -2,6 +2,15 @@
 
 
 
+## [lancache-dns-0.0.10](https://github.com/truecharts/apps/compare/lancache-dns-0.0.9...lancache-dns-0.0.10) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3298](https://github.com/truecharts/apps/issues/3298))
+
+
+
+
 ## [lancache-dns-0.0.9](https://github.com/truecharts/apps/compare/lancache-dns-0.0.8...lancache-dns-0.0.9) (2022-07-23)
 
 ### Chore

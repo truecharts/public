@@ -2,6 +2,15 @@
 
 
 
+## [lancache-monolithic-0.0.14](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.13...lancache-monolithic-0.0.14) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3298](https://github.com/truecharts/apps/issues/3298))
+
+
+
+
 ## [lancache-monolithic-0.0.13](https://github.com/truecharts/apps/compare/lancache-monolithic-0.0.12...lancache-monolithic-0.0.13) (2022-07-23)
 
 ### Chore
