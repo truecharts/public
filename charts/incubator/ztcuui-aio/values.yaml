@@ -5,12 +5,12 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 #   allowPrivilegeEscalation: true
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   HTTP_PORT: "4000"
