@@ -4,7 +4,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: ghcr.io/truecharts/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:840ca35ddaaf96324b673bee5154c13484908286dc4390557a8d635fbf4e0476
+  tag: latest@sha256:1f83decdf614cbf48e2429921b6f0efa0e825f447f5c510b65bc90f660227688
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -14,7 +14,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:2cb83ed964c53a02d31ba4a07e04ea835a44c5a949ca52625d145d9fda5d30fe
+  tag: v1.0.20210914@sha256:193e41d15efd71a1d17c14b0f2581153289ca648d9bd5de7498c9cf0856dd98a
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,7 +24,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.6.1@sha256:5cb08b84c0fe2dd0eff2b22eae6b6e341191e79dba8d863eaaf38b8282870108
+  tag: v2.6.1@sha256:e40671972c3ebdf7dc562b86c2f489418a03998daf44a72818e8243f9636f972
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: ghcr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:659892f163ae2f2295727d087f4e04cec2d12002c8466d1cff64a5516bb30bfa
+  tag: latest@sha256:e7315c07de7319a22cf81cf7a32d081411cbdb8df181a3a01227839b14331151
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v4.5.1@sha256:bef266a1988247a18a1f1249604c435e7cf1c96cc1966c2a4809e5b0a170cf6b
+  tag: v4.5.1@sha256:6fe1562f98333108b6004cdade0d28577dcf7523e62b0e5217bf4feb14fa4593
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
