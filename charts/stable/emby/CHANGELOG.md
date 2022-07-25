@@ -2,6 +2,15 @@
 
 
 
+## [emby-11.0.22](https://github.com/truecharts/apps/compare/emby-sync-0.0.12...emby-11.0.22) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [emby-11.0.21](https://github.com/truecharts/apps/compare/emby-11.0.20...emby-11.0.21) (2022-07-23)
 
 ### Chore

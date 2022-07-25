@@ -2,6 +2,15 @@
 
 
 
+## [cloudflareddns-1.0.8](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.7...cloudflareddns-1.0.8) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [cloudflareddns-1.0.7](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.6...cloudflareddns-1.0.7) (2022-07-23)
 
 ### Chore

@@ -1,6 +1,6 @@
 # zigbee2mqtt
 
-![Version: 4.0.23](https://img.shields.io/badge/Version-4.0.23-informational?style=flat-square) ![AppVersion: 1.26.0](https://img.shields.io/badge/AppVersion-1.26.0-informational?style=flat-square)
+![Version: 4.0.24](https://img.shields.io/badge/Version-4.0.24-informational?style=flat-square) ![AppVersion: 1.26.0](https://img.shields.io/badge/AppVersion-1.26.0-informational?style=flat-square)
 
 Bridges events and allows you to control your Zigbee devices via MQTT
 

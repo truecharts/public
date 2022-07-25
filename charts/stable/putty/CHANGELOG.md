@@ -2,6 +2,15 @@
 
 
 
+## [putty-1.0.1](https://github.com/truecharts/apps/compare/putty-1.0.0...putty-1.0.1) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [putty-1.0.0](https://github.com/truecharts/apps/compare/putty-0.0.14...putty-1.0.0) (2022-07-23)
 
 ### Chore

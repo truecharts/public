@@ -1,6 +1,6 @@
 # recipes
 
-![Version: 8.0.29](https://img.shields.io/badge/Version-8.0.29-informational?style=flat-square) ![AppVersion: 1.3.2](https://img.shields.io/badge/AppVersion-1.3.2-informational?style=flat-square)
+![Version: 8.0.30](https://img.shields.io/badge/Version-8.0.30-informational?style=flat-square) ![AppVersion: 1.3.2](https://img.shields.io/badge/AppVersion-1.3.2-informational?style=flat-square)
 
 Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
 

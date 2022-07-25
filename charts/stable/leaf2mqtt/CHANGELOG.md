@@ -2,6 +2,15 @@
 
 
 
+## [leaf2mqtt-4.0.23](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.22...leaf2mqtt-4.0.23) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [leaf2mqtt-4.0.22](https://github.com/truecharts/apps/compare/leaf2mqtt-4.0.21...leaf2mqtt-4.0.22) (2022-07-23)
 
 ### Chore

@@ -1,6 +1,6 @@
 # statping
 
-![Version: 7.0.23](https://img.shields.io/badge/Version-7.0.23-informational?style=flat-square) ![AppVersion: 0.90.78](https://img.shields.io/badge/AppVersion-0.90.78-informational?style=flat-square)
+![Version: 7.0.24](https://img.shields.io/badge/Version-7.0.24-informational?style=flat-square) ![AppVersion: 0.90.78](https://img.shields.io/badge/AppVersion-0.90.78-informational?style=flat-square)
 
 Status page for monitoring your websites and applications
 

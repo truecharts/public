@@ -2,6 +2,15 @@
 
 
 
+## [leantime-4.0.26](https://github.com/truecharts/apps/compare/leantime-4.0.25...leantime-4.0.26) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [leantime-4.0.25](https://github.com/truecharts/apps/compare/leantime-4.0.24...leantime-4.0.25) (2022-07-23)
 
 ### Chore

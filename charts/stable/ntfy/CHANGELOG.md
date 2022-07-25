@@ -2,6 +2,15 @@
 
 
 
+## [ntfy-2.0.25](https://github.com/truecharts/apps/compare/ntfy-2.0.24...ntfy-2.0.25) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [ntfy-2.0.24](https://github.com/truecharts/apps/compare/ntfy-2.0.23...ntfy-2.0.24) (2022-07-23)
 
 ### Chore

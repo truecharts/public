@@ -1,6 +1,6 @@
 # filezilla
 
-![Version: 4.0.23](https://img.shields.io/badge/Version-4.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.55.1](https://img.shields.io/badge/AppVersion-3.55.1-informational?style=flat-square)
+![Version: 4.0.24](https://img.shields.io/badge/Version-4.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.55.1](https://img.shields.io/badge/AppVersion-3.55.1-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 

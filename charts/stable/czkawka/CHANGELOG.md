@@ -2,6 +2,15 @@
 
 
 
+## [czkawka-1.0.1](https://github.com/truecharts/apps/compare/czkawka-1.0.0...czkawka-1.0.1) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [czkawka-1.0.0](https://github.com/truecharts/apps/compare/czkawka-0.0.15...czkawka-1.0.0) (2022-07-23)
 
 ### Chore

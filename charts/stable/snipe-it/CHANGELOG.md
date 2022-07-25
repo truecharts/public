@@ -2,6 +2,15 @@
 
 
 
+## [snipe-it-4.0.32](https://github.com/truecharts/apps/compare/snipe-it-4.0.31...snipe-it-4.0.32) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [snipe-it-4.0.31](https://github.com/truecharts/apps/compare/snipe-it-4.0.30...snipe-it-4.0.31) (2022-07-23)
 
 ### Chore

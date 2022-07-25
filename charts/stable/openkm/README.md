@@ -1,6 +1,6 @@
 # openkm
 
-![Version: 7.0.23](https://img.shields.io/badge/Version-7.0.23-informational?style=flat-square) ![AppVersion: 6.3.11](https://img.shields.io/badge/AppVersion-6.3.11-informational?style=flat-square)
+![Version: 7.0.24](https://img.shields.io/badge/Version-7.0.24-informational?style=flat-square) ![AppVersion: 6.3.11](https://img.shields.io/badge/AppVersion-6.3.11-informational?style=flat-square)
 
 OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
 

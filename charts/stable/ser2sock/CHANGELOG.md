@@ -2,6 +2,15 @@
 
 
 
+## [ser2sock-6.0.24](https://github.com/truecharts/apps/compare/ser2sock-6.0.23...ser2sock-6.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [ser2sock-6.0.23](https://github.com/truecharts/apps/compare/ser2sock-6.0.22...ser2sock-6.0.23) (2022-07-23)
 
 ### Chore
