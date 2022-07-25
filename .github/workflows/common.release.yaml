@@ -27,7 +27,7 @@ jobs:
         git config user.email "bot@truecharts.org"
 
     - name: Install Helm
-      uses: azure/setup-helm@e4f3964f67aac34233ac06d6614802b7040f2a7c # tag=v3
+      uses: azure/setup-helm@b5b231a831f96336bbfeccc1329990f0005c5bb1 # tag=v3
       with:
         version: v3.5.4
 
