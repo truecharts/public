@@ -3,8 +3,8 @@ image:
   tag: 1.2.11@sha256:d65638287ab8429fa0ad6cdc57a8ab3e74fb0dcae6e81ffdc42c25ab88a55f05
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 #   runAsNonRoot: false
 #   allowPrivilegeEscalation: true
 
