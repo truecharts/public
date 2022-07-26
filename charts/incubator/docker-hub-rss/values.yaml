@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/docker-hub-rss
-  tag: latest
+  tag: latest@sha256:6c61d28799a5728402ad86f2e4f0450c2e9ec83507cd8c9c75e6bd3a024fab56
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rickroll
-  tag: latest
+  tag: latest@sha256:51bfa7a3b730d249437be1bcab08a09344fde4ab624d0476daa0aebaddaf4634
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

@@ -1,6 +1,6 @@
 # koel
 
-![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 3.0.26](https://img.shields.io/badge/Version-3.0.26-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.43 |
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://charts.truecharts.org/ | mariadb | 3.0.46 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

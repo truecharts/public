@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/teedy-docs
-  tag: latest
+  tag: latest@sha256:7389ea59e479617408dddbac793b75229ce53628a34dd17c894649902ef5586c
 persistence:
   data:
     enabled: true

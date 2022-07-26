@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
-  tag: latest
+  tag: latest@sha256:d5be57d09ef1deb9067d947f8c64bb97f688d70c6871b6e670935ef8dfef6795
 persistence:
   config:
     enabled: true

@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/restreamer
-  tag: latest
+  tag: latest@sha256:21f235d53ba6df104a570569d158a33123262c7b76a8c0c1fab08cd347616d4e
 persistence:
   datapath:
     enabled: true

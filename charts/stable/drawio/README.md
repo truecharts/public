@@ -1,6 +1,6 @@
 # drawio
 
-![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![AppVersion: 20.2.0](https://img.shields.io/badge/AppVersion-20.2.0-informational?style=flat-square)
+![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![AppVersion: 20.2.0](https://img.shields.io/badge/AppVersion-20.2.0-informational?style=flat-square)
 
 Drawio is free online diagram software.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

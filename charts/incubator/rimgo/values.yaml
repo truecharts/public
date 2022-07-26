@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rimgo
-  tag: latest
+  tag: latest@sha256:6917380d9c29ce522be037784f084139ca6a5c2449d1741f54e8f227f22c8c8c
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

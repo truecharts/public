@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fistfuloffrags
-  tag: latest
+  tag: latest@sha256:0735bbff36f08b57f9556ba3cc5b70c116ba7669a0daf1aa20be194aac4bae20
 persistence:
   serverfiles:
     enabled: true

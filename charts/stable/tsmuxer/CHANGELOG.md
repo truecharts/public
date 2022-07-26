@@ -2,6 +2,16 @@
 
 
 
+## [tsmuxer-1.0.1](https://github.com/truecharts/apps/compare/tsmuxer-1.0.0...tsmuxer-1.0.1) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [tsmuxer-1.0.0](https://github.com/truecharts/apps/compare/tsmuxer-0.0.13...tsmuxer-1.0.0) (2022-07-23)
 
 ### Chore

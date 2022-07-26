@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/v-rising
-  tag: latest
+  tag: latest@sha256:9488d7ca887d905d931b4c71c801bfdbf81b58fc29aee0338956a691f3d046d0
 persistence:
   serverfiles:
     enabled: true

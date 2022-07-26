@@ -2,6 +2,16 @@
 
 
 
+## [ddclient-2.0.23](https://github.com/truecharts/apps/compare/ddclient-2.0.22...ddclient-2.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [ddclient-2.0.22](https://github.com/truecharts/apps/compare/ddclient-2.0.21...ddclient-2.0.22) (2022-07-23)
 
 ### Chore

@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/neko
-  tag: latest
+  tag: latest@sha256:14e4b398609f6d18e80fbf6545835f06246032336580084270738a783371a2e3
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

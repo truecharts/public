@@ -1,6 +1,6 @@
 # browserless-chrome
 
-![Version: 2.0.22](https://img.shields.io/badge/Version-2.0.22-informational?style=flat-square) ![AppVersion: 1.54.0](https://img.shields.io/badge/AppVersion-1.54.0-informational?style=flat-square)
+![Version: 2.0.24](https://img.shields.io/badge/Version-2.0.24-informational?style=flat-square) ![AppVersion: 1.54.0](https://img.shields.io/badge/AppVersion-1.54.0-informational?style=flat-square)
 
 Browserless is a web-service that allows for remote clients to connect, drive, and execute headless work
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

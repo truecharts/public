@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plaxt
-  tag: latest
+  tag: latest@sha256:da5223efed05cf981a0a5a4670cfbd609db5c3ad0b4653ba88a6b08a77805cc1
 persistence:
   hostpathforkeystore:
     enabled: true

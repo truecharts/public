@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/lingva
-  tag: latest
+  tag: latest@sha256:7723a3498611a8eaf8584fc3bfbad5b5532188b6928672b5d12ecf2d90f3076c
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

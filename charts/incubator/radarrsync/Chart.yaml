@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "RadarrSync Syncs two Radarr servers through web API. This is a modified\
   \ version designed to be run in a docker container. This version supports only two\
   \ servers.\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/radarrsync
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/radarrsync
 icon: https://truecharts.org/img/chart-icons/radarrsync.png
 keywords:
   - radarrsync
@@ -28,4 +28,4 @@ sources:
   - https://github.com/dairefinn/RadarrSync
   - https://hub.docker.com/r/dmanius/radarrsync-docker/
 type: application
-version: 0.0.12
+version: 0.0.14

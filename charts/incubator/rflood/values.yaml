@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rflood
-  tag: latest
+  tag: latest@sha256:d0b6da54899ff0580bea934d5638e9f887217b72935eb668958cf4391e747fcd
 persistence:
   config:
     enabled: true

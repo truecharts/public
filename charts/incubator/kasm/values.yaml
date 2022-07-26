@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kasm
-  tag: latest
+  tag: latest@sha256:86c41cb380fd6905e8cd13642761450c1138a8b7468143083d7c956a827c98b5
 persistence:
   pathopt:
     enabled: true

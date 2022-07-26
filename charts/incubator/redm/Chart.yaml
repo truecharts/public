@@ -7,7 +7,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "With this Docker you can run RedM (Red Dead Redemption 2 MOD SERVER)\
@@ -18,7 +18,7 @@ description:
   \ https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/ To run this\
   \ container you must provide a valid Server Key (you can get them from here: https://keymaster.fivem.net/)\
   \ and your prefered Server Name.\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/redm
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/redm
 icon: https://truecharts.org/img/chart-icons/redm.png
 keywords:
   - redm
@@ -33,4 +33,4 @@ sources:
   - https://redm.gg/
   - https://hub.docker.com/r/ich777/redmserver/
 type: application
-version: 0.0.12
+version: 0.0.14

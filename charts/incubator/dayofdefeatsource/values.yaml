@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dayofdefeatsource
-  tag: latest
+  tag: latest@sha256:34a328de3107fd3e55203bc6c0638cb1e102422eea97af37d13b518b89660fda
 persistence:
   serverfiles:
     enabled: true

@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/github-backup
-  tag: latest
+  tag: latest@sha256:7209e1606631a7ee71dcff591eb5e82cfb5ff9b909d6e9cfe38bbeba27851fd8
 persistence:
   backuplocation:
     enabled: true

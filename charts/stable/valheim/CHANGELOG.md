@@ -2,6 +2,34 @@
 
 
 
+## [valheim-3.0.26](https://github.com/truecharts/apps/compare/valheim-3.0.25...valheim-3.0.26) (2022-07-26)
+
+### Chore
+
+- update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [valheim-3.0.25](https://github.com/truecharts/apps/compare/valheim-3.0.24...valheim-3.0.25) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [valheim-3.0.25](https://github.com/truecharts/apps/compare/valheim-3.0.24...valheim-3.0.25) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [valheim-3.0.24](https://github.com/truecharts/apps/compare/valheim-3.0.23...valheim-3.0.24) (2022-07-23)
 
 ### Chore

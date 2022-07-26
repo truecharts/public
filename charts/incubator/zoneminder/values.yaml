@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/zoneminder
-  tag: latest
+  tag: latest@sha256:8c95874d836c198e074a9cc4b7df3f85f4a71ab900de9679339182fbe172ef3b
 persistence:
   config:
     enabled: true

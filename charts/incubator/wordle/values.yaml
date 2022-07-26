@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/wordle
-  tag: latest
+  tag: latest@sha256:63e8cf47ca64a191d1c09d2fc4f45f609477f767b0268c38eb565b11fdef6982
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

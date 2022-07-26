@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   Containerised version of XMRig for CPU Mining. Helps turn your TrueNAS
   server into a Monero / cryptocurrency mining rig. Now optionally works with GPU
   algorithms as well.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/xmrig
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/xmrig
 icon: https://truecharts.org/img/chart-icons/xmrig.png
 keywords:
   - xmrig
@@ -27,4 +27,4 @@ name: xmrig
 sources:
   - https://hub.docker.com/r/lnxd/xmrig
 type: application
-version: 0.0.12
+version: 0.0.14

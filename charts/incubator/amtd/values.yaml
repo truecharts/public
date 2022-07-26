@@ -16,7 +16,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/amtd
-  tag: latest
+  tag: latest@sha256:8ff3d9b1a4b5954434b7797f43cbd5eafff85909f6a8efce9a0673126db6c45f
 persistence:
   config:
     enabled: true

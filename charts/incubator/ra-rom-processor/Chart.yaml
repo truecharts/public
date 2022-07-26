@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   RA ROM Processor is a Docker container that is used to download/orgainze/process/verify/dedupe/scrape
   a ROMs library automatically by matching ROMs to the RetroAchievement.org website
   Hash database.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/ra-rom-processor
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/ra-rom-processor
 icon: https://truecharts.org/img/chart-icons/ra-rom-processor.png
 keywords:
   - ra-rom-processor
@@ -29,4 +29,4 @@ sources:
   - https://hub.docker.com/r/randomninjaatk/raromprocessor
   - https://github.com/RandomNinjaAtk/docker-raromprocessor#instructionsusage-guidelines
 type: application
-version: 0.0.12
+version: 0.0.14

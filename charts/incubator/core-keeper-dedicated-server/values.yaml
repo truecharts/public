@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/core-keeper-dedicated-server
-  tag: latest
+  tag: latest@sha256:1ff3a612d5cfae94638385797085a019193b6470446233e8386a37cb47a10f6f
 persistence:
   datafiles:
     enabled: true

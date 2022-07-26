@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/lemur-cfssl
-  tag: latest
+  tag: latest@sha256:bc1186535bdf1d0bd9206133d1753c8844c7158c14f08b328a92af639c7e80f4
 persistence:
   config:
     enabled: true

@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tasmobackup
-  tag: latest
+  tag: latest@sha256:8c167ae88c4b6d8a08d6470ac1aedce3f18ded6cd183414cbb9cb8951cbd37b9
 persistence:
   data:
     enabled: true

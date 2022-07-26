@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/traktarr
-  tag: latest
+  tag: latest@sha256:1afd7ccd3912d59d685044dace1452a518b09f9794e77c2cc1f0fe71716e0cb7
 persistence:
   config:
     enabled: true

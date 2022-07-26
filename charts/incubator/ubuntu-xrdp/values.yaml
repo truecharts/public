@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ubuntu-xrdp
-  tag: latest
+  tag: latest@sha256:929a5859c03ad430696433a5c348650a575ecc562e917d41c429e7573eb9a38f
 persistence:
   ubuntu-xrdp:
     enabled: true

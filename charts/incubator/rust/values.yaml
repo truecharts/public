@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rust
-  tag: latest
+  tag: latest@sha256:8d65e9baafae8cd67db23b8906f63b6ecc4c9e5c504810aeb454be512cd4fba4
 persistence:
   serverfiles:
     enabled: true

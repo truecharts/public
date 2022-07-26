@@ -1,6 +1,6 @@
 # openkm
 
-![Version: 7.0.23](https://img.shields.io/badge/Version-7.0.23-informational?style=flat-square) ![AppVersion: 6.3.11](https://img.shields.io/badge/AppVersion-6.3.11-informational?style=flat-square)
+![Version: 7.0.25](https://img.shields.io/badge/Version-7.0.25-informational?style=flat-square) ![AppVersion: 6.3.11](https://img.shields.io/badge/AppVersion-6.3.11-informational?style=flat-square)
 
 OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.45 |
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://charts.truecharts.org/ | postgresql | 8.0.48 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

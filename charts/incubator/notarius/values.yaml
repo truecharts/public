@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/notarius
-  tag: latest
+  tag: latest@sha256:dfda981ce2e5b84208b431ffe4390af5797ad3f9e1117939f1a0f56fd713439f
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

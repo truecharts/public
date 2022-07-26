@@ -1,6 +1,6 @@
 # endlessh
 
-![Version: 2.0.21](https://img.shields.io/badge/Version-2.0.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.11.21](https://img.shields.io/badge/AppVersion-2021.11.21-informational?style=flat-square)
+![Version: 2.0.22](https://img.shields.io/badge/Version-2.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.11.21](https://img.shields.io/badge/AppVersion-2021.11.21-informational?style=flat-square)
 
 Endlessh is an SSH tarpit that very slowly sends an endless, random SSH banner.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fluttercoin-wallet
-  tag: latest
+  tag: latest@sha256:1f99a09f2c9c026f431812060dc250b6205b69c43b86e095090482e70efac4e1
 persistence:
   datapath:
     enabled: true

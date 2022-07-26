@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/scprime
-  tag: latest
+  tag: latest@sha256:a600d7deeb7c188cb1300f51bcf5dfdc92e494942e8c69b5b581a3bacd73e6dd
 persistence:
   metadata:
     enabled: true

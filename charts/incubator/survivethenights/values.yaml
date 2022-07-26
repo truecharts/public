@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/survivethenights
-  tag: latest
+  tag: latest@sha256:2d3c4dda4e5c0215d3c67b42cffd065e16064e4be47d85d5c283cf6a66443e21
 persistence:
   serverfiles:
     enabled: true

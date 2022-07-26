@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cstrike1-6
-  tag: latest
+  tag: latest@sha256:e852e4999b68304bda93274d5ab90588f8be2cb37d124dcb72ba7f8fbc43398b
 persistence:
   serverfiles:
     enabled: true

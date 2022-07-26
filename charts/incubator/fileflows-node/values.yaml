@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fileflows-node
-  tag: latest
+  tag: latest@sha256:70a21cf6e4e659c8425ddb979afb9d779d5c2831a113c275c4134e0dc655c625
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

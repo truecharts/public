@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dayz
-  tag: latest
+  tag: latest@sha256:5352bf4d7395f16b0c6318872ec026a702cd3faa065e9c1348f6c376a2d7bcae
 persistence:
   serverfiles:
     enabled: true

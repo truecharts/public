@@ -12,7 +12,9 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  CONTEXT_PATH: # "url-base"
+  # -- sets the context path parameter
+  # Example: "url-base"
+  CONTEXT_PATH:
   JAVA_OPTS:
 
 service:

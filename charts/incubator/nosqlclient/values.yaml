@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/nosqlclient
-  tag: latest
+  tag: latest@sha256:ad605b40408d5dcc0fb1503ca4e58f442999330b9a2cbdc068fdbe637cb8bd5e
 persistence:
   appdata:
     enabled: true

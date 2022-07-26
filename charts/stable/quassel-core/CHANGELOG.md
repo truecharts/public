@@ -2,6 +2,16 @@
 
 
 
+## [quassel-core-3.0.23](https://github.com/truecharts/apps/compare/quassel-core-3.0.22...quassel-core-3.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [quassel-core-3.0.22](https://github.com/truecharts/apps/compare/quassel-core-3.0.21...quassel-core-3.0.22) (2022-07-23)
 
 ### Chore

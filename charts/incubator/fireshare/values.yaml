@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fireshare
-  tag: latest
+  tag: latest@sha256:01a7fe0eb8c31b2c74158912921c15fbe44eec5b67788f77c1182461137dfaa7
 persistence:
   data:
     enabled: true

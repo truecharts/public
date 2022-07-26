@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/vorta
-  tag: latest
+  tag: latest@sha256:3915c377ed331acc5a8070b7c5c4cac85448d2490c7fc88836487687a2f2f672
 persistence:
   backupsfrom:
     enabled: true

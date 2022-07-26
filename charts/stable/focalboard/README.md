@@ -1,6 +1,6 @@
 # focalboard
 
-![Version: 9.0.24](https://img.shields.io/badge/Version-9.0.24-informational?style=flat-square) ![AppVersion: 7.1.0](https://img.shields.io/badge/AppVersion-7.1.0-informational?style=flat-square)
+![Version: 9.0.26](https://img.shields.io/badge/Version-9.0.26-informational?style=flat-square) ![AppVersion: 7.1.0](https://img.shields.io/badge/AppVersion-7.1.0-informational?style=flat-square)
 
 Focalboard is an open source, self-hosted alternative to Trello, Notion, and Asana.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.45 |
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://charts.truecharts.org/ | postgresql | 8.0.48 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

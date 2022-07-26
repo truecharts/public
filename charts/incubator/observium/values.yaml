@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/observium
-  tag: latest
+  tag: latest@sha256:24e13318c9470ba8dd8a13ac21da453b28193b67fa4786ed5ee314062d2f322b
 persistence:
   observium:
     enabled: true

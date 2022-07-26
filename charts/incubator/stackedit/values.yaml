@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/stackedit
-  tag: latest
+  tag: latest@sha256:6726cbd49d3071da041ba939153975c1af40c50a126dc4510b55ee39fd42b569
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

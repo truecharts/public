@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/google-cloud-storage-backup
-  tag: latest
+  tag: latest@sha256:1ec8c5bac28083d5749d8bcd68a0035f4a389e92efe024b0e28682c665b14032
 persistence:
   google-cloud-storage-backup:
     enabled: true

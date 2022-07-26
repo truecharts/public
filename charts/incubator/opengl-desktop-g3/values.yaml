@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/opengl-desktop-g3
-  tag: latest
+  tag: latest@sha256:bba4ae1e47547ff8056797969c5900ac07f628e5a2dd4568c81e1eb93b7396c0
 persistence:
   internalshare:
     enabled: true

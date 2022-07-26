@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/storm
-  tag: latest
+  tag: latest@sha256:14cee56736d1e3e2d6aaa9c419ec30bb449eb6b42673bb55fb76fc27802903b0
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

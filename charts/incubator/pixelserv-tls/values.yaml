@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pixelserv-tls
-  tag: latest
+  tag: latest@sha256:64d7cf54725a9f10c05e893029ae8cded6a46fdac0148063e2969df5efc3877b
 persistence:
   certficatesdir:
     enabled: true

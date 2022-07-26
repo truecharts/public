@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cleanarr
-  tag: latest
+  tag: latest@sha256:4c1d5e10372fc89e675ec7e2dcc588b05f9450f36f7dec1ce26026b087abc449
 persistence:
   config:
     enabled: true

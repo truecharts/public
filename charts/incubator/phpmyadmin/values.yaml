@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/phpmyadmin
-  tag: latest
+  tag: latest@sha256:d46e4bea56101d56e0a811c837f5a2a41f87a52ac40eca5dad82179d5f7f94ca
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

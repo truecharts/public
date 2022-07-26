@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/shapeshifter-obfuscator
-  tag: latest
+  tag: latest@sha256:46a9873c9e1e36a4d43deb16fe3dc4425630d1dab9b3caf49de3d122133e87f9
 persistence:
   config:
     enabled: true

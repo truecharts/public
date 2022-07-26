@@ -9,13 +9,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "This simple container will update a namecheap dynamic dns domain. You\
   \ must set an 'A + Dynamic DNS Record' for the host and enable Dynamic DNS in the\
   \ manage page for your domain. \r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/namecheap-ddns
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/namecheap-ddns
 icon: https://truecharts.org/img/chart-icons/namecheap-ddns.png
 keywords:
   - namecheap-ddns
@@ -32,4 +32,4 @@ sources:
   - https://github.com/EdwardChamberlain/namecheap_ddns
   - https://hub.docker.com/r/edchamberlain/namecheap_ddns
 type: application
-version: 0.0.12
+version: 0.0.14

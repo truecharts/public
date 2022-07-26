@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webp-server
-  tag: latest
+  tag: latest@sha256:c9c80c49d09a45180a11e79ce4141f8c7d8eb1d1836008fc2b6dab277dfe6116
 persistence:
   storagecache:
     enabled: true

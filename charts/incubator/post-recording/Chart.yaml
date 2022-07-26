@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "Watches for .ts files made by Live TV recordings, convert them to a\
   \ friendly format, extract .srt file, add chapters with comchap or remove them with\
   \ comcut. Tested with Emby recordings.\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/post-recording
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/post-recording
 icon: https://truecharts.org/img/chart-icons/post-recording.png
 keywords:
   - post-recording
@@ -28,4 +28,4 @@ sources:
   - https://github.com/chacawaca/docker-post-recording
   - https://hub.docker.com/r/chacawaca/post-recording
 type: application
-version: 0.0.12
+version: 0.0.14

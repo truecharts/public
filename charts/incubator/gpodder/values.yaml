@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/gpodder
-  tag: latest
+  tag: latest@sha256:aa5ee2adf631113931f600fbb37a8f909db0513eeeaed6effc2c072749c896fd
 persistence:
   config:
     enabled: true

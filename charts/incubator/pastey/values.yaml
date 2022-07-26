@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pastey
-  tag: latest
+  tag: latest@sha256:7cce600a6d404f7b32ff2b0270252b3f06834787086abe4aac755ff000b94206
 persistence:
   data:
     enabled: true

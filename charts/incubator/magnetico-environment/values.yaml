@@ -12,7 +12,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/magnetico-environment
-  tag: latest
+  tag: latest@sha256:1b954991d6a0465a6ed1f237ca59360a7f46a076d823b2d9c3c47ea1db3e26c4
 persistence:
   databaselocation:
     enabled: true

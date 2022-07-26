@@ -2,6 +2,25 @@
 
 
 
+## [minecraft-bungeecord-0.0.8](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.7...minecraft-bungeecord-0.0.8) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [minecraft-bungeecord-0.0.7](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.6...minecraft-bungeecord-0.0.7) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3298](https://github.com/truecharts/apps/issues/3298))
+
+
+
+
 ## [minecraft-bungeecord-0.0.6](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.5...minecraft-bungeecord-0.0.6) (2022-07-23)
 
 ### Chore

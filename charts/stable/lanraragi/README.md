@@ -1,6 +1,6 @@
 # lanraragi
 
-![Version: 2.0.21](https://img.shields.io/badge/Version-2.0.21-informational?style=flat-square) ![AppVersion: 0.8.5](https://img.shields.io/badge/AppVersion-0.8.5-informational?style=flat-square)
+![Version: 2.0.23](https://img.shields.io/badge/Version-2.0.23-informational?style=flat-square) ![AppVersion: 0.8.5](https://img.shields.io/badge/AppVersion-0.8.5-informational?style=flat-square)
 
 Open source server for archival of comics/manga.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

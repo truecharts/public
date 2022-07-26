@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kiwix-serve
-  tag: latest
+  tag: latest@sha256:83d3f1f6fbfeab4f8d4163fd80e4cdc24a3ee6eaee4bc4749f2ec9b5fea68a45
 persistence:
   data:
     enabled: true

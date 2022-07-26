@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/altitude
-  tag: latest
+  tag: latest@sha256:490f93d7e54764f7cbe7350739f42ce65449de688f01ca5fe91f002fde8c7198
 persistence:
   serverfiles:
     enabled: true

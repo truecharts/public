@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/namecheap-ddns
-  tag: latest
+  tag: latest@sha256:fcb0cacda3094eeca539289014d115207e005d2beefb279b31c07351d006d79a
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

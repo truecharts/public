@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/photostructure
-  tag: vstable
+  tag: vstable@sha256:60d2f7530872c7b65a126221e59d16e356e269dce2ca68a3c3f4f0c3f46ff3bf
 persistence:
   config:
     enabled: true

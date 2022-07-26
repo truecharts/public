@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dontstarvetogether
-  tag: latest
+  tag: latest@sha256:719c491d3831319930bac17252f80cdb0bc349a4d3bd81813aa0c1d5a34b9e78
 persistence:
   serverfiles:
     enabled: true

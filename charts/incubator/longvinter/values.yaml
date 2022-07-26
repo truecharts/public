@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/longvinter
-  tag: latest
+  tag: latest@sha256:8bf1d02dbd00377600977b75c7f780324e0e1882acedc0800089616bbc650201
 persistence:
   serverfiles:
     enabled: true

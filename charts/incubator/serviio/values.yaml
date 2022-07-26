@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/serviio
-  tag: latest
+  tag: latest@sha256:cd130a2872b6691a51d80fc99a1026cd643ed1dd822b70b26223cd007e288ccd
 persistence:
   hostpath2:
     enabled: true

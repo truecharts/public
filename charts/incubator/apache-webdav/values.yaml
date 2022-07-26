@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/apache-webdav
-  tag: latest
+  tag: latest@sha256:78ab22cc99dad54914a7d3dc787898f21b424217ddf0357d4e76863933a224ab
 persistence:
   config:
     enabled: true

@@ -12,7 +12,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/anope
-  tag: latest
+  tag: latest@sha256:2159e379f1db579a89487f3c43ff2d27e4907a98860756fae1929f95821fccfa
 persistence:
   datapath:
     enabled: true

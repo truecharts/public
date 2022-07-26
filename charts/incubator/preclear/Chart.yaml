@@ -8,14 +8,14 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   A utility to "burn-in" a new disk, before adding it to your array has
   been requested several times.  Also requested is a process to "pre-clear" a hard
   disk before adding it to your array.  When a special "signature" is detected, the
   lengthy "clearing" step otherwise performed by TrueNAS is skipped.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/preclear
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
 icon: https://truecharts.org/img/chart-icons/preclear.png
 keywords:
   - preclear
@@ -32,4 +32,4 @@ sources:
   - https://registry.hub.docker.com/r/binhex/arch-preclear/
   - https://github.com/binhex/documentation
 type: application
-version: 0.0.12
+version: 0.0.14

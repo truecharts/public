@@ -12,7 +12,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arksurvivalevolved
-  tag: latest
+  tag: latest@sha256:24c8c1a044bd5e4834024c0a03e2d00f727e5c52c65bdf68ea3155e020b0dd67
 persistence:
   serverfiles:
     enabled: true

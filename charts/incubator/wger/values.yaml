@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/wger
-  tag: latest@sha256:3f4f641def8387f134e0bcc81fe76f03061eaafb10942133374f322473899b02
+  tag: latest@sha256:0830e22b6d4fe1306eda4bed77c2384588dc161d42f8b0c52a8b0741c02f3b1b
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:4dca9b83e5daef93e80b36abd25c7e93f6ed73a6bd6cd389c2aaef92af34086a
+  tag: v1.23.1@sha256:bbad83037fe19f0bd1e2bf9cd9b7889615e043050f8a9731b3a6e61cc563382f
 
 securityContext:
   runAsNonRoot: false

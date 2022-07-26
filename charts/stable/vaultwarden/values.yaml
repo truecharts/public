@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/vaultwarden
   pullPolicy: IfNotPresent
-  tag: v1.25.1@sha256:bd5ff05faa786a9f6aa268c13c154c6f614ca516077e800391635ddd68ec11b4
+  tag: v1.25.1@sha256:e2d3b54588cd9231c6a2243f1e33c56ed429a519ee1bc13129cf4c56e32942c6
 
 service:
   main:
@@ -31,9 +31,11 @@ envFrom:
       name: vaultwardensecret
 
 database:
-  # Database type, must be one of: 'sqlite', 'mysql' or 'postgresql'.
+  # -- Database type,
+  # must be one of: 'sqlite', 'mysql' or 'postgresql'.
   type: postgresql
-  # Enable DB Write-Ahead-Log for SQLite, disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
+  # -- Enable DB Write-Ahead-Log for SQLite,
+  # disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
   wal: true
   ## URL for external databases (mysql://user:pass@host:port or postgresql://user:pass@host:port).
   # url: ""
@@ -44,12 +46,14 @@ database:
 
 # Set Bitwarden_rs application variables
 vaultwarden:
-  # Allow any user to sign-up: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
+  # -- Allow any user to sign-up
+  # see: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
   allowSignups: true
   ## Whitelist domains allowed to sign-up. 'allowSignups' is ignored if set.
   # signupDomains:
   #  - domain.tld
-  # Verify e-mail before login is enabled. SMTP must be enabled.
+  # -- Verify e-mail before login is enabled.
+  # SMTP must be enabled.
   verifySignup: false
   # When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled.
   requireEmail: false

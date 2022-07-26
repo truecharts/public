@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/gokapi
-  tag: latest
+  tag: latest@sha256:aafdd8cc0e9ce3b45d64975be16e243de1527a1ab90e99f5b4c055ba03214996
 persistence:
   config:
     enabled: true

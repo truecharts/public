@@ -14,7 +14,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/amvd
-  tag: latest
+  tag: latest@sha256:e6544d01627431594331df714e02586fb3a76969487ef89aab240bab66dcc132
 persistence:
   config:
     enabled: true

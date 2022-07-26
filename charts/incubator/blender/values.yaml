@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/blender
-  tag: latest
+  tag: latest@sha256:fa04890c23ea23844a56bf45fe82a8d24296356282bb6e3efc976b403876fe9b
 persistence:
   config:
     enabled: true

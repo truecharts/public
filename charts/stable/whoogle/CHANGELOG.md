@@ -2,6 +2,35 @@
 
 
 
+## [whoogle-3.0.25](https://github.com/truecharts/apps/compare/whoogle-3.0.24...whoogle-3.0.25) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [whoogle-3.0.24](https://github.com/truecharts/apps/compare/whoogle-3.0.23...whoogle-3.0.24) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [whoogle-3.0.24](https://github.com/truecharts/apps/compare/whoogle-3.0.23...whoogle-3.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [whoogle-3.0.23](https://github.com/truecharts/apps/compare/whoogle-3.0.22...whoogle-3.0.23) (2022-07-23)
 
 ### Chore

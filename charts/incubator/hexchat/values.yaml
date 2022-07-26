@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hexchat
-  tag: latest
+  tag: latest@sha256:9bb2452cbd7b8364ef7d6e1ce8d68c69398339f2c67a8a502849db52c4d12e7f
 persistence:
   config:
     enabled: true

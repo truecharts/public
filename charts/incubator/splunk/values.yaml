@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/splunk
-  tag: latest
+  tag: latest@sha256:869e2d91515fd8704c0647931d4f46695536a3779bfbb181e20003042c96bb2a
 persistence:
   appcredspersist:
     enabled: true

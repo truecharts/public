@@ -1,6 +1,6 @@
 # trilium-notes
 
-![Version: 5.0.22](https://img.shields.io/badge/Version-5.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.53.2](https://img.shields.io/badge/AppVersion-0.53.2-informational?style=flat-square)
+![Version: 5.0.24](https://img.shields.io/badge/Version-5.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.53.2](https://img.shields.io/badge/AppVersion-0.53.2-informational?style=flat-square)
 
 Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

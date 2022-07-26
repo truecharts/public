@@ -7,12 +7,12 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   SeedSync is a tool to sync the files on a remote Linux server (like your
   seedbox, for example). It uses LFTP to transfer files fast!
-home: https://github.com/truecharts/apps/tree/master/charts/stable/seedsync
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/seedsync
 icon: https://truecharts.org/img/chart-icons/seedsync.png
 keywords:
   - seedsync
@@ -27,4 +27,4 @@ sources:
   - https://github.com/ipsingh06/seedsync
   - https://hub.docker.com/r/ipsingh06/seedsync/
 type: application
-version: 0.0.12
+version: 0.0.14

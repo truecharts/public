@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pwm
-  tag: latest
+  tag: latest@sha256:5c27b39dff4004a40a5b7b71d25361efec2b669e367923dc43fa582d614ba4ba
 persistence:
   appdata:
     enabled: true

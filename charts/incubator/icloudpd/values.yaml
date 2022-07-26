@@ -14,7 +14,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/icloudpd
-  tag: latest
+  tag: latest@sha256:f9f31e7ccc2c81ee52f34a8f762c9fbdb711acb5e321235f13bb45bb64eafe95
 persistence:
   config:
     enabled: true

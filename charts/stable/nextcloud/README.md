@@ -1,6 +1,6 @@
 # nextcloud
 
-![Version: 15.2.26](https://img.shields.io/badge/Version-15.2.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 24.0.3](https://img.shields.io/badge/AppVersion-24.0.3-informational?style=flat-square)
+![Version: 15.2.29](https://img.shields.io/badge/Version-15.2.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 24.0.3](https://img.shields.io/badge/AppVersion-24.0.3-informational?style=flat-square)
 
 A private cloud server that puts the control and security of your own data back into your hands.
 
@@ -24,10 +24,10 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | collabora-online | 12.1.21 |
-| https://charts.truecharts.org/ | postgresql | 8.0.45 |
-| https://charts.truecharts.org | redis | 3.0.44 |
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://charts.truecharts.org/ | collabora-online | 12.1.23 |
+| https://charts.truecharts.org/ | postgresql | 8.0.48 |
+| https://charts.truecharts.org | redis | 3.0.46 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

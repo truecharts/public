@@ -12,7 +12,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ciao
-  tag: latest
+  tag: latest@sha256:e8be249d55395f9033ee97c622a7e34082f5bfa83325182d00fb4de1de4c3b1d
 persistence:
   databaselocation:
     enabled: true

@@ -2,6 +2,34 @@
 
 
 
+## [traefik-13.1.6](https://github.com/truecharts/apps/compare/traefik-13.1.5...traefik-13.1.6) (2022-07-26)
+
+### Chore
+
+- update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [traefik-13.1.5](https://github.com/truecharts/apps/compare/traefik-13.1.4...traefik-13.1.5) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [traefik-13.1.5](https://github.com/truecharts/apps/compare/traefik-13.1.4...traefik-13.1.5) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [traefik-13.1.4](https://github.com/truecharts/apps/compare/traefik-13.1.3...traefik-13.1.4) (2022-07-23)
 
 ### Chore

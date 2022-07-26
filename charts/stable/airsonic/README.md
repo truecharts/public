@@ -1,6 +1,6 @@
 # airsonic
 
-![Version: 6.0.22](https://img.shields.io/badge/Version-6.0.22-informational?style=flat-square) ![AppVersion: 10.6.2](https://img.shields.io/badge/AppVersion-10.6.2-informational?style=flat-square)
+![Version: 6.0.23](https://img.shields.io/badge/Version-6.0.23-informational?style=flat-square) ![AppVersion: 10.6.2](https://img.shields.io/badge/AppVersion-10.6.2-informational?style=flat-square)
 
 Airsonic is a Free and Open Source community driven media server
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

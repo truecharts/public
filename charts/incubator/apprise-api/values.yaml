@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/apprise-api
-  tag: latest
+  tag: latest@sha256:d194bc881286e37ef56d8f68ef947007752fb4118e52be3a01741dbb4621d399
 persistence:
   config:
     enabled: true

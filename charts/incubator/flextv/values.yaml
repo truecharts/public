@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/flextv
-  tag: latest
+  tag: latest@sha256:b54a48395fdf0e8cd03c74c1fd40e57d3b57a40f75dcdaaac1b289fa73a743bd
 persistence:
   config:
     enabled: true

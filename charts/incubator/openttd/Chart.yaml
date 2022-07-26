@@ -7,14 +7,14 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "This Docker will download and install the version of OpenTTD that you\
   \ enter in the variable 'GAME_VERSION' (if you define 'latest' it will always pull\
   \ the latest build, if you define 'testing' it will always pull down the latest\
   \ testing build).\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/openttd
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/openttd
 icon: https://truecharts.org/img/chart-icons/openttd.png
 keywords:
   - openttd
@@ -29,4 +29,4 @@ sources:
   - https://www.openttd.org/
   - https://hub.docker.com/r/ich777/openttdserver
 type: application
-version: 0.0.12
+version: 0.0.14

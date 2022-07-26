@@ -2,6 +2,16 @@
 
 
 
+## [etesync-0.0.20](https://github.com/truecharts/apps/compare/etesync-0.0.19...etesync-0.0.20) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [etesync-0.0.19](https://github.com/truecharts/apps/compare/etesync-0.0.18...etesync-0.0.19) (2022-07-23)
 
 ### Chore

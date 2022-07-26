@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/assettocorsa
-  tag: latest
+  tag: latest@sha256:d069fd03e5bd5a4f8b3dde501fb3dcee7d8821893f82fc36270985c5e458c94d
 persistence:
   serverfiles:
     enabled: true

@@ -1,6 +1,6 @@
 # scrutiny
 
-![Version: 3.0.20](https://img.shields.io/badge/Version-3.0.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.4.16](https://img.shields.io/badge/AppVersion-0.4.16-informational?style=flat-square)
+![Version: 3.0.22](https://img.shields.io/badge/Version-3.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.4.16](https://img.shields.io/badge/AppVersion-0.4.16-informational?style=flat-square)
 
 Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

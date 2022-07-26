@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tracks
-  tag: latest
+  tag: latest@sha256:1928db2c3634961784057f501754383095993bc71015ddc111b43431506b80fb
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

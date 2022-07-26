@@ -8,13 +8,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   CryptPad is the Zero Knowledge realtime collaborative editor.[br]mkdir
   -p /mnt/user/appdata/cryptpad/config [/br]wget -O /mnt/user/appdata/cryptpad/config/config.js
   https://raw.githubusercontent.com/xwiki-labs/cryptpad/main/config/config.example.js
-home: https://github.com/truecharts/apps/tree/master/charts/stable/cryptpad
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
 icon: https://truecharts.org/img/chart-icons/cryptpad.png
 keywords:
   - cryptpad
@@ -30,4 +30,4 @@ sources:
   - https://cryptpad.fr/
   - https://hub.docker.com/r/promasu/cryptpad/
 type: application
-version: 0.0.12
+version: 0.0.14

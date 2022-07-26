@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hurtworld
-  tag: latest
+  tag: latest@sha256:1e7c378491ac4e44175c69932cbbec4d731100b0243ef4551361c2bc2d451dd1
 persistence:
   serverfiles:
     enabled: true

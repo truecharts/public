@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubesync
-  tag: latest
+  tag: latest@sha256:20e8fc6a2eaa8ee3ae875ff40529e534e467600e6efc412f02ef04baefa7ffbf
 persistence:
   config:
     enabled: true

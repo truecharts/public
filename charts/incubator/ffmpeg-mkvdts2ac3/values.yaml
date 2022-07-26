@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ffmpeg-mkvdts2ac3
-  tag: latest
+  tag: latest@sha256:f4252dd1c9e040c7c464da738f3a82a5532aee41cefac3b71b6a0aca39f5bc2f
 persistence:
   config:
     enabled: true

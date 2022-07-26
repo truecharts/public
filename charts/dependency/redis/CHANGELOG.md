@@ -2,6 +2,26 @@
 
 
 
+## [redis-3.0.46](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.46) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.4.8 ([#3296](https://github.com/truecharts/apps/issues/3296))
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [redis-3.0.45](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.45) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [redis-3.0.44](https://github.com/truecharts/apps/compare/redis-3.0.43...redis-3.0.44) (2022-07-23)
 
 ### Chore

@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/metatube
-  tag: latest
+  tag: latest@sha256:1325be36e66c23f31722faf7416121be3b976f6d29bdca64abb7a0350b4733d8
 persistence:
   storagedatabase:
     enabled: true

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dailynotes
-  tag: latest
+  tag: latest@sha256:2fb4e6f3e031c83420f3d87ea174550495c348cc8bd08672da5658dd3e38df05
 persistence:
   config:
     enabled: true

@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/slack-invite
-  tag: latest
+  tag: latest@sha256:37a64bfa6ad358441e0f0ba4dd4566dfb9551d16c4d570570225a419e794c500
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/mediaelch
-  tag: latest
+  tag: latest@sha256:10a0d116ae0da0cccd4be5964c19ba2d9ff723c1226d6d0a5fcb0c7d4dbe0196
 persistence:
   mediaelch:
     enabled: true

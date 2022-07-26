@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/preclear
-  tag: latest
+  tag: latest@sha256:417d95a952b25e042a93bb62813956e8ca7269f4e4b3e13d44e01c36fa18fdaa
 persistence:
   config:
     enabled: true

@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rstudio
-  tag: latest
+  tag: latest@sha256:30e118d9ab0f38adcadfb9d683ef89ba2750a82e7d5a10ae8da2c754843cc8e3
 persistence:
   userdatadirectory:
     enabled: true

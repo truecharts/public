@@ -2,6 +2,35 @@
 
 
 
+## [cloudflared-1.0.5](https://github.com/truecharts/apps/compare/cloudflared-1.0.4...cloudflared-1.0.5) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [cloudflared-1.0.4](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.7...cloudflared-1.0.4) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [cloudflared-1.0.4](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.7...cloudflared-1.0.4) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [cloudflared-1.0.3](https://github.com/truecharts/apps/compare/cloudflareddns-1.0.6...cloudflared-1.0.3) (2022-07-23)
 
 ### Chore

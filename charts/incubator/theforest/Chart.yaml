@@ -7,14 +7,14 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "This Docker will download and install SteamCMD. It will also install\
   \ The Forest and run it. SERVERNAME: 'The Forest Docker' SERVERPASSWORD: 'Docker'\
   \ ADMINPASSWORD: 'adminDocker' (you can change this in your SERVERFOLDER/config/config.cfg)\r\
   \n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/theforest
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/theforest
 icon: https://truecharts.org/img/chart-icons/theforest.png
 keywords:
   - theforest
@@ -29,4 +29,4 @@ sources:
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.12
+version: 0.0.14

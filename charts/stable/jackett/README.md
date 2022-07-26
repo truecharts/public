@@ -1,6 +1,6 @@
 # jackett
 
-![Version: 11.0.47](https://img.shields.io/badge/Version-11.0.47-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1406](https://img.shields.io/badge/AppVersion-0.20.1406-informational?style=flat-square)
+![Version: 11.0.49](https://img.shields.io/badge/Version-11.0.49-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1406](https://img.shields.io/badge/AppVersion-0.20.1406-informational?style=flat-square)
 
 API Support for your favorite torrent trackers.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

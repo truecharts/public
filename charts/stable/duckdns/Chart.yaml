@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: duckdns
-version: 2.0.25
+version: 2.0.27
 appVersion: "latest"
 description: Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/stable/duckdns
+home: https://github.com/truecharts/charts/tree/master/charts/stable/duckdns
 icon: https://truecharts.org/img/chart-icons/duckdns.png
 keywords:
   - duckdns
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
     # condition:
 maintainers:
   - email: info@truecharts.org

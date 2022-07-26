@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tar1090
-  tag: latest
+  tag: latest@sha256:2c59aea4e4fd0ab8c5c97c8d709b0b522dd810904e524ade2e4cc2bd80a421a4
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

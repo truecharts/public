@@ -7,12 +7,12 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "Docker file for the new Core Keeper dedicated server running from SteamCMD.\
   \ (No account etc needed)\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/core-keeper-dedicated-server
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/core-keeper-dedicated-server
 icon: https://truecharts.org/img/chart-icons/core-keeper-dedicated-server.png
 keywords:
   - core-keeper-dedicated-server
@@ -27,4 +27,4 @@ sources:
   - https://github.com/escapingnetwork/core-keeper-dedicated/
   - https://hub.docker.com/r/escaping/core-keeper-dedicated
 type: application
-version: 0.0.12
+version: 0.0.14

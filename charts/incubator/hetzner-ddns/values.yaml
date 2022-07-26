@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hetzner-ddns
-  tag: latest
+  tag: latest@sha256:87009e3ba99b4cf30c8e8800885b1e5e488fad78db026304d40c59030c0b4be1
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
