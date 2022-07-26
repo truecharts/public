@@ -9,9 +9,11 @@ securityContext:
   privileged: true
   allowPrivilegeEscalation: true
   capabilities:
+    # RawIO is for HDDs
+    # SYS_ADMIN is for NVMEs
     add:
-      - SYS_RAWIO # HDD's
-      - SYS_ADMIN # NVME's
+      - SYS_RAWIO
+      - SYS_ADMIN
 
 env:
   COLLECTOR_CRON_SCHEDULE: "0 0 * * *"

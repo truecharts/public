@@ -297,7 +297,9 @@ mail:
   riotUrl: ""
 
   host: ""
-  port: 25 # SSL: 465, STARTTLS: 587
+  # -- Sets the smtp port
+  # SSL: 465, STARTTLS: 587
+  port: 25
   username: ""
   password: ""
   requireTransportSecurity: true

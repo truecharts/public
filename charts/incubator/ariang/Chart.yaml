@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ariang
-version: 0.0.16
+version: 0.0.17
 appVersion: "1.2.4"
 description: A modern web frontend making aria2 easier to use | Aria2 WebUI.
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/stable/ariang
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/ariang
 icon: https://truecharts.org/img/chart-icons/ariang.png
 keywords:
   - ariang
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
     # condition:
 maintainers:
   - email: info@truecharts.org

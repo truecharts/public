@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "This Docker will download and install SteamCMD. It will also install\
   \ Mordhau and run it. Initial login SERVERNAME: MordhauDocker SERVERPASSWORD: Docker\
   \ ADMINPASSWORD adminDocker\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/mordhau
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/mordhau
 icon: https://truecharts.org/img/chart-icons/mordhau.png
 keywords:
   - mordhau
@@ -28,4 +28,4 @@ sources:
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.13
+version: 0.0.14

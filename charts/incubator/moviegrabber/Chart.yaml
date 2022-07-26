@@ -7,7 +7,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   MovieGrabber is a fully automated way of downloading movie from usenet,
@@ -16,7 +16,7 @@ description:
   criteria and if a match is found the nzb will be downloaded and stored in either
   a specified queued folder for user review or sent to the watched folder for processing
   and automatic downloading via your usenet binary client.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/moviegrabber
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
 icon: https://truecharts.org/img/chart-icons/moviegrabber.png
 keywords:
   - moviegrabber
@@ -32,4 +32,4 @@ sources:
   - https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
   - https://github.com/binhex/documentation
 type: application
-version: 0.0.13
+version: 0.0.14

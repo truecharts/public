@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: meshcentral
-version: 3.0.28
+version: 3.0.29
 appVersion: "1.0.50"
 description: MeshCentral is a full computer management web site
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/meshcentral
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/meshcentral
 icon: https://truecharts.org/img/chart-icons/meshcentral.png
 keywords:
   - meshcentral
@@ -17,11 +17,11 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
   - condition: mongodb.enabled
     name: mongodb
     repository: https://charts.truecharts.org/
-    version: 1.0.45
+    version: 1.0.47
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

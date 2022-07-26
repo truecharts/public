@@ -9,7 +9,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption\
@@ -17,7 +17,7 @@ description:
   \ created in 2012 by a Chinese programmer named \"clowwindy\", and multiple implementations\
   \ of the protocol have been made available since. Can be used with any SOCKS or\
   \ Shadowsocks client.\r\n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/shadowsocks
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
 icon: https://truecharts.org/img/chart-icons/shadowsocks.png
 keywords:
   - shadowsocks
@@ -34,4 +34,4 @@ sources:
   - https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
   - https://hub.docker.com/r/shadowsocks/shadowsocks-libev
 type: application
-version: 0.0.13
+version: 0.0.14

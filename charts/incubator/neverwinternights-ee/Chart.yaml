@@ -7,13 +7,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
 deprecated: false
 description:
   "This Docker will download and install Neverwinter Nights: Enhanced Edition\
   \ and run it (by default this container has a MariaDB and Redis Server integrated).\r\
   \n"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/neverwinternights-ee
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/neverwinternights-ee
 icon: https://truecharts.org/img/chart-icons/neverwinternights-ee.png
 keywords:
   - neverwinternights-ee
@@ -28,4 +28,4 @@ sources:
   - https://www.beamdog.com/games/neverwinter-nights-enhanced/
   - https://hub.docker.com/r/ich777/nwnee-server/
 type: application
-version: 0.0.13
+version: 0.0.14

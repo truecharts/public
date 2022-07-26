@@ -3,18 +3,18 @@ appVersion: "5.7.10"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.45
+    version: 8.0.48
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.44
+    version: 3.0.46
 deprecated: false
 description: A free and open source personal finance manager
-home: https://github.com/truecharts/apps/tree/master/charts/stable/fireflyiii
+home: https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
 icon: https://truecharts.org/img/chart-icons/fireflyiii.png
 keywords:
   - fireflyiii
@@ -28,7 +28,7 @@ name: fireflyiii
 sources:
   - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 16.0.27
+version: 16.0.28
 annotations:
   truecharts.org/catagories: |
     - finacial

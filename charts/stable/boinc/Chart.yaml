@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: boinc
-version: 2.0.32
+version: 2.0.33
 appVersion: "latest"
 description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/stable/boinc
+home: https://github.com/truecharts/charts/tree/master/charts/stable/boinc
 icon: https://truecharts.org/img/chart-icons/boinc.png
 keywords:
   - boinc
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.7
+    version: 10.4.8
     # condition:
 maintainers:
   - email: info@truecharts.org
