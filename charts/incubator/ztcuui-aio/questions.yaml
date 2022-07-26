@@ -74,7 +74,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ZTNCUI_PASSWD
+          label: "ZTNCUI_PASSWD"
+          description: "ZTNCUI PASSWD"
+          schema:
+            type: string
+            private: true
+            default: "CHANGEME"
 # Include{containerConfig}
 
   - variable: service
