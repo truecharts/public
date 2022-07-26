@@ -2,6 +2,16 @@
 
 
 
+## [plex-meta-manager-0.0.12](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.11...plex-meta-manager-0.0.12) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [plex-meta-manager-0.0.11](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.10...plex-meta-manager-0.0.11) (2022-07-25)
 
 ### Chore

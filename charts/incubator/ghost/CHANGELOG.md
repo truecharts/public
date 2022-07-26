@@ -2,6 +2,16 @@
 
 
 
+## [ghost-3.0.34](https://github.com/truecharts/apps/compare/ghost-3.0.33...ghost-3.0.34) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [ghost-3.0.33](https://github.com/truecharts/apps/compare/ghost-3.0.32...ghost-3.0.33) (2022-07-25)
 
 ### Chore

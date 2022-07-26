@@ -1,6 +1,6 @@
 # remmina
 
-![Version: 3.0.21](https://img.shields.io/badge/Version-3.0.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0-rcgi](https://img.shields.io/badge/AppVersion-1.2.0--rcgi-informational?style=flat-square)
+![Version: 3.0.22](https://img.shields.io/badge/Version-3.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0-rcgi](https://img.shields.io/badge/AppVersion-1.2.0--rcgi-informational?style=flat-square)
 
 A remote desktop client written in GTK
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

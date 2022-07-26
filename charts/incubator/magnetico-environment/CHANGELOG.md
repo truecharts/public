@@ -2,6 +2,16 @@
 
 
 
+## [magnetico-environment-0.0.14](https://github.com/truecharts/apps/compare/magnetico-environment-0.0.13...magnetico-environment-0.0.14) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [magnetico-environment-0.0.13](https://github.com/truecharts/apps/compare/magnetico-environment-0.0.12...magnetico-environment-0.0.13) (2022-07-25)
 
 ### Chore

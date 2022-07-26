@@ -2,6 +2,16 @@
 
 
 
+## [owncloud-ocis-7.0.23](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.22...owncloud-ocis-7.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [owncloud-ocis-7.0.22](https://github.com/truecharts/apps/compare/owncloud-ocis-7.0.21...owncloud-ocis-7.0.22) (2022-07-25)
 
 ### Chore

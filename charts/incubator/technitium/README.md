@@ -1,6 +1,6 @@
 # technitium
 
-![Version: 1.0.24](https://img.shields.io/badge/Version-1.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.1](https://img.shields.io/badge/AppVersion-8.1-informational?style=flat-square)
+![Version: 1.0.25](https://img.shields.io/badge/Version-1.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.1](https://img.shields.io/badge/AppVersion-8.1-informational?style=flat-square)
 
 Technitium DNS Server is an open source authoritative as well as recursive DNS server that can be used for self hosting a DNS server for privacy & security.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

@@ -2,6 +2,16 @@
 
 
 
+## [wger-0.0.33](https://github.com/truecharts/apps/compare/wger-0.0.32...wger-0.0.33) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [wger-0.0.32](https://github.com/truecharts/apps/compare/wger-0.0.31...wger-0.0.32) (2022-07-25)
 
 ### Chore

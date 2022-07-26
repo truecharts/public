@@ -2,6 +2,16 @@
 
 
 
+## [medusa-3.0.29](https://github.com/truecharts/apps/compare/medusa-3.0.28...medusa-3.0.29) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [medusa-3.0.28](https://github.com/truecharts/apps/compare/medusa-3.0.27...medusa-3.0.28) (2022-07-25)
 
 ### Chore

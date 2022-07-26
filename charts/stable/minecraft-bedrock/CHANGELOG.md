@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bedrock-1.0.24](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.23...minecraft-bedrock-1.0.24) (2022-07-26)
+
+### Chore
+
+- update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [minecraft-bedrock-1.0.23](https://github.com/truecharts/apps/compare/minecraft-bedrock-1.0.22...minecraft-bedrock-1.0.23) (2022-07-25)
 
 ### Chore

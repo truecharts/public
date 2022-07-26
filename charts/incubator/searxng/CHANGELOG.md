@@ -2,6 +2,17 @@
 
 
 
+## [searxng-0.0.14](https://github.com/truecharts/apps/compare/searxng-0.0.13...searxng-0.0.14) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update docker general non-major ([#3301](https://github.com/truecharts/apps/issues/3301))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [searxng-0.0.13](https://github.com/truecharts/apps/compare/searxng-0.0.12...searxng-0.0.13) (2022-07-25)
 
 ### Chore
