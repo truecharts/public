@@ -1,0 +1,30 @@
+image:
+  repository: keynetworks/ztncui
+  tag: 1.2.11@sha256:d65638287ab8429fa0ad6cdc57a8ab3e74fb0dcae6e81ffdc42c25ab88a55f05
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+  HTTP_ALL_INTERFACES: "yes"
+  ZTNCUI_PASSWD: "CHANGEME"
+
+service:
+  main:
+    ports:
+      main:
+        port: 4000
+  other:
+    enabled: true
+    ports:
+      other:
+        enabled: true
+        port: 3180
+        targetPort: 3180
