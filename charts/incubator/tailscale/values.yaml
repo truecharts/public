@@ -16,7 +16,7 @@ podSecurityContext:
 
 hostNetwork: true
 
-secretEnv:
+env:
   authkey: "tskey-abcdef1234342432423"
 
 service:
