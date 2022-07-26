@@ -1,0 +1,16 @@
+image:
+  repository: ghcr.io/autobrr/autobrr
+  pullPolicy: IfNotPresent
+  tag: v1.1.0@sha256:6d3a723c7160b837a132acf5e52582bf28efa88b72298227d106bb8728daa553
+
+service:
+  main:
+    ports:
+      main:
+        port: 7475
+        targetPort: 7474
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
