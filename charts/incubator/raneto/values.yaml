@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/raneto
-  tag: latest
+  tag: latest@sha256:6b647ea57d3c164132f1e11d1e9dd999851fa6e3ec03d8cb1b7d336584ec08c9
 persistence:
   config:
     enabled: true

@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/krusader
-  tag: latest
+  tag: latest@sha256:a41b16f18a1e640a9ebbdbbd9202cffc32ddb9a80f41c4d73ab986da8bfda757
 persistence:
   containerpath:
     enabled: true

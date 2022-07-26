@@ -1,6 +1,6 @@
 # whoogle
 
-![Version: 3.0.23](https://img.shields.io/badge/Version-3.0.23-informational?style=flat-square) ![AppVersion: 0.7.4](https://img.shields.io/badge/AppVersion-0.7.4-informational?style=flat-square)
+![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![AppVersion: 0.7.4](https://img.shields.io/badge/AppVersion-0.7.4-informational?style=flat-square)
 
 A self-hosted, ad-free, privacy-respecting metasearch engine
 

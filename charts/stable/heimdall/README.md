@@ -1,6 +1,6 @@
 # heimdall
 
-![Version: 11.0.24](https://img.shields.io/badge/Version-11.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.13](https://img.shields.io/badge/AppVersion-2.4.13-informational?style=flat-square)
+![Version: 11.0.26](https://img.shields.io/badge/Version-11.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.13](https://img.shields.io/badge/AppVersion-2.4.13-informational?style=flat-square)
 
 An Application dashboard and launcher
 

@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/goaccess-npm-logs
-  tag: latest
+  tag: latest@sha256:d661b7db8f2e9749df12be90c390c4cf2beeef31ff9a20eff82341e411af9328
 persistence:
   hostpath1:
     enabled: true

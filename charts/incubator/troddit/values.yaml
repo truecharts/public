@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/troddit
-  tag: latest
+  tag: latest@sha256:2821cf1feb1583fa869721e316a306ece3a9ca51a1934e8425f739410d93e8a8
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

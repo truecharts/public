@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/mordhau
-  tag: latest
+  tag: latest@sha256:268b06ed7ee5be160953f3d967f6c3ecc096f4e2b251602f1f1edff811cbd690
 persistence:
   serverfiles:
     enabled: true

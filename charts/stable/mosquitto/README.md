@@ -1,6 +1,6 @@
 # mosquitto
 
-![Version: 6.0.25](https://img.shields.io/badge/Version-6.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.14](https://img.shields.io/badge/AppVersion-2.0.14-informational?style=flat-square)
+![Version: 6.0.26](https://img.shields.io/badge/Version-6.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.14](https://img.shields.io/badge/AppVersion-2.0.14-informational?style=flat-square)
 
 Eclipse Mosquitto - An open source MQTT broker
 

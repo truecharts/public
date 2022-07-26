@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/barotrauma
-  tag: latest
+  tag: latest@sha256:3ee1c07a33e13d9fa9732087400e8675e73fa470f4395edf2dcdeeafd9597087
 persistence:
   serverfiles:
     enabled: true

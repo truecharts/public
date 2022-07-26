@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plex-auto-languages
-  tag: latest
+  tag: latest@sha256:189e71bed60e6bf3e56c8a6b955db151d23af124ea91386e84983268ef74c0b5
 persistence:
   config:
     enabled: true

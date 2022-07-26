@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/bitcoinwalletgui
-  tag: latest
+  tag: latest@sha256:738088fa67f95e40f3fe46a4355079984e3560f78fb9ce7f583f01ace686f9dc
 persistence:
   bitcoinblockchainpath:
     enabled: true

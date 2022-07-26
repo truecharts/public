@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/alienswarm
-  tag: latest
+  tag: latest@sha256:854ecf0ff4ee413bd325cf2b595f17f40792fb3af99b49b292a3fa77e1d93293
 persistence:
   serverfiles:
     enabled: true

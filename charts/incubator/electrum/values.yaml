@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/electrum
-  tag: latest
+  tag: latest@sha256:12d20921a8d8aa99bc45d205f50318c269a8330a1f5a393191d349009ea52d60
 persistence:
   datapath:
     enabled: true

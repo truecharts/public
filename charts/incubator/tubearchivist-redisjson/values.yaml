@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubearchivist-redisjson
-  tag: latest
+  tag: latest@sha256:b221f8cd7a578024a27b20202a3a3d15ab4ac6c90f1405fe7f8c2c695fd22f17
 persistence:
   data:
     enabled: true

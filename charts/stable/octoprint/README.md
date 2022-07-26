@@ -1,6 +1,6 @@
 # octoprint
 
-![Version: 6.0.23](https://img.shields.io/badge/Version-6.0.23-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square)
+![Version: 6.0.24](https://img.shields.io/badge/Version-6.0.24-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square)
 
 OctoPrint is the snappy web interface for your 3D printer
 

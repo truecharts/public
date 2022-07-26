@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/blender-desktop-g3
-  tag: latest
+  tag: latest@sha256:6527c3beffa754df10c44ec1ae1c84a3602ca37d4c179779b0cdd651cf89f630
 persistence:
   internalshare:
     enabled: true

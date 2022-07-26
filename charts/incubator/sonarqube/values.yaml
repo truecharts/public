@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sonarqube
-  tag: latest
+  tag: latest@sha256:b49655aeb4df5079430b106f88020137ce6b339ea937ab55ffd0a068274a5bc3
 persistence:
   data:
     enabled: true

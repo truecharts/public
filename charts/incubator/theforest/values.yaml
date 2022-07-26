@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/theforest
-  tag: latest
+  tag: latest@sha256:46b4cb096e846decab1d7a6ba8b604457b65cea26978f15f45fb499beb6f3705
 persistence:
   serverfiles:
     enabled: true

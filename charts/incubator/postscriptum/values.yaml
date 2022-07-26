@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/postscriptum
-  tag: latest
+  tag: latest@sha256:0e22bc65fa4cd8b1311f2455b815918a966bb2444df4507cdda421961c32a42d
 persistence:
   serverfiles:
     enabled: true

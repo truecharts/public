@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/adminer
-  tag: latest
+  tag: latest@sha256:80bc778019afe25e71152f68659f82cdc00d9d0d5c4a85bc525f1f6f30b332d9
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

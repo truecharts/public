@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/quake3
-  tag: latest
+  tag: latest@sha256:25fcfa4cd1ecf9e87b27b8870b9e58aae879a66795c58049d0cd6643859ac483
 persistence:
   serverfiles:
     enabled: true

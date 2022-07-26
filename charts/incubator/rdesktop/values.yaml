@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
-  tag: latest
+  tag: latest@sha256:21b87dd41e5d9451113e60412724fd105845d8795d568877d088c8460e9221fb
 persistence:
   config:
     enabled: true

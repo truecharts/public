@@ -20,7 +20,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/flashpaper
-  tag: latest
+  tag: latest@sha256:a784f26d36046473f36f3cf2c214f6ac63517c1b1434eb769fd15a7ee2f10c29
 persistence:
   data:
     enabled: true

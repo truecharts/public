@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/urban-terror
-  tag: latest
+  tag: latest@sha256:9d10572b9c73e17e7e02887c8e5cb168748e48f0d21763ac112bf487359832f5
 persistence:
   datadir:
     enabled: true

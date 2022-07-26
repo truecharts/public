@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/satisfactory-server
-  tag: latest
+  tag: latest@sha256:3091f09addf7b27a37ec412eb54fed8fe30af93dc29b5b3fb80f2d12bbc3e757
 persistence:
   config:
     enabled: true

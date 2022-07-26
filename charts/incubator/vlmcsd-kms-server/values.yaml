@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/vlmcsd-kms-server
-  tag: latest
+  tag: latest@sha256:ead50f01536702fcaa3b0bcfffdb3896d7faa9861578e85773cbe29073a3ef13
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

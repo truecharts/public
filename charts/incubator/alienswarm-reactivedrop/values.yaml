@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/alienswarm-reactivedrop
-  tag: latest
+  tag: latest@sha256:70c12df15768281855c158201cdcf9b1cc828b85f17d849715811d21b2bdb9e8
 persistence:
   serverfiles:
     enabled: true

@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/external-ip
-  tag: latest
+  tag: latest@sha256:e62e88471909689d3ec2bcf7750f74a13659d2a5d15918fffa94d3a4af029728
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/colonysurvival
-  tag: latest
+  tag: latest@sha256:0f87dc019ad2adbaa49020260f984c866fc78a84c228a4578b620d704c51c11e
 persistence:
   serverfiles:
     enabled: true

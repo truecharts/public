@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/shadowsocks
-  tag: latest
+  tag: latest@sha256:9ea9e3daa9350fc8ed43c9fcc6d5c617f09ea6a292a6e66958a1f4d858926a9a
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

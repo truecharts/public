@@ -2,6 +2,34 @@
 
 
 
+## [rsshub-3.0.51](https://github.com/truecharts/apps/compare/rsshub-3.0.50...rsshub-3.0.51) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [rsshub-3.0.51](https://github.com/truecharts/apps/compare/rsshub-3.0.50...rsshub-3.0.51) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [rsshub-3.0.50](https://github.com/truecharts/apps/compare/rsshub-3.0.49...rsshub-3.0.50) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3290](https://github.com/truecharts/apps/issues/3290))
+
+
+
+
 ## [rsshub-3.0.49](https://github.com/truecharts/apps/compare/rsshub-3.0.48...rsshub-3.0.49) (2022-07-23)
 
 ### Chore

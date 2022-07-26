@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/firefox-desktop-g3
-  tag: latest
+  tag: latest@sha256:2f106af5cea9a27ccfbbbe425f14f930f777a0e13806d6a1cc6d5d25956205dc
 persistence:
   internalshare:
     enabled: true

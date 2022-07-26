@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/conreq
-  tag: latest
+  tag: latest@sha256:2362375828e6e7c9f8ebe6daa029cb4c08ef386e31179abadcdc490e5124475a
 persistence:
   config:
     enabled: true

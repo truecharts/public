@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rollarr
-  tag: latest
+  tag: latest@sha256:2c6cc5aa2a7e29350e30b1e45b264938a76a50b898352984e085f090c8cf83e5
 persistence:
   appdata:
     enabled: true

@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/yacreaderlibraryserver
-  tag: latest
+  tag: latest@sha256:a14988e12c16d810ae8f8aeb9254662a2dbca67b3a9b62694b0d89a6849cf83c
 persistence:
   comics:
     enabled: true

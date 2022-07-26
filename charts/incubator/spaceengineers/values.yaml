@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/spaceengineers
-  tag: latest
+  tag: latest@sha256:a676f984c4963878972ae04644129ee1dc80683a6d713b75dccf9fd73014fbef
 persistence:
   savegame:
     enabled: true

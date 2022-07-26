@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tonido
-  tag: latest
+  tag: latest@sha256:04783febf1600d57e50a9fb393ebe802f659f61595ea64ebfee276bae9e20443
 persistence:
   tonido:
     enabled: true

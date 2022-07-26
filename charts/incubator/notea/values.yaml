@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/notea
-  tag: latest
+  tag: latest@sha256:02c3f3e05abe6e83373d58f204b9a0a8625905a3ba5fc24712ee464568206ded
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

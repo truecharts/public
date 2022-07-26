@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rss-proxy
-  tag: latest
+  tag: latest@sha256:234cff7a4617753574440eafca872b85c4be1f76fd8992c7c45de94de4c3457f
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

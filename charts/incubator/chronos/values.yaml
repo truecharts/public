@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chronos
-  tag: latest
+  tag: latest@sha256:d461df79e6aad3f6567b30c539691f80abaa70ba977d524c21a8a71750f7c9c1
 persistence:
   chronos:
     enabled: true

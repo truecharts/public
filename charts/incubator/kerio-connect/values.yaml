@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kerio-connect
-  tag: latest
+  tag: latest@sha256:bc812abd5df6b504c14072bb61323d6171f646ab2c3b2cf7710e8847ce0c6acf
 persistence:
   kerio-connect:
     enabled: true

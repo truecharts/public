@@ -2,6 +2,34 @@
 
 
 
+## [babybuddy-8.0.32](https://github.com/truecharts/apps/compare/babybuddy-8.0.31...babybuddy-8.0.32) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [babybuddy-8.0.32](https://github.com/truecharts/apps/compare/babybuddy-8.0.31...babybuddy-8.0.32) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [babybuddy-8.0.31](https://github.com/truecharts/apps/compare/babybuddy-8.0.30...babybuddy-8.0.31) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3290](https://github.com/truecharts/apps/issues/3290))
+
+
+
+
 ## [babybuddy-8.0.30](https://github.com/truecharts/apps/compare/babybuddy-8.0.29...babybuddy-8.0.30) (2022-07-23)
 
 ### Chore

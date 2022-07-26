@@ -2,6 +2,25 @@
 
 
 
+## [grocy-11.0.28](https://github.com/truecharts/apps/compare/grocy-11.0.27...grocy-11.0.28) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [grocy-11.0.28](https://github.com/truecharts/apps/compare/grocy-11.0.27...grocy-11.0.28) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [grocy-11.0.27](https://github.com/truecharts/apps/compare/grocy-11.0.26...grocy-11.0.27) (2022-07-23)
 
 ### Chore

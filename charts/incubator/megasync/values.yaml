@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/megasync
-  tag: latest
+  tag: latest@sha256:6989fa1c6978e64bb95fe4017edc68fb702bd1d24afab59696c363281ed40df9
 persistence:
   datadir:
     enabled: true

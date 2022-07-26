@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/lastoasis
-  tag: latest
+  tag: latest@sha256:cc60e7b79b78160c3981441fa962a73dab5b2ca96ba3c9d5f1a6fc0ab148168b
 persistence:
   serverfiles:
     enabled: true

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/livebook
-  tag: latest
+  tag: latest@sha256:3b79e38b69f91d2163d0fb9416a53553341ab062f7acb0c6ee95cc929b60354f
 persistence:
   data:
     enabled: true

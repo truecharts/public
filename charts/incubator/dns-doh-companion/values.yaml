@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dns-doh-companion
-  tag: latest
+  tag: latest@sha256:4f0698a011b49d229d6989819f7eca3625ee2791c93afa23b3751cb0951b9014
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

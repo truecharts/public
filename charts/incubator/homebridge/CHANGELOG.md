@@ -2,6 +2,25 @@
 
 
 
+## [homebridge-1.0.24](https://github.com/truecharts/apps/compare/homebridge-1.0.23...homebridge-1.0.24) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [homebridge-1.0.24](https://github.com/truecharts/apps/compare/homebridge-1.0.23...homebridge-1.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [homebridge-1.0.23](https://github.com/truecharts/apps/compare/homebridge-1.0.22...homebridge-1.0.23) (2022-07-23)
 
 ### Chore

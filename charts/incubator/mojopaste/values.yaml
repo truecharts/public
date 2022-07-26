@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/mojopaste
-  tag: latest
+  tag: latest@sha256:ca5766afbe0cbf24412ea90ba9e1cb74810cb4c4e21b9883e69a3a2cff57409f
 persistence:
   data:
     enabled: true

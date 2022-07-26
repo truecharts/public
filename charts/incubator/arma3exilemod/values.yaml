@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arma3exilemod
-  tag: latest
+  tag: latest@sha256:208329fc94dbc999c01e76ee4322efe6ac1358b466ba1e73327a4db55b01e00f
 persistence:
   profiles:
     enabled: true

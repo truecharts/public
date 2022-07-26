@@ -12,7 +12,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/openra
-  tag: latest
+  tag: latest@sha256:268379df5fb2c30965729cf40e30a9fe44560308b5f846b0db3da8f105109942
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

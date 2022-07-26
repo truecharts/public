@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pvk-ii
-  tag: latest
+  tag: latest@sha256:25a2f8527d8a70e19c1ea2253173dd5a180a3b23c28fa888941fd75a9a56ef24
 persistence:
   serverfiles:
     enabled: true

@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/debian-apt-mirror
-  tag: latest
+  tag: latest@sha256:c503d737c5c4c4eecf306472f221133e622d61d10b86728747fa27c5b7641193
 persistence:
   config:
     enabled: true

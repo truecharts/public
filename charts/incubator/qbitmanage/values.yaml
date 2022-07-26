@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/qbitmanage
-  tag: latest
+  tag: latest@sha256:12f97b68fb982d057a5d2b32308f43e328faddb417cd4fa721f99b513e0d8bab
 persistence:
   config:
     enabled: true

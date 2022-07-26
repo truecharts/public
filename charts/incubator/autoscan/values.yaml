@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/autoscan
-  tag: latest
+  tag: latest@sha256:ed7c5a80832fcdd829313f1bb1609ea8ed35ba82495b11cb97d41cad7bb5af8b
 persistence:
   config:
     enabled: true

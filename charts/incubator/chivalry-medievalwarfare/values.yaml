@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chivalry-medievalwarfare
-  tag: latest
+  tag: latest@sha256:bc124a96ac58234893ef576a54ee651813cdf2fb64b653c6a3dd962352fdb485
 persistence:
   serverfiles:
     enabled: true

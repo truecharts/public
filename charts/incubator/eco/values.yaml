@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/eco
-  tag: latest
+  tag: latest@sha256:bc30e403e4fa5fd0fde0b5a3541e44f54bca512979c19baec787458bc400c060
 persistence:
   serverfiles:
     enabled: true

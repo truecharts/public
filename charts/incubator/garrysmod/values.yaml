@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/garrysmod
-  tag: latest
+  tag: latest@sha256:35ea33df35e7ca234d1f27c1655090059396a6400abedb321b7277dcfafc6f5d
 persistence:
   serverfiles:
     enabled: true

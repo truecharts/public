@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ethercalc
-  tag: latest
+  tag: latest@sha256:0c477806d40756c51356f02eb7a1b28ed0122ca1a3eb1a12df176343c5087d0f
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

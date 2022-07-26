@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cloudcommander
-  tag: latest
+  tag: latest@sha256:0865364356f79c865cf6a44880969416fc571171d0b3c5e6209ee528682005df
 persistence:
   appdata:
     enabled: true

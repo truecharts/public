@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/goaccess
-  tag: latest
+  tag: latest@sha256:0bf7c94ed92a39f58ce83aff9cf6217d25b9298cb0b985d9c9171d29509d3f00
 persistence:
   goaccess:
     enabled: true

@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/debian-bullseye
-  tag: latest
+  tag: latest@sha256:2a28aad6aa8cddafad0c70143f54c9b679ff952bacb053a2308b39c3c4a58a32
 persistence:
   homedirectory:
     enabled: true

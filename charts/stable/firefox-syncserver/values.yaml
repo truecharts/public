@@ -2,7 +2,7 @@ image:
   repository: tccr.io/truecharts/firefox-syncserver
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.8.0@sha256:214daeb91ba1c90ce166c4bde77b3690b091c996a974ec3689ade634757e728e
+  tag: v1.8.0@sha256:13d5d1beae0e7ea4298224abbc415de837200b8402d676e856601a63dc8432ed
 
 secretEnv:
   FF_SYNCSERVER_SECRET: "changeme"

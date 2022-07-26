@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/post-recording
-  tag: latest
+  tag: latest@sha256:edb69fbb249335cb5ab1572ec805768e74c16bbff657c350caa8abd553b83047
 persistence:
   backupfolder:
     enabled: true

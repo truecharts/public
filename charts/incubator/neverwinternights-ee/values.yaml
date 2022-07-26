@@ -22,7 +22,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/neverwinternights-ee
-  tag: latest
+  tag: latest@sha256:3d1386eeffae8e16084e081ae852af475d53a473f62d298b9aa1c4e24079d4be
 persistence:
   serverfiles:
     enabled: true

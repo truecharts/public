@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: v2022.7.2@sha256:5e00c82806f99fe7a964b794a1d89614ccf0d7bb4341c0f948ff7c1de960c171
+  tag: v2022.7.2@sha256:4df2aa9b63fe04be35678c128d338ac5827a0a1b2206b7b86edc3c5f5df04d96
   pullPolicy: IfNotPresent
 
 geoipImage:
   repository: tccr.io/truecharts/geoipupdate
-  tag: v4.9@sha256:8466b52179d789f1ea00f80ac102b936397250b93d4ab4302e6e6dd5713694e5
+  tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
   pullPolicy: IfNotPresent
 
 extraArgs: ["server"]

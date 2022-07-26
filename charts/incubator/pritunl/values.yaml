@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pritunl
-  tag: latest
+  tag: latest@sha256:cd842842869a969c4aeb6dcf3154831b399c5820e3a02e0cb69466eaf56b654c
 persistence:
   config:
     enabled: true

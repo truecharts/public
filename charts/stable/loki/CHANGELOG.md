@@ -2,6 +2,25 @@
 
 
 
+## [loki-5.0.27](https://github.com/truecharts/apps/compare/loki-5.0.26...loki-5.0.27) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [loki-5.0.27](https://github.com/truecharts/apps/compare/loki-5.0.26...loki-5.0.27) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [loki-5.0.26](https://github.com/truecharts/apps/compare/loki-5.0.25...loki-5.0.26) (2022-07-23)
 
 ### Chore

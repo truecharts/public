@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/halflife2deathmatch
-  tag: latest
+  tag: latest@sha256:a53dab98bd037d5e1c1e65b39d49a7075e9a06172301c72e889aa22db9e1e414
 persistence:
   serverfiles:
     enabled: true

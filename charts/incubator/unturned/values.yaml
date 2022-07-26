@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/unturned
-  tag: latest
+  tag: latest@sha256:01d413b18dcdad02edeaf54a675809e8d2ca0a6106542622d41ed120bd446b33
 persistence:
   serverfiles:
     enabled: true

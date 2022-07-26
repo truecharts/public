@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sqlite-web
-  tag: latest
+  tag: latest@sha256:ff2f70ca861c4d25d93f6486507c8de89a966fb001c2f1161db5f0bf4bee905d
 persistence:
   data:
     enabled: true

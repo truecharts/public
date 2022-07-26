@@ -2,6 +2,25 @@
 
 
 
+## [handbrake-13.0.24](https://github.com/truecharts/apps/compare/handbrake-13.0.23...handbrake-13.0.24) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [handbrake-13.0.24](https://github.com/truecharts/apps/compare/handbrake-13.0.23...handbrake-13.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
 ## [handbrake-13.0.23](https://github.com/truecharts/apps/compare/handbrake-13.0.22...handbrake-13.0.23) (2022-07-23)
 
 ### Chore

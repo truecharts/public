@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/daysofwar
-  tag: latest
+  tag: latest@sha256:052b02441badc0d70427a767bf311a9502343b47dff94fcf1f083950a58e8a71
 persistence:
   serverfiles:
     enabled: true

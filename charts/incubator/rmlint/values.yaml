@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rmlint
-  tag: latest
+  tag: latest@sha256:9f8823388453aa296ad8738a693d2037b146947146c0db4c6b6dc3638771ef26
 persistence:
   config:
     enabled: true

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/vertex
-  tag: vstable
+  tag: vstable@sha256:9032efbe23a7faea7e937c04340cac147b4c9be161307c5ecf487296fcda9725
 persistence:
   config:
     enabled: true

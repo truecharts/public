@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/quickshare
-  tag: latest
+  tag: latest@sha256:8dc5e33f389801d82fc54ed29c19b7c19383f6453db485bc7dbaeae2a6c61e53
 persistence:
   storagedata:
     enabled: true

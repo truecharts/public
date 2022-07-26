@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/actualserver
-  tag: latest
+  tag: latest@sha256:8af9fd4323b234d9eb38672113f99e822861bef9aa8cef4ccc00792a0055396e
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

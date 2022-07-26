@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dropbox-by-otherguy
-  tag: latest
+  tag: latest@sha256:161b050ceb2b9ff2808bdb8cccb0ee71381b27854a8feeb42ee8bd0064f4ca06
 persistence:
   dropboxsettings:
     enabled: true

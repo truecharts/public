@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rustpad
-  tag: latest
+  tag: latest@sha256:ef057755df14c9b8b15b24af2bd91477c4a4ac655a4e7613991dfc12731007e5
 persistence:
   storagedatabase:
     enabled: true

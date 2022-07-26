@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/virt-manager
-  tag: latest
+  tag: latest@sha256:bc3a518ca1d312d23e9d85164c9499c1a470c0c9cd3ac147d02f78d1deff1d07
 persistence:
   devkvm:
     enabled: true

@@ -24,7 +24,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/stun-turn-server
-  tag: latest
+  tag: latest@sha256:902139a19e198657775f455df7acabf3ed04c6835fa354efc35033dca6131404
 persistence:
   containerpath:
     enabled: true

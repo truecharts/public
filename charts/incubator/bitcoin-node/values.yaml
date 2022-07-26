@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/bitcoin-node
-  tag: latest
+  tag: latest@sha256:840bd7fa8b212d7363a7df9fe75aed64c2126273c7dadcc9eb7ef3a825957f3b
 persistence:
   blockhainstorage:
     enabled: true

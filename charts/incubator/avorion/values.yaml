@@ -11,7 +11,7 @@ tty: true
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/avorion
-  tag: latest
+  tag: latest@sha256:b7e32a75276e0976268d5aa2a11bc51ccfc9225d63ae10ea1e27f73a7ea4db17
 persistence:
   serverfiles:
     enabled: true

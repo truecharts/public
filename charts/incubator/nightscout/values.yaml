@@ -14,7 +14,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/nightscout
-  tag: latest
+  tag: latest@sha256:03d918c83e70f2c9f42f8ba9a7cf08c6d6ec398c35fda6d719895ea59c4b17dc
 persistence: {}
 podSecurityContext:
   runAsGroup: 0

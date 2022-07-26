@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/duplicacy
-  tag: latest
+  tag: latest@sha256:08e3518083a5ac0b8f6c4794861ea99510957f953dff9f0aa9d3499d9ca83a9f
 persistence:
   config:
     enabled: true
