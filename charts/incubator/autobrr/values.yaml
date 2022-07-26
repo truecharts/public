@@ -11,6 +11,14 @@ service:
         port: 7474
         targetPort: 7474
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 persistence:
   config:
     enabled: true
