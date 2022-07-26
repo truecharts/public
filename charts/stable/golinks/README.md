@@ -1,6 +1,6 @@
 # golinks
 
-![Version: 4.0.21](https://img.shields.io/badge/Version-4.0.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 154c581](https://img.shields.io/badge/AppVersion-154c581-informational?style=flat-square)
+![Version: 4.0.22](https://img.shields.io/badge/Version-4.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 154c581](https://img.shields.io/badge/AppVersion-154c581-informational?style=flat-square)
 
 A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

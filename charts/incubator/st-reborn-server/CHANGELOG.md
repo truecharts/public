@@ -2,6 +2,16 @@
 
 
 
+## [st-reborn-server-0.0.8](https://github.com/truecharts/apps/compare/st-reborn-server-0.0.7...st-reborn-server-0.0.8) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [st-reborn-server-0.0.7](https://github.com/truecharts/apps/compare/st-reborn-server-0.0.6...st-reborn-server-0.0.7) (2022-07-25)
 
 ### Chore

@@ -1,6 +1,6 @@
 # jitsi
 
-![Version: 0.0.17](https://img.shields.io/badge/Version-0.0.17-informational?style=flat-square) ![AppVersion: stable-728](https://img.shields.io/badge/AppVersion-stable--728-informational?style=flat-square)
+![Version: 0.0.18](https://img.shields.io/badge/Version-0.0.18-informational?style=flat-square) ![AppVersion: stable-728](https://img.shields.io/badge/AppVersion-stable--728-informational?style=flat-square)
 
 Jitsi is a set of open-source projects that allows you to easily build and deploy secure video conferencing solutions
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

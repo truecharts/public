@@ -2,6 +2,16 @@
 
 
 
+## [lancache-dns-0.0.11](https://github.com/truecharts/apps/compare/lancache-dns-0.0.10...lancache-dns-0.0.11) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [lancache-dns-0.0.10](https://github.com/truecharts/apps/compare/lancache-dns-0.0.9...lancache-dns-0.0.10) (2022-07-25)
 
 ### Chore

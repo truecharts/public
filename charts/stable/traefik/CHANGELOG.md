@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.1.6](https://github.com/truecharts/apps/compare/traefik-13.1.5...traefik-13.1.6) (2022-07-26)
+
+### Chore
+
+- update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [traefik-13.1.5](https://github.com/truecharts/apps/compare/traefik-13.1.4...traefik-13.1.5) (2022-07-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [dokuwiki-3.0.39](https://github.com/truecharts/apps/compare/dokuwiki-3.0.38...dokuwiki-3.0.39) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [dokuwiki-3.0.38](https://github.com/truecharts/apps/compare/dokuwiki-3.0.37...dokuwiki-3.0.38) (2022-07-25)
 
 ### Chore

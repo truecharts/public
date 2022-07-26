@@ -2,6 +2,16 @@
 
 
 
+## [apache-musicindex-4.0.23](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.22...apache-musicindex-4.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [apache-musicindex-4.0.22](https://github.com/truecharts/apps/compare/apache-musicindex-4.0.21...apache-musicindex-4.0.22) (2022-07-23)
 
 ### Chore

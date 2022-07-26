@@ -1,6 +1,6 @@
 # airdcpp-webclient
 
-![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.11.2](https://img.shields.io/badge/AppVersion-2.11.2-informational?style=flat-square)
+![Version: 3.0.25](https://img.shields.io/badge/Version-3.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.11.2](https://img.shields.io/badge/AppVersion-2.11.2-informational?style=flat-square)
 
 AirDC++ Web Client is a locally installed application, which is designed for flexible sharing of files or directories within groups of people in a local network or over internet.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

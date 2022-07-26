@@ -2,6 +2,16 @@
 
 
 
+## [truecommand-11.0.23](https://github.com/truecharts/apps/compare/truecommand-11.0.22...truecommand-11.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [truecommand-11.0.22](https://github.com/truecharts/apps/compare/truecommand-11.0.21...truecommand-11.0.22) (2022-07-25)
 
 ### Chore

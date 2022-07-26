@@ -1,6 +1,6 @@
 # picoshare
 
-![Version: 2.0.22](https://img.shields.io/badge/Version-2.0.22-informational?style=flat-square) ![AppVersion: 1.1.7](https://img.shields.io/badge/AppVersion-1.1.7-informational?style=flat-square)
+![Version: 2.0.23](https://img.shields.io/badge/Version-2.0.23-informational?style=flat-square) ![AppVersion: 1.1.7](https://img.shields.io/badge/AppVersion-1.1.7-informational?style=flat-square)
 
 PicoShare is a minimalist service that allows you to share files easily.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

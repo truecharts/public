@@ -2,6 +2,20 @@
 
 
 
+## [octoprint-6.0.25](https://github.com/truecharts/apps/compare/octoprint-6.0.24...octoprint-6.0.25) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+  ### Fix
+
+- Fix inline comments that break linting ([#3305](https://github.com/truecharts/apps/issues/3305))
+
+
+
+
 ## [octoprint-6.0.24](https://github.com/truecharts/apps/compare/octoprint-6.0.23...octoprint-6.0.24) (2022-07-25)
 
 ### Chore

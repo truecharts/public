@@ -2,6 +2,16 @@
 
 
 
+## [tvheadend-12.0.22](https://github.com/truecharts/apps/compare/tvheadend-12.0.21...tvheadend-12.0.22) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [tvheadend-12.0.21](https://github.com/truecharts/apps/compare/tvheadend-12.0.20...tvheadend-12.0.21) (2022-07-23)
 
 ### Chore
