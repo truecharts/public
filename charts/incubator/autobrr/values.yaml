@@ -7,7 +7,7 @@ service:
   main:
     ports:
       main:
-        # protocol: HTTP
+        protocol: HTTP
         port: 7474
         targetPort: 7474
 
