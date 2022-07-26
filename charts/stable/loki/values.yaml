@@ -107,7 +107,7 @@ config:
     boltdb_shipper:
       active_index_directory: /data/loki/boltdb-shipper-active
       cache_location: /data/loki/boltdb-shipper-cache
-      cache_ttl: 24h # Can be increased for faster performance over longer query periods, uses more disk space
+      cache_ttl: 24h
       shared_store: filesystem
     filesystem:
       directory: /data/loki/chunks
