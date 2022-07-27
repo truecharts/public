@@ -7,39 +7,13 @@ service:
   main:
     ports:
       main:
-        # protocol: HTTP
+        protocol: HTTP
         port: 7474
         targetPort: 7474
 
 probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -c
-          - curl --fail localhost:7474/
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -c
-          - curl --fail localhost:7474/
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
+  startup:
+    enabled: false
 
 persistence:
   config:
