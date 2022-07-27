@@ -74,9 +74,9 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
@@ -87,7 +87,20 @@ questions:
           schema:
             type: string
             private: true
-            default: "CHANGEME"
+            default: ""
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: MYDOMAIN
+          label: "MYDOMAIN"
+          description: "MYDOMAIN"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
