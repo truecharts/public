@@ -2,6 +2,15 @@
 
 
 
+## [meshroom-2.0.23](https://github.com/truecharts/apps/compare/meshroom-2.0.22...meshroom-2.0.23) (2022-07-27)
+
+### Chore
+
+- update image refs ([#3324](https://github.com/truecharts/apps/issues/3324))
+
+
+
+
 ## [meshroom-2.0.22](https://github.com/truecharts/apps/compare/meshroom-2.0.21...meshroom-2.0.22) (2022-07-26)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [ztcuui-aio-0.0.4](https://github.com/truecharts/apps/compare/ztcuui-aio-0.0.3...ztcuui-aio-0.0.4) (2022-07-27)
+
+### Chore
+
+- update image refs ([#3324](https://github.com/truecharts/apps/issues/3324))
+
+
+
+
 ## [ztcuui-aio-0.0.3](https://github.com/truecharts/apps/compare/ztcuui-aio-0.0.2...ztcuui-aio-0.0.3) (2022-07-27)
 
 ### Feat

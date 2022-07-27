@@ -2,6 +2,15 @@
 
 
 
+## [jitsi-0.0.19](https://github.com/truecharts/apps/compare/jitsi-0.0.18...jitsi-0.0.19) (2022-07-27)
+
+### Chore
+
+- update image refs ([#3324](https://github.com/truecharts/apps/issues/3324))
+
+
+
+
 ## [jitsi-0.0.18](https://github.com/truecharts/apps/compare/jitsi-0.0.17...jitsi-0.0.18) (2022-07-26)
 
 ### Chore
