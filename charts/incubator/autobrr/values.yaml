@@ -18,7 +18,7 @@ probes:
     spec:
       exec:
         command:
-          - /bin/bash
+          - /bin/sh
           - -c
           - curl --fail localhost:7474/
       failureThreshold: 5
@@ -32,7 +32,7 @@ probes:
     spec:
       exec:
         command:
-          - /bin/bash
+          - /bin/sh
           - -c
           - curl --fail localhost:7474/
       failureThreshold: 5
