@@ -2,6 +2,11 @@
 
 
 
+## [nextcloud-15.2.30](https://github.com/truecharts/apps/compare/nextcloud-15.2.29...nextcloud-15.2.30) (2022-07-26)
+
+
+
+
 ## [nextcloud-15.2.29](https://github.com/truecharts/apps/compare/nextcloud-15.2.28...nextcloud-15.2.29) (2022-07-26)
 
 ### Chore
