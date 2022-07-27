@@ -1,7 +1,7 @@
 image:
-  repository: blakeblackshear/frigate
+  repository: tccr.io/truecharts/frigate-nvidia
   pullPolicy: IfNotPresent
-  tag: 0.10.0-beta6-amd64nvidia
+  tag: latest@sha256:9facc1383ebbf148873bcc2fba501868b0e09417cffff7f6c06fb31b9c9b95ec
 
 securityContext:
   readOnlyRootFilesystem: false
