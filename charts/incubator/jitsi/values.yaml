@@ -1,19 +1,19 @@
 image:
-  repository: jitsi/web
+  repository: tccr.io/truecharts/jitsi-web
   pullPolicy: IfNotPresent
-  tag: stable-7287-2@sha256:b89751242b64c408ba17b198cfa18e41f7b7536e3dc9ccc3956dfa0c69421ffc
+  tag: v7439@sha256:18374c58ed22cf99f0cfbdad1d8f01062898b4290560e65582879b04a733ba44
 
 prosodyImage:
-  repository: jitsi/prosody
-  tag: stable-7287-2@sha256:4ec0f219ff8e1d912ce0106a52414c323f85ef6900b46bc97c700febba0fab81
+  repository: tccr.io/truecharts/jitsi-prosody
+  tag: v7439@sha256:39c12997f44d3583fdc9699cfc247d0fd61e8f56278062d718d7583cdfa78259
 
 jicofoImage:
-  repository: jitsi/jicofo
-  tag: stable-7287-2@sha256:f82b4affad4e52854674ffb178ca40dabcfc3af2a087ebbf284934569744d425
+  repository: tccr.io/truecharts/jitsi-jicofo
+  tag: v7439@sha256:e1d3b8c213197eab8a9ded23dc3f63e7a99c376baaa0b2d74c7571f292c4c57e
 
 jvbImage:
-  repository: jitsi/jvb
-  tag: stable-7287-2@sha256:8f81c1b8361233a407ebc4210536910b4ec11e885015451b4a009cd02284d75a
+  repository: tccr.io/truecharts/jitsi-jvb
+  tag: v7439@sha256:02fc3833c4d6cdf8dc9f707feb2e09d032a8641802bd2079f875d8a78058e185
 
 securityContext:
   readOnlyRootFilesystem: false
