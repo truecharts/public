@@ -11,10 +11,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  ZTNCUI_PASSWD: "CHANGEME"
+
 env:
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   HTTP_ALL_INTERFACES: "yes"
-  ZTNCUI_PASSWD: "CHANGEME"
   NODE_ENV: "production"
   MYDOMAIN: "test.truecharts.org"
 
@@ -23,7 +25,7 @@ service:
     ports:
       main:
         port: 10258
-        protocol: "HTTPS"
+        # protocol: "HTTPS"
   other:
     enabled: true
     ports:
