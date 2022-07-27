@@ -1,0 +1,24 @@
+image:
+  repository: ankicommunity/anki-sync-server-rs
+  tag: latest@sha256:9b0bd6cf7a5ecd8c40b54c898ca845e9202e538390d5c1bafdaaf70a42d5231a
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 27701
+        targetPort: 27701
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /app
