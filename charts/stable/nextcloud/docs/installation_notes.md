@@ -8,7 +8,7 @@ The support staff will not help with upgrades that fail from an earlier version 
 [migration guide](migration_guide.md) to help with this upgrade.
 
 If you're having issues with the Nextcloud app/chart itself after basic installation we ask you not to file support
-requests on our Discord or Github, unless your issue is clearly caused by TrueCharts.
+requests on our Discord or Github, unless your issue is clearly caused by TrueCharts. It's, however, fine to ask in an, appropiate, other, non-support, channel!
 
 While we consider the App layer "Stable", we simply cannot guarantee stability due to the nature of the Nextcloud Application inside the App.
 
