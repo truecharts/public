@@ -2,6 +2,16 @@
 
 
 
+## [dashdot-1.0.36](https://github.com/truecharts/apps/compare/dashdot-1.0.35...dashdot-1.0.36) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [dashdot-1.0.35](https://github.com/truecharts/apps/compare/dashdot-1.0.34...dashdot-1.0.35) (2022-07-25)
 
 ### Chore

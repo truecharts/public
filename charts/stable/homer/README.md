@@ -1,6 +1,6 @@
 # homer
 
-![Version: 2.0.27](https://img.shields.io/badge/Version-2.0.27-informational?style=flat-square) ![AppVersion: 22.07.2](https://img.shields.io/badge/AppVersion-22.07.2-informational?style=flat-square)
+![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![AppVersion: 22.07.2](https://img.shields.io/badge/AppVersion-22.07.2-informational?style=flat-square)
 
 A dead simple static homepage for your server to keep your services on hand.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

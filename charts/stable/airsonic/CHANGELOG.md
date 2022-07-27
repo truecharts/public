@@ -2,6 +2,20 @@
 
 
 
+## [airsonic-6.0.23](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.23...airsonic-6.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+  ### Fix
+
+- Fix inline comments that break linting ([#3305](https://github.com/truecharts/apps/issues/3305))
+
+
+
+
 ## [airsonic-6.0.22](https://github.com/truecharts/apps/compare/airsonic-advanced-4.0.22...airsonic-6.0.22) (2022-07-23)
 
 ### Chore

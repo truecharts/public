@@ -1,6 +1,6 @@
 # tinymediamanager
 
-![Version: 2.0.22](https://img.shields.io/badge/Version-2.0.22-informational?style=flat-square) ![AppVersion: 4.2.8](https://img.shields.io/badge/AppVersion-4.2.8-informational?style=flat-square)
+![Version: 2.0.23](https://img.shields.io/badge/Version-2.0.23-informational?style=flat-square) ![AppVersion: 4.2.8](https://img.shields.io/badge/AppVersion-4.2.8-informational?style=flat-square)
 
 TinyMediaManager is a full featured media manager to organize and clean up your media library.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.7 |
+| https://library-charts.truecharts.org | common | 10.4.8 |
 
 ## Installing the Chart
 

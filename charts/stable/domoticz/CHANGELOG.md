@@ -2,6 +2,16 @@
 
 
 
+## [domoticz-2.0.27](https://github.com/truecharts/apps/compare/domoticz-2.0.26...domoticz-2.0.27) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [domoticz-2.0.26](https://github.com/truecharts/apps/compare/domoticz-2.0.25...domoticz-2.0.26) (2022-07-23)
 
 ### Chore

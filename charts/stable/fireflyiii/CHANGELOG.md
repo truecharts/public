@@ -2,6 +2,16 @@
 
 
 
+## [fireflyiii-16.0.28](https://github.com/truecharts/apps/compare/fireflyiii-16.0.27...fireflyiii-16.0.28) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [fireflyiii-16.0.27](https://github.com/truecharts/apps/compare/fireflyiii-16.0.26...fireflyiii-16.0.27) (2022-07-25)
 
 ### Chore

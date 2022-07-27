@@ -2,6 +2,15 @@
 
 
 
+## [satisfactory-2.0.25](https://github.com/truecharts/apps/compare/satisfactory-2.0.24...satisfactory-2.0.25) (2022-07-26)
+
+### Chore
+
+- update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [satisfactory-2.0.24](https://github.com/truecharts/apps/compare/satisfactory-2.0.23...satisfactory-2.0.24) (2022-07-25)
 
 ### Chore

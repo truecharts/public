@@ -2,6 +2,16 @@
 
 
 
+## [wg-easy-1.0.17](https://github.com/truecharts/apps/compare/wg-easy-1.0.16...wg-easy-1.0.17) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
 ## [wg-easy-1.0.16](https://github.com/truecharts/apps/compare/wg-easy-1.0.15...wg-easy-1.0.16) (2022-07-25)
 
 ### Chore
