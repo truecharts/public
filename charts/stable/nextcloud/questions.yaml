@@ -109,8 +109,8 @@ questions:
           schema:
             type: string
             default: "172.16.0.0/16 127.0.0.1"
-        - variable: PHP_INI_MEMORY_LIMIT
-          label: "PHP_INI_MEMORY_LIMIT"
+        - variable: PHP_MEMORY_LIMIT
+          label: "PHP_MEMORY_LIMIT"
           description: "Sets php memory_limit setting"
           schema:
             type: string
