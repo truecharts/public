@@ -1,0 +1,15 @@
+image:
+  repository: joni1802/ts3-manager
+  pullPolicy: IfNotPresent
+  tag: v2.2.0@sha256:9db01d161d2b37e8e872ed701cbedb3986eff46721d12f4d59279abfec5b0354
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10284
