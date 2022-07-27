@@ -36,7 +36,7 @@ Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%2
 
 ### Support
 
-Please check our [FAQ](https://truecharts.org/docs/about/intro), [manual](https://truecharts.org/docs/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/docs/about/intro), [manual](https://truecharts.org/docs/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/charts/issues) There is a significant chance your issue has been reported before!
 
 Still something not working as expected? [Contact us!](https://truecharts.org/docs/about/contact/) and we'll figure it out together!
 
