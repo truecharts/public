@@ -8,6 +8,51 @@ env:
 
 secretEnv:
   JWT_SECRET: "changeme"
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl --fail localhost:10284/
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl --fail localhost:10284/
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl --fail localhost:10284/
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+
 service:
   main:
     ports:
