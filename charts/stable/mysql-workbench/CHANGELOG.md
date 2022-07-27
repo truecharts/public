@@ -2,6 +2,15 @@
 
 
 
+## [mysql-workbench-2.0.23](https://github.com/truecharts/apps/compare/mysql-workbench-2.0.22...mysql-workbench-2.0.23) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [mysql-workbench-2.0.22](https://github.com/truecharts/apps/compare/mysql-workbench-2.0.21...mysql-workbench-2.0.22) (2022-07-26)
 
 ### Chore

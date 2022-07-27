@@ -2,6 +2,19 @@
 
 
 
+## [nextcloud-15.2.31](https://github.com/truecharts/apps/compare/nextcloud-15.2.30...nextcloud-15.2.31) (2022-07-27)
+
+### Feat
+
+- Improved installation_notes ([#3315](https://github.com/truecharts/apps/issues/3315))
+
+  ### Fix
+
+- also apply the php var fix to UI ([#3319](https://github.com/truecharts/apps/issues/3319))
+
+
+
+
 ## [nextcloud-15.2.30](https://github.com/truecharts/apps/compare/nextcloud-15.2.29...nextcloud-15.2.30) (2022-07-26)
 
 

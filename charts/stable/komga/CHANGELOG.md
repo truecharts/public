@@ -2,6 +2,15 @@
 
 
 
+## [komga-6.0.28](https://github.com/truecharts/apps/compare/komga-6.0.27...komga-6.0.28) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [komga-6.0.27](https://github.com/truecharts/apps/compare/komga-6.0.26...komga-6.0.27) (2022-07-26)
 
 ### Chore

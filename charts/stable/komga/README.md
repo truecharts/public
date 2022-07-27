@@ -1,6 +1,6 @@
 # komga
 
-![Version: 6.0.27](https://img.shields.io/badge/Version-6.0.27-informational?style=flat-square) ![AppVersion: 0.155.3](https://img.shields.io/badge/AppVersion-0.155.3-informational?style=flat-square)
+![Version: 6.0.28](https://img.shields.io/badge/Version-6.0.28-informational?style=flat-square) ![AppVersion: 0.156.0](https://img.shields.io/badge/AppVersion-0.156.0-informational?style=flat-square)
 
 A comics/mangas server to serve/stream pages via API
 
