@@ -6,6 +6,8 @@ image:
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
 
+secretEnv:
+  JWT_SECRET: "changeme"
 service:
   main:
     ports:
