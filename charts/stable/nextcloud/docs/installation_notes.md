@@ -18,7 +18,6 @@ Nextcloud generates it's `config.php` file on the first startup/installation. Th
 Otherwise you will have to either re-install the App or edit the `config.php` manually, with the latter being out of our support scope.
 The mentioned values are:
 
-- TRUSTED_PROXIES
 - AccessIP
 - User Data storage location, type (eg. PVC, hostPath).
 
