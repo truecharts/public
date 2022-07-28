@@ -1,0 +1,50 @@
+image:
+  repository: tccr.io/truecharts/kitchenowl-web
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:8f34f1b57228cbaeaf5f1c601ba401b7143abc8e4acedd553b9eb61db197bfa0
+
+backendImage:
+  repository: tccr.io/truecharts/kitchenowl-backend
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:1480570439a418e3d3a12b0292aac5073fdbb09b4a95ebd1616bd419dca55299
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  FRONT_URL: "http://localhost:10246"
+  BACK_URL: "localhost:5000"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 10246
+
+additionalContainers:
+  backend:
+    name: backend
+    image: "{{ .Values.backendImage.repository }}:{{ .Values.backendImage.tag }}"
+    env:
+      - name: FRONT_URL
+        value: "{{ .Values.env.FRONT_URL }}"
+      - name: JWT_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: kitchenowl-secrets
+            key: JWT_SECRET_KEY
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
