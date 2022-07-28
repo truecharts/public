@@ -2,6 +2,16 @@
 
 
 
+## [mariadb-3.0.47](https://github.com/truecharts/apps/compare/mariadb-3.0.46...mariadb-3.0.47) (2022-07-27)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [mariadb-3.0.46](https://github.com/truecharts/apps/compare/mariadb-3.0.44...mariadb-3.0.46) (2022-07-25)
 
 ### Chore

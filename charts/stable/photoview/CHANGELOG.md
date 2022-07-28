@@ -2,6 +2,15 @@
 
 
 
+## [photoview-4.0.25](https://github.com/truecharts/apps/compare/photoview-4.0.24...photoview-4.0.25) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [photoview-4.0.24](https://github.com/truecharts/apps/compare/photoview-4.0.23...photoview-4.0.24) (2022-07-26)
 
 ### Chore

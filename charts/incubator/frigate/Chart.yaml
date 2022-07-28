@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "idia"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -23,7 +23,7 @@ sources:
   - https://github.com/blakeblackshear/frigate
   - https://hub.docker.com/r/blakeblackshear/frigate
 type: application
-version: 2.0.23
+version: 2.0.24
 annotations:
   truecharts.org/catagories: |
     - nvr

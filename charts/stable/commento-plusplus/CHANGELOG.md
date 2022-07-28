@@ -2,6 +2,15 @@
 
 
 
+## [commento-plusplus-3.0.26](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.25...commento-plusplus-3.0.26) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [commento-plusplus-3.0.25](https://github.com/truecharts/apps/compare/commento-plusplus-3.0.24...commento-plusplus-3.0.25) (2022-07-26)
 
 ### Chore

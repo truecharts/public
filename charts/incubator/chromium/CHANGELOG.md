@@ -2,6 +2,15 @@
 
 
 
+## [chromium-0.0.15](https://github.com/truecharts/apps/compare/chromium-0.0.14...chromium-0.0.15) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [chromium-0.0.14](https://github.com/truecharts/apps/compare/ungoogled-chromium-0.0.13...chromium-0.0.14) (2022-07-26)
 
 ### Chore

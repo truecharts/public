@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: ts3-manager
+version: 0.0.1
+appVersion: "2.2.0"
+description: A modern web interface for maintaining Teamspeak3 servers.
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/ts3-manager
+icon: https://truecharts.org/img/chart-icons/ts3-manager.png
+keywords:
+  - ts3-manager
+  - teamspeak
+  - teamspeak3
+sources:
+  - https://hub.docker.com/r/joni1802/ts3-manager/
+  - https://github.com/joni1802/ts3-manager/
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.8
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - web
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

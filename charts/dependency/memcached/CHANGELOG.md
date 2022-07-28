@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.48](https://github.com/truecharts/apps/compare/memcached-3.0.47...memcached-3.0.48) (2022-07-27)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [memcached-3.0.47](https://github.com/truecharts/apps/compare/memcached-3.0.45...memcached-3.0.47) (2022-07-25)
 
 ### Chore

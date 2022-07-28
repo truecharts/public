@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: autobrr
+version: 0.0.2
+appVersion: "1.1.0"
+description: The modern download automation tool for torrents.
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/autobrr
+icon: https://truecharts.org/img/chart-icons/autobrr.png
+keywords:
+  - autobrr
+  - torrent
+sources:
+  - https://github.com/autobrr/autobrr
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.8
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

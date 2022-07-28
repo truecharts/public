@@ -2,6 +2,15 @@
 
 
 
+## [medusa-3.0.30](https://github.com/truecharts/apps/compare/medusa-3.0.29...medusa-3.0.30) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
 ## [medusa-3.0.29](https://github.com/truecharts/apps/compare/medusa-3.0.28...medusa-3.0.29) (2022-07-26)
 
 ### Chore

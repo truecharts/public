@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.1.7](https://github.com/truecharts/apps/compare/traefik-13.1.6...traefik-13.1.7) (2022-07-27)
+
+### Feat
+
+- add theme-park middleware docs ([#3320](https://github.com/truecharts/apps/issues/3320))
+
+
+
+
 ## [traefik-13.1.6](https://github.com/truecharts/apps/compare/traefik-13.1.5...traefik-13.1.6) (2022-07-26)
 
 ### Chore

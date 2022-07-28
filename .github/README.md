@@ -32,13 +32,13 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) for more infotmation.
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Adding-TrueCharts) for more information.
 
 ### Support
 
-Please check our [FAQ](https://truecharts.org/about/), [manual](https://truecharts.org/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/docs/about/intro), [manual](https://truecharts.org/docs/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/charts/issues) There is a significant chance your issue has been reported before!
 
-Still something not working as expected? [Contact us!](https://truecharts.org/about/contact/) and we'll figure it out together!
+Still something not working as expected? [Contact us!](https://truecharts.org/docs/about/contact/) and we'll figure it out together!
 
 ### Roadmap
 
@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-111-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-113-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -277,6 +277,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/heytcass"><img src="https://avatars.githubusercontent.com/u/11260288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom Cassady</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aheytcass" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Huftierchen"><img src="https://avatars.githubusercontent.com/u/16015778?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Huftierchen</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AHuftierchen" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/ZasX"><img src="https://avatars.githubusercontent.com/u/806452?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ZasX</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ZasX" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/aeolus811tw"><img src="https://avatars.githubusercontent.com/u/4956319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kevin T.</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aaeolus811tw" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Chowarmaan"><img src="https://avatars.githubusercontent.com/u/175738?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Scott</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Chowarmaan" title="Documentation">📖</a></td>
   </tr>
 </table>
 
