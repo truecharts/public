@@ -220,4 +220,23 @@ data:
   SAML_GROUP_ATTRIBUTE: {{ .Values.saml.SAML_GROUP_ATTRIBUTE | quote }}
   {{- end }}
   {{- end }}
+  {{/* PROXY */}}
+  {{- if .Values.proxy.REMOTE_IP_VALVE_ENABLED }}
+  REMOTE_IP_VALVE_ENABLED: {{ .Values.proxy.REMOTE_IP_VALVE_ENABLED | quote }}
+  {{- if .Values.proxy.PROXY_BY_HEADER }}
+  PROXY_BY_HEADER: {{ .Values.proxy.PROXY_BY_HEADER | quote }}
+  {{- end }}
+  {{- if .Values.proxy.PROXY_PROTOCOL_HEADER }}
+  PROXY_PROTOCOL_HEADER: {{ .Values.proxy.PROXY_PROTOCOL_HEADER | quote }}
+  {{- end }}
+  {{- if .Values.proxy.PROXY_PROTOCOL_HEADER }}
+  PROXY_PROTOCOL_HEADER: {{ .Values.proxy.PROXY_PROTOCOL_HEADER | quote }}
+  {{- end }}
+  {{- if .Values.proxy.PROXY_IP_HEADER }}
+  PROXY_IP_HEADER: {{ .Values.proxy.PROXY_IP_HEADER | quote }}
+  {{- end }}
+  {{- if .Values.proxy.PROXY_ALLOWED_IPS_REGEX }}
+  PROXY_ALLOWED_IPS_REGEX: {{ .Values.proxy.PROXY_ALLOWED_IPS_REGEX | quote }}
+  {{- end }}
+  {{- end }}
 {{- end -}}

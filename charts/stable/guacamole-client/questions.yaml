@@ -98,7 +98,6 @@ questions:
             required: true
             default: 4822
 
-# Include{containerConfig}
   - variable: general
     group: "App Configuration"
     label: "General Configuration"
@@ -720,7 +719,41 @@ questions:
                 schema:
                   type: string
                   default: ""
-
+  - variable: proxy
+    group: "App Configuration"
+    label: "Proxy Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: REMOTE_IP_VALVE_ENABLED
+          label: "Enable Proxy"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: PROXY_BY_HEADER
+                label: "Proxy by Header (Leave empty for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PROXY_PROTOCOL_HEADER
+                label: "Proxy Protocol Header (Leave empty for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PROXY_IP_HEADER
+                label: "Proxy IP Header (Leave empty for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PROXY_ALLOWED_IPS_REGEX
+                label: "Proxy Allowed IP Regex (Leave empty for default)"
+                schema:
+                  type: string
+                  default: ""
+# Include{containerConfig}
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"

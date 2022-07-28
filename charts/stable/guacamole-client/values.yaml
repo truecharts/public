@@ -153,6 +153,14 @@ saml:
   # SAML_COMPRESS_RESPONSE:
   # SAML_GROUP_ATTRIBUTE:
 
+proxy:
+  {}
+  # REMOTE_IP_VALVE_ENABLED: false
+  # PROXY_BY_HEADER: ""
+  # PROXY_PROTOCOL_HEADER: ""
+  # PROXY_IP_HEADER: ""
+  # PROXY_ALLOWED_IPS_REGEX: ""
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
