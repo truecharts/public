@@ -3,13 +3,13 @@ image:
   tag: 20220516@sha256:f29c04fbc6c4234e156b2348306e172cbdff5ab072adc307dff75153e3ce93a5
   pullPolicy: IfNotPresent
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+#securityContext:
+#  readOnlyRootFilesystem: false
+#  runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+#podSecurityContext:
+#  runAsUser: 0
+#  runAsGroup: 0
 
 service:
   main:
