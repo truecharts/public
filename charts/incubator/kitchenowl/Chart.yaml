@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.20.1466"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.8
+deprecated: false
+description: API Support for your favorite torrent trackers.
+home: https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+icon: https://truecharts.org/img/chart-icons/jackett.png
+keywords:
+  - jackett
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: jackett
+sources:
+  - https://github.com/Jackett/Jackett
+type: application
+version: 11.0.50
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - test
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
