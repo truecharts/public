@@ -95,12 +95,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: ALLOWED_DOMAINS
-          label: "ALLOWED_DOMAINS"
-          description: "Comma separated list of domains to be allowed to signin to the wiki. If not set, all domains are allowed by default when using Google OAuth to signin"
-          schema:
-            type: string
-            default: ""
         - variable: SLACK_MESSAGE_ACTIONS
           label: "SLACK_MESSAGE_ACTIONS"
           schema:
