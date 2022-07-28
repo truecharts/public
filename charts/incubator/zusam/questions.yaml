@@ -123,7 +123,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10xxx
+                              default: 10283
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -158,7 +158,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 0
+                                    default: 8080
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -235,7 +235,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -245,7 +245,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -259,13 +259,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

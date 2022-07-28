@@ -3,13 +3,13 @@ image:
   tag: v0.5.1@sha256:dbd6ee3107565d6f788027e39539e22d0b76b17eeb7356cb5401d9bad9a495cc
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   INIT_USER: "email@domain.com"
