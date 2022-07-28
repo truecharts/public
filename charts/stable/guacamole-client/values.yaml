@@ -18,11 +18,10 @@ service:
         targetPort: 8080
 
 env:
+  # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: 5432
-  GUACD_HOSTNAME: "localhost"
-  GUACD_PORT: 4822
   POSTGRES_HOSTNAME:
     secretKeyRef:
       name: dbcreds
@@ -31,6 +30,20 @@ env:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  # New format
+  POSTGRESQL_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRESQL_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  POSTGRESQL_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRESQL_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRESQL_PORT: 5432
+  GUACD_HOSTNAME: "localhost"
+  GUACD_PORT: 4822
 
 envFrom:
   - configMapRef:
@@ -140,6 +153,14 @@ saml:
   # SAML_COMPRESS_RESPONSE:
   # SAML_GROUP_ATTRIBUTE:
 
+proxy:
+  {}
+  # REMOTE_IP_VALVE_ENABLED: false
+  # PROXY_BY_HEADER: ""
+  # PROXY_PROTOCOL_HEADER: ""
+  # PROXY_IP_HEADER: ""
+  # PROXY_ALLOWED_IPS_REGEX: ""
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
@@ -188,13 +209,13 @@ initContainers:
   2-initdb:
     image: "{{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}"
     env:
-      - name: POSTGRES_DATABASE
+      - name: POSTGRESQL_DATABASE
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: POSTGRES_USER
+      - name: POSTGRESQL_USER
         value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: POSTGRES_PORT
+      - name: POSTGRESQL_PORT
         value: "5432"
-      - name: POSTGRES_HOSTNAME
+      - name: POSTGRESQL_HOSTNAME
         valueFrom:
           secretKeyRef:
             name: dbcreds
@@ -210,12 +231,12 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - |-
-        psql -h "$POSTGRES_HOSTNAME" -d "$POSTGRES_DATABASE" -U "$POSTGRES_USER" -p "$POSTGRES_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
+        psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
         if [ $? -eq 0 ]; then
           echo "DB already initialized. Skipping..."
         else
           echo "Initializing DB's schema..."
-          psql -h "$POSTGRES_HOSTNAME" -d "$POSTGRES_DATABASE" -U "$POSTGRES_USER" -p "$POSTGRES_PORT" -a -w -f /initdbdata/initdb.sql
+          psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -a -w -f /initdbdata/initdb.sql
           if [ $? -eq 0 ]; then
             echo "DB's schema initialized successfully!"
             exit 0
