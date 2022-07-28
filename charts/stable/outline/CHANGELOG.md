@@ -2,6 +2,15 @@
 
 
 
+## [outline-3.0.28](https://github.com/truecharts/apps/compare/outline-3.0.27...outline-3.0.28) (2022-07-28)
+
+### Chore
+
+- remove ALLOWED_DOMAINS var ([#3328](https://github.com/truecharts/apps/issues/3328))
+
+
+
+
 ## [outline-3.0.27](https://github.com/truecharts/apps/compare/outline-3.0.26...outline-3.0.27) (2022-07-26)
 
 ### Chore

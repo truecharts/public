@@ -7,5 +7,3 @@
 ### Feat
 
 - Add anki sync server ([#3327](https://github.com/truecharts/apps/issues/3327))
-  
-  
