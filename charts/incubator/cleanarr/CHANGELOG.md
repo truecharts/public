@@ -2,11 +2,25 @@
 
 
 
-## [cleanarr-0.0.14](https://github.com/truecharts/apps/compare/cleanarr-0.0.13...cleanarr-0.0.14) (2022-07-26)
+## [ts3-manager-0.0.2](https://github.com/truecharts/apps/compare/ts3-manager-0.0.1...ts3-manager-0.0.2) (2022-07-28)
 
 ### Chore
 
-- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- cleanup Cleanarr ([#3330](https://github.com/truecharts/apps/issues/3330))
+
+
+
+
+## [ts3-manager-0.0.1]ts3-manager-0.0.1 (2022-07-27)
+
+### Feat
+
+- Add ts3-manager ([#3323](https://github.com/truecharts/apps/issues/3323))
+))
   - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
 
 
