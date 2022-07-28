@@ -297,6 +297,16 @@ sync_tag() {
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+    # Get all sources (except truecharts)
+    curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    # Empty sources list in-place
+    yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+    # Add truechart source
+    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    # Add the rest of the sources
+    while IFS= read -r line; do
+        src="$line" yq -i '.sources += env(src)' "${chart}/Chart.yaml"
+    done <<< "$curr_sources"
     }
 export -f sync_tag
 
