@@ -74,18 +74,27 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TEMPLATEREPLACEME
-          label: 'TEMPLATEREPLACEME'
+        - variable: INIT_USER
+          label: 'INIT_USER'
           description: ""
           schema:
             type: string
+            required: true
+            default: ""
+        - variable: INIT_PASSWORD
+          label: 'INIT_PASSWORD'
+          description: ""
+          schema:
+            type: string
+            required: true
+            private: true
             default: ""
 # Include{containerConfig}
   - variable: service
@@ -174,9 +183,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
