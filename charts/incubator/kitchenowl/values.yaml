@@ -8,6 +8,9 @@ backendImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:1480570439a418e3d3a12b0292aac5073fdbb09b4a95ebd1616bd419dca55299
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 env:
   FRONT_URL: "http://localhost:10250"
   BACK_URL: "localhost:5000"

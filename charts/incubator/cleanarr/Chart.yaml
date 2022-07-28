@@ -1,22 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - MediaApp-Other
 apiVersion: v2
 appVersion: "latest"
+version: 0.0.15
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.8
 deprecated: false
-description:
-  A simple UI to help find and delete duplicate and sample files from your
-  Plex server.
+description: A simple UI to help find and delete duplicate and sample files from your Plex server.
 home: https://github.com/truecharts/charts/tree/master/charts/incubator/cleanarr
 icon: https://truecharts.org/img/chart-icons/cleanarr.png
 keywords:
   - cleanarr
-  - MediaApp-Other
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -27,4 +21,7 @@ sources:
   - https://github.com/se1exin/cleanarr
   - https://hub.docker.com/r/selexin/cleanarr/
 type: application
-version: 0.0.14
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Media
