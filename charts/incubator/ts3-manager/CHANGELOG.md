@@ -7,5 +7,3 @@
 ### Feat
 
 - Add ts3-manager ([#3323](https://github.com/truecharts/apps/issues/3323))
-  
-  
