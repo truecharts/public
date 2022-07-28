@@ -1,12 +1,12 @@
 image:
-  repository: tombursch/kitchenowl-web
+  repository: tccr.io/truecharts/kitchenowl-web
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ff57443ed007fc0a5367083640ec1da62f44da4002c7f0ba723d1a4ef09e75f0
+  tag: latest@sha256:8f34f1b57228cbaeaf5f1c601ba401b7143abc8e4acedd553b9eb61db197bfa0
 
 backendImage:
-  repository: tombursch/kitchenowl
+  repository: tccr.io/truecharts/kitchenowl-backend
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9ec7256063e1b028dc7e6ca69b8fce5669f9793f01bf4bb4ce45844c1bb53abc
+  tag: latest@sha256:1480570439a418e3d3a12b0292aac5073fdbb09b4a95ebd1616bd419dca55299
 
 env:
   FRONT_URL: "http://localhost:10250"
