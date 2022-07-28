@@ -18,7 +18,7 @@ service:
         targetPort: 8080
 
 env:
-  # Will be removed on 1.5.0
+  # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: 5432
