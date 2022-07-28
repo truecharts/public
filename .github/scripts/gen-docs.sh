@@ -27,7 +27,7 @@ sync_tag() {
     tag="${tag%_}"
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
-    sed -i -e "s|home: .*|home: \"https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}\"|" "${chart}/Chart.yaml"
+    sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
     }
 export -f sync_tag
 
