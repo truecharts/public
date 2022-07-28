@@ -4,6 +4,7 @@ set -o nounset
 set -o pipefail
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
     local chartname="$2"
@@ -26,6 +27,7 @@ sync_tag() {
     tag="${tag%_}"
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    sed -i -e "s|home: .*|home: \"https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}\"|" "${chart}/Chart.yaml"
     }
 export -f sync_tag
 
