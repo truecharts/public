@@ -32,7 +32,7 @@ env:
       key: postgresql-password
   API_SECRET:
     secretKeyRef:
-      name: wger-secrets
+      name: sheetable-secrets
       key: API_SECRET
 
 service:
