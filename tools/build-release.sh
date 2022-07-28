@@ -273,6 +273,7 @@ gen_dh_cat() {
 export -f gen_dh_cat
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
     local chartname="$2"
