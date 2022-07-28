@@ -2,6 +2,15 @@
 
 
 
+## [vaultwarden-16.0.27](https://github.com/truecharts/apps/compare/vaultwarden-16.0.26...vaultwarden-16.0.27) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [vaultwarden-16.0.26](https://github.com/truecharts/apps/compare/vaultwarden-16.0.25...vaultwarden-16.0.26) (2022-07-26)
 
 ### Chore

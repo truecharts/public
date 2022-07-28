@@ -2,6 +2,15 @@
 
 
 
+## [baserow-3.0.29](https://github.com/truecharts/apps/compare/baserow-3.0.28...baserow-3.0.29) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [baserow-3.0.28](https://github.com/truecharts/apps/compare/baserow-3.0.27...baserow-3.0.28) (2022-07-26)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [storj-node-2.0.36](https://github.com/truecharts/apps/compare/storj-node-2.0.35...storj-node-2.0.36) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [storj-node-2.0.35](https://github.com/truecharts/apps/compare/storj-node-2.0.34...storj-node-2.0.35) (2022-07-27)
 
 ### Chore

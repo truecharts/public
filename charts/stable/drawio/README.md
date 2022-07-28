@@ -1,6 +1,6 @@
 # drawio
 
-![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![AppVersion: 20.2.0](https://img.shields.io/badge/AppVersion-20.2.0-informational?style=flat-square)
+![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![AppVersion: 20.2.1](https://img.shields.io/badge/AppVersion-20.2.1-informational?style=flat-square)
 
 Drawio is free online diagram software.
 

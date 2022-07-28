@@ -2,6 +2,15 @@
 
 
 
+## [hedgedoc-4.0.27](https://github.com/truecharts/apps/compare/hedgedoc-4.0.26...hedgedoc-4.0.27) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [hedgedoc-4.0.26](https://github.com/truecharts/apps/compare/hedgedoc-4.0.25...hedgedoc-4.0.26) (2022-07-26)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [mongodb-1.0.49](https://github.com/truecharts/apps/compare/mongodb-1.0.48...mongodb-1.0.49) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [mongodb-1.0.48](https://github.com/truecharts/apps/compare/mongodb-1.0.47...mongodb-1.0.48) (2022-07-27)
 
 ### Chore

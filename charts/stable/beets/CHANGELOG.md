@@ -2,6 +2,15 @@
 
 
 
+## [beets-4.0.26](https://github.com/truecharts/apps/compare/beets-4.0.25...beets-4.0.26) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [beets-4.0.25](https://github.com/truecharts/apps/compare/beets-4.0.24...beets-4.0.25) (2022-07-26)
 
 ### Chore

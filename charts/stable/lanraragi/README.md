@@ -1,6 +1,6 @@
 # lanraragi
 
-![Version: 2.0.23](https://img.shields.io/badge/Version-2.0.23-informational?style=flat-square) ![AppVersion: 0.8.5](https://img.shields.io/badge/AppVersion-0.8.5-informational?style=flat-square)
+![Version: 2.0.24](https://img.shields.io/badge/Version-2.0.24-informational?style=flat-square) ![AppVersion: 0.8.6](https://img.shields.io/badge/AppVersion-0.8.6-informational?style=flat-square)
 
 Open source server for archival of comics/manga.
 

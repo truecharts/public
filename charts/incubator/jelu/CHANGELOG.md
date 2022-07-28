@@ -2,6 +2,15 @@
 
 
 
+## [jelu-0.0.15](https://github.com/truecharts/apps/compare/jelu-0.0.14...jelu-0.0.15) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [jelu-0.0.14](https://github.com/truecharts/apps/compare/jelu-0.0.13...jelu-0.0.14) (2022-07-26)
 
 ### Chore
