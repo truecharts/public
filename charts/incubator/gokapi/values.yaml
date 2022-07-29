@@ -1,12 +1,38 @@
-env:
-  GOKAPI_LENGTH_ID: "10"
-  GOKAPI_MAX_FILESIZE: "5"
-  GOKAPI_PASSWORD: unraid
-  GOKAPI_USERNAME: unraid
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/gokapi
-  tag: latest@sha256:aafdd8cc0e9ce3b45d64975be16e243de1527a1ab90e99f5b4c055ba03214996
+  tag: v1.5.2@sha256:6f42eaf2678c9aaccd208a8441237906911220d7ed818798523da5aec31d13df
+
+# podSecurityContext:
+#   runAsGroup: 0
+#   runAsUser: 0
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+secretEnv:
+  GOKAPI_PASSWORD: "changme"
+  GOKAPI_USERNAME: "admin"
+
+env:
+  GOKAPI_LENGTH_ID: 15
+  GOKAPI_MAX_FILESIZE: 102400
+  GOKAPI_MAX_MEMORY_UPLOAD: 20
+  # GOKAPI_AWS_BUCKET: ""
+  # GOKAPI_AWS_REGION: ""
+  # GOKAPI_AWS_KEY: ""
+  # GOKAPI_AWS_KEY_SECRET: ""
+  # GOKAPI_AWS_ENDPOINT: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 53842
+        protocol: HTTP
+        targetPort: 53842
+
 persistence:
   config:
     enabled: true
@@ -14,18 +40,3 @@ persistence:
   data:
     enabled: true
     mountPath: /app/data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  main:
-    enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 53842
-        protocol: TCP
-        targetPort: 53842
