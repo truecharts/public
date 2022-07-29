@@ -35,14 +35,19 @@ sync_tag() {
     echo "Updating sources of ${chartname}..."    # Get all sources (except truecharts)
     # Get all sources (except truecharts)
     curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    cat "${chart}/Chart.yaml"
+    echo "$curr_sources"
     # Empty sources list in-place
     yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+    cat "${chart}/Chart.yaml"
     # Add truechart source
     tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    cat "${chart}/Chart.yaml"
     # Add the rest of the sources
     while IFS= read -r line; do
         src="$line" yq -i '.sources += env(src)' "${chart}/Chart.yaml"
     done <<< "$curr_sources"
+    cat "${chart}/Chart.yaml"
     }
 export -f sync_tag
 
