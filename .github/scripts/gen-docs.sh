@@ -26,8 +26,13 @@ sync_tag() {
     tag="${tag%-}"
     tag="${tag%_}"
     tag="${tag%.}"
+    echo "Updating tag of ${chartname} to ${tag}..."
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    echo "Updating icon of ${chartname}..."
+    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+    echo "Updating home of ${chartname}..."
     sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+    echo "Updating sources of ${chartname}..."    # Get all sources (except truecharts)
     # Get all sources (except truecharts)
     curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
     # Empty sources list in-place
