@@ -2,6 +2,15 @@
 
 
 
+## [bookstack-3.0.28](https://github.com/truecharts/apps/compare/bookstack-3.0.27...bookstack-3.0.28) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [bookstack-3.0.27](https://github.com/truecharts/apps/compare/bookstack-3.0.26...bookstack-3.0.27) (2022-07-26)
 
 ### Chore

@@ -1,6 +1,6 @@
 # babybuddy
 
-![Version: 8.0.33](https://img.shields.io/badge/Version-8.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.11.2](https://img.shields.io/badge/AppVersion-1.11.2-informational?style=flat-square)
+![Version: 8.0.34](https://img.shields.io/badge/Version-8.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.12.0](https://img.shields.io/badge/AppVersion-1.12.0-informational?style=flat-square)
 
 Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
 

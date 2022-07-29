@@ -2,6 +2,15 @@
 
 
 
+## [paperless-ng-4.0.27](https://github.com/truecharts/apps/compare/paperless-ng-4.0.26...paperless-ng-4.0.27) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [paperless-ng-4.0.26](https://github.com/truecharts/apps/compare/paperless-ng-4.0.25...paperless-ng-4.0.26) (2022-07-26)
 
 ### Chore

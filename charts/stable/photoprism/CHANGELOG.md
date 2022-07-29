@@ -2,6 +2,15 @@
 
 
 
+## [photoprism-10.0.30](https://github.com/truecharts/apps/compare/photoprism-10.0.29...photoprism-10.0.30) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [photoprism-10.0.29](https://github.com/truecharts/apps/compare/photoprism-10.0.28...photoprism-10.0.29) (2022-07-26)
 
 ### Chore

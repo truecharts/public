@@ -2,6 +2,15 @@
 
 
 
+## [openspeedtest-1.0.23](https://github.com/truecharts/apps/compare/openspeedtest-1.0.22...openspeedtest-1.0.23) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [openspeedtest-1.0.22](https://github.com/truecharts/apps/compare/openspeedtest-1.0.21...openspeedtest-1.0.22) (2022-07-26)
 
 ### Chore

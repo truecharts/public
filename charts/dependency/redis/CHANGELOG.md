@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.47](https://github.com/truecharts/apps/compare/redisinsight-0.0.14...redis-3.0.47) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [redis-3.0.46](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.46) (2022-07-25)
 
 ### Chore
