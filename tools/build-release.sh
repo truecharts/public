@@ -295,18 +295,32 @@ sync_tag() {
     tag="${tag%-}"
     tag="${tag%_}"
     tag="${tag%.}"
+    echo "Updating tag of ${chartname} to ${tag}..."
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    echo "Updating icon of ${chartname}..."
+    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+    echo "Updating home of ${chartname}..."
     sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+    echo "Updating sources of ${chartname}..."
     # Get all sources (except truecharts)
     curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    echo "${chartname}: $curr_sources"
+    echo "${chartname}: After getting all sources"
+    cat "${chartname}: ${chart}/Chart.yaml"
     # Empty sources list in-place
     yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+    echo "${chartname}: After deleting all sources"
+    cat "${chartname}: ${chart}/Chart.yaml"
     # Add truechart source
     tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    echo "${chartname}: After adding tc source"
+    cat "${chart}/Chart.yaml"
     # Add the rest of the sources
     while IFS= read -r line; do
         src="$line" yq -i '.sources += env(src)' "${chart}/Chart.yaml"
     done <<< "$curr_sources"
+    echo "${chartname}: After adding the rest of the sources"
+    cat "${chart}/Chart.yaml"
     }
 export -f sync_tag
 
