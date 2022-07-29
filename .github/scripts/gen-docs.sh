@@ -37,11 +37,11 @@ sync_tag() {
     curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
     echo "${chartname}: $curr_sources"
     echo "${chartname}: After getting all sources"
-    cat "${chartname}: ${chart}/Chart.yaml"
+    cat "${chart}/Chart.yaml"
     # Empty sources list in-place
     yq -yi 'del(.sources.[])' "${chart}/Chart.yaml"
     echo "${chartname}: After deleting all sources"
-    cat "${chartname}: ${chart}/Chart.yaml"
+    cat "${chart}/Chart.yaml"
     # Add truechart source
     tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -yi '.sources += env(tcsource)' "${chart}/Chart.yaml"
     echo "${chartname}: After adding tc source"
