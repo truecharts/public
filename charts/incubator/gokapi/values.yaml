@@ -3,14 +3,6 @@ image:
   repository: tccr.io/truecharts/gokapi
   tag: v1.5.2@sha256:6f42eaf2678c9aaccd208a8441237906911220d7ed818798523da5aec31d13df
 
-# podSecurityContext:
-#   runAsGroup: 0
-#   runAsUser: 0
-
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
 secretEnv:
   GOKAPI_PASSWORD: "changme"
   GOKAPI_USERNAME: "admin"
