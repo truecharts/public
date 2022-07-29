@@ -304,21 +304,21 @@ sync_tag() {
     echo "Updating sources of ${chartname}..."
     yq -V
     # Get all sources (except truecharts)
-    curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
     echo "${chartname}: $curr_sources"
     echo "${chartname}: After getting all sources"
     cat "${chart}/Chart.yaml"
     # Empty sources list in-place
-    yq -iy '.sources=[]' "${chart}/Chart.yaml"
+    go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
     echo "${chartname}: After deleting all sources"
     cat "${chart}/Chart.yaml"
     # Add truechart source
-    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -iy '.sources += ["'"$tcsource"'"]' "${chart}/Chart.yaml"
+    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
     echo "${chartname}: After adding tc source"
     cat "${chart}/Chart.yaml"
     # Add the rest of the sources
     while IFS= read -r line; do
-        src="$line" yq -iy '.sources += ["'"$src"'"]' "${chart}/Chart.yaml"
+        src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml"
     done <<< "$curr_sources"
     echo "${chartname}: After adding the rest of the sources"
     cat "${chart}/Chart.yaml"
