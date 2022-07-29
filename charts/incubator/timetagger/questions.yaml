@@ -74,6 +74,26 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: tg_user
+          label: "Username"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: tg_pass
+          label: "Password"
+          schema:
+            type: string
+            default: ""
+            required: true
+            private: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -81,12 +101,11 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TEMPLATEREPLACEME
-          label: 'TEMPLATEREPLACEME'
-          description: ""
+        - variable: TIMETAGGER_LOG_LEVEL
+          label: 'TIMETAGGER_LOG_LEVEL'
           schema:
             type: string
-            default: ""
+            default: "info"
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
