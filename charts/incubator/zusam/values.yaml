@@ -21,6 +21,7 @@ service:
       main:
         port: 10283
         targetPort: 8080
+        protocol: HTTP
 
 persistence:
   data:

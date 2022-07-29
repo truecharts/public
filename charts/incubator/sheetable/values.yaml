@@ -35,11 +35,13 @@ env:
       name: sheetable-secrets
       key: API_SECRET
 
+
 service:
   main:
     ports:
       main:
         port: 10284
+        protocol: HTTP
 
 persistence:
   config:
