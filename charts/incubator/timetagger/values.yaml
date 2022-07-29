@@ -17,7 +17,7 @@ secretEnv:
   TIMETAGGER_CREDENTIALS: "{{ htpasswd .Values.secretEnv.tg_user .Values.secretEnv.tg_pass }}"
 
 env:
-  TIMETAGGER_BIND: "0.0.0.0:{{ .Values.service.main.ports.main }}"
+  TIMETAGGER_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
   TIMETAGGER_LOG_LEVEL: "info"
 
 service:
