@@ -1,26 +1,17 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
-    - MediaServer-Video
 apiVersion: v2
-appVersion: "latest"
+appVersion: "1.2.0"
+kubeVersion: ">=1.16.0-0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.8
+description: "Share your game clips, videos, or other media via unique links."
+version: 0.0.15
 deprecated: false
-description:
-  "Fireshare allows you to easily share your media whether that be game\
-  \ clips, screen records, or movies through a unique publically accessible link.\
-  \ \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/fireshare
+home: https://truecharts.org/docs/charts/incubator/fireshare
 icon: https://truecharts.org/img/chart-icons/fireshare.png
 keywords:
   - fireshare
-  - Other
-  - MediaServer-Video
-kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
@@ -30,4 +21,7 @@ sources:
   - https://github.com/ShaneIsrael/fireshare
   - https://hub.docker.com/r/shaneisrael/fireshare
 type: application
-version: 0.0.14
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - media

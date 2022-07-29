@@ -1,8 +1,8 @@
 # fireshare
 
-![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.15](https://img.shields.io/badge/Version-0.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
 
-Fireshare allows you to easily share your media whether that be game clips, screen records, or movies through a unique publically accessible link.
+Share your game clips, videos, or other media via unique links.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 

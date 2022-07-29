@@ -2,6 +2,15 @@
 
 
 
+## [fireshare-0.0.15](https://github.com/truecharts/apps/compare/fireshare-0.0.14...fireshare-0.0.15) (2022-07-29)
+
+### Fix
+
+- cleanup ([#3342](https://github.com/truecharts/apps/issues/3342))
+
+
+
+
 ## [fireshare-0.0.14](https://github.com/truecharts/apps/compare/fireshare-0.0.13...fireshare-0.0.14) (2022-07-26)
 
 ### Chore
