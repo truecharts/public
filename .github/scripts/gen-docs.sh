@@ -33,6 +33,7 @@ sync_tag() {
     echo "Updating home of ${chartname}..."
     sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
     echo "Updating sources of ${chartname}..."
+    yq -V
     # Get all sources (except truecharts)
     curr_sources=$(yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
     echo "${chartname}: $curr_sources"
