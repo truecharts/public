@@ -23,10 +23,8 @@ env:
 
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 10287
         protocol: TCP
         targetPort: 80
