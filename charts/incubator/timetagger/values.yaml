@@ -1,0 +1,32 @@
+image:
+  repository: tccr.io/truecharts/timetagger
+  tag: v22.6.6@sha256:07748774be2622de8876f0234edc084ef62a5e56f759a3957a3a64fa2663705b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  tg_user: "admin"
+  tg_pass: "changeme"
+  TIMETAGGER_CREDENTIALS: "{{ htpasswd .Values.secretEnv.tg_user .Values.secretEnv.tg_pass }}"
+
+env:
+  TIMETAGGER_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+  TIMETAGGER_LOG_LEVEL: "info"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10286
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/root/_timetagger"
