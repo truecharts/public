@@ -309,16 +309,16 @@ sync_tag() {
     echo "${chartname}: After getting all sources"
     cat "${chart}/Chart.yaml"
     # Empty sources list in-place
-    yq -yi 'del(.sources.[])' "${chart}/Chart.yaml"
+    yq -iy '.sources=[]' "${chart}/Chart.yaml"
     echo "${chartname}: After deleting all sources"
     cat "${chart}/Chart.yaml"
     # Add truechart source
-    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -yi '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" yq -iy '.sources += ["'"$tcsource"'"]' "${chart}/Chart.yaml"
     echo "${chartname}: After adding tc source"
     cat "${chart}/Chart.yaml"
     # Add the rest of the sources
     while IFS= read -r line; do
-        src="$line" yq -yi '.sources += env(src)' "${chart}/Chart.yaml"
+        src="$line" yq -iy '.sources += ["'"$src"'"]' "${chart}/Chart.yaml"
     done <<< "$curr_sources"
     echo "${chartname}: After adding the rest of the sources"
     cat "${chart}/Chart.yaml"
