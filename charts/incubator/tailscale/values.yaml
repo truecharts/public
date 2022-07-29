@@ -4,20 +4,21 @@ image:
   tag: stable@sha256:5ef5b6c72ceb791c4b1e8e26ff23fe84fcdb49e0178f1a2d04c2117aa27ba8d5
 
 securityContext:
-  privileged: true
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+      - NET_RAW
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
 
 hostNetwork: true
 
 env:
-  authkey: "tskey-k63bAi1CNTRL-Su9p7WjYNb3nkfdSATPnH"
+  TS_AUTH_KEY: "tskey-k63bAi1CNTRL-Su9p7WjYNb3nkfdSATPnH"
 
 service:
   main:
