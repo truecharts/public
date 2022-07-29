@@ -26,7 +26,7 @@ service:
     ports:
       main:
         port: 10287
-        protocol: TCP
+        protocol: HTTP
         targetPort: 80
 
 persistence:
