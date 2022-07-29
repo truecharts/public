@@ -3,23 +3,22 @@ image:
   tag: v22.6.6@sha256:07748774be2622de8876f0234edc084ef62a5e56f759a3957a3a64fa2663705b
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
-# secretEnv:
+secretEnv:
+  tg_user: "admin"
+  tg_pass: "changeme"
+  TIMETAGGER_CREDENTIALS: "{{ htpasswd .Values.secretEnv.tg_user .Values.secretEnv.tg_pass }}"
 
 env:
   TIMETAGGER_BIND: "0.0.0.0:{{ .Values.service.main.ports.main }}"
   TIMETAGGER_LOG_LEVEL: "info"
-
-  tg_user: "admin"
-  tg_pass: "changeme"
-  TIMETAGGER_CREDENTIALS: "{{ htpasswd .Values.env.tg_user .Values.env.tg_pass }}"
 
 service:
   main:
