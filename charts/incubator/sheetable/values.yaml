@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/sheetable
+  tag: v0.8@sha256:e6fea8fb883ead7ff3aa5a05738fed17f35a97ad8571c633b1b2addca3e01093
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secretEnv:
+  ADMIN_EMAIL: "email@domain.com"
+  ADMIN_PASSWORD: "changeme"
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  CONFIG_PATH: "/app/config/"
+  DB_DRIVER: "postgres"
+  DB_PORT: "5432"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  API_SECRET:
+    secretKeyRef:
+      name: sheetable-secrets
+      key: API_SECRET
+
+service:
+  main:
+    ports:
+      main:
+        port: 10284
+        protocol: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: sheetable
+  postgresqlDatabase: sheetable
