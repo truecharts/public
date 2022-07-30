@@ -7,9 +7,6 @@ image:
 persistence:
   hostpath1:
     enabled: true
-    mountPath: /var/openproject/pgdata
-  hostpath2:
-    enabled: true
     mountPath: /var/openproject/assets
 podSecurityContext:
   runAsGroup: 0
@@ -26,7 +23,19 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: false
+    enabled: true
     ports:
       main:
+        port: 28080
+        targetPort: 8080
         enabled: false
+storage:
+  ##
+  ## PostgreSQL (Storage Provider)
+  ##
+  postgres:
+    port: 5433
+    database: openproject
+    username: openproject
+    sslmode: disable
+    timeout: 5s
