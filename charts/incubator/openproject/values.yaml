@@ -28,7 +28,7 @@ service:
       main:
         port: 28080
         targetPort: 80
-        enabled: false
+        enabled: true
 postgres:
   database: openproject
   username: openproject
