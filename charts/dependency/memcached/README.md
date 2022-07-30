@@ -1,6 +1,6 @@
 # memcached
 
-![Version: 3.0.48](https://img.shields.io/badge/Version-3.0.48-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.6.15](https://img.shields.io/badge/AppVersion-1.6.15-informational?style=flat-square)
+![Version: 3.0.49](https://img.shields.io/badge/Version-3.0.49-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.6.15](https://img.shields.io/badge/AppVersion-1.6.15-informational?style=flat-square)
 
 Memcached is a memory-backed database caching solution
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.8 |
+| https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart
 

@@ -2,6 +2,16 @@
 
 
 
+## [promtail-3.0.37](https://github.com/truecharts/apps/compare/promtail-3.0.36...promtail-3.0.37) (2022-07-29)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm chart common to v10.4.9
+
+
+
+
 ## [promtail-3.0.36](https://github.com/truecharts/apps/compare/promtail-3.0.34...promtail-3.0.36) (2022-07-25)
 
 ### Chore

@@ -1,6 +1,6 @@
 # redis
 
-![Version: 3.0.47](https://img.shields.io/badge/Version-3.0.47-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.0.4](https://img.shields.io/badge/AppVersion-7.0.4-informational?style=flat-square)
+![Version: 3.0.48](https://img.shields.io/badge/Version-3.0.48-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.0.4](https://img.shields.io/badge/AppVersion-7.0.4-informational?style=flat-square)
 
 Open source, advanced key-value store.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.8 |
+| https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart
 
