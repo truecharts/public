@@ -1,0 +1,55 @@
+image:
+  repository: tccr.io/truecharts/kitchenowl-web
+  pullPolicy: IfNotPresent
+  tag: beta@sha256:98bd597b1f863f76339b6debec17d6e4a4c8d7b7288a4de11d86f3042d1b85d0
+
+backendImage:
+  repository: tccr.io/truecharts/kitchenowl-backend
+  pullPolicy: IfNotPresent
+  tag: beta@sha256:dd34ca9627b295dbd39bc25bc91cd4afa134ca66d094de1a51cb7b2bbdf4a861
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  FRONT_URL: "http://localhost:10246"
+  # Backend listens on 5000 websockets.
+  BACK_URL: "localhost:5000"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 10246
+
+additionalContainers:
+  backend:
+    name: backend
+    image: "{{ .Values.backendImage.repository }}:{{ .Values.backendImage.tag }}"
+    env:
+      - name: FRONT_URL
+        value: "{{ .Values.env.FRONT_URL }}"
+        # Backend also listens on 80, but afaik there is no use as of now
+        # Changed port to 81 to avoid conflict with frontend
+      - name: HTTP_PORT
+        value: "81"
+      - name: JWT_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: kitchenowl-secrets
+            key: JWT_SECRET_KEY
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
