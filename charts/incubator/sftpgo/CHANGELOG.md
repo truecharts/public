@@ -2,6 +2,15 @@
 
 
 
+## [sftpgo-0.0.15](https://github.com/truecharts/apps/compare/sftpgo-0.0.14...sftpgo-0.0.15) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [sftpgo-0.0.14](https://github.com/truecharts/apps/compare/sftpgo-0.0.13...sftpgo-0.0.14) (2022-07-26)
 
 ### Chore

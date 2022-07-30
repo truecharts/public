@@ -2,6 +2,15 @@
 
 
 
+## [blender-0.0.15](https://github.com/truecharts/apps/compare/blender-0.0.14...blender-0.0.15) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [blender-0.0.14](https://github.com/truecharts/apps/compare/blender-desktop-g3-0.0.13...blender-0.0.14) (2022-07-26)
 
 ### Chore

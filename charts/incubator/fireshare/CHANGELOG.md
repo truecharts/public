@@ -2,6 +2,15 @@
 
 
 
+## [fireshare-0.0.16](https://github.com/truecharts/apps/compare/fireshare-0.0.15...fireshare-0.0.16) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [fireshare-0.0.15](https://github.com/truecharts/apps/compare/fireshare-0.0.14...fireshare-0.0.15) (2022-07-29)
 
 ### Fix

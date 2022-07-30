@@ -2,6 +2,15 @@
 
 
 
+## [inventree-3.0.35](https://github.com/truecharts/apps/compare/inventree-3.0.34...inventree-3.0.35) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [inventree-3.0.34](https://github.com/truecharts/apps/compare/inventree-3.0.33...inventree-3.0.34) (2022-07-27)
 
 ### Chore

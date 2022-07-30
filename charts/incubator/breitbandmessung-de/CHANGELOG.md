@@ -2,6 +2,15 @@
 
 
 
+## [breitbandmessung-de-0.0.16](https://github.com/truecharts/apps/compare/breitbandmessung-de-0.0.15...breitbandmessung-de-0.0.16) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [breitbandmessung-de-0.0.15](https://github.com/truecharts/apps/compare/breitbandmessung-de-0.0.14...breitbandmessung-de-0.0.15) (2022-07-29)
 
 ### Chore
