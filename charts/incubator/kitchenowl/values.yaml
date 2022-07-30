@@ -8,16 +8,17 @@ backendImage:
   pullPolicy: IfNotPresent
   tag: beta@sha256:dd34ca9627b295dbd39bc25bc91cd4afa134ca66d094de1a51cb7b2bbdf4a861
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   FRONT_URL: "http://localhost:10246"
+  # Backend listens on 5000 websockets.
   BACK_URL: "localhost:5000"
 
 service:
@@ -35,6 +36,8 @@ additionalContainers:
     env:
       - name: FRONT_URL
         value: "{{ .Values.env.FRONT_URL }}"
+        # Backend also listens on 80, but afaik there is no use as of now
+        # Changed port to 81 to avoid conflict with frontend
       - name: HTTP_PORT
         value: "81"
       - name: JWT_SECRET_KEY
