@@ -8,13 +8,13 @@ backendImage:
   pullPolicy: IfNotPresent
   tag: beta@sha256:dd34ca9627b295dbd39bc25bc91cd4afa134ca66d094de1a51cb7b2bbdf4a861
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
   FRONT_URL: "http://localhost:10246"
