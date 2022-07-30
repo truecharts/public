@@ -27,15 +27,9 @@ service:
     ports:
       main:
         port: 28080
-        targetPort: 8080
+        targetPort: 80
         enabled: false
-storage:
-  ##
-  ## PostgreSQL (Storage Provider)
-  ##
-  postgres:
-    port: 5433
-    database: openproject
-    username: openproject
-    sslmode: disable
-    timeout: 5s
+postgres:
+  database: openproject
+  username: openproject
+  enabled: true

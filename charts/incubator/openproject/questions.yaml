@@ -1,5 +1,12 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
 questions:
   - variable: portal
     group: "Container Image"
@@ -84,6 +91,22 @@ questions:
             type: string
             default: "secret"
 
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
