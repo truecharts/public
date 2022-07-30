@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
 apiVersion: v2
 appVersion: "12"
 dependencies:
@@ -13,9 +9,7 @@ dependencies:
     repository: https://charts.truecharts.org/
     version: 8.0.48
 deprecated: false
-description:
-  OpenProject is a web-based project management system for location-independent
-  team collaboration.
+description: OpenProject is a web-based project management system for location-independent team collaboration.
 home: https://github.com/truecharts/charts/tree/master/charts/incubator/openproject
 icon: https://truecharts.org/img/chart-icons/openproject.png
 keywords:
@@ -32,3 +26,8 @@ sources:
   - https://hub.docker.com/u/openproject
 type: application
 version: 0.0.14
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+  truecharts.org/grade: U
