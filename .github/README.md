@@ -32,7 +32,7 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Adding-TrueCharts) for more information.
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE Apps/Quick-Start%20Guides/Adding-TrueCharts) for more information.
 
 ### Support
 
@@ -79,7 +79,7 @@ This ensures freedom and flexibility for everyone involved and makes sure you, t
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
-For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/)
+For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/docs/manual/development/License-headers)
 
 ### Automation and you
 
@@ -97,13 +97,13 @@ Those tools do, however, take time to develop and are certainly not bug free. If
 
 To contact the TrueCharts project:
 
-- Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+- Create an issue on [Github issues](https://github.com/truecharts/charts/issues)
 
-- Open a [Support Ticket](https://truecharts.org/discord)
+- Open a [Support Ticket](https://discord.com/channels/830763548678291466/936275413179723826)
 
 - Send us an [email](mailto://info@truecharts.org)
 
-- Or [join our Discord server](https://truecharts.org/discord)
+- Or [join our Discord server](https://discord.gg/tVsPTHWTtr)
 
 <br />
 
