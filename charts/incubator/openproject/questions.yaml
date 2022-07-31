@@ -1,12 +1,5 @@
 # Include{groups}
-portals:
-  open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
+portals: {}
 questions:
   - variable: portal
     group: "Container Image"
@@ -91,22 +84,6 @@ questions:
             type: string
             default: "secret"
 
-# Include{containerConfig}
-
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
@@ -154,7 +131,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 80
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -176,6 +153,15 @@ questions:
 
   - variable: persistence
     label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+
+        - variable: hostpath1
+          label: "hostpath1 Storage"
           description: "Container Path varopenprojectassets"
           schema:
             additional_attrs: true
