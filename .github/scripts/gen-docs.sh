@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
 # Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
