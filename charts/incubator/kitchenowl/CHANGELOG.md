@@ -7,5 +7,3 @@
 ### Feat
 
 - add kitchenowl ([#3353](https://github.com/truecharts/apps/issues/3353))
-  
-  
