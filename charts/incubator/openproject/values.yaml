@@ -16,7 +16,7 @@ env:
     secretKeyRef:
       name: openproject-secrets
       key: SECRET_KEY_BASE
-  DATABASE_HOST:
+  DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: url-noql
