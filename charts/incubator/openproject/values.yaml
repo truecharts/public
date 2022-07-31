@@ -33,7 +33,8 @@ service:
         port: 10290
         targetPort: 8080
 
-postgres:
-  database: openproject
-  username: openproject
+postgresql:
   enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: openproject
+  postgresqlDatabase: openproject
