@@ -1,6 +1,6 @@
 # gokapi
 
-![Version: 0.0.18](https://img.shields.io/badge/Version-0.0.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.2](https://img.shields.io/badge/AppVersion-1.5.2-informational?style=flat-square)
+![Version: 0.0.19](https://img.shields.io/badge/Version-0.0.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.2](https://img.shields.io/badge/AppVersion-1.5.2-informational?style=flat-square)
 
 Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days.
 
@@ -13,6 +13,7 @@ For more information, please click here: [gokapi](https://truecharts.org/docs/ch
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/gokapi>
 * <https://github.com/Forceu/gokapi>
 * <https://hub.docker.com/r/f0rc3/gokapi>
 

@@ -2,6 +2,15 @@
 
 
 
+## [gokapi-0.0.19](https://github.com/truecharts/apps/compare/gokapi-0.0.18...gokapi-0.0.19) (2022-07-31)
+
+### Chore
+
+- bump for ci test ([#3365](https://github.com/truecharts/apps/issues/3365))
+
+
+
+
 ## [gokapi-0.0.18](https://github.com/truecharts/apps/compare/gokapi-0.0.17...gokapi-0.0.18) (2022-07-31)
 
 ### Chore
