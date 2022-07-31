@@ -1,19 +1,19 @@
-# ztcuui-aio
+# kitchenowl
 
-![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![AppVersion: 1.2.11](https://img.shields.io/badge/AppVersion-1.2.11-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
 
-ZeroTier network controller user interface in a Docker container
+KitchenOwl is a smart self-hosted grocery list and recipe manager.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [ztcuui-aio](https://truecharts.org/docs/charts/stable/ztcuui-aio)
+For more information, please click here: [kitchenowl](https://truecharts.org/docs/charts/stable/kitchenowl)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/key-networks/ztncui-aio>
+* <https://tombursch.github.io/kitchenowl>
 
 ## Requirements
 
@@ -33,12 +33,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 ### Helm
 
-To install the chart with the release name `ztcuui-aio`
+To install the chart with the release name `kitchenowl`
 
 ```console
 helm repo add TrueCharts https://helm.truecharts.org
 helm repo update
-helm install ztcuui-aio TrueCharts/ztcuui-aio
+helm install kitchenowl TrueCharts/kitchenowl
 ```
 
 ## Uninstall
@@ -51,10 +51,10 @@ To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Star
 
 ### Helm
 
-To uninstall the `ztcuui-aio` deployment
+To uninstall the `kitchenowl` deployment
 
 ```console
-helm uninstall ztcuui-aio
+helm uninstall kitchenowl
 ```
 
 ## Configuration
@@ -71,9 +71,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install ztcuui-aio \
+helm install kitchenowl \
   --set env.TZ="America/New York" \
-    TrueCharts/ztcuui-aio
+    TrueCharts/kitchenowl
 ```
 
 #### Configure using a yaml file
@@ -81,7 +81,7 @@ helm install ztcuui-aio \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install ztcuui-aio TrueCharts/ztcuui-aio -f values.yaml
+helm install kitchenowl TrueCharts/kitchenowl -f values.yaml
 ```
 
 #### Connecting to other apps

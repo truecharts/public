@@ -1,20 +1,19 @@
-# breitbandmessung-de
+# ztcuui-aio
 
-![Version: 0.0.16](https://img.shields.io/badge/Version-0.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.2.11](https://img.shields.io/badge/AppVersion-1.2.11-informational?style=flat-square)
 
-A script to enable customers of lazy ISPs to perform measurement campaigns of the connection speed as described here in an automated way.
+ZeroTier network controller user interface in a Docker container
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [breitbandmessung-de](https://truecharts.org/docs/charts/stable/breitbandmessung-de)
+For more information, please click here: [ztcuui-aio](https://truecharts.org/docs/charts/stable/ztcuui-aio)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/shneezin/breitbandmessung-node>
-* <https://hub.docker.com/r/shneezin/breitbandmessung-node>
+* <https://github.com/key-networks/ztncui-aio>
 
 ## Requirements
 
@@ -34,12 +33,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 ### Helm
 
-To install the chart with the release name `breitbandmessung-de`
+To install the chart with the release name `ztcuui-aio`
 
 ```console
 helm repo add TrueCharts https://helm.truecharts.org
 helm repo update
-helm install breitbandmessung-de TrueCharts/breitbandmessung-de
+helm install ztcuui-aio TrueCharts/ztcuui-aio
 ```
 
 ## Uninstall
@@ -52,10 +51,10 @@ To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Star
 
 ### Helm
 
-To uninstall the `breitbandmessung-de` deployment
+To uninstall the `ztcuui-aio` deployment
 
 ```console
-helm uninstall breitbandmessung-de
+helm uninstall ztcuui-aio
 ```
 
 ## Configuration
@@ -72,9 +71,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install breitbandmessung-de \
+helm install ztcuui-aio \
   --set env.TZ="America/New York" \
-    TrueCharts/breitbandmessung-de
+    TrueCharts/ztcuui-aio
 ```
 
 #### Configure using a yaml file
@@ -82,7 +81,7 @@ helm install breitbandmessung-de \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install breitbandmessung-de TrueCharts/breitbandmessung-de -f values.yaml
+helm install ztcuui-aio TrueCharts/ztcuui-aio -f values.yaml
 ```
 
 #### Connecting to other apps

@@ -223,7 +223,7 @@ patch_apps() {
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
-    echo "This App is supplied by TrueCharts, for more information visit the manual: https://truecharts.org/charts/${train}/${chartname}" >> ${target}/app-readme.md
+    echo "This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/docs/charts/${train}/${chartname}](https://truecharts.org/docs/charts/${train}/${chartname})" >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
     echo "---" >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md

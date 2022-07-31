@@ -2,6 +2,15 @@
 
 
 
+## [wordle-0.0.15](https://github.com/truecharts/apps/compare/wordle-0.0.14...wordle-0.0.15) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
 ## [wordle-0.0.14](https://github.com/truecharts/apps/compare/wordle-0.0.13...wordle-0.0.14) (2022-07-26)
 
 ### Chore

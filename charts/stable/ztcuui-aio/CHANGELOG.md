@@ -2,6 +2,11 @@
 
 
 
+## [ztcuui-aio-1.0.0](https://github.com/truecharts/apps/compare/ztcuui-aio-0.0.4...ztcuui-aio-1.0.0) (2022-07-31)
+
+
+
+
 ## [ztcuui-aio-0.0.4](https://github.com/truecharts/apps/compare/ztcuui-aio-0.0.3...ztcuui-aio-0.0.4) (2022-07-27)
 
 ### Chore
