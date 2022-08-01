@@ -1,20 +1,20 @@
-# kitchenowl
+# nexus-oss
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.41.0](https://img.shields.io/badge/AppVersion-3.41.0-informational?style=flat-square)
 
-KitchenOwl is a smart self-hosted grocery list and recipe manager.
+Sonatype Nexus open source is a artifact repository manager
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [kitchenowl](https://truecharts.org/docs/charts/stable/kitchenowl)
+For more information, please click here: [nexus-oss](https://truecharts.org/docs/charts/stable/nexus-oss)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/kitchenowl>
-* <https://tombursch.github.io/kitchenowl>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/nexus-oss>
+* <https://hub.docker.com/r/sonatype/nexus3>
 
 ## Requirements
 
@@ -34,12 +34,12 @@ To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truec
 
 ### Helm
 
-To install the chart with the release name `kitchenowl`
+To install the chart with the release name `nexus-oss`
 
 ```console
 helm repo add TrueCharts https://helm.truecharts.org
 helm repo update
-helm install kitchenowl TrueCharts/kitchenowl
+helm install nexus-oss TrueCharts/nexus-oss
 ```
 
 ## Uninstall
@@ -52,10 +52,10 @@ To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Star
 
 ### Helm
 
-To uninstall the `kitchenowl` deployment
+To uninstall the `nexus-oss` deployment
 
 ```console
-helm uninstall kitchenowl
+helm uninstall nexus-oss
 ```
 
 ## Configuration
@@ -72,9 +72,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install kitchenowl \
+helm install nexus-oss \
   --set env.TZ="America/New York" \
-    TrueCharts/kitchenowl
+    TrueCharts/nexus-oss
 ```
 
 #### Configure using a yaml file
@@ -82,7 +82,7 @@ helm install kitchenowl \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install kitchenowl TrueCharts/kitchenowl -f values.yaml
+helm install nexus-oss TrueCharts/nexus-oss -f values.yaml
 ```
 
 #### Connecting to other apps

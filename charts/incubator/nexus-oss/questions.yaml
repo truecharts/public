@@ -7,7 +7,6 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/vnc.html?autoconnect=true"
 questions:
   - variable: portal
     group: "Container Image"
@@ -82,36 +81,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: THUNDERBIRD_V
-          label: "THUNDERBIRD_V"
-          description: "Enter your preferred version or latest to grab the latest version."
+        - variable: INSTALL4J_ADD_VM_PARAMS
+          label: "INSTALL4J_ADD_VM_PARAMS"
+          description: "Default is -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
           schema:
             type: string
-            default: "latest"
-        - variable: THUNDERBIRD_LANG
-          label: "THUNDERBIRD_LANG"
-          description: "Enter your preferred language here (eg en-US, you can get a full list here https://archive.mozilla.org/pub/thunderbird/releases/latest/README.txt)"
-          schema:
-            type: string
-            default: "en-US"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Enter your preferred screen width"
-          schema:
-            type: int
-            default: 1280
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Enter your preferred screen height"
-          schema:
-            type: int
-            default: 768
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Data permissions for /thunderbird folder"
-          schema:
-            type: int
-            default: 770
+            default: "-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
@@ -139,7 +114,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10291
+                              default: 10288
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -174,7 +149,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 8081
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -228,6 +203,7 @@ questions:
 # Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -251,7 +227,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -261,8 +237,9 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -275,20 +252,23 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 200
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 200
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 568
+            default: 200
 # Include{podSecurityContextAdvanced}
+
 # Include{resources}
+
 # Include{advanced}
+
 # Include{addons}

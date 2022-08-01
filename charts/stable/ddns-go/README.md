@@ -1,6 +1,6 @@
 # ddns-go
 
-![Version: 2.0.24](https://img.shields.io/badge/Version-2.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.7.2](https://img.shields.io/badge/AppVersion-3.7.2-informational?style=flat-square)
+![Version: 2.0.25](https://img.shields.io/badge/Version-2.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0](https://img.shields.io/badge/AppVersion-4.0.0-informational?style=flat-square)
 
 Automatically obtain your public network IPv4 or IPv6 address and resolve it to the corresponding domain name service
 
@@ -13,6 +13,7 @@ For more information, please click here: [ddns-go](https://truecharts.org/docs/c
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/stable/ddns-go>
 * <https://github.com/jeessy2/ddns-go>
 
 ## Requirements

@@ -86,7 +86,7 @@ jobs:
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Removing Chart Docs prior to regeneration..."
-          mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
+          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -99,7 +99,7 @@ jobs:
                 yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/chart-icons/${chart}.png 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
               fi
           done
 
