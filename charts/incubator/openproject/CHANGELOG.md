@@ -2,6 +2,11 @@
 
 
 
+## [openproject-0.0.15](https://github.com/truecharts/apps/compare/openproject-0.0.14...openproject-0.0.15) (2022-08-01)
+
+
+
+
 ## [openproject-0.0.14](https://github.com/truecharts/apps/compare/openproject-0.0.13...openproject-0.0.14) (2022-08-01)
 
 ### Fix
