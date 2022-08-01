@@ -8,9 +8,6 @@ podSecurityContext:
   runAsUser: 200
   fsGroup: 200
 
-securityContext:
-  # readOnlyRootFilesystem: false
-
 env:
   INSTALL4J_ADD_VM_PARAMS: "-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
 
@@ -19,7 +16,6 @@ service:
     ports:
       main:
         port: 10288
-        protocol: TCP
         targetPort: 8081
 
 persistence:
