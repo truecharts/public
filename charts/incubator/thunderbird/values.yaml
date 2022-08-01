@@ -3,13 +3,13 @@ image:
   repository: tccr.io/truecharts/thunderbird
   tag: latest@sha256:5b26180ab2ccc8f42777404aa4765d0dae3be92b3cebc0ecb5dafc48ec825113
 
-# podSecurityContext:
-#   runAsGroup: 0
-#   runAsUser: 0
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
 env:
   THUNDERBIRD_V: "latest"
