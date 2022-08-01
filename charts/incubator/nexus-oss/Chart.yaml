@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: "3.41.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.8
+deprecated: false
+description:
+  "Sonatype\u2019s Nexus open source project was created to speed up\
+  \ development cycles using binary repositories. It\u2019s the world\u2019s most\
+  \ advanced repository manager, creating a single place for teams to manage all their\
+  \ binary artifacts efficiently."
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/nexus-oss
+icon: https://truecharts.org/img/chart-icons/nexus-oss.png
+keywords:
+  - nexus-oss
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: nexus-oss
+sources:
+  - https://hub.docker.com/r/sonatype/nexus3
+type: application
+version: 0.0.1
