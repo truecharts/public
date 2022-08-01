@@ -74,6 +74,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: FRONT_URL
+          label: "FRONT_URL"
+          description: "The url the instance will be accessed. eg. http://192.168.1.100:10246 or https://kitchen.mydomain.com"
+          schema:
+            type: string
+            required: true
+            default: ""
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
