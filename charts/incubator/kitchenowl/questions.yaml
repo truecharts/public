@@ -83,11 +83,10 @@ questions:
       attrs:
         - variable: FRONT_URL
           label: "FRONT_URL"
-          description: "The url the instance will be access with ports:"
+          description: "The url the instance will be accessed. eg. http://192.168.1.100:10246 or https://kitchen.mydomain.com"
           schema:
             type: string
-            default: "http://localhost:10246"
-            private: true
+            required: true
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
