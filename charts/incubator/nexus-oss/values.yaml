@@ -1,25 +1,29 @@
-env:
-  EXTRA_JAVA_OPTIONS: -Xms2g -Xmx4g
 image:
-  pullPolicy: IfNotPresent
   repository: sonatype/nexus3
+  pullPolicy: IfNotPresent
   tag: 3.41.0
-persistence:
-  nexus-data:
-    enabled: true
-    mountPath: /nexus-data
+
 podSecurityContext:
   runAsGroup: 200
   runAsUser: 200
+  fsGroup: 200
+
 securityContext:
-  readOnlyRootFilesystem: false
+  # readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+env:
+  EXTRA_JAVA_OPTIONS: -Xms2g -Xmx4g
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
-        port: 8181
+        port: 10288
         protocol: TCP
         targetPort: 8081
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /nexus-data

@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -75,7 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -83,16 +81,13 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: EXTRA_JAVA_OPTIONS
           label: 'EXTRA_JAVA_OPTIONS'
           description: "Container Variable EXTRAJAVAOPTIONS"
           schema:
             type: string
             default: "-Xms2g -Xmx4g"
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -119,7 +114,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8181
+                              default: 10288
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -132,7 +127,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: TCP
+                                    default: "TCP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -155,9 +150,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8081
-
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -172,11 +164,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -185,21 +174,16 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
-        - variable: nexus-data
-          label: "nexus-data Storage"
-          description: "nexus-data"
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -214,15 +198,10 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
 
   - variable: advancedSecurity
@@ -248,7 +227,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -258,7 +237,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -276,10 +255,10 @@ questions:
             default: 200
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 2000
+            default: 200
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
@@ -287,7 +266,6 @@ questions:
             type: int
             default: 200
 # Include{podSecurityContextAdvanced}
-
 
 # Include{resources}
 
