@@ -10,7 +10,6 @@ podSecurityContext:
 
 securityContext:
   # readOnlyRootFilesystem: false
-  runAsNonRoot: false
 
 env:
   EXTRA_JAVA_OPTIONS: -Xms2g -Xmx4g
