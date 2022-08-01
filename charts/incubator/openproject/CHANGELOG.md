@@ -2,6 +2,15 @@
 
 
 
+## [openproject-0.0.14](https://github.com/truecharts/apps/compare/openproject-0.0.13...openproject-0.0.14) (2022-08-01)
+
+### Fix
+
+- Add DB and main service port ([#3354](https://github.com/truecharts/apps/issues/3354))
+
+
+
+
 ## [openproject-0.0.13](https://github.com/truecharts/apps/compare/openproject-0.0.12...openproject-0.0.13) (2022-07-26)
 
 ### Chore
