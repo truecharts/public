@@ -81,12 +81,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: EXTRA_JAVA_OPTIONS
-          label: 'EXTRA_JAVA_OPTIONS'
-          description: "Container Variable EXTRAJAVAOPTIONS"
+        - variable: INSTALL4J_ADD_VM_PARAMS
+          label: "INSTALL4J_ADD_VM_PARAMS"
+          description: "Default is -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
           schema:
             type: string
-            default: "-Xms2g -Xmx4g"
+            default: "-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"

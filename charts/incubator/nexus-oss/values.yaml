@@ -12,7 +12,7 @@ securityContext:
   # readOnlyRootFilesystem: false
 
 env:
-  EXTRA_JAVA_OPTIONS: -Xms2g -Xmx4g
+  INSTALL4J_ADD_VM_PARAMS: "-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
 
 service:
   main:
