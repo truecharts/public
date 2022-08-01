@@ -29,7 +29,7 @@ sync_tag() {
     echo "Updating tag of ${chartname} to ${tag}..."
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     echo "Updating icon of ${chartname}..."
-    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
     echo "Updating home of ${chartname}..."
     sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
     echo "Attempting to update sources of ${chartname}..."
