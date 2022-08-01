@@ -1,30 +1,31 @@
-env:
-  CUSTOM_RES_H: "768"
-  CUSTOM_RES_W: "1280"
-  EXTRA_PARAMETERS: ""
-  THUNDERBIRD_LANG: en-US
-  THUNDERBIRD_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/thunderbird
-  tag: latest@sha256:0fb7ddd662ad23a22bba8fa13dcef2071da68b476c2a75805397c947bf787e04
-persistence:
-  datadir:
-    enabled: true
-    mountPath: /thunderbird
+  tag: latest@sha256:5b26180ab2ccc8f42777404aa4765d0dae3be92b3cebc0ecb5dafc48ec825113
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+env:
+  THUNDERBIRD_V: "latest"
+  CUSTOM_RES_H: 768
+  CUSTOM_RES_W: 1280
+  DATA_PERM: 770
+  THUNDERBIRD_LANG: "en-US"
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
-        port: 8080
-        protocol: TCP
+        port: 10291
         targetPort: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /thunderbird
