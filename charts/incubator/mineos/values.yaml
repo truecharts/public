@@ -30,7 +30,7 @@ service:
         protocol: HTTP
         targetPort: 10278
         port: 10278
-  minecraft:
+  minecraft_java:
     enabled: true
     ports:
       mc-port-1-tcp:
@@ -87,7 +87,34 @@ service:
         enabled: true
         port: 25570
         targetPort: 25570
-  rcon:
+  minecraft_br:
+    enabled: true
+    ports:
+      mc-port-1-udp:
+        enabled: true
+        port: 19132
+        targetPort: 19132
+      mc-port-2-udp:
+        enabled: true
+        port: 19133
+        targetPort: 19133
+      mc-port-3-udp:
+        enabled: true
+        port: 19134
+        targetPort: 19134
+      mc-port-4-udp:
+        enabled: true
+        port: 19135
+        targetPort: 19135
+      mc-port-5-udp:
+        enabled: true
+        port: 19136
+        targetPort: 19136
+      mc-port-6-udp:
+        enabled: true
+        port: 19137
+        targetPort: 19137
+  minecraft_rcon:
     enabled: true
     ports:
       mc-port-1-rcon:
