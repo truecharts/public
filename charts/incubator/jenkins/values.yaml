@@ -9,6 +9,7 @@ podSecurityContext:
   fsGroup: 1000
 
 env:
+  JENKINS_JAVA_OPTS: ""
 
 service:
   main:
@@ -17,8 +18,10 @@ service:
         port: 10280
         targetPort: 8080
   agent:
+    enabled: true
     ports:
       agent:
+        enabled: true
         port: 50000
         targetPort: 50000
 

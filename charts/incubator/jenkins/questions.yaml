@@ -74,15 +74,19 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-# Disabled for now until adding more features
-#  - variable: env
-#    group: "Container Configuration"
-#    label: "Image Environment"
-#    schema:
-#      additional_attrs: true
-#      type: dict
-#      attrs:
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: JENKINS_JAVA_OPTS
+          label: "JENKINS_JAVA_OPTS"
+          description: "You might need to customize the JVM running Jenkins, typically to adjust system properties or tweak heap memory settings."
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
@@ -146,6 +150,14 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
+        - variable: agent
+          label: "Agent Service"
+          description: "Agent Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
                     - variable: agent
                       label: "Agent Service Port Configuration"
                       schema:
@@ -246,7 +258,6 @@ questions:
 # Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -282,7 +293,6 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -309,9 +319,6 @@ questions:
             type: int
             default: 1000
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}
