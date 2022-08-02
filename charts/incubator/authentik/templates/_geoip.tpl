@@ -13,17 +13,8 @@ volumeMounts:
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-geoip-secret'
-env:
-  - name: GEOIPUPDATE_EDITION_IDS
-    value: "{{ .Values.geoip.edition }}"
-  - name: GEOIPUPDATE_FREQUENCY
-    value: "{{ .Values.geoip.frequency }}"
-  - name: GEOIPUPDATE_HOST
-    value: "{{ .Values.geoip.host_server }}"
-  - name: GEOIPUPDATE_PRESERVE_FILE_TIMES
-    value: '{{ ternary "1" "0" .Values.geoip.preserve_file_times }}'
-  - name: GEOIPUPDATE_VERBOSE
-    value: "{{ .Values.geoip.verbose }}"
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-geoip-config'
 {{/* TODO: Add healthchecks */}}
 
 {{- end -}}

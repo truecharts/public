@@ -17,9 +17,6 @@ podSecurityContext:
 workerContainer:
   enabled: true
 
-geoipContainer:
-  enabled: true
-
 authentik:
   creds:
     password: "supersecret"
@@ -57,15 +54,16 @@ authentik:
     tls_ciphers: "null"
 
 geoip:
+  enabled: true
   account_id: ""
   license_key: ""
   proxy: ""
-  proxy_pass: ""
-  edition: "GeoLite2-City"
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
   frequency: 8
   host_server: "updates.maxmind.com"
   preserve_file_times: false
-  verbose: tue
+  verbose: false
 
 envFrom:
   - secretRef:

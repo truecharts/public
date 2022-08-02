@@ -52,5 +52,5 @@ data:
   GEOIPUPDATE_LICENSE_KEY: {{ .Values.geoip.license_key }}
   {{/* Proxy */}}
   GEOIPUPDATE_PROXY: {{ .Values.geoip.proxy }}
-  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ .Values.geoip.proxy_pass }}
+  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ .Values.geoip.proxy_user_pass }}
 {{- end -}}

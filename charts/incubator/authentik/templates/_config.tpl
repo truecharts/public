@@ -1,14 +1,15 @@
 {{/* Define the configmap */}}
 {{- define "authentik.config" -}}
 
-{{- $configName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $authentikConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $configName }}
+  name: {{ $authentikConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
@@ -36,4 +37,18 @@ data:
   AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: {{ .Values.authentik.reporting.environment }}
   {{/* LDAP */}}
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ .Values.authentik.ldap.tls_ciphers }}
+---
+{{/* This configmap is loaded on geoip container */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $geoipConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  GEOIPUPDATE_EDITION_IDS: {{ .Values.geoip.edition_ids }}
+  GEOIPUPDATE_FREQUENCY: {{ .Values.geoip.frequency | quote }}
+  GEOIPUPDATE_HOST: {{ .Values.geoip.host_server }}
+  GEOIPUPDATE_PRESERVE_FILE_TIMES: '{{ ternary "1" "0" .Values.geoip.preserve_file_times }}'
+  GEOIPUPDATE_VERBOSE: '{{ ternary "1" "0" .Values.geoip.verbose }}'
 {{- end }}

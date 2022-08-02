@@ -11,7 +11,7 @@
 {{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
 {{- end -}}
 
-{{- if .Values.geoipContainer.enabled -}}
+{{- if .Values.geoip.enabled -}}
 {{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
 {{- end -}}
 
