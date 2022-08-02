@@ -30,6 +30,90 @@ service:
         protocol: HTTP
         targetPort: 10278
         port: 10278
+  minecraft:
+    enabled: true
+    ports:
+      mc-port-1-tcp:
+        enabled: true
+        port: 25565
+        targetPort: 25565
+      mc-port-1-udp:
+        protocol: UDP
+        enabled: true
+        port: 25565
+        targetPort: 25565
+      mc-port-2-tcp:
+        enabled: true
+        port: 25566
+        targetPort: 25566
+      mc-port-2-udp:
+        protocol: UDP
+        enabled: true
+        port: 25566
+        targetPort: 25566
+      mc-port-3-tcp:
+        enabled: true
+        port: 25567
+        targetPort: 25567
+      mc-port-3-udp:
+        protocol: UDP
+        enabled: true
+        port: 25567
+        targetPort: 25567
+      mc-port-4-tcp:
+        enabled: true
+        port: 25568
+        targetPort: 25568
+      mc-port-4-udp:
+        protocol: UDP
+        enabled: true
+        port: 25568
+        targetPort: 25568
+      mc-port-5-tcp:
+        enabled: true
+        port: 25569
+        targetPort: 25569
+      mc-port-5-udp:
+        protocol: UDP
+        enabled: true
+        port: 25569
+        targetPort: 25569
+      mc-port-6-tcp:
+        enabled: true
+        port: 25570
+        targetPort: 25570
+      mc-port-6-udp:
+        protocol: UDP
+        enabled: true
+        port: 25570
+        targetPort: 25570
+  rcon:
+    enabled: true
+    ports:
+      mc-port-1-rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
+      mc-port-2-rcon:
+        enabled: true
+        port: 25576
+        targetPort: 25576
+      mc-port-3-rcon:
+        enabled: true
+        port: 25577
+        targetPort: 25577
+      mc-port-4-rcon:
+        enabled: true
+        port: 25578
+        targetPort: 25578
+      mc-port-5-rcon:
+        enabled: true
+        port: 25579
+        targetPort: 25579
+      mc-port-6-rcon:
+        enabled: true
+        port: 25580
+        targetPort: 25580
 
 persistence:
   config:
