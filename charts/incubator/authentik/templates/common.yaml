@@ -1,13 +1,21 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{/* Render secrets for authentik */}}
-{{- include "authentik.secrets" . }}
+{{/* Render common env for authentik containers */}}
+{{- include "authentik.commonsecret" . }}
+
+{{- if .Values.worker.enabled -}}
+{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{- end -}}
+
+
+
 
 {{- if .Values.geoip.ENABLE_GEOIPUPDATER }}
 {{/* Render cronjob for authentik */}}
 {{- include "authentik.cronjob" . }}
 {{- end -}}
+
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

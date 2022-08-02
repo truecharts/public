@@ -10,19 +10,22 @@ geoipImage:
 
 extraArgs: ["server"]
 
+worker:
+  enabled: true
+
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-secretEnv:
-  AK_ADMIN_PASS: "supersecret"
-  AK_ADMIN_TOKEN: "supersecretapitoken"
+authentik:
+  password: "supersecret"
+  token : "supersecretapitoken"
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 env:
-  AUTHENTIK_POSTGRESQL__NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  AUTHENTIK_POSTGRESQL__USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  AUTHENTIK_POSTGRESQL__PORT: "5432"
-  AUTHENTIK_REDIS__PORT: "6379"
   # User Defined
   AUTHENTIK_DISABLE_UPDATE_CHECK: false
   AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
@@ -45,22 +48,6 @@ env:
   AUTHENTIK_EMAIL__USE_SSL: false
   AUTHENTIK_EMAIL__TIMEOUT: 10
   AUTHENTIK_EMAIL__FROM: ""
-  AUTHENTIK_POSTGRESQL__HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  AUTHENTIK_POSTGRESQL__PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  AUTHENTIK_REDIS__HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  AUTHENTIK_REDIS__PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
   AUTHENTIK_SECRET_KEY:
     secretKeyRef:
       name: authentik-secrets
@@ -81,9 +68,29 @@ geoip:
 
 probes:
   liveness:
-    path: "/-/health/live"
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
   readiness:
-    path: "/-/health/ready"
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
 
 service:
   main:
@@ -101,10 +108,10 @@ service:
         targetPort: 9443
 
 additionalContainers:
-  worker:
-    name: worker
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    args: ["worker"]
+  # worker:
+  #   name: worker
+  #   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+  #   args: ["worker"]
     volumeMounts:
       - name: media
         mountPath: "/media"
