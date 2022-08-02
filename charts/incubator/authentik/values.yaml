@@ -13,11 +13,6 @@ ldapImage:
   tag: 2022.7.3@sha256:fed2b7e9149bfe9693f7ea1abf87012d643c53e5054415862449c20fe4fe6413
   pullPolicy: IfNotPresent
 
-proxyImage:
-  repository: ghcr.io/goauthentik/proxy
-  tag: 2022.7.3@sha256:999ceba26e76f91613d46ffc6be41681f7926a756d83c1aefa1dc325fa8317bf
-  pullPolicy: IfNotPresent
-
 extraArgs: ["server"]
 
 podSecurityContext:
@@ -34,9 +29,6 @@ outposts:
     ldap1_type: "Simple"
     ldap2_external_port: 636
     ldap2_type: "Simple"
-  # Not implemented yet
-  proxy:
-    enable: false
 
 workerContainer:
   enabled: true
