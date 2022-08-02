@@ -1,0 +1,28 @@
+image:
+  repository: jenkins/jenkins
+  pullPolicy: IfNotPresent
+  tag: 2.361-jdk11
+
+podSecurityContext:
+  runAsGroup: 1000
+  runAsUser: 1000
+  fsGroup: 1000
+
+env:
+
+service:
+  main:
+    ports:
+      main:
+        port: 10280
+        targetPort: 8080
+  agent:
+    ports:
+      agent:
+        port: 50000
+        targetPort: 50000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/jenkins_home
