@@ -21,8 +21,22 @@ geoipContainer:
   enabled: true
 
 authentik:
-  password: "supersecret"
-  token : "supersecretapitoken"
+  creds:
+    password: "supersecret"
+    token : "supersecretapitoken"
+  general:
+    disable_update_check: false
+  mail:
+    host: ""
+    user: ""
+    pass: ""
+    from: ""
+    port: 25
+    tls: false
+    ssl: false
+    timeout: 10
+  logging:
+    log_level: "info"
 
 geoip:
   account_id: ""
@@ -38,10 +52,11 @@ geoip:
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
 
 env:
   # User Defined
-  AUTHENTIK_DISABLE_UPDATE_CHECK: false
   AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
   AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
   AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
@@ -53,15 +68,6 @@ env:
   AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: " "
   AUTHENTIK_DEFAULT_TOKEN_LENGTH: 128
   AUTHENTIK_AVATARS: "gravatar"
-  AUTHENTIK_LOG_LEVEL: "warning"
-  AUTHENTIK_EMAIL__HOST: ""
-  AUTHENTIK_EMAIL__PORT: 25
-  AUTHENTIK_EMAIL__USERNAME: ""
-  AUTHENTIK_EMAIL__PASSWORD: ""
-  AUTHENTIK_EMAIL__USE_TLS: false
-  AUTHENTIK_EMAIL__USE_SSL: false
-  AUTHENTIK_EMAIL__TIMEOUT: 10
-  AUTHENTIK_EMAIL__FROM: ""
 
 probes:
   liveness:
@@ -103,52 +109,6 @@ service:
         protocol: "HTTPS"
         port: 10229
         targetPort: 9443
-
-# additionalContainers:
-  # worker:
-    # env:
-    #   - name: AUTHENTIK_LOG_LEVEL
-    #     value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
-    #   - name: AUTHENTIK_DISABLE_UPDATE_CHECK
-    #     value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
-    #   - name: AUTHENTIK_ERROR_REPORTING__ENABLED
-    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENABLED }}"
-    #   - name: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
-    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENVIRONMENT }}"
-    #   - name: AUTHENTIK_ERROR_REPORTING__SEND_PII
-    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__SEND_PII }}"
-    #   - name: AUTHENTIK_EMAIL__HOST
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__HOST }}"
-    #   - name: AUTHENTIK_EMAIL__PORT
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__PORT }}"
-    #   - name: AUTHENTIK_EMAIL__USERNAME
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USERNAME }}"
-    #   - name: AUTHENTIK_EMAIL__PASSWORD
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__PASSWORD }}"
-    #   - name: AUTHENTIK_EMAIL__USE_TLS
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_TLS }}"
-    #   - name: AUTHENTIK_EMAIL__USE_SSL
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_SSL }}"
-    #   - name: AUTHENTIK_EMAIL__TIMEOUT
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__TIMEOUT }}"
-    #   - name: AUTHENTIK_EMAIL__FROM
-    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__FROM }}"
-    #   - name: AUTHENTIK_AVATARS
-    #     value: "{{ .Values.env.AUTHENTIK_AVATARS }}"
-    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
-    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_NAME }}"
-    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
-    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL }}"
-    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
-    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME }}"
-    #   - name: AUTHENTIK_GDPR_COMPLIANCE
-    #     value: "{{ .Values.env.AUTHENTIK_GDPR_COMPLIANCE }}"
-    #   - name: AUTHENTIK_DEFAULT_TOKEN_LENGTH
-    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_TOKEN_LENGTH }}"
-    #   - name: AUTHENTIK_IMPERSONATION
-    #     value: "{{ .Values.env.AUTHENTIK_IMPERSONATION }}"
-    #   - name: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
-    #     value: "{{ .Values.env.AUTHENTIK_DISABLE_STARTUP_ANALYTICS }}"
 
 persistence:
   media:

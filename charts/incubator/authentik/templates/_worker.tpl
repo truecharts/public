@@ -11,6 +11,8 @@ args: ["worker"]
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
 volumeMounts:
   - name: media
     mountPath: "/media"
