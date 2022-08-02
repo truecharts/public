@@ -9,6 +9,7 @@ geoipImage:
   pullPolicy: IfNotPresent
 
 ldapImage:
+  # TODO: Update this to our mirror
   repository: ghcr.io/goauthentik/ldap
   tag: 2022.7.3@sha256:fed2b7e9149bfe9693f7ea1abf87012d643c53e5054415862449c20fe4fe6413
   pullPolicy: IfNotPresent
