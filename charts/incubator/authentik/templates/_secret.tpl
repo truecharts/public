@@ -3,6 +3,7 @@
 
 {{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.common.names.fullname" .) }}
 {{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
+{{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
@@ -37,6 +38,17 @@ data:
   AUTHENTIK_EMAIL__USERNAME: {{ .Values.authentik.mail.user }}
   AUTHENTIK_EMAIL__PASSWORD: {{ .Values.authentik.mail.pass }}
   AUTHENTIK_EMAIL__FROM: {{ .Values.authentik.mail.from }}
+---
+{{/* This secrets are loaded on ldap container */}}
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $ldapSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  AUTHENTIK_TOKEN: {{ .Values.outposts.ldap.token }}
 ---
 {{/* This secrets are loaded on geoip container */}}
 apiVersion: v1

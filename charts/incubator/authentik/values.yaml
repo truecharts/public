@@ -8,11 +8,35 @@ geoipImage:
   tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
   pullPolicy: IfNotPresent
 
+ldapImage:
+  repository: ghcr.io/goauthentik/ldap
+  tag: 2022.7.3@sha256:fed2b7e9149bfe9693f7ea1abf87012d643c53e5054415862449c20fe4fe6413
+  pullPolicy: IfNotPresent
+
+proxyImage:
+  repository: ghcr.io/goauthentik/proxy
+  tag: 2022.7.3@sha256:999ceba26e76f91613d46ffc6be41681f7926a756d83c1aefa1dc325fa8317bf
+  pullPolicy: IfNotPresent
+
 extraArgs: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
+
+outposts:
+  ldap:
+    enable: true
+    insecure: false
+    host: ""
+    token: ""
+    ldap1_external_port: 389
+    ldap1_type: "Simple"
+    ldap2_external_port: 636
+    ldap2_type: "Simple"
+  # Not implemented yet
+  proxy:
+    enable: false
 
 workerContainer:
   enabled: true
@@ -101,16 +125,17 @@ service:
   main:
     ports:
       main:
-        port: 10230
-        targetPort: 9000
-  https:
-    enabled: true
-    ports:
-      https:
-        enabled: true
         protocol: "HTTPS"
         port: 10229
         targetPort: 9443
+  http:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        protocol: "HTTP"
+        port: 10230
+        targetPort: 9000
 
 persistence:
   media:

@@ -15,5 +15,10 @@
 {{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
 {{- end -}}
 
+{{- if .Values.outposts.ldap.enable -}}
+{{- $_ := set .Values.additionalContainers "ldap" (include "authentik.ldap" . | fromYaml) -}}
+{{- $_ := set .Values.service "ldap" (include "authentik.ldap.service" . | fromYaml) -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

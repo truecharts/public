@@ -16,5 +16,4 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-geoip-config'
 {{/* TODO: Add healthchecks */}}
-
 {{- end -}}
