@@ -3,7 +3,7 @@
 
 {{/* Render secret */}}
 {{- include "authentik.secret" . }}
-\
+
 {{/* Render config */}}
 {{- include "authentik.config" . }}
 
@@ -12,7 +12,7 @@
 {{- end -}}
 
 {{- if .Values.geoipContainer.enabled -}}
-{{- $_ := set .Values.additionalContainers "geoip" (include "authentik.worker" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Render the templates */}}
