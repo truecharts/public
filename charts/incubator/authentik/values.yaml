@@ -62,10 +62,6 @@ env:
   AUTHENTIK_EMAIL__USE_SSL: false
   AUTHENTIK_EMAIL__TIMEOUT: 10
   AUTHENTIK_EMAIL__FROM: ""
-  AUTHENTIK_SECRET_KEY:
-    secretKeyRef:
-      name: authentik-secrets
-      key: AUTHENTIK_SECRET_KEY
 
 probes:
   liveness:
@@ -153,11 +149,6 @@ service:
     #     value: "{{ .Values.env.AUTHENTIK_IMPERSONATION }}"
     #   - name: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
     #     value: "{{ .Values.env.AUTHENTIK_DISABLE_STARTUP_ANALYTICS }}"
-
-cronjob:
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
 
 persistence:
   media:
