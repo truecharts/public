@@ -16,4 +16,5 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-geoip-config'
 {{/* TODO: Add healthchecks */}}
+{{/* TODO: https://github.com/maxmind/geoipupdate/issues/105 */}}
 {{- end -}}
