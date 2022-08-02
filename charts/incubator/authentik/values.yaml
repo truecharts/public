@@ -26,6 +26,15 @@ authentik:
     token : "supersecretapitoken"
   general:
     disable_update_check: false
+    disable_startup_analytics: true
+    avatars: "gravatar"
+    allow_user_name_change: true
+    allow_user_mail_change: true
+    allow_user_username_change: true
+    gdpr_compliance: true
+    impersonation: true
+    token_length: 128
+    # TODO: AUTHENTIK_FOOTER_LINKS, test single and double quotes
   mail:
     host: ""
     user: ""
@@ -35,8 +44,14 @@ authentik:
     tls: false
     ssl: false
     timeout: 10
+  reporting:
+    enabled: false
+    send_pii: false
+    environment: "customer"
   logging:
     log_level: "info"
+  ldap:
+    tls_ciphers: "null"
 
 geoip:
   account_id: ""
@@ -54,20 +69,6 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-
-env:
-  # User Defined
-  AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
-  AUTHENTIK_GDPR_COMPLIANCE: true
-  AUTHENTIK_IMPERSONATION: true
-  AUTHENTIK_DISABLE_STARTUP_ANALYTICS: false
-  AUTHENTIK_ERROR_REPORTING__ENABLED: false
-  AUTHENTIK_ERROR_REPORTING__SEND_PII: false
-  AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: " "
-  AUTHENTIK_DEFAULT_TOKEN_LENGTH: 128
-  AUTHENTIK_AVATARS: "gravatar"
 
 probes:
   liveness:
