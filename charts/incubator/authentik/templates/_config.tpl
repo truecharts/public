@@ -31,10 +31,10 @@ data:
   AUTHENTIK_IMPERSONATION: {{ .Values.authentik.general.impersonation | quote }}
   AUTHENTIK_DEFAULT_TOKEN_LENGTH: {{ .Values.authentik.general.token_length | quote }}
   AUTHENTIK_FOOTER_LINKS: {{ .Values.authentik.general.footer_links | squote }}
-  {{/* Reporting */}}
-  AUTHENTIK_ERROR_REPORTING__ENABLED: {{ .Values.authentik.reporting.enabled | quote }}
-  AUTHENTIK_ERROR_REPORTING__SEND_PII: {{ .Values.authentik.reporting.send_pii | quote }}
-  AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: {{ .Values.authentik.reporting.environment }}
+  {{/* Error Reporting */}}
+  AUTHENTIK_ERROR_REPORTING__ENABLED: {{ .Values.authentik.error_reporting.enabled | quote }}
+  AUTHENTIK_ERROR_REPORTING__SEND_PII: {{ .Values.authentik.error_reporting.send_pii | quote }}
+  AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: {{ .Values.authentik.error_reporting.environment }}
   {{/* LDAP */}}
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ .Values.authentik.ldap.tls_ciphers }}
 ---
