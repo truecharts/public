@@ -29,6 +29,7 @@ data:
   AUTHENTIK_GDPR_COMPLIANCE: {{ .Values.authentik.general.gdpr_compliance | quote }}
   AUTHENTIK_IMPERSONATION: {{ .Values.authentik.general.impersonation | quote }}
   AUTHENTIK_DEFAULT_TOKEN_LENGTH: {{ .Values.authentik.general.token_length | quote }}
+  AUTHENTIK_FOOTER_LINKS: {{ .Values.authentik.general.footer_links | squote }}
   {{/* Reporting */}}
   AUTHENTIK_ERROR_REPORTING__ENABLED: {{ .Values.authentik.reporting.enabled | quote }}
   AUTHENTIK_ERROR_REPORTING__SEND_PII: {{ .Values.authentik.reporting.send_pii | quote }}

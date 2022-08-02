@@ -34,7 +34,10 @@ authentik:
     gdpr_compliance: true
     impersonation: true
     token_length: 128
-    # TODO: AUTHENTIK_FOOTER_LINKS, test single and double quotes
+    # Use single quotes for footer_links
+    # TODO: test how scale behaves
+    # eg footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+    footer_links: ''
   mail:
     host: ""
     user: ""
