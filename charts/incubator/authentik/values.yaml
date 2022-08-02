@@ -24,12 +24,12 @@ authentik:
   general:
     disable_update_check: false
     disable_startup_analytics: true
-    avatars: "gravatar"
     allow_user_name_change: true
     allow_user_mail_change: true
     allow_user_username_change: true
     gdpr_compliance: true
     impersonation: true
+    avatars: "gravatar"
     token_length: 128
     # Use single quotes for footer_links
     # TODO: test how scale behaves
@@ -37,13 +37,13 @@ authentik:
     footer_links: ''
   mail:
     host: ""
-    user: ""
-    pass: ""
-    from: ""
     port: 25
     tls: false
     ssl: false
     timeout: 10
+    user: ""
+    pass: ""
+    from: ""
   reporting:
     enabled: false
     send_pii: false
