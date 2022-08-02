@@ -3,10 +3,10 @@
 image: {{ .Values.geoipImage.repository }}:{{ .Values.geoipImage.tag }}
 imagePullPolicy: '{{ .Values.geoipImage.pullPolicy }}'
 securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
+  runAsUser: 0
+  runAsGroup: 0
   readOnlyRootFilesystem: true
-  runAsNonRoot: true
+  runAsNonRoot: false
 volumeMounts:
   - name: geoip
     mountPath: "/usr/share/GeoIP"
