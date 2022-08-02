@@ -107,96 +107,51 @@ service:
         port: 10229
         targetPort: 9443
 
-additionalContainers:
+# additionalContainers:
   # worker:
-  #   name: worker
-  #   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-  #   args: ["worker"]
-    volumeMounts:
-      - name: media
-        mountPath: "/media"
-      - name: templates
-        mountPath: "/templates"
-      - name: certs
-        mountPath: "/certs"
-      - name: geoip
-        mountPath: "/geoip"
-    env:
-      - name: AUTHENTIK_REDIS__PORT
-        value: "6379"
-      - name: AUTHENTIK_REDIS__HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
-      - name: AUTHENTIK_REDIS__PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: redis-password
-      - name: AUTHENTIK_POSTGRESQL__NAME
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: AUTHENTIK_POSTGRESQL__USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: AUTHENTIK_POSTGRESQL__PORT
-        value: "5432"
-      - name: AUTHENTIK_POSTGRESQL__HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: AUTHENTIK_POSTGRESQL__PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: AUTHENTIK_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: authentik-secrets
-            key: AUTHENTIK_SECRET_KEY
-      - name: AUTHENTIK_LOG_LEVEL
-        value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
-      - name: AUTHENTIK_DISABLE_UPDATE_CHECK
-        value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
-      - name: AUTHENTIK_ERROR_REPORTING__ENABLED
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENABLED }}"
-      - name: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENVIRONMENT }}"
-      - name: AUTHENTIK_ERROR_REPORTING__SEND_PII
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__SEND_PII }}"
-      - name: AUTHENTIK_EMAIL__HOST
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__HOST }}"
-      - name: AUTHENTIK_EMAIL__PORT
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__PORT }}"
-      - name: AUTHENTIK_EMAIL__USERNAME
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USERNAME }}"
-      - name: AUTHENTIK_EMAIL__PASSWORD
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__PASSWORD }}"
-      - name: AUTHENTIK_EMAIL__USE_TLS
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_TLS }}"
-      - name: AUTHENTIK_EMAIL__USE_SSL
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_SSL }}"
-      - name: AUTHENTIK_EMAIL__TIMEOUT
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__TIMEOUT }}"
-      - name: AUTHENTIK_EMAIL__FROM
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__FROM }}"
-      - name: AUTHENTIK_AVATARS
-        value: "{{ .Values.env.AUTHENTIK_AVATARS }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_NAME }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME }}"
-      - name: AUTHENTIK_GDPR_COMPLIANCE
-        value: "{{ .Values.env.AUTHENTIK_GDPR_COMPLIANCE }}"
-      - name: AUTHENTIK_DEFAULT_TOKEN_LENGTH
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_TOKEN_LENGTH }}"
-      - name: AUTHENTIK_IMPERSONATION
-        value: "{{ .Values.env.AUTHENTIK_IMPERSONATION }}"
-      - name: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
-        value: "{{ .Values.env.AUTHENTIK_DISABLE_STARTUP_ANALYTICS }}"
+    # env:
+    #   - name: AUTHENTIK_LOG_LEVEL
+    #     value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
+    #   - name: AUTHENTIK_DISABLE_UPDATE_CHECK
+    #     value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
+    #   - name: AUTHENTIK_ERROR_REPORTING__ENABLED
+    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENABLED }}"
+    #   - name: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
+    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENVIRONMENT }}"
+    #   - name: AUTHENTIK_ERROR_REPORTING__SEND_PII
+    #     value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__SEND_PII }}"
+    #   - name: AUTHENTIK_EMAIL__HOST
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__HOST }}"
+    #   - name: AUTHENTIK_EMAIL__PORT
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__PORT }}"
+    #   - name: AUTHENTIK_EMAIL__USERNAME
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USERNAME }}"
+    #   - name: AUTHENTIK_EMAIL__PASSWORD
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__PASSWORD }}"
+    #   - name: AUTHENTIK_EMAIL__USE_TLS
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_TLS }}"
+    #   - name: AUTHENTIK_EMAIL__USE_SSL
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_SSL }}"
+    #   - name: AUTHENTIK_EMAIL__TIMEOUT
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__TIMEOUT }}"
+    #   - name: AUTHENTIK_EMAIL__FROM
+    #     value: "{{ .Values.env.AUTHENTIK_EMAIL__FROM }}"
+    #   - name: AUTHENTIK_AVATARS
+    #     value: "{{ .Values.env.AUTHENTIK_AVATARS }}"
+    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
+    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_NAME }}"
+    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
+    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL }}"
+    #   - name: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
+    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME }}"
+    #   - name: AUTHENTIK_GDPR_COMPLIANCE
+    #     value: "{{ .Values.env.AUTHENTIK_GDPR_COMPLIANCE }}"
+    #   - name: AUTHENTIK_DEFAULT_TOKEN_LENGTH
+    #     value: "{{ .Values.env.AUTHENTIK_DEFAULT_TOKEN_LENGTH }}"
+    #   - name: AUTHENTIK_IMPERSONATION
+    #     value: "{{ .Values.env.AUTHENTIK_IMPERSONATION }}"
+    #   - name: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
+    #     value: "{{ .Values.env.AUTHENTIK_DISABLE_STARTUP_ANALYTICS }}"
 
 cronjob:
   annotations: {}

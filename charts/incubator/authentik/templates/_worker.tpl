@@ -11,6 +11,15 @@ args: ["worker"]
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+volumeMounts:
+  - name: media
+    mountPath: "/media"
+  - name: templates
+    mountPath: "/templates"
+  - name: certs
+    mountPath: "/certs"
+  - name: geoip
+    mountPath: "/geoip"
 readinessProbe:
   exec:
     command:
