@@ -4,18 +4,13 @@
 {{/* Render common env for authentik containers */}}
 {{- include "authentik.commonsecret" . }}
 
-{{- if .Values.worker.enabled -}}
+{{- if .Values.workerContainer.enabled -}}
 {{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
 {{- end -}}
 
-
-
-
-{{- if .Values.geoip.ENABLE_GEOIPUPDATER }}
-{{/* Render cronjob for authentik */}}
-{{- include "authentik.cronjob" . }}
+{{- if .Values.geoipContainer.enabled -}}
+{{- $_ := set .Values.additionalContainers "geoip" (include "authentik.worker" . | fromYaml) -}}
 {{- end -}}
-
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

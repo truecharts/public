@@ -10,20 +10,34 @@ geoipImage:
 
 extraArgs: ["server"]
 
-worker:
-  enabled: true
-
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
+
+workerContainer:
+  enabled: true
+
+geoipContainer:
+  enabled: true
 
 authentik:
   password: "supersecret"
   token : "supersecretapitoken"
 
+geoip:
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_pass: ""
+  edition: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: tue
+
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
 
 env:
   # User Defined
@@ -52,19 +66,6 @@ env:
     secretKeyRef:
       name: authentik-secrets
       key: AUTHENTIK_SECRET_KEY
-
-geoip:
-  # Set image's frequence to 0, so it executes once and exits.
-  GEOIPUPDATE_FREQUENCY: 0
-  # User Defined
-  ENABLE_GEOIPUPDATER: false
-  # How often should we run the cronjob to update geoip
-  freqhours: 8
-  GEOIPUPDATE_ACCOUNT_ID: ""
-  GEOIPUPDATE_LICENSE_KEY: ""
-  GEOIPUPDATE_EDITION_IDS: "GeoIP2-City"
-  GEOIPUPDATE_HOST: "updates.maxmind.com"
-  GEOIPUPDATE_PRESERVE_FILE_TIMES: 0
 
 probes:
   liveness:

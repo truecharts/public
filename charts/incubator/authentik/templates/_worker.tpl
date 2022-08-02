@@ -10,7 +10,7 @@ securityContext:
 args: ["worker"]
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
 volumeMounts:
   - name: media
     mountPath: "/media"

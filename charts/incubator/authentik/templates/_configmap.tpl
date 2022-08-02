@@ -2,7 +2,8 @@
 {{- define "authentik.commonsecret" -}}
 
 {{- $configName := printf "%s-env-config" (include "tc.common.names.fullname" .) }}
-{{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
+{{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.common.names.fullname" .) }}
+{{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
 
 {{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
 {{- $pgUser := .Values.postgresql.postgresqlUsername }}
@@ -15,11 +16,11 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ $secretName }}
+  name: {{ $authentikSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
   AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
   {{- else }}
   AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
@@ -35,4 +36,20 @@ data:
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.password }}
   AUTHENTIK_BOOTSTRAP_TOKEN:  {{ .Values.authentik.token }}
+
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $geoipSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  GEOIPUPDATE_ACCOUNT_ID: {{ .Values.geoip.account_id }}
+  GEOIPUPDATE_LICENSE_KEY: {{ .Values.geoip.license_key }}
+  GEOIPUPDATE_PROXY: {{ .Values.geoip.proxy }}
+  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ .Values.geoip.proxy_pass }}
+
 {{- end -}}
