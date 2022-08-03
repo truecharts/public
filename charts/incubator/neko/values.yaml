@@ -1,37 +1,107 @@
-env:
-  NEKO_EPR: 52000-52100
-  NEKO_NAT1TO1: 192.168.1.x
-  NEKO_PASSWORD: ChangeMePls-<3
-  NEKO_PASSWORD_ADMIN: ChangeMeAlsoPls_:)
-  NEKO_SCREEN: 1920x1080@30
 image:
+  repository: tccr.io/truecharts/neko-firefox
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/neko
   tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
-persistence: {}
+
+imageBrave:
+  repository: tccr.io/truecharts/neko-brave
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageChrome:
+  repository: tccr.io/truecharts/neko-chrome
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageChromium:
+  repository: tccr.io/truecharts/neko-chromium
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageEdge:
+  repository: tccr.io/truecharts/neko-msedge
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageRemmina:
+  repository: tccr.io/truecharts/neko-remmina
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageTor:
+  repository: tccr.io/truecharts/neko-tor
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageVivaldi:
+  repository: tccr.io/truecharts/neko-vivaldi
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageVlc:
+  repository: tccr.io/truecharts/neko-vlc
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageVncviewer:
+  repository: tccr.io/truecharts/neko-vncviewer
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageXfce:
+  repository: tccr.io/truecharts/neko-xfce
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:31cc4b580176cb9dd827faceec767125bcd9cbc88e834ef69eb621af3128894c
+
+imageSelector: "image"
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  NEKO_PASSWORD: userpass
+  NEKO_PASSWORD_ADMIN: adminpass
+
+env:
+  NEKO_UDPMUX: 52100
+  NEKO_TCPMUX: 52100
+  # User Defined
+  NEKO_SCREEN: 1920x1080@30
+  NEKO_CONTROL_PROTECTION: false
+  NEKO_IMPLICIT_CONTROL: false
+  NEKO_LOCKS: ""
+  NEKO_NAT1TO1: ""
+  NEKO_IPFETCH: ""
+  NEKO_PROXY: true
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
-        port: 6530
+        port: 10294
         protocol: HTTP
         targetPort: 8080
-  port52000:
+  mux-udp:
     enabled: true
     ports:
-      port52000:
+      mux-udp:
         enabled: true
-        port: 52000
+        port: 52100
         protocol: UDP
-        targetPort: 52000
+        targetPort: 52100
+  mux-tcp:
+    enabled: true
+    ports:
+      mux-tcp:
+        enabled: true
+        port: 52100
+        protocol: TCP
+        targetPort: 52100
 
 portal:
   enabled: true
