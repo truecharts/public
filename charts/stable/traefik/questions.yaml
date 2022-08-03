@@ -818,7 +818,7 @@ questions:
                                             - variable: trustedIPsEntry
                                               label: ""
                                               schema:
-                                                type: ipaddr
+                                                type: string
                                                 required: true
                                                 default: ""
                                       - variable: insecureMode
@@ -920,7 +920,7 @@ questions:
                                             - variable: trustedIPsEntry
                                               label: ""
                                               schema:
-                                                type: ipaddr
+                                                type: string
                                                 required: true
                                                 default: ""
                                       - variable: insecureMode
