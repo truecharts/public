@@ -1,30 +1,42 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/obsidian
   tag: latest@sha256:610f16a169fd31a55fc096b66c50125340dc915c9113063067e42d6a16f3a4b8
-persistence:
-  storageconfig:
-    enabled: true
-    mountPath: /config/.config/obsidian
-  storagevaults:
-    enabled: true
-    mountPath: /vaults
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
-        port: 8585
-        protocol: TCP
+        port: 10292
+        protocol: HTTP
         targetPort: 8080
+  api:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 27123
+        targetPort: 27123
+      https:
+        enabled: true
+        port: 27124
+        targetPort: 27124
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  vaults:
+    enabled: true
+    mountPath: /vaults
 
 portal:
   enabled: true
