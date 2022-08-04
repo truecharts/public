@@ -132,25 +132,37 @@ service:
         port: 10230
         targetPort: 9000
   metrics:
+    # This is managed from the templates based on the configuration
+    # It's here only for reference
     enabled: true
     ports:
       metrics:
+        # This is managed from the templates based on the configuration
+        # It's here only for reference
         enabled: true
         protocol: "HTTP"
         port: 10231
         targetPort: 9301
   ldap:
+    # This is managed from the templates based on the configuration
+    # It's here only for reference
     enabled: false
     ports:
       ldap1:
+        # This is managed from the templates based on the configuration
+        # It's here only for reference
         enabled: false
         port: 389
         targetPort: 3389
       ldap2:
+        # This is managed from the templates based on the configuration
+        # It's here only for reference
         enabled: false
         port: 636
         targetPort: 6636
       metrics:
+        # This is managed from the templates based on the configuration
+        # It's here only for reference
         enabled: false
         port: 10232
         targetPort: 9300
