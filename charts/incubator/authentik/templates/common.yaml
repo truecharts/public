@@ -7,7 +7,6 @@
 {{/* Render config */}}
 {{- include "authentik.config" . }}
 
-
 {{- if .Values.authentik.metrics.enabled -}}
 {{- $_ := set .Values.service.metrics "enabled" true -}}
 {{- $_ := set .Values.service.metrics.ports.metrics "enabled" true -}}
