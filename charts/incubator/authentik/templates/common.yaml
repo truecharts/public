@@ -16,6 +16,7 @@
 {{- else -}}
 {{- $_ := set .Values.service.metrics "enabled" false -}}
 {{- $_ := set .Values.service.metrics.ports.metrics "enabled" false -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "false" -}}
 {{- end -}}
 
 {{- if .Values.workerContainer.enabled -}}
