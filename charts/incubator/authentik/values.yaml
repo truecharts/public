@@ -68,7 +68,8 @@ authentik:
     tls_ciphers: "null"
   metrics:
     enabled: true
-    # LDAP Outpost listens on 9300
+    # LDAP Outpost listens on 9300. To avoid conflicts
+    # This sets internal Authentik metrics port to 9301
     internalPort: 9301
 
 geoip:
