@@ -26,10 +26,7 @@ outposts:
     insecure: false
     host: ""
     token: ""
-    ldap1_external_port: 389
-    ldap1_type: "Simple"
-    ldap2_external_port: 636
-    ldap2_type: "Simple"
+    metrics: true
 
 workerContainer:
   enabled: true
@@ -69,6 +66,9 @@ authentik:
     log_level: "info"
   ldap:
     tls_ciphers: "null"
+  metrics:
+    enabled: true
+
 
 geoip:
   enabled: true
@@ -129,6 +129,29 @@ service:
         protocol: "HTTP"
         port: 10230
         targetPort: 9000
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        protocol: "HTTP"
+        port: 10231
+        targetPort: 9300
+  ldap:
+    enabled: false
+    ports:
+      ldap1:
+        enabled: false
+        port: 389
+        targetPort: 3389
+      ldap2:
+        enabled: false
+        port: 636
+        targetPort: 6636
+      metrics:
+        enabled: false
+        port: 10232
+        targetPort: 9300
 
 persistence:
   media:

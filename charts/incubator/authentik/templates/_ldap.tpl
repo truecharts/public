@@ -44,17 +44,18 @@ startupProbe:
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
 ---
-{{- define "authentik.ldap.service" -}}
-enabled: true
-ports:
-  ldap1:
-    enabled: true
-    type: {{ .Values.outposts.ldap.ldap1_type }}
-    port: {{ .Values.outposts.ldap.ldap1_external_port }}
-    targetPort: 3389
-  ldap2:
-    enabled: true
-    type: {{ .Values.outposts.ldap.ldap2_type }}
-    port: {{ .Values.outposts.ldap.ldap2_external_port }}
-    targetPort: 6636
+{{- define "authentik.ldap.services.enabled" -}}
+{{- $_ := set .Values.service.ldap "enabled" true -}}
+{{- $_ := set .Values.service.ldap.ports.ldap1 "enabled" true -}}
+{{- $_ := set .Values.service.ldap.ports.ldap2 "enabled" true -}}
+{{- if .Values.outposts.ldap.metrics -}}
+{{- $_ := set .Values.service.ldap.ports.metrics "enabled" true -}}
+{{- end -}}
+{{- end -}}
+---
+{{- define "authentik.ldap.services.disabled" -}}
+{{- $_ := set .Values.service.ldap "enabled" false -}}
+{{- $_ := set .Values.service.ldap.ports.ldap1 "enabled" false -}}
+{{- $_ := set .Values.service.ldap.ports.ldap2 "enabled" false -}}
+{{- $_ := set .Values.service.ldap.ports.metrics "enabled" false -}}
 {{- end -}}

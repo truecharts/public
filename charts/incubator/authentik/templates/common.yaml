@@ -7,6 +7,15 @@
 {{/* Render config */}}
 {{- include "authentik.config" . }}
 
+
+{{- if .Values.authentik.metrics.enabled -}}
+{{- $_ := set .Values.service.metrics "enabled" true -}}
+{{- $_ := set .Values.service.metrics.ports.metrics "enabled" true -}}
+{{- else -}}
+{{- $_ := set .Values.service.metrics "enabled" false -}}
+{{- $_ := set .Values.service.metrics.ports.metrics "enabled" false -}}
+{{- end -}}
+
 {{- if .Values.workerContainer.enabled -}}
 {{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
 {{- end -}}
@@ -17,7 +26,9 @@
 
 {{- if .Values.outposts.ldap.enable -}}
 {{- $_ := set .Values.additionalContainers "ldap" (include "authentik.ldap" . | fromYaml) -}}
-{{- $_ := set .Values.service "ldap" (include "authentik.ldap.service" . | fromYaml) -}}
+{{- (include "authentik.ldap.services.enabled" . ) -}}
+{{- else -}}
+{{- (include "authentik.ldap.services.disabled" . ) -}}
 {{- end -}}
 
 {{/* Render the templates */}}
