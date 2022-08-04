@@ -12,8 +12,7 @@ podSecurityContext:
 
 # See https://github.com/linuxserver/docker-tvheadend#parameters
 env:
-  {}
-  # RUN_OPTS: <run options here>
+  RUN_OPTS: ""
 
 service:
   main:
