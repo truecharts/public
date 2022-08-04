@@ -68,7 +68,8 @@ authentik:
     tls_ciphers: "null"
   metrics:
     enabled: true
-
+    # LDAP Outpost listens on 9300
+    internalPort: 9301
 
 geoip:
   enabled: true
@@ -136,7 +137,7 @@ service:
         enabled: true
         protocol: "HTTP"
         port: 10231
-        targetPort: 9300
+        targetPort: 9301
   ldap:
     enabled: false
     ports:
