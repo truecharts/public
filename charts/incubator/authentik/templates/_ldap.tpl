@@ -13,8 +13,8 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
 ports:
-  - containerPort: 389
-  - containerPort: 636
+  - containerPort: 3389
+  - containerPort: 6636
 {{- if .Values.outposts.ldap.metrics -}}
   - containerPort: 9300
 {{- end -}}
