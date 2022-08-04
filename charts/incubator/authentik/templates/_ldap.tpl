@@ -55,6 +55,8 @@ startupProbe:
 {{- $_ := set .Values.service.ldap.ports.ldap1 "enabled" true -}}
 {{- $_ := set .Values.service.ldap.ports.ldap2 "enabled" true -}}
 {{- if .Values.outposts.ldap.metrics -}}
+{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
+{{/* We can't define multiple ports/endpoints with annotations */}}
 {{- $_ := set .Values.service.ldap.ports.metrics "enabled" true -}}
 {{- end -}}
 {{- end -}}

@@ -10,6 +10,9 @@
 {{- if .Values.authentik.metrics.enabled -}}
 {{- $_ := set .Values.service.metrics "enabled" true -}}
 {{- $_ := set .Values.service.metrics.ports.metrics "enabled" true -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" ( .Values.service.metrics.ports.metrics.targetPort | quote) -}}
 {{- else -}}
 {{- $_ := set .Values.service.metrics "enabled" false -}}
 {{- $_ := set .Values.service.metrics.ports.metrics "enabled" false -}}
