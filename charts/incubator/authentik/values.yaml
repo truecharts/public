@@ -20,14 +20,6 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-outposts:
-  ldap:
-    enable: true
-    insecure: false
-    host: ""
-    token: ""
-    metrics: true
-
 workerContainer:
   enabled: true
 
@@ -84,6 +76,14 @@ geoip:
   preserve_file_times: false
   verbose: false
 
+outposts:
+  ldap:
+    enable: true
+    insecure: false
+    host: ""
+    token: ""
+    metrics: true
+
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
@@ -132,37 +132,31 @@ service:
         port: 10230
         targetPort: 9000
   metrics:
-    # This is managed from the templates based on the configuration
-    # It's here only for reference
+    # This is managed from the templates based on the configuration, It's here only for reference
     enabled: true
     ports:
       metrics:
-        # This is managed from the templates based on the configuration
-        # It's here only for reference
+        # This is managed from the templates based on the configuration, It's here only for reference
         enabled: true
         protocol: "HTTP"
         port: 10231
         targetPort: 9301
   ldap:
-    # This is managed from the templates based on the configuration
-    # It's here only for reference
+    # This is managed from the templates based on the configuration, It's here only for reference
     enabled: false
     ports:
       ldap1:
-        # This is managed from the templates based on the configuration
-        # It's here only for reference
+        # This is managed from the templates based on the configuration, It's here only for reference
         enabled: false
         port: 389
         targetPort: 3389
       ldap2:
-        # This is managed from the templates based on the configuration
-        # It's here only for reference
+        # This is managed from the templates based on the configuration, It's here only for reference
         enabled: false
         port: 636
         targetPort: 6636
       metrics:
-        # This is managed from the templates based on the configuration
-        # It's here only for reference
+        # This is managed from the templates based on the configuration, It's here only for reference
         enabled: false
         port: 10232
         targetPort: 9300
