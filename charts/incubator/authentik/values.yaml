@@ -120,7 +120,7 @@ service:
   main:
     ports:
       main:
-        protocol: "HTTPS"
+        protocol: HTTPS
         port: 10229
         targetPort: 9443
   http:
@@ -128,7 +128,7 @@ service:
     ports:
       http:
         enabled: true
-        protocol: "HTTP"
+        protocol: HTTP
         port: 10230
         targetPort: 9000
   metrics:
@@ -138,7 +138,7 @@ service:
       metrics:
         # This is managed from the templates based on the configuration, It's here only for reference
         enabled: true
-        protocol: "HTTP"
+        protocol: HTTP
         port: 10231
         targetPort: 9301
   ldap:
@@ -159,6 +159,7 @@ service:
         # This is managed from the templates based on the configuration, It's here only for reference
         enabled: false
         port: 10232
+        protocol: HTTP
         targetPort: 9300
 
 persistence:
