@@ -15,7 +15,6 @@ before chart installation.
   image: {{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}
   securityContext:
     runAsUser: 0
-    privileged: true
   resources:
   {{- with .Values.resources }}
     {{- tpl ( toYaml . ) $ | nindent 4 }}
