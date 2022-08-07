@@ -55,28 +55,7 @@ questions:
               - value: "Never"
                 description: "Never"
 # Include{global}
-  - variable: controller
-    group: "Controller"
-    label: ""
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: advanced
-          label: "Show Advanced Controller Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: type
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Controller Type"
-                schema:
-                  type: string
-                  default: "deployment"
-                  required: true
-# Include{controllerTypes}
+# Include{controllerDeployment}
 # Include{controllerStrategies}
 # Include{controllerExpertCommand}
 # Include{controllerExpert}
