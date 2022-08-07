@@ -73,8 +73,21 @@ command:
 
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
+    php /var/www/html/occ config:system:set enabledPreviewProviders 0 --value='OC\Preview\PNG'  # This might need to be an array like https://github.com/nextcloud/server/blob/master/config/config.sample.php#L1183
+    php /var/www/html/occ config:system:set enabledPreviewProviders 1 --value='OC\Preview\JPEG'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 2 --value='OC\Preview\GIF'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 3 --value='OC\Preview\BMP'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 4 --value='OC\Preview\XBitmap'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 5 --value='OC\Preview\MP3'
     php /var/www/html/occ config:system:set enabledPreviewProviders 6 --value='OC\Preview\Imaginary'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 7 --value='OC\Preview\MarkDown'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 8 --value='OC\Preview\OpenDocument'
+    php /var/www/html/occ config:system:set enabledPreviewProviders 9 --value=> 'OC\Preview\TXT'
     php /var/www/html/occ config:system:set preview_imaginary_url --value='http://127.0.0.1:9090'
+    php /var/www/html/occ config:system:set preview_max_x --value='2048'
+    php /var/www/html/occ config:system:set preview_max_y --value='2048'
+    php /var/www/html/occ config:system:set preview_max_memory --value='512'
+    php /var/www/html/occ config:system:set preview_max_filesize_image --value='150'
     {{- end }}
 
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
