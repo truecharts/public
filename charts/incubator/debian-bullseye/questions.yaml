@@ -112,14 +112,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: homedirectory
           label: "homedirectory Storage"
           description: "All things that are saved in the container should be in the this or a subdirectory in of this folder, all files that are store outside this folder are not persistant and will be wiped if there is an update of the container or you change something in the template."

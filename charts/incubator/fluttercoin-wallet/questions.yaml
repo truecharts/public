@@ -156,14 +156,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: datapath
           label: "datapath Storage"
           description: "Please keep in mind that your wallet is stored there and I strongly recommend you to backup that path (the wallet is stored in your FlutterCoin appdata directory.fluttercoinwallet.dat)."

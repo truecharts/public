@@ -122,14 +122,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: pathopt
           label: "pathopt Storage"
           description: "Docker and installation storage. (requires mntcacheappdatapath or direct disk mount)"

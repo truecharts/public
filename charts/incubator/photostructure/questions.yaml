@@ -82,14 +82,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: library
           label: "library Storage"
           description: "This is where your PhotoStructure Library will be stored. It needs to have sufficient free space to hold preview images, and transcoded videos."

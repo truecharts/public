@@ -109,14 +109,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: internalshare
           label: "internalshare Storage"
           description: "Path to a share from your host to be able to work within the container."

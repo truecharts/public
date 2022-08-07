@@ -175,14 +175,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: hostpath5
           label: "hostpath5 Storage"
           description: "Path (root) to media content. ADD the container path (mediaserviio) into Library &gt; Shared Folder in Serviio GUI"

@@ -44,14 +44,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: backuplocation
           label: "backuplocation Storage"
           description: "Set the location of your github backups. Please note that the default will create a backup share if it does not exist and you dont change it."

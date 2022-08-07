@@ -92,14 +92,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: data
           label: "data Storage"
           description: "Keep in mind that the mirror can consume very much space (stable main contrib non-free Will need about 200GB of hard drive space!) - you can also put the data directory somewhere on a disk outside the Array or Cache for example with Unassigned Devices."

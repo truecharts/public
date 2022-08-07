@@ -38,14 +38,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: config
           label: "config Storage"
           description: "This is the application data directory for Recyclarr. In this directory, files like recyclarr.yml and settings.yml exist, as well as logs, cache, and other directories."
