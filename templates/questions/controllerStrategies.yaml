@@ -1,3 +1,17 @@
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "RollingUpdate"
+                  required: true
                   enum:
                     - value: Recreate
                       description: "Recreate: Kill existing pods before creating new ones"
