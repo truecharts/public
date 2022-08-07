@@ -55,13 +55,7 @@ questions:
             type: string
             default: ""
 # Include{containerConfig}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -118,19 +112,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 27015
-  - variable: serviceexpert
-    group: "Networking and Services"
-    label: "Show Expert Config"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: hostNetwork
-          group: "Networking and Services"
-          label: "Host-Networking (Complicated)"
-          schema:
-            type: boolean
+# Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
