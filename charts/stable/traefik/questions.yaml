@@ -47,20 +47,7 @@ questions:
                   default: "deployment"
                   required: true
 # Include{controllerTypes}
-              - variable: replicas
-                description: "Number of desired pod replicas"
-                label: "Desired Replicas"
-                schema:
-                  type: int
-                  default: 1
-                  required: true
-              - variable: strategy
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Update Strategy"
-                schema:
-                  type: string
-                  default: "RollingUpdate"
-                  required: true
+
 # Include{controllerStrategies}
 # Include{controllerExpert}
 # Include{containerConfig}
