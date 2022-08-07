@@ -124,3 +124,6 @@ env:
   POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
 # POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
 # POSTGRESQL_PASSWORD: "{{ .Values.password }}"
+
+portal:
+  enabled: false

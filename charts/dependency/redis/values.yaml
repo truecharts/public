@@ -204,3 +204,6 @@ persistence:
       configMap:
         defaultMode: 0755
         name: '{{ include "tc.common.names.fullname" . }}-health'
+
+portal:
+  enabled: false
