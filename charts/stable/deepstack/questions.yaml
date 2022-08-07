@@ -58,13 +58,7 @@ questions:
                   type: string
                   default: "deployment"
                   required: true
-                  enum:
-                    - value: "deployment"
-                      description: "Deployment"
-                    - value: "statefulset"
-                      description: "Statefulset"
-                    - value: "daemonset"
-                      description: "Daemonset"
+# Include{controllerTypes}
               - variable: replicas
                 description: "Number of desired pod replicas"
                 label: "Desired Replicas"
@@ -79,13 +73,7 @@ questions:
                   type: string
                   default: "Recreate"
                   required: true
-                  enum:
-                    - value: "Recreate"
-                      description: "Recreate: Kill existing pods before creating new ones"
-                    - value: "RollingUpdate"
-                      description: "RollingUpdate: Create new pods and then kill old ones"
-                    - value: "OnDelete"
-                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerStrategies}
 # Include{controllerExpert}
   - variable: secretEnv
     group: "Container Configuration"

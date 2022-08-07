@@ -26,6 +26,16 @@ include_questions(){
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+     # Replace # Include{controllerStrategies} with the standard controllerStrategies codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerStrategies}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controllerStrategies.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerTypes} with the standard controllerTypes codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerTypes}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controllerTypes.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
      # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
