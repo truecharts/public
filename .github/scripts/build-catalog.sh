@@ -11,6 +11,16 @@ include_questions(){
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Including standardised questions.yaml includes for: ${chartname}"
 
+    # Replace # Include{portalEnabled} with the standard portalEnabled codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{portalEnabled}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portal/portalEnabled.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{portalDisabled} with the standard portalDisabled codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{portalDisabled}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portal/portalDisabled.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{global} with the standard global codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
@@ -26,10 +36,48 @@ include_questions(){
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-     # Replace # Include{controllerStrategies} with the standard controllerStrategies codesnippet
+     # Replace # Include{controllerDeployment} with the standard controllerDeployment codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{controllerStrategies}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/controllerStrategies.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    /# Include{controllerDeployment}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerDeployment.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerStatefullset} with the standard controllerStatefullset codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerStatefullset}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerStatefullset.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerDaemonset} with the standard controllerDaemonset codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerDaemonset}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerDaemonset.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{replica1} with the standard replica1 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica1}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replica/replica1.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+
+     # Replace # Include{replica2} with the standard replica2 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica2}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replica/replica2.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+
+     # Replace # Include{replica3} with the standard replica3 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica3}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replica/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+
+     # Replace # Include{recreate} with the standard recreate codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{recreate}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/recreate.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{rollingupdate} with the standard rollingupdate codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{rollingupdate}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/rollingupdate.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{controllerTypes} with the standard controllerTypes codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
