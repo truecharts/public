@@ -11,15 +11,10 @@ include_questions(){
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Including standardised questions.yaml includes for: ${chartname}"
 
-    # Replace # Include{portalEnabled} with the standard portalEnabled codesnippet
+    # Replace # Include{portalLink} with the standard portalLink codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{portalEnabled}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/portal/portalEnabled.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
-
-    # Replace # Include{portalDisabled} with the standard portalDisabled codesnippet
-    awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{portalDisabled}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/portal/portalDisabled.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    /# Include{portalLink}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portalLink.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{global} with the standard global codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
