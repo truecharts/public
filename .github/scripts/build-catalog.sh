@@ -75,7 +75,7 @@ include_questions(){
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{strategy}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/strategy/strategy.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
-
+	
      # Replace # Include{recreate} with the standard recreate codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{recreate}/ { for (i=0;i<n;++i) print a[i]; next }
