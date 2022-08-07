@@ -36,6 +36,11 @@ include_questions(){
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+     # Replace # Include{controller} with the standard controller codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controller}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controller.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
      # Replace # Include{controllerDeployment} with the standard controllerDeployment codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerDeployment}/ { for (i=0;i<n;++i) print a[i]; next }
