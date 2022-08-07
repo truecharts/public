@@ -10,7 +10,7 @@
                 label: "(Advanced) Update Strategy"
                 schema:
                   type: string
-                  default: "RollingUpdate"
+                  default: "Recreate"
                   required: true
                   enum:
                     - value: Recreate
