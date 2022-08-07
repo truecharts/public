@@ -78,18 +78,21 @@ command:
     php /var/www/html/occ config:system:set preview_max_y --value='{{ .Values.imaginary.preview_max_y }}'
     php /var/www/html/occ config:system:set preview_max_memory --value='{{ .Values.imaginary.preview_max_memory }}'
     php /var/www/html/occ config:system:set preview_max_filesize_image --value='{{ .Values.imaginary.preview_max_filesize_image }}'
-    {{ $c := 0 }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\PNG'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\JPEG'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\GIF'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\BMP'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\XBitmap'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MP3'{{ $c = add1 $c }}
+    # Remove all preview providers and re-add only selected
+    php /var/www/html/occ config:system:delete enabledPreviewProviders
+    # Add imaginary always
+    {{ $c := 0 }} # Initialize counter
     php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Imaginary'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MarkDown'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\OpenDocument'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\TXT'{{ $c = add1 $c }}
-    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Krita'{{ $c = add1 $c }}
+    {{ if .Values.imaginary.preview_png }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\PNG'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_jpeg }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\JPEG'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_gif }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\GIF'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_bmp }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\BMP'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_xbitmap }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\XBitmap'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_mp3 }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MP3'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_markdown }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MarkDown'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_opendoc }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\OpenDocument'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_txt }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\TXT'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_krita }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Krita'{{ $c = add1 $c }}{{ end }}
     {{ if .Values.imaginary.preview_illustrator }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Illustrator'{{ $c = add1 $c }}{{ end }}
     {{ if .Values.imaginary.preview_heic }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\HEIC'{{ $c = add1 $c }}{{ end }}
     {{ if .Values.imaginary.preview_movie }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Movie'{{ $c = add1 $c }}{{ end }}
