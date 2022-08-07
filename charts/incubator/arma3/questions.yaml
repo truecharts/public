@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -63,7 +62,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -71,7 +69,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: GAME_ID
           label: 'GAME_ID'
           description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
@@ -108,9 +105,7 @@ questions:
           schema:
             type: string
             default: "2302"
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -165,7 +160,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2302
-
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Same as TCP Game Port"
@@ -406,8 +400,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2306
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -422,11 +414,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -435,7 +424,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: steamcmd
           label: "steamcmd Storage"
           description: "Container Path serverdatasteamcmd"
@@ -463,11 +451,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -482,17 +466,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -528,7 +506,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -555,10 +532,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

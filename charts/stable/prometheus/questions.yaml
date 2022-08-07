@@ -23,7 +23,6 @@ questions:
             editable: false
             type: boolean
             default: true
-
   - variable: operator
     group: "App Configuration"
     label: "Operator Settings"
@@ -44,8 +43,6 @@ questions:
                 schema:
                   type: string
                   default: "info"
-
-
   - variable: prometheus
     group: "App Configuration"
     label: "Prometheus Settings"
@@ -90,8 +87,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
-
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -118,8 +113,6 @@ questions:
                 schema:
                   type: string
                   default: "240h"
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -175,7 +168,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9090
-
         - variable: alertmanager
           label: "alertmanager Service"
           description: "alertmanager service "
@@ -224,7 +216,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9093
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -240,11 +231,8 @@ questions:
             type: boolean
             default: false
 # Include{serviceExpert}
-
 # Include{serviceList}
-
 # Include{persistenceList}
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -259,13 +247,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{advanced}

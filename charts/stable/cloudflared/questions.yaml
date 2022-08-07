@@ -55,7 +55,6 @@ questions:
             required: true
             default: ""
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -110,7 +109,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 6969
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"

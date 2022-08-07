@@ -77,7 +77,6 @@ questions:
             required: true
             default: ""
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -132,7 +131,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 631
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -147,11 +145,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -169,9 +164,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
 # Include{persistenceList}
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -186,17 +179,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -232,7 +219,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -259,9 +245,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

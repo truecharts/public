@@ -1,11 +1,8 @@
 # Include{groups}
 portals: {}
-
 questions:
 # Include{global}
-
 # Include{containerConfig}
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -20,17 +17,11 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
 # Include{persistenceList}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -66,7 +57,6 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -93,11 +83,8 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{metrics}
-
 # Include{prometheusRule}
                     - variable: downloadLimit
                       label: "Download Limit"
@@ -123,7 +110,5 @@ questions:
                       schema:
                         type: int
                         default: 30
-
 # Include{advanced}
-
 # Include{addons}

@@ -152,9 +152,7 @@ questions:
             type: int
             default: 3
             required: true
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -209,8 +207,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9010
-
-
         - variable: supervisor
           label: "supervisor Service"
           description: "The supervisor service"
@@ -258,8 +254,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9011
-
-
         - variable: valheim
           label: "valheim Service"
           description: "The valheim Game service"
@@ -307,7 +301,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2456
-
                     - variable: valheim2
                       label: "valheim-2 Service Port Configuration"
                       schema:
@@ -347,7 +340,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2457
-
                     - variable: valheim3
                       label: "valheim-3 Service Port Configuration"
                       schema:
@@ -387,7 +379,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2458
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -402,11 +393,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -434,7 +422,6 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceList}
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -449,13 +436,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
         - variable: supervisor
           label: "supervisor Ingress"
           schema:
@@ -463,17 +446,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -509,7 +486,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -536,9 +512,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

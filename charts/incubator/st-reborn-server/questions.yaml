@@ -40,9 +40,7 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -97,7 +95,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 10578
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"

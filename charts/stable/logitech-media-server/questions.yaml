@@ -62,9 +62,7 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -119,7 +117,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 7000
-
         - variable: cli
           label: "CLI Service"
           description: "Logitech Media Server Telnet Command Line Interface"
@@ -155,7 +152,6 @@ questions:
                               type: int
                               default: 10059
                               required: true
-
         - variable: playertcp
           label: "Logitech Media Server Player TCP Communcation"
           description: "Logitech Media Server Player Service for TCP communication"
@@ -191,7 +187,6 @@ questions:
                               type: int
                               default: 3483
                               required: true
-
         - variable: playerudp
           label: "Logitech Media Server Player Communcation"
           description: "Logitech Media Server Player Service for UDP communication"
@@ -227,8 +222,6 @@ questions:
                               type: int
                               default: 3483
                               required: true
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -243,11 +236,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -265,9 +255,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
 # Include{persistenceList}
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -282,16 +270,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -327,7 +310,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -354,9 +336,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

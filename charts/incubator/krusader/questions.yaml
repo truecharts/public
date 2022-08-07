@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -63,7 +62,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -71,7 +69,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: USER_LOCALES
           label: 'USER_LOCALES'
           description: "Enter your prefered locales, you can find a full list of supported languages in usrsharei18nSUPPORTED simply open up a console from the Container and type in cat usrsharei18nSUPPORTED (eg enUS.UTF-8 UTF8 or deDE.UTF-8 UTF-8, frFR.UTF-8 UTF-8...)"
@@ -102,9 +99,7 @@ questions:
           schema:
             type: string
             default: "768"
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -159,9 +154,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -176,11 +168,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -189,7 +178,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: containerpath
           label: "containerpath Storage"
           description: "Container Path krusader"
@@ -208,11 +196,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -227,17 +211,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -273,7 +251,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -300,10 +277,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

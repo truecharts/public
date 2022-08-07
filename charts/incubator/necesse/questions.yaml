@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -63,7 +62,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -71,7 +69,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: GAME_PARAMS
           label: 'GAME_PARAMS'
           description: "Enter your extra start up commands for the server here otherwise leave empty."
@@ -90,9 +87,7 @@ questions:
           schema:
             type: string
             default: "World"
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -147,7 +142,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-
         - variable: udpgameport
           label: 'udpgameport service'
           description: "UDP Game Port (If you need another port delete this Entry and create a new UDP port mapping with the corresponding port  also dont forget to set the right port in your server configuration file!)"
@@ -196,8 +190,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 14159
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -212,11 +204,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -225,7 +214,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: steamcmd
           label: "steamcmd Storage"
           schema:
@@ -242,11 +230,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -261,17 +245,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -307,7 +285,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -334,10 +311,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

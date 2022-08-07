@@ -63,9 +63,7 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
 # Include{containerConfig}
-
   - variable: ingressClass
     label: "ingressClass"
     group: "App Configuration"
@@ -86,7 +84,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
   - variable: logs
     label: "Logs"
     group: "App Configuration"
@@ -266,7 +263,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
         - variable: forwardAuth
           label: "forwardAuth"
           schema:
@@ -352,7 +348,6 @@ questions:
                               type: string
                               required: true
                               default: ""
-
         - variable: redirectScheme
           label: "redirectScheme"
           schema:
@@ -386,7 +381,6 @@ questions:
                       schema:
                         type: boolean
                         default: false
-
         - variable: rateLimit
           label: "rateLimit"
           schema:
@@ -416,7 +410,6 @@ questions:
                         type: int
                         required: true
                         default: 200
-
         - variable: redirectRegex
           label: "redirectRegex"
           schema:
@@ -451,7 +444,6 @@ questions:
                       schema:
                         type: boolean
                         default: false
-
         - variable: stripPrefixRegex
           label: "stripPrefixRegex"
           schema:
@@ -481,7 +473,6 @@ questions:
                               type: string
                               required: true
                               default: ""
-
         - variable: ipWhiteList
           label: "ipWhiteList"
           schema:
@@ -535,7 +526,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
         - variable: themePark
           label: "theme.park"
           schema:
@@ -576,7 +566,6 @@ questions:
                         type: string
                         required: true
                         default: https://theme-park.dev
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
@@ -624,7 +613,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9000
-
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -906,17 +894,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -952,7 +934,6 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -979,9 +960,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

@@ -17,7 +17,6 @@ questions:
             type: boolean
             default: false
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -56,7 +55,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -64,7 +62,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: GAME_ID
           label: 'GAME_ID'
           description: "The GAMEID that the container downloads at startup.If you want to install a static or beta version of the game change the value to 896660 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
@@ -107,8 +104,6 @@ questions:
           schema:
             type: string
             default: ""
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -123,11 +118,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -136,7 +128,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: steamcmd
           label: "steamcmd Storage"
           schema:
@@ -153,15 +144,9 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -197,7 +182,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -224,10 +208,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

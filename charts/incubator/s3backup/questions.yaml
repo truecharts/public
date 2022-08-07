@@ -17,7 +17,6 @@ questions:
             type: boolean
             default: false
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -56,7 +55,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -64,7 +62,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: ACCESS_KEY
           label: 'ACCESS_KEY'
           schema:
@@ -90,8 +87,6 @@ questions:
           schema:
             type: string
             default: "0 * * * *"
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -106,19 +101,11 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
-
 # Include{persistenceList}
-
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -154,7 +141,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -181,10 +167,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

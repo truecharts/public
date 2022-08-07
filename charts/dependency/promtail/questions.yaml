@@ -1,7 +1,6 @@
 # Include{groups}
 portals: {}
 questions:
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -57,7 +56,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 3101
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -73,11 +71,8 @@ questions:
             type: boolean
             default: false
 # Include{serviceExpert}
-
 # Include{serviceList}
-
 # Include{persistenceList}
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -92,13 +87,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{advanced}

@@ -107,7 +107,6 @@ questions:
                             schema:
                               type: int
                               default: 10003
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -184,7 +183,5 @@ questions:
                                                 default: "Prefix"
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}

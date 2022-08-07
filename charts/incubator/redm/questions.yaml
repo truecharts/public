@@ -24,7 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-
   - variable: controller
     group: "Controller"
     label: ""
@@ -63,7 +62,6 @@ questions:
                   required: true
 # Include{controllerStrategies}
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -71,7 +69,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: GAME_CONFIG
           label: 'GAME_CONFIG'
           description: "You can edit the server.cfg after the first start (if you dont want to use the server.cfg then leave this field empty. For exampele if you plan to use txAdmin you have to add another port in the template with the host and container port 40120, you then can connect to txAdmin with YOURSERVERIP40120)."
@@ -108,9 +105,7 @@ questions:
           schema:
             type: string
             default: ""
-
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -165,7 +160,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-
         - variable: tcp1
           label: 'tcp1 service'
           schema:
@@ -354,8 +348,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 30120
-
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -370,11 +362,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -383,7 +372,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-
         - variable: serverfiles
           label: "serverfiles Storage"
           schema:
@@ -392,11 +380,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
-
 # Include{persistenceList}
-
-
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -411,17 +395,11 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -457,7 +435,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -484,10 +461,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}

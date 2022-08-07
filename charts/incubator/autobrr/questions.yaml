@@ -63,7 +63,6 @@ questions:
 # Include{controllerStrategies}
 # Include{controllerExpert}
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -118,7 +117,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 7474
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -167,11 +165,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
 # Include{ingressList}
 # Include{security}

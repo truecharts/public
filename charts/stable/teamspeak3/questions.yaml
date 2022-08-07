@@ -54,10 +54,8 @@ questions:
                   default: "Recreate"
                   required: true
 # Include{controllerStrategies}
-
 # Include{controllerExpert}
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -112,8 +110,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 10011
-
-
         - variable: voice
           label: "Voice Service"
           description: "The voice service of teamspeak3"
@@ -161,8 +157,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9987
-
-
         - variable: files
           label: "Server File Transport Service"
           description: "The file transport service of teamspeak3"
@@ -210,7 +204,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 30033
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -225,11 +218,8 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -247,13 +237,9 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-
 # Include{persistenceList}
-
 # Include{ingressList}
-
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -289,7 +275,6 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -316,8 +301,6 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
 # Include{advanced}
-
 # Include{addons}

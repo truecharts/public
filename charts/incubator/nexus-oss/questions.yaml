@@ -183,7 +183,6 @@ questions:
 # Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
-
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
@@ -219,7 +218,6 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -246,9 +244,6 @@ questions:
             type: int
             default: 200
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}
