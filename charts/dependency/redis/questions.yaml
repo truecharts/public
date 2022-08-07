@@ -49,11 +49,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-  - variable: volumeClaimTemplates
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
+# Include{vctRoot}
       additional_attrs: true
       type: dict
       attrs:
