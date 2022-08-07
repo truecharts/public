@@ -1,18 +1,18 @@
         - variable: expert
-          label: "Show Expert Configuration Options"
+          label: Show Expert Configuration Options
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
               - variable: extraArgs
-                label: "Extra Args"
+                label: Extra Args
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: arg
-                      label: "arg"
+                      label: Arg
                       schema:
                         type: string
               - variable: labelsList
@@ -22,36 +22,36 @@
                   default: []
                   items:
                     - variable: labelItem
-                      label: "Label"
+                      label: Label
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
-                            label: "Name"
+                            label: Name
                             schema:
                               type: string
                           - variable: value
-                            label: "Value"
+                            label: Value
                             schema:
                               type: string
               - variable: annotationsList
-                label: " Controller Annotations"
+                label: Controller Annotations
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: annotationItem
-                      label: "Label"
+                      label: Label
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
-                            label: "Name"
+                            label: Name
                             schema:
                               type: string
                           - variable: value
-                            label: "Value"
+                            label: Value
                             schema:
                               type: string

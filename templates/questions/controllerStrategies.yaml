@@ -1,7 +1,7 @@
                   enum:
-                    - value: "Recreate"
+                    - value: Recreate
                       description: "Recreate: Kill existing pods before creating new ones"
-                    - value: "RollingUpdate"
+                    - value: RollingUpdate
                       description: "RollingUpdate: Create new pods and then kill old ones"
-                    - value: "OnDelete"
+                    - value: OnDelete
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
