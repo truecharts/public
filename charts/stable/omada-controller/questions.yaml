@@ -116,15 +116,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "HTTPS"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -172,15 +164,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "HTTPS"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -228,15 +212,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "TCP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -276,15 +252,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "TCP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -324,15 +292,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "TCP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -372,15 +332,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "TCP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
@@ -428,15 +380,7 @@ questions:
                                   schema:
                                     type: string
                                     default: "UDP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+# Include{portType}
                                 - variable: nodePort
                                   label: "Node Port (Optional)"
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"

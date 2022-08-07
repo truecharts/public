@@ -46,6 +46,16 @@ include_questions(){
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{portEnable} with the standard portEnable codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{portEnable}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portEnable.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{portType} with the standard portType codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{portType}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portType.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
