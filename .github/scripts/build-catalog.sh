@@ -181,10 +181,21 @@ include_questions(){
     /# Include{security}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/security.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{securityContextAdvancedRoot} with the standard securityContextAdvancedRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{securityContextAdvancedRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/securityContextAdvancedRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{securityContextAdvanced} with the standard securityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{securityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/securityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{podSecurityContextRoot} with the standard podSecurityContextRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{podSecurityContextRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/podSecurityContextRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
 
     # Replace # Include{podSecurityContextAdvanced} with the standard podSecurityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
