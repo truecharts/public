@@ -5,6 +5,12 @@
                               default: false
                               show_subquestions_if: true
                               subquestions:
+                                - variable: enabled
+                                  label: Enable the Port
+                                  schema:
+                                    type: boolean
+                                    hidden: true
+                                    default: true
                                 - variable: protocol
                                   label: Port Type
                                   schema:
