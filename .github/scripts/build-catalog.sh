@@ -56,18 +56,15 @@ include_questions(){
     /# Include{replica1}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/replica/replica1.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-
      # Replace # Include{replica2} with the standard replica2 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica2}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/replica/replica2.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-
      # Replace # Include{replica3} with the standard replica3 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica3}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/replica/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
-
 
      # Replace # Include{recreate} with the standard recreate codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -104,15 +101,25 @@ include_questions(){
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-    # Replace # Include{portEnable} with the standard portEnable codesnippet
+    # Replace # Include{advancedPortHTTP} with the standard advancedPortHTTP codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{portEnable}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/portEnable.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    /# Include{advancedPortHTTP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortHTTP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-    # Replace # Include{portType} with the standard portType codesnippet
+    # Replace # Include{advancedPortHTTPS} with the standard advancedPortHTTPS codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{portType}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/portType.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    /# Include{advancedPortHTTPS}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortHTTPS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortTCP} with the standard advancedPortTCP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortTCP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortTCP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortUDP} with the standard advancedPortUDP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortUDP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortUDP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
