@@ -25,13 +25,7 @@ questions:
             type: string
             default: "-transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging"
 # Include{containerConfig}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"

@@ -100,13 +100,7 @@ questions:
               - value: "monthly"
                 description:: "Once a month"
 # Include{containerConfig}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "Spotweb Web UI and API endpoint"

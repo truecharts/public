@@ -93,13 +93,7 @@ questions:
                 schema:
                   type: string
                   default: "240h"
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The serving the Prometheus WebUI"

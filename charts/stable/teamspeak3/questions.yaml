@@ -10,13 +10,7 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{containerConfig}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Server Query Service"
           description: "The server query service of teamspeak3"
