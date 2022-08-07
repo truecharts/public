@@ -9,21 +9,6 @@ portals:
       - "$kubernetes-resource_configmap_portal_port"
     path: "/transmission/web/#files"
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
 # Include{controller}
 # Include{controllerDeployment}

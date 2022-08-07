@@ -48,3 +48,6 @@ configmap:
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-libreddit'
+
+portal:
+  enabled: true

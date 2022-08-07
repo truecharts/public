@@ -65,3 +65,6 @@ configmap:
       NTFY_CACHE_FILE: '{{ ternary "/var/cache/ntfy/cache.db" "" .Values.env.ENABLE_CACHE_FILE }}'
       NTFY_AUTH_FILE: '{{ ternary "/etc/ntfy/user.db" "" .Values.env.ENABLE_AUTH_FILE }}'
       NTFY_FIREBASE_KEY_FILE: '{{ ternary "/etc/ntfy/firebase-key.json" "" .Values.env.ENABLE_FIREBASE_FILE }}'
+
+portal:
+  enabled: true
