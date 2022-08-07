@@ -43,7 +43,10 @@ questions:
         - value: "j8j9Image"
           description: "Java 8 OpenJ9"
 # Include{controllerDeployment}
-# Include{controllerStrategies}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
 # Include{controllerExpert}
   - variable: secretEnv
     group: "Container Configuration"

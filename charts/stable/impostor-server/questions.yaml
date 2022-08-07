@@ -37,7 +37,10 @@ questions:
         - value: "nightlyImage"
           description: "Nightly"
 # Include{controllerDeployment}
-# Include{controllerStrategies}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
 # Include{controllerExpert}
   - variable: env
     group: "Container Configuration"

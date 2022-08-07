@@ -45,7 +45,10 @@ questions:
         - value: "imageR"
           description: "R"
 # Include{controllerDeployment}
-# Include{controllerStrategies}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
 # Include{controllerExpert}
   - variable: secretEnv
     group: "Container Configuration"

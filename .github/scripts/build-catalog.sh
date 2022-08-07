@@ -56,6 +56,11 @@ include_questions(){
     /# Include{controllerDaemonset}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/controller/controllerDaemonset.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+     # Replace # Include{replicas} with the standard replicas codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replicas}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replica/replicas.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
      # Replace # Include{replica1} with the standard replica1 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica1}/ { for (i=0;i<n;++i) print a[i]; next }
@@ -70,6 +75,11 @@ include_questions(){
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica3}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/replica/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{strategy} with the standard strategy codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{strategy}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/strategy.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{recreate} with the standard recreate codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
