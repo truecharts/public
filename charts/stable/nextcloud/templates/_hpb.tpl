@@ -73,22 +73,36 @@ command:
 
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
-    php /var/www/html/occ config:system:set enabledPreviewProviders 0 --value='OC\Preview\PNG'  # This might need to be an array like https://github.com/nextcloud/server/blob/master/config/config.sample.php#L1183
-    php /var/www/html/occ config:system:set enabledPreviewProviders 1 --value='OC\Preview\JPEG'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 2 --value='OC\Preview\GIF'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 3 --value='OC\Preview\BMP'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 4 --value='OC\Preview\XBitmap'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 5 --value='OC\Preview\MP3'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 6 --value='OC\Preview\Imaginary'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 7 --value='OC\Preview\MarkDown'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 8 --value='OC\Preview\OpenDocument'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 9 --value='OC\Preview\TXT'
-    php /var/www/html/occ config:system:set enabledPreviewProviders 10 --value='OC\Preview\Krita'    
     php /var/www/html/occ config:system:set preview_imaginary_url --value='http://127.0.0.1:9090'
-    php /var/www/html/occ config:system:set preview_max_x --value='2048'
-    php /var/www/html/occ config:system:set preview_max_y --value='2048'
-    php /var/www/html/occ config:system:set preview_max_memory --value='512'
-    php /var/www/html/occ config:system:set preview_max_filesize_image --value='150'
+    php /var/www/html/occ config:system:set preview_max_x --value='{{ .Values.imaginary.preview_max_x }}'
+    php /var/www/html/occ config:system:set preview_max_y --value='{{ .Values.imaginary.preview_max_y }}'
+    php /var/www/html/occ config:system:set preview_max_memory --value='{{ .Values.imaginary.preview_max_memory }}'
+    php /var/www/html/occ config:system:set preview_max_filesize_image --value='{{ .Values.imaginary.preview_max_filesize_image }}'
+    {{ $c := 0 }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\PNG'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\JPEG'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\GIF'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\BMP'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\XBitmap'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MP3'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Imaginary'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MarkDown'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\OpenDocument'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\TXT'{{ $c = add1 $c }}
+    php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Krita'{{ $c = add1 $c }}
+    {{ if .Values.imaginary.preview_illustrator }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Illustrator'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_heic }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\HEIC'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_movie }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Movie'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_msoffice2003 }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MSOffice2003'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_msoffice2007 }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MSOffice2007'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_msofficedoc }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\MSOfficeDoc'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_pdf }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\PDF'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_photoshop }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Photoshop'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_postscript }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Postscript'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_staroffice }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\StarOffice'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_svg }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\SVG'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_tiff }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\TIFF'{{ $c = add1 $c }}{{ end }}
+    {{ if .Values.imaginary.preview_font }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Font'{{ $c = add1 $c }}{{ end }}
     {{- end }}
 
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do

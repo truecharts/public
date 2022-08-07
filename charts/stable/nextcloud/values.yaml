@@ -250,7 +250,7 @@ configmap:
                 #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
 
                 # set max upload size
-                client_max_body_size {{ .Values.env.PHP_UPLOAD_LIMIT | default 512M }};
+                client_max_body_size {{ .Values.env.PHP_UPLOAD_LIMIT | default "512M" }};
                 fastcgi_buffers 64 4K;
 
                 # Enable gzip but do not remove ETag headers
@@ -399,6 +399,23 @@ hpb:
 
 imaginary:
   enabled: true
+  preview_max_x: 2048
+  preview_max_y: 2048
+  preview_max_memory: 512
+  preview_max_filesize_image: 150
+  preview_illustrator: true
+  preview_heic: true
+  preview_movie: true
+  preview_msoffice2003: true
+  preview_msoffice2007: true
+  preview_msofficedoc: true
+  preview_pdf: true
+  preview_photoshop: true
+  preview_postscript: true
+  preview_staroffice: true
+  preview_svg: true
+  preview_tiff: true
+  preview_font: true
 
 collabora:
   enabled: false
