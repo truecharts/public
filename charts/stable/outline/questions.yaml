@@ -367,13 +367,7 @@ questions:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
-  - variable: podSecurityContext
-    group: "Security and Permissions"
-    label: "Pod Security Context"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
