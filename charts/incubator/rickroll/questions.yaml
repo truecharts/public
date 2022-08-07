@@ -1,7 +1,26 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: "Container Image"
+    label: "Select Image"
+    schema:
+      type: string
+      default: "image"
+      enum:
+        - value: "image"
+          description: "Auto starts, but muted | SD quality"
+        - value: "imagefhd"
+          description: "Auto starts, but muted | 1080p quality"
+        - value: "imagefhdgame"
+          description: "Lost the game onClick | 1080p quality"
+        - value: "imagefhdonclick"
+          description: "Uses an onClick method with a poster image | 1080p quality"
+        - value: "imagefhdonclick"
+          description: "Uses an onClick method with a poster image | SD quality"
 # Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
@@ -9,11 +28,52 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10289
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8080
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -47,7 +107,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 0

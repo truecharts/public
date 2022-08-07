@@ -1,28 +1,41 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rickroll
   tag: latest@sha256:0dac223d148af2b858316ba3bd28466e35d91b724541420439170d2055c70148
-persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+imagefhd:
+  pullPolicy: IfNotPresent
+  repository: modem7/docker-rickroll
+  tag: 1080@sha256:5558c91c535a2b048cc0832150aae835d38f395ad131dabbae0eb0ac307f59c9
+imagefhdgame:
+  pullPolicy: IfNotPresent
+  repository: modem7/docker-rickroll
+  tag: 1080game@sha256:90f481c6b5e00f138b96aeb147cd4ed9976fb313c55474e8ec2aaf21fb4ebc9e
+imagefhdonclick:
+  pullPolicy: IfNotPresent
+  repository: modem7/docker-rickroll
+  tag: 1080onclick@sha256:67ca402a9cd0dd41ba0f17401fe5b054e97547dbb92d5b75ad3e874f416e6d26
+imageonclick:
+  pullPolicy: IfNotPresent
+  repository: modem7/docker-rickroll
+  tag: onclick@sha256:24fbd0ff2e9ba257cb5ea63e10c528c5486c8c3bf3c5dd3398322f861d975d7b
+
+imageSelector: "image"
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        protocol: HTTP
+        targetPort: 8080
+        port: 10289
 
 portal:
-  enabled: false
+  enabled: true
