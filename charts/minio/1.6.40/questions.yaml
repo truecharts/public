@@ -211,9 +211,8 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
-                  hidden: true
-                  editable: false
                   default: "/export"
+                  immutable: true
               - variable: hostPathEnabled
                 label: "Enable Host Path for Minio Data Volume"
                 schema:
