@@ -306,7 +306,7 @@ clean_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Cleaning SCALE catalog for App: ${chartname}"
+    echo "Cleaning SCALE catalog for Chart: ${chartname}"
     rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
     rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
@@ -318,7 +318,7 @@ patch_apps() {
     local train="$3"
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
-    echo "Applying SCALE patches for App: ${chartname}"
+    echo "Applying SCALE patches for Chart: ${chartname}"
     sed -i '100,$ d' ${target}/CHANGELOG.md || :
     mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
