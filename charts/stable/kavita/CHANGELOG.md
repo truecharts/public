@@ -2,6 +2,16 @@
 
 
 
+## [kavita-2.0.25](https://github.com/truecharts/charts/compare/kavita-2.0.24...kavita-2.0.25) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [kavita-2.0.24](https://github.com/truecharts/apps/compare/kavita-2.0.23...kavita-2.0.24) (2022-07-26)
 
 ### Chore

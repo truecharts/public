@@ -2,6 +2,16 @@
 
 
 
+## [openspeedtest-1.0.24](https://github.com/truecharts/charts/compare/openspeedtest-1.0.23...openspeedtest-1.0.24) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [openspeedtest-1.0.23](https://github.com/truecharts/apps/compare/openspeedtest-1.0.22...openspeedtest-1.0.23) (2022-07-29)
 
 ### Chore

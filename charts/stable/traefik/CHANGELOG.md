@@ -2,6 +2,16 @@
 
 
 
+## [traefik-13.1.8](https://github.com/truecharts/charts/compare/traefik-13.1.7...traefik-13.1.8) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [traefik-13.1.7](https://github.com/truecharts/apps/compare/traefik-13.1.6...traefik-13.1.7) (2022-07-27)
 
 ### Feat

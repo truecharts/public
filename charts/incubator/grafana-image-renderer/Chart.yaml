@@ -9,11 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "A Grafana remote image renderer that handles rendering panels &amp;\
-  \ dashboards to PNGs using headless chrome.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/grafana-image-renderer
-icon: https://truecharts.org/img/chart-icons/grafana-image-renderer.png
+description: "A Grafana remote image renderer that handles rendering panels &amp; dashboards to PNGs using headless chrome.\r\n"
+home: https://truecharts.org/docs/charts/incubator/grafana-image-renderer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grafana-image-renderer.png
 keywords:
   - grafana-image-renderer
   - Productivity
@@ -24,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: grafana-image-renderer
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/grafana-image-renderer
   - https://github.com/grafana/grafana-image-renderer/blob/master/docs/remote_rendering_using_docker.md
   - https://hub.docker.com/r/grafana/grafana-image-renderer
 type: application

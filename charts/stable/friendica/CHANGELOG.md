@@ -2,6 +2,16 @@
 
 
 
+## [friendica-4.0.34](https://github.com/truecharts/charts/compare/friendica-4.0.33...friendica-4.0.34) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [friendica-4.0.33](https://github.com/truecharts/apps/compare/friendica-4.0.32...friendica-4.0.33) (2022-07-26)
 
 ### Chore
