@@ -150,22 +150,22 @@ include_questions(){
      # Replace # Include{replicas} with the standard replicas codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replicas}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/replica/replicas.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/replicas/replicas.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{replica1} with the standard replica1 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica1}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/replica/replica1.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/replicas/replica1.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{replica2} with the standard replica2 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica2}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/replica/replica2.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/replicas/replica2.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{replica3} with the standard replica3 codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{replica3}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/replica/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/replicas/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{strategy} with the standard strategy codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -200,12 +200,12 @@ include_questions(){
     # Replace # Include{serviceRoot} with the standard serviceRoot codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceRoot}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceSelector} with the standard serviceSelector codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{advancedPortHTTP} with the standard advancedPortHTTP codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -230,17 +230,17 @@ include_questions(){
     # Replace # Include{serviceExpertRoot} with the standard serviceExpertRoot codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpertRoot}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceExpertRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceExpertRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{vctRoot} with the standard vctRoot codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -250,22 +250,22 @@ include_questions(){
     # Replace # Include{persistenceRoot} with the standard persistenceRoot codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceRoot}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceBasic} with the standard persistenceBasic codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceBasic}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceAdvanced} with the standard persistenceAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{security} with the standard security codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -295,32 +295,32 @@ include_questions(){
     # Replace # Include{ingressRoot} with the standard ingressRoot codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressRoot}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTLS} with the standard ingressTLS codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTLS}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTraefik} with the standard ingressTraefik codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTraefik}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressExpert} with the standard ingressExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{addons} with the standard addons codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -330,17 +330,17 @@ include_questions(){
     # Replace # Include{metrics} with the standard metrics codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics3m} with the standard metrics3m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics3m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics60m} with the standard metrics60m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics60m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{prometheusRule} with the standard prometheusRule codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
