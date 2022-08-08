@@ -34,10 +34,14 @@ data:
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.creds.password }}
   AUTHENTIK_BOOTSTRAP_TOKEN:  {{ .Values.authentik.creds.token }}
   {{/* Mail */}}
+  {{- with .Values.authentik.mail -}}
+  {{- if and .host .user .pass .from -}}
   AUTHENTIK_EMAIL__HOST: {{ .Values.authentik.mail.host }}
   AUTHENTIK_EMAIL__USERNAME: {{ .Values.authentik.mail.user }}
   AUTHENTIK_EMAIL__PASSWORD: {{ .Values.authentik.mail.pass }}
   AUTHENTIK_EMAIL__FROM: {{ .Values.authentik.mail.from }}
+  {{- end -}}
+  {{- end -}}
 ---
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
