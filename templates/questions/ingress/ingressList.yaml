@@ -1,175 +1,175 @@
   - variable: ingressList
-    label: "Add Manual Custom Ingresses"
-    group: "Ingress"
+    label: Add Manual Custom Ingresses
+    group: Ingress
     schema:
       type: list
       default: []
       items:
         - variable: ingressListEntry
-          label: "Custom Ingress"
+          label: Custom Ingress
           schema:
             additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Ingress"
+                label: Enable Ingress
                 schema:
                   type: boolean
                   default: true
                   hidden: true
               - variable: name
-                label: "Name"
+                label: Name
                 schema:
                   type: string
                   default: ""
               - variable: ingressClassName
-                label: "IngressClass Name"
+                label: IngressClass Name
                 schema:
                   type: string
                   default: ""
               - variable: labelsList
-                label: "Labels"
+                label: Labels
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: labelItem
-                      label: "Label"
+                      label: Label
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
-                            label: "Name"
+                            label: Name
                             schema:
                               type: string
                           - variable: value
-                            label: "Value"
+                            label: Value
                             schema:
                               type: string
               - variable: annotationsList
-                label: "Annotations"
+                label: Annotations
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: annotationItem
-                      label: "Label"
+                      label: Label
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
-                            label: "Name"
+                            label: Name
                             schema:
                               type: string
                           - variable: value
-                            label: "Value"
+                            label: Value
                             schema:
                               type: string
               - variable: hosts
-                label: "Hosts"
+                label: Hosts
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: hostEntry
-                      label: "Host"
+                      label: Host
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: host
-                            label: "HostName"
+                            label: HostName
                             schema:
                               type: string
                               default: ""
                               required: true
                           - variable: paths
-                            label: "Paths"
+                            label: Paths
                             schema:
                               type: list
                               default: []
                               items:
                                 - variable: pathEntry
-                                  label: "Host"
+                                  label: Host
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: path
-                                        label: "path"
+                                        label: Path
                                         schema:
                                           type: string
                                           required: true
                                           default: "/"
                                       - variable: pathType
-                                        label: "pathType"
+                                        label: Path Type
                                         schema:
                                           type: string
                                           required: true
-                                          default: "Prefix"
+                                          default: Prefix
                                       - variable: service
-                                        label: "Linked Service"
+                                        label: Linked Service
                                         schema:
                                           additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: name
-                                              label: "Service Name"
+                                              label: Service Name
                                               schema:
                                                 type: string
                                                 default: ""
                                             - variable: port
-                                              label: "Service Port"
+                                              label: Service Port
                                               schema:
                                                 type: int
               - variable: tls
-                label: "TLS-Settings"
+                label: TLS-Settings
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: tlsEntry
-                      label: "Host"
+                      label: Host
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: hosts
-                            label: "Certificate Hosts"
+                            label: Certificate Hosts
                             schema:
                               type: list
                               default: []
                               items:
                                 - variable: host
-                                  label: "Host"
+                                  label: Host
                                   schema:
                                     type: string
                                     default: ""
                                     required: true
                           - variable: scaleCert
-                            label: "Select TrueNAS SCALE Certificate"
+                            label: Select TrueNAS SCALE Certificate
                             schema:
                               type: int
                               $ref:
                                 - "definitions/certificate"
               - variable: entrypoint
-                label: "Traefik Entrypoint"
-                description: "Entrypoint used by Traefik when using Traefik as Ingress Provider"
+                label: Traefik Entrypoint
+                description: Entrypoint used by Traefik when using Traefik as Ingress Provider
                 schema:
                   type: string
-                  default: "websecure"
+                  default: websecure
                   required: true
               - variable: middlewares
-                label: "Traefik Middlewares"
-                description: "Add previously created Traefik Middlewares to this Ingress"
+                label: Traefik Middlewares
+                description: Add previously created Traefik Middlewares to this Ingress
                 schema:
                   type: list
                   default: []
                   items:
                     - variable: name
-                      label: "Name"
+                      label: Name
                       schema:
                         type: string
                         default: ""

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minio-console
-  tag: 0.19.3@sha256:ac8a87159e96e467856c57f9009c2358decc45154bc993549b8734989637f1d0
+  tag: 0.19.4@sha256:ae15a199df96b65120e759621e7112387779b9f5a9f2cfd398e01990db1f61a8
   pullPolicy: IfNotPresent
 
 args: ["server"]
@@ -28,3 +28,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

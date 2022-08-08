@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/cyberchef
-  tag: v9.46.0@sha256:34e88f93601be4b349ecced4a06252e96709df23eed235473b65fddd07c9314d
+  tag: v9.46.0@sha256:30c1a09f7f8a625e0dacf6ffae94b93c7b4ff41cd35fabac11a1f34e2aded6da
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,3 +17,6 @@ service:
       main:
         port: 10219
         targetPort: 8000
+
+portal:
+  enabled: true

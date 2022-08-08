@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/jackett
   pullPolicy: IfNotPresent
-  tag: 0.20.1485@sha256:2db6fbd3cf6029dc3178e05626432e524b87ebb279e00c58fd280b9f32e0b1b6
+  tag: 0.20.1489@sha256:e07a554cdbc0bce3c689baf4f8f31f2dcad24e6148d51eec5bcd049d1a6f16a6
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -28,3 +28,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

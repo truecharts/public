@@ -1,12 +1,12 @@
   - variable: global
-    label: "global settings"
-    group: "Controller"
+    label: Global Settings
+    group: Controller
     schema:
       type: dict
       hidden: true
       attrs:
         - variable: isSCALE
-          label: "flag this is SCALE"
+          label: Flag this is SCALE
           schema:
             type: boolean
             default: true

@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webp-server
-  tag: latest@sha256:c9c80c49d09a45180a11e79ce4141f8c7d8eb1d1836008fc2b6dab277dfe6116
+  tag: latest@sha256:8eaca58480f4021f397a9bfe8283df6db149e54935811ed6406c68eb9e0381b0
 persistence:
   storagecache:
     enabled: true
@@ -29,3 +29,6 @@ service:
         port: 3333
         protocol: TCP
         targetPort: 3333
+
+portal:
+  enabled: true

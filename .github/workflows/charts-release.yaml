@@ -14,7 +14,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:395ee7ed8b9cba6569ddeba77b7ceb86fdb79b91a19c639625d7bc54cb1ccc1d
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:992e3c1df7245846a4d8f30fb0f21dc259d245ff41b3a1901284bdb26f4cb4cd
     concurrency: gitpush
     steps:
       - name: Install Kubernetes tools
@@ -86,7 +86,7 @@ jobs:
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Removing Chart Docs prior to regeneration..."
-          mkdir -p website/static/img/chart-icons || echo "chart-icons path already exists, continuing..."
+          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -99,7 +99,7 @@ jobs:
                 yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/chart-icons/${chart}.png 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
               fi
           done
 

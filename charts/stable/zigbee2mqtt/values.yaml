@@ -104,3 +104,6 @@ initContainers:
           echo "##########################################################" >> /data/configuration.yaml;
           echo 'Initial configuration file created at "/data/configuration.yaml"';
         fi;
+
+portal:
+  enabled: true

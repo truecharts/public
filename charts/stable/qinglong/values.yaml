@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/qinglong
   pullPolicy: IfNotPresent
-  tag: v2.13.6@sha256:34069d037bd95e1f1b2c1160cf2e17b162e14d8a146819d0fd52f8f4bb52d292
+  tag: 2.13.7@sha256:89915f50167243a2d6b8e96472863e2b48195462184540a1599dfe80093bb3ec
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,3 +22,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/ql/data"
+
+portal:
+  enabled: true

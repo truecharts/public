@@ -130,3 +130,6 @@ initContainers:
             key: UTILS_SECRET
     command:
       ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+
+portal:
+  enabled: true

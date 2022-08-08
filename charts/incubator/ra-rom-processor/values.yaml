@@ -13,7 +13,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ra-rom-processor
-  tag: latest@sha256:3392d799067fecb0f827b4fefbc05854a9fa0583eb7295541d77a822e625b433
+  tag: latest@sha256:edf0cf889af596084b1eb96fcb9e9705671cbb3833edb9489e0e7aad613b94e4
 persistence:
   config:
     enabled: true
@@ -49,3 +49,6 @@ service:
     ports:
       main:
         enabled: false
+
+portal:
+  enabled: false

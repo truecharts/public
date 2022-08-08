@@ -1,73 +1,73 @@
 #  - variable: autoscaling
-#    group: "Advanced"
-#    label: "(Advanced) Horizontal Pod Autoscaler"
+#    group: Advanced
+#    label: (Advanced) Horizontal Pod Autoscaler
 #    schema:
 #      additional_attrs: true
 #      type: dict
 #      attrs:
 #        - variable: enabled
-#          label: "enabled"
+#          label: Enabled
 #          schema:
 #            type: boolean
 #            default: false
 #            show_subquestions_if: true
 #            subquestions:
 #              - variable: target
-#                label: "Target"
-#                description: "deployment name, defaults to main deployment"
+#                label: Target
+#                description: Deployment name, Defaults to Main Deployment
 #                schema:
 #                  type: string
 #                  default: ""
 #              - variable: minReplicas
-#                label: "Minimum Replicas"
+#                label: Minimum Replicas
 #                schema:
 #                  type: int
 #                  default: 1
 #              - variable: maxReplicas
-#                label: "Maximum Replicas"
+#                label: Maximum Replicas
 #                schema:
 #                  type: int
 #                  default: 5
 #              - variable: targetCPUUtilizationPercentage
-#                label: "Target CPU Utilization Percentage"
+#                label: Target CPU Utilization Percentage
 #                schema:
 #                  type: int
 #                  default: 80
 #              - variable: targetMemoryUtilizationPercentage
-#                label: "Target Memory Utilization Percentage"
+#                label: Target Memory Utilization Percentage
 #                schema:
 #                  type: int
 #                  default: 80
 #  - variable: networkPolicy
-#    group: "Advanced"
-#    label: "(Advanced) Network Policy"
+#    group: Advanced
+#    label: (Advanced) Network Policy
 #    schema:
 #      additional_attrs: true
 #      type: dict
 #      attrs:
 #        - variable: enabled
-#          label: "enabled"
+#          label: Enabled
 #          schema:
 #            type: boolean
 #            default: false
 #            show_subquestions_if: true
 #            subquestions:
 #              - variable: policyType
-#                label: "Policy Type"
+#                label: Policy Type
 #                schema:
 #                  type: string
 #                  default: ""
 #                  enum:
 #                    - value: ""
-#                      description: "Default"
-#                    - value: "ingress"
-#                      description: "Ingress"
-#                    - value: "egress"
-#                      description: "Egress"
-#                    - value: "ingress-egress"
-#                      description: "Ingress and Egress"
+#                      description: Default
+#                    - value: ingress
+#                      description: Ingress
+#                    - value: egress
+#                      description: Egress
+#                    - value: ingress-egress
+#                      description: Ingress and Egress
 #              - variable: egress
-#                label: "Egress"
+#                label: Egress
 #                schema:
 #                  type: list
 #                  default: []
@@ -79,7 +79,7 @@
 #                        type: dict
 #                        attrs:
 #                          - variable: to
-#                            label: "To"
+#                            label: To
 #                            schema:
 #                              type: list
 #                              default: []
@@ -91,18 +91,18 @@
 #                                    type: dict
 #                                    attrs:
 #                                      - variable: ipBlock
-#                                        label: "ipBlock"
+#                                        label: IP Block
 #                                        schema:
 #                                          additional_attrs: true
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: cidr
-#                                              label: "cidr"
+#                                              label: CIDR
 #                                              schema:
 #                                                type: string
 #                                                default: ""
 #                                            - variable: except
-#                                              label: "except"
+#                                              label: Except
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -112,13 +112,13 @@
 #                                                    schema:
 #                                                      type: string
 #                                      - variable: namespaceSelector
-#                                        label: "namespaceSelector"
+#                                        label: Namespace Selector
 #                                        schema:
 #                                          additional_attrs: true
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: matchExpressions
-#                                              label: "matchExpressions"
+#                                              label: Match Expressions
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -130,26 +130,26 @@
 #                                                      type: dict
 #                                                      attrs:
 #                                                        - variable: key
-#                                                          label: "Key"
+#                                                          label: Key
 #                                                          schema:
 #                                                            type: string
 #                                                        - variable: operator
-#                                                          label: "operator"
+#                                                          label: Operator
 #                                                          schema:
 #                                                            type: string
-#                                                            default: "TCP"
+#                                                            default: TCP
 #                                                            enum:
-#                                                              - value: "In"
-#                                                                description: "In"
-#                                                              - value: "NotIn"
-#                                                                description: "NotIn"
-#                                                              - value: "Exists "
-#                                                                description: "Exists "
-#                                                              - value: "DoesNotExist "
-#                                                                description: "DoesNotExist "
+#                                                              - value: In
+#                                                                description: In
+#                                                              - value: NotIn
+#                                                                description: NotIn
+#                                                              - value: Exists
+#                                                                description: Exists
+#                                                              - value: DoesNotExist
+#                                                                description: DoesNotExist
 #                                                        - variable: values
-#                                                          label: "values"
-#                                                          schema:
+#                                                          label: Values
+#                                                          schema
 #                                                            type: list
 #                                                            default: []
 #                                                            items:
@@ -164,7 +164,7 @@
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: matchExpressions
-#                                              label: "matchExpressions"
+#                                              label: Match Expressions
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -176,25 +176,25 @@
 #                                                      type: dict
 #                                                      attrs:
 #                                                        - variable: key
-#                                                          label: "Key"
+#                                                          label: Key
 #                                                          schema:
 #                                                            type: string
 #                                                        - variable: operator
-#                                                          label: "operator"
+#                                                          label: Operator
 #                                                          schema:
 #                                                            type: string
-#                                                            default: "TCP"
+#                                                            default: TCP
 #                                                            enum:
-#                                                              - value: "In"
-#                                                                description: "In"
-#                                                              - value: "NotIn"
-#                                                                description: "NotIn"
-#                                                              - value: "Exists "
-#                                                                description: "Exists "
-#                                                              - value: "DoesNotExist "
-#                                                                description: "DoesNotExist "
+#                                                              - value: In
+#                                                                description: In
+#                                                              - value: NotIn
+#                                                                description: NotIn
+#                                                              - value: Exists
+#                                                                description: Exists
+#                                                              - value: DoesNotExist
+#                                                                description: DoesNotExist
 #                                                        - variable: values
-#                                                          label: "values"
+#                                                          label: Values
 #                                                          schema:
 #                                                            type: list
 #                                                            default: []
@@ -204,7 +204,7 @@
 #                                                                schema:
 #                                                                  type: string
 #                          - variable: ports
-#                            label: "Ports"
+#                            label: Ports
 #                            schema:
 #                              type: list
 #                              default: []
@@ -216,27 +216,27 @@
 #                                    type: dict
 #                                    attrs:
 #                                      - variable: port
-#                                        label: "port"
+#                                        label: Port
 #                                        schema:
 #                                          type: int
 #                                      - variable: endPort
-#                                        label: "port"
+#                                        label: End Port
 #                                        schema:
 #                                          type: int
 #                                      - variable: protocol
-#                                        label: "Protocol"
+#                                        label: Protocol
 #                                        schema:
 #                                          type: string
-#                                          default: "TCP"
+#                                          default: TCP
 #                                          enum:
-#                                            - value: "TCP"
-#                                              description: "TCP"
-#                                            - value: "UDP"
-#                                              description: "UDP"
-#                                            - value: "SCTP"
-#                                              description: "SCTP"
+#                                            - value: TCP
+#                                              description: TCP
+#                                            - value: UDP
+#                                              description: UDP
+#                                            - value: SCTP
+#                                              description: SCTP
 #              - variable: ingress
-#                label: "Ingress"
+#                label: Ingress
 #                schema:
 #                  type: list
 #                  default: []
@@ -248,7 +248,7 @@
 #                        type: dict
 #                        attrs:
 #                          - variable: from
-#                            label: "From"
+#                            label: From
 #                            schema:
 #                              type: list
 #                              default: []
@@ -260,18 +260,18 @@
 #                                    type: dict
 #                                    attrs:
 #                                      - variable: ipBlock
-#                                        label: "ipBlock"
+#                                        label: IP Block
 #                                        schema:
 #                                          additional_attrs: true
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: cidr
-#                                              label: "cidr"
+#                                              label: CIDR
 #                                              schema:
 #                                                type: string
 #                                                default: ""
 #                                            - variable: except
-#                                              label: "except"
+#                                              label: Except
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -281,13 +281,13 @@
 #                                                    schema:
 #                                                      type: string
 #                                      - variable: namespaceSelector
-#                                        label: "namespaceSelector"
+#                                        label: Namespace Selector
 #                                        schema:
 #                                          additional_attrs: true
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: matchExpressions
-#                                              label: "matchExpressions"
+#                                              label: Match Expressions
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -299,25 +299,25 @@
 #                                                      type: dict
 #                                                      attrs:
 #                                                        - variable: key
-#                                                          label: "Key"
+#                                                          label: Key
 #                                                          schema:
 #                                                            type: string
 #                                                        - variable: operator
-#                                                          label: "operator"
+#                                                          label: Operator
 #                                                          schema:
 #                                                            type: string
-#                                                            default: "TCP"
+#                                                            default: TCP
 #                                                            enum:
-#                                                              - value: "In"
-#                                                                description: "In"
-#                                                              - value: "NotIn"
-#                                                                description: "NotIn"
-#                                                              - value: "Exists "
-#                                                                description: "Exists "
-#                                                              - value: "DoesNotExist "
-#                                                                description: "DoesNotExist "
+#                                                              - value: In
+#                                                                description: In
+#                                                              - value: NotIn
+#                                                                description: NotIn
+#                                                              - value: Exists
+#                                                                description: Exists
+#                                                              - value: DoesNotExist
+#                                                                description: DoesNotExist
 #                                                        - variable: values
-#                                                          label: "values"
+#                                                          label: Values
 #                                                          schema:
 #                                                            type: list
 #                                                            default: []
@@ -333,7 +333,7 @@
 #                                          type: dict
 #                                          attrs:
 #                                            - variable: matchExpressions
-#                                              label: "matchExpressions"
+#                                              label: Match Expressions
 #                                              schema:
 #                                                type: list
 #                                                default: []
@@ -345,25 +345,25 @@
 #                                                      type: dict
 #                                                      attrs:
 #                                                        - variable: key
-#                                                          label: "Key"
+#                                                          label: Key
 #                                                          schema:
 #                                                            type: string
 #                                                        - variable: operator
-#                                                          label: "operator"
+#                                                          label: Operator
 #                                                          schema:
 #                                                            type: string
-#                                                            default: "TCP"
+#                                                            default: TCP
 #                                                            enum:
-#                                                              - value: "In"
-#                                                                description: "In"
-#                                                              - value: "NotIn"
-#                                                                description: "NotIn"
-#                                                              - value: "Exists "
-#                                                                description: "Exists "
-#                                                              - value: "DoesNotExist "
-#                                                                description: "DoesNotExist "
+#                                                              - value: In
+#                                                                description: In
+#                                                              - value: NotIn
+#                                                                description: NotIn
+#                                                              - value: Exists
+#                                                                description: Exists
+#                                                              - value: DoesNotExist
+#                                                                description: DoesNotExist
 #                                                        - variable: values
-#                                                          label: "values"
+#                                                          label: Values
 #                                                          schema:
 #                                                            type: list
 #                                                            default: []
@@ -373,7 +373,7 @@
 #                                                                schema:
 #                                                                  type: string
 #                          - variable: ports
-#                            label: "Ports"
+#                            label: Ports
 #                            schema:
 #                              type: list
 #                              default: []
@@ -385,22 +385,22 @@
 #                                    type: dict
 #                                    attrs:
 #                                      - variable: port
-#                                        label: "port"
+#                                        label: Port
 #                                        schema:
 #                                          type: int
 #                                      - variable: endPort
-#                                        label: "port"
+#                                        label: End Port
 #                                        schema:
 #                                          type: int
 #                                      - variable: protocol
-#                                        label: "Protocol"
+#                                        label: Protocol
 #                                        schema:
 #                                          type: string
-#                                          default: "TCP"
+#                                          default: TCP
 #                                          enum:
-#                                            - value: "TCP"
-#                                              description: "TCP"
-#                                            - value: "UDP"
-#                                              description: "UDP"
-#                                            - value: "SCTP"
-#                                              description: "SCTP"
+#                                            - value: TCP
+#                                              description: TCP
+#                                            - value: UDP
+#                                              description: UDP
+#                                            - value: SCTP
+#                                              description: SCTP

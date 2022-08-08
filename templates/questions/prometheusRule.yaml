@@ -1,13 +1,13 @@
               - variable: prometheusRule
-                label: "PrometheusRule"
-                description: "Enable and configure Prometheus Rules for the App."
+                label: PrometheusRule
+                description: Enable and configure Prometheus Rules for the App.
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
                     - variable: enabled
-                      label: "Enabled"
-                      description: "Enable Prometheus Metrics"
+                      label: Enabled
+                      description: Enable Prometheus Metrics
                       schema:
                         type: boolean
                         default: false

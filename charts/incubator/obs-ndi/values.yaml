@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/obs-ndi
-  tag: latest@sha256:cb7251be0e98042c07c3e69c5ec78763620dccc6493031575d130ff7ff7ed9c1
+  tag: latest@sha256:a45e06a7c2d5fdb82958ac1a00056648615ba2127715acd685d73331c4271ed9
 persistence:
   configpath:
     enabled: true
@@ -25,3 +25,6 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
+
+portal:
+  enabled: true

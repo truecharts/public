@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cryptpad
-  tag: latest@sha256:e1bf8f8cc8b35c27e69dca31da0bb0b141006bfc082680ec55c0f18ae02d792c
+  tag: latest@sha256:505a94c62f45ee812b2974cba6cdb1ece091d3216bd6c06037cdae7e42d0053a
 persistence:
   blobpath:
     enabled: true
@@ -45,3 +45,6 @@ service:
         port: 3001
         protocol: TCP
         targetPort: 3001
+
+portal:
+  enabled: true
