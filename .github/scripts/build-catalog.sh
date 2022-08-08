@@ -196,7 +196,6 @@ include_questions(){
     /# Include{podSecurityContextRoot}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/podSecurityContextRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-
     # Replace # Include{podSecurityContextAdvanced} with the standard podSecurityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{podSecurityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
