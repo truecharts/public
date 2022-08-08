@@ -2,6 +2,16 @@
 
 
 
+## [etesync-0.0.21](https://github.com/truecharts/charts/compare/etesync-0.0.20...etesync-0.0.21) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [etesync-0.0.20](https://github.com/truecharts/apps/compare/etesync-0.0.19...etesync-0.0.20) (2022-07-26)
 
 ### Chore

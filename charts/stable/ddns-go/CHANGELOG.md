@@ -2,6 +2,16 @@
 
 
 
+## [ddns-go-2.0.26](https://github.com/truecharts/charts/compare/ddns-go-2.0.25...ddns-go-2.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [ddns-go-2.0.25](https://github.com/truecharts/apps/compare/ddns-go-2.0.24...ddns-go-2.0.25) (2022-08-01)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [omada-controller-6.0.45](https://github.com/truecharts/charts/compare/omada-controller-6.0.43...omada-controller-6.0.45) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [omada-controller-6.0.43](https://github.com/truecharts/apps/compare/omada-controller-6.0.42...omada-controller-6.0.43) (2022-07-30)
 
 ### Chore

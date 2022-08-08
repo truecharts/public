@@ -2,6 +2,17 @@
 
 
 
+## [wekan-4.0.31](https://github.com/truecharts/charts/compare/wekan-4.0.29...wekan-4.0.31) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [wekan-4.0.29](https://github.com/truecharts/apps/compare/wekan-4.0.28...wekan-4.0.29) (2022-07-26)
 
 ### Chore

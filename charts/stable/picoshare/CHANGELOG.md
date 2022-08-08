@@ -2,6 +2,16 @@
 
 
 
+## [picoshare-2.0.24](https://github.com/truecharts/charts/compare/picoshare-2.0.23...picoshare-2.0.24) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [picoshare-2.0.23](https://github.com/truecharts/apps/compare/picoshare-2.0.22...picoshare-2.0.23) (2022-07-26)
 
 ### Chore

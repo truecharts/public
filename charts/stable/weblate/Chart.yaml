@@ -13,8 +13,8 @@ dependencies:
     repository: https://charts.truecharts.org
     version: 3.0.48
 description: Weblate is a copylefted libre software web-based continuous localization system
-home: https://github.com/truecharts/charts/tree/master/charts/stable/weblate
-icon: https://truecharts.org/img/chart-icons/weblate.png
+home: https://truecharts.org/docs/charts/stable/weblate
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/weblate.png
 keywords:
   - translate
 kubeVersion: ">=1.16.0-0"
@@ -24,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: weblate
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
   - https://github.com/WeblateOrg/weblate
   - https://github.com/WeblateOrg/docker
   - https://github.com/WeblateOrg/docker-compose

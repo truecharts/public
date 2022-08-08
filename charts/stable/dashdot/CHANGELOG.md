@@ -2,6 +2,16 @@
 
 
 
+## [dashdot-1.0.37](https://github.com/truecharts/charts/compare/dashdot-1.0.36...dashdot-1.0.37) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [dashdot-1.0.36](https://github.com/truecharts/apps/compare/dashdot-1.0.35...dashdot-1.0.36) (2022-07-26)
 
 ### Chore

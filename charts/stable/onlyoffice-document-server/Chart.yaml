@@ -12,13 +12,9 @@ dependencies:
     name: redis
     repository: https://charts.truecharts.org
     version: 3.0.48
-description:
-  "ONLYOFFICE Document Server is an online office suite comprising viewers
-  and editors for texts, spreadsheets and presentations, fully compatible with Office
-  Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real
-  time."
-home: https://github.com/truecharts/charts/tree/master/charts/stable/onlyoffice-document-server
-icon: https://truecharts.org/img/chart-icons/onlyoffice-document-server.png
+description: "ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time."
+home: https://truecharts.org/docs/charts/stable/onlyoffice-document-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
 keywords:
   - onlyoffice
 kubeVersion: ">=1.16.0-0"
@@ -28,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: onlyoffice-document-server
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/onlyoffice-document-server
   - https://github.com/ONLYOFFICE/DocumentServer
   - https://github.com/ONLYOFFICE/Docker-DocumentServer
   - https://hub.docker.com/r/onlyoffice/documentserver/

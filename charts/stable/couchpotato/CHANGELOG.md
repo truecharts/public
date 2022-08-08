@@ -2,6 +2,16 @@
 
 
 
+## [couchpotato-2.0.23](https://github.com/truecharts/charts/compare/couchpotato-2.0.22...couchpotato-2.0.23) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [couchpotato-2.0.22](https://github.com/truecharts/apps/compare/couchpotato-2.0.21...couchpotato-2.0.22) (2022-07-26)
 
 ### Chore

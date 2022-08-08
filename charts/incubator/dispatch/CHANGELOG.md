@@ -2,6 +2,16 @@
 
 
 
+## [dispatch-0.0.15](https://github.com/truecharts/charts/compare/dispatch-0.0.14...dispatch-0.0.15) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [dispatch-0.0.14](https://github.com/truecharts/apps/compare/dispatch-0.0.13...dispatch-0.0.14) (2022-07-26)
 
 ### Chore
