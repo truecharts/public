@@ -2,6 +2,16 @@
 
 
 
+## [teedy-7.0.27](https://github.com/truecharts/charts/compare/teedy-docs-0.0.14...teedy-7.0.27) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [teedy-7.0.26](https://github.com/truecharts/apps/compare/teedy-7.0.25...teedy-7.0.26) (2022-07-26)
 
 ### Chore

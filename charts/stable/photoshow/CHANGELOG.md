@@ -2,6 +2,16 @@
 
 
 
+## [photoshow-3.0.23](https://github.com/truecharts/charts/compare/photoshow-3.0.22...photoshow-3.0.23) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [photoshow-3.0.22](https://github.com/truecharts/apps/compare/photoshow-3.0.21...photoshow-3.0.22) (2022-07-26)
 
 ### Chore
