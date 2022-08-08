@@ -2,6 +2,17 @@
 
 
 
+## [lancache-dns-0.0.13](https://github.com/truecharts/charts/compare/lancache-dns-0.0.11...lancache-dns-0.0.13) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [lancache-dns-0.0.11](https://github.com/truecharts/apps/compare/lancache-dns-0.0.10...lancache-dns-0.0.11) (2022-07-26)
 
 ### Chore

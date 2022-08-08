@@ -6,12 +6,13 @@ appVersion: "2022.7.1"
 description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge.
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
-icon: https://truecharts.org/img/chart-icons/cloudflared.png
+home: https://truecharts.org/docs/charts/stable/cloudflared
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflared.png
 keywords:
   - cloudflared
   - networking
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
   - https://hub.docker.com/r/cloudflare/cloudflared
 dependencies:
   - name: common

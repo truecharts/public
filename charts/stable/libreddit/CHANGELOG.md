@@ -2,6 +2,16 @@
 
 
 
+## [libreddit-1.0.18](https://github.com/truecharts/charts/compare/libreddit-1.0.17...libreddit-1.0.18) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [libreddit-1.0.17](https://github.com/truecharts/apps/compare/libreddit-1.0.16...libreddit-1.0.17) (2022-07-26)
 
 ### Chore

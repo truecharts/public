@@ -9,14 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  Blender(https://www.blender.org/) is a free and open-source 3D computer
-  graphics software toolset used for creating animated films, visual effects, art,
-  3D printed models, motion graphics, interactive 3D applications, virtual reality,
-  and computer games. **This image does not support GPU rendering out of the box only
-  accelerated workspace experience**
+description: Blender(https://www.blender.org/) is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. **This image does not support GPU rendering out of the box only accelerated workspace experience**
 home: https://truecharts.org/docs/charts/incubator/blender
-icon: https://truecharts.org/img/chart-icons/blender.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender.png
 keywords:
   - blender
   - Other
@@ -27,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: blender
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
   - https://www.blender.org/
   - https://github.com/orgs/linuxserver/packages/container/package/blender
   - https://github.com/linuxserver/docker-blender#readme

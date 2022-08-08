@@ -2,6 +2,16 @@
 
 
 
+## [xbackbone-3.0.28](https://github.com/truecharts/charts/compare/xbackbone-3.0.27...xbackbone-3.0.28) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [xbackbone-3.0.27](https://github.com/truecharts/apps/compare/xbackbone-3.0.26...xbackbone-3.0.27) (2022-07-26)
 
 ### Chore
