@@ -2,6 +2,17 @@
 
 
 
+## [qinglong-2.0.28](https://github.com/truecharts/charts/compare/qinglong-2.0.26...qinglong-2.0.28) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [qinglong-2.0.26](https://github.com/truecharts/apps/compare/qinglong-2.0.25...qinglong-2.0.26) (2022-07-26)
 
 ### Chore

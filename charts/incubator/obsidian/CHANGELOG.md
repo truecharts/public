@@ -2,6 +2,16 @@
 
 
 
+## [obsidian-0.0.15](https://github.com/truecharts/charts/compare/obsidian-0.0.14...obsidian-0.0.15) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [obsidian-0.0.14](https://github.com/truecharts/apps/compare/obsidian-0.0.13...obsidian-0.0.14) (2022-07-26)
 
 ### Chore

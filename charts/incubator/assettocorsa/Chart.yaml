@@ -9,11 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ AssettoCorsa and run it.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/assettocorsa
-icon: https://truecharts.org/img/chart-icons/assettocorsa.png
+description: "This Docker will download and install SteamCMD. It will also install AssettoCorsa and run it.\r\n"
+home: https://truecharts.org/docs/charts/incubator/assettocorsa
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/assettocorsa.png
 keywords:
   - assettocorsa
   - GameServers
@@ -24,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: assettocorsa
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/assettocorsa
   - https://www.assettocorsa.net/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
