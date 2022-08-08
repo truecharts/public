@@ -9,11 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ RUST and run it.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/rust
-icon: https://truecharts.org/img/chart-icons/rust.png
+description: "This Docker will download and install SteamCMD. It will also install RUST and run it.\r\n"
+home: https://truecharts.org/docs/charts/incubator/rust
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rust.png
 keywords:
   - rust
   - GameServers
@@ -24,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: rust
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rust
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application

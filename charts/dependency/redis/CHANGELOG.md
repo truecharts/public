@@ -2,6 +2,7 @@
 
 
 
+
 ## [redis-3.0.48](https://github.com/truecharts/apps/compare/redis-3.0.47...redis-3.0.48) (2022-07-29)
 
 ### Chore

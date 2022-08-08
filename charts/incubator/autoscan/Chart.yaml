@@ -9,12 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  Autoscan replaces the default Plex and Emby behaviour for picking up
-  file changes on the file system. Autoscan integrates with Sonarr, Radarr and Lidarr
-  to fetch changes in near real-time without relying on the file system.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/autoscan
-icon: https://truecharts.org/img/chart-icons/autoscan.png
+description: Autoscan replaces the default Plex and Emby behaviour for picking up file changes on the file system. Autoscan integrates with Sonarr, Radarr and Lidarr to fetch changes in near real-time without relying on the file system.
+home: https://truecharts.org/docs/charts/incubator/autoscan
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/autoscan.png
 keywords:
   - autoscan
   - Other
@@ -25,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: autoscan
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/autoscan
   - https://hotio.dev/containers/autoscan
   - https://hub.docker.com/r/hotio/autoscan
 type: application

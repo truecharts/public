@@ -9,12 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ PIXARK and run it (a normal server startup of PIXARK can take a long time!).\r\
-  \n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/pixark
-icon: https://truecharts.org/img/chart-icons/pixark.png
+description: "This Docker will download and install SteamCMD. It will also install PIXARK and run it (a normal server startup of PIXARK can take a long time!).\r\n"
+home: https://truecharts.org/docs/charts/incubator/pixark
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixark.png
 keywords:
   - pixark
   - GameServers
@@ -25,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: pixark
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pixark
   - https://pixark.snail.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
