@@ -1,7 +1,7 @@
 image:
-  repository: jenkins/jenkins
+  repository: tccr.io/truecharts/jenkins
   pullPolicy: IfNotPresent
-  tag: 2.361-jdk11
+  tag: v2.362@sha256:b8b98adf94dc861b556bee88d8ea958162abdde4c041d9689de4406ecfae0d20
 
 podSecurityContext:
   runAsGroup: 1000
