@@ -10,11 +10,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "This is a Dockerfile for Splunk designed for OpenShift and TrueNAS based\
-  \ on Alpine Linux - https://www.splunk.com\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
-icon: https://truecharts.org/img/chart-icons/splunk.png
+description: "This is a Dockerfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com\r\n"
+home: https://truecharts.org/docs/charts/incubator/splunk
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.png
 keywords:
   - splunk
   - Tools-Utilities
@@ -26,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: splunk
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
   - https://www.splunk.com/
   - https://hub.docker.com/r/atunnecliffe/splunk
 type: application

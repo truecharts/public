@@ -2,6 +2,17 @@
 
 
 
+## [grafana-4.0.41](https://github.com/truecharts/charts/compare/grafana-4.0.39...grafana-4.0.41) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [grafana-4.0.39](https://github.com/truecharts/apps/compare/grafana-4.0.38...grafana-4.0.39) (2022-07-28)
 
 ### Chore

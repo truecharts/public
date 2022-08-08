@@ -10,12 +10,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "TasmoAdmin is an administrative Website for Home Automation Devices\
-  \ flashed with Tasmota (PLEASE Stop this container while not in use and during Tasmota\
-  \ upgrades) (https://github.com/arendst/Tasmota). \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
-icon: https://truecharts.org/img/chart-icons/tasmoadmin.png
+description: "TasmoAdmin is an administrative Website for Home Automation Devices flashed with Tasmota (PLEASE Stop this container while not in use and during Tasmota upgrades) (https://github.com/arendst/Tasmota). \r\n"
+home: https://truecharts.org/docs/charts/incubator/tasmoadmin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmoadmin.png
 keywords:
   - tasmoadmin
   - HomeAutomation
@@ -27,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: tasmoadmin
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
   - https://hub.docker.com/r/raymondmm/tasmoadmin/
 type: application
 version: 0.0.15

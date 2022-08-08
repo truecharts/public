@@ -2,6 +2,16 @@
 
 
 
+## [yacreaderlibraryserver-0.0.15](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.14...yacreaderlibraryserver-0.0.15) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [yacreaderlibraryserver-0.0.14](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.13...yacreaderlibraryserver-0.0.14) (2022-07-26)
 
 ### Chore
