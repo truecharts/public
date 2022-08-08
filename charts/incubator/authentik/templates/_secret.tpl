@@ -34,13 +34,17 @@ data:
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.creds.password }}
   AUTHENTIK_BOOTSTRAP_TOKEN:  {{ .Values.authentik.creds.token }}
   {{/* Mail */}}
-  {{- with .Values.authentik.mail -}}
-  {{- if and .host .user .pass .from -}}
-  AUTHENTIK_EMAIL__HOST: {{ .Values.authentik.mail.host }}
-  AUTHENTIK_EMAIL__USERNAME: {{ .Values.authentik.mail.user }}
-  AUTHENTIK_EMAIL__PASSWORD: {{ .Values.authentik.mail.pass }}
-  AUTHENTIK_EMAIL__FROM: {{ .Values.authentik.mail.from }}
+  {{- with .Values.authentik.mail.host -}}
+  AUTHENTIK_EMAIL__HOST: {{ . }}
   {{- end -}}
+  {{- with .Values.authentik.mail.user -}}
+  AUTHENTIK_EMAIL__USERNAME: {{ . }}
+  {{- end -}}
+  {{- with .Values.authentik.mail.pass -}}
+  AUTHENTIK_EMAIL__PASSWORD: {{ . }}
+  {{- end -}}
+  {{- with .Values.authentik.mail.from -}}
+  AUTHENTIK_EMAIL__FROM: {{ . }}
   {{- end -}}
 ---
 {{/* This secrets are loaded on ldap container */}}
@@ -52,7 +56,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_TOKEN: {{ .Values.outposts.ldap.token }}
+  {{- with .Values.outposts.ldap.token -}}
+  AUTHENTIK_TOKEN: {{ . }}
+  {{- end -}}
 ---
 {{/* This secrets are loaded on geoip container */}}
 apiVersion: v1
@@ -64,9 +70,17 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Credentials */}}
-  GEOIPUPDATE_ACCOUNT_ID: {{ .Values.geoip.account_id }}
-  GEOIPUPDATE_LICENSE_KEY: {{ .Values.geoip.license_key }}
+  {{- with .Values.geoip.account_id -}}
+  GEOIPUPDATE_ACCOUNT_ID: {{ . }}
+  {{- end -}}
+  {{- with .Values.geoip.license_key -}}
+  GEOIPUPDATE_LICENSE_KEY: {{ . }}
+  {{- end -}}
   {{/* Proxy */}}
-  GEOIPUPDATE_PROXY: {{ .Values.geoip.proxy }}
-  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ .Values.geoip.proxy_user_pass }}
+  {{- with .Values.geoip.proxy -}}
+  GEOIPUPDATE_PROXY: {{ . }}
+  {{- end -}}
+  {{- with .Values.geoip.proxy_user_pass -}}
+  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . }}
+  {{- end -}}
 {{- end -}}
