@@ -18,9 +18,12 @@ service:
         port: 52051
 
 persistence:
-  datadir:
+  data:
     enabled: true
     mountPath: "/datadir"
-  medialibrary:
+  media:
     enabled: true
     mountPath: "/medialibrary"
+
+portal:
+  enabled: true
