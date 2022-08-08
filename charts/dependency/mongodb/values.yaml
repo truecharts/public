@@ -120,3 +120,6 @@ env:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "mongodb-root-password"
+
+portal:
+  enabled: false

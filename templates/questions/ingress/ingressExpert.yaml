@@ -1,58 +1,58 @@
               - variable: expert
-                label: "Show Expert Configuration Options"
+                label: Show Expert Configuration Options
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: enableFixedMiddlewares
-                      description: "These middlewares enforce a number of best practices."
-                      label: "Enable Default Middlewares"
+                      description: These middlewares enforce a number of best practices.
+                      label: Enable Default Middlewares
                       schema:
                         type: boolean
                         default: true
                     - variable: ingressClassName
-                      label: "IngressClass Name"
+                      label: IngressClass Name
                       schema:
                         type: string
                         default: ""
                     - variable: labelsList
-                      label: "Labels"
+                      label: Labels
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: labelItem
-                            label: "Label"
+                            label: Label
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
-                                  label: "Name"
+                                  label: Name
                                   schema:
                                     type: string
                                 - variable: value
-                                  label: "Value"
+                                  label: Value
                                   schema:
                                     type: string
                     - variable: annotationsList
-                      label: "Annotations"
+                      label: Annotations
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: annotationItem
-                            label: "Label"
+                            label: Label
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
-                                  label: "Name"
+                                  label: Name
                                   schema:
                                     type: string
                                 - variable: value
-                                  label: "Value"
+                                  label: Value
                                   schema:
                                     type: string
