@@ -1,36 +1,11 @@
 # Include{groups}
 portals:
   open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
+# Include{portalLink}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{controller}
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -107,14 +82,7 @@ questions:
                             schema:
                               type: int
                               default: 10003
-
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
           schema:
@@ -184,7 +152,5 @@ questions:
                                                 default: "Prefix"
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}

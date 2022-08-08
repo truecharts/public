@@ -1,27 +1,27 @@
               - variable: enabled
-                label: "Enable the service"
+                label: Enable the Service
                 schema:
                   type: boolean
                   default: true
                   hidden: true
               - variable: type
-                label: "Service Type"
+                label: Service Type
                 description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                 schema:
                   type: string
-                  default: "Simple"
+                  default: Simple
                   enum:
-                    - value: "Simple"
-                      description: "Simple"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "NodePort"
-                      description: "NodePort (Advanced)"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer (Advanced)"
+                    - value: Simple
+                      description: Simple
+                    - value: ClusterIP
+                      description: ClusterIP
+                    - value: NodePort
+                      description: NodePort (Advanced)
+                    - value: LoadBalancer
+                      description: LoadBalancer (Advanced)
               - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
+                label: LoadBalancer IP
+                description: LoadBalancerIP
                 schema:
                   show_if: [["type", "=", "LoadBalancer"]]
                   type: string
@@ -35,33 +35,33 @@
                   default: []
                   items:
                     - variable: externalIP
-                      label: "External IP"
+                      label: External IP
                       schema:
                         type: string
               - variable: ipFamilyPolicy
-                label: "IP Family Policy"
-                description: "(Advanced) Specify the ip policy"
+                label: IP Family Policy
+                description: (Advanced) Specify the IP Policy
                 schema:
                   show_if: [["type", "!=", "Simple"]]
                   type: string
-                  default: "SingleStack"
+                  default: SingleStack
                   enum:
-                    - value: "SingleStack"
-                      description: "SingleStack"
-                    - value: "PreferDualStack"
-                      description: "PreferDualStack"
-                    - value: "RequireDualStack"
-                      description: "RequireDualStack"
+                    - value: SingleStack
+                      description: SingleStack
+                    - value: PreferDualStack
+                      description: PreferDualStack
+                    - value: RequireDualStack
+                      description: RequireDualStack
               - variable: ipFamilies
-                label: "(advanced) IP families"
-                description: "(advanced) The ip families that should be used"
+                label: (Advanced) IP Families
+                description: (Advanced) The IP Families that should be used
                 schema:
                   show_if: [["type", "!=", "Simple"]]
                   type: list
                   default: []
                   items:
                     - variable: ipFamily
-                      label: "IP family"
+                      label: IP Family
                       schema:
                         type: string
               - variable: ports

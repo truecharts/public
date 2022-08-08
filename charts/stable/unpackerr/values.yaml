@@ -10,9 +10,6 @@ service:
       main:
         enabled: false
 
-portal:
-  enabled: false
-
 probes:
   liveness:
     enabled: false
@@ -37,3 +34,6 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""
+
+portal:
+  enabled: false

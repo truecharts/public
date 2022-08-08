@@ -65,3 +65,6 @@ env:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "clickhouse-password"
+
+portal:
+  enabled: false

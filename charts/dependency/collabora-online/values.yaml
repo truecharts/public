@@ -49,3 +49,6 @@ env:
   extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
   server_name: "collabora.domain.tld"
   DONT_GEN_SSL_CERT: true
+
+portal:
+  enabled: true

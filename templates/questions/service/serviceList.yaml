@@ -1,45 +1,45 @@
         - variable: serviceList
-          label: "Add Manual Custom Services"
-          group: "Networking and Services"
+          label: Add Manual Custom Services
+          group: Networking and Services
           schema:
             type: list
             default: []
             items:
               - variable: serviceListEntry
-                label: "Custom Service"
+                label: Custom Service
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
                     - variable: enabled
-                      label: "Enable the service"
+                      label: Enable the service
                       schema:
                         type: boolean
                         default: true
                         hidden: true
                     - variable: name
-                      label: "Name"
+                      label: Name
                       schema:
                         type: string
                         default: ""
                     - variable: type
-                      label: "Service Type"
+                      label: Service Type
                       description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                       schema:
                         type: string
-                        default: "Simple"
+                        default: Simple
                         enum:
-                          - value: "Simple"
-                            description: "Simple"
-                          - value: "NodePort"
-                            description: "NodePort"
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "LoadBalancer"
-                            description: "LoadBalancer"
+                          - value: Simple
+                            description: Simple
+                          - value: NodePort
+                            description: NodePort
+                          - value: ClusterIP
+                            description: ClusterIP
+                          - value: LoadBalancer
+                            description: LoadBalancer
                     - variable: loadBalancerIP
-                      label: "LoadBalancer IP"
-                      description: "LoadBalancerIP"
+                      label: LoadBalancer IP
+                      description: LoadBalancerIP
                       schema:
                         show_if: [["type", "=", "LoadBalancer"]]
                         type: string
@@ -53,60 +53,60 @@
                         default: []
                         items:
                           - variable: externalIP
-                            label: "External IP"
+                            label: External IP
                             schema:
                               type: string
                     - variable: portsList
-                      label: "Additional Service Ports"
+                      label: Additional Service Ports
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: portsListEntry
-                            label: "Custom ports"
+                            label: Custom ports
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: enabled
-                                  label: "Enable the port"
+                                  label: Enable the Port
                                   schema:
                                     type: boolean
                                     default: true
                                     hidden: true
                                 - variable: name
-                                  label: "Port Name"
+                                  label: Port Name
                                   schema:
                                     type: string
                                     default: ""
                                 - variable: protocol
-                                  label: "Port Type"
+                                  label: Port Type
                                   schema:
                                     type: string
-                                    default: "TCP"
+                                    default: TCP
                                     enum:
                                       - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
+                                        description: HTTP
+                                      - value: HTTPS
+                                        description: HTTPS
                                       - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
+                                        description: TCP
+                                      - value: UDP
+                                        description: UDP
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "This port exposes the container port on the service"
+                                  label: Target Port
+                                  description: This port exposes the container port on the service
                                   schema:
                                     type: int
                                     required: true
                                 - variable: port
-                                  label: "Container Port"
+                                  label: Container Port
                                   schema:
                                     type: int
                                     required: true
                                 - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                                  label: Node Port (Optional)
+                                  description: This port gets exposed to the node. Only considered when service type is NodePort
                                   schema:
                                     type: int
                                     min: 9000

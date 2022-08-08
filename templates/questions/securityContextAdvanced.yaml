@@ -1,11 +1,11 @@
               - variable: capabilities
-                label: "Capabilities"
+                label: Capabilities
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
                     - variable: drop
-                      label: "Drop Capability"
+                      label: Drop Capability
                       schema:
                         type: list
                         default: []
@@ -15,7 +15,7 @@
                             schema:
                               type: string
                     - variable: add
-                      label: "Add Capability"
+                      label: Add Capability
                       schema:
                         type: list
                         default: []
