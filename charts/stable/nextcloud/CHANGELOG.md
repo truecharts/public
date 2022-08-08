@@ -2,6 +2,20 @@
 
 
 
+## [nextcloud-15.2.33](https://github.com/truecharts/charts/compare/nextcloud-15.2.31...nextcloud-15.2.33) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+  ### Fix
+
+- sync client_max_body_size with PHP_UPLOAD_LIMIT ([#3383](https://github.com/truecharts/charts/issues/3383))
+
+
+
+
 ## [nextcloud-15.2.31](https://github.com/truecharts/apps/compare/nextcloud-15.2.30...nextcloud-15.2.31) (2022-07-27)
 
 ### Feat

@@ -2,6 +2,17 @@
 
 
 
+## [tinymediamanager-2.0.25](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.23...tinymediamanager-2.0.25) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [tinymediamanager-2.0.23](https://github.com/truecharts/apps/compare/tinymediamanager-2.0.22...tinymediamanager-2.0.23) (2022-07-26)
 
 ### Chore

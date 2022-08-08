@@ -13,8 +13,8 @@ dependencies:
     repository: https://charts.truecharts.org
     version: 3.0.48
 description: Your self-hosted bookmark archive. Free and open source.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/linkace
-icon: https://truecharts.org/img/chart-icons/linkace.png
+home: https://truecharts.org/docs/charts/stable/linkace
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkace.png
 keywords:
   - linkace
 kubeVersion: ">=1.16.0-0"
@@ -24,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: linkace
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/linkace
   - https://www.linkace.org/docs/
   - https://github.com/linkace/linkace
   - https://hub.docker.com/r/linkace/linkace
