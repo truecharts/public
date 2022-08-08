@@ -1,0 +1,26 @@
+image:
+  repository: bizmodeller/mymediaforalexa
+  pullPolicy: IfNotPresent
+  tag: 1.3.147.994@sha256:ae64655224139fed9a343463966164603e6f1ca19808f8d424dbf57dbf22384e
+
+service:
+  main:
+    ports:
+      main:
+        protocol: TCP
+        targetPort: 52050
+        port: 52050
+  sub:
+    ports:
+      sub:
+        protocol: TCP
+        targetPort: 52051
+        port: 52051
+
+persistence:
+  datadir:
+    enabled: true
+    mountPath: "/datadir"
+  medialibrary:
+    enabled: true
+    mountPath: "/medialibrary"
