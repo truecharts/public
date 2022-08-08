@@ -5,13 +5,14 @@ kubeVersion: ">=1.16.0-0"
 name: gotify
 description: a simple server for sending and receiving messages
 type: application
-home: "https://truecharts.org/docs/charts/stable/gotify"
+home: https://truecharts.org/docs/charts/stable/gotify
 keywords:
   - server
   - gotify
   - messages
-icon: https://truecharts.org/img/chart-icons/gotify.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gotify.png
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gotify
   - https://gotify.net/
   - https://github.com/gotify/server
   - https://hub.docker.com/r/gotify/server

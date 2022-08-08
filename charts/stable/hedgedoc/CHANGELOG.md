@@ -2,6 +2,17 @@
 
 
 
+## [hedgedoc-4.0.30](https://github.com/truecharts/charts/compare/hedgedoc-4.0.28...hedgedoc-4.0.30) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [hedgedoc-4.0.28](https://github.com/truecharts/apps/compare/hedgedoc-4.0.27...hedgedoc-4.0.28) (2022-07-29)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [synclounge-2.0.31](https://github.com/truecharts/charts/compare/synclounge-2.0.30...synclounge-2.0.31) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [synclounge-2.0.30](https://github.com/truecharts/apps/compare/synclounge-2.0.29...synclounge-2.0.30) (2022-07-27)
 
 ### Chore

@@ -12,13 +12,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "This container is based on bb12489/gui-docker &amp;amp;amp; bb12489/docker-obs.\
-  \ The OBS with NDI is incorporated into the container and can be used to stream\
-  \ your desktop. The main reason for this fork is to update the container and add\
-  \ it to the TrueNAS app store.&amp;#xD;\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/obs-ndi
-icon: https://truecharts.org/img/chart-icons/obs-ndi.png
+description: "This container is based on bb12489/gui-docker &amp;amp;amp; bb12489/docker-obs. The OBS with NDI is incorporated into the container and can be used to stream your desktop. The main reason for this fork is to update the container and add it to the TrueNAS app store.&amp;#xD;\r\n"
+home: https://truecharts.org/docs/charts/incubator/obs-ndi
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/obs-ndi.png
 keywords:
   - obs-ndi
   - GameServers
@@ -32,6 +28,7 @@ maintainers:
     url: https://truecharts.org
 name: obs-ndi
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/obs-ndi
   - https://github.com/patrickstigler/docker-obs-ndi
   - https://hub.docker.com/r/patrickstigler/obs-ndi
 type: application

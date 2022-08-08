@@ -2,6 +2,16 @@
 
 
 
+## [calibre-web-11.0.30](https://github.com/truecharts/charts/compare/calibre-web-11.0.29...calibre-web-11.0.30) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [calibre-web-11.0.29](https://github.com/truecharts/apps/compare/calibre-web-11.0.28...calibre-web-11.0.29) (2022-07-27)
 
 ### Chore

@@ -9,12 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  Webtop(https://github.com/linuxserver/gclient) - Alpine, Ubuntu, Fedora,
-  and Arch based containers containing full desktop environments in officially supported
-  flavors accessible via any modern web browser.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/webtop
-icon: https://truecharts.org/img/chart-icons/webtop.png
+description: Webtop(https://github.com/linuxserver/gclient) - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.
+home: https://truecharts.org/docs/charts/incubator/webtop
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/webtop.png
 keywords:
   - webtop
   - Tools-Utilities
@@ -25,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: webtop
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/webtop
   - https://github.com/linuxserver/gclient
   - https://github.com/orgs/linuxserver/packages/container/package/webtop
   - https://github.com/linuxserver/docker-webtop#readme
