@@ -103,7 +103,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix1) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -137,7 +137,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix2) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -171,7 +171,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix3) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -205,7 +205,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix4) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -239,7 +239,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix5) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -273,7 +273,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix6) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
