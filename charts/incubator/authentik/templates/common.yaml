@@ -8,14 +8,9 @@
 {{- include "authentik.config" . }}
 
 {{- if .Values.authentik.metrics.enabled -}}
-{{- $_ := set .Values.service.metrics "enabled" true -}}
-{{- $_ := set .Values.service.metrics.ports.metrics "enabled" true -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" ( .Values.service.metrics.ports.metrics.targetPort | quote) -}}
-{{- else -}}
-{{- $_ := set .Values.service.metrics "enabled" false -}}
-{{- $_ := set .Values.service.metrics.ports.metrics "enabled" false -}}
 {{- end -}}
 
 {{- if .Values.workerContainer.enabled -}}
@@ -28,9 +23,10 @@
 
 {{- if .Values.outposts.ldap.enable -}}
 {{- $_ := set .Values.additionalContainers "ldap" (include "authentik.ldap" . | fromYaml) -}}
-{{- (include "authentik.ldap.services.enabled" . ) -}}
-{{- else -}}
-{{- (include "authentik.ldap.services.disabled" . ) -}}
+{{/* - if .Values.outposts.ldap.metrics - */}}
+{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
+{{/* We can't define multiple ports/endpoints with annotations */}}
+{{/* - end - */}}
 {{- end -}}
 
 {{/* Render the templates */}}

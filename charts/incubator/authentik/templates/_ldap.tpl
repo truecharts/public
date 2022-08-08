@@ -50,21 +50,3 @@ startupProbe:
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
----
-{{- define "authentik.ldap.services.enabled" -}}
-{{- $_ := set .Values.service.ldap "enabled" true -}}
-{{- $_ := set .Values.service.ldap.ports.ldap1 "enabled" true -}}
-{{- $_ := set .Values.service.ldap.ports.ldap2 "enabled" true -}}
-{{- if .Values.outposts.ldap.metrics -}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{- $_ := set .Values.service.ldap.ports.metrics "enabled" true -}}
-{{- end -}}
-{{- end -}}
----
-{{- define "authentik.ldap.services.disabled" -}}
-{{- $_ := set .Values.service.ldap "enabled" false -}}
-{{- $_ := set .Values.service.ldap.ports.ldap1 "enabled" false -}}
-{{- $_ := set .Values.service.ldap.ports.ldap2 "enabled" false -}}
-{{- $_ := set .Values.service.ldap.ports.metrics "enabled" false -}}
-{{- end -}}
