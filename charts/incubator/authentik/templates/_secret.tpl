@@ -31,25 +31,25 @@ data:
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   {{/* Credentials */}}
-  {{- with .Values.authentik.creds.password -}}
+  {{- with .Values.authentik.creds.password }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
-  {{- end -}}
-  {{- with .Values.authentik.creds.token -}}
-  AUTHENTIK_BOOTSTRAP_TOKEN:  {{ . }}
-  {{- end -}}
+  {{- end }}
+  {{- with .Values.authentik.creds.token }}
+  AUTHENTIK_BOOTSTRAP_TOKEN: {{ . }}
+  {{- end }}
   {{/* Mail */}}
-  {{- with .Values.authentik.mail.host -}}
+  {{- with .Values.authentik.mail.host }}
   AUTHENTIK_EMAIL__HOST: {{ . }}
-  {{- end -}}
-  {{- with .Values.authentik.mail.user -}}
+  {{- end }}
+  {{- with .Values.authentik.mail.user }}
   AUTHENTIK_EMAIL__USERNAME: {{ . }}
-  {{- end -}}
-  {{- with .Values.authentik.mail.pass -}}
+  {{- end }}
+  {{- with .Values.authentik.mail.pass }}
   AUTHENTIK_EMAIL__PASSWORD: {{ . }}
-  {{- end -}}
-  {{- with .Values.authentik.mail.from -}}
+  {{- end }}
+  {{- with .Values.authentik.mail.from }}
   AUTHENTIK_EMAIL__FROM: {{ . }}
-  {{- end -}}
+  {{- end }}
 ---
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
@@ -60,9 +60,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with .Values.outposts.ldap.token -}}
+  {{- with .Values.outposts.ldap.token }}
   AUTHENTIK_TOKEN: {{ . }}
-  {{- end -}}
+  {{- end }}
 ---
 {{/* This secrets are loaded on geoip container */}}
 apiVersion: v1
@@ -74,17 +74,17 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Credentials */}}
-  {{- with .Values.geoip.account_id -}}
+  {{- with .Values.geoip.account_id }}
   GEOIPUPDATE_ACCOUNT_ID: {{ . }}
-  {{- end -}}
-  {{- with .Values.geoip.license_key -}}
+  {{- end }}
+  {{- with .Values.geoip.license_key }}
   GEOIPUPDATE_LICENSE_KEY: {{ . }}
-  {{- end -}}
+  {{- end }}
   {{/* Proxy */}}
-  {{- with .Values.geoip.proxy -}}
+  {{- with .Values.geoip.proxy }}
   GEOIPUPDATE_PROXY: {{ . }}
-  {{- end -}}
-  {{- with .Values.geoip.proxy_user_pass -}}
+  {{- end }}
+  {{- with .Values.geoip.proxy_user_pass }}
   GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . }}
-  {{- end -}}
-{{- end -}}
+  {{- end }}
+{{- end }}
