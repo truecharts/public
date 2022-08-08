@@ -62,3 +62,6 @@ configmap:
       VISION-DETECTION: '{{ ternary "True" "False" .Values.deepstack.vision_detection }}'
       VISION-SCENE: '{{ ternary "True" "False" .Values.deepstack.vision_scene }}'
       VISION-ENHANCE: '{{ ternary "True" "False" .Values.deepstack.vision_enhance }}'
+
+portal:
+  enabled: true

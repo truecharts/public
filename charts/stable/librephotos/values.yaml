@@ -184,3 +184,6 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+
+portal:
+  enabled: true

@@ -1,29 +1,29 @@
                     - variable: tls
-                      label: "TLS-Settings"
+                      label: TLS-Settings
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: tlsEntry
-                            label: "Host"
+                            label: Host
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: hosts
-                                  label: "Certificate Hosts"
+                                  label: Certificate Hosts
                                   schema:
                                     type: list
                                     default: []
                                     items:
                                       - variable: host
-                                        label: "Host"
+                                        label: Host
                                         schema:
                                           type: string
                                           default: ""
                                           required: true
                                 - variable: scaleCert
-                                  label: "Select TrueNAS SCALE Certificate"
+                                  label: Select TrueNAS SCALE Certificate
                                   schema:
                                     type: int
                                     $ref:
