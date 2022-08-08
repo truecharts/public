@@ -31,8 +31,12 @@ data:
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   {{/* Credentials */}}
-  AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.creds.password }}
-  AUTHENTIK_BOOTSTRAP_TOKEN:  {{ .Values.authentik.creds.token }}
+  {{- with .Values.authentik.creds.password -}}
+  AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
+  {{- end -}}
+  {{- with .Values.authentik.creds.token -}}
+  AUTHENTIK_BOOTSTRAP_TOKEN:  {{ . }}
+  {{- end -}}
   {{/* Mail */}}
   {{- with .Values.authentik.mail.host -}}
   AUTHENTIK_EMAIL__HOST: {{ . }}
