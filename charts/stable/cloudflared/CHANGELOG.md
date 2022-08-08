@@ -2,6 +2,16 @@
 
 
 
+## [cloudflared-1.0.6](https://github.com/truecharts/charts/compare/cloudflared-1.0.5...cloudflared-1.0.6) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [cloudflared-1.0.5](https://github.com/truecharts/apps/compare/cloudflared-1.0.4...cloudflared-1.0.5) (2022-07-26)
 
 ### Chore

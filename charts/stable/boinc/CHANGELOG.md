@@ -2,6 +2,17 @@
 
 
 
+## [boinc-2.0.35](https://github.com/truecharts/charts/compare/boinc-2.0.33...boinc-2.0.35) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [boinc-2.0.33](https://github.com/truecharts/apps/compare/boinc-2.0.32...boinc-2.0.33) (2022-07-26)
 
 ### Chore

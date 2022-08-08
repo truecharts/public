@@ -2,6 +2,16 @@
 
 
 
+## [cleanarr-0.0.16](https://github.com/truecharts/charts/compare/cleanarr-0.0.15...cleanarr-0.0.16) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [ts3-manager-0.0.2](https://github.com/truecharts/apps/compare/ts3-manager-0.0.1...ts3-manager-0.0.2) (2022-07-28)
 
 ### Chore

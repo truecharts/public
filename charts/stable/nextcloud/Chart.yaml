@@ -17,11 +17,9 @@ dependencies:
     repository: https://charts.truecharts.org
     version: 3.0.48
 deprecated: false
-description:
-  A private cloud server that puts the control and security of your own
-  data back into your hands.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
-icon: https://truecharts.org/img/chart-icons/nextcloud.png
+description: A private cloud server that puts the control and security of your own data back into your hands.
+home: https://truecharts.org/docs/charts/stable/nextcloud
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 keywords:
   - nextcloud
   - storage
@@ -35,6 +33,7 @@ maintainers:
     url: https://truecharts.org
 name: nextcloud
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application

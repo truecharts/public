@@ -5,11 +5,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  A self-hosted podcast manager to download episodes as soon as they become
-  live.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/podgrab
-icon: https://truecharts.org/img/chart-icons/podgrab.png
+description: A self-hosted podcast manager to download episodes as soon as they become live.
+home: https://truecharts.org/docs/charts/stable/podgrab
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/podgrab.png
 keywords:
   - podgrab
 kubeVersion: ">=1.16.0-0"
@@ -19,6 +17,7 @@ maintainers:
     url: https://truecharts.org
 name: podgrab
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/podgrab
   - https://github.com/akhilrex/podgrab
   - https://hub.docker.com/r/akhilrex/podgrab
 type: application
