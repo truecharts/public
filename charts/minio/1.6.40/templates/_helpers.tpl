@@ -60,7 +60,7 @@ Retrieve command for minio application
 {{- if .Values.distributedMode -}}
 {{- cat $arg (join " " (concat (.Values.distributedIps | default list) (.Values.extraArgs | default list))) -}}
 {{- else -}}
-{{- cat $arg ((concat (list (printf "--address ':%d'" (.Values.service.nodePort | int))) (list "/export") (.Values.extraArgs | default list)) | join " ") -}}
+{{- cat $arg ((concat (list (printf "--address ':%d'" (.Values.service.nodePort | int))) (list (printf "%s" .Values.appVolumeMounts.export.mountPath)) (.Values.extraArgs | default list)) | join " ") -}}
 {{- end -}}
 {{- end -}}
 
