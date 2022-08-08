@@ -2,6 +2,17 @@
 
 
 
+## [gitea-9.0.1](https://github.com/truecharts/charts/compare/gitea-8.0.27...gitea-9.0.1) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [gitea-8.0.27](https://github.com/truecharts/apps/compare/gitea-8.0.26...gitea-8.0.27) (2022-07-26)
 
 ### Chore

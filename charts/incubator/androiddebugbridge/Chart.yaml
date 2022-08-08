@@ -9,11 +9,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  "Control AndroidTV/FireTV devices through ADB from the Home Assistant\
-  \ Core docker image.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/androiddebugbridge
-icon: https://truecharts.org/img/chart-icons/androiddebugbridge.png
+description: "Control AndroidTV/FireTV devices through ADB from the Home Assistant Core docker image.\r\n"
+home: https://truecharts.org/docs/charts/incubator/androiddebugbridge
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/androiddebugbridge.png
 keywords:
   - androiddebugbridge
   - HomeAutomation
@@ -24,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: androiddebugbridge
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/androiddebugbridge
   - https://hub.docker.com/r/barnybbb/adb-hass-androidtv
   - https://hub.docker.com/r/barnybbb/adb-hass-androidtv/
 type: application

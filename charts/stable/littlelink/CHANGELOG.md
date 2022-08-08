@@ -2,6 +2,17 @@
 
 
 
+## [littlelink-6.0.45](https://github.com/truecharts/charts/compare/littlelink-6.0.43...littlelink-6.0.45) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [littlelink-6.0.43](https://github.com/truecharts/apps/compare/littlelink-6.0.42...littlelink-6.0.43) (2022-07-29)
 
 ### Chore

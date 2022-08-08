@@ -5,8 +5,8 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 description: PicoShare is a minimalist service that allows you to share files easily.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
-icon: https://truecharts.org/img/chart-icons/picoshare.png
+home: https://truecharts.org/docs/charts/stable/picoshare
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/picoshare.png
 keywords:
   - picoshare
 kubeVersion: ">=1.16.0-0"
@@ -16,6 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: picoshare
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
   - https://github.com/mtlynch/picoshare
   - https://hub.docker.com/r/mtlynch/picoshare
 version: 2.0.24

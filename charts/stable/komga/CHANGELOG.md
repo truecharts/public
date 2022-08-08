@@ -2,6 +2,16 @@
 
 
 
+## [komga-6.0.30](https://github.com/truecharts/charts/compare/komga-6.0.29...komga-6.0.30) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [komga-6.0.29](https://github.com/truecharts/apps/compare/komga-6.0.28...komga-6.0.29) (2022-07-29)
 
 ### Chore
