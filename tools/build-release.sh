@@ -387,7 +387,7 @@ gen_dh_cat() {
    }
 export -f gen_dh_cat
 
-# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
 # Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
@@ -529,19 +529,19 @@ copy_docs() {
     local chartversion="$4"
     echo "Copying docs for: ${chart}"
     if [ "${chartname}" == "common" ]; then
-        mkdir -p docs/apps/common || :
-        yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md 2>/dev/null || :
-        yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md 2>/dev/null || :
+        mkdir -p docs/charts/common || :
+        yes | cp -rf charts/library/common/README.md  docs/charts/common/index.md 2>/dev/null || :
+        yes | cp -rf charts/library/common/helm-values.md  docs/charts/common/helm-values.md 2>/dev/null || :
     else
-        mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
-        yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/security.md docs/apps/${train}/${chartname}/security.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
-        rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        mkdir -p docs/charts/${train}/${chartname} || echo "chart path already exists, continuing..."
+        yes | cp -rf ${chart}/README.md docs/charts/${train}/${chartname}/index.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CHANGELOG.md docs/charts/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/security.md docs/charts/${train}/${chartname}/security.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CONFIG.md docs/charts/${train}/${chartname}/CONFIG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/helm-values.md docs/charts/${train}/${chartname}/helm-values.md 2>/dev/null || :
+        rm docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        yes | cp -rf ${chart}/LICENSE docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        sed -i '1s/^/# License<br>\n\n/' docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
     fi
     }
     export -f copy_docs
@@ -564,7 +564,7 @@ clean_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Cleaning SCALE catalog for App: ${chartname}"
+    echo "Cleaning SCALE catalog for Chart: ${chartname}"
     rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
     rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
@@ -576,7 +576,7 @@ patch_apps() {
     local train="$3"
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
-    echo "Applying SCALE patches for App: ${chartname}"
+    echo "Applying SCALE patches for Chart: ${chartname}"
     sed -i '100,$ d' ${target}/CHANGELOG.md || :
     mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
@@ -594,7 +594,7 @@ patch_apps() {
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
-    echo "This App is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
+    echo "This Chart is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
 }
 export -f patch_apps
 
@@ -603,7 +603,7 @@ copy_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Copying App to Catalog: ${2}"
+    echo "Copying Chart to Catalog: ${2}"
     mkdir -p catalog/${train}/${chartname}/${chartversion}
     cp -Rf ${chart}/* catalog/${train}/${chartname}/${chartversion}/
 
@@ -624,7 +624,7 @@ upload_catalog() {
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
     git add --all
-    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
     git push
     cd -
     rm -rf catalog
@@ -637,7 +637,7 @@ upload_dhcatalog() {
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
     git add --all
-    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
     git push
     cd -
     rm -rf dh_catalog
@@ -732,8 +732,8 @@ parse_command_line() {
     fi
 
     if [[ -z "$repo" ]]; then
-        echo "No repo configured, defaulting to apps" >&2
-        repo="apps"
+        echo "No repo configured, defaulting to charts" >&2
+        repo="charts"
     fi
 
     if [[ -z "$charts_repo_url" ]]; then
