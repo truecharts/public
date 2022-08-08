@@ -2,6 +2,17 @@
 
 
 
+## [jackett-11.0.54](https://github.com/truecharts/charts/compare/jackett-11.0.52...jackett-11.0.54) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [jackett-11.0.52](https://github.com/truecharts/apps/compare/jackett-11.0.51...jackett-11.0.52) (2022-07-29)
 
 ### Chore

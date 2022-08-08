@@ -2,6 +2,16 @@
 
 
 
+## [firefox-2.0.23](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.15...firefox-2.0.23) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [firefox-2.0.22](https://github.com/truecharts/apps/compare/firefox-desktop-g3-0.0.13...firefox-2.0.22) (2022-07-26)
 
 ### Chore

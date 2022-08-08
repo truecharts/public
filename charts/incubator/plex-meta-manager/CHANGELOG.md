@@ -2,6 +2,16 @@
 
 
 
+## [plex-meta-manager-0.0.13](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.12...plex-meta-manager-0.0.13) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [plex-meta-manager-0.0.12](https://github.com/truecharts/apps/compare/plex-meta-manager-0.0.11...plex-meta-manager-0.0.12) (2022-07-26)
 
 ### Chore

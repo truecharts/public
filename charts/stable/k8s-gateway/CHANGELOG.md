@@ -2,6 +2,16 @@
 
 
 
+## [k8s-gateway-6.1.9](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.8...k8s-gateway-6.1.9) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [k8s-gateway-6.1.8](https://github.com/truecharts/apps/compare/k8s-gateway-6.1.7...k8s-gateway-6.1.8) (2022-07-26)
 
 ### Chore
