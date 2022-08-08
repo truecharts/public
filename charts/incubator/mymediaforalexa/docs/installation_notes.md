@@ -1,3 +1,3 @@
 # Installation Notes
 
-- Set `medialibrary` to hostpath(simple) and mount it to your media library.
+- Set `medialibrary` to Host Path(Simple) and mount it to your media library.
