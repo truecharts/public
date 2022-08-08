@@ -7,7 +7,6 @@ portals:
     path: "/metrics"
 questions:
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -19,6 +18,7 @@ questions:
           description: "Chrome"
         - value: "imagePuppeteer"
           description: "Puppeteer"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}

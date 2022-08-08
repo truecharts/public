@@ -5,7 +5,6 @@ portals:
 questions:
   # Portal
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -17,6 +16,7 @@ questions:
           description: "CPU"
         - value: "imageGPU"
           description: "GPU"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}

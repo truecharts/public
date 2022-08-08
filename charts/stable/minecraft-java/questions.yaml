@@ -4,7 +4,6 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -22,6 +21,7 @@ questions:
           description: "Java 8 HotSpot"
         - value: "j8j9Image"
           description: "Java 8 OpenJ9"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}

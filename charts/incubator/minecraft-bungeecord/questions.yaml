@@ -2,7 +2,6 @@
 portals: {}
 questions:
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -18,6 +17,7 @@ questions:
           description: "Java 11"
         - value: "j8Image"
           description: "Java 8"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}

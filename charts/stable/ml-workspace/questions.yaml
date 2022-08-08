@@ -4,7 +4,6 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -24,6 +23,7 @@ questions:
           description: "Spark"
         - value: "imageR"
           description: "R"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}

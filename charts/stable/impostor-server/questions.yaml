@@ -4,7 +4,6 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
   - variable: imageSelector
     group: "Container Image"
     label: "Select Image"
@@ -16,6 +15,7 @@ questions:
           description: "Stable"
         - value: "nightlyImage"
           description: "Nightly"
+# Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
