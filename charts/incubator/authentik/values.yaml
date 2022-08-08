@@ -26,7 +26,7 @@ workerContainer:
 authentik:
   creds:
     password: "supersecret"
-    token : "supersecretapitoken"
+    token: "supersecretapitoken"
   general:
     disable_update_check: false
     disable_startup_analytics: true
@@ -40,7 +40,7 @@ authentik:
     # Use single quotes for footer_links
     # TODO: test how scale behaves
     # eg footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
-    footer_links: ''
+    footer_links: "''"
   mail:
     host: ""
     port: 25
