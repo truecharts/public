@@ -15,10 +15,10 @@ envFrom:
 ports:
   - containerPort: 3389
   - containerPort: 6636
-{{- if .Values.outposts.ldap.metrics -}}
+{{ if .Values.outposts.ldap.metrics }}
   - containerPort: 9300
     name: metrics
-{{- end -}}
+{{ end }}
 readinessProbe:
   exec:
     command:
