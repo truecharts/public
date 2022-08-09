@@ -129,8 +129,8 @@ initContainers:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
-      runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-      runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
+      runAsUser: "{{ .Values.podSecurityContext.runAsUser }}"
+      runAsGroup: "{{ .Values.podSecurityContext.runAsGroup }}"
       runAsNonRoot: true
     volumeMounts:
       - name: data
