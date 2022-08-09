@@ -2,6 +2,15 @@
 
 
 
+## [leantime-4.0.32](https://github.com/truecharts/charts/compare/leantime-4.0.31...leantime-4.0.32) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [leantime-4.0.31](https://github.com/truecharts/charts/compare/leantime-4.0.30...leantime-4.0.31) (2022-08-09)
 
 ### Chore

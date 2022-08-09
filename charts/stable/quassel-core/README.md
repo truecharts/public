@@ -1,6 +1,6 @@
 # quassel-core
 
-![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.14.0](https://img.shields.io/badge/AppVersion-0.14.0-informational?style=flat-square)
+![Version: 3.0.25](https://img.shields.io/badge/Version-3.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.14.0](https://img.shields.io/badge/AppVersion-0.14.0-informational?style=flat-square)
 
 Quassel-core is a modern, cross-platform, distributed IRC client.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.50 |
+| https://charts.truecharts.org/ | postgresql | 8.0.52 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart

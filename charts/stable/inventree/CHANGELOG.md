@@ -2,6 +2,15 @@
 
 
 
+## [inventree-3.0.38](https://github.com/truecharts/charts/compare/inventree-3.0.37...inventree-3.0.38) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [inventree-3.0.37](https://github.com/truecharts/charts/compare/inventree-3.0.36...inventree-3.0.37) (2022-08-09)
 
 ### Chore

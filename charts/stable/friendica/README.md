@@ -1,6 +1,6 @@
 # friendica
 
-![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![AppVersion: 2022.06](https://img.shields.io/badge/AppVersion-2022.06-informational?style=flat-square)
+![Version: 4.0.36](https://img.shields.io/badge/Version-4.0.36-informational?style=flat-square) ![AppVersion: 2022.06](https://img.shields.io/badge/AppVersion-2022.06-informational?style=flat-square)
 
 Welcome to the free social web
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.49 |
-| https://charts.truecharts.org | redis | 3.0.48 |
+| https://charts.truecharts.org/ | mariadb | 3.0.50 |
+| https://charts.truecharts.org | redis | 3.0.50 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart
