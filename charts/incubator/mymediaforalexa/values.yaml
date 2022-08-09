@@ -18,8 +18,10 @@ service:
         targetPort: 52050
         port: 52050
   sub:
+    enabled: true
     ports:
       sub:
+        enabled: true
         targetPort: 52051
         port: 52051
 
