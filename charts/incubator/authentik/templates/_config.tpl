@@ -37,7 +37,9 @@ data:
   AUTHENTIK_ERROR_REPORTING__SEND_PII: {{ .Values.authentik.error_reporting.send_pii | quote }}
   AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: {{ .Values.authentik.error_reporting.environment }}
   {{/* LDAP */}}
-  AUTHENTIK_LDAP__TLS__CIPHERS: {{ .Values.authentik.ldap.tls_ciphers }}
+  {{- with .Values.authentik.ldap.tls_ciphers}}
+  AUTHENTIK_LDAP__TLS__CIPHERS: {{ . }}
+  {{- end }}
   {{/* Metrics */}}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort }}
 ---
