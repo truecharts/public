@@ -1,23 +1,23 @@
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rickroll
+  pullPolicy: IfNotPresent
   tag: latest@sha256:0dac223d148af2b858316ba3bd28466e35d91b724541420439170d2055c70148
 imagefhd:
+  repository: tccr.io/truecharts/rickroll-fhd
   pullPolicy: IfNotPresent
-  repository: modem7/docker-rickroll
-  tag: 1080@sha256:5558c91c535a2b048cc0832150aae835d38f395ad131dabbae0eb0ac307f59c9
+  tag: latest@sha256:e9fa8994f11ec9143ba3d8cff5e5ae454a069acf71e0f614dcbe12eb0b9fc541
 imagefhdgame:
+  repository: tccr.io/truecharts/rickroll-fhd-game
   pullPolicy: IfNotPresent
-  repository: modem7/docker-rickroll
-  tag: 1080game@sha256:90f481c6b5e00f138b96aeb147cd4ed9976fb313c55474e8ec2aaf21fb4ebc9e
+  tag: latest@sha256:6290d3022f6969ce64278aef10a8bf4ad84b2c4438f43d6fe4366862b250be9c
 imagefhdonclick:
+  repository: tccr.io/truecharts/rickroll-fhd-onclick
   pullPolicy: IfNotPresent
-  repository: modem7/docker-rickroll
-  tag: 1080onclick@sha256:67ca402a9cd0dd41ba0f17401fe5b054e97547dbb92d5b75ad3e874f416e6d26
+  tag: latest@sha256:d99dba2a6f73426d6404d9ef3bdeeb2af4440d98f039f8614260aa7d7ecfeaa2
 imageonclick:
+  repository: tccr.io/truecharts/rickroll-onclick
   pullPolicy: IfNotPresent
-  repository: modem7/docker-rickroll
-  tag: onclick@sha256:24fbd0ff2e9ba257cb5ea63e10c528c5486c8c3bf3c5dd3398322f861d975d7b
+  tag: latest@sha256:8b3c9444e7ac
 
 imageSelector: "image"
 
