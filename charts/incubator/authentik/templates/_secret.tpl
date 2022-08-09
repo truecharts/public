@@ -1,9 +1,9 @@
 {{/* Define the secret */}}
 {{- define "authentik.secret" -}}
 
-{{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.common.names.fullname" .) }}
-{{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
-{{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
+{{- $authentikSecretName := "authentik-authentik-secret" (include "tc.common.names.fullname" .) }}
+{{- $geoipSecretName := "authentik-geoip-secret" (include "tc.common.names.fullname" .) }}
+{{- $ldapSecretName := "authentik-ldap-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
