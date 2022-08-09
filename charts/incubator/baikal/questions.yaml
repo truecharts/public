@@ -32,9 +32,9 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 80
+                              default: 10293
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
@@ -48,7 +48,7 @@ questions:
 # Include{persistenceRoot}
         - variable: config
           label: "config Storage"
-          description: "Container Path varwwwbaikalconfig"
+          description: "config Storage"
           schema:
             additional_attrs: true
             type: dict
@@ -57,7 +57,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: specific
           label: "specific Storage"
-          description: "Container Path varwwwbaikalSpecific"
+          description: "specific Storage"
           schema:
             additional_attrs: true
             type: dict

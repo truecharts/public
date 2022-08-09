@@ -1,22 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
-    - Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.9
+    version: 10.4.8
 deprecated: false
-description: Flame is self-hosted startpage for your server. Easily manage your apps and bookmarks with built-in editors.
-home: https://truecharts.org/docs/charts/incubator/flame
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/flame.png
+description: Flame is self-hosted start page for your server. Easily manage your apps and bookmarks with built-in editors.
+home: https://github.com/truecharts/charts/tree/master/charts/incubator/flame
+icon: https://truecharts.org/img/chart-icons/flame.png
 keywords:
   - flame
-  - Tools-Utilities
-  - Network-Web
+  - dashboard
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -28,4 +22,8 @@ sources:
   - https://github.com/pawelmalak/flame
   - https://hub.docker.com/r/pawelmalak/flame
 type: application
-version: 0.0.15
+version: 0.0.17
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - utilities
