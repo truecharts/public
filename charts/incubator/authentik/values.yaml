@@ -16,6 +16,9 @@ ldapImage:
 
 extraArgs: ["server"]
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000

@@ -21,7 +21,7 @@
 {{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
 {{- end -}}
 
-{{- if .Values.outposts.ldap.enable -}}
+{{- if .Values.outposts.ldap.enabled -}}
 {{- $_ := set .Values.additionalContainers "ldap" (include "authentik.ldap" . | fromYaml) -}}
 {{/* - if .Values.outposts.ldap.metrics - */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
