@@ -15,7 +15,6 @@ service:
   main:
     ports:
       main:
-        enabled: true
         targetPort: 52051
         port: 52051
   sub:
