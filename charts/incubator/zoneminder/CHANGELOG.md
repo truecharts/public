@@ -2,6 +2,15 @@
 
 
 
+## [zoneminder-0.0.16](https://github.com/truecharts/charts/compare/zoneminder-0.0.15...zoneminder-0.0.16) (2022-08-09)
+
+### Fix
+
+- Add path for open button ([#3409](https://github.com/truecharts/charts/issues/3409))
+
+
+
+
 ## [zoneminder-0.0.15](https://github.com/truecharts/charts/compare/zoneminder-0.0.14...zoneminder-0.0.15) (2022-08-08)
 
 ### Chore

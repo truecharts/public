@@ -2,6 +2,15 @@
 
 
 
+## [flaresolverr-6.0.26](https://github.com/truecharts/charts/compare/flaresolverr-6.0.25...flaresolverr-6.0.26) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [flaresolverr-6.0.25](https://github.com/truecharts/charts/compare/flaresolverr-6.0.24...flaresolverr-6.0.25) (2022-08-08)
 
 ### Chore

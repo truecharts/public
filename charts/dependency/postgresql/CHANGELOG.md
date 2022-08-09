@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.52](https://github.com/truecharts/charts/compare/postgresql-8.0.51...postgresql-8.0.52) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [redis-3.0.49](https://github.com/truecharts/charts/compare/redis-3.0.48...redis-3.0.49) (2022-08-08)
 
 ### Chore

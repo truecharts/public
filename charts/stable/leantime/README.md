@@ -1,6 +1,6 @@
 # leantime
 
-![Version: 4.0.30](https://img.shields.io/badge/Version-4.0.30-informational?style=flat-square) ![AppVersion: 2.2.3](https://img.shields.io/badge/AppVersion-2.2.3-informational?style=flat-square)
+![Version: 4.0.31](https://img.shields.io/badge/Version-4.0.31-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
 
 Straightforward open source project management system to make your ideas reality.
 

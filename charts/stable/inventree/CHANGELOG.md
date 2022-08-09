@@ -2,6 +2,15 @@
 
 
 
+## [inventree-3.0.37](https://github.com/truecharts/charts/compare/inventree-3.0.36...inventree-3.0.37) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [inventree-3.0.36](https://github.com/truecharts/charts/compare/inventree-3.0.35...inventree-3.0.36) (2022-08-08)
 
 ### Chore

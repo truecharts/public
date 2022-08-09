@@ -1,6 +1,6 @@
 # inventree
 
-![Version: 3.0.36](https://img.shields.io/badge/Version-3.0.36-informational?style=flat-square) ![AppVersion: 0.7.7](https://img.shields.io/badge/AppVersion-0.7.7-informational?style=flat-square)
+![Version: 3.0.37](https://img.shields.io/badge/Version-3.0.37-informational?style=flat-square) ![AppVersion: 0.8.0](https://img.shields.io/badge/AppVersion-0.8.0-informational?style=flat-square)
 
 InvenTree is an open-source Inventory Management System which provides powerful low-level stock control and part tracking.
 

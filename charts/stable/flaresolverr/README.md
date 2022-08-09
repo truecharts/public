@@ -1,6 +1,6 @@
 # flaresolverr
 
-![Version: 6.0.25](https://img.shields.io/badge/Version-6.0.25-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 6.0.26](https://img.shields.io/badge/Version-6.0.26-informational?style=flat-square) ![AppVersion: 2.2.6](https://img.shields.io/badge/AppVersion-2.2.6-informational?style=flat-square)
 
 FlareSolverr is a proxy server to bypass Cloudflare protection
 

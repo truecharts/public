@@ -2,6 +2,15 @@
 
 
 
+## [rsshub-3.0.59](https://github.com/truecharts/charts/compare/rsshub-3.0.58...rsshub-3.0.59) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [rsshub-3.0.58](https://github.com/truecharts/charts/compare/rsshub-3.0.56...rsshub-3.0.58) (2022-08-08)
 
 ### Chore

@@ -1,6 +1,6 @@
 # anonaddy
 
-![Version: 9.0.32](https://img.shields.io/badge/Version-9.0.32-informational?style=flat-square) ![AppVersion: 0.12.3](https://img.shields.io/badge/AppVersion-0.12.3-informational?style=flat-square)
+![Version: 9.0.33](https://img.shields.io/badge/Version-9.0.33-informational?style=flat-square) ![AppVersion: 0.13.3](https://img.shields.io/badge/AppVersion-0.13.3-informational?style=flat-square)
 
 Protect your email from spam using disposable addresses.
 
