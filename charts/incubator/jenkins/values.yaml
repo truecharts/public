@@ -1,0 +1,34 @@
+image:
+  repository: tccr.io/truecharts/jenkins
+  pullPolicy: IfNotPresent
+  tag: v2.362@sha256:b8b98adf94dc861b556bee88d8ea958162abdde4c041d9689de4406ecfae0d20
+
+podSecurityContext:
+  runAsGroup: 1000
+  runAsUser: 1000
+  fsGroup: 1000
+
+env:
+  JENKINS_JAVA_OPTS: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 10280
+        targetPort: 8080
+  agent:
+    enabled: true
+    ports:
+      agent:
+        enabled: true
+        port: 50000
+        targetPort: 50000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/jenkins_home
+
+portal:
+  enabled: true

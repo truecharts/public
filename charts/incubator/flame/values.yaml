@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.3.0@sha256:47efacdbe12bb2697889aa1f67be324c70fb4ea2c687164edbc215dc4485e819
 
-secretEnv:
-  PASSWORD: flame_password
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
@@ -13,6 +10,9 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  PASSWORD: flame_password
 
 env:
   enable_integration: true
