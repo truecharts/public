@@ -128,6 +128,10 @@ initContainers:
   init-migrate:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    securityContext:
+      runAsUser: {{ .Values.podSecurityContext.runAsUser }}
+      runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
+      runAsNonRoot: true
     volumeMounts:
       - name: data
         mountPath: "/home/inventree/data"
