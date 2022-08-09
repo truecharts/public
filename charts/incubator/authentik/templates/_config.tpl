@@ -17,6 +17,8 @@ data:
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__PORT: "5432"
   AUTHENTIK_REDIS__PORT: "6379"
+  AUTHENTIK_POSTGRESQL__NAME: {{ .Values.postgresql.postgresqlDatabase }}
+  AUTHENTIK_POSTGRESQL__USER: {{ .Values.postgresql.postgresqlUsername }}
   {{/* Mail */}}
   AUTHENTIK_EMAIL__PORT: {{ .Values.authentik.mail.port | quote }}
   AUTHENTIK_EMAIL__USE_TLS: {{ .Values.authentik.mail.tls | quote }}

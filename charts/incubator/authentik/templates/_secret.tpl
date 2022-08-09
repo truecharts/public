@@ -22,8 +22,6 @@ data:
   AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
   {{/* Dependencies */}}
-  AUTHENTIK_POSTGRESQL__NAME: {{ .Values.postgresql.postgresqlDatabase }}
-  AUTHENTIK_POSTGRESQL__USER: {{ .Values.postgresql.postgresqlUsername }}
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
