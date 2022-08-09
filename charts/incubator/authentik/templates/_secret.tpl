@@ -16,7 +16,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: "PLACEHOLDER"
+  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
   AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
@@ -24,29 +24,27 @@ data:
   AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
   {{/* Dependencies */}}
-  AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-  AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{/* Credentials */}}
   {{- with .Values.authentik.creds.password }}
-  AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
+  AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.authentik.creds.token }}
-  AUTHENTIK_BOOTSTRAP_TOKEN: {{ . }}
+  AUTHENTIK_BOOTSTRAP_TOKEN: {{ . | b64enc }}
   {{- end }}
   {{/* Mail */}}
   {{- with .Values.authentik.mail.host }}
-  AUTHENTIK_EMAIL__HOST: {{ . }}
+  AUTHENTIK_EMAIL__HOST: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.authentik.mail.user }}
-  AUTHENTIK_EMAIL__USERNAME: {{ . }}
+  AUTHENTIK_EMAIL__USERNAME: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.authentik.mail.pass }}
-  AUTHENTIK_EMAIL__PASSWORD: {{ . }}
+  AUTHENTIK_EMAIL__PASSWORD: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.authentik.mail.from }}
-  AUTHENTIK_EMAIL__FROM: {{ . }}
+  AUTHENTIK_EMAIL__FROM: {{ . | b64enc }}
   {{- end }}
 ---
 {{/* This secrets are loaded on ldap container */}}
@@ -59,9 +57,9 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: "PLACEHOLDER"
+  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{- with .Values.outposts.ldap.token }}
-  AUTHENTIK_TOKEN: {{ . }}
+  AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
 ---
 {{/* This secrets are loaded on geoip container */}}
@@ -74,19 +72,19 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: "PLACEHOLDER"
+  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{/* Credentials */}}
   {{- with .Values.geoip.account_id }}
-  GEOIPUPDATE_ACCOUNT_ID: {{ . }}
+  GEOIPUPDATE_ACCOUNT_ID: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.geoip.license_key }}
-  GEOIPUPDATE_LICENSE_KEY: {{ . }}
+  GEOIPUPDATE_LICENSE_KEY: {{ . | b64enc }}
   {{- end }}
   {{/* Proxy */}}
   {{- with .Values.geoip.proxy }}
-  GEOIPUPDATE_PROXY: {{ . }}
+  GEOIPUPDATE_PROXY: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.geoip.proxy_user_pass }}
-  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . }}
+  GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . | b64enc }}
   {{- end }}
 {{- end }}
