@@ -25,7 +25,9 @@ data:
   {{- end }}
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
+  AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
+  AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{/* Credentials */}}
   {{- with .Values.authentik.creds.password }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
