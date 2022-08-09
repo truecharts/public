@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.50
+    version: 8.0.52
   - condition: clickhouse.enabled
     name: clickhouse
     repository: https://charts.truecharts.org/
@@ -33,7 +33,7 @@ sources:
   - https://github.com/plausible/hosting
   - https://hub.docker.com/r/plausible/analytics
 type: application
-version: 1.0.6
+version: 1.0.7
 annotations:
   truecharts.org/catagories: |
     - analytics
