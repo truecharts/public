@@ -2,6 +2,15 @@
 
 
 
+## [filezilla-4.0.28](https://github.com/truecharts/charts/compare/filezilla-4.0.27...filezilla-4.0.28) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [filezilla-4.0.27](https://github.com/truecharts/charts/compare/filezilla-4.0.26...filezilla-4.0.27) (2022-08-08)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [plausible-1.0.7](https://github.com/truecharts/charts/compare/plausible-1.0.6...plausible-1.0.7) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [plausible-1.0.6](https://github.com/truecharts/charts/compare/plausible-1.0.5...plausible-1.0.6) (2022-08-08)
 
 ### Chore

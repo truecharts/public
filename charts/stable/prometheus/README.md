@@ -1,6 +1,6 @@
 # prometheus
 
-![Version: 4.0.55](https://img.shields.io/badge/Version-4.0.55-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
+![Version: 4.0.57](https://img.shields.io/badge/Version-4.0.57-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
 
 kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | kube-state-metrics | 3.1.5 |
+| https://charts.bitnami.com/bitnami | kube-state-metrics | 3.1.6 |
 | https://charts.bitnami.com/bitnami | node-exporter | 3.0.8 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 

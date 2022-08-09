@@ -2,6 +2,15 @@
 
 
 
+## [ferdi-server-3.0.26](https://github.com/truecharts/charts/compare/ferdi-server-3.0.25...ferdi-server-3.0.26) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [ferdi-server-3.0.25](https://github.com/truecharts/charts/compare/ferdi-server-3.0.24...ferdi-server-3.0.25) (2022-08-08)
 
 ### Chore

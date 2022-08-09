@@ -2,6 +2,15 @@
 
 
 
+## [xwiki-3.0.32](https://github.com/truecharts/charts/compare/xwiki-3.0.31...xwiki-3.0.32) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [xwiki-3.0.31](https://github.com/truecharts/charts/compare/xwiki-3.0.30...xwiki-3.0.31) (2022-08-08)
 
 ### Chore

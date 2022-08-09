@@ -2,6 +2,19 @@
 
 
 
+## [obsidian-0.0.17](https://github.com/truecharts/charts/compare/obsidian-0.0.15...obsidian-0.0.17) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+  ### Fix
+
+- cleanup ([#3387](https://github.com/truecharts/charts/issues/3387))
+
+
+
+
 ## [obsidian-0.0.15](https://github.com/truecharts/charts/compare/obsidian-0.0.14...obsidian-0.0.15) (2022-08-08)
 
 ### Chore

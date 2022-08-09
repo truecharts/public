@@ -1,6 +1,6 @@
 # authelia
 
-![Version: 11.0.32](https://img.shields.io/badge/Version-11.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.36.3](https://img.shields.io/badge/AppVersion-4.36.3-informational?style=flat-square)
+![Version: 11.0.33](https://img.shields.io/badge/Version-11.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.36.3](https://img.shields.io/badge/AppVersion-4.36.3-informational?style=flat-square)
 
 Authelia is a Single Sign-On Multi-Factor portal for web apps
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.50 |
-| https://charts.truecharts.org | redis | 3.0.48 |
+| https://charts.truecharts.org/ | postgresql | 8.0.52 |
+| https://charts.truecharts.org | redis | 3.0.50 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart

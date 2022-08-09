@@ -2,6 +2,15 @@
 
 
 
+## [kavita-2.0.26](https://github.com/truecharts/charts/compare/kavita-2.0.25...kavita-2.0.26) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [kavita-2.0.25](https://github.com/truecharts/charts/compare/kavita-2.0.24...kavita-2.0.25) (2022-08-08)
 
 ### Chore

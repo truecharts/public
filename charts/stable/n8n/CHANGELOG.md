@@ -2,6 +2,15 @@
 
 
 
+## [n8n-4.0.37](https://github.com/truecharts/charts/compare/n8n-4.0.36...n8n-4.0.37) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [n8n-4.0.36](https://github.com/truecharts/charts/compare/n8n-4.0.35...n8n-4.0.36) (2022-08-08)
 
 ### Chore

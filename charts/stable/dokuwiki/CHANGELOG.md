@@ -2,6 +2,15 @@
 
 
 
+## [dokuwiki-3.0.43](https://github.com/truecharts/charts/compare/dokuwiki-3.0.42...dokuwiki-3.0.43) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [dokuwiki-3.0.42](https://github.com/truecharts/charts/compare/dokuwiki-3.0.40...dokuwiki-3.0.42) (2022-08-08)
 
 ### Chore

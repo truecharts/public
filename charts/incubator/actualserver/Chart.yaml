@@ -1,20 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: "1.0.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description: "Actual is a super fast privacy-focused app for managing your finances. You own your data and it will sync it across all devices with optional end-to-end encryption..\r\n"
+description: "Actual is a super fast privacy-focused app for managing your finances."
 home: https://truecharts.org/docs/charts/incubator/actualserver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/actualserver.png
 keywords:
   - actualserver
-  - Other
+  - finance
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -26,4 +22,8 @@ sources:
   - https://github.com/Kippenhof/docker-templates
   - https://hub.docker.com/r/kippenhof/actual-server
 type: application
-version: 0.0.15
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - finance
+version: 0.0.17

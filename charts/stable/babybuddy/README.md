@@ -1,6 +1,6 @@
 # babybuddy
 
-![Version: 8.0.35](https://img.shields.io/badge/Version-8.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.12.0](https://img.shields.io/badge/AppVersion-1.12.0-informational?style=flat-square)
+![Version: 8.0.36](https://img.shields.io/badge/Version-8.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.12.0](https://img.shields.io/badge/AppVersion-1.12.0-informational?style=flat-square)
 
 Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.50 |
+| https://charts.truecharts.org/ | postgresql | 8.0.52 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart

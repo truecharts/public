@@ -2,6 +2,28 @@
 
 
 
+## [nextcloud-15.2.35](https://github.com/truecharts/charts/compare/nextcloud-15.2.34...nextcloud-15.2.35) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [nextcloud-15.2.34](https://github.com/truecharts/charts/compare/nextcloud-15.2.33...nextcloud-15.2.34) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+  ### Fix
+
+- Imaginary widescreen image preview fix ([#3401](https://github.com/truecharts/charts/issues/3401))
+
+
+
+
 ## [nextcloud-15.2.33](https://github.com/truecharts/charts/compare/nextcloud-15.2.31...nextcloud-15.2.33) (2022-08-08)
 
 ### Chore

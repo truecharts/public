@@ -21,10 +21,11 @@ questions:
       attrs:
         - variable: ADVERTISE_IP
           label: "Advertise IP"
-          description: "IP to advertise to Plex"
+          description: "IP to advertise to Plex, Change SERVER_IP to your actual server IP"
           schema:
             type: string
-            default: ""
+            valid_chars: '^http(s)?:\/\/.*:\d*$'
+            default: "http://SERVER_IP:32400"
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
           description: "Networks allowed to connect to plex. Add your local network IP to this list"

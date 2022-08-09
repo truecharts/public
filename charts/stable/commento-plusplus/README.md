@@ -1,6 +1,6 @@
 # commento-plusplus
 
-![Version: 3.0.27](https://img.shields.io/badge/Version-3.0.27-informational?style=flat-square) ![AppVersion: 1.8.7](https://img.shields.io/badge/AppVersion-1.8.7-informational?style=flat-square)
+![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![AppVersion: 1.8.7](https://img.shields.io/badge/AppVersion-1.8.7-informational?style=flat-square)
 
 Commento++ is a free, open source, fast & lightweight comments box that you can embed in your static website instead of Disqus.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.50 |
+| https://charts.truecharts.org/ | postgresql | 8.0.52 |
 | https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart

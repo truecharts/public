@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-0.0.25](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.24...youtubedl-material-0.0.25) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
 ## [youtubedl-material-0.0.24](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.23...youtubedl-material-0.0.24) (2022-08-08)
 
 ### Chore

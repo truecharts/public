@@ -2,6 +2,24 @@
 
 
 
+## [monica-3.0.36](https://github.com/truecharts/charts/compare/monica-3.0.35...monica-3.0.36) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [monica-3.0.35](https://github.com/truecharts/charts/compare/monica-3.0.34...monica-3.0.35) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
 ## [monica-3.0.34](https://github.com/truecharts/charts/compare/monica-3.0.33...monica-3.0.34) (2022-08-08)
 
 ### Chore
