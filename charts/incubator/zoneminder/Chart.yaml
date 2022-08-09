@@ -1,10 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - HomeAutomation
-    - MediaApp-Video
-    - MediaServer-Video
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -17,10 +10,10 @@ home: https://github.com/truecharts/charts/tree/master/charts/incubator/zonemind
 icon: https://truecharts.org/img/chart-icons/zoneminder.png
 keywords:
   - zoneminder
-  - HomeAutomation
-  - MediaApp-Video
-  - MediaServer-Video
-  - Tools-Utilities
+  - home
+  - automation
+  - cctv
+  - utilities
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -33,3 +26,8 @@ sources:
   - https://hub.docker.com/r/dlandon/zoneminder.TrueNAS/
 type: application
 version: 0.0.16
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - utilities
+    - cctv
