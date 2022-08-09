@@ -20,7 +20,7 @@ questions:
       attrs:
         - variable: VIKUNJA_SERVICE_FRONTENDURL
           label: "VIKUNJA_SERVICE_FRONTENDURL"
-          description: "The URL of the frontend, used to send password reset emails. eg. https://vikunjka.example.com"
+          description: "The URL of the frontend, used to send password reset emails. eg. https://vikunjka.example.com (default service port is 10220)"
           schema:
             type: string
             required: true
