@@ -56,7 +56,7 @@ data:
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
   {{/* Metrics */}}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
 ---
 {{/* This configmap is loaded on ldap container */}}
 apiVersion: v1
