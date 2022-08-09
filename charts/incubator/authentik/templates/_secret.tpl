@@ -15,8 +15,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
   AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
@@ -27,10 +25,10 @@ data:
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{/* Credentials */}}
-  {{- with .Values.authentik.creds.password }}
+  {{- with .Values.authentik.credentials.password }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . | b64enc }}
   {{- end }}
-  {{- with .Values.authentik.creds.token }}
+  {{- with .Values.authentik.credentials.token }}
   AUTHENTIK_BOOTSTRAP_TOKEN: {{ . | b64enc }}
   {{- end }}
   {{/* Mail */}}
@@ -56,7 +54,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* Placeholder in case of empty secret */}}
   {{- with .Values.outposts.ldap.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
@@ -70,8 +67,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{/* Credentials */}}
   {{- with .Values.geoip.account_id }}
   GEOIPUPDATE_ACCOUNT_ID: {{ . | b64enc }}
