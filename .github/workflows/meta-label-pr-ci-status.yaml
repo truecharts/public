@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@6765a42d86407a3d532749069ac03705ad82ebc6 # tag=v2.21.1
+        uses: dawidd6/action-download-artifact@ea71f332a90fd52416b1629b933dcf7e0ccd421d # tag=v2.22.0
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
           workflow: pr-validate.yaml
