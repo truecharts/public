@@ -32,22 +32,70 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8585
+                              default: 10292
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
                                     default: 8080
+        - variable: api
+          label: "API Service"
+          description: "API Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: http
+                      label: "http Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 27123
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 27123
+                    - variable: https
+                      label: "https Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 27124
+                              required: true
+# Include{advancedPortHTTPS}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 27124
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: storagevaults
-          label: "storagevaults Storage"
+        - variable: vaults
+          label: "vaults Storage"
           description: "This is the location for the users vaults."
           schema:
             additional_attrs: true
@@ -55,8 +103,8 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: storageconfig
-          label: "storageconfig Storage"
+        - variable: config
+          label: "config Storage"
           description: "This is the location for the internal data."
           schema:
             additional_attrs: true
