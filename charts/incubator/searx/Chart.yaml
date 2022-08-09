@@ -10,12 +10,9 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.9
 deprecated: false
-description:
-  Searx is a free internet metasearch engine which aggregates results from
-  more than 70 search services. Users are neither tracked nor profiled. Additionally,
-  searx can be used over Tor for online anonymity.
+description: Searx is a free internet metasearch engine which aggregates results from more than 70 search services. Users are neither tracked nor profiled. Additionally, searx can be used over Tor for online anonymity.
 home: https://truecharts.org/docs/charts/incubator/searx
-icon: https://truecharts.org/img/chart-icons/searx.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/searx.png
 keywords:
   - searx
   - Productivity
@@ -27,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: searx
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/searx
   - https://github.com/asciimoo/searx
   - https://hub.docker.com/r/searx/searx/
 type: application
-version: 0.0.17
+version: 0.0.18

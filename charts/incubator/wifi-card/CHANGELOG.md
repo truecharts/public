@@ -2,6 +2,16 @@
 
 
 
+## [wifi-card-0.0.16](https://github.com/truecharts/charts/compare/wifi-card-0.0.15...wifi-card-0.0.16) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [wifi-card-0.0.15](https://github.com/truecharts/apps/compare/wifi-card-0.0.14...wifi-card-0.0.15) (2022-07-29)
 
 ### Chore

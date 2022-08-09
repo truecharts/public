@@ -2,6 +2,26 @@
 
 
 
+## [searx-0.0.18](https://github.com/truecharts/charts/compare/searx-0.0.17...searx-0.0.18) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [searx-0.0.17](https://github.com/truecharts/charts/compare/searx-0.0.15...searx-0.0.17) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [searx-0.0.15](https://github.com/truecharts/apps/compare/searxng-0.0.15...searx-0.0.15) (2022-07-29)
 
 ### Chore

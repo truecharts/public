@@ -2,6 +2,25 @@
 
 
 
+## [babybuddy-8.0.36](https://github.com/truecharts/charts/compare/babybuddy-8.0.35...babybuddy-8.0.36) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [babybuddy-8.0.35](https://github.com/truecharts/charts/compare/babybuddy-8.0.34...babybuddy-8.0.35) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [babybuddy-8.0.34](https://github.com/truecharts/apps/compare/babybuddy-8.0.33...babybuddy-8.0.34) (2022-07-29)
 
 ### Chore

@@ -7,10 +7,10 @@ dependencies:
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.48
+    version: 3.0.50
 description: Grist is a modern relational spreadsheet. It combine the flexibility of a spreadsheet with the robustness of a database to organize your data.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/grist
-icon: https://truecharts.org/img/chart-icons/grist.png
+home: https://truecharts.org/docs/charts/stable/grist
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grist.png
 keywords:
   - grist
   - spreadsheet
@@ -22,10 +22,11 @@ maintainers:
     url: https://truecharts.org
 name: grist
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/grist
   - https://hub.docker.com/r/gristlabs/grist
   - https://github.com/gristlabs/grist-core
   - https://support.getgrist.com/
-version: 3.0.26
+version: 3.0.27
 annotations:
   truecharts.org/catagories: |
     - productivity

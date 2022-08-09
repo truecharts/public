@@ -1,16 +1,17 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: pydio-cells
-version: 4.0.26
+version: 4.0.27
 appVersion: "3.0.9"
 description: Pydio-cells is the nextgen file sharing platform for organizations.
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/stable/pydio-cells
-icon: https://truecharts.org/img/chart-icons/pydio-cells.png
+home: https://truecharts.org/docs/charts/stable/pydio-cells
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pydio-cells.png
 keywords:
   - pydio-cells
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pydio-cells
   - https://hub.docker.com/r/linuxserver/pydio-cells
 dependencies:
   - name: common
@@ -19,7 +20,7 @@ dependencies:
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
-    version: 3.0.49
+    version: 3.0.50
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

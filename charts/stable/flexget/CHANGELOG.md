@@ -2,6 +2,17 @@
 
 
 
+## [flexget-2.0.32](https://github.com/truecharts/charts/compare/flexget-2.0.30...flexget-2.0.32) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [flexget-2.0.30](https://github.com/truecharts/apps/compare/flexget-2.0.29...flexget-2.0.30) (2022-07-26)
 
 ### Chore

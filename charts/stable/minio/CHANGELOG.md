@@ -2,6 +2,25 @@
 
 
 
+## [minio-3.0.39](https://github.com/truecharts/charts/compare/minio-3.0.38...minio-3.0.39) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [minio-3.0.38](https://github.com/truecharts/charts/compare/minio-3.0.37...minio-3.0.38) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [minio-3.0.37](https://github.com/truecharts/apps/compare/minio-3.0.36...minio-3.0.37) (2022-07-27)
 
 ### Chore

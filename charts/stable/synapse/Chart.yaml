@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.50
+    version: 8.0.52
 deprecated: false
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
-home: https://github.com/truecharts/charts/tree/master/charts/stable/synapse
-icon: https://truecharts.org/img/chart-icons/synapse.png
+home: https://truecharts.org/docs/charts/stable/synapse
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/synapse.png
 keywords:
   - chat
   - matrix
@@ -22,9 +22,10 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 name: synapse
-sources: []
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/synapse
 type: application
-version: 4.0.29
+version: 4.0.30
 annotations:
   truecharts.org/catagories: |
     - cloud

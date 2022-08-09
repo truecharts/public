@@ -2,6 +2,16 @@
 
 
 
+## [fileflows-2.0.32](https://github.com/truecharts/charts/compare/fileflows-2.0.31...fileflows-2.0.32) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [fileflows-2.0.31](https://github.com/truecharts/apps/compare/fileflows-2.0.30...fileflows-2.0.31) (2022-07-26)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [solr-0.0.24](https://github.com/truecharts/charts/compare/solr-0.0.23...solr-0.0.24) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [solr-0.0.23](https://github.com/truecharts/apps/compare/solr-0.0.22...solr-0.0.23) (2022-07-29)
 
 ### Chore

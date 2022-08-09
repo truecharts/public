@@ -2,6 +2,25 @@
 
 
 
+## [mylar-6.0.27](https://github.com/truecharts/charts/compare/mylar-6.0.26...mylar-6.0.27) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [mylar-6.0.26](https://github.com/truecharts/charts/compare/mylar-6.0.25...mylar-6.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [mylar-6.0.25](https://github.com/truecharts/apps/compare/mylar-6.0.24...mylar-6.0.25) (2022-07-26)
 
 ### Chore

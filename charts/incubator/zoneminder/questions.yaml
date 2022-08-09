@@ -2,6 +2,7 @@
 portals:
   open:
 # Include{portalLink}
+    path: "/zm/index.php"
 questions:
 # Include{global}
 # Include{controller}
@@ -32,7 +33,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8443
+                              default: 10292
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -41,15 +42,15 @@ questions:
                                   schema:
                                     type: int
                                     default: 443
-        - variable: zmninjaeventno
-          label: 'zmninjaeventno service'
+        - variable: zmninja
+          label: 'zmninja service'
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: zmninjaeventno
-                      label: "zmninjaeventno Service Port Configuration"
+                    - variable: zmninja
+                      label: "zmninja Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -59,7 +60,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9000
+                              default: 10293
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort

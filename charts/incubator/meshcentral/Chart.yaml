@@ -1,18 +1,19 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: meshcentral
-version: 3.0.31
-appVersion: "1.0.50"
+version: 3.0.32
+appVersion: "1.0.61"
 description: MeshCentral is a full computer management web site
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/meshcentral
-icon: https://truecharts.org/img/chart-icons/meshcentral.png
+home: https://truecharts.org/docs/charts/incubator/meshcentral
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshcentral.png
 keywords:
   - meshcentral
   - teamviewer
   - rdp
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/meshcentral
   - https://github.com/Ylianst/MeshCentral
 dependencies:
   - name: common
@@ -21,7 +22,7 @@ dependencies:
   - condition: mongodb.enabled
     name: mongodb
     repository: https://charts.truecharts.org/
-    version: 1.0.50
+    version: 1.0.52
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

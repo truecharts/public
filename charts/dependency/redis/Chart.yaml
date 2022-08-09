@@ -7,7 +7,7 @@ dependencies:
 deprecated: false
 description: Open source, advanced key-value store.
 home: https://truecharts.org/docs/charts/dependency/redis
-icon: https://truecharts.org/img/chart-icons/redis.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.png
 keywords:
   - redis
   - keyvalue
@@ -19,10 +19,11 @@ maintainers:
     url: https://truecharts.org
 name: redis
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
   - https://github.com/bitnami/bitnami-docker-redis
   - http://redis.io/
 type: application
-version: 3.0.49
+version: 3.0.50
 annotations:
   truecharts.org/catagories: |
     - database

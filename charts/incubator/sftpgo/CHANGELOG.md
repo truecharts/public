@@ -2,6 +2,25 @@
 
 
 
+## [sftpgo-0.0.17](https://github.com/truecharts/charts/compare/sftpgo-0.0.16...sftpgo-0.0.17) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [sftpgo-0.0.16](https://github.com/truecharts/charts/compare/sftpgo-0.0.15...sftpgo-0.0.16) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [sftpgo-0.0.15](https://github.com/truecharts/apps/compare/sftpgo-0.0.14...sftpgo-0.0.15) (2022-07-30)
 
 ### Chore

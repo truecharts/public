@@ -7,14 +7,14 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.50
+    version: 8.0.52
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.48
+    version: 3.0.50
 description: The to-do app to organize your life.
 home: https://truecharts.org/docs/charts/stable/vikunja
-icon: https://truecharts.org/img/chart-icons/vikunja.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.png
 keywords:
   - vikunja
 kubeVersion: ">=1.16.0-0"
@@ -24,8 +24,9 @@ maintainers:
     url: https://truecharts.org
 name: vikunja
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
   - https://vikunja.io/docs
-version: 3.0.34
+version: 3.0.36
 annotations:
   truecharts.org/catagories: |
     - productivity

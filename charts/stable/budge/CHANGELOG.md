@@ -2,6 +2,25 @@
 
 
 
+## [budge-2.0.30](https://github.com/truecharts/charts/compare/budge-2.0.29...budge-2.0.30) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [budge-2.0.29](https://github.com/truecharts/charts/compare/budge-2.0.28...budge-2.0.29) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [budge-2.0.28](https://github.com/truecharts/apps/compare/budge-2.0.27...budge-2.0.28) (2022-07-27)
 
 ### Chore

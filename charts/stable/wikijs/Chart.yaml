@@ -2,14 +2,15 @@ apiVersion: v2
 appVersion: "2.5.285"
 description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 name: wikijs
-version: 7.0.27
+version: 7.0.28
 kubeVersion: ">=1.16.0-0"
 keywords:
   - wiki
   - wikijs
-home: https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
-icon: https://truecharts.org/img/chart-icons/wikijs.png
+home: https://truecharts.org/docs/charts/stable/wikijs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
   - https://hub.docker.com/r/linuxserver/wikijs/
   - https://github.com/Requarks/wiki
 dependencies:
@@ -19,7 +20,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.50
+    version: 8.0.52
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

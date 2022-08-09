@@ -2,6 +2,25 @@
 
 
 
+## [memcached-3.0.51](https://github.com/truecharts/charts/compare/memcached-3.0.50...memcached-3.0.51) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [memcached-3.0.50](https://github.com/truecharts/charts/compare/memcached-3.0.49...memcached-3.0.50) (2022-08-08)
+
+### Chore
+
+- update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [memcached-3.0.49](https://github.com/truecharts/apps/compare/memcached-3.0.48...memcached-3.0.49) (2022-07-29)
 
 ### Chore
