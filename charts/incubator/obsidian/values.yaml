@@ -31,10 +31,10 @@ service:
         targetPort: 27124
 
 persistence:
-  config:
+  storageconfig:
     enabled: true
-    mountPath: /config
-  vaults:
+    mountPath: /config/.config/obsidian
+  storagevaults:
     enabled: true
     mountPath: /vaults
 

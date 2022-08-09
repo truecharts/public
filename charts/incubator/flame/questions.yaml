@@ -11,6 +11,20 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PASSWORD
+          label: 'PASSWORD'
+          description: "PASSWORD"
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -18,12 +32,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PASSWORD
-          label: 'PASSWORD'
-          description: "Container Variable PASSWORD"
+        - variable: enable_integration
+          label: "Enable Kubernetes Integration"
+          description: "Defines RBAC, ClusterRole, ClusterRoleBinding and Service Account"
           schema:
-            type: string
-            default: "flame_password"
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -45,9 +59,9 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5030
+                              default: 10291
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
@@ -61,7 +75,7 @@ questions:
 # Include{persistenceRoot}
         - variable: data
           label: "data Storage"
-          description: "Container Path appdata"
+          description: "Container Path data"
           schema:
             additional_attrs: true
             type: dict
