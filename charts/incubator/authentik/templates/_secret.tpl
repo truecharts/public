@@ -16,11 +16,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Secret Key */}}
-  {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
-  AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
-  {{- else }}
-  AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
-  {{- end }}
+
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
