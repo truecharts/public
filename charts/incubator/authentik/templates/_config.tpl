@@ -14,6 +14,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+  {{/* Dependencies */}}
+  AUTHENTIK_POSTGRESQL__PORT: "5432"
+  AUTHENTIK_REDIS__PORT: "6379"
   {{/* Mail */}}
   AUTHENTIK_EMAIL__PORT: {{ .Values.authentik.mail.port | quote }}
   AUTHENTIK_EMAIL__USE_TLS: {{ .Values.authentik.mail.tls | quote }}

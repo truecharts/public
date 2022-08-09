@@ -24,10 +24,8 @@ data:
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__NAME: {{ .Values.postgresql.postgresqlDatabase }}
   AUTHENTIK_POSTGRESQL__USER: {{ .Values.postgresql.postgresqlUsername }}
-  AUTHENTIK_POSTGRESQL__PORT: "5432"
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-  AUTHENTIK_REDIS__PORT: "6379"
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   {{/* Credentials */}}
