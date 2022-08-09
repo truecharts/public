@@ -1,6 +1,6 @@
 # vaultwarden
 
-![Version: 16.0.26](https://img.shields.io/badge/Version-16.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.25.1](https://img.shields.io/badge/AppVersion-1.25.1-informational?style=flat-square)
+![Version: 16.0.29](https://img.shields.io/badge/Version-16.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.25.2](https://img.shields.io/badge/AppVersion-1.25.2-informational?style=flat-square)
 
 Unofficial Bitwarden compatible server written in Rust
 
@@ -13,6 +13,7 @@ For more information, please click here: [vaultwarden](https://truecharts.org/do
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/stable/vaultwarden>
 * <https://github.com/dani-garcia/vaultwarden>
 
 ## Requirements
@@ -23,21 +24,21 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.48 |
-| https://library-charts.truecharts.org | common | 10.4.8 |
+| https://charts.truecharts.org/ | postgresql | 8.0.52 |
+| https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
 
 ### Helm
 
 To install the chart with the release name `vaultwarden`
 
 ```console
-helm repo add TrueCharts https://helm.truecharts.org
+helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
 helm install vaultwarden TrueCharts/vaultwarden
 ```
@@ -48,7 +49,7 @@ helm install vaultwarden TrueCharts/vaultwarden
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -67,7 +68,7 @@ helm uninstall vaultwarden
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
-#### Configure using the Commandline
+#### Configure using the command line
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -85,9 +86,9 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install vaultwarden TrueCharts/vaultwarden -f values.yaml
 ```
 
-#### Connecting to other apps
+#### Connecting to other charts
 
-If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/docs/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
 
 ## Support
 

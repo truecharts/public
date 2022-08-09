@@ -2,6 +2,34 @@
 
 
 
+## [redis-3.0.50](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.15...redis-3.0.50) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+
+## [redis-3.0.48](https://github.com/truecharts/apps/compare/redis-3.0.47...redis-3.0.48) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [redis-3.0.47](https://github.com/truecharts/apps/compare/redisinsight-0.0.14...redis-3.0.47) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [redis-3.0.46](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.46) (2022-07-25)
 
 ### Chore

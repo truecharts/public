@@ -3,11 +3,11 @@ appVersion: "3.2.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: OpenSource Radius implementation
-home: https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
-icon: https://truecharts.org/img/chart-icons/freeradius.png
+home: https://truecharts.org/docs/charts/stable/freeradius
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/freeradius.png
 keywords:
   - radius
   - auth
@@ -18,10 +18,11 @@ maintainers:
     url: https://truecharts.org
 name: freeradius
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
   - https://hub.docker.com/r/freeradius/freeradius-server/
   - https://freeradius.org/
 type: application
-version: 6.0.23
+version: 6.0.24
 annotations:
   truecharts.org/catagories: |
     - auth

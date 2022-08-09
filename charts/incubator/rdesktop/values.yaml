@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
-  tag: latest@sha256:21b87dd41e5d9451113e60412724fd105845d8795d568877d088c8460e9221fb
+  tag: latest@sha256:a523172333c735708935e4e24d1f3999b5350c5c0b29a1b1f6271c99f0ddf8b1
 persistence:
   config:
     enabled: true
@@ -26,3 +26,6 @@ service:
         port: 3389
         protocol: TCP
         targetPort: 3389
+
+portal:
+  enabled: true

@@ -2,6 +2,16 @@
 
 
 
+## [st-reborn-server-0.0.9](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.8...st-reborn-server-0.0.9) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [st-reborn-server-0.0.8](https://github.com/truecharts/apps/compare/st-reborn-server-0.0.7...st-reborn-server-0.0.8) (2022-07-26)
 
 ### Chore

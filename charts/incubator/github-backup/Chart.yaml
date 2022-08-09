@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Like to maintain your own data? Automatically backup your github account
-  to your Unraid server on a schedule.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/github-backup
-icon: https://truecharts.org/img/chart-icons/github-backup.png
+description: Like to maintain your own data? Automatically backup your github account to your Unraid server on a schedule.
+home: https://truecharts.org/docs/charts/incubator/github-backup
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/github-backup.png
 keywords:
   - github-backup
   - Backup
@@ -24,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: github-backup
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/github-backup
   - https://hub.docker.com/r/lnxd/github-backup
 type: application
-version: 0.0.14
+version: 0.0.15

@@ -2,6 +2,34 @@
 
 
 
+## [fireshare-0.0.17](https://github.com/truecharts/charts/compare/fireshare-0.0.16...fireshare-0.0.17) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [fireshare-0.0.16](https://github.com/truecharts/apps/compare/fireshare-0.0.15...fireshare-0.0.16) (2022-07-30)
+
+### Chore
+
+- update docker general non-major
+
+
+
+
+## [fireshare-0.0.15](https://github.com/truecharts/apps/compare/fireshare-0.0.14...fireshare-0.0.15) (2022-07-29)
+
+### Fix
+
+- cleanup ([#3342](https://github.com/truecharts/apps/issues/3342))
+
+
+
+
 ## [fireshare-0.0.14](https://github.com/truecharts/apps/compare/fireshare-0.0.13...fireshare-0.0.14) (2022-07-26)
 
 ### Chore

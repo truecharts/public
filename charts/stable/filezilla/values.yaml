@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/filezilla
   pullPolicy: IfNotPresent
-  tag: v3.55.1@sha256:e518689216206320eb1fc7e5a2216f83466375a22fd0d3e74fe46fdf8ff281f4
+  tag: v3.55.1@sha256:4bf9d0ada1c6b6052d1deabcc47f4b278ea24119fa524a7bb41db07eacf4705a
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

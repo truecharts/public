@@ -2,6 +2,7 @@
 
 
 
+
 ## [collabora-online-12.1.23](https://github.com/truecharts/apps/compare/collabora-online-12.1.21...collabora-online-12.1.23) (2022-07-25)
 
 ### Chore

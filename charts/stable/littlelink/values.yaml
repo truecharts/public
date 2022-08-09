@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/littlelink-server
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b565a559c3b0432012dd8fed4a98abbc339d4bfbad9b7403f95831d82e46a35d
+  tag: latest@sha256:ce1e68a40fc3672f0030c4a4eff55387d2b5b81906f57a0de73fbe0a763b23f0
 
 service:
   main:
@@ -34,3 +34,6 @@ littlelink:
   tiktok: "https://www.tiktok.com/@technotim"
   kit: "https://kit.co/technotim"
   footer: "thanks for stopping by!"
+
+portal:
+  enabled: true

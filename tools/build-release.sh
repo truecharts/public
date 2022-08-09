@@ -107,6 +107,11 @@ include_questions(){
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Including standardised questions.yaml includes for: ${chartname}"
 
+    # Replace # Include{portalLink} with the standard portalLink codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{portalLink}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/portalLink.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{global} with the standard global codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
@@ -122,90 +127,200 @@ include_questions(){
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+     # Replace # Include{controller} with the standard controller codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controller}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controller.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerDeployment} with the standard controllerDeployment codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerDeployment}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerDeployment.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerStatefullset} with the standard controllerStatefullset codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerStatefullset}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerStatefullset.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{controllerDaemonset} with the standard controllerDaemonset codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{controllerDaemonset}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/controller/controllerDaemonset.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{replicas} with the standard replicas codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replicas}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replicas/replicas.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{replica1} with the standard replica1 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica1}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replicas/replica1.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{replica2} with the standard replica2 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica2}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replicas/replica2.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{replica3} with the standard replica3 codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{replica3}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/replicas/replica3.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{strategy} with the standard strategy codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{strategy}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/strategy.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{recreate} with the standard recreate codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{recreate}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/recreate.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+     # Replace # Include{rollingupdate} with the standard rollingupdate codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{rollingupdate}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/strategy/rollingupdate.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
      # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/controller/controllerExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{controllerExpertCommand} with the standard controllerExpertCommand codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpertCommand}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/controllerExpertCommand.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/controller/controllerExpertCommand.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{containerConfig} with the standard containerConfig codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/containerConfig.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{serviceRoot} with the standard serviceRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{serviceRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/service/serviceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{serviceSelector} with the standard serviceSelector codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortHTTP} with the standard advancedPortHTTP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortHTTP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortHTTP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortHTTPS} with the standard advancedPortHTTPS codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortHTTPS}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortHTTPS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortTCP} with the standard advancedPortTCP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortTCP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortTCP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{advancedPortUDP} with the standard advancedPortUDP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{advancedPortUDP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advancedPortUDP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{serviceExpertRoot} with the standard serviceExpertRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{serviceExpertRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/service/serviceExpertRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/service/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{vctRoot} with the standard vctRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{vctRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/vctRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{persistenceRoot} with the standard persistenceRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{persistenceRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/persistence/persistenceRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceBasic} with the standard persistenceBasic codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceBasic}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceAdvanced} with the standard persistenceAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/persistence/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{security} with the standard security codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{security}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/security.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{securityContextAdvancedRoot} with the standard securityContextAdvancedRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{securityContextAdvancedRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/securityContextAdvancedRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{securityContextAdvanced} with the standard securityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{securityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/securityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{podSecurityContextRoot} with the standard podSecurityContextRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{podSecurityContextRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/podSecurityContextRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{podSecurityContextAdvanced} with the standard podSecurityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{podSecurityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/podSecurityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{ingressRoot} with the standard ingressRoot codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ingressRoot}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/ingress/ingressRoot.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTLS} with the standard ingressTLS codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTLS}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTraefik} with the standard ingressTraefik codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTraefik}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressExpert} with the standard ingressExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/ingress/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{addons} with the standard addons codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -215,17 +330,17 @@ include_questions(){
     # Replace # Include{metrics} with the standard metrics codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics3m} with the standard metrics3m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics3m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics60m} with the standard metrics60m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics60m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    1' templates/questions/metrics/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{prometheusRule} with the standard prometheusRule codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
@@ -272,7 +387,8 @@ gen_dh_cat() {
    }
 export -f gen_dh_cat
 
-# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
+# Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
     local chartname="$2"
@@ -294,7 +410,25 @@ sync_tag() {
     tag="${tag%-}"
     tag="${tag%_}"
     tag="${tag%.}"
+    echo "Updating tag of ${chartname} to ${tag}..."
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    echo "Updating icon of ${chartname}..."
+    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+    echo "Updating home of ${chartname}..."
+    sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+    echo "Attempting to update sources of ${chartname}..."
+    echo "Using go-yq verion: <$(go-yq -V)>"
+    # Get all sources (except truecharts)
+    curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    # Empty sources list in-place
+    go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+    # Add truechart source
+    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    # Add the rest of the sources
+    while IFS= read -r line; do
+        src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml"
+    done <<< "$curr_sources"
+    echo "Sources of ${chartname} updated!"
     }
 export -f sync_tag
 
@@ -395,19 +529,19 @@ copy_docs() {
     local chartversion="$4"
     echo "Copying docs for: ${chart}"
     if [ "${chartname}" == "common" ]; then
-        mkdir -p docs/apps/common || :
-        yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md 2>/dev/null || :
-        yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md 2>/dev/null || :
+        mkdir -p docs/charts/common || :
+        yes | cp -rf charts/library/common/README.md  docs/charts/common/index.md 2>/dev/null || :
+        yes | cp -rf charts/library/common/helm-values.md  docs/charts/common/helm-values.md 2>/dev/null || :
     else
-        mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
-        yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/security.md docs/apps/${train}/${chartname}/security.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
-        rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        mkdir -p docs/charts/${train}/${chartname} || echo "chart path already exists, continuing..."
+        yes | cp -rf ${chart}/README.md docs/charts/${train}/${chartname}/index.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CHANGELOG.md docs/charts/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/security.md docs/charts/${train}/${chartname}/security.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CONFIG.md docs/charts/${train}/${chartname}/CONFIG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/helm-values.md docs/charts/${train}/${chartname}/helm-values.md 2>/dev/null || :
+        rm docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        yes | cp -rf ${chart}/LICENSE docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+        sed -i '1s/^/# License<br>\n\n/' docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
     fi
     }
     export -f copy_docs
@@ -430,7 +564,7 @@ clean_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Cleaning SCALE catalog for App: ${chartname}"
+    echo "Cleaning SCALE catalog for Chart: ${chartname}"
     rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
     rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
@@ -442,7 +576,7 @@ patch_apps() {
     local train="$3"
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
-    echo "Applying SCALE patches for App: ${chartname}"
+    echo "Applying SCALE patches for Chart: ${chartname}"
     sed -i '100,$ d' ${target}/CHANGELOG.md || :
     mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
@@ -460,7 +594,7 @@ patch_apps() {
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
-    echo "This App is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
+    echo "This Chart is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
 }
 export -f patch_apps
 
@@ -469,7 +603,7 @@ copy_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Copying App to Catalog: ${2}"
+    echo "Copying Chart to Catalog: ${2}"
     mkdir -p catalog/${train}/${chartname}/${chartversion}
     cp -Rf ${chart}/* catalog/${train}/${chartname}/${chartversion}/
 
@@ -490,7 +624,7 @@ upload_catalog() {
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
     git add --all
-    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
     git push
     cd -
     rm -rf catalog
@@ -503,7 +637,7 @@ upload_dhcatalog() {
     git config user.name "TrueCharts-Bot"
     git config user.email "bot@truecharts.org"
     git add --all
-    git commit -sm "Commit new App releases for TrueCharts" || exit 0
+    git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
     git push
     cd -
     rm -rf dh_catalog
@@ -598,8 +732,8 @@ parse_command_line() {
     fi
 
     if [[ -z "$repo" ]]; then
-        echo "No repo configured, defaulting to apps" >&2
-        repo="apps"
+        echo "No repo configured, defaulting to charts" >&2
+        repo="charts"
     fi
 
     if [[ -z "$charts_repo_url" ]]; then

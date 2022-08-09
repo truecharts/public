@@ -10,13 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  YOURLS is a set of PHP scripts that will allow you to run Your Own URL
-  Shortener.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/yourls
-icon: https://truecharts.org/img/chart-icons/yourls.png
+description: YOURLS is a set of PHP scripts that will allow you to run Your Own URL Shortener.
+home: https://truecharts.org/docs/charts/incubator/yourls
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/yourls.png
 keywords:
   - yourls
   - Cloud
@@ -30,6 +28,7 @@ maintainers:
     url: https://truecharts.org
 name: yourls
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/yourls
   - https://hub.docker.com/_/yourls/
 type: application
-version: 0.0.14
+version: 0.0.15

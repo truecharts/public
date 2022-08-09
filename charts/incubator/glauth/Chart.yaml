@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: GLAuth is a secure, easy-to-use, LDAP server with configurable backends.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/glauth
-icon: https://truecharts.org/img/chart-icons/glauth.png
+home: https://truecharts.org/docs/charts/incubator/glauth
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/glauth.png
 keywords:
   - glauth
   - Security
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: glauth
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/glauth
   - https://glauth.github.io
   - https://hub.docker.com/repository/docker/glauth/glauth
 type: application
-version: 0.0.14
+version: 0.0.15

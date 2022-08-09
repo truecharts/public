@@ -1,21 +1,22 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: firefox
-version: 2.0.22
+version: 2.0.23
 appVersion: "78.15.0"
 description: Firefox Browser, also known as Mozilla Firefox or simply Firefox,
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/stable/firefox
-icon: https://truecharts.org/img/chart-icons/firefox.png
+home: https://truecharts.org/docs/charts/stable/firefox
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox.png
 keywords:
   - firefox
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox
   - https://hub.docker.com/r/linuxserver/firefox
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
     # condition:
 maintainers:
   - email: info@truecharts.org

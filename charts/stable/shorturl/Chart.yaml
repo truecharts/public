@@ -3,10 +3,10 @@ appVersion: "0.1.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 description: Self hosted web app for shortening urls (URL shortener)
-home: https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
-icon: https://truecharts.org/img/chart-icons/shorturl.png
+home: https://truecharts.org/docs/charts/stable/shorturl
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shorturl.png
 keywords:
   - url
   - shortener
@@ -19,10 +19,11 @@ maintainers:
     url: https://truecharts.org
 name: shorturl
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
   - https://github.com/prologic/shorturl
   - https://github.com/nicholaswilde/docker-shorturl
 type: application
-version: 3.0.22
+version: 3.0.23
 annotations:
   truecharts.org/catagories: |
     - media

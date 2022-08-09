@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/storj-node
-  tag: 1.60.2@sha256:fc6334cd9f46943ef9eb6e95fcee194f5473c416967496dfb55655f126bc4bda
+  tag: 1.60.3@sha256:e709047e9adbb0fdf638c5ee3742a08d7043dae0ba7b4786d6ce8dcaadcabe8e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -50,3 +50,6 @@ persistence:
   storage:
     enabled: true
     mountPath: "/app/config"
+
+portal:
+  enabled: true

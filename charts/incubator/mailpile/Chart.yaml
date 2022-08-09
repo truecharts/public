@@ -9,14 +9,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Mailpile is software, an e-mail client. It runs on your desktop or laptop
-  computer and you interact with it by using your web browser. The goal of Mailpile
-  is to allow people to send e-mail in a more secure and private manner than before.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
-icon: https://truecharts.org/img/chart-icons/mailpile.png
+description: Mailpile is software, an e-mail client. It runs on your desktop or laptop computer and you interact with it by using your web browser. The goal of Mailpile is to allow people to send e-mail in a more secure and private manner than before.
+home: https://truecharts.org/docs/charts/incubator/mailpile
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mailpile.png
 keywords:
   - mailpile
   - Productivity
@@ -29,7 +26,8 @@ maintainers:
     url: https://truecharts.org
 name: mailpile
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
   - https://www.mailpile.is/
   - https://hub.docker.com/r/rroemhild/mailpile/
 type: application
-version: 0.0.14
+version: 0.0.15

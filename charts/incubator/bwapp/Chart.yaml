@@ -8,13 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  "bWAPP, or a buggy web application, is a free and open source deliberately\
-  \ insecure web application.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/bwapp
-icon: https://truecharts.org/img/chart-icons/bwapp.png
+description: "bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.\r\n"
+home: https://truecharts.org/docs/charts/incubator/bwapp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bwapp.png
 keywords:
   - bwapp
   - Tools-Utilities
@@ -26,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: bwapp
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bwapp
   - https://sourceforge.net/projects/bwapp/
   - https://hub.docker.com/r/raesene/bwapp/
 type: application
-version: 0.0.14
+version: 0.0.15

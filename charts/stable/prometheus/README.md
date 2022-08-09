@@ -1,6 +1,6 @@
 # prometheus
 
-![Version: 4.0.50](https://img.shields.io/badge/Version-4.0.50-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
+![Version: 4.0.57](https://img.shields.io/badge/Version-4.0.57-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
 
 kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 
@@ -13,6 +13,7 @@ For more information, please click here: [prometheus](https://truecharts.org/doc
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/stable/prometheus>
 * <https://github.com/prometheus-community/helm-charts>
 * <https://github.com/prometheus-operator/kube-prometheus>
 
@@ -24,22 +25,22 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | kube-state-metrics | 3.1.1 |
-| https://charts.bitnami.com/bitnami | node-exporter | 3.0.4 |
-| https://library-charts.truecharts.org | common | 10.4.8 |
+| https://charts.bitnami.com/bitnami | kube-state-metrics | 3.1.6 |
+| https://charts.bitnami.com/bitnami | node-exporter | 3.0.8 |
+| https://library-charts.truecharts.org | common | 10.4.9 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
 
 ### Helm
 
 To install the chart with the release name `prometheus`
 
 ```console
-helm repo add TrueCharts https://helm.truecharts.org
+helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
 helm install prometheus TrueCharts/prometheus
 ```
@@ -50,7 +51,7 @@ helm install prometheus TrueCharts/prometheus
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -69,7 +70,7 @@ helm uninstall prometheus
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
-#### Configure using the Commandline
+#### Configure using the command line
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -87,9 +88,9 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install prometheus TrueCharts/prometheus -f values.yaml
 ```
 
-#### Connecting to other apps
+#### Connecting to other charts
 
-If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/docs/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
 
 ## Support
 

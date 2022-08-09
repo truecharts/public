@@ -1,20 +1,15 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Network-Web
 apiVersion: v2
 appVersion: "nginx"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description: "Ba\xEFkal is a lightweight CalDAV+CardDAV server"
+description: "Baikal is a lightweight CalDAV+CardDAV server"
 home: https://github.com/truecharts/charts/tree/master/charts/incubator/baikal
 icon: https://truecharts.org/img/chart-icons/baikal.png
 keywords:
   - baikal
-  - Network-Web
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -22,7 +17,12 @@ maintainers:
     url: https://truecharts.org
 name: baikal
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/baikal
   - https://github.com/ckulka/baikal-docker
   - https://hub.docker.com/r/ckulka/baikal/
 type: application
-version: 0.0.13
+version: 0.0.14
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - utilities

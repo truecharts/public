@@ -3,11 +3,11 @@ appVersion: "3.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: Node-RED is low-code programming for event-driven applications
-home: https://github.com/truecharts/charts/tree/master/charts/stable/node-red
-icon: https://truecharts.org/img/chart-icons/node-red.png
+home: https://truecharts.org/docs/charts/stable/node-red
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-red.png
 keywords:
   - node-red
   - nodered
@@ -18,9 +18,10 @@ maintainers:
     url: https://truecharts.org
 name: node-red
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/node-red
   - https://github.com/node-red/node-red-docker
 type: application
-version: 11.0.26
+version: 11.0.27
 annotations:
   truecharts.org/catagories: |
     - tools

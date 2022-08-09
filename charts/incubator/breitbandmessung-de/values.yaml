@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/breitbandmessung-de
-  tag: latest@sha256:05878aaf5f721b48cf7f29806008302dda051cfb8eeaf52defcd09bb73b82887
+  tag: latest@sha256:ebc374b4fe484f479e7ffdd9d42d98b69ec6523052dc3ec353bb7c45e1e6a88e
 persistence:
   config:
     enabled: true
@@ -29,3 +29,6 @@ service:
     ports:
       main:
         enabled: false
+
+portal:
+  enabled: false

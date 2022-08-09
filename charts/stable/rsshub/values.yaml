@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:adbc8a06c01ddb63e814e5e0a807ab87144488a75f3d842a4270308602fd1648
+  tag: latest@sha256:213c5e15e8470ebb5da89bd1e6c1e0a8099afb5dfad78e9802d71972355fea96
 
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
@@ -59,3 +59,6 @@ additionalContainers:
     ports:
       - containerPort: 3000
         name: main
+
+portal:
+  enabled: true

@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/jelu
-  tag: latest@sha256:9667b61f2df11ecf637f5f5f34b7cc12315414a9bef40f55aebb612fbac060c7
+  tag: latest@sha256:a55e1424659ae3fb27aba62e4180a3c928b827a4ce816d6fb60f19526a67c7e6
 persistence:
   config:
     enabled: true
@@ -31,3 +31,6 @@ service:
         port: 11111
         protocol: TCP
         targetPort: 11111
+
+portal:
+  enabled: true

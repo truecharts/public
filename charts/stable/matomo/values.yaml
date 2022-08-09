@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/matomo
-  tag: v4.10.1@sha256:362a104a394be0446785c066287d1e68b7eb9e7d28438dcdf1254d835d15f36a
+  tag: v4.10.1@sha256:44375de5f2eee77697937b4c96129ef89952303eb76a2c155c2136b9d93fc0b3
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -94,3 +94,6 @@ mariadb:
   mariadbUsername: matomo
   mariadbDatabase: matomo
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

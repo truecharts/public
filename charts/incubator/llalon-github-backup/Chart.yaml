@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Automatically backup github repositories on schedule. Allows for custom
-  configuration.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/llalon-github-backup
-icon: https://truecharts.org/img/chart-icons/llalon-github-backup.png
+description: Automatically backup github repositories on schedule. Allows for custom configuration.
+home: https://truecharts.org/docs/charts/incubator/llalon-github-backup
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/llalon-github-backup.png
 keywords:
   - llalon-github-backup
   - Backup
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: llalon-github-backup
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/llalon-github-backup
   - https://github.com/abusesa/github-backup
   - https://hub.docker.com/r/llalon/github-backup
 type: application
-version: 0.0.14
+version: 0.0.15

@@ -10,11 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: "DESCRIPTION\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/mojopaste
-icon: https://truecharts.org/img/chart-icons/mojopaste.png
+home: https://truecharts.org/docs/charts/incubator/mojopaste
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mojopaste.png
 keywords:
   - mojopaste
   - Cloud
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: mojopaste
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/mojopaste
   - https://github.com/jhthorsen/app-mojopaste
   - https://hub.docker.com/r/jhthorsen/mojopaste
 type: application
-version: 0.0.14
+version: 0.0.15

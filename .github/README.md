@@ -1,14 +1,14 @@
 # TrueCharts
 
-**Community App Catalog for TrueNAS SCALE**
+**Community Chart Catalog for TrueNAS SCALE**
 
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
 [![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg?maxAge=60&style=for-the-badge)](https://discord.gg/Js6xv9nGuU)
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/apps?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/apps/commits)
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/charts?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/charts/commits)
 
 ---
 
-TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
+TrueCharts is a catalog of highly optimised TrueNAS SCALE Charts. Made for the community, By the community!
 
 Our primary goals are:
 
@@ -20,7 +20,7 @@ Our primary goals are:
 
 - Consistency
 
-All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
+All our charts are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
 
 <br />
 
@@ -54,13 +54,13 @@ _The current project is hitting internal performance issues, for this reason we 
 
 **Refactor the Common Chart - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
 
-_The shared Common (chart) basis, used by all our Apps, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
+_The shared Common (chart) basis, used by all our Charts, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
 
 <br />
 
 **Increased test coverage - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
 
-_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing App changes_
+_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing Chart changes_
 
 <br />
 
@@ -68,18 +68,18 @@ _With most parts of our project somewhat cleaned up, we need to work on increasi
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)](https://github.com/pre-commit/pre-commit)
 [![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjUgNSAzNzAgMzcwIj48Y2lyY2xlIGN4PSIxODkiIGN5PSIxOTAiIHI9IjE4NCIgZmlsbD0iI2ZlMiIvPjxwYXRoIGZpbGw9IiM4YmIiIGQ9Ik0yNTEgMjU2bC0zOC0zOGExNyAxNyAwIDAxMC0yNGw1Ni01NmMyLTIgMi02IDAtN2wtMjAtMjFhNSA1IDAgMDAtNyAwbC0xMyAxMi05LTggMTMtMTNhMTcgMTcgMCAwMTI0IDBsMjEgMjFjNyA3IDcgMTcgMCAyNGwtNTYgNTdhNSA1IDAgMDAwIDdsMzggMzh6Ii8+PHBhdGggZmlsbD0iI2Q1MSIgZD0iTTMwMCAyODhsLTggOGMtNCA0LTExIDQtMTYgMGwtNDYtNDZjLTUtNS01LTEyIDAtMTZsOC04YzQtNCAxMS00IDE1IDBsNDcgNDdjNCA0IDQgMTEgMCAxNXoiLz48cGF0aCBmaWxsPSIjYjMwIiBkPSJNMjg1IDI1OGw3IDdjNCA0IDQgMTEgMCAxNWwtOCA4Yy00IDQtMTEgNC0xNiAwbC02LTdjNCA1IDExIDUgMTUgMGw4LTdjNC01IDQtMTIgMC0xNnoiLz48cGF0aCBmaWxsPSIjYTMwIiBkPSJNMjkxIDI2NGw4IDhjNCA0IDQgMTEgMCAxNmwtOCA3Yy00IDUtMTEgNS0xNSAwbC05LThjNSA1IDEyIDUgMTYgMGw4LThjNC00IDQtMTEgMC0xNXoiLz48cGF0aCBmaWxsPSIjZTYyIiBkPSJNMjYwIDIzM2wtNC00Yy02LTYtMTctNi0yMyAwLTcgNy03IDE3IDAgMjRsNCA0Yy00LTUtNC0xMSAwLTE2bDgtOGM0LTQgMTEtNCAxNSAweiIvPjxwYXRoIGZpbGw9IiNiNDAiIGQ9Ik0yODQgMzA0Yy00IDAtOC0xLTExLTRsLTQ3LTQ3Yy02LTYtNi0xNiAwLTIybDgtOGM2LTYgMTYtNiAyMiAwbDQ3IDQ2YzYgNyA2IDE3IDAgMjNsLTggOGMtMyAzLTcgNC0xMSA0em0tMzktNzZjLTEgMC0zIDAtNCAybC04IDdjLTIgMy0yIDcgMCA5bDQ3IDQ3YTYgNiAwIDAwOSAwbDctOGMzLTIgMy02IDAtOWwtNDYtNDZjLTItMi0zLTItNS0yeiIvPjxwYXRoIGZpbGw9IiMxY2MiIGQ9Ik0xNTIgMTEzbDE4LTE4IDE4IDE4LTE4IDE4em0xLTM1bDE4LTE4IDE4IDE4LTE4IDE4em0tOTAgODlsMTgtMTggMTggMTgtMTggMTh6bTM1LTM2bDE4LTE4IDE4IDE4LTE4IDE4eiIvPjxwYXRoIGZpbGw9IiMxZGQiIGQ9Ik0xMzQgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em0tMzUgMzZsMTgtMTggMTggMTgtMTggMTh6Ii8+PHBhdGggZmlsbD0iIzJiYiIgZD0iTTExNiAxNDlsMTgtMTggMTggMTgtMTggMTh6bTU0LTU0bDE4LTE4IDE4IDE4LTE4IDE4em0tODkgOTBsMTgtMTggMTggMTgtMTggMTh6bTEzOS04NWwyMyAyM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTI0LTI0Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS01IDEyLTUgMTYgMHoiLz48cGF0aCBmaWxsPSIjM2VlIiBkPSJNMTM0IDk1bDE4LTE4IDE4IDE4LTE4IDE4em0tNTQgMThsMTgtMTcgMTggMTctMTggMTh6bTU1LTUzbDE4LTE4IDE4IDE4LTE4IDE4em05MyA0OGwtOC04Yy00LTUtMTEtNS0xNiAwTDEwMyAyMDFjLTQgNC00IDExIDAgMTVsOCA4Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS00IDEyLTQgMTYgMHoiLz48cGF0aCBmaWxsPSIjOWVlIiBkPSJNMjcgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em01NC01M2wxOC0xOCAxOCAxOC0xOCAxOHoiLz48cGF0aCBmaWxsPSIjMGFhIiBkPSJNMjMwIDExMGwxMyAxM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTEzLTEzYzQgNCAxMSA0IDE1IDBsMTAxLTEwMWM1LTUgNS0xMSAwLTE2eiIvPjxwYXRoIGZpbGw9IiMxYWIiIGQ9Ik0xMzQgMjQ4Yy00IDAtOC0yLTExLTVsLTIzLTIzYTE2IDE2IDAgMDEwLTIzTDIwMSA5NmExNiAxNiAwIDAxMjIgMGwyNCAyNGM2IDYgNiAxNiAwIDIyTDE0NiAyNDNjLTMgMy03IDUtMTIgNXptNzgtMTQ3bC00IDItMTAxIDEwMWE2IDYgMCAwMDAgOWwyMyAyM2E2IDYgMCAwMDkgMGwxMDEtMTAxYTYgNiAwIDAwMC05bC0yNC0yMy00LTJ6Ii8+PC9zdmc+)](https://github.com/renovatebot/renovate)
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/apps?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/apps/commits)
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/charts?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/charts/commits)
 
 ---
 
 Our development process is fully distributed and agile, so every chart-maintainer is free to set their own roadmap and development speed and does not have to comply to a centralised roadmap.
-This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greatest of every App installed.
+This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greatest of every Chart installed.
 
-### Getting into creating Apps
+### Getting into creating Charts
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
-For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/)
+For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/docs/manual/development/License-headers)
 
 ### Automation and you
 
@@ -97,13 +97,13 @@ Those tools do, however, take time to develop and are certainly not bug free. If
 
 To contact the TrueCharts project:
 
-- Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+- Create an issue on [Github issues](https://github.com/truecharts/charts/issues)
 
-- Open a [Support Ticket](https://truecharts.org/discord)
+- Open a [Support Ticket](https://discord.com/channels/830763548678291466/936275413179723826)
 
 - Send us an [email](mailto://info@truecharts.org)
 
-- Or [join our Discord server](https://truecharts.org/discord)
+- Or [join our Discord server](https://discord.gg/tVsPTHWTtr)
 
 <br />
 
@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-113-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-115-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -281,6 +281,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Chowarmaan"><img src="https://avatars.githubusercontent.com/u/175738?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Scott</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Chowarmaan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/piwi3910"><img src="https://avatars.githubusercontent.com/u/12539757?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Watteel Pascal</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=piwi3910" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/JamesOsborn-SE"><img src="https://avatars.githubusercontent.com/u/3580335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JamesOsborn-SE</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Documentation">📖</a></td>
   </tr>
 </table>
 
@@ -293,13 +295,13 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Licence
 
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg?style=for-the-badge)](https://github.com/truecharts/apps/blob/master/docs/LICENSE.BSD3)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg?style=for-the-badge)](https://github.com/truecharts/charts/blob/master/docs/LICENSE.BSD3)
 
 ---
 
-Truecharts as a whole, is based on a BSD-3-clause license, this ensures almost everyone can use and modify our charts. However: As a lot of Apps are based on upstream Helm Charts, Licences can vary on a per-App basis. This can easily be seen by the presence of a "LICENSE" file in the App root folder.
+Truecharts as a whole, is based on a BSD-3-clause license, this ensures almost everyone can use and modify our charts. However: As a lot of Charts are based on upstream Helm Charts, Licences can vary on a per-Chart basis. This can easily be seen by the presence of a "LICENSE" file in the Chart root folder.
 
-Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
+Some Charts may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
 
 `SPDX-License-Identifier: BSD-3-Clause`
 

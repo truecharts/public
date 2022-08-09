@@ -2,6 +2,35 @@
 
 
 
+## [dokuwiki-3.0.43](https://github.com/truecharts/charts/compare/dokuwiki-3.0.42...dokuwiki-3.0.43) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [dokuwiki-3.0.42](https://github.com/truecharts/charts/compare/dokuwiki-3.0.40...dokuwiki-3.0.42) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [dokuwiki-3.0.40](https://github.com/truecharts/apps/compare/dokuwiki-3.0.39...dokuwiki-3.0.40) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [dokuwiki-3.0.39](https://github.com/truecharts/apps/compare/dokuwiki-3.0.38...dokuwiki-3.0.39) (2022-07-26)
 
 ### Chore

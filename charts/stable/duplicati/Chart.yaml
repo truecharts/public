@@ -3,10 +3,10 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 description: Store securely encrypted backups on cloud storage services!
-home: https://github.com/truecharts/charts/tree/master/charts/stable/duplicati
-icon: https://truecharts.org/img/chart-icons/duplicati.png
+home: https://truecharts.org/docs/charts/stable/duplicati
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicati.png
 keywords:
   - duplicati
 kubeVersion: ">=1.16.0-0"
@@ -16,9 +16,10 @@ maintainers:
     url: https://truecharts.org
 name: duplicati
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/duplicati
   - https://hub.docker.com/r/duplicati/duplicati/
   - https://github.com/duplicati/duplicati
-version: 6.0.25
+version: 6.0.26
 annotations:
   truecharts.org/catagories: |
     - media

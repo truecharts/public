@@ -1,7 +1,7 @@
 image:
-  repository: joni1802/ts3-manager
+  repository: tccr.io/truecharts/ts3-manager
   pullPolicy: IfNotPresent
-  tag: v2.2.0@sha256:9db01d161d2b37e8e872ed701cbedb3986eff46721d12f4d59279abfec5b0354
+  tag: v2.2.0@sha256:d8a67d593c9ecb68edfe71e1775c41866684ddbd4d3e6f8f9bed78d57eabf82c
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -59,3 +59,6 @@ service:
       main:
         protocol: HTTP
         port: 10284
+
+portal:
+  enabled: true

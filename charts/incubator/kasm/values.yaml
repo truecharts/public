@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kasm
-  tag: latest@sha256:86c41cb380fd6905e8cd13642761450c1138a8b7468143083d7c956a827c98b5
+  tag: latest@sha256:927e8201bae1e8842043a626c1080fa4e7013d9d4d90d17bf894fc0d298162fa
 persistence:
   pathopt:
     enabled: true
@@ -37,3 +37,6 @@ service:
         port: 6333
         protocol: TCP
         targetPort: 6333
+
+portal:
+  enabled: true

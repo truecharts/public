@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/googlephotossync
-  tag: latest@sha256:92ed6d243f08560f75bb71a118d354dfaacd4f1aca2cd970ecb4ae43b624e2c7
+  tag: latest@sha256:711f0804dcca8596b1546de613c3b453922d4402cd7aceaa012fde8f9ec6e528
 persistence:
   config:
     enabled: true
@@ -29,3 +29,6 @@ service:
     ports:
       main:
         enabled: false
+
+portal:
+  enabled: false

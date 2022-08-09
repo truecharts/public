@@ -2,6 +2,34 @@
 
 
 
+## [mariadb-3.0.50](https://github.com/truecharts/charts/compare/mariadb-3.0.49...mariadb-3.0.50) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [mariadb-3.0.49](https://github.com/truecharts/apps/compare/mariadb-3.0.48...mariadb-3.0.49) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [mariadb-3.0.48](https://github.com/truecharts/apps/compare/mariadb-3.0.47...mariadb-3.0.48) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
 ## [mariadb-3.0.47](https://github.com/truecharts/apps/compare/mariadb-3.0.46...mariadb-3.0.47) (2022-07-27)
 
 ### Chore

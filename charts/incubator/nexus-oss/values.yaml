@@ -1,0 +1,27 @@
+image:
+  repository: tccr.io/truecharts/nexusoss
+  pullPolicy: IfNotPresent
+  tag: v3.41.0@sha256:556759edd1614c4eda08d753ecffda513ef7b8b0bc231a93565ad888832559b9
+
+podSecurityContext:
+  runAsGroup: 200
+  runAsUser: 200
+  fsGroup: 200
+
+env:
+  INSTALL4J_ADD_VM_PARAMS: "-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10288
+        targetPort: 8081
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /nexus-data
+
+portal:
+  enabled: true

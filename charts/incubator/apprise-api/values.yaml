@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/apprise-api
-  tag: latest@sha256:d194bc881286e37ef56d8f68ef947007752fb4118e52be3a01741dbb4621d399
+  tag: latest@sha256:af06786952514e8aa8c19b516dbbe91b276d7b4c638ce773c36572c797057f98
 persistence:
   config:
     enabled: true
@@ -23,3 +23,6 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
+
+portal:
+  enabled: true

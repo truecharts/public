@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/n8n
-  tag: 0.187.2@sha256:216939db18876e7633335c66686486cfcd4f991bb20a5f5f2f7ea21fefb8839a
+  tag: 0.188.0@sha256:64d9903524778d35add9b258a58a590a2410c0aabe3af21ac9afbcb56ff0e100
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -160,3 +160,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: n8n
   postgresqlDatabase: n8n
+
+portal:
+  enabled: true

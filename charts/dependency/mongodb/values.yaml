@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: v5.0.9@sha256:a5b6632f9561a156f79cc07e86553d2658b400208979dacb4dba1b7a75b0ee67
+  tag: 5.0.10@sha256:5aa943075841f56c539c2ab824d4751ef37fdecd0ecbc581dc0c6671afbb0a34
 
 controller:
   # -- Set the controller type.
@@ -120,3 +120,6 @@ env:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "mongodb-root-password"
+
+portal:
+  enabled: false

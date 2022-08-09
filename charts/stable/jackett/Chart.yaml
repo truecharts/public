@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.20.1466"
+appVersion: "0.20.1539"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: API Support for your favorite torrent trackers.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/jackett
-icon: https://truecharts.org/img/chart-icons/jackett.png
+home: https://truecharts.org/docs/charts/stable/jackett
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.png
 keywords:
   - jackett
   - torrent
@@ -19,9 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: jackett
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
   - https://github.com/Jackett/Jackett
 type: application
-version: 11.0.50
+version: 11.0.55
 annotations:
   truecharts.org/catagories: |
     - media

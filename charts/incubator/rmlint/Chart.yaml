@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  "rmlint finds space waste and other broken things on your filesystem\
-  \ and offers to remove it.[br][br]\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/rmlint
-icon: https://truecharts.org/img/chart-icons/rmlint.png
+description: "rmlint finds space waste and other broken things on your filesystem and offers to remove it.[br][br]\r\n"
+home: https://truecharts.org/docs/charts/incubator/rmlint
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rmlint.png
 keywords:
   - rmlint
   - Tools-Utilities
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: rmlint
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rmlint
   - https://github.com/sahib/rmlint
   - https://hub.docker.com/r/bobbintb/docker-rmlint-TrueNAS
 type: application
-version: 0.0.14
+version: 0.0.15

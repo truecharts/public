@@ -1,0 +1,14 @@
+  - variable: advancedSecurity
+    label: Show Advanced Security Settings
+    group: Security and Permissions
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: Security Context
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:

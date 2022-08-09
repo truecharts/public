@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/universal-media-server
-  tag: latest@sha256:fd2e3aa5d4f615b179bf706ea5b8254da7389804ce06049a003b3e16584b311f
+  tag: latest@sha256:0d256f080cd7c58daa8a5589a662f02c28fb859ae9dba168fccf8697e21bb35c
 persistence:
   config:
     enabled: true
@@ -41,3 +41,6 @@ service:
         port: 5002
         protocol: TCP
         targetPort: 5002
+
+portal:
+  enabled: true

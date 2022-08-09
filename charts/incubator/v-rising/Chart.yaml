@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ V Rising and run it.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/v-rising
-icon: https://truecharts.org/img/chart-icons/v-rising.png
+description: "This Docker will download and install SteamCMD. It will also install V Rising and run it.\r\n"
+home: https://truecharts.org/docs/charts/incubator/v-rising
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/v-rising.png
 keywords:
   - v-rising
   - GameServers
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: v-rising
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/v-rising
   - https://steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.14
+version: 0.0.15

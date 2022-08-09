@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: A new generation cross-platform cloud backup tool.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/duplicacy
-icon: https://truecharts.org/img/chart-icons/duplicacy.png
+home: https://truecharts.org/docs/charts/incubator/duplicacy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicacy.png
 keywords:
   - duplicacy
   - Backup
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: duplicacy
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/duplicacy
   - https://hotio.dev/containers/duplicacy
   - https://hub.docker.com/r/hotio/duplicacy
 type: application
-version: 0.0.14
+version: 0.0.15

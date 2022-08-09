@@ -2,6 +2,25 @@
 
 
 
+## [snipe-it-4.0.35](https://github.com/truecharts/charts/compare/snipe-it-4.0.34...snipe-it-4.0.35) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [snipe-it-4.0.34](https://github.com/truecharts/charts/compare/snipe-it-4.0.33...snipe-it-4.0.34) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [snipe-it-4.0.33](https://github.com/truecharts/apps/compare/snipe-it-4.0.32...snipe-it-4.0.33) (2022-07-26)
 
 ### Chore

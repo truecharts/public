@@ -3,10 +3,10 @@ appVersion: "3.0.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 description: An easy-to-use, multi-track audio editor and recorder
-home: https://github.com/truecharts/charts/tree/master/charts/stable/audacity
-icon: https://truecharts.org/img/chart-icons/audacity.png
+home: https://truecharts.org/docs/charts/stable/audacity
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/audacity.png
 keywords:
   - audacity
   - music
@@ -20,10 +20,11 @@ maintainers:
     url: https://truecharts.org
 name: audacity
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/audacity
   - https://github.com/linuxserver/docker-audacity
   - https://www.audacityteam.org/
 type: application
-version: 4.0.24
+version: 4.0.25
 annotations:
   truecharts.org/catagories: |
     - media

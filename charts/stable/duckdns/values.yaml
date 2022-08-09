@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/duckdns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:67e3b682fa45ea6de4f2896c09769b5b55089b6406890fb3c349fe4c9cd5557a
+  tag: latest@sha256:5a0531f26412cca5bf71f5b59721b4f3400e0711593b436a5d1c5c1a5d2e2346
 
 securityContext:
   runAsNonRoot: false
@@ -31,3 +31,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: false

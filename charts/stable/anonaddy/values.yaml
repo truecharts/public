@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/anonaddy
-  tag: v0.12.3@sha256:2a4e6c55b0ecf0ecee4d28e8411b951ab0255e336cf48c389acd0e39fc5005ec
+  tag: 0.13.3@sha256:c3903d9124e2cc4ac2a48de575c7f6c7d157640ac8f3b1c7c707c97f278ae5cd
   pullPolicy: IfNotPresent
 
 strategy:
@@ -73,3 +73,6 @@ mariadb:
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

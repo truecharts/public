@@ -1,18 +1,18 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.58.0@sha256:bf79053de4b0424c650f4db65eab107b2c672a7311bf983fae07c79b596532e6
+  tag: 0.58.0@sha256:df83d16af706b3ee8f8e749b6e63c032a7190714dab634dad1ea59696e56ede8
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: v2.37.0@sha256:410f1ebc6fb381bcec4168c36ea191f31a0209186347c7e0092a55d4d9ada88b
+  tag: v2.37.0@sha256:11b528ac1ac59e3e4b1784256d8e7c0c2e86bed3e314eff05a1dc8bd10581d67
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: v0.27.0@sha256:b95c3dff9b29b997100c77000775c7dffe44bc91f8f79dc745634ecea4a50a1c
+  tag: v0.27.0@sha256:638529b87ab1ddcc9a4af2753afeea08690746f09d298b0086221da685786f6c
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:e540322b3f4952ea6da4be86690268de50feae735c93952cdb31226094c8ceed
+  tag: v0.24.0@sha256:d61da729bbad251c78a3d6b833d6e4b0e89be2fc2e70032183ae23a67ff21913
 
 global:
   labels: {}
@@ -1373,3 +1373,6 @@ kubeProxy:
   ## @param kubeProxy.enabled Create a ServiceMonitor to scrape the kube-proxy Service
   ##
   enabled: false
+
+portal:
+  enabled: true

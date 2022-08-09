@@ -2,6 +2,25 @@
 
 
 
+## [zabbix-server-2.0.28](https://github.com/truecharts/charts/compare/zabbix-server-2.0.27...zabbix-server-2.0.28) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [zabbix-server-2.0.27](https://github.com/truecharts/charts/compare/zabbix-server-2.0.26...zabbix-server-2.0.27) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [zoneminder-0.0.14](https://github.com/truecharts/apps/compare/zoneminder-0.0.13...zoneminder-0.0.14) (2022-07-26)
 
 ### Chore

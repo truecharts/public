@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/medusa
   pullPolicy: IfNotPresent
-  tag: 1.0.6@sha256:ab54e4f68662de4b21706b421174cd23893a5367d5d03876180c0d5759190d73
+  tag: 1.0.6@sha256:d5b468669bec81066ada388bee2e01223f7ce0a55a405b935460715379636826
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

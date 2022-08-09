@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/farmos
-  tag: latest@sha256:5c731c8e2cd101b965b66169b4a0a66c385147c9be170787abef3594011507cd
+  tag: latest@sha256:6c4168372c1ecc3b7c419b1866587f08e78855b7c3a4eb78fe2298a6d786bb29
 persistence:
   sitesdirectory:
     enabled: true
@@ -22,3 +22,6 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/solr
   pullPolicy: IfNotPresent
-  tag: v9.0.0@sha256:e9f8ac4c7bcbc3efeca21e51bb04070a2c03d1a7cd87d78157d7ad3dae7d49f0
+  tag: v9.0.0@sha256:2931d5bdf999216a8e8174cb939a7035291c201bf259f579683d61bc7967b2b1
 
 controller:
   # -- Set the controller type.
@@ -135,3 +135,6 @@ env:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "solr-password"
+
+portal:
+  enabled: false

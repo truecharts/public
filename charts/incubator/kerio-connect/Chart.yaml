@@ -8,13 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Kerio Connect is Mail/Groupware like Microsoft Exchange, but running
-  on Linux. More Informations under www.kerio.com/connect
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/kerio-connect
-icon: https://truecharts.org/img/chart-icons/kerio-connect.png
+description: Kerio Connect is Mail/Groupware like Microsoft Exchange, but running on Linux. More Informations under www.kerio.com/connect
+home: https://truecharts.org/docs/charts/incubator/kerio-connect
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kerio-connect.png
 keywords:
   - kerio-connect
   - Network-Web
@@ -26,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: kerio-connect
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kerio-connect
   - http://kerio.com
   - https://hub.docker.com/r/chvb/docker-kerio-connect/
 type: application
-version: 0.0.14
+version: 0.0.15

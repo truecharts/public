@@ -9,7 +9,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sftpgo
-  tag: latest@sha256:7e05d735bce0ba04dcaf95c5ca7f18a38fca9f8a0e679719256643cd5958c59b
+  tag: latest@sha256:761b9b97327316b8ae5ac3d91008c7dc1679880207d538d9d34ffae37b4199e2
 persistence:
   backupdirectory:
     enabled: true
@@ -70,3 +70,6 @@ service:
         port: 10080
         protocol: TCP
         targetPort: 10080
+
+portal:
+  enabled: true

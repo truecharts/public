@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Rdesktop(http://xrdp.org/) - Containers containing full desktop environments
-  in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/rdesktop
-icon: https://truecharts.org/img/chart-icons/rdesktop.png
+description: Rdesktop(http://xrdp.org/) - Containers containing full desktop environments in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
+home: https://truecharts.org/docs/charts/incubator/rdesktop
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.png
 keywords:
   - rdesktop
   - Other
@@ -24,8 +22,9 @@ maintainers:
     url: https://truecharts.org
 name: rdesktop
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rdesktop
   - http://xrdp.org/
   - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
   - https://github.com/linuxserver/docker-rdesktop#readme
 type: application
-version: 0.0.14
+version: 0.0.16

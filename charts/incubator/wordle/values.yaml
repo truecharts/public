@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/wordle
-  tag: latest@sha256:63e8cf47ca64a191d1c09d2fc4f45f609477f767b0268c38eb565b11fdef6982
+  tag: latest@sha256:fed4e29a3a78b96204f367eab92b73498719ea53900aacde1a426d43225b8cde
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,3 +23,6 @@ service:
     ports:
       main:
         enabled: false
+
+portal:
+  enabled: false

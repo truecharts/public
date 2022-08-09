@@ -10,11 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: "This Docker will download and install Rapid Photo Downloader.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/rapidphotodownloader
-icon: https://truecharts.org/img/chart-icons/rapidphotodownloader.png
+home: https://truecharts.org/docs/charts/incubator/rapidphotodownloader
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rapidphotodownloader.png
 keywords:
   - rapidphotodownloader
   - MediaApp-Photos
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: rapidphotodownloader
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rapidphotodownloader
   - https://www.damonlynch.net/rapid/
   - https://hub.docker.com/r/ich777/rapidphotodownloader/
 type: application
-version: 0.0.14
+version: 0.0.15

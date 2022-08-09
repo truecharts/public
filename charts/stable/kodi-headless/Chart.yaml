@@ -1,21 +1,22 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: kodi-headless
-version: 2.0.22
+version: 2.0.23
 appVersion: "190"
 description: A headless install of kodi in a docker container.
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/stable/kodi-headless
-icon: https://truecharts.org/img/chart-icons/kodi-headless.png
+home: https://truecharts.org/docs/charts/stable/kodi-headless
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kodi-headless.png
 keywords:
   - kodi-headless
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kodi-headless
   - https://hub.docker.com/r/linuxserver/kodi-headless
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
     # condition:
 maintainers:
   - email: info@truecharts.org

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/tinymediamanager
-  tag: v4.2.8@sha256:32e7ea100382317c9616cbecefb1cd7a0cef982f960bd4028341f0b3f8d3c332
+  tag: 4.3.1@sha256:8c0a971bdb421d5f7f08904fe9817d1e7d898fd1853b1406d33cbfd8e789f97d
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -31,3 +31,6 @@ persistence:
   tvshows:
     enabled: true
     mountPath: "/media/tvshows"
+
+portal:
+  enabled: true

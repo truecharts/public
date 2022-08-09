@@ -8,15 +8,11 @@ appVersion: "7.41.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  "JFrog\u2019s Artifactory open source project was created to speed up\
-  \ development cycles using binary repositories. It\u2019s the world\u2019s most\
-  \ advanced repository manager, creating a single place for teams to manage all their\
-  \ binary artifacts efficiently."
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
-icon: https://truecharts.org/img/chart-icons/artifactory-oss.png
+description: "JFrog’s Artifactory open source project was created to speed up development cycles using binary repositories. It’s the world’s most advanced repository manager, creating a single place for teams to manage all their binary artifacts efficiently."
+home: https://truecharts.org/docs/charts/incubator/artifactory-oss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/artifactory-oss.png
 keywords:
   - artifactory-oss
   - Productivity
@@ -28,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: artifactory-oss
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
   - https://jfrog.com/
   - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
 type: application
-version: 0.0.14
+version: 0.0.15

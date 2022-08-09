@@ -3,11 +3,11 @@ appVersion: "2022.07.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: DNS and Ad-filtering for your network
-home: https://github.com/truecharts/charts/tree/master/charts/stable/pihole
-icon: https://truecharts.org/img/chart-icons/pihole.png
+home: https://truecharts.org/docs/charts/stable/pihole
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.png
 keywords:
   - DNS
 kubeVersion: ">=1.16.0-0"
@@ -17,11 +17,12 @@ maintainers:
     url: https://truecharts.org
 name: pihole
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
   - https://pi-hole.net/
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
 type: application
-version: 6.0.27
+version: 6.0.28
 annotations:
   truecharts.org/catagories: |
     - networking

@@ -14,7 +14,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/icloudpd
-  tag: latest@sha256:f9f31e7ccc2c81ee52f34a8f762c9fbdb711acb5e321235f13bb45bb64eafe95
+  tag: latest@sha256:79b446ccd6a94f1849d1e2735545d8ed2fac18af2d1df66ae33e738bddc4fdf5
 persistence:
   config:
     enabled: true
@@ -41,3 +41,6 @@ service:
     ports:
       main:
         enabled: false
+
+portal:
+  enabled: false

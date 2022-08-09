@@ -2,6 +2,25 @@
 
 
 
+## [drawio-2.0.33](https://github.com/truecharts/charts/compare/drawio-2.0.32...drawio-2.0.33) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [drawio-2.0.32](https://github.com/truecharts/apps/compare/drawio-2.0.31...drawio-2.0.32) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [drawio-2.0.31](https://github.com/truecharts/apps/compare/drawio-2.0.30...drawio-2.0.31) (2022-07-26)
 
 ### Chore

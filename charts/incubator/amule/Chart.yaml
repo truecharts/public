@@ -9,11 +9,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: "DESCRIPTION\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/amule
-icon: https://truecharts.org/img/chart-icons/amule.png
+home: https://truecharts.org/docs/charts/incubator/amule
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/amule.png
 keywords:
   - amule
   - Downloaders
@@ -26,7 +26,8 @@ maintainers:
     url: https://truecharts.org
 name: amule
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/amule
   - https://github.com/t-chab/dockerfiles
   - https://hub.docker.com/r/tchabaud/amule
 type: application
-version: 0.0.14
+version: 0.0.15

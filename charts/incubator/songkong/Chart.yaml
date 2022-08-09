@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  Official SongKong Docker repository, Identify your songs and add metadata
-  and artwork automatically
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/songkong
-icon: https://truecharts.org/img/chart-icons/songkong.png
+description: Official SongKong Docker repository, Identify your songs and add metadata and artwork automatically
+home: https://truecharts.org/docs/charts/incubator/songkong
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/songkong.png
 keywords:
   - songkong
   - MediaApp-Music
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: songkong
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/songkong
   - http://www.jthink.net/songkong
   - https://hub.docker.com/r/songkong/songkong/
 type: application
-version: 0.0.14
+version: 0.0.15

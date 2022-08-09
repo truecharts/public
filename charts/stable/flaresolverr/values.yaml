@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/flaresolverr
   pullPolicy: IfNotPresent
-  tag: v2.2.4@sha256:37909c16161f7cb5c1fa55c74fe4d17c23f5bbfb70328c6c7badaa1988d70cb2
+  tag: 2.2.6@sha256:6df62b6f651343a67716bbe511d21305d7d4507ddba680f6c955dff1892998ff
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,3 +22,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

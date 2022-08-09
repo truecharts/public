@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/leantime
   pullPolicy: IfNotPresent
-  tag: 2.2.2@sha256:6ba5fa45920752fcedd91a759ef954f3d686c30b5c61bb85573d0fa83050030f
+  tag: 2.2.4@sha256:8fc7222222ed5b95d460a5a0009054ba77c76555aaa2b1dfaeaa1519f5ffa348
 
 securityContext:
   runAsNonRoot: false
@@ -40,3 +40,6 @@ mariadb:
   mariadbUsername: leantime
   mariadbDatabase: leantime
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

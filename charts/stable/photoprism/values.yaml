@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/photoprism
-  tag: v220629@sha256:24ea52463101f8ceb6cfb1c86f093684bb2b94b407843c6a6782e5c25d0886bd
+  tag: v220730@sha256:0b709a02df8db19868fba86a927b6709d4daa3a14bb8a3c1b77142b4c4274898
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -56,3 +56,6 @@ mariadb:
   mariadbUsername: photoprism
   mariadbDatabase: photoprism
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

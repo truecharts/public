@@ -54,3 +54,6 @@ initContainers:
           echo "Config file is missing, getting a new one!"
           curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || ( echo "Downloading config file, FAILED..." && exit 1 )
         fi
+
+portal:
+  enabled: false

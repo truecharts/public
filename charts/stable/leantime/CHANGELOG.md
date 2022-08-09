@@ -2,6 +2,43 @@
 
 
 
+## [leantime-4.0.32](https://github.com/truecharts/charts/compare/leantime-4.0.31...leantime-4.0.32) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [leantime-4.0.31](https://github.com/truecharts/charts/compare/leantime-4.0.30...leantime-4.0.31) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [leantime-4.0.30](https://github.com/truecharts/charts/compare/leantime-4.0.29...leantime-4.0.30) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [leantime-4.0.29](https://github.com/truecharts/apps/compare/leantime-4.0.28...leantime-4.0.29) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
 ## [leantime-4.0.28](https://github.com/truecharts/apps/compare/leantime-4.0.27...leantime-4.0.28) (2022-07-27)
 
 ### Chore

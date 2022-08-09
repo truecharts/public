@@ -2,6 +2,25 @@
 
 
 
+## [onlyoffice-document-server-6.0.26](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.25...onlyoffice-document-server-6.0.26) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [onlyoffice-document-server-6.0.25](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.24...onlyoffice-document-server-6.0.25) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [onlyoffice-document-server-6.0.24](https://github.com/truecharts/apps/compare/onlyoffice-document-server-6.0.23...onlyoffice-document-server-6.0.24) (2022-07-26)
 
 ### Chore

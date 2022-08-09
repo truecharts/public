@@ -3,11 +3,11 @@ appVersion: "3.5.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
 description: Speedtest Exporter made in python using the official speedtest bin
-icon: https://truecharts.org/img/chart-icons/speedtest-exporter.png
-home: https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-exporter.png
+home: https://truecharts.org/docs/charts/stable/speedtest-exporter
 keywords:
   - speedtest-exporter
   - speedtest
@@ -19,9 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: speedtest-exporter
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
   - https://github.com/MiguelNdeCarvalho/speedtest-exporter/
 type: application
-version: 3.0.25
+version: 3.0.26
 annotations:
   truecharts.org/catagories: |
     - metrics

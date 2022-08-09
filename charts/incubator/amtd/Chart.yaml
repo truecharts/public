@@ -8,15 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.9
 deprecated: false
-description:
-  "Automated Movie Trailer Downloader :: AMTD is a Radarr Companion script
-  to automatically download movie trailers for use in media applications
-
-  "
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/amtd
-icon: https://truecharts.org/img/chart-icons/amtd.png
+description: "Automated Movie Trailer Downloader :: AMTD is a Radarr Companion script to automatically download movie trailers for use in media applications\n"
+home: https://truecharts.org/docs/charts/incubator/amtd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/amtd.png
 keywords:
   - amtd
   - Downloaders
@@ -28,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: amtd
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/amtd
   - https://github.com/RandomNinjaAtk/docker-amtd
   - https://hub.docker.com/r/randomninjaatk/amtd
 type: application
-version: 0.0.15
+version: 0.0.17

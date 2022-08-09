@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: 9.0.4@sha256:06f2c1250487faa6703f9f4834ca15a742843189a3c4a78e0cd7ff9fb279e37a
+  tag: 9.0.5@sha256:e5ac0c2d2c0803bec5131c59b06c5693a94e6d53ac3a628b7284d41904030c84
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -70,3 +70,6 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
+
+portal:
+  enabled: true
