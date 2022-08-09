@@ -16,9 +16,6 @@ ldapImage:
 
 extraArgs: ["server"]
 
-securityContext:
-  readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
@@ -81,7 +78,7 @@ geoip:
 
 outposts:
   ldap:
-    enable: false
+    enabled: false
     insecure: false
     host: ""
     token: "test"
