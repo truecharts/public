@@ -60,7 +60,9 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote }}
-  AUTHENTIK_HOST: {{ .Values.outposts.ldap.host }}
+  {{- with .Values.outposts.ldap.host }}
+  AUTHENTIK_HOST: {{ . }}
+  {{- end }}
 ---
 {{/* This configmap is loaded on geoip container */}}
 apiVersion: v1
