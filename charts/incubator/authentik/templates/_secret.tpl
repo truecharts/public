@@ -57,7 +57,6 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Placeholder in case of empty secret */}}
-  PLACEHOLDER: {{ "PLACEHOLDER" | b64enc }}
   {{- with .Values.outposts.ldap.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
