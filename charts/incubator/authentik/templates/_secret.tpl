@@ -1,9 +1,9 @@
 {{/* Define the secret */}}
 {{- define "authentik.secret" -}}
 
-{{- $authentikSecretName := "authentik-authentik-secret" (include "tc.common.names.fullname" .) }}
-{{- $geoipSecretName := "authentik-geoip-secret" (include "tc.common.names.fullname" .) }}
-{{- $ldapSecretName := "authentik-ldap-secret" (include "tc.common.names.fullname" .) }}
+{{- $authentikSecretName := "printf "%s"-authentik-secret" (include "tc.common.names.fullname" .) }}
+{{- $geoipSecretName := "printf "%s"-geoip-secret" (include "tc.common.names.fullname" .) }}
+{{- $ldapSecretName := "printf "%s"-ldap-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
@@ -25,9 +25,7 @@ data:
   {{- end }}
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
-  AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
-  AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   {{/* Credentials */}}
   {{- with .Values.authentik.creds.password }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
