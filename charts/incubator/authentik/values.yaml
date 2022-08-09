@@ -65,7 +65,7 @@ authentik:
     internalPort: 9301
 
 geoip:
-  enabled: false
+  enabled: true
   account_id: ""
   license_key: ""
   proxy: ""
@@ -78,7 +78,7 @@ geoip:
 
 outposts:
   ldap:
-    enable: false
+    enable: true
     insecure: false
     host: ""
     token: "test"
