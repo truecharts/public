@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.2](https://github.com/truecharts/charts/compare/authentik-3.0.1...authentik-3.0.2) (2022-08-10)
+
+### Fix
+
+- only set ints when are defined ([#3432](https://github.com/truecharts/charts/issues/3432))
+
+
+
+
 ## [authentik-3.0.1](https://github.com/truecharts/charts/compare/authentik-3.0.0...authentik-3.0.1) (2022-08-10)
 
 ### Fix
