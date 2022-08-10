@@ -58,14 +58,14 @@ service:
   imaptls:
     enabled: true
     ports:
-      imap:
+      imaptls:
         enabled: true
         targetPort: 143
         port: 143
   imapssl:
     enabled: true
     ports:
-      imap:
+      imapssl:
         enabled: true
         targetPort: 993
         port: 993
