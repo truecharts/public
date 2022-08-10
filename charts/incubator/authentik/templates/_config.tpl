@@ -22,10 +22,14 @@ data:
   AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   AUTHENTIK_POSTGRESQL__PORT: "5432"
   {{/* Mail */}}
-  AUTHENTIK_EMAIL__PORT: {{ .Values.authentik.mail.port | quote }}
+  {{- with .Values.authentik.mail.port }}
+  AUTHENTIK_EMAIL__PORT: {{ . | quote }}
+  {{- end }}
   AUTHENTIK_EMAIL__USE_TLS: {{ .Values.authentik.mail.tls | quote }}
   AUTHENTIK_EMAIL__USE_SSL: {{ .Values.authentik.mail.ssl | quote }}
-  AUTHENTIK_EMAIL__TIMEOUT: {{ .Values.authentik.mail.timeout | quote }}
+  {{- with .Values.authentik.mail.timeout }}
+  AUTHENTIK_EMAIL__TIMEOUT: {{ . | quote }}
+  {{- end }}
   {{/* Logging */}}
   {{- with .Values.authentik.logging.log_level }}
   AUTHENTIK_LOG_LEVEL: {{ . }}
