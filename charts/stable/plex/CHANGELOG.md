@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.18...plex-10.0.30) (2022-08-10)
+
+### Chore
+
+- set advertise_ip to required ([#3426](https://github.com/truecharts/charts/issues/3426))
+
+
+
+
 ## [plex-10.0.29](https://github.com/truecharts/charts/compare/plextraktsync-0.0.17...plex-10.0.29) (2022-08-10)
 
 ### Chore
