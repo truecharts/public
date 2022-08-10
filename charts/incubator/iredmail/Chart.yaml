@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: iredmail
+version: 0.0.1
+appVersion: "stable"
+description: Official dockerized iRedMail (MariaDB edition, all-in-one, based on Ubuntu 20.04 LTS).
+type: application
+deprecated: false
+home: https://truecharts.org/docs/charts/incubator/iredmail
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/iredmail.png
+keywords:
+  - iredmail
+  - email
+sources:
+  - https://github.com/iredmail/dockerized
+  - https://hub.docker.com/r/cloudflare/cloudflared
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - email
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

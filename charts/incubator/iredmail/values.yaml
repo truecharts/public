@@ -1,0 +1,123 @@
+image:
+  repository: iredmail/mariadb
+  pullPolicy: IfNotPresent
+  tag: stable@sha256:6eb2b506f79d5a794c47dcd6c3f91cde4aace7c0b6271f6338edad05fd15bd44
+
+
+env:
+  HOSTNAME: "mail.mydomain.com"
+  FIRST_MAIL_DOMAIN: "mydomain.com"
+  FIRST_MAIL_DOMAIN_ADMIN_PASSWORD: "1234567890"
+  MLMMJADMIN_API_TOKEN: "CHANGE_MLMMJADMIN_API_TOKEN"
+  ROUNDCUBE_DES_KEY: "CHANGE_ROUNDCUBE_KEY"
+  PORT_HTTPS: "{{ .Values.service.main.ports.main.port }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTPS
+        targetPort: 443
+        port: 19443
+  sub:
+    enabled: true
+    ports:
+      sub:
+        enabled: true
+        protocol: HTTP
+        targetPort: 80
+        port: 19080
+  manserv:
+    enabled: true
+    ports:
+      manserv:
+        enabled: true
+        targetPort: 4190
+        port: 4190
+  smtp:
+    enabled: true
+    ports:
+      smtp:
+        enabled: true
+        targetPort: 25
+        port: 25
+  smtps:
+    enabled: true
+    ports:
+      smtps:
+        enabled: true
+        targetPort: 465
+        port: 465
+  submission:
+    enabled: true
+    ports:
+      submission:
+        enabled: true
+        targetPort: 587
+        port: 587
+  imaptls:
+    enabled: true
+    ports:
+      imap:
+        enabled: true
+        targetPort: 143
+        port: 143
+  imapssl:
+    enabled: true
+    ports:
+      imap:
+        enabled: true
+        targetPort: 993
+        port: 993
+  pop3tls:
+    enabled: true
+    ports:
+      pop3tls:
+        enabled: true
+        targetPort: 110
+        port: 110
+  pop3ssl:
+    enabled: true
+    ports:
+      pop3tls:
+        enabled: true
+        targetPort: 995
+        port: 995
+
+persistence:
+  mysql:
+    enabled: true
+    mountPath: "/var/vmail/backup/mysql"
+  vmail1:
+    enabled: true
+    mountPath: "/var/vmail/vmail1"
+  mlmmj:
+    enabled: true
+    mountPath: "/var/vmail/mlmmj"
+  mlmmjarchive:
+    enabled: true
+    mountPath: "/var/vmail/mlmmj-archive"
+  imapsievecopy:
+    enabled: true
+    mountPath: "/var/vmail/imapsieve_copy"
+  custom:
+    enabled: true
+    mountPath: "/opt/iredmail/custom"
+  ssl:
+    enabled: true
+    mountPath: "/opt/iredmail/ssl"
+  libmysql:
+    enabled: true
+    mountPath: "/var/lib/mysql"
+  clamav:
+    enabled: true
+    mountPath: "/var/lib/clamav"
+  spamassassin:
+    enabled: true
+    mountPath: "/var/lib/spamassassin"
+  postfix:
+    enabled: true
+    mountPath: "/var/spool/postfix"
+
+portal:
+  enabled: true

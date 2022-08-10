@@ -1,0 +1,520 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: HOSTNAME
+          label: "HOSTNAME"
+          description: "mail domain; ex: mail.domain.com"
+          schema:
+            type: string
+            required: true
+            default: "mail.domain.com"
+        - variable: FIRST_MAIL_DOMAIN
+          label: "FIRST MAIL DOMAIN"
+          description: "the domain for user email; ex: domain.com"
+          schema:
+            type: string
+            required: true
+            default: "domain.com"
+        - variable: FIRST_MAIL_DOMAIN_ADMIN_PASSWORD
+          label: "FIRST MAIL DOMAIN ADMIN PASSWORD"
+          description: "admin password"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "1234567890"
+        - variable: MLMMJADMIN_API_TOKEN
+          label: "MLMMJADMIN API TOKEN"
+          description: "API TOKEN"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "12345678900987654321"
+        - variable: ROUNDCUBE_DES_KEY
+          label: "ROUNDCUBE DES KEY"
+          description: "ROUNDCUBE DES KEY"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "09392724473"
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 19443
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 443
+        - variable: sub
+          label: "Sub Service"
+          description: "The secondary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: sub
+                      label: "Sub Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 19080
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 80
+# Include{serviceExpertRoot}
+            default: false
+        - variable: manserv
+          label: "Managesieve Service"
+          description: "The Managesieve service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: manserv
+                      label: "Managesieve Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 4190
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 4190
+# Include{serviceExpertRoot}
+            default: false
+        - variable: smtp
+          label: "SMTP Service"
+          description: "The SMTP service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: SMTP
+                      label: "SMTP Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25
+# Include{serviceExpertRoot}
+            default: false
+        - variable: smtps
+          label: "SMTPS Service"
+          description: "The SMTPS service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: smtps
+                      label: "SMTPS Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 465
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 465
+# Include{serviceExpertRoot}
+            default: false
+        - variable: submission
+          label: "SUBMISSION Service"
+          description: "The SUBMISSION service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: submission
+                      label: "SUBMISSION Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 587
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 587
+# Include{serviceExpertRoot}
+            default: false
+        - variable: imaptls
+          label: "IMAP TLS Service"
+          description: "The IMAP TLS service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: imaptls
+                      label: "IMAP TLS Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 143
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 143
+# Include{serviceExpertRoot}
+            default: false
+        - variable: imapssl
+          label: "IMAP SSL Service"
+          description: "The IMAP SSL service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: imapssl
+                      label: "IMAP SSL Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 993
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 993
+# Include{serviceExpertRoot}
+            default: false
+        - variable: pop3tls
+          label: "POP3 TLS Service"
+          description: "The POP3 TLS service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: imapssl
+                      label: "POP3 TLS Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 110
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 110
+# Include{serviceExpertRoot}
+            default: false
+        - variable: pop3ssl
+          label: "POP3 SSL Service"
+          description: "The POP3 SSL service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: imapssl
+                      label: "POP3 SSL Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 995
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 995
+# Include{serviceExpertRoot}
+            default: false
+
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: mysql
+          label: "App MySQL Storage"
+          description: "Stores the Application MySQL."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: vmail1
+          label: "App Vmail1 Storage"
+          description: "Stores the Application Vmail1."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: mlmmj
+          label: "App mlmmj Storage"
+          description: "Stores the Application mlmmj."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: mlmmjarchive
+          label: "App mlmmjarchive Storage"
+          description: "Stores the Application mlmmjarchive."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: imapsievecopy
+          label: "App imapsievecopy Storage"
+          description: "Stores the Application imapsievecopy."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: custom
+          label: "App Custom Storage"
+          description: "Stores the Application Custom."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: ssl
+          label: "App SSL Storage"
+          description: "Stores the Application SSL."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: libmysql
+          label: "App Libmysql Storage"
+          description: "Stores the Application Libmysql."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: clamav
+          label: "App Clamav Storage"
+          description: "Stores the Application Clamav."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: spamassassin
+          label: "App Spamassassin Storage"
+          description: "Stores the Application Spamassassin."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: postfix
+          label: "App Postfix Storage"
+          description: "Stores the Application Postfix."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: true
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
