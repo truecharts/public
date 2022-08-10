@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.0.31](https://github.com/truecharts/charts/compare/plex-10.0.30...plex-10.0.31) (2022-08-10)
+
+### Fix
+
+- Adjust input validation for comma separated list ([#3430](https://github.com/truecharts/charts/issues/3430))
+
+
+
+
 ## [plex-10.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.18...plex-10.0.30) (2022-08-10)
 
 ### Chore
