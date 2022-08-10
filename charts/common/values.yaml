@@ -14,7 +14,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: tccr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:193e41d15efd71a1d17c14b0f2581153289ca648d9bd5de7498c9cf0856dd98a
+  tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -54,7 +54,7 @@ alpineImage:
   # -- Specify the Alpine image
   repository: tccr.io/truecharts/alpine
   # -- Specify the Alpine image tag
-  tag: v3.16.1@sha256:b1b492d2ee26a2ee6fb68dc34c00bbd2bb7f9cd87d2aa6c3f7bf46f607ded1cb
+  tag: 3.16.2@sha256:71198b13ca5eaa344c6bd2bd0c1a29fb084772433c2811bcf9a78b77838b87fa
   # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
 
@@ -62,7 +62,7 @@ multiinitImage:
   # -- Specify the multi-init image
   repository: tccr.io/truecharts/multi-init
   # -- Specify the redis image tag
-  tag: v0.0.1@sha256:d947b94180365c8b7294b610dcd7138f7997134050a95bcd52bdef957247f33a
+  tag: v0.0.1@sha256:4c2caebee117b055f379377fd0fd306f2ee0e6697fd47d9364073e0e9e6f2e02
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
