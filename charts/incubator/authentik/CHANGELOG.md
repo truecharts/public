@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.3](https://github.com/truecharts/charts/compare/authentik-3.0.2...authentik-3.0.3) (2022-08-10)
+
+### Fix
+
+- fix ldap outpost settings not showing, and make mail port an int ([#3433](https://github.com/truecharts/charts/issues/3433))
+
+
+
+
 ## [authentik-3.0.2](https://github.com/truecharts/charts/compare/authentik-3.0.1...authentik-3.0.2) (2022-08-10)
 
 ### Fix
