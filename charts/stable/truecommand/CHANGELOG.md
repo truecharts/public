@@ -2,6 +2,15 @@
 
 
 
+## [truecommand-11.0.25](https://github.com/truecharts/charts/compare/truecommand-11.0.24...truecommand-11.0.25) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [truecommand-11.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.23...truecommand-11.0.24) (2022-08-08)
 
 ### Chore

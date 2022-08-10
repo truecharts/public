@@ -2,6 +2,15 @@
 
 
 
+## [littlelink-6.0.46](https://github.com/truecharts/charts/compare/littlelink-6.0.45...littlelink-6.0.46) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [littlelink-6.0.45](https://github.com/truecharts/charts/compare/littlelink-6.0.43...littlelink-6.0.45) (2022-08-08)
 
 ### Chore

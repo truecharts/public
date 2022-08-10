@@ -2,6 +2,15 @@
 
 
 
+## [k8s-gateway-6.1.10](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.9...k8s-gateway-6.1.10) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [k8s-gateway-6.1.9](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.8...k8s-gateway-6.1.9) (2022-08-08)
 
 ### Chore

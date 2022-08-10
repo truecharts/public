@@ -2,6 +2,15 @@
 
 
 
+## [booksonic-air-6.0.31](https://github.com/truecharts/charts/compare/booksonic-air-6.0.30...booksonic-air-6.0.31) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [booksonic-air-6.0.30](https://github.com/truecharts/charts/compare/booksonic-air-6.0.28...booksonic-air-6.0.30) (2022-08-08)
 
 ### Chore

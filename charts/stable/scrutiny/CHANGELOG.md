@@ -2,6 +2,15 @@
 
 
 
+## [scrutiny-3.0.24](https://github.com/truecharts/charts/compare/scrutiny-3.0.23...scrutiny-3.0.24) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [scrutiny-3.0.23](https://github.com/truecharts/charts/compare/scrutiny-3.0.22...scrutiny-3.0.23) (2022-08-08)
 
 ### Chore

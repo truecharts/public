@@ -2,6 +2,16 @@
 
 
 
+## [clickhouse-1.0.6](https://github.com/truecharts/charts/compare/clickhouse-1.0.5...clickhouse-1.0.6) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [clickhouse-1.0.5](https://github.com/truecharts/apps/compare/clickhouse-1.0.4...clickhouse-1.0.5) (2022-07-29)
 
 ### Chore

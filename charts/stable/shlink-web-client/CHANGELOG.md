@@ -2,6 +2,15 @@
 
 
 
+## [shlink-web-client-3.0.26](https://github.com/truecharts/charts/compare/shlink-web-client-3.0.25...shlink-web-client-3.0.26) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [shlink-web-client-3.0.25](https://github.com/truecharts/charts/compare/shlink-web-client-3.0.24...shlink-web-client-3.0.25) (2022-08-08)
 
 ### Chore

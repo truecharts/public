@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.0.29](https://github.com/truecharts/charts/compare/plextraktsync-0.0.17...plex-10.0.29) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [plex-10.0.28](https://github.com/truecharts/charts/compare/plextraktsync-0.0.15...plex-10.0.28) (2022-08-08)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [amtd-0.0.18](https://github.com/truecharts/charts/compare/amtd-0.0.17...amtd-0.0.18) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [amtd-0.0.17](https://github.com/truecharts/charts/compare/amtd-0.0.15...amtd-0.0.17) (2022-08-08)
 
 ### Chore
