@@ -10,4 +10,4 @@
 
 ![listeningIpAddress](imgs/listeningIpAddress.png)
 
-- for more info please go [here](https://www.mymediaalexa.com/).
+- For more info please go [here](https://www.mymediaalexa.com/).
