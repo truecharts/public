@@ -17,7 +17,7 @@ ports:
   - containerPort: 6636
 {{ if .Values.outposts.ldap.metrics }}
   - containerPort: 9300
-    name: metrics
+    name: ldap-metrics
 {{ end }}
 readinessProbe:
   exec:

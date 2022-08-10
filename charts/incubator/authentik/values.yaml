@@ -150,7 +150,7 @@ service:
         enabled: true
         port: 636
         targetPort: 6636
-      metrics:
+      ldap-metrics:
         enabled: true
         port: 10232
         protocol: HTTP
