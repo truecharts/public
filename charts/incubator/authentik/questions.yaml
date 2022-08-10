@@ -294,7 +294,7 @@ questions:
           description: "Enables GeoIP container"
           schema:
             type: boolean
-            default: true
+            default: false
             show_subquestions_if: true
             subquestions:
               - variable: account_id
