@@ -15,15 +15,15 @@ service:
   main:
     ports:
       main:
-        targetPort: 52050
-        port: 52050
+        targetPort: 52051
+        port: 52051
   sub:
     enabled: true
     ports:
       sub:
         enabled: true
-        targetPort: 52051
-        port: 52051
+        targetPort: 52050
+        port: 52050
 
 persistence:
   data:
