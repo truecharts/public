@@ -25,6 +25,7 @@ questions:
           schema:
             type: string
             valid_chars: '^http(s)?:\/\/.*:\d*$'
+            required: true
             default: "http://SERVER_IP:32400"
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
