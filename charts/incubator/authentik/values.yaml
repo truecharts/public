@@ -140,18 +140,18 @@ service:
         port: 10231
         targetPort: 9301
   ldap:
-    enabled: false
+    enabled: true
     ports:
       ldap1:
-        enabled: false
+        enabled: true
         port: 389
         targetPort: 3389
       ldap2:
-        enabled: false
+        enabled: true
         port: 636
         targetPort: 6636
-      metrics:
-        enabled: false
+      ldap-metrics:
+        enabled: true
         port: 10232
         protocol: HTTP
         targetPort: 9300

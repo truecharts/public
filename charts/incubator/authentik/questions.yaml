@@ -294,7 +294,7 @@ questions:
           description: "Enables GeoIP container"
           schema:
             type: boolean
-            default: true
+            default: false
             show_subquestions_if: true
             subquestions:
               - variable: account_id
@@ -519,7 +519,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 6636
-                    - variable: metrics
+                    - variable: ldap-metrics
                       label: "LDAP metrics Service Port Configuration"
                       schema:
                         additional_attrs: true
