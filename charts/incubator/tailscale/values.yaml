@@ -18,9 +18,8 @@ podSecurityContext:
 hostNetwork: true
 
 env:
-  name: AUTHKEY
   secretKeyRef:
-  name: tailscale-auth
+  name: AUTHKEY
   key: ""
   optional: true
 
