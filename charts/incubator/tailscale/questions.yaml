@@ -21,7 +21,7 @@ questions:
           description: "Auth keys authenticate a machine as the user who generated the key."
           schema:
             type: string
-            default: "tskey-ABCD12323"
+            default: ""
             private: true
 # Include{containerConfig}
 # Include{serviceSelector}
@@ -101,7 +101,7 @@ questions:
                 label: "Privileged mode"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: readOnlyRootFilesystem
                 label: "ReadOnly Root Filesystem"
                 schema:
@@ -111,7 +111,7 @@ questions:
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
