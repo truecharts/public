@@ -18,7 +18,6 @@ podSecurityContext:
 hostNetwork: true
 
 env:
-  secretKeyRef:
   name: AUTHKEY
   key: ""
   optional: true
