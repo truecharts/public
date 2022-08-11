@@ -60,6 +60,10 @@ containers:
   stdin: {{ .Values.stdin }}
   securityContext:
     privileged: {{ .Values.securityContext.privileged }}
+    {{ if .Values.securityContext.enableRunAsUser }}
+    runAsUser: {{ .Values.securityContext.runAsUser }}
+    runAsGroup: {{ .Values.securityContext.runAsGroup }}
+    {{ end }}
     {{ if .Values.securityContext.capabilities }}
     capabilities:
       add: {{ toYaml .Values.securityContext.capabilities | nindent 8 }}
