@@ -21,7 +21,7 @@ env:
   name: AUTHKEY
   secretKeyRef:
   name: tailscale-auth
-  key: AUTHKEY
+  key: ""
   optional: true
 
 service:
