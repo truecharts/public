@@ -20,7 +20,7 @@ env:
     secretKeyRef:
       name: dbcreds
       key: url-noql
-  OPENPROJECT_CACHE__MEMCACHE__SERVER: localhost:11211
+  OPENPROJECT_CACHE__MEMCACHE__SERVER: 192.111.111.112:11211     #wrong URL test
   OPENPROJECT_RAILS_CACHE_STORE: memcache
   OPENPROJECT_CACHE_NAMESPACE: openproject
 
