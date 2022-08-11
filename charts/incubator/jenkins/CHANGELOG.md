@@ -2,6 +2,15 @@
 
 
 
+## [jenkins-0.1.0](https://github.com/truecharts/charts/compare/jenkins-0.0.3...jenkins-0.1.0) (2022-08-11)
+
+### Fix
+
+- Fix permission ([#3439](https://github.com/truecharts/charts/issues/3439))
+
+
+
+
 ## [jenkins-0.0.3](https://github.com/truecharts/charts/compare/jenkins-0.0.2...jenkins-0.0.3) (2022-08-10)
 
 ### Chore

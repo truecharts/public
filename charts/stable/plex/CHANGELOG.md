@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.0.32](https://github.com/truecharts/charts/compare/plex-10.0.31...plex-10.0.32) (2022-08-11)
+
+### Fix
+
+- allow empty advertise IP ([#3437](https://github.com/truecharts/charts/issues/3437))
+
+
+
+
 ## [plex-10.0.31](https://github.com/truecharts/charts/compare/plex-10.0.30...plex-10.0.31) (2022-08-10)
 
 ### Fix
