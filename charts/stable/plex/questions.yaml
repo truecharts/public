@@ -24,8 +24,7 @@ questions:
           description: "IP to advertise to Plex, Change SERVER_IP to your actual server IP"
           schema:
             type: string
-            valid_chars: '^(http(s)?:\/\/([a-z0-9.]*)(:\d{0,5})?,?)*$'
-            required: true
+            valid_chars: '^$|^(http(s)?:\/\/([a-z0-9.]*)(:\d{0,5})?,?)*$'
             default: "http://SERVER_IP:32400"
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
