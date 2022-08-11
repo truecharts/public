@@ -20,6 +20,9 @@ env:
     secretKeyRef:
       name: dbcreds
       key: url-noql
+  OPENPROJECT_CACHE__MEMCACHE__SERVER: localhost:11211
+  OPENPROJECT_RAILS_CACHE_STORE: memcache
+  OPENPROJECT_CACHE_NAMESPACE: openproject
 
 persistence:
   assets:
