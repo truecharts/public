@@ -2,6 +2,15 @@
 
 
 
+## [kitchenowl-0.0.6](https://github.com/truecharts/charts/compare/kitchenowl-0.0.5...kitchenowl-0.0.6) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [kitchenowl-0.0.5](https://github.com/truecharts/charts/compare/kitchenowl-0.0.4...kitchenowl-0.0.5) (2022-08-09)
 
 ### Chore

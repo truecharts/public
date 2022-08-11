@@ -2,6 +2,15 @@
 
 
 
+## [wikijs-7.0.29](https://github.com/truecharts/charts/compare/wikijs-7.0.28...wikijs-7.0.29) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [wikijs-7.0.28](https://github.com/truecharts/charts/compare/wikijs-7.0.27...wikijs-7.0.28) (2022-08-09)
 
 ### Chore

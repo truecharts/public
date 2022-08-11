@@ -2,6 +2,19 @@
 
 
 
+## [baikal-0.0.15](https://github.com/truecharts/charts/compare/baikal-0.0.14...baikal-0.0.15) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+  ### Fix
+
+- cleanup ([#3389](https://github.com/truecharts/charts/issues/3389))
+
+
+
+
 ## [baikal-0.0.14](https://github.com/truecharts/charts/compare/baikal-0.0.13...baikal-0.0.14) (2022-08-08)
 
 ### Chore
