@@ -122,8 +122,8 @@ questions:
                 label: "Mail Server Port"
                 description: "Sets port of mail server"
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  default: 25
               - variable: tls
                 label: "Use TLS for authentication"
                 description: "Sets tls for mail server authentication"
@@ -253,7 +253,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-                  show_subquestions_if:
+                  show_subquestions_if: true
                   subquestions:
                     - variable: insecure
                       label: "Insecure"
@@ -294,7 +294,7 @@ questions:
           description: "Enables GeoIP container"
           schema:
             type: boolean
-            default: true
+            default: false
             show_subquestions_if: true
             subquestions:
               - variable: account_id
@@ -519,7 +519,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 6636
-                    - variable: metrics
+                    - variable: ldap-metrics
                       label: "LDAP metrics Service Port Configuration"
                       schema:
                         additional_attrs: true

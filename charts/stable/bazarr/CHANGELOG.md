@@ -2,6 +2,15 @@
 
 
 
+## [bazarr-11.0.26](https://github.com/truecharts/charts/compare/bazarr-11.0.25...bazarr-11.0.26) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [bazarr-11.0.25](https://github.com/truecharts/charts/compare/bazarr-11.0.24...bazarr-11.0.25) (2022-08-08)
 
 ### Chore

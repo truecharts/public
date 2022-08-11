@@ -2,6 +2,15 @@
 
 
 
+## [nzbhydra-11.0.29](https://github.com/truecharts/charts/compare/nzbhydra-11.0.28...nzbhydra-11.0.29) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [nzbhydra-11.0.28](https://github.com/truecharts/charts/compare/nzbhydra-11.0.27...nzbhydra-11.0.28) (2022-08-08)
 
 ### Chore

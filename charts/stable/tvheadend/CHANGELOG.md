@@ -2,6 +2,16 @@
 
 
 
+## [tvheadend-12.0.24](https://github.com/truecharts/charts/compare/tvheadend-12.0.23...tvheadend-12.0.24) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+  - add run_opts in the UI ([#3393](https://github.com/truecharts/charts/issues/3393))
+
+
+
+
 ## [tvheadend-12.0.23](https://github.com/truecharts/charts/compare/tvheadend-12.0.22...tvheadend-12.0.23) (2022-08-08)
 
 ### Chore

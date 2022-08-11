@@ -2,6 +2,33 @@
 
 
 
+## [authentik-3.0.3](https://github.com/truecharts/charts/compare/authentik-3.0.2...authentik-3.0.3) (2022-08-10)
+
+### Fix
+
+- fix ldap outpost settings not showing, and make mail port an int ([#3433](https://github.com/truecharts/charts/issues/3433))
+
+
+
+
+## [authentik-3.0.2](https://github.com/truecharts/charts/compare/authentik-3.0.1...authentik-3.0.2) (2022-08-10)
+
+### Fix
+
+- only set ints when are defined ([#3432](https://github.com/truecharts/charts/issues/3432))
+
+
+
+
+## [authentik-3.0.1](https://github.com/truecharts/charts/compare/authentik-3.0.0...authentik-3.0.1) (2022-08-10)
+
+### Fix
+
+- enable services/ports and disable geoip by default ([#3424](https://github.com/truecharts/charts/issues/3424))
+
+
+
+
 ## [authentik-3.0.0](https://github.com/truecharts/charts/compare/authentik-2.0.32...authentik-3.0.0) (2022-08-09)
 
 ### Feat
