@@ -1,3 +1,3 @@
 # storj
 
-[storj](https://www.storj.io/) share you extra storage and earn money
+[storj](https://www.storj.io/) share your extra storage and earn money
