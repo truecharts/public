@@ -20,9 +20,9 @@ hostNetwork: true
 env:
   name: AUTHKEY
     secretKeyRef:
-      name: tailscale-auth
-      key: AUTHKEY
-      optional: true
+    name: tailscale-auth
+    key: AUTHKEY
+    optional: true
 
 service:
   main:
