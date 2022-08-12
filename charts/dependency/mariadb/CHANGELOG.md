@@ -2,6 +2,20 @@
 
 
 
+## [mariadb-3.0.53](https://github.com/truecharts/charts/compare/mariadb-3.0.52...mariadb-3.0.53) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [mariadb-3.0.52](https://github.com/truecharts/charts/compare/mariadb-3.0.51...mariadb-3.0.52) (2022-08-10)
 
 ### Chore
