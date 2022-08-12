@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.33](https://github.com/truecharts/charts/compare/custom-app-5.1.32...custom-app-5.1.33) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+
+
+
 ## [custom-app-5.1.32](https://github.com/truecharts/charts/compare/custom-app-5.1.31...custom-app-5.1.32) (2022-08-12)
 
 ### Fix

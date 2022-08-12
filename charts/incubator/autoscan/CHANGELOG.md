@@ -2,6 +2,20 @@
 
 
 
+## [autoscan-0.0.17](https://github.com/truecharts/charts/compare/autoscan-0.0.16...autoscan-0.0.17) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [autoscan-0.0.16](https://github.com/truecharts/charts/compare/autoscan-0.0.15...autoscan-0.0.16) (2022-08-09)
 
 ### Chore

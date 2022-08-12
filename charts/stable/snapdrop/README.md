@@ -1,6 +1,6 @@
 # snapdrop
 
-![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 2.0.33](https://img.shields.io/badge/Version-2.0.33-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 

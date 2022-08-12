@@ -1,6 +1,6 @@
 # docker-compose
 
-![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 20.10.17](https://img.shields.io/badge/AppVersion-20.10.17-informational?style=flat-square)
+![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 20.10.17](https://img.shields.io/badge/AppVersion-20.10.17-informational?style=flat-square)
 
 Dedicated App for using Docker-Compose on TrueNAS SCALE
 

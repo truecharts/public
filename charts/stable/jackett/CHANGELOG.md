@@ -2,6 +2,20 @@
 
 
 
+## [jackett-11.0.56](https://github.com/truecharts/charts/compare/jackett-11.0.55...jackett-11.0.56) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [jackett-11.0.55](https://github.com/truecharts/charts/compare/jackett-11.0.54...jackett-11.0.55) (2022-08-09)
 
 ### Chore

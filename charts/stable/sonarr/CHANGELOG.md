@@ -2,6 +2,20 @@
 
 
 
+## [sonarr-11.0.27](https://github.com/truecharts/charts/compare/sonarr-11.0.26...sonarr-11.0.27) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [sonarr-11.0.26](https://github.com/truecharts/charts/compare/sonarr-11.0.25...sonarr-11.0.26) (2022-08-10)
 
 ### Chore

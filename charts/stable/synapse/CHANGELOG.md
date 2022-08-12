@@ -2,6 +2,20 @@
 
 
 
+## [synapse-4.0.31](https://github.com/truecharts/charts/compare/synapse-4.0.30...synapse-4.0.31) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [synapse-4.0.30](https://github.com/truecharts/charts/compare/synapse-4.0.29...synapse-4.0.30) (2022-08-09)
 
 ### Chore

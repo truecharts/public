@@ -2,6 +2,20 @@
 
 
 
+## [mylar-6.0.28](https://github.com/truecharts/charts/compare/mylar-6.0.27...mylar-6.0.28) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [mylar-6.0.27](https://github.com/truecharts/charts/compare/mylar-6.0.26...mylar-6.0.27) (2022-08-09)
 
 ### Chore
