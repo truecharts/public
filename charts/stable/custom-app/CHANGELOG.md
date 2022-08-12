@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.32](https://github.com/truecharts/charts/compare/custom-app-5.1.31...custom-app-5.1.32) (2022-08-12)
+
+### Fix
+
+- Move command from .Values.controller.command to .Values.command ([#3446](https://github.com/truecharts/charts/issues/3446))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [custom-app-5.1.31](https://github.com/truecharts/charts/compare/custom-app-5.1.30...custom-app-5.1.31) (2022-08-09)
 
 ### Chore

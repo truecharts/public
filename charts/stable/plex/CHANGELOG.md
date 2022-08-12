@@ -2,6 +2,16 @@
 
 
 
+## [plex-10.0.33](https://github.com/truecharts/charts/compare/plex-10.0.32...plex-10.0.33) (2022-08-12)
+
+### Fix
+
+- accept `-` and capital letters in ADVERTISE_IP ([#3448](https://github.com/truecharts/charts/issues/3448))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [plex-10.0.32](https://github.com/truecharts/charts/compare/plex-10.0.31...plex-10.0.32) (2022-08-11)
 
 ### Fix

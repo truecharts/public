@@ -2,6 +2,15 @@
 
 
 
+## [freeradius-6.0.25](https://github.com/truecharts/charts/compare/freeradius-6.0.24...freeradius-6.0.25) (2022-08-12)
+
+### Chore
+
+- update docker general non-major ([#3434](https://github.com/truecharts/charts/issues/3434))
+
+
+
+
 ## [freeradius-6.0.24](https://github.com/truecharts/charts/compare/freeradius-6.0.23...freeradius-6.0.24) (2022-08-08)
 
 ### Chore

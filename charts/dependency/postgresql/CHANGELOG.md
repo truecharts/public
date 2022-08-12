@@ -2,6 +2,20 @@
 
 
 
+## [postgresql-8.0.55](https://github.com/truecharts/charts/compare/postgresql-8.0.54...postgresql-8.0.55) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [postgresql-8.0.54](https://github.com/truecharts/charts/compare/postgresql-8.0.53...postgresql-8.0.54) (2022-08-10)
 
 ### Chore
