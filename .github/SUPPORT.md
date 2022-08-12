@@ -42,6 +42,8 @@ in the `incubator` train is in beta and you're testing it. As well, anything ins
    Failure to use ingress for those charts will render your support ticket ineligible. Example apps are:
    - Vaultwarden
    - Nextcloud
+   - Monica
+   - Recipes
 
 4. We currently advise people to NOT use ACL's for host path storage. We cannot guide each user through setting up their ACL's for each chart.
    Apart from a few exceptions user 568 (apps) must have access to their host path storage.
