@@ -2,6 +2,15 @@
 
 
 
+## [sabnzbd-11.0.27](https://github.com/truecharts/charts/compare/sabnzbd-11.0.26...sabnzbd-11.0.27) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [sabnzbd-11.0.26](https://github.com/truecharts/charts/compare/sabnzbd-11.0.25...sabnzbd-11.0.26) (2022-08-08)
 
 ### Chore

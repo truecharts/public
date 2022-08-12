@@ -1,12 +1,16 @@
 image:
   repository: tccr.io/truecharts/jenkins
   pullPolicy: IfNotPresent
-  tag: v2.362@sha256:b8b98adf94dc861b556bee88d8ea958162abdde4c041d9689de4406ecfae0d20
+  tag: v2.362@sha256:6ead1a1da8711e3da9bbdbe95dc8c4cf72389a5c22ddaba13b94028fdbf5f425
 
 podSecurityContext:
-  runAsGroup: 1000
-  runAsUser: 1000
+  runAsGroup: 0
+  runAsUser: 0
   fsGroup: 1000
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
 env:
   JENKINS_JAVA_OPTS: ""

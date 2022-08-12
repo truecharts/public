@@ -2,6 +2,39 @@
 
 
 
+## [clickhouse-1.0.8](https://github.com/truecharts/charts/compare/clickhouse-1.0.7...clickhouse-1.0.8) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [clickhouse-1.0.7](https://github.com/truecharts/charts/compare/clickhouse-1.0.6...clickhouse-1.0.7) (2022-08-10)
+
+### Chore
+
+- update helm chart common to v10.4.11 ([#3428](https://github.com/truecharts/charts/issues/3428))
+
+
+
+
+## [clickhouse-1.0.6](https://github.com/truecharts/charts/compare/clickhouse-1.0.5...clickhouse-1.0.6) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [clickhouse-1.0.5](https://github.com/truecharts/apps/compare/clickhouse-1.0.4...clickhouse-1.0.5) (2022-07-29)
 
 ### Chore

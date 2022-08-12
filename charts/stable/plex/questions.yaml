@@ -12,6 +12,7 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -24,7 +25,7 @@ questions:
           description: "IP to advertise to Plex, Change SERVER_IP to your actual server IP"
           schema:
             type: string
-            valid_chars: '^http(s)?:\/\/.*:\d*$'
+            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
             default: "http://SERVER_IP:32400"
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
@@ -141,3 +142,4 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{documentation}

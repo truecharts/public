@@ -2,6 +2,15 @@
 
 
 
+## [prometheus-4.0.58](https://github.com/truecharts/charts/compare/prometheus-4.0.57...prometheus-4.0.58) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [prometheus-4.0.57](https://github.com/truecharts/charts/compare/prometheus-4.0.56...prometheus-4.0.57) (2022-08-09)
 
 ### Chore

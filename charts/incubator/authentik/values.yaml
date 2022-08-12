@@ -8,193 +8,153 @@ geoipImage:
   tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
   pullPolicy: IfNotPresent
 
+ldapImage:
+  # TODO: Update this to our mirror
+  repository: ghcr.io/goauthentik/ldap
+  tag: 2022.7.3@sha256:fed2b7e9149bfe9693f7ea1abf87012d643c53e5054415862449c20fe4fe6413
+  pullPolicy: IfNotPresent
+
 extraArgs: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-secretEnv:
-  AK_ADMIN_PASS: "supersecret"
-  AK_ADMIN_TOKEN: "supersecretapitoken"
+workerContainer:
+  enabled: true
 
-env:
-  AUTHENTIK_POSTGRESQL__NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  AUTHENTIK_POSTGRESQL__USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  AUTHENTIK_POSTGRESQL__PORT: "5432"
-  AUTHENTIK_REDIS__PORT: "6379"
-  # User Defined
-  AUTHENTIK_DISABLE_UPDATE_CHECK: false
-  AUTHENTIK_DEFAULT_USER_CHANGE_NAME: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL: true
-  AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME: true
-  AUTHENTIK_GDPR_COMPLIANCE: true
-  AUTHENTIK_IMPERSONATION: true
-  AUTHENTIK_DISABLE_STARTUP_ANALYTICS: false
-  AUTHENTIK_ERROR_REPORTING__ENABLED: false
-  AUTHENTIK_ERROR_REPORTING__SEND_PII: false
-  AUTHENTIK_ERROR_REPORTING__ENVIRONMENT: " "
-  AUTHENTIK_DEFAULT_TOKEN_LENGTH: 128
-  AUTHENTIK_AVATARS: "gravatar"
-  AUTHENTIK_LOG_LEVEL: "warning"
-  AUTHENTIK_EMAIL__HOST: ""
-  AUTHENTIK_EMAIL__PORT: 25
-  AUTHENTIK_EMAIL__USERNAME: ""
-  AUTHENTIK_EMAIL__PASSWORD: ""
-  AUTHENTIK_EMAIL__USE_TLS: false
-  AUTHENTIK_EMAIL__USE_SSL: false
-  AUTHENTIK_EMAIL__TIMEOUT: 10
-  AUTHENTIK_EMAIL__FROM: ""
-  AUTHENTIK_POSTGRESQL__HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  AUTHENTIK_POSTGRESQL__PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  AUTHENTIK_REDIS__HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  AUTHENTIK_REDIS__PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-  AUTHENTIK_SECRET_KEY:
-    secretKeyRef:
-      name: authentik-secrets
-      key: AUTHENTIK_SECRET_KEY
+authentik:
+  credentials:
+    password: "supersecret"
+    token: "supersecretapitoken"
+  general:
+    disable_update_check: false
+    disable_startup_analytics: true
+    allow_user_name_change: true
+    allow_user_mail_change: true
+    allow_user_username_change: true
+    gdpr_compliance: true
+    impersonation: true
+    avatars: "gravatar"
+    token_length: 128
+    # Use single quotes for footer_links
+    # TODO: test how scale behaves
+    # eg footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+  mail:
+    host: ""
+    port: 25
+    tls: false
+    ssl: false
+    timeout: 10
+    user: ""
+    pass: ""
+    from: ""
+  error_reporting:
+    enabled: false
+    send_pii: false
+    environment: "customer"
+  logging:
+    log_level: "info"
+  ldap:
+    tls_ciphers: "null"
+  metrics:
+    enabled: true
+    # LDAP Outpost listens on 9300. To avoid conflicts
+    # This sets internal Authentik metrics port to 9301
+    internalPort: 9301
 
 geoip:
-  # Set image's frequence to 0, so it executes once and exits.
-  GEOIPUPDATE_FREQUENCY: 0
-  # User Defined
-  ENABLE_GEOIPUPDATER: false
-  # How often should we run the cronjob to update geoip
-  freqhours: 8
-  GEOIPUPDATE_ACCOUNT_ID: ""
-  GEOIPUPDATE_LICENSE_KEY: ""
-  GEOIPUPDATE_EDITION_IDS: "GeoIP2-City"
-  GEOIPUPDATE_HOST: "updates.maxmind.com"
-  GEOIPUPDATE_PRESERVE_FILE_TIMES: 0
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
+
+outposts:
+  ldap:
+    enabled: false
+    insecure: false
+    host: ""
+    token: "test"
+    metrics: true
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
 
 probes:
   liveness:
-    path: "/-/health/live"
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
   readiness:
-    path: "/-/health/ready"
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /lifecycle/ak
+          - healthcheck
 
 service:
   main:
     ports:
       main:
-        port: 10230
-        targetPort: 9000
-  https:
-    enabled: true
-    ports:
-      https:
-        enabled: true
-        protocol: "HTTPS"
+        protocol: HTTPS
         port: 10229
         targetPort: 9443
-
-additionalContainers:
-  worker:
-    name: worker
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    args: ["worker"]
-    volumeMounts:
-      - name: media
-        mountPath: "/media"
-      - name: templates
-        mountPath: "/templates"
-      - name: certs
-        mountPath: "/certs"
-      - name: geoip
-        mountPath: "/geoip"
-    env:
-      - name: AUTHENTIK_REDIS__PORT
-        value: "6379"
-      - name: AUTHENTIK_REDIS__HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
-      - name: AUTHENTIK_REDIS__PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: redis-password
-      - name: AUTHENTIK_POSTGRESQL__NAME
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: AUTHENTIK_POSTGRESQL__USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: AUTHENTIK_POSTGRESQL__PORT
-        value: "5432"
-      - name: AUTHENTIK_POSTGRESQL__HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: AUTHENTIK_POSTGRESQL__PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: AUTHENTIK_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: authentik-secrets
-            key: AUTHENTIK_SECRET_KEY
-      - name: AUTHENTIK_LOG_LEVEL
-        value: "{{ .Values.env.AUTHENTIK_LOG_LEVEL }}"
-      - name: AUTHENTIK_DISABLE_UPDATE_CHECK
-        value: "{{ .Values.env.AUTHENTIK_DISABLE_UPDATE_CHECK }}"
-      - name: AUTHENTIK_ERROR_REPORTING__ENABLED
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENABLED }}"
-      - name: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__ENVIRONMENT }}"
-      - name: AUTHENTIK_ERROR_REPORTING__SEND_PII
-        value: "{{ .Values.env.AUTHENTIK_ERROR_REPORTING__SEND_PII }}"
-      - name: AUTHENTIK_EMAIL__HOST
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__HOST }}"
-      - name: AUTHENTIK_EMAIL__PORT
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__PORT }}"
-      - name: AUTHENTIK_EMAIL__USERNAME
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USERNAME }}"
-      - name: AUTHENTIK_EMAIL__PASSWORD
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__PASSWORD }}"
-      - name: AUTHENTIK_EMAIL__USE_TLS
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_TLS }}"
-      - name: AUTHENTIK_EMAIL__USE_SSL
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__USE_SSL }}"
-      - name: AUTHENTIK_EMAIL__TIMEOUT
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__TIMEOUT }}"
-      - name: AUTHENTIK_EMAIL__FROM
-        value: "{{ .Values.env.AUTHENTIK_EMAIL__FROM }}"
-      - name: AUTHENTIK_AVATARS
-        value: "{{ .Values.env.AUTHENTIK_AVATARS }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_NAME }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL }}"
-      - name: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME }}"
-      - name: AUTHENTIK_GDPR_COMPLIANCE
-        value: "{{ .Values.env.AUTHENTIK_GDPR_COMPLIANCE }}"
-      - name: AUTHENTIK_DEFAULT_TOKEN_LENGTH
-        value: "{{ .Values.env.AUTHENTIK_DEFAULT_TOKEN_LENGTH }}"
-      - name: AUTHENTIK_IMPERSONATION
-        value: "{{ .Values.env.AUTHENTIK_IMPERSONATION }}"
-      - name: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
-        value: "{{ .Values.env.AUTHENTIK_DISABLE_STARTUP_ANALYTICS }}"
-
-cronjob:
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
+  http:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        protocol: HTTP
+        port: 10230
+        targetPort: 9000
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        protocol: HTTP
+        port: 10231
+        targetPort: 9301
+  ldap:
+    enabled: true
+    ports:
+      ldap1:
+        enabled: true
+        port: 389
+        targetPort: 3389
+      ldap2:
+        enabled: true
+        port: 636
+        targetPort: 6636
+      ldap-metrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9300
 
 persistence:
   media:

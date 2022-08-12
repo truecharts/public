@@ -2,6 +2,15 @@
 
 
 
+## [sourcegraph-0.0.16](https://github.com/truecharts/charts/compare/sourcegraph-0.0.15...sourcegraph-0.0.16) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
 ## [sourcegraph-0.0.15](https://github.com/truecharts/charts/compare/sourcegraph-0.0.13...sourcegraph-0.0.15) (2022-08-08)
 
 ### Chore

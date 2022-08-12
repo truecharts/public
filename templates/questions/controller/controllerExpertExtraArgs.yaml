@@ -1,0 +1,19 @@
+  - variable: customextraargs
+    group: Controller
+    label: "Extra Args"
+    description: "Do not click this unless you know what you are doing"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: extraArgs
+          label: Extra Args
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: arg
+                label: Arg
+                schema:
+                  type: string

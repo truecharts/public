@@ -11,6 +11,7 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "Container Configuration"
     label: "Secret Image Environment"
@@ -164,3 +165,4 @@ questions:
 # Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
+# Include{documentation}

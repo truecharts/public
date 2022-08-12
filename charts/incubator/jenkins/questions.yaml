@@ -11,6 +11,7 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -147,7 +148,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -157,7 +158,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -165,13 +166,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 1000
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 1000
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
@@ -182,3 +183,4 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{documentation}
