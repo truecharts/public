@@ -2,6 +2,20 @@
 
 
 
+## [rickroll-0.0.19](https://github.com/truecharts/charts/compare/rickroll-0.0.18...rickroll-0.0.19) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+
+  ### Fix
+
+- cleanup ([#3390](https://github.com/truecharts/charts/issues/3390))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [rickroll-0.0.18](https://github.com/truecharts/charts/compare/rickroll-0.0.17...rickroll-0.0.18) (2022-08-10)
 
 ### Chore
