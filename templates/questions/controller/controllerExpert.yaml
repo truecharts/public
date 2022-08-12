@@ -5,16 +5,6 @@
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: extraArgs
-                label: Extra Args
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: arg
-                      label: Arg
-                      schema:
-                        type: string
               - variable: labelsList
                 label: Controller Labels
                 schema:
