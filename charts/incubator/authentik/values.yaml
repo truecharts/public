@@ -9,9 +9,8 @@ geoipImage:
   pullPolicy: IfNotPresent
 
 ldapImage:
-  # TODO: Update this to our mirror
-  repository: ghcr.io/goauthentik/ldap
-  tag: 2022.7.3@sha256:fed2b7e9149bfe9693f7ea1abf87012d643c53e5054415862449c20fe4fe6413
+  repository: tccr.io/truecharts/authentik-ldap
+  tag: 2022.7.3@sha256:b648c3507dfdbcebb2ec7f6eb844d93c7738ef3e4b20ce09f16dbb3b452fcb9a
   pullPolicy: IfNotPresent
 
 extraArgs: ["server"]
@@ -38,8 +37,6 @@ authentik:
     avatars: "gravatar"
     token_length: 128
     # Use single quotes for footer_links
-    # TODO: test how scale behaves
-    # eg footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
     footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
   mail:
     host: ""
