@@ -1,6 +1,6 @@
 # synclounge
 
-![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.1.123](https://img.shields.io/badge/AppVersion-5.1.123-informational?style=flat-square)
+![Version: 2.0.33](https://img.shields.io/badge/Version-2.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.1.123](https://img.shields.io/badge/AppVersion-5.1.123-informational?style=flat-square)
 
 Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

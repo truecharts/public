@@ -1,6 +1,6 @@
 # hyperion-ng
 
-![Version: 6.0.25](https://img.shields.io/badge/Version-6.0.25-informational?style=flat-square) ![AppVersion: 2.0.13](https://img.shields.io/badge/AppVersion-2.0.13-informational?style=flat-square)
+![Version: 6.0.26](https://img.shields.io/badge/Version-6.0.26-informational?style=flat-square) ![AppVersion: 2.0.13](https://img.shields.io/badge/AppVersion-2.0.13-informational?style=flat-square)
 
 Hyperion is an opensource Bias or Ambient Lighting implementation
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

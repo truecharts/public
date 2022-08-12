@@ -2,6 +2,15 @@
 
 
 
+## [kasm-0.0.18](https://github.com/truecharts/charts/compare/kasm-0.0.17...kasm-0.0.18) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [kasm-0.0.17](https://github.com/truecharts/charts/compare/kasm-0.0.16...kasm-0.0.17) (2022-08-12)
 
 ### Chore

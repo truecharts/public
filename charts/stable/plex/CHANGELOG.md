@@ -2,6 +2,16 @@
 
 
 
+## [plex-10.0.34](https://github.com/truecharts/charts/compare/plex-10.0.33...plex-10.0.34) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [plex-10.0.33](https://github.com/truecharts/charts/compare/plex-10.0.32...plex-10.0.33) (2022-08-12)
 
 ### Fix

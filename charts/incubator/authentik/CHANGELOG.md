@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.5](https://github.com/truecharts/charts/compare/authentik-3.0.4...authentik-3.0.5) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [authentik-3.0.4](https://github.com/truecharts/charts/compare/authentik-3.0.3...authentik-3.0.4) (2022-08-12)
 
 ### Chore

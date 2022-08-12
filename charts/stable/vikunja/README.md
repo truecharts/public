@@ -1,6 +1,6 @@
 # vikunja
 
-![Version: 3.0.36](https://img.shields.io/badge/Version-3.0.36-informational?style=flat-square) ![AppVersion: 0.18.1](https://img.shields.io/badge/AppVersion-0.18.1-informational?style=flat-square)
+![Version: 3.0.37](https://img.shields.io/badge/Version-3.0.37-informational?style=flat-square) ![AppVersion: 0.18.1](https://img.shields.io/badge/AppVersion-0.18.1-informational?style=flat-square)
 
 The to-do app to organize your life.
 
@@ -24,9 +24,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.52 |
-| https://charts.truecharts.org | redis | 3.0.50 |
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.55 |
+| https://charts.truecharts.org | redis | 3.0.53 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

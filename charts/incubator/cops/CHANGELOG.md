@@ -2,6 +2,15 @@
 
 
 
+## [cops-0.0.17](https://github.com/truecharts/charts/compare/cops-0.0.16...cops-0.0.17) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [cops-0.0.16](https://github.com/truecharts/charts/compare/cops-0.0.15...cops-0.0.16) (2022-08-12)
 
 ### Chore

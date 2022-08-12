@@ -2,6 +2,15 @@
 
 
 
+## [snapdrop-2.0.34](https://github.com/truecharts/charts/compare/snapdrop-2.0.33...snapdrop-2.0.34) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [snapdrop-2.0.33](https://github.com/truecharts/charts/compare/snapdrop-2.0.32...snapdrop-2.0.33) (2022-08-12)
 
 ### Chore

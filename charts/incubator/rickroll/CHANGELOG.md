@@ -2,6 +2,15 @@
 
 
 
+## [rickroll-0.0.20](https://github.com/truecharts/charts/compare/rickroll-0.0.19...rickroll-0.0.20) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [rickroll-0.0.19](https://github.com/truecharts/charts/compare/rickroll-0.0.18...rickroll-0.0.19) (2022-08-12)
 
 ### Chore

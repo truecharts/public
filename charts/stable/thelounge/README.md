@@ -1,6 +1,6 @@
 # thelounge
 
-![Version: 6.0.24](https://img.shields.io/badge/Version-6.0.24-informational?style=flat-square) ![AppVersion: 4.3.1](https://img.shields.io/badge/AppVersion-4.3.1-informational?style=flat-square)
+![Version: 6.0.25](https://img.shields.io/badge/Version-6.0.25-informational?style=flat-square) ![AppVersion: 4.3.1](https://img.shields.io/badge/AppVersion-4.3.1-informational?style=flat-square)
 
 The Lounge, modern web IRC client designed for self-hosting
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

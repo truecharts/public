@@ -2,6 +2,20 @@
 
 
 
+## [gitea-9.0.3](https://github.com/truecharts/charts/compare/gitea-9.0.2...gitea-9.0.3) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [gitea-9.0.2](https://github.com/truecharts/charts/compare/gitea-9.0.1...gitea-9.0.2) (2022-08-09)
 
 ### Chore

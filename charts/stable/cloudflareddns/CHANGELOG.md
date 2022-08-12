@@ -2,6 +2,15 @@
 
 
 
+## [cloudflareddns-1.0.13](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.12...cloudflareddns-1.0.13) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [cloudflareddns-1.0.12](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.11...cloudflareddns-1.0.12) (2022-08-12)
 
 ### Chore

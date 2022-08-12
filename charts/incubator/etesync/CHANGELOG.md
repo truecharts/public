@@ -2,6 +2,20 @@
 
 
 
+## [etesync-0.0.23](https://github.com/truecharts/charts/compare/etesync-0.0.22...etesync-0.0.23) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [etesync-0.0.22](https://github.com/truecharts/charts/compare/etesync-0.0.21...etesync-0.0.22) (2022-08-09)
 
 ### Chore

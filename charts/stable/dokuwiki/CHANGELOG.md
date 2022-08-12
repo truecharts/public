@@ -2,6 +2,20 @@
 
 
 
+## [dokuwiki-3.0.45](https://github.com/truecharts/charts/compare/dokuwiki-3.0.44...dokuwiki-3.0.45) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [dokuwiki-3.0.44](https://github.com/truecharts/charts/compare/dokuwiki-3.0.43...dokuwiki-3.0.44) (2022-08-10)
 
 ### Chore

@@ -1,6 +1,6 @@
 # senseai-server
 
-![Version: 0.0.23](https://img.shields.io/badge/Version-0.0.23-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
+![Version: 0.0.24](https://img.shields.io/badge/Version-0.0.24-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
 
 A standalone, self-hosted, fast, free and Open Source Artificial Intelligence microserver for any platform, any language.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

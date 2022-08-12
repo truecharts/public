@@ -2,6 +2,15 @@
 
 
 
+## [synapse-4.0.32](https://github.com/truecharts/charts/compare/synapse-4.0.31...synapse-4.0.32) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [synapse-4.0.31](https://github.com/truecharts/charts/compare/synapse-4.0.30...synapse-4.0.31) (2022-08-12)
 
 ### Chore

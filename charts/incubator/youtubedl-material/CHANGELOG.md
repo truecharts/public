@@ -2,6 +2,20 @@
 
 
 
+## [youtubedl-material-0.0.26](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.25...youtubedl-material-0.0.26) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [youtubedl-material-0.0.25](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.24...youtubedl-material-0.0.25) (2022-08-09)
 
 ### Chore

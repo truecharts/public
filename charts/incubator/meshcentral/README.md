@@ -1,6 +1,6 @@
 # meshcentral
 
-![Version: 3.0.32](https://img.shields.io/badge/Version-3.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.61](https://img.shields.io/badge/AppVersion-1.0.61-informational?style=flat-square)
+![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.61](https://img.shields.io/badge/AppVersion-1.0.61-informational?style=flat-square)
 
 MeshCentral is a full computer management web site
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mongodb | 1.0.52 |
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://charts.truecharts.org/ | mongodb | 1.0.54 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

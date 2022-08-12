@@ -2,6 +2,15 @@
 
 
 
+## [babybuddy-8.0.38](https://github.com/truecharts/charts/compare/babybuddy-8.0.37...babybuddy-8.0.38) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [babybuddy-8.0.37](https://github.com/truecharts/charts/compare/babybuddy-8.0.36...babybuddy-8.0.37) (2022-08-12)
 
 ### Chore

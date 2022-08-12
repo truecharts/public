@@ -2,6 +2,16 @@
 
 
 
+## [unpoller-3.0.28](https://github.com/truecharts/charts/compare/unpoller-3.0.27...unpoller-3.0.28) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [unpoller-3.0.27](https://github.com/truecharts/charts/compare/unpoller-3.0.26...unpoller-3.0.27) (2022-08-08)
 
 ### Chore

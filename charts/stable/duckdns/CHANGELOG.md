@@ -2,6 +2,15 @@
 
 
 
+## [duckdns-2.0.32](https://github.com/truecharts/charts/compare/duckdns-2.0.31...duckdns-2.0.32) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [duckdns-2.0.31](https://github.com/truecharts/charts/compare/duckdns-2.0.30...duckdns-2.0.31) (2022-08-12)
 
 ### Chore

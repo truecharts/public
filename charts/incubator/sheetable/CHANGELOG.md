@@ -2,6 +2,20 @@
 
 
 
+## [sheetable-0.0.5](https://github.com/truecharts/charts/compare/sheetable-0.0.4...sheetable-0.0.5) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [sheetable-0.0.4](https://github.com/truecharts/charts/compare/sheetable-0.0.3...sheetable-0.0.4) (2022-08-09)
 
 ### Chore

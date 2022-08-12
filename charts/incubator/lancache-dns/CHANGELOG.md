@@ -2,6 +2,20 @@
 
 
 
+## [lancache-dns-0.0.14](https://github.com/truecharts/charts/compare/lancache-dns-0.0.13...lancache-dns-0.0.14) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [lancache-dns-0.0.13](https://github.com/truecharts/charts/compare/lancache-dns-0.0.11...lancache-dns-0.0.13) (2022-08-08)
 
 ### Chore

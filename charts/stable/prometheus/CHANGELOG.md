@@ -2,6 +2,15 @@
 
 
 
+## [prometheus-4.0.60](https://github.com/truecharts/charts/compare/prometheus-4.0.59...prometheus-4.0.60) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [prometheus-4.0.59](https://github.com/truecharts/charts/compare/prometheus-4.0.58...prometheus-4.0.59) (2022-08-12)
 
 ### Chore
