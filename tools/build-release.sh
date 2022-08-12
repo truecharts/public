@@ -363,10 +363,10 @@ include_questions(){
     /# Include{resources}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/resources.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-    # Replace # Include{donate} with the standard resources codesnippet
+    # Replace # Include{documentation} with the standard resources codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{donate}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/donate.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+    /# Include{documentation}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/documentation.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     }
 export -f include_questions
