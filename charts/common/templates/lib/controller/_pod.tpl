@@ -37,11 +37,11 @@ dnsConfig:
     {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
   {{- with .Values.dnsConfig.nameservers }}
-  nameservers: []
+  nameservers:
     {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
   {{- with .Values.dnsConfig.searches }}
-  searches: []
+  searches:
     {{ tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
 {{- end }}
