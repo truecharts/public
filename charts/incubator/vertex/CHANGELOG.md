@@ -2,6 +2,20 @@
 
 
 
+## [vertex-0.0.20](https://github.com/truecharts/charts/compare/vertex-0.0.19...vertex-0.0.20) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [vertex-0.0.19](https://github.com/truecharts/charts/compare/vertex-0.0.18...vertex-0.0.19) (2022-08-10)
 
 ### Chore

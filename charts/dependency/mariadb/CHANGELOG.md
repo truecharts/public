@@ -2,6 +2,15 @@
 
 
 
+## [mariadb-3.0.54](https://github.com/truecharts/charts/compare/mariadb-3.0.53...mariadb-3.0.54) (2022-08-12)
+
+### Chore
+
+- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+
+
+
 ## [mariadb-3.0.53](https://github.com/truecharts/charts/compare/mariadb-3.0.52...mariadb-3.0.53) (2022-08-12)
 
 ### Chore

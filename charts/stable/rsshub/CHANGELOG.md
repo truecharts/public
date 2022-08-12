@@ -2,6 +2,20 @@
 
 
 
+## [rsshub-3.0.62](https://github.com/truecharts/charts/compare/rsshub-3.0.61...rsshub-3.0.62) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [rsshub-3.0.61](https://github.com/truecharts/charts/compare/rsshub-3.0.60...rsshub-3.0.61) (2022-08-10)
 
 ### Chore

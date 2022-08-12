@@ -2,6 +2,20 @@
 
 
 
+## [clamav-3.0.30](https://github.com/truecharts/charts/compare/clamav-3.0.29...clamav-3.0.30) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [clamav-3.0.29](https://github.com/truecharts/charts/compare/clamav-3.0.27...clamav-3.0.29) (2022-08-08)
 
 ### Chore

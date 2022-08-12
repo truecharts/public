@@ -2,6 +2,20 @@
 
 
 
+## [minecraft-bungeecord-0.0.10](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.9...minecraft-bungeecord-0.0.10) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+
+  ### Fix
+
+- fix service ports ([#3454](https://github.com/truecharts/charts/issues/3454))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [minecraft-bungeecord-0.0.9](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.8...minecraft-bungeecord-0.0.9) (2022-08-08)
 
 ### Chore

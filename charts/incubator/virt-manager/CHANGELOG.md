@@ -2,6 +2,20 @@
 
 
 
+## [virt-manager-0.0.23](https://github.com/truecharts/charts/compare/virt-manager-0.0.22...virt-manager-0.0.23) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [virt-manager-0.0.22](https://github.com/truecharts/charts/compare/virt-manager-0.0.21...virt-manager-0.0.22) (2022-08-10)
 
 ### Chore
