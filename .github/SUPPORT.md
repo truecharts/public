@@ -8,11 +8,11 @@ We also document which versions of TrueNAS will recieve TrueCharts updates and f
 
 ## Supported Versions
 
-| TrueNAS version | Branch| Supported with updates | Accepting Support tickets | Accepting Bugreports | Notes |
-| ------- | ------- |------------------ | -------------- | -------------- | -------------- |
-| 22.02.2 or prior | `master` | :white_check_mark: | :x: | :x: | Adviced to update to 22.02.3 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/)
-| 22.02.3 | `master`  | :white_check_mark: | :white_check_mark:  | :white_check_mark: | Most Stable Release as of 2022-08-09
-| Nightly | `master` | :white_check_mark: | :x:  | :white_check_mark: | Please only submit bugreports during codefreeze
+| TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bugreports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 22.02.2 or prior | `master` | :white_check_mark:     | :x:                       | :x:                  | Adviced to update to 22.02.3 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/) |
+| 22.02.3          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:   | Most Stable Release as of 2022-08-09                                                                           |
+| Nightly          | `master` | :white_check_mark:     | :x:                       | :white_check_mark:   | Please only submit bugreports during codefreeze                                                                |
 
 ## Stable Train Charts
 
