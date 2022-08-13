@@ -39,7 +39,7 @@ in the `incubator` train is in beta and you're testing it. As well, anything ins
 
 3. Certain applications require ingress to work correctly due to security reasons.
    Which is why doing so is also required for **#support** tickets.
-   Failure to use ingress for those charts will render your support ticket ineligible. Example apps are:
+   Failure to use ingress for those charts will render your support ticket ineligible. *Example* apps are:
    - Vaultwarden
    - Nextcloud
    - Monica
