@@ -30,7 +30,7 @@ questions:
               - "definitions/nodeIP"
         - variable: additionalAdvertiseIP
           label: "Addition Advertise URLs"
-          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP is added"
+          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
           schema:
             type: string
             valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
