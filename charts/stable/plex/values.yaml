@@ -7,6 +7,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 32400
         targetPort: 32400
 
@@ -15,9 +16,13 @@ persistence:
     enabled: true
     mountPath: "/config"
 
+plex:
+  advertiseIP: ""
+
 env:
+  serverIP: "127.0.0.1"
+  ADVERTISE_IP: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.env.serverIP }}:{{ .Values.service.main.ports.main.port }}{{ with .Values.plex.advertiseIP }},{{ . }}{{ end }}"
   ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
-  ADVERTISE_IP: ""
   PLEX_CLAIM: ""
 
 portal:

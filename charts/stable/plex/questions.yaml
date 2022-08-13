@@ -20,13 +20,14 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ADVERTISE_IP
-          label: "Advertise IP"
-          description: "IP to advertise to Plex, Change SERVER_IP to your actual server IP"
+        - variable: serverIP
+          label: "Serer IP"
+          description: "Set to the IP-Address used to reach Plex."
           schema:
             type: string
-            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
-            default: "http://SERVER_IP:32400"
+            required: true
+            $ref:
+              - "definitions/nodeIP"
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
           description: "Networks allowed to connect to plex. Add your local network IP to this list"
@@ -38,6 +39,20 @@ questions:
           description: "Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
           schema:
             type: string
+            default: ""
+  - variable: plex
+    group: "Container Configuration"
+    label: "Plex Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advertiseIP
+          label: "Addition Advertise URLs"
+          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP is added"
+          schema:
+            type: string
+            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
