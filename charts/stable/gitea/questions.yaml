@@ -61,6 +61,12 @@ questions:
                 description: "Development"
               - value: "test"
                 description: "Testing"
+        - variable: ALLOWED_HOST_LIST
+          label: "ALLOWED_HOST_LIST"
+          schema:
+            type: string
+            default: "127.0.0.1"
+            required: true
   - variable: customConfig
     group: "App Configuration"
     label: "Custom Configuration parameters"
