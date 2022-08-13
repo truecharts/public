@@ -16,16 +16,21 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-plex:
-  advertiseIP: ""
-  serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.env.serverIP }}:{{ .Values.service.main.ports.main.port }}"
-  serverIngerssURL:
-
 env:
+  serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.env.serverIP }}:{{ .Values.service.main.ports.main.port }}"
+  serverIngressURL: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}{{ end }}{{ end }}"
+  ADVERTISE_IP: "{{ tpl (.Values.env.serverURL) .}}{{ tpl (.Values.env.serverIngressURL) . }}{{ with .Values.env.advertiseIP }},{{ . }}{{ end }}"
+  # User Defined
   serverIP: "127.0.0.1"
-  ADVERTISE_IP: "{{ .Values.plex.serverURL}}{{ with .Values.plex.advertiseIP }},{{ . }}{{ end }}"
+  additionalAdvertiseIP: ""
   ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
   PLEX_CLAIM: ""
 
 portal:
   enabled: true
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      host: "test.example.com"
