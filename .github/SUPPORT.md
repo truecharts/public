@@ -1,7 +1,7 @@
 # Support Policy
 
 
-## TrueNAS SCALE
+## TrueCharts on TrueNAS SCALE
 
 TrueCharts aims to always support the latest version of TrueNAS SCALE.
 However, sometimes new versions of either TrueNAS or TrueCharts introduces breaking changes.
