@@ -19,7 +19,8 @@ persistence:
 env:
   serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.env.serverIP }}:{{ .Values.service.main.ports.main.port }}"
   serverIngressURL: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}{{ end }}{{ end }}"
-  ADVERTISE_IP: "{{ tpl (.Values.env.serverURL) .}}{{ tpl (.Values.env.serverIngressURL) . }}{{ with .Values.env.advertiseIP }},{{ . }}{{ end }}"
+  serverIngressURLPort: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}:{{ .Values.service.main.ports.main.port }}{{ end }}{{ end }}"
+  ADVERTISE_IP: "{{ tpl (.Values.env.serverURL) .}}{{ tpl (.Values.env.serverIngressURL) . }}{{ tpl (.Values.env.serverIngressURLPort) . }}{{ with .Values.env.advertiseIP }},{{ . }}{{ end }}"
   # User Defined
   serverIP: "127.0.0.1"
   additionalAdvertiseIP: ""
