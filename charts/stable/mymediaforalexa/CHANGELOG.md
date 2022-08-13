@@ -2,6 +2,15 @@
 
 
 
+## [mymediaforalexa-1.0.2](https://github.com/truecharts/charts/compare/mymediaforalexa-1.0.1...mymediaforalexa-1.0.2) (2022-08-13)
+
+### Fix
+
+- typo ([#3459](https://github.com/truecharts/charts/issues/3459))
+
+
+
+
 ## [mymediaforalexa-1.0.1](https://github.com/truecharts/charts/compare/mymediaforalexa-1.0.0...mymediaforalexa-1.0.1) (2022-08-12)
 
 ### Chore
