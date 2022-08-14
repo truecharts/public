@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bungeecord-0.0.13](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.12...minecraft-bungeecord-0.0.13) (2022-08-14)
+
+### Fix
+
+- fix identation on services ([#3474](https://github.com/truecharts/charts/issues/3474))
+
+
+
+
 ## [minecraft-bungeecord-0.0.12](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.10...minecraft-bungeecord-0.0.12) (2022-08-12)
 
 ### Chore
