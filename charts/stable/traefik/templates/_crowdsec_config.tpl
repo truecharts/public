@@ -6,18 +6,10 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with .Values.crowdsec.collections }}
-  COLLECTIONS: {{ . | default "" }}
-  {{- end }}
-  {{- with .Values.crowdsec.scenarios }}
-  SCENARIOS: {{ . | default "" }}
-  {{- end }}
-  {{- with .Values.crowdsec.parsers }}
-  PARSERS: {{ . | default "" }}
-  {{- end }}
-  {{- with .Values.crowdsec.traefik_bouncer_key }}
-  BOUNCER_KEY_traefik: {{ . | default "" }}
-  {{- end }}
+  COLLECTIONS: {{ .Values.crowdsec.collections | default "" }}
+  SCENARIOS: {{ .Values.crowdsec.scenarios | default "" }}
+  PARSERS: {{ .Values.crowdsec.parsers | default "" }}
+  BOUNCER_KEY_traefik: {{ .Values.crowdsec.traefik_bouncer_key | default "" }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -26,7 +18,7 @@ metadata:
 data:
   acquis.yaml: |-
     filenames:
-    - "{{ .Values.crowdsec.logsPath }}"
+    - "{{ .Values.crowdsec.logsPath | default "/var/log/traefik/*" }}"
     labels:
       type: traefik
 {{- end -}}
