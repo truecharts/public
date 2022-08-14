@@ -8,6 +8,7 @@ crowdsecAgentImage:
   repository: crowdsecurity/crowdsec
   tag: v1.4.1@sha256:92e4f52be1393e7156ce8bf5b2b64c4f9959ef541d94b06e798bc2ad598b17f9
   pullPolicy: IfNotPresent
+
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
@@ -30,7 +31,6 @@ podAnnotations:
   prometheus.io/path: "/metrics"
   prometheus.io/port: "9180"
 
-#
 # -- Configure providers
 providers:
   kubernetesCRD:
@@ -137,6 +137,14 @@ tlsOptions:
       - TLS_AES_128_GCM_SHA256
       - TLS_AES_256_GCM_SHA384
       - TLS_CHACHA20_POLY1305_SHA256
+
+crowdsec:
+  enabled: true
+  collections: "crowdsecurity/linux crowdsecurity/traefik"
+  scenarios: ""
+  parsers: ""
+  traefik_bouncer_key: "supersecret"
+  logsPath: "/var/log/traefik/*"
 
 # -- Options for the main traefik service, where the entrypoints traffic comes from
 # from.
@@ -366,14 +374,6 @@ middlewares:
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
   themeParkVersion: v1.1.0
-
-crowdsec:
-  enabled: true
-  collections: "crowdsecurity/linux crowdsecurity/traefik"
-  scenarios: ""
-  parsers: ""
-  traefik_bouncer_key: "supersecret"
-  logsPath: "/var/log/traefik/*"
 
 portalhook:
   enabled: true
