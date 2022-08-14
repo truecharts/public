@@ -9,6 +9,13 @@
 {{- end }}
 {{- end }}
 
+{{/* Render config */}}
+{{- include "crowdsec.agent.config" . -}}
+
+{{- if .Values.crowdsec.enabled -}}
+{{- $_ := set .Values.additionalContainers "crowdsec-agent" (include "crowdsec.agent" . | fromYaml) -}}
+{{- end -}}
+
 {{- $newArgs :=  (include "traefik.args" . | fromYaml) }}
 {{- $_ := set .Values "newArgs" $newArgs -}}
 {{- $mergedargs := concat .Values.args .Values.newArgs.args }}
@@ -18,7 +25,6 @@
 {{- include "traefik.tlsOptions" . }}
 {{- include "traefik.ingressRoute" . }}
 {{- include "traefik.ingressClass" . }}
-
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

@@ -111,12 +111,18 @@ args:
   {{- end }}
   {{- with .Values.logs }}
   - "--log.format={{ .general.format }}"
+  {{- if .general.filePath }}
+  - "--log.filePath={{ .general.filePath }}"
+  {{- end }}
   {{- if ne .general.level "ERROR" }}
   - "--log.level={{ .general.level | upper }}"
   {{- end }}
   {{- if .access.enabled }}
   - "--accesslog=true"
   - "--accesslog.format={{ .access.format }}"
+  {{- if .access.filePath }}
+  - "--accesslog.filepath={{ .access.filePath }}"
+  {{- end }}
   {{- if .access.bufferingsize }}
   - "--accesslog.bufferingsize={{ .access.bufferingsize }}"
   {{- end }}
