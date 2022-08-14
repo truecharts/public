@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/deemix
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b60b134ae57f5f4fac2f16f988fe7fec526b962273b7e975bd340bc596b1fc85
+  tag: latest@sha256:9b4f1e12ab617fd5890c44863cac3f761b1dbe215ee584b6fdcc7c49db009755
 
 env:
   INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
