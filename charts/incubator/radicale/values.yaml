@@ -1,0 +1,87 @@
+image:
+  repository: tccr.io/truecharts/radicale
+  pullPolicy: IfNotPresent
+  tag: v3.1.8.0@sha256:0522aa317fc4b790021916a570491b7a6d253f80b1e435fe89a256eaec66e2c2
+
+# Docker image configuration docs:
+# https://github.com/tomsquest/docker-radicale#custom-configuration
+
+# Radicale configuration docs:
+# https://radicale.org/v3.html#configuration
+
+radicale:
+  server:
+    max_connections: 8
+    max_content_length: 100000000
+    timeout: 30
+  encoding:
+    request: utf-8
+    stock: utf-8
+  auth:
+    type: htpasswd
+    delay: 1
+    realm: Radicale - Password Required
+    users: []
+  rights:
+    type: owner_only
+  storage:
+    type: multifilesystem
+    max_sync_token_age: 2592000
+  web:
+    type: internal
+  logging:
+    level: warning
+    mask_passwords: true
+
+security:
+  PUID: 2999
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+    add:
+      - SETUID
+      - SETGID
+      - KILL
+
+podSecurityContext:
+  runAsUser: 2999
+  runAsGroup: 2999
+  fsGroup: 2999
+
+env:
+  # Skip chown on /data by entrypoint.sh
+  TAKE_FILE_OWNERSHIP: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 5232
+        port: 10255
+
+persistence:
+  config:
+    enabled: true
+    type: custom
+    readOnly: true
+    volumeSpec:
+      configMap:
+        name: radicale-config
+  users:
+    enabled: true
+    type: custom
+    readOnly: true
+    mountPath: /etc/radicale/users
+    subPath: users
+    volumeSpec:
+      secret:
+        secretName: radicale-secret
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  enabled: true

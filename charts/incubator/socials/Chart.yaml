@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: "main"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "[b][u][span style='color: #E80000;']Description[/span][/u][/b][br]\n"
+home: https://truecharts.org/docs/charts/incubator/socials
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/socials.png
+keywords:
+  - socials
+  - Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: socials
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/socials
+  - https://github.com/diamkil/socials
+  - https://registry.hub.docker.com/r/diamkil/socials/
+type: application
+version: 0.0.15

@@ -1,0 +1,36 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plexripper
+  tag: latest@sha256:3a55c9bc2e1f9f96a968071e253a45af7c295471b4cb01d7c70516ca3f5138c0
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloadfolder:
+    enabled: true
+    mountPath: /downloads
+  moviedestinationfolder:
+    enabled: true
+    mountPath: /movies
+  tv-showdestinationfolder:
+    enabled: true
+    mountPath: /tvshows
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7000
+        protocol: TCP
+        targetPort: 7000
+
+portal:
+  enabled: true

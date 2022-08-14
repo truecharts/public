@@ -1,0 +1,29 @@
+env:
+  HEXO_PLUGINS: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/hexo-blog
+  tag: latest@sha256:8d7dbd82cace536140f4058be8bd8744b22cba63bc8c886df993db4d7a993f5c
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

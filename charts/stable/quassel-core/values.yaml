@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.14.0
 
-portal:
-  enabled: false
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -21,8 +18,6 @@ env:
   DB_PGSQL_PORT: 5432
   AUTH_AUTHENTICATOR: "Database"
   RUN_OPTS: "--config-from-environment"
-
-envValueFrom:
   DB_PGSQL_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -55,3 +50,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: quassel-core
   postgresqlDatabase: quassel-core
+
+portal:
+  enabled: false

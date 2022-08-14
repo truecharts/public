@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/cups-server
-  tag: latest@sha256:e748261c31b57fbc149d9e1c70686f9e6829a08de19e85ac4e1596d488b24b9b
+  tag: latest@sha256:9870c4f69a1524469e70c8649acd597e5b18a0239ad2c2143c6ec2767841bf8a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   ADMIN_PASSWORD: "secretpass"
 
 service:
@@ -31,3 +31,6 @@ persistence:
     hostPath: "/var/run/dbus"
     mountPath: "/var/run/dbus"
     readOnly: false
+
+portal:
+  enabled: true

@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/meshroom
+  tag: v2.4.0@sha256:5fe602cd0c68fd2db19663b005e35f7b3dd221c09dc550020d225068f917b6b6
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10243
+        targetPort: 22
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

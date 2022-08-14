@@ -1,0 +1,33 @@
+env:
+  ACCESS_KEY: Your AWS Access key
+  CRON_SCHEDULE: 0 * * * *
+  S3CMDPARAMS: ""
+  S3PATH: s3://mybucket/
+  SECRET_KEY: Your AWS Access secret
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/s3backup
+  tag: latest@sha256:185b3e3da3772889442b9c153fdd86762369722be1f70ee469201b61cc47b218
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

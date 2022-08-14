@@ -1,0 +1,31 @@
+env:
+  PASSWORD: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/gpodder
+  tag: latest@sha256:aa5ee2adf631113931f600fbb37a8f909db0513eeeaed6effc2c072749c896fd
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloadspath:
+    enabled: true
+    mountPath: /downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: TCP
+        targetPort: 3000
+
+portal:
+  enabled: true

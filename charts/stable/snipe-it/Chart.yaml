@@ -1,35 +1,36 @@
 apiVersion: v2
-appVersion: "5.4.4"
+appVersion: "6.0.9"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-- condition: mariadb.enabled
-  name: mariadb
-  repository: https://charts.truecharts.org/
-  version: 2.0.51
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 2.0.45
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://charts.truecharts.org/
+    version: 3.0.53
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.53
 description: "Open source asset management"
-home: https://github.com/truecharts/apps/tree/master/charts/stable/snipe-it
-icon: https://truecharts.org/_static/img/appicons/snipe-it.png
+home: https://truecharts.org/docs/charts/stable/snipe-it
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/snipe-it.png
 keywords:
   - snipeit
   - snipe
   - asset
   - management
-kubeVersion: '>=1.16.0-0'
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: snipe-it
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/snipe-it
   - https://snipeitapp.com/
-  - https://hub.docker.com/r/linuxserver/
-version: 2.0.19
+  - https://github.com/snipe/snipe-it
+version: 4.0.37
 annotations:
   truecharts.org/catagories: |
     - management

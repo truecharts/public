@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/lanraragi
-  tag: v0.8.5@sha256:5729a10141f1a2cb8abed9a37bea9585f24f8c63fdfddcbcca23d769fb4f08fc
+  tag: 0.8.6@sha256:cc4cc6e261552b22a8319fb97355fc1f2673ef4dc46b76e3b73d3670b718245d
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -29,3 +29,6 @@ persistence:
   content:
     enabled: true
     mountPath: "/home/koyomi/lanraragi/content"
+
+portal:
+  enabled: true

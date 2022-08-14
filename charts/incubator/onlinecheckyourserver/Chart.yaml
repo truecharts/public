@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Tools-Utilities
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "This is a simple container that will check if a domain name or IP address is pingable and send you a message with Pushover if it goes offline.\r\n"
+home: https://truecharts.org/docs/charts/incubator/onlinecheckyourserver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlinecheckyourserver.png
+keywords:
+  - onlinecheckyourserver
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: onlinecheckyourserver
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/onlinecheckyourserver
+  - https://hub.docker.com/r/ich777/online-check-pushover
+  - https://hub.docker.com/r/ich777/online-check-pushover
+type: application
+version: 0.0.16

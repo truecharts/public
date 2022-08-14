@@ -1,4 +1,368 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [piaware-6.0.28](https://github.com/truecharts/charts/compare/piaware-6.0.27...piaware-6.0.28) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [piaware-6.0.27](https://github.com/truecharts/charts/compare/piaware-6.0.26...piaware-6.0.27) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [piaware-6.0.26](https://github.com/truecharts/apps/compare/piaware-6.0.25...piaware-6.0.26) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [piaware-6.0.25](https://github.com/truecharts/apps/compare/piaware-6.0.24...piaware-6.0.25) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [piaware-6.0.25](https://github.com/truecharts/apps/compare/piaware-6.0.24...piaware-6.0.25) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [piaware-6.0.24](https://github.com/truecharts/apps/compare/piaware-6.0.23...piaware-6.0.24) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [piaware-6.0.24](https://github.com/truecharts/apps/compare/piaware-6.0.23...piaware-6.0.24) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [piaware-6.0.24](https://github.com/truecharts/apps/compare/piaware-6.0.23...piaware-6.0.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [piaware-6.0.23](https://github.com/truecharts/apps/compare/piaware-6.0.21...piaware-6.0.23) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [piaware-6.0.21](https://github.com/truecharts/apps/compare/piaware-6.0.20...piaware-6.0.21) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [piaware-6.0.20](https://github.com/truecharts/apps/compare/piaware-6.0.19...piaware-6.0.20) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [piaware-6.0.19](https://github.com/truecharts/apps/compare/piaware-6.0.18...piaware-6.0.19) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
+## [piaware-6.0.18](https://github.com/truecharts/apps/compare/piaware-6.0.17...piaware-6.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [piaware-6.0.17](https://github.com/truecharts/apps/compare/piaware-6.0.15...piaware-6.0.17) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [piaware-6.0.15](https://github.com/truecharts/apps/compare/piaware-6.0.13...piaware-6.0.15) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [piaware-6.0.13](https://github.com/truecharts/apps/compare/piaware-6.0.12...piaware-6.0.13) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="piaware-6.0.12"></a>
+### [piaware-6.0.12](https://github.com/truecharts/apps/compare/piaware-6.0.11...piaware-6.0.12) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
+
+
+<a name="piaware-6.0.11"></a>
+### [piaware-6.0.11](https://github.com/truecharts/apps/compare/piaware-6.0.10...piaware-6.0.11) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="piaware-6.0.10"></a>
+### [piaware-6.0.10](https://github.com/truecharts/apps/compare/piaware-6.0.9...piaware-6.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="piaware-6.0.9"></a>
+### [piaware-6.0.9](https://github.com/truecharts/apps/compare/piaware-6.0.8...piaware-6.0.9) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="piaware-6.0.8"></a>
+### [piaware-6.0.8](https://github.com/truecharts/apps/compare/piaware-6.0.7...piaware-6.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="piaware-6.0.7"></a>
+### [piaware-6.0.7](https://github.com/truecharts/apps/compare/piaware-6.0.6...piaware-6.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="piaware-6.0.6"></a>
+### [piaware-6.0.6](https://github.com/truecharts/apps/compare/piaware-6.0.5...piaware-6.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="piaware-6.0.5"></a>
+### [piaware-6.0.5](https://github.com/truecharts/apps/compare/piaware-6.0.4...piaware-6.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
+<a name="piaware-6.0.4"></a>
+### [piaware-6.0.4](https://github.com/truecharts/apps/compare/piaware-6.0.3...piaware-6.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="piaware-6.0.3"></a>
+### [piaware-6.0.3](https://github.com/truecharts/apps/compare/piaware-6.0.2...piaware-6.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="piaware-6.0.2"></a>
+### [piaware-6.0.2](https://github.com/truecharts/apps/compare/piaware-6.0.1...piaware-6.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="piaware-6.0.1"></a>
+### [piaware-6.0.1](https://github.com/truecharts/apps/compare/piaware-5.0.28...piaware-6.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="piaware-6.0.0"></a>
+### [piaware-6.0.0](https://github.com/truecharts/apps/compare/piaware-5.0.28...piaware-6.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="piaware-5.0.28"></a>
+### [piaware-5.0.28](https://github.com/truecharts/apps/compare/piaware-5.0.27...piaware-5.0.28) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
+<a name="piaware-5.0.27"></a>
+### [piaware-5.0.27](https://github.com/truecharts/apps/compare/piaware-5.0.26...piaware-5.0.27) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="piaware-5.0.27"></a>
+### [piaware-5.0.27](https://github.com/truecharts/apps/compare/piaware-5.0.26...piaware-5.0.27) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="piaware-5.0.26"></a>
+### [piaware-5.0.26](https://github.com/truecharts/apps/compare/piaware-5.0.25...piaware-5.0.26) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="piaware-5.0.25"></a>
+### [piaware-5.0.25](https://github.com/truecharts/apps/compare/piaware-5.0.24...piaware-5.0.25) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="piaware-5.0.25"></a>
+### [piaware-5.0.25](https://github.com/truecharts/apps/compare/piaware-5.0.24...piaware-5.0.25) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="piaware-5.0.24"></a>
+### [piaware-5.0.24](https://github.com/truecharts/apps/compare/piaware-5.0.23...piaware-5.0.24) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="piaware-5.0.23"></a>
+### [piaware-5.0.23](https://github.com/truecharts/apps/compare/piaware-5.0.22...piaware-5.0.23) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="piaware-5.0.22"></a>
+### [piaware-5.0.22](https://github.com/truecharts/apps/compare/piaware-5.0.21...piaware-5.0.22) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
 
 
 <a name="piaware-5.0.21"></a>

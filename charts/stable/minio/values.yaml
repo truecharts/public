@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/minio
-  tag: latest@sha256:7387f4cb0d4eb02c84753c56c5ef202c3080004f9223568958cfe898689de63e
+  tag: latest@sha256:5120b8a226ea6b5d48f2e4a5767b2a08970f72357e3063e5808bf899540362cf
   pullPolicy: IfNotPresent
 
 args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
 
-secret:
+secretEnv:
   MINIO_ROOT_PASSWORD: "changeme"
 
 env:
@@ -54,3 +54,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

@@ -1,9 +1,9 @@
 image:
   repository: tccr.io/truecharts/doplarr
-  tag: v3.5.0@sha256:6ae229bab8495deaf76295a42d073c2d8e53f331b594b9f50a4b36466b374a9d
+  tag: v3.6.0@sha256:477f96ffbc0f0a261ddce73c37567cafe3104261fe008df19d8b00b212452675
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   OVERSEERR__API: ""
   OVERSEERR__DEFAULT_ID: ""
   SONARR__API: ""
@@ -37,3 +37,6 @@ probes:
     enabled: false
   startup:
     enabled: false
+
+portal:
+  enabled: false

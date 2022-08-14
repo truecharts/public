@@ -1,29 +1,29 @@
 apiVersion: v2
 appVersion: "057352e8"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-description: A lightweight portal to view & manage your HTPC apps without having to
-  run anything more than a PHP enabled webserver
-home: https://github.com/truecharts/apps/tree/master/charts/stable/muximux
-icon: https://truecharts.org/_static/img/appicons/muximux.png
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: A lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver
+home: https://truecharts.org/docs/charts/stable/muximux
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/muximux.png
 keywords:
-- muximux
-- htpc
-- manage
-- portal
-kubeVersion: '>=1.16.0-0'
+  - muximux
+  - htpc
+  - manage
+  - portal
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: muximux
 sources:
-- https://github.com/linuxserver/docker-muximux
-- https://github.com/mescon/Muximux
+  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
+  - https://github.com/linuxserver/docker-muximux
+  - https://github.com/mescon/Muximux
 type: application
-version: 2.0.13
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,0 +1,52 @@
+image:
+  repository: tccr.io/truecharts/autobrr
+  pullPolicy: IfNotPresent
+  tag: 1.4.0@sha256:d4e6977b792db5557e8783162c30245d025e6c0bfb7475d4f07d24a248e8d6d9
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 7474
+        targetPort: 7474
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl --fail localhost:7474/
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl --fail localhost:7474/
+      failureThreshold: 5
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 10
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  enabled: true

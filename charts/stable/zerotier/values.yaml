@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/zerotier
   pullPolicy: IfNotPresent
-  tag: v1.8.9@sha256:a3430eb0f96b6ccc3e99437b2c3515381515731e74192e23cef372d59fd303a2
+  tag: v1.8.10@sha256:adb9aeab818e4ded3d8438ce50bff74ef7211e3495cadb3990c56c68a79b6725
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -14,7 +14,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   ZEROTIER_API_SECRET: ""
   ZEROTIER_IDENTITY_PUBLIC: ""
   ZEROTIER_IDENTITY_SECRET: ""
@@ -38,3 +38,6 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
+
+portal:
+  enabled: false

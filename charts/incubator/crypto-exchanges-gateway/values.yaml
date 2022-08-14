@@ -1,0 +1,35 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/crypto-exchanges-gateway
+  tag: latest@sha256:777cfe5bc72cfa14e3a2548ea2cc2b04267a357d36b9b1718572992d4a701664
+persistence:
+  configpath:
+    enabled: true
+    mountPath: /root/crypto-exchanges-gateway/custom_config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: HTTP
+        targetPort: 8000
+  wsport:
+    enabled: true
+    ports:
+      wsport:
+        enabled: true
+        port: 8001
+        protocol: TCP
+        targetPort: 8001
+
+portal:
+  enabled: true

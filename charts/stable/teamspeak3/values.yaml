@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/teamspeak
   pullPolicy: IfNotPresent
-  tag: v3.13.6@sha256:b133ae5f082ee252ebdac37cb9fa9a7bfc45f64629d4a6b64168bf64e6be8faf
+  tag: v3.13.7@sha256:a2e4d6f3d09b00a7e85f7d603e1106e4cbd162eae4a4bf25718d63582ea96fd5
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -43,3 +43,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/ts3server"
+
+portal:
+  enabled: false

@@ -1,0 +1,44 @@
+env:
+  CONVERSION_FORMAT: mkv
+  DELETE_TS: "1"
+  NVIDIA_VISIBLE_DEVICES: ""
+  POST_PROCESS: comchap
+  SOURCE_EXT: ts
+  SUBTITLES: "0"
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/post-recording
+  tag: latest@sha256:edb69fbb249335cb5ab1572ec805768e74c16bbff657c350caa8abd553b83047
+persistence:
+  backupfolder:
+    enabled: true
+    mountPath: /backup
+  config:
+    enabled: true
+    mountPath: /config
+  watchfolder:
+    enabled: true
+    mountPath: /watch
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/matomo
-  tag: v4.9.1@sha256:fc0e51dfb7336c05af6a17abe861b6b2ce1595202af65be9e8824543553256e4
+  tag: 4.11.0@sha256:b860c0c90e72240ff97072e997daecfa90d281a95fe00b2dbf91b39089c6cc48
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -51,6 +51,14 @@ env:
   # PHP_MAX_INPUT_VARS:
   # PHP_POST_MAX_SIZE:
   # PHP_UPLOAD_MAX_FILESIZE:
+  MATOMO_DATABASE_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MATOMO_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
 
 probes:
   liveness:
@@ -81,18 +89,11 @@ persistence:
     enabled: true
     mountPath: "/bitnami/matomo"
 
-envValueFrom:
-  MATOMO_DATABASE_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MATOMO_DATABASE_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-
 mariadb:
   enabled: true
   mariadbUsername: matomo
   mariadbDatabase: matomo
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

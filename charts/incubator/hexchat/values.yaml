@@ -1,0 +1,30 @@
+env:
+  UMASK: "000"
+  VNC_PASSWORD: ""
+  WEBPAGE_TITLE: HexChat
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/hexchat
+  tag: latest@sha256:9bb2452cbd7b8364ef7d6e1ce8d68c69398339f2c67a8a502849db52c4d12e7f
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6080
+        protocol: TCP
+        targetPort: 6080
+
+portal:
+  enabled: true

@@ -1,0 +1,38 @@
+env:
+  ACCESS_KEY: your_access_key_here
+  CRON_SCHEDULE: 0 * * * *
+  REGION: bucket_region_here
+  S3PATH: s3://your_bucket_name
+  S3SYNCPARAMS: ""
+  SECRET_KEY: your_secret_key_here
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/s3sync
+  tag: latest@sha256:cc550ce4464f5b3740176376ff65c011ad4fdb59b7e894ba26a52689f5975fac
+persistence:
+  backupsourceexample:
+    enabled: true
+    mountPath: /data/example
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

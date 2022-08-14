@@ -1,0 +1,30 @@
+env:
+  EXPIRY_DAYS: "1"
+  RUST_LOG: info
+  SQLITE_URI: sqlite:///persist/rustpad_db.db
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rustpad
+  tag: latest@sha256:ef057755df14c9b8b15b24af2bd91477c4a4ac655a4e7613991dfc12731007e5
+persistence:
+  storagedatabase:
+    enabled: true
+    mountPath: /persist
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3030
+        protocol: TCP
+        targetPort: 3030
+
+portal:
+  enabled: true

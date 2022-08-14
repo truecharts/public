@@ -1,0 +1,45 @@
+env:
+  DATA_PERM: "770"
+  GAME_ID: "739590"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  UMASK: "000"
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/eco
+  tag: latest@sha256:bc30e403e4fa5fd0fde0b5a3541e44f54bca512979c19baec787458bc400c060
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3001
+        protocol: HTTP
+        targetPort: 3001
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 3000
+        protocol: UDP
+        targetPort: 3000
+
+portal:
+  enabled: true

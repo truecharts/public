@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/meshcentral
   pullPolicy: IfNotPresent
-  tag: v1.0.18@sha256:ed532b40512cf736911b99135d002da92fdb3f1b24170d09c29d6418f18a03b8
+  tag: 1.0.61@sha256:2e66832ddcf16feb38fce6505b610bbfdd47312386a24bda25c84ab7fc680ea0
 
 extraArgs: ["--cert", "$hostname"]
 
@@ -122,3 +122,6 @@ persistence:
   files:
     enabled: true
     mountPath: "/home/node/meshcentral/meshcentral-files"
+
+portal:
+  enabled: true

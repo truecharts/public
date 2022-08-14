@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/facturascripts
+  tag: latest@sha256:10c0e04e4d4313daf59e64aed30e817dfa7773963d8c5f5940a8efe4fa655a97
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /var/www/html
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 31000
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

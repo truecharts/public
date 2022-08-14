@@ -1,0 +1,34 @@
+env:
+  UMASK: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/duplicacy
+  tag: latest@sha256:f3bbc6c679809a2f16522e7fa4b87cf1c333dd13e8155f82e78f63af92efc9d7
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  hostpathforcache:
+    enabled: true
+    mountPath: /cache
+  hostpathforlogs:
+    enabled: true
+    mountPath: /logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3875
+        protocol: TCP
+        targetPort: 3875
+
+portal:
+  enabled: true

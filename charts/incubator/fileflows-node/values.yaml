@@ -1,0 +1,31 @@
+env:
+  NodeName: ""
+  ServerUrl: ""
+  TempPath: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/fileflows-node
+  tag: latest@sha256:79370bc5061d1f2c537b05d74f3e32e2f220590ff808202bbd8b74e660a2a45f
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

@@ -1,0 +1,46 @@
+env:
+  GAME_ID: "258550"
+  GAME_PARAMS: +server.maxplayers 10
+  GAME_PORT: "28015"
+  OXIDE_MOD: ""
+  PASSWRD: ""
+  SERVER_DISCRIPTION: Simple Unraid Rust Docker Server
+  SERVER_NAME: RustDockerServer
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rust
+  tag: latest@sha256:8d65e9baafae8cd67db23b8906f63b6ecc4c9e5c504810aeb454be512cd4fba4
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 28015
+        protocol: UDP
+        targetPort: 28015
+
+portal:
+  enabled: true

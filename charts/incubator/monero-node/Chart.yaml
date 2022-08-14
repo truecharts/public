@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Crypto
+    - Tools-Utilities
+    - Network-Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/monero-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/monero-node.png
+keywords:
+  - monero-node
+  - Crypto
+  - Tools-Utilities
+  - Network-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: monero-node
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/monero-node
+  - https://github.com/kannix/monero-full-node
+  - https://hub.docker.com/r/kannix/monero-full-node
+type: application
+version: 0.0.16

@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+    - MediaServer-Photos
+    - Network-Web
+    - Network-FTP
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/imgpush
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.png
+keywords:
+  - imgpush
+  - Cloud
+  - Tools-Utilities
+  - MediaServer-Photos
+  - Network-Web
+  - Network-FTP
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: imgpush
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/imgpush
+  - https://github.com/hauxir/imgpush
+  - https://hub.docker.com/r/hauxir/imgpush
+type: application
+version: 0.0.16

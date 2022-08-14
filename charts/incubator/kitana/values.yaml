@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kitana
+  tag: latest@sha256:951a2ade8dfd97ee135dc77aff29a62619ea2b3877fc2f6c46f2133f83630420
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 31337
+        protocol: TCP
+        targetPort: 31337
+
+portal:
+  enabled: true

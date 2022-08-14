@@ -1,0 +1,31 @@
+env:
+  PASSWORD: ""
+  STORE_PASSWORD: ""
+  STORE_USER: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/notea
+  tag: latest@sha256:02c3f3e05abe6e83373d58f204b9a0a8625905a3ba5fc24712ee464568206ded
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

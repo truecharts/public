@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Multi-arch tar1090 container for visualising ADSB data.
+home: https://truecharts.org/docs/charts/incubator/tar1090
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tar1090.png
+keywords:
+  - tar1090
+  - Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: tar1090
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tar1090
+  - https://hub.docker.com/r/mikenye/tar1090
+  - https://hub.docker.com/r/mikenye/tar1090/
+type: application
+version: 0.0.16

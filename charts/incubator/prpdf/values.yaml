@@ -1,0 +1,37 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/prpdf
+  tag: latest@sha256:11028b1dd08f5ea5adc014cfe69a67ccfcf79182d4442f10298718c84b8bf252
+persistence:
+  config:
+    enabled: true
+    mountPath: /source/config
+  files:
+    enabled: true
+    mountPath: /Archiv/
+  hostpath2:
+    enabled: true
+    mountPath: /source/static/pdf/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

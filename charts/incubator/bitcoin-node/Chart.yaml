@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Crypto
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/bitcoin-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoin-node.png
+keywords:
+  - bitcoin-node
+  - Crypto
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: bitcoin-node
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoin-node
+  - https://github.com/kylemanna/docker-bitcoind
+  - https://hub.docker.com/r/kylemanna/bitcoind
+type: application
+version: 0.0.16

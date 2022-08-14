@@ -1,0 +1,3 @@
+# Default Password
+
+**password**: `kamimamita`

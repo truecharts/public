@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mocodo-mcd
+  tag: latest@sha256:4857e3444d06243c4793914b8b0545bac9f7bcdcdbb62108036cb70ab07f6bdc
+persistence:
+  path:
+    enabled: true
+    mountPath: /root/mocodo
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8888
+        protocol: TCP
+        targetPort: 8888
+
+portal:
+  enabled: true

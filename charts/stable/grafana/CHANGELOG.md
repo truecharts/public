@@ -1,4 +1,627 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [grafana-4.0.45](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.16...grafana-4.0.45) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [grafana-4.0.44](https://github.com/truecharts/charts/compare/grafana-4.0.43...grafana-4.0.44) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [grafana-4.0.43](https://github.com/truecharts/charts/compare/grafana-4.0.42...grafana-4.0.43) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [grafana-4.0.42](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.15...grafana-4.0.42) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [grafana-4.0.41](https://github.com/truecharts/charts/compare/grafana-4.0.39...grafana-4.0.41) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [grafana-4.0.39](https://github.com/truecharts/apps/compare/grafana-4.0.38...grafana-4.0.39) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
+## [grafana-4.0.38](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.13...grafana-4.0.38) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [grafana-4.0.37](https://github.com/truecharts/apps/compare/grafana-4.0.36...grafana-4.0.37) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [grafana-4.0.37](https://github.com/truecharts/apps/compare/grafana-4.0.36...grafana-4.0.37) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [grafana-4.0.36](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.36) (2022-07-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [grafana-4.0.35](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.35) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [grafana-4.0.35](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.35) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [grafana-4.0.34](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.11...grafana-4.0.34) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+
+
+
+
+## [grafana-4.0.33](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.10...grafana-4.0.33) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
+
+### Chore
+
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [grafana-4.0.30](https://github.com/truecharts/apps/compare/grafana-4.0.29...grafana-4.0.30) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [grafana-4.0.29](https://github.com/truecharts/apps/compare/grafana-4.0.28...grafana-4.0.29) (2022-07-17)
+
+### Chore
+
+- update container image tccr.io/truecharts/grafana to v9.0.3 ([#3186](https://github.com/truecharts/apps/issues/3186))
+
+
+
+## [grafana-4.0.28](https://github.com/truecharts/apps/compare/grafana-4.0.27...grafana-4.0.28) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [grafana-4.0.27](https://github.com/truecharts/apps/compare/grafana-4.0.25...grafana-4.0.27) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [grafana-4.0.25](https://github.com/truecharts/apps/compare/grafana-4.0.23...grafana-4.0.25) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [grafana-4.0.23](https://github.com/truecharts/apps/compare/grafana-4.0.22...grafana-4.0.23) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="grafana-4.0.22"></a>
+### [grafana-4.0.22](https://github.com/truecharts/apps/compare/grafana-4.0.21...grafana-4.0.22) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
+
+
+<a name="grafana-4.0.21"></a>
+### [grafana-4.0.21](https://github.com/truecharts/apps/compare/grafana-4.0.20...grafana-4.0.21) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="grafana-4.0.20"></a>
+### [grafana-4.0.20](https://github.com/truecharts/apps/compare/grafana-4.0.19...grafana-4.0.20) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="grafana-4.0.19"></a>
+### [grafana-4.0.19](https://github.com/truecharts/apps/compare/grafana-4.0.18...grafana-4.0.19) (2022-07-09)
+
+#### Chore
+
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+
+
+
+<a name="grafana-4.0.18"></a>
+### [grafana-4.0.18](https://github.com/truecharts/apps/compare/grafana-4.0.17...grafana-4.0.18) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="grafana-4.0.17"></a>
+### [grafana-4.0.17](https://github.com/truecharts/apps/compare/grafana-4.0.16...grafana-4.0.17) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
+<a name="grafana-4.0.16"></a>
+### [grafana-4.0.16](https://github.com/truecharts/apps/compare/grafana-4.0.15...grafana-4.0.16) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
+<a name="grafana-4.0.15"></a>
+### [grafana-4.0.15](https://github.com/truecharts/apps/compare/grafana-4.0.14...grafana-4.0.15) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
+<a name="grafana-4.0.14"></a>
+### [grafana-4.0.14](https://github.com/truecharts/apps/compare/grafana-4.0.13...grafana-4.0.14) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+
+
+
+<a name="grafana-4.0.13"></a>
+### [grafana-4.0.13](https://github.com/truecharts/apps/compare/grafana-4.0.12...grafana-4.0.13) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="grafana-4.0.12"></a>
+### [grafana-4.0.12](https://github.com/truecharts/apps/compare/grafana-4.0.11...grafana-4.0.12) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="grafana-4.0.11"></a>
+### [grafana-4.0.11](https://github.com/truecharts/apps/compare/grafana-4.0.10...grafana-4.0.11) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="grafana-4.0.10"></a>
+### [grafana-4.0.10](https://github.com/truecharts/apps/compare/grafana-4.0.9...grafana-4.0.10) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
+<a name="grafana-4.0.9"></a>
+### [grafana-4.0.9](https://github.com/truecharts/apps/compare/grafana-4.0.8...grafana-4.0.9) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
+<a name="grafana-4.0.8"></a>
+### [grafana-4.0.8](https://github.com/truecharts/apps/compare/grafana-4.0.7...grafana-4.0.8) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
+<a name="grafana-4.0.7"></a>
+### [grafana-4.0.7](https://github.com/truecharts/apps/compare/grafana-4.0.6...grafana-4.0.7) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="grafana-4.0.6"></a>
+### [grafana-4.0.6](https://github.com/truecharts/apps/compare/grafana-4.0.5...grafana-4.0.6) (2022-06-14)
+
+#### Chore
+
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
+<a name="grafana-4.0.5"></a>
+### [grafana-4.0.5](https://github.com/truecharts/apps/compare/grafana-4.0.4...grafana-4.0.5) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="grafana-4.0.4"></a>
+### [grafana-4.0.4](https://github.com/truecharts/apps/compare/grafana-4.0.3...grafana-4.0.4) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="grafana-4.0.3"></a>
+### [grafana-4.0.3](https://github.com/truecharts/apps/compare/grafana-4.0.2...grafana-4.0.3) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
+<a name="grafana-4.0.2"></a>
+### [grafana-4.0.2](https://github.com/truecharts/apps/compare/grafana-4.0.1...grafana-4.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="grafana-4.0.1"></a>
+### [grafana-4.0.1](https://github.com/truecharts/apps/compare/grafana-3.0.62...grafana-4.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="grafana-4.0.0"></a>
+### [grafana-4.0.0](https://github.com/truecharts/apps/compare/grafana-3.0.62...grafana-4.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="grafana-3.0.62"></a>
+### [grafana-3.0.62](https://github.com/truecharts/apps/compare/grafana-3.0.61...grafana-3.0.62) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="grafana-3.0.61"></a>
+### [grafana-3.0.61](https://github.com/truecharts/apps/compare/grafana-3.0.60...grafana-3.0.61) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
+<a name="grafana-3.0.60"></a>
+### [grafana-3.0.60](https://github.com/truecharts/apps/compare/grafana-3.0.59...grafana-3.0.60) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+
+
+
+<a name="grafana-3.0.59"></a>
+### [grafana-3.0.59](https://github.com/truecharts/apps/compare/grafana-3.0.58...grafana-3.0.59) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
+<a name="grafana-3.0.58"></a>
+### [grafana-3.0.58](https://github.com/truecharts/apps/compare/grafana-3.0.57...grafana-3.0.58) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="grafana-3.0.58"></a>
+### [grafana-3.0.58](https://github.com/truecharts/apps/compare/grafana-3.0.57...grafana-3.0.58) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="grafana-3.0.57"></a>
+### [grafana-3.0.57](https://github.com/truecharts/apps/compare/grafana-3.0.56...grafana-3.0.57) (2022-05-26)
+
+#### Chore
+
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
+<a name="grafana-3.0.56"></a>
+### [grafana-3.0.56](https://github.com/truecharts/apps/compare/grafana-3.0.55...grafana-3.0.56) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
+<a name="grafana-3.0.55"></a>
+### [grafana-3.0.55](https://github.com/truecharts/apps/compare/grafana-3.0.54...grafana-3.0.55) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="grafana-3.0.54"></a>
+### [grafana-3.0.54](https://github.com/truecharts/apps/compare/grafana-3.0.53...grafana-3.0.54) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="grafana-3.0.53"></a>
+### [grafana-3.0.53](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.53) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
+<a name="grafana-3.0.52"></a>
+### [grafana-3.0.52](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.52) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="grafana-3.0.51"></a>
+### [grafana-3.0.51](https://github.com/truecharts/apps/compare/grafana-3.0.50...grafana-3.0.51) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="grafana-3.0.50"></a>
+### [grafana-3.0.50](https://github.com/truecharts/apps/compare/grafana-3.0.49...grafana-3.0.50) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
+<a name="grafana-3.0.49"></a>
+### [grafana-3.0.49](https://github.com/truecharts/apps/compare/grafana-3.0.48...grafana-3.0.49) (2022-05-15)
+
+#### Chore
+
+* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
+
+
+
+<a name="grafana-3.0.48"></a>
+### [grafana-3.0.48](https://github.com/truecharts/apps/compare/grafana-3.0.47...grafana-3.0.48) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="grafana-3.0.47"></a>
+### [grafana-3.0.47](https://github.com/truecharts/apps/compare/grafana-3.0.46...grafana-3.0.47) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="grafana-3.0.46"></a>
+### [grafana-3.0.46](https://github.com/truecharts/apps/compare/grafana-3.0.45...grafana-3.0.46) (2022-05-11)
+
+#### Chore
+
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
+<a name="grafana-3.0.45"></a>
+### [grafana-3.0.45](https://github.com/truecharts/apps/compare/grafana-3.0.44...grafana-3.0.45) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="grafana-3.0.44"></a>
+### [grafana-3.0.44](https://github.com/truecharts/apps/compare/grafana-3.0.43...grafana-3.0.44) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
 
 
 <a name="grafana-3.0.43"></a>

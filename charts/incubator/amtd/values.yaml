@@ -1,0 +1,45 @@
+env:
+  AUTOSTART: ""
+  EndClient: ""
+  FilePermissions: ""
+  FolderPermissions: ""
+  LANGUAGES: ""
+  PREFER_EXISTING: ""
+  RadarrAPIkey: ""
+  RadarrUrl: ""
+  SCRIPTINTERVAL: ""
+  SINGLETRAILER: ""
+  USEFOLDERS: ""
+  extrastype: ""
+  subtitlelanguage: ""
+  videoformat: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/amtd
+  tag: latest@sha256:9f990e1cf834ac6231617fc624b36a9bcac864318b47cdacaf2dbae91dd4b7c1
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

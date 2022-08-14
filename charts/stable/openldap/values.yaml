@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/openldap
   pullPolicy: IfNotPresent
-  tag: v1.5.0@sha256:0260d37c41f0c1207aaa642d7c786851385471a5ddf02bc6efc178241ddd8706
+  tag: v1.5.0@sha256:e0e2103decf985c6d908ac7d021032f53f3f0827397bbda106f55ed0b844b68b
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -50,7 +50,7 @@ service:
         port: 636
         targetPort: 636
 
-secret:
+secretEnv:
   LDAP_ADMIN_PASSWORD: "ldapadmin"
   LDAP_CONFIG_PASSWORD: "changeme"
   LDAP_READONLY_USER_USERNAME: "readonly"
@@ -74,6 +74,7 @@ env:
   KEEP_EXISTING_CONFIG: false
   LDAP_REMOVE_CONFIG_AFTER_SETUP: true
   LDAP_SSL_HELPER_PREFIX: "ldap"
+  LDAP_BASE_DN: ""
 
 replication:
   enabled: false
@@ -97,3 +98,6 @@ volumeClaimTemplates:
   slapd:
     enabled: true
     mountPath: "/etc/ldap/slapd.d/"
+
+portal:
+  enabled: false

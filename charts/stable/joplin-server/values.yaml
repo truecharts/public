@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/joplin-server
-  tag: v2.7.4@sha256:6832f3ed894279ba8a1ab03b4033d11dadc28e3f36364eed7b69eadb52f8e1e4
+  tag: v2.7.4@sha256:ce324e9c7a37f4372f02d722639472975795f8874f0a1df12eea0bd93974d941
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -18,8 +18,6 @@ env:
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: "5432"
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -54,3 +52,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: joplin
   postgresqlDatabase: joplin
+
+portal:
+  enabled: true

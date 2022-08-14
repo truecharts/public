@@ -1,0 +1,37 @@
+env:
+  VNC_PW: unraid
+  VNC_RESOLUTION: 1360x768
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/inkscape-desktop-g3
+  tag: latest@sha256:583601cb7651e62bdd02b1c1e29f5481dc7d8b6013bd08b4a350f4c27e7059e9
+persistence:
+  internalshare:
+    enabled: true
+    mountPath: /UNRAID_SHARE
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6901
+        protocol: HTTP
+        targetPort: 6901
+  webuivnc:
+    enabled: true
+    ports:
+      webuivnc:
+        enabled: true
+        port: 5901
+        protocol: TCP
+        targetPort: 5901
+
+portal:
+  enabled: true

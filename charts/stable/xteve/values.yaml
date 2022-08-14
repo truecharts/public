@@ -1,18 +1,10 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/xteve
-  # -- image tag
-  tag: v2.2.0.200@sha256:8eca3bbc32d97ec1e86fce6d94057d8db6597c91ad15ac4f33b1a336cb645222
-  # -- image pull policy
+  tag: v2.2.0.200@sha256:06669087209cee486ce99ca05d8bfb18928d12fb160338424e533cea71cd3587
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
-
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
 
 service:
   main:
@@ -21,9 +13,10 @@ service:
         port: 34400
         targetPort: 34400
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

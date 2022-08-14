@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/shlink-web-client
   pullPolicy: IfNotPresent
-  tag: v3.6.0@sha256:96985d31439093366d69027d2dd37cb57a56baa10fc33a98ff10578d1ba68a5a
+  tag: 3.7.2@sha256:b63931e2a6920f61c27e80a2bad173714cc0278f38a4512342c14977e6b09fc7
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  SHLINK_SERVER_URL: ""
+  SHLINK_SERVER_API_KEY: ""
+  SHLINK_SERVER_NAME: ""
+
 service:
   main:
     ports:
@@ -19,4 +24,5 @@ service:
         port: 10154
         protocol: HTTP
 
-env: {}
+portal:
+  enabled: true

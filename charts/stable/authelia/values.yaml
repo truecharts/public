@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/authelia
   pullPolicy: IfNotPresent
-  tag: v4.35.2@sha256:f5c03a80fa2d6bdc5e568c6d389bddf4655c3d4f0a3e698f82c08395ade0209d
+  tag: 4.36.4@sha256:5eef28b817f8d61ba508908c8b28af42f5234735ef29f35967c80a43c001178c
 
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
@@ -46,18 +46,18 @@ envFrom:
   - configMapRef:
       name: authelia-paths
 
-probes:
-  liveness:
-    type: HTTP
-    path: /api/health"
+# probes:
+#   liveness:
+#     type: HTTP
+#     path: /api/health"
 
-  readiness:
-    type: HTTP
-    path: "/api/health"
+#   readiness:
+#     type: HTTP
+#     path: "/api/health"
 
-  startup:
-    type: HTTP
-    path: "/api/health"
+#   startup:
+#     type: HTTP
+#     path: "/api/health"
 
 domain: example.com
 
@@ -158,7 +158,6 @@ authentication_backend:
   ## than one instance and therefore is recommended for
   ## production.
   ldap:
-
     ## Enable LDAP Backend.
     enabled: false
 
@@ -571,53 +570,56 @@ identity_providers:
 
     clients: []
     # clients:
-      # -
-        ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
-        # id: myapp
+    # -
+    ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
+    # id: myapp
 
-        ## The description to show to users when they end up on the consent screen. Defaults to the ID above.
-        # description: My Application
+    ## The description to show to users when they end up on the consent screen. Defaults to the ID above.
+    # description: My Application
 
-        ## The client secret is a shared secret between Authelia and the consumer of this client.
-        # secret: apple123
+    ## The client secret is a shared secret between Authelia and the consumer of this client.
+    # secret: apple123
 
-        ## Sets the client to public. This should typically not be set, please see the documentation for usage.
-        # public: false
+    ## Sets the client to public. This should typically not be set, please see the documentation for usage.
+    # public: false
 
-        ## The policy to require for this client; one_factor or two_factor.
-        # authorization_policy: two_factor
+    ## The policy to require for this client; one_factor or two_factor.
+    # authorization_policy: two_factor
 
-        ## Audience this client is allowed to request.
-        # audience: []
+    ## Audience this client is allowed to request.
+    # audience: []
 
-        ## Scopes this client is allowed to request.
-        # scopes:
-        #   - openid
-        #   - profile
-        #   - email
-        #   - groups
+    ## Scopes this client is allowed to request.
+    # scopes:
+    #   - openid
+    #   - profile
+    #   - email
+    #   - groups
 
-        ## Redirect URI's specifies a list of valid case-sensitive callbacks for this client.
-        # redirect_uris:
-        #   - https://oidc.example.com/oauth2/callback
+    ## Redirect URI's specifies a list of valid case-sensitive callbacks for this client.
+    # redirect_uris:
+    #   - https://oidc.example.com/oauth2/callback
 
-        ## Grant Types configures which grants this client can obtain.
-        ## It's not recommended to configure this unless you know what you're doing.
-        # grant_types:
-        #   - refresh_token
-        #   - authorization_code
+    ## Grant Types configures which grants this client can obtain.
+    ## It's not recommended to configure this unless you know what you're doing.
+    # grant_types:
+    #   - refresh_token
+    #   - authorization_code
 
-        ## Response Types configures which responses this client can be sent.
-        ## It's not recommended to configure this unless you know what you're doing.
-        # response_types:
-        #   - code
+    ## Response Types configures which responses this client can be sent.
+    ## It's not recommended to configure this unless you know what you're doing.
+    # response_types:
+    #   - code
 
-        ## Response Modes configures which response modes this client supports.
-        ## It's not recommended to configure this unless you know what you're doing.
-        # response_modes:
-        #   - form_post
-        #   - query
-        #   - fragment
+    ## Response Modes configures which response modes this client supports.
+    ## It's not recommended to configure this unless you know what you're doing.
+    # response_modes:
+    #   - form_post
+    #   - query
+    #   - fragment
 
-        ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
-        # userinfo_signing_algorithm: none
+    ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
+    # userinfo_signing_algorithm: none
+
+portal:
+  enabled: true

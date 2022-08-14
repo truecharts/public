@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/podgrab
   pullPolicy: Always
-  tag: v1.0.0@sha256:08b6b7d7ff4aff9b223da4e2c9800c56694a3d59dae8586fedeb836292acd572
+  tag: v1.0.0@sha256:b28988002058780b8c7e9ee3997107ca22a5a55f1fdf468c92fc443e8c4fe597
 
 service:
   main:
@@ -17,7 +17,7 @@ service:
         port: 51080
         targetPort: 51080
 
-secret:
+secretEnv:
   PASSWORD: "secretpasswordgoeshere"
 
 env:
@@ -28,7 +28,6 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-
 probes:
   liveness:
     enabled: false
@@ -38,3 +37,6 @@ probes:
 
   startup:
     enabled: false
+
+portal:
+  enabled: true

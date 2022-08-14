@@ -1,27 +1,27 @@
 apiVersion: v2
 appVersion: "2021.2.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: Create live map data from Valetudo powered robots
-home: https://github.com/truecharts/apps/tree/master/charts/stable/icantbelieveitsnotvaletudo
-icon: https://truecharts.org/_static/img/appicons/icantbelieveitsnotvaletudo.png
+home: https://truecharts.org/docs/charts/stable/icantbelieveitsnotvaletudo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/icantbelieveitsnotvaletudo.png
 keywords:
-- icantbelieveitsnotvaletudo
-- MQTT
-- valetudo
-- iot
-kubeVersion: '>=1.16.0-0'
+  - icantbelieveitsnotvaletudo
+  - MQTT
+  - valetudo
+  - iot
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: icantbelieveitsnotvaletudo
 sources:
-- https://github.com/Hypfer/ICantBelieveItsNotValetudo
-- https://github.com/truecharts/apps/tree/master/charts/icantbelieveitsnotvaletudo
-version: 3.0.13
+  - https://github.com/truecharts/charts/tree/master/charts/stable/icantbelieveitsnotvaletudo
+  - https://github.com/Hypfer/ICantBelieveItsNotValetudo
+version: 4.0.27
 annotations:
   truecharts.org/catagories: |
     - media

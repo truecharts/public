@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaServer-Video
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Acestream-engine\r\n"
+home: https://truecharts.org/docs/charts/incubator/acestream
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/acestream.png
+keywords:
+  - acestream
+  - MediaServer-Video
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: acestream
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/acestream
+  - https://github.com/vstavrinov/acestream-service
+  - https://hub.docker.com/r/vstavrinov/acestream-service
+type: application
+version: 0.0.16

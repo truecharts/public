@@ -1,0 +1,32 @@
+env:
+  token: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/invitarr
+  tag: latest@sha256:5b4cef064f29027cdfdcd6e31e1a35e5c6cc977f1e22b276af8e8224fc72caa2
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/app/config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

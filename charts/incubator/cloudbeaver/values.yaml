@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/cloudbeaver
+  tag: latest@sha256:b13e3a300891451ef7e6f9577e07585acb51ab9d8a3a45ef329833f820de76b8
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /opt/cloudbeaver/workspace
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8978
+        protocol: TCP
+        targetPort: 8978
+
+portal:
+  enabled: true

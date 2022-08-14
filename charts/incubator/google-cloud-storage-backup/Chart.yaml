@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "A simple way to backup important files to Google Cloud Storage.\n"
+home: https://truecharts.org/docs/charts/incubator/google-cloud-storage-backup
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/google-cloud-storage-backup.png
+keywords:
+  - google-cloud-storage-backup
+  - Backup
+  - Cloud
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: google-cloud-storage-backup
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/google-cloud-storage-backup
+  - https://hub.docker.com/r/vinid223/gcloud-storage-backup
+type: application
+version: 0.0.16

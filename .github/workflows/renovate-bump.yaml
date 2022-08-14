@@ -3,9 +3,9 @@ name: "Renovate: Bump on Push"
 on:
   push:
     branches:
-      - 'renovate/**'
+      - "renovate/**"
     tags-ignore:
-      - '**'
+      - "**"
 
 jobs:
   renovate-bump:
@@ -31,6 +31,7 @@ jobs:
             changed:
             - 'charts/stable/**'
             - 'charts/incubator/**'
+            - 'charts/SCALE/**'
             - 'charts/library/**'
             - 'charts/dependency/**'
             - 'charts/core/**'
@@ -40,42 +41,44 @@ jobs:
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
         run: |
-            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
-            echo "changed apps: ${APPS[*]}"
-            for chart in ${APPS[*]}
-            do
-              if [[ "${chart}" == '.gitkee' ]]; then
-                echo "Skipping..."
-                return
-              elif test -f "./charts/stable/${chart}/Chart.yaml"; then
-                train="stable"
-              elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
-                train="incubator"
-              elif test -f "./charts/library/${chart}/Chart.yaml"; then
-                train="library"
-              elif test -f "./charts/dependency/${chart}/Chart.yaml"; then
-                train="dependency"
-              elif test -f "./charts/core/${chart}/Chart.yaml"; then
-                train="core"
-              elif test -f "./charts/games/${chart}/Chart.yaml"; then
-                train="games"
-              elif test -f "./charts/enterprise/${chart}/Chart.yaml"; then
-                train="enterprise"
-              else
-                train="incubator"
-              fi
-              echo "Comparing versions for ${train}/${chart}"
-              master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "^version")
-              current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "^version")
-              echo "master version: ${master}"
-              echo "current version: ${current}"
-              if [[ "${master}" != "${current}" ]]; then
-                echo "Version does not have to be bumped"
-              else
-                echo "Bumping patch version for ${train}/${chart}"
-                ./tools/bump.sh patch ./charts/${train}/${chart}
-              fi
-            done
+          APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
+          echo "changed apps: ${APPS[*]}"
+          for chart in ${APPS[*]}
+          do
+            if [[ "${chart}" == '.gitkee' ]]; then
+              echo "Skipping..."
+              return
+            elif test -f "./charts/stable/${chart}/Chart.yaml"; then
+              train="stable"
+            elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
+              train="incubator"
+            elif test -f "./charts/SCALE/${chart}/Chart.yaml"; then
+              train="SCALE"
+            elif test -f "./charts/library/${chart}/Chart.yaml"; then
+              train="library"
+            elif test -f "./charts/dependency/${chart}/Chart.yaml"; then
+              train="dependency"
+            elif test -f "./charts/core/${chart}/Chart.yaml"; then
+              train="core"
+            elif test -f "./charts/games/${chart}/Chart.yaml"; then
+              train="games"
+            elif test -f "./charts/enterprise/${chart}/Chart.yaml"; then
+              train="enterprise"
+            else
+              train="incubator"
+            fi
+            echo "Comparing versions for ${train}/${chart}"
+            master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "^version")
+            current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "^version")
+            echo "master version: ${master}"
+            echo "current version: ${current}"
+            if [[ "${master}" != "${current}" ]]; then
+              echo "Version does not have to be bumped"
+            else
+              echo "Bumping patch version for ${train}/${chart}"
+              ./tools/bump.sh patch ./charts/${train}/${chart}
+            fi
+          done
       - name: Cleanup
         run: |
           rm -rf changes.json
@@ -85,5 +88,5 @@ jobs:
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
-          git commit -sm "Commit bumped App Version" || exit 0
+          git commit -sm "Commit bumped Chart Version" || exit 0
           git push

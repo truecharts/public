@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/grist
-  tag: v0.7.8@sha256:512df4dededd4ed18161a719829887c9b7f3540bcd2560280708ee415dc6a21c
+  tag: v0.7.9@sha256:277902644b6444f90cf81cdb04b4749377585e3e2b4cefd17f1469d5f440349a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -15,13 +15,23 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
   GRIST_DEFAULT_EMAIL: "user@mydomain.com"
-
-# https://github.com/gristlabs/grist-core/issues/128
-# envValueFrom:
-#   REDIS_URL:
-#     secretKeyRef:
-#       name: rediscreds
-#       key: url
+  GRIST_DOMAIN: ""
+  GRIST_SUPPORT_ANON: false
+  GRIST_THROTTLE_CPU: false
+  GRIST_BACKUP_DELAY_SECS: 15
+  ALLOWED_WEBHOOK_DOMAINS: ""
+  GRIST_SANDBOX_FLAVOR: ""
+  GRIST_SANDBOX: ""
+  PYTHON_VERSION: ""
+  PYTHON_VERSION_ON_CREATION: ""
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+  GOOGLE_API_KEY: ""
+  GOOGLE_DRIVE_SCOPE: ""
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
@@ -42,6 +52,9 @@ persistence:
     enabled: true
     mountPath: "/persist"
 
-# redis:
-#   enabled: true
-#   existingSecret: "rediscreds"
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true

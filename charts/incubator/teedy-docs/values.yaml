@@ -1,0 +1,32 @@
+env:
+  DOCS_BASE_URL: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/teedy-docs
+  tag: latest@sha256:7389ea59e479617408dddbac793b75229ce53628a34dd17c894649902ef5586c
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

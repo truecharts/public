@@ -1,0 +1,18 @@
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md004
+# Use dash for "Unordered list style"
+MD004:
+  style: dash
+
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md013
+# Do not warn for Line length
+MD013:
+  # We can lower this and wrap lines. Markdown does not care.
+  line_length: 999
+
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md033
+# Do not warn for "Inline HTML"
+MD033: false
+
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md036
+# Do not warn for "Emphasis used instead of a heading"
+MD036: false

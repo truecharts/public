@@ -1,0 +1,29 @@
+env:
+  DEFAULTADMIN: admin
+  DEFAULTADMINPWD: "1234"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/quickshare
+  tag: latest@sha256:c7bc7ef4a8aee5e68064854b5eeab29c0e370daaec372c364a8b15f38cdd25bb
+persistence:
+  storagedata:
+    enabled: true
+    mountPath: /quickshare/root
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8686
+        protocol: TCP
+        targetPort: 8686
+
+portal:
+  enabled: true

@@ -1,0 +1,53 @@
+image:
+  repository: tccr.io/truecharts/wg-easy
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:5cc96ad86c87fb2ebc7dab65fc5b190ff0dcce370d0b9afa4aa4b5b2580a5000
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+      - SYS_MODULE
+
+security:
+  PUID: 0
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  PASSWORD: "secretpass"
+
+env:
+  WG_HOST: "localhost"
+  WG_MTU: 1420
+  WG_PERSISTENT_KEEPALIVE: 0
+  WG_DEFAULT_ADDRESS: "10.8.0.x"
+  WG_DEFAULT_DNS: "1.1.1.1"
+  WG_ALLOWED_IPS: "0.0.0.0/0, ::/0"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 51821
+        port: 51821
+  vpn:
+    enabled: true
+    ports:
+      vpn:
+        enabled: true
+        protocol: UDP
+        port: 51820
+        targetPort: 51820
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/wireguard"
+
+portal:
+  enabled: true

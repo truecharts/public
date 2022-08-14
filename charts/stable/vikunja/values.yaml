@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/vikunja-api
-  tag: v0.18.1@sha256:c79ee38ad40783d6098f302735ca0388b938230aa8f1c6cddfa7a903e2191389
+  tag: 0.19.0@sha256:b8461198600a09e8857b9397eac1e2c09cb6a8a0773e15c42de7091009f4363c
   pullPolicy: IfNotPresent
 
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
-  tag: v0.18.2@sha256:a5b2600ad6854e34d4ded50504b89dc37189ac80140edfbfbcbb25c1124b88ab
+  tag: 0.19.0@sha256:faee23d7dd74a0a5e898f602e1204f6689fde18d398b3a622e8c7db987c8f727
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.21.6@sha256:79875e354f6669f0fe8a31026a092734fd914ab041de0f3d8462e0117be37fd3
+  tag: v1.23.1@sha256:688795957aa8058d6b99970b61ce11666856a6f2dca684e1edf38b61c42507e0
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -19,6 +19,22 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        server {
+          listen 8080;
+          location / {
+              proxy_pass http://localhost:80;
+          }
+          location ~* ^/(api|dav|\.well-known)/ {
+              proxy_pass http://localhost:3456;
+              client_max_body_size {{ .Values.env.VIKUNJA_FILES_MAXSIZE | upper | trimSuffix "B" }};
+          }
+        }
 
 env:
   VIKUNJA_REDIS_ENABLED: 1
@@ -46,8 +62,15 @@ env:
   VIKUNJA_RATELIMIT_ENABLED: false
   VIKUNJA_RATELIMIT_PERIOD: 60
   VIKUNJA_RATELIMIT_LIMIT: 100
-
-envValueFrom:
+  # VIKUNJA_MAILER_HOST: ""
+  # VIKUNJA_MAILER_PORT: 587
+  # VIKUNJA_MAILER_USERNAME: ""
+  # VIKUNJA_MAILER_PASSWORD: ""
+  # VIKUNJA_MAILER_FROMEMAIL: ""
+  # VIKUNJA_MAILER_SKIPTLSVERIFY: false
+  # VIKUNJA_MAILER_FORCESSL: false
+  # VIKUNJA_MAILER_QUEUELENGTH: 100
+  # VIKUNJA_MAILER_QUEUETIMEOUT: 30
   VIKUNJA_DATABASE_HOST:
     secretKeyRef:
       name: dbcreds
@@ -87,15 +110,23 @@ additionalContainers:
       - containerPort: 8080
         name: main
     volumeMounts:
-    - name: vikunja-config
-      mountPath: "/etc/nginx/conf.d/default.conf"
-      subPath: nginx-config
-      readOnly: true
+      - name: vikunja-config
+        mountPath: "/etc/nginx/conf.d/default.conf"
+        subPath: nginx-config
+        readOnly: true
 
 persistence:
   files:
     enabled: true
     mountPath: "/app/vikunja/files"
+  vikunja-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/conf.d/default.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
 
 postgresql:
   enabled: true
@@ -106,3 +137,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

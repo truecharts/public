@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/flexget
   pullPolicy: IfNotPresent
-  tag: v3.3.8@sha256:97db720ada2cc6a8f4b03b42fbbf3ecd8eb0fef5b89380ab2e6a770c127a04da
+  tag: 3.3.24@sha256:386e282c4bdb95e9f89fa5e9e63618d36c5f56b898e40742231a859309bb872b
 
 securityContext:
   runAsNonRoot: false
@@ -22,9 +22,8 @@ env:
   FG_LOG_LEVEL: info
   FG_LOG_FILE: flexget.log
 
-secret:
+secretEnv:
   FG_WEBUI_PASSWD: "jLeT78KBDPW"
-
 
 persistence:
   config:
@@ -34,3 +33,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

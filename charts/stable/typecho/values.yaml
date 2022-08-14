@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/typecho
-  tag: v1.2.0-php8.0@sha256:66ebc878c8a56301b4ed730a6ce2af8ed062c6df03cd93488914d0fcf873076f
+  tag: v1.2.0-php8.0@sha256:8116951ff080fbd68797778dd23aa112662f2aac7fccabea3bb9ca929350eda8
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -29,8 +29,6 @@ env:
   TYPECHO_USER_NAME: "typecho"
   TYPECHO_USER_PASSWORD: "testtypecho"
   TYPECHO_USER_MAIL: "test@truecharts.org"
-
-envValueFrom:
   TYPECHO_DB_HOST:
     secretKeyRef:
       name: mariadbcreds

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/friendica
   pullPolicy: IfNotPresent
-  tag: v2022.03@sha256:620eea17afdbef0b4d4351546f00f7d38e8e97808d92b2a8e29dd9032bd85704
+  tag: v2022.06@sha256:d3e450e68c05e8d7ab251d0c4c6ba54c0ebbaab702725108676773965014dfe0
 
 securityContext:
   runAsNonRoot: false
@@ -24,8 +24,25 @@ env:
   FRIENDICA_ADMIN_MAIL: "my@domain.com"
   FRIENDICA_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   FRIENDICA_UPGRADE: false
+  FRIENDICA_SITENAME: ""
   PHP_MEMORY_LIMIT: "512M"
   PHP_UPLOAD_LIMIT: "512M"
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PW:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 service:
   main:
@@ -52,24 +69,6 @@ persistence:
     enabled: true
     mountPath: "/data"
 
-envValueFrom:
-  MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PW:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
@@ -79,3 +78,6 @@ mariadb:
   mariadbUsername: friendica
   mariadbDatabase: friendica
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

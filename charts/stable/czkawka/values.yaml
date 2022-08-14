@@ -1,0 +1,64 @@
+image:
+  repository: tccr.io/truecharts/czkawka
+  pullPolicy: IfNotPresent
+  tag: v1.7.0@sha256:baeae6d82c67f8debf49feaa6f592dff2d5b94128680fabe4224cf9a06e0c6e5
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10258
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10259
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-czkawka'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+czkawka:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+
+configmap:
+  czkawka:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.czkawka.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.czkawka.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.czkawka.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+  trash:
+    enabled: true
+    mountPath: "/trash"
+
+portal:
+  enabled: true

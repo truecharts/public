@@ -1,0 +1,35 @@
+env:
+  DELAY: 5m
+  NOTIFICATION_TYPE: ""
+  PROVIDER: ""
+  PUSHOVER_TITLE: ""
+  PUSHOVER_TOKEN: ""
+  PUSHOVER_USER: ""
+  RECOVERY_ALERT: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/external-ip
+  tag: latest@sha256:e62e88471909689d3ec2bcf7750f74a13659d2a5d15918fffa94d3a4af029728
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

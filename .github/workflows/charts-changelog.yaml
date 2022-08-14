@@ -50,7 +50,7 @@ jobs:
 
       - name: Install Kubernetes tools
         if: inputs.isRenovatePR == 'true'
-        uses: yokawasa/action-setup-kube-tools@c81bf94cddd6c3172e6f61aa7f5ad66a2b5db98d # tag=v0.8.0
+        uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
         with:
           setup-tools: |
             yq

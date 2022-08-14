@@ -1,0 +1,34 @@
+env:
+  CUSTOM_RES_H: "1000"
+  CUSTOM_RES_W: "1800"
+  DATA_PERM: "770"
+  DEV: ""
+  ROOT_PWD: ""
+  UMASK: "0000"
+  USER_LOCALES: en_US.UTF-8 UTF-8
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/debian-bullseye
+  tag: latest@sha256:2a28aad6aa8cddafad0c70143f54c9b679ff952bacb053a2308b39c3c4a58a32
+persistence:
+  homedirectory:
+    enabled: true
+    mountPath: /debian
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+
+portal:
+  enabled: true

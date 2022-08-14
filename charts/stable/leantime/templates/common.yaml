@@ -1,7 +1,7 @@
-{{- include "common.setup" . }}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render secrets for leantime */}}
 {{- include "leantime.secrets" . }}
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

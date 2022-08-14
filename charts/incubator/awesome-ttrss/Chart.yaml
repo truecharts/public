@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "2022"
+description: Awesome TTRSS aims to provide a powerful Dockerized all-in-one solution for Tiny Tiny RSS
+name: awesome-ttrss
+version: 0.0.32
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - tt-rss
+  - awesome-ttrss
+home: https://truecharts.org/docs/charts/incubator/awesome-ttrss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
+  - https://github.com/HenryQW/Awesome-TTRSS
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.55
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

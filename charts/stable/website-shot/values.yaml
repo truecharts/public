@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/website-shot
-  tag: latest@sha256:a68cf362beca8bce336627ee3b2f26555db4e25ea12e2d799442f6a3756973cc
+  tag: latest@sha256:41fb86a173c79a51f9f3e0273aa59c62ced4bdc6e3f2da5b48d2cf11e475af93
   pullPolicy: IfNotPresent
 
 service:
@@ -14,3 +14,6 @@ persistence:
   screenshots:
     enabled: true
     mountPath: "/usr/src/website-shot/screenshots"
+
+portal:
+  enabled: true

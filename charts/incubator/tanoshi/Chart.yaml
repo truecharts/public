@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - MediaApp-Books
+    - MediaServer-Books
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/tanoshi
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tanoshi.png
+keywords:
+  - tanoshi
+  - Productivity
+  - MediaApp-Books
+  - MediaServer-Books
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: tanoshi
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tanoshi
+  - https://github.com/faldez/tanoshi
+  - https://hub.docker.com/r/faldez/tanoshi
+type: application
+version: 0.0.16

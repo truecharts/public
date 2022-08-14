@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Tracks is a web-based todo application to help you implement the GTD methodology. \r\n"
+home: https://truecharts.org/docs/charts/incubator/tracks
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tracks.png
+keywords:
+  - tracks
+  - Productivity
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: tracks
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tracks
+  - http://www.getontracks.org/
+  - https://hub.docker.com/r/tracksapp/tracks
+type: application
+version: 0.0.16

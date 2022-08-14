@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tubearchivist-redisjson
+  tag: latest@sha256:b221f8cd7a578024a27b20202a3a3d15ab4ac6c90f1405fe7f8c2c695fd22f17
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6379
+        protocol: TCP
+        targetPort: 6379
+
+portal:
+  enabled: true

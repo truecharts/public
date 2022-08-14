@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/beets
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:87f4fd374f7ee4d65c83624162d877e01942fd8291a091e7713ecfb77671882f
+  tag: v1.6.0@sha256:ee321922017adbd7e87fbb42d76e43b149211a034face4510636144cac73c3e3
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

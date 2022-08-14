@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/pihole
   pullPolicy: IfNotPresent
-  tag: v2022.04.3@sha256:58dfd0e88e29ad6f7681f611a0371c539b5edd531c2f796677475aafa79b083f
+  tag: v2022.07.1@sha256:0fe2eeb5945565f55eabb82a4065a2bc1c19dc8153d8363419b500cbd4012629
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -50,3 +50,6 @@ persistence:
   dnsmasq:
     enabled: true
     mountPath: "/etc/dnsmasq.d"
+
+portal:
+  enabled: true

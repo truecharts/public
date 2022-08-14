@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Crypto
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "ScPrime is a cryptocurrency project targeting public cloud services with a blockchain based ecosystem to pay individuals to store data around the globe using smart contracts and cryptographic proofs to ensure accuracy, security and redundancy.\r\n"
+home: https://truecharts.org/docs/charts/incubator/scprime
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/scprime.png
+keywords:
+  - scprime
+  - Cloud
+  - Crypto
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: scprime
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/scprime
+  - https://scpri.me
+  - https://hub.docker.com/r/scprime/scprime
+type: application
+version: 0.0.16

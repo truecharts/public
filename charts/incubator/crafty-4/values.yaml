@@ -1,0 +1,63 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/crafty-4
+  tag: latest@sha256:103fefaf96e133208e913a4e30c3b4a6a01895d30dc05e66f4d1c47b1a8be879
+persistence:
+  backupfiles:
+    enabled: true
+    mountPath: /crafty/backups
+  config:
+    enabled: true
+    mountPath: /crafty/app/config
+  importfolder:
+    enabled: true
+    mountPath: /crafty/import
+  serverfiles:
+    enabled: true
+    mountPath: /crafty/servers
+  serverlogs:
+    enabled: true
+    mountPath: /crafty/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8443
+        protocol: HTTP
+        targetPort: 8443
+  minecraftports:
+    enabled: true
+    ports:
+      minecraftports:
+        enabled: true
+        port: 25500
+        protocol: TCP
+        targetPort: 25500
+  portforbedrock:
+    enabled: true
+    ports:
+      portforbedrock:
+        enabled: true
+        port: 19132
+        protocol: UDP
+        targetPort: 19132
+  portfordynmap:
+    enabled: true
+    ports:
+      portfordynmap:
+        enabled: true
+        port: 8123
+        protocol: TCP
+        targetPort: 8123
+
+portal:
+  enabled: true

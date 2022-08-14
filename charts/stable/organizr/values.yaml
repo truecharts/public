@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/organizr
   pullPolicy: Always
-  tag: latest@sha256:96480dd4af2fe39608da37c463a03e8d48fd4431a543250cf496a7941e0d3904
+  tag: latest@sha256:aa4357e9fdd9d1c2fc887fb2b06be0daf58149495733810964363d295caec647
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -25,3 +25,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

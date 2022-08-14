@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/rickroll
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:1294573c126f43e4dde6145491c9feec30f438828f6481c77fed88a9d3cb8532
+imagefhd:
+  repository: tccr.io/truecharts/rickroll-fhd
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:a3eeb420f238b02f9d34f840d65dfc67799d5d100ff8e3570c2a5ea2f8f44cb4
+imagefhdgame:
+  repository: tccr.io/truecharts/rickroll-fhd-game
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:2013fd035653bdcecff9ef5f808ab94b9ecd378b8d73404259a795a313b83248
+imagefhdonclick:
+  repository: tccr.io/truecharts/rickroll-fhd-onclick
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:5ab14514f33d67423e7cf2e408a89d350a942b899b5734f122e791cfbae50487
+imageonclick:
+  repository: tccr.io/truecharts/rickroll-onclick
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:849f0824bf5e83b424abea3245136e404fc95d559a8c51fac2a41bc3255118ef
+
+imageSelector: "image"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10289
+
+portal:
+  enabled: true

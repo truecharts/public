@@ -1,9 +1,9 @@
 image:
   repository: tccr.io/truecharts/picoshare
-  tag: v1.1.4@sha256:a4182fbb244f8985001326f5e4183ef79255e2f1f39fcc6c88cf270bb6f8abab
+  tag: 1.2.0@sha256:e959d46795354f54c77015abb8acc43f2a3a68534ddc2256d2d8addaf639b0f1
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   PS_SHARED_SECRET: "somesecretcode"
   LITESTREAM_BUCKET: ""
   LITESTREAM_ENDPOINT: ""
@@ -23,3 +23,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

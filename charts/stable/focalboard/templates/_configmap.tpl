@@ -7,9 +7,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-install
+  name: {{ include "tc.common.names.fullname" . }}-install
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   focalboard-config: |-
     {

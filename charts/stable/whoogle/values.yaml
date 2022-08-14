@@ -1,15 +1,9 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/whoogle-search
-  # -- image tag
-  tag: v0.7.2@sha256:28297492803e4f98de4a821ba32a8ede3c871241547d3d549cdafdf954efefcc
-  # -- image pull policy
+  tag: v0.7.4@sha256:5ee1dbb40d0537b7181c76ecf5d3ecbd8cf25a8c720b9171d8850369c52509c1
   pullPolicy: IfNotPresent
 
-# -- environment variables. See [image docs](https://github.com/benbusby/whoogle-search#environment-variables) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   WHOOGLE_CONFIG_COUNTRY: ""
   WHOOGLE_CONFIG_THEME: "dark"
   WHOOGLE_CONFIG_SAFE: true
@@ -20,8 +14,6 @@ env:
   WHOOGLE_CONFIG_URL: https://<your url>/
   WHOOGLE_CONFIG_STYLE: ""
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -41,3 +33,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

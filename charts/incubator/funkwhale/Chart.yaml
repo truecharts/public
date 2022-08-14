@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaApp-Music
+    - MediaServer-Music
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.
+home: https://truecharts.org/docs/charts/incubator/funkwhale
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/funkwhale.png
+keywords:
+  - funkwhale
+  - MediaApp-Music
+  - MediaServer-Music
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: funkwhale
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/funkwhale
+  - https://funkwhale.audio/
+  - https://hub.docker.com/r/thetarkus/funkwhale/
+type: application
+version: 0.0.16

@@ -1,0 +1,28 @@
+env:
+  LIVEBOOK_PASSWORD: livebookiscool
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/livebook
+  tag: latest@sha256:3b79e38b69f91d2163d0fb9416a53553341ab062f7acb0c6ee95cc929b60354f
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8787
+        protocol: TCP
+        targetPort: 8080
+
+portal:
+  enabled: true

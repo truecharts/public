@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/transmission
   pullPolicy: IfNotPresent
-  tag: v3.00@sha256:06b6839f7401357797e8aca435e58c87407c6006d74e92b88b10c51855ff0c94
+  tag: v3.00@sha256:cf61bde05f265653ce12b0ef42e25ac25abcc51ff84c9e5528ef75fea8330eda
 
 service:
   main:
@@ -24,7 +24,8 @@ service:
         port: 51414
         targetPort: 51414
         protocol: UDP
-secret: {}
+secretEnv:
+  {}
   # TRANSMISSION_RPC_USERNAME: ""
   # TRANSMISSION_RPC_PASSWORD: ""
 env:
@@ -100,3 +101,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

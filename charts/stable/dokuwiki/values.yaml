@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/dokuwiki
   pullPolicy: IfNotPresent
-  tag: v20200729.0.0@sha256:ddf8e13129f2d23efb638779b88d403298b0fef33961cfc666afab37bff4c8dc
+  tag: v20200729.0.0@sha256:f721c8e3488393a937a6fbf5cbdb466ccd982c2bd1f03454c0754b6495b8ea02
 
 securityContext:
   runAsNonRoot: false
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   DOKUWIKI_USERNAME: "admin"
   DOKUWIKI_PASSWORD: "supersecret"
   DOKUWIKI_FULL_NAME: "Super Admin"
@@ -29,3 +29,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/bitnami/dokuwiki"
+
+portal:
+  enabled: true

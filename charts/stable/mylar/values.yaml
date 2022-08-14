@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/mylar3
-  tag: v0.6.7@sha256:61a1c66c3b39022ab72cd853eafe769ba1b2a5948411ac654a754e26f95ecd2c
+  tag: 0.6.9@sha256:99ab74182d74fd523b794fac4df033c26e7fab8cdf308f132820561a5c6cf698
   pullPolicy: IfNotPresent
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -23,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

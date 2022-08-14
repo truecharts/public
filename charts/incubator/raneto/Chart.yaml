@@ -1,0 +1,32 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Raneto(http://raneto.com/) - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.
+home: https://truecharts.org/docs/charts/incubator/raneto
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/raneto.png
+keywords:
+  - raneto
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: raneto
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/raneto
+  - http://raneto.com/
+  - https://github.com/orgs/linuxserver/packages/container/package/raneto
+  - https://github.com/linuxserver/docker-raneto#readme
+type: application
+version: 0.0.18

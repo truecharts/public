@@ -1,8 +1,818 @@
-# Changelog<br>
+# Changelog
 
 
-<a name="mariadb-2.0.55"></a>
-### [mariadb-2.0.55](https://github.com/truecharts/apps/compare/mariadb-2.0.54...mariadb-2.0.55) (2022-05-09)
+
+## [mariadb-3.0.54](https://github.com/truecharts/charts/compare/mariadb-3.0.53...mariadb-3.0.54) (2022-08-12)
+
+### Chore
+
+- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+
+
+
+## [mariadb-3.0.53](https://github.com/truecharts/charts/compare/mariadb-3.0.52...mariadb-3.0.53) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [mariadb-3.0.52](https://github.com/truecharts/charts/compare/mariadb-3.0.51...mariadb-3.0.52) (2022-08-10)
+
+### Chore
+
+- update helm chart common to v10.4.11 ([#3428](https://github.com/truecharts/charts/issues/3428))
+
+
+
+
+
+## [mariadb-3.0.50](https://github.com/truecharts/charts/compare/mariadb-3.0.49...mariadb-3.0.50) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [mariadb-3.0.49](https://github.com/truecharts/apps/compare/mariadb-3.0.48...mariadb-3.0.49) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [mariadb-3.0.48](https://github.com/truecharts/apps/compare/mariadb-3.0.47...mariadb-3.0.48) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [mariadb-3.0.47](https://github.com/truecharts/apps/compare/mariadb-3.0.46...mariadb-3.0.47) (2022-07-27)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [mariadb-3.0.46](https://github.com/truecharts/apps/compare/mariadb-3.0.44...mariadb-3.0.46) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.4.8 ([#3296](https://github.com/truecharts/apps/issues/3296))
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [mariadb-3.0.45](https://github.com/truecharts/apps/compare/mariadb-3.0.44...mariadb-3.0.45) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [mariadb-3.0.44](https://github.com/truecharts/apps/compare/mariadb-3.0.43...mariadb-3.0.44) (2022-07-24)
+
+### Chore
+
+- update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+
+
+
+
+## [mariadb-3.0.43](https://github.com/truecharts/apps/compare/mariadb-3.0.42...mariadb-3.0.43) (2022-07-23)
+
+### Chore
+
+- update helm chart common to v10.4.7 ([#3277](https://github.com/truecharts/apps/issues/3277))
+
+
+
+
+## [mariadb-3.0.42](https://github.com/truecharts/apps/compare/mariadb-3.0.41...mariadb-3.0.42) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [mariadb-3.0.41](https://github.com/truecharts/apps/compare/mariadb-3.0.40...mariadb-3.0.41) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+
+
+
+## [mariadb-3.0.40](https://github.com/truecharts/apps/compare/mariadb-3.0.39...mariadb-3.0.40) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+
+
+## [mariadb-3.0.36](https://github.com/truecharts/apps/compare/mariadb-3.0.35...mariadb-3.0.36) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [memcached-3.0.36](https://github.com/truecharts/apps/compare/memcached-3.0.35...memcached-3.0.36) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [memcached-3.0.35](https://github.com/truecharts/apps/compare/memcached-3.0.33...memcached-3.0.35) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+
+## [memcached-3.0.32](https://github.com/truecharts/apps/compare/memcached-3.0.30...memcached-3.0.32) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [memcached-3.0.30](https://github.com/truecharts/apps/compare/memcached-3.0.29...memcached-3.0.30) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="memcached-3.0.29"></a>
+### [memcached-3.0.29](https://github.com/truecharts/apps/compare/memcached-3.0.28...memcached-3.0.29) (2022-07-12)
+
+#### Chore
+
+* update helm chart common to v10.4.4 ([#3146](https://github.com/truecharts/apps/issues/3146))
+
+
+
+<a name="memcached-3.0.28"></a>
+### [memcached-3.0.28](https://github.com/truecharts/apps/compare/memcached-3.0.27...memcached-3.0.28) (2022-07-11)
+
+
+
+<a name="memcached-3.0.27"></a>
+### [memcached-3.0.27](https://github.com/truecharts/apps/compare/memcached-3.0.26...memcached-3.0.27) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
+
+
+
+<a name="memcached-3.0.26"></a>
+### [memcached-3.0.26](https://github.com/truecharts/apps/compare/memcached-3.0.25...memcached-3.0.26) (2022-07-11)
+
+#### Chore
+
+* update helm chart common to v10.4.2
+
+
+
+<a name="memcached-3.0.25"></a>
+### [memcached-3.0.25](https://github.com/truecharts/apps/compare/memcached-3.0.24...memcached-3.0.25) (2022-07-10)
+
+#### Chore
+
+* update helm chart common to v10.4.0 ([#3123](https://github.com/truecharts/apps/issues/3123))
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
+
+
+
+<a name="memcached-3.0.24"></a>
+### [memcached-3.0.24](https://github.com/truecharts/apps/compare/memcached-3.0.23...memcached-3.0.24) (2022-07-10)
+
+#### Chore
+
+* update helm chart common to v10.3.0
+
+
+
+<a name="memcached-3.0.23"></a>
+### [memcached-3.0.23](https://github.com/truecharts/apps/compare/memcached-3.0.22...memcached-3.0.23) (2022-07-09)
+
+#### Chore
+
+* update helm chart common to v10.2.1 ([#3110](https://github.com/truecharts/apps/issues/3110))
+
+
+
+<a name="memcached-3.0.22"></a>
+### [memcached-3.0.22](https://github.com/truecharts/apps/compare/memcached-3.0.21...memcached-3.0.22) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="memcached-3.0.21"></a>
+### [memcached-3.0.21](https://github.com/truecharts/apps/compare/memcached-3.0.20...memcached-3.0.21) (2022-07-04)
+
+#### Chore
+
+* update helm chart common to v10.2.0 ([#3065](https://github.com/truecharts/apps/issues/3065))
+
+
+
+<a name="memcached-3.0.20"></a>
+### [memcached-3.0.20](https://github.com/truecharts/apps/compare/memcached-3.0.19...memcached-3.0.20) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
+<a name="memcached-3.0.19"></a>
+### [memcached-3.0.19](https://github.com/truecharts/apps/compare/memcached-3.0.18...memcached-3.0.19) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
+<a name="memcached-3.0.18"></a>
+### [memcached-3.0.18](https://github.com/truecharts/apps/compare/memcached-3.0.17...memcached-3.0.18) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="memcached-3.0.17"></a>
+### [memcached-3.0.17](https://github.com/truecharts/apps/compare/memcached-3.0.16...memcached-3.0.17) (2022-06-25)
+
+#### Chore
+
+* update helm chart common to v10.1.4 ([#2976](https://github.com/truecharts/apps/issues/2976))
+
+
+
+<a name="memcached-3.0.16"></a>
+### [memcached-3.0.16](https://github.com/truecharts/apps/compare/memcached-3.0.15...memcached-3.0.16) (2022-06-24)
+
+#### Chore
+
+* update helm chart common to v10.1.2
+
+
+
+<a name="memcached-3.0.15"></a>
+### [memcached-3.0.15](https://github.com/truecharts/apps/compare/memcached-3.0.14...memcached-3.0.15) (2022-06-22)
+
+#### Chore
+
+* update helm chart common to v10.1.1
+
+
+
+<a name="memcached-3.0.14"></a>
+### [memcached-3.0.14](https://github.com/truecharts/apps/compare/memcached-3.0.13...memcached-3.0.14) (2022-06-21)
+
+#### Chore
+
+* update helm chart common to v10.1.0
+
+
+
+<a name="memcached-3.0.13"></a>
+### [memcached-3.0.13](https://github.com/truecharts/apps/compare/memcached-3.0.12...memcached-3.0.13) (2022-06-21)
+
+#### Chore
+
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
+<a name="memcached-3.0.12"></a>
+### [memcached-3.0.12](https://github.com/truecharts/apps/compare/memcached-3.0.11...memcached-3.0.12) (2022-06-20)
+
+#### Chore
+
+* update helm chart common to v10.0.15
+
+
+
+<a name="memcached-3.0.11"></a>
+### [memcached-3.0.11](https://github.com/truecharts/apps/compare/memcached-3.0.10...memcached-3.0.11) (2022-06-18)
+
+#### Chore
+
+* update helm chart common to v10.0.14
+
+
+
+<a name="memcached-3.0.10"></a>
+### [memcached-3.0.10](https://github.com/truecharts/apps/compare/memcached-3.0.9...memcached-3.0.10) (2022-06-17)
+
+#### Chore
+
+* update helm chart common to v10.0.13
+
+
+
+<a name="memcached-3.0.9"></a>
+### [memcached-3.0.9](https://github.com/truecharts/apps/compare/memcached-3.0.8...memcached-3.0.9) (2022-06-17)
+
+#### Chore
+
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+* update helm chart common to v10.0.12
+
+
+
+<a name="memcached-3.0.8"></a>
+### [memcached-3.0.8](https://github.com/truecharts/apps/compare/memcached-3.0.7...memcached-3.0.8) (2022-06-15)
+
+#### Chore
+
+* update helm chart common to v10.0.11 ([#2899](https://github.com/truecharts/apps/issues/2899))
+
+
+
+<a name="memcached-3.0.7"></a>
+### [memcached-3.0.7](https://github.com/truecharts/apps/compare/memcached-3.0.6...memcached-3.0.7) (2022-06-14)
+
+#### Chore
+
+* update helm chart common to v10.0.10 ([#2885](https://github.com/truecharts/apps/issues/2885))
+
+
+
+<a name="memcached-3.0.6"></a>
+### [memcached-3.0.6](https://github.com/truecharts/apps/compare/memcached-3.0.5...memcached-3.0.6) (2022-06-14)
+
+#### Chore
+
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
+<a name="memcached-3.0.5"></a>
+### [memcached-3.0.5](https://github.com/truecharts/apps/compare/memcached-3.0.4...memcached-3.0.5) (2022-06-11)
+
+#### Chore
+
+* update helm chart common to v10.0.9 ([#2853](https://github.com/truecharts/apps/issues/2853))
+
+
+
+<a name="memcached-3.0.4"></a>
+### [memcached-3.0.4](https://github.com/truecharts/apps/compare/memcached-3.0.3...memcached-3.0.4) (2022-06-11)
+
+#### Chore
+
+* update icons ref ([#2851](https://github.com/truecharts/apps/issues/2851))
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="memcached-3.0.3"></a>
+### [memcached-3.0.3](https://github.com/truecharts/apps/compare/memcached-3.0.2...memcached-3.0.3) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
+<a name="memcached-3.0.2"></a>
+### [memcached-3.0.2](https://github.com/truecharts/apps/compare/memcached-3.0.1...memcached-3.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="memcached-3.0.1"></a>
+### [memcached-3.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="memcached-3.0.0"></a>
+### [memcached-3.0.0](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.0) (2022-06-07)
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="memcached-2.0.91"></a>
+### [memcached-2.0.91](https://github.com/truecharts/apps/compare/memcached-2.0.90...memcached-2.0.91) (2022-06-05)
+
+#### Chore
+
+* update helm chart common to v9.3.29
+
+
+
+<a name="memcached-2.0.90"></a>
+### [memcached-2.0.90](https://github.com/truecharts/apps/compare/memcached-2.0.89...memcached-2.0.90) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="memcached-2.0.89"></a>
+### [memcached-2.0.89](https://github.com/truecharts/apps/compare/memcached-2.0.88...memcached-2.0.89) (2022-06-04)
+
+#### Chore
+
+* update helm chart common to v9.3.28
+
+
+
+<a name="memcached-2.0.88"></a>
+### [memcached-2.0.88](https://github.com/truecharts/apps/compare/memcached-2.0.87...memcached-2.0.88) (2022-06-03)
+
+#### Chore
+
+* update helm chart common to v9.3.27
+
+
+
+<a name="memcached-2.0.87"></a>
+### [memcached-2.0.87](https://github.com/truecharts/apps/compare/memcached-2.0.86...memcached-2.0.87) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+* update helm chart common to v9.3.26 ([#2813](https://github.com/truecharts/apps/issues/2813))
+
+
+
+<a name="memcached-2.0.86"></a>
+### [memcached-2.0.86](https://github.com/truecharts/apps/compare/memcached-2.0.85...memcached-2.0.86) (2022-06-01)
+
+#### Chore
+
+* update helm chart common to v9.3.25
+
+
+
+<a name="memcached-2.0.85"></a>
+### [memcached-2.0.85](https://github.com/truecharts/apps/compare/memcached-2.0.84...memcached-2.0.85) (2022-05-31)
+
+#### Chore
+
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
+<a name="memcached-2.0.84"></a>
+### [memcached-2.0.84](https://github.com/truecharts/apps/compare/memcached-2.0.83...memcached-2.0.84) (2022-05-31)
+
+#### Chore
+
+* update helm chart common to v9.3.24
+
+
+
+<a name="memcached-2.0.83"></a>
+### [memcached-2.0.83](https://github.com/truecharts/apps/compare/memcached-2.0.82...memcached-2.0.83) (2022-05-30)
+
+#### Chore
+
+* update helm chart common to v9.3.23
+* update docker general non-major ([#2762](https://github.com/truecharts/apps/issues/2762))
+
+
+
+<a name="memcached-2.0.82"></a>
+### [memcached-2.0.82](https://github.com/truecharts/apps/compare/memcached-2.0.81...memcached-2.0.82) (2022-05-29)
+
+#### Chore
+
+* update helm chart common to v9.3.22
+
+
+
+<a name="memcached-2.0.81"></a>
+### [memcached-2.0.81](https://github.com/truecharts/apps/compare/memcached-2.0.80...memcached-2.0.81) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.20
+
+
+
+<a name="memcached-2.0.80"></a>
+### [memcached-2.0.80](https://github.com/truecharts/apps/compare/memcached-2.0.79...memcached-2.0.80) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.19 ([#2758](https://github.com/truecharts/apps/issues/2758))
+
+
+
+<a name="memcached-2.0.79"></a>
+### [memcached-2.0.79](https://github.com/truecharts/apps/compare/memcached-2.0.78...memcached-2.0.79) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.18 ([#2753](https://github.com/truecharts/apps/issues/2753))
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
+<a name="memcached-2.0.78"></a>
+### [memcached-2.0.78](https://github.com/truecharts/apps/compare/memcached-2.0.77...memcached-2.0.78) (2022-05-25)
+
+#### Chore
+
+* update docker general non-major ([#2745](https://github.com/truecharts/apps/issues/2745))
+
+
+
+<a name="memcached-2.0.77"></a>
+### [memcached-2.0.77](https://github.com/truecharts/apps/compare/memcached-2.0.76...memcached-2.0.77) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
+<a name="memcached-2.0.76"></a>
+### [memcached-2.0.76](https://github.com/truecharts/apps/compare/memcached-2.0.75...memcached-2.0.76) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="memcached-2.0.75"></a>
+### [memcached-2.0.75](https://github.com/truecharts/apps/compare/memcached-2.0.74...memcached-2.0.75) (2022-05-19)
+
+#### Chore
+
+* update helm chart common to v9.3.17 ([#2717](https://github.com/truecharts/apps/issues/2717))
+
+
+
+<a name="memcached-2.0.74"></a>
+### [memcached-2.0.74](https://github.com/truecharts/apps/compare/memcached-2.0.73...memcached-2.0.74) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
+<a name="memcached-2.0.73"></a>
+### [memcached-2.0.73](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.73) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.3.16 ([#2708](https://github.com/truecharts/apps/issues/2708))
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm chart common to v9.3.15
+
+
+
+<a name="memcached-2.0.71"></a>
+### [memcached-2.0.71](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.71) (2022-05-17)
+
+#### Chore
+
+* update helm chart common to v9.3.15
+
+
+
+<a name="memcached-2.0.70"></a>
+### [memcached-2.0.70](https://github.com/truecharts/apps/compare/memcached-2.0.69...memcached-2.0.70) (2022-05-17)
+
+#### Chore
+
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
+* update helm chart common to v9.3.14
+
+
+
+<a name="memcached-2.0.69"></a>
+### [memcached-2.0.69](https://github.com/truecharts/apps/compare/memcached-2.0.68...memcached-2.0.69) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
+<a name="memcached-2.0.68"></a>
+### [memcached-2.0.68](https://github.com/truecharts/apps/compare/memcached-2.0.67...memcached-2.0.68) (2022-05-15)
+
+#### Chore
+
+* update helm chart common to v9.3.13
+
+
+
+<a name="memcached-2.0.67"></a>
+### [memcached-2.0.67](https://github.com/truecharts/apps/compare/memcached-2.0.65...memcached-2.0.67) (2022-05-15)
+
+#### Chore
+
+* update helm chart common to v9.3.12
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="memcached-2.0.65"></a>
+### [memcached-2.0.65](https://github.com/truecharts/apps/compare/memcached-2.0.64...memcached-2.0.65) (2022-05-14)
+
+#### Chore
+
+* update helm chart common to v9.3.11
+
+
+
+<a name="memcached-2.0.64"></a>
+### [memcached-2.0.64](https://github.com/truecharts/apps/compare/memcached-2.0.62...memcached-2.0.64) (2022-05-13)
+
+#### Chore
+
+* update helm chart common to v9.3.10
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="memcached-2.0.62"></a>
+### [memcached-2.0.62](https://github.com/truecharts/apps/compare/memcached-2.0.61...memcached-2.0.62) (2022-05-12)
+
+#### Chore
+
+* update helm chart common to v9.3.9
+
+
+
+<a name="memcached-2.0.61"></a>
+### [memcached-2.0.61](https://github.com/truecharts/apps/compare/memcached-2.0.60...memcached-2.0.61) (2022-05-12)
+
+#### Chore
+
+* update helm chart common to v9.3.8
+
+
+
+<a name="memcached-2.0.60"></a>
+### [memcached-2.0.60](https://github.com/truecharts/apps/compare/memcached-2.0.58...memcached-2.0.60) (2022-05-11)
+
+#### Chore
+
+* update helm chart common to v9.3.7 ([#2656](https://github.com/truecharts/apps/issues/2656))
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
+<a name="memcached-2.0.58"></a>
+### [memcached-2.0.58](https://github.com/truecharts/apps/compare/memcached-2.0.57...memcached-2.0.58) (2022-05-10)
+
+#### Chore
+
+* update helm chart common to v9.3.6 ([#2651](https://github.com/truecharts/apps/issues/2651))
+
+
+
+<a name="memcached-2.0.57"></a>
+### [memcached-2.0.57](https://github.com/truecharts/apps/compare/memcached-2.0.56...memcached-2.0.57) (2022-05-10)
+
+#### Chore
+
+* update helm chart common to v9.3.5 ([#2648](https://github.com/truecharts/apps/issues/2648))
+
+
+
+<a name="memcached-2.0.56"></a>
+### [memcached-2.0.56](https://github.com/truecharts/apps/compare/memcached-2.0.55...memcached-2.0.56) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.55"></a>
+### [memcached-2.0.55](https://github.com/truecharts/apps/compare/memcached-2.0.54...memcached-2.0.55) (2022-05-09)
 
 #### Chore
 
@@ -10,8 +820,8 @@
 
 
 
-<a name="mariadb-2.0.54"></a>
-### [mariadb-2.0.54](https://github.com/truecharts/apps/compare/mariadb-2.0.53...mariadb-2.0.54) (2022-05-08)
+<a name="memcached-2.0.54"></a>
+### [memcached-2.0.54](https://github.com/truecharts/apps/compare/memcached-2.0.53...memcached-2.0.54) (2022-05-08)
 
 #### Chore
 
@@ -19,8 +829,8 @@
 
 
 
-<a name="mariadb-2.0.53"></a>
-### [mariadb-2.0.53](https://github.com/truecharts/apps/compare/mariadb-2.0.52...mariadb-2.0.53) (2022-05-06)
+<a name="memcached-2.0.53"></a>
+### [memcached-2.0.53](https://github.com/truecharts/apps/compare/memcached-2.0.52...memcached-2.0.53) (2022-05-06)
 
 #### Chore
 
@@ -28,8 +838,8 @@
 
 
 
-<a name="mariadb-2.0.52"></a>
-### [mariadb-2.0.52](https://github.com/truecharts/apps/compare/mariadb-2.0.51...mariadb-2.0.52) (2022-05-06)
+<a name="memcached-2.0.52"></a>
+### [memcached-2.0.52](https://github.com/truecharts/apps/compare/memcached-2.0.51...memcached-2.0.52) (2022-05-06)
 
 #### Chore
 
@@ -37,8 +847,8 @@
 
 
 
-<a name="mariadb-2.0.51"></a>
-### [mariadb-2.0.51](https://github.com/truecharts/apps/compare/mariadb-2.0.50...mariadb-2.0.51) (2022-05-05)
+<a name="memcached-2.0.51"></a>
+### [memcached-2.0.51](https://github.com/truecharts/apps/compare/memcached-2.0.50...memcached-2.0.51) (2022-05-05)
 
 #### Chore
 
@@ -46,8 +856,8 @@
 
 
 
-<a name="mariadb-2.0.50"></a>
-### [mariadb-2.0.50](https://github.com/truecharts/apps/compare/mariadb-2.0.49...mariadb-2.0.50) (2022-05-04)
+<a name="memcached-2.0.50"></a>
+### [memcached-2.0.50](https://github.com/truecharts/apps/compare/memcached-2.0.49...memcached-2.0.50) (2022-05-04)
 
 #### Chore
 
@@ -55,8 +865,8 @@
 
 
 
-<a name="mariadb-2.0.49"></a>
-### [mariadb-2.0.49](https://github.com/truecharts/apps/compare/mariadb-2.0.48...mariadb-2.0.49) (2022-04-29)
+<a name="memcached-2.0.49"></a>
+### [memcached-2.0.49](https://github.com/truecharts/apps/compare/memcached-2.0.48...memcached-2.0.49) (2022-04-29)
 
 #### Chore
 
@@ -64,8 +874,8 @@
 
 
 
-<a name="mariadb-2.0.48"></a>
-### [mariadb-2.0.48](https://github.com/truecharts/apps/compare/mariadb-2.0.47...mariadb-2.0.48) (2022-04-28)
+<a name="memcached-2.0.48"></a>
+### [memcached-2.0.48](https://github.com/truecharts/apps/compare/memcached-2.0.47...memcached-2.0.48) (2022-04-28)
 
 #### Chore
 
@@ -73,8 +883,8 @@
 
 
 
-<a name="mariadb-2.0.47"></a>
-### [mariadb-2.0.47](https://github.com/truecharts/apps/compare/mariadb-2.0.46...mariadb-2.0.47) (2022-04-26)
+<a name="memcached-2.0.47"></a>
+### [memcached-2.0.47](https://github.com/truecharts/apps/compare/memcached-2.0.46...memcached-2.0.47) (2022-04-26)
 
 #### Chore
 
@@ -82,8 +892,8 @@
 
 
 
-<a name="mariadb-2.0.46"></a>
-### [mariadb-2.0.46](https://github.com/truecharts/apps/compare/mariadb-2.0.45...mariadb-2.0.46) (2022-04-26)
+<a name="memcached-2.0.46"></a>
+### [memcached-2.0.46](https://github.com/truecharts/apps/compare/memcached-2.0.45...memcached-2.0.46) (2022-04-26)
 
 #### Chore
 
@@ -91,8 +901,8 @@
 
 
 
-<a name="mariadb-2.0.45"></a>
-### [mariadb-2.0.45](https://github.com/truecharts/apps/compare/mariadb-2.0.44...mariadb-2.0.45) (2022-04-20)
+<a name="memcached-2.0.45"></a>
+### [memcached-2.0.45](https://github.com/truecharts/apps/compare/memcached-2.0.44...memcached-2.0.45) (2022-04-20)
 
 #### Chore
 
@@ -101,8 +911,8 @@
 
 
 
-<a name="mariadb-2.0.44"></a>
-### [mariadb-2.0.44](https://github.com/truecharts/apps/compare/mariadb-2.0.43...mariadb-2.0.44) (2022-04-19)
+<a name="memcached-2.0.44"></a>
+### [memcached-2.0.44](https://github.com/truecharts/apps/compare/memcached-2.0.43...memcached-2.0.44) (2022-04-19)
 
 #### Chore
 
@@ -110,8 +920,8 @@
 
 
 
-<a name="mariadb-2.0.43"></a>
-### [mariadb-2.0.43](https://github.com/truecharts/apps/compare/mariadb-2.0.42...mariadb-2.0.43) (2022-04-18)
+<a name="memcached-2.0.43"></a>
+### [memcached-2.0.43](https://github.com/truecharts/apps/compare/memcached-2.0.42...memcached-2.0.43) (2022-04-18)
 
 #### Chore
 
@@ -119,8 +929,8 @@
 
 
 
-<a name="mariadb-2.0.42"></a>
-### [mariadb-2.0.42](https://github.com/truecharts/apps/compare/mariadb-2.0.41...mariadb-2.0.42) (2022-04-17)
+<a name="memcached-2.0.42"></a>
+### [memcached-2.0.42](https://github.com/truecharts/apps/compare/memcached-2.0.41...memcached-2.0.42) (2022-04-17)
 
 #### Chore
 
@@ -128,8 +938,8 @@
 
 
 
-<a name="mariadb-2.0.41"></a>
-### [mariadb-2.0.41](https://github.com/truecharts/apps/compare/mariadb-2.0.40...mariadb-2.0.41) (2022-04-16)
+<a name="memcached-2.0.41"></a>
+### [memcached-2.0.41](https://github.com/truecharts/apps/compare/memcached-2.0.40...memcached-2.0.41) (2022-04-16)
 
 #### Chore
 
@@ -137,8 +947,8 @@
 
 
 
-<a name="mariadb-2.0.40"></a>
-### [mariadb-2.0.40](https://github.com/truecharts/apps/compare/mariadb-2.0.39...mariadb-2.0.40) (2022-04-13)
+<a name="memcached-2.0.40"></a>
+### [memcached-2.0.40](https://github.com/truecharts/apps/compare/memcached-2.0.39...memcached-2.0.40) (2022-04-13)
 
 #### Chore
 
@@ -146,17 +956,8 @@
 
 
 
-<a name="mariadb-2.0.39"></a>
-### [mariadb-2.0.39](https://github.com/truecharts/apps/compare/mariadb-2.0.38...mariadb-2.0.39) (2022-04-12)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="mariadb-2.0.38"></a>
-### [mariadb-2.0.38](https://github.com/truecharts/apps/compare/mariadb-2.0.37...mariadb-2.0.38) (2022-04-12)
+<a name="memcached-2.0.39"></a>
+### [memcached-2.0.39](https://github.com/truecharts/apps/compare/memcached-2.0.38...memcached-2.0.39) (2022-04-12)
 
 #### Chore
 
@@ -164,8 +965,8 @@
 
 
 
-<a name="mariadb-2.0.37"></a>
-### [mariadb-2.0.37](https://github.com/truecharts/apps/compare/mariadb-2.0.36...mariadb-2.0.37) (2022-04-12)
+<a name="memcached-2.0.38"></a>
+### [memcached-2.0.38](https://github.com/truecharts/apps/compare/memcached-2.0.37...memcached-2.0.38) (2022-04-12)
 
 #### Chore
 
@@ -173,17 +974,8 @@
 
 
 
-<a name="mariadb-2.0.36"></a>
-### [mariadb-2.0.36](https://github.com/truecharts/apps/compare/mariadb-2.0.35...mariadb-2.0.36) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="mariadb-2.0.35"></a>
-### [mariadb-2.0.35](https://github.com/truecharts/apps/compare/mariadb-2.0.34...mariadb-2.0.35) (2022-04-09)
+<a name="memcached-2.0.37"></a>
+### [memcached-2.0.37](https://github.com/truecharts/apps/compare/memcached-2.0.36...memcached-2.0.37) (2022-04-09)
 
 #### Chore
 
@@ -191,8 +983,8 @@
 
 
 
-<a name="mariadb-2.0.34"></a>
-### [mariadb-2.0.34](https://github.com/truecharts/apps/compare/mariadb-2.0.33...mariadb-2.0.34) (2022-04-06)
+<a name="memcached-2.0.36"></a>
+### [memcached-2.0.36](https://github.com/truecharts/apps/compare/memcached-2.0.35...memcached-2.0.36) (2022-04-06)
 
 #### Chore
 
@@ -200,18 +992,17 @@
 
 
 
-<a name="mariadb-2.0.33"></a>
-### [mariadb-2.0.33](https://github.com/truecharts/apps/compare/mariadb-2.0.32...mariadb-2.0.33) (2022-04-04)
+<a name="memcached-2.0.35"></a>
+### [memcached-2.0.35](https://github.com/truecharts/apps/compare/memcached-2.0.34...memcached-2.0.35) (2022-04-04)
 
 #### Chore
 
 * update docker general non-major
-* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
 
 
 
-<a name="mariadb-2.0.32"></a>
-### [mariadb-2.0.32](https://github.com/truecharts/apps/compare/mariadb-2.0.31...mariadb-2.0.32) (2022-04-03)
+<a name="memcached-2.0.34"></a>
+### [memcached-2.0.34](https://github.com/truecharts/apps/compare/memcached-2.0.33...memcached-2.0.34) (2022-04-03)
 
 #### Chore
 
@@ -219,8 +1010,8 @@
 
 
 
-<a name="mariadb-2.0.31"></a>
-### [mariadb-2.0.31](https://github.com/truecharts/apps/compare/mariadb-2.0.30...mariadb-2.0.31) (2022-04-03)
+<a name="memcached-2.0.33"></a>
+### [memcached-2.0.33](https://github.com/truecharts/apps/compare/memcached-2.0.32...memcached-2.0.33) (2022-04-03)
 
 #### Fix
 
@@ -228,17 +1019,13 @@
 
 
 
-<a name="mariadb-2.0.30"></a>
-### [mariadb-2.0.30](https://github.com/truecharts/apps/compare/mariadb-2.0.29...mariadb-2.0.30) (2022-04-03)
-
-#### Chore
-
-* Auto-update chart README [skip ci]
+<a name="memcached-2.0.29"></a>
+### [memcached-2.0.29](https://github.com/truecharts/apps/compare/memcached-2.0.25...memcached-2.0.29) (2022-04-01)
 
 
 
-<a name="mariadb-2.0.28"></a>
-### [mariadb-2.0.28](https://github.com/truecharts/apps/compare/mariadb-2.0.27...mariadb-2.0.28) (2022-03-31)
+<a name="memcached-2.0.25"></a>
+### [memcached-2.0.25](https://github.com/truecharts/apps/compare/memcached-2.0.24...memcached-2.0.25) (2022-03-31)
 
 #### Chore
 
@@ -246,8 +1033,8 @@
 
 
 
-<a name="mariadb-2.0.27"></a>
-### [mariadb-2.0.27](https://github.com/truecharts/apps/compare/mariadb-2.0.26...mariadb-2.0.27) (2022-03-31)
+<a name="memcached-2.0.24"></a>
+### [memcached-2.0.24](https://github.com/truecharts/apps/compare/memcached-2.0.23...memcached-2.0.24) (2022-03-31)
 
 #### Chore
 
@@ -256,8 +1043,8 @@
 
 
 
-<a name="mariadb-2.0.26"></a>
-### [mariadb-2.0.26](https://github.com/truecharts/apps/compare/mariadb-2.0.25...mariadb-2.0.26) (2022-03-30)
+<a name="memcached-2.0.23"></a>
+### [memcached-2.0.23](https://github.com/truecharts/apps/compare/memcached-2.0.22...memcached-2.0.23) (2022-03-30)
 
 #### Chore
 
@@ -266,13 +1053,13 @@
 
 
 
-<a name="mariadb-2.0.25"></a>
-### [mariadb-2.0.25](https://github.com/truecharts/apps/compare/mariadb-2.0.24...mariadb-2.0.25) (2022-03-30)
+<a name="memcached-2.0.22"></a>
+### [memcached-2.0.22](https://github.com/truecharts/apps/compare/memcached-2.0.21...memcached-2.0.22) (2022-03-30)
 
 
 
-<a name="mariadb-2.0.24"></a>
-### [mariadb-2.0.24](https://github.com/truecharts/apps/compare/mariadb-2.0.23...mariadb-2.0.24) (2022-03-30)
+<a name="memcached-2.0.21"></a>
+### [memcached-2.0.21](https://github.com/truecharts/apps/compare/memcached-2.0.20...memcached-2.0.21) (2022-03-30)
 
 #### Chore
 
@@ -280,23 +1067,18 @@
 
 
 
-<a name="mariadb-2.0.23"></a>
-### [mariadb-2.0.23](https://github.com/truecharts/apps/compare/mariadb-2.0.22...mariadb-2.0.23) (2022-03-29)
+<a name="memcached-2.0.20"></a>
+### [memcached-2.0.20](https://github.com/truecharts/apps/compare/memcached-2.0.19...memcached-2.0.20) (2022-03-29)
 
 
 
-<a name="mariadb-2.0.22"></a>
-### [mariadb-2.0.22](https://github.com/truecharts/apps/compare/mariadb-2.0.21...mariadb-2.0.22) (2022-03-29)
+<a name="memcached-2.0.17"></a>
+### [memcached-2.0.17](https://github.com/truecharts/apps/compare/memcached-2.0.16...memcached-2.0.17) (2022-03-29)
 
 
 
-<a name="mariadb-2.0.20"></a>
-### [mariadb-2.0.20](https://github.com/truecharts/apps/compare/mariadb-2.0.19...mariadb-2.0.20) (2022-03-29)
-
-
-
-<a name="mariadb-2.0.19"></a>
-### [mariadb-2.0.19](https://github.com/truecharts/apps/compare/mariadb-2.0.18...mariadb-2.0.19) (2022-03-29)
+<a name="memcached-2.0.16"></a>
+### [memcached-2.0.16](https://github.com/truecharts/apps/compare/memcached-2.0.15...memcached-2.0.16) (2022-03-29)
 
 #### Fix
 
@@ -304,13 +1086,8 @@
 
 
 
-<a name="mariadb-2.0.18"></a>
-### [mariadb-2.0.18](https://github.com/truecharts/apps/compare/mariadb-2.0.17...mariadb-2.0.18) (2022-03-29)
-
-
-
-<a name="mariadb-2.0.17"></a>
-### [mariadb-2.0.17](https://github.com/truecharts/apps/compare/mariadb-2.0.16...mariadb-2.0.17) (2022-03-29)
+<a name="memcached-2.0.15"></a>
+### [memcached-2.0.15](https://github.com/truecharts/apps/compare/memcached-2.0.14...memcached-2.0.15) (2022-03-29)
 
 #### Chore
 
@@ -318,17 +1095,8 @@
 
 
 
-<a name="mariadb-2.0.16"></a>
-### [mariadb-2.0.16](https://github.com/truecharts/apps/compare/mariadb-2.0.15...mariadb-2.0.16) (2022-03-28)
-
-#### Feat
-
-* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
-
-
-
-<a name="mariadb-2.0.15"></a>
-### [mariadb-2.0.15](https://github.com/truecharts/apps/compare/mariadb-2.0.14...mariadb-2.0.15) (2022-03-28)
+<a name="memcached-2.0.14"></a>
+### [memcached-2.0.14](https://github.com/truecharts/apps/compare/memcached-2.0.13...memcached-2.0.14) (2022-03-28)
 
 #### Chore
 
@@ -336,8 +1104,8 @@
 
 
 
-<a name="mariadb-2.0.14"></a>
-### [mariadb-2.0.14](https://github.com/truecharts/apps/compare/mariadb-2.0.13...mariadb-2.0.14) (2022-03-26)
+<a name="memcached-2.0.13"></a>
+### [memcached-2.0.13](https://github.com/truecharts/apps/compare/memcached-2.0.12...memcached-2.0.13) (2022-03-26)
 
 #### Chore
 
@@ -345,8 +1113,8 @@
 
 
 
-<a name="mariadb-2.0.12"></a>
-### [mariadb-2.0.12](https://github.com/truecharts/apps/compare/mariadb-2.0.11...mariadb-2.0.12) (2022-03-26)
+<a name="memcached-2.0.11"></a>
+### [memcached-2.0.11](https://github.com/truecharts/apps/compare/memcached-2.0.10...memcached-2.0.11) (2022-03-26)
 
 #### Chore
 
@@ -354,17 +1122,17 @@
 
 
 
-<a name="mariadb-2.0.11"></a>
-### [mariadb-2.0.11](https://github.com/truecharts/apps/compare/mariadb-2.0.10...mariadb-2.0.11) (2022-03-25)
+<a name="memcached-2.0.10"></a>
+### [memcached-2.0.10](https://github.com/truecharts/apps/compare/memcached-2.0.9...memcached-2.0.10) (2022-03-24)
 
-#### Fix
+#### Chore
 
-* try to fix "did not find expected "-" indicator ([#2275](https://github.com/truecharts/apps/issues/2275))
+* update docker general non-major
 
 
 
-<a name="mariadb-2.0.10"></a>
-### [mariadb-2.0.10](https://github.com/truecharts/apps/compare/mariadb-2.0.9...mariadb-2.0.10) (2022-03-24)
+<a name="memcached-2.0.9"></a>
+### [memcached-2.0.9](https://github.com/truecharts/apps/compare/memcached-2.0.8...memcached-2.0.9) (2022-03-24)
 
 #### Chore
 
@@ -373,8 +1141,8 @@
 
 
 
-<a name="mariadb-2.0.9"></a>
-### [mariadb-2.0.9](https://github.com/truecharts/apps/compare/mariadb-2.0.8...mariadb-2.0.9) (2022-03-22)
+<a name="memcached-2.0.8"></a>
+### [memcached-2.0.8](https://github.com/truecharts/apps/compare/memcached-2.0.7...memcached-2.0.8) (2022-03-22)
 
 #### Chore
 
@@ -382,17 +1150,8 @@
 
 
 
-<a name="mariadb-2.0.8"></a>
-### [mariadb-2.0.8](https://github.com/truecharts/apps/compare/mariadb-2.0.7...mariadb-2.0.8) (2022-03-20)
-
-#### Fix
-
-* Wait for init ([#2226](https://github.com/truecharts/apps/issues/2226))
-
-
-
-<a name="mariadb-2.0.7"></a>
-### [mariadb-2.0.7](https://github.com/truecharts/apps/compare/mariadb-2.0.6...mariadb-2.0.7) (2022-03-20)
+<a name="memcached-2.0.7"></a>
+### [memcached-2.0.7](https://github.com/truecharts/apps/compare/memcached-2.0.6...memcached-2.0.7) (2022-03-20)
 
 #### Chore
 
@@ -401,8 +1160,8 @@
 
 
 
-<a name="mariadb-2.0.6"></a>
-### [mariadb-2.0.6](https://github.com/truecharts/apps/compare/mariadb-2.0.5...mariadb-2.0.6) (2022-03-17)
+<a name="memcached-2.0.6"></a>
+### [memcached-2.0.6](https://github.com/truecharts/apps/compare/memcached-2.0.5...memcached-2.0.6) (2022-03-17)
 
 #### Chore
 
@@ -410,8 +1169,8 @@
 
 
 
-<a name="mariadb-2.0.5"></a>
-### [mariadb-2.0.5](https://github.com/truecharts/apps/compare/mariadb-2.0.4...mariadb-2.0.5) (2022-03-17)
+<a name="memcached-2.0.5"></a>
+### [memcached-2.0.5](https://github.com/truecharts/apps/compare/memcached-2.0.4...memcached-2.0.5) (2022-03-17)
 
 #### Chore
 
@@ -420,8 +1179,8 @@
 
 
 
-<a name="mariadb-2.0.4"></a>
-### [mariadb-2.0.4](https://github.com/truecharts/apps/compare/mariadb-2.0.3...mariadb-2.0.4) (2022-03-15)
+<a name="memcached-2.0.4"></a>
+### [memcached-2.0.4](https://github.com/truecharts/apps/compare/memcached-2.0.3...memcached-2.0.4) (2022-03-15)
 
 #### Chore
 
@@ -429,8 +1188,8 @@
 
 
 
-<a name="mariadb-2.0.3"></a>
-### [mariadb-2.0.3](https://github.com/truecharts/apps/compare/mariadb-2.0.2...mariadb-2.0.3) (2022-03-15)
+<a name="memcached-2.0.3"></a>
+### [memcached-2.0.3](https://github.com/truecharts/apps/compare/memcached-2.0.2...memcached-2.0.3) (2022-03-15)
 
 #### Chore
 
@@ -438,17 +1197,18 @@
 
 
 
-<a name="mariadb-2.0.2"></a>
-### [mariadb-2.0.2](https://github.com/truecharts/apps/compare/mariadb-2.0.1...mariadb-2.0.2) (2022-03-07)
+<a name="memcached-2.0.2"></a>
+### [memcached-2.0.2](https://github.com/truecharts/apps/compare/memcached-2.0.1...memcached-2.0.2) (2022-03-07)
 
 #### Chore
 
 * update helm chart common to v9.1.2 ([#2109](https://github.com/truecharts/apps/issues/2109))
+* update docker general non-major ([#2108](https://github.com/truecharts/apps/issues/2108))
 
 
 
-<a name="mariadb-2.0.1"></a>
-### [mariadb-2.0.1](https://github.com/truecharts/apps/compare/mariadb-2.0.0...mariadb-2.0.1) (2022-03-07)
+<a name="memcached-2.0.1"></a>
+### [memcached-2.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.0...memcached-2.0.1) (2022-03-07)
 
 #### Chore
 
@@ -456,8 +1216,8 @@
 
 
 
-<a name="mariadb-2.0.0"></a>
-### [mariadb-2.0.0](https://github.com/truecharts/apps/compare/mariadb-1.0.78...mariadb-2.0.0) (2022-03-03)
+<a name="memcached-2.0.0"></a>
+### [memcached-2.0.0](https://github.com/truecharts/apps/compare/memcached-1.0.77...memcached-2.0.0) (2022-03-03)
 
 #### Chore
 
@@ -471,8 +1231,8 @@
 
 
 
-<a name="mariadb-1.0.78"></a>
-### [mariadb-1.0.78](https://github.com/truecharts/apps/compare/mariadb-1.0.77...mariadb-1.0.78) (2022-03-03)
+<a name="memcached-1.0.77"></a>
+### [memcached-1.0.77](https://github.com/truecharts/apps/compare/memcached-1.0.76...memcached-1.0.77) (2022-03-03)
 
 #### Chore
 
@@ -480,8 +1240,8 @@
 
 
 
-<a name="mariadb-1.0.77"></a>
-### [mariadb-1.0.77](https://github.com/truecharts/apps/compare/mariadb-1.0.76...mariadb-1.0.77) (2022-03-03)
+<a name="memcached-1.0.76"></a>
+### [memcached-1.0.76](https://github.com/truecharts/apps/compare/memcached-1.0.75...memcached-1.0.76) (2022-03-03)
 
 #### Chore
 
@@ -489,8 +1249,8 @@
 
 
 
-<a name="mariadb-1.0.76"></a>
-### [mariadb-1.0.76](https://github.com/truecharts/apps/compare/mariadb-1.0.75...mariadb-1.0.76) (2022-02-28)
+<a name="memcached-1.0.75"></a>
+### [memcached-1.0.75](https://github.com/truecharts/apps/compare/memcached-1.0.74...memcached-1.0.75) (2022-02-28)
 
 #### Chore
 
@@ -498,17 +1258,8 @@
 
 
 
-<a name="mariadb-1.0.75"></a>
-### [mariadb-1.0.75](https://github.com/truecharts/apps/compare/mariadb-1.0.74...mariadb-1.0.75) (2022-02-28)
-
-#### Chore
-
-* update docker general non-major ([#1983](https://github.com/truecharts/apps/issues/1983))
-
-
-
-<a name="mariadb-1.0.74"></a>
-### [mariadb-1.0.74](https://github.com/truecharts/apps/compare/mariadb-1.0.73...mariadb-1.0.74) (2022-02-28)
+<a name="memcached-1.0.74"></a>
+### [memcached-1.0.74](https://github.com/truecharts/apps/compare/memcached-1.0.73...memcached-1.0.74) (2022-02-28)
 
 #### Chore
 
@@ -516,8 +1267,8 @@
 
 
 
-<a name="mariadb-1.0.73"></a>
-### [mariadb-1.0.73](https://github.com/truecharts/apps/compare/mariadb-1.0.72...mariadb-1.0.73) (2022-02-21)
+<a name="memcached-1.0.73"></a>
+### [memcached-1.0.73](https://github.com/truecharts/apps/compare/memcached-1.0.72...memcached-1.0.73) (2022-02-21)
 
 #### Chore
 
@@ -525,8 +1276,8 @@
 
 
 
-<a name="mariadb-1.0.72"></a>
-### [mariadb-1.0.72](https://github.com/truecharts/apps/compare/mariadb-1.0.71...mariadb-1.0.72) (2022-02-21)
+<a name="memcached-1.0.72"></a>
+### [memcached-1.0.72](https://github.com/truecharts/apps/compare/memcached-1.0.71...memcached-1.0.72) (2022-02-21)
 
 #### Chore
 
@@ -534,8 +1285,8 @@
 
 
 
-<a name="mariadb-1.0.71"></a>
-### [mariadb-1.0.71](https://github.com/truecharts/apps/compare/mariadb-1.0.70...mariadb-1.0.71) (2022-02-14)
+<a name="memcached-1.0.71"></a>
+### [memcached-1.0.71](https://github.com/truecharts/apps/compare/memcached-1.0.70...memcached-1.0.71) (2022-02-14)
 
 #### Chore
 
@@ -543,8 +1294,8 @@
 
 
 
-<a name="mariadb-1.0.70"></a>
-### [mariadb-1.0.70](https://github.com/truecharts/apps/compare/mariadb-1.0.69...mariadb-1.0.70) (2022-02-14)
+<a name="memcached-1.0.70"></a>
+### [memcached-1.0.70](https://github.com/truecharts/apps/compare/memcached-1.0.69...memcached-1.0.70) (2022-02-14)
 
 #### Chore
 
@@ -552,8 +1303,8 @@
 
 
 
-<a name="mariadb-1.0.69"></a>
-### [mariadb-1.0.69](https://github.com/truecharts/apps/compare/mariadb-1.0.68...mariadb-1.0.69) (2022-02-10)
+<a name="memcached-1.0.69"></a>
+### [memcached-1.0.69](https://github.com/truecharts/apps/compare/memcached-1.0.68...memcached-1.0.69) (2022-02-10)
 
 #### Chore
 
@@ -561,8 +1312,8 @@
 
 
 
-<a name="mariadb-1.0.68"></a>
-### [mariadb-1.0.68](https://github.com/truecharts/apps/compare/mariadb-1.0.67...mariadb-1.0.68) (2022-02-08)
+<a name="memcached-1.0.68"></a>
+### [memcached-1.0.68](https://github.com/truecharts/apps/compare/memcached-1.0.67...memcached-1.0.68) (2022-02-08)
 
 #### Chore
 
@@ -570,8 +1321,8 @@
 
 
 
-<a name="mariadb-1.0.67"></a>
-### [mariadb-1.0.67](https://github.com/truecharts/apps/compare/mariadb-1.0.66...mariadb-1.0.67) (2022-02-08)
+<a name="memcached-1.0.67"></a>
+### [memcached-1.0.67](https://github.com/truecharts/apps/compare/memcached-1.0.66...memcached-1.0.67) (2022-02-08)
 
 #### Chore
 
@@ -579,8 +1330,8 @@
 
 
 
-<a name="mariadb-1.0.66"></a>
-### [mariadb-1.0.66](https://github.com/truecharts/apps/compare/mariadb-1.0.65...mariadb-1.0.66) (2022-02-06)
+<a name="memcached-1.0.66"></a>
+### [memcached-1.0.66](https://github.com/truecharts/apps/compare/memcached-1.0.65...memcached-1.0.66) (2022-02-06)
 
 #### Chore
 
@@ -589,8 +1340,8 @@
 
 
 
-<a name="mariadb-1.0.65"></a>
-### [mariadb-1.0.65](https://github.com/truecharts/apps/compare/mariadb-1.0.64...mariadb-1.0.65) (2022-02-05)
+<a name="memcached-1.0.65"></a>
+### [memcached-1.0.65](https://github.com/truecharts/apps/compare/memcached-1.0.64...memcached-1.0.65) (2022-02-05)
 
 #### Chore
 
@@ -599,8 +1350,8 @@
 
 
 
-<a name="mariadb-1.0.64"></a>
-### [mariadb-1.0.64](https://github.com/truecharts/apps/compare/mariadb-1.0.63...mariadb-1.0.64) (2022-02-03)
+<a name="memcached-1.0.64"></a>
+### [memcached-1.0.64](https://github.com/truecharts/apps/compare/memcached-1.0.63...memcached-1.0.64) (2022-02-03)
 
 #### Chore
 
@@ -608,8 +1359,8 @@
 
 
 
-<a name="mariadb-1.0.63"></a>
-### [mariadb-1.0.63](https://github.com/truecharts/apps/compare/mariadb-1.0.62...mariadb-1.0.63) (2022-02-01)
+<a name="memcached-1.0.63"></a>
+### [memcached-1.0.63](https://github.com/truecharts/apps/compare/memcached-1.0.62...memcached-1.0.63) (2022-02-01)
 
 #### Chore
 
@@ -617,8 +1368,17 @@
 
 
 
-<a name="mariadb-1.0.62"></a>
-### [mariadb-1.0.62](https://github.com/truecharts/apps/compare/mariadb-1.0.61...mariadb-1.0.62) (2022-01-31)
+<a name="memcached-1.0.62"></a>
+### [memcached-1.0.62](https://github.com/truecharts/apps/compare/memcached-1.0.61...memcached-1.0.62) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major ([#1824](https://github.com/truecharts/apps/issues/1824))
+
+
+
+<a name="memcached-1.0.61"></a>
+### [memcached-1.0.61](https://github.com/truecharts/apps/compare/memcached-1.0.60...memcached-1.0.61) (2022-01-31)
 
 #### Chore
 
@@ -626,8 +1386,8 @@
 
 
 
-<a name="mariadb-1.0.61"></a>
-### [mariadb-1.0.61](https://github.com/truecharts/apps/compare/mariadb-1.0.60...mariadb-1.0.61) (2022-01-25)
+<a name="memcached-1.0.60"></a>
+### [memcached-1.0.60](https://github.com/truecharts/apps/compare/memcached-1.0.59...memcached-1.0.60) (2022-01-25)
 
 #### Chore
 
@@ -635,8 +1395,8 @@
 
 
 
-<a name="mariadb-1.0.60"></a>
-### [mariadb-1.0.60](https://github.com/truecharts/apps/compare/mariadb-1.0.59...mariadb-1.0.60) (2022-01-24)
+<a name="memcached-1.0.59"></a>
+### [memcached-1.0.59](https://github.com/truecharts/apps/compare/memcached-1.0.58...memcached-1.0.59) (2022-01-24)
 
 #### Chore
 
@@ -644,8 +1404,8 @@
 
 
 
-<a name="mariadb-1.0.59"></a>
-### [mariadb-1.0.59](https://github.com/truecharts/apps/compare/mariadb-1.0.58...mariadb-1.0.59) (2022-01-22)
+<a name="memcached-1.0.58"></a>
+### [memcached-1.0.58](https://github.com/truecharts/apps/compare/memcached-1.0.57...memcached-1.0.58) (2022-01-22)
 
 #### Chore
 
@@ -653,17 +1413,8 @@
 
 
 
-<a name="mariadb-1.0.58"></a>
-### [mariadb-1.0.58](https://github.com/truecharts/apps/compare/mariadb-1.0.57...mariadb-1.0.58) (2022-01-22)
-
-#### Chore
-
-* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
-
-
-
-<a name="mariadb-1.0.57"></a>
-### [mariadb-1.0.57](https://github.com/truecharts/apps/compare/mariadb-1.0.56...mariadb-1.0.57) (2022-01-21)
+<a name="memcached-1.0.57"></a>
+### [memcached-1.0.57](https://github.com/truecharts/apps/compare/memcached-1.0.56...memcached-1.0.57) (2022-01-21)
 
 #### Chore
 
@@ -671,8 +1422,8 @@
 
 
 
-<a name="mariadb-1.0.56"></a>
-### [mariadb-1.0.56](https://github.com/truecharts/apps/compare/mariadb-1.0.55...mariadb-1.0.56) (2022-01-21)
+<a name="memcached-1.0.56"></a>
+### [memcached-1.0.56](https://github.com/truecharts/apps/compare/memcached-1.0.55...memcached-1.0.56) (2022-01-21)
 
 #### Chore
 
@@ -680,8 +1431,8 @@
 
 
 
-<a name="mariadb-1.0.55"></a>
-### [mariadb-1.0.55](https://github.com/truecharts/apps/compare/mariadb-1.0.54...mariadb-1.0.55) (2022-01-21)
+<a name="memcached-1.0.55"></a>
+### [memcached-1.0.55](https://github.com/truecharts/apps/compare/memcached-1.0.54...memcached-1.0.55) (2022-01-21)
 
 #### Chore
 
@@ -693,8 +1444,8 @@
 
 
 
-<a name="mariadb-1.0.54"></a>
-### [mariadb-1.0.54](https://github.com/truecharts/apps/compare/mariadb-1.0.53...mariadb-1.0.54) (2022-01-19)
+<a name="memcached-1.0.54"></a>
+### [memcached-1.0.54](https://github.com/truecharts/apps/compare/memcached-1.0.53...memcached-1.0.54) (2022-01-19)
 
 #### Chore
 
@@ -702,8 +1453,8 @@
 
 
 
-<a name="mariadb-1.0.53"></a>
-### [mariadb-1.0.53](https://github.com/truecharts/apps/compare/mariadb-1.0.52...mariadb-1.0.53) (2022-01-18)
+<a name="memcached-1.0.53"></a>
+### [memcached-1.0.53](https://github.com/truecharts/apps/compare/memcached-1.0.52...memcached-1.0.53) (2022-01-18)
 
 #### Chore
 
@@ -711,18 +1462,17 @@
 
 
 
-<a name="mariadb-1.0.52"></a>
-### [mariadb-1.0.52](https://github.com/truecharts/apps/compare/mariadb-1.0.51...mariadb-1.0.52) (2022-01-17)
+<a name="memcached-1.0.52"></a>
+### [memcached-1.0.52](https://github.com/truecharts/apps/compare/memcached-1.0.51...memcached-1.0.52) (2022-01-17)
 
 #### Chore
 
 * update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
-* clean logs ([#1720](https://github.com/truecharts/apps/issues/1720))
 
 
 
-<a name="mariadb-1.0.51"></a>
-### [mariadb-1.0.51](https://github.com/truecharts/apps/compare/mariadb-1.0.50...mariadb-1.0.51) (2022-01-13)
+<a name="memcached-1.0.51"></a>
+### [memcached-1.0.51](https://github.com/truecharts/apps/compare/memcached-1.0.50...memcached-1.0.51) (2022-01-13)
 
 #### Chore
 
@@ -734,8 +1484,8 @@
 
 
 
-<a name="mariadb-1.0.50"></a>
-### [mariadb-1.0.50](https://github.com/truecharts/apps/compare/mariadb-1.0.49...mariadb-1.0.50) (2022-01-12)
+<a name="memcached-1.0.50"></a>
+### [memcached-1.0.50](https://github.com/truecharts/apps/compare/memcached-1.0.49...memcached-1.0.50) (2022-01-12)
 
 #### Chore
 
@@ -743,8 +1493,8 @@
 
 
 
-<a name="mariadb-1.0.49"></a>
-### [mariadb-1.0.49](https://github.com/truecharts/apps/compare/mariadb-1.0.48...mariadb-1.0.49) (2022-01-12)
+<a name="memcached-1.0.49"></a>
+### [memcached-1.0.49](https://github.com/truecharts/apps/compare/memcached-1.0.48...memcached-1.0.49) (2022-01-12)
 
 #### Chore
 
@@ -752,8 +1502,8 @@
 
 
 
-<a name="mariadb-1.0.48"></a>
-### [mariadb-1.0.48](https://github.com/truecharts/apps/compare/mariadb-1.0.47...mariadb-1.0.48) (2022-01-11)
+<a name="memcached-1.0.48"></a>
+### [memcached-1.0.48](https://github.com/truecharts/apps/compare/memcached-1.0.47...memcached-1.0.48) (2022-01-11)
 
 #### Chore
 
@@ -761,8 +1511,8 @@
 
 
 
-<a name="mariadb-1.0.47"></a>
-### [mariadb-1.0.47](https://github.com/truecharts/apps/compare/mariadb-1.0.46...mariadb-1.0.47) (2022-01-10)
+<a name="memcached-1.0.47"></a>
+### [memcached-1.0.47](https://github.com/truecharts/apps/compare/memcached-1.0.46...memcached-1.0.47) (2022-01-10)
 
 #### Chore
 
@@ -770,8 +1520,8 @@
 
 
 
-<a name="mariadb-1.0.46"></a>
-### [mariadb-1.0.46](https://github.com/truecharts/apps/compare/mariadb-1.0.45...mariadb-1.0.46) (2022-01-10)
+<a name="memcached-1.0.46"></a>
+### [memcached-1.0.46](https://github.com/truecharts/apps/compare/memcached-1.0.45...memcached-1.0.46) (2022-01-10)
 
 #### Chore
 
@@ -779,8 +1529,8 @@
 
 
 
-<a name="mariadb-1.0.45"></a>
-### [mariadb-1.0.45](https://github.com/truecharts/apps/compare/mariadb-1.0.44...mariadb-1.0.45) (2022-01-04)
+<a name="memcached-1.0.45"></a>
+### [memcached-1.0.45](https://github.com/truecharts/apps/compare/memcached-1.0.44...memcached-1.0.45) (2022-01-04)
 
 #### Chore
 
@@ -788,8 +1538,17 @@
 
 
 
-<a name="mariadb-1.0.44"></a>
-### [mariadb-1.0.44](https://github.com/truecharts/apps/compare/mariadb-1.0.43...mariadb-1.0.44) (2022-01-03)
+<a name="memcached-1.0.44"></a>
+### [memcached-1.0.44](https://github.com/truecharts/apps/compare/memcached-1.0.43...memcached-1.0.44) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="memcached-1.0.43"></a>
+### [memcached-1.0.43](https://github.com/truecharts/apps/compare/memcached-1.0.42...memcached-1.0.43) (2022-01-03)
 
 #### Chore
 
@@ -797,8 +1556,8 @@
 
 
 
-<a name="mariadb-1.0.43"></a>
-### [mariadb-1.0.43](https://github.com/truecharts/apps/compare/mariadb-1.0.42...mariadb-1.0.43) (2021-12-28)
+<a name="memcached-1.0.42"></a>
+### [memcached-1.0.42](https://github.com/truecharts/apps/compare/memcached-1.0.41...memcached-1.0.42) (2021-12-28)
 
 #### Chore
 
@@ -806,8 +1565,8 @@
 
 
 
-<a name="mariadb-1.0.42"></a>
-### [mariadb-1.0.42](https://github.com/truecharts/apps/compare/mariadb-1.0.41...mariadb-1.0.42) (2021-12-27)
+<a name="memcached-1.0.41"></a>
+### [memcached-1.0.41](https://github.com/truecharts/apps/compare/memcached-1.0.40...memcached-1.0.41) (2021-12-27)
 
 #### Chore
 
@@ -815,8 +1574,8 @@
 
 
 
-<a name="mariadb-1.0.41"></a>
-### [mariadb-1.0.41](https://github.com/truecharts/apps/compare/mariadb-1.0.40...mariadb-1.0.41) (2021-12-24)
+<a name="memcached-1.0.40"></a>
+### [memcached-1.0.40](https://github.com/truecharts/apps/compare/memcached-1.0.39...memcached-1.0.40) (2021-12-24)
 
 #### Chore
 
@@ -825,8 +1584,8 @@
 
 
 
-<a name="mariadb-1.0.40"></a>
-### [mariadb-1.0.40](https://github.com/truecharts/apps/compare/mariadb-1.0.39...mariadb-1.0.40) (2021-12-21)
+<a name="memcached-1.0.39"></a>
+### [memcached-1.0.39](https://github.com/truecharts/apps/compare/memcached-1.0.38...memcached-1.0.39) (2021-12-21)
 
 #### Chore
 
@@ -834,8 +1593,8 @@
 
 
 
-<a name="mariadb-1.0.39"></a>
-### [mariadb-1.0.39](https://github.com/truecharts/apps/compare/mariadb-1.0.38...mariadb-1.0.39) (2021-12-20)
+<a name="memcached-1.0.38"></a>
+### [memcached-1.0.38](https://github.com/truecharts/apps/compare/memcached-1.0.37...memcached-1.0.38) (2021-12-20)
 
 #### Chore
 
@@ -843,8 +1602,8 @@
 
 
 
-<a name="mariadb-1.0.38"></a>
-### [mariadb-1.0.38](https://github.com/truecharts/apps/compare/mariadb-1.0.37...mariadb-1.0.38) (2021-12-19)
+<a name="memcached-1.0.37"></a>
+### [memcached-1.0.37](https://github.com/truecharts/apps/compare/memcached-1.0.36...memcached-1.0.37) (2021-12-19)
 
 #### Chore
 
@@ -853,8 +1612,8 @@
 
 
 
-<a name="mariadb-1.0.37"></a>
-### [mariadb-1.0.37](https://github.com/truecharts/apps/compare/mariadb-1.0.36...mariadb-1.0.37) (2021-12-19)
+<a name="memcached-1.0.36"></a>
+### [memcached-1.0.36](https://github.com/truecharts/apps/compare/memcached-1.0.35...memcached-1.0.36) (2021-12-19)
 
 #### Chore
 
@@ -862,27 +1621,18 @@
 
 
 
-<a name="mariadb-1.0.36"></a>
-### [mariadb-1.0.36](https://github.com/truecharts/apps/compare/mariadb-1.0.35...mariadb-1.0.36) (2021-12-19)
+<a name="memcached-1.0.35"></a>
+### [memcached-1.0.35](https://github.com/truecharts/apps/compare/memcached-1.0.34...memcached-1.0.35) (2021-12-19)
 
 #### Chore
 
 * update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
-
-
-
-<a name="mariadb-1.0.35"></a>
-### [mariadb-1.0.35](https://github.com/truecharts/apps/compare/mariadb-1.0.34...mariadb-1.0.35) (2021-12-18)
-
-#### Chore
-
-* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
 * update docker general non-major
 
 
 
-<a name="mariadb-1.0.34"></a>
-### [mariadb-1.0.34](https://github.com/truecharts/apps/compare/mariadb-1.0.33...mariadb-1.0.34) (2021-12-14)
+<a name="memcached-1.0.34"></a>
+### [memcached-1.0.34](https://github.com/truecharts/apps/compare/memcached-1.0.33...memcached-1.0.34) (2021-12-14)
 
 #### Chore
 
@@ -890,8 +1640,8 @@
 
 
 
-<a name="mariadb-1.0.33"></a>
-### [mariadb-1.0.33](https://github.com/truecharts/apps/compare/mariadb-1.0.32...mariadb-1.0.33) (2021-12-13)
+<a name="memcached-1.0.33"></a>
+### [memcached-1.0.33](https://github.com/truecharts/apps/compare/memcached-1.0.32...memcached-1.0.33) (2021-12-13)
 
 #### Chore
 
@@ -899,8 +1649,8 @@
 
 
 
-<a name="mariadb-1.0.32"></a>
-### [mariadb-1.0.32](https://github.com/truecharts/apps/compare/mariadb-1.0.31...mariadb-1.0.32) (2021-12-13)
+<a name="memcached-1.0.32"></a>
+### [memcached-1.0.32](https://github.com/truecharts/apps/compare/memcached-1.0.31...memcached-1.0.32) (2021-12-13)
 
 #### Chore
 
@@ -908,17 +1658,17 @@
 
 
 
-<a name="mariadb-1.0.31"></a>
-### [mariadb-1.0.31](https://github.com/truecharts/apps/compare/mariadb-1.0.30...mariadb-1.0.31) (2021-12-12)
+<a name="memcached-1.0.31"></a>
+### [memcached-1.0.31](https://github.com/truecharts/apps/compare/memcached-1.0.30...memcached-1.0.31) (2021-12-12)
 
 #### Chore
 
-* update container image ghcr.io/truecharts/mariadb to v10.6.5 ([#1514](https://github.com/truecharts/apps/issues/1514))
+* update container image ghcr.io/truecharts/memcached to v1.6.12 ([#1516](https://github.com/truecharts/apps/issues/1516))
 
 
 
-<a name="mariadb-1.0.30"></a>
-### [mariadb-1.0.30](https://github.com/truecharts/apps/compare/mariadb-1.0.29...mariadb-1.0.30) (2021-12-11)
+<a name="memcached-1.0.30"></a>
+### [memcached-1.0.30](https://github.com/truecharts/apps/compare/memcached-1.0.29...memcached-1.0.30) (2021-12-11)
 
 #### Chore
 
@@ -926,8 +1676,8 @@
 
 
 
-<a name="mariadb-1.0.29"></a>
-### [mariadb-1.0.29](https://github.com/truecharts/apps/compare/mariadb-1.0.28...mariadb-1.0.29) (2021-12-11)
+<a name="memcached-1.0.29"></a>
+### [memcached-1.0.29](https://github.com/truecharts/apps/compare/memcached-1.0.28...memcached-1.0.29) (2021-12-11)
 
 #### Chore
 
@@ -935,8 +1685,8 @@
 
 
 
-<a name="mariadb-1.0.28"></a>
-### [mariadb-1.0.28](https://github.com/truecharts/apps/compare/mariadb-1.0.27...mariadb-1.0.28) (2021-12-08)
+<a name="memcached-1.0.28"></a>
+### [memcached-1.0.28](https://github.com/truecharts/apps/compare/memcached-1.0.27...memcached-1.0.28) (2021-12-08)
 
 #### Chore
 
@@ -944,8 +1694,8 @@
 
 
 
-<a name="mariadb-1.0.27"></a>
-### [mariadb-1.0.27](https://github.com/truecharts/apps/compare/mariadb-1.0.26...mariadb-1.0.27) (2021-12-07)
+<a name="memcached-1.0.27"></a>
+### [memcached-1.0.27](https://github.com/truecharts/apps/compare/memcached-1.0.26...memcached-1.0.27) (2021-12-07)
 
 #### Chore
 
@@ -953,8 +1703,8 @@
 
 
 
-<a name="mariadb-1.0.26"></a>
-### [mariadb-1.0.26](https://github.com/truecharts/apps/compare/mariadb-1.0.25...mariadb-1.0.26) (2021-12-07)
+<a name="memcached-1.0.26"></a>
+### [memcached-1.0.26](https://github.com/truecharts/apps/compare/memcached-1.0.25...memcached-1.0.26) (2021-12-07)
 
 #### Chore
 
@@ -962,8 +1712,8 @@
 
 
 
-<a name="mariadb-1.0.25"></a>
-### mariadb-1.0.25 (2021-12-05)
+<a name="memcached-1.0.25"></a>
+### memcached-1.0.25 (2021-12-05)
 
 #### Chore
 
@@ -977,19 +1727,18 @@
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 * update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
-* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
 * update common
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
 * update non-major ([#1423](https://github.com/truecharts/apps/issues/1423))
 
 #### Fix
 
 * move deps back to ghcr for now.
-* correct mountpath mistakes
 
 
 
-<a name="mariadb-1.0.24"></a>
-### [mariadb-1.0.24](https://github.com/truecharts/apps/compare/mariadb-1.0.23...mariadb-1.0.24) (2021-12-05)
+<a name="memcached-1.0.24"></a>
+### [memcached-1.0.24](https://github.com/truecharts/apps/compare/memcached-1.0.23...memcached-1.0.24) (2021-12-05)
 
 #### Chore
 
@@ -997,8 +1746,8 @@
 
 
 
-<a name="mariadb-1.0.23"></a>
-### [mariadb-1.0.23](https://github.com/truecharts/apps/compare/mariadb-1.0.22...mariadb-1.0.23) (2021-12-05)
+<a name="memcached-1.0.23"></a>
+### [memcached-1.0.23](https://github.com/truecharts/apps/compare/memcached-1.0.22...memcached-1.0.23) (2021-12-05)
 
 #### Chore
 
@@ -1006,8 +1755,8 @@
 
 
 
-<a name="mariadb-1.0.22"></a>
-### [mariadb-1.0.22](https://github.com/truecharts/apps/compare/mariadb-1.0.21...mariadb-1.0.22) (2021-12-05)
+<a name="memcached-1.0.22"></a>
+### [memcached-1.0.22](https://github.com/truecharts/apps/compare/memcached-1.0.21...memcached-1.0.22) (2021-12-05)
 
 #### Chore
 
@@ -1016,12 +1765,11 @@
 #### Fix
 
 * move deps back to ghcr for now.
-* correct mountpath mistakes
 
 
 
-<a name="mariadb-1.0.21"></a>
-### [mariadb-1.0.21](https://github.com/truecharts/apps/compare/mariadb-1.0.20...mariadb-1.0.21) (2021-12-04)
+<a name="memcached-1.0.21"></a>
+### [memcached-1.0.21](https://github.com/truecharts/apps/compare/memcached-1.0.20...memcached-1.0.21) (2021-12-04)
 
 #### Chore
 
@@ -1030,8 +1778,8 @@
 
 
 
-<a name="mariadb-1.0.20"></a>
-### [mariadb-1.0.20](https://github.com/truecharts/apps/compare/mariadb-1.0.19...mariadb-1.0.20) (2021-12-03)
+<a name="memcached-1.0.20"></a>
+### [memcached-1.0.20](https://github.com/truecharts/apps/compare/memcached-1.0.19...memcached-1.0.20) (2021-12-03)
 
 #### Chore
 
@@ -1039,8 +1787,8 @@
 
 
 
-<a name="mariadb-1.0.19"></a>
-### [mariadb-1.0.19](https://github.com/truecharts/apps/compare/mariadb-1.0.18...mariadb-1.0.19) (2021-12-03)
+<a name="memcached-1.0.19"></a>
+### [memcached-1.0.19](https://github.com/truecharts/apps/compare/memcached-1.0.18...memcached-1.0.19) (2021-12-03)
 
 #### Chore
 
@@ -1050,17 +1798,8 @@
 
 
 
-<a name="mariadb-1.0.18"></a>
-### [mariadb-1.0.18](https://github.com/truecharts/apps/compare/mariadb-1.0.17...mariadb-1.0.18) (2021-12-01)
-
-#### Chore
-
-* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
-
-
-
-<a name="mariadb-1.0.17"></a>
-### [mariadb-1.0.17](https://github.com/truecharts/apps/compare/mariadb-1.0.16...mariadb-1.0.17) (2021-11-30)
+<a name="memcached-1.0.18"></a>
+### [memcached-1.0.18](https://github.com/truecharts/apps/compare/memcached-1.0.17...memcached-1.0.18) (2021-11-30)
 
 #### Chore
 
@@ -1068,8 +1807,17 @@
 
 
 
-<a name="mariadb-1.0.15"></a>
-### [mariadb-1.0.15](https://github.com/truecharts/apps/compare/mariadb-1.0.14...mariadb-1.0.15) (2021-11-29)
+<a name="memcached-1.0.17"></a>
+### [memcached-1.0.17](https://github.com/truecharts/apps/compare/memcached-1.0.16...memcached-1.0.17) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+
+
+
+<a name="memcached-1.0.15"></a>
+### [memcached-1.0.15](https://github.com/truecharts/apps/compare/memcached-1.0.14...memcached-1.0.15) (2021-11-29)
 
 #### Chore
 
@@ -1077,8 +1825,8 @@
 
 
 
-<a name="mariadb-1.0.14"></a>
-### [mariadb-1.0.14](https://github.com/truecharts/apps/compare/mariadb-1.0.13...mariadb-1.0.14) (2021-11-28)
+<a name="memcached-1.0.14"></a>
+### [memcached-1.0.14](https://github.com/truecharts/apps/compare/memcached-1.0.13...memcached-1.0.14) (2021-11-28)
 
 #### Chore
 
@@ -1086,17 +1834,8 @@
 
 
 
-<a name="mariadb-1.0.13"></a>
-### [mariadb-1.0.13](https://github.com/truecharts/apps/compare/mariadb-1.0.12...mariadb-1.0.13) (2021-11-23)
-
-#### Chore
-
-* update non-major ([#1390](https://github.com/truecharts/apps/issues/1390))
-
-
-
-<a name="mariadb-1.0.12"></a>
-### [mariadb-1.0.12](https://github.com/truecharts/apps/compare/mariadb-1.0.11...mariadb-1.0.12) (2021-11-23)
+<a name="memcached-1.0.13"></a>
+### [memcached-1.0.13](https://github.com/truecharts/apps/compare/memcached-1.0.12...memcached-1.0.13) (2021-11-23)
 
 #### Chore
 
@@ -1104,8 +1843,8 @@
 
 
 
-<a name="mariadb-1.0.11"></a>
-### [mariadb-1.0.11](https://github.com/truecharts/apps/compare/mariadb-1.0.9...mariadb-1.0.11) (2021-11-23)
+<a name="memcached-1.0.12"></a>
+### [memcached-1.0.12](https://github.com/truecharts/apps/compare/memcached-1.0.10...memcached-1.0.12) (2021-11-23)
 
 #### Chore
 
@@ -1114,8 +1853,8 @@
 
 
 
-<a name="mariadb-1.0.9"></a>
-### [mariadb-1.0.9](https://github.com/truecharts/apps/compare/mariadb-1.0.8...mariadb-1.0.9) (2021-11-22)
+<a name="memcached-1.0.10"></a>
+### [memcached-1.0.10](https://github.com/truecharts/apps/compare/memcached-1.0.9...memcached-1.0.10) (2021-11-22)
 
 #### Fix
 
@@ -1123,8 +1862,8 @@
 
 
 
-<a name="mariadb-1.0.8"></a>
-### [mariadb-1.0.8](https://github.com/truecharts/apps/compare/mariadb-1.0.7...mariadb-1.0.8) (2021-11-22)
+<a name="memcached-1.0.9"></a>
+### [memcached-1.0.9](https://github.com/truecharts/apps/compare/memcached-1.0.8...memcached-1.0.9) (2021-11-22)
 
 #### Chore
 
@@ -1132,18 +1871,8 @@
 
 
 
-<a name="mariadb-1.0.6"></a>
-### [mariadb-1.0.6](https://github.com/truecharts/apps/compare/mariadb-1.0.5...mariadb-1.0.6) (2021-11-21)
-
-#### Fix
-
-* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
-* correctly use passwords when running the App directly
-
-
-
-<a name="mariadb-1.0.5"></a>
-### [mariadb-1.0.5](https://github.com/truecharts/apps/compare/mariadb-1.0.4...mariadb-1.0.5) (2021-11-18)
+<a name="memcached-1.0.7"></a>
+### [memcached-1.0.7](https://github.com/truecharts/apps/compare/memcached-1.0.6...memcached-1.0.7) (2021-11-18)
 
 #### Chore
 
@@ -1151,8 +1880,8 @@
 
 
 
-<a name="mariadb-1.0.4"></a>
-### [mariadb-1.0.4](https://github.com/truecharts/apps/compare/mariadb-1.0.3...mariadb-1.0.4) (2021-11-16)
+<a name="memcached-1.0.6"></a>
+### [memcached-1.0.6](https://github.com/truecharts/apps/compare/memcached-1.0.5...memcached-1.0.6) (2021-11-16)
 
 #### Chore
 
@@ -1160,8 +1889,8 @@
 
 
 
-<a name="mariadb-1.0.3"></a>
-### [mariadb-1.0.3](https://github.com/truecharts/apps/compare/mariadb-1.0.2...mariadb-1.0.3) (2021-11-16)
+<a name="memcached-1.0.5"></a>
+### [memcached-1.0.5](https://github.com/truecharts/apps/compare/memcached-1.0.4...memcached-1.0.5) (2021-11-16)
 
 #### Chore
 
@@ -1169,8 +1898,8 @@
 
 
 
-<a name="mariadb-1.0.2"></a>
-### [mariadb-1.0.2](https://github.com/truecharts/apps/compare/mariadb-1.0.1...mariadb-1.0.2) (2021-11-15)
+<a name="memcached-1.0.4"></a>
+### [memcached-1.0.4](https://github.com/truecharts/apps/compare/memcached-1.0.3...memcached-1.0.4) (2021-11-15)
 
 #### Chore
 
@@ -1178,17 +1907,17 @@
 
 
 
-<a name="mariadb-1.0.1"></a>
-### [mariadb-1.0.1](https://github.com/truecharts/apps/compare/mariadb-1.0.0...mariadb-1.0.1) (2021-11-15)
+<a name="memcached-1.0.3"></a>
+### [memcached-1.0.3](https://github.com/truecharts/apps/compare/memcached-1.0.2...memcached-1.0.3) (2021-11-15)
 
-#### Feat
+#### Chore
 
-* move postgresql to use statefullset and cleanup ([#1335](https://github.com/truecharts/apps/issues/1335))
+* update non-major ([#1336](https://github.com/truecharts/apps/issues/1336))
 
 
 
-<a name="mariadb-1.0.0"></a>
-### [mariadb-1.0.0](https://github.com/truecharts/apps/compare/mariadb-0.0.1...mariadb-1.0.0) (2021-11-15)
+<a name="memcached-1.0.2"></a>
+### [memcached-1.0.2](https://github.com/truecharts/apps/compare/memcached-1.0.1...memcached-1.0.2) (2021-11-15)
 
 #### Chore
 
@@ -1196,9 +1925,34 @@
 
 
 
-<a name="mariadb-0.0.1"></a>
-### mariadb-0.0.1 (2021-11-15)
+<a name="memcached-1.0.1"></a>
+### [memcached-1.0.1](https://github.com/truecharts/apps/compare/memcached-1.0.0...memcached-1.0.1) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+
+
+
+<a name="memcached-1.0.0"></a>
+### [memcached-1.0.0](https://github.com/truecharts/apps/compare/memcached-0.0.1...memcached-1.0.0) (2021-11-12)
 
 #### Feat
 
-* Add MariaDB App ([#1333](https://github.com/truecharts/apps/issues/1333))
+* move deps to incubator ([#1311](https://github.com/truecharts/apps/issues/1311))
+
+
+
+<a name="memcached-0.0.1"></a>
+### memcached-0.0.1 (2021-11-11)
+
+#### Feat
+
+* add memcached App ([#1307](https://github.com/truecharts/apps/issues/1307))

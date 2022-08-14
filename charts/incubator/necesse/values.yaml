@@ -1,0 +1,41 @@
+env:
+  GAME_ID: "1169370"
+  GAME_PARAMS: ""
+  WORLD_NAME: World
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/necesse
+  tag: latest@sha256:e42ae74ce015ae5c4283ea3ab00c187fac80ed7c35f7f6ed7a0121dc7826bd01
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9023
+        protocol: HTTP
+        targetPort: 8080
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 14159
+        protocol: UDP
+        targetPort: 14159
+
+portal:
+  enabled: true

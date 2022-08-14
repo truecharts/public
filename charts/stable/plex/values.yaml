@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
-  tag: v1.26.0.5715@sha256:28e7a442aabcdfdb7c3fff0080fc9606b78b85ade74913a067c2ed8213aeeb72
+  tag: 1.28.0.5999@sha256:1a8ea33f76cd96211243450529ce43c1eb887e4cf36a1ce86bbe00523d3db165
 
 service:
   main:
@@ -15,6 +15,10 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-
 env:
-  ALLOWED_NETWORKS: "172.16.0.0/16"
+  ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
+  ADVERTISE_IP: ""
+  PLEX_CLAIM: ""
+
+portal:
+  enabled: true

@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/cleanarr
+  tag: v2.1.3@sha256:bdc34c5c58197977ca557aeee075b050b5da8c09c594443cd14c4cdec123775e
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env:
+  BYPASS_SSL_VERIFY: '{{ ternary "1" "0" .Values.env.BYPASS_SSL_VERIFY_BOOL }}'
+  # User defined
+  BYPASS_SSL_VERIFY_BOOL: true
+  LIBRARY_NAMES: ""
+  PLEX_BASE_URL: ""
+  PLEX_TOKEN: ""
+  PAGE_SIZE: 50
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10247
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: true

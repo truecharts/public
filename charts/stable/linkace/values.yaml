@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/linkace
-  tag: v1.10.1@sha256:3b05433e4432392b028cce5c4d3ebe571b290cdad74d387c0c659c7603680156
+  tag: v1.10.2@sha256:9be04e26b1a25e6847bbad5a12e0198ec2fd8c36504c0f0e3cfad85f92f64850
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -10,6 +10,22 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+  fsGroup: 82
+
+# secretEnv:
+#   CRON_TOKEN: ""
+#   AWS_ACCESS_KEY_ID: ""
+#   AWS_SECRET_ACCESS_KEY: ""
+#   AWS_DEFAULT_REGION: ""
+#   AWS_BUCKET: ""
+#   MAIL_DRIVER: "smtp"
+#   MAIL_FROM_ADDRESS: ""
+#   MAIL_FROM_NAME: ""
+#   MAIL_HOST: ""
+#   MAIL_PORT: "587"
+#   MAIL_USERNAME: ""
+#   MAIL_PASSWORD: ""
+#   MAIL_ENCRYPTION: "tls"
 
 env:
   # Internal Envs
@@ -30,8 +46,6 @@ env:
   BACKUP_DISK: s3
   BACKUP_NOTIFICATION_EMAIL: your@email.com
   BACKUP_MAX_SIZE: 512
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -69,9 +83,6 @@ service:
         targetPort: 80
 
 persistence:
-  app:
-    enabled: true
-    mountPath: "/app"
   logs:
     enabled: true
     mountPath: "/app/storage/logs"
@@ -88,3 +99,6 @@ mariadb:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

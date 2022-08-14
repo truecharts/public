@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/appsmith
-  tag: v1.6.24@sha256:28e680a988dfcc008b19c3450a49dbdeff207f3fb7a20f8b681d0126c8d610b5
+  tag: 1.7.12@sha256:0bd674658ff0afcb3b7a96bb5398398cc80880a42b2fd421c4cc5d53e17cd43e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,6 +13,10 @@ podSecurityContext:
 
 env:
   APPSMITH_ADMIN_EMAILS: "me@example.com,you@example.com"
+  APPSMITH_REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
@@ -33,23 +37,15 @@ persistence:
     enabled: true
     mountPath: "/appsmith-stacks"
 
-envValueFrom:
-  # APPSMITH_MONGODB_URI:
-  #   secretKeyRef:
-  #     name: mongodbcreds
-  #     key: url
-  APPSMITH_REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: appsmith
-
 # mongodb:
 #   enabled: true
 #   mongodbUsername: appsmith
 #   mongodbDatabase: appsmith
 #   existingSecret: "mongodbcreds"
+
+portal:
+  enabled: true

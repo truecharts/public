@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Get branch name
         id: branch-name
-        uses: tj-actions/branch-names@9cd06d955f4184031cd71fbb1717ac268ade2ee0 # tag=v5.2
+        uses: tj-actions/branch-names@b0f914ba0e7aa1e243b53df97447f71eb57da09a # tag=v5.4
 
       - name: Save PR data to file
         env:
@@ -38,7 +38,7 @@ jobs:
           echo $PR_NUMBER > pr_number.txt
 
       - name: Store pr data in artifact
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
         with:
           name: pr_metadata
           path: ./pr_number.txt

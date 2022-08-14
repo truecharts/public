@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ipfs
   pullPolicy: IfNotPresent
-  tag: v0.12.2@sha256:699e26d962324d1f86936c63ca72eabb849f1722b3e8883a13c9bcd663733418
+  tag: 0.14.0@sha256:1c04a132be2779cea5aa7cb5079a80104824a7ccfff1ea9e95322e071e05e4a9
 
 securityContext:
   runAsNonRoot: false
@@ -67,3 +67,6 @@ persistence:
   ipns:
     enabled: true
     mountPath: "/ipns"
+
+portal:
+  enabled: true

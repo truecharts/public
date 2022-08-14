@@ -1,0 +1,39 @@
+env:
+  GAME_PARAMS: ""
+  GAME_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  SRV_NAME: DockerMindustry
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mindustry
+  tag: latest@sha256:9df1092bcabdcae2d9accebba16c69b0f264d0261e315228374d98a56d2edc16
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /mindustry
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6567
+        protocol: TCP
+        targetPort: 6567
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 6567
+        protocol: UDP
+        targetPort: 6567
+
+portal:
+  enabled: true

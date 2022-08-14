@@ -1,22 +1,8 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render configmap for openkm */}}
 {{- include "openkm.configmap" . }}
 
-{{/* Append the general secret volumes to the volumes */}}
-{{- define "openkm.initvolume" -}}
-enabled: "true"
-mountPath: "/config/init"
-readOnly: true
-type: "custom"
-volumeSpec:
-  configMap:
-    name: {{ include "common.names.fullname" . }}-init
-    defaultMode: 0777
-{{- end -}}
-
-{{- $_ := set .Values.persistence "init" (include "openkm.initvolume" . | fromYaml) -}}
-
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

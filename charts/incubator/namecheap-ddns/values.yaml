@@ -1,0 +1,31 @@
+env:
+  APP_DOMAIN: ""
+  APP_HOST: ""
+  APP_PASSWORD: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/namecheap-ddns
+  tag: latest@sha256:fcb0cacda3094eeca539289014d115207e005d2beefb279b31c07351d006d79a
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

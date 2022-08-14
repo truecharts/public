@@ -1,0 +1,70 @@
+image:
+  repository: tccr.io/truecharts/clickhouse
+  pullPolicy: IfNotPresent
+  tag: 22.7.3.5@sha256:c97a3593bd91989b13ae65ec143e10a3ca5083a949956e26ba8dd311b85b81bf
+
+controller:
+  type: statefulset
+  strategy: RollingUpdate
+  rollingUpdate:
+    unavailable: 1
+
+securityContext:
+  readOnlyRootFilesystem: false
+  # Optional capabilities advanced ClickHouse features. See also:
+  # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
+  # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
+  # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
+  # capabilities:
+  #   add:
+  #     - IPC_LOCK
+  #     - NET_ADMIN
+  #     - SYS_NICE
+
+service:
+  main:
+    ports:
+      main:
+        port: 8123
+        protocol: HTTP
+        targetPort: 8123
+
+volumeClaimTemplates:
+  data:
+    enabled: true
+    mountPath: /var/lib/clickhouse
+
+probes:
+  liveness:
+    type: HTTP
+    path: /ping
+  readiness:
+    type: HTTP
+    path: /ping
+  startup:
+    type: HTTP
+    path: /ping
+
+clickhouseDatabase: "test"
+clickhouseUsername: "test"
+clickhousePassword: "testpass"
+clickhouseDefaultAccessManagement: 0
+existingSecret: ""
+
+secret:
+  credentials:
+    enabled: true
+    data:
+      clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
+
+env:
+  CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
+  CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
+  CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
+  CLICKHOUSE_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "clickhouse-password"
+
+portal:
+  enabled: false

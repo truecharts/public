@@ -1,64 +1,126 @@
-# Changelog<br>
-
-
-<a name="zabbix-server-0.0.7"></a>
-### [zabbix-server-0.0.7](https://github.com/truecharts/apps/compare/zabbix-server-0.0.6...zabbix-server-0.0.7) (2022-05-05)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+# Changelog
 
 
 
-<a name="zabbix-server-0.0.6"></a>
-### [zabbix-server-0.0.6](https://github.com/truecharts/apps/compare/zabbix-server-0.0.5...zabbix-server-0.0.6) (2022-05-04)
+## [zabbix-server-2.0.30](https://github.com/truecharts/charts/compare/zabbix-server-2.0.29...zabbix-server-2.0.30) (2022-08-14)
 
-#### Chore
+### Chore
 
-* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
-
-
-
-<a name="zabbix-server-0.0.5"></a>
-### [zabbix-server-0.0.5](https://github.com/truecharts/apps/compare/zabbix-server-0.0.4...zabbix-server-0.0.5) (2022-04-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
 
 
 
-<a name="zabbix-server-0.0.4"></a>
-### [zabbix-server-0.0.4](https://github.com/truecharts/apps/compare/zabbix-server-0.0.3...zabbix-server-0.0.4) (2022-04-20)
 
-#### Chore
+## [zabbix-server-2.0.29](https://github.com/truecharts/charts/compare/zabbix-server-2.0.28...zabbix-server-2.0.29) (2022-08-12)
 
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+### Chore
 
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
+  ### Fix
 
-<a name="zabbix-server-0.0.3"></a>
-### [zabbix-server-0.0.3](https://github.com/truecharts/apps/compare/zabbix-server-0.0.2...zabbix-server-0.0.3) (2022-04-20)
-
-#### Chore
-
-* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 
 
 
-<a name="zabbix-server-0.0.2"></a>
-### [zabbix-server-0.0.2](https://github.com/truecharts/apps/compare/zabbix-server-0.0.1...zabbix-server-0.0.2) (2022-04-19)
 
-#### Fix
+## [zabbix-server-2.0.28](https://github.com/truecharts/charts/compare/zabbix-server-2.0.27...zabbix-server-2.0.28) (2022-08-09)
 
-* try to fix n8n gui issue not loading edit ([#2514](https://github.com/truecharts/apps/issues/2514))
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
 
 
 
-<a name="zabbix-server-0.0.1"></a>
-### zabbix-server-0.0.1 (2022-04-19)
 
-#### Feat
+## [zabbix-server-2.0.27](https://github.com/truecharts/charts/compare/zabbix-server-2.0.26...zabbix-server-2.0.27) (2022-08-08)
 
-* Init work for zabbix-server ([#2474](https://github.com/truecharts/apps/issues/2474))
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [zoneminder-0.0.14](https://github.com/truecharts/apps/compare/zoneminder-0.0.13...zoneminder-0.0.14) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [zoneminder-0.0.13](https://github.com/truecharts/apps/compare/zoneminder-0.0.12...zoneminder-0.0.13) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
+
+  ### Chore
+
+- add fake digest to new incubator Apps to fetch digests
+
+
+
+
+## [zoneminder-0.0.12](https://github.com/truecharts/apps/compare/zoneminder-0.0.11...zoneminder-0.0.12) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [zoneminder-0.0.12](https://github.com/truecharts/apps/compare/zoneminder-0.0.11...zoneminder-0.0.12) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [zoneminder-0.0.12](https://github.com/truecharts/apps/compare/zoneminder-0.0.11...zoneminder-0.0.12) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [zoneminder-0.0.11]zoneminder-0.0.11 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [zoneminder-0.0.10]zoneminder-0.0.10 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [zoneminder-0.0.10]zoneminder-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup

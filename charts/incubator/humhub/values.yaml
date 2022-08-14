@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/humhub
+  tag: latest@sha256:9e84a77bded46e6f371742f8d15fa83db1a8e00d69f5b372a9bd8b9326efd1b7
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 85
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

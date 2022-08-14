@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/mineos
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:9544dbcfe7d32ffae7626ef88b4ae4522e0381d15958865a301fed8a10368b4e
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+  USER_UID: "{{ .Values.security.PUID }}"
+  GROUP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+  GROUP_NAME: "{{ .Values.secretEnv.USER_NAME }}"
+  # User Defined
+  USE_HTTPS: false
+
+secretEnv:
+  USER_NAME: "mc"
+  USER_PASSWORD: "CHANGE_ME"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 10278
+        port: 10278
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/games/minecraft"
+
+portal:
+  enabled: true

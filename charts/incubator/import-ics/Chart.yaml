@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Runs a python script at a crontab defined interval that downloads/imports ics files into a caldav server.\r\n"
+home: https://truecharts.org/docs/charts/incubator/import-ics
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/import-ics.png
+keywords:
+  - import-ics
+  - Productivity
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: import-ics
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/import-ics
+  - https://github.com/Vilhjalmr26/import_ics
+  - https://hub.docker.com/repository/docker/vilhjalmr26/import_ics
+type: application
+version: 0.0.16

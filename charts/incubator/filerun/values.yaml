@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/filerun
-  tag: latest@sha256:cc7b8c11610fd5cde28301fa4f68b7d9609e61613fbfbc277c0491ad584a0256
+  tag: latest@sha256:8d0fb96cc91db060d912a3986dbecc0275f2e5d600b7731e7320e20e11e90f8b
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -15,8 +15,6 @@ env:
   FR_DB_NAME: "filerun"
   FR_DB_USER: "filerun"
   FR_DB_PORT: "3306"
-
-envValueFrom:
   FR_DB_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -46,3 +44,6 @@ mariadb:
   mariadbUsername: filerun
   mariadbDatabase: filerun
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

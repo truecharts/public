@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/commento-plusplus
+  tag: v1.8.7@sha256:1b94fb64b2482fc7a47f8d0b43ce594e7ae0b3621c5b2a4401aa8faa22a8edd1
+  pullPolicy: IfNotPresent
+
+env:
+  COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  COMMENTO_FORBID_NEW_OWNERS: false
+  COMMENTO_GZIP_STATIC: true
+  COMMENTO_ORIGIN: "http://localhost:8080"
+  COMMENTO_ENABLE_WILDCARDS: true
+  COMMENTO_ENABLE_LOGGING: false
+  SMTP_SKIP_HOST_VERIFY: false
+  COMMENTO_SMTP_USERNAME: ""
+  COMMENTO_SMTP_PASSWORD: ""
+  COMMENTO_SMTP_HOST: ""
+  COMMENTO_SMTP_FROM_ADDRESS: ""
+  COMMENTO_SMTP_PORT: 587
+  COMMENTO_POSTGRES:
+    secretKeyRef:
+      name: dbcreds
+      key: urlnossl
+
+service:
+  main:
+    ports:
+      main:
+        port: 10240
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: comment-plusplus
+  postgresqlDatabase: comment-plusplus
+
+portal:
+  enabled: true

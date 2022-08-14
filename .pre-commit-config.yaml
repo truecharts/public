@@ -1,21 +1,40 @@
 # See https://pre-commit.com for more information
 repos:
-- repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.1.10
-  hooks:
-  - id: remove-tabs
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.1.10
+    hooks:
+      - id: remove-tabs
 
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.0.1
-  hooks:
-  - id: trailing-whitespace
-  - id: end-of-file-fixer
-  - id: fix-byte-order-marker
-  - id: mixed-line-ending
-  - id: check-merge-conflict
-  - id: check-case-conflict
-  - id: check-executables-have-shebangs
-  - id: check-docstring-first
-  - id: check-symlinks
-  - id: destroyed-symlinks
-  - id: fix-byte-order-marker
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace # trims trailing whitespace.
+      - id: end-of-file-fixer # ensures that a file is either empty, or ends with one newline.
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending # replaces or checks mixed line ending.
+      - id: check-merge-conflict # checks for files that contain merge conflict strings.
+      - id: check-case-conflict # checks for files that would conflict in case-insensitive filesystems.
+      - id: check-executables-have-shebangs # ensures that (non-binary) executables have a shebang.
+      - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable.
+      - id: check-docstring-first
+      - id: check-symlinks
+      - id: destroyed-symlinks
+      - id: fix-byte-order-marker # removes utf-8 byte order marker.
+      - id: requirements-txt-fixer # sorts entries in requirements.txt.
+      - id: check-added-large-files # prevents giant files from being committed.
+      - id: check-yaml # checks yaml files for parseable syntax.
+        exclude: (templates\/.*|questions.yaml|chart_schema.yaml)
+      - id: detect-private-key # detects the presence of private keys.
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+      - id: text-unicode-replacement-char
+      - id: rst-backticks
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
+        exclude: (templates\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
+        files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$

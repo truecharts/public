@@ -1,0 +1,41 @@
+env:
+  CASEMAP: rfc1459
+  DATA_PERM: "770"
+  HOST: irc.example.com
+  IP_ADDR: ""
+  IRCD: inspircd3
+  LOCAL_HOSTNAME: services
+  PASSWORD: ""
+  PORT: "7000"
+  SSL: "yes"
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/anope
+  tag: latest@sha256:2159e379f1db579a89487f3c43ff2d27e4907a98860756fae1929f95821fccfa
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /anope
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

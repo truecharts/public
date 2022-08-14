@@ -1,0 +1,37 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Tools-Utilities
+    - Other
+    - MediaApp-Other
+    - MediaServer-Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Invitarr is a chatbot that invites discord users to plex. You can also automate this bot to invite discord users to plex once a certain role is given to a user or the user can also be added manually.
+home: https://truecharts.org/docs/charts/incubator/invitarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/invitarr.png
+keywords:
+  - invitarr
+  - HomeAutomation
+  - Tools-Utilities
+  - Other
+  - MediaApp-Other
+  - MediaServer-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: invitarr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/invitarr
+  - https://github.com/Sleepingpirates/Invitarr
+  - https://hub.docker.com/r/piratify/invitarr
+type: application
+version: 0.0.16

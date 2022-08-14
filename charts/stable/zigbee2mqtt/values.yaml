@@ -1,9 +1,9 @@
 image:
   repository: tccr.io/truecharts/zigbee2mqtt
-  tag: v1.25.1@sha256:4ff3af1c8e1814211b4754d7c3598b30f960594fb094abbccdfbf5f849f8460c
+  tag: 1.27.0@sha256:f8e2ba5bd604b6e8773898b1d7b70718f0e5a4ea5512608c5f71d95913bad950
   pullPolicy: IfNotPresent
 
-secret:
+secretEnv:
   ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
   ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
 
@@ -104,3 +104,6 @@ initContainers:
           echo "##########################################################" >> /data/configuration.yaml;
           echo 'Initial configuration file created at "/data/configuration.yaml"';
         fi;
+
+portal:
+  enabled: true

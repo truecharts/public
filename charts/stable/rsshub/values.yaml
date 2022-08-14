@@ -1,19 +1,21 @@
 image:
   repository: tccr.io/truecharts/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3c88809784b312e93984697d8f61a1728073bc0841d2717472fcc2573f83e391
+  tag: latest@sha256:03ca5071f4a1536626a4563484b85291128687acfd6448d0f1fe46ac7495c68c
 
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.53.0-chrome@sha256:bba7c84a5c8c3c2b9518d8543f08b3669eeeda16837af4dc4c8065b7d87be08e
+  tag: v1.54.0-chrome@sha256:b078160d79d98b8ec67ef9e367856f466f1454b87da808c76a8dcb3c5e5d3c18
 
-envValueFrom:
-  REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
-secret:
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
   HTTP_BASIC_AUTH_NAME: ""
   HTTP_BASIC_AUTH_PASS: ""
   BITBUCKET_USERNAME: ""
@@ -34,6 +36,10 @@ env:
   # ALLOW_ORIGIN: ""
   DISALLOW_ROBOT: false
   TITLE_LENGTH_LIMIT: 150
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
@@ -53,3 +59,6 @@ additionalContainers:
     ports:
       - containerPort: 3000
         name: main
+
+portal:
+  enabled: true

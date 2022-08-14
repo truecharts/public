@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Dropbox client which syncs a local path with your cloud.\r\n"
+home: https://truecharts.org/docs/charts/incubator/dropbox-by-otherguy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dropbox-by-otherguy.png
+keywords:
+  - dropbox-by-otherguy
+  - Cloud
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: dropbox-by-otherguy
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dropbox-by-otherguy
+  - https://github.com/otherguy/docker-dropbox
+  - https://hub.docker.com/r/otherguy/dropbox
+type: application
+version: 0.0.16

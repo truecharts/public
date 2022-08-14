@@ -1,0 +1,19 @@
+  - variable: customcommand
+    group: Controller
+    label: "Custom Command"
+    description: "Do not click this unless you know what you are doing"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: command
+          label: Command
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: param
+                label: Param
+                schema:
+                  type: string

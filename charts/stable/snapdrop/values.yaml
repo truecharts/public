@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/snapdrop
-  tag: latest@sha256:a8831aeb3cfb46bc714b680ff97d37991f8e871de40027931428909c14250543
+  tag: latest@sha256:55bf9fad30099d2cd5f6fc7fa41b9c06ebae139a649c8be6f8a4e998bb46cf16
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -22,3 +22,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

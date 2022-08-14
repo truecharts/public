@@ -1,0 +1,211 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: EXTRA_PARAMS
+          label: 'EXTRA_PARAMS'
+          description: "Leave empty if not needed (eg -upnp, -dns,... without quotes)"
+          schema:
+            type: string
+            default: "-bind=0.0.0.0"
+        - variable: CUSTOM_RES_H
+          label: 'CUSTOM_RES_H'
+          description: "Minimum screen hight 768 pixels"
+          schema:
+            type: string
+            default: "768"
+        - variable: UMASK
+          label: 'UMASK'
+          description: "Container Variable UMASK"
+          schema:
+            type: string
+            default: "000"
+        - variable: DATA_PERM
+          label: 'DATA_PERM'
+          description: "Container Variable DATAPERM"
+          schema:
+            type: string
+            default: "770"
+        - variable: CUSTOM_RES_W
+          label: 'CUSTOM_RES_W'
+          description: "Minimum screen width 1024 pixels"
+          schema:
+            type: string
+            default: "1024"
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8080
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8080
+        - variable: peertopeerconn
+          label: 'peertopeerconn service'
+          description: "TCP Port for Peer to Peer connection"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: peertopeerconn
+                      label: "peertopeerconn Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 7408
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 7408
+        - variable: jsonremoteport
+          label: 'jsonremoteport service'
+          description: "TCP Port for Remote Connections"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: jsonremoteport
+                      label: "jsonremoteport Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 7474
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 7474
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: datapath
+          label: "datapath Storage"
+          description: "Please keep in mind that your wallet is stored there and I strongly recommend you to backup that path (the wallet is stored in your FlutterCoin appdata directory.fluttercoinwallet.dat)."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{documentation}

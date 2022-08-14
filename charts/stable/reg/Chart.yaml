@@ -1,25 +1,25 @@
 apiVersion: v2
 appVersion: "0.16.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-description: Docker registry v2 command line client and repo listing generator with
-  security checks.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/reg
-icon: https://truecharts.org/_static/img/appicons/reg.png
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: Docker registry v2 command line client and repo listing generator with security checks.
+home: https://truecharts.org/docs/charts/stable/reg
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.png
 keywords:
-- reg
-kubeVersion: '>=1.16.0-0'
+  - reg
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: reg
 sources:
-- https://github.com/genuinetools/reg
-- https://github.com/k8s-at-home/container-images/
-version: 5.0.13
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
+  - https://github.com/genuinetools/reg
+  - https://github.com/k8s-at-home/container-images/
+version: 6.0.25
 annotations:
   truecharts.org/catagories: |
     - utilities

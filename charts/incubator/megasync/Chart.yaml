@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Other
+    - Productivity
+    - Tools-Utilities
+    - Backup
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "MEGAsync is an intuitive application that enables you to effortlessly synchronize folders on several computers. You simply need to upload data in the cloud and, within seconds, you can explore the same documents on your own PC.\r\n"
+home: https://truecharts.org/docs/charts/incubator/megasync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/megasync.png
+keywords:
+  - megasync
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
+  - Backup
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: megasync
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/megasync
+  - https://hub.docker.com/r/ich777/doh-server
+  - https://hub.docker.com/r/ich777/megasync
+type: application
+version: 0.0.16

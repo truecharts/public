@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/sonarr
   pullPolicy: IfNotPresent
-  tag: v3.0.8.1507@sha256:4b8fb0dbc0b80d9ab5272b85ba07fb4f90f1bb70280110386d426228a75b09b9
+  tag: 3.0.9.1549@sha256:aa0789b02c18057a5afaaf4eb8aaf836f0f0e5dd98b8509019f838e28a1be6b5
 
 service:
   main:
@@ -20,11 +20,11 @@ probes:
     spec:
       exec:
         command:
-        - /usr/bin/env
-        - bash
-        - -c
-        - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
-          read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+          - /usr/bin/env
+          - bash
+          - -c
+          - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
+            read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
       failureThreshold: 5
       initialDelaySeconds: 60
       periodSeconds: 10
@@ -35,3 +35,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

@@ -1,0 +1,34 @@
+env:
+  BASIC_AUTH: "True"
+  BASIC_AUTH_PASSWORD: x
+  BASIC_AUTH_USERNAME: x
+  DEBUG: "False"
+  EXCLUDE_IPS: ""
+  SKIP_ARCHIVED_LOGS: "False"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/goaccess-npm-logs
+  tag: latest@sha256:a5c19e2553d78195093fe8b7ba20b3fb464d94ebf69b368229397616b2a66376
+persistence:
+  hostpath1:
+    enabled: true
+    mountPath: /opt/log
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7880
+        protocol: TCP
+        targetPort: 7880
+
+portal:
+  enabled: true

@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - Network-FTP
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/filegator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/filegator.png
+keywords:
+  - filegator
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - Network-FTP
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: filegator
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/filegator
+  - https://github.com/filegator/filegator
+  - https://hub.docker.com/r/maxime1907/filegator
+type: application
+version: 0.0.16

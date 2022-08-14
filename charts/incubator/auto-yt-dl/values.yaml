@@ -1,0 +1,30 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/auto-yt-dl
+  tag: latest@sha256:96ddfa8c81e221831cb28c026f328a35320f588332464e24378d5a0ede9c351e
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+  hostpath1:
+    enabled: true
+    mountPath: /app/Downloads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5000
+        protocol: TCP
+        targetPort: 5000
+
+portal:
+  enabled: true

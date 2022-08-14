@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/emulatorjs
   pullPolicy: IfNotPresent
-  tag: v1.7.1
+  tag: v1.7.2
 
 securityContext:
   runAsNonRoot: false
@@ -32,9 +32,19 @@ service:
         targetPort: 4001
         port: 10138
 
+ingress:
+  front:
+    autoLink: true
+
 persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
   data:
     enabled: true
     mountPath: "/data"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

@@ -1,4 +1,691 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [jackett-11.0.58](https://github.com/truecharts/charts/compare/jackett-11.0.57...jackett-11.0.58) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [jackett-11.0.57](https://github.com/truecharts/charts/compare/jackett-11.0.56...jackett-11.0.57) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [jackett-11.0.56](https://github.com/truecharts/charts/compare/jackett-11.0.55...jackett-11.0.56) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [jackett-11.0.55](https://github.com/truecharts/charts/compare/jackett-11.0.54...jackett-11.0.55) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [jackett-11.0.54](https://github.com/truecharts/charts/compare/jackett-11.0.52...jackett-11.0.54) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [jackett-11.0.52](https://github.com/truecharts/apps/compare/jackett-11.0.51...jackett-11.0.52) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [jackett-11.0.51](https://github.com/truecharts/apps/compare/jackett-11.0.50...jackett-11.0.51) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
+## [jackett-11.0.50](https://github.com/truecharts/apps/compare/jackett-11.0.49...jackett-11.0.50) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [jackett-11.0.49](https://github.com/truecharts/apps/compare/jackett-11.0.48...jackett-11.0.49) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [jackett-11.0.48](https://github.com/truecharts/apps/compare/jackett-11.0.47...jackett-11.0.48) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [jackett-11.0.48](https://github.com/truecharts/apps/compare/jackett-11.0.47...jackett-11.0.48) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [jackett-11.0.47](https://github.com/truecharts/apps/compare/jackett-11.0.46...jackett-11.0.47) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
+
+
+
+
+## [jackett-11.0.47](https://github.com/truecharts/apps/compare/jackett-11.0.46...jackett-11.0.47) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
+
+
+
+
+## [jackett-11.0.47](https://github.com/truecharts/apps/compare/jackett-11.0.46...jackett-11.0.47) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
+
+
+
+
+## [jackett-11.0.46](https://github.com/truecharts/apps/compare/jackett-11.0.44...jackett-11.0.46) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update container image tccr.io/truecharts/jackett to v0.20.1326 ([#3267](https://github.com/truecharts/apps/issues/3267))
+
+
+
+## [jackett-11.0.44](https://github.com/truecharts/apps/compare/jackett-11.0.43...jackett-11.0.44) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [jackett-11.0.43](https://github.com/truecharts/apps/compare/jackett-11.0.42...jackett-11.0.43) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [jackett-11.0.42](https://github.com/truecharts/apps/compare/jackett-11.0.40...jackett-11.0.42) (2022-07-19)
+
+### Fix
+
+- fix broken readme
+
+
+
+## [jackett-11.0.40](https://github.com/truecharts/apps/compare/jackett-11.0.38...jackett-11.0.40) (2022-07-19)
+
+
+
+## [jackett-11.0.38](https://github.com/truecharts/apps/compare/jackett-11.0.37...jackett-11.0.38) (2022-07-19)
+
+
+
+## [jackett-11.0.37](https://github.com/truecharts/apps/compare/jackett-11.0.36...jackett-11.0.37) (2022-07-19)
+
+### Chore
+
+- ReadmeCI is barfing
+
+
+
+## [jackett-11.0.36](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.36) (2022-07-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+### Fix
+
+- revert part of the readme changes
+
+
+
+## [jackett-11.0.35](https://github.com/truecharts/apps/compare/jackett-11.0.34...jackett-11.0.35) (2022-07-19)
+
+### Fix
+
+- revert part of the readme changes
+
+
+
+## [jackett-11.0.34](https://github.com/truecharts/apps/compare/jackett-11.0.33...jackett-11.0.34) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
+## [jackett-11.0.33](https://github.com/truecharts/apps/compare/jackett-11.0.32...jackett-11.0.33) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [jackett-11.0.32](https://github.com/truecharts/apps/compare/jackett-11.0.31...jackett-11.0.32) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
+## [jackett-11.0.31](https://github.com/truecharts/apps/compare/jackett-11.0.30...jackett-11.0.31) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [jackett-11.0.30](https://github.com/truecharts/apps/compare/jackett-11.0.28...jackett-11.0.30) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [jackett-11.0.28](https://github.com/truecharts/apps/compare/jackett-11.0.27...jackett-11.0.28) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
+## [jackett-11.0.27](https://github.com/truecharts/apps/compare/jackett-11.0.26...jackett-11.0.27) (2022-07-13)
+
+### Chore
+
+- update docker general non-major ([#3157](https://github.com/truecharts/apps/issues/3157))
+
+
+
+## [jackett-11.0.26](https://github.com/truecharts/apps/compare/jackett-11.0.24...jackett-11.0.26) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [jackett-11.0.24](https://github.com/truecharts/apps/compare/jackett-11.0.23...jackett-11.0.24) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="jackett-11.0.23"></a>
+### [jackett-11.0.23](https://github.com/truecharts/apps/compare/jackett-11.0.22...jackett-11.0.23) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
+
+
+<a name="jackett-11.0.22"></a>
+### [jackett-11.0.22](https://github.com/truecharts/apps/compare/jackett-11.0.21...jackett-11.0.22) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="jackett-11.0.21"></a>
+### [jackett-11.0.21](https://github.com/truecharts/apps/compare/jackett-11.0.20...jackett-11.0.21) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="jackett-11.0.20"></a>
+### [jackett-11.0.20](https://github.com/truecharts/apps/compare/jackett-11.0.19...jackett-11.0.20) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="jackett-11.0.19"></a>
+### [jackett-11.0.19](https://github.com/truecharts/apps/compare/jackett-11.0.18...jackett-11.0.19) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="jackett-11.0.18"></a>
+### [jackett-11.0.18](https://github.com/truecharts/apps/compare/jackett-11.0.17...jackett-11.0.18) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
+<a name="jackett-11.0.17"></a>
+### [jackett-11.0.17](https://github.com/truecharts/apps/compare/jackett-11.0.16...jackett-11.0.17) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+
+
+
+<a name="jackett-11.0.16"></a>
+### [jackett-11.0.16](https://github.com/truecharts/apps/compare/jackett-11.0.15...jackett-11.0.16) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
+<a name="jackett-11.0.15"></a>
+### [jackett-11.0.15](https://github.com/truecharts/apps/compare/jackett-11.0.14...jackett-11.0.15) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="jackett-11.0.14"></a>
+### [jackett-11.0.14](https://github.com/truecharts/apps/compare/jackett-11.0.13...jackett-11.0.14) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="jackett-11.0.13"></a>
+### [jackett-11.0.13](https://github.com/truecharts/apps/compare/jackett-11.0.12...jackett-11.0.13) (2022-06-22)
+
+#### Chore
+
+* update docker general non-major ([#2954](https://github.com/truecharts/apps/issues/2954))
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="jackett-11.0.12"></a>
+### [jackett-11.0.12](https://github.com/truecharts/apps/compare/jackett-11.0.11...jackett-11.0.12) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
+<a name="jackett-11.0.11"></a>
+### [jackett-11.0.11](https://github.com/truecharts/apps/compare/jackett-11.0.10...jackett-11.0.11) (2022-06-17)
+
+#### Chore
+
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+
+
+
+<a name="jackett-11.0.10"></a>
+### [jackett-11.0.10](https://github.com/truecharts/apps/compare/jackett-11.0.9...jackett-11.0.10) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
+<a name="jackett-11.0.9"></a>
+### [jackett-11.0.9](https://github.com/truecharts/apps/compare/jackett-11.0.8...jackett-11.0.9) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
+<a name="jackett-11.0.8"></a>
+### [jackett-11.0.8](https://github.com/truecharts/apps/compare/jackett-11.0.7...jackett-11.0.8) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="jackett-11.0.7"></a>
+### [jackett-11.0.7](https://github.com/truecharts/apps/compare/jackett-11.0.6...jackett-11.0.7) (2022-06-14)
+
+#### Chore
+
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
+<a name="jackett-11.0.6"></a>
+### [jackett-11.0.6](https://github.com/truecharts/apps/compare/jackett-11.0.5...jackett-11.0.6) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+* update docker general non-major ([#2856](https://github.com/truecharts/apps/issues/2856))
+
+
+
+<a name="jackett-11.0.5"></a>
+### [jackett-11.0.5](https://github.com/truecharts/apps/compare/jackett-11.0.4...jackett-11.0.5) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="jackett-11.0.4"></a>
+### [jackett-11.0.4](https://github.com/truecharts/apps/compare/jackett-11.0.3...jackett-11.0.4) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
+<a name="jackett-11.0.3"></a>
+### [jackett-11.0.3](https://github.com/truecharts/apps/compare/jackett-11.0.2...jackett-11.0.3) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="jackett-11.0.3"></a>
+### [jackett-11.0.3](https://github.com/truecharts/apps/compare/jackett-11.0.2...jackett-11.0.3) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="jackett-11.0.3"></a>
+### [jackett-11.0.3](https://github.com/truecharts/apps/compare/jackett-11.0.2...jackett-11.0.3) (2022-06-08)
+
+#### Chore
+
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="jackett-11.0.2"></a>
+### [jackett-11.0.2](https://github.com/truecharts/apps/compare/jackett-11.0.1...jackett-11.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="jackett-11.0.1"></a>
+### [jackett-11.0.1](https://github.com/truecharts/apps/compare/jackett-10.0.54...jackett-11.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update docker general non-major ([#2831](https://github.com/truecharts/apps/issues/2831))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="jackett-11.0.0"></a>
+### [jackett-11.0.0](https://github.com/truecharts/apps/compare/jackett-10.0.54...jackett-11.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="jackett-10.0.54"></a>
+### [jackett-10.0.54](https://github.com/truecharts/apps/compare/jackett-10.0.53...jackett-10.0.54) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="jackett-10.0.53"></a>
+### [jackett-10.0.53](https://github.com/truecharts/apps/compare/jackett-10.0.52...jackett-10.0.53) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
+<a name="jackett-10.0.52"></a>
+### [jackett-10.0.52](https://github.com/truecharts/apps/compare/jackett-10.0.51...jackett-10.0.52) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="jackett-10.0.52"></a>
+### [jackett-10.0.52](https://github.com/truecharts/apps/compare/jackett-10.0.51...jackett-10.0.52) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="jackett-10.0.51"></a>
+### [jackett-10.0.51](https://github.com/truecharts/apps/compare/jackett-10.0.50...jackett-10.0.51) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
+<a name="jackett-10.0.50"></a>
+### [jackett-10.0.50](https://github.com/truecharts/apps/compare/jackett-10.0.49...jackett-10.0.50) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="jackett-10.0.49"></a>
+### [jackett-10.0.49](https://github.com/truecharts/apps/compare/jackett-10.0.48...jackett-10.0.49) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="jackett-10.0.48"></a>
+### [jackett-10.0.48](https://github.com/truecharts/apps/compare/jackett-10.0.46...jackett-10.0.48) (2022-05-18)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm general non-major helm releases
+
+
+
+<a name="jackett-10.0.47"></a>
+### [jackett-10.0.47](https://github.com/truecharts/apps/compare/jackett-10.0.46...jackett-10.0.47) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="jackett-10.0.46"></a>
+### [jackett-10.0.46](https://github.com/truecharts/apps/compare/jackett-10.0.45...jackett-10.0.46) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="jackett-10.0.45"></a>
+### [jackett-10.0.45](https://github.com/truecharts/apps/compare/jackett-10.0.44...jackett-10.0.45) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
+<a name="jackett-10.0.44"></a>
+### [jackett-10.0.44](https://github.com/truecharts/apps/compare/jackett-10.0.43...jackett-10.0.44) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="jackett-10.0.43"></a>
+### [jackett-10.0.43](https://github.com/truecharts/apps/compare/jackett-10.0.42...jackett-10.0.43) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="jackett-10.0.42"></a>
+### [jackett-10.0.42](https://github.com/truecharts/apps/compare/jackett-10.0.41...jackett-10.0.42) (2022-05-11)
+
+#### Chore
+
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
+<a name="jackett-10.0.41"></a>
+### [jackett-10.0.41](https://github.com/truecharts/apps/compare/jackett-10.0.40...jackett-10.0.41) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="jackett-10.0.40"></a>
+### [jackett-10.0.40](https://github.com/truecharts/apps/compare/jackett-10.0.39...jackett-10.0.40) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
 
 
 <a name="jackett-10.0.39"></a>

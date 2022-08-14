@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/collabora
+  tag: 22.05.5.2.1@sha256:170c04d76fd27be1dc4fdbc341d1edc1e1b87228a986f93eeef205bbc4962eeb
+  pullPolicy: IfNotPresent
+
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: statefulset
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable: 1
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
+
+securityContext:
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+
+podSecurityContext:
+  runAsUser: 104
+  runAsGroup: 106
+
+service:
+  main:
+    ports:
+      main:
+        port: 10105
+        targetPort: 9980
+
+secretEnv:
+  username: ""
+  password: ""
+
+env:
+  aliasgroup1: ""
+  dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+  extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
+  server_name: "collabora.domain.tld"
+  DONT_GEN_SSL_CERT: true
+
+portal:
+  enabled: true

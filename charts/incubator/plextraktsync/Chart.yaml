@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - MediaApp-Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Cette app permet de synchroniser le contenu de votre bibliotheque plex (pas de plexpass obligatoire) avec le site trakt.tv .\r\n"
+home: https://truecharts.org/docs/charts/incubator/plextraktsync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plextraktsync.png
+keywords:
+  - plextraktsync
+  - Tools-Utilities
+  - MediaApp-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: plextraktsync
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plextraktsync
+  - https://github.com/Taxel/PlexTraktSync
+  - https://ghcr.io/taxel/plextraktsync
+type: application
+version: 0.0.20

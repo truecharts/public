@@ -1,13 +1,14 @@
 image:
   repository: tccr.io/truecharts/photoprism
-  tag: v220302@sha256:f05558b5266dfa3a1612be2de98099e864a6b554a9df6df2409b4a2b32804848
+  tag: v220730@sha256:0b709a02df8db19868fba86a927b6709d4daa3a14bb8a3c1b77142b4c4274898
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-secret:
+secretEnv:
   PHOTOPRISM_ADMIN_PASSWORD: "please-change"
+
 env:
   HOME: "/photoprism"
   PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
@@ -25,8 +26,6 @@ env:
   PHOTOPRISM_DATABASE_DRIVER: "mysql"
   PHOTOPRISM_DATABASE_NAME: "photoprism"
   PHOTOPRISM_DATABASE_USER: "photoprism"
-
-envValueFrom:
   PHOTOPRISM_DATABASE_SERVER:
     secretKeyRef:
       name: mariadbcreds
@@ -57,3 +56,6 @@ mariadb:
   mariadbUsername: photoprism
   mariadbDatabase: photoprism
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

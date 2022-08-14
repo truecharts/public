@@ -1,23 +1,24 @@
 apiVersion: v2
 appVersion: "latest"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/website-shot
-icon: https://truecharts.org/_static/img/appicons/website-shot.png
+home: https://truecharts.org/docs/charts/stable/website-shot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/website-shot.png
 keywords:
-- website-shot
-kubeVersion: '>=1.16.0-0'
+  - website-shot
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: website-shot
 sources:
-- https://github.com/Flowko/website-shot
-version: 1.0.3
+  - https://github.com/truecharts/charts/tree/master/charts/stable/website-shot
+  - https://github.com/Flowko/website-shot
+version: 2.0.26
 annotations:
   truecharts.org/catagories: |
     - media

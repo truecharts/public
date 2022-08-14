@@ -1,0 +1,43 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/glauth
+  tag: latest@sha256:3712098e07a31c50775d07575396665b0f8a60f019e503589088cf4c8838f7cd
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  ldapport:
+    enabled: true
+    ports:
+      ldapport:
+        enabled: true
+        port: 389
+        protocol: TCP
+        targetPort: 389
+  ldapsport:
+    enabled: true
+    ports:
+      ldapsport:
+        enabled: true
+        port: 636
+        protocol: TCP
+        targetPort: 636
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5555
+        protocol: HTTP
+        targetPort: 5555
+
+portal:
+  enabled: true

@@ -1,17 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
-
-{{/* Append the configMap volume to the volumes */}}
-{{- define "mosquitto.configVolume" -}}
-enabled: "true"
-mountPath: "/mosquitto/config/mosquitto.conf"
-subPath: "mosquitto.conf"
-type: "custom"
-volumeSpec:
-  configMap:
-    name: {{ template "common.names.fullname" . }}-config
-{{- end -}}
-{{- $_ := set .Values.persistence "mosquitto-config" (include "mosquitto.configVolume" . | fromYaml) -}}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

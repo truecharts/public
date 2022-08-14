@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "a xml grabber for enigma with open webif\r\n"
+home: https://truecharts.org/docs/charts/incubator/owi2plex
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/owi2plex.png
+keywords:
+  - owi2plex
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: owi2plex
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/owi2plex
+  - https://github.com/alturismo/owi2plex
+  - https://hub.docker.com/r/alturismo/owi2plex
+type: application
+version: 0.0.16

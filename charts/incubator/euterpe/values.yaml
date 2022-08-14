@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/euterpe
+  tag: latest@sha256:b32e4ebe985420c21ddbc9438bf8b16a4a7f15138cd14c53d3a7b8fc4a4095d6
+persistence:
+  storagelibrary:
+    enabled: true
+    mountPath: /root/Music
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9996
+        protocol: TCP
+        targetPort: 9996
+
+portal:
+  enabled: true

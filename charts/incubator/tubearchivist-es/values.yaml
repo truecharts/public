@@ -1,0 +1,31 @@
+env:
+  ELASTIC_PASSWORD: verysecret
+  ES_JAVA_OPTS: -Xms512m -Xmx512m
+  discovery.type: single-node
+  xpack.security.enabled: "true"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tubearchivist-es
+  tag: latest@sha256:9194c6f77711a2dd29fae4bf30713be11a459a19e44e1f0a9fe1e818446a757b
+persistence:
+  data:
+    enabled: true
+    mountPath: /usr/share/elasticsearch/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9200
+        protocol: TCP
+        targetPort: 9200
+
+portal:
+  enabled: true

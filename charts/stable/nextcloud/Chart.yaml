@@ -1,39 +1,43 @@
 apiVersion: v2
-appVersion: "23.0.4"
+appVersion: "24.0.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 7.0.54
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 2.0.45
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.55
+  - condition: collabora.enabled
+    name: collabora-online
+    repository: https://charts.truecharts.org/
+    version: 12.1.27
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.53
 deprecated: false
-description: A private cloud server that puts the control and security of your own
-  data back into your hands.
-home: https://nextcloud.com/
-icon: https://truecharts.org/_static/img/appicons/nextcloud.png
+description: A private cloud server that puts the control and security of your own data back into your hands.
+home: https://truecharts.org/docs/charts/stable/nextcloud
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 keywords:
-- nextcloud
-- storage
-- http
-- web
-- php
-kubeVersion: '>=1.16.0-0'
+  - nextcloud
+  - storage
+  - http
+  - web
+  - php
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: nextcloud
 sources:
-- https://github.com/nextcloud/docker
-- https://github.com/nextcloud/helm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
+  - https://github.com/nextcloud/docker
+  - https://github.com/nextcloud/helm
 type: application
-version: 12.0.24
+version: 15.2.38
 annotations:
   truecharts.org/catagories: |
     - cloud

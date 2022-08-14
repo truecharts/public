@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "RadarrSync Syncs two Radarr servers through web API. This is a modified version designed to be run in a docker container. This version supports only two servers.\r\n"
+home: https://truecharts.org/docs/charts/incubator/radarrsync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/radarrsync.png
+keywords:
+  - radarrsync
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: radarrsync
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/radarrsync
+  - https://github.com/dairefinn/RadarrSync
+  - https://hub.docker.com/r/dmanius/radarrsync-docker/
+type: application
+version: 0.0.16

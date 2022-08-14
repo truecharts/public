@@ -1,26 +1,27 @@
 apiVersion: v2
-appVersion: "22.02.2"
+appVersion: "22.07.2"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: A dead simple static homepage for your server to keep your services on hand.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/homer
-icon: https://truecharts.org/_static/img/appicons/homer.png
+home: https://truecharts.org/docs/charts/stable/homer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homer.png
 keywords:
-- homer
-- dashboard
-- launcher
-kubeVersion: '>=1.16.0-0'
+  - homer
+  - dashboard
+  - launcher
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: homer
 sources:
-- https://github.com/bastienwirtz/homer
-- https://hub.docker.com/r/b4bz/homer
-version: 1.0.10
+  - https://github.com/truecharts/charts/tree/master/charts/stable/homer
+  - https://github.com/bastienwirtz/homer
+  - https://hub.docker.com/r/b4bz/homer
+version: 2.0.30
 annotations:
   truecharts.org/catagories: |
     - media

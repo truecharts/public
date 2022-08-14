@@ -1,44 +1,45 @@
 apiVersion: v2
-appVersion: "4.35.2"
+appVersion: "4.36.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 7.0.54
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 2.0.45
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.55
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.53
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
-home: https://github.com/truecharts/apps/tree/master/charts/stable/authelia
-icon: https://truecharts.org/_static/img/appicons/authelia.png
+home: https://truecharts.org/docs/charts/stable/authelia
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 keywords:
-- authelia
-- authentication
-- login
-- SSO
-- Authentication
-- Security
-- Two-Factor
-- U2F
-- YubiKey
-- Push Notifications
-- LDAP
-kubeVersion: '>=1.16.0-0'
+  - authelia
+  - authentication
+  - login
+  - SSO
+  - Authentication
+  - Security
+  - Two-Factor
+  - U2F
+  - YubiKey
+  - Push Notifications
+  - LDAP
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: authelia
 sources:
-- https://github.com/authelia/chartrepo
-- https://github.com/authelia/authelia
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authelia
+  - https://github.com/authelia/chartrepo
+  - https://github.com/authelia/authelia
 type: application
-version: 9.0.23
+version: 11.0.35
 annotations:
   truecharts.org/catagories: |
     - security

@@ -1,0 +1,33 @@
+env:
+  MQTT_HOST: ""
+  MQTT_PASS: ""
+  MQTT_USER: ""
+  TOPIC_PREFIX: venstar2mqtt
+  VENSTAR_HOST: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/venstar2mqtt
+  tag: latest@sha256:45bc2a2b290273501d6c8af6381e7cd12f6b4cd77c4fafc51f5448ed3ca65a1f
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

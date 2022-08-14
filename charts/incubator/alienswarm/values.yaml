@@ -1,0 +1,52 @@
+env:
+  GAME_ID: "635"
+  GAME_NAME: swarm
+  GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
+  GAME_PORT: "27015"
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/alienswarm
+  tag: latest@sha256:854ecf0ff4ee413bd325cf2b595f17f40792fb3af99b49b292a3fa77e1d93293
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+  readiness:
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+  startup:
+    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+  tcprconport:
+    enabled: true
+    ports:
+      tcprconport:
+        enabled: true
+        port: 27015
+        protocol: TCP
+        targetPort: 27015
+
+portal:
+  enabled: true

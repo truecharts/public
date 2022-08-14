@@ -1,0 +1,64 @@
+image:
+  repository: tccr.io/truecharts/dupeguru
+  tag: v1.13.0@sha256:23738a4f8293ca6b84b2094094303530ae311cd898c7428004daea91efc6a604
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10260
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10261
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+dupeguru:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+
+configmap:
+  dupeguru:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.dupeguru.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.dupeguru.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+  trash:
+    enabled: true
+    mountPath: "/trash"
+
+portal:
+  enabled: true

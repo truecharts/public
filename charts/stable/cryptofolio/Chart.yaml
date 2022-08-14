@@ -1,23 +1,24 @@
 apiVersion: v2
 appVersion: "2.2.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: Track your cryptocurrency holdings/portfolio
-home: https://github.com/truecharts/apps/tree/master/charts/stable/cryptofolio
-icon: https://truecharts.org/_static/img/appicons/cryptofolio.png
+home: https://truecharts.org/docs/charts/stable/cryptofolio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptofolio.png
 keywords:
-- cryptofolio
-kubeVersion: '>=1.16.0-0'
+  - cryptofolio
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: cryptofolio
 sources:
-- https://github.com/Xtrendence/cryptofolio
-version: 3.0.13
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cryptofolio
+  - https://github.com/Xtrendence/cryptofolio
+version: 4.0.27
 annotations:
   truecharts.org/catagories: |
     - media

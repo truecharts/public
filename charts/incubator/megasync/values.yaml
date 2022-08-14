@@ -1,0 +1,34 @@
+env:
+  CUSTOM_RES_H: "600"
+  CUSTOM_RES_W: "800"
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/megasync
+  tag: latest@sha256:6989fa1c6978e64bb95fe4017edc68fb702bd1d24afab59696c363281ed40df9
+persistence:
+  datadir:
+    enabled: true
+    mountPath: /megasync/.local/share/data/Mega Limited/MEGAsync
+  hostpath:
+    enabled: true
+    mountPath: /mnt/host
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+
+portal:
+  enabled: true

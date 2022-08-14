@@ -1,30 +1,30 @@
 apiVersion: v2
 appVersion: "154c581"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-description: A web app that allows you to create smart bookmarks, commands and aliases
-  by pointing your web browser's default search engine at a running instance.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/golinks
-icon: https://truecharts.org/_static/img/appicons/golinks.png
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
+home: https://truecharts.org/docs/charts/stable/golinks
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.png
 keywords:
-- search
-- browser
-- bookmarks
-- smart-bookmarks
-- golinks
-kubeVersion: '>=1.16.0-0'
+  - search
+  - browser
+  - bookmarks
+  - smart-bookmarks
+  - golinks
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: golinks
 sources:
-- https://github.com/prologic/golinks
-- https://github.com/nicholaswilde/docker-golinks
+  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
+  - https://github.com/prologic/golinks
+  - https://github.com/nicholaswilde/docker-golinks
 type: application
-version: 3.0.13
+version: 4.0.24
 annotations:
   truecharts.org/catagories: |
     - media

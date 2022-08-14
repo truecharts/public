@@ -1,0 +1,30 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/yacreaderlibraryserver
+  tag: latest@sha256:a14988e12c16d810ae8f8aeb9254662a2dbca67b3a9b62694b0d89a6849cf83c
+persistence:
+  comics:
+    enabled: true
+    mountPath: /comics
+  config:
+    enabled: true
+    mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+
+portal:
+  enabled: true

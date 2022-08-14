@@ -1,27 +1,28 @@
 apiVersion: v2
-appVersion: "3.0.25"
+appVersion: "3.2.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 deprecated: false
 description: OpenSource Radius implementation
-home: https://www.openldap.org
-icon: https://truecharts.org/_static/img/appicons/freeradius.png
+home: https://truecharts.org/docs/charts/stable/freeradius
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/freeradius.png
 keywords:
-- radius
-- auth
-kubeVersion: '>=1.16.0-0'
+  - radius
+  - auth
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: freeradius
 sources:
-- https://hub.docker.com/r/freeradius/freeradius-server/
-- https://freeradius.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
+  - https://hub.docker.com/r/freeradius/freeradius-server/
+  - https://freeradius.org/
 type: application
-version: 5.0.13
+version: 6.0.26
 annotations:
   truecharts.org/catagories: |
     - auth

@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "fireflyiii.cronjob" -}}
-{{- $jobName := include "common.names.fullname" . }}
+{{- $jobName := include "tc.common.names.fullname" . }}
 
 ---
 apiVersion: batch/v1
@@ -8,7 +8,7 @@ kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.cronjob.schedule }}"
   concurrencyPolicy: Forbid

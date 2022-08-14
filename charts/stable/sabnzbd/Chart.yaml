@@ -1,26 +1,27 @@
 apiVersion: v2
-appVersion: "3.5.3"
+appVersion: "3.6.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 deprecated: false
 description: Free and easy binary newsreader
-home: https://github.com/truecharts/apps/tree/master/charts/stable/sabnzbd
-icon: https://truecharts.org/_static/img/appicons/sabnzbd.png
+home: https://truecharts.org/docs/charts/stable/sabnzbd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sabnzbd.png
 keywords:
-- sabnzbd
-- usenet
-kubeVersion: '>=1.16.0-0'
+  - sabnzbd
+  - usenet
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: sabnzbd
 sources:
-- https://sabnzbd.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sabnzbd
+  - https://sabnzbd.org/
 type: application
-version: 10.0.14
+version: 11.0.28
 annotations:
   truecharts.org/catagories: |
     - media

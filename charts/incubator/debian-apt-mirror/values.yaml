@@ -1,0 +1,34 @@
+env:
+  APACHE2_PORT: "980"
+  DATA_PERM: "770"
+  FORCE_UPDATE: "false"
+  UMASK: "0000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/debian-apt-mirror
+  tag: latest@sha256:c503d737c5c4c4eecf306472f221133e622d61d10b86728747fa27c5b7641193
+persistence:
+  config:
+    enabled: true
+    mountPath: /debian-mirror/config
+  data:
+    enabled: true
+    mountPath: /debian-mirror/data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 980
+        protocol: TCP
+        targetPort: 980
+
+portal:
+  enabled: true

@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/convos
+  tag: vstable@sha256:824c82a447ce6f4f880b1d731a51a31bf45b4fa7c2d1af616c0851588f8d59fb
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3520
+        protocol: TCP
+        targetPort: 3000
+
+portal:
+  enabled: true

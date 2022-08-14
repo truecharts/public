@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaApp-Video
+apiVersion: v2
+appVersion: "master"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "An automatic twitch recorder.\r\n"
+home: https://truecharts.org/docs/charts/incubator/livestreamdvr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/livestreamdvr.png
+keywords:
+  - livestreamdvr
+  - MediaApp-Video
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: livestreamdvr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/livestreamdvr
+  - https://github.com/MrBrax/LiveStreamDVR
+  - https://hub.docker.com/r/mrbrax/twitchautomator/
+type: application
+version: 0.0.15

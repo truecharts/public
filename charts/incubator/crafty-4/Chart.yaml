@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+    - Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher. Boasting a clean new look, rebuilt from the ground up. Crafty 4 brings a whole host of new features such as Bedrock support. With SteamCMD support on the way!\r\n"
+home: https://truecharts.org/docs/charts/incubator/crafty-4
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/crafty-4.png
+keywords:
+  - crafty-4
+  - GameServers
+  - Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: crafty-4
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/crafty-4
+  - https://craftycontrol.com/
+  - https://registry.hub.docker.com/r/registry.gitlab.com/crafty-controller/crafty-4
+type: application
+version: 0.0.17

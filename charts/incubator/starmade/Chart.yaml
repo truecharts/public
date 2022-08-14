@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "This container will download and install a StarMade Dedicated Server. It will also install a basic server.cfg at the first startup.\r\n"
+home: https://truecharts.org/docs/charts/incubator/starmade
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/starmade.png
+keywords:
+  - starmade
+  - GameServers
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: starmade
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/starmade
+  - https://www.star-made.org/
+  - https://hub.docker.com/r/ich777/starmade-server/
+type: application
+version: 0.0.16

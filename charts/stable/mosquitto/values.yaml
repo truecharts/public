@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/eclipse-mosquitto
-  tag: v2.0.14@sha256:3a706bd94ae6f98a9eacf56c4ba43f3895e567f23eb0c9bdd74a0d912052c883
+  tag: v2.0.14@sha256:2db29a781f38daacaa359d220e9c40196cbe3d43caa53da3a6d42b89298c094d
   pullPolicy: IfNotPresent
 
 service:
@@ -14,6 +14,26 @@ auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
   enabled: false
 
+configmap:
+  config:
+    enabled: true
+    data:
+      mosquitto.conf: |
+        listener {{ .Values.service.main.ports.main.port }}
+        {{- if .Values.auth.enabled }}
+        allow_anonymous false
+        {{- else }}
+        allow_anonymous true
+        {{- end }}
+        {{- if .Values.persistence.data.enabled }}
+        persistence true
+        persistence_location {{ .Values.persistence.data.mountPath }}
+        autosave_interval 1800
+        {{- end }}
+        {{- if .Values.persistence.configinc.enabled }}
+        include_dir {{ .Values.persistence.configinc.mountPath }}
+        {{- end }}
+
 persistence:
   data:
     enabled: true
@@ -21,3 +41,14 @@ persistence:
   configinc:
     enabled: true
     mountPath: "/mosquitto/configinc"
+  mosquitto-config:
+    enabled: "true"
+    mountPath: "/mosquitto/config/mosquitto.conf"
+    subPath: "mosquitto.conf"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ template "tc.common.names.fullname" . }}-config'
+
+portal:
+  enabled: false

@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Network-Management
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "TasmoAdmin is an administrative Website for Home Automation Devices flashed with Tasmota (PLEASE Stop this container while not in use and during Tasmota upgrades) (https://github.com/arendst/Tasmota). \r\n"
+home: https://truecharts.org/docs/charts/incubator/tasmoadmin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmoadmin.png
+keywords:
+  - tasmoadmin
+  - HomeAutomation
+  - Network-Management
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: tasmoadmin
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
+  - https://hub.docker.com/r/raymondmm/tasmoadmin/
+type: application
+version: 0.0.16

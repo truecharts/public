@@ -1,0 +1,38 @@
+env:
+  DDNSR53_CREDENTIALS_ACCESSKEYID: ABCDEFGHIJKLMNO123456
+  DDNSR53_CREDENTIALS_SECRETACCESSKEY: abcdefgh123456IJKLMN+OPQRS7890+ABCDEFGH
+  DDNSR53_ROUTE53_HOSTEDZONEID: ABCEEFG123456789
+  DDNSR53_ROUTE53_RECORDSSET_0_NAME: ddns.example.com.
+  DDNSR53_ROUTE53_RECORDSSET_0_TTL: "300"
+  DDNSR53_ROUTE53_RECORDSSET_0_TYPE: A
+  LOG_JSON: "false"
+  LOG_LEVEL: info
+  MAX_RETRIES: "3"
+  SCHEDULE: "*/30 * * * *"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ddns-route53
+  tag: latest@sha256:7f4b69d0a3121d9d9bc859bfdc43eca1aa38c46ef5f99088c1f113c334607e19
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

@@ -1,0 +1,61 @@
+env:
+  BEACON_PORT: "15000"
+  GAME_ID: "629800"
+  GAME_PARAMS: ""
+  GAME_PORT: "7777"
+  PASSWRD: ""
+  QUERY_PORT: "27015"
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mordhau
+  tag: latest@sha256:268b06ed7ee5be160953f3d967f6c3ecc096f4e2b251602f1f1edff811cbd690
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  beaconport:
+    enabled: true
+    ports:
+      beaconport:
+        enabled: true
+        port: 15000
+        protocol: UDP
+        targetPort: 15000
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: UDP
+        targetPort: 7777
+  udp:
+    enabled: true
+    ports:
+      udp:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+
+portal:
+  enabled: true

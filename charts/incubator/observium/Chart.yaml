@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Management
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]\r\n"
+home: https://truecharts.org/docs/charts/incubator/observium
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/observium.png
+keywords:
+  - observium
+  - Network-Management
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: observium
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/observium
+  - https://www.observium.org/
+  - https://hub.docker.com/r/uberchuckie/observium/
+type: application
+version: 0.0.16

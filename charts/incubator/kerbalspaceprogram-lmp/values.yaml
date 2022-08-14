@@ -1,0 +1,37 @@
+env:
+  DATA_PERM: "770"
+  LMP_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  UMASK: "0000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kerbalspaceprogram-lmp
+  tag: latest@sha256:5b3d2ebcc2a9a600d1aa0556ce4b60d836834f5518af35202d4ebb93b6fb81bf
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /lunamultiplayer
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8800
+        protocol: UDP
+        targetPort: 8800
+
+portal:
+  enabled: true

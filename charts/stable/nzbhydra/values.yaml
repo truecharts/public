@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: v4.3.1@sha256:4e3a03a40c163902dc029930920a34efb0f01c35e1a85b55c27274cd4c18b4f6
+  tag: v4.5.0@sha256:0353d237f594f736368ffd708db4deecc2eb00cebfec035eeb17a15d87f4aee2
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -52,3 +52,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

@@ -1,0 +1,28 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Web
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Alternative Imgur front-end\r\n"
+home: https://truecharts.org/docs/charts/incubator/rimgo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rimgo.png
+keywords:
+  - rimgo
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: rimgo
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rimgo
+  - https://quay.io/repository/pussthecatorg/rimgo
+type: application
+version: 0.0.25

@@ -1,16 +1,16 @@
 image:
-  repository: zabbix/zabbix-server-pgsql
-  tag: ubuntu-6.0.3@sha256:57c7029b899d5e11c12ade03b7d68a16955723ccd4ff1af9fc54e99681315774
+  repository: tccr.io/truecharts/zabbix-server
+  tag: 6.2.1@sha256:99d47e8e23dd610add738475ccf200a391a7acd0546e325d0e0cfde8b36def8e
   pullPolicy: IfNotPresent
 
 frontImage:
-  repository: zabbix/zabbix-web-nginx-pgsql
-  tag: ubuntu-6.0.3@sha256:8e738b5fd231b745d30d3c52355b6bfe0afc7ef824bd8542ef2dbf1cd0b0f283
+  repository: tccr.io/truecharts/zabbix-web
+  tag: 6.2.1@sha256:caca82736ba1182f87155e350589ef9e9d38f41f4321939856f9bed54f279787
   pullPolicy: IfNotPresent
 
 snmptrapsImage:
-  repository: zabbix/zabbix-snmptraps
-  tag: ubuntu-6.0.3@sha256:d7ee3801c5f00e4454819f2d0e7b7a4d21e46648fa1054fe233d89b2b2323627
+  repository: tccr.io/truecharts/zabbix-snmptraps
+  tag: 6.2.1@sha256:1afacdd29934d403cd2618105af43f01637aac2b8bf42546a86721eddad70cb3
   pullPolicy: IfNotPresent
 
 tty: true
@@ -32,8 +32,6 @@ env:
   # User Defined
   ZBX_LOADMODULE: ""
   ZBX_TIMEOUT: 4
-
-envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -103,22 +101,22 @@ frontendConfig:
   ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
 
 additionalContainers:
-#   agent:
-#     name: agent
-#     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
-#     env:
-#       - name: ZBX_HOSTNAME
-#         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
-#       - name: ZBX_SERVER_HOST
-#         value: "localhost"
-#       - name: ZBX_SERVER_PORT
-#         value: "{{ .Values.service.server.ports.server.targetPort }}"
+  #   agent:
+  #     name: agent
+  #     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
+  #     env:
+  #       - name: ZBX_HOSTNAME
+  #         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
+  #       - name: ZBX_SERVER_HOST
+  #         value: "localhost"
+  #       - name: ZBX_SERVER_PORT
+  #         value: "{{ .Values.service.server.ports.server.targetPort }}"
   snmptraps:
     name: snmptraps
     image: "{{ .Values.snmptrapsImage.repository }}:{{ .Values.snmptrapsImage.tag }}"
     volumeMounts:
-    - name: snmptraps
-      mountPath: "/var/lib/zabbix/snmptraps"
+      - name: snmptraps
+        mountPath: "/var/lib/zabbix/snmptraps"
   front:
     name: front
     image: "{{ .Values.frontImage.repository }}:{{ .Values.frontImage.tag }}"
@@ -232,3 +230,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: zabbix
   postgresqlDatabase: zabbix
+
+portal:
+  enabled: true

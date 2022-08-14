@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Web
+    - MediaServer-Music
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Track your music listening history from many sources and record to many scrobble clients.\r\n"
+home: https://truecharts.org/docs/charts/incubator/multi-scrobbler
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/multi-scrobbler.png
+keywords:
+  - multi-scrobbler
+  - Network-Web
+  - MediaServer-Music
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: multi-scrobbler
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/multi-scrobbler
+  - https://hub.docker.com/repository/docker/foxxmd/multi-scrobbler
+type: application
+version: 0.0.16

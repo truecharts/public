@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: v8.5.2@sha256:c076c178b8b070a94f612103e47389d1d10516ec906eacce4f27b2003898df9e
+  tag: 9.0.7@sha256:7e14698749272ddc10b3e562372d74b25d6c80c5a1bcb1a6d344f58de3329df4
 
 securityContext:
   readOnlyRootFilesystem: false
 
 service:
   main:
-    protocol: HTTP
     ports:
       main:
+        protocol: HTTP
         targetPort: 3000
         port: 10038
 
@@ -24,7 +24,7 @@ probes:
   startup:
     path: "/api/health"
 
-secret:
+secretEnv:
   GF_SECURITY_ADMIN_USER: "admin"
   GF_SECURITY_ADMIN_PASSWORD: "testpassword"
 
@@ -38,7 +38,6 @@ env:
   GF_PATHS_CONFIG: "/opt/bitnami/grafana/conf/grafana.ini"
   GF_PATHS_DATA: "/opt/bitnami/grafana/data"
   GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
-
 
 persistence:
   config:
@@ -60,7 +59,8 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules: []
+    rules:
+      []
       # - alert: UnifiPollerAbsent
       #   annotations:
       #     description: Unifi Poller has disappeared from Prometheus service discovery.
@@ -70,3 +70,6 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
+
+portal:
+  enabled: true

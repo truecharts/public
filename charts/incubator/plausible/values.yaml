@@ -1,0 +1,116 @@
+image:
+  repository: plausible/analytics
+  pullPolicy: IfNotPresent
+  tag: v1.4.4@sha256:20204bfc253cfab31e1f6c41c321c8a1437bd4a585a3f13393b5e0449b6d8698
+
+# Plausible self-hosting documentation
+# https://plausible.io/docs/self-hosting
+
+plausible:
+  # Server
+  BASE_URL: http://localhost
+  DISABLE_AUTH: false
+  DISABLE_REGISTRATION: false
+
+  # Default User
+  ADMIN_USER_NAME: admin
+  ADMIN_USER_EMAIL: admin@example.com
+  ADMIN_USER_PWD: P@ssw0rd
+
+  # Database
+  CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
+  CLICKHOUSE_MAX_BUFFER_SIZE: 10000
+
+  # Mailer/SMTP Setup
+  MAILER_EMAIL: hello@plausible.local
+  SMTP_HOST_ADDR: localhost
+  SMTP_HOST_PORT: 25
+  SMTP_USER_NAME: ""
+  SMTP_USER_PWD: ""
+  SMTP_HOST_SSL_ENABLED: false
+  SMTP_RETRIES: 2
+  MAILER_ADAPTER: Bamboo.SMTPAdapter
+  POSTMARK_API_KEY: ""
+
+  # Google Search Integration
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+
+  # Logging
+  LOG_LEVEL: warn
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-config'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+
+installContainers:
+  plausible-install:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    envFrom:
+      - configMapRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-config'
+      - secretRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+    command: [sh]
+    args:
+      - -c
+      - >-
+        /entrypoint.sh db createdb &&
+        /entrypoint.sh db migrate &&
+        /entrypoint.sh db init-admin
+
+upgradeContainers:
+  plausible-upgrade:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    envFrom:
+      - configMapRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-config'
+      - secretRef:
+          name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+    command: [sh]
+    args:
+      - -c
+      - /entrypoint.sh db migrate
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8000
+        protocol: HTTP
+        port: 10277
+
+probes:
+  liveness:
+    type: HTTP
+    path: /api/health
+  readiness:
+    type: HTTP
+    path: /api/health
+  startup:
+    type: HTTP
+    path: /api/health
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: plausible
+  postgresqlDatabase: plausible
+
+clickhouse:
+  enabled: true
+  existingSecret: clickhousecreds
+  clickhouseUsername: plausible
+  clickhouseDatabase: plausible
+
+portal:
+  enabled: true

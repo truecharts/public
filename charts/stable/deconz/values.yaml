@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/deconz
-  tag: v2.15.03@sha256:7963c0e46063d742fada5a9a1538ef6d7095e025eeb373aaa40fd539cd02d119
+  tag: 2.18.00@sha256:67c7b66d126e0ac5d08a24899c64a333547ffd371a84d84007837d8f088100f4
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,12 +11,13 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   DECONZ_VNC_PASSWORD: ""
 
 env:
   # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
-  DECONZ_DEVICE:  # /dev/ttyUSB0
+  # Example: /dev/ttyUSB0
+  DECONZ_DEVICE: ""
   DECONZ_UPNP: 0
   DECONZ_START_VERBOSE: 0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
@@ -61,3 +62,6 @@ affinity: {}
 #           operator: In
 #           values:
 #           - zigbee-controller
+
+portal:
+  enabled: true

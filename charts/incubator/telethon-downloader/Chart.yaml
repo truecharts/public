@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: This is a simple container that downloads files sent to a telegram bot up to 2000mb using the Telethon library.
+home: https://truecharts.org/docs/charts/incubator/telethon-downloader
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/telethon-downloader.png
+keywords:
+  - telethon-downloader
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: telethon-downloader
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/telethon-downloader
+  - https://docs.telethon.dev/
+  - https://hub.docker.com/r/jsavargas/telethon_downloader
+type: application
+version: 0.0.16

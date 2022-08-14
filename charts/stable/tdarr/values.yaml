@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tdarr
   pullPolicy: IfNotPresent
-  tag: v2.00.18.1@sha256:f6272147724475e95b86269280d598b49bf113ee17deab177d196e14674503c8
+  tag: v2.00.18.2@sha256:36b50267c2bde341b2a7873353932b8d10540a289f6cfffa369de638fc403f38
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -49,3 +49,6 @@ persistence:
     mountPath: "/media"
   varrun:
     enabled: true
+
+portal:
+  enabled: false

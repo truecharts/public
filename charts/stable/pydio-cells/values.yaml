@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/pydio-cells
   pullPolicy: IfNotPresent
-  tag: v3.0.7@sha256:7f510af5cf3c836cde412dcc1a7982a38647b28e9f4d6a3bb626e8278d0d8bb4
+  tag: v3.0.9@sha256:8eb6e4fa8a6ad27056683a97c8c4e2a61f1a6324e9272ac0fb0018097abd1d7e
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -10,6 +10,22 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+configmap:
+  install:
+    enabled: true
+    data:
+      pydiocells-install: |-
+        frontendapplicationtitle: {{ .Values.pydioinstall.title }}
+        frontendlogin: {{ .Values.pydioinstall.username }}
+        frontendpassword: {{ .Values.pydioinstall.password }}
+        frontendrepeatpassword: {{ .Values.pydioinstall.password }}
+        dbconnectiontype: tcp
+        dbtcphostname: {{ printf "%v-%v" .Release.Name "mariadb" }}
+        dbtcpport: 3306
+        dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
+        dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
+        dbtcppassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
 
 env:
   CELLS_EXTERNAL: ""
@@ -82,9 +98,20 @@ persistence:
   services:
     enabled: true
     mountPath: "/cells/services"
+  pydiocells-install:
+    enabled: "true"
+    mountPath: "/cells/install.yml"
+    subPath: "pydiocells-install"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
 
 mariadb:
   enabled: true
   mariadbUsername: pydiocells
   mariadbDatabase: pydiocells
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

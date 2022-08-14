@@ -1,23 +1,24 @@
 apiVersion: v2
 appVersion: "2.1.12"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: The open-source core of Pinry, a tiling image board system for people who want to save, tag, and share images, videos and webpages in an easy to skim through format.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/pinry
-icon: https://truecharts.org/_static/img/appicons/pinry.png
+home: https://truecharts.org/docs/charts/stable/pinry
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pinry.png
 keywords:
-- pinry
-kubeVersion: '>=1.16.0-0'
+  - pinry
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: pinry
 sources:
-- https://github.com/pinry/pinry/
-version: 1.0.6
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pinry
+  - https://github.com/pinry/pinry/
+version: 2.0.25
 annotations:
   truecharts.org/catagories: |
     - media

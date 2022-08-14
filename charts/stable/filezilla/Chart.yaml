@@ -1,29 +1,30 @@
 apiVersion: v2
 appVersion: "3.55.1"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: A Helm chart for Kubernetes
-home: https://github.com/truecharts/apps/tree/master/charts/stable/filezilla
-icon: https://truecharts.org/_static/img/appicons/filezilla.png
+home: https://truecharts.org/docs/charts/stable/filezilla
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 keywords:
-- filezilla
-- ftp
-- sftp
-- ftps
-- client
-kubeVersion: '>=1.16.0-0'
+  - filezilla
+  - ftp
+  - sftp
+  - ftps
+  - client
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: filezilla
 sources:
-- https://filezilla-project.org/
-- https://github.com/linuxserver/docker-filezilla
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
+  - https://filezilla-project.org/
+  - https://github.com/linuxserver/docker-filezilla
 type: application
-version: 3.0.22
+version: 4.0.29
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "22.05.5.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "An awesome Online Office suite."
+home: https://truecharts.org/docs/charts/dependency/collabora-online
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/collabora-online.png
+keywords:
+  - collabora-online
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: collabora-online
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/collabora-online
+  - https://hub.docker.com/r/collabora/code
+  - https://sdk.collaboraonline.com/contents.html
+  - https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm
+type: application
+version: 12.1.27
+annotations:
+  truecharts.org/catagories: |
+    - office
+    - documents
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

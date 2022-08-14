@@ -1,4 +1,690 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [nextcloud-15.2.38](https://github.com/truecharts/charts/compare/nextcloud-15.2.37...nextcloud-15.2.38) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [nextcloud-15.2.37](https://github.com/truecharts/charts/compare/nextcloud-15.2.36...nextcloud-15.2.37) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [nextcloud-15.2.36](https://github.com/truecharts/charts/compare/nextcloud-15.2.35...nextcloud-15.2.36) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [nextcloud-15.2.35](https://github.com/truecharts/charts/compare/nextcloud-15.2.34...nextcloud-15.2.35) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [nextcloud-15.2.34](https://github.com/truecharts/charts/compare/nextcloud-15.2.33...nextcloud-15.2.34) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+  ### Fix
+
+- Imaginary widescreen image preview fix ([#3401](https://github.com/truecharts/charts/issues/3401))
+
+
+
+
+## [nextcloud-15.2.33](https://github.com/truecharts/charts/compare/nextcloud-15.2.31...nextcloud-15.2.33) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+  ### Fix
+
+- sync client_max_body_size with PHP_UPLOAD_LIMIT ([#3383](https://github.com/truecharts/charts/issues/3383))
+
+
+
+
+## [nextcloud-15.2.31](https://github.com/truecharts/apps/compare/nextcloud-15.2.30...nextcloud-15.2.31) (2022-07-27)
+
+### Feat
+
+- Improved installation_notes ([#3315](https://github.com/truecharts/apps/issues/3315))
+
+  ### Fix
+
+- also apply the php var fix to UI ([#3319](https://github.com/truecharts/apps/issues/3319))
+
+
+
+
+## [nextcloud-15.2.30](https://github.com/truecharts/apps/compare/nextcloud-15.2.29...nextcloud-15.2.30) (2022-07-26)
+
+
+
+
+## [nextcloud-15.2.29](https://github.com/truecharts/apps/compare/nextcloud-15.2.28...nextcloud-15.2.29) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [nextcloud-15.2.28](https://github.com/truecharts/apps/compare/nextcloud-15.2.27...nextcloud-15.2.28) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [nextcloud-15.2.28](https://github.com/truecharts/apps/compare/nextcloud-15.2.27...nextcloud-15.2.28) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [nextcloud-15.2.27](https://github.com/truecharts/apps/compare/nextcloud-15.2.26...nextcloud-15.2.27) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3290](https://github.com/truecharts/apps/issues/3290))
+
+
+
+
+## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [nextcloud-15.2.25](https://github.com/truecharts/apps/compare/nextcloud-15.2.24...nextcloud-15.2.25) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [nextcloud-15.2.24](https://github.com/truecharts/apps/compare/nextcloud-15.2.23...nextcloud-15.2.24) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
+## [nextcloud-15.2.23](https://github.com/truecharts/apps/compare/nextcloud-15.2.21...nextcloud-15.2.23) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
+
+
+
+## [nextcloud-15.2.21](https://github.com/truecharts/apps/compare/nextcloud-15.2.20...nextcloud-15.2.21) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
+## [nextcloud-15.2.20](https://github.com/truecharts/apps/compare/nextcloud-15.2.19...nextcloud-15.2.20) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [nextcloud-15.2.19](https://github.com/truecharts/apps/compare/nextcloud-15.2.18...nextcloud-15.2.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [nextcloud-15.2.18](https://github.com/truecharts/apps/compare/nextcloud-15.2.17...nextcloud-15.2.18) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [nextcloud-15.2.17](https://github.com/truecharts/apps/compare/nextcloud-15.2.16...nextcloud-15.2.17) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
+## [nextcloud-15.2.16](https://github.com/truecharts/apps/compare/nextcloud-15.2.15...nextcloud-15.2.16) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [nextcloud-15.2.15](https://github.com/truecharts/apps/compare/nextcloud-15.2.13...nextcloud-15.2.15) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [nextcloud-15.2.13](https://github.com/truecharts/apps/compare/nextcloud-15.2.12...nextcloud-15.2.13) (2022-07-14)
+
+### Chore
+
+- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
+
+
+
+## [nextcloud-15.2.12](https://github.com/truecharts/apps/compare/nextcloud-15.2.11...nextcloud-15.2.12) (2022-07-13)
+
+### Chore
+
+- update docker general non-major ([#3157](https://github.com/truecharts/apps/issues/3157))
+
+
+
+## [nextcloud-15.2.11](https://github.com/truecharts/apps/compare/nextcloud-15.2.9...nextcloud-15.2.11) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [nextcloud-15.2.9](https://github.com/truecharts/apps/compare/nextcloud-15.2.8...nextcloud-15.2.9) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="nextcloud-15.2.8"></a>
+### [nextcloud-15.2.8](https://github.com/truecharts/apps/compare/nextcloud-15.2.7...nextcloud-15.2.8) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
+
+
+
+<a name="nextcloud-15.2.7"></a>
+### [nextcloud-15.2.7](https://github.com/truecharts/apps/compare/nextcloud-15.2.6...nextcloud-15.2.7) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
+<a name="nextcloud-15.2.6"></a>
+### [nextcloud-15.2.6](https://github.com/truecharts/apps/compare/nextcloud-15.2.5...nextcloud-15.2.6) (2022-07-11)
+
+#### Chore
+
+* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
+
+
+
+<a name="nextcloud-15.2.5"></a>
+### [nextcloud-15.2.5](https://github.com/truecharts/apps/compare/nextcloud-15.2.4...nextcloud-15.2.5) (2022-07-10)
+
+#### Fix
+
+* increase nginx fpm forwarding timeouts ([#3122](https://github.com/truecharts/apps/issues/3122))
+
+
+
+<a name="nextcloud-15.2.4"></a>
+### [nextcloud-15.2.4](https://github.com/truecharts/apps/compare/nextcloud-15.2.3...nextcloud-15.2.4) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="nextcloud-15.2.3"></a>
+### [nextcloud-15.2.3](https://github.com/truecharts/apps/compare/nextcloud-15.2.2...nextcloud-15.2.3) (2022-07-09)
+
+#### Fix
+
+* improve upload performance and predictability ([#3109](https://github.com/truecharts/apps/issues/3109))
+
+
+
+<a name="nextcloud-15.2.2"></a>
+### [nextcloud-15.2.2](https://github.com/truecharts/apps/compare/nextcloud-15.2.1...nextcloud-15.2.2) (2022-07-08)
+
+
+
+<a name="nextcloud-15.2.1"></a>
+### [nextcloud-15.2.1](https://github.com/truecharts/apps/compare/nextcloud-15.2.0...nextcloud-15.2.1) (2022-07-08)
+
+#### Fix
+
+* fix HPB service polling url ([#3102](https://github.com/truecharts/apps/issues/3102))
+
+
+
+<a name="nextcloud-15.2.0"></a>
+### [nextcloud-15.2.0](https://github.com/truecharts/apps/compare/nextcloud-15.1.4...nextcloud-15.2.0) (2022-07-08)
+
+
+
+<a name="nextcloud-15.1.4"></a>
+### [nextcloud-15.1.4](https://github.com/truecharts/apps/compare/nextcloud-15.1.3...nextcloud-15.1.4) (2022-07-08)
+
+#### Fix
+
+* fix wrong accessip reference ([#3101](https://github.com/truecharts/apps/issues/3101))
+
+
+
+<a name="nextcloud-15.1.3"></a>
+### [nextcloud-15.1.3](https://github.com/truecharts/apps/compare/nextcloud-15.1.2...nextcloud-15.1.3) (2022-07-07)
+
+#### Chore
+
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+
+
+
+<a name="nextcloud-15.1.2"></a>
+### [nextcloud-15.1.2](https://github.com/truecharts/apps/compare/nextcloud-15.1.1...nextcloud-15.1.2) (2022-07-07)
+
+#### Fix
+
+* bypass hpb domain check ([#3093](https://github.com/truecharts/apps/issues/3093))
+
+
+
+<a name="nextcloud-15.1.1"></a>
+### [nextcloud-15.1.1](https://github.com/truecharts/apps/compare/nextcloud-15.1.0...nextcloud-15.1.1) (2022-07-07)
+
+#### Fix
+
+* correct some mistakes in the migration script ([#3091](https://github.com/truecharts/apps/issues/3091))
+
+
+
+<a name="nextcloud-15.1.0"></a>
+### [nextcloud-15.1.0](https://github.com/truecharts/apps/compare/nextcloud-15.0.1...nextcloud-15.1.0) (2022-07-06)
+
+#### Feat
+
+* add Imaginary high-performance preview backend ([#3086](https://github.com/truecharts/apps/issues/3086))
+
+
+
+<a name="nextcloud-15.0.1"></a>
+### [nextcloud-15.0.1](https://github.com/truecharts/apps/compare/nextcloud-15.0.0...nextcloud-15.0.1) (2022-07-06)
+
+#### Fix
+
+* change nginx redirect options to not add port to query ([#3085](https://github.com/truecharts/apps/issues/3085))
+
+
+
+<a name="nextcloud-15.0.0"></a>
+### [nextcloud-15.0.0](https://github.com/truecharts/apps/compare/nextcloud-14.0.16...nextcloud-15.0.0) (2022-07-06)
+
+
+
+<a name="nextcloud-14.0.16"></a>
+### [nextcloud-14.0.16](https://github.com/truecharts/apps/compare/nextcloud-14.0.15...nextcloud-14.0.16) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="nextcloud-14.0.15"></a>
+### [nextcloud-14.0.15](https://github.com/truecharts/apps/compare/nextcloud-14.0.14...nextcloud-14.0.15) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="nextcloud-14.0.14"></a>
+### [nextcloud-14.0.14](https://github.com/truecharts/apps/compare/nextcloud-14.0.13...nextcloud-14.0.14) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
+<a name="nextcloud-14.0.13"></a>
+### [nextcloud-14.0.13](https://github.com/truecharts/apps/compare/nextcloud-14.0.12...nextcloud-14.0.13) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
+<a name="nextcloud-14.0.12"></a>
+### [nextcloud-14.0.12](https://github.com/truecharts/apps/compare/nextcloud-14.0.11...nextcloud-14.0.12) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+
+
+
+<a name="nextcloud-14.0.11"></a>
+### [nextcloud-14.0.11](https://github.com/truecharts/apps/compare/nextcloud-14.0.10...nextcloud-14.0.11) (2022-06-26)
+
+#### Chore
+
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+
+
+
+<a name="nextcloud-14.0.10"></a>
+### [nextcloud-14.0.10](https://github.com/truecharts/apps/compare/nextcloud-14.0.9...nextcloud-14.0.10) (2022-06-25)
+
+
+
+<a name="nextcloud-14.0.9"></a>
+### [nextcloud-14.0.9](https://github.com/truecharts/apps/compare/nextcloud-14.0.8...nextcloud-14.0.9) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="nextcloud-14.0.8"></a>
+### [nextcloud-14.0.8](https://github.com/truecharts/apps/compare/nextcloud-14.0.7...nextcloud-14.0.8) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="nextcloud-14.0.7"></a>
+### [nextcloud-14.0.7](https://github.com/truecharts/apps/compare/nextcloud-14.0.6...nextcloud-14.0.7) (2022-06-22)
+
+#### Chore
+
+* update docker general non-major ([#2954](https://github.com/truecharts/apps/issues/2954))
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="nextcloud-14.0.6"></a>
+### [nextcloud-14.0.6](https://github.com/truecharts/apps/compare/nextcloud-14.0.5...nextcloud-14.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="nextcloud-14.0.5"></a>
+### [nextcloud-14.0.5](https://github.com/truecharts/apps/compare/nextcloud-14.0.4...nextcloud-14.0.5) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="nextcloud-14.0.4"></a>
+### [nextcloud-14.0.4](https://github.com/truecharts/apps/compare/nextcloud-14.0.3...nextcloud-14.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="nextcloud-14.0.3"></a>
+### [nextcloud-14.0.3](https://github.com/truecharts/apps/compare/nextcloud-14.0.2...nextcloud-14.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2873](https://github.com/truecharts/apps/issues/2873))
+
+
+
+<a name="nextcloud-14.0.2"></a>
+### [nextcloud-14.0.2](https://github.com/truecharts/apps/compare/nextcloud-14.0.1...nextcloud-14.0.2) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="nextcloud-14.0.1"></a>
+### [nextcloud-14.0.1](https://github.com/truecharts/apps/compare/nextcloud-14.0.0...nextcloud-14.0.1) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="nextcloud-14.0.0"></a>
+### [nextcloud-14.0.0](https://github.com/truecharts/apps/compare/nextcloud-13.0.1...nextcloud-14.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="nextcloud-13.0.1"></a>
+### [nextcloud-13.0.1](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+* update docker general non-major ([#2831](https://github.com/truecharts/apps/issues/2831))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="nextcloud-13.0.0"></a>
+### [nextcloud-13.0.0](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="nextcloud-12.0.32"></a>
+### [nextcloud-12.0.32](https://github.com/truecharts/apps/compare/nextcloud-12.0.31...nextcloud-12.0.32) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
+
+
+
+<a name="nextcloud-12.0.31"></a>
+### [nextcloud-12.0.31](https://github.com/truecharts/apps/compare/nextcloud-12.0.30...nextcloud-12.0.31) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="nextcloud-12.0.31"></a>
+### [nextcloud-12.0.31](https://github.com/truecharts/apps/compare/nextcloud-12.0.30...nextcloud-12.0.31) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="nextcloud-12.0.30"></a>
+### [nextcloud-12.0.30](https://github.com/truecharts/apps/compare/nextcloud-12.0.29...nextcloud-12.0.30) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
+<a name="nextcloud-12.0.29"></a>
+### [nextcloud-12.0.29](https://github.com/truecharts/apps/compare/nextcloud-12.0.28...nextcloud-12.0.29) (2022-05-24)
+
+#### Chore
+
+* update container image tccr.io/truecharts/nextcloud to v24.0.0 ([#2714](https://github.com/truecharts/apps/issues/2714))
+
+
+
+<a name="nextcloud-12.0.28"></a>
+### [nextcloud-12.0.28](https://github.com/truecharts/apps/compare/nextcloud-12.0.27...nextcloud-12.0.28) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="nextcloud-12.0.27"></a>
+### [nextcloud-12.0.27](https://github.com/truecharts/apps/compare/nextcloud-12.0.26...nextcloud-12.0.27) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="nextcloud-12.0.27"></a>
+### [nextcloud-12.0.27](https://github.com/truecharts/apps/compare/nextcloud-12.0.26...nextcloud-12.0.27) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="nextcloud-12.0.26"></a>
+### [nextcloud-12.0.26](https://github.com/truecharts/apps/compare/nextcloud-12.0.25...nextcloud-12.0.26) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="nextcloud-12.0.25"></a>
+### [nextcloud-12.0.25](https://github.com/truecharts/apps/compare/nextcloud-12.0.24...nextcloud-12.0.25) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
 
 
 <a name="nextcloud-12.0.24"></a>

@@ -1,16 +1,14 @@
 image:
   repository: tccr.io/truecharts/node-red
   pullPolicy: IfNotPresent
-  tag: v2.2.2@sha256:7c181ad1464aebe7e41401acbbb024a3dd1505ce687b0b049fc52a6affe98e54
+  tag: 3.0.2@sha256:ba3361b3dc11650cdb44c43220a0bd5397342928dca092f33c044ba58032acc1
 
-# See more environment varaibles in the node-red documentation
-# https://nodered.org/docs/getting-started/docker
-env: {}
-  # TZ:
-  # NODE_OPTIONS:
-  # NODE_RED_ENABLE_PROJECTS:
-  # NODE_RED_ENABLE_SAFE_MODE:
-  # FLOWS:
+env:
+  TZ: "{{ .Values.TZ }}"
+#   NODE_OPTIONS:
+#   NODE_RED_ENABLE_PROJECTS:
+#   NODE_RED_ENABLE_SAFE_MODE:
+#   FLOWS:
 
 service:
   main:
@@ -23,3 +21,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

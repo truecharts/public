@@ -1,0 +1,103 @@
+image:
+  repository: tccr.io/truecharts/privatebin
+  pullPolicy: IfNotPresent
+  tag: v1.4.0@sha256:961d37f98d79511d91034519ff65f84d954f1bd09936622706a4cf9c6965c5b9
+
+podSecurityContext:
+  runAsUser: 65534
+  runAsGroup: 82
+  fsGroup: 82
+
+privatebin:
+  # See also: https://github.com/PrivateBin/PrivateBin/wiki/Configuration
+  main:
+    name: ""
+    basepath: ""
+    discussion: true
+    opendiscussion: false
+    password: true
+    fileupload: false
+    burnafterreadingselected: false
+    defaultformatter: "plaintext"
+    syntaxhighlightingtheme: ""
+    sizelimit: 10485760
+    template: "bootstrap"
+    info: ""
+    notice: ""
+    languageselection: false
+    languagedefault: ""
+    urlshortener: ""
+    qrcode: ""
+    icon: ""
+    cspheader: ""
+    zerobincompatibility: ""
+    httpwarning: ""
+    compression: ""
+  expire:
+    default: "1week"
+  traffic:
+    limit: 10
+    exempted: ""
+    creators: ""
+    header: ""
+  purge:
+    limit: 300
+    batchsize: 10
+
+env:
+  TZ: "{{ .Values.TZ }}"
+  PHP_TZ: "{{ .Values.TZ }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10248
+
+persistence:
+  run:
+    enabled: true
+    mountPath: "/run"
+    type: "emptyDir"
+    medium: "Memory"
+  nginx-cache:
+    enabled: true
+    mountPath: "/var/lib/nginx/tmp"
+    type: "emptyDir"
+  conf-app:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/srv/cfg"
+    volumeSpec:
+      secret:
+        secretName: '{{ include "tc.common.names.fullname" . }}-secret'
+  conf-php:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/etc/php8/conf.d/10-sizelimits.ini"
+    subPath: "sizelimits-php.ini"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-config'
+  conf-nginx:
+    enabled: true
+    type: "custom"
+    readOnly: true
+    mountPath: "/etc/nginx/conf.d/sizelimits.conf"
+    subPath: "sizelimits-nginx.conf"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-config'
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: privatebin
+  postgresqlDatabase: privatebin
+
+portal:
+  enabled: true

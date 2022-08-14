@@ -1,0 +1,51 @@
+env:
+  GAME_ID: "897590"
+  GAME_PARAMS: ""
+  MULTIHOME: ""
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/memories-of-mars
+  tag: latest@sha256:d8e166dd8b52383615ae1ab01129aabd3c90ebe8b450d8b0c31b675e533ba15a
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  beaconport:
+    enabled: true
+    ports:
+      beaconport:
+        enabled: true
+        port: 15000
+        protocol: UDP
+        targetPort: 15000
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: UDP
+        targetPort: 7777
+
+portal:
+  enabled: true

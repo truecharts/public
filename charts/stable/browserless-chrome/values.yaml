@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.53.0-chrome@sha256:bba7c84a5c8c3c2b9518d8543f08b3669eeeda16837af4dc4c8065b7d87be08e
+  tag: v1.54.0-chrome@sha256:b078160d79d98b8ec67ef9e367856f466f1454b87da808c76a8dcb3c5e5d3c18
   pullPolicy: IfNotPresent
 
 imagePuppeteer:
@@ -10,7 +10,7 @@ imagePuppeteer:
 
 imageSelector: "image"
 
-secret:
+secretEnv:
   TOKEN: ""
 
 env:
@@ -56,7 +56,6 @@ probes:
   startup:
     path: "/metrics"
 
-
 persistence:
   downloads:
     enabled: true
@@ -64,3 +63,6 @@ persistence:
   metrics:
     enabled: true
     mountPath: "/metrics"
+
+portal:
+  enabled: true

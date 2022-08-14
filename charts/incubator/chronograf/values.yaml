@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/chronograf
+  tag: latest@sha256:59ccf30079d9ae534d54babd9c141b237ded549f57c608f9ab0c56c5f673f785
+persistence:
+  chronograf:
+    enabled: true
+    mountPath: /var/lib/chronograf
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8888
+        protocol: TCP
+        targetPort: 8888
+
+portal:
+  enabled: true

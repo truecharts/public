@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Tools-Utilities
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Livebook is a web application for writing interactive and collaborative code notebooks for Elixir
+home: https://truecharts.org/docs/charts/incubator/livebook
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/livebook.png
+keywords:
+  - livebook
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: livebook
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/livebook
+  - https://livebook.dev/
+  - https://hub.docker.com/r/livebook/livebook
+type: application
+version: 0.0.16

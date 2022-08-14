@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+    - Other
+    - Network-Web
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Test your General Knowledge in different types of topics. This game is inspired on the show "who wants to be a millionaire?". You must answer correctly 15 questions to become a millionaire. Difficulty ascends as you progress in the game and questions and their categories are randomized each time you start a new match. At the end of your playthrough you can optionally register your score in the ranking, however only the top 10 results will be displayed
+home: https://truecharts.org/docs/charts/incubator/quiz-game
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/quiz-game.png
+keywords:
+  - quiz-game
+  - GameServers
+  - Other
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: quiz-game
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/quiz-game
+  - https://github.com/ASKJR/quiz-game
+  - https://registry.hub.docker.com/r/patrickstigler/quiz-game
+type: application
+version: 0.0.16

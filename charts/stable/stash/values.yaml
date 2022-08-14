@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/stash
-  # -- image tag
-  tag: v0.14.0@sha256:dbe4c3c8e85aea8e28fa702b007314d81cfd0d6b83db1e9f43201f636a8ca899
-  # -- image pull policy
+  tag: 0.16.1@sha256:2f275e3fcf8143f3fe301bb8eda35fca274ddfdd4d1f0d45165335b04a666b75
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,28 +10,23 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml)
-# @default -- See below
 env:
-  # -- Set the container port
-  STASH_PORT: 9999
+  STASH_PORT: "{{ .Values.service.main.ports.main.port }}"
   # STASH_STASH:
   # STASH_GENERATED:
   # STASH_METADATA:
   # STASH_CACHE:
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
       main:
         port: 9999
-        targetPort: 9999
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
     mountPath: "/root/.stash"
+
+portal:
+  enabled: true

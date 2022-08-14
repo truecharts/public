@@ -1,0 +1,15 @@
+image:
+  repository: tccr.io/truecharts/ariang
+  pullPolicy: IfNotPresent
+  tag: v1.2.4@sha256:42a933dc69a304463daaf4205d2b434e3d94784e8034f932db1c54391dce6b0c
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10276
+
+portal:
+  enabled: true

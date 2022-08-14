@@ -1,0 +1,34 @@
+env:
+  ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
+  ENABLE_AVIF: "false"
+  QUALITY: "80"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/webp-server
+  tag: latest@sha256:105a2d980cee93bb0bcf7b479289d75129d4800a71a78988e35d75dcfddff1a1
+persistence:
+  storagecache:
+    enabled: true
+    mountPath: /opt/exhaust
+  storagepics:
+    enabled: true
+    mountPath: /opt/pics
+    readOnly: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3333
+        protocol: TCP
+        targetPort: 3333
+
+portal:
+  enabled: true

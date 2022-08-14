@@ -1,0 +1,118 @@
+image:
+  repository: tccr.io/truecharts/minecraft-java
+  tag: 2022.10.0@sha256:0efc203e488f2cbe77e31e1b7cbd277965496e72edee5014daea2071c205a76a
+  pullPolicy: Always
+j11Image:
+  repository: tccr.io/truecharts/minecraft-java11
+  tag: latest@sha256:c17756ece7f1448ddfaa50d6353334e6549bf4bfd694bfcd0cffb9e68dfc3f7f
+  pullPolicy: Always
+j11j9Image:
+  repository: tccr.io/truecharts/minecraft-java11-openj9
+  tag: latest@sha256:248ecbdca94efa8ab7c0b0437a0b59ba82ca9dabe6cd1f90a8cbd43319f15b82
+  pullPolicy: Always
+j8Image:
+  repository: tccr.io/truecharts/minecraft-java8-openj9
+  tag: latest@sha256:a27c5238cf39cc62df6ca14275121ee21f9f71376052cf439087c5072fd7385c
+  pullPolicy: Always
+j8j9Image:
+  repository: tccr.io/truecharts/minecraft-java8-openj9
+  tag: latest@sha256:a27c5238cf39cc62df6ca14275121ee21f9f71376052cf439087c5072fd7385c
+  pullPolicy: Always
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  RCON_PASSWORD: "secretrconpass"
+
+env:
+  EULA: "TRUE"
+  OVERRIDE_SERVER_PROPERTIES: true
+  VERSION: "LATEST"
+  TYPE: "VANILLA"
+  DIFFICULTY: easy
+  MAX_PLAYERS: 20
+  MAX_WORLD_SIZE: 10000
+  ALLOW_NETHER: true
+  ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+  ENABLE_COMMAND_BLOCK: false
+  FORCE_GAMEMODE: false
+  GENERATE_STRUCTURES: true
+  HARDCORE: false
+  MAX_BUILD_HEIGHT: 256
+  MAX_TICK_TIME: 60000
+  SPAWN_ANIMALS: true
+  SPAWN_MONSTERS: true
+  SPAWN_NPCS: true
+  VIEW_DISTANCE: 16
+  MODE: survival
+  MOTD: "Welcome to Minecraft on TrueNAS Scale!"
+  PVP: false
+  LEVEL_TYPE: DEFAULT
+  LEVEL: world
+  ONLINE_MODE: true
+  MEMORY: 2048M
+  # FORGEVERSION: ""
+  # FORGE_INSTALLER: ""
+  # FORGE_INSTALLER_URL: ""
+  # FABRIC_LOADER_VERSION: ""
+  # FABRIC_INSTALLER: ""
+  # FABRIC_INSTALLER_URL: ""
+  # SPIGOT_DOWNLOAD_URL: ""
+  # BUILD_FROM_SOURCE: false
+  # BUKKIT_DOWNLOAD_URL: ""
+  # PAPERBUILD: ""
+  # PAPER_DOWNLOAD_URL: ""
+  # PACKWIZ_URL: ""
+  # AIRPLANE_BUILD: "lastSuccessfulBuild"
+  # USE_FLARE_FLAGS: false
+  # MAGMA_CHANNEL: "stable"
+  # MOHIST_BUILD: ""
+  # CANYON_BUILD: ""
+  # SPONGEBRANCH: "STABLE"
+  # SPONGEVERSION: ""
+  # LIMBO_BUILD: "LATEST"
+  # LIMBO_SCHEMA_FILENAME: "default.schem"
+  # CRUCIBLE_RELEASE: "latest"
+  # FTB_MODPACK_ID: ""
+  # FTB_MODPACK_VERSION_ID: ""
+  # CF_SERVER_MOD: ""
+  # CF_BASE_DIR: ""
+  # USE_MODPACK_START_SCRIPT: true
+  # FTB_LEGACYJAVAFIXER: false
+  # WHITELIST: ""
+  # OPS: ""
+  # ICON: ""
+  # SEED: ""
+  # GENERATOR_SETTINGS: ""
+  # WORLD: ""
+  # FORCE_REDOWNLOAD: ""
+  # JVM_OPTS: ""
+  # JVM_XX_OPTS: ""
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
+
+portal:
+  enabled: false

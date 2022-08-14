@@ -1,11 +1,24 @@
 image:
   repository: tccr.io/truecharts/bookstack
   pullPolicy: IfNotPresent
-  tag: v22.04.20220429@sha256:a2c36165fb0fa726eba39d17c368c8254741ece27d83a8cd276842805810ee8b
+  tag: 22.07.20220728@sha256:e323c1d90d22572d49f20cd297bb27be698c2e7fc197d9e237c9e32f52ca030b
 
 env:
   DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
   DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  APP_URL: ""
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: bookstack-secrets
+      key: APP_KEY
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -29,22 +42,11 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-envValueFrom:
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  APP_KEY:
-    secretKeyRef:
-      name: bookstack-secrets
-      key: APP_KEY
-
 mariadb:
   enabled: true
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

@@ -1,35 +1,36 @@
 apiVersion: v2
 appVersion: "2.7.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 7.0.54
-- condition: redis.enabled
-  name: redis
-  repository: https://charts.truecharts.org
-  version: 2.0.45
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.55
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.53
 deprecated: false
-description: A free and open source personal finance manager
-home: https://github.com/truecharts/apps/tree/master/charts/stable/kutt
-icon: https://truecharts.org/_static/img/appicons/kutt.png
+description: Kutt is a modern URL shortener with support for custom domains. Shorten URLs, manage your links and view the click rate statistics.
+home: https://truecharts.org/docs/charts/stable/kutt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kutt.png
 keywords:
-- kutt
-- link
-- short
-kubeVersion: '>=1.16.0-0'
+  - kutt
+  - link
+  - short
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: kutt
 sources:
-- https://github.com/thedevs-network/kutt
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kutt
+  - https://github.com/thedevs-network/kutt
 type: application
-version: 1.0.11
+version: 3.0.28
 annotations:
   truecharts.org/catagories: |
     - productivity

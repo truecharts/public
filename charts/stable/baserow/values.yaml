@@ -1,0 +1,83 @@
+image:
+  repository: tccr.io/truecharts/baserow
+  tag: 1.11.0@sha256:bfaa828eddca2595402d3e8bbca12298db41c954d7ff9db7dfae3e09879cb560
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_PORT: "5432"
+  REDIS_USER: "{{ .Values.redis.redisUsername }}"
+  REDIS_PORT: "6379"
+  REDIS_PROTOCOL: "redis"
+  BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
+  # User Defined
+  BASEROW_PUBLIC_URL: "http://localhost:10228"
+  FROM_EMAIL: ""
+  EMAIL_SMTP: ""
+  EMAIL_SMTP_USE_TLS: ""
+  EMAIL_SMTP_HOST: ""
+  EMAIL_SMTP_PORT: 587
+  EMAIL_SMTP_USER: ""
+  EMAIL_SMTP_PASSWORD: ""
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  SECRET_KEY:
+    secretKeyRef:
+      name: baserow-secrets
+      key: SECRET_KEY
+
+probes:
+  liveness:
+    path: "/_health"
+  readiness:
+    path: "/_health"
+  startup:
+    path: "/_health"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10228
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/baserow/data"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: baserow
+  postgresqlDatabase: baserow
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: "default"
+
+portal:
+  enabled: true

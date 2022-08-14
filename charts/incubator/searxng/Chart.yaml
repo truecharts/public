@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "SearXNG is a free internet metasearch engine which aggregates results from more than 70 search services. Users are neither tracked nor profiled. Additionally, SearXNG can be used over Tor for online anonymity.\r\n"
+home: https://truecharts.org/docs/charts/incubator/searxng
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/searxng.png
+keywords:
+  - searxng
+  - Productivity
+  - Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: searxng
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/searxng
+  - https://github.com/searxng/searxng
+  - https://hub.docker.com/r/searxng/searxng
+type: application
+version: 0.0.22

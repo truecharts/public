@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/boinc
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5b17d304e2faa3c14f80a55e403c10b71a669f4c7e6f4ba0166c6c1f39905019
+  tag: latest@sha256:ffcd4f600721722b9b69d88ba965fc7446df72bc661af517ca2f2604c41e4e7b
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -10,6 +10,9 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+# secretEnv:
+#   PASSWORD: ""
 
 service:
   main:
@@ -24,3 +27,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

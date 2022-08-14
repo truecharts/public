@@ -1,0 +1,18 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- $newArgs :=  (include "prometheus.operator.args" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs -}}
+{{- $mergedargs := concat .Values.args .Values.newArgs.args }}
+{{- $_ := set .Values "args" $mergedargs -}}
+
+{{- include "prometheus.prometheus.prometheus" . }}
+{{- include "prometheus.prometheus.additionalprometheusrules" . }}
+{{- include "prometheus.prometheus.additionalscrapejobs" . }}
+{{- include "prometheus.prometheus.servicemonitor" . }}
+
+{{- include "prometheus.alertmanager.alertmanager" . }}
+
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

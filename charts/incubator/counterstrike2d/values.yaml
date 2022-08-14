@@ -1,0 +1,36 @@
+env:
+  FORCE_UPDATE: ""
+  GAME_PARAMS: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/counterstrike2d
+  tag: latest@sha256:0c79bf25fe27793214e516a6385c259249331fff6738eac23452affdddcacd2a
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 36963
+        protocol: UDP
+        targetPort: 36963
+
+portal:
+  enabled: true

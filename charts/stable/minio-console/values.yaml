@@ -1,32 +1,17 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/minio-console
-  # -- image tag
-  tag: v0.16.2@sha256:1eb117871b50199bda6add53a3edc159a184887ec6e2273aab500fbe0dc092b6
-  # -- image pull policy
+  tag: 0.19.5@sha256:d7dead661d66c08c0bd5f771fe0f9bc7cb7dc6632ae3702f008d78d08ce7096f
   pullPolicy: IfNotPresent
 
-# -- Override the args for the default container.
 args: ["server"]
 
-secret:
-  # -- Required: Passphrase to derive keys (generate own)
-  # Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48
+secretEnv:
   CONSOLE_PBKDF_PASSPHRASE: "changeme"
-  # -- Required: Salt for derived keys (generate own)
-  # Example: ILy2FWzwjjYi1TeTEpBjEsPrwLfKZxgi
   CONSOLE_PBKDF_SALT: "changeme"
 
-# -- environment variables. See more environment variables in the [minio-console documentation](https://minio-console.org/docs).
-# @default -- See below
 env:
-  # -- Set the container timezone
-  # -- Required: Minio server URL
-  # Example: https://minio.server:9000
   CONSOLE_MINIO_SERVER: ""
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -43,3 +28,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

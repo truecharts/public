@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/vaultwarden
   pullPolicy: IfNotPresent
-  tag: v1.24.0@sha256:de9c2df3042be86e57c6e56bc1c7d6a72567527b25895836bdf4c6e7b899814d
+  tag: 1.25.2@sha256:ec34588ef04cfdf79cdbb0f90882b3073d8baa39d9aaf8aa86abbb263049f8eb
 
 service:
   main:
@@ -19,6 +19,10 @@ service:
 
 env:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: url
 
 envFrom:
   - configMapRef:
@@ -26,16 +30,12 @@ envFrom:
   - secretRef:
       name: vaultwardensecret
 
-envValueFrom:
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: url
-
 database:
-  # Database type, must be one of: 'sqlite', 'mysql' or 'postgresql'.
+  # -- Database type,
+  # must be one of: 'sqlite', 'mysql' or 'postgresql'.
   type: postgresql
-  # Enable DB Write-Ahead-Log for SQLite, disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
+  # -- Enable DB Write-Ahead-Log for SQLite,
+  # disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
   wal: true
   ## URL for external databases (mysql://user:pass@host:port or postgresql://user:pass@host:port).
   # url: ""
@@ -46,12 +46,14 @@ database:
 
 # Set Bitwarden_rs application variables
 vaultwarden:
-  # Allow any user to sign-up: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
+  # -- Allow any user to sign-up
+  # see: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
   allowSignups: true
   ## Whitelist domains allowed to sign-up. 'allowSignups' is ignored if set.
   # signupDomains:
   #  - domain.tld
-  # Verify e-mail before login is enabled. SMTP must be enabled.
+  # -- Verify e-mail before login is enabled.
+  # SMTP must be enabled.
   verifySignup: false
   # When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled.
   requireEmail: false
@@ -152,3 +154,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
+
+portal:
+  enabled: true

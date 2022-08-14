@@ -1,0 +1,46 @@
+env:
+  AUTOSTART: ""
+  CountryCode: ""
+  LidarrAPIkey: ""
+  LidarrUrl: ""
+  MBRAINZMIRROR: ""
+  MBRATELIMIT: ""
+  SCRIPTINTERVAL: ""
+  SOURCE_CONNECTION: ""
+  USEFOLDERS: ""
+  USEVIDEOFOLDERS: ""
+  WriteNFOs: ""
+  subtitlelanguage: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/amvd
+  tag: latest@sha256:e6544d01627431594331df714e02586fb3a76969487ef89aab240bab66dcc132
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  hostpathfordownloads-amvd:
+    enabled: true
+    mountPath: /downloads-amvd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

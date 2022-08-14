@@ -1,0 +1,170 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+  - variable: operator
+    group: "App Configuration"
+    label: "Operator Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: logLevel
+                label: "Log Level"
+                description: "Log level for Operator"
+                schema:
+                  type: string
+                  default: "info"
+  - variable: prometheus
+    group: "App Configuration"
+    label: "Prometheus Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: logLevel
+                label: "Log Level"
+                description: "Log level for Prometheus"
+                schema:
+                  type: string
+                  default: "info"
+              - variable: retention
+                label: "Retention"
+                description: "Metrics retention days"
+                schema:
+                  type: string
+                  default: "31d"
+              - variable: retentionSize
+                label: "Max Retention Size"
+                description: "Maximum size of metrics"
+                schema:
+                  type: string
+                  default: ""
+              - variable: disableCompaction
+                label: "Disable Compaction"
+                description: "Disable the compaction of the Prometheus TSDB"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: walCompression
+                label: "WAL Compression"
+                description: "Enable compression of the write-ahead log using Snappy"
+                schema:
+                  type: boolean
+                  default: false
+  - variable: alertmanager
+    group: "App Configuration"
+    label: "Alertmanager Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: logLevel
+                label: "Log Level"
+                description: "Log level for Alertmanager"
+                schema:
+                  type: string
+                  default: "info"
+              - variable: retention
+                label: "Retention"
+                description: "Metrics retention days"
+                schema:
+                  type: string
+                  default: "240h"
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The serving the Prometheus WebUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10086
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9090
+        - variable: alertmanager
+          label: "alertmanager Service"
+          description: "alertmanager service "
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: alertmanager
+                      label: "alertmanager Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10087
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9093
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{advanced}

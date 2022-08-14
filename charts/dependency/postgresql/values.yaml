@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/truecharts/postgresql
+  repository: tccr.io/truecharts/postgresql
   pullPolicy: IfNotPresent
-  tag: v14.2.0@sha256:34ec7be4f80d7f77236e7299c2055b02e57dfe89b3fce5f3439bbd5dc844d6f8
+  tag: 14.5.0@sha256:d8f7c9506fc93c5073f2c01fa4af2c7449d82d9d435057c422459692ff6ab474
 
 controller:
   # -- Set the controller type.
@@ -104,18 +104,26 @@ postgresqlDatabase: "test"
 postgrespassword: "testroot"
 existingSecret: ""
 
-envValueFrom:
+secret:
+  credentials:
+    enabled: true
+    data:
+      postgresql-password: '{{ ( .Values.postgresqlPassword | default "empty" ) }}'
+      postgresql-postgres-password: '{{ ( .Values.postgrespassword | default "empty" ) }}'
+
+env:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "postgresql-password"
   POSTGRESQL_POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "postgresql-postgres-password"
-
-envTpl:
   POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
 # POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
 # POSTGRESQL_PASSWORD: "{{ .Values.password }}"
+
+portal:
+  enabled: false

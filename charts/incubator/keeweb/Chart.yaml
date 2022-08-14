@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+    - Network-Web
+    - Network-Management
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/keeweb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/keeweb.png
+keywords:
+  - keeweb
+  - Productivity
+  - Tools-Utilities
+  - Network-Web
+  - Network-Management
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: keeweb
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/keeweb
+  - https://github.com/keeweb/keeweb
+  - https://hub.docker.com/r/antelle/keeweb
+type: application
+version: 0.0.16

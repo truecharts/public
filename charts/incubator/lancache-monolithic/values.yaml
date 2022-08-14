@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/lancache-monolithic
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:114e6d8dcdf4a305d9d1f4fee836c76802135564c98d6585164234e18bbe687a
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
+  CACHE_DOMAINS_BRANCH: "master"
+  UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
+  CACHE_DISK_SIZE: "1000000m"
+  CACHE_MAX_AGE: "3560d"
+  CACHE_INDEX_SIZE: "500m"
+  NOFETCH: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10279
+        targetPort: 80
+        protocol: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data/cache"
+  logs:
+    enabled: true
+    mountPath: "/data/logs"
+
+portal:
+  enabled: false

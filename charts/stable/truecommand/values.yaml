@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/truecommand
   pullPolicy: IfNotPresent
-  tag: v2.1@sha256:e0da54deb8f12300977a78353f0c56a82ea93b413f3cf2225072704830ab664b
+  tag: 2.2@sha256:e1e97b3a75948def0616e8b6032c7bab50b805ff33f1383d0ad55cb88ef7dd88
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,3 +22,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Network-Web
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: BackupPC is a high-performance, enterprise-grade system for backing up Linux, Windows and macOS PCs and laptops to a server's disk.
+home: https://truecharts.org/docs/charts/incubator/backuppc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/backuppc.png
+keywords:
+  - backuppc
+  - Backup
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: backuppc
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
+  - https://backuppc.github.io/backuppc/index.html
+  - https://hub.docker.com/r/tiredofit/backuppc/
+type: application
+version: 0.0.17

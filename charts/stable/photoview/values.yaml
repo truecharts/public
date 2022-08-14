@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/photoview
-  tag: 2.3.12@sha256:84a2a71f6efdf659bbe127dc017cc4ef5fab34a20ba1d5c9c75321c2a75b9531
+  tag: 2.3.13@sha256:2df4e8e7a7f9b15e7d4af8d3b85d20c37434cb8503f04f48c50d30f1982a757b
   pullPolicy: IfNotPresent
 
 env:
@@ -11,8 +11,6 @@ env:
   PHOTOVIEW_DISABLE_FACE_RECOGNITION: false
   PHOTOVIEW_DISABLE_VIDEO_ENCODING: false
   PHOTOVIEW_DISABLE_RAW_PROCESSING: false
-
-envValueFrom:
   PHOTOVIEW_POSTGRES_URL:
     secretKeyRef:
       name: dbcreds
@@ -26,7 +24,7 @@ service:
         targetPort: 10159
 
 persistence:
-# Don't use emptyDir, it stores, thumbnails and optimized media
+  # Don't use emptyDir, it stores, thumbnails and optimized media
   cache:
     enabled: true
     mountPath: "/cache"
@@ -39,3 +37,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: photoview
   postgresqlDatabase: photoview
+
+portal:
+  enabled: true

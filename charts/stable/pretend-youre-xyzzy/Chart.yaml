@@ -1,27 +1,28 @@
 apiVersion: v2
 appVersion: "4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: pretend-youre-xyzzy, a cards against humanity clone
-home: https://github.com/truecharts/apps/tree/master/charts/stable/pretend-youre-xyzzy
-icon: https://truecharts.org/_static/img/appicons/pretend-youre-xyzzy.png
+home: https://truecharts.org/docs/charts/stable/pretend-youre-xyzzy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.png
 keywords:
-- pretend-youre-xyzzy
-- cards
-- against
-- humanity
-kubeVersion: '>=1.16.0-0'
+  - pretend-youre-xyzzy
+  - cards
+  - against
+  - humanity
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: pretend-youre-xyzzy
 sources:
-- https://github.com/ajanata/PretendYoureXyzzy
-- https://github.com/emcniece/DockerYourXyzzy
-version: 5.0.13
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
+  - https://github.com/ajanata/PretendYoureXyzzy
+  - https://github.com/emcniece/DockerYourXyzzy
+version: 6.0.27
 annotations:
   truecharts.org/catagories: |
     - media

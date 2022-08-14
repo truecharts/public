@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/qbittorrent
   pullPolicy: IfNotPresent
-  tag: v4.4.2@sha256:0891c27f00228b01e9be858930d9e31adf228a3a67fa64039866f3e4113aa96f
+  tag: v4.4.3.1@sha256:1c4babf95744d0c77f82db444ddf91f7792d1438242b84a52df9eb7bb3d01470
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -33,7 +33,6 @@ persistence:
     enabled: true
     mountPath: "/config"
 
-
 additionalVolumes:
   - name: qbittorrent-scripts
     emptyDir: {}
@@ -45,3 +44,6 @@ additionalVolumes:
 additionalVolumeMounts:
   - mountPath: "/config/custom-cont-init.d"
     name: qbittorrent-scripts
+
+portal:
+  enabled: true

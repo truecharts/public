@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaServer-Other
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Media display for Plex, sonarr and radarr
+home: https://truecharts.org/docs/charts/incubator/posterr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/posterr.png
+keywords:
+  - posterr
+  - MediaServer-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: posterr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/posterr
+  - https://github.com/petersem/posterr
+  - https://hub.docker.com/r/petersem/posterr/
+type: application
+version: 0.0.16

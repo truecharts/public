@@ -1,0 +1,55 @@
+image:
+  repository: tccr.io/truecharts/cloudflareddns
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:f47010bfd436cc42cc0fc19c817686aa874c3e65e702c527f80808fac5fc6f4d
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  CF_APITOKEN: ""
+  CF_APIKEY: ""
+  CF_APITOKEN_ZONE: ""
+
+env:
+  DETECTION_MODE: '{{ ternary .Values.env.DETECT_MODE .Values.env.DETECT_OVERRIDE (eq .Values.env.DETECT_OVERRIDE "") }}'
+  # Use Defined
+  INTERVAL: 300
+  DETECT_MODE: "dig-whoami.cloudflare"
+  DETECT_OVERRIDE: ""
+  LOG_LEVEL: 3
+  cloudflareddns: ""
+  CF_USER: "your.cf.email@example.com"
+  CF_HOSTS: "test.example.com;test.foobar.com;test2.foobar.com"
+  CF_ZONES: "example.com;foobar.com;foobar.com"
+  CF_RECORDTYPES: "A;A;AAAA"
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+portal:
+  enabled: false

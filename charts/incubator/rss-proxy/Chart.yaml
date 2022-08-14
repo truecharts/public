@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+    - Network-Web
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/rss-proxy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
+keywords:
+  - rss-proxy
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: rss-proxy
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
+  - https://github.com/damoeb/rss-proxy
+  - https://hub.docker.com/r/damoeb/rss-proxy
+type: application
+version: 0.0.16

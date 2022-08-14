@@ -1,0 +1,31 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Tools-Utilities
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/vorta
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vorta.png
+keywords:
+  - vorta
+  - Backup
+  - Tools-Utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: vorta
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/vorta
+  - https://github.com/borgbase/vorta-docker
+  - https://ghcr.io/borgbase/vorta-docker
+type: application
+version: 0.0.16

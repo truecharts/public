@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/truecharts/mongodb
+  repository: tccr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: v5.0.8@sha256:3f9baa5514e7408d638a876847ae67f1c028c027475be6f42c681221b8a1fe4b
+  tag: 5.0.10@sha256:0629317721b4d71e5eef1179903a6f81b520b801fe91e641afb9a39fb2fb56bd
 
 controller:
   # -- Set the controller type.
@@ -102,16 +102,24 @@ mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
 existingSecret: ""
 
-envValueFrom:
-  MONGODB_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mongodb-password"
-  MONGODB_ROOT_PASSWORD:
-    secretKeyRef:
-      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
-      key: "mongodb-root-password"
+secret:
+  credentials:
+    enabled: true
+    data:
+      mongodb-password: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
+      mongodb-root-password: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
 
 env:
   MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
+  MONGODB_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mongodb-password"
+  MONGODB_ROOT_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      key: "mongodb-root-password"
+
+portal:
+  enabled: false

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/ghost
-  tag: v4.47.0@sha256:ce3e4141174631356bc1d1339a3afd3c78c808fde8359ef106123cbd72ec8784
+  tag: 5.8.3@sha256:c5c7784956bea3a3e80e30ca0efb2eda69f1717ace16aea7a08c64a20c3b6fb0
   pullPolicy: IfNotPresent
 
 env:
@@ -43,8 +43,6 @@ env:
   tenor__contentFilter: "off"
   opensea__privateReadOnlyApiKey: ""
   twitter__privateReadOnlyToken: ""
-
-envValueFrom:
   database__connection__host:
     secretKeyRef:
       name: mariadbcreds
@@ -71,3 +69,6 @@ mariadb:
   mariadbUsername: ghost
   mariadbDatabase: ghost
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

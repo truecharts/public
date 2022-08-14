@@ -1,309 +1,366 @@
 # Include{groups}
 portals:
   open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
+# Include{portalLink}
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
-  - variable: controller
-    group: "Controller"
-    label: ""
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: authentik
+    group: "Container Configuration"
+    label: "Authentik Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: advanced
-          label: "Show Advanced Controller Settings"
+        - variable: credentials
+          label: "Credentials"
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: type
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Controller Type"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: password
+                label: "Password (Initial install only)"
+                description: "Password for <akadmin> user. Can be used for any flow executor"
                 schema:
                   type: string
-                  default: "deployment"
+                  private: true
                   required: true
-                  enum:
-                    - value: "deployment"
-                      description: "Deployment"
-                    - value: "statefulset"
-                      description: "Statefulset"
-                    - value: "daemonset"
-                      description: "Daemonset"
-              - variable: replicas
-                description: "Number of desired pod replicas"
-                label: "Desired Replicas"
+                  default: ""
+              - variable: token
+                label: "Token (Initial install only)"
+                description: "The string you specify for this variable is the token key you can use to authenticate yourself to the API"
+                schema:
+                  type: string
+                  private: true
+                  required: true
+                  default: ""
+        - variable: general
+          label: "General"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: disable_update_check
+                label: "Disable Update Check"
+                description: "Disable the inbuilt update-checker"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: disable_startup_analytics
+                label: "Disable Startup Analytics"
+                description: "Disable startup analytics"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allow_user_name_change
+                label: "Allow User Name Change"
+                description: "Enable the ability for users to change their Name"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allow_user_mail_change
+                label: "Allow User Mail Change"
+                description: "Enable the ability for users to change their Email address"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allow_user_username_change
+                label: "Allow User Username Change"
+                description: "Enable the ability for users to change their Usernames"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: gdpr_compliance
+                label: "GDPR Compliance"
+                description: "When enabled, all the events caused by a user will be deleted upon the user's deletion"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: impersonation
+                label: "Impersonation"
+                description: "Globally enable/disable impersonation"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: avatars
+                label: "Avatars"
+                description: "Configure how authentik should show avatars for users"
+                schema:
+                  type: string
+                  default: "gravatar"
+              - variable: token_length
+                label: "Token Length"
+                description: "Configure the length of generated tokens"
                 schema:
                   type: int
-                  default: 1
-                  required: true
-              - variable: strategy
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Update Strategy"
-                schema:
-                  type: string
-                  default: "Recreate"
-                  required: true
-                  enum:
-                    - value: "Recreate"
-                      description: "Recreate: Kill existing pods before creating new ones"
-                    - value: "RollingUpdate"
-                      description: "RollingUpdate: Create new pods and then kill old ones"
-                    - value: "OnDelete"
-                      description: "(Legacy) OnDelete: ignore .spec.template changes"
-# Include{controllerExpert}
-  - variable: secret
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AK_ADMIN_PASS
-          label: "AK_ADMIN_PASS (Initial Install Only)"
-          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: AK_ADMIN_TOKEN
-          label: "AK_ADMIN_TOKEN (Initial Install Only)"
-          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AUTHENTIK_DEFAULT_USER_CHANGE_NAME
-          label: "AUTHENTIK_DEFAULT_USER_CHANGE_NAME"
-          description: "Enable the ability for users to change their name."
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL
-          label: "AUTHENTIK_DEFAULT_USER_CHANGE_EMAIL"
-          description: "Enable the ability for users to change their Email address."
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME
-          label: "AUTHENTIK_DEFAULT_USER_CHANGE_USERNAME"
-          description: "Enable the ability for users to change their Usernames."
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTHENTIK_GDPR_COMPLIANCE
-          label: "AUTHENTIK_GDPR_COMPLIANCE"
-          description: "When enabled, all the events caused by a user will be deleted upon the user's deletion."
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTHENTIK_IMPERSONATION
-          label: "AUTHENTIK_IMPERSONATION"
-          description: "Globally enable/disable impersonation."
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTHENTIK_DISABLE_UPDATE_CHECK
-          label: "AUTHENTIK_DISABLE_UPDATE_CHECK"
-          description: "Disable the inbuilt update-checker."
-          schema:
-            type: boolean
-            default: false
-        - variable: AUTHENTIK_DISABLE_STARTUP_ANALYTICS
-          label: "AUTHENTIK_DISABLE_STARTUP_ANALYTICS"
-          description: "Disable the startup analytics."
-          schema:
-            type: boolean
-            default: false
-        - variable: AUTHENTIK_ERROR_REPORTING__ENABLED
-          label: "AUTHENTIK_ERROR_REPORTING__ENABLED"
-          description: "Enable error reporting."
-          schema:
-            type: boolean
-            default: false
-        - variable: AUTHENTIK_ERROR_REPORTING__SEND_PII
-          label: "AUTHENTIK_ERROR_REPORTING__SEND_PII"
-          description: "Whether or not to send personal data, like usernames."
-          schema:
-            type: boolean
-            default: false
-        - variable: AUTHENTIK_ERROR_REPORTING__ENVIRONMENT
-          label: "AUTHENTIK_ERROR_REPORTING__ENVIRONMENT"
-          description: "Unique environment that is attached to your error reports, should be set to your email address for example."
-          schema:
-            type: string
-            default: "customer"
-        - variable: AUTHENTIK_DEFAULT_TOKEN_LENGTH
-          label: "AUTHENTIK_DEFAULT_TOKEN_LENGTH"
-          description: "Configure the length of generated tokens. Defaults to 128."
-          schema:
-            type: int
-            default: 128
-        - variable: AUTHENTIK_AVATARS
-          label: "AUTHENTIK_AVATARS"
-          description: "Configure how authentik should show avatars for users."
-          schema:
-            type: string
-            default: "gravatar"
-        - variable: AUTHENTIK_LOG_LEVEL
-          label: "AUTHENTIK_LOG_LEVEL"
-          description: "Log level for the server and worker containers."
-          schema:
-            type: string
-            default: "info"
-            enum:
-              - value: trace
-                description: "trace"
-              - value: debug
-                description: "debug"
-              - value: info
-                description: "info"
-              - value: warning
-                description: "warning"
-              - value: error
-                description: "error"
-        - variable: enable_mail_config
-          label: "Enable Email Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: AUTHENTIK_EMAIL__HOST
-                label: "AUTHENTIK_EMAIL__HOST"
+                  default: 128
+              - variable: footer_links
+                label: "Footer Links"
+                description: "This option configures the footer links on the flow executor pages"
                 schema:
                   type: string
                   default: ""
-              - variable: AUTHENTIK_EMAIL__PORT
-                label: "AUTHENTIK_EMAIL__PORT"
+        - variable: mail
+          label: "e-Mail"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: host
+                label: "Mail Server Host"
+                description: "Sets host of mail server"
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: "Mail Server Port"
+                description: "Sets port of mail server"
                 schema:
                   type: int
                   default: 25
-              - variable: AUTHENTIK_EMAIL__USERNAME
-                label: "AUTHENTIK_EMAIL__USERNAME"
+              - variable: tls
+                label: "Use TLS for authentication"
+                description: "Sets tls for mail server authentication"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: ssl
+                label: "Use SSL for authentication"
+                description: "Sets ssl for mail server authentication"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: timeout
+                label: "Timeout of authentication"
+                description: "Sets timeout for mail server authentication"
+                schema:
+                  type: int
+                  default: 10
+              - variable: user
+                label: "Username"
+                description: "Sets username of mail server"
                 schema:
                   type: string
                   default: ""
-              - variable: AUTHENTIK_EMAIL__PASSWORD
-                label: "AUTHENTIK_EMAIL__PASSWORD"
+              - variable: pass
+                label: "Password"
+                description: "Sets password of mail server"
                 schema:
                   type: string
                   private: true
                   default: ""
-              - variable: AUTHENTIK_EMAIL__USE_TLS
-                label: "AUTHENTIK_EMAIL__USE_TLS"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: AUTHENTIK_EMAIL__USE_SSL
-                label: "AUTHENTIK_EMAIL__USE_SSL"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: AUTHENTIK_EMAIL__TIMEOUT
-                label: "AUTHENTIK_EMAIL__TIMEOUT"
-                schema:
-                  type: int
-                  default: 10
-              - variable: AUTHENTIK_EMAIL__FROM
-                label: "AUTHENTIK_EMAIL__FROM"
-                description: "Email address authentik will send from, should have a correct @domain. To change the sender's display name, use a format like Name <account@domain>."
+              - variable: from
+                label: "From Address"
+                description: "Email address authentik will send from"
                 schema:
                   type: string
                   default: ""
-  - variable: geoip
+        - variable: error_reporting
+          label: "Error Reporting"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Reporting"
+                description: "Enables error reporting"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if:
+                  subquestions:
+                    - variable: send_pii
+                      label: "Send Personal Data"
+                      description: "Whether or not to send personal data, like usernames"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: environment
+                      label: "Environment"
+                      description: "Unique environment that is attached to your error reports, should be set to your email address for example."
+                      schema:
+                        type: string
+                        default: "customer"
+        - variable: logging
+          label: "Logging"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: log_level
+                label: "Log Level"
+                description: "Log level for the server and worker containers"
+                schema:
+                  type: string
+                  default: "info"
+                  enum:
+                    - value: trace
+                      description: "trace"
+                    - value: debug
+                      description: "debug"
+                    - value: info
+                      description: "info"
+                    - value: warning
+                      description: "warning"
+                    - value: error
+                      description: "error"
+        - variable: metrics
+          label: "Metrics"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Metrics Endpoint"
+                description: "Enables metrics endpoint for Authentik and embedded outpost"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: ldap
+          label: "LDAP"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: tls_ciphers
+                label: "TLS Ciphers"
+                description: "Allows configuration of TLS Ciphers for LDAP connections used by LDAP sources. Setting applies to all sources"
+                schema:
+                  type: string
+                  default: "null"
+  - variable: outposts
     group: "Container Configuration"
-    label: "Image GeoIP Updater"
+    label: "Outpost Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ENABLE_GEOIPUPDATER
-          label: "Enable CronJob for GeoIP Updater"
+        - variable: ldap
+          label: "LDAP"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable LDAP outpost"
+                description: "Enable only AFTER you created an LDAP Provider and an API Token"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: insecure
+                      label: "Insecure"
+                      description: "Check only if you accessing Authentik in an unsecure way"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: host
+                      label: "Authentik Host"
+                      description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: token
+                      label: "API Token"
+                      description: "Generated in the Authentik GUI > Directory > Token & App Passwords"
+                      schema:
+                        type: string
+                        private: true
+                        required: true
+                        default: ""
+                    - variable: metrics
+                      label: "Metrics Endpoint"
+                      description: "Enables metric endpoint in LDAP Outpost"
+                      schema:
+                        type: boolean
+                        default: false
+  - variable: geoip
+    group: "Container Configuration"
+    label: "GeoIP Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable GeoIP Container"
+          description: "Enables GeoIP container"
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: GEOIPUPDATE_ACCOUNT_ID
-                label: "GEOIPUPDATE_ACCOUNT_ID"
+              - variable: account_id
+                label: "Account ID"
                 description: "Your MaxMind account ID"
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
-              - variable: GEOIPUPDATE_LICENSE_KEY
-                label: "GEOIPUPDATE_LICENSE_KEY"
-                description: "Your case-sensitive MaxMind license key."
+              - variable: license_key
+                label: "License Key"
+                description: "Your case-sensitive MaxMind license key"
+                schema:
+                  type: string
+                  private: true
+                  required: true
+                  default: ""
+              - variable: edition_ids
+                label: "Edition IDs"
+                description: "List of space-separated database edition IDs. Edition IDs may consist of letters, digits, and dashes"
+                schema:
+                  type: string
+                  required: true
+                  default: "GeoLite2-City"
+              - variable: frequency
+                label: "Frequency"
+                description: "The number of hours between geoipupdate runs"
+                schema:
+                  type: int
+                  min: 1
+                  default: 8
+              - variable: host_server
+                label: "Host Server"
+                description: "The host name of the server to use"
+                schema:
+                  type: string
+                  default: "updates.maxmind.com"
+              - variable: preserve_file_times
+                label: "Preserve File Times"
+                description: "Whether to preserve modification times of files downloaded from the server"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: verbose
+                label: "Verbose"
+                description: "Enable verbose mode. Prints out the steps that geoipupdate takes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: proxy
+                label: "Proxy"
+                description: "The proxy host name or IP address"
+                schema:
+                  type: string
+                  default: ""
+              - variable: proxy_user_pass
+                label: "Proxy Pass"
+                description: "The proxy user name and password, separated by a colon"
                 schema:
                   type: string
                   private: true
                   default: ""
-              - variable: GEOIPUPDATE_EDITION_IDS
-                label: "GEOIPUPDATE_EDITION_IDS"
-                description: "ist of space-separated database edition IDs. Edition IDs may consist of letters, digits, and dashes."
-                schema:
-                  type: string
-                  default: "GeoIP2-City"
-              - variable: GEOIPUPDATE_HOST
-                label: "GEOIPUPDATE_HOST"
-                description: "The host name of the server to use. The default is updates.maxmind.com."
-                schema:
-                  type: string
-                  default: "updates.maxmind.com"
-              - variable: GEOIPUPDATE_PRESERVE_FILE_TIMES
-                label: "GEOIPUPDATE_PRESERVE_FILE_TIMES"
-                description: "Whether to preserve modification times of files downloaded from the server. This option is either 0 or 1. The default is 0."
-                schema:
-                  type: int
-                  default: 0
-              - variable: freqhours
-                label: "FREQUENCY"
-                description: "The number of hours between geoipupdate runs."
-                schema:
-                  type: int
-                  default: 8
-
 # Include{containerConfig}
-
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -323,7 +380,111 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
+                              default: 10229
+                              required: true
+# Include{advancedPortHTTPS}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9443
+        - variable: http
+          label: "http Service"
+          description: "The http service."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: http
+                      label: "http Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
                               default: 10230
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9000
+        - variable: metrics
+          label: "metrics Service"
+          description: "The metrics service."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: metrics
+                      label: "metrics Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10231
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9301
+        - variable: ldap
+          label: "LDAP Service"
+          description: "The LDAP service."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: ldap1
+                      label: "ldap1 Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 389
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 3389
+                    - variable: ldap2
+                      label: "ldap2 Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 636
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -358,17 +519,9 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9000
-        - variable: https
-          label: "https Service"
-          description: "The https service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: https
-                      label: "https Service Port Configuration"
+                                    default: 6636
+                    - variable: ldap-metrics
+                      label: "LDAP metrics Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -378,70 +531,20 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10229
+                              default: 10232
                               required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTPS"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9443
-
-  - variable: serviceexpert
-    group: "Networking and Services"
-    label: "Show Expert Config"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: hostNetwork
-          group: "Networking and Services"
-          label: "Host-Networking (Complicated)"
-          schema:
-            type: boolean
+                                    default: 9300
+# Include{serviceExpertRoot}
             default: false
-
 # Include{serviceExpert}
-
 # Include{serviceList}
-
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{persistenceRoot}
         - variable: media
           label: "App Media Storage"
           description: "Stores the Application Media."
@@ -449,41 +552,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
 # Include{persistenceAdvanced}
         - variable: templates
           label: "App Templates Storage"
@@ -492,41 +561,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
 # Include{persistenceAdvanced}
         - variable: certs
           label: "App Certs Storage"
@@ -535,41 +570,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
 # Include{persistenceAdvanced}
         - variable: geoip
           label: "App GeoIP Storage"
@@ -578,52 +579,10 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
 # Include{persistenceAdvanced}
-
 # Include{persistenceList}
-
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
           schema:
@@ -631,31 +590,12 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
-  - variable: advancedSecurity
-    label: "Show Advanced Security Settings"
-    group: "Security and Permissions"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: securityContext
-          label: "Security Context"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{securityContextAdvancedRoot}
               - variable: privileged
                 label: "Privileged mode"
                 schema:
@@ -677,14 +617,7 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
-  - variable: podSecurityContext
-    group: "Security and Permissions"
-    label: "Pod Security Context"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
@@ -704,9 +637,7 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}
+# Include{documentation}

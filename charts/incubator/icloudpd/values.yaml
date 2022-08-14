@@ -1,0 +1,46 @@
+env:
+  UMASK: "000"
+  apple_id: your@appleid.com
+  authentication_type: 2FA
+  command_line_options: ""
+  directory_permissions: "777"
+  file_permissions: "666"
+  notification_type: ""
+  prowl_api_key: ""
+  pushbullet_api_key: ""
+  synchronisation_interval: "86400"
+  telegram_chat_id: ""
+  telegram_token: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/icloudpd
+  tag: latest@sha256:79b446ccd6a94f1849d1e2735545d8ed2fac18af2d1df66ae33e738bddc4fdf5
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /home/user/iCloud
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

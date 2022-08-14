@@ -1,4 +1,256 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [tdarr-node-2.0.27](https://github.com/truecharts/charts/compare/tdarr-node-2.0.26...tdarr-node-2.0.27) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [tdarr-node-2.0.26](https://github.com/truecharts/charts/compare/tdarr-node-2.0.25...tdarr-node-2.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [tdarr-node-2.0.25](https://github.com/truecharts/apps/compare/tdarr-node-2.0.24...tdarr-node-2.0.25) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [tdarr-node-2.0.24](https://github.com/truecharts/apps/compare/tdarr-node-2.0.23...tdarr-node-2.0.24) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [tdarr-node-2.0.24](https://github.com/truecharts/apps/compare/tdarr-node-2.0.23...tdarr-node-2.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [tdarr-node-2.0.23](https://github.com/truecharts/apps/compare/tdarr-node-2.0.22...tdarr-node-2.0.23) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [tdarr-node-2.0.23](https://github.com/truecharts/apps/compare/tdarr-node-2.0.22...tdarr-node-2.0.23) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [tdarr-node-2.0.23](https://github.com/truecharts/apps/compare/tdarr-node-2.0.22...tdarr-node-2.0.23) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [tdarr-node-2.0.22](https://github.com/truecharts/apps/compare/tdarr-node-2.0.20...tdarr-node-2.0.22) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [tdarr-node-2.0.20](https://github.com/truecharts/apps/compare/tdarr-node-2.0.19...tdarr-node-2.0.20) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [tdarr-node-2.0.19](https://github.com/truecharts/apps/compare/tdarr-node-2.0.18...tdarr-node-2.0.19) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [tdarr-node-2.0.18](https://github.com/truecharts/apps/compare/tdarr-node-2.0.17...tdarr-node-2.0.18) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [tdarr-node-2.0.17](https://github.com/truecharts/apps/compare/tdarr-node-1.0.6...tdarr-node-2.0.17) (2022-07-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- remove UI leftovers ([#2914](https://github.com/truecharts/apps/issues/2914))
+- bump to regenerate documentation
+- bump to cleanup old docs and use correct icon urls
+- sync all apps persistence configuration and always default to PVC
+- update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+- update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+- update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+- update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+- update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+- update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+- update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+- update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+- hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+- remove malfunctioning SCALE migration script
+
+### Refactor
+
+- BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="tdarr-node-1.0.6"></a>
+### [tdarr-node-1.0.6](https://github.com/truecharts/apps/compare/tdarr-node-1.0.5...tdarr-node-1.0.6) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
+<a name="tdarr-node-1.0.5"></a>
+### [tdarr-node-1.0.5](https://github.com/truecharts/apps/compare/tdarr-node-1.0.4...tdarr-node-1.0.5) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="tdarr-node-1.0.5"></a>
+### [tdarr-node-1.0.5](https://github.com/truecharts/apps/compare/tdarr-node-1.0.4...tdarr-node-1.0.5) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="tdarr-node-1.0.4"></a>
+### [tdarr-node-1.0.4](https://github.com/truecharts/apps/compare/tdarr-node-1.0.3...tdarr-node-1.0.4) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="tdarr-node-1.0.3"></a>
+### [tdarr-node-1.0.3](https://github.com/truecharts/apps/compare/tdarr-node-1.0.2...tdarr-node-1.0.3) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="tdarr-node-1.0.3"></a>
+### [tdarr-node-1.0.3](https://github.com/truecharts/apps/compare/tdarr-node-1.0.2...tdarr-node-1.0.3) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="tdarr-node-1.0.2"></a>
+### [tdarr-node-1.0.2](https://github.com/truecharts/apps/compare/tdarr-node-1.0.1...tdarr-node-1.0.2) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="tdarr-node-1.0.1"></a>
+### [tdarr-node-1.0.1](https://github.com/truecharts/apps/compare/tdarr-node-1.0.0...tdarr-node-1.0.1) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
 
 
 <a name="tdarr-node-1.0.0"></a>

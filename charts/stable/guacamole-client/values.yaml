@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/guacamole-client
   pullPolicy: IfNotPresent
-  tag: v1.4.0@sha256:43f7b0575173f509b5215a89170dfea80ea07f0b2bfed405882a4bc7ec9dfa52
+  tag: v1.4.0@sha256:ee47f0bfa10658683f46cd08316dac56dfb78a0a71a579db0efecd59466adfee
 
 podSecurityContext:
   runAsUser: 1001
@@ -18,9 +18,30 @@ service:
         targetPort: 8080
 
 env:
+  # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: 5432
+  POSTGRES_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  # New format
+  POSTGRESQL_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRESQL_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  POSTGRESQL_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRESQL_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRESQL_PORT: 5432
   GUACD_HOSTNAME: "localhost"
   GUACD_PORT: 4822
 
@@ -39,23 +60,28 @@ header:
   HEADER_ENABLED: false
   # HTTP_AUTH_HEADER: "REMOTE_USER"
 
-api: {}
+api:
+  {}
   # API_SESSION_TIMEOUT: "60"
 
-general: {}
+general:
+  {}
   # EXTENSION_PRIORITY: "openid"
 
-json: {}
+json:
+  {}
   # JSON_SECRET_KEY: "random32charkey"
   # JSON_TRUSTED_NETWORKS: "127.0.0.0/8, 10.0.0.0/8"
 
-duo: {}
+duo:
+  {}
   # DUO_API_HOSTNAME: "api-XXXXXXXX.duosecurity.com"
   # DUO_INTEGRATION_KEY: "exactly20charkey"
   # DUO_SECRET_KEY: "exactly40charkey"
   # DUO_APPLICATION_KEY: "atleast40charkey"
 
-cas: {}
+cas:
+  {}
   # CAS_AUTHORIZATION_ENDPOINT: ""
   # CAS_REDIRECT_URI: ""
   # CAS_CLEARPASS_KEY: ""
@@ -64,7 +90,8 @@ cas: {}
   # CAS_GROUP_LDAP_BASE_DN: ""
   # CAS_GROUP_LDAP_ATTRIBUTE: ""
 
-openid: {}
+openid:
+  {}
   # OPENID_AUTHORIZATION_ENDPOINT: ""
   # OPENID_JWKS_ENDPOINT: ""
   # OPENID_ISSUER: ""
@@ -74,7 +101,8 @@ openid: {}
   # OPENID_GROUPS_CLAIM_TYPE: "groups"
   # OPENID_MAX_TOKEN_VALIDITY: "300"
 
-radius: {}
+radius:
+  {}
   # RADIUS_HOSTNAME: "localhost"
   # RADIUS_AUTH_PORT: "1812"
   # RADIUS_SHARED_SECRET: ""
@@ -90,7 +118,8 @@ radius: {}
   # RADIUS_TIMEOUT: "60"
   # RADIUS_EAP_TTLS_INNER_PROTOCOL: "eap-tls"
 
-ldap: {}
+ldap:
+  {}
   # LDAP_HOSTNAME: "localhost"
   # LDAP_USER_BASE_DN: ""
   # LDAP_PORT: "389"
@@ -112,7 +141,8 @@ ldap: {}
   # LDAP_MAX_REFERRAL_HOPS: "5"
   # LDAP_OPERATION_TIMEOUT: "30"
 
-saml: {}
+saml:
+  {}
   # SAML_IDP_METADATA_URL: ""
   # SAML_IDP_URL:
   # SAML_ENTITY_ID:
@@ -123,22 +153,19 @@ saml: {}
   # SAML_COMPRESS_RESPONSE:
   # SAML_GROUP_ATTRIBUTE:
 
+proxy:
+  {}
+  # REMOTE_IP_VALVE_ENABLED: false
+  # PROXY_BY_HEADER: ""
+  # PROXY_PROTOCOL_HEADER: ""
+  # PROXY_IP_HEADER: ""
+  # PROXY_ALLOWED_IPS_REGEX: ""
 
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: guacamole
   postgresqlDatabase: guacamole
-
-envValueFrom:
-  POSTGRES_HOSTNAME:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
 
 probes:
   liveness:
@@ -152,7 +179,7 @@ persistence:
   initdbdata:
     enabled: true
     mountPath: "/initdbdata"
-# Both temphack and temphackalso will be removed on the next image release
+  # Both temphack and temphackalso will be removed on the next image release
   temphack:
     enabled: true
     mountPath: "/opt/guacamole/postgresql-hack"
@@ -168,27 +195,27 @@ initContainers:
         mountPath: "/initdbdata"
     command: ["/bin/sh", "-c"]
     args:
-      - >
-        echo "Creating initdb.sql file...";
-        /opt/guacamole/bin/initdb.sh --postgres > /initdbdata/initdb.sql;
-        if [ -e /initdbdata/initdb.sql ];
-        then
-          echo "Init file created successfully!";
-          exit 0;
+      - |-
+        echo "Creating initdb.sql file..."
+        /opt/guacamole/bin/initdb.sh --postgres >/initdbdata/initdb.sql
+        if [ -e /initdbdata/initdb.sql ]; then
+          echo "Init file created successfully!"
+          exit 0
         else
-          echo "Init file failed to create.";
-          exit 1;
-        fi;
+          echo "Init file failed to create."
+          exit 1
+        fi
+
   2-initdb:
-    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
+    image: "{{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}"
     env:
-      - name: POSTGRES_DATABASE
+      - name: POSTGRESQL_DATABASE
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: POSTGRES_USER
+      - name: POSTGRESQL_USER
         value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: POSTGRES_PORT
+      - name: POSTGRESQL_PORT
         value: "5432"
-      - name: POSTGRES_HOSTNAME
+      - name: POSTGRESQL_HOSTNAME
         valueFrom:
           secretKeyRef:
             name: dbcreds
@@ -203,23 +230,22 @@ initContainers:
         mountPath: "/initdbdata"
     command: ["/bin/sh", "-c"]
     args:
-      - >
-        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user';
-        if [ $? -eq 0 ];
-          then
-            echo "DB already initialized. Skipping...";
+      - |-
+        psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
+        if [ $? -eq 0 ]; then
+          echo "DB already initialized. Skipping..."
+        else
+          echo "Initializing DB's schema..."
+          psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -a -w -f /initdbdata/initdb.sql
+          if [ $? -eq 0 ]; then
+            echo "DB's schema initialized successfully!"
+            exit 0
           else
-            echo "Initializing DB's schema...";
-            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
-            if [ $? -eq 0 ];
-              then
-                echo "DB's schema initialized successfully!";
-                exit 0;
-              else
-                echo "DB's schema failed to initialize.";
-                exit 1;
-            fi;
-        fi;
+            echo "DB's schema failed to initialize."
+            exit 1
+          fi
+        fi
+
     # Until they release an image with the updated driver, we need to manually replace it.
     # https://issues.apache.org/jira/browse/GUACAMOLE-1433
     # https://github.com/apache/guacamole-client/pull/655
@@ -234,37 +260,34 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql-hack"
     command: ["/bin/sh", "-c"]
     args:
-    - >
-      echo "Checing postgresql driver version...";
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then
-          echo "Version found is correct.";
-          exit 0;
+      - |-
+        echo "Checking postgresql driver version..."
+        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+          echo "Version found is correct."
+          exit 0
         else
-          echo "Old version found. Will try to download a known-to-work version.";
-          echo "Downloading (postgresql-42.2.24.jre7.jar)...";
-          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar";
-          if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];
-            then
-              echo "Downloaded successfully!";
-              cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;
-              if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];
-                then
-                  echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
-                  rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar";
-                  if [ $? -eq 0 ];
-                    then
-                      echo "Removed successfully!";
-                    else
-                      echo "Failed to remove.";
-                      exit 1;
-                  fi;
-              fi;
-            else
-              echo "Failed to download.";
-              exit 1;
-          fi;
-      fi;
+          echo "Old version found. Will try to download a known-to-work version."
+          echo "Downloading (postgresql-42.2.24.jre7.jar)..."
+          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" >"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar"
+          if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ]; then
+            echo "Downloaded successfully!"
+            cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/
+            if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ]; then
+              echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)"
+              rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar"
+              if [ $? -eq 0 ]; then
+                echo "Removed successfully!"
+              else
+                echo "Failed to remove."
+                exit 1
+              fi
+            fi
+          else
+            echo "Failed to download."
+            exit 1
+          fi
+        fi
+
   4-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
@@ -277,12 +300,14 @@ initContainers:
         mountPath: "/opt/guacamole/postgresql"
     command: ["/bin/sh", "-c"]
     args:
-    - >
-      echo "Copying postgres driver into the final destination.";
-      cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/;
-      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then
-          echo "Driver copied successfully!";
+      - |-
+        echo "Copying postgres driver into the final destination."
+        cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
+        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
+          echo "Driver copied successfully!"
         else
-          echo "Failed to copy the driver";
-      fi;
+          echo "Failed to copy the driver"
+        fi
+
+portal:
+  enabled: true

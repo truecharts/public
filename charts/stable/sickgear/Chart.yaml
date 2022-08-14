@@ -1,29 +1,29 @@
 apiVersion: v2
 appVersion: "0.25.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-description: Provides management of TV shows and/or Anime, it detects new episodes,
-  links downloader apps, and more
-home: https://github.com/truecharts/apps/tree/master/charts/stable/sickgear
-icon: https://truecharts.org/_static/img/appicons/sickgear.png
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: Provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more
+home: https://truecharts.org/docs/charts/stable/sickgear
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickgear.png
 keywords:
-- sickgear
-- manager
-- tv
-- shows
-kubeVersion: '>=1.16.0-0'
+  - sickgear
+  - manager
+  - tv
+  - shows
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: sickgear
 sources:
-- https://github.com/linuxserver/docker-sickgear
-- https://github.com/SickGear/SickGear
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sickgear
+  - https://github.com/linuxserver/docker-sickgear
+  - https://github.com/SickGear/SickGear
 type: application
-version: 2.0.13
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

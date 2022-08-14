@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/kms
   pullPolicy: IfNotPresent
-  tag: vminimal@sha256:628c42b2fef93a5ff671f9ada0f99ebcc0132e6817f58e17dc1e2ba277aa2b83
+  tag: vminimal@sha256:5a08c3e2cee5ecdb9a08e0fa2eb56822e8011ce59329412417f59374d3eaf485
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -17,3 +17,6 @@ service:
       main:
         port: 1688
         targetPort: 1688
+
+portal:
+  enabled: false

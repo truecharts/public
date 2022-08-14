@@ -1,7 +1,7 @@
 
   - variable: advancedresources
-    label: "Set Custom Resource Limits/Requests (Advanced)"
-    group: "Resources and Devices"
+    label: Set Custom Resource Limits/Requests (Advanced)
+    group: Resources and Devices
     schema:
       type: boolean
       default: false
@@ -14,24 +14,24 @@
             type: dict
             attrs:
               - variable: limits
-                label: "Advanced Limit Resource Consumption"
+                label: Advanced Limit Resource Consumption
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
                     - variable: cpu
-                      label: "CPU"
-                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/indepth/validation/"
+                      label: CPU
+                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                       schema:
                         type: string
-                        default: "4000m"
+                        default: 4000m
                         valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
                     - variable: memory
-                      label: "RAM"
-                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/indepth/validation/"
+                      label: RAM
+                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                       schema:
                         type: string
-                        default: "8Gi"
+                        default: 8Gi
                         valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
               - variable: requests
                 label: "Minimum Resources Required (request)"
@@ -40,66 +40,64 @@
                   type: dict
                   attrs:
                     - variable: cpu
-                      label: "CPU"
-                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/indepth/validation/"
+                      label: CPU
+                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                       schema:
                         type: string
-                        default: "10m"
+                        default: 10m
                         valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
                     - variable: memory
                       label: "RAM"
-                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/indepth/validation/"
+                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                       schema:
                         type: string
-                        default: "50Mi"
+                        default: 50Mi
                         valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
-
   - variable: deviceList
-    label: "Mount USB devices"
-    group: "Resources and Devices"
+    label: Mount USB Devices
+    group: Resources and Devices
     schema:
       type: list
       default: []
       items:
         - variable: deviceListEntry
-          label: "Device"
+          label: Device
           schema:
             additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable the storage"
+                label: Enable the Storage
                 schema:
                   type: boolean
                   default: true
               - variable: type
-                label: "(Advanced) Type of Storage"
-                description: "Sets the persistence type"
+                label: (Advanced) Type of Storage
+                description: Sets the persistence type
                 schema:
                   type: string
-                  default: "hostPath"
+                  default: hostPath
                   hidden: true
               - variable: readOnly
-                label: "readOnly"
+                label: readOnly
                 schema:
                   type: boolean
                   default: false
               - variable: hostPath
-                label: "Host Device Path"
-                description: "Path to the device on the host system"
+                label: Host Device Path
+                description: Path to the device on the host system
                 schema:
                   type: path
               - variable: mountPath
-                label: "Container Device Path"
-                description: "Path inside the container the device is mounted"
+                label: Container Device Path
+                description: Path inside the container the device is mounted
                 schema:
                   type: string
                   default: "/dev/ttyACM0"
-
   # Specify GPU configuration
   - variable: scaleGPU
-    label: "GPU Configuration"
-    group: "Resources and Devices"
+    label: GPU Configuration
+    group: Resources and Devices
     schema:
       type: dict
       $ref:

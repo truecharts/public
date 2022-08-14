@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tautulli
   pullPolicy: IfNotPresent
-  tag: v2.9.7@sha256:a667e570b2b6431fb8f80738355b3c40628c323497ba11833f1ff8e64c01d610
+  tag: 2.10.3@sha256:79ef880c70973775f6638fc2c8d924b6d29fba4242bc4696f3925c9264892276
 
 service:
   main:
@@ -14,3 +14,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

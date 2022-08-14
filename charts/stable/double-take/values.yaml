@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/double-take
   pullPolicy: IfNotPresent
-  tag: v1.7.0@sha256:9872c84e9aa6bf9eeed65452a1590ef7595a0a3d759719af4539708b69fd7567
+  tag: v1.12.1@sha256:2bf0abe9fed2777a0653fece504ba2d7d8143b38ce720e71b27a0c6ad24d5801
 
 service:
   main:
@@ -14,3 +14,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/.storage"
+
+portal:
+  enabled: true

@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "This Docker will download and install Neverwinter Nights: Enhanced Edition and run it (by default this container has a MariaDB and Redis Server integrated).\r\n"
+home: https://truecharts.org/docs/charts/incubator/neverwinternights-ee
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/neverwinternights-ee.png
+keywords:
+  - neverwinternights-ee
+  - GameServers
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: neverwinternights-ee
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/neverwinternights-ee
+  - https://www.beamdog.com/games/neverwinter-nights-enhanced/
+  - https://hub.docker.com/r/ich777/nwnee-server/
+type: application
+version: 0.0.16

@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/pt-helper
+  tag: latest@sha256:1ae1cc118229d3c480ec9bdeee7f10484b756f368969d8e8e3ed9fa817aacd82
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8192
+        protocol: TCP
+        targetPort: 8192
+
+portal:
+  enabled: true

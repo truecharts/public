@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/code-server
   pullPolicy: IfNotPresent
-  tag: v4.4.0@sha256:13b87094cf293bf45278de98ecb83eb50f3d86ffe0587b4fafd6dc259d367a4d
+  tag: v4.5.1@sha256:6fe1562f98333108b6004cdade0d28577dcf7523e62b0e5217bf4feb14fa4593
 
 args:
   - --user-data-dir
@@ -9,8 +9,8 @@ args:
   - --auth
   - none
 
-env: {}
-  # PROXY_DOMAIN: code-server.my.domain
+env:
+  PROXY_DOMAIN: ""
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -32,3 +32,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

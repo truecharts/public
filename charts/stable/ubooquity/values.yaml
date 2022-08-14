@@ -5,6 +5,7 @@ image:
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -42,3 +43,6 @@ persistence:
   files:
     enabled: true
     mountPath: "/files"
+
+portal:
+  enabled: true

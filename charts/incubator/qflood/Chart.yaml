@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: Docker image with qBittorrent and the Flood UI.
+home: https://truecharts.org/docs/charts/incubator/qflood
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qflood.png
+keywords:
+  - qflood
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: qflood
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/qflood
+  - https://hotio.dev/containers/qflood
+  - https://hub.docker.com/r/hotio/qflood
+type: application
+version: 0.0.18

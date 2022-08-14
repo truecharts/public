@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/loki
   pullPolicy: IfNotPresent
-  tag: v2.5.0@sha256:d78eb096adb8ec41d5b120cfa7457d8be6f2cc9d51470cf250b8f99126235726
+  tag: v2.6.1@sha256:e8a0b6eba0fbb69c114560eaa4bb9136226ba2bdc87a43dae7f4001734418604
 
 controller:
   # -- Set the controller type.
@@ -26,6 +26,24 @@ controller:
 
 args:
   - "-config.file=/etc/loki/loki.yaml"
+
+## TODO add alertinggroups support like this
+# configmap:
+#   alerting:
+#     enabled: true
+#     data:
+#       '{{ include "tc.common.names.fullname" . }}-alerting-rules.yaml': |-
+#       {{- if gt (len .Values.alerting_groups) 0 }}
+#           groups:
+#           {{- toYaml .Values.alerting_groups | nindent 6 }}
+#       {{- end }}
+
+secret:
+  config:
+    enabled: true
+    data:
+      loki.yaml: |
+        {{- tpl (toYaml .Values.config) . | nindent 8 }}
 
 service:
   main:
@@ -76,20 +94,20 @@ config:
     reject_old_samples_max_age: 168h
   schema_config:
     configs:
-    - from: 2020-10-24
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
-      index:
-        prefix: index_
-        period: 24h
+      - from: 2020-10-24
+        store: boltdb-shipper
+        object_store: filesystem
+        schema: v11
+        index:
+          prefix: index_
+          period: 24h
   server:
     http_listen_port: 3100
   storage_config:
     boltdb_shipper:
       active_index_directory: /data/loki/boltdb-shipper-active
       cache_location: /data/loki/boltdb-shipper-cache
-      cache_ttl: 24h         # Can be increased for faster performance over longer query periods, uses more disk space
+      cache_ttl: 24h
       shared_store: filesystem
     filesystem:
       directory: /data/loki/chunks
@@ -125,12 +143,11 @@ alerting_groups: []
 #      for: 2m
 
 persistence:
-  # @default -- See below
   config:
     enabled: true
     type: secret
     # -- Specify the name of the configmap object to be mounted
-    objectName: '{{ include "common.names.fullname" . -}}-config'
+    objectName: '{{ include "tc.common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
     mountPath: "/etc/loki"
 
@@ -140,4 +157,7 @@ volumeClaimTemplates:
     mountPath: "/data"
 
 promtail:
+  enabled: true
+
+portal:
   enabled: true

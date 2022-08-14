@@ -1,14 +1,12 @@
 image:
   repository: tccr.io/truecharts/gotify-server
   pullPolicy: IfNotPresent
-  tag: v2.1.4@sha256:3f568cbc18808a8d138b07073233411a1077676e28a468b7e345fffae639fa32
+  tag: 2.1.5@sha256:5265583b0c1fc8d274fa9e9c5bc2d4e246c2d97de09baaf1c37e28e6fe7ce52e
 
-secret:
+secretEnv:
   user: "admin"
   pass: "admin"
 
-# See more environment variables in the gotify documentation
-# https://gotify.net/docs/config#environment-variables
 env:
   GOTIFY_SERVER_PORT: 8080
   GOTIFY_SERVER_KEEPALIVEPERIODSECONDS: 0
@@ -16,7 +14,7 @@ env:
   GOTIFY_SERVER_SSL_ENABLED: false
   # lists are a little weird but do-able (:
   # GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS: "- mydomain.tld\n- myotherdomain.tld"
-  GOTIFY_SERVER_RESPONSEHEADERS: "X-Custom-Header: \"custom value\""
+  GOTIFY_SERVER_RESPONSEHEADERS: 'X-Custom-Header: "custom value"'
   # GOTIFY_SERVER_CORS_ALLOWORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\""
   # GOTIFY_SERVER_CORS_ALLOWMETHODS: "- \"GET\"\n- \"POST\""
   # GOTIFY_SERVER_CORS_ALLOWHEADERS: "- \"Authorization\"\n- \"content-type\""
@@ -42,9 +40,11 @@ persistence:
     enabled: true
     mountPath: "/app/data"
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: gotify
   postgresqlDatabase: gotify
+
+portal:
+  enabled: true

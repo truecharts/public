@@ -1,29 +1,29 @@
 apiVersion: v2
 appVersion: "1.2"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-description: An open-source single page application to view your photos in the easiest
-  way possible.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/pixapop
-icon: https://truecharts.org/_static/img/appicons/pixapop.png
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: An open-source single page application to view your photos in the easiest way possible.
+home: https://truecharts.org/docs/charts/stable/pixapop
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixapop.png
 keywords:
-- pixapop
-- photo
-- gallery
-- image
-kubeVersion: '>=1.16.0-0'
+  - pixapop
+  - photo
+  - gallery
+  - image
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: pixapop
 sources:
-- https://github.com/linuxserver/docker-pixapop
-- https://github.com/bierdok/pixapop
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
+  - https://github.com/linuxserver/docker-pixapop
+  - https://github.com/bierdok/pixapop
 type: application
-version: 2.0.13
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

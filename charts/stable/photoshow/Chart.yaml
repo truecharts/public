@@ -1,29 +1,30 @@
 apiVersion: v2
 appVersion: "48aabb98"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 description: A gallery software at its easiest, it doesn't even require a database.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/photoshow
-icon: https://truecharts.org/_static/img/appicons/photoshow.png
+home: https://truecharts.org/docs/charts/stable/photoshow
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
 keywords:
-- photoshow
-- photo
-- show
-- gallary
-- image
-kubeVersion: '>=1.16.0-0'
+  - photoshow
+  - photo
+  - show
+  - gallary
+  - image
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: photoshow
 sources:
-- https://github.com/thibaud-rohmer/PhotoShow
-- https://github.com/linuxserver/docker-photoshow
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
+  - https://github.com/thibaud-rohmer/PhotoShow
+  - https://github.com/linuxserver/docker-photoshow
 type: application
-version: 2.0.13
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

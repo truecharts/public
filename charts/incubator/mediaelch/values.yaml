@@ -1,0 +1,28 @@
+env:
+  UMASK: "000"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mediaelch
+  tag: latest@sha256:10a0d116ae0da0cccd4be5964c19ba2d9ff723c1226d6d0a5fcb0c7d4dbe0196
+persistence:
+  mediaelch:
+    enabled: true
+    mountPath: /shows
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 5800
+        protocol: TCP
+        targetPort: 5800
+
+portal:
+  enabled: true

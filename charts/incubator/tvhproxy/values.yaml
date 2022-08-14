@@ -1,0 +1,30 @@
+env:
+  TVH_TUNER_COUNT: "4"
+  TVH_URL: http://username:password@tvheadendip:9981
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tvhproxy
+  tag: latest@sha256:56b803cbe346ffc137ffae1f237981db6011dc93cb746bfc9714b99796fcba18
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

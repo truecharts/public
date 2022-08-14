@@ -1,0 +1,36 @@
+env:
+  DL_URL: http://installer.altitudegame.com/0.0.1/altitude.sh
+  GAME_PARAMS: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/altitude
+  tag: latest@sha256:490f93d7e54764f7cbe7350739f42ce65449de688f01ca5fe91f002fde8c7198
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /altitude
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27276
+        protocol: UDP
+        targetPort: 27276
+
+portal:
+  enabled: true

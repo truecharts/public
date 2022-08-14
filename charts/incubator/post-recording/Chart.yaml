@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaApp-Video
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "Watches for .ts files made by Live TV recordings, convert them to a friendly format, extract .srt file, add chapters with comchap or remove them with comcut. Tested with Emby recordings.\r\n"
+home: https://truecharts.org/docs/charts/incubator/post-recording
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/post-recording.png
+keywords:
+  - post-recording
+  - MediaApp-Video
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: post-recording
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/post-recording
+  - https://github.com/chacawaca/docker-post-recording
+  - https://hub.docker.com/r/chacawaca/post-recording
+type: application
+version: 0.0.16

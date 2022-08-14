@@ -1,13 +1,11 @@
 image:
   repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
-  tag: v15.0@sha256:be99e42705fd75e992338703cb64958707aa048397193c3f7f83e21460a02820
+  tag: v15.0@sha256:9cd1b3ca23aaede08dcca79bc13aaf756e501336532043a50847c68331ecb791
 
 env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"
   PORT: 5432
-
-envValueFrom:
   PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -49,3 +47,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: odoo
   postgresqlDatabase: postgres
+
+portal:
+  enabled: true

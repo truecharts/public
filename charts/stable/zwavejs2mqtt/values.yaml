@@ -1,15 +1,13 @@
 image:
   repository: tccr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: v6.9.0@sha256:ac1de339d751c3a4ef8c5850263caa32ae1fd49ad3b74e83943fd9db713acb3a
+  tag: 6.15.2@sha256:ab4a641c9645002e108263bee5e4c1af757d8deab9f33da372be8c404b619fd1
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# # See more environment variables in the zwavejs2mqtt documentation
-# https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
-env: {}
-  # OZW_NETWORK_KEY:
+# env: {}
+#   OZW_NETWORK_KEY:
 
 probes:
   liveness:
@@ -73,8 +71,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/usr/src/app/store"
-
-
 # affinity:
 #   nodeAffinity:
 #     requiredDuringSchedulingIgnoredDuringExecution:
@@ -84,3 +80,6 @@ persistence:
 #           operator: In
 #           values:
 #           - zwave-controller
+
+portal:
+  enabled: true

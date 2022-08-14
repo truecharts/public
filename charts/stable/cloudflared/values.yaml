@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/cloudflared
+  pullPolicy: IfNotPresent
+  tag: 2022.8.0@sha256:15b9616e22e21bb0ad5d178127d4040fb8b8c5c7eee10b58ed31d7791e82c258
+
+extraArgs:
+  ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
+
+env:
+  token: ""
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 6969
+        port: 6969
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+portal:
+  enabled: false

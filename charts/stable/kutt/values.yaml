@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/kutt
   pullPolicy: IfNotPresent
-  tag: v2.7.4@sha256:7b89481d467e1c1dc75e672bdac18dd00fdb4a3f0b60d90518acbf8eddfe8615
+  tag: v2.7.4@sha256:abd3d365db5416e009f532c50456cacbd1f93c8a2eb9ef9da468e383dc4a49c6
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   MAIL_USER: ""
   MAIL_PASSWORD: ""
   RECAPTCHA_SITE_KEY: ""
@@ -43,8 +43,6 @@ env:
   MAIL_PORT: 567
   MAIL_FROM: ""
   MAIL_SECURE: true
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds
@@ -83,3 +81,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: kutt
   postgresqlDatabase: kutt
+
+portal:
+  enabled: true

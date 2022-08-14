@@ -1,0 +1,33 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Security
+    - Network-Proxy
+    - Network-VPN
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption protocol project, widely used in China to circumvent Internet censorship. It was created in 2012 by a Chinese programmer named \"clowwindy\", and multiple implementations of the protocol have been made available since. Can be used with any SOCKS or Shadowsocks client.\r\n"
+home: https://truecharts.org/docs/charts/incubator/shadowsocks
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shadowsocks.png
+keywords:
+  - shadowsocks
+  - Security
+  - Network-Proxy
+  - Network-VPN
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: shadowsocks
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
+  - https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
+  - https://hub.docker.com/r/shadowsocks/shadowsocks-libev
+type: application
+version: 0.0.16

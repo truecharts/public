@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/acestream
+  tag: latest@sha256:c2e5f59fc6456c761056c9d8fae7e389d275dc9b3e7b94467ddcd632bb2bcb19
+persistence:
+  acestreamcache:
+    enabled: true
+    mountPath: /srv/acestream/.ACEStream
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8008
+        protocol: TCP
+        targetPort: 6878
+
+portal:
+  enabled: true

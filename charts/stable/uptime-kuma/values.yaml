@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/uptime-kuma
   pullPolicy: IfNotPresent
-  tag: v1.15.1@sha256:1770af3b7a2efc924d89bcd7f45a1a13d11006f512f27aa97cae6b78224d229c
+  tag: v1.17.1@sha256:27b2535717c614886535029f9a177dcd8e1e91a54a2402c5e02f2d8bd8184699
 
 securityContext:
   runAsNonRoot: false
@@ -24,3 +24,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/app/data"
+
+portal:
+  enabled: true

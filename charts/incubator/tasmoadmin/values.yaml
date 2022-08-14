@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tasmoadmin
+  tag: latest@sha256:e41ea351627aa54fecba53bd9924d3f881bb393da52ba4888e95ecf35646d773
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9541
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

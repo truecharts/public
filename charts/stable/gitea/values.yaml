@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/gitea
-  tag: v1.16.7@sha256:d205d2f644d14d5b2a7c190246228fbe7dd0549b550abc066687447d91a7c70b
+  tag: 1.17.0@sha256:782681fe3055ae34948d7c71c4819edbe36f43326d140624a42f6c80ef6f2d3c
   pullPolicy: IfNotPresent
 
 podSecurityContext:
@@ -120,8 +120,10 @@ oauth:
 config:
   APP_NAME: "Gitea: Git with a cup of tea"
   RUN_MODE: dev
+  ALLOWED_HOST_LIST: "127.0.0.1"
 
-customConfig: []
+customConfig:
+  []
   # - name: test
   #   keys:
   #     - name: testkey
@@ -136,4 +138,7 @@ postgresql:
 
 # --  memcached dependency settings
 memcached:
+  enabled: true
+
+portal:
   enabled: true

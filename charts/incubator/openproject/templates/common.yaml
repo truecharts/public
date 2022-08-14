@@ -1,0 +1,7 @@
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secrets for openproject */}}
+{{- include "openproject.secrets" . }}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

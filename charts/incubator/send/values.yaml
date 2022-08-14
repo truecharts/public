@@ -1,0 +1,36 @@
+env:
+  BASE_URL: http://192.168.0.100:1443
+  FILE_DIR: /uploads
+  MAX_DOWNLOADS: "100"
+  MAX_EXPIRE_SECONDS: "604800"
+  MAX_FILE_SIZE: "2147483648"
+  NODE_ENV: production
+  REDIS_HOST: 192.168.0.100
+  REDIS_PASSWORD: password
+  REDIS_PORT: "6379"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/send
+  tag: latest@sha256:71dcab99565e992555e2cfcfd23b3de5d3f7a7b7f65f9ad841ef3b57b41c5ab5
+persistence:
+  uploadpath:
+    enabled: true
+    mountPath: /uploads
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 1443
+        protocol: TCP
+        targetPort: 1443
+
+portal:
+  enabled: true

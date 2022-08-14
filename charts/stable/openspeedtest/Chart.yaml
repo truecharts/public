@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: HTML5 Network Speed Test Server. You can test download & upload speed from any device within your network with a web browser that is IE10 or new.
+home: https://truecharts.org/docs/charts/stable/openspeedtest
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openspeedtest.png
+keywords:
+  - speedtest
+  - speed test
+  - openspeedtest
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: openspeedtest
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openspeedtest
+  - https://github.com/openspeedtest/Speed-Test
+type: application
+version: 1.0.25
+annotations:
+  truecharts.org/catagories: |
+    - utilities
+    - test
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

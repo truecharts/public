@@ -1,0 +1,139 @@
+        - variable: externalInterfaces
+          description: Add External Interfaces
+          label: Add external Interfaces
+          group: Networking
+          schema:
+            type: list
+            items:
+              - variable: interfaceConfiguration
+                description: Interface Configuration
+                label: Interface Configuration
+                schema:
+                  type: dict
+                  $ref:
+                    - "normalize/interfaceConfiguration"
+                  attrs:
+                    - variable: hostInterface
+                      description: Please Specify Host Interface
+                      label: Host Interface
+                      schema:
+                        type: string
+                        required: true
+                        $ref:
+                          - "definitions/interface"
+                    - variable: ipam
+                      description: Define how IP Address will be managed
+                      label: IP Address Management
+                      schema:
+                        type: dict
+                        required: true
+                        attrs:
+                          - variable: type
+                            description: Specify type for IPAM
+                            label: IPAM Type
+                            schema:
+                              type: string
+                              required: true
+                              enum:
+                                - value: dhcp
+                                  description: Use DHCP
+                                - value: static
+                                  description: Use Static IP
+                              show_subquestions_if: static
+                              subquestions:
+                                - variable: staticIPConfigurations
+                                  label: Static IP Addresses
+                                  schema:
+                                    type: list
+                                    items:
+                                      - variable: staticIP
+                                        label: Static IP
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                - variable: staticRoutes
+                                  label: Static Routes
+                                  schema:
+                                    type: list
+                                    items:
+                                      - variable: staticRouteConfiguration
+                                        label: Static Route Configuration
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: destination
+                                              label: Destination
+                                              schema:
+                                                type: ipaddr
+                                                cidr: true
+                                                required: true
+                                            - variable: gateway
+                                              label: Gateway
+                                              schema:
+                                                type: ipaddr
+                                                cidr: false
+                                                required: true
+        - variable: dnsPolicy
+          group: Networking and Services
+          label: dnsPolicy
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: Default
+              - value: ClusterFirst
+                description: ClusterFirst
+              - value: ClusterFirstWithHostNet
+                description: ClusterFirstWithHostNet
+              - value: None
+                description: None
+        - variable: dnsConfig
+          label: DNS Configuration
+          group: Networking and Services
+          description: Specify custom DNS configuration which will be applied to the pod
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: nameservers
+                label: Name Servers
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: nameserver
+                      label: Name Server
+                      schema:
+                        type: string
+              - variable: options
+                label: Options
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: option
+                      label: Option Entry
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            schema:
+                              type: string
+                          - variable: value
+                            label: Value
+                            schema:
+                              type: string
+              - variable: searches
+                label: Searches
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: search
+                      label: Search Entry
+                      schema:
+                        type: string

@@ -1,0 +1,36 @@
+env:
+  DROPBOX_GID: "100"
+  DROPBOX_UID: "99"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/dropbox-by-otherguy
+  tag: latest@sha256:161b050ceb2b9ff2808bdb8cccb0ee71381b27854a8feeb42ee8bd0064f4ca06
+persistence:
+  dropboxsettings:
+    enabled: true
+    mountPath: /opt/dropbox/.dropbox
+  dropboxuserfiles:
+    enabled: true
+    mountPath: /opt/dropbox/Dropbox
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

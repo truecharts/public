@@ -1,0 +1,33 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/damselfly
+  tag: latest@sha256:43d9cdce895b72fc86ebc260e73559009a208a5b0dcbc90b932144c779dd2e1c
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  pictures:
+    enabled: true
+    mountPath: /pictures
+  thumbs:
+    enabled: true
+    mountPath: /thumbs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 6363
+        protocol: TCP
+        targetPort: 6363
+
+portal:
+  enabled: true

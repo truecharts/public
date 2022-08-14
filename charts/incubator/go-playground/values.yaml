@@ -1,0 +1,26 @@
+env:
+  APP_CLEAN_INTERVAL: 10m
+  APP_DEBUG: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/go-playground
+  tag: latest@sha256:428aebad7496a8acf0457bcaedfa1cc22051d1ec07f0c73a7e9f4279248af5f7
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8888
+        protocol: TCP
+        targetPort: 8000
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/emby
   pullPolicy: IfNotPresent
-  tag: v4.6.7.0@sha256:f2c60cee28b40d6eeeff72cda847eced2d069b410e63a5b0bdbab7783f34ec1b
+  tag: 4.7.6.0@sha256:8f28fda7d52dfde299b77db4d2698da6fcbd198f5b1fdb7d6f3446402418b207
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -17,3 +17,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/koel
-  tag: latest@sha256:1b84c90e846d0dab98bc14d413a9de1fd357679022795456d27ff4c75869fd9d
+  tag: latest@sha256:75c2b0c0432d8a9ee9437a49ce0f3d1f36f9a5bd9a9865f9d7562b169eaafd4b
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  LASTFM_API_KEY: ""
+  LASTFM_API_SECRET: ""
+  YOUTUBE_API_KEY: ""
+
 env:
   DB_CONNECTION: "mysql"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
@@ -18,18 +23,6 @@ env:
   DB_PORT: "3306"
   FORCE_HTTPS: false
   MEMORY_LIMIT: 2048
-  LASTFM_API_KEY: ""
-  LASTFM_API_SECRET: ""
-  YOUTUBE_API_KEY: ""
-
-service:
-  main:
-    ports:
-      main:
-        port: 10185
-        targetPort: 80
-
-envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -42,6 +35,13 @@ envValueFrom:
     secretKeyRef:
       name: koel-secrets
       key: APP_KEY
+
+service:
+  main:
+    ports:
+      main:
+        port: 10185
+        targetPort: 80
 
 installContainers:
   initdb:
@@ -95,3 +95,6 @@ mariadb:
   mariadbUsername: koel
   mariadbDatabase: koel
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

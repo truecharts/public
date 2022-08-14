@@ -3,7 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
+# Also makes sure that home link is pointing to the correct url
 sync_tag() {
     local chart="$1"
     local chartname="$2"
@@ -25,64 +26,38 @@ sync_tag() {
     tag="${tag%-}"
     tag="${tag%_}"
     tag="${tag%.}"
+    echo "Updating tag of ${chartname} to ${tag}..."
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    echo "Updating icon of ${chartname}..."
+    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+    echo "Updating home of ${chartname}..."
+    sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+    echo "Attempting to update sources of ${chartname}..."
+    echo "Using go-yq verion: <$(go-yq -V)>"
+    # Get all sources (except truecharts)
+    curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+    # Empty sources list in-place
+    go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+    # Add truechart source
+    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+    # Add the rest of the sources
+    while IFS= read -r line; do
+        src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml"
+    done <<< "$curr_sources"
+    echo "Sources of ${chartname} updated!"
     }
 export -f sync_tag
 
-helm_sec_scan() {
+sync_helmignore() {
     local chart="$1"
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Scanning helm security for ${chartname}"
-    mkdir -p ${chart}/render
-    rm -rf ${chart}/security.md || echo "removing old security.md file failed..."
-    cat templates/security.tpl >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    helm template ${chart} --output-dir ${chart}/render > /dev/null
-    trivy config -f template --template "@./templates/trivy-config.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
-    cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
-    rm -rf ${chart}/render/tmpsec${chartname}.md || true
-    echo "" >> ${chart}/security.md
+    echo "Attempting to sync HelmIgnore file for: ${chartname}"
+    rm -rf ${chart}/.helmignore
+    cp templates/chart/.helmignore ${chart}/
     }
-    export -f helm_sec_scan
-
-container_sec_scan() {
-    local chart="$1"
-    local chartname="$2"
-    local train="$3"
-    local chartversion="$4"
-    echo "Scanning container security for ${chartname}"
-    echo "## Containers" >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    echo "##### Detected Containers" >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    find ./${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
-    cat ${chart}/render/containers.tmp >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    echo "##### Scan Results" >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    for container in $(cat ${chart}/render/containers.tmp); do
-      echo "processing container: ${container}"
-      echo "" >> ${chart}/security.md
-      trivy image -f template --template "@./templates/trivy-container.tpl" -o ${chart}/render/tmpsec${chartname}.md "${container}"
-      cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
-      rm -rf ${chart}/render/tmpsec${chartname}.md || true
-      echo "" >> ${chart}/security.md
-    done
-
-    }
-    export -f container_sec_scan
-
-sec_scan_cleanup() {
-    local chart="$1"
-    local chartname="$2"
-    local train="$3"
-    local chartversion="$4"
-    rm -rf ${chart}/render
-    sed -i 's/ghcr.io/tccr.io/g' ${chart}/security.md
-    }
-    export -f sec_scan_cleanup
+export -f sync_helmignore
 
 create_changelog() {
     local chart="$1"
@@ -102,7 +77,7 @@ create_changelog() {
     fi
     sed -i '1d' ${chart}/CHANGELOG.md
     cat ${chart}/app-changelog.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
-    sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
+    sed -i '1s/^/# Changelog\n\n/' ${chart}/CHANGELOG.md
     rm ${chart}/app-changelog.md || echo "changelog not found..."
     }
     export -f create_changelog
@@ -116,7 +91,7 @@ generate_docs() {
         helm-docs \
             --ignore-file=".helmdocsignore" \
             --output-file="README.md" \
-            --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
+            --template-files="/__w/charts/charts/templates/docs/README.md.gotmpl" \
             --chart-search-root="${chart}"
     }
     export -f generate_docs
@@ -128,10 +103,8 @@ if [[ -d "charts/${1}" ]]; then
     chartname=$(basename charts/${1})
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+    sync_helmignore "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Syncing HelmIgnore file failed..."
     helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
-    helm_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
-    container_sec_scan "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
-    sec_scan_cleanup "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
     sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
     create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
     generate_docs "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."

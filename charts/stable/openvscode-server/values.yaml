@@ -1,10 +1,10 @@
 image:
   repository: tccr.io/truecharts/openvscode-server
   pullPolicy: IfNotPresent
-  tag: v1.67.0
+  tag: 1.70.1
 
 # portal:
-  # path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
+# path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
 
 securityContext:
   runAsNonRoot: false
@@ -14,8 +14,10 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret: {}
-  # CONNECTION_TOKEN: "somerandomstring"
+# secretEnv:
+#   CONNECTION_TOKEN: "somerandomstring"
+#   CONNECTION_SECRET: ""
+#   SUDO_PASSWORD: ""
 
 service:
   main:
@@ -30,3 +32,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

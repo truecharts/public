@@ -1,0 +1,27 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/farmos
+  tag: latest@sha256:6c4168372c1ecc3b7c419b1866587f08e78855b7c3a4eb78fe2298a6d786bb29
+persistence:
+  sitesdirectory:
+    enabled: true
+    mountPath: /var/www/html/sites
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 80
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

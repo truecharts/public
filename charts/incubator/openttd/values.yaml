@@ -1,0 +1,46 @@
+env:
+  GAME_PARAMS: ""
+  GAME_VERSION: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  GFX_PK_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/openttd
+  tag: latest@sha256:c99e035fd18ecc61bbb4f50fbc3bf3f0e77965f768b763639b2c9cb97a2575d1
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9015
+        protocol: HTTP
+        targetPort: 8080
+  tcpgameport:
+    enabled: true
+    ports:
+      tcpgameport:
+        enabled: true
+        port: 3979
+        protocol: TCP
+        targetPort: 3979
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 3979
+        protocol: UDP
+        targetPort: 3979
+
+portal:
+  enabled: true

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/mkvtoolnix
-  tag: v1.62.0@sha256:d0735ff8ba1416af5fd687a84f6373ddd1079a28a0c06ad42802a855e62ced0f
+  tag: v1.64.0@sha256:a63a9ed12ebcc3dba7055a55255962afede48c12433888f0b0fc08a71a303a9c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -27,9 +27,9 @@ service:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-mkvtoolnix'
+      name: '{{ include "tc.common.names.fullname" . }}-mkvtoolnix'
 
-secret:
+secretEnv:
   VNC_PASSWORD: ""
 
 mkvtoolnix:
@@ -37,13 +37,15 @@ mkvtoolnix:
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
 
 configmap:
   mkvtoolnix:
     enabled: true
     data:
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.mkvtoolnix.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.mkvtoolnix.SECURE_CONNECTION }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.mkvtoolnix.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.mkvtoolnix.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mkvtoolnix.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.mkvtoolnix.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.mkvtoolnix.DISPLAY_HEIGHT }}"
 
@@ -54,3 +56,6 @@ persistence:
   storage:
     enabled: true
     mountPath: "/storage"
+
+portal:
+  enabled: true

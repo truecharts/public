@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Tools-Utilities
+    - Network-Web
+    - Network-FTP
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "DESCRIPTION\r\n"
+home: https://truecharts.org/docs/charts/incubator/fileshelter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.png
+keywords:
+  - fileshelter
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+  - Network-FTP
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: fileshelter
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
+  - https://github.com/epoupon/fileshelter
+  - https://hub.docker.com/r/epoupon/fileshelter
+type: application
+version: 0.0.16

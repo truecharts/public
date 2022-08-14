@@ -1,0 +1,53 @@
+env:
+  GAME_ID: "581330"
+  GAME_PARAMS: Oilfield?Scenario=Scenario_Refinery_Push_Security?MaxPlayers=28?Password=Docker
+  GAME_PORT: "27102"
+  PASSWRD: ""
+  QUERY_PORT: "27131"
+  SERVER_NAME: DockerServer
+  USERNAME: ""
+  VALIDATE: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/insurgencysandstorm
+  tag: latest@sha256:2901c825ebe4d36f67c4be7c7b42a5a8423cf13eb5c26e182721caa1c8376157
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 27102
+        protocol: UDP
+        targetPort: 27102
+  queryport:
+    enabled: true
+    ports:
+      queryport:
+        enabled: true
+        port: 27131
+        protocol: UDP
+        targetPort: 27131
+
+portal:
+  enabled: true

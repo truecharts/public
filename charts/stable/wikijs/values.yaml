@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/wikijs
-  tag: v2.5.280@sha256:fe169f36990a5dbdde68f3531da8dc9ba0b74c0319faa13fbdf58ddff3819de6
+  tag: 2.5.286@sha256:0491fa2d0a5591536c08c81fe74700f640cb8aae74c7f202fedfbf6ee2454c53
   pullPolicy: IfNotPresent
 
 env:
@@ -8,8 +8,6 @@ env:
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
-
-envValueFrom:
   DB_PASS:
     secretKeyRef:
       name: dbcreds
@@ -40,7 +38,6 @@ postgresql:
   postgresqlUsername: wikijs
   postgresqlDatabase: wikijs
 
-
 # /wiki/data is a temporary dir. Without mounting as emptyDir it's only writable by root.
 # https://docs.requarks.io/en/install/config#data-paths
 persistence:
@@ -48,3 +45,6 @@ persistence:
     enabled: true
     mountPath: "/wiki/data/"
     type: emptyDir
+
+portal:
+  enabled: true

@@ -1,8 +1,8 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
+{{- include "tc.common.loader.init" . }}
 
 {{/* Render secrets for ferdi-server */}}
 {{- include "ferdi-server.secrets" . }}
 
 {{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "tc.common.loader.apply" . }}

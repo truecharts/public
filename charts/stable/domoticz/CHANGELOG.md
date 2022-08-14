@@ -1,4 +1,385 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [domoticz-2.0.29](https://github.com/truecharts/charts/compare/domoticz-2.0.28...domoticz-2.0.29) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [domoticz-2.0.28](https://github.com/truecharts/charts/compare/domoticz-2.0.27...domoticz-2.0.28) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [domoticz-2.0.27](https://github.com/truecharts/apps/compare/domoticz-2.0.26...domoticz-2.0.27) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [domoticz-2.0.26](https://github.com/truecharts/apps/compare/domoticz-2.0.25...domoticz-2.0.26) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [domoticz-2.0.26](https://github.com/truecharts/apps/compare/domoticz-2.0.25...domoticz-2.0.26) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [domoticz-2.0.26](https://github.com/truecharts/apps/compare/domoticz-2.0.25...domoticz-2.0.26) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [domoticz-2.0.25](https://github.com/truecharts/apps/compare/domoticz-2.0.23...domoticz-2.0.25) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [domoticz-2.0.23](https://github.com/truecharts/apps/compare/domoticz-2.0.22...domoticz-2.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [domoticz-2.0.22](https://github.com/truecharts/apps/compare/domoticz-2.0.21...domoticz-2.0.22) (2022-07-15)
+
+### Chore
+
+- update docker general non-major ([#3184](https://github.com/truecharts/apps/issues/3184))
+
+
+
+## [domoticz-2.0.21](https://github.com/truecharts/apps/compare/domoticz-2.0.20...domoticz-2.0.21) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [domoticz-2.0.20](https://github.com/truecharts/apps/compare/domoticz-2.0.18...domoticz-2.0.20) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [domoticz-2.0.18](https://github.com/truecharts/apps/compare/domoticz-2.0.16...domoticz-2.0.18) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [domoticz-2.0.16](https://github.com/truecharts/apps/compare/domoticz-2.0.15...domoticz-2.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="domoticz-2.0.15"></a>
+### [domoticz-2.0.15](https://github.com/truecharts/apps/compare/domoticz-2.0.14...domoticz-2.0.15) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
+
+
+<a name="domoticz-2.0.14"></a>
+### [domoticz-2.0.14](https://github.com/truecharts/apps/compare/domoticz-2.0.13...domoticz-2.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="domoticz-2.0.13"></a>
+### [domoticz-2.0.13](https://github.com/truecharts/apps/compare/domoticz-2.0.12...domoticz-2.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="domoticz-2.0.12"></a>
+### [domoticz-2.0.12](https://github.com/truecharts/apps/compare/domoticz-2.0.11...domoticz-2.0.12) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="domoticz-2.0.11"></a>
+### [domoticz-2.0.11](https://github.com/truecharts/apps/compare/domoticz-2.0.10...domoticz-2.0.11) (2022-07-01)
+
+#### Chore
+
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
+<a name="domoticz-2.0.10"></a>
+### [domoticz-2.0.10](https://github.com/truecharts/apps/compare/domoticz-2.0.9...domoticz-2.0.10) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="domoticz-2.0.9"></a>
+### [domoticz-2.0.9](https://github.com/truecharts/apps/compare/domoticz-2.0.8...domoticz-2.0.9) (2022-06-25)
+
+#### Chore
+
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="domoticz-2.0.8"></a>
+### [domoticz-2.0.8](https://github.com/truecharts/apps/compare/domoticz-2.0.7...domoticz-2.0.8) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="domoticz-2.0.7"></a>
+### [domoticz-2.0.7](https://github.com/truecharts/apps/compare/domoticz-2.0.6...domoticz-2.0.7) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="domoticz-2.0.6"></a>
+### [domoticz-2.0.6](https://github.com/truecharts/apps/compare/domoticz-2.0.5...domoticz-2.0.6) (2022-06-17)
+
+#### Chore
+
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+
+
+
+<a name="domoticz-2.0.5"></a>
+### [domoticz-2.0.5](https://github.com/truecharts/apps/compare/domoticz-2.0.4...domoticz-2.0.5) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="domoticz-2.0.4"></a>
+### [domoticz-2.0.4](https://github.com/truecharts/apps/compare/domoticz-2.0.3...domoticz-2.0.4) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="domoticz-2.0.3"></a>
+### [domoticz-2.0.3](https://github.com/truecharts/apps/compare/domoticz-2.0.2...domoticz-2.0.3) (2022-06-11)
+
+#### Chore
+
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="domoticz-2.0.2"></a>
+### [domoticz-2.0.2](https://github.com/truecharts/apps/compare/domoticz-2.0.1...domoticz-2.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="domoticz-2.0.1"></a>
+### [domoticz-2.0.1](https://github.com/truecharts/apps/compare/domoticz-1.0.26...domoticz-2.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="domoticz-2.0.0"></a>
+### [domoticz-2.0.0](https://github.com/truecharts/apps/compare/domoticz-1.0.26...domoticz-2.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="domoticz-1.0.26"></a>
+### [domoticz-1.0.26](https://github.com/truecharts/apps/compare/domoticz-1.0.25...domoticz-1.0.26) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="domoticz-1.0.25"></a>
+### [domoticz-1.0.25](https://github.com/truecharts/apps/compare/domoticz-1.0.24...domoticz-1.0.25) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
+<a name="domoticz-1.0.24"></a>
+### [domoticz-1.0.24](https://github.com/truecharts/apps/compare/domoticz-1.0.23...domoticz-1.0.24) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="domoticz-1.0.24"></a>
+### [domoticz-1.0.24](https://github.com/truecharts/apps/compare/domoticz-1.0.23...domoticz-1.0.24) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="domoticz-1.0.23"></a>
+### [domoticz-1.0.23](https://github.com/truecharts/apps/compare/domoticz-1.0.22...domoticz-1.0.23) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="domoticz-1.0.22"></a>
+### [domoticz-1.0.22](https://github.com/truecharts/apps/compare/domoticz-1.0.21...domoticz-1.0.22) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="domoticz-1.0.21"></a>
+### [domoticz-1.0.21](https://github.com/truecharts/apps/compare/domoticz-1.0.20...domoticz-1.0.21) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="domoticz-1.0.21"></a>
+### [domoticz-1.0.21](https://github.com/truecharts/apps/compare/domoticz-1.0.20...domoticz-1.0.21) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="domoticz-1.0.20"></a>
+### [domoticz-1.0.20](https://github.com/truecharts/apps/compare/domoticz-1.0.19...domoticz-1.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="domoticz-1.0.19"></a>
+### [domoticz-1.0.19](https://github.com/truecharts/apps/compare/domoticz-1.0.18...domoticz-1.0.19) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="domoticz-1.0.18"></a>
+### [domoticz-1.0.18](https://github.com/truecharts/apps/compare/domoticz-1.0.17...domoticz-1.0.18) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
 
 
 <a name="domoticz-1.0.17"></a>

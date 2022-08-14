@@ -1,28 +1,29 @@
 apiVersion: v2
-appVersion: "6.2.7"
+appVersion: "7.0.4"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
 deprecated: false
 description: Open source, advanced key-value store.
-home: https://github.com/truecharts/apps/tree/master/stable/redis
-icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+home: https://truecharts.org/docs/charts/dependency/redis
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.png
 keywords:
   - redis
   - keyvalue
   - database
-kubeVersion: '>=1.16.0-0'
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: redis
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
   - https://github.com/bitnami/bitnami-docker-redis
   - http://redis.io/
 type: application
-version: 2.0.49
+version: 3.0.54
 annotations:
   truecharts.org/catagories: |
     - database

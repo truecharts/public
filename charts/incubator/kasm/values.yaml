@@ -1,0 +1,42 @@
+env:
+  DOCKER_HUB_PASSWORD: ""
+  DOCKER_HUB_USERNAME: ""
+  KASM_PORT: ""
+  UMASK: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kasm
+  tag: latest@sha256:293de0813bf911c0316b76b2f4af5d5731d93d9f56a4179db94b5fe963c0d8a0
+persistence:
+  pathopt:
+    enabled: true
+    mountPath: /opt
+  pathprofiles:
+    enabled: true
+    mountPath: /profiles
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 3000
+        protocol: HTTP
+        targetPort: 3000
+  port6333:
+    enabled: true
+    ports:
+      port6333:
+        enabled: true
+        port: 6333
+        protocol: TCP
+        targetPort: 6333
+
+portal:
+  enabled: true

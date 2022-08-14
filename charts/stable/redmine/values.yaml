@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/redmine
   pullPolicy: IfNotPresent
-  tag: v5.0.0@sha256:fdf4537fd435a063b6423433efb5b0904e0c3bfa168489655ecc67cb1dae72bb
+  tag: v5.0.2@sha256:0502adc4c765071cbcd30040282a199b0f3b634ebddc92eb6a4f09eba19a6940
 
 env:
   REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -9,14 +9,8 @@ env:
   REDMINE_DB_PORT: "5432"
 
   # Anything but empty means true, empty means false
-  REDMINE_NO_DB_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.no_db_migrate }}"
-  REDMINE_PLUGINS_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.plugins_migrate }}"
-
-redmine:
-  plugins_migrate: true
-  no_db_migrate: false
-
-envValueFrom:
+  REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'
+  REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
   REDMINE_DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -29,6 +23,9 @@ envValueFrom:
     secretKeyRef:
       name: redmine-secrets
       key: REDMINE_SECRET_KEY_BASE
+redmine:
+  plugins_migrate: true
+  no_db_migrate: false
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -51,3 +48,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: redmine
   postgresqlDatabase: redmine
+
+portal:
+  enabled: true

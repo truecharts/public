@@ -1,4 +1,481 @@
-# Changelog<br>
+# Changelog
+
+
+
+## [authelia-11.0.35](https://github.com/truecharts/charts/compare/authelia-11.0.34...authelia-11.0.35) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [authelia-11.0.34](https://github.com/truecharts/charts/compare/authelia-11.0.33...authelia-11.0.34) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [authelia-11.0.33](https://github.com/truecharts/charts/compare/authelia-11.0.32...authelia-11.0.33) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [authelia-11.0.32](https://github.com/truecharts/charts/compare/authelia-11.0.31...authelia-11.0.32) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [authelia-11.0.31](https://github.com/truecharts/apps/compare/authelia-11.0.30...authelia-11.0.31) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [authelia-11.0.30](https://github.com/truecharts/apps/compare/authelia-11.0.29...authelia-11.0.30) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [authelia-11.0.29](https://github.com/truecharts/apps/compare/authelia-11.0.28...authelia-11.0.29) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [authelia-11.0.29](https://github.com/truecharts/apps/compare/authelia-11.0.28...authelia-11.0.29) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [authelia-11.0.28](https://github.com/truecharts/apps/compare/authelia-11.0.27...authelia-11.0.28) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [authelia-11.0.28](https://github.com/truecharts/apps/compare/authelia-11.0.27...authelia-11.0.28) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [authelia-11.0.28](https://github.com/truecharts/apps/compare/authelia-11.0.27...authelia-11.0.28) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [authelia-11.0.27](https://github.com/truecharts/apps/compare/authelia-11.0.26...authelia-11.0.27) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [authelia-11.0.26](https://github.com/truecharts/apps/compare/authelia-11.0.25...authelia-11.0.26) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
+## [authelia-11.0.25](https://github.com/truecharts/apps/compare/authelia-11.0.23...authelia-11.0.25) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [authelia-11.0.23](https://github.com/truecharts/apps/compare/authelia-11.0.22...authelia-11.0.23) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [authelia-11.0.22](https://github.com/truecharts/apps/compare/authelia-11.0.21...authelia-11.0.22) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [authelia-11.0.21](https://github.com/truecharts/apps/compare/authelia-11.0.19...authelia-11.0.21) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [authelia-11.0.19](https://github.com/truecharts/apps/compare/authelia-11.0.18...authelia-11.0.19) (2022-07-14)
+
+### Fix
+
+- disable HTTP probes temporarily ([#3173](https://github.com/truecharts/apps/issues/3173))
+
+
+
+## [authelia-11.0.18](https://github.com/truecharts/apps/compare/authelia-11.0.16...authelia-11.0.18) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [authelia-11.0.16](https://github.com/truecharts/apps/compare/authelia-11.0.15...authelia-11.0.16) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="authelia-11.0.15"></a>
+### [authelia-11.0.15](https://github.com/truecharts/apps/compare/authelia-11.0.14...authelia-11.0.15) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
+
+
+<a name="authelia-11.0.14"></a>
+### [authelia-11.0.14](https://github.com/truecharts/apps/compare/authelia-11.0.13...authelia-11.0.14) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="authelia-11.0.13"></a>
+### [authelia-11.0.13](https://github.com/truecharts/apps/compare/authelia-11.0.12...authelia-11.0.13) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="authelia-11.0.12"></a>
+### [authelia-11.0.12](https://github.com/truecharts/apps/compare/authelia-11.0.11...authelia-11.0.12) (2022-07-06)
+
+#### Chore
+
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
+
+
+
+<a name="authelia-11.0.11"></a>
+### [authelia-11.0.11](https://github.com/truecharts/apps/compare/authelia-11.0.10...authelia-11.0.11) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="authelia-11.0.10"></a>
+### [authelia-11.0.10](https://github.com/truecharts/apps/compare/authelia-11.0.9...authelia-11.0.10) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="authelia-11.0.9"></a>
+### [authelia-11.0.9](https://github.com/truecharts/apps/compare/authelia-11.0.8...authelia-11.0.9) (2022-06-29)
+
+#### Chore
+
+* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+
+
+
+<a name="authelia-11.0.8"></a>
+### [authelia-11.0.8](https://github.com/truecharts/apps/compare/authelia-11.0.7...authelia-11.0.8) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="authelia-11.0.7"></a>
+### [authelia-11.0.7](https://github.com/truecharts/apps/compare/authelia-11.0.6...authelia-11.0.7) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="authelia-11.0.6"></a>
+### [authelia-11.0.6](https://github.com/truecharts/apps/compare/authelia-11.0.5...authelia-11.0.6) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="authelia-11.0.5"></a>
+### [authelia-11.0.5](https://github.com/truecharts/apps/compare/authelia-11.0.4...authelia-11.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
+<a name="authelia-11.0.4"></a>
+### [authelia-11.0.4](https://github.com/truecharts/apps/compare/authelia-11.0.3...authelia-11.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="authelia-11.0.3"></a>
+### [authelia-11.0.3](https://github.com/truecharts/apps/compare/authelia-11.0.2...authelia-11.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="authelia-11.0.2"></a>
+### [authelia-11.0.2](https://github.com/truecharts/apps/compare/authelia-11.0.1...authelia-11.0.2) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2873](https://github.com/truecharts/apps/issues/2873))
+
+
+
+<a name="authelia-11.0.1"></a>
+### [authelia-11.0.1](https://github.com/truecharts/apps/compare/authelia-11.0.0...authelia-11.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="authelia-11.0.0"></a>
+### [authelia-11.0.0](https://github.com/truecharts/apps/compare/authelia-10.0.1...authelia-11.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="authelia-10.0.1"></a>
+### [authelia-10.0.1](https://github.com/truecharts/apps/compare/authelia-9.0.33...authelia-10.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="authelia-10.0.0"></a>
+### [authelia-10.0.0](https://github.com/truecharts/apps/compare/authelia-9.0.33...authelia-10.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="authelia-9.0.33"></a>
+### [authelia-9.0.33](https://github.com/truecharts/apps/compare/authelia-9.0.32...authelia-9.0.33) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="authelia-9.0.32"></a>
+### [authelia-9.0.32](https://github.com/truecharts/apps/compare/authelia-9.0.31...authelia-9.0.32) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
+<a name="authelia-9.0.31"></a>
+### [authelia-9.0.31](https://github.com/truecharts/apps/compare/authelia-9.0.30...authelia-9.0.31) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="authelia-9.0.31"></a>
+### [authelia-9.0.31](https://github.com/truecharts/apps/compare/authelia-9.0.30...authelia-9.0.31) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="authelia-9.0.30"></a>
+### [authelia-9.0.30](https://github.com/truecharts/apps/compare/authelia-9.0.29...authelia-9.0.30) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-9.0.29"></a>
+### [authelia-9.0.29](https://github.com/truecharts/apps/compare/authelia-9.0.28...authelia-9.0.29) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-9.0.29"></a>
+### [authelia-9.0.29](https://github.com/truecharts/apps/compare/authelia-9.0.28...authelia-9.0.29) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-9.0.28"></a>
+### [authelia-9.0.28](https://github.com/truecharts/apps/compare/authelia-9.0.27...authelia-9.0.28) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-9.0.27"></a>
+### [authelia-9.0.27](https://github.com/truecharts/apps/compare/authelia-9.0.26...authelia-9.0.27) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
+<a name="authelia-9.0.26"></a>
+### [authelia-9.0.26](https://github.com/truecharts/apps/compare/authelia-9.0.25...authelia-9.0.26) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="authelia-9.0.25"></a>
+### [authelia-9.0.25](https://github.com/truecharts/apps/compare/authelia-9.0.24...authelia-9.0.25) (2022-05-11)
+
+#### Chore
+
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
+<a name="authelia-9.0.24"></a>
+### [authelia-9.0.24](https://github.com/truecharts/apps/compare/authelia-9.0.23...authelia-9.0.24) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
 
 
 <a name="authelia-9.0.23"></a>

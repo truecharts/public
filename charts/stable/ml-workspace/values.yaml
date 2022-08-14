@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/ml-workspace
-  tag: v0.13.2@sha256:fd0195f1d7dc85c14c554a04e7e969201fa9ed8d3448943ca235142f8b2c2ea4
+  tag: v0.13.2@sha256:e25fe8c34101f63f2e2dd42b76509fe564d8a90ca838cdc462935412cf9dc668
   pullPolicy: IfNotPresent
 
 imageGPU:
@@ -38,7 +38,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   WORKSPACE_AUTH_USER: "admin"
   WORKSPACE_AUTH_PASSWORD: "password"
   # true, false, or a token
@@ -73,3 +73,6 @@ persistence:
     mountPath: "/dev/shm"
     type: "emptyDir"
     medium: "Memory"
+
+portal:
+  enabled: true

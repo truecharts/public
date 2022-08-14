@@ -1,21 +1,11 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/prowlarr
-  # -- image tag
-  tag: v0.3.0.1755@sha256:df1a9a072226a37bda9b57d7af89da287097a133dc1ecb2e72f7a56c722d2838
-  # -- image pull policy
+  tag: 0.4.3.1921@sha256:5d9050dbca3e500e95091377131b33647489c0d3b2813aa0ecbf36e417e851b9
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -23,15 +13,10 @@ service:
         port: 9696
         targetPort: 9696
 
-ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
-  main:
-    enabled: false
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

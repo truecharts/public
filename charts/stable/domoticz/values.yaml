@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/domoticz
   pullPolicy: IfNotPresent
-  tag: v2022.1.20220505
+  tag: v2022.1.20220714
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -34,10 +35,12 @@ service:
         targetPort: 1443
         port: 1443
 
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

@@ -1,0 +1,36 @@
+env:
+  SCHEDULE: "3600"
+  TOKEN: 1a2b3c4d5e6f71a2b3c4d5e6f71a2b3c4d5e6f7b
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/github-backup
+  tag: latest@sha256:7209e1606631a7ee71dcff591eb5e82cfb5ff9b909d6e9cfe38bbeba27851fd8
+persistence:
+  backuplocation:
+    enabled: true
+    mountPath: /home/docker/backups
+  config:
+    enabled: true
+    mountPath: /home/docker/github-backup/config/
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

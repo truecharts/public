@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/self-service-password
   pullPolicy: IfNotPresent
-  tag: v5.2.1@sha256:32d3cfbac6d3d53bcab5f2e17fc6f02be22c80eded2e6b79c24184f3f618f804
+  tag: v5.2.3@sha256:93a53cf09071abe95b694c49e105d6f7665f41f3ac5d213b1132f847ab9a7c5a
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -29,3 +29,6 @@ persistence:
   logs:
     enabled: true
     mountPath: "/www/logs"
+
+portal:
+  enabled: true

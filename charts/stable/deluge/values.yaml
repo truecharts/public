@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/deluge
   pullPolicy: IfNotPresent
-  tag: v2.0.5@sha256:18dc16d8e448ece00534e17f9e226a781320b9939f4194e12481e6d1156ed23b
+  tag: v2.0.5@sha256:ca7f421369134ba24caa52d929291c37d0a05fb44defa107a358395f15535788
 
 securityContext:
   runAsNonRoot: false
@@ -39,3 +39,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

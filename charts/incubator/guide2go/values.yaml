@@ -1,0 +1,37 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/guide2go
+  tag: latest@sha256:242ea7703e5c9359e79a183c6bd35fbc0807864122201dc8accab99b9a3685e3
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  guide2go:
+    enabled: true
+    mountPath: /guide2go
+  tvh:
+    enabled: true
+    mountPath: /TVH
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

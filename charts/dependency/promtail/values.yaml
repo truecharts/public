@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/truecharts/promtail
-  tag: v2.5.0@sha256:72efc7d761d8a34aba6625370d10170e3c1defffbe71a2d41ca9275ce229029d
+  tag: v2.6.1@sha256:e40671972c3ebdf7dc562b86c2f489418a03998daf44a72818e8243f9636f972
 
 # controller:
 #   # -- Set the controller type.
@@ -10,7 +10,14 @@ image:
 args:
   - "-config.file=/etc/promtail/promtail.yaml"
 
-envValueFrom:
+secret:
+  config:
+    enabled: true
+    data:
+      promtail.yaml: |
+        {{- tpl .Values.config.file . | nindent 4 }}
+
+env:
   HOSTNAME:
     fieldRef:
       fieldPath: spec.nodeName
@@ -62,34 +69,35 @@ persistence:
     enabled: true
     type: hostPath
     mountPath: /run/promtail
-    hostPath: /run/promtai
+    hostPath: /run/promtail
   config:
     enabled: true
     type: secret
-    objectName: "promtail-config"
+    objectName: '{{ include "tc.common.names.fullname" . }}-config'
     mountPath: /etc/promtail
-
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
-  enabled: true
-  rules:
-  - apiGroups:
-      - ""
-    resources:
-      - nodes
-      - nodes/proxy
-      - services
-      - endpoints
-      - pods
-    verbs:
-      - get
-      - watch
-      - list
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - nodes
+          - nodes/proxy
+          - services
+          - endpoints
+          - pods
+        verbs:
+          - get
+          - watch
+          - list
 
+# -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
-  # -- Specifies whether a ServiceAccount should be created
-  create: true
+  main:
+    create: true
 
 # -- Tolerations for pods. By default, pods will be scheduled on master/control-plane nodes.
 tolerations:

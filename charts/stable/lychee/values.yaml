@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/lychee-laravel
   pullPolicy: IfNotPresent
-  tag: v4.4.0@sha256:f241d62fa4b2f97577d494c319eaab9e5b127e4a67af58ea90861ce56ff0fb88
+  tag: 4.5.3@sha256:f76c563079597d18e8d4d3418d6e02cf2f231be9e0c3c1e5ab4a5737568dd4f0
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -17,6 +17,20 @@ service:
       main:
         port: 10017
         targetPort: 80
+
+# secretEnv:
+#   PUSHER_APP_KEY: ""
+#   PUSHER_APP_SECRET: ""
+#   PUSHER_APP_ID: ""
+#   PUSHER_APP_CLUSTER: "mt1"
+#   MAIL_DRIVER: "smtp"
+#   MAIL_HOST: ""
+#   MAIL_FROM_NAME: ""
+#   MAIL_FROM_ADDRESS: ""
+#   MAIL_USERNAME: ""
+#   MAIL_PASSWORD: ""
+#   MAIL_PORT: "587"
+#   MAIL_ENCRYPTION: "tls"
 
 env:
   # Internal Envs
@@ -36,11 +50,7 @@ env:
   # User Envs
   SECURITY_HEADER_HSTS_ENABLE: false
   APP_DEBUG: false
-  PUSHER_APP_KEY: ""
-  PUSHER_APP_CLUSTER: ""
   APP_URL: http://localhost
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -82,3 +92,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

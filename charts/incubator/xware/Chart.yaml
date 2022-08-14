@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: "This is a docker image of Thunder downloader.\r\n"
+home: https://truecharts.org/docs/charts/incubator/xware
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/xware.png
+keywords:
+  - xware
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: xware
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/xware
+  - https://hub.docker.com/r/caiguai/docker-xware
+  - https://hub.docker.com/r/caiguai/docker-xware
+type: application
+version: 0.0.16

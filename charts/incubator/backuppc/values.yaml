@@ -1,0 +1,36 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/backuppc
+  tag: latest@sha256:eb62d87dfd7dcc9fc4331e98d8484e0d7e611315c4ce21aa8a4d7557a0c00cbe
+persistence:
+  backuplocation:
+    enabled: true
+    mountPath: /var/lib/backuppc
+  configurationfiles:
+    enabled: true
+    mountPath: /etc/backuppc
+  homedirectory:
+    enabled: true
+    mountPath: /home/backuppc
+  logs:
+    enabled: true
+    mountPath: /www/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8000
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

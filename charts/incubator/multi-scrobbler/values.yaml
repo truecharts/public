@@ -1,0 +1,30 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/multi-scrobbler
+  tag: latest@sha256:1547337e943e1212d2f61ca2aafd3b57ef568f2173dc98248a0c73b08b12e940
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/node/config
+  logs:
+    enabled: true
+    mountPath: /home/node/app/logs
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 9078
+        protocol: TCP
+        targetPort: 9078
+
+portal:
+  enabled: true

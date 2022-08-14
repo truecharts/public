@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/shlink
   pullPolicy: IfNotPresent
-  tag: v3.1.0@sha256:114eec975de46d8b3791c6a79ef257896319eb39857409269ee21b336fd30033
+  tag: 3.2.1@sha256:1268404557f916afa5688926a9b023add0e9a81960805bd733ab9cb9342041a0
 
 securityContext:
   runAsNonRoot: false
@@ -15,7 +15,6 @@ service:
   main:
     ports:
       main:
-        targetPort: 10153
         port: 10153
 
 probes:
@@ -32,12 +31,10 @@ env:
   ANONYMIZE_REMOTE_ADDR: true
   ENABLE_PERIODIC_VISIT_LOCATE: true
   IS_HTTPS_ENABLED: true
-  PORT: 10153
+  PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_DRIVER: "postgres"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-
-envValueFrom:
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -61,3 +58,6 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: "default"
+
+portal:
+  enabled: false

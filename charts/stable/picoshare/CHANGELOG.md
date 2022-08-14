@@ -1,17 +1,369 @@
-# Changelog<br>
+# Changelog
 
 
-<a name="picoshare-1.0.9"></a>
-### [picoshare-1.0.9](https://github.com/truecharts/apps/compare/picoshare-1.0.8...picoshare-1.0.9) (2022-05-09)
+
+## [picoshare-2.0.26](https://github.com/truecharts/charts/compare/picoshare-2.0.25...picoshare-2.0.26) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [picoshare-2.0.25](https://github.com/truecharts/charts/compare/picoshare-2.0.24...picoshare-2.0.25) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [picoshare-2.0.24](https://github.com/truecharts/charts/compare/picoshare-2.0.23...picoshare-2.0.24) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [picoshare-2.0.23](https://github.com/truecharts/apps/compare/picoshare-2.0.22...picoshare-2.0.23) (2022-07-26)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
+
+
+
+
+## [picoshare-2.0.22](https://github.com/truecharts/apps/compare/picoshare-2.0.21...picoshare-2.0.22) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [picoshare-2.0.22](https://github.com/truecharts/apps/compare/picoshare-2.0.21...picoshare-2.0.22) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [picoshare-2.0.21](https://github.com/truecharts/apps/compare/picoshare-2.0.20...picoshare-2.0.21) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [picoshare-2.0.21](https://github.com/truecharts/apps/compare/picoshare-2.0.20...picoshare-2.0.21) (2022-07-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [picoshare-2.0.21](https://github.com/truecharts/apps/compare/picoshare-2.0.20...picoshare-2.0.21) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+
+
+
+
+## [picoshare-2.0.20](https://github.com/truecharts/apps/compare/picoshare-2.0.18...picoshare-2.0.20) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
+
+
+
+## [picoshare-2.0.18](https://github.com/truecharts/apps/compare/picoshare-2.0.17...picoshare-2.0.18) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [picoshare-2.0.17](https://github.com/truecharts/apps/compare/picoshare-2.0.16...picoshare-2.0.17) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [picoshare-2.0.16](https://github.com/truecharts/apps/compare/picoshare-2.0.14...picoshare-2.0.16) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [photoview-4.0.14](https://github.com/truecharts/apps/compare/photoview-4.0.12...photoview-4.0.14) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [photoview-4.0.12](https://github.com/truecharts/apps/compare/photoview-4.0.11...photoview-4.0.12) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="photoview-4.0.11"></a>
+### [photoview-4.0.11](https://github.com/truecharts/apps/compare/photoview-4.0.10...photoview-4.0.11) (2022-07-12)
 
 #### Chore
 
-* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
 
 
 
-<a name="picoshare-1.0.8"></a>
-### [picoshare-1.0.8](https://github.com/truecharts/apps/compare/picoshare-1.0.7...picoshare-1.0.8) (2022-05-05)
+<a name="photoview-4.0.10"></a>
+### [photoview-4.0.10](https://github.com/truecharts/apps/compare/photoview-4.0.9...photoview-4.0.10) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+
+
+
+<a name="photoview-4.0.9"></a>
+### [photoview-4.0.9](https://github.com/truecharts/apps/compare/photoview-4.0.8...photoview-4.0.9) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="photoview-4.0.8"></a>
+### [photoview-4.0.8](https://github.com/truecharts/apps/compare/photoview-4.0.7...photoview-4.0.8) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="photoview-4.0.7"></a>
+### [photoview-4.0.7](https://github.com/truecharts/apps/compare/photoview-4.0.6...photoview-4.0.7) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="photoview-4.0.6"></a>
+### [photoview-4.0.6](https://github.com/truecharts/apps/compare/photoview-4.0.5...photoview-4.0.6) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="photoview-4.0.5"></a>
+### [photoview-4.0.5](https://github.com/truecharts/apps/compare/photoview-4.0.4...photoview-4.0.5) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="photoview-4.0.4"></a>
+### [photoview-4.0.4](https://github.com/truecharts/apps/compare/photoview-4.0.3...photoview-4.0.4) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="photoview-4.0.3"></a>
+### [photoview-4.0.3](https://github.com/truecharts/apps/compare/photoview-4.0.2...photoview-4.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="photoview-4.0.2"></a>
+### [photoview-4.0.2](https://github.com/truecharts/apps/compare/photoview-4.0.1...photoview-4.0.2) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="photoview-4.0.1"></a>
+### [photoview-4.0.1](https://github.com/truecharts/apps/compare/photoview-4.0.0...photoview-4.0.1) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="photoview-4.0.0"></a>
+### [photoview-4.0.0](https://github.com/truecharts/apps/compare/photoview-3.0.1...photoview-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="photoview-3.0.1"></a>
+### [photoview-3.0.1](https://github.com/truecharts/apps/compare/photoview-2.0.23...photoview-3.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="photoview-3.0.0"></a>
+### [photoview-3.0.0](https://github.com/truecharts/apps/compare/photoview-2.0.23...photoview-3.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="photoview-2.0.23"></a>
+### [photoview-2.0.23](https://github.com/truecharts/apps/compare/photoview-2.0.22...photoview-2.0.23) (2022-05-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+
+
+
+<a name="photoview-2.0.22"></a>
+### [photoview-2.0.22](https://github.com/truecharts/apps/compare/photoview-2.0.21...photoview-2.0.22) (2022-05-26)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="photoview-2.0.22"></a>
+### [photoview-2.0.22](https://github.com/truecharts/apps/compare/photoview-2.0.21...photoview-2.0.22) (2022-05-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+
+
+
+<a name="photoview-2.0.21"></a>
+### [photoview-2.0.21](https://github.com/truecharts/apps/compare/photoview-2.0.20...photoview-2.0.21) (2022-05-24)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="photoview-2.0.20"></a>
+### [photoview-2.0.20](https://github.com/truecharts/apps/compare/photoview-2.0.19...photoview-2.0.20) (2022-05-17)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases
+
+
+
+<a name="photoview-2.0.20"></a>
+### [photoview-2.0.20](https://github.com/truecharts/apps/compare/photoview-2.0.19...photoview-2.0.20) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="photoview-2.0.19"></a>
+### [photoview-2.0.19](https://github.com/truecharts/apps/compare/photoview-2.0.18...photoview-2.0.19) (2022-05-17)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="photoview-2.0.18"></a>
+### [photoview-2.0.18](https://github.com/truecharts/apps/compare/photoview-2.0.17...photoview-2.0.18) (2022-05-10)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+
+
+
+<a name="photoview-2.0.17"></a>
+### [photoview-2.0.17](https://github.com/truecharts/apps/compare/photoview-2.0.16...photoview-2.0.17) (2022-05-05)
 
 #### Chore
 
@@ -19,17 +371,17 @@
 
 
 
-<a name="picoshare-1.0.7"></a>
-### [picoshare-1.0.7](https://github.com/truecharts/apps/compare/picoshare-1.0.6...picoshare-1.0.7) (2022-04-28)
+<a name="photoview-2.0.16"></a>
+### [photoview-2.0.16](https://github.com/truecharts/apps/compare/photoview-2.0.15...photoview-2.0.16) (2022-05-04)
 
 #### Chore
 
-* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
 
 
 
-<a name="picoshare-1.0.6"></a>
-### [picoshare-1.0.6](https://github.com/truecharts/apps/compare/picoshare-1.0.5...picoshare-1.0.6) (2022-04-26)
+<a name="photoview-2.0.15"></a>
+### [photoview-2.0.15](https://github.com/truecharts/apps/compare/photoview-2.0.14...photoview-2.0.15) (2022-04-26)
 
 #### Chore
 
@@ -37,17 +389,8 @@
 
 
 
-<a name="picoshare-1.0.5"></a>
-### [picoshare-1.0.5](https://github.com/truecharts/apps/compare/picoshare-1.0.4...picoshare-1.0.5) (2022-04-26)
-
-#### Chore
-
-* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
-
-
-
-<a name="picoshare-1.0.4"></a>
-### [picoshare-1.0.4](https://github.com/truecharts/apps/compare/picoshare-1.0.3...picoshare-1.0.4) (2022-04-20)
+<a name="photoview-2.0.14"></a>
+### [photoview-2.0.14](https://github.com/truecharts/apps/compare/photoview-2.0.13...photoview-2.0.14) (2022-04-20)
 
 #### Chore
 
@@ -56,8 +399,8 @@
 
 
 
-<a name="picoshare-1.0.3"></a>
-### [picoshare-1.0.3](https://github.com/truecharts/apps/compare/picoshare-1.0.2...picoshare-1.0.3) (2022-04-12)
+<a name="photoview-2.0.13"></a>
+### [photoview-2.0.13](https://github.com/truecharts/apps/compare/photoview-2.0.12...photoview-2.0.13) (2022-04-12)
 
 #### Chore
 
@@ -65,17 +408,8 @@
 
 
 
-<a name="picoshare-1.0.2"></a>
-### [picoshare-1.0.2](https://github.com/truecharts/apps/compare/picoshare-1.0.1...picoshare-1.0.2) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
-
-
-
-<a name="picoshare-1.0.1"></a>
-### [picoshare-1.0.1](https://github.com/truecharts/apps/compare/picoshare-1.0.0...picoshare-1.0.1) (2022-04-03)
+<a name="photoview-2.0.12"></a>
+### [photoview-2.0.12](https://github.com/truecharts/apps/compare/photoview-2.0.11...photoview-2.0.12) (2022-04-03)
 
 #### Chore
 
@@ -83,32 +417,126 @@
 
 
 
-<a name="picoshare-1.0.0"></a>
-### [picoshare-1.0.0](https://github.com/truecharts/apps/compare/picoshare-0.0.3...picoshare-1.0.0) (2022-04-03)
+<a name="photoview-2.0.11"></a>
+### [photoview-2.0.11](https://github.com/truecharts/apps/compare/photoview-2.0.10...photoview-2.0.11) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="photoview-2.0.10"></a>
+### [photoview-2.0.10](https://github.com/truecharts/apps/compare/photoview-2.0.9...photoview-2.0.10) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+
+
+
+<a name="photoview-2.0.9"></a>
+### [photoview-2.0.9](https://github.com/truecharts/apps/compare/photoview-2.0.8...photoview-2.0.9) (2022-03-30)
+
+#### Chore
+
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
+* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
+
+
+
+<a name="photoview-2.0.8"></a>
+### [photoview-2.0.8](https://github.com/truecharts/apps/compare/photoview-2.0.7...photoview-2.0.8) (2022-03-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
+
+
+
+<a name="photoview-2.0.7"></a>
+### [photoview-2.0.7](https://github.com/truecharts/apps/compare/photoview-2.0.6...photoview-2.0.7) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="photoview-2.0.2"></a>
+### [photoview-2.0.2](https://github.com/truecharts/apps/compare/photoview-2.0.1...photoview-2.0.2) (2022-03-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
+
+
+
+<a name="photoview-2.0.1"></a>
+### [photoview-2.0.1](https://github.com/truecharts/apps/compare/photoview-2.0.0...photoview-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
+<a name="photoview-2.0.0"></a>
+### [photoview-2.0.0](https://github.com/truecharts/apps/compare/photoview-1.0.3...photoview-2.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="photoview-1.0.3"></a>
+### [photoview-1.0.3](https://github.com/truecharts/apps/compare/photoview-1.0.2...photoview-1.0.3) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="photoview-1.0.2"></a>
+### [photoview-1.0.2](https://github.com/truecharts/apps/compare/photoview-1.0.1...photoview-1.0.2) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="photoview-1.0.1"></a>
+### [photoview-1.0.1](https://github.com/truecharts/apps/compare/photoview-1.0.0...photoview-1.0.1) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="photoview-1.0.0"></a>
+### [photoview-1.0.0](https://github.com/truecharts/apps/compare/photoview-0.0.1...photoview-1.0.0) (2022-02-13)
 
 #### Feat
 
-* move to stable ([#2415](https://github.com/truecharts/apps/issues/2415))
+* move photoview to stable ([#1892](https://github.com/truecharts/apps/issues/1892))
 
 
 
-<a name="picoshare-1.0.0"></a>
-### [picoshare-1.0.0](https://github.com/truecharts/apps/compare/picoshare-0.0.3...picoshare-1.0.0) (2022-04-03)
-
-#### Feat
-
-* move to stable ([#2415](https://github.com/truecharts/apps/issues/2415))
-
-
-
-<a name="picoshare-0.0.3"></a>
-### [picoshare-0.0.3](https://github.com/truecharts/apps/compare/picoshare-0.0.2...picoshare-0.0.3) (2022-04-03)
-
-
-
-<a name="picoshare-0.0.1"></a>
-### picoshare-0.0.1 (2022-04-01)
+<a name="photoview-0.0.1"></a>
+### photoview-0.0.1 (2022-02-13)
 
 #### Feat
 
-* add picoshare ([#2381](https://github.com/truecharts/apps/issues/2381))
+* Add photoview ([#1881](https://github.com/truecharts/apps/issues/1881))

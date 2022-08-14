@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/lazylibrarian
   pullPolicy: IfNotPresent
-  tag: latest@sha256:edf3aeb3020cb50e7195493611aa4b4553e90263f838199687e1ebd46aa9c529
+  tag: latest@sha256:ecb824939f12f285b0370e6f6a41e0c2c202aab045e6570b357ff8e8cad9be38
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -23,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

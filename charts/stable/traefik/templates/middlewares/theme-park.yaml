@@ -1,0 +1,20 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{- range $index, $middlewareData := .Values.middlewares.themePark }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  plugin:
+    traefik-themepark:
+      app: {{ $middlewareData.appName }}
+      theme: {{ $middlewareData.themeName }}
+      baseUrl: {{ $middlewareData.baseUrl }}
+{{- end }}

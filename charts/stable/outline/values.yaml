@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/outline
   pullPolicy: IfNotPresent
-  tag: v0.63.0@sha256:1ce6030a7e7a6a6c8f3584e605d4a779b11a760730b0eeda6d2bde4febc3a9e6
+  tag: 0.65.2@sha256:93a723a5ad615924f5d85f0dbe08534e8422ecae8112bada7934a953f2bc7c69
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -23,7 +23,6 @@ env:
   MAXIMUM_IMPORT_SIZE: 5120000
   DEFAULT_LANGUAGE: "en_US"
   # TEAM_LOGO: ""
-  # ALLOWED_DOMAINS: ""
   # COLLABORATION_URL: ""
   # SLACK_KEY: ""
   # SLACK_SECRET: ""
@@ -53,8 +52,14 @@ env:
   # AWS_S3_UPLOAD_MAX_SIZE: 26214400
   # AWS_S3_FORCE_PATH_STYLE: true
   # AWS_S3_ACL: ""
+  # SMTP_HOST: ""
+  # SMTP_PORT: 587
+  # SMTP_USERNAME: ""
+  # SMTP_PASSWORD: ""
+  # SMTP_FROM_EMAIL: ""
+  # SMTP_REPLY_EMAIL: ""
+  # SMTP_SECURE: true
 
-envValueFrom:
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
@@ -86,11 +91,11 @@ probes:
   startup:
     path: "/_health"
 
-
 # Enabled redis
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: outline
 
 # Enabled postgres
 postgresql:
@@ -123,4 +128,8 @@ initContainers:
           secretKeyRef:
             name: outline-secrets
             key: UTILS_SECRET
-    command: ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+    command:
+      ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+
+portal:
+  enabled: true

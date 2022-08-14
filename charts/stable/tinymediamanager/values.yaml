@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/tinymediamanager
-  tag: v4.2.8@sha256:d4d8294e55befd9b416873899d032b4d1c36c2fa5e6076a2fe0fc1050a5dd2e2
+  tag: 4.3.2@sha256:8a21f64f40fee4e34fe7982d9b5fd552fd5b8564025fb10cba8e3e158364d3e5
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+secretEnv:
   PASSWORD: ""
 
 service:
@@ -31,3 +31,6 @@ persistence:
   tvshows:
     enabled: true
     mountPath: "/media/tvshows"
+
+portal:
+  enabled: true

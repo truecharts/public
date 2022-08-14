@@ -1,0 +1,60 @@
+image:
+  repository: tccr.io/truecharts/putty
+  tag: v1.4.0@sha256:a9c7c3ab7f291c6ce01046ba10292865c73c31cb32a48701438dd648ee51a15b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10266
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10267
+        targetPort: 5900
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-putty'
+
+secretEnv:
+  VNC_PASSWORD: ""
+
+putty:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  DISABLE_RESTART_SESSION_DIALOG_WINDOW: false
+  ENABLE_CJK_FONT: false
+
+configmap:
+  putty:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.putty.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.putty.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.putty.SECURE_CONNECTION }}'
+      DISABLE_RESTART_SESSION_DIALOG_WINDOW: '{{ ternary "1" "0" .Values.putty.DISABLE_RESTART_SESSION_DIALOG_WINDOW }}'
+      DISPLAY_WIDTH: "{{ .Values.putty.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.putty.DISPLAY_HEIGHT }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  enabled: true

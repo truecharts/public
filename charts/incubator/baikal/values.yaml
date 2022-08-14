@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/baikal
+  pullPolicy: IfNotPresent
+  tag: v0.9.2@sha256:0d9b8d44c5a279e9a6525baba91cd0828945106347b304e89107eefaf9f23136
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10293
+        protocol: HTTP
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/baikal/config
+  specific:
+    enabled: true
+    mountPath: /var/www/baikal/Specific
+
+portal:
+  enabled: true

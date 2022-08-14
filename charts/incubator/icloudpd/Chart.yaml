@@ -1,0 +1,35 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+    - Downloaders
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: 'iCloudPD, Alpine Linux Docker container wrriten by [a href="https://github.com/boredazfcuk"]boredazfcuk[/a], syncs photos from iDevices to a single directory on TrueNAS. It uses the system keyring to securely store credentials, has HEIC to JPG conversion capability, and supports Telegram, Prowl, PushBullet and WebHook notifications.
+
+'
+home: https://truecharts.org/docs/charts/incubator/icloudpd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/icloudpd.png
+keywords:
+  - icloudpd
+  - Backup
+  - Cloud
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: icloudpd
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/icloudpd
+  - https://github.com/Womabre/-TrueNAS-docker-templates
+  - https://hub.docker.com/r/boredazfcuk/icloudpd/
+type: application
+version: 0.0.18

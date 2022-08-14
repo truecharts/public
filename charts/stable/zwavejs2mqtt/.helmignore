@@ -14,7 +14,6 @@
 *.swp
 *.bak
 *.tmp
-*.orig
 *~
 # Various IDEs
 .project
@@ -23,3 +22,9 @@
 .vscode/
 # OWNERS file for Kubernetes
 OWNERS
+# helm-docs templates
+*.gotmpl
+# docs folder
+/docs
+# icon
+icon.png

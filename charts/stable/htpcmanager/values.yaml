@@ -7,7 +7,6 @@ securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
@@ -25,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/pinry
-  tag: v2.1.12@sha256:24640aa246e4b8eea718c291f99672f89bcf46a33c1e99ce0f7e6d949eb03a37
+  tag: v2.1.12@sha256:fc1ddce0a4cdd0ce567db0bb6514a62880c50fcb5f1826b0bde3f3660c54123a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,7 +11,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-envValueFrom:
+env:
   SECRET_KEY:
     secretKeyRef:
       name: pinry-secrets
@@ -59,3 +59,6 @@ installContainers:
         else
           echo "${keyfile} File exists. Skipping...";
         fi;
+
+portal:
+  enabled: true

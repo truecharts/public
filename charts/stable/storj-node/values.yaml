@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/storj-node
-  tag: v1.54.2@sha256:39e2bd5859192434458d333893397b4472e9362df92d160d87f7dd9e0b66fd14
+  tag: 1.61.3@sha256:c7dc92ce8324a49e69790cf43dcfd8427f746fe58c2aa3bb27b06fdd3568191f
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -10,9 +10,9 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-secret:
-  WALLET: "walletaddress"
 
+secretEnv:
+  WALLET: "walletaddress"
 
 env:
   SETUP: true
@@ -50,3 +50,6 @@ persistence:
   storage:
     enabled: true
     mountPath: "/app/config"
+
+portal:
+  enabled: true

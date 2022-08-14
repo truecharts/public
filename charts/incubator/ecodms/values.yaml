@@ -1,0 +1,40 @@
+env: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ecodms
+  tag: latest@sha256:09f3604c12df46e56a0a61b61726e7ba0944cd240f78dbabc5ced99c647e5d83
+persistence:
+  backuppath:
+    enabled: true
+    mountPath: /srv/backup
+  data:
+    enabled: true
+    mountPath: /srv/data
+  restorepath:
+    enabled: true
+    mountPath: /srv/restore
+  scaninputpath:
+    enabled: true
+    mountPath: /srv/scaninput
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false

@@ -1,31 +1,32 @@
 apiVersion: v2
 appVersion: "1.4.0"
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 9.3.3
-- condition: postgresql.enabled
-  name: postgresql
-  repository: https://charts.truecharts.org/
-  version: 7.0.54
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.55
 description: Apache Guacamole is a clientless remote desktop gateway.
-home: https://github.com/truecharts/apps/tree/master/charts/stable/guacamole-client
-icon: https://truecharts.org/_static/img/appicons/guacamole-client.png
+home: https://truecharts.org/docs/charts/stable/guacamole-client
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacamole-client.png
 keywords:
-- guacamole
-- remote
-kubeVersion: '>=1.16.0-0'
+  - guacamole
+  - remote
+kubeVersion: ">=1.16.0-0"
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 name: guacamole-client
 sources:
-- https://github.com/apache/guacamole-client
-- https://hub.docker.com/r/guacamole/guacamole
-- http://guacamole.incubator.apache.org/doc/gug/introduction.html
+  - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole-client
+  - https://github.com/apache/guacamole-client
+  - https://hub.docker.com/r/guacamole/guacamole
+  - http://guacamole.incubator.apache.org/doc/gug/introduction.html
 type: application
-version: 2.0.17
+version: 4.0.30
 annotations:
   truecharts.org/catagories: |
     - utilities

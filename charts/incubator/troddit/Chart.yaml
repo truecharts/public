@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Web
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+deprecated: false
+description: A web client for Reddit
+home: https://truecharts.org/docs/charts/incubator/troddit
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/troddit.png
+keywords:
+  - troddit
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: troddit
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/troddit
+  - https://github.com/burhan-syed/troddit
+  - https://hub.docker.com/r/bsyed/troddit
+type: application
+version: 0.0.18

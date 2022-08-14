@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/ispy-agent-dvr
-  tag: v3.9.5.0@sha256:95310d013a0a93edd13cd4299ddc7fcfe8741673ee2f3a9b5befb3a31e5b05aa
+  tag: 4.1.1.0@sha256:7010d1b6c0b9166812ec0696a474eb0f7c20abd5fd06ba3256f838a4ced1647f
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -94,3 +94,6 @@ persistence:
   commands:
     enabled: true
     mountPath: "/agent/Commands"
+
+portal:
+  enabled: true

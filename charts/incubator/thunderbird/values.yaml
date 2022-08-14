@@ -1,0 +1,34 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/thunderbird
+  tag: latest@sha256:5b26180ab2ccc8f42777404aa4765d0dae3be92b3cebc0ecb5dafc48ec825113
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env:
+  THUNDERBIRD_V: "latest"
+  CUSTOM_RES_H: 768
+  CUSTOM_RES_W: 1280
+  DATA_PERM: 770
+  THUNDERBIRD_LANG: "en-US"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10291
+        targetPort: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /thunderbird
+
+portal:
+  enabled: true

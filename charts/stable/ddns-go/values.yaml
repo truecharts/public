@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ddns-go
   pullPolicy: IfNotPresent
-  tag: v3.7.0@sha256:18d86e7fc36f9c32055e7014a35e41c98fe636669b3befc2afd81675beff2e93
+  tag: 4.0.4@sha256:d9bb6ca49d88d8a8013e71e52c4d56f8261a0eec28d0b2a56e94fa1991775c16
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,3 +22,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/root"
+
+portal:
+  enabled: true

@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "0.9.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+description: Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.
+home: https://truecharts.org/docs/charts/stable/homarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homarr.png
+keywords:
+  - dashboard
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: homarr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/homarr
+  - https://github.com/ajnart/homarr
+version: 2.0.29
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

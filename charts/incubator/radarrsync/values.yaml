@@ -1,0 +1,33 @@
+env:
+  PROFILE_ID: ""
+  RADARR4K_KEY: ""
+  RADARR4K_URL: ""
+  RADARR_KEY: ""
+  RADARR_URL: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/radarrsync
+  tag: latest@sha256:25e09185a672cede4513c9bbe21d785d01201797f5e36feed324f51e813f36cc
+persistence: {}
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false
