@@ -1,6 +1,6 @@
 # picoshare
 
-![Version: 2.0.25](https://img.shields.io/badge/Version-2.0.25-informational?style=flat-square) ![AppVersion: 1.1.7](https://img.shields.io/badge/AppVersion-1.1.7-informational?style=flat-square)
+![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
 
 PicoShare is a minimalist service that allows you to share files easily.
 

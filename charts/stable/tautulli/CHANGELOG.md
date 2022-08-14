@@ -2,6 +2,15 @@
 
 
 
+## [tautulli-11.0.28](https://github.com/truecharts/charts/compare/tautulli-11.0.27...tautulli-11.0.28) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [tautulli-11.0.27](https://github.com/truecharts/charts/compare/tautulli-11.0.26...tautulli-11.0.27) (2022-08-12)
 
 ### Chore

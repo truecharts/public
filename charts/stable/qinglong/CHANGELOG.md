@@ -2,6 +2,15 @@
 
 
 
+## [qinglong-2.0.30](https://github.com/truecharts/charts/compare/qinglong-2.0.29...qinglong-2.0.30) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [qinglong-2.0.29](https://github.com/truecharts/charts/compare/qinglong-2.0.28...qinglong-2.0.29) (2022-08-12)
 
 ### Chore

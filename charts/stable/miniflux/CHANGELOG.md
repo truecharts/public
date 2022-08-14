@@ -2,6 +2,15 @@
 
 
 
+## [miniflux-7.0.30](https://github.com/truecharts/charts/compare/miniflux-7.0.29...miniflux-7.0.30) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [miniflux-7.0.29](https://github.com/truecharts/charts/compare/miniflux-7.0.28...miniflux-7.0.29) (2022-08-12)
 
 ### Chore

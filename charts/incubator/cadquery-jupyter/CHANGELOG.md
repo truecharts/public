@@ -2,6 +2,15 @@
 
 
 
+## [cadquery-jupyter-0.0.16](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.15...cadquery-jupyter-0.0.16) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [cadquery-jupyter-0.0.15](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.14...cadquery-jupyter-0.0.15) (2022-08-12)
 
 ### Chore

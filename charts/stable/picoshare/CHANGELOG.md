@@ -2,6 +2,15 @@
 
 
 
+## [picoshare-2.0.26](https://github.com/truecharts/charts/compare/picoshare-2.0.25...picoshare-2.0.26) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [picoshare-2.0.25](https://github.com/truecharts/charts/compare/picoshare-2.0.24...picoshare-2.0.25) (2022-08-12)
 
 ### Chore

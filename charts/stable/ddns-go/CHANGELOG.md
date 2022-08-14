@@ -2,6 +2,15 @@
 
 
 
+## [ddns-go-2.0.28](https://github.com/truecharts/charts/compare/ddns-go-2.0.27...ddns-go-2.0.28) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [ddns-go-2.0.27](https://github.com/truecharts/charts/compare/ddns-go-2.0.26...ddns-go-2.0.27) (2022-08-12)
 
 ### Chore

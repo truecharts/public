@@ -2,6 +2,15 @@
 
 
 
+## [kiwix-serve-0.0.17](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.16...kiwix-serve-0.0.17) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [kiwix-serve-0.0.16](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.15...kiwix-serve-0.0.16) (2022-08-12)
 
 ### Chore

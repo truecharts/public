@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.1.10](https://github.com/truecharts/charts/compare/traefik-13.1.9...traefik-13.1.10) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [traefik-13.1.9](https://github.com/truecharts/charts/compare/traefik-13.1.8...traefik-13.1.9) (2022-08-12)
 
 ### Chore

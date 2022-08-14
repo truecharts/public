@@ -2,6 +2,15 @@
 
 
 
+## [autobrr-0.0.6](https://github.com/truecharts/charts/compare/autobrr-0.0.5...autobrr-0.0.6) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [autobrr-0.0.5](https://github.com/truecharts/charts/compare/autobrr-0.0.4...autobrr-0.0.5) (2022-08-12)
 
 ### Chore

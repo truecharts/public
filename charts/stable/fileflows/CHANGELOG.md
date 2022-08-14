@@ -2,6 +2,15 @@
 
 
 
+## [fileflows-2.0.34](https://github.com/truecharts/charts/compare/fileflows-node-0.0.16...fileflows-2.0.34) (2022-08-14)
+
+### Chore
+
+- update container image tccr.io/truecharts/fileflows to v1.0.0 ([#3466](https://github.com/truecharts/charts/issues/3466))
+
+
+
+
 ## [fileflows-2.0.33](https://github.com/truecharts/charts/compare/fileflows-node-0.0.15...fileflows-2.0.33) (2022-08-12)
 
 ### Chore

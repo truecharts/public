@@ -2,6 +2,15 @@
 
 
 
+## [mymediaforalexa-1.0.4](https://github.com/truecharts/charts/compare/mymediaforalexa-1.0.3...mymediaforalexa-1.0.4) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [mymediaforalexa-1.0.3](https://github.com/truecharts/charts/compare/mymediaforalexa-1.0.2...mymediaforalexa-1.0.3) (2022-08-13)
 
 

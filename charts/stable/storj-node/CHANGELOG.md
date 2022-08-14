@@ -2,6 +2,15 @@
 
 
 
+## [storj-node-2.0.39](https://github.com/truecharts/charts/compare/storj-node-2.0.38...storj-node-2.0.39) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [storj-node-2.0.38](https://github.com/truecharts/charts/compare/storj-node-2.0.37...storj-node-2.0.38) (2022-08-12)
 
 ### Chore

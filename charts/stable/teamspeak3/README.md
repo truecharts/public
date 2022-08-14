@@ -1,6 +1,6 @@
 # teamspeak3
 
-![Version: 4.0.27](https://img.shields.io/badge/Version-4.0.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.13.7](https://img.shields.io/badge/AppVersion-3.13.7-informational?style=flat-square)
+![Version: 4.0.28](https://img.shields.io/badge/Version-4.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.13.7](https://img.shields.io/badge/AppVersion-3.13.7-informational?style=flat-square)
 
 TeamSpeak is software for quality voice communication via the Internet.
 

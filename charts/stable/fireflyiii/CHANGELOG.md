@@ -2,6 +2,15 @@
 
 
 
+## [fireflyiii-16.0.33](https://github.com/truecharts/charts/compare/fireflyiii-16.0.32...fireflyiii-16.0.33) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [fireflyiii-16.0.32](https://github.com/truecharts/charts/compare/fireflyiii-16.0.31...fireflyiii-16.0.32) (2022-08-12)
 
 ### Chore

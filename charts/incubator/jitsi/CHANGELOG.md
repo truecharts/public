@@ -2,6 +2,17 @@
 
 
 
+## [jitsi-0.0.23](https://github.com/truecharts/charts/compare/jitsi-0.0.22...jitsi-0.0.23) (2022-08-14)
+
+### Chore
+
+- update container image tccr.io/truecharts/jitsi-jicofo to v7648 ([#3467](https://github.com/truecharts/charts/issues/3467))
+  - update container image tccr.io/truecharts/jitsi-prosody to v7648 ([#3468](https://github.com/truecharts/charts/issues/3468))
+  - update container image tccr.io/truecharts/jitsi-web to v7648 ([#3469](https://github.com/truecharts/charts/issues/3469))
+
+
+
+
 ## [jitsi-0.0.22](https://github.com/truecharts/charts/compare/jitsi-0.0.21...jitsi-0.0.22) (2022-08-12)
 
 ### Chore

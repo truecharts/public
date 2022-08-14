@@ -2,6 +2,15 @@
 
 
 
+## [ombi-11.0.31](https://github.com/truecharts/charts/compare/ombi-11.0.30...ombi-11.0.31) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [ombi-11.0.30](https://github.com/truecharts/charts/compare/ombi-11.0.29...ombi-11.0.30) (2022-08-12)
 
 ### Chore

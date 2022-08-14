@@ -2,6 +2,15 @@
 
 
 
+## [linkding-2.0.27](https://github.com/truecharts/charts/compare/linkding-2.0.26...linkding-2.0.27) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [linkding-2.0.26](https://github.com/truecharts/charts/compare/linkding-2.0.25...linkding-2.0.26) (2022-08-12)
 
 ### Chore

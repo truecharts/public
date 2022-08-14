@@ -2,6 +2,15 @@
 
 
 
+## [mongodb-1.0.56](https://github.com/truecharts/charts/compare/mongodb-1.0.55...mongodb-1.0.56) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
 ## [mongodb-1.0.55](https://github.com/truecharts/charts/compare/mongodb-1.0.54...mongodb-1.0.55) (2022-08-12)
 
 ### Chore
