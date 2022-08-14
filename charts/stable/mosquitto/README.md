@@ -85,6 +85,23 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install mosquitto TrueCharts/mosquitto -f values.yaml
 ```
 
+### Configuring Authentication
+
+If you enable authentication you will need to create at least one user. By default this application will load any additional
+`*.conf` files located in the volume mounted to `/mosquitto/configinc`. To create and configure a user:
+
+1. `cd /mosquitto/configinc`
+2. Use the `mosquitto_passwd` command to create a new user. `mosquitto_passwd -c passwordfile <username>`
+3. Enter the password for the user
+4. Create a new `.conf` file that will import the password file. `echo "password_file /mosquitto/configinc/passwordfile" > /mosquitto/configinc/password.conf`
+5. Restart the app
+
+**Notes:**
+
+* The main configuration file at `/mosquitto/config/mosquitto.conf` is not editable configuration can only be done within `/mosquitto/configinc`
+* On TrueNAS SCALE if you have mosquitto installed locally you can create these files and then use [code-server](../code-server) to upload the files
+to `/mosquitto/configinc`.
+
 #### Connecting to other charts
 
 If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
