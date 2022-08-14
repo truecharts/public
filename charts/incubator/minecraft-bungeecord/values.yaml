@@ -45,12 +45,12 @@ service:
       main:
         port: 25565
         targetPort: 25577
-rcon:
-  enabled: true
-  ports:
-    rcon:
-      enabled: true
-      port: 25578
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
 
 persistence:
   config:
