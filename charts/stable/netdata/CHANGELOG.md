@@ -2,6 +2,15 @@
 
 
 
+## [netdata-2.0.29](https://github.com/truecharts/charts/compare/netdata-2.0.28...netdata-2.0.29) (2022-08-14)
+
+### Chore
+
+- add some more default confs ([#3473](https://github.com/truecharts/charts/issues/3473))
+
+
+
+
 ## [netdata-2.0.28](https://github.com/truecharts/charts/compare/netdata-2.0.27...netdata-2.0.28) (2022-08-14)
 
 ### Chore
