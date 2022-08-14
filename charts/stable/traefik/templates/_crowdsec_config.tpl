@@ -7,16 +7,16 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{- with .Values.crowdsec.collections }}
-  COLLECTIONS: {{ . }}
+  COLLECTIONS: {{ . | default "" }}
   {{- end }}
   {{- with .Values.crowdsec.scenarios }}
-  SCENARIOS: {{ . }}
+  SCENARIOS: {{ . | default "" }}
   {{- end }}
   {{- with .Values.crowdsec.parsers }}
-  PARSERS: {{ . }}
+  PARSERS: {{ . | default "" }}
   {{- end }}
   {{- with .Values.crowdsec.traefik_bouncer_key }}
-  BOUNCER_KEY_traefik: {{ . }}
+  BOUNCER_KEY_traefik: {{ . | default "" }}
   {{- end }}
 ---
 apiVersion: v1
