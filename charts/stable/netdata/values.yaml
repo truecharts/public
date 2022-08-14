@@ -181,7 +181,7 @@ initContainers:
         mountPath: "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf"
         subPath: go-d-k8s-state-conf
         readOnly: true
-    command: ["/bin/sh", "-c"]
+    command: ["/bin/bash", "-c"]
     args:
       - |-
         copy_config () {
