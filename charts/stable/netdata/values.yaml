@@ -190,12 +190,13 @@ initContainers:
           local dirTarget
           dirTarget="$(dirname "${confTarget}")"
 
-          if [ -d "${dirTarget}" ]; then
-            if [ ! -f "$confTarget" ]; then
-              cp "$confSource" "$confTarget"
-            else
-              echo "Config $confTarget exists, skipping..."
+          if [ ! -f "$confTarget" ]; then
+            if [ ! -d "${dirTarget}" ]; then
+              mkdir -p "$dirTarget"
             fi;
+            cp "$confSource" "$confTarget"
+          else
+            echo "Config $confTarget exists, skipping..."
           fi;
         }
         export -f copy_config
