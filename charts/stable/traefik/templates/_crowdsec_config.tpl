@@ -6,7 +6,7 @@ metadata:
 data:
   acquis.yaml: |-
     filenames:
-    - {{ .Values.crowdsec.logsPath }}
+    - "{{ .Values.crowdsec.logsPath }}"
     labels:
       type: traefik
 ---
