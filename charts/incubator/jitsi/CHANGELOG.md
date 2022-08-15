@@ -2,6 +2,31 @@
 
 
 
+## [jitsi-0.0.23](https://github.com/truecharts/charts/compare/jitsi-0.0.22...jitsi-0.0.23) (2022-08-14)
+
+### Chore
+
+- update container image tccr.io/truecharts/jitsi-jicofo to v7648 ([#3467](https://github.com/truecharts/charts/issues/3467))
+  - update container image tccr.io/truecharts/jitsi-prosody to v7648 ([#3468](https://github.com/truecharts/charts/issues/3468))
+  - update container image tccr.io/truecharts/jitsi-web to v7648 ([#3469](https://github.com/truecharts/charts/issues/3469))
+
+
+
+
+## [jitsi-0.0.22](https://github.com/truecharts/charts/compare/jitsi-0.0.21...jitsi-0.0.22) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [jitsi-0.0.21](https://github.com/truecharts/charts/compare/jitsi-0.0.20...jitsi-0.0.21) (2022-08-11)
 
 ### Chore

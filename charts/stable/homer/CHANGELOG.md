@@ -2,6 +2,20 @@
 
 
 
+## [homer-2.0.30](https://github.com/truecharts/charts/compare/homer-2.0.29...homer-2.0.30) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [homer-2.0.29](https://github.com/truecharts/charts/compare/homer-2.0.28...homer-2.0.29) (2022-08-08)
 
 ### Chore

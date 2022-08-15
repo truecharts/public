@@ -2,6 +2,29 @@
 
 
 
+## [vikunja-3.0.38](https://github.com/truecharts/charts/compare/vikunja-3.0.37...vikunja-3.0.38) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [vikunja-3.0.37](https://github.com/truecharts/charts/compare/vikunja-3.0.36...vikunja-3.0.37) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [vikunja-3.0.36](https://github.com/truecharts/charts/compare/vikunja-3.0.35...vikunja-3.0.36) (2022-08-09)
 
 ### Chore

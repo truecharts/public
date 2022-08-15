@@ -1,6 +1,6 @@
 # anki-sync-server
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![AppVersion: 20220516](https://img.shields.io/badge/AppVersion-20220516-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![AppVersion: 20220516](https://img.shields.io/badge/AppVersion-20220516-informational?style=flat-square)
 
 A cross-platform Anki sync server.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

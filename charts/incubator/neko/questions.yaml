@@ -4,6 +4,35 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: "Container Image"
+    label: "Select Image"
+    schema:
+      type: string
+      default: "image"
+      enum:
+        - value: "image"
+          description: "Firefox"
+        - value: "imageBrave"
+          description: "Brave"
+        - value: "imageChrome"
+          description: "Chrome"
+        - value: "imageChromium"
+          description: "Chromium"
+        - value: "imageEdge"
+          description: "Edge"
+        - value: "imageRemmina"
+          description: "Remmina"
+        - value: "imageTor"
+          description: "Tor"
+        - value: "imageVivaldi"
+          description: "Vivaldi"
+        - value: "imageVlc"
+          description: "Vlc"
+        - value: "imageVncviewer"
+          description: "Vncviewer"
+        - value: "imageXfce"
+          description: "Xfce"
 # Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
@@ -11,6 +40,26 @@ questions:
 # Include{strategy}
 # Include{recreate}
 # Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: NEKO_PASSWORD
+          label: "NEKO_PASSWORD"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: NEKO_PASSWORD_ADMIN
+          label: "NEKO_PASSWORD_ADMIN"
+          schema:
+            type: string
+            default: ""
+            private: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -18,36 +67,48 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: NEKO_PASSWORD
-          label: 'NEKO_PASSWORD'
-          description: "Container Variable NEKOPASSWORD"
-          schema:
-            type: string
-            default: "ChangeMePls-<3"
-        - variable: NEKO_PASSWORD_ADMIN
-          label: 'NEKO_PASSWORD_ADMIN'
-          description: "Container Variable NEKOPASSWORDADMIN"
-          schema:
-            type: string
-            default: "ChangeMeAlsoPls_:)"
-        - variable: NEKO_NAT1TO1
-          label: 'NEKO_NAT1TO1'
-          description: "Enter the IP of your TrueNAS-Server (or your defined IP in Custom br0 mode)"
-          schema:
-            type: string
-            default: "192.168.1.x"
-        - variable: NEKO_EPR
-          label: 'NEKO_EPR'
-          description: "Container Variable NEKOEPR"
-          schema:
-            type: string
-            default: "52000-52100"
         - variable: NEKO_SCREEN
-          label: 'NEKO_SCREEN'
-          description: "Container Variable NEKOSCREEN"
+          label: "NEKO_SCREEN"
+          description: "Resolution after startup. Only Admins can change this later."
           schema:
             type: string
             default: "1920x1080@30"
+        - variable: NEKO_CONTROL_PROTECTION
+          label: "NEKO_CONTROL_PROTECTION"
+          description: "Control protection means, users can gain control only if at least one admin is in the room."
+          schema:
+            type: boolean
+            default: false
+        - variable: NEKO_IMPLICIT_CONTROL
+          label: "NEKO_IMPLICIT_CONTROL"
+          description: "If enabled members can gain control implicitly, they don't need to request control."
+          schema:
+            type: boolean
+            default: false
+        - variable: NEKO_PROXY
+          label: "NEKO_PROXY"
+          description: "Enable reverse proxy mode, so that neko trusts X-Forwarded-For headers."
+          schema:
+            type: boolean
+            default: false
+        - variable: NEKO_LOCKS
+          label: "NEKO_LOCKS"
+          description: "Resources, that will be locked when starting, separated by whitespace."
+          schema:
+            type: string
+            default: "192.168.1.x"
+        - variable: NEKO_NAT1TO1
+          label: "NEKO_NAT1TO1"
+          description: "Enter the IP of your TrueNAS-Server"
+          schema:
+            type: string
+            default: "192.168.1.x"
+        - variable: NEKO_IPFETCH
+          label: "NEKO_IPFETCH"
+          description: "Automatically fetch IP address from given URL when NEKO_NAT1TO1 is not specified."
+          schema:
+            type: string
+            default: "http://checkip.amazonaws.com"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -69,7 +130,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 6530
+                              default: 10294
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -78,16 +139,15 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-        - variable: port52000
-          label: 'port52000 service'
-          description: "Needed for Webrtc Communication"
+        - variable: mux-udp
+          label: "mux-udp service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: port52000
-                      label: "port52000 Service Port Configuration"
+                    - variable: mux-udp
+                      label: "mux-udp Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -97,7 +157,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 52000
+                              default: 52100
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
@@ -105,7 +165,34 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 52000
+                                    default: 52100
+        - variable: mux-tcp
+          label: "mux-tcp service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: mux-tcp
+                      label: "mux-tcp Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 52100
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 52100
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -169,3 +256,4 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{documentation}

@@ -2,6 +2,20 @@
 
 
 
+## [pydio-cells-4.0.28](https://github.com/truecharts/charts/compare/pydio-cells-4.0.27...pydio-cells-4.0.28) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [pydio-cells-4.0.27](https://github.com/truecharts/charts/compare/pydio-cells-4.0.26...pydio-cells-4.0.27) (2022-08-09)
 
 ### Chore

@@ -2,6 +2,29 @@
 
 
 
+## [tinymediamanager-2.0.27](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.26...tinymediamanager-2.0.27) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [tinymediamanager-2.0.26](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.25...tinymediamanager-2.0.26) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [tinymediamanager-2.0.25](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.23...tinymediamanager-2.0.25) (2022-08-08)
 
 ### Chore

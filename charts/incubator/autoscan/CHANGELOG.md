@@ -2,6 +2,38 @@
 
 
 
+## [autoscan-0.0.19](https://github.com/truecharts/charts/compare/autoscan-0.0.18...autoscan-0.0.19) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [autoscan-0.0.18](https://github.com/truecharts/charts/compare/autoscan-0.0.17...autoscan-0.0.18) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [autoscan-0.0.17](https://github.com/truecharts/charts/compare/autoscan-0.0.16...autoscan-0.0.17) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [autoscan-0.0.16](https://github.com/truecharts/charts/compare/autoscan-0.0.15...autoscan-0.0.16) (2022-08-09)
 
 ### Chore

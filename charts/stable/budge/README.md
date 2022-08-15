@@ -1,6 +1,6 @@
 # budge
 
-![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
+![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
 Budge is an open source 'budgeting with envelopes' personal finance app.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

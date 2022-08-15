@@ -2,6 +2,24 @@
 
 
 
+## [cloudflared-1.0.8](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.13...cloudflared-1.0.8) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [cloudflared-1.0.7](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.12...cloudflared-1.0.7) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [cloudflared-1.0.6](https://github.com/truecharts/charts/compare/cloudflared-1.0.5...cloudflared-1.0.6) (2022-08-08)
 
 ### Chore

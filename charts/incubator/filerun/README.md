@@ -1,6 +1,6 @@
 # filerun
 
-![Version: 2.0.27](https://img.shields.io/badge/Version-2.0.27-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 FileRun is a full featured web based file manager with an easy to use user interface
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.50 |
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://charts.truecharts.org/ | mariadb | 3.0.53 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

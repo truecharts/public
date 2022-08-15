@@ -1,6 +1,6 @@
 # heimdall
 
-![Version: 11.0.30](https://img.shields.io/badge/Version-11.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.13](https://img.shields.io/badge/AppVersion-2.4.13-informational?style=flat-square)
+![Version: 11.0.31](https://img.shields.io/badge/Version-11.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.13](https://img.shields.io/badge/AppVersion-2.4.13-informational?style=flat-square)
 
 An Application dashboard and launcher
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

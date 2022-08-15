@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/inventree
-  tag: 0.8.0@sha256:4ab0aaf2a99eda69d86b3d530a62fbd81786a8552c9743dc43f442f8934b6da8
+  tag: 0.8.1@sha256:6b89f61c3d3eb824fe81689c67f13052d6e733b910e74eece3fb353a54232136
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:e97e936c9774204b00648c3309e57cdf85fd3e6f597ca420f27dbe9875968d53
+  tag: v1.23.1@sha256:688795957aa8058d6b99970b61ce11666856a6f2dca684e1edf38b61c42507e0
 
 securityContext:
   readOnlyRootFilesystem: false

@@ -1,6 +1,6 @@
 # privatebin
 
-![Version: 0.0.26](https://img.shields.io/badge/Version-0.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
+![Version: 0.0.27](https://img.shields.io/badge/Version-0.0.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
 
 PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data.
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.52 |
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.55 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

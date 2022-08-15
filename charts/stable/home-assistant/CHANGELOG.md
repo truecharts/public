@@ -2,6 +2,29 @@
 
 
 
+## [home-assistant-15.0.40](https://github.com/truecharts/charts/compare/home-assistant-15.0.39...home-assistant-15.0.40) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [home-assistant-15.0.39](https://github.com/truecharts/charts/compare/home-assistant-15.0.38...home-assistant-15.0.39) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [home-assistant-15.0.38](https://github.com/truecharts/charts/compare/home-assistant-15.0.37...home-assistant-15.0.38) (2022-08-10)
 
 ### Chore

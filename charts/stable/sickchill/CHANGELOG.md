@@ -2,6 +2,29 @@
 
 
 
+## [sickchill-3.0.32](https://github.com/truecharts/charts/compare/sickchill-3.0.31...sickchill-3.0.32) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [sickchill-3.0.31](https://github.com/truecharts/charts/compare/sickchill-3.0.30...sickchill-3.0.31) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [sickchill-3.0.30](https://github.com/truecharts/charts/compare/sickchill-3.0.29...sickchill-3.0.30) (2022-08-10)
 
 ### Chore

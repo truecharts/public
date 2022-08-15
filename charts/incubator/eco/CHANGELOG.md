@@ -2,6 +2,15 @@
 
 
 
+## [eco-0.0.16](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.10...eco-0.0.16) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
 ## [eco-0.0.15](https://github.com/truecharts/charts/compare/ecodms-0.0.14...eco-0.0.15) (2022-08-08)
 
 ### Chore

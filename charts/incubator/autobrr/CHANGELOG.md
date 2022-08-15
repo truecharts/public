@@ -2,6 +2,29 @@
 
 
 
+## [autobrr-0.0.6](https://github.com/truecharts/charts/compare/autobrr-0.0.5...autobrr-0.0.6) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [autobrr-0.0.5](https://github.com/truecharts/charts/compare/autobrr-0.0.4...autobrr-0.0.5) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [autobrr-0.0.4](https://github.com/truecharts/charts/compare/autobrr-0.0.3...autobrr-0.0.4) (2022-08-09)
 
 ### Chore

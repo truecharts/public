@@ -1,6 +1,6 @@
 # shoko-server
 
-![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: daily](https://img.shields.io/badge/AppVersion-daily-informational?style=flat-square)
+![Version: 0.0.15](https://img.shields.io/badge/Version-0.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: daily](https://img.shields.io/badge/AppVersion-daily-informational?style=flat-square)
 
 Shoko server is the core component of the Shoko suite and with it's client-server architecture which allows any program or plugin to access Shoko. You'll have access to your entire collection locally and over the internet with no additional work outside the initial configuration required.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

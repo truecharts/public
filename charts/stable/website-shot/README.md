@@ -1,6 +1,6 @@
 # website-shot
 
-![Version: 2.0.25](https://img.shields.io/badge/Version-2.0.25-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 

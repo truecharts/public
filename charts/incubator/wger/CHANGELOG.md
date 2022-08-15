@@ -2,6 +2,29 @@
 
 
 
+## [wger-0.0.40](https://github.com/truecharts/charts/compare/wger-0.0.39...wger-0.0.40) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [wger-0.0.39](https://github.com/truecharts/charts/compare/wger-0.0.38...wger-0.0.39) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [wger-0.0.38](https://github.com/truecharts/charts/compare/wger-0.0.37...wger-0.0.38) (2022-08-09)
 
 ### Chore

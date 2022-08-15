@@ -2,6 +2,20 @@
 
 
 
+## [nntp2nntp-2.0.24](https://github.com/truecharts/charts/compare/nntp2nntp-2.0.23...nntp2nntp-2.0.24) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [nntp2nntp-2.0.23](https://github.com/truecharts/charts/compare/nntp2nntp-2.0.22...nntp2nntp-2.0.23) (2022-08-08)
 
 ### Chore

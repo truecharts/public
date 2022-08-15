@@ -1,6 +1,6 @@
 # qinglong
 
-![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.13.7](https://img.shields.io/badge/AppVersion-2.13.7-informational?style=flat-square)
+![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.13.8](https://img.shields.io/badge/AppVersion-2.13.8-informational?style=flat-square)
 
 A timed task management panel that supports typescript, javaScript, python3, and shell
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.9 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 
