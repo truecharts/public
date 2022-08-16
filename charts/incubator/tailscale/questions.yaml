@@ -24,7 +24,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 41461
+                              default: 40000
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
