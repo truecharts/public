@@ -11,6 +11,7 @@ securityContext:
   capabilities:
     add:
       - NET_ADMIN
+      - SYS_MODULE
 
 podSecurityContext:
   runAsUser: 0
@@ -35,7 +36,7 @@ persistence:
     enabled: false
   config:
     enabled: true
-    mountPath: "/var/lib/tailscale"
+    mountPath: "/var/lib"
   tun:
     enabled: true
     type: hostPath
