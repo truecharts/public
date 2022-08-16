@@ -19,6 +19,7 @@ podSecurityContext:
 tailscale:
   override: false
   authkey: "secret"
+  command: "up"
   args: ""
 #   TS_AUTH_KEY: "secret"
 #   TS_USERSPACE: true
@@ -33,12 +34,9 @@ service:
         port: 41641
 
 persistence:
+  temp:
+    enabled: false
   config:
-    enabled: true
-    mountPath: "/tmp"
-    type: emptyDir
-    medium: "Memory"
-  tmp:
     enabled: true
     mountPath: "/var/lib"
   tun:
