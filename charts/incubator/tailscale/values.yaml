@@ -16,7 +16,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
+env:
   TS_AUTH_KEY: "secret"
   TS_USERSPACE: true
   TS_ROUTES: ""
