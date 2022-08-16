@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
 
-command: ["tailscaled"]
+command: ["/usr/local/bin/start.sh"]
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -16,7 +16,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# env:
+tailscale:
+  authkey: "secret"
 #   TS_AUTH_KEY: "secret"
 #   TS_USERSPACE: true
 #   TS_ROUTES: ""
@@ -40,6 +41,15 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
+  start:
+    enabled: "true"
+    mountPath: "/usr/local/bin/"
+    readOnly: true
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-start'
+        defaultMode: 0644
 
 portal:
   enabled: false
