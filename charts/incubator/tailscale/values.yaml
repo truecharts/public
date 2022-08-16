@@ -17,13 +17,10 @@ podSecurityContext:
   runAsGroup: 0
 
 tailscale:
-  override: false
   authkey: "secret"
-  command: "up"
-  args: ""
-#   TS_AUTH_KEY: "secret"
-#   TS_USERSPACE: true
-#   TS_ROUTES: ""
+  override: false
+  # Only used if 'override' is true. eg 'up --ssh --authkey=secret'
+  tsParam: ""
 
 service:
   main:
@@ -38,7 +35,7 @@ persistence:
     enabled: false
   config:
     enabled: true
-    mountPath: "/var/lib"
+    mountPath: "/var/lib/tailscale"
   tun:
     enabled: true
     type: hostPath
