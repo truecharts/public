@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "2.7.4"
 description: This server allows you to sync any Joplin client
 name: joplin-server
-version: 8.0.28
+version: 8.0.29
 kubeVersion: ">=1.16.0-0"
 keywords:
   - joplin
@@ -21,7 +21,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.55
+    version: 8.0.56
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

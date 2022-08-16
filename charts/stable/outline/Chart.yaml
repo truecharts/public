@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.55
+    version: 8.0.56
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.53
+    version: 3.0.54
 deprecated: false
 description: A fast, collaborative, knowledge base for your team built using React and Node.js.
 home: https://truecharts.org/docs/charts/stable/outline
@@ -29,7 +29,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/outline
   - https://github.com/outline/outline
 type: application
-version: 3.0.31
+version: 3.0.32
 annotations:
   truecharts.org/catagories: |
     - productivity
