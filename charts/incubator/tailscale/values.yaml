@@ -50,7 +50,7 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-start'
-        defaultMode: 0644
+        defaultMode: 0777
 
 portal:
   enabled: false
