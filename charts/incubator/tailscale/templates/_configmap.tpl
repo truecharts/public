@@ -7,12 +7,17 @@ metadata:
   name: {{ include "tc.common.names.fullname" . }}-start
 data:
   start.sh: |-
-    #!/bin/sh
+    #!/bin/ash
+    # Not a typo. It's 'ash', not 'bash'
     echo "Starting Tailscale Daemon"
     tailscaled &
     sleep 3
     echo "Connecting to network"
-    tailsacle up --authkey={{ .Values.tailscale.authkey }}
+    {{- with .Values.tailscale.authkey }}
+    tailscale up --authkey={{ . }}
+    {{- else }}
+    tailscale up {{ .Values.tailscale.args }}
+    {{- end }}
 
     tailscale status
     sleep infinity
