@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
 
-command: ["/usr/local/bin/start.sh"]
+command: ["ash", "/start.sh"]
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -44,7 +44,7 @@ persistence:
     readOnly: false
   start:
     enabled: "true"
-    mountPath: "/usr/local/bin/"
+    mountPath: "/"
     readOnly: true
     type: "custom"
     volumeSpec:
