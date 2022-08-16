@@ -37,6 +37,7 @@ persistence:
     enabled: true
     mountPath: "/tmp"
     type: emptyDir
+    medium: "Memory"
   tmp:
     enabled: true
     mountPath: "/var/lib"
