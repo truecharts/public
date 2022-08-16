@@ -36,7 +36,7 @@ persistence:
     enabled: false
   config:
     enabled: true
-    mountPath: "/var/lib"
+    mountPath: "/var/lib/tailscale"
   tun:
     enabled: true
     type: hostPath
