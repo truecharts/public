@@ -17,6 +17,7 @@ podSecurityContext:
   runAsGroup: 0
 
 tailscale:
+  override: false
   authkey: "secret"
   args: ""
 #   TS_AUTH_KEY: "secret"
@@ -34,7 +35,11 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/var/lib/"
+    mountPath: "/tmp"
+    type: emptyDir
+  tmp:
+    enabled: true
+    mountPath: "/var/lib"
   tun:
     enabled: true
     type: hostPath

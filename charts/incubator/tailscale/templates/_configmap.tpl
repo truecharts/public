@@ -13,10 +13,12 @@ data:
     tailscaled &
     sleep 3
     echo "Connecting to network"
+    {{- if .Values.tailscale.override }}
+    tailscale up {{ .Values.tailscale.args }}
+    {{- else }}
     {{- with .Values.tailscale.authkey }}
     tailscale up --authkey={{ . }}
-    {{- else }}
-    tailscale up {{ .Values.tailscale.args }}
+    {{- end }}
     {{- end }}
 
     tailscale status
