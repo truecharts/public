@@ -27,7 +27,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/var/lib/"
+    mountPath: "/state"
   tun:
     enabled: true
     type: hostPath
