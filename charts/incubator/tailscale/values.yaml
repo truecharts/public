@@ -1,0 +1,45 @@
+image:
+  repository: tailscale/tailscale
+  pullPolicy: IfNotPresent
+  tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
+
+command: ["tailscaled"]
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  TS_AUTH_KEY: "secret"
+  TS_USERSPACE: true
+  TS_ROUTES: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        targetPort: 41641
+        port: 41641
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
+
+portal:
+  enabled: false
