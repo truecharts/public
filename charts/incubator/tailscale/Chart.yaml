@@ -1,0 +1,32 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: tailscale
+version: 0.0.1
+appVersion: "1.28"
+description: Tailscale is a zero config VPN for building secure networks. Install on any device in minutes. Remote access from any network or physical location.
+type: application
+deprecated: false
+home: https://truecharts.org/docs/charts/incubator/tailscale
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tailscale.png
+keywords:
+  - tailscale
+  - network
+  - vpn
+sources:
+  - https://github.com/deasmi/unraid-tailscale
+  - https://github.com/tailscale/tailscale
+  - https://hub.docker.com/r/deasmi/unraid-tailscale
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
