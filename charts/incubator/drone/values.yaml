@@ -1,0 +1,39 @@
+image:
+  repository: drone/drone
+  pullPolicy: IfNotPresent
+  tag: 2.12.1@sha256:8558e4d12beecb181f6204a874a6af9b660796cb3c7a6a71ca234f9a29a4b6c2
+
+env:
+  # DRONE_GITHUB_SERVER: ""
+  # DRONE_GITHUB_CLIENT_ID: ""
+  # DRONE_GITHUB_CLIENT_SECRET: ""
+  # DRONE_GITEA_SERVER: ""
+  # DRONE_GITEA_CLIENT_ID: ""
+  # DRONE_GITEA_CLIENT_SECRET: ""
+  # DRONE_GITEE_CLIENT_ID: ""
+  # DRONE_GITEE_CLIENT_SECRET: ""
+  # DRONE_GITLAB_SERVER: ""
+  # DRONE_GITLAB_CLIENT_ID: ""
+  # DRONE_GITLAB_CLIENT_SECRET: ""
+  # DRONE_AGENTS_ENABLED: ""
+  # DRONE_GOGS_SERVER: ""
+  # DRONE_BITBUCKET_CLIENT_ID: ""
+  # DRONE_BITBUCKET_CLIENT_SECRET: ""
+  DRONE_RPC_SECRET: "bea26a2221fd8090ea38720fc445eca6"
+  DRONE_SERVER_HOST: "http://test.truecharts.org"
+  DRONE_SERVER_PROTO: "http"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 10258
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: drone
+version: 0.0.1
+appVersion: "2.0.0"
+description: Drone by Harness™ is a modern Continuous Integration platform
+type: application
+deprecated: false
+home: https://truecharts.org/docs/charts/incubator/drone
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/drone.png
+keywords:
+  - drone
+  - productivity
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-go
+  - https://docs.drone.io/
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.12
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
