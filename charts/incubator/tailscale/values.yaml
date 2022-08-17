@@ -13,13 +13,11 @@ securityContext:
       - NET_ADMIN
       - SYS_MODULE
 
-security:
-  PUID: 0
+hostNetwork: true
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
 
 tailscale:
   authkey: "secret"
