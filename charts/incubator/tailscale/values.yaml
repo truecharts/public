@@ -8,7 +8,6 @@ command: ["ash", "/tailscale/run.sh"]
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  allowPrivilegeEscalation: true
   capabilities:
     add:
       - NET_ADMIN
@@ -18,7 +17,7 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
+secretEnv:
   TS_AUTH_KEY: "secret"
 
 service:
