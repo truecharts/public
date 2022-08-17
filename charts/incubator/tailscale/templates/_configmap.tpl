@@ -16,12 +16,12 @@ data:
   TS_USERSPACE: {{ .Values.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ .Values.tailscale.accept_dns | quote }}
   {{- with .Values.tailscale.routes }}
-  TS_ROUTES: {{ .Values.tailscale.routes }}
+  TS_ROUTES: {{ . }}
   {{- end }}
   {{- with .Values.tailscale.dest_ip }}
-  TS_DEST_IP: {{ .Values.tailscale.dest_ip }}
+  TS_DEST_IP: {{ . }}
   {{- end }}
   {{- with .Values.tailscale.extra_args }}
-  TS_EXTRA_ARGS: {{ .Values.tailscale.extra_args }}
+  TS_EXTRA_ARGS: {{ . | quote }}
   {{- end }}
 {{- end }}
