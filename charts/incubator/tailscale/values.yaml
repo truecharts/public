@@ -47,6 +47,14 @@ env:
 tailscale:
   authkey: "secret"
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 service:
   main:
     ports:
@@ -55,11 +63,9 @@ service:
         port: 41641
 
 persistence:
-  temp:
-    enabled: false
   config:
     enabled: true
-    mountPath: "/var/lib/tailscale"
+    mountPath: "/var/lib"
   tun:
     enabled: true
     type: hostPath
