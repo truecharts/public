@@ -43,7 +43,6 @@ rbac:
 env:
   TS_KUBE_SECRET: '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
 
-
 tailscale:
   authkey: "secret"
 
