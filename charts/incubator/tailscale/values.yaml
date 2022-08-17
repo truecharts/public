@@ -51,7 +51,7 @@ env:
 
 tailscale:
   authkey: "supersecret"
-  userspace: true
+  userspace: false
   accept_dns: false
   routes: ""
   dest_ip: ""
@@ -76,13 +76,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/lib"
-  tun:
-    enabled: true
-    type: hostPath
-    hostPath: /dev/net/tun
-    mountPath: /dev/net/tun
-    hostPathType: ""
-    readOnly: false
 
 portal:
   enabled: false

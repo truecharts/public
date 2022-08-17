@@ -10,6 +10,47 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: tailscale
+    group: "Container Configuration"
+    label: "Tailscale Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: authkey
+          label: "Auth Key"
+          description: "Provide an auth key to automatically authenticate the node as your user account."
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: userspace
+          label: "Userspace"
+          description: "Userspace Networking mode allows running Tailscale where you don’t have access to create a VPN tunnel device. This often happens in container environments."
+          schema:
+            type: boolean
+            default: true
+        - variable: accept_dns
+          label: "Accept DNS"
+          description: "Accept DNS configuration from the admin console."
+          schema:
+            type: boolean
+            default: false
+        - variable: routes
+          label: "Routes"
+          schema:
+            type: string
+            default: ""
+        - variable: dest_ip
+          label: "Dest IP"
+          schema:
+            type: string
+            default: ""
+        - variable: extra_args
+          label: "Extra Args"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -31,15 +72,15 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 41641
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortUDP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 41641
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
