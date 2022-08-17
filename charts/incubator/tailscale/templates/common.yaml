@@ -9,6 +9,7 @@
 
 {{- if not .Values.tailscale.userspace }}
 {{- $_ := set .Values.persistence "tun" (include "tailscale.tun" . | fromYaml) -}}
+{{- $_ := set .Values.securityContext "capabilities" (include "tailscale.caps" . | fromYaml) -}}
 {{- end }}
 
 {{/* Render the templates */}}

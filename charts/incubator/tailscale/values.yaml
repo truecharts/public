@@ -10,9 +10,6 @@ tty: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  capabilities:
-    add:
-      - NET_ADMIN
 
 podSecurityContext:
   runAsUser: 0
