@@ -24,6 +24,8 @@
                       description: OpenVPN
                     - value: wireguard
                       description: Wireguard
+                    - value: tailscale
+                      description: Tailscale
               - variable: openvpn
                 label: OpenVPN Settings
                 schema:
@@ -43,6 +45,43 @@
                         type: string
                         default: ""
                         required: true
+              - variable: tailscale
+                label: Tailscale Settings
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "tailscale"]]
+                  attrs:
+                    - variable: authkey
+                      label: Authentication Key
+                      description: Provide an auth key to automatically authenticate the node as your user account.
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: accept_dns
+                      label: Accept DNS
+                      description: Accept DNS configuration from the admin console.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: routes
+                      label: Routes
+                      description: Routes.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: dest_ip
+                      label: Destination IP
+                      description: Destination IP.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: extra_args
+                      label: Extra Args
+                      description: Extra Args
+                      schema:
+                        type: string
+                        default: ""
               - variable: killSwitch
                 label: Enable Killswitch
                 schema:
