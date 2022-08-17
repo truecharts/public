@@ -5,6 +5,8 @@ image:
 
 command: ["ash", "/tailscale/run.sh"]
 
+tty: true
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
