@@ -26,7 +26,7 @@ questions:
             default: ""
         - variable: userspace
           label: "Userspace"
-          description: "Userspace Networking mode allows running Tailscale where you don’t have access to create a VPN tunnel device. This often happens in container environments."
+          description: "Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device."
           schema:
             type: boolean
             default: true
