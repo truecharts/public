@@ -13,6 +13,28 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: plex
+    group: "Container Configuration"
+    label: "Plex Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: serverIP
+          label: "Server IP"
+          description: "Set to the IP-Address used to reach Plex."
+          schema:
+            type: string
+            required: true
+            $ref:
+              - "definitions/nodeIP"
+        - variable: additionalAdvertiseURL
+          label: "Addition Advertise URLs"
+          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
+          schema:
+            type: string
+            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -20,21 +42,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: serverIP
-          label: "Serer IP"
-          description: "Set to the IP-Address used to reach Plex."
-          schema:
-            type: string
-            required: true
-            $ref:
-              - "definitions/nodeIP"
-        - variable: additionalAdvertiseIP
-          label: "Addition Advertise URLs"
-          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
-          schema:
-            type: string
-            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
-            default: ""
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
           description: "Networks allowed to connect to plex. Add your local network IP to this list"
