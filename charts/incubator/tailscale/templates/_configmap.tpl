@@ -6,7 +6,7 @@
 
 ---
 apiVersion: v1
-kind: Secret
+kind: ConfigMap
 metadata:
   name: {{ $configName }}
   labels:
