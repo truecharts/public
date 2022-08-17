@@ -21,6 +21,9 @@ data:
   {{- with .Values.tailscale.dest_ip }}
   TS_DEST_IP: {{ . }}
   {{- end }}
+  {{- with .Values.tailscale.sock5_server }}
+  TS_SOCK5_SERVER: {{ . }}
+  {{- end }}
   {{- with .Values.tailscale.extra_args }}
   TS_EXTRA_ARGS: {{ . | quote }}
   {{- end }}

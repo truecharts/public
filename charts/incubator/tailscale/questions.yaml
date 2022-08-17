@@ -38,11 +38,18 @@ questions:
             default: false
         - variable: routes
           label: "Routes"
+          description: Expose physical subnet routes to your entire Tailscale network.
           schema:
             type: string
             default: ""
         - variable: dest_ip
           label: "Dest IP"
+          description: Tells the DNAT mechanism which Destination IP to set in the IP header, and where to send packets that are matched.
+          schema:
+            type: string
+            default: ""
+        - variable: sock5_server
+          label: "Sock5 Server"
           schema:
             type: string
             default: ""
