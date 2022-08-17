@@ -8,12 +8,11 @@ command: ["ash", "/start.sh"]
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+  allowPrivilegeEscalation: true
   capabilities:
     add:
       - NET_ADMIN
       - SYS_MODULE
-
-hostNetwork: true
 
 podSecurityContext:
   runAsUser: 0
