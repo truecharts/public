@@ -1,0 +1,77 @@
+image:
+  repository: tccr.io/truecharts/tailscale
+  pullPolicy: IfNotPresent
+  tag: v1.29.125@sha256:fb2ad07557c351805a126d0056be083fb67e3b22abae12a18c52f1461b55ca55
+
+command: ["ash", "/tailscale/run.sh"]
+
+tty: true
+
+# Only un-comment this if you are going to have `userspace: false`
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+serviceAccount:
+  main:
+    create: true
+
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "secrets"
+        verbs:
+          - "create"
+      - apiGroups:
+          - ""
+        resources:
+          - "secrets"
+        resourceNames:
+          - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+        verbs:
+          - "get"
+          - "update"
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
+
+tailscale:
+  authkey: "supersecret"
+  userspace: true
+  accept_dns: false
+  routes: ""
+  dest_ip: ""
+  sock5_server: ""
+  extra_args: ""
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        port: 41641
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib"
+
+portal:
+  enabled: false
