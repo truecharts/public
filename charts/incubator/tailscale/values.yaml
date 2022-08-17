@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
 
-command: ["ash", "/start.sh"]
+command: ["ash", "/tailscale/run.sh"]
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -18,11 +18,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-tailscale:
-  authkey: "secret"
-  override: false
-  # Only used if 'override' is true. eg 'up --ssh --authkey=secret'
-  tsParam: ""
+env:
+  TS_AUTH_KEY: "secret"
 
 service:
   main:
@@ -44,15 +41,6 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
-  start:
-    enabled: "true"
-    mountPath: "/"
-    readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-start'
-        defaultMode: 0777
 
 portal:
   enabled: false
