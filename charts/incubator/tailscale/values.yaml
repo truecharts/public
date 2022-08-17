@@ -17,8 +17,32 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secretEnv:
-  TS_AUTH_KEY: "secret"
+serviceAccount:
+  main:
+    create: true
+
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "secrets"
+        verbs:
+          - "create"
+      - apiGroups:
+          - ""
+        resources:
+          - "secrets"
+        resourceNames:
+          - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+        verbs:
+          - "get"
+          - "update"
+
+tailscale:
+  authkey: "secret"
 
 service:
   main:
