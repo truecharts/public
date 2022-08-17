@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  TS_KUBE_SECRET: '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+  TS_KUBE_SECRET: {{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) | squote }}
   TS_USERSPACE: {{ .Values.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ .Values.tailscale.accept_dns | quote }}
   {{- with .Values.tailscale.routes }}
