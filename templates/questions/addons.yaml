@@ -66,13 +66,13 @@
                         default: false
                     - variable: routes
                       label: Routes
-                      description: Routes.
+                      description: Expose physical subnet routes to your entire Tailscale network.
                       schema:
                         type: string
                         default: ""
                     - variable: dest_ip
                       label: Destination IP
-                      description: Destination IP.
+                      description: Tells the DNAT mechanism which Destination IP to set in the IP header, and where to send packets that are matched.
                       schema:
                         type: string
                         default: ""
