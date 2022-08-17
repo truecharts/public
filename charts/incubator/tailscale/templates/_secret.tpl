@@ -4,6 +4,7 @@
 {{- $secretName := printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}
 
 ---
+{{/* This secrets are loaded on tailscale */}}
 apiVersion: v1
 kind: Secret
 type: Opaque
