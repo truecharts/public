@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* TS_KUBE_SECRET: {{ $secretName }} */}}
+  TS_KUBE_SECRET: {{ $secretName | squote }}
   TS_USERSPACE: {{ .Values.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ .Values.tailscale.accept_dns | quote }}
   {{- with .Values.tailscale.routes }}

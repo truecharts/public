@@ -5,7 +5,7 @@
 {{- include "tailscale.secret" . }}
 
 {{/* Render config */}}
-{{/*- include "tailscale.config" . */}}
+{{- include "tailscale.config" . }}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
