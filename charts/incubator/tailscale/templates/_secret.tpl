@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with .Values.tailscale.authKey }}
+  {{- with .Values.tailscale.authkey }}
   TS_AUTH_KEY: {{ . | b64enc }}
   {{- end }}
 {{- end }}

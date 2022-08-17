@@ -45,9 +45,9 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
 tailscale:
-  authKey: "secret"
-  userSpace: true
-  acceptDNS: false
+  authkey: "secret"
+  userspace: true
+  accept_dns: false
   routes: ""
   dest_ip: ""
   extra_args: ""
