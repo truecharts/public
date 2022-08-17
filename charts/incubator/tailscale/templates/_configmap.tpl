@@ -7,7 +7,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ $ldapConfigName }}
+  name: {{ $configName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
