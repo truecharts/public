@@ -40,11 +40,17 @@ rbac:
           - "get"
           - "update"
 
-env:
-  TS_KUBE_SECRET: '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
 tailscale:
-  authkey: "secret"
+  authKey: "secret"
+  userSpace: true
+  acceptDNS: false
+  routes: ""
+  dest_ip: ""
+  extra_args: ""
 
 probes:
   liveness:
