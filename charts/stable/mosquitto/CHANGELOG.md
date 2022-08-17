@@ -2,6 +2,15 @@
 
 
 
+## [mosquitto-6.0.31](https://github.com/truecharts/charts/compare/mosquitto-6.0.30...mosquitto-6.0.31) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [mosquitto-6.0.30](https://github.com/truecharts/charts/compare/mosquitto-6.0.29...mosquitto-6.0.30) (2022-08-12)
 
 ### Chore

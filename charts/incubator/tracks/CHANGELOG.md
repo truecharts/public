@@ -2,6 +2,15 @@
 
 
 
+## [tracks-0.0.17](https://github.com/truecharts/charts/compare/tracks-0.0.16...tracks-0.0.17) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [tracks-0.0.16](https://github.com/truecharts/charts/compare/tracks-0.0.15...tracks-0.0.16) (2022-08-12)
 
 ### Chore

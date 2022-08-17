@@ -2,6 +2,15 @@
 
 
 
+## [meshcentral-3.0.34](https://github.com/truecharts/charts/compare/meshcentral-3.0.33...meshcentral-3.0.34) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [meshcentral-3.0.33](https://github.com/truecharts/charts/compare/meshcentral-3.0.32...meshcentral-3.0.33) (2022-08-12)
 
 ### Chore

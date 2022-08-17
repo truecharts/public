@@ -2,6 +2,15 @@
 
 
 
+## [joplin-server-8.0.29](https://github.com/truecharts/charts/compare/joplin-server-8.0.28...joplin-server-8.0.29) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [joplin-server-8.0.28](https://github.com/truecharts/charts/compare/joplin-server-8.0.27...joplin-server-8.0.28) (2022-08-12)
 
 ### Chore

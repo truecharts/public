@@ -2,6 +2,15 @@
 
 
 
+## [airsonic-advanced-4.0.28](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.27...airsonic-advanced-4.0.28) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [airsonic-advanced-4.0.27](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.26...airsonic-advanced-4.0.27) (2022-08-12)
 
 ### Chore

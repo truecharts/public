@@ -2,6 +2,15 @@
 
 
 
+## [prowlarr-6.0.30](https://github.com/truecharts/charts/compare/prowlarr-6.0.29...prowlarr-6.0.30) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [prowlarr-6.0.29](https://github.com/truecharts/charts/compare/prowlarr-6.0.28...prowlarr-6.0.29) (2022-08-12)
 
 ### Chore

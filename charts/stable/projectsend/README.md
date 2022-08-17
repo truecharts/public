@@ -1,6 +1,6 @@
 # projectsend
 
-![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.12.10](https://img.shields.io/badge/AppVersion-2021.12.10-informational?style=flat-square)
+![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.12.10](https://img.shields.io/badge/AppVersion-2021.12.10-informational?style=flat-square)
 
 Projectsend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.53 |
+| https://charts.truecharts.org/ | mariadb | 3.0.54 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

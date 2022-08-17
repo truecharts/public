@@ -2,6 +2,15 @@
 
 
 
+## [zabbix-server-2.0.31](https://github.com/truecharts/charts/compare/zabbix-server-2.0.30...zabbix-server-2.0.31) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [zabbix-server-2.0.30](https://github.com/truecharts/charts/compare/zabbix-server-2.0.29...zabbix-server-2.0.30) (2022-08-14)
 
 ### Chore

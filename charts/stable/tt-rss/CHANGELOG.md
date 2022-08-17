@@ -2,6 +2,15 @@
 
 
 
+## [tt-rss-7.0.29](https://github.com/truecharts/charts/compare/tt-rss-7.0.28...tt-rss-7.0.29) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [tt-rss-7.0.28](https://github.com/truecharts/charts/compare/tt-rss-7.0.27...tt-rss-7.0.28) (2022-08-12)
 
 ### Chore

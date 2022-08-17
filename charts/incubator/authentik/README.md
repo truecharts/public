@@ -1,6 +1,6 @@
 # authentik
 
-![Version: 3.0.5](https://img.shields.io/badge/Version-3.0.5-informational?style=flat-square) ![AppVersion: 2022.7.3](https://img.shields.io/badge/AppVersion-2022.7.3-informational?style=flat-square)
+![Version: 3.0.6](https://img.shields.io/badge/Version-3.0.6-informational?style=flat-square) ![AppVersion: 2022.8.1](https://img.shields.io/badge/AppVersion-2022.8.1-informational?style=flat-square)
 
 authentik is an open-source Identity Provider focused on flexibility and versatility.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.55 |
-| https://charts.truecharts.org | redis | 3.0.53 |
+| https://charts.truecharts.org/ | postgresql | 8.0.56 |
+| https://charts.truecharts.org | redis | 3.0.54 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

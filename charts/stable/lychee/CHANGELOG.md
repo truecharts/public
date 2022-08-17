@@ -2,6 +2,15 @@
 
 
 
+## [lychee-13.0.32](https://github.com/truecharts/charts/compare/lychee-13.0.31...lychee-13.0.32) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [lychee-13.0.31](https://github.com/truecharts/charts/compare/lychee-13.0.30...lychee-13.0.31) (2022-08-14)
 
 ### Chore

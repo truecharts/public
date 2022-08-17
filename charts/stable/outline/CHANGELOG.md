@@ -2,6 +2,15 @@
 
 
 
+## [outline-3.0.32](https://github.com/truecharts/charts/compare/outline-3.0.31...outline-3.0.32) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [outline-3.0.31](https://github.com/truecharts/charts/compare/outline-3.0.30...outline-3.0.31) (2022-08-12)
 
 ### Chore

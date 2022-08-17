@@ -2,6 +2,15 @@
 
 
 
+## [guacamole-client-4.0.31](https://github.com/truecharts/charts/compare/guacamole-client-4.0.30...guacamole-client-4.0.31) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [guacamole-client-4.0.30](https://github.com/truecharts/charts/compare/guacamole-client-4.0.29...guacamole-client-4.0.30) (2022-08-12)
 
 ### Chore

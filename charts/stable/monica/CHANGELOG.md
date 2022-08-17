@@ -2,6 +2,16 @@
 
 
 
+## [monica-3.0.38](https://github.com/truecharts/charts/compare/monica-3.0.37...monica-3.0.38) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [monica-3.0.37](https://github.com/truecharts/charts/compare/monica-3.0.36...monica-3.0.37) (2022-08-12)
 
 ### Chore

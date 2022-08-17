@@ -2,6 +2,15 @@
 
 
 
+## [etesync-0.0.24](https://github.com/truecharts/charts/compare/etesync-0.0.23...etesync-0.0.24) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [etesync-0.0.23](https://github.com/truecharts/charts/compare/etesync-0.0.22...etesync-0.0.23) (2022-08-12)
 
 ### Chore
