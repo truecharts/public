@@ -1,0 +1,43 @@
+image:
+  repository: drone/drone-runner-kube
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:003848908e19a23b8f3eb97c763cc634e48826517c587d526707e0668feb22b7
+
+env:
+  DRONE_RPC_HOST: ""
+  DRONE_RPC_PROTO: "http"
+  DRONE_RPC_SECRET: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - create
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - pods
+          - pods/log
+        verbs:
+          - get
+          - create
+          - delete
+          - list
+          - watch
+          - update
+
+portal:
+  enabled: true
