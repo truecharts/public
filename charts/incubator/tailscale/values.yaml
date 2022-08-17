@@ -48,7 +48,7 @@ env:
   TS_KUBE_SECRET: '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
 
 tailscale:
-  authkey: "secret"
+  authkey: "supersecret"
   userspace: true
   accept_dns: false
   routes: ""
