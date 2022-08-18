@@ -7,6 +7,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 32400
         targetPort: 32400
 
@@ -15,9 +16,18 @@ persistence:
     enabled: true
     mountPath: "/config"
 
+plex:
+  serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.plex.serverIP }}:{{ .Values.service.main.ports.main.port }}"
+  serverIngressURL: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}{{ end }}{{ end }}"
+  serverIngressURLPort: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}:{{ .Values.service.main.ports.main.port }}{{ end }}{{ end }}"
+  # User Defined
+  serverIP: "127.0.0.1"
+  additionalAdvertiseURL: ""
+
 env:
+  ADVERTISE_IP: "{{ tpl (.Values.plex.serverURL) .}}{{ tpl (.Values.plex.serverIngressURL) . }}{{ tpl (.Values.plex.serverIngressURLPort) . }}{{ with .Values.plex.additionalAdvertiseURL }},{{ . }}{{ end }}"
+  # User Defined
   ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
-  ADVERTISE_IP: ""
   PLEX_CLAIM: ""
 
 portal:
