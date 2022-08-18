@@ -216,21 +216,21 @@ service:
           enabled: false
   udp:
     enabled: false
-  crowdsec-agent:
-    enabled: true
-    ports:
-      crowdsec-api:
-        enabled: true
-        port: 8080
-        targetPort: 10300
-        forwardedHeaders:
-          enabled: false
-      crowdsec-metrics:
-        enabled: true
-        port: 6060
-        targetPort: 10301
-        forwardedHeaders:
-          enabled: false
+  # crowdsec-agent:
+  #   enabled: true
+  #   ports:
+  #     crowdsec-api:
+  #       enabled: true
+  #       port: 8080
+  #       targetPort: 10300
+  #       forwardedHeaders:
+  #         enabled: false
+  #     crowdsec-metrics:
+  #       enabled: true
+  #       port: 6060
+  #       targetPort: 10301
+  #       forwardedHeaders:
+  #         enabled: false
 # probes:
 #   # -- Liveness probe configuration
 #   # @default -- See below
@@ -383,22 +383,22 @@ persistence:
     enabled: true
     mountPath: "/plugins-storage"
     type: emptyDir
-  logs:
-    enabled: true
-    mountPath: "/var/log/traefik"
-  crowdsec_config:
-    enabled: true
-    mountPath: "/etc/crowdsec"
-  crowdsec_data:
-    enabled: true
-    mountPath: "/var/lib/crowdsec/data"
-  crowdsec-acquis:
-    enabled: "true"
-    mountPath: "/etc/crowdsec/acquis.yaml"
-    subPath: "acquis.yaml"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-crowdsec-config" (include "tc.common.names.fullname" .) }}'
+  # logs:
+  #   enabled: true
+  #   mountPath: "/var/log/traefik"
+  # crowdsec_config:
+  #   enabled: true
+  #   mountPath: "/etc/crowdsec"
+  # crowdsec_data:
+  #   enabled: true
+  #   mountPath: "/var/lib/crowdsec/data"
+  # crowdsec-acquis:
+  #   enabled: "true"
+  #   mountPath: "/etc/crowdsec/acquis.yaml"
+  #   subPath: "acquis.yaml"
+  #   type: "custom"
+  #   volumeSpec:
+  #     configMap:
+  #       name: '{{ printf "%v-crowdsec-config" (include "tc.common.names.fullname" .) }}'
 portal:
   enabled: true
