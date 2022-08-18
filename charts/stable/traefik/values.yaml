@@ -144,7 +144,7 @@ crowdsec:
   scenarios: ""
   parsers: ""
   traefik_bouncer_key: "supersecret"
-  logsPath: '/var/log/traefik/*'
+  logsPath: "/var/log/traefik/*"
 
 # -- Options for the main traefik service, where the entrypoints traffic comes from
 # from.
