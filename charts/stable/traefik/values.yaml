@@ -400,5 +400,6 @@ persistence:
   #   volumeSpec:
   #     configMap:
   #       name: '{{ printf "%v-crowdsec-config" (include "tc.common.names.fullname" .) }}'
+
 portal:
   enabled: true
