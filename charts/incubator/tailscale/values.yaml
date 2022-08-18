@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/tailscale
+  repository: tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.29.125@sha256:fb2ad07557c351805a126d0056be083fb67e3b22abae12a18c52f1461b55ca55
+  tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
 
 command: ["ash", "/tailscale/run.sh"]
 
