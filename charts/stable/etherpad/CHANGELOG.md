@@ -2,6 +2,15 @@
 
 
 
+## [etherpad-8.0.28](https://github.com/truecharts/charts/compare/etherpad-8.0.27...etherpad-8.0.28) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [etherpad-8.0.27](https://github.com/truecharts/charts/compare/etherpad-8.0.26...etherpad-8.0.27) (2022-08-12)
 
 ### Chore

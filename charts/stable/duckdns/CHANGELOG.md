@@ -2,6 +2,15 @@
 
 
 
+## [duckdns-2.0.33](https://github.com/truecharts/charts/compare/duckdns-2.0.32...duckdns-2.0.33) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
 ## [duckdns-2.0.32](https://github.com/truecharts/charts/compare/duckdns-2.0.31...duckdns-2.0.32) (2022-08-12)
 
 ### Chore

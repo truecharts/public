@@ -2,6 +2,15 @@
 
 
 
+## [heimdall-11.0.32](https://github.com/truecharts/charts/compare/heimdall-11.0.31...heimdall-11.0.32) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [heimdall-11.0.31](https://github.com/truecharts/charts/compare/heimdall-11.0.30...heimdall-11.0.31) (2022-08-12)
 
 ### Chore

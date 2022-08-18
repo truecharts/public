@@ -2,6 +2,15 @@
 
 
 
+## [awesome-ttrss-0.0.33](https://github.com/truecharts/charts/compare/awesome-ttrss-0.0.32...awesome-ttrss-0.0.33) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [awesome-ttrss-0.0.32](https://github.com/truecharts/charts/compare/awesome-ttrss-0.0.31...awesome-ttrss-0.0.32) (2022-08-12)
 
 ### Chore

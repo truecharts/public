@@ -1,6 +1,6 @@
 # prowlarr
 
-![Version: 6.0.29](https://img.shields.io/badge/Version-6.0.29-informational?style=flat-square) ![AppVersion: 0.4.3.1921](https://img.shields.io/badge/AppVersion-0.4.3.1921-informational?style=flat-square)
+![Version: 6.0.30](https://img.shields.io/badge/Version-6.0.30-informational?style=flat-square) ![AppVersion: 0.4.4.1947](https://img.shields.io/badge/AppVersion-0.4.4.1947-informational?style=flat-square)
 
 Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 

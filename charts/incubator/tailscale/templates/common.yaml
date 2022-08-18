@@ -1,0 +1,16 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "tailscale.secret" . }}
+
+{{/* Render config */}}
+{{- include "tailscale.config" . }}
+
+{{- if not .Values.tailscale.userspace }}
+{{- $_ := set .Values.persistence "tun" (include "tailscale.tun" . | fromYaml) -}}
+{{- $_ := set .Values.securityContext "capabilities" (include "tailscale.caps" . | fromYaml) -}}
+{{- end }}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

@@ -2,6 +2,16 @@
 
 
 
+## [wger-0.0.41](https://github.com/truecharts/charts/compare/wger-0.0.40...wger-0.0.41) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [wger-0.0.40](https://github.com/truecharts/charts/compare/wger-0.0.39...wger-0.0.40) (2022-08-14)
 
 ### Chore

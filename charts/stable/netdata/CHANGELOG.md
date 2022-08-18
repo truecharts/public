@@ -2,6 +2,15 @@
 
 
 
+## [netdata-2.0.30](https://github.com/truecharts/charts/compare/netdata-2.0.29...netdata-2.0.30) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [netdata-2.0.29](https://github.com/truecharts/charts/compare/netdata-2.0.28...netdata-2.0.29) (2022-08-14)
 
 ### Chore

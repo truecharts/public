@@ -1,6 +1,6 @@
 # spotweb
 
-![Version: 4.0.29](https://img.shields.io/badge/Version-4.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.1](https://img.shields.io/badge/AppVersion-1.5.1-informational?style=flat-square)
+![Version: 4.0.30](https://img.shields.io/badge/Version-4.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.1](https://img.shields.io/badge/AppVersion-1.5.1-informational?style=flat-square)
 
 Spotweb is a decentralized usenet community based on the Spotnet protocol.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.55 |
+| https://charts.truecharts.org/ | postgresql | 8.0.56 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

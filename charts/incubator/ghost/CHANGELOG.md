@@ -2,6 +2,24 @@
 
 
 
+## [ghost-3.0.44](https://github.com/truecharts/charts/compare/ghost-3.0.43...ghost-3.0.44) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
+## [ghost-3.0.43](https://github.com/truecharts/charts/compare/ghost-3.0.42...ghost-3.0.43) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [ghost-3.0.42](https://github.com/truecharts/charts/compare/ghost-3.0.41...ghost-3.0.42) (2022-08-14)
 
 ### Chore

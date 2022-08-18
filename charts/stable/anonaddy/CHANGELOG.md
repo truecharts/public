@@ -2,6 +2,16 @@
 
 
 
+## [anonaddy-9.0.37](https://github.com/truecharts/charts/compare/anonaddy-9.0.36...anonaddy-9.0.37) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [anonaddy-9.0.36](https://github.com/truecharts/charts/compare/anonaddy-9.0.35...anonaddy-9.0.36) (2022-08-12)
 
 ### Chore

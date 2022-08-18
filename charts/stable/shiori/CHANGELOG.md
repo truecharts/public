@@ -2,6 +2,15 @@
 
 
 
+## [shiori-7.0.28](https://github.com/truecharts/charts/compare/shiori-7.0.27...shiori-7.0.28) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [shiori-7.0.27](https://github.com/truecharts/charts/compare/shiori-7.0.26...shiori-7.0.27) (2022-08-12)
 
 ### Chore

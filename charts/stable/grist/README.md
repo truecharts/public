@@ -1,6 +1,6 @@
 # grist
 
-![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![AppVersion: 0.7.9](https://img.shields.io/badge/AppVersion-0.7.9-informational?style=flat-square)
+![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![AppVersion: 0.7.9](https://img.shields.io/badge/AppVersion-0.7.9-informational?style=flat-square)
 
 Grist is a modern relational spreadsheet. It combine the flexibility of a spreadsheet with the robustness of a database to organize your data.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.53 |
+| https://charts.truecharts.org | redis | 3.0.54 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

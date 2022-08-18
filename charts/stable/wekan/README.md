@@ -1,6 +1,6 @@
 # wekan
 
-![Version: 4.0.34](https://img.shields.io/badge/Version-4.0.34-informational?style=flat-square) ![AppVersion: 6.35](https://img.shields.io/badge/AppVersion-6.35-informational?style=flat-square)
+![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![AppVersion: 6.37](https://img.shields.io/badge/AppVersion-6.37-informational?style=flat-square)
 
 WeKan - Open Source kanban
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | mongodb | 1.0.54 |
+| https://charts.truecharts.org | mongodb | 1.0.56 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

@@ -2,6 +2,15 @@
 
 
 
+## [statping-7.0.29](https://github.com/truecharts/charts/compare/statping-ng-0.0.16...statping-7.0.29) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [statping-7.0.28](https://github.com/truecharts/charts/compare/statping-7.0.27...statping-7.0.28) (2022-08-12)
 
 ### Chore

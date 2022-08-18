@@ -1,6 +1,6 @@
 # strapi
 
-![Version: 4.0.28](https://img.shields.io/badge/Version-4.0.28-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
+![Version: 4.0.29](https://img.shields.io/badge/Version-4.0.29-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
 
 Strapi is the leading open-source headless CMS. JavaScript, fully customizable and developer-first.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.55 |
+| https://charts.truecharts.org/ | postgresql | 8.0.56 |
 | https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart

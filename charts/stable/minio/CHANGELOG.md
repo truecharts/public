@@ -2,6 +2,15 @@
 
 
 
+## [minio-3.0.42](https://github.com/truecharts/charts/compare/minio-console-3.0.30...minio-3.0.42) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [minio-3.0.41](https://github.com/truecharts/charts/compare/minio-3.0.40...minio-3.0.41) (2022-08-12)
 
 ### Chore

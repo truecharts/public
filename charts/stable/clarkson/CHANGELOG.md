@@ -2,6 +2,15 @@
 
 
 
+## [clarkson-3.0.31](https://github.com/truecharts/charts/compare/clarkson-3.0.30...clarkson-3.0.31) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [clarkson-3.0.30](https://github.com/truecharts/charts/compare/clarkson-3.0.29...clarkson-3.0.30) (2022-08-12)
 
 ### Chore

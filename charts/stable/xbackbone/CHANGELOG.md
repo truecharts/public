@@ -2,6 +2,15 @@
 
 
 
+## [xbackbone-3.0.31](https://github.com/truecharts/charts/compare/xbackbone-3.0.30...xbackbone-3.0.31) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
 ## [xbackbone-3.0.30](https://github.com/truecharts/charts/compare/xbackbone-3.0.29...xbackbone-3.0.30) (2022-08-12)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.57](https://github.com/truecharts/charts/compare/memcached-3.0.55...memcached-3.0.57) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [memcached-3.0.55](https://github.com/truecharts/charts/compare/memcached-3.0.54...memcached-3.0.55) (2022-08-12)
 
 ### Chore

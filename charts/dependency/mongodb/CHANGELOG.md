@@ -2,7 +2,17 @@
 
 
 
-## [mongodb-1.0.56](https://github.com/truecharts/charts/compare/mongodb-1.0.55...mongodb-1.0.56) (2022-08-14)
+## [postgresql-8.0.58](https://github.com/truecharts/charts/compare/postgresql-8.0.56...postgresql-8.0.58) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [postgresql-8.0.56](https://github.com/truecharts/charts/compare/postgresql-8.0.55...postgresql-8.0.56) (2022-08-14)
 
 ### Chore
 
@@ -11,16 +21,7 @@
 
 
 
-## [mongodb-1.0.55](https://github.com/truecharts/charts/compare/mongodb-1.0.54...mongodb-1.0.55) (2022-08-12)
-
-### Chore
-
-- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-
-
-
-## [mongodb-1.0.54](https://github.com/truecharts/charts/compare/mongodb-1.0.53...mongodb-1.0.54) (2022-08-12)
+## [postgresql-8.0.55](https://github.com/truecharts/charts/compare/postgresql-8.0.54...postgresql-8.0.55) (2022-08-12)
 
 ### Chore
 
@@ -34,7 +35,7 @@
 
 
 
-## [mongodb-1.0.53](https://github.com/truecharts/charts/compare/mongodb-1.0.52...mongodb-1.0.53) (2022-08-10)
+## [postgresql-8.0.54](https://github.com/truecharts/charts/compare/postgresql-8.0.53...postgresql-8.0.54) (2022-08-10)
 
 ### Chore
 
@@ -43,7 +44,16 @@
 
 
 
-## [mongodb-1.0.52](https://github.com/truecharts/charts/compare/mongodb-1.0.51...mongodb-1.0.52) (2022-08-09)
+## [postgresql-8.0.53](https://github.com/truecharts/charts/compare/postgresql-8.0.52...postgresql-8.0.53) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [postgresql-8.0.52](https://github.com/truecharts/charts/compare/postgresql-8.0.51...postgresql-8.0.52) (2022-08-09)
 
 ### Chore
 
@@ -52,18 +62,17 @@
 
 
 
-## [postgresql-8.0.51](https://github.com/truecharts/charts/compare/postgresql-8.0.50...postgresql-8.0.51) (2022-08-08)
+## [redis-3.0.49](https://github.com/truecharts/charts/compare/redis-3.0.48...redis-3.0.49) (2022-08-08)
 
 ### Chore
 
 - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
-  - update docker general non-major
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
 
 
 
-## [postgresql-8.0.50](https://github.com/truecharts/apps/compare/postgresql-8.0.49...postgresql-8.0.50) (2022-07-29)
+## [redis-3.0.48](https://github.com/truecharts/apps/compare/redis-3.0.47...redis-3.0.48) (2022-07-29)
 
 ### Chore
 
@@ -72,17 +81,16 @@
 
 
 
-## [postgresql-8.0.49](https://github.com/truecharts/apps/compare/postgresql-8.0.48...postgresql-8.0.49) (2022-07-27)
+## [redis-3.0.47](https://github.com/truecharts/apps/compare/redisinsight-0.0.14...redis-3.0.47) (2022-07-29)
 
 ### Chore
 
-- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
-  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
 
 
 
 
-## [postgresql-8.0.48](https://github.com/truecharts/apps/compare/postgresql-8.0.46...postgresql-8.0.48) (2022-07-25)
+## [redis-3.0.46](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.46) (2022-07-25)
 
 ### Chore
 
@@ -93,7 +101,7 @@
 
 
 
-## [postgresql-8.0.47](https://github.com/truecharts/apps/compare/postgresql-8.0.46...postgresql-8.0.47) (2022-07-25)
+## [redis-3.0.45](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.45) (2022-07-25)
 
 ### Chore
 
@@ -102,37 +110,7 @@
 
 
 
-## [postgresql-8.0.46](https://github.com/truecharts/apps/compare/postgresql-8.0.45...postgresql-8.0.46) (2022-07-23)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
-
-
-
-
-## [postgresql-8.0.46](https://github.com/truecharts/apps/compare/postgresql-8.0.45...postgresql-8.0.46) (2022-07-23)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
-
-
-
-
-## [postgresql-8.0.46](https://github.com/truecharts/apps/compare/postgresql-8.0.45...postgresql-8.0.46) (2022-07-23)
-
-### Chore
-
-- update docker general non-major ([#3279](https://github.com/truecharts/apps/issues/3279))
-
-
-
-
-## [postgresql-8.0.45](https://github.com/truecharts/apps/compare/postgresql-8.0.44...postgresql-8.0.45) (2022-07-23)
+## [redis-3.0.44](https://github.com/truecharts/apps/compare/redis-3.0.43...redis-3.0.44) (2022-07-23)
 
 ### Chore
 
@@ -141,24 +119,25 @@
 
 
 
+## [redis-3.0.43](https://github.com/truecharts/apps/compare/redisinsight-0.0.11...redis-3.0.43) (2022-07-23)
 
-## [postgresql-8.0.43](https://github.com/truecharts/apps/compare/postgresql-8.0.42...postgresql-8.0.43) (2022-07-22)
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [redis-3.0.42](https://github.com/truecharts/apps/compare/redis-3.0.41...redis-3.0.42) (2022-07-22)
 
 ### Chore
 
 - Bump all charts to generate config and container references due to huge increase of repository
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
 
 
 
-## [postgresql-8.0.42](https://github.com/truecharts/apps/compare/postgresql-8.0.41...postgresql-8.0.42) (2022-07-22)
-
-### Chore
-
-- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
-
-
-
-## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-21)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore
 
@@ -173,8 +152,21 @@
 
 
 
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
-## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-21)
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore
 
@@ -187,7 +179,7 @@
 
 
 
-## [postgresql-8.0.41](https://github.com/truecharts/apps/compare/postgresql-8.0.40...postgresql-8.0.41) (2022-07-20)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-20)
 
 ### Chore
 
@@ -199,7 +191,7 @@
 
 
 
-## [postgresql-8.0.40](https://github.com/truecharts/apps/compare/postgresql-8.0.39...postgresql-8.0.40) (2022-07-20)
+## [redis-3.0.40](https://github.com/truecharts/apps/compare/redis-3.0.39...redis-3.0.40) (2022-07-20)
 
 ### Chore
 
@@ -207,7 +199,7 @@
 
 
 
-## [postgresql-8.0.39](https://github.com/truecharts/apps/compare/postgresql-8.0.38...postgresql-8.0.39) (2022-07-19)
+## [redis-3.0.39](https://github.com/truecharts/apps/compare/redis-3.0.38...redis-3.0.39) (2022-07-19)
 
 ### Chore
 
@@ -215,7 +207,7 @@
 
 
 
-## [postgresql-8.0.38](https://github.com/truecharts/apps/compare/postgresql-8.0.37...postgresql-8.0.38) (2022-07-17)
+## [redis-3.0.38](https://github.com/truecharts/apps/compare/redis-3.0.37...redis-3.0.38) (2022-07-17)
 
 ### Chore
 
@@ -223,7 +215,7 @@
 
 
 
-## [postgresql-8.0.37](https://github.com/truecharts/apps/compare/postgresql-8.0.36...postgresql-8.0.37) (2022-07-14)
+## [redis-3.0.37](https://github.com/truecharts/apps/compare/redis-3.0.36...redis-3.0.37) (2022-07-14)
 
 ### Fix
 
@@ -231,7 +223,7 @@
 
 
 
-## [postgresql-8.0.36](https://github.com/truecharts/apps/compare/postgresql-8.0.34...postgresql-8.0.36) (2022-07-14)
+## [redis-3.0.36](https://github.com/truecharts/apps/compare/redis-3.0.34...redis-3.0.36) (2022-07-14)
 
 ### Fix
 
@@ -239,7 +231,7 @@
 
 
 
-## [postgresql-8.0.34](https://github.com/truecharts/apps/compare/postgresql-8.0.33...postgresql-8.0.34) (2022-07-13)
+## [mongodb-1.0.36](https://github.com/truecharts/apps/compare/mongodb-1.0.35...mongodb-1.0.36) (2022-07-13)
 
 ### Chore
 
@@ -247,7 +239,7 @@
 
 
 
-## [postgresql-8.0.33](https://github.com/truecharts/apps/compare/postgresql-8.0.31...postgresql-8.0.33) (2022-07-12)
+## [mongodb-1.0.35](https://github.com/truecharts/apps/compare/mongodb-1.0.33...mongodb-1.0.35) (2022-07-12)
 
 ### Chore
 
@@ -256,7 +248,7 @@
 
 
 
-## [postgresql-8.0.31](https://github.com/truecharts/apps/compare/postgresql-8.0.30...postgresql-8.0.31) (2022-07-12)
+## [mongodb-1.0.33](https://github.com/truecharts/apps/compare/mongodb-1.0.32...mongodb-1.0.33) (2022-07-12)
 
 ### Chore
 
@@ -264,18 +256,18 @@
 
 
 
-<a name="postgresql-8.0.30"></a>
-### [postgresql-8.0.30](https://github.com/truecharts/apps/compare/postgresql-8.0.29...postgresql-8.0.30) (2022-07-11)
+<a name="mongodb-1.0.32"></a>
+### [mongodb-1.0.32](https://github.com/truecharts/apps/compare/mongodb-1.0.31...mongodb-1.0.32) (2022-07-12)
+
+#### Chore
+
+* update helm chart common to v10.4.4 ([#3146](https://github.com/truecharts/apps/issues/3146))
 
 
 
-<a name="postgresql-8.0.29"></a>
-### [postgresql-8.0.29](https://github.com/truecharts/apps/compare/postgresql-8.0.28...postgresql-8.0.29) (2022-07-11)
 
-
-
-<a name="postgresql-8.0.28"></a>
-### [postgresql-8.0.28](https://github.com/truecharts/apps/compare/postgresql-8.0.27...postgresql-8.0.28) (2022-07-11)
+<a name="mongodb-1.0.30"></a>
+### [mongodb-1.0.30](https://github.com/truecharts/apps/compare/mongodb-1.0.29...mongodb-1.0.30) (2022-07-11)
 
 #### Chore
 
@@ -284,8 +276,8 @@
 
 
 
-<a name="postgresql-8.0.27"></a>
-### [postgresql-8.0.27](https://github.com/truecharts/apps/compare/postgresql-8.0.26...postgresql-8.0.27) (2022-07-11)
+<a name="mongodb-1.0.29"></a>
+### [mongodb-1.0.29](https://github.com/truecharts/apps/compare/mongodb-1.0.28...mongodb-1.0.29) (2022-07-11)
 
 #### Chore
 
@@ -293,8 +285,8 @@
 
 
 
-<a name="postgresql-8.0.26"></a>
-### [postgresql-8.0.26](https://github.com/truecharts/apps/compare/postgresql-8.0.25...postgresql-8.0.26) (2022-07-10)
+<a name="mongodb-1.0.28"></a>
+### [mongodb-1.0.28](https://github.com/truecharts/apps/compare/mongodb-1.0.27...mongodb-1.0.28) (2022-07-10)
 
 #### Chore
 
@@ -303,8 +295,8 @@
 
 
 
-<a name="postgresql-8.0.25"></a>
-### [postgresql-8.0.25](https://github.com/truecharts/apps/compare/postgresql-8.0.24...postgresql-8.0.25) (2022-07-10)
+<a name="mongodb-1.0.27"></a>
+### [mongodb-1.0.27](https://github.com/truecharts/apps/compare/mongodb-1.0.26...mongodb-1.0.27) (2022-07-10)
 
 #### Chore
 
@@ -312,8 +304,8 @@
 
 
 
-<a name="postgresql-8.0.24"></a>
-### [postgresql-8.0.24](https://github.com/truecharts/apps/compare/postgresql-8.0.23...postgresql-8.0.24) (2022-07-09)
+<a name="mongodb-1.0.26"></a>
+### [mongodb-1.0.26](https://github.com/truecharts/apps/compare/mongodb-1.0.25...mongodb-1.0.26) (2022-07-09)
 
 #### Chore
 
@@ -321,17 +313,17 @@
 
 
 
-<a name="postgresql-8.0.23"></a>
-### [postgresql-8.0.23](https://github.com/truecharts/apps/compare/postgresql-8.0.22...postgresql-8.0.23) (2022-07-07)
+<a name="mongodb-1.0.25"></a>
+### [mongodb-1.0.25](https://github.com/truecharts/apps/compare/mongodb-1.0.24...mongodb-1.0.25) (2022-07-06)
 
 #### Chore
 
-* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
 
 
 
-<a name="postgresql-8.0.22"></a>
-### [postgresql-8.0.22](https://github.com/truecharts/apps/compare/postgresql-8.0.21...postgresql-8.0.22) (2022-07-05)
+<a name="mongodb-1.0.24"></a>
+### [mongodb-1.0.24](https://github.com/truecharts/apps/compare/mongodb-1.0.23...mongodb-1.0.24) (2022-07-05)
 
 #### Chore
 
@@ -339,8 +331,8 @@
 
 
 
-<a name="postgresql-8.0.21"></a>
-### [postgresql-8.0.21](https://github.com/truecharts/apps/compare/postgresql-8.0.20...postgresql-8.0.21) (2022-07-04)
+<a name="mongodb-1.0.23"></a>
+### [mongodb-1.0.23](https://github.com/truecharts/apps/compare/mongodb-1.0.22...mongodb-1.0.23) (2022-07-04)
 
 #### Chore
 
@@ -348,8 +340,17 @@
 
 
 
-<a name="postgresql-8.0.20"></a>
-### [postgresql-8.0.20](https://github.com/truecharts/apps/compare/postgresql-8.0.19...postgresql-8.0.20) (2022-07-02)
+<a name="mongodb-1.0.22"></a>
+### [mongodb-1.0.22](https://github.com/truecharts/apps/compare/mongodb-1.0.21...mongodb-1.0.22) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
+<a name="mongodb-1.0.21"></a>
+### [mongodb-1.0.21](https://github.com/truecharts/apps/compare/mongodb-1.0.20...mongodb-1.0.21) (2022-07-02)
 
 #### Chore
 
@@ -357,18 +358,27 @@
 
 
 
-<a name="postgresql-8.0.19"></a>
-### [postgresql-8.0.19](https://github.com/truecharts/apps/compare/postgresql-8.0.18...postgresql-8.0.19) (2022-06-29)
+<a name="mongodb-1.0.20"></a>
+### [mongodb-1.0.20](https://github.com/truecharts/apps/compare/mongodb-1.0.19...mongodb-1.0.20) (2022-07-01)
 
 #### Chore
 
-* update docker general non-major ([#3002](https://github.com/truecharts/apps/issues/3002))
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
+
+
+
+<a name="mongodb-1.0.19"></a>
+### [mongodb-1.0.19](https://github.com/truecharts/apps/compare/mongodb-1.0.18...mongodb-1.0.19) (2022-06-27)
+
+#### Chore
+
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
 * update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
 
 
 
-<a name="postgresql-8.0.18"></a>
-### [postgresql-8.0.18](https://github.com/truecharts/apps/compare/postgresql-8.0.17...postgresql-8.0.18) (2022-06-25)
+<a name="mongodb-1.0.18"></a>
+### [mongodb-1.0.18](https://github.com/truecharts/apps/compare/mongodb-1.0.17...mongodb-1.0.18) (2022-06-25)
 
 #### Chore
 
@@ -376,8 +386,8 @@
 
 
 
-<a name="postgresql-8.0.17"></a>
-### [postgresql-8.0.17](https://github.com/truecharts/apps/compare/postgresql-8.0.16...postgresql-8.0.17) (2022-06-24)
+<a name="mongodb-1.0.17"></a>
+### [mongodb-1.0.17](https://github.com/truecharts/apps/compare/mongodb-1.0.16...mongodb-1.0.17) (2022-06-24)
 
 #### Chore
 
@@ -385,8 +395,8 @@
 
 
 
-<a name="postgresql-8.0.16"></a>
-### [postgresql-8.0.16](https://github.com/truecharts/apps/compare/postgresql-8.0.15...postgresql-8.0.16) (2022-06-22)
+<a name="mongodb-1.0.16"></a>
+### [mongodb-1.0.16](https://github.com/truecharts/apps/compare/mongodb-1.0.15...mongodb-1.0.16) (2022-06-22)
 
 #### Chore
 
@@ -394,8 +404,8 @@
 
 
 
-<a name="postgresql-8.0.15"></a>
-### [postgresql-8.0.15](https://github.com/truecharts/apps/compare/postgresql-8.0.14...postgresql-8.0.15) (2022-06-21)
+<a name="mongodb-1.0.15"></a>
+### [mongodb-1.0.15](https://github.com/truecharts/apps/compare/mongodb-1.0.14...mongodb-1.0.15) (2022-06-21)
 
 #### Chore
 
@@ -403,8 +413,8 @@
 
 
 
-<a name="postgresql-8.0.14"></a>
-### [postgresql-8.0.14](https://github.com/truecharts/apps/compare/postgresql-8.0.13...postgresql-8.0.14) (2022-06-21)
+<a name="mongodb-1.0.14"></a>
+### [mongodb-1.0.14](https://github.com/truecharts/apps/compare/mongodb-1.0.13...mongodb-1.0.14) (2022-06-21)
 
 #### Chore
 
@@ -412,8 +422,8 @@
 
 
 
-<a name="postgresql-8.0.13"></a>
-### [postgresql-8.0.13](https://github.com/truecharts/apps/compare/postgresql-8.0.12...postgresql-8.0.13) (2022-06-20)
+<a name="mongodb-1.0.13"></a>
+### [mongodb-1.0.13](https://github.com/truecharts/apps/compare/mongodb-1.0.12...mongodb-1.0.13) (2022-06-20)
 
 #### Chore
 
@@ -421,8 +431,8 @@
 
 
 
-<a name="postgresql-8.0.12"></a>
-### [postgresql-8.0.12](https://github.com/truecharts/apps/compare/postgresql-8.0.11...postgresql-8.0.12) (2022-06-18)
+<a name="mongodb-1.0.12"></a>
+### [mongodb-1.0.12](https://github.com/truecharts/apps/compare/mongodb-1.0.11...mongodb-1.0.12) (2022-06-18)
 
 #### Chore
 
@@ -430,17 +440,8 @@
 
 
 
-<a name="postgresql-8.0.11"></a>
-### [postgresql-8.0.11](https://github.com/truecharts/apps/compare/postgresql-8.0.10...postgresql-8.0.11) (2022-06-18)
-
-#### Chore
-
-* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
-
-
-
-<a name="postgresql-8.0.10"></a>
-### [postgresql-8.0.10](https://github.com/truecharts/apps/compare/postgresql-8.0.9...postgresql-8.0.10) (2022-06-17)
+<a name="mongodb-1.0.11"></a>
+### [mongodb-1.0.11](https://github.com/truecharts/apps/compare/mongodb-1.0.10...mongodb-1.0.11) (2022-06-17)
 
 #### Chore
 
@@ -448,31 +449,35 @@
 
 
 
-<a name="postgresql-8.0.9"></a>
-### [postgresql-8.0.9](https://github.com/truecharts/apps/compare/postgresql-8.0.8...postgresql-8.0.9) (2022-06-17)
+<a name="mongodb-1.0.10"></a>
+### [mongodb-1.0.10](https://github.com/truecharts/apps/compare/mongodb-1.0.9...mongodb-1.0.10) (2022-06-17)
 
 #### Chore
 
-* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
 * update helm chart common to v10.0.12
 
 
 
-<a name="postgresql-8.0.8"></a>
-### [postgresql-8.0.8](https://github.com/truecharts/apps/compare/postgresql-8.0.7...postgresql-8.0.8) (2022-06-15)
+<a name="mongodb-1.0.9"></a>
+### [mongodb-1.0.9](https://github.com/truecharts/apps/compare/mongodb-1.0.8...mongodb-1.0.9) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
+<a name="mongodb-1.0.8"></a>
+### [mongodb-1.0.8](https://github.com/truecharts/apps/compare/mongodb-1.0.7...mongodb-1.0.8) (2022-06-15)
 
 #### Chore
 
 * update helm chart common to v10.0.11 ([#2899](https://github.com/truecharts/apps/issues/2899))
 
-#### Fix
-
-* run as non root ([#2895](https://github.com/truecharts/apps/issues/2895))
 
 
-
-<a name="postgresql-8.0.7"></a>
-### [postgresql-8.0.7](https://github.com/truecharts/apps/compare/postgresql-8.0.6...postgresql-8.0.7) (2022-06-14)
+<a name="mongodb-1.0.7"></a>
+### [mongodb-1.0.7](https://github.com/truecharts/apps/compare/mongodb-1.0.6...mongodb-1.0.7) (2022-06-14)
 
 #### Chore
 
@@ -480,17 +485,17 @@
 
 
 
-<a name="postgresql-8.0.6"></a>
-### [postgresql-8.0.6](https://github.com/truecharts/apps/compare/postgresql-8.0.5...postgresql-8.0.6) (2022-06-14)
+<a name="mongodb-1.0.6"></a>
+### [mongodb-1.0.6](https://github.com/truecharts/apps/compare/mongodb-1.0.5...mongodb-1.0.6) (2022-06-13)
 
 #### Chore
 
-* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
 
 
 
-<a name="postgresql-8.0.5"></a>
-### [postgresql-8.0.5](https://github.com/truecharts/apps/compare/postgresql-8.0.4...postgresql-8.0.5) (2022-06-11)
+<a name="mongodb-1.0.5"></a>
+### [mongodb-1.0.5](https://github.com/truecharts/apps/compare/mongodb-1.0.4...mongodb-1.0.5) (2022-06-11)
 
 #### Chore
 
@@ -498,18 +503,17 @@
 
 
 
-<a name="postgresql-8.0.4"></a>
-### [postgresql-8.0.4](https://github.com/truecharts/apps/compare/postgresql-8.0.3...postgresql-8.0.4) (2022-06-11)
+<a name="mongodb-1.0.4"></a>
+### [mongodb-1.0.4](https://github.com/truecharts/apps/compare/mongodb-1.0.3...mongodb-1.0.4) (2022-06-11)
 
 #### Chore
 
-* update icons ref ([#2851](https://github.com/truecharts/apps/issues/2851))
 * update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
 
 
 
-<a name="postgresql-8.0.3"></a>
-### [postgresql-8.0.3](https://github.com/truecharts/apps/compare/postgresql-8.0.2...postgresql-8.0.3) (2022-06-09)
+<a name="mongodb-1.0.3"></a>
+### [mongodb-1.0.3](https://github.com/truecharts/apps/compare/mongodb-1.0.2...mongodb-1.0.3) (2022-06-09)
 
 #### Chore
 
@@ -517,8 +521,8 @@
 
 
 
-<a name="postgresql-8.0.2"></a>
-### [postgresql-8.0.2](https://github.com/truecharts/apps/compare/postgresql-8.0.1...postgresql-8.0.2) (2022-06-07)
+<a name="mongodb-1.0.2"></a>
+### [mongodb-1.0.2](https://github.com/truecharts/apps/compare/mongodb-1.0.1...mongodb-1.0.2) (2022-06-07)
 
 #### Fix
 
@@ -526,8 +530,8 @@
 
 
 
-<a name="postgresql-8.0.1"></a>
-### [postgresql-8.0.1](https://github.com/truecharts/apps/compare/postgresql-7.0.93...postgresql-8.0.1) (2022-06-07)
+<a name="mongodb-1.0.1"></a>
+### [mongodb-1.0.1](https://github.com/truecharts/apps/compare/mongodb-0.1.49...mongodb-1.0.1) (2022-06-07)
 
 #### Chore
 
@@ -544,8 +548,8 @@
 
 
 
-<a name="postgresql-8.0.0"></a>
-### [postgresql-8.0.0](https://github.com/truecharts/apps/compare/postgresql-7.0.93...postgresql-8.0.0) (2022-06-07)
+<a name="mongodb-1.0.0"></a>
+### [mongodb-1.0.0](https://github.com/truecharts/apps/compare/mongodb-0.1.49...mongodb-1.0.0) (2022-06-07)
 
 #### Chore
 
@@ -557,8 +561,8 @@
 
 
 
-<a name="postgresql-7.0.93"></a>
-### [postgresql-7.0.93](https://github.com/truecharts/apps/compare/postgresql-7.0.92...postgresql-7.0.93) (2022-06-05)
+<a name="mongodb-0.1.49"></a>
+### [mongodb-0.1.49](https://github.com/truecharts/apps/compare/mongodb-0.1.48...mongodb-0.1.49) (2022-06-05)
 
 #### Chore
 
@@ -566,8 +570,8 @@
 
 
 
-<a name="postgresql-7.0.92"></a>
-### [postgresql-7.0.92](https://github.com/truecharts/apps/compare/postgresql-7.0.91...postgresql-7.0.92) (2022-06-04)
+<a name="mongodb-0.1.48"></a>
+### [mongodb-0.1.48](https://github.com/truecharts/apps/compare/mongodb-0.1.47...mongodb-0.1.48) (2022-06-04)
 
 #### Chore
 
@@ -575,8 +579,8 @@
 
 
 
-<a name="postgresql-7.0.91"></a>
-### [postgresql-7.0.91](https://github.com/truecharts/apps/compare/postgresql-7.0.90...postgresql-7.0.91) (2022-06-04)
+<a name="mongodb-0.1.47"></a>
+### [mongodb-0.1.47](https://github.com/truecharts/apps/compare/mongodb-0.1.46...mongodb-0.1.47) (2022-06-04)
 
 #### Chore
 
@@ -584,8 +588,8 @@
 
 
 
-<a name="postgresql-7.0.90"></a>
-### [postgresql-7.0.90](https://github.com/truecharts/apps/compare/postgresql-7.0.89...postgresql-7.0.90) (2022-06-03)
+<a name="mongodb-0.1.46"></a>
+### [mongodb-0.1.46](https://github.com/truecharts/apps/compare/mongodb-0.1.45...mongodb-0.1.46) (2022-06-03)
 
 #### Chore
 
@@ -593,8 +597,8 @@
 
 
 
-<a name="postgresql-7.0.89"></a>
-### [postgresql-7.0.89](https://github.com/truecharts/apps/compare/postgresql-7.0.88...postgresql-7.0.89) (2022-06-03)
+<a name="mongodb-0.1.45"></a>
+### [mongodb-0.1.45](https://github.com/truecharts/apps/compare/mongodb-0.1.44...mongodb-0.1.45) (2022-06-03)
 
 #### Chore
 
@@ -602,17 +606,18 @@
 
 
 
-<a name="postgresql-7.0.88"></a>
-### [postgresql-7.0.88](https://github.com/truecharts/apps/compare/postgresql-7.0.87...postgresql-7.0.88) (2022-06-02)
+<a name="mongodb-0.1.44"></a>
+### [mongodb-0.1.44](https://github.com/truecharts/apps/compare/mongodb-0.1.43...mongodb-0.1.44) (2022-06-02)
 
 #### Chore
 
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
 * update helm chart common to v9.3.26 ([#2813](https://github.com/truecharts/apps/issues/2813))
 
 
 
-<a name="postgresql-7.0.87"></a>
-### [postgresql-7.0.87](https://github.com/truecharts/apps/compare/postgresql-7.0.86...postgresql-7.0.87) (2022-06-01)
+<a name="mongodb-0.1.43"></a>
+### [mongodb-0.1.43](https://github.com/truecharts/apps/compare/mongodb-0.1.42...mongodb-0.1.43) (2022-06-01)
 
 #### Chore
 
@@ -620,8 +625,8 @@
 
 
 
-<a name="postgresql-7.0.86"></a>
-### [postgresql-7.0.86](https://github.com/truecharts/apps/compare/postgresql-7.0.85...postgresql-7.0.86) (2022-05-31)
+<a name="mongodb-0.1.42"></a>
+### [mongodb-0.1.42](https://github.com/truecharts/apps/compare/mongodb-0.1.41...mongodb-0.1.42) (2022-05-31)
 
 #### Chore
 
@@ -629,8 +634,8 @@
 
 
 
-<a name="postgresql-7.0.85"></a>
-### [postgresql-7.0.85](https://github.com/truecharts/apps/compare/postgresql-7.0.84...postgresql-7.0.85) (2022-05-31)
+<a name="mongodb-0.1.41"></a>
+### [mongodb-0.1.41](https://github.com/truecharts/apps/compare/mongodb-0.1.40...mongodb-0.1.41) (2022-05-31)
 
 #### Chore
 
@@ -638,8 +643,8 @@
 
 
 
-<a name="postgresql-7.0.84"></a>
-### [postgresql-7.0.84](https://github.com/truecharts/apps/compare/postgresql-7.0.83...postgresql-7.0.84) (2022-05-30)
+<a name="mongodb-0.1.40"></a>
+### [mongodb-0.1.40](https://github.com/truecharts/apps/compare/mongodb-0.1.39...mongodb-0.1.40) (2022-05-30)
 
 #### Chore
 
@@ -648,8 +653,8 @@
 
 
 
-<a name="postgresql-7.0.83"></a>
-### [postgresql-7.0.83](https://github.com/truecharts/apps/compare/postgresql-7.0.82...postgresql-7.0.83) (2022-05-29)
+<a name="mongodb-0.1.39"></a>
+### [mongodb-0.1.39](https://github.com/truecharts/apps/compare/mongodb-0.1.38...mongodb-0.1.39) (2022-05-29)
 
 #### Chore
 
@@ -657,8 +662,8 @@
 
 
 
-<a name="postgresql-7.0.82"></a>
-### [postgresql-7.0.82](https://github.com/truecharts/apps/compare/postgresql-7.0.81...postgresql-7.0.82) (2022-05-26)
+<a name="mongodb-0.1.38"></a>
+### [mongodb-0.1.38](https://github.com/truecharts/apps/compare/mongodb-0.1.37...mongodb-0.1.38) (2022-05-26)
 
 #### Chore
 
@@ -666,8 +671,8 @@
 
 
 
-<a name="postgresql-7.0.81"></a>
-### [postgresql-7.0.81](https://github.com/truecharts/apps/compare/postgresql-7.0.80...postgresql-7.0.81) (2022-05-26)
+<a name="mongodb-0.1.37"></a>
+### [mongodb-0.1.37](https://github.com/truecharts/apps/compare/mongodb-0.1.36...mongodb-0.1.37) (2022-05-26)
 
 #### Chore
 
@@ -675,8 +680,8 @@
 
 
 
-<a name="postgresql-7.0.80"></a>
-### [postgresql-7.0.80](https://github.com/truecharts/apps/compare/postgresql-7.0.79...postgresql-7.0.80) (2022-05-26)
+<a name="mongodb-0.1.36"></a>
+### [mongodb-0.1.36](https://github.com/truecharts/apps/compare/mongodb-0.1.35...mongodb-0.1.36) (2022-05-26)
 
 #### Chore
 
@@ -684,8 +689,8 @@
 
 
 
-<a name="postgresql-7.0.79"></a>
-### [postgresql-7.0.79](https://github.com/truecharts/apps/compare/postgresql-7.0.78...postgresql-7.0.79) (2022-05-25)
+<a name="mongodb-0.1.35"></a>
+### [mongodb-0.1.35](https://github.com/truecharts/apps/compare/mongodb-0.1.34...mongodb-0.1.35) (2022-05-25)
 
 #### Chore
 
@@ -693,8 +698,8 @@
 
 
 
-<a name="postgresql-7.0.78"></a>
-### [postgresql-7.0.78](https://github.com/truecharts/apps/compare/postgresql-7.0.77...postgresql-7.0.78) (2022-05-24)
+<a name="mongodb-0.1.34"></a>
+### [mongodb-0.1.34](https://github.com/truecharts/apps/compare/mongodb-0.1.33...mongodb-0.1.34) (2022-05-24)
 
 #### Chore
 
@@ -702,8 +707,8 @@
 
 
 
-<a name="postgresql-7.0.77"></a>
-### [postgresql-7.0.77](https://github.com/truecharts/apps/compare/postgresql-7.0.76...postgresql-7.0.77) (2022-05-20)
+<a name="mongodb-0.1.33"></a>
+### [mongodb-0.1.33](https://github.com/truecharts/apps/compare/mongodb-0.1.32...mongodb-0.1.33) (2022-05-20)
 
 #### Chore
 
@@ -711,8 +716,8 @@
 
 
 
-<a name="postgresql-7.0.76"></a>
-### [postgresql-7.0.76](https://github.com/truecharts/apps/compare/postgresql-7.0.75...postgresql-7.0.76) (2022-05-19)
+<a name="mongodb-0.1.32"></a>
+### [mongodb-0.1.32](https://github.com/truecharts/apps/compare/mongodb-0.1.31...mongodb-0.1.32) (2022-05-19)
 
 #### Chore
 
@@ -720,8 +725,8 @@
 
 
 
-<a name="postgresql-7.0.75"></a>
-### [postgresql-7.0.75](https://github.com/truecharts/apps/compare/postgresql-7.0.74...postgresql-7.0.75) (2022-05-19)
+<a name="mongodb-0.1.31"></a>
+### [mongodb-0.1.31](https://github.com/truecharts/apps/compare/mongodb-0.1.30...mongodb-0.1.31) (2022-05-19)
 
 #### Chore
 
@@ -729,8 +734,8 @@
 
 
 
-<a name="postgresql-7.0.74"></a>
-### [postgresql-7.0.74](https://github.com/truecharts/apps/compare/postgresql-7.0.73...postgresql-7.0.74) (2022-05-17)
+<a name="mongodb-0.1.30"></a>
+### [mongodb-0.1.30](https://github.com/truecharts/apps/compare/mongodb-0.1.29...mongodb-0.1.30) (2022-05-17)
 
 #### Chore
 
@@ -739,8 +744,8 @@
 
 
 
-<a name="postgresql-7.0.74"></a>
-### [postgresql-7.0.74](https://github.com/truecharts/apps/compare/postgresql-7.0.73...postgresql-7.0.74) (2022-05-17)
+<a name="mongodb-0.1.30"></a>
+### [mongodb-0.1.30](https://github.com/truecharts/apps/compare/mongodb-0.1.29...mongodb-0.1.30) (2022-05-17)
 
 #### Chore
 
@@ -748,8 +753,8 @@
 
 
 
-<a name="postgresql-7.0.73"></a>
-### [postgresql-7.0.73](https://github.com/truecharts/apps/compare/postgresql-7.0.72...postgresql-7.0.73) (2022-05-17)
+<a name="mongodb-0.1.29"></a>
+### [mongodb-0.1.29](https://github.com/truecharts/apps/compare/mongodb-0.1.28...mongodb-0.1.29) (2022-05-17)
 
 #### Chore
 
@@ -758,8 +763,8 @@
 
 
 
-<a name="postgresql-7.0.72"></a>
-### [postgresql-7.0.72](https://github.com/truecharts/apps/compare/postgresql-7.0.71...postgresql-7.0.72) (2022-05-16)
+<a name="mongodb-0.1.28"></a>
+### [mongodb-0.1.28](https://github.com/truecharts/apps/compare/mongodb-0.1.27...mongodb-0.1.28) (2022-05-16)
 
 #### Chore
 
@@ -767,18 +772,17 @@
 
 
 
-<a name="postgresql-7.0.71"></a>
-### [postgresql-7.0.71](https://github.com/truecharts/apps/compare/postgresql-7.0.70...postgresql-7.0.71) (2022-05-15)
+<a name="mongodb-0.1.27"></a>
+### [mongodb-0.1.27](https://github.com/truecharts/apps/compare/mongodb-0.1.26...mongodb-0.1.27) (2022-05-15)
 
 #### Chore
 
 * update helm chart common to v9.3.13
-* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
 
 
 
-<a name="postgresql-7.0.70"></a>
-### [postgresql-7.0.70](https://github.com/truecharts/apps/compare/postgresql-7.0.68...postgresql-7.0.70) (2022-05-15)
+<a name="mongodb-0.1.26"></a>
+### [mongodb-0.1.26](https://github.com/truecharts/apps/compare/mongodb-0.1.24...mongodb-0.1.26) (2022-05-15)
 
 #### Chore
 
@@ -787,8 +791,8 @@
 
 
 
-<a name="postgresql-7.0.68"></a>
-### [postgresql-7.0.68](https://github.com/truecharts/apps/compare/postgresql-7.0.67...postgresql-7.0.68) (2022-05-14)
+<a name="mongodb-0.1.24"></a>
+### [mongodb-0.1.24](https://github.com/truecharts/apps/compare/mongodb-0.1.23...mongodb-0.1.24) (2022-05-14)
 
 #### Chore
 
@@ -796,8 +800,8 @@
 
 
 
-<a name="postgresql-7.0.67"></a>
-### [postgresql-7.0.67](https://github.com/truecharts/apps/compare/postgresql-7.0.65...postgresql-7.0.67) (2022-05-13)
+<a name="mongodb-0.1.23"></a>
+### [mongodb-0.1.23](https://github.com/truecharts/apps/compare/mongodb-0.1.21...mongodb-0.1.23) (2022-05-13)
 
 #### Chore
 
@@ -806,8 +810,8 @@
 
 
 
-<a name="postgresql-7.0.65"></a>
-### [postgresql-7.0.65](https://github.com/truecharts/apps/compare/postgresql-7.0.64...postgresql-7.0.65) (2022-05-12)
+<a name="mongodb-0.1.21"></a>
+### [mongodb-0.1.21](https://github.com/truecharts/apps/compare/mongodb-0.1.20...mongodb-0.1.21) (2022-05-12)
 
 #### Chore
 
@@ -815,8 +819,8 @@
 
 
 
-<a name="postgresql-7.0.64"></a>
-### [postgresql-7.0.64](https://github.com/truecharts/apps/compare/postgresql-7.0.63...postgresql-7.0.64) (2022-05-12)
+<a name="mongodb-0.1.20"></a>
+### [mongodb-0.1.20](https://github.com/truecharts/apps/compare/mongodb-0.1.19...mongodb-0.1.20) (2022-05-12)
 
 #### Chore
 
@@ -824,18 +828,17 @@
 
 
 
-<a name="postgresql-7.0.63"></a>
-### [postgresql-7.0.63](https://github.com/truecharts/apps/compare/postgresql-7.0.61...postgresql-7.0.63) (2022-05-11)
+<a name="mongodb-0.1.19"></a>
+### [mongodb-0.1.19](https://github.com/truecharts/apps/compare/mongodb-0.1.18...mongodb-0.1.19) (2022-05-11)
 
 #### Chore
 
 * update helm chart common to v9.3.7 ([#2656](https://github.com/truecharts/apps/issues/2656))
-* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
 
 
 
-<a name="postgresql-7.0.61"></a>
-### [postgresql-7.0.61](https://github.com/truecharts/apps/compare/postgresql-7.0.60...postgresql-7.0.61) (2022-05-10)
+<a name="mongodb-0.1.18"></a>
+### [mongodb-0.1.18](https://github.com/truecharts/apps/compare/mongodb-0.1.17...mongodb-0.1.18) (2022-05-10)
 
 #### Chore
 
@@ -843,8 +846,8 @@
 
 
 
-<a name="postgresql-7.0.60"></a>
-### [postgresql-7.0.60](https://github.com/truecharts/apps/compare/postgresql-7.0.59...postgresql-7.0.60) (2022-05-10)
+<a name="mongodb-0.1.17"></a>
+### [mongodb-0.1.17](https://github.com/truecharts/apps/compare/mongodb-0.1.16...mongodb-0.1.17) (2022-05-10)
 
 #### Chore
 
@@ -852,8 +855,8 @@
 
 
 
-<a name="postgresql-7.0.59"></a>
-### [postgresql-7.0.59](https://github.com/truecharts/apps/compare/postgresql-7.0.58...postgresql-7.0.59) (2022-05-10)
+<a name="mongodb-0.1.16"></a>
+### [mongodb-0.1.16](https://github.com/truecharts/apps/compare/mongodb-0.1.15...mongodb-0.1.16) (2022-05-10)
 
 #### Chore
 
@@ -861,8 +864,8 @@
 
 
 
-<a name="postgresql-7.0.58"></a>
-### [postgresql-7.0.58](https://github.com/truecharts/apps/compare/postgresql-7.0.57...postgresql-7.0.58) (2022-05-09)
+<a name="mongodb-0.1.15"></a>
+### [mongodb-0.1.15](https://github.com/truecharts/apps/compare/mongodb-0.1.14...mongodb-0.1.15) (2022-05-09)
 
 #### Chore
 
@@ -870,8 +873,8 @@
 
 
 
-<a name="postgresql-7.0.57"></a>
-### [postgresql-7.0.57](https://github.com/truecharts/apps/compare/postgresql-7.0.56...postgresql-7.0.57) (2022-05-08)
+<a name="mongodb-0.1.14"></a>
+### [mongodb-0.1.14](https://github.com/truecharts/apps/compare/mongodb-0.1.13...mongodb-0.1.14) (2022-05-08)
 
 #### Chore
 
@@ -879,26 +882,8 @@
 
 
 
-<a name="postgresql-7.0.56"></a>
-### [postgresql-7.0.56](https://github.com/truecharts/apps/compare/postgresql-7.0.55...postgresql-7.0.56) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="postgresql-7.0.55"></a>
-### [postgresql-7.0.55](https://github.com/truecharts/apps/compare/postgresql-7.0.54...postgresql-7.0.55) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="postgresql-7.0.54"></a>
-### [postgresql-7.0.54](https://github.com/truecharts/apps/compare/postgresql-7.0.53...postgresql-7.0.54) (2022-05-05)
+<a name="mongodb-0.1.13"></a>
+### [mongodb-0.1.13](https://github.com/truecharts/apps/compare/mongodb-0.1.12...mongodb-0.1.13) (2022-05-05)
 
 #### Chore
 
@@ -906,8 +891,8 @@
 
 
 
-<a name="postgresql-7.0.53"></a>
-### [postgresql-7.0.53](https://github.com/truecharts/apps/compare/postgresql-7.0.52...postgresql-7.0.53) (2022-05-04)
+<a name="mongodb-0.1.12"></a>
+### [mongodb-0.1.12](https://github.com/truecharts/apps/compare/mongodb-0.1.11...mongodb-0.1.12) (2022-05-04)
 
 #### Chore
 
@@ -915,17 +900,8 @@
 
 
 
-<a name="postgresql-7.0.52"></a>
-### [postgresql-7.0.52](https://github.com/truecharts/apps/compare/postgresql-7.0.51...postgresql-7.0.52) (2022-04-29)
-
-#### Chore
-
-* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
-
-
-
-<a name="postgresql-7.0.51"></a>
-### [postgresql-7.0.51](https://github.com/truecharts/apps/compare/postgresql-7.0.50...postgresql-7.0.51) (2022-04-28)
+<a name="mongodb-0.1.11"></a>
+### [mongodb-0.1.11](https://github.com/truecharts/apps/compare/mongodb-0.1.10...mongodb-0.1.11) (2022-04-28)
 
 #### Chore
 
@@ -933,8 +909,8 @@
 
 
 
-<a name="postgresql-7.0.50"></a>
-### [postgresql-7.0.50](https://github.com/truecharts/apps/compare/postgresql-7.0.49...postgresql-7.0.50) (2022-04-26)
+<a name="mongodb-0.1.10"></a>
+### [mongodb-0.1.10](https://github.com/truecharts/apps/compare/mongodb-0.1.9...mongodb-0.1.10) (2022-04-26)
 
 #### Chore
 
@@ -942,17 +918,98 @@
 
 
 
-<a name="postgresql-7.0.49"></a>
-### [postgresql-7.0.49](https://github.com/truecharts/apps/compare/postgresql-7.0.48...postgresql-7.0.49) (2022-04-26)
+<a name="mongodb-0.1.9"></a>
+### [mongodb-0.1.9](https://github.com/truecharts/apps/compare/mongodb-0.1.8...mongodb-0.1.9) (2022-04-25)
 
 #### Chore
 
-* update helm chart common to v9.3.2
+* bump common ([#2569](https://github.com/truecharts/apps/issues/2569))
 
 
 
-<a name="postgresql-7.0.48"></a>
-### [postgresql-7.0.48](https://github.com/truecharts/apps/compare/postgresql-7.0.47...postgresql-7.0.48) (2022-04-20)
+<a name="mongodb-0.1.8"></a>
+### [mongodb-0.1.8](https://github.com/truecharts/apps/compare/mongodb-0.1.7...mongodb-0.1.8) (2022-04-25)
+
+#### Revert
+
+* revert replicaset ([#2567](https://github.com/truecharts/apps/issues/2567))
+
+
+
+<a name="mongodb-0.1.7"></a>
+### [mongodb-0.1.7](https://github.com/truecharts/apps/compare/mongodb-0.1.6...mongodb-0.1.7) (2022-04-25)
+
+#### Fix
+
+* fix ([#2563](https://github.com/truecharts/apps/issues/2563))
+
+
+
+<a name="mongodb-0.1.6"></a>
+### [mongodb-0.1.6](https://github.com/truecharts/apps/compare/mongodb-0.1.5...mongodb-0.1.6) (2022-04-25)
+
+#### Fix
+
+* set advertised hostname ([#2560](https://github.com/truecharts/apps/issues/2560))
+
+
+
+<a name="mongodb-0.1.5"></a>
+### [mongodb-0.1.5](https://github.com/truecharts/apps/compare/mongodb-0.1.4...mongodb-0.1.5) (2022-04-24)
+
+#### Fix
+
+* make advertisedhostname configurable ([#2559](https://github.com/truecharts/apps/issues/2559))
+
+
+
+<a name="mongodb-0.1.4"></a>
+### [mongodb-0.1.4](https://github.com/truecharts/apps/compare/mongodb-0.1.3...mongodb-0.1.4) (2022-04-24)
+
+#### Fix
+
+* dont set initial primary host ([#2557](https://github.com/truecharts/apps/issues/2557))
+
+
+
+<a name="mongodb-0.1.3"></a>
+### [mongodb-0.1.3](https://github.com/truecharts/apps/compare/mongodb-0.1.2...mongodb-0.1.3) (2022-04-24)
+
+#### Fix
+
+* set advertised hostname ([#2555](https://github.com/truecharts/apps/issues/2555))
+
+
+
+<a name="mongodb-0.1.2"></a>
+### [mongodb-0.1.2](https://github.com/truecharts/apps/compare/mongodb-0.1.1...mongodb-0.1.2) (2022-04-24)
+
+#### Chore
+
+* bump common ([#2551](https://github.com/truecharts/apps/issues/2551))
+
+
+
+<a name="mongodb-0.1.1"></a>
+### [mongodb-0.1.1](https://github.com/truecharts/apps/compare/mongodb-0.1.0...mongodb-0.1.1) (2022-04-24)
+
+#### Chore
+
+* bump common ([#2548](https://github.com/truecharts/apps/issues/2548))
+
+
+
+<a name="mongodb-0.1.0"></a>
+### [mongodb-0.1.0](https://github.com/truecharts/apps/compare/mongodb-0.0.31...mongodb-0.1.0) (2022-04-24)
+
+#### Feat
+
+* run in single replicaset (take3) ([#2505](https://github.com/truecharts/apps/issues/2505))
+
+
+
+<a name="mongodb-0.0.31"></a>
+### [mongodb-0.0.31](https://github.com/truecharts/apps/compare/mongodb-0.0.30...mongodb-0.0.31) (2022-04-20)
 
 #### Chore
 
@@ -961,8 +1018,8 @@
 
 
 
-<a name="postgresql-7.0.47"></a>
-### [postgresql-7.0.47](https://github.com/truecharts/apps/compare/postgresql-7.0.46...postgresql-7.0.47) (2022-04-19)
+<a name="mongodb-0.0.30"></a>
+### [mongodb-0.0.30](https://github.com/truecharts/apps/compare/mongodb-0.0.29...mongodb-0.0.30) (2022-04-19)
 
 #### Chore
 
@@ -970,8 +1027,8 @@
 
 
 
-<a name="postgresql-7.0.46"></a>
-### [postgresql-7.0.46](https://github.com/truecharts/apps/compare/postgresql-7.0.45...postgresql-7.0.46) (2022-04-18)
+<a name="mongodb-0.0.29"></a>
+### [mongodb-0.0.29](https://github.com/truecharts/apps/compare/mongodb-0.0.28...mongodb-0.0.29) (2022-04-18)
 
 #### Chore
 
@@ -979,8 +1036,8 @@
 
 
 
-<a name="postgresql-7.0.45"></a>
-### [postgresql-7.0.45](https://github.com/truecharts/apps/compare/postgresql-7.0.44...postgresql-7.0.45) (2022-04-17)
+<a name="mongodb-0.0.28"></a>
+### [mongodb-0.0.28](https://github.com/truecharts/apps/compare/mongodb-0.0.27...mongodb-0.0.28) (2022-04-17)
 
 #### Chore
 
@@ -988,8 +1045,8 @@
 
 
 
-<a name="postgresql-7.0.44"></a>
-### [postgresql-7.0.44](https://github.com/truecharts/apps/compare/postgresql-7.0.43...postgresql-7.0.44) (2022-04-16)
+<a name="mongodb-0.0.27"></a>
+### [mongodb-0.0.27](https://github.com/truecharts/apps/compare/mongodb-0.0.26...mongodb-0.0.27) (2022-04-16)
 
 #### Chore
 
@@ -997,8 +1054,8 @@
 
 
 
-<a name="postgresql-7.0.43"></a>
-### [postgresql-7.0.43](https://github.com/truecharts/apps/compare/postgresql-7.0.42...postgresql-7.0.43) (2022-04-13)
+<a name="mongodb-0.0.26"></a>
+### [mongodb-0.0.26](https://github.com/truecharts/apps/compare/mongodb-0.0.25...mongodb-0.0.26) (2022-04-13)
 
 #### Chore
 
@@ -1006,8 +1063,8 @@
 
 
 
-<a name="postgresql-7.0.42"></a>
-### [postgresql-7.0.42](https://github.com/truecharts/apps/compare/postgresql-7.0.41...postgresql-7.0.42) (2022-04-12)
+<a name="mongodb-0.0.25"></a>
+### [mongodb-0.0.25](https://github.com/truecharts/apps/compare/mongodb-0.0.24...mongodb-0.0.25) (2022-04-12)
 
 #### Chore
 
@@ -1015,8 +1072,8 @@
 
 
 
-<a name="postgresql-7.0.41"></a>
-### [postgresql-7.0.41](https://github.com/truecharts/apps/compare/postgresql-7.0.40...postgresql-7.0.41) (2022-04-12)
+<a name="mongodb-0.0.24"></a>
+### [mongodb-0.0.24](https://github.com/truecharts/apps/compare/mongodb-0.0.23...mongodb-0.0.24) (2022-04-12)
 
 #### Chore
 
@@ -1024,8 +1081,8 @@
 
 
 
-<a name="postgresql-7.0.40"></a>
-### [postgresql-7.0.40](https://github.com/truecharts/apps/compare/postgresql-7.0.39...postgresql-7.0.40) (2022-04-09)
+<a name="mongodb-0.0.23"></a>
+### [mongodb-0.0.23](https://github.com/truecharts/apps/compare/mongodb-0.0.22...mongodb-0.0.23) (2022-04-09)
 
 #### Chore
 
@@ -1033,8 +1090,8 @@
 
 
 
-<a name="postgresql-7.0.39"></a>
-### [postgresql-7.0.39](https://github.com/truecharts/apps/compare/postgresql-7.0.38...postgresql-7.0.39) (2022-04-06)
+<a name="mongodb-0.0.22"></a>
+### [mongodb-0.0.22](https://github.com/truecharts/apps/compare/mongodb-0.0.21...mongodb-0.0.22) (2022-04-06)
 
 #### Chore
 
@@ -1042,8 +1099,8 @@
 
 
 
-<a name="postgresql-7.0.38"></a>
-### [postgresql-7.0.38](https://github.com/truecharts/apps/compare/postgresql-7.0.37...postgresql-7.0.38) (2022-04-04)
+<a name="mongodb-0.0.21"></a>
+### [mongodb-0.0.21](https://github.com/truecharts/apps/compare/mongodb-0.0.20...mongodb-0.0.21) (2022-04-04)
 
 #### Chore
 
@@ -1052,8 +1109,8 @@
 
 
 
-<a name="postgresql-7.0.37"></a>
-### [postgresql-7.0.37](https://github.com/truecharts/apps/compare/postgresql-7.0.36...postgresql-7.0.37) (2022-04-03)
+<a name="mongodb-0.0.20"></a>
+### [mongodb-0.0.20](https://github.com/truecharts/apps/compare/mongodb-0.0.19...mongodb-0.0.20) (2022-04-03)
 
 #### Chore
 
@@ -1061,18 +1118,8 @@
 
 
 
-<a name="postgresql-7.0.36"></a>
-### [postgresql-7.0.36](https://github.com/truecharts/apps/compare/postgresql-7.0.35...postgresql-7.0.36) (2022-04-03)
-
-#### Chore
-
-* Auto-update chart README [skip ci]
-* Auto-update chart README [skip ci]
-
-
-
-<a name="postgresql-7.0.36"></a>
-### [postgresql-7.0.36](https://github.com/truecharts/apps/compare/postgresql-7.0.35...postgresql-7.0.36) (2022-04-03)
+<a name="mongodb-0.0.19"></a>
+### [mongodb-0.0.19](https://github.com/truecharts/apps/compare/mongodb-0.0.18...mongodb-0.0.19) (2022-04-03)
 
 #### Chore
 
@@ -1080,22 +1127,22 @@
 
 
 
-<a name="postgresql-7.0.34"></a>
-### [postgresql-7.0.34](https://github.com/truecharts/apps/compare/postgresql-7.0.28...postgresql-7.0.34) (2022-04-01)
+<a name="mongodb-0.0.19"></a>
+### [mongodb-0.0.19](https://github.com/truecharts/apps/compare/mongodb-0.0.18...mongodb-0.0.19) (2022-04-03)
 
 
 
-<a name="postgresql-7.0.28"></a>
-### [postgresql-7.0.28](https://github.com/truecharts/apps/compare/postgresql-7.0.27...postgresql-7.0.28) (2022-04-01)
+<a name="mongodb-0.0.16"></a>
+### [mongodb-0.0.16](https://github.com/truecharts/apps/compare/mongodb-0.0.14...mongodb-0.0.16) (2022-04-01)
 
-#### Chore
+#### Fix
 
-* update docker general non-major
+* use bash for gen-docs shell
 
 
 
-<a name="postgresql-7.0.27"></a>
-### [postgresql-7.0.27](https://github.com/truecharts/apps/compare/postgresql-7.0.26...postgresql-7.0.27) (2022-03-31)
+<a name="mongodb-0.0.14"></a>
+### [mongodb-0.0.14](https://github.com/truecharts/apps/compare/mongodb-0.0.13...mongodb-0.0.14) (2022-03-31)
 
 #### Chore
 
@@ -1103,8 +1150,8 @@
 
 
 
-<a name="postgresql-7.0.26"></a>
-### [postgresql-7.0.26](https://github.com/truecharts/apps/compare/postgresql-7.0.25...postgresql-7.0.26) (2022-03-31)
+<a name="mongodb-0.0.13"></a>
+### [mongodb-0.0.13](https://github.com/truecharts/apps/compare/mongodb-0.0.12...mongodb-0.0.13) (2022-03-31)
 
 #### Chore
 
@@ -1113,8 +1160,8 @@
 
 
 
-<a name="postgresql-7.0.25"></a>
-### [postgresql-7.0.25](https://github.com/truecharts/apps/compare/postgresql-7.0.24...postgresql-7.0.25) (2022-03-30)
+<a name="mongodb-0.0.12"></a>
+### [mongodb-0.0.12](https://github.com/truecharts/apps/compare/mongodb-0.0.11...mongodb-0.0.12) (2022-03-30)
 
 #### Chore
 
@@ -1123,13 +1170,13 @@
 
 
 
-<a name="postgresql-7.0.24"></a>
-### [postgresql-7.0.24](https://github.com/truecharts/apps/compare/postgresql-7.0.23...postgresql-7.0.24) (2022-03-30)
+<a name="mongodb-0.0.11"></a>
+### [mongodb-0.0.11](https://github.com/truecharts/apps/compare/mongodb-0.0.10...mongodb-0.0.11) (2022-03-30)
 
 
 
-<a name="postgresql-7.0.22"></a>
-### [postgresql-7.0.22](https://github.com/truecharts/apps/compare/postgresql-7.0.21...postgresql-7.0.22) (2022-03-30)
+<a name="mongodb-0.0.10"></a>
+### [mongodb-0.0.10](https://github.com/truecharts/apps/compare/mongodb-0.0.9...mongodb-0.0.10) (2022-03-30)
 
 #### Chore
 
@@ -1137,23 +1184,18 @@
 
 
 
-<a name="postgresql-7.0.21"></a>
-### [postgresql-7.0.21](https://github.com/truecharts/apps/compare/postgresql-7.0.20...postgresql-7.0.21) (2022-03-29)
+<a name="mongodb-0.0.9"></a>
+### [mongodb-0.0.9](https://github.com/truecharts/apps/compare/mongodb-0.0.8...mongodb-0.0.9) (2022-03-29)
 
 
 
-<a name="postgresql-7.0.20"></a>
-### [postgresql-7.0.20](https://github.com/truecharts/apps/compare/postgresql-7.0.19...postgresql-7.0.20) (2022-03-29)
+<a name="mongodb-0.0.6"></a>
+### [mongodb-0.0.6](https://github.com/truecharts/apps/compare/mongodb-0.0.5...mongodb-0.0.6) (2022-03-29)
 
 
 
-<a name="postgresql-7.0.18"></a>
-### [postgresql-7.0.18](https://github.com/truecharts/apps/compare/postgresql-7.0.17...postgresql-7.0.18) (2022-03-29)
-
-
-
-<a name="postgresql-7.0.17"></a>
-### [postgresql-7.0.17](https://github.com/truecharts/apps/compare/postgresql-7.0.16...postgresql-7.0.17) (2022-03-29)
+<a name="mongodb-0.0.5"></a>
+### [mongodb-0.0.5](https://github.com/truecharts/apps/compare/mongodb-0.0.4...mongodb-0.0.5) (2022-03-29)
 
 #### Fix
 
@@ -1161,8 +1203,8 @@
 
 
 
-<a name="postgresql-7.0.16"></a>
-### [postgresql-7.0.16](https://github.com/truecharts/apps/compare/postgresql-7.0.15...postgresql-7.0.16) (2022-03-29)
+<a name="mongodb-0.0.4"></a>
+### [mongodb-0.0.4](https://github.com/truecharts/apps/compare/mongodb-0.0.3...mongodb-0.0.4) (2022-03-29)
 
 #### Chore
 
@@ -1170,8 +1212,31 @@
 
 
 
-<a name="postgresql-7.0.15"></a>
-### [postgresql-7.0.15](https://github.com/truecharts/apps/compare/postgresql-7.0.14...postgresql-7.0.15) (2022-03-28)
+<a name="mongodb-0.0.3"></a>
+### [mongodb-0.0.3](https://github.com/truecharts/apps/compare/mongodb-0.0.2...mongodb-0.0.3) (2022-03-28)
+
+#### Chore
+
+* adjust init ([#2329](https://github.com/truecharts/apps/issues/2329))
+
+
+
+<a name="mongodb-0.0.2"></a>
+### [mongodb-0.0.2](https://github.com/truecharts/apps/compare/mongodb-0.0.1...mongodb-0.0.2) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
+<a name="mongodb-0.0.1"></a>
+### mongodb-0.0.1 (2022-03-28)
+
+#### Feat
+
+* add-mongodb ([#2307](https://github.com/truecharts/apps/issues/2307))
+7.0.15](https://github.com/truecharts/apps/compare/postgresql-7.0.14...postgresql-7.0.15) (2022-03-28)
 
 #### Feat
 

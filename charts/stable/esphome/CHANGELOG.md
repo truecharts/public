@@ -2,6 +2,15 @@
 
 
 
+## [esphome-11.0.29](https://github.com/truecharts/charts/compare/esphome-11.0.28...esphome-11.0.29) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
 ## [esphome-11.0.28](https://github.com/truecharts/charts/compare/esphome-11.0.27...esphome-11.0.28) (2022-08-12)
 
 ### Chore

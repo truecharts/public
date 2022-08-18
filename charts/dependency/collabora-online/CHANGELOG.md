@@ -2,6 +2,16 @@
 
 
 
+## [collabora-online-12.1.29](https://github.com/truecharts/charts/compare/collabora-online-12.1.27...collabora-online-12.1.29) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
 ## [collabora-online-12.1.27](https://github.com/truecharts/charts/compare/collabora-online-12.1.26...collabora-online-12.1.27) (2022-08-12)
 
 ### Chore
