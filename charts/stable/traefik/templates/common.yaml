@@ -10,11 +10,11 @@
 {{- end }}
 
 {{/* Render config */}}
-{{/*- include "crowdsec.agent.config" . }}
+{{/*- include "crowdsec.agent.config" . */}}
 
 {{- if .Values.crowdsec.enabled -}}
 {{- $_ := set .Values.additionalContainers "crowdsec-agent" (include "crowdsec.agent" . | fromYaml) -}}
-{{- end -*/}}
+{{- end -}}
 
 {{- $newArgs :=  (include "traefik.args" . | fromYaml) }}
 {{- $_ := set .Values "newArgs" $newArgs -}}
