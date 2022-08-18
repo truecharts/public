@@ -2,6 +2,15 @@
 
 
 
+## [vikunja-3.0.40](https://github.com/truecharts/charts/compare/vikunja-3.0.39...vikunja-3.0.40) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
 ## [vikunja-3.0.39](https://github.com/truecharts/charts/compare/vikunja-3.0.38...vikunja-3.0.39) (2022-08-17)
 
 ### Chore

@@ -1,6 +1,6 @@
 # ghost
 
-![Version: 3.0.43](https://img.shields.io/badge/Version-3.0.43-informational?style=flat-square) ![AppVersion: 5.8.3](https://img.shields.io/badge/AppVersion-5.8.3-informational?style=flat-square)
+![Version: 3.0.44](https://img.shields.io/badge/Version-3.0.44-informational?style=flat-square) ![AppVersion: 5.9.4](https://img.shields.io/badge/AppVersion-5.9.4-informational?style=flat-square)
 
 Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
 
