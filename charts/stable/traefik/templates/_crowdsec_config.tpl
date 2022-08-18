@@ -6,7 +6,7 @@ metadata:
 data:
   acquis.yaml: |-
     filenames:
-    - {{ .Values.crowdsec.logsPath }}
+    - {{ .Values.crowdsec.logsPath | quote }}
     labels:
       type: traefik
 ---
@@ -17,7 +17,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with .Values.crowdsec.collections }}
+  {{- with .Values.crowdsec.collections | quote }}
   COLLECTIONS: {{ . }}
   {{- end }}
   {{- with .Values.crowdsec.scenarios }}
@@ -26,7 +26,7 @@ data:
   {{- with .Values.crowdsec.parsers }}
   PARSERS: {{ . }}
   {{- end }}
-  {{- with .Values.crowdsec.traefik_bouncer_key }}
+  {{- with .Values.crowdsec.traefik_bouncer_key | squote }}
   BOUNCER_KEY_traefik: {{ . }}
   {{- end }}
 {{- end -}}

@@ -5,8 +5,8 @@ image:
   pullPolicy: IfNotPresent
 
 crowdsecAgentImage:
-  repository: crowdsecurity/crowdsec
-  tag: v1.4.1@sha256:92e4f52be1393e7156ce8bf5b2b64c4f9959ef541d94b06e798bc2ad598b17f9
+  repository: tccr.io/truecharts/crowdsec-agent
+  tag: v1.4.1@sha256:57f5c9b07a6fe7274416b6f741907d589c6a1fa6d66d2e37614aee3a50e8f5a0
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
