@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.1.0](https://github.com/truecharts/charts/compare/plextraktsync-0.0.20...plex-10.1.0) (2022-08-18)
+
+### Feat
+
+- Pre-fill ADVERTISE_IP with the server ip and ingress ([#3464](https://github.com/truecharts/charts/issues/3464))
+
+
+
+
 ## [plex-10.0.34](https://github.com/truecharts/charts/compare/plex-10.0.33...plex-10.0.34) (2022-08-12)
 
 ### Chore
