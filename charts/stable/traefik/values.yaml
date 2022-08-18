@@ -386,10 +386,10 @@ persistence:
   logs:
     enabled: true
     mountPath: "/var/log/traefik"
-  crowdsec_config:
+  crowdsec-config:
     enabled: true
     mountPath: "/etc/crowdsec"
-  crowdsec_data:
+  crowdsec-data:
     enabled: true
     mountPath: "/var/lib/crowdsec/data"
   # crowdsec-acquis:
