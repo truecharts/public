@@ -6,7 +6,7 @@ metadata:
 data:
   acquis.yaml: |-
     filenames:
-    - somevalue
+    - "/var/log/traefik/*"
     labels:
       type: traefik
 ---
@@ -17,8 +17,16 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  COLLECTIONS: somevalue
-  SCENARIOS: somevalue
-  PARSERS: somevalue
-  BOUNCER_KEY_traefik: somevalue
+  {{- with .Values.crowdsec.collections }}
+  COLLECTIONS: "crowdsecurity/linux crowdsecurity/traefik"
+  {{- end }}
+  {{- with .Values.crowdsec.scenarios }}
+  SCENARIOS: ""
+  {{- end }}
+  {{- with .Values.crowdsec.parsers }}
+  PARSERS: ""
+  {{- end }}
+  {{- with .Values.crowdsec.traefik_bouncer_key }}
+  BOUNCER_KEY_traefik: "supersecret"
+  {{- end }}
 {{- end -}}
