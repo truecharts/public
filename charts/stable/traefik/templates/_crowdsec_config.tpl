@@ -17,16 +17,8 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with .Values.crowdsec.collections | quote }}
   COLLECTIONS: somevalue
-  {{- end }}
-  {{- with .Values.crowdsec.scenarios }}
   SCENARIOS: somevalue
-  {{- end }}
-  {{- with .Values.crowdsec.parsers }}
   PARSERS: somevalue
-  {{- end }}
-  {{- with .Values.crowdsec.traefik_bouncer_key | squote }}
   BOUNCER_KEY_traefik: somevalue
-  {{- end }}
 {{- end -}}
