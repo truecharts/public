@@ -139,7 +139,7 @@ tlsOptions:
       - TLS_CHACHA20_POLY1305_SHA256
 
 crowdsec:
-  enabled: true
+  enabled: false
   collections: "crowdsecurity/linux crowdsecurity/traefik"
   scenarios: ""
   parsers: ""
