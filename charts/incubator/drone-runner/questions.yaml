@@ -51,7 +51,7 @@ questions:
           schema:
             type: string
             required: true
-            default: "REPLACETHIS"
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -86,7 +86,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-
+# Include{persistenceRoot}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
