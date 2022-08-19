@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.1.2](https://github.com/truecharts/charts/compare/plex-10.1.1...plex-10.1.2) (2022-08-19)
+
+### Fix
+
+- fix tpl error ([#3515](https://github.com/truecharts/charts/issues/3515))
+
+
+
+
 ## [plex-10.1.1](https://github.com/truecharts/charts/compare/plex-10.1.0...plex-10.1.1) (2022-08-19)
 
 ### Chore
