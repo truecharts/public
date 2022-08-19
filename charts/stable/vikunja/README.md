@@ -1,6 +1,6 @@
 # vikunja
 
-![Version: 3.0.40](https://img.shields.io/badge/Version-3.0.40-informational?style=flat-square) ![AppVersion: 0.19.1](https://img.shields.io/badge/AppVersion-0.19.1-informational?style=flat-square)
+![Version: 3.0.41](https://img.shields.io/badge/Version-3.0.41-informational?style=flat-square) ![AppVersion: 0.19.2](https://img.shields.io/badge/AppVersion-0.19.2-informational?style=flat-square)
 
 The to-do app to organize your life.
 

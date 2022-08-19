@@ -2,6 +2,15 @@
 
 
 
+## [adguardhome-sync-0.0.19](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.18...adguardhome-sync-0.0.19) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [adguardhome-sync-0.0.18](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.17...adguardhome-sync-0.0.18) (2022-08-12)
 
 ### Chore

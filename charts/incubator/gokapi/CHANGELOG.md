@@ -2,6 +2,15 @@
 
 
 
+## [gokapi-0.0.22](https://github.com/truecharts/charts/compare/gokapi-0.0.21...gokapi-0.0.22) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [gokapi-0.0.21](https://github.com/truecharts/charts/compare/gokapi-0.0.20...gokapi-0.0.21) (2022-08-12)
 
 ### Chore

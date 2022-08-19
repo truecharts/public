@@ -2,6 +2,15 @@
 
 
 
+## [vaulthunters-0.0.17](https://github.com/truecharts/charts/compare/vaulthunters-0.0.16...vaulthunters-0.0.17) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [vaulthunters-0.0.16](https://github.com/truecharts/charts/compare/vaulthunters-0.0.15...vaulthunters-0.0.16) (2022-08-12)
 
 ### Chore
