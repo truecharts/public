@@ -521,6 +521,21 @@ questions:
                         type: string
                         required: true
                         default: https://theme-park.dev
+                    - variable: addons
+                      label: Addons
+                      description: Currently only supports 'darker' and '4k-logo' for *arr apps.
+                        Go to <a href="https://docs.theme-park.dev/themes/addons/">https://docs.theme-park.dev/themes/addons/</a> for Addon information.
+                        Go to <a href="https://github.com/packruler/traefik-themepark">https://github.com/packruler/traefik-themepark</a> for more context on plugin
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: addonEntry
+                            label: ""
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
