@@ -64,6 +64,12 @@
                       schema:
                         type: boolean
                         default: false
+                    - variable: userspace
+                      label: Userspace
+                      description: Userspace Networking mode allows running Tailscale where you do not have access to create a VPN tunnel device.
+                      schema:
+                        type: boolean
+                        default: false
                     - variable: routes
                       label: Routes
                       description: Expose physical subnet routes to your entire Tailscale network.
@@ -85,6 +91,12 @@
                     - variable: extra_args
                       label: Extra Args
                       description: Extra Args
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: daemon_extra_args
+                      label: Tailscale Daemon Extra Args
+                      description: Tailscale Daemon Extra Args
                       schema:
                         type: string
                         default: ""
