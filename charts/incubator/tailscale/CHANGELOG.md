@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-0.0.4](https://github.com/truecharts/charts/compare/tailscale-0.0.3...tailscale-0.0.4) (2022-08-20)
+
+### Fix
+
+- adds tun device and runs as root by default ([#3519](https://github.com/truecharts/charts/issues/3519))
+
+
+
+
 ## [tailscale-0.0.3](https://github.com/truecharts/charts/compare/tailscale-0.0.2...tailscale-0.0.3) (2022-08-18)
 
 ### Chore
