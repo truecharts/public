@@ -503,14 +503,14 @@ questions:
                     - variable: appName
                       label: App Name
                       description: Lower case, name of the app to be themed.
-                        Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
+                        <br />Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
                       schema:
                         type: string
                         required: true
                     - variable: themeName
                       label: Theme Name
                       description: Lower case, name of the theme to be applied.
-                        Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
+                        <br />Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
                       schema:
                         type: string
                         required: true
@@ -530,8 +530,8 @@ questions:
                           - variable: addonEntry
                             label: "Addon"
                             description: Currently only supports 'darker' and '4k-logo' for *arr apps.
-                              Go to <a href="https://docs.theme-park.dev/themes/addons/">https://docs.theme-park.dev/themes/addons/</a> for Addon information.
-                              Go to <a href="https://github.com/packruler/traefik-themepark">https://github.com/packruler/traefik-themepark</a> for more context on plugin
+                              <br />Go to <a href="https://docs.theme-park.dev/themes/addons/">https://docs.theme-park.dev/themes/addons/</a> for Addon information.
+                              <br />Go to <a href="https://github.com/packruler/traefik-themepark">https://github.com/packruler/traefik-themepark</a> for more context on plugin
                             schema:
                               type: string
                               required: true
