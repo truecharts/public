@@ -2,6 +2,15 @@
 
 
 
+## [snapdrop-2.0.35](https://github.com/truecharts/charts/compare/snapdrop-2.0.34...snapdrop-2.0.35) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [snapdrop-2.0.34](https://github.com/truecharts/charts/compare/snapdrop-2.0.33...snapdrop-2.0.34) (2022-08-12)
 
 ### Chore

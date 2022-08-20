@@ -2,6 +2,15 @@
 
 
 
+## [memcached-3.0.58](https://github.com/truecharts/charts/compare/memcached-3.0.57...memcached-3.0.58) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [memcached-3.0.57](https://github.com/truecharts/charts/compare/memcached-3.0.55...memcached-3.0.57) (2022-08-17)
 
 ### Chore

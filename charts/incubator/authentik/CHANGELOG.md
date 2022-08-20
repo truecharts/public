@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.7](https://github.com/truecharts/charts/compare/authentik-3.0.6...authentik-3.0.7) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [authentik-3.0.6](https://github.com/truecharts/charts/compare/authentik-3.0.5...authentik-3.0.6) (2022-08-17)
 
 ### Chore

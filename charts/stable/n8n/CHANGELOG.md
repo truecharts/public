@@ -2,6 +2,15 @@
 
 
 
+## [n8n-4.0.42](https://github.com/truecharts/charts/compare/n8n-4.0.41...n8n-4.0.42) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [n8n-4.0.41](https://github.com/truecharts/charts/compare/n8n-4.0.40...n8n-4.0.41) (2022-08-18)
 
 ### Chore

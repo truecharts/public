@@ -2,6 +2,15 @@
 
 
 
+## [traktarr-0.0.20](https://github.com/truecharts/charts/compare/traktarr-0.0.19...traktarr-0.0.20) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [traktarr-0.0.19](https://github.com/truecharts/charts/compare/traktarr-0.0.18...traktarr-0.0.19) (2022-08-14)
 
 ### Chore

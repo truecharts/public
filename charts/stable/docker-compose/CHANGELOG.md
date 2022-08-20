@@ -2,6 +2,15 @@
 
 
 
+## [docker-compose-2.0.33](https://github.com/truecharts/charts/compare/docker-compose-2.0.32...docker-compose-2.0.33) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [docker-compose-2.0.32](https://github.com/truecharts/charts/compare/docker-compose-2.0.31...docker-compose-2.0.32) (2022-08-19)
 
 ### Chore

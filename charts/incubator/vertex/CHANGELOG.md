@@ -2,6 +2,15 @@
 
 
 
+## [vertex-0.0.26](https://github.com/truecharts/charts/compare/vertex-0.0.25...vertex-0.0.26) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [vertex-0.0.25](https://github.com/truecharts/charts/compare/vertex-0.0.24...vertex-0.0.25) (2022-08-19)
 
 ### Chore

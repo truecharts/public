@@ -2,6 +2,15 @@
 
 
 
+## [blender-0.0.19](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.16...blender-0.0.19) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [blender-0.0.18](https://github.com/truecharts/charts/compare/blender-0.0.17...blender-0.0.18) (2022-08-12)
 
 ### Chore

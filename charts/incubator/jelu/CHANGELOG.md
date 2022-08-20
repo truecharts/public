@@ -2,6 +2,15 @@
 
 
 
+## [jelu-0.0.20](https://github.com/truecharts/charts/compare/jelu-0.0.19...jelu-0.0.20) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [jelu-0.0.19](https://github.com/truecharts/charts/compare/jelu-0.0.18...jelu-0.0.19) (2022-08-14)
 
 ### Chore

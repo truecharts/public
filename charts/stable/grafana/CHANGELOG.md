@@ -2,6 +2,15 @@
 
 
 
+## [grafana-4.0.47](https://github.com/truecharts/charts/compare/grafana-4.0.46...grafana-4.0.47) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [grafana-4.0.46](https://github.com/truecharts/charts/compare/grafana-4.0.45...grafana-4.0.46) (2022-08-17)
 
 ### Chore

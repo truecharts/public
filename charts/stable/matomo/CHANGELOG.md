@@ -2,6 +2,15 @@
 
 
 
+## [matomo-3.0.48](https://github.com/truecharts/charts/compare/matomo-3.0.47...matomo-3.0.48) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [matomo-3.0.47](https://github.com/truecharts/charts/compare/matomo-3.0.46...matomo-3.0.47) (2022-08-17)
 
 ### Chore
