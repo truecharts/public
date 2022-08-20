@@ -7,14 +7,16 @@ command: ["ash", "/tailscale/run.sh"]
 
 tty: true
 
-# Only un-comment this if you are going to have `userspace: false`
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+    - NET_ADMIN
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 serviceAccount:
   main:
@@ -72,6 +74,13 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/lib"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
 
 portal:
   enabled: false
