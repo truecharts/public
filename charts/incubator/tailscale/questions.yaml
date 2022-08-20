@@ -58,6 +58,11 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: daemon_extra_args
+          label: "Tailscale Daemon Extra Args"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

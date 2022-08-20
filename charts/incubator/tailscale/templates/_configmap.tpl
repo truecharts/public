@@ -27,4 +27,7 @@ data:
   {{- with .Values.tailscale.extra_args }}
   TS_EXTRA_ARGS: {{ . | quote }}
   {{- end }}
+  {{- with .Values.tailscale.daemon_extra_args }}
+  TS_TAILSCALED_EXTRA_ARGS: {{ . | quote }}
+  {{- end }}
 {{- end }}
