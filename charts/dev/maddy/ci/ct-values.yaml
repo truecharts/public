@@ -87,7 +87,7 @@ secret:
     -----END PRIVATE KEY-----
 
 maddy:
-  tls_secret_name: '{{ include "common.names.fullname" . }}'
+  tls_secret_name: '{{ include "tc.common.names.fullname" . }}'
 
 service:
   main:
