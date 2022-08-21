@@ -1,25 +1,25 @@
 {{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
-{{- include "common.values.setup" . -}}
+{{- include "tc.common.values.setup" . -}}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: {{ include "common.names.fullname" . }}
+  name: {{ include "tc.common.names.fullname" . }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "tc.common.labels" . | nindent 4 }}
     {{- with .Values.metrics.prometheusRule.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
   groups:
-    - name: {{ include "common.names.fullname" . }}
+    - name: {{ include "tc.common.names.fullname" . }}
       rules:
         - alert: BlockyAbsent
           annotations:
             description: Blocky has disappeared from Prometheus service discovery.
             summary: Blocky is down.
           expr: |
-            absent(up{job=~".*{{ include "common.names.fullname" . }}.*"} == 1)
+            absent(up{job=~".*{{ include "tc.common.names.fullname" . }}.*"} == 1)
           for: 5m
           labels:
             severity: critical
@@ -29,7 +29,7 @@ spec:
               Please re-enable protection.
             summary: Blocky is disabled.
           expr: |
-            blocky_blocking_enabled{job=~".*{{ include "common.names.fullname" . }}.*"} == 0
+            blocky_blocking_enabled{job=~".*{{ include "tc.common.names.fullname" . }}.*"} == 0
           for: 15m
           labels:
             severity: critical

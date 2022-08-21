@@ -565,6 +565,8 @@ prep_helm() {
     helm repo add metallb https://metallb.github.io/metallb
     helm repo add grafana https://grafana.github.io/helm-charts
     helm repo add prometheus https://prometheus-community.github.io/helm-charts
+    helm repo add nats https://nats-io.github.io/k8s/helm/charts
+    helm repo add jetstack https://charts.jetstack.io
     helm repo update
     fi
     }

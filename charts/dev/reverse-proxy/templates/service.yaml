@@ -1,13 +1,13 @@
-{{- include "common.values.setup" . -}}
+{{- include "tc.common.values.setup" . -}}
 {{- range .Values.instances }}
 {{- if or ( not ( hasKey . "enabled" ) ) .enabled }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "common.names.fullname" $ }}-{{ .name }}
+  name: {{ include "tc.common.names.fullname" $ }}-{{ .name }}
   labels:
-    {{- include "common.labels" $ | nindent 4 }}
+    {{- include "tc.common.labels" $ | nindent 4 }}
 spec:
   {{- if .externalName }}
   type: ExternalName

@@ -4,9 +4,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-config
+  name: {{ include "common.names.fullname" . }}-config
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "common.labels" . | nindent 4 }}
 data:
   config.yml: |
     {{- .Values.config | nindent 4 }}

@@ -15,7 +15,7 @@
     config:
       enabled: true
       type: configMap
-      name: "{{ include "common.names.fullname" . }}-config"
+      name: "{{ include "tc.common.names.fullname" . }}-config"
   {{- end }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "gatus.harcodedValues" . | fromYaml) -}}

@@ -12,7 +12,7 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- Postgres database hostname
-  DATABASE_HOST: '{{ include "common.names.fullname" .}}-postgresql'
+  DATABASE_HOST: '{{ include "tc.common.names.fullname" .}}-postgresql'
   # -- Postgres database user name
   DATABASE_USER: postgres
   # -- Postgres database password

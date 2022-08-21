@@ -3,6 +3,7 @@ apiVersion: v2
 name: intel-gpu-plugin
 version: 0.0.1
 appVersion: 0.20.0
+kubeVersion: ">=1.19.0-0"
 description: The Intel GPU plugin facilitates offloading the processing of computation intensive workloads to GPU hardware
 keywords:
   - kubernetes
@@ -17,8 +18,6 @@ maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-  - name: bjw-s
-    email: me@bjw-s.dev
 dependencies:
   - name: common
     version: 4.5.2
