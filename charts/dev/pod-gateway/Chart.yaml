@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: v1.6.1
+description: Admision controller to change the default gateway and DNS server of PODs
+name: pod-gateway
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - pod-gateway
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/pod-gateway
+icon: https://pod-gateway.org/icon
+sources:
+  - https://github.com/k8s-at-home/gateway-admision-controller
+  - https://github.com/k8s-at-home/pod-gateway
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

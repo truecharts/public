@@ -1,0 +1,34 @@
+---
+apiVersion: v2
+appVersion: 2.0.19
+description: Open-source online collaborative genealogy application
+name: webtrees
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - webtrees
+  - genealogy
+  - family-tree
+icon: https://raw.githubusercontent.com/fisharebest/webtrees/main/resources/img/webtrees-icon.png
+sources:
+  - https://github.com/fisharebest/webtrees
+  - https://github.com/NathanVaughn/webtrees-docker
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    version: 4.5.2
+    repository: https://library-charts.k8s-at-home.com
+  - name: mariadb
+    version: 11.0.14
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

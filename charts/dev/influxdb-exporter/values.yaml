@@ -1,0 +1,46 @@
+image:
+  # -- image repository
+  repository: prom/influxdb-exporter
+  # -- image tag
+  tag: v0.9.0
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See more environment variables in the [influxdb-exporter documentation](https://influxdb-exporter.org/docs).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Override the args for the default container
+args:
+  - "--udp.bind-address=0.0.0.0:9123"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    type: ClusterIP
+    ports:
+      main:
+        port: 9122
+        targetPort: 9122
+  udp:
+    enabled: true
+    type: LoadBalancer
+    loadBalancerIP: ""
+    ports:
+      udp:
+        enabled: true
+        protocol: UDP
+        port: 9123
+        targetPort: 9123
+
+metrics:
+  # -- Enable and configure prometheus-qbittorrent-exporter sidecar and Prometheus podMonitor.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 15s
+    scrapeTimeout: 5s
+    labels: {}

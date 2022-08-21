@@ -1,0 +1,66 @@
+image:
+  # -- image repository
+  repository: registry.gitlab.com/arm-research/smarter/smarter-device-manager
+  # -- image tag
+  tag: v1.20.7
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Override default configuration
+# See [project repo](https://gitlab.com/arm-research/smarter/smarter-device-manager) for configuration examples.
+# @default -- See values.yaml
+config: |
+  - devicematch: ^ttyUSB.*$
+    nummaxdevices: 1
+
+# -- When using hostNetwork make sure you set dnsPolicy to `ClusterFirstWithHostNet`
+hostNetwork: true
+# -- Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true.
+dnsPolicy: # ClusterFirstWithHostNet
+
+termination:
+  # -- Configure the path at which the file to which the main container's termination message will be written.
+  # Overrides the default of `/dev/termination-log` to allow read-only `persistence.devfs` at `/dev`.
+  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePath: /var/log/termination-log
+
+  # -- Indicate how the main container's termination message should be populated.
+  # Valid options are `File` and `FallbackToLogsOnError`.
+  # smarter-device-manager does not support a termination-log, so use the container's log.
+  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePolicy: FallbackToLogsOnError
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  devfs:
+    enabled: true
+    type: hostPath
+    hostPath: /dev
+    readOnly: true
+  sysfs:
+    enabled: true
+    type: hostPath
+    hostPath: /sys
+    readOnly: true
+  kubeletsockets:
+    enabled: true
+    type: hostPath
+    hostPath: "/var/lib/kubelet/device-plugins"
+
+# -- Custom priority class for different treatment by the scheduler
+# Setting this is not necessary, but it is recommended.
+# [[ref]](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
+priorityClassName: system-node-critical
+
+# -- Configure the securityContext for this pod
+# [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+# @default -- See values.yaml
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  allowPrivilegeEscalation: false
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000

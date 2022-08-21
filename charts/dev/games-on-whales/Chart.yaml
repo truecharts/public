@@ -1,0 +1,35 @@
+---
+apiVersion: v2
+appVersion: 1.0.0
+description: Streams graphic applications/games (retroarch, firefox, steam) runing on Kubernetes
+name: games-on-whales
+version: 0.0.1
+kubeVersion: ">=1.19.0-0"
+keywords:
+  - games-on-whales
+  - steam
+  - X11
+  - pulse
+  - stream
+  - retroarch
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/games-on-whales
+icon: https://github.com/games-on-whales/gow/raw/master/docs/assets/img/gow-logo.png
+sources:
+  - https://github.com/games-on-whales/gow
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+  - name: ABeltramo
+    email: beltramo.ale@gmail.com
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

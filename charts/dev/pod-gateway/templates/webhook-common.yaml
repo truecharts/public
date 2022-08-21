@@ -1,0 +1,37 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- define "pod-gateway.gateway" -}}
+{{ printf "%s.%s.svc.%s" (include "common.names.fullname" .) .Release.Namespace .Values.clusterName }}
+{{- end -}}
+
+{{- define "pod-gateway.configmap" -}}
+{{ include "common.names.fullname" . }}
+{{- end -}}
+
+{{- define "pod-gateway.webhookPort" -}}
+8080
+{{- end -}}
+
+
+{{- define "pod-gateway.selfSignedIssuer" -}}
+{{ printf "%s-webhook-selfsign" (include "common.names.fullname" .) }}
+{{- end -}}
+
+{{- define "pod-gateway.rootCAIssuer" -}}
+{{ printf "%s-webhook-ca" (include "common.names.fullname" .) }}
+{{- end -}}
+
+{{- define "pod-gateway.rootCACertificate" -}}
+{{ printf "%s-webhook-ca" (include "common.names.fullname" .) }}
+{{- end -}}
+
+{{- define "pod-gateway.servingCertificate" -}}
+{{ printf "%s-webhook-tls" (include "common.names.fullname" .) }}
+{{- end -}}
+
+
+{{- define "pod-gateway.labels.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "common.names.name" . }}-webhook
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}

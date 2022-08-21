@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: 0.0.138
+description: scrypted helm package
+name: scrypted
+type: application
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - scrypted
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/scrypted
+icon: https://scrypted.org/icon
+sources:
+  - https://github.com/koush/scrypted
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

@@ -1,0 +1,29 @@
+image:
+  # -- image repository
+  repository: billimek/sb6183-for-influxdb
+  # -- image tag
+  tag: latest
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- modem-stats' config.ini configuration
+# @default -- string
+config: |
+  [GENERAL]
+  Delay = 3600
+  Output = False
+  [INFLUXDB]
+  Address = influxdb-influxdb
+  Port = 8086
+  Database = cable_modem_stats
+  Username =
+  Password =
+  Verify_SSL = False
+  [MODEM]
+  URL = http://192.168.100.1/RgConnect.asp

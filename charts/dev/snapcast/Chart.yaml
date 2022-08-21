@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: latest
+description: snapcast helm package
+name: snapcast
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - snapcast
+  - snapserver
+home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/snapcast
+icon: https://github.com/badaix/snapcast/blob/master/doc/web_hi_res_512.png
+sources:
+  - https://github.com/badaix/snapcast
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

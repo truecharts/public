@@ -1,0 +1,40 @@
+---
+apiVersion: v2
+appVersion: 2.4.2
+description: A self hostable application for saving web pages, freely.
+name: wallabag
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - wallabag
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/wallabag
+icon: "https://raw.githubusercontent.com/wallabag/logo/master/app-android/logo-app-android-icon-bg-white-512.png"
+sources:
+  - https://github.com/wallabag/docker
+  - https://hub.docker.com/wallabag/wallabag
+maintainers:
+  - name: Patricol
+    url: https://patricol.co/
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+  - name: redis
+    version: 16.13.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: redis.enabled
+  - name: postgresql
+    version: 11.6.12
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: mariadb
+    version: 11.0.14
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

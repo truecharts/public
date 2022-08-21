@@ -1,0 +1,32 @@
+---
+apiVersion: v2
+name: intel-gpu-plugin
+version: 0.0.1
+appVersion: 0.20.0
+description: The Intel GPU plugin facilitates offloading the processing of computation intensive workloads to GPU hardware
+keywords:
+  - kubernetes
+  - cluster
+  - hardware
+  - gpu
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/intel-gpu-plugin
+icon: https://avatars0.githubusercontent.com/u/17888862?s=400&v=4
+sources:
+  - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/master/cmd/gpu_plugin
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+  - name: bjw-s
+    email: me@bjw-s.dev
+dependencies:
+  - name: common
+    version: 4.5.2
+    repository: https://library-charts.k8s-at-home.com
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

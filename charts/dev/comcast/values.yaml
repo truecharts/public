@@ -1,0 +1,30 @@
+image:
+  # -- image repository
+  repository: billimek/comcastusage-for-influxdb
+  # -- image tag
+  tag: latest
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- comcast's config.ini configuration
+# @default -- string
+config: |
+  [GENERAL]
+  Delay = 3600
+  Output = False
+  [INFLUXDB]
+  Address = influxdb-influxdb
+  Port = 8086
+  Database = comcast
+  Username =
+  Password =
+  Verify_SSL = False
+  [COMCAST]
+  Username = someuser
+  Password = somepassword

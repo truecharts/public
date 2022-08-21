@@ -1,0 +1,119 @@
+image:
+  # -- image repository
+  repository: wallabag/wallabag
+  # -- image tag
+  # Note: Upgrading the wallabag version generally requires a migration. https://doc.wallabag.org/en/admin/upgrade.html
+  tag: 2.4.2
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://github.com/wallabag/docker) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # MYSQL_ROOT_PASSWORD:
+  # POSTGRES_PASSWORD:
+  # POSTGRES_USER:
+  # POPULATE_DATABASE:
+  ## For SYMFONY__ENV__ parameters' documentation, visit https://doc.wallabag.org/en/admin/parameters.html
+  ## redis, rabbitmq, and mailer are optional. database is not optional.
+  # SYMFONY__ENV__DATABASE_DRIVER:
+  # SYMFONY__ENV__DATABASE_DRIVER_CLASS:
+  # SYMFONY__ENV__DATABASE_HOST:
+  # SYMFONY__ENV__DATABASE_PORT:
+  # SYMFONY__ENV__DATABASE_NAME:
+  # SYMFONY__ENV__DATABASE_USER:
+  # SYMFONY__ENV__DATABASE_PASSWORD:
+  # SYMFONY__ENV__DATABASE_PATH:
+  # SYMFONY__ENV__DATABASE_TABLE_PREFIX:
+  # SYMFONY__ENV__DATABASE_SOCKET:
+  # SYMFONY__ENV__DATABASE_CHARSET:
+  # SYMFONY__ENV__DOMAIN_NAME:
+  # SYMFONY__ENV__MAILER_TRANSPORT:
+  # SYMFONY__ENV__MAILER_USER:
+  # SYMFONY__ENV__MAILER_PASSWORD:
+  # SYMFONY__ENV__MAILER_HOST:
+  # SYMFONY__ENV__MAILER_PORT:
+  # SYMFONY__ENV__MAILER_ENCRYPTION:
+  # SYMFONY__ENV__MAILER_AUTH_MODE:
+  # SYMFONY__ENV__LOCALE:
+  # SYMFONY__ENV__SECRET:
+  # SYMFONY__ENV__TWOFACTOR_AUTH:
+  # SYMFONY__ENV__TWOFACTOR_SENDER:
+  # SYMFONY__ENV__FOSUSER_REGISTRATION:
+  # SYMFONY__ENV__FOSUSER_CONFIRMATION:
+  # SYMFONY__ENV__FOS_OAUTH_SERVER_ACCESS_TOKEN_LIFETIME:
+  # SYMFONY__ENV__FOS_OAUTH_SERVER_REFRESH_TOKEN_LIFETIME:
+  # SYMFONY__ENV__FROM_EMAIL:
+  # SYMFONY__ENV__RSS_LIMIT:
+  # SYMFONY__ENV__RABBITMQ_HOST:
+  # SYMFONY__ENV__RABBITMQ_PORT:
+  # SYMFONY__ENV__RABBITMQ_USER:
+  # SYMFONY__ENV__RABBITMQ_PASSWORD:
+  # SYMFONY__ENV__REDIS_SCHEME:
+  # SYMFONY__ENV__REDIS_HOST:
+  # SYMFONY__ENV__REDIS_PORT:
+  # SYMFONY__ENV__REDIS_PATH:
+  # SYMFONY__ENV__REDIS_PASSWORD:
+  # SYMFONY__ENV__SENTRY_DSN:
+  # SYMFONY__ENV__SERVER_NAME:
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  images:
+    enabled: false
+    mountPath: /var/www/wallabag/web/assets/images
+  cache:
+    ## Note that if you make cache persistent, you may need to clear it (with `bin/console cache:clear --env=prod`) to apply any changes you make to wallabag's parameters.
+    enabled: false
+    mountPath: /var/www/wallabag/var/cache
+
+# -- Enable and configure mariadb database subchart under this key.
+#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+# @default -- See values.yaml
+mariadb:
+  enabled: false
+  architecture: standalone
+  auth:
+    database: wallabag
+    username: wallabag
+    password: wallabag-pass
+    rootPassword: wallabag-rootpass
+  primary:
+    persistence:
+      enabled: false
+
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
+postgresql:
+  enabled: false
+  postgresqlUsername: wallabag
+  postgresqlPassword: wallabag-pass
+  postgresqlDatabase: wallabag
+  persistence:
+    enabled: false
+
+# -- Enable and configure redis subchart under this key.
+#    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)
+# @default -- See values.yaml
+redis:
+  enabled: false
+  auth:
+    enabled: false

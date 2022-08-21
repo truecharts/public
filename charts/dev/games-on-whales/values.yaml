@@ -1,0 +1,136 @@
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+service:
+  # -- Enable and configure TCP service settings for the chart under this key.
+  # @default -- See values.yaml
+  main: {}
+  # type: LoadBalancer
+  # loadBalancerIP: 192.168.1.129
+
+  # -- Enable and configure UDP service settings for the chart under this key.
+  # @default -- See values.yaml
+  udp: {}
+  # type: LoadBalancer
+  # loadBalancerIP: 192.168.1.129
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  home:
+    enabled: true
+    type: emptyDir
+    mountPath: /home/retro
+
+# -- (object) Pass GPU resources to Xorg, steam and retroarch containers
+# See Custom configuration section in the Readme
+graphic_resources:
+
+sunshine:
+  image:
+    # -- sunshine image repository
+    repository: ghcr.io/games-on-whales/sunshine
+    # -- sunshine image tag
+    tag: 1.0.0
+    # -- sunshine image pull policy
+    pullPolicy: IfNotPresent
+  # -- sunshine web interface user
+  user: admin
+  # -- sunshine web interface pasword
+  password: admin
+  # -- sunshine log level
+  logLevel: info
+  # -- sunshine additional env settings
+  env: {}
+xorg:
+  image:
+    # -- xorg image repository
+    repository: ghcr.io/games-on-whales/xorg
+    # -- xorg image tag
+    tag: 1.0.0
+    # -- xorg image pull policy
+    pullPolicy: IfNotPresent
+  # -- xorg display ID
+  display: :99
+  # -- xorg refresh rate
+  refreshrate: 60
+  # -- xorg resolution
+  resolution: 1920x1080
+pulseaudio:
+  image:
+    # -- pulseaudio image repository
+    repository: ghcr.io/games-on-whales/pulseaudio
+    # -- pulseaudio image tag
+    tag: 1.0.0
+    # -- pulseaudio image pull policy
+    pullPolicy: IfNotPresent
+retroarch:
+  # -- enable/disable retroarch container
+  enabled: true
+  image:
+    # -- retroarch image repository
+    repository: ghcr.io/games-on-whales/retroarch
+    # -- retroarch image tag
+    tag: 1.0.0
+    # -- retroarch image pull policy
+    pullPolicy: IfNotPresent
+  # -- retroarch log level
+  logLevel: info
+  # -- retroarch extra volume mounts
+  volumeMounts: []
+steam:
+  # -- enable/disable steam container
+  enabled: true
+  image:
+    # -- steam image repository
+    repository: ghcr.io/games-on-whales/steam
+    # -- steam image tag
+    tag: 1.0.0
+    # -- steam image pull policy
+    pullPolicy: IfNotPresent
+  # -- enable proton log
+  protonLog: 1
+  # -- steam extra volume mounts
+  volumeMounts: []
+firefox:
+  # -- enable/disable firefox container
+  enabled: true
+  image:
+    # -- image repository
+    repository: andrewmackrodt/firefox-x11
+    # -- image tag
+    tag: 91.0.2-r1
+    # -- image pull policy
+    pullPolicy: IfNotPresent
+  # -- firefox log level
+  logLevel: info
+  # -- firefox extra volume mounts
+  volumeMounts: []
+mkhomeretrodirs:
+  image:
+    # -- image repository
+    repository: busybox
+    # -- image tag
+    tag: 1.34.0
+    # -- image pull policy
+    pullPolicy: IfNotPresent
+
+# -- Configure pulse audio settings
+# @default -- See values.yaml
+pulse:
+  config:
+    default.pa: |-
+      .fail
+          load-module module-null-sink sink_name=sunshine
+          set-default-sink sunshine
+          load-module module-native-protocol-unix auth-anonymous=1 socket=/tmp/pulse/pulse-socket
+    client.conf: |-
+      default-sink = sink-sunshine-stereo
+      autospawn = no
+      daemon-binary = /bin/true
+    daemon.conf: |-
+      exit-idle-time = -1
+      flat-volumes = yes

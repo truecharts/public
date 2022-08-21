@@ -1,0 +1,107 @@
+{{- include "common.values.setup" . -}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "common.names.fullname" . }}-webhook
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+    {{- with .Values.webhook.controllerLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.webhook.controllerAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: {{ .Values.webhook.replicas }}
+  {{- with .Values.webhook.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{ include "pod-gateway.labels.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.webhook.podAnnotations }}
+      annotations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+      {{ include "pod-gateway.labels.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: certs
+          secret:
+            secretName: {{ include "pod-gateway.servingCertificate" . }}
+            defaultMode: 420
+      containers:
+        - name: webhook
+          image: {{ .Values.webhook.image.repository }}:{{ .Values.webhook.image.tag }}
+          args:
+            - --webhook-listen-address=:{{ include "pod-gateway.webhookPort" . }}
+            - --gateway={{ include "pod-gateway.gateway" . }}
+            - --DNS={{ .Values.DNS }}
+            - --configmapName={{ include "pod-gateway.configmap" . }}
+            - --setGatewayLabel={{ .Values.webhook.gatewayLabel }}
+            - --setGatewayAnnotation={{ .Values.webhook.gatewayAnnotation }}
+            {{ if .Values.webhook.gatewayDefault }}
+            - --setGatewayDefault
+            {{ end }}
+            # Static
+            - --tls-cert-file-path=/tls/tls.crt
+            - --tls-key-file-path=/tls/tls.key
+            - --DNSPolicy={{ .Values.DNSPolicy }}
+            # Init container
+            - --initImage={{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
+            - --initImagePullPol={{ .Values.image.pullPolicy }}
+            - --initCmd=/bin/client_init.sh
+            - --initMountPoint=/config
+            # Sidecar container
+            - --sidecarImage={{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
+            - --sidecarImagePullPol={{ .Values.image.pullPolicy }}
+            - --sidecarCmd=/bin/client_sidecar.sh
+            - --sidecarMountPoint=/config
+          ports:
+            - name: http
+              containerPort: {{ include "pod-gateway.webhookPort" . }}
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: certs
+              readOnly: true
+              mountPath: /tls
+          livenessProbe:
+            httpGet:
+              path: /wh/health
+              port: {{ include "pod-gateway.webhookPort" . }}
+              scheme: HTTPS
+            initialDelaySeconds: 1
+            timeoutSeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /wh/health
+              port: {{ include "pod-gateway.webhookPort" . }}
+              scheme: HTTPS
+            initialDelaySeconds: 1
+            timeoutSeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 5
+          startupProbe:
+            httpGet:
+              path: /wh/health
+              port: {{ include "pod-gateway.webhookPort" . }}
+              scheme: HTTPS
+            timeoutSeconds: 1
+            periodSeconds: 1
+            successThreshold: 1
+            failureThreshold: 30
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+      restartPolicy: Always

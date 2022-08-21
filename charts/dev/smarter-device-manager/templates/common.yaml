@@ -1,0 +1,33 @@
+{{- include "tc.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "sdm.hardcodedValues" -}}
+controller:
+  type: daemonset
+
+persistence:
+  configuration:
+    enabled: "true"
+    mountPath: "/root/config/conf.yaml"
+    subPath: "conf.yaml"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    enabled: false
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "sdm.hardcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

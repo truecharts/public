@@ -1,0 +1,52 @@
+image:
+  # -- image repository
+  repository: eikek0/sharry
+  # -- image tag
+  tag: 1.8.0
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 9090
+
+# -- Override the command line arguments for the default container
+args:
+  - "/opt/sharry.conf"
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+    # -- Enable large file support with those annotations for nginx
+    # annotations:
+    #   nginx.ingress.kubernetes.io/client-body-buffer-size: "2048m"
+    #   nginx.ingress.kubernetes.io/proxy-body-size: "2048m"
+    #   nginx.ingress.kubernetes.io/proxy-buffering: "off"
+
+# -- Sharry configuration. Supports Helm templates.
+# See [application docs](https://eikek.github.io/sharry/doc/configure) for more details.
+# @default -- See values.yaml
+config: |
+  sharry.restserver {
+    # base-url = "https://sharry.${DOMAIN}"
+    bind {
+      address = "0.0.0.0"
+      port = {{ .Values.service.main.ports.http.port }}
+    }
+    backend {
+      auth {
+        fixed {
+          enabled = false  # set to true to enable this auth provider
+          user = "admin"
+          password = "admin"
+          order = 10
+        }
+      }
+    }
+  }

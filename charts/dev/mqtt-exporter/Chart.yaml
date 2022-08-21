@@ -1,0 +1,30 @@
+---
+apiVersion: v2
+appVersion: 1.0.0
+description: Simple and generic Prometheus exporter for MQTT. Tested with Mosquitto MQTT and Xiaomi sensors.
+name: mqtt-exporter
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - zigbee2mqtt
+  - prometheus
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/mqtt-exporter
+icon: https://static.veritone.com/assets/favicon/favicon.ico
+sources:
+  - https://github.com/kpetremann/mqtt-exporter
+  - https://hub.docker.com/r/kpetrem/mqtt-exporter
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

@@ -1,0 +1,31 @@
+image:
+  # -- image repository
+  repository: thirtythreeforty/neolink
+  # -- image tag
+  tag: latest
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8554
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Neolink configuration settings. See [application docs](https://github.com/thirtythreeforty/neolink/blob/master/sample_config.toml) for more details.
+# @default -- See values.yaml
+config: |
+  bind = "0.0.0.0"
+  [[cameras]]
+  name = "driveway"
+  username = "admin"
+  password = "12345678"
+  address = "192.168.1.187:9000"

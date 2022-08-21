@@ -1,0 +1,48 @@
+---
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "network-ups-tools.harcodedValues" -}}
+persistence:
+  nut-config:
+    enabled: "true"
+    mountPath: "/etc/nut"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+        defaultMode: 256
+        optional: true
+
+{{ if .Values.metrics.enabled }}
+additionalContainers:
+  exporter:
+    name: exporter
+    image: "{{ .Values.metrics.exporter.image.repository }}:{{ .Values.metrics.exporter.image.tag }}"
+    imagePullPolicy: {{ .Values.metrics.exporter.image.pullPolicy }}
+    env:
+      - name: HTTP_PORT
+        value: "{{ .Values.metrics.exporter.env.port }}"
+      - name: HTTP_PATH
+        value: "/metrics"
+      - name: RUST_LOG
+        value: "{{ .Values.metrics.exporter.env.logLevel }}"
+    ports:
+      - name: metrics
+        containerPort: {{ .Values.metrics.exporter.env.port }}
+
+service:
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        protocol: TCP
+        port: {{ .Values.metrics.exporter.env.port }}
+{{ end }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "network-ups-tools.harcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

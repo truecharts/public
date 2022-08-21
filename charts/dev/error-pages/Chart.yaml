@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: 2.6.0
+description: Server error pages in the docker image
+name: error-pages
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - traefik
+  - error-pages
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/error-pages
+icon: https://hsto.org/webt/rm/9y/ww/rm9ywwx3gjv9agwkcmllhsuyo7k.png
+sources:
+  - https://github.com/tarampampam/error-pages
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

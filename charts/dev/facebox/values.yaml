@@ -1,0 +1,34 @@
+image:
+  # -- image repository
+  repository: machinebox/facebox
+  # -- image tag
+  tag: latest
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://developer.us-1.veritone.com/machinebox/overview) for more details.
+# @default -- See below
+env:
+  TZ: UTC
+  # MB_KEY:
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+    mountPath: /conf

@@ -1,0 +1,36 @@
+{{- include "common.values.setup" . -}}
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: {{ include "common.names.fullname" . | quote }}
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/inject-ca-from: "{{ .Release.Namespace }}/{{ include "pod-gateway.servingCertificate" . }}"
+webhooks:
+- name: "{{ include "common.names.fullname" . }}.svc.cluster.local"
+  namespaceSelector:
+  {{- with .Values.webhook.namespaceSelector }}
+  {{- if eq .type "label" }}
+    matchLabels:
+      {{ .label }}: "true"
+  {{- else if eq .type "custom" }}
+    {{- toYaml .custom | nindent 4 }}
+  {{- end }}
+  {{- end }}
+  rules:
+  - apiGroups:   [""]
+    apiVersions: ["v1"]
+    operations:  ["CREATE"]
+    resources:   ["pods"]
+    scope:       "Namespaced"
+  clientConfig:
+    service:
+      namespace: {{ .Release.Namespace | quote }}
+      name: {{ include "common.names.fullname" . }}-webhook
+      path: /wh/mutating/setgateway
+      port: {{ include "pod-gateway.webhookPort" . }}
+  admissionReviewVersions: ["v1", "v1beta1"]
+  sideEffects: None
+  timeoutSeconds: 5

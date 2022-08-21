@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+appVersion: 2.4.20
+description: A free Microsoft OneDrive Client which supports OneDrive Personal, OneDrive for Business, OneDrive for Office365, and SharePoint
+name: onedrive
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - onedrive
+  - filesync
+home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/onedrive
+icon: https://github.com/abraunegg/abraunegg.github.io/raw/master/images/linux_onedrive_logo.jpg
+sources:
+  - https://github.com/abraunegg/onedrive
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

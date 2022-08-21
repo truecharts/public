@@ -1,0 +1,108 @@
+image:
+  # -- image repository
+  repository: ghcr.io/k8s-at-home/network-ups-tools
+  # -- image tag
+  tag: v2.7.4-2479-g86a32237
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      server:
+        enabled: true
+        protocol: TCP
+        port: 3493
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  ups:
+    enabled: false
+    type: hostPath
+    # -- The path of the usb ups on the host.
+    hostPath: /dev/bus/usb/001/001
+    # -- Optional path for ups to mount in the container.
+    mountPath: /dev/bus/usb/001/001
+    readOnly: false
+
+# -- Set to true if using ups connected by usb to the host
+# @default -- See values.yaml
+securityContext:
+  privileged: false
+
+config:
+  # -- If set to 'values', the configuration will be read from these values.
+  # Otherwise you have to mount a volume to /etc/nut containing the configuration files.
+  mode: values
+
+  # -- See https://github.com/networkupstools/nut/tree/master/conf for config sample files
+  # @default -- See values.yaml
+  files:
+    nut.conf: |
+      MODE=netserver
+
+    upsd.conf: |
+      LISTEN 0.0.0.0
+
+    ups.conf: |
+      [dummy]
+        driver = dummy-ups
+        port = dummy-ups.dev
+        desc = "dummy-ups in dummy mode"
+
+metrics:
+  # -- Enable and configure prometheus-nut-exporter sidecar and Prometheus serviceMonitor.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 30s
+    scrapeTimeout: 10s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UpsStatusUnknown
+      #   annotations:
+      #     description: UPS {{ "{{ $labels.ups }}" }} is reporting a status of unknown.
+      #     summary: UPS status unknown.
+      #   expr: |
+      #     nut_status == 0
+      #   for: 10s
+      #   labels:
+      #     severity: critical
+  exporter:
+    image:
+      # -- image repository
+      repository: hon95/prometheus-nut-exporter
+      # -- image tag
+      tag: 1.1.1
+      # -- image pull policy
+      pullPolicy: IfNotPresent
+    env:
+      # -- metrics port
+      port: 9995
+      # -- log level [info|debug|trace]
+      logLevel: info

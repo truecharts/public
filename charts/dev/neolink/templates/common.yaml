@@ -1,0 +1,20 @@
+---
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "neolink.harcodedValues" -}}
+persistence:
+  neolink-settings:
+    enabled: "true"
+    mountPath: "/etc/neolink.toml"
+    subPath: "neolink.toml"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-settings" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "neolink.harcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

@@ -1,0 +1,34 @@
+---
+apiVersion: v2
+appVersion: v0.18
+description: DNS proxy as ad-blocker for local network
+name: blocky
+version: 0.0.1
+kubeVersion: ">=1.19.0-0"
+keywords:
+  - blocky
+  - adblock
+  - dns
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/blocky
+icon: https://github.com/0xERR0R/blocky/raw/master/docs/blocky.svg?sanitize=true
+sources:
+  - https://github.com/0xERR0R/blocky
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+  - name: redis
+    repository: https://charts.bitnami.com/bitnami
+    version: 16.13.1
+    condition: redis.enabled
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

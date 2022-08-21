@@ -1,0 +1,19 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "rtorrent-flood.harcodedValues" -}}
+persistence:
+  rtorrent-flood-config:
+    enabled: true
+    mountPath: "/config/.rtorrent.rc"
+    subPath: ".rtorrent.rc"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ include "common.names.fullname" . }}-config
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "rtorrent-flood.harcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

@@ -1,0 +1,28 @@
+---
+apiVersion: v2
+appVersion: v0.9.0
+description: An exporter for metrics in the InfluxDB format, transforms them and exposes them for consumption by Prometheus.
+name: influxdb-exporter
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - influxdb-exporter
+home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/influxdb-exporter
+icon: https://influxdata.github.io/branding/img/downloads/influxdata-logo--symbol--pool.jpg
+sources:
+  - https://github.com/prometheus/influxdb_exporter
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

@@ -1,0 +1,28 @@
+image:
+  # -- multus installer repostory
+  repository: ghcr.io/k8snetworkplumbingwg/multus-cni
+  # -- multus installer tag
+  tag: v3.7.1
+  # -- multus installer pull policy
+  pullPolicy: IfNotPresent
+
+cni:
+  image:
+    # -- CNI installer repostory
+    repository: ghcr.io/k8s-at-home/cni-plugins
+    # -- CNI installer tag
+    tag: v0.9.1
+    # -- CNI installer pull policy
+    pullPolicy: IfNotPresent
+
+  paths:
+    # -- CNI config folder for k3s.
+    # Change to `/etc/cni/net.d` for non k3s
+    config: /var/lib/rancher/k3s/agent/etc/cni/net.d
+
+    # -- CNI plugin binaries folder for k3s.
+    # Change to `/opt/cni/bin` for non k3s
+    bin: /var/lib/rancher/k3s/data/current/bin
+
+  # -- CNI interface version
+  version: "0.3.1"

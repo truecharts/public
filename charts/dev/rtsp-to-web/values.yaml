@@ -1,0 +1,39 @@
+image:
+  # -- image repository
+  repository: ghcr.io/deepch/rtsptoweb
+  # -- image tag
+  tag:
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8083
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Enable WebRTC and other video protocols
+# hostNetwork: true
+
+# -- Configure persistence settings for the chart under this key. See https://github.com/deepch/RTSPtoWeb#configuration
+# for /config/config.json settings and examples.
+# @default -- See values.yaml
+persistence:
+  {}
+  # config:
+  #   enabled: false
+  #   mountPath: /config

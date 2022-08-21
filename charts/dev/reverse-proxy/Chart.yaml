@@ -1,0 +1,29 @@
+---
+apiVersion: v2
+version: 0.0.1
+description: Creates ingress reverse-proxies for external hosts with minimum boilerplate
+name: reverse-proxy
+appVersion: 1.2.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - reverse-proxy
+  - ingress
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/reverse-proxy
+icon: https://kubernetes.io/images/wheel.svg
+sources:
+  - https://kubernetes.io/docs/concepts/services-networking/ingress/
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

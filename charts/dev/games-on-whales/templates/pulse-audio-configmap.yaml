@@ -1,0 +1,10 @@
+{{- include "common.values.setup" . -}}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "common.names.fullname" . }}-pulse
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  {{- tpl (.Values.pulse.config | toYaml) $ | nindent 2 }}

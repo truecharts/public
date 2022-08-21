@@ -1,0 +1,62 @@
+image:
+  # -- image repository
+  repository: thomseddon/traefik-forward-auth
+  # -- image tag
+  # @default -- chart.appVersion
+  tag: ""
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See more environment variables in the [traefik-forward-auth documentation](https://github.com/thomseddon/traefik-forward-auth#configuration)
+# @default -- See below
+env:
+  TZ: UTC
+  # LOG_LEVEL: warn # [trace|debug|info|warn|error|fatal|panic]
+  # LOG_FORMAT: text # [text|json|pretty]
+  # AUTH_HOST: oauth.example.org
+  # DOMAIN: example.org # Only allow given email domains. (Comma delimited)
+  # WHITELIST: auth@example.org # Only allow given email addresses. (Comma delimited)
+  # LIFETIME: '43200' # Lifetime in seconds
+  # COOKIE_DOMAIN: example.org # Domain(s) to set auth cookie on. (Comma delimited)
+  # INSECURE_COOKIE: 'false' # Use insecure cookies
+  # COOKIE_NAME: _forward_auth # Cookie name
+  # CSRF_COOKIE_NAME: _forward_auth_csrf # CSRF cookie name
+  # SECRET: # Secret used for signing. If unset, one will be generated.
+  #   valueFrom:
+  #     secretKeyRef: traefik-forward-auth
+  # URL_PATH: /_oauth # Callback URL path
+  # LOGOUT_REDIRECT: '' # URL to redirect to following logout
+  # DEFAULT_ACTION: auth # [auth|allow]
+  # DEFAULT_PROVIDER: google # [google|oidc|generic-oauth]
+  #
+  # PROVIDERS_GOOGLE_CLIENT_ID: '' # Client ID
+  # PROVIDERS_GOOGLE_CLIENT_SECRET: '' # Client Secret
+  # PROVIDERS_GOOGLE_PROMPT: '' # Space separated list of OpenID prompt options
+  #
+  # PROVIDERS_OIDC_ISSUER_URL: '' # Issuer URL
+  # PROVIDERS_OIDC_CLIENT_ID: '' # Client ID
+  # PROVIDERS_OIDC_CLIENT_SECRET: '' # Client Secret
+  # PROVIDERS_OIDC_RESOURCE: '' # Optional resource indicator
+  #
+  # PROVIDERS_GENERIC_OAUTH_AUTH_URL: '' # Auth/Login URL
+  # PROVIDERS_GENERIC_OAUTH_TOKEN_URL: '' # Token URL
+  # PROVIDERS_GENERIC_OAUTH_USER_URL: '' # URL used to retrieve user info
+  # PROVIDERS_GENERIC_OAUTH_CLIENT_ID: '' # Client ID
+  # PROVIDERS_GENERIC_OAUTH_CLIENT_SECRET: '' # Client Secret
+  # PROVIDERS_GENERIC_OAUTH_RESOURCE: '' # Optional resource indicator
+  # PROVIDERS_GENERIC_OAUTH_SCOPE: '' # Scopes (default: profile, email)
+  # PROVIDERS_GENERIC_OAUTH_TOKEN_STYLE: '' # How token is presented when querying the User URL
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 4181
+
+middleware:
+  # -- Enable a preconfigured middleware.
+  enabled: true
+  # -- Override the middleware name.
+  nameOverride: ""

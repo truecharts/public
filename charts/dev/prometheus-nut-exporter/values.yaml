@@ -1,0 +1,59 @@
+image:
+  # -- image repository
+  repository: hon95/prometheus-nut-exporter
+  # -- image tag
+  tag: 1.1.1
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [application docs](https://github.com/HON95/prometheus-nut-exporter#environment-variables) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- log level [info|debug|trace]
+  RUST_LOG: info
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      metrics:
+        enabled: true
+        protocol: TCP
+        port: 9995
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    # Specify the list of NUT servers that should be monitored
+    targets:
+      []
+      # - hostname: nut-server
+      #   port: 3493
+      #   interval: 30s
+      #   scrapeTimeout: 10s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UpsStatusUnknown
+      #   annotations:
+      #     description: UPS {{ "{{ $labels.ups }}" }} is reporting a status of unknown.
+      #     summary: UPS status unknown.
+      #   expr: |
+      #     nut_status == 0
+      #   for: 10s
+      #   labels:
+      #     severity: critical

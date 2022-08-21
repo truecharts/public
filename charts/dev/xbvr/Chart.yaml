@@ -1,0 +1,28 @@
+---
+apiVersion: v2
+appVersion: 0.3.17
+description: xbvr helm package
+name: xbvr
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - xbvr
+home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/xbvr
+icon: https://raw.githubusercontent.com/xbapps/xbvr/master/ui/public/icons/xbvr-512.png
+sources:
+  - https://github.com/xbapps/xbvr
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.4.9
+annotations:
+  truecharts.org/catagories: |
+    - k8s-at-home
+  truecharts.org/SCALE-support: "false"
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Upgraded `common` chart dependency to version 4.5.2

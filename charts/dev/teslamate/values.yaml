@@ -1,0 +1,58 @@
+image:
+  # -- image repository
+  repository: teslamate/teslamate
+  # -- image tag
+  tag: 1.23.4
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [teslamate docs](https://docs.teslamate.org/docs/configuration/environment_variables) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Postgres database hostname
+  DATABASE_HOST: '{{ include "common.names.fullname" .}}-postgresql'
+  # -- Postgres database user name
+  DATABASE_USER: postgres
+  # -- Postgres database password
+  DATABASE_PASS: "{{ .Values.postgresql.auth.postgresPassword }}"
+  # -- Postgres database password
+  DATABASE_NAME: "{{ .Values.postgresql.auth.database }}"
+  # -- Disables the MQTT feature if `true`
+  DISABLE_MQTT: "false"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 4000
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  import:
+    enabled: false
+    mountPath: /opt/app/import
+
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
+postgresql:
+  enabled: false
+  auth:
+    postgresPassword: teslamate-pass
+    database: teslamate
+  primary:
+    persistence:
+      enabled: false
+      # storageClass: ""
+      # size: 8Gi

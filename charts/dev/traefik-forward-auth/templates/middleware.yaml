@@ -1,0 +1,13 @@
+{{- include "common.values.setup" . -}}
+{{- if .Values.middleware.enabled -}}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ default (include "common.names.fullname" .) .Values.middleware.nameOverride }}
+spec:
+  forwardAuth:
+    address: "http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}:{{ .Values.service.main.ports.http.port }}"
+    authResponseHeaders:
+      - X-Forwarded-User
+{{- end }}

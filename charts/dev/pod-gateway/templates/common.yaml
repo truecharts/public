@@ -1,0 +1,69 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "pod-gateway.harcodedValues" -}}
+# -- Command starting DHCP server in the gateway
+command:
+- /bin/gateway_sidecar.sh
+
+securityContext:
+  capabilities:
+    add:
+      - NET_ADMIN
+
+# -- Configure persistence settings for the chart under this key.
+persistence:
+  config:
+    enabled: true
+    type: custom
+    mountPath: /config
+    readOnly: true
+    volumeSpec:
+      configMap:
+        name: {{ include "pod-gateway.configmap" . }}
+        defaultMode: 0555
+
+initContainers:
+  # -- Configures an initContainer that creates a VXLAN
+  # In the gateway for client PODs to connect to.
+  # iptables migh be (see VPN_BLOCK_OTHER_TRAFFIC) setup
+  # to block traffic not going through the VPN
+  routes:
+    name: "routes"
+    # -- Image for the init container
+    image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
+    # -- Will be set automatically
+    # @default -- <image.pullPolicy>
+    imagePullPolicy: {{ .Values.image.pullPolicy }}
+    # -- Command starting DHCP server in the gateway
+    command:
+    - /bin/gateway_init.sh
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - name: config
+      mountPath: /config
+      readOnly: true
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    type: ClusterIP
+    clusterIP: None
+    ports:
+      http:
+        port: 4789
+        protocol: UDP
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "pod-gateway.harcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
