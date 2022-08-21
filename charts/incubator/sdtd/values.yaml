@@ -1,61 +1,34 @@
-env:
-  ENABLE_BEPINEX: "false"
-  GAME_ID: "294420"
-  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
-  PASSWRD: ""
-  SERVERCONFIG: serverconfig.xml
-  USERNAME: ""
-  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/7daystodie
   tag: latest@sha256:37b1541f166de431eae46bf63dff1fe147c91070e257d92f8b342d07dd1c26a2
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
+env:
+  ENABLE_BEPINEX: false
+  GAME_ID: 294420
+  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
+  SERVERCONFIG: serverconfig.xml
+  VALIDATE: ""
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 26900
         protocol: TCP
         targetPort: 26900
-  raknet:
-    enabled: true
-    ports:
-      raknet:
-        enabled: true
-        port: 26902
-        protocol: UDP
-        targetPort: 26902
-  registeringats:
-    enabled: true
-    ports:
-      registeringats:
-        enabled: true
-        port: 27015
-        protocol: UDP
-        targetPort: 27015
-  steamcommunica:
-    enabled: true
-    ports:
-      steamcommunica:
-        enabled: true
-        port: 26901
-        protocol: UDP
-        targetPort: 26901
   steammasterser:
     enabled: true
     ports:
@@ -64,6 +37,22 @@ service:
         port: 26900
         protocol: UDP
         targetPort: 26900
+  steamcommunica:
+    enabled: true
+    ports:
+      steamcommunica:
+        enabled: true
+        port: 26901
+        protocol: UDP
+        targetPort: 26901
+  raknet:
+    enabled: true
+    ports:
+      raknet:
+        enabled: true
+        port: 26902
+        protocol: UDP
+        targetPort: 26902
   unet:
     enabled: true
     ports:
@@ -88,6 +77,22 @@ service:
         port: 8082
         protocol: TCP
         targetPort: 8082
+  registeringats:
+    enabled: true
+    ports:
+      registeringats:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true
