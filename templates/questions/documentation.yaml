@@ -6,13 +6,13 @@
       type: dict
       attrs:
         - variable: confirmDocs
-          label: 'I have checked the documentation'
+          label: I have checked the documentation
           schema:
             type: boolean
             default: true
   - variable: donate
     group: Documentation
-    label: 'Please consider supporting TrueCharts, see: https://truecharts.org/docs/about/sponsor'
+    label: "Please consider supporting TrueCharts, see: https://truecharts.org/docs/about/sponsor"
     schema:
       additional_attrs: true
       type: dict
