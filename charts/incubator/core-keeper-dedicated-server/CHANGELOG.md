@@ -2,6 +2,15 @@
 
 
 
+## [core-keeper-dedicated-server-0.0.17](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.16...core-keeper-dedicated-server-0.0.17) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [core-keeper-dedicated-server-0.0.16](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.15...core-keeper-dedicated-server-0.0.16) (2022-08-12)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [tar1090-0.0.17](https://github.com/truecharts/charts/compare/tar1090-0.0.16...tar1090-0.0.17) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [tar1090-0.0.16](https://github.com/truecharts/charts/compare/tar1090-0.0.15...tar1090-0.0.16) (2022-08-12)
 
 ### Chore

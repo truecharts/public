@@ -2,6 +2,15 @@
 
 
 
+## [flexget-2.0.35](https://github.com/truecharts/charts/compare/flexget-2.0.34...flexget-2.0.35) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [flexget-2.0.34](https://github.com/truecharts/charts/compare/flexget-2.0.33...flexget-2.0.34) (2022-08-14)
 
 ### Chore

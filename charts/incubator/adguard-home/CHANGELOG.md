@@ -2,6 +2,15 @@
 
 
 
+## [adguard-home-1.0.31](https://github.com/truecharts/charts/compare/adguard-home-1.0.30...adguard-home-1.0.31) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [adguard-home-1.0.30](https://github.com/truecharts/charts/compare/adguard-home-1.0.29...adguard-home-1.0.30) (2022-08-19)
 
 ### Chore

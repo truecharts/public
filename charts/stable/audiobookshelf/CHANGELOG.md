@@ -2,6 +2,15 @@
 
 
 
+## [audiobookshelf-2.0.31](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.30...audiobookshelf-2.0.31) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [audiobookshelf-2.0.30](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.29...audiobookshelf-2.0.30) (2022-08-12)
 
 ### Chore

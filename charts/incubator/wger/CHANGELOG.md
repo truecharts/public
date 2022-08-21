@@ -2,6 +2,15 @@
 
 
 
+## [wger-0.0.42](https://github.com/truecharts/charts/compare/wger-0.0.41...wger-0.0.42) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [wger-0.0.41](https://github.com/truecharts/charts/compare/wger-0.0.40...wger-0.0.41) (2022-08-17)
 
 ### Chore

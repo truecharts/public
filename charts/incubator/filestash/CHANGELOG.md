@@ -2,6 +2,15 @@
 
 
 
+## [filestash-0.0.19](https://github.com/truecharts/charts/compare/filestash-0.0.18...filestash-0.0.19) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [filestash-0.0.18](https://github.com/truecharts/charts/compare/filestash-0.0.17...filestash-0.0.18) (2022-08-20)
 
 ### Chore

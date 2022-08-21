@@ -2,6 +2,15 @@
 
 
 
+## [rdesktop-0.0.20](https://github.com/truecharts/charts/compare/rdesktop-0.0.19...rdesktop-0.0.20) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [rdesktop-0.0.19](https://github.com/truecharts/charts/compare/rdesktop-0.0.18...rdesktop-0.0.19) (2022-08-14)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [cryptpad-0.0.27](https://github.com/truecharts/charts/compare/cryptpad-0.0.26...cryptpad-0.0.27) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [cryptpad-0.0.26](https://github.com/truecharts/charts/compare/cryptpad-0.0.25...cryptpad-0.0.26) (2022-08-20)
 
 ### Chore
