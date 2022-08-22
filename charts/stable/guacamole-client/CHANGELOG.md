@@ -2,6 +2,15 @@
 
 
 
+## [guacamole-client-4.0.32](https://github.com/truecharts/charts/compare/guacamole-client-4.0.31...guacamole-client-4.0.32) (2022-08-22)
+
+### Fix
+
+- fix quoted true and cleanup a bit ([#3538](https://github.com/truecharts/charts/issues/3538))
+
+
+
+
 ## [guacamole-client-4.0.31](https://github.com/truecharts/charts/compare/guacamole-client-4.0.30...guacamole-client-4.0.31) (2022-08-17)
 
 ### Chore
