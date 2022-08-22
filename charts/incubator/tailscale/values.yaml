@@ -72,6 +72,8 @@ service:
         port: 41641
 
 persistence:
+  varrun:
+    enabled: false
   config:
     enabled: true
     mountPath: "/var/lib"
