@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-0.0.8](https://github.com/truecharts/charts/compare/tailscale-0.0.7...tailscale-0.0.8) (2022-08-22)
+
+### Fix
+
+- use different ports for targetPort and port ([#3539](https://github.com/truecharts/charts/issues/3539))
+
+
+
+
 ## [tailscale-0.0.7](https://github.com/truecharts/charts/compare/tailscale-0.0.5...tailscale-0.0.7) (2022-08-22)
 
 ### Fix
