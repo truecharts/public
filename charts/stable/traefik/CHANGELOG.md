@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.2.1](https://github.com/truecharts/charts/compare/traefik-13.1.10...traefik-13.2.1) (2022-08-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [traefik-13.2.0](https://github.com/truecharts/charts/compare/traefik-13.1.10...traefik-13.2.0) (2022-08-21)
 
 
