@@ -2,6 +2,15 @@
 
 
 
+## [piaware-6.0.29](https://github.com/truecharts/charts/compare/piaware-6.0.28...piaware-6.0.29) (2022-08-22)
+
+### Chore
+
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
+
+
+
+
 ## [piaware-6.0.28](https://github.com/truecharts/charts/compare/piaware-6.0.27...piaware-6.0.28) (2022-08-12)
 
 ### Chore

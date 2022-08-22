@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.62](https://github.com/truecharts/charts/compare/postgresql-8.0.61...postgresql-8.0.62) (2022-08-22)
+
+### Chore
+
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
+
+
+
+
 
 ## [postgresql-8.0.60](https://github.com/truecharts/charts/compare/postgresql-8.0.59...postgresql-8.0.60) (2022-08-20)
 

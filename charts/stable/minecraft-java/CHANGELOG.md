@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-java-1.0.41](https://github.com/truecharts/charts/compare/minecraft-java-1.0.40...minecraft-java-1.0.41) (2022-08-22)
+
+### Chore
+
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
+
+
+
+
 ## [minecraft-java-1.0.40](https://github.com/truecharts/charts/compare/minecraft-java-1.0.39...minecraft-java-1.0.40) (2022-08-17)
 
 ### Chore

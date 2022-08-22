@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-0.0.5](https://github.com/truecharts/charts/compare/tailscale-0.0.4...tailscale-0.0.5) (2022-08-22)
+
+### Fix
+
+- don't override varrun ([#3532](https://github.com/truecharts/charts/issues/3532))
+
+
+
+
 ## [tailscale-0.0.4](https://github.com/truecharts/charts/compare/tailscale-0.0.3...tailscale-0.0.4) (2022-08-20)
 
 ### Fix
