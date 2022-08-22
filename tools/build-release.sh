@@ -528,6 +528,7 @@ generate_docs() {
                  --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
                  --chart-search-root="${chart}"
          fi
+         sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
     fi
     }
     export -f generate_docs
