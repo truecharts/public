@@ -43,6 +43,8 @@ rbac:
           - "update"
 
 envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-tailscale-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
