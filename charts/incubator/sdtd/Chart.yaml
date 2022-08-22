@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -9,21 +5,25 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.4.12
 deprecated: false
-description: "This Docker will download and install SteamCMD. It will also install 7 Days to Die and run it.\r\n"
-home: https://truecharts.org/docs/charts/incubator/server-7daystodie
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/server-7daystodie.png
+description: "This Docker will download and install SteamCMD. It will also install 7 Days to Die and run it."
+home: https://truecharts.org/docs/charts/incubator/sdtd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sdtd.png
 keywords:
-  - 7daystodie
+  - sevendaystodie
   - GameServers
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: server-7daystodie
+name: sdtd
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/server-7daystodie
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.16
+version: 0.0.17
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - games
