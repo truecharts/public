@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-0.0.7](https://github.com/truecharts/charts/compare/tailscale-0.0.5...tailscale-0.0.7) (2022-08-22)
+
+### Fix
+
+- use role and rolebind instead of clusterrole ([#3537](https://github.com/truecharts/charts/issues/3537))
+
+
+
+
 ## [tailscale-0.0.5](https://github.com/truecharts/charts/compare/tailscale-0.0.4...tailscale-0.0.5) (2022-08-22)
 
 ### Fix
