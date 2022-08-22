@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/mylar3
-  tag: v0.6.8@sha256:097235078da12c9a7a9063e88d37f8fe0b807e70b359ba88f4a0e1592a2304e0
+  tag: 0.6.9@sha256:99ab74182d74fd523b794fac4df033c26e7fab8cdf308f132820561a5c6cf698
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -24,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

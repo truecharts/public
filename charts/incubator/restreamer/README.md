@@ -1,6 +1,6 @@
 # restreamer
 
-![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.16](https://img.shields.io/badge/Version-0.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Datarhei/Restreamer allows smart free video streaming in real time. Stream H.264 video of IP cameras live to your website. Pump your live video to YouTube-Live, Ustream, Twitch, Livestream.com or any other streaming-solutions e.g. Wowza-Streaming-Engine. Our Docker-Image is easy to install and runs on Linux, MacOS and Windows. Datarhei/Restreamer can be perfectly combined with single-board computers like Raspberry Pi and Odroid.
 
@@ -13,6 +13,7 @@ For more information, please click here: [restreamer](https://truecharts.org/doc
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer>
 * <https://datarhei.github.io/restreamer/>
 * <https://hub.docker.com/r/datarhei/restreamer>
 
@@ -24,20 +25,20 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.8 |
+| https://library-charts.truecharts.org | common | 10.4.12 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
 
 ### Helm
 
 To install the chart with the release name `restreamer`
 
 ```console
-helm repo add TrueCharts https://helm.truecharts.org
+helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
 helm install restreamer TrueCharts/restreamer
 ```
@@ -48,7 +49,7 @@ helm install restreamer TrueCharts/restreamer
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -67,7 +68,7 @@ helm uninstall restreamer
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
-#### Configure using the Commandline
+#### Configure using the command line
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -85,9 +86,9 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install restreamer TrueCharts/restreamer -f values.yaml
 ```
 
-#### Connecting to other apps
+#### Connecting to other charts
 
-If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/docs/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
 
 ## Support
 

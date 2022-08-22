@@ -2,6 +2,57 @@
 
 
 
+## [lychee-13.0.32](https://github.com/truecharts/charts/compare/lychee-13.0.31...lychee-13.0.32) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
+## [lychee-13.0.31](https://github.com/truecharts/charts/compare/lychee-13.0.30...lychee-13.0.31) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [lychee-13.0.30](https://github.com/truecharts/charts/compare/lychee-13.0.29...lychee-13.0.30) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [lychee-13.0.29](https://github.com/truecharts/charts/compare/lychee-13.0.28...lychee-13.0.29) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [lychee-13.0.28](https://github.com/truecharts/charts/compare/lychee-13.0.27...lychee-13.0.28) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [lychee-13.0.27](https://github.com/truecharts/apps/compare/lychee-13.0.26...lychee-13.0.27) (2022-07-26)
 
 ### Chore

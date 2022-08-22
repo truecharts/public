@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "This is a dependancy container for the application \"TubeArchivist\"\
-  \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
-icon: https://truecharts.org/img/chart-icons/tubearchivist-redisjson.png
+description: "This is a dependancy container for the application \"TubeArchivist\"\r\n"
+home: https://truecharts.org/docs/charts/incubator/tubearchivist-redisjson
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-redisjson.png
 keywords:
   - tubearchivist-redisjson
   - MediaServer-Other
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: tubearchivist-redisjson
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
   - https://github.com/RedisJSON/RedisJSON
   - https://hub.docker.com/r/redislabs/rejson/
 type: application
-version: 0.0.14
+version: 0.0.16

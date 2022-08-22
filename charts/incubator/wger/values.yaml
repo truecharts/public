@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/wger
-  tag: latest@sha256:add448604d86d93857ccb9f72bf71fba6e709765a5d56f56700090fc89b631c6
+  tag: latest@sha256:acd2b82be5ca1f1f7992e0aadcd1a7d2916978e76217056c648bb4266a162e78
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:bbad83037fe19f0bd1e2bf9cd9b7889615e043050f8a9731b3a6e61cc563382f
+  tag: v1.23.1@sha256:688795957aa8058d6b99970b61ce11666856a6f2dca684e1edf38b61c42507e0
 
 securityContext:
   runAsNonRoot: false
@@ -177,3 +177,6 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: "default"
+
+portal:
+  enabled: true

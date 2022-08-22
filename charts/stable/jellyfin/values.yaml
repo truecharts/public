@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
-  tag: v10.8.1@sha256:f838db5890a622e7f2236e4f806ff1fee55fb9e09513b0b95fa4a43e3b8be316
+  tag: 10.8.4@sha256:e13124f441178fc8068ea038bf8c470c05840cd503bbd2b611ad99a885437897
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,3 +24,6 @@ persistence:
     enabled: true
     mountPath: "/cache"
     type: "emptyDir"
+
+portal:
+  enabled: true

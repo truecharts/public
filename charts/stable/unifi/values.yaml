@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/unifi
-  tag: v7.1.66@sha256:4c35407f9c0907ae8c2c9ff476727fe25627b56cd251ed7a8e75a70cea9b6253
+  tag: 7.2.92@sha256:a1de1bab84c7db5021d6d0d267311a2df04005481525ce5364133f25a34be015
   pullPolicy: IfNotPresent
 
 service:
@@ -59,3 +59,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/unifi"
+
+portal:
+  enabled: true

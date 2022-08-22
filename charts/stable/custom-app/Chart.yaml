@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.20.1470"
+appVersion: "0.20.1768"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Advanced tool to create your own TrueCharts-based App
-home: "https://truecharts.org/docs/charts/stable/custom-app"
-icon: https://truecharts.org/img/chart-icons/custom-app.png
+home: https://truecharts.org/docs/charts/stable/custom-app
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png
 keywords:
   - custom
 kubeVersion: ">=1.16.0-0"
@@ -17,9 +17,9 @@ maintainers:
     url: https://truecharts.org
 name: custom-app
 sources:
-  - https://github.com/truecharts/apps/tree/master/charts/stable/custom-app
+  - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
 type: application
-version: 5.1.27
+version: 5.1.41
 annotations:
   truecharts.org/catagories: |
     - custom

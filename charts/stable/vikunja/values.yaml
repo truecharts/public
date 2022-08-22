@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/vikunja-api
-  tag: v0.18.1@sha256:fb299dc46b8229fbdc0d00187286f8e0fcc8afa2d9f182b71281cbb5c4832ff8
+  tag: 0.19.2@sha256:f83b8287ee9c05ff3daf0dcdfc50239bb87c68260733f7454db09b91b0eca759
   pullPolicy: IfNotPresent
 
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
-  tag: v0.18.2@sha256:29a442c3ceca971f9f797adbefea33d898cb308abd418534d708abc4b3b2929e
+  tag: 0.19.1@sha256:52d055f237422bf73b3d724638219fe5ac35bc643e27b4b12bdceebb3fff7aee
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:bbad83037fe19f0bd1e2bf9cd9b7889615e043050f8a9731b3a6e61cc563382f
+  tag: v1.23.1@sha256:688795957aa8058d6b99970b61ce11666856a6f2dca684e1edf38b61c42507e0
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -137,3 +137,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

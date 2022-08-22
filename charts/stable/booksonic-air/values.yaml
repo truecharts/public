@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/booksonic-air
   pullPolicy: IfNotPresent
-  tag: v2201.1.0@sha256:bfe465703d2b8e570c895b65766afdde760b74fdc4bb6728854bdb7769e39892
+  tag: v2201.1.0@sha256:a7714ea57cf46bb3182cc01799fcbb425955f7b911a092078ea24f784abe1835
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,3 +22,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

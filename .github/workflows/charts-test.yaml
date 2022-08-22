@@ -87,7 +87,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Run chart-testing (list-changed)
         id: list-changed
@@ -136,7 +136,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix1) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -152,12 +152,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -179,7 +179,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -195,12 +195,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -223,7 +223,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix3) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -239,12 +239,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -266,7 +266,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix4) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -282,12 +282,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -309,7 +309,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix5) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -325,12 +325,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -352,7 +352,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix6) }}
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 10
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -368,12 +368,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4
+      - uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@dae259e86a35ff09145c0805e2d7dd3f7207064a # tag=v2.2.1
+        uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -409,6 +409,6 @@ jobs:
       - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
         if: failure()
         with:
-          repo: truecharts/apps
+          repo: truecharts/charts
           workflow_id: ${{ github.run_id }}
           access_token: ${{ github.token }}

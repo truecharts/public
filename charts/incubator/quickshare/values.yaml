@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/quickshare
-  tag: latest@sha256:8dc5e33f389801d82fc54ed29c19b7c19383f6453db485bc7dbaeae2a6c61e53
+  tag: latest@sha256:c7bc7ef4a8aee5e68064854b5eeab29c0e370daaec372c364a8b15f38cdd25bb
 persistence:
   storagedata:
     enabled: true
@@ -24,3 +24,6 @@ service:
         port: 8686
         protocol: TCP
         targetPort: 8686
+
+portal:
+  enabled: true

@@ -1,14 +1,14 @@
 # TrueCharts
 
-**Community App Catalog for TrueNAS SCALE**
+**Community Chart Catalog for TrueNAS SCALE**
 
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
 [![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg?maxAge=60&style=for-the-badge)](https://discord.gg/Js6xv9nGuU)
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/apps?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/apps/commits)
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/charts?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/charts/commits)
 
 ---
 
-TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
+TrueCharts is a catalog of highly optimised TrueNAS SCALE Charts. Made for the community, By the community!
 
 Our primary goals are:
 
@@ -20,7 +20,7 @@ Our primary goals are:
 
 - Consistency
 
-All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
+All our charts are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
 
 <br />
 
@@ -54,13 +54,13 @@ _The current project is hitting internal performance issues, for this reason we 
 
 **Refactor the Common Chart - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
 
-_The shared Common (chart) basis, used by all our Apps, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
+_The shared Common (chart) basis, used by all our Charts, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
 
 <br />
 
 **Increased test coverage - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
 
-_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing App changes_
+_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing Chart changes_
 
 <br />
 
@@ -68,18 +68,18 @@ _With most parts of our project somewhat cleaned up, we need to work on increasi
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)](https://github.com/pre-commit/pre-commit)
 [![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjUgNSAzNzAgMzcwIj48Y2lyY2xlIGN4PSIxODkiIGN5PSIxOTAiIHI9IjE4NCIgZmlsbD0iI2ZlMiIvPjxwYXRoIGZpbGw9IiM4YmIiIGQ9Ik0yNTEgMjU2bC0zOC0zOGExNyAxNyAwIDAxMC0yNGw1Ni01NmMyLTIgMi02IDAtN2wtMjAtMjFhNSA1IDAgMDAtNyAwbC0xMyAxMi05LTggMTMtMTNhMTcgMTcgMCAwMTI0IDBsMjEgMjFjNyA3IDcgMTcgMCAyNGwtNTYgNTdhNSA1IDAgMDAwIDdsMzggMzh6Ii8+PHBhdGggZmlsbD0iI2Q1MSIgZD0iTTMwMCAyODhsLTggOGMtNCA0LTExIDQtMTYgMGwtNDYtNDZjLTUtNS01LTEyIDAtMTZsOC04YzQtNCAxMS00IDE1IDBsNDcgNDdjNCA0IDQgMTEgMCAxNXoiLz48cGF0aCBmaWxsPSIjYjMwIiBkPSJNMjg1IDI1OGw3IDdjNCA0IDQgMTEgMCAxNWwtOCA4Yy00IDQtMTEgNC0xNiAwbC02LTdjNCA1IDExIDUgMTUgMGw4LTdjNC01IDQtMTIgMC0xNnoiLz48cGF0aCBmaWxsPSIjYTMwIiBkPSJNMjkxIDI2NGw4IDhjNCA0IDQgMTEgMCAxNmwtOCA3Yy00IDUtMTEgNS0xNSAwbC05LThjNSA1IDEyIDUgMTYgMGw4LThjNC00IDQtMTEgMC0xNXoiLz48cGF0aCBmaWxsPSIjZTYyIiBkPSJNMjYwIDIzM2wtNC00Yy02LTYtMTctNi0yMyAwLTcgNy03IDE3IDAgMjRsNCA0Yy00LTUtNC0xMSAwLTE2bDgtOGM0LTQgMTEtNCAxNSAweiIvPjxwYXRoIGZpbGw9IiNiNDAiIGQ9Ik0yODQgMzA0Yy00IDAtOC0xLTExLTRsLTQ3LTQ3Yy02LTYtNi0xNiAwLTIybDgtOGM2LTYgMTYtNiAyMiAwbDQ3IDQ2YzYgNyA2IDE3IDAgMjNsLTggOGMtMyAzLTcgNC0xMSA0em0tMzktNzZjLTEgMC0zIDAtNCAybC04IDdjLTIgMy0yIDcgMCA5bDQ3IDQ3YTYgNiAwIDAwOSAwbDctOGMzLTIgMy02IDAtOWwtNDYtNDZjLTItMi0zLTItNS0yeiIvPjxwYXRoIGZpbGw9IiMxY2MiIGQ9Ik0xNTIgMTEzbDE4LTE4IDE4IDE4LTE4IDE4em0xLTM1bDE4LTE4IDE4IDE4LTE4IDE4em0tOTAgODlsMTgtMTggMTggMTgtMTggMTh6bTM1LTM2bDE4LTE4IDE4IDE4LTE4IDE4eiIvPjxwYXRoIGZpbGw9IiMxZGQiIGQ9Ik0xMzQgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em0tMzUgMzZsMTgtMTggMTggMTgtMTggMTh6Ii8+PHBhdGggZmlsbD0iIzJiYiIgZD0iTTExNiAxNDlsMTgtMTggMTggMTgtMTggMTh6bTU0LTU0bDE4LTE4IDE4IDE4LTE4IDE4em0tODkgOTBsMTgtMTggMTggMTgtMTggMTh6bTEzOS04NWwyMyAyM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTI0LTI0Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS01IDEyLTUgMTYgMHoiLz48cGF0aCBmaWxsPSIjM2VlIiBkPSJNMTM0IDk1bDE4LTE4IDE4IDE4LTE4IDE4em0tNTQgMThsMTgtMTcgMTggMTctMTggMTh6bTU1LTUzbDE4LTE4IDE4IDE4LTE4IDE4em05MyA0OGwtOC04Yy00LTUtMTEtNS0xNiAwTDEwMyAyMDFjLTQgNC00IDExIDAgMTVsOCA4Yy00LTQtNC0xMSAwLTE1bDEwMS0xMDFjNS00IDEyLTQgMTYgMHoiLz48cGF0aCBmaWxsPSIjOWVlIiBkPSJNMjcgMTMxbDE4LTE4IDE4IDE4LTE4IDE4em01NC01M2wxOC0xOCAxOCAxOC0xOCAxOHoiLz48cGF0aCBmaWxsPSIjMGFhIiBkPSJNMjMwIDExMGwxMyAxM2M0IDQgNCAxMSAwIDE2TDE0MiAyNDBjLTQgNC0xMSA0LTE1IDBsLTEzLTEzYzQgNCAxMSA0IDE1IDBsMTAxLTEwMWM1LTUgNS0xMSAwLTE2eiIvPjxwYXRoIGZpbGw9IiMxYWIiIGQ9Ik0xMzQgMjQ4Yy00IDAtOC0yLTExLTVsLTIzLTIzYTE2IDE2IDAgMDEwLTIzTDIwMSA5NmExNiAxNiAwIDAxMjIgMGwyNCAyNGM2IDYgNiAxNiAwIDIyTDE0NiAyNDNjLTMgMy03IDUtMTIgNXptNzgtMTQ3bC00IDItMTAxIDEwMWE2IDYgMCAwMDAgOWwyMyAyM2E2IDYgMCAwMDkgMGwxMDEtMTAxYTYgNiAwIDAwMC05bC0yNC0yMy00LTJ6Ii8+PC9zdmc+)](https://github.com/renovatebot/renovate)
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/apps?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/apps/commits)
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/charts?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/charts/commits)
 
 ---
 
 Our development process is fully distributed and agile, so every chart-maintainer is free to set their own roadmap and development speed and does not have to comply to a centralised roadmap.
-This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greatest of every App installed.
+This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greatest of every Chart installed.
 
-### Getting into creating Apps
+### Getting into creating Charts
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
-For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/)
+For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/docs/manual/development/License-headers)
 
 ### Automation and you
 
@@ -97,13 +97,13 @@ Those tools do, however, take time to develop and are certainly not bug free. If
 
 To contact the TrueCharts project:
 
-- Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+- Create an issue on [Github issues](https://github.com/truecharts/charts/issues)
 
-- Open a [Support Ticket](https://truecharts.org/discord)
+- Open a [Support Ticket](https://discord.com/channels/830763548678291466/936275413179723826)
 
 - Send us an [email](mailto://info@truecharts.org)
 
-- Or [join our Discord server](https://truecharts.org/discord)
+- Or [join our Discord server](https://discord.gg/tVsPTHWTtr)
 
 <br />
 
@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-113-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-116-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -166,7 +166,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/alex171"><img src="https://avatars.githubusercontent.com/u/28484494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>alex171</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=alex171" title="Documentation">📖</a></td>
     <td align="center"><a href="https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A"><img src="https://avatars.githubusercontent.com/u/1322205?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Techno Tim</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=timothystewart6" title="Documentation">📖</a></td>
     <td align="center"><a href="http://mingyaoliu.com"><img src="https://avatars.githubusercontent.com/u/3460335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mingyao Liu</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=MingyaoLiu" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3AMingyaoLiu" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/NightShaman"><img src="https://avatars.githubusercontent.com/u/12952292?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NightShaman</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=NightShaman" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=NightShaman" title="Documentation">📖</a> <a href="https://github.com/truecharts/charts/issues?q=author%3ANightShaman" title="Bug reports">🐛</a> <a href="#financial-NightShaman" title="Financial">💵</a></td>
+    <td align="center"><a href="https://github.com/NightShaman"><img src="https://avatars.githubusercontent.com/u/12952292?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NightShaman</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=NightShaman" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=NightShaman" title="Documentation">📖</a> <a href="https://github.com/truecharts/charts/issues?q=author%3ANightShaman" title="Bug reports">🐛</a> <a href="#financial-NightShaman" title="Financial">💵</a> <a href="#mentoring-NightShaman" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://espadav8.co.uk"><img src="https://avatars.githubusercontent.com/u/115825?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrew Smith</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=EspadaV8" title="Documentation">📖</a> <a href="https://github.com/truecharts/charts/commits?author=EspadaV8" title="Tests">⚠️</a></td>
     <td align="center"><a href="http://xilix.com"><img src="https://avatars.githubusercontent.com/u/2821?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bob Klosinski</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fluxin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/sukarn-m"><img src="https://avatars.githubusercontent.com/u/10946339?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sukarn</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sukarn-m" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=sukarn-m" title="Documentation">📖</a></td>
@@ -174,9 +174,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/sebsx"><img src="https://avatars.githubusercontent.com/u/735033?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sebs</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sebsx" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Dyllan2000alfa"><img src="https://avatars.githubusercontent.com/u/29694020?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dyllan Tinoco</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Dyllan2000alfa" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a> <a href="https://github.com/truecharts/charts/commits?author=StevenMcElligott" title="Documentation">📖</a> <a href="https://github.com/truecharts/charts/issues?q=author%3AStevenMcElligott" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=StevenMcElligott" title="Code">💻</a> <a href="#financial-StevenMcElligott" title="Financial">💵</a> <a href="https://github.com/truecharts/charts/commits?author=StevenMcElligott" title="Documentation">📖</a> <a href="https://github.com/truecharts/charts/issues?q=author%3AStevenMcElligott" title="Bug reports">🐛</a> <a href="#mentoring-StevenMcElligott" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://github.com/brothergomez"><img src="https://avatars.githubusercontent.com/u/38558969?v=4?s=100" width="100px;" alt=""/><br /><sub><b>brothergomez</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=brothergomez" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3Abrothergomez" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Sagit-chu" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3ASagit-chu" title="Bug reports">🐛</a> <a href="#video-Sagit-chu" title="Videos">📹</a> <a href="https://github.com/truecharts/charts/commits?author=Sagit-chu" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Sagit-chu" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3ASagit-chu" title="Bug reports">🐛</a> <a href="#video-Sagit-chu" title="Videos">📹</a> <a href="https://github.com/truecharts/charts/commits?author=Sagit-chu" title="Documentation">📖</a> <a href="#mentoring-Sagit-chu" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://zhouyou.info"><img src="https://avatars.githubusercontent.com/u/8481484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nevan Chow</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=zzzhouuu" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/soilheart"><img src="https://avatars.githubusercontent.com/u/9056381?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniel Carlsson</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Asoilheart" title="Bug reports">🐛</a></td>
   </tr>
@@ -211,7 +211,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/alexthamm"><img src="https://avatars.githubusercontent.com/u/2556372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexander Thamm</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aalexthamm" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/rexit1982"><img src="https://avatars.githubusercontent.com/u/7585043?v=4?s=100" width="100px;" alt=""/><br /><sub><b>rexit1982</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Arexit1982" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/iaxx"><img src="https://avatars.githubusercontent.com/u/13745514?v=4?s=100" width="100px;" alt=""/><br /><sub><b>iaxx</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aiaxx" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://xstar97.github.io"><img src="https://avatars.githubusercontent.com/u/9399967?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xstar97</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AXstar97" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=Xstar97" title="Code">💻</a></td>
+    <td align="center"><a href="https://xstar97.github.io"><img src="https://avatars.githubusercontent.com/u/9399967?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xstar97</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AXstar97" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=Xstar97" title="Code">💻</a> <a href="#mentoring-Xstar97" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://github.com/Ornias"><img src="https://avatars.githubusercontent.com/u/20852677?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ornias</b></sub></a><br /><a href="#video-ornias" title="Videos">📹</a></td>
     <td align="center"><a href="http://joshasplund.com"><img src="https://avatars.githubusercontent.com/u/3958801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Josh Asplund</b></sub></a><br /><a href="#financial-joshuata" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/midnight33233"><img src="https://avatars.githubusercontent.com/u/25982892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>midnight33233</b></sub></a><br /><a href="#financial-midnight33233" title="Financial">💵</a></td>
@@ -229,7 +229,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/190n"><img src="https://avatars.githubusercontent.com/u/7763597?v=4?s=100" width="100px;" alt=""/><br /><sub><b>190n</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=190n" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=190n" title="Documentation">📖</a></td>
     <td align="center"><a href="https://alexejk.io"><img src="https://avatars.githubusercontent.com/u/104794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexej Kubarev</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=alexejk" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/r-vanooyen"><img src="https://avatars.githubusercontent.com/u/45106123?v=4?s=100" width="100px;" alt=""/><br /><sub><b>r-vanooyen</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=r-vanooyen" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/shadofall"><img src="https://avatars.githubusercontent.com/u/9327622?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shadofall</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=shadofall" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/shadofall"><img src="https://avatars.githubusercontent.com/u/9327622?v=4?s=100" width="100px;" alt=""/><br /><sub><b>shadofall</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=shadofall" title="Documentation">📖</a> <a href="#mentoring-shadofall" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://github.com/agreppin"><img src="https://avatars.githubusercontent.com/u/26579013?v=4?s=100" width="100px;" alt=""/><br /><sub><b>agreppin</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=agreppin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/stdedos"><img src="https://avatars.githubusercontent.com/u/133706?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stavros Ntentos</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=stdedos" title="Code">💻</a> <a href="#ideas-stdedos" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/VladFlorinIlie"><img src="https://avatars.githubusercontent.com/u/35900803?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vlad-Florin Ilie</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=VladFlorinIlie" title="Code">💻</a></td>
@@ -276,11 +276,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/uranderu"><img src="https://avatars.githubusercontent.com/u/71091366?v=4?s=100" width="100px;" alt=""/><br /><sub><b>uranderu</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Auranderu" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/heytcass"><img src="https://avatars.githubusercontent.com/u/11260288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom Cassady</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aheytcass" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Huftierchen"><img src="https://avatars.githubusercontent.com/u/16015778?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Huftierchen</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AHuftierchen" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/ZasX"><img src="https://avatars.githubusercontent.com/u/806452?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ZasX</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ZasX" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/ZasX"><img src="https://avatars.githubusercontent.com/u/806452?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ZasX</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ZasX" title="Documentation">📖</a> <a href="#mentoring-ZasX" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://github.com/aeolus811tw"><img src="https://avatars.githubusercontent.com/u/4956319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kevin T.</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aaeolus811tw" title="Bug reports">🐛</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Chowarmaan"><img src="https://avatars.githubusercontent.com/u/175738?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Scott</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Chowarmaan" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/piwi3910"><img src="https://avatars.githubusercontent.com/u/12539757?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Watteel Pascal</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=piwi3910" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/JamesOsborn-SE"><img src="https://avatars.githubusercontent.com/u/3580335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JamesOsborn-SE</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/neoestremi"><img src="https://avatars.githubusercontent.com/u/1340877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NeoToxic</b></sub></a><br /><a href="#mentoring-neoestremi" title="Mentoring">🧑‍🏫</a></td>
   </tr>
 </table>
 
@@ -293,13 +296,13 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Licence
 
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg?style=for-the-badge)](https://github.com/truecharts/apps/blob/master/docs/LICENSE.BSD3)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg?style=for-the-badge)](https://github.com/truecharts/charts/blob/master/docs/LICENSE.BSD3)
 
 ---
 
-Truecharts as a whole, is based on a BSD-3-clause license, this ensures almost everyone can use and modify our charts. However: As a lot of Apps are based on upstream Helm Charts, Licences can vary on a per-App basis. This can easily be seen by the presence of a "LICENSE" file in the App root folder.
+Truecharts as a whole, is based on a BSD-3-clause license, this ensures almost everyone can use and modify our charts. However: As a lot of Charts are based on upstream Helm Charts, Licences can vary on a per-Chart basis. This can easily be seen by the presence of a "LICENSE" file in the Chart root folder.
 
-Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
+Some Charts may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
 
 `SPDX-License-Identifier: BSD-3-Clause`
 

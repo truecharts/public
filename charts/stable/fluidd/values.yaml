@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/fluidd
-  tag: v1.19.0@sha256:4c3f058f322b5d6580e5ea775439f3503e7d38100d39ecc2d1402a123b6a10b4
+  tag: 1.19.1@sha256:e13bd14c7fad5c3c0d7789e268fa0bd47f92a30d5aab23fc04b5b1add1adf124
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,3 +17,6 @@ service:
       main:
         port: 10224
         targetPort: 80
+
+portal:
+  enabled: true

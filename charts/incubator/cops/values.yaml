@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cops
-  tag: latest@sha256:7c982ac8cd619202f1a1ce929d4205d9ddd3f5977489a7cef78f3b1c27b12c6b
+  tag: latest@sha256:50936ac3af982a70a5f0d6af069b3d8d4549c3e66b31c700a6f4907cf2a5795c
 persistence:
   config:
     enabled: true
@@ -26,3 +26,6 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
+
+portal:
+  enabled: true

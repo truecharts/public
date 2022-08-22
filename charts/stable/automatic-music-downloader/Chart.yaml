@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: A Lidarr companion script to automatically download music for Lidarr.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/automatic-music-downloader
-icon: https://truecharts.org/img/chart-icons/automatic-music-downloader.png
+home: https://truecharts.org/docs/charts/stable/automatic-music-downloader
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/automatic-music-downloader.png
 keywords:
   - automatic
   - music
@@ -20,10 +20,11 @@ maintainers:
     url: https://truecharts.org
 name: automatic-music-downloader
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/automatic-music-downloader
   - https://github.com/RandomNinjaAtk/docker-amd
   - https://hub.docker.com/r/randomninjaatk/amd
 type: application
-version: 2.0.23
+version: 2.0.25
 annotations:
   truecharts.org/catagories: |
     - media

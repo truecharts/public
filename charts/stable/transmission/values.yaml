@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/transmission
   pullPolicy: IfNotPresent
-  tag: v3.00@sha256:dd87af89260ba5d54ca1db590ec43cf6a254491032224490fe6e8703faf3ced2
+  tag: v3.00@sha256:cf61bde05f265653ce12b0ef42e25ac25abcc51ff84c9e5528ef75fea8330eda
 
 service:
   main:
@@ -101,3 +101,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/docker-in-docker
   pullPolicy: IfNotPresent
-  tag: v20.10.17@sha256:9b1fd64a1cc74136b6934a5cb7ad5d6039c70e1975dfdf98e3dc4a8b5b148f92
+  tag: v20.10.17@sha256:2abf1519fd6792d0aff4d0fdc2601449ad1e528c5ce94873b091caea4d50c3c1
 
 controller:
   # -- Set the controller type.
@@ -113,3 +113,6 @@ volumeClaimTemplates:
   docker:
     enabled: true
     mountPath: "/var/lib/docker"
+
+portal:
+  enabled: false

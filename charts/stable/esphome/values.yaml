@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/esphome
   pullPolicy: IfNotPresent
-  tag: v2022.6.2@sha256:b0da6deb7d09ae8994650884e643397f9a37af325c909a67b0b4bbdadbe61ead
+  tag: 2022.8.0@sha256:774d60252766cb1fda00fd9de89ae0c9e5dacab2b8fd5174ae2bb585dfda3592
 
 # App needs to run as root because of this: https://github.com/esphome/issues/issues/2752
 securityContext:
@@ -38,3 +38,6 @@ persistence:
   platformio:
     enabled: true
     mountPath: "/.platformio"
+
+portal:
+  enabled: true

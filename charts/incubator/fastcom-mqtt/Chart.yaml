@@ -7,14 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Docker Container with Fast.com CLI sending data directly to MQTT Broker
-
-  "
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/fastcom-mqtt
-icon: https://truecharts.org/img/chart-icons/fastcom-mqtt.png
+description: "Docker Container with Fast.com CLI sending data directly to MQTT Broker\n"
+home: https://truecharts.org/docs/charts/incubator/fastcom-mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fastcom-mqtt.png
 keywords:
   - fastcom-mqtt
   - HomeAutomation
@@ -25,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: fastcom-mqtt
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fastcom-mqtt
   - https://github.com/simonjenny/fastcom-mqtt
   - https://hub.docker.com/r/simonjenny/fastcom-mqtt/
 type: application
-version: 0.0.14
+version: 0.0.17

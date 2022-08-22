@@ -2,38 +2,106 @@
 
 
 
-## [mongodb-1.0.49](https://github.com/truecharts/apps/compare/mongodb-1.0.48...mongodb-1.0.49) (2022-07-28)
+## [postgresql-8.0.58](https://github.com/truecharts/charts/compare/postgresql-8.0.56...postgresql-8.0.58) (2022-08-17)
 
 ### Chore
 
-- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+- update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
 
 
 
 
-## [mongodb-1.0.48](https://github.com/truecharts/apps/compare/mongodb-1.0.47...mongodb-1.0.48) (2022-07-27)
+## [postgresql-8.0.56](https://github.com/truecharts/charts/compare/postgresql-8.0.55...postgresql-8.0.56) (2022-08-14)
 
 ### Chore
 
-- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
-  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
 
 
 
 
-## [mongodb-1.0.47](https://github.com/truecharts/apps/compare/mongodb-1.0.45...mongodb-1.0.47) (2022-07-25)
+## [postgresql-8.0.55](https://github.com/truecharts/charts/compare/postgresql-8.0.54...postgresql-8.0.55) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [postgresql-8.0.54](https://github.com/truecharts/charts/compare/postgresql-8.0.53...postgresql-8.0.54) (2022-08-10)
+
+### Chore
+
+- update helm chart common to v10.4.11 ([#3428](https://github.com/truecharts/charts/issues/3428))
+
+
+
+
+## [postgresql-8.0.53](https://github.com/truecharts/charts/compare/postgresql-8.0.52...postgresql-8.0.53) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [postgresql-8.0.52](https://github.com/truecharts/charts/compare/postgresql-8.0.51...postgresql-8.0.52) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+
+
+
+## [redis-3.0.49](https://github.com/truecharts/charts/compare/redis-3.0.48...redis-3.0.49) (2022-08-08)
+
+### Chore
+
+- update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [redis-3.0.48](https://github.com/truecharts/apps/compare/redis-3.0.47...redis-3.0.48) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [redis-3.0.47](https://github.com/truecharts/apps/compare/redisinsight-0.0.14...redis-3.0.47) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [redis-3.0.46](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.46) (2022-07-25)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - update helm chart common to v10.4.8 ([#3296](https://github.com/truecharts/apps/issues/3296))
-  - update docker general non-major ([#3298](https://github.com/truecharts/apps/issues/3298))
   - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
 
 
 
 
-## [mongodb-1.0.46](https://github.com/truecharts/apps/compare/mongodb-1.0.45...mongodb-1.0.46) (2022-07-25)
+## [redis-3.0.45](https://github.com/truecharts/apps/compare/redisinsight-0.0.12...redis-3.0.45) (2022-07-25)
 
 ### Chore
 
@@ -42,7 +110,7 @@
 
 
 
-## [mongodb-1.0.45](https://github.com/truecharts/apps/compare/mongodb-1.0.44...mongodb-1.0.45) (2022-07-23)
+## [redis-3.0.44](https://github.com/truecharts/apps/compare/redis-3.0.43...redis-3.0.44) (2022-07-23)
 
 ### Chore
 
@@ -51,7 +119,16 @@
 
 
 
-## [mongodb-1.0.44](https://github.com/truecharts/apps/compare/mongodb-1.0.43...mongodb-1.0.44) (2022-07-22)
+## [redis-3.0.43](https://github.com/truecharts/apps/compare/redisinsight-0.0.11...redis-3.0.43) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [redis-3.0.42](https://github.com/truecharts/apps/compare/redis-3.0.41...redis-3.0.42) (2022-07-22)
 
 ### Chore
 
@@ -60,7 +137,7 @@
 
 
 
-## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore
 
@@ -75,7 +152,7 @@
 
 
 
-## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore
 
@@ -89,7 +166,7 @@
 
 
 
-## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-21)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-21)
 
 ### Chore
 
@@ -102,7 +179,7 @@
 
 
 
-## [mongodb-1.0.43](https://github.com/truecharts/apps/compare/mongodb-1.0.42...mongodb-1.0.43) (2022-07-20)
+## [redis-3.0.41](https://github.com/truecharts/apps/compare/redis-3.0.40...redis-3.0.41) (2022-07-20)
 
 ### Chore
 
@@ -114,7 +191,7 @@
 
 
 
-## [mariadb-3.0.38](https://github.com/truecharts/apps/compare/mariadb-3.0.37...mariadb-3.0.38) (2022-07-20)
+## [redis-3.0.40](https://github.com/truecharts/apps/compare/redis-3.0.39...redis-3.0.40) (2022-07-20)
 
 ### Chore
 
@@ -122,16 +199,23 @@
 
 
 
-
-## [mariadb-3.0.36](https://github.com/truecharts/apps/compare/mariadb-3.0.35...mariadb-3.0.36) (2022-07-16)
+## [redis-3.0.39](https://github.com/truecharts/apps/compare/redis-3.0.38...redis-3.0.39) (2022-07-19)
 
 ### Chore
 
-- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+- Update Readme and Description on SCALE
 
 
 
-## [memcached-3.0.36](https://github.com/truecharts/apps/compare/memcached-3.0.35...memcached-3.0.36) (2022-07-14)
+## [redis-3.0.38](https://github.com/truecharts/apps/compare/redis-3.0.37...redis-3.0.38) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
+## [redis-3.0.37](https://github.com/truecharts/apps/compare/redis-3.0.36...redis-3.0.37) (2022-07-14)
 
 ### Fix
 
@@ -139,7 +223,7 @@
 
 
 
-## [memcached-3.0.35](https://github.com/truecharts/apps/compare/memcached-3.0.33...memcached-3.0.35) (2022-07-14)
+## [redis-3.0.36](https://github.com/truecharts/apps/compare/redis-3.0.34...redis-3.0.36) (2022-07-14)
 
 ### Fix
 
@@ -147,8 +231,15 @@
 
 
 
+## [mongodb-1.0.36](https://github.com/truecharts/apps/compare/mongodb-1.0.35...mongodb-1.0.36) (2022-07-13)
 
-## [memcached-3.0.32](https://github.com/truecharts/apps/compare/memcached-3.0.30...memcached-3.0.32) (2022-07-12)
+### Chore
+
+- update docker general non-major ([#3157](https://github.com/truecharts/apps/issues/3157))
+
+
+
+## [mongodb-1.0.35](https://github.com/truecharts/apps/compare/mongodb-1.0.33...mongodb-1.0.35) (2022-07-12)
 
 ### Chore
 
@@ -157,7 +248,7 @@
 
 
 
-## [memcached-3.0.30](https://github.com/truecharts/apps/compare/memcached-3.0.29...memcached-3.0.30) (2022-07-12)
+## [mongodb-1.0.33](https://github.com/truecharts/apps/compare/mongodb-1.0.32...mongodb-1.0.33) (2022-07-12)
 
 ### Chore
 
@@ -165,8 +256,8 @@
 
 
 
-<a name="memcached-3.0.29"></a>
-### [memcached-3.0.29](https://github.com/truecharts/apps/compare/memcached-3.0.28...memcached-3.0.29) (2022-07-12)
+<a name="mongodb-1.0.32"></a>
+### [mongodb-1.0.32](https://github.com/truecharts/apps/compare/mongodb-1.0.31...mongodb-1.0.32) (2022-07-12)
 
 #### Chore
 
@@ -174,13 +265,9 @@
 
 
 
-<a name="memcached-3.0.28"></a>
-### [memcached-3.0.28](https://github.com/truecharts/apps/compare/memcached-3.0.27...memcached-3.0.28) (2022-07-11)
 
-
-
-<a name="memcached-3.0.27"></a>
-### [memcached-3.0.27](https://github.com/truecharts/apps/compare/memcached-3.0.26...memcached-3.0.27) (2022-07-11)
+<a name="mongodb-1.0.30"></a>
+### [mongodb-1.0.30](https://github.com/truecharts/apps/compare/mongodb-1.0.29...mongodb-1.0.30) (2022-07-11)
 
 #### Chore
 
@@ -189,8 +276,8 @@
 
 
 
-<a name="memcached-3.0.26"></a>
-### [memcached-3.0.26](https://github.com/truecharts/apps/compare/memcached-3.0.25...memcached-3.0.26) (2022-07-11)
+<a name="mongodb-1.0.29"></a>
+### [mongodb-1.0.29](https://github.com/truecharts/apps/compare/mongodb-1.0.28...mongodb-1.0.29) (2022-07-11)
 
 #### Chore
 
@@ -198,8 +285,8 @@
 
 
 
-<a name="memcached-3.0.25"></a>
-### [memcached-3.0.25](https://github.com/truecharts/apps/compare/memcached-3.0.24...memcached-3.0.25) (2022-07-10)
+<a name="mongodb-1.0.28"></a>
+### [mongodb-1.0.28](https://github.com/truecharts/apps/compare/mongodb-1.0.27...mongodb-1.0.28) (2022-07-10)
 
 #### Chore
 
@@ -208,8 +295,8 @@
 
 
 
-<a name="memcached-3.0.24"></a>
-### [memcached-3.0.24](https://github.com/truecharts/apps/compare/memcached-3.0.23...memcached-3.0.24) (2022-07-10)
+<a name="mongodb-1.0.27"></a>
+### [mongodb-1.0.27](https://github.com/truecharts/apps/compare/mongodb-1.0.26...mongodb-1.0.27) (2022-07-10)
 
 #### Chore
 
@@ -217,8 +304,8 @@
 
 
 
-<a name="memcached-3.0.23"></a>
-### [memcached-3.0.23](https://github.com/truecharts/apps/compare/memcached-3.0.22...memcached-3.0.23) (2022-07-09)
+<a name="mongodb-1.0.26"></a>
+### [mongodb-1.0.26](https://github.com/truecharts/apps/compare/mongodb-1.0.25...mongodb-1.0.26) (2022-07-09)
 
 #### Chore
 
@@ -226,17 +313,26 @@
 
 
 
-<a name="memcached-3.0.22"></a>
-### [memcached-3.0.22](https://github.com/truecharts/apps/compare/memcached-3.0.21...memcached-3.0.22) (2022-07-07)
+<a name="mongodb-1.0.25"></a>
+### [mongodb-1.0.25](https://github.com/truecharts/apps/compare/mongodb-1.0.24...mongodb-1.0.25) (2022-07-06)
 
 #### Chore
 
-* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
 
 
 
-<a name="memcached-3.0.21"></a>
-### [memcached-3.0.21](https://github.com/truecharts/apps/compare/memcached-3.0.20...memcached-3.0.21) (2022-07-04)
+<a name="mongodb-1.0.24"></a>
+### [mongodb-1.0.24](https://github.com/truecharts/apps/compare/mongodb-1.0.23...mongodb-1.0.24) (2022-07-05)
+
+#### Chore
+
+* update docker general non-major ([#3071](https://github.com/truecharts/apps/issues/3071))
+
+
+
+<a name="mongodb-1.0.23"></a>
+### [mongodb-1.0.23](https://github.com/truecharts/apps/compare/mongodb-1.0.22...mongodb-1.0.23) (2022-07-04)
 
 #### Chore
 
@@ -244,8 +340,8 @@
 
 
 
-<a name="memcached-3.0.20"></a>
-### [memcached-3.0.20](https://github.com/truecharts/apps/compare/memcached-3.0.19...memcached-3.0.20) (2022-07-04)
+<a name="mongodb-1.0.22"></a>
+### [mongodb-1.0.22](https://github.com/truecharts/apps/compare/mongodb-1.0.21...mongodb-1.0.22) (2022-07-04)
 
 #### Chore
 
@@ -253,8 +349,17 @@
 
 
 
-<a name="memcached-3.0.19"></a>
-### [memcached-3.0.19](https://github.com/truecharts/apps/compare/memcached-3.0.18...memcached-3.0.19) (2022-07-01)
+<a name="mongodb-1.0.21"></a>
+### [mongodb-1.0.21](https://github.com/truecharts/apps/compare/mongodb-1.0.20...mongodb-1.0.21) (2022-07-02)
+
+#### Chore
+
+* update docker general non-major ([#3033](https://github.com/truecharts/apps/issues/3033))
+
+
+
+<a name="mongodb-1.0.20"></a>
+### [mongodb-1.0.20](https://github.com/truecharts/apps/compare/mongodb-1.0.19...mongodb-1.0.20) (2022-07-01)
 
 #### Chore
 
@@ -262,18 +367,18 @@
 
 
 
-<a name="memcached-3.0.18"></a>
-### [memcached-3.0.18](https://github.com/truecharts/apps/compare/memcached-3.0.17...memcached-3.0.18) (2022-06-26)
+<a name="mongodb-1.0.19"></a>
+### [mongodb-1.0.19](https://github.com/truecharts/apps/compare/mongodb-1.0.18...mongodb-1.0.19) (2022-06-27)
 
 #### Chore
 
-* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
 * update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
 
 
 
-<a name="memcached-3.0.17"></a>
-### [memcached-3.0.17](https://github.com/truecharts/apps/compare/memcached-3.0.16...memcached-3.0.17) (2022-06-25)
+<a name="mongodb-1.0.18"></a>
+### [mongodb-1.0.18](https://github.com/truecharts/apps/compare/mongodb-1.0.17...mongodb-1.0.18) (2022-06-25)
 
 #### Chore
 
@@ -281,8 +386,8 @@
 
 
 
-<a name="memcached-3.0.16"></a>
-### [memcached-3.0.16](https://github.com/truecharts/apps/compare/memcached-3.0.15...memcached-3.0.16) (2022-06-24)
+<a name="mongodb-1.0.17"></a>
+### [mongodb-1.0.17](https://github.com/truecharts/apps/compare/mongodb-1.0.16...mongodb-1.0.17) (2022-06-24)
 
 #### Chore
 
@@ -290,8 +395,8 @@
 
 
 
-<a name="memcached-3.0.15"></a>
-### [memcached-3.0.15](https://github.com/truecharts/apps/compare/memcached-3.0.14...memcached-3.0.15) (2022-06-22)
+<a name="mongodb-1.0.16"></a>
+### [mongodb-1.0.16](https://github.com/truecharts/apps/compare/mongodb-1.0.15...mongodb-1.0.16) (2022-06-22)
 
 #### Chore
 
@@ -299,8 +404,8 @@
 
 
 
-<a name="memcached-3.0.14"></a>
-### [memcached-3.0.14](https://github.com/truecharts/apps/compare/memcached-3.0.13...memcached-3.0.14) (2022-06-21)
+<a name="mongodb-1.0.15"></a>
+### [mongodb-1.0.15](https://github.com/truecharts/apps/compare/mongodb-1.0.14...mongodb-1.0.15) (2022-06-21)
 
 #### Chore
 
@@ -308,8 +413,8 @@
 
 
 
-<a name="memcached-3.0.13"></a>
-### [memcached-3.0.13](https://github.com/truecharts/apps/compare/memcached-3.0.12...memcached-3.0.13) (2022-06-21)
+<a name="mongodb-1.0.14"></a>
+### [mongodb-1.0.14](https://github.com/truecharts/apps/compare/mongodb-1.0.13...mongodb-1.0.14) (2022-06-21)
 
 #### Chore
 
@@ -317,8 +422,8 @@
 
 
 
-<a name="memcached-3.0.12"></a>
-### [memcached-3.0.12](https://github.com/truecharts/apps/compare/memcached-3.0.11...memcached-3.0.12) (2022-06-20)
+<a name="mongodb-1.0.13"></a>
+### [mongodb-1.0.13](https://github.com/truecharts/apps/compare/mongodb-1.0.12...mongodb-1.0.13) (2022-06-20)
 
 #### Chore
 
@@ -326,8 +431,8 @@
 
 
 
-<a name="memcached-3.0.11"></a>
-### [memcached-3.0.11](https://github.com/truecharts/apps/compare/memcached-3.0.10...memcached-3.0.11) (2022-06-18)
+<a name="mongodb-1.0.12"></a>
+### [mongodb-1.0.12](https://github.com/truecharts/apps/compare/mongodb-1.0.11...mongodb-1.0.12) (2022-06-18)
 
 #### Chore
 
@@ -335,8 +440,8 @@
 
 
 
-<a name="memcached-3.0.10"></a>
-### [memcached-3.0.10](https://github.com/truecharts/apps/compare/memcached-3.0.9...memcached-3.0.10) (2022-06-17)
+<a name="mongodb-1.0.11"></a>
+### [mongodb-1.0.11](https://github.com/truecharts/apps/compare/mongodb-1.0.10...mongodb-1.0.11) (2022-06-17)
 
 #### Chore
 
@@ -344,18 +449,26 @@
 
 
 
-<a name="memcached-3.0.9"></a>
-### [memcached-3.0.9](https://github.com/truecharts/apps/compare/memcached-3.0.8...memcached-3.0.9) (2022-06-17)
+<a name="mongodb-1.0.10"></a>
+### [mongodb-1.0.10](https://github.com/truecharts/apps/compare/mongodb-1.0.9...mongodb-1.0.10) (2022-06-17)
 
 #### Chore
 
-* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
 * update helm chart common to v10.0.12
 
 
 
-<a name="memcached-3.0.8"></a>
-### [memcached-3.0.8](https://github.com/truecharts/apps/compare/memcached-3.0.7...memcached-3.0.8) (2022-06-15)
+<a name="mongodb-1.0.9"></a>
+### [mongodb-1.0.9](https://github.com/truecharts/apps/compare/mongodb-1.0.8...mongodb-1.0.9) (2022-06-16)
+
+#### Chore
+
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+
+
+
+<a name="mongodb-1.0.8"></a>
+### [mongodb-1.0.8](https://github.com/truecharts/apps/compare/mongodb-1.0.7...mongodb-1.0.8) (2022-06-15)
 
 #### Chore
 
@@ -363,8 +476,8 @@
 
 
 
-<a name="memcached-3.0.7"></a>
-### [memcached-3.0.7](https://github.com/truecharts/apps/compare/memcached-3.0.6...memcached-3.0.7) (2022-06-14)
+<a name="mongodb-1.0.7"></a>
+### [mongodb-1.0.7](https://github.com/truecharts/apps/compare/mongodb-1.0.6...mongodb-1.0.7) (2022-06-14)
 
 #### Chore
 
@@ -372,17 +485,17 @@
 
 
 
-<a name="memcached-3.0.6"></a>
-### [memcached-3.0.6](https://github.com/truecharts/apps/compare/memcached-3.0.5...memcached-3.0.6) (2022-06-14)
+<a name="mongodb-1.0.6"></a>
+### [mongodb-1.0.6](https://github.com/truecharts/apps/compare/mongodb-1.0.5...mongodb-1.0.6) (2022-06-13)
 
 #### Chore
 
-* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+* update docker general non-major ([#2860](https://github.com/truecharts/apps/issues/2860))
 
 
 
-<a name="memcached-3.0.5"></a>
-### [memcached-3.0.5](https://github.com/truecharts/apps/compare/memcached-3.0.4...memcached-3.0.5) (2022-06-11)
+<a name="mongodb-1.0.5"></a>
+### [mongodb-1.0.5](https://github.com/truecharts/apps/compare/mongodb-1.0.4...mongodb-1.0.5) (2022-06-11)
 
 #### Chore
 
@@ -390,18 +503,17 @@
 
 
 
-<a name="memcached-3.0.4"></a>
-### [memcached-3.0.4](https://github.com/truecharts/apps/compare/memcached-3.0.3...memcached-3.0.4) (2022-06-11)
+<a name="mongodb-1.0.4"></a>
+### [mongodb-1.0.4](https://github.com/truecharts/apps/compare/mongodb-1.0.3...mongodb-1.0.4) (2022-06-11)
 
 #### Chore
 
-* update icons ref ([#2851](https://github.com/truecharts/apps/issues/2851))
 * update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
 
 
 
-<a name="memcached-3.0.3"></a>
-### [memcached-3.0.3](https://github.com/truecharts/apps/compare/memcached-3.0.2...memcached-3.0.3) (2022-06-09)
+<a name="mongodb-1.0.3"></a>
+### [mongodb-1.0.3](https://github.com/truecharts/apps/compare/mongodb-1.0.2...mongodb-1.0.3) (2022-06-09)
 
 #### Chore
 
@@ -409,8 +521,8 @@
 
 
 
-<a name="memcached-3.0.2"></a>
-### [memcached-3.0.2](https://github.com/truecharts/apps/compare/memcached-3.0.1...memcached-3.0.2) (2022-06-07)
+<a name="mongodb-1.0.2"></a>
+### [mongodb-1.0.2](https://github.com/truecharts/apps/compare/mongodb-1.0.1...mongodb-1.0.2) (2022-06-07)
 
 #### Fix
 
@@ -418,12 +530,13 @@
 
 
 
-<a name="memcached-3.0.1"></a>
-### [memcached-3.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.1) (2022-06-07)
+<a name="mongodb-1.0.1"></a>
+### [mongodb-1.0.1](https://github.com/truecharts/apps/compare/mongodb-0.1.49...mongodb-1.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
 
 #### Fix
 
@@ -435,8 +548,12 @@
 
 
 
-<a name="memcached-3.0.0"></a>
-### [memcached-3.0.0](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.0) (2022-06-07)
+<a name="mongodb-1.0.0"></a>
+### [mongodb-1.0.0](https://github.com/truecharts/apps/compare/mongodb-0.1.49...mongodb-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
 
 #### Refactor
 
@@ -444,8 +561,8 @@
 
 
 
-<a name="memcached-2.0.91"></a>
-### [memcached-2.0.91](https://github.com/truecharts/apps/compare/memcached-2.0.90...memcached-2.0.91) (2022-06-05)
+<a name="mongodb-0.1.49"></a>
+### [mongodb-0.1.49](https://github.com/truecharts/apps/compare/mongodb-0.1.48...mongodb-0.1.49) (2022-06-05)
 
 #### Chore
 
@@ -453,8 +570,8 @@
 
 
 
-<a name="memcached-2.0.90"></a>
-### [memcached-2.0.90](https://github.com/truecharts/apps/compare/memcached-2.0.89...memcached-2.0.90) (2022-06-04)
+<a name="mongodb-0.1.48"></a>
+### [mongodb-0.1.48](https://github.com/truecharts/apps/compare/mongodb-0.1.47...mongodb-0.1.48) (2022-06-04)
 
 #### Chore
 
@@ -462,8 +579,8 @@
 
 
 
-<a name="memcached-2.0.89"></a>
-### [memcached-2.0.89](https://github.com/truecharts/apps/compare/memcached-2.0.88...memcached-2.0.89) (2022-06-04)
+<a name="mongodb-0.1.47"></a>
+### [mongodb-0.1.47](https://github.com/truecharts/apps/compare/mongodb-0.1.46...mongodb-0.1.47) (2022-06-04)
 
 #### Chore
 
@@ -471,8 +588,17 @@
 
 
 
-<a name="memcached-2.0.88"></a>
-### [memcached-2.0.88](https://github.com/truecharts/apps/compare/memcached-2.0.87...memcached-2.0.88) (2022-06-03)
+<a name="mongodb-0.1.46"></a>
+### [mongodb-0.1.46](https://github.com/truecharts/apps/compare/mongodb-0.1.45...mongodb-0.1.46) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
+<a name="mongodb-0.1.45"></a>
+### [mongodb-0.1.45](https://github.com/truecharts/apps/compare/mongodb-0.1.44...mongodb-0.1.45) (2022-06-03)
 
 #### Chore
 
@@ -480,8 +606,8 @@
 
 
 
-<a name="memcached-2.0.87"></a>
-### [memcached-2.0.87](https://github.com/truecharts/apps/compare/memcached-2.0.86...memcached-2.0.87) (2022-06-02)
+<a name="mongodb-0.1.44"></a>
+### [mongodb-0.1.44](https://github.com/truecharts/apps/compare/mongodb-0.1.43...mongodb-0.1.44) (2022-06-02)
 
 #### Chore
 
@@ -490,8 +616,8 @@
 
 
 
-<a name="memcached-2.0.86"></a>
-### [memcached-2.0.86](https://github.com/truecharts/apps/compare/memcached-2.0.85...memcached-2.0.86) (2022-06-01)
+<a name="mongodb-0.1.43"></a>
+### [mongodb-0.1.43](https://github.com/truecharts/apps/compare/mongodb-0.1.42...mongodb-0.1.43) (2022-06-01)
 
 #### Chore
 
@@ -499,8 +625,8 @@
 
 
 
-<a name="memcached-2.0.85"></a>
-### [memcached-2.0.85](https://github.com/truecharts/apps/compare/memcached-2.0.84...memcached-2.0.85) (2022-05-31)
+<a name="mongodb-0.1.42"></a>
+### [mongodb-0.1.42](https://github.com/truecharts/apps/compare/mongodb-0.1.41...mongodb-0.1.42) (2022-05-31)
 
 #### Chore
 
@@ -508,8 +634,8 @@
 
 
 
-<a name="memcached-2.0.84"></a>
-### [memcached-2.0.84](https://github.com/truecharts/apps/compare/memcached-2.0.83...memcached-2.0.84) (2022-05-31)
+<a name="mongodb-0.1.41"></a>
+### [mongodb-0.1.41](https://github.com/truecharts/apps/compare/mongodb-0.1.40...mongodb-0.1.41) (2022-05-31)
 
 #### Chore
 
@@ -517,8 +643,8 @@
 
 
 
-<a name="memcached-2.0.83"></a>
-### [memcached-2.0.83](https://github.com/truecharts/apps/compare/memcached-2.0.82...memcached-2.0.83) (2022-05-30)
+<a name="mongodb-0.1.40"></a>
+### [mongodb-0.1.40](https://github.com/truecharts/apps/compare/mongodb-0.1.39...mongodb-0.1.40) (2022-05-30)
 
 #### Chore
 
@@ -527,8 +653,8 @@
 
 
 
-<a name="memcached-2.0.82"></a>
-### [memcached-2.0.82](https://github.com/truecharts/apps/compare/memcached-2.0.81...memcached-2.0.82) (2022-05-29)
+<a name="mongodb-0.1.39"></a>
+### [mongodb-0.1.39](https://github.com/truecharts/apps/compare/mongodb-0.1.38...mongodb-0.1.39) (2022-05-29)
 
 #### Chore
 
@@ -536,8 +662,8 @@
 
 
 
-<a name="memcached-2.0.81"></a>
-### [memcached-2.0.81](https://github.com/truecharts/apps/compare/memcached-2.0.80...memcached-2.0.81) (2022-05-26)
+<a name="mongodb-0.1.38"></a>
+### [mongodb-0.1.38](https://github.com/truecharts/apps/compare/mongodb-0.1.37...mongodb-0.1.38) (2022-05-26)
 
 #### Chore
 
@@ -545,8 +671,8 @@
 
 
 
-<a name="memcached-2.0.80"></a>
-### [memcached-2.0.80](https://github.com/truecharts/apps/compare/memcached-2.0.79...memcached-2.0.80) (2022-05-26)
+<a name="mongodb-0.1.37"></a>
+### [mongodb-0.1.37](https://github.com/truecharts/apps/compare/mongodb-0.1.36...mongodb-0.1.37) (2022-05-26)
 
 #### Chore
 
@@ -554,18 +680,17 @@
 
 
 
-<a name="memcached-2.0.79"></a>
-### [memcached-2.0.79](https://github.com/truecharts/apps/compare/memcached-2.0.78...memcached-2.0.79) (2022-05-26)
+<a name="mongodb-0.1.36"></a>
+### [mongodb-0.1.36](https://github.com/truecharts/apps/compare/mongodb-0.1.35...mongodb-0.1.36) (2022-05-26)
 
 #### Chore
 
 * update helm chart common to v9.3.18 ([#2753](https://github.com/truecharts/apps/issues/2753))
-* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
 
 
 
-<a name="memcached-2.0.78"></a>
-### [memcached-2.0.78](https://github.com/truecharts/apps/compare/memcached-2.0.77...memcached-2.0.78) (2022-05-25)
+<a name="mongodb-0.1.35"></a>
+### [mongodb-0.1.35](https://github.com/truecharts/apps/compare/mongodb-0.1.34...mongodb-0.1.35) (2022-05-25)
 
 #### Chore
 
@@ -573,8 +698,8 @@
 
 
 
-<a name="memcached-2.0.77"></a>
-### [memcached-2.0.77](https://github.com/truecharts/apps/compare/memcached-2.0.76...memcached-2.0.77) (2022-05-24)
+<a name="mongodb-0.1.34"></a>
+### [mongodb-0.1.34](https://github.com/truecharts/apps/compare/mongodb-0.1.33...mongodb-0.1.34) (2022-05-24)
 
 #### Chore
 
@@ -582,8 +707,8 @@
 
 
 
-<a name="memcached-2.0.76"></a>
-### [memcached-2.0.76](https://github.com/truecharts/apps/compare/memcached-2.0.75...memcached-2.0.76) (2022-05-20)
+<a name="mongodb-0.1.33"></a>
+### [mongodb-0.1.33](https://github.com/truecharts/apps/compare/mongodb-0.1.32...mongodb-0.1.33) (2022-05-20)
 
 #### Chore
 
@@ -591,8 +716,8 @@
 
 
 
-<a name="memcached-2.0.75"></a>
-### [memcached-2.0.75](https://github.com/truecharts/apps/compare/memcached-2.0.74...memcached-2.0.75) (2022-05-19)
+<a name="mongodb-0.1.32"></a>
+### [mongodb-0.1.32](https://github.com/truecharts/apps/compare/mongodb-0.1.31...mongodb-0.1.32) (2022-05-19)
 
 #### Chore
 
@@ -600,8 +725,8 @@
 
 
 
-<a name="memcached-2.0.74"></a>
-### [memcached-2.0.74](https://github.com/truecharts/apps/compare/memcached-2.0.73...memcached-2.0.74) (2022-05-19)
+<a name="mongodb-0.1.31"></a>
+### [mongodb-0.1.31](https://github.com/truecharts/apps/compare/mongodb-0.1.30...mongodb-0.1.31) (2022-05-19)
 
 #### Chore
 
@@ -609,20 +734,18 @@
 
 
 
-<a name="memcached-2.0.73"></a>
-### [memcached-2.0.73](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.73) (2022-05-18)
+<a name="mongodb-0.1.30"></a>
+### [mongodb-0.1.30](https://github.com/truecharts/apps/compare/mongodb-0.1.29...mongodb-0.1.30) (2022-05-17)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* update helm chart common to v9.3.16 ([#2708](https://github.com/truecharts/apps/issues/2708))
-* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
 * update helm chart common to v9.3.15
 
 
 
-<a name="memcached-2.0.71"></a>
-### [memcached-2.0.71](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.71) (2022-05-17)
+<a name="mongodb-0.1.30"></a>
+### [mongodb-0.1.30](https://github.com/truecharts/apps/compare/mongodb-0.1.29...mongodb-0.1.30) (2022-05-17)
 
 #### Chore
 
@@ -630,8 +753,8 @@
 
 
 
-<a name="memcached-2.0.70"></a>
-### [memcached-2.0.70](https://github.com/truecharts/apps/compare/memcached-2.0.69...memcached-2.0.70) (2022-05-17)
+<a name="mongodb-0.1.29"></a>
+### [mongodb-0.1.29](https://github.com/truecharts/apps/compare/mongodb-0.1.28...mongodb-0.1.29) (2022-05-17)
 
 #### Chore
 
@@ -640,8 +763,8 @@
 
 
 
-<a name="memcached-2.0.69"></a>
-### [memcached-2.0.69](https://github.com/truecharts/apps/compare/memcached-2.0.68...memcached-2.0.69) (2022-05-16)
+<a name="mongodb-0.1.28"></a>
+### [mongodb-0.1.28](https://github.com/truecharts/apps/compare/mongodb-0.1.27...mongodb-0.1.28) (2022-05-16)
 
 #### Chore
 
@@ -649,8 +772,8 @@
 
 
 
-<a name="memcached-2.0.68"></a>
-### [memcached-2.0.68](https://github.com/truecharts/apps/compare/memcached-2.0.67...memcached-2.0.68) (2022-05-15)
+<a name="mongodb-0.1.27"></a>
+### [mongodb-0.1.27](https://github.com/truecharts/apps/compare/mongodb-0.1.26...mongodb-0.1.27) (2022-05-15)
 
 #### Chore
 
@@ -658,8 +781,8 @@
 
 
 
-<a name="memcached-2.0.67"></a>
-### [memcached-2.0.67](https://github.com/truecharts/apps/compare/memcached-2.0.65...memcached-2.0.67) (2022-05-15)
+<a name="mongodb-0.1.26"></a>
+### [mongodb-0.1.26](https://github.com/truecharts/apps/compare/mongodb-0.1.24...mongodb-0.1.26) (2022-05-15)
 
 #### Chore
 
@@ -668,8 +791,8 @@
 
 
 
-<a name="memcached-2.0.65"></a>
-### [memcached-2.0.65](https://github.com/truecharts/apps/compare/memcached-2.0.64...memcached-2.0.65) (2022-05-14)
+<a name="mongodb-0.1.24"></a>
+### [mongodb-0.1.24](https://github.com/truecharts/apps/compare/mongodb-0.1.23...mongodb-0.1.24) (2022-05-14)
 
 #### Chore
 
@@ -677,8 +800,8 @@
 
 
 
-<a name="memcached-2.0.64"></a>
-### [memcached-2.0.64](https://github.com/truecharts/apps/compare/memcached-2.0.62...memcached-2.0.64) (2022-05-13)
+<a name="mongodb-0.1.23"></a>
+### [mongodb-0.1.23](https://github.com/truecharts/apps/compare/mongodb-0.1.21...mongodb-0.1.23) (2022-05-13)
 
 #### Chore
 
@@ -687,8 +810,8 @@
 
 
 
-<a name="memcached-2.0.62"></a>
-### [memcached-2.0.62](https://github.com/truecharts/apps/compare/memcached-2.0.61...memcached-2.0.62) (2022-05-12)
+<a name="mongodb-0.1.21"></a>
+### [mongodb-0.1.21](https://github.com/truecharts/apps/compare/mongodb-0.1.20...mongodb-0.1.21) (2022-05-12)
 
 #### Chore
 
@@ -696,8 +819,8 @@
 
 
 
-<a name="memcached-2.0.61"></a>
-### [memcached-2.0.61](https://github.com/truecharts/apps/compare/memcached-2.0.60...memcached-2.0.61) (2022-05-12)
+<a name="mongodb-0.1.20"></a>
+### [mongodb-0.1.20](https://github.com/truecharts/apps/compare/mongodb-0.1.19...mongodb-0.1.20) (2022-05-12)
 
 #### Chore
 
@@ -705,18 +828,17 @@
 
 
 
-<a name="memcached-2.0.60"></a>
-### [memcached-2.0.60](https://github.com/truecharts/apps/compare/memcached-2.0.58...memcached-2.0.60) (2022-05-11)
+<a name="mongodb-0.1.19"></a>
+### [mongodb-0.1.19](https://github.com/truecharts/apps/compare/mongodb-0.1.18...mongodb-0.1.19) (2022-05-11)
 
 #### Chore
 
 * update helm chart common to v9.3.7 ([#2656](https://github.com/truecharts/apps/issues/2656))
-* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
 
 
 
-<a name="memcached-2.0.58"></a>
-### [memcached-2.0.58](https://github.com/truecharts/apps/compare/memcached-2.0.57...memcached-2.0.58) (2022-05-10)
+<a name="mongodb-0.1.18"></a>
+### [mongodb-0.1.18](https://github.com/truecharts/apps/compare/mongodb-0.1.17...mongodb-0.1.18) (2022-05-10)
 
 #### Chore
 
@@ -724,8 +846,8 @@
 
 
 
-<a name="memcached-2.0.57"></a>
-### [memcached-2.0.57](https://github.com/truecharts/apps/compare/memcached-2.0.56...memcached-2.0.57) (2022-05-10)
+<a name="mongodb-0.1.17"></a>
+### [mongodb-0.1.17](https://github.com/truecharts/apps/compare/mongodb-0.1.16...mongodb-0.1.17) (2022-05-10)
 
 #### Chore
 
@@ -733,8 +855,8 @@
 
 
 
-<a name="memcached-2.0.56"></a>
-### [memcached-2.0.56](https://github.com/truecharts/apps/compare/memcached-2.0.55...memcached-2.0.56) (2022-05-10)
+<a name="mongodb-0.1.16"></a>
+### [mongodb-0.1.16](https://github.com/truecharts/apps/compare/mongodb-0.1.15...mongodb-0.1.16) (2022-05-10)
 
 #### Chore
 
@@ -742,8 +864,8 @@
 
 
 
-<a name="memcached-2.0.55"></a>
-### [memcached-2.0.55](https://github.com/truecharts/apps/compare/memcached-2.0.54...memcached-2.0.55) (2022-05-09)
+<a name="mongodb-0.1.15"></a>
+### [mongodb-0.1.15](https://github.com/truecharts/apps/compare/mongodb-0.1.14...mongodb-0.1.15) (2022-05-09)
 
 #### Chore
 
@@ -751,8 +873,8 @@
 
 
 
-<a name="memcached-2.0.54"></a>
-### [memcached-2.0.54](https://github.com/truecharts/apps/compare/memcached-2.0.53...memcached-2.0.54) (2022-05-08)
+<a name="mongodb-0.1.14"></a>
+### [mongodb-0.1.14](https://github.com/truecharts/apps/compare/mongodb-0.1.13...mongodb-0.1.14) (2022-05-08)
 
 #### Chore
 
@@ -760,26 +882,8 @@
 
 
 
-<a name="memcached-2.0.53"></a>
-### [memcached-2.0.53](https://github.com/truecharts/apps/compare/memcached-2.0.52...memcached-2.0.53) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="memcached-2.0.52"></a>
-### [memcached-2.0.52](https://github.com/truecharts/apps/compare/memcached-2.0.51...memcached-2.0.52) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="memcached-2.0.51"></a>
-### [memcached-2.0.51](https://github.com/truecharts/apps/compare/memcached-2.0.50...memcached-2.0.51) (2022-05-05)
+<a name="mongodb-0.1.13"></a>
+### [mongodb-0.1.13](https://github.com/truecharts/apps/compare/mongodb-0.1.12...mongodb-0.1.13) (2022-05-05)
 
 #### Chore
 
@@ -787,8 +891,8 @@
 
 
 
-<a name="memcached-2.0.50"></a>
-### [memcached-2.0.50](https://github.com/truecharts/apps/compare/memcached-2.0.49...memcached-2.0.50) (2022-05-04)
+<a name="mongodb-0.1.12"></a>
+### [mongodb-0.1.12](https://github.com/truecharts/apps/compare/mongodb-0.1.11...mongodb-0.1.12) (2022-05-04)
 
 #### Chore
 
@@ -796,17 +900,8 @@
 
 
 
-<a name="memcached-2.0.49"></a>
-### [memcached-2.0.49](https://github.com/truecharts/apps/compare/memcached-2.0.48...memcached-2.0.49) (2022-04-29)
-
-#### Chore
-
-* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
-
-
-
-<a name="memcached-2.0.48"></a>
-### [memcached-2.0.48](https://github.com/truecharts/apps/compare/memcached-2.0.47...memcached-2.0.48) (2022-04-28)
+<a name="mongodb-0.1.11"></a>
+### [mongodb-0.1.11](https://github.com/truecharts/apps/compare/mongodb-0.1.10...mongodb-0.1.11) (2022-04-28)
 
 #### Chore
 
@@ -814,8 +909,8 @@
 
 
 
-<a name="memcached-2.0.47"></a>
-### [memcached-2.0.47](https://github.com/truecharts/apps/compare/memcached-2.0.46...memcached-2.0.47) (2022-04-26)
+<a name="mongodb-0.1.10"></a>
+### [mongodb-0.1.10](https://github.com/truecharts/apps/compare/mongodb-0.1.9...mongodb-0.1.10) (2022-04-26)
 
 #### Chore
 
@@ -823,17 +918,98 @@
 
 
 
-<a name="memcached-2.0.46"></a>
-### [memcached-2.0.46](https://github.com/truecharts/apps/compare/memcached-2.0.45...memcached-2.0.46) (2022-04-26)
+<a name="mongodb-0.1.9"></a>
+### [mongodb-0.1.9](https://github.com/truecharts/apps/compare/mongodb-0.1.8...mongodb-0.1.9) (2022-04-25)
 
 #### Chore
 
-* update helm chart common to v9.3.2
+* bump common ([#2569](https://github.com/truecharts/apps/issues/2569))
 
 
 
-<a name="memcached-2.0.45"></a>
-### [memcached-2.0.45](https://github.com/truecharts/apps/compare/memcached-2.0.44...memcached-2.0.45) (2022-04-20)
+<a name="mongodb-0.1.8"></a>
+### [mongodb-0.1.8](https://github.com/truecharts/apps/compare/mongodb-0.1.7...mongodb-0.1.8) (2022-04-25)
+
+#### Revert
+
+* revert replicaset ([#2567](https://github.com/truecharts/apps/issues/2567))
+
+
+
+<a name="mongodb-0.1.7"></a>
+### [mongodb-0.1.7](https://github.com/truecharts/apps/compare/mongodb-0.1.6...mongodb-0.1.7) (2022-04-25)
+
+#### Fix
+
+* fix ([#2563](https://github.com/truecharts/apps/issues/2563))
+
+
+
+<a name="mongodb-0.1.6"></a>
+### [mongodb-0.1.6](https://github.com/truecharts/apps/compare/mongodb-0.1.5...mongodb-0.1.6) (2022-04-25)
+
+#### Fix
+
+* set advertised hostname ([#2560](https://github.com/truecharts/apps/issues/2560))
+
+
+
+<a name="mongodb-0.1.5"></a>
+### [mongodb-0.1.5](https://github.com/truecharts/apps/compare/mongodb-0.1.4...mongodb-0.1.5) (2022-04-24)
+
+#### Fix
+
+* make advertisedhostname configurable ([#2559](https://github.com/truecharts/apps/issues/2559))
+
+
+
+<a name="mongodb-0.1.4"></a>
+### [mongodb-0.1.4](https://github.com/truecharts/apps/compare/mongodb-0.1.3...mongodb-0.1.4) (2022-04-24)
+
+#### Fix
+
+* dont set initial primary host ([#2557](https://github.com/truecharts/apps/issues/2557))
+
+
+
+<a name="mongodb-0.1.3"></a>
+### [mongodb-0.1.3](https://github.com/truecharts/apps/compare/mongodb-0.1.2...mongodb-0.1.3) (2022-04-24)
+
+#### Fix
+
+* set advertised hostname ([#2555](https://github.com/truecharts/apps/issues/2555))
+
+
+
+<a name="mongodb-0.1.2"></a>
+### [mongodb-0.1.2](https://github.com/truecharts/apps/compare/mongodb-0.1.1...mongodb-0.1.2) (2022-04-24)
+
+#### Chore
+
+* bump common ([#2551](https://github.com/truecharts/apps/issues/2551))
+
+
+
+<a name="mongodb-0.1.1"></a>
+### [mongodb-0.1.1](https://github.com/truecharts/apps/compare/mongodb-0.1.0...mongodb-0.1.1) (2022-04-24)
+
+#### Chore
+
+* bump common ([#2548](https://github.com/truecharts/apps/issues/2548))
+
+
+
+<a name="mongodb-0.1.0"></a>
+### [mongodb-0.1.0](https://github.com/truecharts/apps/compare/mongodb-0.0.31...mongodb-0.1.0) (2022-04-24)
+
+#### Feat
+
+* run in single replicaset (take3) ([#2505](https://github.com/truecharts/apps/issues/2505))
+
+
+
+<a name="mongodb-0.0.31"></a>
+### [mongodb-0.0.31](https://github.com/truecharts/apps/compare/mongodb-0.0.30...mongodb-0.0.31) (2022-04-20)
 
 #### Chore
 
@@ -842,8 +1018,8 @@
 
 
 
-<a name="memcached-2.0.44"></a>
-### [memcached-2.0.44](https://github.com/truecharts/apps/compare/memcached-2.0.43...memcached-2.0.44) (2022-04-19)
+<a name="mongodb-0.0.30"></a>
+### [mongodb-0.0.30](https://github.com/truecharts/apps/compare/mongodb-0.0.29...mongodb-0.0.30) (2022-04-19)
 
 #### Chore
 
@@ -851,8 +1027,8 @@
 
 
 
-<a name="memcached-2.0.43"></a>
-### [memcached-2.0.43](https://github.com/truecharts/apps/compare/memcached-2.0.42...memcached-2.0.43) (2022-04-18)
+<a name="mongodb-0.0.29"></a>
+### [mongodb-0.0.29](https://github.com/truecharts/apps/compare/mongodb-0.0.28...mongodb-0.0.29) (2022-04-18)
 
 #### Chore
 
@@ -860,8 +1036,8 @@
 
 
 
-<a name="memcached-2.0.42"></a>
-### [memcached-2.0.42](https://github.com/truecharts/apps/compare/memcached-2.0.41...memcached-2.0.42) (2022-04-17)
+<a name="mongodb-0.0.28"></a>
+### [mongodb-0.0.28](https://github.com/truecharts/apps/compare/mongodb-0.0.27...mongodb-0.0.28) (2022-04-17)
 
 #### Chore
 
@@ -869,8 +1045,8 @@
 
 
 
-<a name="memcached-2.0.41"></a>
-### [memcached-2.0.41](https://github.com/truecharts/apps/compare/memcached-2.0.40...memcached-2.0.41) (2022-04-16)
+<a name="mongodb-0.0.27"></a>
+### [mongodb-0.0.27](https://github.com/truecharts/apps/compare/mongodb-0.0.26...mongodb-0.0.27) (2022-04-16)
 
 #### Chore
 
@@ -878,8 +1054,8 @@
 
 
 
-<a name="memcached-2.0.40"></a>
-### [memcached-2.0.40](https://github.com/truecharts/apps/compare/memcached-2.0.39...memcached-2.0.40) (2022-04-13)
+<a name="mongodb-0.0.26"></a>
+### [mongodb-0.0.26](https://github.com/truecharts/apps/compare/mongodb-0.0.25...mongodb-0.0.26) (2022-04-13)
 
 #### Chore
 
@@ -887,8 +1063,8 @@
 
 
 
-<a name="memcached-2.0.39"></a>
-### [memcached-2.0.39](https://github.com/truecharts/apps/compare/memcached-2.0.38...memcached-2.0.39) (2022-04-12)
+<a name="mongodb-0.0.25"></a>
+### [mongodb-0.0.25](https://github.com/truecharts/apps/compare/mongodb-0.0.24...mongodb-0.0.25) (2022-04-12)
 
 #### Chore
 
@@ -896,8 +1072,8 @@
 
 
 
-<a name="memcached-2.0.38"></a>
-### [memcached-2.0.38](https://github.com/truecharts/apps/compare/memcached-2.0.37...memcached-2.0.38) (2022-04-12)
+<a name="mongodb-0.0.24"></a>
+### [mongodb-0.0.24](https://github.com/truecharts/apps/compare/mongodb-0.0.23...mongodb-0.0.24) (2022-04-12)
 
 #### Chore
 
@@ -905,8 +1081,8 @@
 
 
 
-<a name="memcached-2.0.37"></a>
-### [memcached-2.0.37](https://github.com/truecharts/apps/compare/memcached-2.0.36...memcached-2.0.37) (2022-04-09)
+<a name="mongodb-0.0.23"></a>
+### [mongodb-0.0.23](https://github.com/truecharts/apps/compare/mongodb-0.0.22...mongodb-0.0.23) (2022-04-09)
 
 #### Chore
 
@@ -914,8 +1090,8 @@
 
 
 
-<a name="memcached-2.0.36"></a>
-### [memcached-2.0.36](https://github.com/truecharts/apps/compare/memcached-2.0.35...memcached-2.0.36) (2022-04-06)
+<a name="mongodb-0.0.22"></a>
+### [mongodb-0.0.22](https://github.com/truecharts/apps/compare/mongodb-0.0.21...mongodb-0.0.22) (2022-04-06)
 
 #### Chore
 
@@ -923,17 +1099,18 @@
 
 
 
-<a name="memcached-2.0.35"></a>
-### [memcached-2.0.35](https://github.com/truecharts/apps/compare/memcached-2.0.34...memcached-2.0.35) (2022-04-04)
+<a name="mongodb-0.0.21"></a>
+### [mongodb-0.0.21](https://github.com/truecharts/apps/compare/mongodb-0.0.20...mongodb-0.0.21) (2022-04-04)
 
 #### Chore
 
 * update docker general non-major
+* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
 
 
 
-<a name="memcached-2.0.34"></a>
-### [memcached-2.0.34](https://github.com/truecharts/apps/compare/memcached-2.0.33...memcached-2.0.34) (2022-04-03)
+<a name="mongodb-0.0.20"></a>
+### [mongodb-0.0.20](https://github.com/truecharts/apps/compare/mongodb-0.0.19...mongodb-0.0.20) (2022-04-03)
 
 #### Chore
 
@@ -941,22 +1118,31 @@
 
 
 
-<a name="memcached-2.0.33"></a>
-### [memcached-2.0.33](https://github.com/truecharts/apps/compare/memcached-2.0.32...memcached-2.0.33) (2022-04-03)
+<a name="mongodb-0.0.19"></a>
+### [mongodb-0.0.19](https://github.com/truecharts/apps/compare/mongodb-0.0.18...mongodb-0.0.19) (2022-04-03)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+
+
+
+<a name="mongodb-0.0.19"></a>
+### [mongodb-0.0.19](https://github.com/truecharts/apps/compare/mongodb-0.0.18...mongodb-0.0.19) (2022-04-03)
+
+
+
+<a name="mongodb-0.0.16"></a>
+### [mongodb-0.0.16](https://github.com/truecharts/apps/compare/mongodb-0.0.14...mongodb-0.0.16) (2022-04-01)
 
 #### Fix
 
-* try to also fix catalog build process
+* use bash for gen-docs shell
 
 
 
-<a name="memcached-2.0.29"></a>
-### [memcached-2.0.29](https://github.com/truecharts/apps/compare/memcached-2.0.25...memcached-2.0.29) (2022-04-01)
-
-
-
-<a name="memcached-2.0.25"></a>
-### [memcached-2.0.25](https://github.com/truecharts/apps/compare/memcached-2.0.24...memcached-2.0.25) (2022-03-31)
+<a name="mongodb-0.0.14"></a>
+### [mongodb-0.0.14](https://github.com/truecharts/apps/compare/mongodb-0.0.13...mongodb-0.0.14) (2022-03-31)
 
 #### Chore
 
@@ -964,8 +1150,8 @@
 
 
 
-<a name="memcached-2.0.24"></a>
-### [memcached-2.0.24](https://github.com/truecharts/apps/compare/memcached-2.0.23...memcached-2.0.24) (2022-03-31)
+<a name="mongodb-0.0.13"></a>
+### [mongodb-0.0.13](https://github.com/truecharts/apps/compare/mongodb-0.0.12...mongodb-0.0.13) (2022-03-31)
 
 #### Chore
 
@@ -974,8 +1160,8 @@
 
 
 
-<a name="memcached-2.0.23"></a>
-### [memcached-2.0.23](https://github.com/truecharts/apps/compare/memcached-2.0.22...memcached-2.0.23) (2022-03-30)
+<a name="mongodb-0.0.12"></a>
+### [mongodb-0.0.12](https://github.com/truecharts/apps/compare/mongodb-0.0.11...mongodb-0.0.12) (2022-03-30)
 
 #### Chore
 
@@ -984,13 +1170,13 @@
 
 
 
-<a name="memcached-2.0.22"></a>
-### [memcached-2.0.22](https://github.com/truecharts/apps/compare/memcached-2.0.21...memcached-2.0.22) (2022-03-30)
+<a name="mongodb-0.0.11"></a>
+### [mongodb-0.0.11](https://github.com/truecharts/apps/compare/mongodb-0.0.10...mongodb-0.0.11) (2022-03-30)
 
 
 
-<a name="memcached-2.0.21"></a>
-### [memcached-2.0.21](https://github.com/truecharts/apps/compare/memcached-2.0.20...memcached-2.0.21) (2022-03-30)
+<a name="mongodb-0.0.10"></a>
+### [mongodb-0.0.10](https://github.com/truecharts/apps/compare/mongodb-0.0.9...mongodb-0.0.10) (2022-03-30)
 
 #### Chore
 
@@ -998,18 +1184,18 @@
 
 
 
-<a name="memcached-2.0.20"></a>
-### [memcached-2.0.20](https://github.com/truecharts/apps/compare/memcached-2.0.19...memcached-2.0.20) (2022-03-29)
+<a name="mongodb-0.0.9"></a>
+### [mongodb-0.0.9](https://github.com/truecharts/apps/compare/mongodb-0.0.8...mongodb-0.0.9) (2022-03-29)
 
 
 
-<a name="memcached-2.0.17"></a>
-### [memcached-2.0.17](https://github.com/truecharts/apps/compare/memcached-2.0.16...memcached-2.0.17) (2022-03-29)
+<a name="mongodb-0.0.6"></a>
+### [mongodb-0.0.6](https://github.com/truecharts/apps/compare/mongodb-0.0.5...mongodb-0.0.6) (2022-03-29)
 
 
 
-<a name="memcached-2.0.16"></a>
-### [memcached-2.0.16](https://github.com/truecharts/apps/compare/memcached-2.0.15...memcached-2.0.16) (2022-03-29)
+<a name="mongodb-0.0.5"></a>
+### [mongodb-0.0.5](https://github.com/truecharts/apps/compare/mongodb-0.0.4...mongodb-0.0.5) (2022-03-29)
 
 #### Fix
 
@@ -1017,8 +1203,8 @@
 
 
 
-<a name="memcached-2.0.15"></a>
-### [memcached-2.0.15](https://github.com/truecharts/apps/compare/memcached-2.0.14...memcached-2.0.15) (2022-03-29)
+<a name="mongodb-0.0.4"></a>
+### [mongodb-0.0.4](https://github.com/truecharts/apps/compare/mongodb-0.0.3...mongodb-0.0.4) (2022-03-29)
 
 #### Chore
 
@@ -1026,8 +1212,49 @@
 
 
 
-<a name="memcached-2.0.14"></a>
-### [memcached-2.0.14](https://github.com/truecharts/apps/compare/memcached-2.0.13...memcached-2.0.14) (2022-03-28)
+<a name="mongodb-0.0.3"></a>
+### [mongodb-0.0.3](https://github.com/truecharts/apps/compare/mongodb-0.0.2...mongodb-0.0.3) (2022-03-28)
+
+#### Chore
+
+* adjust init ([#2329](https://github.com/truecharts/apps/issues/2329))
+
+
+
+<a name="mongodb-0.0.2"></a>
+### [mongodb-0.0.2](https://github.com/truecharts/apps/compare/mongodb-0.0.1...mongodb-0.0.2) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
+<a name="mongodb-0.0.1"></a>
+### mongodb-0.0.1 (2022-03-28)
+
+#### Feat
+
+* add-mongodb ([#2307](https://github.com/truecharts/apps/issues/2307))
+7.0.15](https://github.com/truecharts/apps/compare/postgresql-7.0.14...postgresql-7.0.15) (2022-03-28)
+
+#### Feat
+
+* Add probes on standalone aswell ([#2318](https://github.com/truecharts/apps/issues/2318))
+
+
+
+<a name="postgresql-7.0.14"></a>
+### [postgresql-7.0.14](https://github.com/truecharts/apps/compare/postgresql-7.0.13...postgresql-7.0.14) (2022-03-28)
+
+#### Feat
+
+* expose root password field on gui ([#2327](https://github.com/truecharts/apps/issues/2327))
+
+
+
+<a name="postgresql-7.0.13"></a>
+### [postgresql-7.0.13](https://github.com/truecharts/apps/compare/postgresql-7.0.12...postgresql-7.0.13) (2022-03-28)
 
 #### Chore
 
@@ -1035,8 +1262,8 @@
 
 
 
-<a name="memcached-2.0.13"></a>
-### [memcached-2.0.13](https://github.com/truecharts/apps/compare/memcached-2.0.12...memcached-2.0.13) (2022-03-26)
+<a name="postgresql-7.0.12"></a>
+### [postgresql-7.0.12](https://github.com/truecharts/apps/compare/postgresql-7.0.11...postgresql-7.0.12) (2022-03-26)
 
 #### Chore
 
@@ -1044,8 +1271,8 @@
 
 
 
-<a name="memcached-2.0.11"></a>
-### [memcached-2.0.11](https://github.com/truecharts/apps/compare/memcached-2.0.10...memcached-2.0.11) (2022-03-26)
+<a name="postgresql-7.0.10"></a>
+### [postgresql-7.0.10](https://github.com/truecharts/apps/compare/postgresql-7.0.9...postgresql-7.0.10) (2022-03-26)
 
 #### Chore
 
@@ -1053,8 +1280,8 @@
 
 
 
-<a name="memcached-2.0.10"></a>
-### [memcached-2.0.10](https://github.com/truecharts/apps/compare/memcached-2.0.9...memcached-2.0.10) (2022-03-24)
+<a name="postgresql-7.0.9"></a>
+### [postgresql-7.0.9](https://github.com/truecharts/apps/compare/postgresql-7.0.8...postgresql-7.0.9) (2022-03-24)
 
 #### Chore
 
@@ -1062,8 +1289,8 @@
 
 
 
-<a name="memcached-2.0.9"></a>
-### [memcached-2.0.9](https://github.com/truecharts/apps/compare/memcached-2.0.8...memcached-2.0.9) (2022-03-24)
+<a name="postgresql-7.0.8"></a>
+### [postgresql-7.0.8](https://github.com/truecharts/apps/compare/postgresql-7.0.7...postgresql-7.0.8) (2022-03-24)
 
 #### Chore
 
@@ -1072,27 +1299,18 @@
 
 
 
-<a name="memcached-2.0.8"></a>
-### [memcached-2.0.8](https://github.com/truecharts/apps/compare/memcached-2.0.7...memcached-2.0.8) (2022-03-22)
+<a name="postgresql-7.0.7"></a>
+### [postgresql-7.0.7](https://github.com/truecharts/apps/compare/postgresql-7.0.6...postgresql-7.0.7) (2022-03-22)
 
 #### Chore
 
 * update helm chart common to v9.1.8
-
-
-
-<a name="memcached-2.0.7"></a>
-### [memcached-2.0.7](https://github.com/truecharts/apps/compare/memcached-2.0.6...memcached-2.0.7) (2022-03-20)
-
-#### Chore
-
-* update docker general non-major
 * update docker general non-major
 
 
 
-<a name="memcached-2.0.6"></a>
-### [memcached-2.0.6](https://github.com/truecharts/apps/compare/memcached-2.0.5...memcached-2.0.6) (2022-03-17)
+<a name="postgresql-7.0.6"></a>
+### [postgresql-7.0.6](https://github.com/truecharts/apps/compare/postgresql-7.0.5...postgresql-7.0.6) (2022-03-17)
 
 #### Chore
 
@@ -1100,8 +1318,8 @@
 
 
 
-<a name="memcached-2.0.5"></a>
-### [memcached-2.0.5](https://github.com/truecharts/apps/compare/memcached-2.0.4...memcached-2.0.5) (2022-03-17)
+<a name="postgresql-7.0.5"></a>
+### [postgresql-7.0.5](https://github.com/truecharts/apps/compare/postgresql-7.0.4...postgresql-7.0.5) (2022-03-17)
 
 #### Chore
 
@@ -1110,8 +1328,8 @@
 
 
 
-<a name="memcached-2.0.4"></a>
-### [memcached-2.0.4](https://github.com/truecharts/apps/compare/memcached-2.0.3...memcached-2.0.4) (2022-03-15)
+<a name="postgresql-7.0.4"></a>
+### [postgresql-7.0.4](https://github.com/truecharts/apps/compare/postgresql-7.0.3...postgresql-7.0.4) (2022-03-15)
 
 #### Chore
 
@@ -1119,8 +1337,8 @@
 
 
 
-<a name="memcached-2.0.3"></a>
-### [memcached-2.0.3](https://github.com/truecharts/apps/compare/memcached-2.0.2...memcached-2.0.3) (2022-03-15)
+<a name="postgresql-7.0.3"></a>
+### [postgresql-7.0.3](https://github.com/truecharts/apps/compare/postgresql-7.0.2...postgresql-7.0.3) (2022-03-15)
 
 #### Chore
 
@@ -1128,8 +1346,8 @@
 
 
 
-<a name="memcached-2.0.2"></a>
-### [memcached-2.0.2](https://github.com/truecharts/apps/compare/memcached-2.0.1...memcached-2.0.2) (2022-03-07)
+<a name="postgresql-7.0.2"></a>
+### [postgresql-7.0.2](https://github.com/truecharts/apps/compare/postgresql-7.0.1...postgresql-7.0.2) (2022-03-07)
 
 #### Chore
 
@@ -1138,8 +1356,8 @@
 
 
 
-<a name="memcached-2.0.1"></a>
-### [memcached-2.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.0...memcached-2.0.1) (2022-03-07)
+<a name="postgresql-7.0.1"></a>
+### [postgresql-7.0.1](https://github.com/truecharts/apps/compare/postgresql-7.0.0...postgresql-7.0.1) (2022-03-07)
 
 #### Chore
 
@@ -1147,8 +1365,8 @@
 
 
 
-<a name="memcached-2.0.0"></a>
-### [memcached-2.0.0](https://github.com/truecharts/apps/compare/memcached-1.0.77...memcached-2.0.0) (2022-03-03)
+<a name="postgresql-7.0.0"></a>
+### [postgresql-7.0.0](https://github.com/truecharts/apps/compare/postgresql-6.0.71...postgresql-7.0.0) (2022-03-03)
 
 #### Chore
 
@@ -1162,8 +1380,8 @@
 
 
 
-<a name="memcached-1.0.77"></a>
-### [memcached-1.0.77](https://github.com/truecharts/apps/compare/memcached-1.0.76...memcached-1.0.77) (2022-03-03)
+<a name="postgresql-6.0.71"></a>
+### [postgresql-6.0.71](https://github.com/truecharts/apps/compare/postgresql-6.0.70...postgresql-6.0.71) (2022-03-03)
 
 #### Chore
 
@@ -1171,17 +1389,8 @@
 
 
 
-<a name="memcached-1.0.76"></a>
-### [memcached-1.0.76](https://github.com/truecharts/apps/compare/memcached-1.0.75...memcached-1.0.76) (2022-03-03)
-
-#### Chore
-
-* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
-
-
-
-<a name="memcached-1.0.75"></a>
-### [memcached-1.0.75](https://github.com/truecharts/apps/compare/memcached-1.0.74...memcached-1.0.75) (2022-02-28)
+<a name="postgresql-6.0.70"></a>
+### [postgresql-6.0.70](https://github.com/truecharts/apps/compare/postgresql-6.0.69...postgresql-6.0.70) (2022-02-28)
 
 #### Chore
 
@@ -1189,17 +1398,8 @@
 
 
 
-<a name="memcached-1.0.74"></a>
-### [memcached-1.0.74](https://github.com/truecharts/apps/compare/memcached-1.0.73...memcached-1.0.74) (2022-02-28)
-
-#### Chore
-
-* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
-
-
-
-<a name="memcached-1.0.73"></a>
-### [memcached-1.0.73](https://github.com/truecharts/apps/compare/memcached-1.0.72...memcached-1.0.73) (2022-02-21)
+<a name="postgresql-6.0.69"></a>
+### [postgresql-6.0.69](https://github.com/truecharts/apps/compare/postgresql-6.0.68...postgresql-6.0.69) (2022-02-21)
 
 #### Chore
 
@@ -1207,17 +1407,8 @@
 
 
 
-<a name="memcached-1.0.72"></a>
-### [memcached-1.0.72](https://github.com/truecharts/apps/compare/memcached-1.0.71...memcached-1.0.72) (2022-02-21)
-
-#### Chore
-
-* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
-
-
-
-<a name="memcached-1.0.71"></a>
-### [memcached-1.0.71](https://github.com/truecharts/apps/compare/memcached-1.0.70...memcached-1.0.71) (2022-02-14)
+<a name="postgresql-6.0.68"></a>
+### [postgresql-6.0.68](https://github.com/truecharts/apps/compare/postgresql-6.0.67...postgresql-6.0.68) (2022-02-14)
 
 #### Chore
 
@@ -1225,17 +1416,8 @@
 
 
 
-<a name="memcached-1.0.70"></a>
-### [memcached-1.0.70](https://github.com/truecharts/apps/compare/memcached-1.0.69...memcached-1.0.70) (2022-02-14)
-
-#### Chore
-
-* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
-
-
-
-<a name="memcached-1.0.69"></a>
-### [memcached-1.0.69](https://github.com/truecharts/apps/compare/memcached-1.0.68...memcached-1.0.69) (2022-02-10)
+<a name="postgresql-6.0.67"></a>
+### [postgresql-6.0.67](https://github.com/truecharts/apps/compare/postgresql-6.0.66...postgresql-6.0.67) (2022-02-10)
 
 #### Chore
 
@@ -1243,8 +1425,8 @@
 
 
 
-<a name="memcached-1.0.68"></a>
-### [memcached-1.0.68](https://github.com/truecharts/apps/compare/memcached-1.0.67...memcached-1.0.68) (2022-02-08)
+<a name="postgresql-6.0.66"></a>
+### [postgresql-6.0.66](https://github.com/truecharts/apps/compare/postgresql-6.0.65...postgresql-6.0.66) (2022-02-08)
 
 #### Chore
 
@@ -1252,8 +1434,8 @@
 
 
 
-<a name="memcached-1.0.67"></a>
-### [memcached-1.0.67](https://github.com/truecharts/apps/compare/memcached-1.0.66...memcached-1.0.67) (2022-02-08)
+<a name="postgresql-6.0.65"></a>
+### [postgresql-6.0.65](https://github.com/truecharts/apps/compare/postgresql-6.0.64...postgresql-6.0.65) (2022-02-08)
 
 #### Chore
 
@@ -1261,8 +1443,17 @@
 
 
 
-<a name="memcached-1.0.66"></a>
-### [memcached-1.0.66](https://github.com/truecharts/apps/compare/memcached-1.0.65...memcached-1.0.66) (2022-02-06)
+<a name="postgresql-6.0.64"></a>
+### [postgresql-6.0.64](https://github.com/truecharts/apps/compare/postgresql-6.0.63...postgresql-6.0.64) (2022-02-07)
+
+#### Chore
+
+* update docker general non-major ([#1863](https://github.com/truecharts/apps/issues/1863))
+
+
+
+<a name="postgresql-6.0.63"></a>
+### [postgresql-6.0.63](https://github.com/truecharts/apps/compare/postgresql-6.0.62...postgresql-6.0.63) (2022-02-06)
 
 #### Chore
 
@@ -1271,8 +1462,8 @@
 
 
 
-<a name="memcached-1.0.65"></a>
-### [memcached-1.0.65](https://github.com/truecharts/apps/compare/memcached-1.0.64...memcached-1.0.65) (2022-02-05)
+<a name="postgresql-6.0.62"></a>
+### [postgresql-6.0.62](https://github.com/truecharts/apps/compare/postgresql-6.0.61...postgresql-6.0.62) (2022-02-05)
 
 #### Chore
 
@@ -1281,8 +1472,8 @@
 
 
 
-<a name="memcached-1.0.64"></a>
-### [memcached-1.0.64](https://github.com/truecharts/apps/compare/memcached-1.0.63...memcached-1.0.64) (2022-02-03)
+<a name="postgresql-6.0.61"></a>
+### [postgresql-6.0.61](https://github.com/truecharts/apps/compare/postgresql-6.0.60...postgresql-6.0.61) (2022-02-03)
 
 #### Chore
 
@@ -1290,8 +1481,8 @@
 
 
 
-<a name="memcached-1.0.63"></a>
-### [memcached-1.0.63](https://github.com/truecharts/apps/compare/memcached-1.0.62...memcached-1.0.63) (2022-02-01)
+<a name="postgresql-6.0.60"></a>
+### [postgresql-6.0.60](https://github.com/truecharts/apps/compare/postgresql-6.0.59...postgresql-6.0.60) (2022-02-01)
 
 #### Chore
 
@@ -1299,17 +1490,8 @@
 
 
 
-<a name="memcached-1.0.62"></a>
-### [memcached-1.0.62](https://github.com/truecharts/apps/compare/memcached-1.0.61...memcached-1.0.62) (2022-01-31)
-
-#### Chore
-
-* update docker general non-major ([#1824](https://github.com/truecharts/apps/issues/1824))
-
-
-
-<a name="memcached-1.0.61"></a>
-### [memcached-1.0.61](https://github.com/truecharts/apps/compare/memcached-1.0.60...memcached-1.0.61) (2022-01-31)
+<a name="postgresql-6.0.59"></a>
+### [postgresql-6.0.59](https://github.com/truecharts/apps/compare/postgresql-6.0.58...postgresql-6.0.59) (2022-01-31)
 
 #### Chore
 
@@ -1317,8 +1499,8 @@
 
 
 
-<a name="memcached-1.0.60"></a>
-### [memcached-1.0.60](https://github.com/truecharts/apps/compare/memcached-1.0.59...memcached-1.0.60) (2022-01-25)
+<a name="postgresql-6.0.58"></a>
+### [postgresql-6.0.58](https://github.com/truecharts/apps/compare/postgresql-6.0.57...postgresql-6.0.58) (2022-01-25)
 
 #### Chore
 
@@ -1326,8 +1508,8 @@
 
 
 
-<a name="memcached-1.0.59"></a>
-### [memcached-1.0.59](https://github.com/truecharts/apps/compare/memcached-1.0.58...memcached-1.0.59) (2022-01-24)
+<a name="postgresql-6.0.57"></a>
+### [postgresql-6.0.57](https://github.com/truecharts/apps/compare/postgresql-6.0.56...postgresql-6.0.57) (2022-01-24)
 
 #### Chore
 
@@ -1335,8 +1517,8 @@
 
 
 
-<a name="memcached-1.0.58"></a>
-### [memcached-1.0.58](https://github.com/truecharts/apps/compare/memcached-1.0.57...memcached-1.0.58) (2022-01-22)
+<a name="postgresql-6.0.56"></a>
+### [postgresql-6.0.56](https://github.com/truecharts/apps/compare/postgresql-6.0.55...postgresql-6.0.56) (2022-01-22)
 
 #### Chore
 
@@ -1344,8 +1526,17 @@
 
 
 
-<a name="memcached-1.0.57"></a>
-### [memcached-1.0.57](https://github.com/truecharts/apps/compare/memcached-1.0.56...memcached-1.0.57) (2022-01-21)
+<a name="postgresql-6.0.55"></a>
+### [postgresql-6.0.55](https://github.com/truecharts/apps/compare/postgresql-6.0.54...postgresql-6.0.55) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="postgresql-6.0.54"></a>
+### [postgresql-6.0.54](https://github.com/truecharts/apps/compare/postgresql-6.0.53...postgresql-6.0.54) (2022-01-21)
 
 #### Chore
 
@@ -1353,17 +1544,8 @@
 
 
 
-<a name="memcached-1.0.56"></a>
-### [memcached-1.0.56](https://github.com/truecharts/apps/compare/memcached-1.0.55...memcached-1.0.56) (2022-01-21)
-
-#### Chore
-
-* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
-
-
-
-<a name="memcached-1.0.55"></a>
-### [memcached-1.0.55](https://github.com/truecharts/apps/compare/memcached-1.0.54...memcached-1.0.55) (2022-01-21)
+<a name="postgresql-6.0.53"></a>
+### [postgresql-6.0.53](https://github.com/truecharts/apps/compare/postgresql-6.0.52...postgresql-6.0.53) (2022-01-21)
 
 #### Chore
 
@@ -1375,8 +1557,8 @@
 
 
 
-<a name="memcached-1.0.54"></a>
-### [memcached-1.0.54](https://github.com/truecharts/apps/compare/memcached-1.0.53...memcached-1.0.54) (2022-01-19)
+<a name="postgresql-6.0.52"></a>
+### [postgresql-6.0.52](https://github.com/truecharts/apps/compare/postgresql-6.0.51...postgresql-6.0.52) (2022-01-19)
 
 #### Chore
 
@@ -1384,26 +1566,28 @@
 
 
 
-<a name="memcached-1.0.53"></a>
-### [memcached-1.0.53](https://github.com/truecharts/apps/compare/memcached-1.0.52...memcached-1.0.53) (2022-01-18)
+<a name="postgresql-6.0.51"></a>
+### [postgresql-6.0.51](https://github.com/truecharts/apps/compare/postgresql-6.0.50...postgresql-6.0.51) (2022-01-18)
 
 #### Chore
 
 * update helm chart common to v8.13.1
+* update docker general non-major ([#1729](https://github.com/truecharts/apps/issues/1729))
 
 
 
-<a name="memcached-1.0.52"></a>
-### [memcached-1.0.52](https://github.com/truecharts/apps/compare/memcached-1.0.51...memcached-1.0.52) (2022-01-17)
+<a name="postgresql-6.0.50"></a>
+### [postgresql-6.0.50](https://github.com/truecharts/apps/compare/postgresql-6.0.49...postgresql-6.0.50) (2022-01-17)
 
 #### Chore
 
 * update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+* clean logs ([#1720](https://github.com/truecharts/apps/issues/1720))
 
 
 
-<a name="memcached-1.0.51"></a>
-### [memcached-1.0.51](https://github.com/truecharts/apps/compare/memcached-1.0.50...memcached-1.0.51) (2022-01-13)
+<a name="postgresql-6.0.49"></a>
+### [postgresql-6.0.49](https://github.com/truecharts/apps/compare/postgresql-6.0.48...postgresql-6.0.49) (2022-01-13)
 
 #### Chore
 
@@ -1415,8 +1599,8 @@
 
 
 
-<a name="memcached-1.0.50"></a>
-### [memcached-1.0.50](https://github.com/truecharts/apps/compare/memcached-1.0.49...memcached-1.0.50) (2022-01-12)
+<a name="postgresql-6.0.48"></a>
+### [postgresql-6.0.48](https://github.com/truecharts/apps/compare/postgresql-6.0.47...postgresql-6.0.48) (2022-01-12)
 
 #### Chore
 
@@ -1424,8 +1608,8 @@
 
 
 
-<a name="memcached-1.0.49"></a>
-### [memcached-1.0.49](https://github.com/truecharts/apps/compare/memcached-1.0.48...memcached-1.0.49) (2022-01-12)
+<a name="postgresql-6.0.47"></a>
+### [postgresql-6.0.47](https://github.com/truecharts/apps/compare/postgresql-6.0.46...postgresql-6.0.47) (2022-01-12)
 
 #### Chore
 
@@ -1433,8 +1617,8 @@
 
 
 
-<a name="memcached-1.0.48"></a>
-### [memcached-1.0.48](https://github.com/truecharts/apps/compare/memcached-1.0.47...memcached-1.0.48) (2022-01-11)
+<a name="postgresql-6.0.46"></a>
+### [postgresql-6.0.46](https://github.com/truecharts/apps/compare/postgresql-6.0.45...postgresql-6.0.46) (2022-01-11)
 
 #### Chore
 
@@ -1442,8 +1626,8 @@
 
 
 
-<a name="memcached-1.0.47"></a>
-### [memcached-1.0.47](https://github.com/truecharts/apps/compare/memcached-1.0.46...memcached-1.0.47) (2022-01-10)
+<a name="postgresql-6.0.45"></a>
+### [postgresql-6.0.45](https://github.com/truecharts/apps/compare/postgresql-6.0.44...postgresql-6.0.45) (2022-01-10)
 
 #### Chore
 
@@ -1451,8 +1635,8 @@
 
 
 
-<a name="memcached-1.0.46"></a>
-### [memcached-1.0.46](https://github.com/truecharts/apps/compare/memcached-1.0.45...memcached-1.0.46) (2022-01-10)
+<a name="postgresql-6.0.44"></a>
+### [postgresql-6.0.44](https://github.com/truecharts/apps/compare/postgresql-6.0.43...postgresql-6.0.44) (2022-01-10)
 
 #### Chore
 
@@ -1460,8 +1644,8 @@
 
 
 
-<a name="memcached-1.0.45"></a>
-### [memcached-1.0.45](https://github.com/truecharts/apps/compare/memcached-1.0.44...memcached-1.0.45) (2022-01-04)
+<a name="postgresql-6.0.43"></a>
+### [postgresql-6.0.43](https://github.com/truecharts/apps/compare/postgresql-6.0.42...postgresql-6.0.43) (2022-01-04)
 
 #### Chore
 
@@ -1469,8 +1653,8 @@
 
 
 
-<a name="memcached-1.0.44"></a>
-### [memcached-1.0.44](https://github.com/truecharts/apps/compare/memcached-1.0.43...memcached-1.0.44) (2022-01-04)
+<a name="postgresql-6.0.42"></a>
+### [postgresql-6.0.42](https://github.com/truecharts/apps/compare/postgresql-6.0.41...postgresql-6.0.42) (2022-01-04)
 
 #### Chore
 
@@ -1478,8 +1662,8 @@
 
 
 
-<a name="memcached-1.0.43"></a>
-### [memcached-1.0.43](https://github.com/truecharts/apps/compare/memcached-1.0.42...memcached-1.0.43) (2022-01-03)
+<a name="postgresql-6.0.41"></a>
+### [postgresql-6.0.41](https://github.com/truecharts/apps/compare/postgresql-6.0.40...postgresql-6.0.41) (2022-01-03)
 
 #### Chore
 
@@ -1487,8 +1671,8 @@
 
 
 
-<a name="memcached-1.0.42"></a>
-### [memcached-1.0.42](https://github.com/truecharts/apps/compare/memcached-1.0.41...memcached-1.0.42) (2021-12-28)
+<a name="postgresql-6.0.40"></a>
+### [postgresql-6.0.40](https://github.com/truecharts/apps/compare/postgresql-6.0.39...postgresql-6.0.40) (2021-12-28)
 
 #### Chore
 
@@ -1496,8 +1680,8 @@
 
 
 
-<a name="memcached-1.0.41"></a>
-### [memcached-1.0.41](https://github.com/truecharts/apps/compare/memcached-1.0.40...memcached-1.0.41) (2021-12-27)
+<a name="postgresql-6.0.39"></a>
+### [postgresql-6.0.39](https://github.com/truecharts/apps/compare/postgresql-6.0.38...postgresql-6.0.39) (2021-12-27)
 
 #### Chore
 
@@ -1505,8 +1689,8 @@
 
 
 
-<a name="memcached-1.0.40"></a>
-### [memcached-1.0.40](https://github.com/truecharts/apps/compare/memcached-1.0.39...memcached-1.0.40) (2021-12-24)
+<a name="postgresql-6.0.38"></a>
+### [postgresql-6.0.38](https://github.com/truecharts/apps/compare/postgresql-6.0.37...postgresql-6.0.38) (2021-12-24)
 
 #### Chore
 
@@ -1515,8 +1699,8 @@
 
 
 
-<a name="memcached-1.0.39"></a>
-### [memcached-1.0.39](https://github.com/truecharts/apps/compare/memcached-1.0.38...memcached-1.0.39) (2021-12-21)
+<a name="postgresql-6.0.37"></a>
+### [postgresql-6.0.37](https://github.com/truecharts/apps/compare/postgresql-6.0.36...postgresql-6.0.37) (2021-12-21)
 
 #### Chore
 
@@ -1524,8 +1708,8 @@
 
 
 
-<a name="memcached-1.0.38"></a>
-### [memcached-1.0.38](https://github.com/truecharts/apps/compare/memcached-1.0.37...memcached-1.0.38) (2021-12-20)
+<a name="postgresql-6.0.36"></a>
+### [postgresql-6.0.36](https://github.com/truecharts/apps/compare/postgresql-6.0.35...postgresql-6.0.36) (2021-12-20)
 
 #### Chore
 
@@ -1533,8 +1717,8 @@
 
 
 
-<a name="memcached-1.0.37"></a>
-### [memcached-1.0.37](https://github.com/truecharts/apps/compare/memcached-1.0.36...memcached-1.0.37) (2021-12-19)
+<a name="postgresql-6.0.35"></a>
+### [postgresql-6.0.35](https://github.com/truecharts/apps/compare/postgresql-6.0.34...postgresql-6.0.35) (2021-12-19)
 
 #### Chore
 
@@ -1543,8 +1727,8 @@
 
 
 
-<a name="memcached-1.0.36"></a>
-### [memcached-1.0.36](https://github.com/truecharts/apps/compare/memcached-1.0.35...memcached-1.0.36) (2021-12-19)
+<a name="postgresql-6.0.34"></a>
+### [postgresql-6.0.34](https://github.com/truecharts/apps/compare/postgresql-6.0.33...postgresql-6.0.34) (2021-12-19)
 
 #### Chore
 
@@ -1552,18 +1736,27 @@
 
 
 
-<a name="memcached-1.0.35"></a>
-### [memcached-1.0.35](https://github.com/truecharts/apps/compare/memcached-1.0.34...memcached-1.0.35) (2021-12-19)
+<a name="postgresql-6.0.33"></a>
+### [postgresql-6.0.33](https://github.com/truecharts/apps/compare/postgresql-6.0.32...postgresql-6.0.33) (2021-12-19)
 
 #### Chore
 
 * update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
+<a name="postgresql-6.0.32"></a>
+### [postgresql-6.0.32](https://github.com/truecharts/apps/compare/postgresql-6.0.31...postgresql-6.0.32) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
 * update docker general non-major
 
 
 
-<a name="memcached-1.0.34"></a>
-### [memcached-1.0.34](https://github.com/truecharts/apps/compare/memcached-1.0.33...memcached-1.0.34) (2021-12-14)
+<a name="postgresql-6.0.31"></a>
+### [postgresql-6.0.31](https://github.com/truecharts/apps/compare/postgresql-6.0.30...postgresql-6.0.31) (2021-12-14)
 
 #### Chore
 
@@ -1571,8 +1764,8 @@
 
 
 
-<a name="memcached-1.0.33"></a>
-### [memcached-1.0.33](https://github.com/truecharts/apps/compare/memcached-1.0.32...memcached-1.0.33) (2021-12-13)
+<a name="postgresql-6.0.30"></a>
+### [postgresql-6.0.30](https://github.com/truecharts/apps/compare/postgresql-6.0.29...postgresql-6.0.30) (2021-12-13)
 
 #### Chore
 
@@ -1580,8 +1773,8 @@
 
 
 
-<a name="memcached-1.0.32"></a>
-### [memcached-1.0.32](https://github.com/truecharts/apps/compare/memcached-1.0.31...memcached-1.0.32) (2021-12-13)
+<a name="postgresql-6.0.29"></a>
+### [postgresql-6.0.29](https://github.com/truecharts/apps/compare/postgresql-6.0.28...postgresql-6.0.29) (2021-12-13)
 
 #### Chore
 
@@ -1589,17 +1782,17 @@
 
 
 
-<a name="memcached-1.0.31"></a>
-### [memcached-1.0.31](https://github.com/truecharts/apps/compare/memcached-1.0.30...memcached-1.0.31) (2021-12-12)
+<a name="postgresql-6.0.28"></a>
+### [postgresql-6.0.28](https://github.com/truecharts/apps/compare/postgresql-6.0.27...postgresql-6.0.28) (2021-12-12)
 
 #### Chore
 
-* update container image ghcr.io/truecharts/memcached to v1.6.12 ([#1516](https://github.com/truecharts/apps/issues/1516))
+* update container image ghcr.io/truecharts/postgresql to v14.1.0 ([#1515](https://github.com/truecharts/apps/issues/1515))
 
 
 
-<a name="memcached-1.0.30"></a>
-### [memcached-1.0.30](https://github.com/truecharts/apps/compare/memcached-1.0.29...memcached-1.0.30) (2021-12-11)
+<a name="postgresql-6.0.27"></a>
+### [postgresql-6.0.27](https://github.com/truecharts/apps/compare/postgresql-6.0.26...postgresql-6.0.27) (2021-12-11)
 
 #### Chore
 
@@ -1607,8 +1800,8 @@
 
 
 
-<a name="memcached-1.0.29"></a>
-### [memcached-1.0.29](https://github.com/truecharts/apps/compare/memcached-1.0.28...memcached-1.0.29) (2021-12-11)
+<a name="postgresql-6.0.26"></a>
+### [postgresql-6.0.26](https://github.com/truecharts/apps/compare/postgresql-6.0.25...postgresql-6.0.26) (2021-12-11)
 
 #### Chore
 
@@ -1616,8 +1809,8 @@
 
 
 
-<a name="memcached-1.0.28"></a>
-### [memcached-1.0.28](https://github.com/truecharts/apps/compare/memcached-1.0.27...memcached-1.0.28) (2021-12-08)
+<a name="postgresql-6.0.25"></a>
+### [postgresql-6.0.25](https://github.com/truecharts/apps/compare/postgresql-6.0.24...postgresql-6.0.25) (2021-12-08)
 
 #### Chore
 
@@ -1625,8 +1818,8 @@
 
 
 
-<a name="memcached-1.0.27"></a>
-### [memcached-1.0.27](https://github.com/truecharts/apps/compare/memcached-1.0.26...memcached-1.0.27) (2021-12-07)
+<a name="postgresql-6.0.24"></a>
+### [postgresql-6.0.24](https://github.com/truecharts/apps/compare/postgresql-6.0.23...postgresql-6.0.24) (2021-12-07)
 
 #### Chore
 
@@ -1634,8 +1827,8 @@
 
 
 
-<a name="memcached-1.0.26"></a>
-### [memcached-1.0.26](https://github.com/truecharts/apps/compare/memcached-1.0.25...memcached-1.0.26) (2021-12-07)
+<a name="postgresql-6.0.23"></a>
+### [postgresql-6.0.23](https://github.com/truecharts/apps/compare/postgresql-6.0.22...postgresql-6.0.23) (2021-12-07)
 
 #### Chore
 
@@ -1643,8 +1836,8 @@
 
 
 
-<a name="memcached-1.0.25"></a>
-### memcached-1.0.25 (2021-12-05)
+<a name="postgresql-6.0.22"></a>
+### postgresql-6.0.22 (2021-12-05)
 
 #### Chore
 
@@ -1653,11 +1846,11 @@
 * ensure container references are prefixed with v
 * cleanup the ci for the security page a bit
 * update dependencies
-* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
 * bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
 * update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
 * update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
-* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
 * update common
 * update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
 * update non-major ([#1423](https://github.com/truecharts/apps/issues/1423))
@@ -1665,20 +1858,12 @@
 #### Fix
 
 * move deps back to ghcr for now.
+* correct mountpath mistakes
 
 
 
-<a name="memcached-1.0.24"></a>
-### [memcached-1.0.24](https://github.com/truecharts/apps/compare/memcached-1.0.23...memcached-1.0.24) (2021-12-05)
-
-#### Chore
-
-* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
-
-
-
-<a name="memcached-1.0.23"></a>
-### [memcached-1.0.23](https://github.com/truecharts/apps/compare/memcached-1.0.22...memcached-1.0.23) (2021-12-05)
+<a name="postgresql-6.0.21"></a>
+### [postgresql-6.0.21](https://github.com/truecharts/apps/compare/postgresql-6.0.20...postgresql-6.0.21) (2021-12-05)
 
 #### Chore
 
@@ -1686,8 +1871,8 @@
 
 
 
-<a name="memcached-1.0.22"></a>
-### [memcached-1.0.22](https://github.com/truecharts/apps/compare/memcached-1.0.21...memcached-1.0.22) (2021-12-05)
+<a name="postgresql-6.0.20"></a>
+### [postgresql-6.0.20](https://github.com/truecharts/apps/compare/postgresql-6.0.19...postgresql-6.0.20) (2021-12-05)
 
 #### Chore
 
@@ -1696,11 +1881,12 @@
 #### Fix
 
 * move deps back to ghcr for now.
+* correct mountpath mistakes
 
 
 
-<a name="memcached-1.0.21"></a>
-### [memcached-1.0.21](https://github.com/truecharts/apps/compare/memcached-1.0.20...memcached-1.0.21) (2021-12-04)
+<a name="postgresql-6.0.19"></a>
+### [postgresql-6.0.19](https://github.com/truecharts/apps/compare/postgresql-6.0.18...postgresql-6.0.19) (2021-12-04)
 
 #### Chore
 
@@ -1709,8 +1895,8 @@
 
 
 
-<a name="memcached-1.0.20"></a>
-### [memcached-1.0.20](https://github.com/truecharts/apps/compare/memcached-1.0.19...memcached-1.0.20) (2021-12-03)
+<a name="postgresql-6.0.18"></a>
+### [postgresql-6.0.18](https://github.com/truecharts/apps/compare/postgresql-6.0.17...postgresql-6.0.18) (2021-12-03)
 
 #### Chore
 
@@ -1718,8 +1904,8 @@
 
 
 
-<a name="memcached-1.0.19"></a>
-### [memcached-1.0.19](https://github.com/truecharts/apps/compare/memcached-1.0.18...memcached-1.0.19) (2021-12-03)
+<a name="postgresql-6.0.17"></a>
+### [postgresql-6.0.17](https://github.com/truecharts/apps/compare/postgresql-6.0.16...postgresql-6.0.17) (2021-12-03)
 
 #### Chore
 
@@ -1729,8 +1915,17 @@
 
 
 
-<a name="memcached-1.0.18"></a>
-### [memcached-1.0.18](https://github.com/truecharts/apps/compare/memcached-1.0.17...memcached-1.0.18) (2021-11-30)
+<a name="postgresql-6.0.16"></a>
+### [postgresql-6.0.16](https://github.com/truecharts/apps/compare/postgresql-6.0.15...postgresql-6.0.16) (2021-12-01)
+
+#### Chore
+
+* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
+
+
+
+<a name="postgresql-6.0.15"></a>
+### [postgresql-6.0.15](https://github.com/truecharts/apps/compare/postgresql-6.0.14...postgresql-6.0.15) (2021-11-30)
 
 #### Chore
 
@@ -1738,8 +1933,8 @@
 
 
 
-<a name="memcached-1.0.17"></a>
-### [memcached-1.0.17](https://github.com/truecharts/apps/compare/memcached-1.0.16...memcached-1.0.17) (2021-11-30)
+<a name="postgresql-6.0.14"></a>
+### [postgresql-6.0.14](https://github.com/truecharts/apps/compare/postgresql-6.0.13...postgresql-6.0.14) (2021-11-30)
 
 #### Chore
 
@@ -1747,8 +1942,8 @@
 
 
 
-<a name="memcached-1.0.15"></a>
-### [memcached-1.0.15](https://github.com/truecharts/apps/compare/memcached-1.0.14...memcached-1.0.15) (2021-11-29)
+<a name="postgresql-6.0.12"></a>
+### [postgresql-6.0.12](https://github.com/truecharts/apps/compare/postgresql-6.0.11...postgresql-6.0.12) (2021-11-29)
 
 #### Chore
 
@@ -1756,8 +1951,8 @@
 
 
 
-<a name="memcached-1.0.14"></a>
-### [memcached-1.0.14](https://github.com/truecharts/apps/compare/memcached-1.0.13...memcached-1.0.14) (2021-11-28)
+<a name="postgresql-6.0.11"></a>
+### [postgresql-6.0.11](https://github.com/truecharts/apps/compare/postgresql-6.0.10...postgresql-6.0.11) (2021-11-28)
 
 #### Chore
 
@@ -1765,8 +1960,8 @@
 
 
 
-<a name="memcached-1.0.13"></a>
-### [memcached-1.0.13](https://github.com/truecharts/apps/compare/memcached-1.0.12...memcached-1.0.13) (2021-11-23)
+<a name="postgresql-6.0.10"></a>
+### [postgresql-6.0.10](https://github.com/truecharts/apps/compare/postgresql-6.0.9...postgresql-6.0.10) (2021-11-23)
 
 #### Chore
 
@@ -1774,8 +1969,8 @@
 
 
 
-<a name="memcached-1.0.12"></a>
-### [memcached-1.0.12](https://github.com/truecharts/apps/compare/memcached-1.0.10...memcached-1.0.12) (2021-11-23)
+<a name="postgresql-6.0.9"></a>
+### [postgresql-6.0.9](https://github.com/truecharts/apps/compare/postgresql-6.0.7...postgresql-6.0.9) (2021-11-23)
 
 #### Chore
 
@@ -1784,8 +1979,8 @@
 
 
 
-<a name="memcached-1.0.10"></a>
-### [memcached-1.0.10](https://github.com/truecharts/apps/compare/memcached-1.0.9...memcached-1.0.10) (2021-11-22)
+<a name="postgresql-6.0.7"></a>
+### [postgresql-6.0.7](https://github.com/truecharts/apps/compare/postgresql-6.0.6...postgresql-6.0.7) (2021-11-22)
 
 #### Fix
 
@@ -1793,8 +1988,8 @@
 
 
 
-<a name="memcached-1.0.9"></a>
-### [memcached-1.0.9](https://github.com/truecharts/apps/compare/memcached-1.0.8...memcached-1.0.9) (2021-11-22)
+<a name="postgresql-6.0.6"></a>
+### [postgresql-6.0.6](https://github.com/truecharts/apps/compare/postgresql-6.0.5...postgresql-6.0.6) (2021-11-22)
 
 #### Chore
 
@@ -1802,8 +1997,8 @@
 
 
 
-<a name="memcached-1.0.7"></a>
-### [memcached-1.0.7](https://github.com/truecharts/apps/compare/memcached-1.0.6...memcached-1.0.7) (2021-11-18)
+<a name="postgresql-6.0.4"></a>
+### [postgresql-6.0.4](https://github.com/truecharts/apps/compare/postgresql-6.0.3...postgresql-6.0.4) (2021-11-18)
 
 #### Chore
 
@@ -1811,8 +2006,8 @@
 
 
 
-<a name="memcached-1.0.6"></a>
-### [memcached-1.0.6](https://github.com/truecharts/apps/compare/memcached-1.0.5...memcached-1.0.6) (2021-11-16)
+<a name="postgresql-6.0.3"></a>
+### [postgresql-6.0.3](https://github.com/truecharts/apps/compare/postgresql-6.0.2...postgresql-6.0.3) (2021-11-16)
 
 #### Chore
 
@@ -1820,8 +2015,8 @@
 
 
 
-<a name="memcached-1.0.5"></a>
-### [memcached-1.0.5](https://github.com/truecharts/apps/compare/memcached-1.0.4...memcached-1.0.5) (2021-11-16)
+<a name="postgresql-6.0.2"></a>
+### [postgresql-6.0.2](https://github.com/truecharts/apps/compare/postgresql-6.0.1...postgresql-6.0.2) (2021-11-16)
 
 #### Chore
 
@@ -1829,8 +2024,26 @@
 
 
 
-<a name="memcached-1.0.4"></a>
-### [memcached-1.0.4](https://github.com/truecharts/apps/compare/memcached-1.0.3...memcached-1.0.4) (2021-11-15)
+<a name="postgresql-6.0.1"></a>
+### [postgresql-6.0.1](https://github.com/truecharts/apps/compare/postgresql-6.0.0...postgresql-6.0.1) (2021-11-16)
+
+#### Fix
+
+* correct mistake in VCT
+
+
+
+<a name="postgresql-6.0.0"></a>
+### [postgresql-6.0.0](https://github.com/truecharts/apps/compare/postgresql-5.2.2...postgresql-6.0.0) (2021-11-16)
+
+#### Fix
+
+* remove migration scripting and assume postgresql is a breaking change
+
+
+
+<a name="postgresql-5.2.2"></a>
+### [postgresql-5.2.2](https://github.com/truecharts/apps/compare/postgresql-5.2.1...postgresql-5.2.2) (2021-11-15)
 
 #### Chore
 
@@ -1838,8 +2051,8 @@
 
 
 
-<a name="memcached-1.0.3"></a>
-### [memcached-1.0.3](https://github.com/truecharts/apps/compare/memcached-1.0.2...memcached-1.0.3) (2021-11-15)
+<a name="postgresql-5.2.1"></a>
+### [postgresql-5.2.1](https://github.com/truecharts/apps/compare/postgresql-5.2.0...postgresql-5.2.1) (2021-11-15)
 
 #### Chore
 
@@ -1847,17 +2060,27 @@
 
 
 
-<a name="memcached-1.0.2"></a>
-### [memcached-1.0.2](https://github.com/truecharts/apps/compare/memcached-1.0.1...memcached-1.0.2) (2021-11-15)
+<a name="postgresql-5.2.0"></a>
+### [postgresql-5.2.0](https://github.com/truecharts/apps/compare/postgresql-5.1.18...postgresql-5.2.0) (2021-11-15)
+
+#### Feat
+
+* move postgresql to use statefullset and cleanup ([#1335](https://github.com/truecharts/apps/issues/1335))
+
+
+
+<a name="postgresql-5.1.18"></a>
+### [postgresql-5.1.18](https://github.com/truecharts/apps/compare/postgresql-5.1.17...postgresql-5.1.18) (2021-11-15)
 
 #### Chore
 
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
 * bump common and move mariadb
 
 
 
-<a name="memcached-1.0.1"></a>
-### [memcached-1.0.1](https://github.com/truecharts/apps/compare/memcached-1.0.0...memcached-1.0.1) (2021-11-14)
+<a name="postgresql-5.1.17"></a>
+### [postgresql-5.1.17](https://github.com/truecharts/apps/compare/postgresql-5.1.16...postgresql-5.1.17) (2021-11-14)
 
 #### Chore
 
@@ -1872,18 +2095,525 @@
 
 
 
-<a name="memcached-1.0.0"></a>
-### [memcached-1.0.0](https://github.com/truecharts/apps/compare/memcached-0.0.1...memcached-1.0.0) (2021-11-12)
+<a name="postgresql-5.1.16"></a>
+### [postgresql-5.1.16](https://github.com/truecharts/apps/compare/postgresql-5.1.15...postgresql-5.1.16) (2021-11-12)
+
+#### Chore
+
+* update non-major ([#1302](https://github.com/truecharts/apps/issues/1302))
 
 #### Feat
 
 * move deps to incubator ([#1311](https://github.com/truecharts/apps/issues/1311))
 
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
 
 
-<a name="memcached-0.0.1"></a>
-### memcached-0.0.1 (2021-11-11)
+
+<a name="postgresql-5.1.15"></a>
+### [postgresql-5.1.15](https://github.com/truecharts/apps/compare/postgresql-5.1.14...postgresql-5.1.15) (2021-11-09)
+
+#### Chore
+
+* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
+
+#### Fix
+
+* correct mistake in service definition
+
+
+
+<a name="postgresql-5.1.14"></a>
+### [postgresql-5.1.14](https://github.com/truecharts/apps/compare/postgresql-5.1.13...postgresql-5.1.14) (2021-11-08)
 
 #### Feat
 
-* add memcached App ([#1307](https://github.com/truecharts/apps/issues/1307))
+* also set and remember postgresql root password
+
+
+
+<a name="postgresql-5.1.13"></a>
+### [postgresql-5.1.13](https://github.com/truecharts/apps/compare/postgresql-5.1.12...postgresql-5.1.13) (2021-11-08)
+
+#### Chore
+
+* rename train name
+
+
+
+<a name="postgresql-5.1.12"></a>
+### [postgresql-5.1.12](https://github.com/truecharts/apps/compare/postgresql-5.1.11...postgresql-5.1.12) (2021-11-08)
+
+#### Chore
+
+* Move postgresql to a seperate dependency train
+
+
+
+<a name="postgresql-5.1.11"></a>
+### [postgresql-5.1.11](https://github.com/truecharts/apps/compare/postgresql-5.1.10...postgresql-5.1.11) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
+<a name="postgresql-5.1.10"></a>
+### [postgresql-5.1.10](https://github.com/truecharts/apps/compare/postgresql-5.1.9...postgresql-5.1.10) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
+<a name="postgresql-5.1.9"></a>
+### [postgresql-5.1.9](https://github.com/truecharts/apps/compare/postgresql-5.1.8...postgresql-5.1.9) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
+<a name="postgresql-5.1.8"></a>
+### [postgresql-5.1.8](https://github.com/truecharts/apps/compare/postgresql-5.1.7...postgresql-5.1.8) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
+<a name="postgresql-5.1.7"></a>
+### [postgresql-5.1.7](https://github.com/truecharts/apps/compare/postgresql-5.1.6...postgresql-5.1.7) (2021-11-02)
+
+#### Chore
+
+* update non-major ([#1265](https://github.com/truecharts/apps/issues/1265))
+
+
+
+<a name="postgresql-5.1.6"></a>
+### [postgresql-5.1.6](https://github.com/truecharts/apps/compare/postgresql-5.1.5...postgresql-5.1.6) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
+<a name="postgresql-5.1.5"></a>
+### [postgresql-5.1.5](https://github.com/truecharts/apps/compare/postgresql-5.1.4...postgresql-5.1.5) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
+<a name="postgresql-5.1.4"></a>
+### [postgresql-5.1.4](https://github.com/truecharts/apps/compare/postgresql-5.1.3...postgresql-5.1.4) (2021-10-26)
+
+#### Fix
+
+* correct group permissions on SCALE deployments of postgresql
+
+
+
+<a name="postgresql-5.1.3"></a>
+### [postgresql-5.1.3](https://github.com/truecharts/apps/compare/postgresql-5.1.2...postgresql-5.1.3) (2021-10-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
+
+
+
+<a name="postgresql-5.1.2"></a>
+### [postgresql-5.1.2](https://github.com/truecharts/apps/compare/postgresql-5.1.1...postgresql-5.1.2) (2021-10-26)
+
+#### Chore
+
+* update bitnami/postgresql:14.0.0 docker digest to 6737f46 ([#1243](https://github.com/truecharts/apps/issues/1243))
+
+
+
+<a name="postgresql-5.1.1"></a>
+### [postgresql-5.1.1](https://github.com/truecharts/apps/compare/postgresql-5.1.0...postgresql-5.1.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update major docker tags (major) ([#1235](https://github.com/truecharts/apps/issues/1235))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
+<a name="postgresql-5.1.0"></a>
+### [postgresql-5.1.0](https://github.com/truecharts/apps/compare/postgresql-4.1.0...postgresql-5.1.0) (2021-10-26)
+
+
+
+<a name="postgresql-4.1.0"></a>
+### [postgresql-4.1.0](https://github.com/truecharts/apps/compare/postgresql-5.0.0...postgresql-4.1.0) (2021-10-26)
+
+#### Fix
+
+* fix migration scripting for new major
+
+
+
+<a name="postgresql-5.0.0"></a>
+### [postgresql-5.0.0](https://github.com/truecharts/apps/compare/postgresql-4.0.3...postgresql-5.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
+<a name="postgresql-4.0.3"></a>
+### [postgresql-4.0.3](https://github.com/truecharts/apps/compare/postgresql-4.0.1...postgresql-4.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+
+
+
+<a name="postgresql-4.0.1"></a>
+### [postgresql-4.0.1](https://github.com/truecharts/apps/compare/postgresql-4.0.0...postgresql-4.0.1) (2021-10-20)
+
+#### Chore
+
+* bump common on postgresql
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
+<a name="postgresql-4.0.0"></a>
+### [postgresql-4.0.0](https://github.com/truecharts/apps/compare/postgresql-3.0.21...postgresql-4.0.0) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+* update non-major ([#1185](https://github.com/truecharts/apps/issues/1185))
+
+#### Security
+
+* Improve Snyk hardening advisory ([#1208](https://github.com/truecharts/apps/issues/1208))
+
+
+
+<a name="postgresql-3.0.21"></a>
+### [postgresql-3.0.21](https://github.com/truecharts/apps/compare/postgresql-3.0.20...postgresql-3.0.21) (2021-10-19)
+
+#### Change
+
+* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
+
+#### Chore
+
+* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
+* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
+
+#### Feat
+
+* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
+
+#### Refactor
+
+* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
+
+
+
+<a name="postgresql-3.0.20"></a>
+### [postgresql-3.0.20](https://github.com/truecharts/apps/compare/postgresql-3.0.19...postgresql-3.0.20) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
+<a name="postgresql-3.0.19"></a>
+### [postgresql-3.0.19](https://github.com/truecharts/apps/compare/postgresql-3.0.18...postgresql-3.0.19) (2021-10-19)
+
+#### Chore
+
+* Add description on persistence ([#1172](https://github.com/truecharts/apps/issues/1172))
+
+#### Fix
+
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+
+#### Refactor
+
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+
+
+
+<a name="postgresql-3.0.18"></a>
+### [postgresql-3.0.18](https://github.com/truecharts/apps/compare/postgresql-3.0.17...postgresql-3.0.18) (2021-10-18)
+
+#### Chore
+
+* bump common on postgresql
+
+
+
+<a name="postgresql-3.0.17"></a>
+### [postgresql-3.0.17](https://github.com/truecharts/apps/compare/postgresql-3.0.16...postgresql-3.0.17) (2021-10-17)
+
+#### Chore
+
+* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+
+#### Fix
+
+* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+
+
+
+<a name="postgresql-3.0.16"></a>
+### [postgresql-3.0.16](https://github.com/truecharts/apps/compare/postgresql-3.0.15...postgresql-3.0.16) (2021-10-13)
+
+#### Chore
+
+* bump common
+
+
+
+<a name="postgresql-3.0.15"></a>
+### [postgresql-3.0.15](https://github.com/truecharts/apps/compare/postgresql-3.0.14...postgresql-3.0.15) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
+
+
+
+<a name="postgresql-3.0.14"></a>
+### [postgresql-3.0.14](https://github.com/truecharts/apps/compare/postgresql-3.0.13...postgresql-3.0.14) (2021-10-12)
+
+#### Chore
+
+* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
+
+
+
+<a name="postgresql-3.0.13"></a>
+### [postgresql-3.0.13](https://github.com/truecharts/apps/compare/postgresql-3.0.12...postgresql-3.0.13) (2021-10-09)
+
+
+
+<a name="postgresql-3.0.12"></a>
+### [postgresql-3.0.12](https://github.com/truecharts/apps/compare/postgresql-3.0.11...postgresql-3.0.12) (2021-10-09)
+
+
+
+<a name="postgresql-3.0.11"></a>
+### [postgresql-3.0.11](https://github.com/truecharts/apps/compare/postgresql-3.0.10...postgresql-3.0.11) (2021-10-09)
+
+
+
+<a name="postgresql-3.0.10"></a>
+### [postgresql-3.0.10](https://github.com/truecharts/apps/compare/postgresql-3.0.9...postgresql-3.0.10) (2021-10-09)
+
+
+
+<a name="postgresql-3.0.9"></a>
+### [postgresql-3.0.9](https://github.com/truecharts/apps/compare/postgresql-3.0.8...postgresql-3.0.9) (2021-10-09)
+
+
+
+<a name="postgresql-3.0.8"></a>
+### [postgresql-3.0.8](https://github.com/truecharts/apps/compare/postgresql-3.0.7...postgresql-3.0.8) (2021-10-05)
+
+#### Chore
+
+* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
+
+
+
+<a name="postgresql-3.0.7"></a>
+### [postgresql-3.0.7](https://github.com/truecharts/apps/compare/postgresql-3.0.6...postgresql-3.0.7) (2021-10-05)
+
+
+
+<a name="postgresql-3.0.6"></a>
+### [postgresql-3.0.6](https://github.com/truecharts/apps/compare/postgresql-3.0.5...postgresql-3.0.6) (2021-09-29)
+
+#### Chore
+
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
+
+
+
+<a name="postgresql-3.0.4"></a>
+### [postgresql-3.0.4](https://github.com/truecharts/apps/compare/postgresql-3.0.3...postgresql-3.0.4) (2021-09-29)
+
+#### Chore
+
+* update bitnami/postgresql:13.4.0 docker digest to 33c276d ([#1055](https://github.com/truecharts/apps/issues/1055))
+
+
+
+<a name="postgresql-3.0.3"></a>
+### [postgresql-3.0.3](https://github.com/truecharts/apps/compare/postgresql-3.0.2...postgresql-3.0.3) (2021-09-28)
+
+#### Chore
+
+* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
+
+
+
+<a name="postgresql-3.0.2"></a>
+### [postgresql-3.0.2](https://github.com/truecharts/apps/compare/postgresql-3.0.1...postgresql-3.0.2) (2021-09-28)
+
+#### Chore
+
+* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))
+
+
+
+<a name="postgresql-3.0.1"></a>
+### [postgresql-3.0.1](https://github.com/truecharts/apps/compare/postgresql-3.0.0...postgresql-3.0.1) (2021-09-26)
+
+
+
+<a name="postgresql-3.0.0"></a>
+### [postgresql-3.0.0](https://github.com/truecharts/apps/compare/postgresql-2.2.5...postgresql-3.0.0) (2021-09-26)
+
+
+
+<a name="postgresql-2.2.5"></a>
+### [postgresql-2.2.5](https://github.com/truecharts/apps/compare/postgresql-2.2.4...postgresql-2.2.5) (2021-09-21)
+
+#### Chore
+
+* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+
+
+
+<a name="postgresql-2.2.4"></a>
+### [postgresql-2.2.4](https://github.com/truecharts/apps/compare/postgresql-2.2.3...postgresql-2.2.4) (2021-09-21)
+
+#### Chore
+
+* update non-major ([#1015](https://github.com/truecharts/apps/issues/1015))
+
+
+
+<a name="postgresql-2.2.3"></a>
+### [postgresql-2.2.3](https://github.com/truecharts/apps/compare/postgresql-2.2.2...postgresql-2.2.3) (2021-09-21)
+
+#### Chore
+
+* update non-major ([#1013](https://github.com/truecharts/apps/issues/1013))
+
+
+
+<a name="postgresql-2.2.2"></a>
+### [postgresql-2.2.2](https://github.com/truecharts/apps/compare/postgresql-2.2.1...postgresql-2.2.2) (2021-09-14)
+
+#### Chore
+
+* update non-major ([#987](https://github.com/truecharts/apps/issues/987))
+
+
+
+<a name="postgresql-2.2.1"></a>
+### [postgresql-2.2.1](https://github.com/truecharts/apps/compare/postgresql-2.2.0...postgresql-2.2.1) (2021-09-13)
+
+#### Feat
+
+* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
+
+
+
+<a name="postgresql-2.2.0"></a>
+### [postgresql-2.2.0](https://github.com/truecharts/apps/compare/postgresql-2.1.1...postgresql-2.2.0) (2021-09-13)
+
+#### Chore
+
+* update non-major
+
+#### Feat
+
+* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
+
+
+
+<a name="postgresql-2.1.1"></a>
+### [postgresql-2.1.1](https://github.com/truecharts/apps/compare/postgresql-2.1.0...postgresql-2.1.1) (2021-09-11)
+
+#### Fix
+
+* use correct appversion string
+
+
+
+<a name="postgresql-2.1.0"></a>
+### [postgresql-2.1.0](https://github.com/truecharts/apps/compare/postgresql-2.0.0...postgresql-2.1.0) (2021-09-11)
+
+#### Chore
+
+* Use bitnami instead of stock postgresql container ([#960](https://github.com/truecharts/apps/issues/960))
+* update non-major
+
+#### Feat
+
+* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
+
+#### Fix
+
+* make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
+* move runAsNonRoot to container securityContext to allow root sidecarts ([#954](https://github.com/truecharts/apps/issues/954))
+
+
+
+<a name="postgresql-2.0.0"></a>
+### [postgresql-2.0.0](https://github.com/truecharts/apps/compare/postgresql-1.6.6...postgresql-2.0.0) (2021-09-09)
+
+#### Chore
+
+* fix postgresql version
+
+
+
+<a name="postgresql-1.6.6"></a>
+### [postgresql-1.6.6](https://github.com/truecharts/apps/compare/postgresql-1.6.5...postgresql-1.6.6) (2021-09-09)
+
+#### Chore
+
+* update postrgresql to common 7.0.0 ([#951](https://github.com/truecharts/apps/issues/951))
+
+#### Feat
+
+* Add regex validation to resources CPU and RAM for all apps ([#935](https://github.com/truecharts/apps/issues/935))
+
+#### Fix
+
+* repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))

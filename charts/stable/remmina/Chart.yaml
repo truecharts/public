@@ -3,10 +3,10 @@ appVersion: "1.2.0-rcgi"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 description: A remote desktop client written in GTK
-home: https://github.com/truecharts/charts/tree/master/charts/stable/remmina
-icon: https://truecharts.org/img/chart-icons/remmina.png
+home: https://truecharts.org/docs/charts/stable/remmina
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/remmina.png
 keywords:
   - remina
   - remote
@@ -19,10 +19,11 @@ maintainers:
     url: https://truecharts.org
 name: remmina
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
   - https://github.com/linuxserver/docker-remmina
   - https://remmina.org/
 type: application
-version: 3.0.22
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

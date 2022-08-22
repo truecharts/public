@@ -10,7 +10,7 @@
   "prConcurrentLimit": 7,
   "pinDigests": true,
   "timezone":"Europe/Amsterdam",
-  "gitAuthor": "TrueCharts-Bot <bot@truecharts.org>",
+  "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
@@ -172,6 +172,26 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/photoprism"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "matchPackageNames": ["tccr.io/truecharts/jitsi-web"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "matchPackageNames": ["tccr.io/truecharts/jitsi-jicofo"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "matchPackageNames": ["tccr.io/truecharts/jitsi-jvb"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "matchPackageNames": ["tccr.io/truecharts/jitsi-prosody"],
     }
   ]
 }

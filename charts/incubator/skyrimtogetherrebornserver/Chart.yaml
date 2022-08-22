@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  Skyrim Together Reborn Coop Server. This Docker image is not managed
-  by me. I'm just providing it to the TrueNAS Store from the offical Docker image
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/skyrimtogetherrebornserver
-icon: https://truecharts.org/img/chart-icons/skyrimtogetherrebornserver.png
+description: Skyrim Together Reborn Coop Server. This Docker image is not managed by me. I'm just providing it to the TrueNAS Store from the offical Docker image
+home: https://truecharts.org/docs/charts/incubator/skyrimtogetherrebornserver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/skyrimtogetherrebornserver.png
 keywords:
   - skyrimtogetherrebornserver
   - GameServers
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: skyrimtogetherrebornserver
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/skyrimtogetherrebornserver
   - https://skyrim-together.com/
   - https://hub.docker.com/r/tiltedphoques/st-reborn-server
 type: application
-version: 0.0.14
+version: 0.0.16

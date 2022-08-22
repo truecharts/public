@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/backuppc
-  tag: latest@sha256:e2a253cdc7cee7a4509d885a8dd6440b57816b6089dc2510f27d3dec53b54561
+  tag: latest@sha256:013706fa1b67027c3a3e9168b941cb6628463852956edf1819b84d237352085c
 persistence:
   backuplocation:
     enabled: true
@@ -31,3 +31,6 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 80
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/scrutiny
   pullPolicy: IfNotPresent
-  tag: v0.4.16@sha256:e3ad2df0c58c994ae92e0d4c89a7ed5aede5ba683f04754e3aaad704781ec3a8
+  tag: 0.5.0@sha256:b423a47896e4c20d125880dc2504248fe78d9de5b1d711747bb25c94949b15bf
 
 securityContext:
   runAsNonRoot: false
@@ -53,3 +53,6 @@ persistence:
     hostPath: "/run/udev"
     mountPath: "/run/udev"
     readOnly: true
+
+portal:
+  enabled: true

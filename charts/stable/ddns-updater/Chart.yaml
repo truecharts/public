@@ -3,10 +3,10 @@ appVersion: "2.4.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 description: Light container updating DNS A and/or AAAA records periodically for multiple DNS providers
-home: https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
-icon: https://truecharts.org/img/chart-icons/ddns-updater.png
+home: https://truecharts.org/docs/charts/stable/ddns-updater
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-updater.png
 keywords:
   - ddns-updater
 kubeVersion: ">=1.16.0-0"
@@ -16,9 +16,10 @@ maintainers:
     url: https://truecharts.org
 name: ddns-updater
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
   - https://github.com/qdm12/ddns-updater
   - https://hub.docker.com/r/qmcgaw/ddns-updater
-version: 2.0.24
+version: 2.0.26
 annotations:
   truecharts.org/catagories: |
     - network

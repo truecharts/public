@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description: "Run a Pritunl VPN Server [br][br]
-
-  "
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/pritunl
-icon: https://truecharts.org/img/chart-icons/pritunl.png
+description: "Run a Pritunl VPN Server [br][br]\n"
+home: https://truecharts.org/docs/charts/incubator/pritunl
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pritunl.png
 keywords:
   - pritunl
   - Network-Other
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: pritunl
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pritunl
   - https://pritunl.com/
   - https://hub.docker.com/r/bashninja/docker-pritunl/
 type: application
-version: 0.0.14
+version: 0.0.16

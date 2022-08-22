@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ts-dnsserver
-  tag: latest@sha256:4a2fed52b9bd838e6b485d284b8b3c7eefced6404f6cd5761f7e4eece4b578ae
+  tag: latest@sha256:4f865ef178b6f633519e841c2235ea14663cf63dc4334b0c0f4e2583ce43d871
 persistence:
   config:
     enabled: true
@@ -30,3 +30,6 @@ service:
         port: 5380
         protocol: HTTP
         targetPort: 5380
+
+portal:
+  enabled: true

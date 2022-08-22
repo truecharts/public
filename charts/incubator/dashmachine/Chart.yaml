@@ -8,14 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Another web application bookmark dashboard, with fun features.[br][br][b][u][span
-  style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password:
-  [B][u]admin[/B][/u][/b]"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/dashmachine
-icon: https://truecharts.org/img/chart-icons/dashmachine.png
+description: "Another web application bookmark dashboard, with fun features.[br][br][b][u][span style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]"
+home: https://truecharts.org/docs/charts/incubator/dashmachine
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashmachine.png
 keywords:
   - dashmachine
   - Productivity
@@ -27,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: dashmachine
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dashmachine
   - https://hub.docker.com/r/rmountjoy/dashmachine/
   - https://hub.docker.com/r/rmountjoy/dashmachine/
 type: application
-version: 0.0.14
+version: 0.0.16

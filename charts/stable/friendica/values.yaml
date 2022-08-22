@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/friendica
   pullPolicy: IfNotPresent
-  tag: v2022.06@sha256:483bf013550c8ae2343cbb67b9dd52e983a873bd54fc909e52a1b879fc6be2d4
+  tag: v2022.06@sha256:d3e450e68c05e8d7ab251d0c4c6ba54c0ebbaab702725108676773965014dfe0
 
 securityContext:
   runAsNonRoot: false
@@ -78,3 +78,6 @@ mariadb:
   mariadbUsername: friendica
   mariadbDatabase: friendica
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

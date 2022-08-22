@@ -2,6 +2,40 @@
 
 
 
+## [sourcegraph-0.0.17](https://github.com/truecharts/charts/compare/sourcegraph-0.0.16...sourcegraph-0.0.17) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [sourcegraph-0.0.16](https://github.com/truecharts/charts/compare/sourcegraph-0.0.15...sourcegraph-0.0.16) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [sourcegraph-0.0.15](https://github.com/truecharts/charts/compare/sourcegraph-0.0.13...sourcegraph-0.0.15) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [sourcegraph-0.0.13](https://github.com/truecharts/apps/compare/sourcegraph-0.0.12...sourcegraph-0.0.13) (2022-07-26)
 
 ### Chore

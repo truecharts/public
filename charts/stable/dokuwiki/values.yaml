@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/dokuwiki
   pullPolicy: IfNotPresent
-  tag: v20200729.0.0@sha256:2ad1c6e74fb06065633e240922cd6aa57de763a30af7b64d16659af28bfb0d72
+  tag: v20200729.0.0@sha256:f721c8e3488393a937a6fbf5cbdb466ccd982c2bd1f03454c0754b6495b8ea02
 
 securityContext:
   runAsNonRoot: false
@@ -29,3 +29,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/bitnami/dokuwiki"
+
+portal:
+  enabled: true

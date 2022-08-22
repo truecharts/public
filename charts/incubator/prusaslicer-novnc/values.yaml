@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/prusaslicer-novnc
-  tag: latest@sha256:1acb87f3aa31062bbc34545c293e97534559b9d75cda856f46d00eae0d537b00
+  tag: latest@sha256:a7b369c2ad62b1100ce8a067662932b01e40b2c93fb50fea48a890e4adb2779d
 persistence:
   configsfolder:
     enabled: true
@@ -26,3 +26,6 @@ service:
         port: 6080
         protocol: TCP
         targetPort: 8080
+
+portal:
+  enabled: true

@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rflood
-  tag: latest@sha256:d0b6da54899ff0580bea934d5638e9f887217b72935eb668958cf4391e747fcd
+  tag: latest@sha256:789670a11a6b7d56aa656a314864c9f72168e446c6cacaf9069f3f95a6ac905e
 persistence:
   config:
     enabled: true
@@ -24,3 +24,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

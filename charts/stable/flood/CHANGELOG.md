@@ -2,6 +2,25 @@
 
 
 
+## [flood-6.0.27](https://github.com/truecharts/charts/compare/rflood-0.0.16...flood-6.0.27) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [flood-6.0.26](https://github.com/truecharts/charts/compare/qflood-0.0.14...flood-6.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [flood-6.0.25](https://github.com/truecharts/apps/compare/qflood-0.0.13...flood-6.0.25) (2022-07-26)
 
 ### Chore

@@ -1,22 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
-    - Tools-Utilities
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.1.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description: "DESCRIPTION\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/obsidian
-icon: https://truecharts.org/img/chart-icons/obsidian.png
+description: "A knowledge base that works on local Markdown files."
+home: https://truecharts.org/docs/charts/incubator/obsidian
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/obsidian.png
 keywords:
   - obsidian
-  - Productivity
-  - Tools-Utilities
+  - productivity
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -24,7 +18,12 @@ maintainers:
     url: https://truecharts.org
 name: obsidian
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/obsidian
   - https://github.com/sytone/obsidian-remote
   - https://github.com/sytone/obsidian-remote/pkgs/container/obsidian-remote
 type: application
-version: 0.0.14
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - productivity
+version: 0.0.18

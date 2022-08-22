@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tracks
-  tag: latest@sha256:1928db2c3634961784057f501754383095993bc71015ddc111b43431506b80fb
+  tag: latest@sha256:23ab1af5650e33189f6226f2b1c5b45f19b3e80bac8b89a1c4676c33fb7b8322
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -28,3 +28,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

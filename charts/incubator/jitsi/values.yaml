@@ -1,19 +1,19 @@
 image:
   repository: tccr.io/truecharts/jitsi-web
   pullPolicy: IfNotPresent
-  tag: v7439@sha256:18374c58ed22cf99f0cfbdad1d8f01062898b4290560e65582879b04a733ba44
+  tag: 7648@sha256:2d97db854e47449c1349df0e7b6f80c7b219e8412346cb2f62fd326dc1633763
 
 prosodyImage:
   repository: tccr.io/truecharts/jitsi-prosody
-  tag: v7439@sha256:39c12997f44d3583fdc9699cfc247d0fd61e8f56278062d718d7583cdfa78259
+  tag: 7648@sha256:5adb444d0e572524595f4adb4105b6baab5c24a09bb32cc0dc4d6f09eb09e275
 
 jicofoImage:
   repository: tccr.io/truecharts/jitsi-jicofo
-  tag: v7439@sha256:e1d3b8c213197eab8a9ded23dc3f63e7a99c376baaa0b2d74c7571f292c4c57e
+  tag: 7648@sha256:7b3741bcdd64ccb238060e1cfb765a27aa53b0efcd8d163aeeb2171b3ec96617
 
 jvbImage:
   repository: tccr.io/truecharts/jitsi-jvb
-  tag: v7439@sha256:02fc3833c4d6cdf8dc9f707feb2e09d032a8641802bd2079f875d8a78058e185
+  tag: v7648@sha256:8f7711113ca839dd5886a8ab1b8848f0d306326a289e43bcda61378921002438
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -378,3 +378,6 @@ persistence:
   jvbconfig:
     enabled: true
     mountPath: "/jvbconfig/config"
+
+portal:
+  enabled: true

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/ghost
-  tag: 5.5.0@sha256:f54efe61c9359e10648ad3d6ac34470a85414dd6317e32c824a29c15d639344e
+  tag: 5.10.1@sha256:981ca52d7a0dd93f0e864a7ec69fa3b3ad2eac61dce6ccd9cccf27214ae9c87a
   pullPolicy: IfNotPresent
 
 env:
@@ -69,3 +69,6 @@ mariadb:
   mariadbUsername: ghost
   mariadbDatabase: ghost
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

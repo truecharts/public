@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: "DESCRIPTION\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoin-node
-icon: https://truecharts.org/img/chart-icons/bitcoin-node.png
+home: https://truecharts.org/docs/charts/incubator/bitcoin-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoin-node.png
 keywords:
   - bitcoin-node
   - Crypto
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: bitcoin-node
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoin-node
   - https://github.com/kylemanna/docker-bitcoind
   - https://hub.docker.com/r/kylemanna/bitcoind
 type: application
-version: 0.0.14
+version: 0.0.16

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/omada-controller
-  tag: v5.3@sha256:ff1a84da5354da76c6be90ee2dbe72ff55b0b68c70a86cd9708d742fe05c79c1
+  tag: 5.4@sha256:725b8adbb36d8015dec0d9aa871bf0d186d65a00caa6ae21fd632536550afb04
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -61,3 +61,6 @@ persistence:
   work:
     enabled: true
     mountPath: "/opt/tplink/EAPController/work"
+
+portal:
+  enabled: true

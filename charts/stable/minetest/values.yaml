@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/minetest
   pullPolicy: IfNotPresent
-  tag: v5.5.1
+  tag: 5.6.0
 
 securityContext:
   runAsNonRoot: false
@@ -33,3 +33,6 @@ persistence:
     mountPath: "/config/.minetest"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

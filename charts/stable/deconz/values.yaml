@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/deconz
-  tag: v2.17.01@sha256:2afa7d31dc9c8d91fd79a15fe271f510ca2f40ff7f23b75d1e0ad104c9b3a55e
+  tag: 2.18.00@sha256:67c7b66d126e0ac5d08a24899c64a333547ffd371a84d84007837d8f088100f4
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -62,3 +62,6 @@ affinity: {}
 #           operator: In
 #           values:
 #           - zigbee-controller
+
+portal:
+  enabled: true

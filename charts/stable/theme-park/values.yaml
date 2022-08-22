@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/theme-park
   pullPolicy: IfNotPresent
-  tag: 1.9.10@sha256:584e8af78691b801bb7371478d0c27a1cdba82e9f2431a6f60ef9a6142b077ad
+  tag: 1.10.0@sha256:fd12b1ddd59d2217c9293b9799c06e3598bbddc5d21783f16df568b245017b69
 
 service:
   main:
@@ -14,3 +14,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

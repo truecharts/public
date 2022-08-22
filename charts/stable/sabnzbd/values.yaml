@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/sabnzbd
   pullPolicy: IfNotPresent
-  tag: v3.6.0@sha256:f3460549a440e747834c12a70c75418d2a9d1681c654d75c77dc6c65bf996d79
+  tag: 3.6.1@sha256:2c07304fb7f83dce4bc4ef4d06d6563256c3f41f365c2e8aeb295483fe1579c6
 
 env:
   HOST_WHITELIST_ENTRIES: ""
@@ -17,3 +17,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

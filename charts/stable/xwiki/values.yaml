@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/xwiki
-  tag: 14.6.0-postgres@sha256:ca8c2a56f0fe1b93b997082363c76c7941cc1befc93be1753485b34818cb4d19
+  tag: 14.6.0-postgres@sha256:c8ed43a2cef36423e3b88e865d2f54446eac99b9bfebb0726e660d052c01b68d
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -42,3 +42,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: xwiki
   postgresqlDatabase: xwiki
+
+portal:
+  enabled: true

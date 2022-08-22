@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/fileflows
-  tag: 0.9.3@sha256:334ac7d0a6ef78f87cde1d5f8d27a226c65ed4a4e145d7bbd08ebd9afd3eabee
+  tag: 1.0.1@sha256:7cdc5ac505985e7fc6e14c0bde98da47deb5409049dd02bfc05801477d2b46f3
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -31,3 +31,6 @@ persistence:
   media:
     enabled: true
     mountPath: "/media"
+
+portal:
+  enabled: true

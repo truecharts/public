@@ -10,13 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Alpine-based Docker image for Hastebin, the node.js paste service  \r\
-  \n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/hastebin
-icon: https://truecharts.org/img/chart-icons/hastebin.png
+description: "Alpine-based Docker image for Hastebin, the node.js paste service  \r\n"
+home: https://truecharts.org/docs/charts/incubator/hastebin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hastebin.png
 keywords:
   - hastebin
   - Cloud
@@ -30,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: hastebin
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/hastebin
   - https://github.com/nzzane/haste-server
   - https://hub.docker.com/r/flippinturt/hastebin
 type: application
-version: 0.0.14
+version: 0.0.16

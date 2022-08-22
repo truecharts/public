@@ -2,6 +2,48 @@
 
 
 
+## [rflood-0.0.18](https://github.com/truecharts/charts/compare/rflood-0.0.17...rflood-0.0.18) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [rflood-0.0.17](https://github.com/truecharts/charts/compare/rflood-0.0.16...rflood-0.0.17) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [rflood-0.0.16](https://github.com/truecharts/charts/compare/rflood-0.0.15...rflood-0.0.16) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [rflood-0.0.15](https://github.com/truecharts/charts/compare/rflood-0.0.14...rflood-0.0.15) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [rflood-0.0.14](https://github.com/truecharts/apps/compare/rflood-0.0.13...rflood-0.0.14) (2022-07-26)
 
 ### Chore

@@ -9,14 +9,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "The Archive Team Warrior is a virtual archiving appliance. You can run\
-  \ it to help with the Archive Team archiving efforts. It will download sites and\
-  \ upload them to our archive\u2014and it\u2019s really easy to do!\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/archiveteam-warrior
-icon: https://truecharts.org/img/chart-icons/archiveteam-warrior.png
+description: "The Archive Team Warrior is a virtual archiving appliance. You can run it to help with the Archive Team archiving efforts. It will download sites and upload them to our archive—and it’s really easy to do!\r\n"
+home: https://truecharts.org/docs/charts/incubator/archiveteam-warrior
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/archiveteam-warrior.png
 keywords:
   - archiveteam-warrior
   - Backup
@@ -29,7 +26,8 @@ maintainers:
     url: https://truecharts.org
 name: archiveteam-warrior
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/archiveteam-warrior
   - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
   - https://hub.docker.com/r/archiveteam/warrior-dockerfile/
 type: application
-version: 0.0.14
+version: 0.0.16

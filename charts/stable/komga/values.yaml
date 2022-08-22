@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/komga
-  tag: 0.156.0@sha256:4e74acd47891c4bb381f3f16ed845ee870eff5100d9d0d412688eb7a5d2094ce
+  tag: 0.157.1@sha256:770f16040dedb6642424f2cf0e4d5282d3777283e412d3d4f0b7fb8a09935475
   pullPolicy: IfNotPresent
 
 service:
@@ -17,3 +17,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

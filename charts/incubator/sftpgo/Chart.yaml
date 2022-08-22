@@ -7,15 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Fully featured and highly configurable SFTP server with optional HTTP/S,
-  FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem,
-  encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage,
-  Azure Blob Storage, SFTP."
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/sftpgo
-icon: https://truecharts.org/img/chart-icons/sftpgo.png
+description: "Fully featured and highly configurable SFTP server with optional HTTP/S, FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage, Azure Blob Storage, SFTP."
+home: https://truecharts.org/docs/charts/incubator/sftpgo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sftpgo.png
 keywords:
   - sftpgo
   - Network-FTP
@@ -26,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: sftpgo
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sftpgo
   - https://github.com/drakkan/sftpgo
   - https://hub.docker.com/r/drakkan/sftpgo
 type: application
-version: 0.0.14
+version: 0.0.18

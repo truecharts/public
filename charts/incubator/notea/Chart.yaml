@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Self hosted note taking, alternative to Notions. Look at Github for config
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/notea
-icon: https://truecharts.org/img/chart-icons/notea.png
+home: https://truecharts.org/docs/charts/incubator/notea
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/notea.png
 keywords:
   - notea
   - Productivity
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: notea
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/notea
   - https://github.com/diamkil/docker-notea
   - https://registry.hub.docker.com/r/diamkil/notea/
 type: application
-version: 0.0.14
+version: 0.0.16

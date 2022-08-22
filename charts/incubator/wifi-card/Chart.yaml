@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Print a neat little card with your WiFi info and stick it on the fridge.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/wifi-card
-icon: https://truecharts.org/img/chart-icons/wifi-card.png
+home: https://truecharts.org/docs/charts/incubator/wifi-card
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wifi-card.png
 keywords:
   - wifi-card
   - Other
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: wifi-card
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wifi-card
   - https://github.com/bndw/wifi-card
   - https://hub.docker.com/r/bndw/wifi-card/
 type: application
-version: 0.0.14
+version: 0.0.18

@@ -2,7 +2,87 @@
 
 
 
-## [collabora-online-12.1.23](https://github.com/truecharts/apps/compare/collabora-online-12.1.21...collabora-online-12.1.23) (2022-07-25)
+## [collabora-online-12.1.29](https://github.com/truecharts/charts/compare/collabora-online-12.1.27...collabora-online-12.1.29) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [collabora-online-12.1.27](https://github.com/truecharts/charts/compare/collabora-online-12.1.26...collabora-online-12.1.27) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm chart common to v10.4.12
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [collabora-online-12.1.26](https://github.com/truecharts/charts/compare/collabora-online-12.1.25...collabora-online-12.1.26) (2022-08-10)
+
+### Chore
+
+- update helm chart common to v10.4.11 ([#3428](https://github.com/truecharts/charts/issues/3428))
+
+
+
+
+## [mariadb-3.0.51](https://github.com/truecharts/charts/compare/mariadb-3.0.50...mariadb-3.0.51) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [mariadb-3.0.50](https://github.com/truecharts/charts/compare/mariadb-3.0.49...mariadb-3.0.50) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [mariadb-3.0.49](https://github.com/truecharts/apps/compare/mariadb-3.0.48...mariadb-3.0.49) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [mariadb-3.0.48](https://github.com/truecharts/apps/compare/mariadb-3.0.47...mariadb-3.0.48) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [mariadb-3.0.47](https://github.com/truecharts/apps/compare/mariadb-3.0.46...mariadb-3.0.47) (2022-07-27)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [mariadb-3.0.46](https://github.com/truecharts/apps/compare/mariadb-3.0.44...mariadb-3.0.46) (2022-07-25)
 
 ### Chore
 
@@ -13,7 +93,7 @@
 
 
 
-## [collabora-online-12.1.22](https://github.com/truecharts/apps/compare/collabora-online-12.1.21...collabora-online-12.1.22) (2022-07-25)
+## [mariadb-3.0.45](https://github.com/truecharts/apps/compare/mariadb-3.0.44...mariadb-3.0.45) (2022-07-25)
 
 ### Chore
 
@@ -22,7 +102,16 @@
 
 
 
-## [collabora-online-12.1.21](https://github.com/truecharts/apps/compare/collabora-online-12.1.20...collabora-online-12.1.21) (2022-07-23)
+## [mariadb-3.0.44](https://github.com/truecharts/apps/compare/mariadb-3.0.43...mariadb-3.0.44) (2022-07-24)
+
+### Chore
+
+- update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
+
+
+
+
+## [mariadb-3.0.43](https://github.com/truecharts/apps/compare/mariadb-3.0.42...mariadb-3.0.43) (2022-07-23)
 
 ### Chore
 
@@ -31,7 +120,16 @@
 
 
 
-## [collabora-online-12.1.20](https://github.com/truecharts/apps/compare/collabora-online-12.1.19...collabora-online-12.1.20) (2022-07-22)
+## [mariadb-3.0.42](https://github.com/truecharts/apps/compare/mariadb-3.0.41...mariadb-3.0.42) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+
+
+
+
+## [mariadb-3.0.41](https://github.com/truecharts/apps/compare/mariadb-3.0.40...mariadb-3.0.41) (2022-07-22)
 
 ### Chore
 
@@ -39,54 +137,22 @@
 
 
 
-## [collabora-online-12.1.19](https://github.com/truecharts/apps/compare/collabora-online-12.1.18...collabora-online-12.1.19) (2022-07-21)
+## [mariadb-3.0.40](https://github.com/truecharts/apps/compare/mariadb-3.0.39...mariadb-3.0.40) (2022-07-22)
+
+### Chore
+
+- update docker general non-major ([#3258](https://github.com/truecharts/apps/issues/3258))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
-- move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
 - update helm chart common to v10.4.6
-
-### Fix
-
-- remove some non-utf8 characters
-
-
-
-## [collabora-online-12.1.19](https://github.com/truecharts/apps/compare/collabora-online-12.1.18...collabora-online-12.1.19) (2022-07-21)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-- Auto-update chart README [skip ci]
-- update helm chart common to v10.4.6
-
-### Fix
-
-- remove some non-utf8 characters
-
-
-
-## [collabora-online-12.1.19](https://github.com/truecharts/apps/compare/collabora-online-12.1.18...collabora-online-12.1.19) (2022-07-21)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-- update helm chart common to v10.4.6
-
-
-
-## [collabora-online-12.1.19](https://github.com/truecharts/apps/compare/collabora-online-12.1.18...collabora-online-12.1.19) (2022-07-20)
-
-### Chore
-
-- update helm chart common to v10.4.6
-
-
-
-## [collabora-online-12.1.18](https://github.com/truecharts/apps/compare/collabora-online-12.1.17...collabora-online-12.1.18) (2022-07-20)
 
 ### Feat
 
@@ -94,15 +160,56 @@
 
 
 
-## [collabora-online-12.1.17](https://github.com/truecharts/apps/compare/collabora-online-12.1.16...collabora-online-12.1.17) (2022-07-19)
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
 
 ### Chore
 
-- Update Readme and Description on SCALE
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
 
 
 
-## [collabora-online-12.1.16](https://github.com/truecharts/apps/compare/collabora-online-12.1.15...collabora-online-12.1.16) (2022-07-14)
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+## [mariadb-3.0.39](https://github.com/truecharts/apps/compare/mariadb-3.0.38...mariadb-3.0.39) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+### Feat
+
+- force the use of TCCR in CI ([#3226](https://github.com/truecharts/apps/issues/3226))
+
+
+
+
+
+## [mariadb-3.0.36](https://github.com/truecharts/apps/compare/mariadb-3.0.35...mariadb-3.0.36) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [memcached-3.0.36](https://github.com/truecharts/apps/compare/memcached-3.0.35...memcached-3.0.36) (2022-07-14)
 
 ### Fix
 
@@ -110,7 +217,7 @@
 
 
 
-## [collabora-online-12.1.15](https://github.com/truecharts/apps/compare/collabora-online-12.1.13...collabora-online-12.1.15) (2022-07-14)
+## [memcached-3.0.35](https://github.com/truecharts/apps/compare/memcached-3.0.33...memcached-3.0.35) (2022-07-14)
 
 ### Fix
 
@@ -118,16 +225,8 @@
 
 
 
-## [collabora-online-12.1.13](https://github.com/truecharts/apps/compare/collabora-online-12.1.12...collabora-online-12.1.13) (2022-07-14)
 
-### Chore
-
-- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
-
-
-
-
-## [collabora-online-12.1.11](https://github.com/truecharts/apps/compare/collabora-online-12.1.8...collabora-online-12.1.11) (2022-07-12)
+## [memcached-3.0.32](https://github.com/truecharts/apps/compare/memcached-3.0.30...memcached-3.0.32) (2022-07-12)
 
 ### Chore
 
@@ -136,7 +235,7 @@
 
 
 
-## [collabora-online-12.1.8](https://github.com/truecharts/apps/compare/collabora-online-12.1.7...collabora-online-12.1.8) (2022-07-12)
+## [memcached-3.0.30](https://github.com/truecharts/apps/compare/memcached-3.0.29...memcached-3.0.30) (2022-07-12)
 
 ### Chore
 
@@ -144,8 +243,8 @@
 
 
 
-<a name="collabora-online-12.1.7"></a>
-### [collabora-online-12.1.7](https://github.com/truecharts/apps/compare/collabora-online-12.1.6...collabora-online-12.1.7) (2022-07-12)
+<a name="memcached-3.0.29"></a>
+### [memcached-3.0.29](https://github.com/truecharts/apps/compare/memcached-3.0.28...memcached-3.0.29) (2022-07-12)
 
 #### Chore
 
@@ -153,17 +252,13 @@
 
 
 
-<a name="collabora-online-12.1.6"></a>
-### [collabora-online-12.1.6](https://github.com/truecharts/apps/compare/collabora-online-12.1.5...collabora-online-12.1.6) (2022-07-11)
-
-#### Chore
-
-* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+<a name="memcached-3.0.28"></a>
+### [memcached-3.0.28](https://github.com/truecharts/apps/compare/memcached-3.0.27...memcached-3.0.28) (2022-07-11)
 
 
 
-<a name="collabora-online-12.1.5"></a>
-### [collabora-online-12.1.5](https://github.com/truecharts/apps/compare/collabora-online-12.1.4...collabora-online-12.1.5) (2022-07-11)
+<a name="memcached-3.0.27"></a>
+### [memcached-3.0.27](https://github.com/truecharts/apps/compare/memcached-3.0.26...memcached-3.0.27) (2022-07-11)
 
 #### Chore
 
@@ -172,8 +267,8 @@
 
 
 
-<a name="collabora-online-12.1.4"></a>
-### [collabora-online-12.1.4](https://github.com/truecharts/apps/compare/collabora-online-12.1.3...collabora-online-12.1.4) (2022-07-11)
+<a name="memcached-3.0.26"></a>
+### [memcached-3.0.26](https://github.com/truecharts/apps/compare/memcached-3.0.25...memcached-3.0.26) (2022-07-11)
 
 #### Chore
 
@@ -181,17 +276,18 @@
 
 
 
-<a name="collabora-online-12.1.3"></a>
-### [collabora-online-12.1.3](https://github.com/truecharts/apps/compare/collabora-online-12.1.2...collabora-online-12.1.3) (2022-07-10)
+<a name="memcached-3.0.25"></a>
+### [memcached-3.0.25](https://github.com/truecharts/apps/compare/memcached-3.0.24...memcached-3.0.25) (2022-07-10)
 
 #### Chore
 
 * update helm chart common to v10.4.0 ([#3123](https://github.com/truecharts/apps/issues/3123))
+* update docker general non-major ([#3115](https://github.com/truecharts/apps/issues/3115))
 
 
 
-<a name="collabora-online-12.1.2"></a>
-### [collabora-online-12.1.2](https://github.com/truecharts/apps/compare/collabora-online-12.1.1...collabora-online-12.1.2) (2022-07-10)
+<a name="memcached-3.0.24"></a>
+### [memcached-3.0.24](https://github.com/truecharts/apps/compare/memcached-3.0.23...memcached-3.0.24) (2022-07-10)
 
 #### Chore
 
@@ -199,8 +295,8 @@
 
 
 
-<a name="collabora-online-12.1.1"></a>
-### [collabora-online-12.1.1](https://github.com/truecharts/apps/compare/collabora-online-12.1.0...collabora-online-12.1.1) (2022-07-09)
+<a name="memcached-3.0.23"></a>
+### [memcached-3.0.23](https://github.com/truecharts/apps/compare/memcached-3.0.22...memcached-3.0.23) (2022-07-09)
 
 #### Chore
 
@@ -208,94 +304,191 @@
 
 
 
-<a name="collabora-online-12.1.0"></a>
-### [collabora-online-12.1.0](https://github.com/truecharts/apps/compare/collabora-online-12.0.11...collabora-online-12.1.0) (2022-07-08)
-
-
-
-<a name="collabora-online-12.0.11"></a>
-### [collabora-online-12.0.11](https://github.com/truecharts/apps/compare/collabora-online-12.0.10...collabora-online-12.0.11) (2022-07-04)
+<a name="memcached-3.0.22"></a>
+### [memcached-3.0.22](https://github.com/truecharts/apps/compare/memcached-3.0.21...memcached-3.0.22) (2022-07-07)
 
 #### Chore
 
-* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+* update docker general non-major ([#3089](https://github.com/truecharts/apps/issues/3089))
 
 
 
-<a name="collabora-online-12.0.10"></a>
-### [collabora-online-12.0.10](https://github.com/truecharts/apps/compare/collabora-online-12.0.9...collabora-online-12.0.10) (2022-07-01)
-
-#### Chore
-
-* update container image tccr.io/truecharts/collabora to v22.05.3.1.1 ([#3017](https://github.com/truecharts/apps/issues/3017))
-
-
-
-<a name="collabora-online-12.0.9"></a>
-### [collabora-online-12.0.9](https://github.com/truecharts/apps/compare/collabora-online-12.0.8...collabora-online-12.0.9) (2022-06-25)
+<a name="memcached-3.0.21"></a>
+### [memcached-3.0.21](https://github.com/truecharts/apps/compare/memcached-3.0.20...memcached-3.0.21) (2022-07-04)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+* update helm chart common to v10.2.0 ([#3065](https://github.com/truecharts/apps/issues/3065))
 
 
 
-<a name="collabora-online-12.0.8"></a>
-### [collabora-online-12.0.8](https://github.com/truecharts/apps/compare/collabora-online-12.0.7...collabora-online-12.0.8) (2022-06-22)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
-
-
-
-<a name="collabora-online-12.0.7"></a>
-### [collabora-online-12.0.7](https://github.com/truecharts/apps/compare/collabora-online-12.0.6...collabora-online-12.0.7) (2022-06-21)
+<a name="memcached-3.0.20"></a>
+### [memcached-3.0.20](https://github.com/truecharts/apps/compare/memcached-3.0.19...memcached-3.0.20) (2022-07-04)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
 
 
 
-<a name="collabora-online-12.0.6"></a>
-### [collabora-online-12.0.6](https://github.com/truecharts/apps/compare/collabora-online-12.0.5...collabora-online-12.0.6) (2022-06-17)
-
-#### Chore
-
-* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
-
-
-
-<a name="collabora-online-12.0.5"></a>
-### [collabora-online-12.0.5](https://github.com/truecharts/apps/compare/collabora-online-12.0.4...collabora-online-12.0.5) (2022-06-16)
+<a name="memcached-3.0.19"></a>
+### [memcached-3.0.19](https://github.com/truecharts/apps/compare/memcached-3.0.18...memcached-3.0.19) (2022-07-01)
 
 #### Chore
 
-* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
+* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
 
 
 
-<a name="collabora-online-12.0.4"></a>
-### [collabora-online-12.0.4](https://github.com/truecharts/apps/compare/collabora-online-12.0.3...collabora-online-12.0.4) (2022-06-14)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
-
-
-
-<a name="collabora-online-12.0.3"></a>
-### [collabora-online-12.0.3](https://github.com/truecharts/apps/compare/collabora-online-12.0.2...collabora-online-12.0.3) (2022-06-11)
+<a name="memcached-3.0.18"></a>
+### [memcached-3.0.18](https://github.com/truecharts/apps/compare/memcached-3.0.17...memcached-3.0.18) (2022-06-26)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
 
 
 
-<a name="collabora-online-12.0.2"></a>
-### [collabora-online-12.0.2](https://github.com/truecharts/apps/compare/collabora-online-12.0.1...collabora-online-12.0.2) (2022-06-07)
+<a name="memcached-3.0.17"></a>
+### [memcached-3.0.17](https://github.com/truecharts/apps/compare/memcached-3.0.16...memcached-3.0.17) (2022-06-25)
+
+#### Chore
+
+* update helm chart common to v10.1.4 ([#2976](https://github.com/truecharts/apps/issues/2976))
+
+
+
+<a name="memcached-3.0.16"></a>
+### [memcached-3.0.16](https://github.com/truecharts/apps/compare/memcached-3.0.15...memcached-3.0.16) (2022-06-24)
+
+#### Chore
+
+* update helm chart common to v10.1.2
+
+
+
+<a name="memcached-3.0.15"></a>
+### [memcached-3.0.15](https://github.com/truecharts/apps/compare/memcached-3.0.14...memcached-3.0.15) (2022-06-22)
+
+#### Chore
+
+* update helm chart common to v10.1.1
+
+
+
+<a name="memcached-3.0.14"></a>
+### [memcached-3.0.14](https://github.com/truecharts/apps/compare/memcached-3.0.13...memcached-3.0.14) (2022-06-21)
+
+#### Chore
+
+* update helm chart common to v10.1.0
+
+
+
+<a name="memcached-3.0.13"></a>
+### [memcached-3.0.13](https://github.com/truecharts/apps/compare/memcached-3.0.12...memcached-3.0.13) (2022-06-21)
+
+#### Chore
+
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
+
+
+
+<a name="memcached-3.0.12"></a>
+### [memcached-3.0.12](https://github.com/truecharts/apps/compare/memcached-3.0.11...memcached-3.0.12) (2022-06-20)
+
+#### Chore
+
+* update helm chart common to v10.0.15
+
+
+
+<a name="memcached-3.0.11"></a>
+### [memcached-3.0.11](https://github.com/truecharts/apps/compare/memcached-3.0.10...memcached-3.0.11) (2022-06-18)
+
+#### Chore
+
+* update helm chart common to v10.0.14
+
+
+
+<a name="memcached-3.0.10"></a>
+### [memcached-3.0.10](https://github.com/truecharts/apps/compare/memcached-3.0.9...memcached-3.0.10) (2022-06-17)
+
+#### Chore
+
+* update helm chart common to v10.0.13
+
+
+
+<a name="memcached-3.0.9"></a>
+### [memcached-3.0.9](https://github.com/truecharts/apps/compare/memcached-3.0.8...memcached-3.0.9) (2022-06-17)
+
+#### Chore
+
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+* update helm chart common to v10.0.12
+
+
+
+<a name="memcached-3.0.8"></a>
+### [memcached-3.0.8](https://github.com/truecharts/apps/compare/memcached-3.0.7...memcached-3.0.8) (2022-06-15)
+
+#### Chore
+
+* update helm chart common to v10.0.11 ([#2899](https://github.com/truecharts/apps/issues/2899))
+
+
+
+<a name="memcached-3.0.7"></a>
+### [memcached-3.0.7](https://github.com/truecharts/apps/compare/memcached-3.0.6...memcached-3.0.7) (2022-06-14)
+
+#### Chore
+
+* update helm chart common to v10.0.10 ([#2885](https://github.com/truecharts/apps/issues/2885))
+
+
+
+<a name="memcached-3.0.6"></a>
+### [memcached-3.0.6](https://github.com/truecharts/apps/compare/memcached-3.0.5...memcached-3.0.6) (2022-06-14)
+
+#### Chore
+
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
+
+
+
+<a name="memcached-3.0.5"></a>
+### [memcached-3.0.5](https://github.com/truecharts/apps/compare/memcached-3.0.4...memcached-3.0.5) (2022-06-11)
+
+#### Chore
+
+* update helm chart common to v10.0.9 ([#2853](https://github.com/truecharts/apps/issues/2853))
+
+
+
+<a name="memcached-3.0.4"></a>
+### [memcached-3.0.4](https://github.com/truecharts/apps/compare/memcached-3.0.3...memcached-3.0.4) (2022-06-11)
+
+#### Chore
+
+* update icons ref ([#2851](https://github.com/truecharts/apps/issues/2851))
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="memcached-3.0.3"></a>
+### [memcached-3.0.3](https://github.com/truecharts/apps/compare/memcached-3.0.2...memcached-3.0.3) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
+<a name="memcached-3.0.2"></a>
+### [memcached-3.0.2](https://github.com/truecharts/apps/compare/memcached-3.0.1...memcached-3.0.2) (2022-06-07)
 
 #### Fix
 
@@ -303,8 +496,8 @@
 
 
 
-<a name="collabora-online-12.0.1"></a>
-### [collabora-online-12.0.1](https://github.com/truecharts/apps/compare/collabora-online-11.0.27...collabora-online-12.0.1) (2022-06-07)
+<a name="memcached-3.0.1"></a>
+### [memcached-3.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.1) (2022-06-07)
 
 #### Chore
 
@@ -320,8 +513,8 @@
 
 
 
-<a name="collabora-online-12.0.0"></a>
-### [collabora-online-12.0.0](https://github.com/truecharts/apps/compare/collabora-online-11.0.27...collabora-online-12.0.0) (2022-06-07)
+<a name="memcached-3.0.0"></a>
+### [memcached-3.0.0](https://github.com/truecharts/apps/compare/memcached-2.0.91...memcached-3.0.0) (2022-06-07)
 
 #### Refactor
 
@@ -329,201 +522,297 @@
 
 
 
-<a name="collabora-online-11.0.27"></a>
-### [collabora-online-11.0.27](https://github.com/truecharts/apps/compare/collabora-online-11.0.26...collabora-online-11.0.27) (2022-05-31)
+<a name="memcached-2.0.91"></a>
+### [memcached-2.0.91](https://github.com/truecharts/apps/compare/memcached-2.0.90...memcached-2.0.91) (2022-06-05)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
+* update helm chart common to v9.3.29
+
+
+
+<a name="memcached-2.0.90"></a>
+### [memcached-2.0.90](https://github.com/truecharts/apps/compare/memcached-2.0.89...memcached-2.0.90) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="memcached-2.0.89"></a>
+### [memcached-2.0.89](https://github.com/truecharts/apps/compare/memcached-2.0.88...memcached-2.0.89) (2022-06-04)
+
+#### Chore
+
+* update helm chart common to v9.3.28
+
+
+
+<a name="memcached-2.0.88"></a>
+### [memcached-2.0.88](https://github.com/truecharts/apps/compare/memcached-2.0.87...memcached-2.0.88) (2022-06-03)
+
+#### Chore
+
+* update helm chart common to v9.3.27
+
+
+
+<a name="memcached-2.0.87"></a>
+### [memcached-2.0.87](https://github.com/truecharts/apps/compare/memcached-2.0.86...memcached-2.0.87) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+* update helm chart common to v9.3.26 ([#2813](https://github.com/truecharts/apps/issues/2813))
+
+
+
+<a name="memcached-2.0.86"></a>
+### [memcached-2.0.86](https://github.com/truecharts/apps/compare/memcached-2.0.85...memcached-2.0.86) (2022-06-01)
+
+#### Chore
+
+* update helm chart common to v9.3.25
+
+
+
+<a name="memcached-2.0.85"></a>
+### [memcached-2.0.85](https://github.com/truecharts/apps/compare/memcached-2.0.84...memcached-2.0.85) (2022-05-31)
+
+#### Chore
+
 * update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
 
 
 
-<a name="collabora-online-11.0.26"></a>
-### [collabora-online-11.0.26](https://github.com/truecharts/apps/compare/collabora-online-11.0.25...collabora-online-11.0.26) (2022-05-26)
+<a name="memcached-2.0.84"></a>
+### [memcached-2.0.84](https://github.com/truecharts/apps/compare/memcached-2.0.83...memcached-2.0.84) (2022-05-31)
+
+#### Chore
+
+* update helm chart common to v9.3.24
+
+
+
+<a name="memcached-2.0.83"></a>
+### [memcached-2.0.83](https://github.com/truecharts/apps/compare/memcached-2.0.82...memcached-2.0.83) (2022-05-30)
+
+#### Chore
+
+* update helm chart common to v9.3.23
+* update docker general non-major ([#2762](https://github.com/truecharts/apps/issues/2762))
+
+
+
+<a name="memcached-2.0.82"></a>
+### [memcached-2.0.82](https://github.com/truecharts/apps/compare/memcached-2.0.81...memcached-2.0.82) (2022-05-29)
+
+#### Chore
+
+* update helm chart common to v9.3.22
+
+
+
+<a name="memcached-2.0.81"></a>
+### [memcached-2.0.81](https://github.com/truecharts/apps/compare/memcached-2.0.80...memcached-2.0.81) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.20
+
+
+
+<a name="memcached-2.0.80"></a>
+### [memcached-2.0.80](https://github.com/truecharts/apps/compare/memcached-2.0.79...memcached-2.0.80) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.19 ([#2758](https://github.com/truecharts/apps/issues/2758))
+
+
+
+<a name="memcached-2.0.79"></a>
+### [memcached-2.0.79](https://github.com/truecharts/apps/compare/memcached-2.0.78...memcached-2.0.79) (2022-05-26)
+
+#### Chore
+
+* update helm chart common to v9.3.18 ([#2753](https://github.com/truecharts/apps/issues/2753))
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
+<a name="memcached-2.0.78"></a>
+### [memcached-2.0.78](https://github.com/truecharts/apps/compare/memcached-2.0.77...memcached-2.0.78) (2022-05-25)
+
+#### Chore
+
+* update docker general non-major ([#2745](https://github.com/truecharts/apps/issues/2745))
+
+
+
+<a name="memcached-2.0.77"></a>
+### [memcached-2.0.77](https://github.com/truecharts/apps/compare/memcached-2.0.76...memcached-2.0.77) (2022-05-24)
+
+#### Chore
+
+* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+
+
+
+<a name="memcached-2.0.76"></a>
+### [memcached-2.0.76](https://github.com/truecharts/apps/compare/memcached-2.0.75...memcached-2.0.76) (2022-05-20)
+
+#### Chore
+
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="memcached-2.0.75"></a>
+### [memcached-2.0.75](https://github.com/truecharts/apps/compare/memcached-2.0.74...memcached-2.0.75) (2022-05-19)
+
+#### Chore
+
+* update helm chart common to v9.3.17 ([#2717](https://github.com/truecharts/apps/issues/2717))
+
+
+
+<a name="memcached-2.0.74"></a>
+### [memcached-2.0.74](https://github.com/truecharts/apps/compare/memcached-2.0.73...memcached-2.0.74) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
+<a name="memcached-2.0.73"></a>
+### [memcached-2.0.73](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.73) (2022-05-18)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
+* update helm chart common to v9.3.16 ([#2708](https://github.com/truecharts/apps/issues/2708))
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
+* update helm chart common to v9.3.15
 
 
 
-<a name="collabora-online-11.0.26"></a>
-### [collabora-online-11.0.26](https://github.com/truecharts/apps/compare/collabora-online-11.0.25...collabora-online-11.0.26) (2022-05-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2759](https://github.com/truecharts/apps/issues/2759))
-
-
-
-<a name="collabora-online-11.0.25"></a>
-### [collabora-online-11.0.25](https://github.com/truecharts/apps/compare/collabora-online-11.0.24...collabora-online-11.0.25) (2022-05-24)
+<a name="memcached-2.0.71"></a>
+### [memcached-2.0.71](https://github.com/truecharts/apps/compare/memcached-2.0.70...memcached-2.0.71) (2022-05-17)
 
 #### Chore
 
-* update helm general non-major helm releases
+* update helm chart common to v9.3.15
 
 
 
-<a name="collabora-online-11.0.24"></a>
-### [collabora-online-11.0.24](https://github.com/truecharts/apps/compare/collabora-online-11.0.23...collabora-online-11.0.24) (2022-05-17)
-
-#### Chore
-
-* Auto-update chart README [skip ci]
-* update helm general non-major helm releases
-
-
-
-<a name="collabora-online-11.0.24"></a>
-### [collabora-online-11.0.24](https://github.com/truecharts/apps/compare/collabora-online-11.0.23...collabora-online-11.0.24) (2022-05-17)
+<a name="memcached-2.0.70"></a>
+### [memcached-2.0.70](https://github.com/truecharts/apps/compare/memcached-2.0.69...memcached-2.0.70) (2022-05-17)
 
 #### Chore
 
-* update helm general non-major helm releases
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
+* update helm chart common to v9.3.14
 
 
 
-<a name="collabora-online-11.0.23"></a>
-### [collabora-online-11.0.23](https://github.com/truecharts/apps/compare/collabora-online-11.0.22...collabora-online-11.0.23) (2022-05-17)
-
-#### Chore
-
-* update helm general non-major helm releases
-
-
-
-<a name="collabora-online-11.0.22"></a>
-### [collabora-online-11.0.22](https://github.com/truecharts/apps/compare/collabora-online-11.0.21...collabora-online-11.0.22) (2022-05-10)
+<a name="memcached-2.0.69"></a>
+### [memcached-2.0.69](https://github.com/truecharts/apps/compare/memcached-2.0.68...memcached-2.0.69) (2022-05-16)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2649](https://github.com/truecharts/apps/issues/2649))
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
 
 
 
-<a name="collabora-online-11.0.21"></a>
-### [collabora-online-11.0.21](https://github.com/truecharts/apps/compare/collabora-online-11.0.20...collabora-online-11.0.21) (2022-05-05)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
-
-
-
-<a name="collabora-online-11.0.20"></a>
-### [collabora-online-11.0.20](https://github.com/truecharts/apps/compare/collabora-online-11.0.19...collabora-online-11.0.20) (2022-05-04)
+<a name="memcached-2.0.68"></a>
+### [memcached-2.0.68](https://github.com/truecharts/apps/compare/memcached-2.0.67...memcached-2.0.68) (2022-05-15)
 
 #### Chore
 
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+* update helm chart common to v9.3.13
 
 
 
-<a name="collabora-online-11.0.19"></a>
-### [collabora-online-11.0.19](https://github.com/truecharts/apps/compare/collabora-online-11.0.18...collabora-online-11.0.19) (2022-04-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
-
-
-
-<a name="collabora-online-11.0.18"></a>
-### [collabora-online-11.0.18](https://github.com/truecharts/apps/compare/collabora-online-11.0.17...collabora-online-11.0.18) (2022-04-26)
+<a name="memcached-2.0.67"></a>
+### [memcached-2.0.67](https://github.com/truecharts/apps/compare/memcached-2.0.65...memcached-2.0.67) (2022-05-15)
 
 #### Chore
 
-* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+* update helm chart common to v9.3.12
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
 
 
 
-<a name="collabora-online-11.0.17"></a>
-### [collabora-online-11.0.17](https://github.com/truecharts/apps/compare/collabora-online-11.0.16...collabora-online-11.0.17) (2022-04-20)
-
-#### Chore
-
-* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
-
-
-
-<a name="collabora-online-11.0.16"></a>
-### [collabora-online-11.0.16](https://github.com/truecharts/apps/compare/collabora-online-11.0.15...collabora-online-11.0.16) (2022-04-12)
+<a name="memcached-2.0.65"></a>
+### [memcached-2.0.65](https://github.com/truecharts/apps/compare/memcached-2.0.64...memcached-2.0.65) (2022-05-14)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+* update helm chart common to v9.3.11
 
 
 
-<a name="collabora-online-11.0.15"></a>
-### [collabora-online-11.0.15](https://github.com/truecharts/apps/compare/collabora-online-11.0.14...collabora-online-11.0.15) (2022-04-10)
-
-#### Fix
-
-* remove domains var as it's no longer used. ([#2469](https://github.com/truecharts/apps/issues/2469))
-
-
-
-<a name="collabora-online-11.0.14"></a>
-### [collabora-online-11.0.14](https://github.com/truecharts/apps/compare/collabora-online-11.0.13...collabora-online-11.0.14) (2022-04-09)
+<a name="memcached-2.0.64"></a>
+### [memcached-2.0.64](https://github.com/truecharts/apps/compare/memcached-2.0.62...memcached-2.0.64) (2022-05-13)
 
 #### Chore
 
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+* update helm chart common to v9.3.10
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
 
 
 
-<a name="collabora-online-11.0.13"></a>
-### [collabora-online-11.0.13](https://github.com/truecharts/apps/compare/collabora-online-11.0.12...collabora-online-11.0.13) (2022-04-03)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
-
-
-
-<a name="collabora-online-11.0.12"></a>
-### [collabora-online-11.0.12](https://github.com/truecharts/apps/compare/collabora-online-11.0.11...collabora-online-11.0.12) (2022-03-31)
+<a name="memcached-2.0.62"></a>
+### [memcached-2.0.62](https://github.com/truecharts/apps/compare/memcached-2.0.61...memcached-2.0.62) (2022-05-12)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
+* update helm chart common to v9.3.9
 
 
 
-<a name="collabora-online-11.0.11"></a>
-### [collabora-online-11.0.11](https://github.com/truecharts/apps/compare/collabora-online-11.0.10...collabora-online-11.0.11) (2022-03-30)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
-
-
-
-<a name="collabora-online-11.0.10"></a>
-### [collabora-online-11.0.10](https://github.com/truecharts/apps/compare/collabora-online-11.0.9...collabora-online-11.0.10) (2022-03-30)
+<a name="memcached-2.0.61"></a>
+### [memcached-2.0.61](https://github.com/truecharts/apps/compare/memcached-2.0.60...memcached-2.0.61) (2022-05-12)
 
 #### Chore
 
-* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+* update helm chart common to v9.3.8
 
 
 
-<a name="collabora-online-11.0.9"></a>
-### [collabora-online-11.0.9](https://github.com/truecharts/apps/compare/collabora-online-11.0.8...collabora-online-11.0.9) (2022-03-26)
+<a name="memcached-2.0.60"></a>
+### [memcached-2.0.60](https://github.com/truecharts/apps/compare/memcached-2.0.58...memcached-2.0.60) (2022-05-11)
 
 #### Chore
 
-* bump all apps to trigger ci
+* update helm chart common to v9.3.7 ([#2656](https://github.com/truecharts/apps/issues/2656))
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
 
 
 
-<a name="collabora-online-11.0.7"></a>
-### [collabora-online-11.0.7](https://github.com/truecharts/apps/compare/collabora-online-11.0.6...collabora-online-11.0.7) (2022-03-26)
+<a name="memcached-2.0.58"></a>
+### [memcached-2.0.58](https://github.com/truecharts/apps/compare/memcached-2.0.57...memcached-2.0.58) (2022-05-10)
+
+#### Chore
+
+* update helm chart common to v9.3.6 ([#2651](https://github.com/truecharts/apps/issues/2651))
+
+
+
+<a name="memcached-2.0.57"></a>
+### [memcached-2.0.57](https://github.com/truecharts/apps/compare/memcached-2.0.56...memcached-2.0.57) (2022-05-10)
+
+#### Chore
+
+* update helm chart common to v9.3.5 ([#2648](https://github.com/truecharts/apps/issues/2648))
+
+
+
+<a name="memcached-2.0.56"></a>
+### [memcached-2.0.56](https://github.com/truecharts/apps/compare/memcached-2.0.55...memcached-2.0.56) (2022-05-10)
 
 #### Chore
 
@@ -531,8 +820,366 @@
 
 
 
-<a name="collabora-online-11.0.4"></a>
-### [collabora-online-11.0.4](https://github.com/truecharts/apps/compare/collabora-online-11.0.3...collabora-online-11.0.4) (2022-03-17)
+<a name="memcached-2.0.55"></a>
+### [memcached-2.0.55](https://github.com/truecharts/apps/compare/memcached-2.0.54...memcached-2.0.55) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
+<a name="memcached-2.0.54"></a>
+### [memcached-2.0.54](https://github.com/truecharts/apps/compare/memcached-2.0.53...memcached-2.0.54) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
+<a name="memcached-2.0.53"></a>
+### [memcached-2.0.53](https://github.com/truecharts/apps/compare/memcached-2.0.52...memcached-2.0.53) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.52"></a>
+### [memcached-2.0.52](https://github.com/truecharts/apps/compare/memcached-2.0.51...memcached-2.0.52) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.51"></a>
+### [memcached-2.0.51](https://github.com/truecharts/apps/compare/memcached-2.0.50...memcached-2.0.51) (2022-05-05)
+
+#### Chore
+
+* update helm chart common to v9.3.3 ([#2610](https://github.com/truecharts/apps/issues/2610))
+
+
+
+<a name="memcached-2.0.50"></a>
+### [memcached-2.0.50](https://github.com/truecharts/apps/compare/memcached-2.0.49...memcached-2.0.50) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
+<a name="memcached-2.0.49"></a>
+### [memcached-2.0.49](https://github.com/truecharts/apps/compare/memcached-2.0.48...memcached-2.0.49) (2022-04-29)
+
+#### Chore
+
+* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
+
+
+
+<a name="memcached-2.0.48"></a>
+### [memcached-2.0.48](https://github.com/truecharts/apps/compare/memcached-2.0.47...memcached-2.0.48) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
+<a name="memcached-2.0.47"></a>
+### [memcached-2.0.47](https://github.com/truecharts/apps/compare/memcached-2.0.46...memcached-2.0.47) (2022-04-26)
+
+#### Chore
+
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
+<a name="memcached-2.0.46"></a>
+### [memcached-2.0.46](https://github.com/truecharts/apps/compare/memcached-2.0.45...memcached-2.0.46) (2022-04-26)
+
+#### Chore
+
+* update helm chart common to v9.3.2
+
+
+
+<a name="memcached-2.0.45"></a>
+### [memcached-2.0.45](https://github.com/truecharts/apps/compare/memcached-2.0.44...memcached-2.0.45) (2022-04-20)
+
+#### Chore
+
+* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
+<a name="memcached-2.0.44"></a>
+### [memcached-2.0.44](https://github.com/truecharts/apps/compare/memcached-2.0.43...memcached-2.0.44) (2022-04-19)
+
+#### Chore
+
+* update helm chart common to v9.2.9 ([#2509](https://github.com/truecharts/apps/issues/2509))
+
+
+
+<a name="memcached-2.0.43"></a>
+### [memcached-2.0.43](https://github.com/truecharts/apps/compare/memcached-2.0.42...memcached-2.0.43) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
+<a name="memcached-2.0.42"></a>
+### [memcached-2.0.42](https://github.com/truecharts/apps/compare/memcached-2.0.41...memcached-2.0.42) (2022-04-17)
+
+#### Chore
+
+* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
+
+
+
+<a name="memcached-2.0.41"></a>
+### [memcached-2.0.41](https://github.com/truecharts/apps/compare/memcached-2.0.40...memcached-2.0.41) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
+<a name="memcached-2.0.40"></a>
+### [memcached-2.0.40](https://github.com/truecharts/apps/compare/memcached-2.0.39...memcached-2.0.40) (2022-04-13)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.39"></a>
+### [memcached-2.0.39](https://github.com/truecharts/apps/compare/memcached-2.0.38...memcached-2.0.39) (2022-04-12)
+
+#### Chore
+
+* update helm chart common to v9.2.8 ([#2479](https://github.com/truecharts/apps/issues/2479))
+
+
+
+<a name="memcached-2.0.38"></a>
+### [memcached-2.0.38](https://github.com/truecharts/apps/compare/memcached-2.0.37...memcached-2.0.38) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
+<a name="memcached-2.0.37"></a>
+### [memcached-2.0.37](https://github.com/truecharts/apps/compare/memcached-2.0.36...memcached-2.0.37) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
+<a name="memcached-2.0.36"></a>
+### [memcached-2.0.36](https://github.com/truecharts/apps/compare/memcached-2.0.35...memcached-2.0.36) (2022-04-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.35"></a>
+### [memcached-2.0.35](https://github.com/truecharts/apps/compare/memcached-2.0.34...memcached-2.0.35) (2022-04-04)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.34"></a>
+### [memcached-2.0.34](https://github.com/truecharts/apps/compare/memcached-2.0.33...memcached-2.0.34) (2022-04-03)
+
+#### Chore
+
+* update helm chart common to v9.2.7 ([#2406](https://github.com/truecharts/apps/issues/2406))
+
+
+
+<a name="memcached-2.0.33"></a>
+### [memcached-2.0.33](https://github.com/truecharts/apps/compare/memcached-2.0.32...memcached-2.0.33) (2022-04-03)
+
+#### Fix
+
+* try to also fix catalog build process
+
+
+
+<a name="memcached-2.0.29"></a>
+### [memcached-2.0.29](https://github.com/truecharts/apps/compare/memcached-2.0.25...memcached-2.0.29) (2022-04-01)
+
+
+
+<a name="memcached-2.0.25"></a>
+### [memcached-2.0.25](https://github.com/truecharts/apps/compare/memcached-2.0.24...memcached-2.0.25) (2022-03-31)
+
+#### Chore
+
+* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+
+
+
+<a name="memcached-2.0.24"></a>
+### [memcached-2.0.24](https://github.com/truecharts/apps/compare/memcached-2.0.23...memcached-2.0.24) (2022-03-31)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.2.6 ([#2358](https://github.com/truecharts/apps/issues/2358))
+
+
+
+<a name="memcached-2.0.23"></a>
+### [memcached-2.0.23](https://github.com/truecharts/apps/compare/memcached-2.0.22...memcached-2.0.23) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm chart common to v9.2.4 ([#2352](https://github.com/truecharts/apps/issues/2352))
+
+
+
+<a name="memcached-2.0.22"></a>
+### [memcached-2.0.22](https://github.com/truecharts/apps/compare/memcached-2.0.21...memcached-2.0.22) (2022-03-30)
+
+
+
+<a name="memcached-2.0.21"></a>
+### [memcached-2.0.21](https://github.com/truecharts/apps/compare/memcached-2.0.20...memcached-2.0.21) (2022-03-30)
+
+#### Chore
+
+* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
+
+
+
+<a name="memcached-2.0.20"></a>
+### [memcached-2.0.20](https://github.com/truecharts/apps/compare/memcached-2.0.19...memcached-2.0.20) (2022-03-29)
+
+
+
+<a name="memcached-2.0.17"></a>
+### [memcached-2.0.17](https://github.com/truecharts/apps/compare/memcached-2.0.16...memcached-2.0.17) (2022-03-29)
+
+
+
+<a name="memcached-2.0.16"></a>
+### [memcached-2.0.16](https://github.com/truecharts/apps/compare/memcached-2.0.15...memcached-2.0.16) (2022-03-29)
+
+#### Fix
+
+* try to push dependencies to new helm repo ([#2336](https://github.com/truecharts/apps/issues/2336))
+
+
+
+<a name="memcached-2.0.15"></a>
+### [memcached-2.0.15](https://github.com/truecharts/apps/compare/memcached-2.0.14...memcached-2.0.15) (2022-03-29)
+
+#### Chore
+
+* update helm chart common to v9.2.3 ([#2335](https://github.com/truecharts/apps/issues/2335))
+
+
+
+<a name="memcached-2.0.14"></a>
+### [memcached-2.0.14](https://github.com/truecharts/apps/compare/memcached-2.0.13...memcached-2.0.14) (2022-03-28)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.13"></a>
+### [memcached-2.0.13](https://github.com/truecharts/apps/compare/memcached-2.0.12...memcached-2.0.13) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="memcached-2.0.11"></a>
+### [memcached-2.0.11](https://github.com/truecharts/apps/compare/memcached-2.0.10...memcached-2.0.11) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.10"></a>
+### [memcached-2.0.10](https://github.com/truecharts/apps/compare/memcached-2.0.9...memcached-2.0.10) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.9"></a>
+### [memcached-2.0.9](https://github.com/truecharts/apps/compare/memcached-2.0.8...memcached-2.0.9) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major ([#2259](https://github.com/truecharts/apps/issues/2259))
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.8"></a>
+### [memcached-2.0.8](https://github.com/truecharts/apps/compare/memcached-2.0.7...memcached-2.0.8) (2022-03-22)
+
+#### Chore
+
+* update helm chart common to v9.1.8
+
+
+
+<a name="memcached-2.0.7"></a>
+### [memcached-2.0.7](https://github.com/truecharts/apps/compare/memcached-2.0.6...memcached-2.0.7) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="memcached-2.0.6"></a>
+### [memcached-2.0.6](https://github.com/truecharts/apps/compare/memcached-2.0.5...memcached-2.0.6) (2022-03-17)
+
+#### Chore
+
+* update helm chart common to v9.1.6 ([#2202](https://github.com/truecharts/apps/issues/2202))
+
+
+
+<a name="memcached-2.0.5"></a>
+### [memcached-2.0.5](https://github.com/truecharts/apps/compare/memcached-2.0.4...memcached-2.0.5) (2022-03-17)
 
 #### Chore
 
@@ -541,32 +1188,51 @@
 
 
 
-<a name="collabora-online-11.0.2"></a>
-### [collabora-online-11.0.2](https://github.com/truecharts/apps/compare/collabora-online-11.0.1...collabora-online-11.0.2) (2022-03-07)
+<a name="memcached-2.0.4"></a>
+### [memcached-2.0.4](https://github.com/truecharts/apps/compare/memcached-2.0.3...memcached-2.0.4) (2022-03-15)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* update helm chart common to v9.1.4 ([#2180](https://github.com/truecharts/apps/issues/2180))
 
 
 
-<a name="collabora-online-11.0.1"></a>
-### [collabora-online-11.0.1](https://github.com/truecharts/apps/compare/collabora-online-11.0.0...collabora-online-11.0.1) (2022-03-07)
+<a name="memcached-2.0.3"></a>
+### [memcached-2.0.3](https://github.com/truecharts/apps/compare/memcached-2.0.2...memcached-2.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
+<a name="memcached-2.0.2"></a>
+### [memcached-2.0.2](https://github.com/truecharts/apps/compare/memcached-2.0.1...memcached-2.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm chart common to v9.1.2 ([#2109](https://github.com/truecharts/apps/issues/2109))
+* update docker general non-major ([#2108](https://github.com/truecharts/apps/issues/2108))
+
+
+
+<a name="memcached-2.0.1"></a>
+### [memcached-2.0.1](https://github.com/truecharts/apps/compare/memcached-2.0.0...memcached-2.0.1) (2022-03-07)
 
 #### Chore
 
 * update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
-* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="collabora-online-11.0.0"></a>
-### [collabora-online-11.0.0](https://github.com/truecharts/apps/compare/collabora-online-10.0.29...collabora-online-11.0.0) (2022-03-03)
+<a name="memcached-2.0.0"></a>
+### [memcached-2.0.0](https://github.com/truecharts/apps/compare/memcached-1.0.77...memcached-2.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+* remove empty env var declaration from questions.yaml
+* update helm chart common to v9 ([#2013](https://github.com/truecharts/apps/issues/2013))
 
 #### Fix
 
@@ -574,27 +1240,53 @@
 
 
 
-<a name="collabora-online-10.0.29"></a>
-### [collabora-online-10.0.29](https://github.com/truecharts/apps/compare/collabora-online-10.0.28...collabora-online-10.0.29) (2022-03-02)
+<a name="memcached-1.0.77"></a>
+### [memcached-1.0.77](https://github.com/truecharts/apps/compare/memcached-1.0.76...memcached-1.0.77) (2022-03-03)
 
 #### Chore
 
-* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
-* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+* update helm chart common to v8.17.3 ([#2009](https://github.com/truecharts/apps/issues/2009))
 
 
 
-<a name="collabora-online-10.0.28"></a>
-### [collabora-online-10.0.28](https://github.com/truecharts/apps/compare/collabora-online-10.0.27...collabora-online-10.0.28) (2022-02-21)
+<a name="memcached-1.0.76"></a>
+### [memcached-1.0.76](https://github.com/truecharts/apps/compare/memcached-1.0.75...memcached-1.0.76) (2022-03-03)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
 
 
 
-<a name="collabora-online-10.0.27"></a>
-### [collabora-online-10.0.27](https://github.com/truecharts/apps/compare/collabora-online-10.0.26...collabora-online-10.0.27) (2022-02-21)
+<a name="memcached-1.0.75"></a>
+### [memcached-1.0.75](https://github.com/truecharts/apps/compare/memcached-1.0.74...memcached-1.0.75) (2022-02-28)
+
+#### Chore
+
+* update helm chart common to v8.17.2 ([#1986](https://github.com/truecharts/apps/issues/1986))
+
+
+
+<a name="memcached-1.0.74"></a>
+### [memcached-1.0.74](https://github.com/truecharts/apps/compare/memcached-1.0.73...memcached-1.0.74) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="memcached-1.0.73"></a>
+### [memcached-1.0.73](https://github.com/truecharts/apps/compare/memcached-1.0.72...memcached-1.0.73) (2022-02-21)
+
+#### Chore
+
+* update helm chart common to v8.16.0 ([#1926](https://github.com/truecharts/apps/issues/1926))
+
+
+
+<a name="memcached-1.0.72"></a>
+### [memcached-1.0.72](https://github.com/truecharts/apps/compare/memcached-1.0.71...memcached-1.0.72) (2022-02-21)
 
 #### Chore
 
@@ -602,93 +1294,154 @@
 
 
 
-<a name="collabora-online-10.0.26"></a>
-### [collabora-online-10.0.26](https://github.com/truecharts/apps/compare/collabora-online-10.0.25...collabora-online-10.0.26) (2022-02-15)
+<a name="memcached-1.0.71"></a>
+### [memcached-1.0.71](https://github.com/truecharts/apps/compare/memcached-1.0.70...memcached-1.0.71) (2022-02-14)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+* update helm chart common to v8.15.4 ([#1900](https://github.com/truecharts/apps/issues/1900))
 
 
 
-<a name="collabora-online-10.0.25"></a>
-### [collabora-online-10.0.25](https://github.com/truecharts/apps/compare/collabora-online-10.0.24...collabora-online-10.0.25) (2022-02-08)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
-
-
-
-<a name="collabora-online-10.0.24"></a>
-### [collabora-online-10.0.24](https://github.com/truecharts/apps/compare/collabora-online-10.0.23...collabora-online-10.0.24) (2022-02-06)
+<a name="memcached-1.0.70"></a>
+### [memcached-1.0.70](https://github.com/truecharts/apps/compare/memcached-1.0.69...memcached-1.0.70) (2022-02-14)
 
 #### Chore
 
-* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
 
 
 
-<a name="collabora-online-10.0.23"></a>
-### [collabora-online-10.0.23](https://github.com/truecharts/apps/compare/collabora-online-10.0.22...collabora-online-10.0.23) (2022-02-05)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
-
-
-
-<a name="collabora-online-10.0.22"></a>
-### [collabora-online-10.0.22](https://github.com/truecharts/apps/compare/collabora-online-10.0.21...collabora-online-10.0.22) (2022-02-02)
+<a name="memcached-1.0.69"></a>
+### [memcached-1.0.69](https://github.com/truecharts/apps/compare/memcached-1.0.68...memcached-1.0.69) (2022-02-10)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
 
 
 
-<a name="collabora-online-10.0.21"></a>
-### [collabora-online-10.0.21](https://github.com/truecharts/apps/compare/collabora-online-10.0.20...collabora-online-10.0.21) (2022-01-31)
+<a name="memcached-1.0.68"></a>
+### [memcached-1.0.68](https://github.com/truecharts/apps/compare/memcached-1.0.67...memcached-1.0.68) (2022-02-08)
+
+#### Chore
+
+* update helm chart common to v8.15.2 ([#1868](https://github.com/truecharts/apps/issues/1868))
+
+
+
+<a name="memcached-1.0.67"></a>
+### [memcached-1.0.67](https://github.com/truecharts/apps/compare/memcached-1.0.66...memcached-1.0.67) (2022-02-08)
+
+#### Chore
+
+* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
+
+
+
+<a name="memcached-1.0.66"></a>
+### [memcached-1.0.66](https://github.com/truecharts/apps/compare/memcached-1.0.65...memcached-1.0.66) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1858](https://github.com/truecharts/apps/issues/1858))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
+<a name="memcached-1.0.65"></a>
+### [memcached-1.0.65](https://github.com/truecharts/apps/compare/memcached-1.0.64...memcached-1.0.65) (2022-02-05)
+
+#### Chore
+
+* update helm chart common to v8.14.5 ([#1851](https://github.com/truecharts/apps/issues/1851))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
+<a name="memcached-1.0.64"></a>
+### [memcached-1.0.64](https://github.com/truecharts/apps/compare/memcached-1.0.63...memcached-1.0.64) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="memcached-1.0.63"></a>
+### [memcached-1.0.63](https://github.com/truecharts/apps/compare/memcached-1.0.62...memcached-1.0.63) (2022-02-01)
+
+#### Chore
+
+* update helm chart common to v8.14.4
+
+
+
+<a name="memcached-1.0.62"></a>
+### [memcached-1.0.62](https://github.com/truecharts/apps/compare/memcached-1.0.61...memcached-1.0.62) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major ([#1824](https://github.com/truecharts/apps/issues/1824))
+
+
+
+<a name="memcached-1.0.61"></a>
+### [memcached-1.0.61](https://github.com/truecharts/apps/compare/memcached-1.0.60...memcached-1.0.61) (2022-01-31)
 
 #### Chore
 
 * update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
 
-#### Fix
-
-* change perms to remove some errors ([#1792](https://github.com/truecharts/apps/issues/1792))
 
 
-
-<a name="collabora-online-10.0.20"></a>
-### [collabora-online-10.0.20](https://github.com/truecharts/apps/compare/collabora-online-10.0.19...collabora-online-10.0.20) (2022-01-25)
+<a name="memcached-1.0.60"></a>
+### [memcached-1.0.60](https://github.com/truecharts/apps/compare/memcached-1.0.59...memcached-1.0.60) (2022-01-25)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+* update helm chart common to v8.14.2
 
 
 
-<a name="collabora-online-10.0.19"></a>
-### [collabora-online-10.0.19](https://github.com/truecharts/apps/compare/collabora-online-10.0.18...collabora-online-10.0.19) (2022-01-22)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
-
-
-
-<a name="collabora-online-10.0.18"></a>
-### [collabora-online-10.0.18](https://github.com/truecharts/apps/compare/collabora-online-10.0.17...collabora-online-10.0.18) (2022-01-21)
+<a name="memcached-1.0.59"></a>
+### [memcached-1.0.59](https://github.com/truecharts/apps/compare/memcached-1.0.58...memcached-1.0.59) (2022-01-24)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
 
 
 
-<a name="collabora-online-10.0.17"></a>
-### [collabora-online-10.0.17](https://github.com/truecharts/apps/compare/collabora-online-10.0.16...collabora-online-10.0.17) (2022-01-21)
+<a name="memcached-1.0.58"></a>
+### [memcached-1.0.58](https://github.com/truecharts/apps/compare/memcached-1.0.57...memcached-1.0.58) (2022-01-22)
+
+#### Chore
+
+* update helm chart common to v8.13.5 ([#1765](https://github.com/truecharts/apps/issues/1765))
+
+
+
+<a name="memcached-1.0.57"></a>
+### [memcached-1.0.57](https://github.com/truecharts/apps/compare/memcached-1.0.56...memcached-1.0.57) (2022-01-21)
+
+#### Chore
+
+* update helm chart common to v8.13.4 ([#1758](https://github.com/truecharts/apps/issues/1758))
+
+
+
+<a name="memcached-1.0.56"></a>
+### [memcached-1.0.56](https://github.com/truecharts/apps/compare/memcached-1.0.55...memcached-1.0.56) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
+
+
+
+<a name="memcached-1.0.55"></a>
+### [memcached-1.0.55](https://github.com/truecharts/apps/compare/memcached-1.0.54...memcached-1.0.55) (2022-01-21)
 
 #### Chore
 
@@ -700,17 +1453,26 @@
 
 
 
-<a name="collabora-online-10.0.16"></a>
-### [collabora-online-10.0.16](https://github.com/truecharts/apps/compare/collabora-online-10.0.15...collabora-online-10.0.16) (2022-01-18)
+<a name="memcached-1.0.54"></a>
+### [memcached-1.0.54](https://github.com/truecharts/apps/compare/memcached-1.0.53...memcached-1.0.54) (2022-01-19)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+* update docker general non-major ([#1741](https://github.com/truecharts/apps/issues/1741))
 
 
 
-<a name="collabora-online-10.0.15"></a>
-### [collabora-online-10.0.15](https://github.com/truecharts/apps/compare/collabora-online-10.0.14...collabora-online-10.0.15) (2022-01-17)
+<a name="memcached-1.0.53"></a>
+### [memcached-1.0.53](https://github.com/truecharts/apps/compare/memcached-1.0.52...memcached-1.0.53) (2022-01-18)
+
+#### Chore
+
+* update helm chart common to v8.13.1
+
+
+
+<a name="memcached-1.0.52"></a>
+### [memcached-1.0.52](https://github.com/truecharts/apps/compare/memcached-1.0.51...memcached-1.0.52) (2022-01-17)
 
 #### Chore
 
@@ -718,12 +1480,12 @@
 
 
 
-<a name="collabora-online-10.0.14"></a>
-### [collabora-online-10.0.14](https://github.com/truecharts/apps/compare/collabora-online-10.0.13...collabora-online-10.0.14) (2022-01-13)
+<a name="memcached-1.0.51"></a>
+### [memcached-1.0.51](https://github.com/truecharts/apps/compare/memcached-1.0.50...memcached-1.0.51) (2022-01-13)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+* update helm chart common to v8.13.0 ([#1711](https://github.com/truecharts/apps/issues/1711))
 
 #### Feat
 
@@ -731,26 +1493,44 @@
 
 
 
-<a name="collabora-online-10.0.13"></a>
-### [collabora-online-10.0.13](https://github.com/truecharts/apps/compare/collabora-online-10.0.12...collabora-online-10.0.13) (2022-01-12)
+<a name="memcached-1.0.50"></a>
+### [memcached-1.0.50](https://github.com/truecharts/apps/compare/memcached-1.0.49...memcached-1.0.50) (2022-01-12)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+* update helm chart common to v8.12.1 ([#1705](https://github.com/truecharts/apps/issues/1705))
 
 
 
-<a name="collabora-online-10.0.12"></a>
-### [collabora-online-10.0.12](https://github.com/truecharts/apps/compare/collabora-online-10.0.11...collabora-online-10.0.12) (2022-01-11)
+<a name="memcached-1.0.49"></a>
+### [memcached-1.0.49](https://github.com/truecharts/apps/compare/memcached-1.0.48...memcached-1.0.49) (2022-01-12)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+* update helm chart common to v8.12.0 ([#1702](https://github.com/truecharts/apps/issues/1702))
 
 
 
-<a name="collabora-online-10.0.11"></a>
-### [collabora-online-10.0.11](https://github.com/truecharts/apps/compare/collabora-online-10.0.10...collabora-online-10.0.11) (2022-01-10)
+<a name="memcached-1.0.48"></a>
+### [memcached-1.0.48](https://github.com/truecharts/apps/compare/memcached-1.0.47...memcached-1.0.48) (2022-01-11)
+
+#### Chore
+
+* update helm chart common to v8.10.6
+
+
+
+<a name="memcached-1.0.47"></a>
+### [memcached-1.0.47](https://github.com/truecharts/apps/compare/memcached-1.0.46...memcached-1.0.47) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
+<a name="memcached-1.0.46"></a>
+### [memcached-1.0.46](https://github.com/truecharts/apps/compare/memcached-1.0.45...memcached-1.0.46) (2022-01-10)
 
 #### Chore
 
@@ -758,49 +1538,81 @@
 
 
 
-<a name="collabora-online-10.0.10"></a>
-### [collabora-online-10.0.10](https://github.com/truecharts/apps/compare/collabora-online-10.0.9...collabora-online-10.0.10) (2022-01-04)
+<a name="memcached-1.0.45"></a>
+### [memcached-1.0.45](https://github.com/truecharts/apps/compare/memcached-1.0.44...memcached-1.0.45) (2022-01-04)
 
 #### Chore
 
-* update helm general non-major helm releases
-* move some appicons under img/appicons ([#1635](https://github.com/truecharts/apps/issues/1635))
+* update helm chart common to v8.10.2 ([#1650](https://github.com/truecharts/apps/issues/1650))
 
 
 
-<a name="collabora-online-10.0.9"></a>
-### [collabora-online-10.0.9](https://github.com/truecharts/apps/compare/collabora-online-10.0.8...collabora-online-10.0.9) (2021-12-28)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
-
-
-
-<a name="collabora-online-10.0.8"></a>
-### [collabora-online-10.0.8](https://github.com/truecharts/apps/compare/collabora-online-10.0.7...collabora-online-10.0.8) (2021-12-27)
+<a name="memcached-1.0.44"></a>
+### [memcached-1.0.44](https://github.com/truecharts/apps/compare/memcached-1.0.43...memcached-1.0.44) (2022-01-04)
 
 #### Chore
 
-* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
-
-#### Fix
-
-* fix new admin path ([#1598](https://github.com/truecharts/apps/issues/1598))
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
 
 
 
-<a name="collabora-online-10.0.7"></a>
-### [collabora-online-10.0.7](https://github.com/truecharts/apps/compare/collabora-online-10.0.6...collabora-online-10.0.7) (2021-12-21)
+<a name="memcached-1.0.43"></a>
+### [memcached-1.0.43](https://github.com/truecharts/apps/compare/memcached-1.0.42...memcached-1.0.43) (2022-01-03)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
 
 
 
-<a name="collabora-online-10.0.6"></a>
-### [collabora-online-10.0.6](https://github.com/truecharts/apps/compare/collabora-online-10.0.5...collabora-online-10.0.6) (2021-12-19)
+<a name="memcached-1.0.42"></a>
+### [memcached-1.0.42](https://github.com/truecharts/apps/compare/memcached-1.0.41...memcached-1.0.42) (2021-12-28)
+
+#### Chore
+
+* update helm chart common to v8.9.26 ([#1622](https://github.com/truecharts/apps/issues/1622))
+
+
+
+<a name="memcached-1.0.41"></a>
+### [memcached-1.0.41](https://github.com/truecharts/apps/compare/memcached-1.0.40...memcached-1.0.41) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="memcached-1.0.40"></a>
+### [memcached-1.0.40](https://github.com/truecharts/apps/compare/memcached-1.0.39...memcached-1.0.40) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="memcached-1.0.39"></a>
+### [memcached-1.0.39](https://github.com/truecharts/apps/compare/memcached-1.0.38...memcached-1.0.39) (2021-12-21)
+
+#### Chore
+
+* update helm chart common to v8.9.25 ([#1592](https://github.com/truecharts/apps/issues/1592))
+
+
+
+<a name="memcached-1.0.38"></a>
+### [memcached-1.0.38](https://github.com/truecharts/apps/compare/memcached-1.0.37...memcached-1.0.38) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1585](https://github.com/truecharts/apps/issues/1585))
+
+
+
+<a name="memcached-1.0.37"></a>
+### [memcached-1.0.37](https://github.com/truecharts/apps/compare/memcached-1.0.36...memcached-1.0.37) (2021-12-19)
 
 #### Chore
 
@@ -809,36 +1621,45 @@
 
 
 
-<a name="collabora-online-10.0.5"></a>
-### [collabora-online-10.0.5](https://github.com/truecharts/apps/compare/collabora-online-10.0.4...collabora-online-10.0.5) (2021-12-19)
+<a name="memcached-1.0.36"></a>
+### [memcached-1.0.36](https://github.com/truecharts/apps/compare/memcached-1.0.35...memcached-1.0.36) (2021-12-19)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+* update helm chart common to v8.9.24 ([#1570](https://github.com/truecharts/apps/issues/1570))
 
 
 
-<a name="collabora-online-10.0.4"></a>
-### [collabora-online-10.0.4](https://github.com/truecharts/apps/compare/collabora-online-10.0.3...collabora-online-10.0.4) (2021-12-18)
-
-#### Chore
-
-* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
-* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
-
-
-
-<a name="collabora-online-10.0.3"></a>
-### [collabora-online-10.0.3](https://github.com/truecharts/apps/compare/collabora-online-10.0.2...collabora-online-10.0.3) (2021-12-14)
+<a name="memcached-1.0.35"></a>
+### [memcached-1.0.35](https://github.com/truecharts/apps/compare/memcached-1.0.34...memcached-1.0.35) (2021-12-19)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+* update docker general non-major
 
 
 
-<a name="collabora-online-10.0.2"></a>
-### [collabora-online-10.0.2](https://github.com/truecharts/apps/compare/collabora-online-10.0.1...collabora-online-10.0.2) (2021-12-13)
+<a name="memcached-1.0.34"></a>
+### [memcached-1.0.34](https://github.com/truecharts/apps/compare/memcached-1.0.33...memcached-1.0.34) (2021-12-14)
+
+#### Chore
+
+* update helm chart common to v8.9.21
+
+
+
+<a name="memcached-1.0.33"></a>
+### [memcached-1.0.33](https://github.com/truecharts/apps/compare/memcached-1.0.32...memcached-1.0.33) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
+<a name="memcached-1.0.32"></a>
+### [memcached-1.0.32](https://github.com/truecharts/apps/compare/memcached-1.0.31...memcached-1.0.32) (2021-12-13)
 
 #### Chore
 
@@ -846,26 +1667,26 @@
 
 
 
-<a name="collabora-online-10.0.1"></a>
-### [collabora-online-10.0.1](https://github.com/truecharts/apps/compare/collabora-online-10.0.0...collabora-online-10.0.1) (2021-12-11)
+<a name="memcached-1.0.31"></a>
+### [memcached-1.0.31](https://github.com/truecharts/apps/compare/memcached-1.0.30...memcached-1.0.31) (2021-12-12)
 
 #### Chore
 
-* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+* update container image ghcr.io/truecharts/memcached to v1.6.12 ([#1516](https://github.com/truecharts/apps/issues/1516))
 
 
 
-<a name="collabora-online-10.0.0"></a>
-### [collabora-online-10.0.0](https://github.com/truecharts/apps/compare/collabora-online-9.0.20...collabora-online-10.0.0) (2021-12-11)
+<a name="memcached-1.0.30"></a>
+### [memcached-1.0.30](https://github.com/truecharts/apps/compare/memcached-1.0.29...memcached-1.0.30) (2021-12-11)
 
-#### Feat
+#### Chore
 
-* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+* update helm chart common to v8.9.17 ([#1492](https://github.com/truecharts/apps/issues/1492))
 
 
 
-<a name="collabora-online-9.0.20"></a>
-### [collabora-online-9.0.20](https://github.com/truecharts/apps/compare/collabora-online-9.0.19...collabora-online-9.0.20) (2021-12-11)
+<a name="memcached-1.0.29"></a>
+### [memcached-1.0.29](https://github.com/truecharts/apps/compare/memcached-1.0.28...memcached-1.0.29) (2021-12-11)
 
 #### Chore
 
@@ -873,35 +1694,60 @@
 
 
 
-<a name="collabora-online-9.0.19"></a>
-### [collabora-online-9.0.19](https://github.com/truecharts/apps/compare/collabora-online-9.0.18...collabora-online-9.0.19) (2021-12-07)
+<a name="memcached-1.0.28"></a>
+### [memcached-1.0.28](https://github.com/truecharts/apps/compare/memcached-1.0.27...memcached-1.0.28) (2021-12-08)
 
 #### Chore
 
-* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
 
 
 
-<a name="collabora-online-9.0.18"></a>
-### collabora-online-9.0.18 (2021-12-05)
+<a name="memcached-1.0.27"></a>
+### [memcached-1.0.27](https://github.com/truecharts/apps/compare/memcached-1.0.26...memcached-1.0.27) (2021-12-07)
+
+#### Chore
+
+* bump common on deps ([#1486](https://github.com/truecharts/apps/issues/1486))
+
+
+
+<a name="memcached-1.0.26"></a>
+### [memcached-1.0.26](https://github.com/truecharts/apps/compare/memcached-1.0.25...memcached-1.0.26) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
+<a name="memcached-1.0.25"></a>
+### memcached-1.0.25 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* ensure container references are prefixed with v
+* cleanup the ci for the security page a bit
+* update dependencies
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
-* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
-* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update common
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major ([#1423](https://github.com/truecharts/apps/issues/1423))
 
 #### Fix
 
-* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+* move deps back to ghcr for now.
 
 
 
-<a name="collabora-online-9.0.17"></a>
-### [collabora-online-9.0.17](https://github.com/truecharts/apps/compare/collabora-online-9.0.16...collabora-online-9.0.17) (2021-12-05)
+<a name="memcached-1.0.24"></a>
+### [memcached-1.0.24](https://github.com/truecharts/apps/compare/memcached-1.0.23...memcached-1.0.24) (2021-12-05)
 
 #### Chore
 
@@ -909,83 +1755,194 @@
 
 
 
-<a name="collabora-online-9.0.16"></a>
-### [collabora-online-9.0.16](https://github.com/truecharts/apps/compare/collabora-online-9.0.15...collabora-online-9.0.16) (2021-12-04)
+<a name="memcached-1.0.23"></a>
+### [memcached-1.0.23](https://github.com/truecharts/apps/compare/memcached-1.0.22...memcached-1.0.23) (2021-12-05)
+
+#### Chore
+
+* update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
+
+
+
+<a name="memcached-1.0.22"></a>
+### [memcached-1.0.22](https://github.com/truecharts/apps/compare/memcached-1.0.21...memcached-1.0.22) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
+<a name="memcached-1.0.21"></a>
+### [memcached-1.0.21](https://github.com/truecharts/apps/compare/memcached-1.0.20...memcached-1.0.21) (2021-12-04)
 
 #### Chore
 
 * bump apps to generate security page
+* cleanup the ci for the security page a bit
 
 
 
-<a name="collabora-online-9.0.15"></a>
-### [collabora-online-9.0.15](https://github.com/truecharts/apps/compare/collabora-online-9.0.14...collabora-online-9.0.15) (2021-12-04)
+<a name="memcached-1.0.20"></a>
+### [memcached-1.0.20](https://github.com/truecharts/apps/compare/memcached-1.0.19...memcached-1.0.20) (2021-12-03)
 
 #### Chore
 
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+
+
+
+<a name="memcached-1.0.19"></a>
+### [memcached-1.0.19](https://github.com/truecharts/apps/compare/memcached-1.0.18...memcached-1.0.19) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 
 
 
-<a name="collabora-online-9.0.14"></a>
-### [collabora-online-9.0.14](https://github.com/truecharts/apps/compare/collabora-online-9.0.13...collabora-online-9.0.14) (2021-11-30)
+<a name="memcached-1.0.18"></a>
+### [memcached-1.0.18](https://github.com/truecharts/apps/compare/memcached-1.0.17...memcached-1.0.18) (2021-11-30)
 
 #### Chore
 
-* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update common
+
+
+
+<a name="memcached-1.0.17"></a>
+### [memcached-1.0.17](https://github.com/truecharts/apps/compare/memcached-1.0.16...memcached-1.0.17) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+
+
+
+<a name="memcached-1.0.15"></a>
+### [memcached-1.0.15](https://github.com/truecharts/apps/compare/memcached-1.0.14...memcached-1.0.15) (2021-11-29)
+
+#### Chore
+
+* update common
+
+
+
+<a name="memcached-1.0.14"></a>
+### [memcached-1.0.14](https://github.com/truecharts/apps/compare/memcached-1.0.13...memcached-1.0.14) (2021-11-28)
+
+#### Chore
+
+* update common on dependencies
+
+
+
+<a name="memcached-1.0.13"></a>
+### [memcached-1.0.13](https://github.com/truecharts/apps/compare/memcached-1.0.12...memcached-1.0.13) (2021-11-23)
+
+#### Chore
+
+* bump deps again to sync with common
+
+
+
+<a name="memcached-1.0.12"></a>
+### [memcached-1.0.12](https://github.com/truecharts/apps/compare/memcached-1.0.10...memcached-1.0.12) (2021-11-23)
+
+#### Chore
+
+* bump common on deps
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
+<a name="memcached-1.0.10"></a>
+### [memcached-1.0.10](https://github.com/truecharts/apps/compare/memcached-1.0.9...memcached-1.0.10) (2021-11-22)
 
 #### Fix
 
-* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+* correct prometheus GUI mistakes
 
 
 
-<a name="collabora-online-9.0.13"></a>
-### [collabora-online-9.0.13](https://github.com/truecharts/apps/compare/collabora-online-9.0.12...collabora-online-9.0.13) (2021-11-23)
-
-#### Chore
-
-* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
-
-
-
-<a name="collabora-online-9.0.12"></a>
-### [collabora-online-9.0.12](https://github.com/truecharts/apps/compare/collabora-online-9.0.11...collabora-online-9.0.12) (2021-11-22)
+<a name="memcached-1.0.9"></a>
+### [memcached-1.0.9](https://github.com/truecharts/apps/compare/memcached-1.0.8...memcached-1.0.9) (2021-11-22)
 
 #### Chore
 
-* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
 
 
 
-<a name="collabora-online-9.0.11"></a>
-### [collabora-online-9.0.11](https://github.com/truecharts/apps/compare/collabora-online-9.0.10...collabora-online-9.0.11) (2021-11-16)
-
-#### Chore
-
-* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
-
-
-
-<a name="collabora-online-9.0.10"></a>
-### [collabora-online-9.0.10](https://github.com/truecharts/apps/compare/collabora-online-9.0.9...collabora-online-9.0.10) (2021-11-15)
+<a name="memcached-1.0.7"></a>
+### [memcached-1.0.7](https://github.com/truecharts/apps/compare/memcached-1.0.6...memcached-1.0.7) (2021-11-18)
 
 #### Chore
 
-* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
 
 
 
-<a name="collabora-online-9.0.9"></a>
-### [collabora-online-9.0.9](https://github.com/truecharts/apps/compare/collabora-online-9.0.8...collabora-online-9.0.9) (2021-11-14)
+<a name="memcached-1.0.6"></a>
+### [memcached-1.0.6](https://github.com/truecharts/apps/compare/memcached-1.0.5...memcached-1.0.6) (2021-11-16)
+
+#### Chore
+
+* bump common
+
+
+
+<a name="memcached-1.0.5"></a>
+### [memcached-1.0.5](https://github.com/truecharts/apps/compare/memcached-1.0.4...memcached-1.0.5) (2021-11-16)
+
+#### Chore
+
+* update non-major ([#1342](https://github.com/truecharts/apps/issues/1342))
+
+
+
+<a name="memcached-1.0.4"></a>
+### [memcached-1.0.4](https://github.com/truecharts/apps/compare/memcached-1.0.3...memcached-1.0.4) (2021-11-15)
+
+#### Chore
+
+* bump common on dependency apps
+
+
+
+<a name="memcached-1.0.3"></a>
+### [memcached-1.0.3](https://github.com/truecharts/apps/compare/memcached-1.0.2...memcached-1.0.3) (2021-11-15)
+
+#### Chore
+
+* update non-major ([#1336](https://github.com/truecharts/apps/issues/1336))
+
+
+
+<a name="memcached-1.0.2"></a>
+### [memcached-1.0.2](https://github.com/truecharts/apps/compare/memcached-1.0.1...memcached-1.0.2) (2021-11-15)
+
+#### Chore
+
+* bump common and move mariadb
+
+
+
+<a name="memcached-1.0.1"></a>
+### [memcached-1.0.1](https://github.com/truecharts/apps/compare/memcached-1.0.0...memcached-1.0.1) (2021-11-14)
 
 #### Chore
 
 * fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
 * move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
 * clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
-* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
 
 #### Fix
 
@@ -993,286 +1950,18 @@
 
 
 
-<a name="collabora-online-9.0.8"></a>
-### [collabora-online-9.0.8](https://github.com/truecharts/apps/compare/collabora-online-9.0.7...collabora-online-9.0.8) (2021-11-09)
-
-#### Chore
-
-* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
-* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
-
-
-
-<a name="collabora-online-9.0.7"></a>
-### [collabora-online-9.0.7](https://github.com/truecharts/apps/compare/collabora-online-9.0.6...collabora-online-9.0.7) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
-
-
-
-<a name="collabora-online-9.0.6"></a>
-### [collabora-online-9.0.6](https://github.com/truecharts/apps/compare/collabora-online-9.0.5...collabora-online-9.0.6) (2021-11-07)
-
-#### Chore
-
-* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
-
-
-
-<a name="collabora-online-9.0.5"></a>
-### [collabora-online-9.0.5](https://github.com/truecharts/apps/compare/collabora-online-9.0.4...collabora-online-9.0.5) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
-
-#### Chore
-
-* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+<a name="memcached-1.0.0"></a>
+### [memcached-1.0.0](https://github.com/truecharts/apps/compare/memcached-0.0.1...memcached-1.0.0) (2021-11-12)
 
 #### Feat
 
-* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
-
-#### Fix
-
-* Update `valid_chars` regex to allow IP's also ([#1277](https://github.com/truecharts/apps/issues/1277))
+* move deps to incubator ([#1311](https://github.com/truecharts/apps/issues/1311))
 
 
 
-<a name="collabora-online-9.0.4"></a>
-### [collabora-online-9.0.4](https://github.com/truecharts/apps/compare/collabora-online-9.0.3...collabora-online-9.0.4) (2021-11-02)
-
-#### Chore
-
-* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
-
-
-
-<a name="collabora-online-9.0.3"></a>
-### [collabora-online-9.0.3](https://github.com/truecharts/apps/compare/collabora-online-9.0.2...collabora-online-9.0.3) (2021-11-01)
-
-#### Chore
-
-* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
-
-
-
-<a name="collabora-online-9.0.2"></a>
-### [collabora-online-9.0.2](https://github.com/truecharts/apps/compare/collabora-online-9.0.1...collabora-online-9.0.2) (2021-10-26)
-
-#### Chore
-
-* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
-
-
-
-<a name="collabora-online-9.0.1"></a>
-### [collabora-online-9.0.1](https://github.com/truecharts/apps/compare/collabora-online-9.0.0...collabora-online-9.0.1) (2021-10-26)
-
-#### Chore
-
-* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
-
-
-
-<a name="collabora-online-9.0.0"></a>
-### [collabora-online-9.0.0](https://github.com/truecharts/apps/compare/collabora-online-8.0.17...collabora-online-9.0.0) (2021-10-25)
-
-#### Chore
-
-* Adapt for TrueNAS SCALE RC1
-
-
-
-<a name="collabora-online-8.0.17"></a>
-### [collabora-online-8.0.17](https://github.com/truecharts/apps/compare/collabora-online-8.0.16...collabora-online-8.0.17) (2021-10-20)
-
-#### Chore
-
-* bump apps, remove duplicates and move incubator to stable for RC1
-
-
-
-<a name="collabora-online-8.0.14"></a>
-### [collabora-online-8.0.14](https://github.com/truecharts/apps/compare/collabora-online-8.0.13...collabora-online-8.0.14) (2021-10-20)
-
-#### Chore
-
-* bump versions to rerelease and fix icons
-
-
-
-<a name="collabora-online-8.0.13"></a>
-### [collabora-online-8.0.13](https://github.com/truecharts/apps/compare/collabora-online-8.0.12...collabora-online-8.0.13) (2021-10-19)
-
-#### Change
-
-* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
-
-#### Chore
-
-* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
-* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
-* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
-* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
+<a name="memcached-0.0.1"></a>
+### memcached-0.0.1 (2021-11-11)
 
 #### Feat
 
-* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
-
-#### Fix
-
-* correct indent error in chart.yaml
-
-#### Refactor
-
-* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
-
-
-
-<a name="collabora-online-8.0.12"></a>
-### [collabora-online-8.0.12](https://github.com/truecharts/apps/compare/collabora-online-8.0.11...collabora-online-8.0.12) (2021-10-19)
-
-#### Fix
-
-* fix previous SCALE bugfix not correctly being applied
-
-
-
-<a name="collabora-online-8.0.11"></a>
-### [collabora-online-8.0.11](https://github.com/truecharts/apps/compare/collabora-online-8.0.10...collabora-online-8.0.11) (2021-10-19)
-
-#### Fix
-
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
-
-
-
-<a name="collabora-online-8.0.10"></a>
-### [collabora-online-8.0.10](https://github.com/truecharts/apps/compare/collabora-online-8.0.9...collabora-online-8.0.10) (2021-10-18)
-
-#### Refactor
-
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
-
-
-
-<a name="collabora-online-8.0.9"></a>
-### [collabora-online-8.0.9](https://github.com/truecharts/apps/compare/collabora-online-8.0.8...collabora-online-8.0.9) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-
-
-<a name="collabora-online-8.0.8"></a>
-### [collabora-online-8.0.8](https://github.com/truecharts/apps/compare/collabora-online-8.0.7...collabora-online-8.0.8) (2021-10-13)
-
-#### Chore
-
-* update non-major deps helm releases ([#1133](https://github.com/truecharts/apps/issues/1133))
-
-
-
-<a name="collabora-online-8.0.7"></a>
-### [collabora-online-8.0.7](https://github.com/truecharts/apps/compare/collabora-online-8.0.6...collabora-online-8.0.7) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
-
-
-
-<a name="collabora-online-8.0.6"></a>
-### [collabora-online-8.0.6](https://github.com/truecharts/apps/compare/collabora-online-8.0.5...collabora-online-8.0.6) (2021-10-12)
-
-#### Chore
-
-* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
-
-
-
-<a name="collabora-online-8.0.5"></a>
-### [collabora-online-8.0.5](https://github.com/truecharts/apps/compare/collabora-online-8.0.4...collabora-online-8.0.5) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
-
-
-
-<a name="collabora-online-8.0.4"></a>
-### [collabora-online-8.0.4](https://github.com/truecharts/apps/compare/collabora-online-8.0.3...collabora-online-8.0.4) (2021-10-05)
-
-#### Chore
-
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
-
-
-
-<a name="collabora-online-8.0.3"></a>
-### [collabora-online-8.0.3](https://github.com/truecharts/apps/compare/collabora-online-8.0.2...collabora-online-8.0.3) (2021-09-29)
-
-#### Chore
-
-* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
-
-
-
-<a name="collabora-online-8.0.1"></a>
-### [collabora-online-8.0.1](https://github.com/truecharts/apps/compare/collabora-online-8.0.0...collabora-online-8.0.1) (2021-09-26)
-
-
-
-<a name="collabora-online-8.0.0"></a>
-### [collabora-online-8.0.0](https://github.com/truecharts/apps/compare/collabora-online-7.0.3...collabora-online-8.0.0) (2021-09-26)
-
-
-
-<a name="collabora-online-7.0.3"></a>
-### [collabora-online-7.0.3](https://github.com/truecharts/apps/compare/collabora-online-7.0.2...collabora-online-7.0.3) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
-
-
-
-<a name="collabora-online-7.0.2"></a>
-### [collabora-online-7.0.2](https://github.com/truecharts/apps/compare/collabora-online-7.0.1...collabora-online-7.0.2) (2021-09-21)
-
-#### Chore
-
-* update non-major ([#1013](https://github.com/truecharts/apps/issues/1013))
-
-
-
-<a name="collabora-online-7.0.1"></a>
-### [collabora-online-7.0.1](https://github.com/truecharts/apps/compare/collabora-online-6.11.15...collabora-online-7.0.1) (2021-09-13)
-
-#### Chore
-
-* move most remaining Apps to GHCR mirror ([#959](https://github.com/truecharts/apps/issues/959))
-* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
-
-#### Feat
-
-* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
-* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
-* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
-* Move some common containers to our own containers
-
-#### Fix
-
-* make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
-
-<a name="collabora-online-6.11.15"></a>
-## [collabora-online-6.11.15](https://github.com/truecharts/apps/compare/collabora-online-6.11.14...collabora-online-6.11.15) (2021-09-08)
-
-### Fix
-
-* repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))
+* add memcached App ([#1307](https://github.com/truecharts/apps/issues/1307))

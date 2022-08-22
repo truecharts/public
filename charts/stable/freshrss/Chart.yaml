@@ -3,11 +3,11 @@ appVersion: "1.18.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: FreshRSS is a self-hosted RSS feed aggregator
-home: https://github.com/truecharts/charts/tree/master/charts/stable/freshrss
-icon: https://truecharts.org/img/chart-icons/freshrss.png
+home: https://truecharts.org/docs/charts/stable/freshrss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/freshrss.png
 keywords:
   - freshrss
   - rss
@@ -18,10 +18,11 @@ maintainers:
     url: https://truecharts.org
 name: freshrss
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freshrss
   - https://github.com/FreshRSS/FreshRSS
   - https://hub.docker.com/r/linuxserver/freshrss
 type: application
-version: 11.0.22
+version: 11.0.24
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,22 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - MediaApp-Video
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Neko is an Open-Source self-hosted alternative to rabb.it(deprecated).\r\
-  \n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/neko
-icon: https://truecharts.org/img/chart-icons/neko.png
+description: "A self hosted virtual browser that runs in docker"
+home: https://truecharts.org/docs/charts/incubator/neko
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.png
 keywords:
   - neko
-  - MediaApp-Video
+  - video
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -24,6 +18,11 @@ maintainers:
     url: https://truecharts.org
 name: neko
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/neko
   - https://hub.docker.com/r/m1k1o/neko/
 type: application
-version: 0.0.14
+version: 0.0.20
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - media

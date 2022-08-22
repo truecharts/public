@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/searxng
-  tag: latest@sha256:7a2f6b5a7c1e6b54b97cace7abe92742287eb987ab7e38319f56cac034fdbca0
+  tag: latest@sha256:8042edff46d5aa361f604b5497b24c4741321d8c14f7942168773fc893b079df
 persistence:
   config:
     enabled: true
@@ -23,3 +23,6 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
+
+portal:
+  enabled: true

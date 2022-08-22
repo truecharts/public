@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/xonotic
-  tag: latest@sha256:5b668cc20d170e09a9311024a584ea3e136a27c2a6f5511e4ef9dbc04bdf62e7
+  tag: latest@sha256:d1290caf92a7975d780f2bb60ca2e256b0cb6fbdb8db42b0ca622fd2a8aefaf4
 persistence:
   serverfiles:
     enabled: true
@@ -32,3 +32,6 @@ service:
         port: 26000
         protocol: UDP
         targetPort: 26000
+
+portal:
+  enabled: true

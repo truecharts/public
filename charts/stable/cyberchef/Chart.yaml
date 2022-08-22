@@ -3,10 +3,10 @@ appVersion: "9.46.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 description: CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser.
-home: "https://truecharts.org/docs/charts/stable/cyberchef"
-icon: https://truecharts.org/img/chart-icons/cyberchef.png
+home: https://truecharts.org/docs/charts/stable/cyberchef
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cyberchef.png
 keywords:
   - cyberchef
 kubeVersion: ">=1.16.0-0"
@@ -16,8 +16,9 @@ maintainers:
     url: https://truecharts.org
 name: cyberchef
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cyberchef
   - https://hub.docker.com/r/mpepping/cyberchef
-version: 2.0.50
+version: 2.0.62
 annotations:
   truecharts.org/catagories: |
     - utilities

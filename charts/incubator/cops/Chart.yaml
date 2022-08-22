@@ -9,13 +9,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by S\xE9\
-  bastien Lucas, stands for Calibre OPDS (and HTML) Php Server.\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/cops
-icon: https://truecharts.org/img/chart-icons/cops.png
+description: "Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.\n"
+home: https://truecharts.org/docs/charts/incubator/cops
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
 keywords:
   - cops
   - Cloud
@@ -28,8 +26,9 @@ maintainers:
     url: https://truecharts.org
 name: cops
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cops
   - http://blog.slucas.fr/en/oss/calibre-opds-php-server
   - https://github.com/orgs/linuxserver/packages/container/package/cops
   - https://github.com/linuxserver/docker-cops#readme
 type: application
-version: 0.0.14
+version: 0.0.17

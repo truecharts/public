@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ Garry's Mod and run it.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/garrysmod
-icon: https://truecharts.org/img/chart-icons/garrysmod.png
+description: "This Docker will download and install SteamCMD. It will also install Garry's Mod and run it.\r\n"
+home: https://truecharts.org/docs/charts/incubator/garrysmod
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/garrysmod.png
 keywords:
   - garrysmod
   - GameServers
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: garrysmod
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/garrysmod
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.14
+version: 0.0.16

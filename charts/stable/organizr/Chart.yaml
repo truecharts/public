@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: HTPC/Homelab Services Organizer
-home: https://github.com/truecharts/charts/tree/master/charts/stable/organizr
-icon: https://truecharts.org/img/chart-icons/organizr.png
+home: https://truecharts.org/docs/charts/stable/organizr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
 keywords:
   - organizr
 kubeVersion: ">=1.16.0-0"
@@ -17,10 +17,11 @@ maintainers:
     url: https://truecharts.org
 name: organizr
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
   - https://github.com/causefx/Organizr
   - https://hub.docker.com/r/organizr/organizr
 type: application
-version: 11.0.23
+version: 11.0.25
 annotations:
   truecharts.org/catagories: |
     - organizers

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/monica
-  tag: v3.7.0@sha256:9dbb15a4232d6361715962da6b1f6d83476a4b78e7c0c4f94a8252e761b0847e
+  tag: v3.7.0@sha256:7fc7bcd0d34f8c0aff259d6136640f88c6bc68f21e3f187e48065cc12a899ae8
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -46,3 +46,6 @@ mariadb:
   mariadbUsername: monica
   mariadbDatabase: monica
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

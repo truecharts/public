@@ -3,11 +3,11 @@ appVersion: "0.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Prometheus Exporter for the official uptimerobot CLI
-icon: https://truecharts.org/img/chart-icons/uptimerobot-prometheus.png
-home: https://github.com/truecharts/charts/tree/master/charts/stable/uptimerobot-prometheus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.png
+home: https://truecharts.org/docs/charts/stable/uptimerobot-prometheus
 keywords:
   - uptimerobot
   - prometheus
@@ -20,10 +20,11 @@ maintainers:
     url: https://truecharts.org
 name: uptimerobot-prometheus
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/uptimerobot-prometheus
   - https://github.com/lekpamartin/uptimerobot_exporter
   - https://github.com/k8s-at-home/charts/tree/master/charts/uptimerobot-prometheus
 type: application
-version: 4.0.26
+version: 4.0.28
 annotations:
   truecharts.org/catagories: |
     - metrics

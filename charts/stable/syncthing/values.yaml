@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/syncthing
   pullPolicy: IfNotPresent
-  tag: v1.20.3@sha256:fca2fa607fb8d860bd89ee0a19dab64b346d7a458126d32945f16a4e10ef65b3
+  tag: 1.20.4@sha256:9455814dce05fc9c2f5926841ef69cff1c98cd51038ef1847b7567d33506e682
 
 service:
   main:
@@ -37,3 +37,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/syncthing"
+
+portal:
+  enabled: true

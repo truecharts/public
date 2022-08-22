@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  A remote control and remote scripting solution, built with .NET 5, Blazor,
-  SignalR Core, and WebRTC.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
-icon: https://truecharts.org/img/chart-icons/remotely.png
+description: A remote control and remote scripting solution, built with .NET 5, Blazor, SignalR Core, and WebRTC.
+home: https://truecharts.org/docs/charts/incubator/remotely
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/remotely.png
 keywords:
   - remotely
   - Tools-Utilities
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: remotely
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
   - https://remotely.one/
   - https://hub.docker.com/r/translucency/remotely/
 type: application
-version: 0.0.14
+version: 0.0.17

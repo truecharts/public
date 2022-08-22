@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/autobrr
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:9ab0e5508fd6f20157089e7674ee4ac8f3b6830ba806047a31998d1674bdc6d4
+  tag: 1.5.0@sha256:c8e5d56561e8f3058d01560303685dfa60aac17beb2478cd633223820c73ac9f
 
 service:
   main:
@@ -47,3 +47,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

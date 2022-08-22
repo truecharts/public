@@ -3,10 +3,10 @@ appVersion: "1.54.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 description: Browserless is a web-service that allows for remote clients to connect, drive, and execute headless work
-home: https://github.com/truecharts/charts/tree/master/charts/stable/browserless-chrome
-icon: https://truecharts.org/img/chart-icons/browserless-chrome.png
+home: https://truecharts.org/docs/charts/stable/browserless-chrome
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/browserless-chrome.png
 keywords:
   - browserless
   - chrome
@@ -18,9 +18,10 @@ maintainers:
     url: https://truecharts.org
 name: browserless-chrome
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/browserless-chrome
   - https://docs.browserless.io/docs/docker.html
   - https://hub.docker.com/r/browserless/chrome/
-version: 2.0.24
+version: 2.0.26
 annotations:
   truecharts.org/catagories: |
     - productivity

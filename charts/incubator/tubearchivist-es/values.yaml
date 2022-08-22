@@ -6,7 +6,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubearchivist-es
-  tag: latest@sha256:9194c6f77711a2dd29fae4bf30713be11a459a19e44e1f0a9fe1e818446a757b
+  tag: latest@sha256:0610ebc66209a43780648d1135d6d7fb53b2c08c9ff73a621d24d205856f14bb
 persistence:
   data:
     enabled: true
@@ -26,3 +26,6 @@ service:
         port: 9200
         protocol: TCP
         targetPort: 9200
+
+portal:
+  enabled: true

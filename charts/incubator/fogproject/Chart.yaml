@@ -8,13 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "FOG Project can capture, deploy, and manage Windows, Mac OSX, and various\
-  \ Linux distributions.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/fogproject
-icon: https://truecharts.org/img/chart-icons/fogproject.png
+description: "FOG Project can capture, deploy, and manage Windows, Mac OSX, and various Linux distributions.\r\n"
+home: https://truecharts.org/docs/charts/incubator/fogproject
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fogproject.png
 keywords:
   - fogproject
   - Backup
@@ -26,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: fogproject
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fogproject
   - https://github.com/redvex2460/fogproject
 type: application
-version: 0.0.14
+version: 0.0.16

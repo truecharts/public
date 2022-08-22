@@ -8,13 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  Interact with Ring Inc products (cameras/alarms/smart lighting) via MQTT  -
-  See the project page for token auth procedure - https://github.com/tsightler/ring-mqtt#authentication
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/ring-mqtt
-icon: https://truecharts.org/img/chart-icons/ring-mqtt.png
+description: Interact with Ring Inc products (cameras/alarms/smart lighting) via MQTT  - See the project page for token auth procedure - https://github.com/tsightler/ring-mqtt#authentication
+home: https://truecharts.org/docs/charts/incubator/ring-mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ring-mqtt.png
 keywords:
   - ring-mqtt
   - HomeAutomation
@@ -26,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: ring-mqtt
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ring-mqtt
   - https://github.com/tsightler/ring-mqtt
   - https://hub.docker.com/r/tsightler/ring-mqtt/
 type: application
-version: 0.0.14
+version: 0.0.16

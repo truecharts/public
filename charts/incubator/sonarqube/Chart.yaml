@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "SonarQube is an open source platform for continuous inspection of code\
-  \ quality.   \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/sonarqube
-icon: https://truecharts.org/img/chart-icons/sonarqube.png
+description: "SonarQube is an open source platform for continuous inspection of code quality.   \r\n"
+home: https://truecharts.org/docs/charts/incubator/sonarqube
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarqube.png
 keywords:
   - sonarqube
   - Tools-Utilities
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: sonarqube
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sonarqube
   - https://github.com/SonarSource/sonarqube
   - https://hub.docker.com/_/sonarqube/
 type: application
-version: 0.0.14
+version: 0.0.17

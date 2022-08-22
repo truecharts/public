@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kdenlive
-  tag: latest@sha256:7dab0d5b29055cdc071b99dc02adca14e484a39fc4f3225baa93195ce3d1ab13
+  tag: latest@sha256:8374da99b941172986765d353f799d58eb180d8df2a447ddaa9bb972b678401a
 persistence:
   config:
     enabled: true
@@ -25,3 +25,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/raneto
-  tag: latest@sha256:b0209e7d1e902db8f0c516352ec783b644343a104e8bd436c0ecb66ae16f1bc5
+  tag: latest@sha256:bf4f1a84c4ed54b09aaa603819b4afe7b7f8b023f1b66b8f3a3f99f57c03291f
 persistence:
   config:
     enabled: true
@@ -23,3 +23,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

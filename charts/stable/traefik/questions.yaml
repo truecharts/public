@@ -9,75 +9,16 @@ portals:
       - "$kubernetes-resource_configmap_portal_port"
     path: "/dashboard/"
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
-  - variable: controller
-    group: "Controller"
-    label: ""
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: advanced
-          label: "Show Advanced Controller Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: type
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Controller Type"
-                schema:
-                  type: string
-                  default: "deployment"
-                  required: true
-                  enum:
-                    - value: "deployment"
-                      description: "Deployment"
-                    - value: "statefulset"
-                      description: "Statefulset"
-                    - value: "daemonset"
-                      description: "Daemonset"
-              - variable: replicas
-                description: "Number of desired pod replicas"
-                label: "Desired Replicas"
-                schema:
-                  type: int
-                  default: 1
-                  required: true
-              - variable: strategy
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Update Strategy"
-                schema:
-                  type: string
-                  default: "RollingUpdate"
-                  required: true
-                  enum:
-                    - value: "Recreate"
-                      description: "Recreate: Kill existing pods before creating new ones"
-                    - value: "RollingUpdate"
-                      description: "RollingUpdate: Create new pods and then kill old ones"
-                    - value: "OnDelete"
-                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
 # Include{controllerExpert}
-
+# Include{controllerExpertExtraArgs}
 # Include{containerConfig}
-
   - variable: ingressClass
     label: "ingressClass"
     group: "App Configuration"
@@ -98,7 +39,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
   - variable: logs
     label: "Logs"
     group: "App Configuration"
@@ -278,7 +218,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
         - variable: forwardAuth
           label: "forwardAuth"
           schema:
@@ -364,7 +303,6 @@ questions:
                               type: string
                               required: true
                               default: ""
-
         - variable: redirectScheme
           label: "redirectScheme"
           schema:
@@ -398,7 +336,6 @@ questions:
                       schema:
                         type: boolean
                         default: false
-
         - variable: rateLimit
           label: "rateLimit"
           schema:
@@ -428,7 +365,6 @@ questions:
                         type: int
                         required: true
                         default: 200
-
         - variable: redirectRegex
           label: "redirectRegex"
           schema:
@@ -463,7 +399,6 @@ questions:
                       schema:
                         type: boolean
                         default: false
-
         - variable: stripPrefixRegex
           label: "stripPrefixRegex"
           schema:
@@ -493,7 +428,6 @@ questions:
                               type: string
                               required: true
                               default: ""
-
         - variable: ipWhiteList
           label: "ipWhiteList"
           schema:
@@ -547,7 +481,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
         - variable: themePark
           label: "theme.park"
           schema:
@@ -570,14 +503,14 @@ questions:
                     - variable: appName
                       label: App Name
                       description: Lower case, name of the app to be themed.
-                        Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
+                        <br />Go to <a href="https://docs.theme-park.dev/themes/">https://docs.theme-park.dev/themes/</a> to see supported apps.
                       schema:
                         type: string
                         required: true
                     - variable: themeName
                       label: Theme Name
                       description: Lower case, name of the theme to be applied.
-                        Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
+                        <br />Go to <a href="https://docs.theme-park.dev/theme-options/">https://docs.theme-park.dev/theme-options/</a> to see supported themes.
                       schema:
                         type: string
                         required: true
@@ -588,7 +521,21 @@ questions:
                         type: string
                         required: true
                         default: https://theme-park.dev
-
+                    - variable: addons
+                      label: Addons
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: addonEntry
+                            label: "Addon"
+                            description: Currently only supports 'darker' and '4k-logo' for *arr apps.
+                              <br />Go to <a href="https://docs.theme-park.dev/themes/addons/">https://docs.theme-park.dev/themes/addons/</a> for Addon information.
+                              <br />Go to <a href="https://github.com/packruler/traefik-themepark">https://github.com/packruler/traefik-themepark</a> for more context on plugin
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
@@ -610,41 +557,13 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
                                     default: 9000
-
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -671,34 +590,7 @@ questions:
                               type: int
                               default: 9080
                               required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
@@ -755,34 +647,7 @@ questions:
                               type: int
                               default: 9443
                               required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTPS"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
@@ -818,7 +683,7 @@ questions:
                                             - variable: trustedIPsEntry
                                               label: ""
                                               schema:
-                                                type: ipaddr
+                                                type: string
                                                 required: true
                                                 default: ""
                                       - variable: insecureMode
@@ -920,7 +785,7 @@ questions:
                                             - variable: trustedIPsEntry
                                               label: ""
                                               schema:
-                                                type: ipaddr
+                                                type: string
                                                 required: true
                                                 default: ""
                                       - variable: insecureMode
@@ -928,13 +793,7 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
           schema:
@@ -942,31 +801,12 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-
 # Include{ingressTLS}
-
 # Include{ingressTraefik}
-
 # Include{ingressExpert}
-
 # Include{ingressList}
-
 # Include{security}
-
-  - variable: advancedSecurity
-    label: "Show Advanced Security Settings"
-    group: "Security and Permissions"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: securityContext
-          label: "Security Context"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{securityContextAdvancedRoot}
               - variable: privileged
                 label: "Privileged mode"
                 schema:
@@ -988,14 +828,7 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-
-  - variable: podSecurityContext
-    group: "Security and Permissions"
-    label: "Pod Security Context"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
@@ -1015,9 +848,7 @@ questions:
             type: int
             default: 568
 # Include{podSecurityContextAdvanced}
-
 # Include{resources}
-
 # Include{advanced}
-
 # Include{addons}
+# Include{documentation}

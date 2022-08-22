@@ -7,7 +7,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/troddit
-  tag: latest@sha256:2821cf1feb1583fa869721e316a306ece3a9ca51a1934e8425f739410d93e8a8
+  tag: latest@sha256:a47a1508918f0bfd1d7f74d0e7b28a836422c8d15abb9ff0bbc8552daed87c20
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -24,3 +24,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

@@ -1,16 +1,16 @@
 apiVersion: v2
-appVersion: "6.30"
+appVersion: "6.38"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
   - condition: mongodb.enabled
     name: mongodb
     repository: https://charts.truecharts.org
-    version: 1.0.47
+    version: 1.0.56
 description: WeKan - Open Source kanban
-home: https://github.com/truecharts/charts/tree/master/charts/stable/wekan
-icon: https://truecharts.org/img/chart-icons/wekan.png
+home: https://truecharts.org/docs/charts/stable/wekan
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wekan.png
 keywords:
   - wekan
   - kanban
@@ -21,9 +21,10 @@ maintainers:
     url: https://truecharts.org
 name: wekan
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wekan
   - https://github.com/wekan/wekan
   - https://wekan.github.io/
-version: 4.0.29
+version: 4.0.36
 annotations:
   truecharts.org/catagories: |
     - productivity

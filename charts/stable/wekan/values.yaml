@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/wekan
-  tag: v6.30@sha256:23835775f9cbd7b8519b3acbc85d26ee00c2de969cacb01afffb145dee7b8789
+  tag: 6.38@sha256:071f46685033f227e234d815c78e8ed23bff746e8fcd630aef46e663e33d6651
   pullPolicy: IfNotPresent
 
 env:
@@ -153,3 +153,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

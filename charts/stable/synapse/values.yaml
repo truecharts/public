@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/synapse
   pullPolicy: IfNotPresent
-  tag: 1.63.1@sha256:ff395b70346204b25674afee9b409438f522c71e44053772cb42a8f046e09418
+  tag: 1.65.0@sha256:6a2c997a894e770de0402b2b7cffcd0f7a0acf34e6db0183d782085a854ab679
 
 command:
   - sh
@@ -315,3 +315,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: synapse
   postgresqlDatabase: synapse
+
+portal:
+  enabled: true

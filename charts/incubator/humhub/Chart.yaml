@@ -7,15 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  HumHub is a free social network software and framework built to give
-  you the tools to make communication and collaboration easy and successful. The Database
-  is at 'localhost', username is 'humhub', the database name is 'humhub', there are
-  no password (local user)
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
-icon: https://truecharts.org/img/chart-icons/humhub.png
+description: HumHub is a free social network software and framework built to give you the tools to make communication and collaboration easy and successful. The Database is at 'localhost', username is 'humhub', the database name is 'humhub', there are no password (local user)
+home: https://truecharts.org/docs/charts/incubator/humhub
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
 keywords:
   - humhub
   - Network-Web
@@ -26,6 +22,7 @@ maintainers:
     url: https://truecharts.org
 name: humhub
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
   - https://ghcr.io/siwatinc/humhub
 type: application
-version: 0.0.14
+version: 0.0.16

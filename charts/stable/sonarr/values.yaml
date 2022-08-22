@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/sonarr
   pullPolicy: IfNotPresent
-  tag: v3.0.8.1507@sha256:5e188fa5604223c3e60f4ad169286bbeaf07b3c2580ce2f2a90dec5a10b64b2a
+  tag: 3.0.9.1549@sha256:aa0789b02c18057a5afaaf4eb8aaf836f0f0e5dd98b8509019f838e28a1be6b5
 
 service:
   main:
@@ -35,3 +35,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

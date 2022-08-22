@@ -3,11 +3,11 @@ appVersion: "3.00"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: API Support for your favorite torrent trackers.
-home: https://github.com/truecharts/charts/tree/master/charts/stable/transmission
-icon: https://truecharts.org/img/chart-icons/transmission.png
+home: https://truecharts.org/docs/charts/stable/transmission
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.png
 keywords:
   - transmission
   - torrent
@@ -19,10 +19,11 @@ maintainers:
     url: https://truecharts.org
 name: transmission
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/transmission
   - https://github.com/transmission/transmission
   - https://hub.docker.com/r/linuxserver/transmission
 type: application
-version: 12.0.25
+version: 12.0.28
 annotations:
   truecharts.org/catagories: |
     - download-tools

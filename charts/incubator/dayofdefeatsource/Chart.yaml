@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "This Docker will download and install SteamCMD. It will also install\
-  \ Day of Defeat: Source and run it.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/dayofdefeatsource
-icon: https://truecharts.org/img/chart-icons/dayofdefeatsource.png
+description: "This Docker will download and install SteamCMD. It will also install Day of Defeat: Source and run it.\r\n"
+home: https://truecharts.org/docs/charts/incubator/dayofdefeatsource
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dayofdefeatsource.png
 keywords:
   - dayofdefeatsource
   - GameServers
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: dayofdefeatsource
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dayofdefeatsource
   - https://www.steampowered.com/
   - https://hub.docker.com/r/ich777/steamcmd/
 type: application
-version: 0.0.14
+version: 0.0.16

@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: "A tool for managing Factorio servers \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/factorioservermanager
-icon: https://truecharts.org/img/chart-icons/factorioservermanager.png
+home: https://truecharts.org/docs/charts/incubator/factorioservermanager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorioservermanager.png
 keywords:
   - factorioservermanager
   - GameServers
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: factorioservermanager
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorioservermanager
   - https://github.com/OpenFactorioServerManager/factorio-server-manager
   - https://hub.docker.com/r/ofsm/ofsm
 type: application
-version: 0.0.14
+version: 0.0.16

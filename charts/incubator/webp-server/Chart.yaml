@@ -12,11 +12,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: "DESCRIPTION\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/webp-server
-icon: https://truecharts.org/img/chart-icons/webp-server.png
+home: https://truecharts.org/docs/charts/incubator/webp-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/webp-server.png
 keywords:
   - webp-server
   - Cloud
@@ -32,7 +32,8 @@ maintainers:
     url: https://truecharts.org
 name: webp-server
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/webp-server
   - https://github.com/webp-sh/webp_server_go
   - https://hub.docker.com/r/webpsh/webps
 type: application
-version: 0.0.14
+version: 0.0.20

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/virt-manager
-  tag: latest@sha256:156ba5b737d5b56e800df8528613b09864b18b86786a6d8398c79c494d698ba2
+  tag: latest@sha256:dd19c34716b53b5830425e1c51707b7270855fcf92ea121f9f0e46186e81fe0d
 persistence:
   devkvm:
     enabled: true
@@ -32,3 +32,6 @@ service:
         port: 8185
         protocol: TCP
         targetPort: 80
+
+portal:
+  enabled: true

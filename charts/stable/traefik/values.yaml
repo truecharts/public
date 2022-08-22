@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: v2.8.1@sha256:c56594c74ae0ed5f4dd466f05d2e8cebe528b7ca6796edd3b4870a6f6f75cbd4
+  tag: 2.8.3@sha256:2ec0dfeaf0c51577627b4e7e64a8b1a45c54e7745b5f7d92c2d17e9b6ef2f96b
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -352,7 +352,7 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  themeParkVersion: v1.1.0
+  themeParkVersion: v1.2.0
 
 portalhook:
   enabled: true
@@ -362,3 +362,6 @@ persistence:
     enabled: true
     mountPath: "/plugins-storage"
     type: emptyDir
+
+portal:
+  enabled: true

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pyload-ng
-  tag: latest@sha256:0bcf3cc0b4318874b3aaf38170037787ab7f29e9da35205d24af517e0e91f06c
+  tag: latest@sha256:2a31e10a16d0716053844513b8454f66aacaed2ea7a6539182614716adc44660
 persistence:
   config:
     enabled: true
@@ -34,3 +34,6 @@ service:
         port: 9666
         protocol: TCP
         targetPort: 9666
+
+portal:
+  enabled: true

@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/inventree
-  tag: 0.7.7@sha256:1e6a9146cdf8c837a5716a285dfcaed9c2df03620fa07372d84f8569138d25ae
+  tag: 0.8.1@sha256:6b89f61c3d3eb824fe81689c67f13052d6e733b910e74eece3fb353a54232136
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:bbad83037fe19f0bd1e2bf9cd9b7889615e043050f8a9731b3a6e61cc563382f
+  tag: v1.23.1@sha256:688795957aa8058d6b99970b61ce11666856a6f2dca684e1edf38b61c42507e0
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -128,6 +128,10 @@ initContainers:
   init-migrate:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    securityContext:
+      runAsUser: "{{ .Values.podSecurityContext.runAsUser }}"
+      runAsGroup: "{{ .Values.podSecurityContext.runAsGroup }}"
+      runAsNonRoot: true
     volumeMounts:
       - name: data
         mountPath: "/home/inventree/data"
@@ -234,3 +238,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

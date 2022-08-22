@@ -8,15 +8,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  SUI Startpage is a simple and clean server start page or homepage that
-  you can quickly and easily setup to access your server resources and quick booksmarks
-  and also lets you search on various provider sites via a search bar at the top as
-  well.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/suistartpage
-icon: https://truecharts.org/img/chart-icons/suistartpage.png
+description: SUI Startpage is a simple and clean server start page or homepage that you can quickly and easily setup to access your server resources and quick booksmarks and also lets you search on various provider sites via a search bar at the top as well.
+home: https://truecharts.org/docs/charts/incubator/suistartpage
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/suistartpage.png
 keywords:
   - suistartpage
   - Tools-Utilities
@@ -28,7 +24,8 @@ maintainers:
     url: https://truecharts.org
 name: suistartpage
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/suistartpage
   - https://github.com/CorneliousJD/SUI-Startpage
   - https://hub.docker.com/r/corneliousjd/sui-startpage/
 type: application
-version: 0.0.14
+version: 0.0.16

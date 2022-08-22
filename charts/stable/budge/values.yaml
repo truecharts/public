@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/budge
-  tag: v0.0.9@sha256:13e1e7271b36e0bda63e65eb6cbfcffc312d0cf0fb50653d080f247327221d15
+  tag: v0.0.9@sha256:f0df9cb056017d4004d28d636820994c9be0b8bfcf85841455d816e99960e419
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -27,3 +27,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

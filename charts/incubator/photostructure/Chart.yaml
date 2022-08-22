@@ -9,14 +9,11 @@ appVersion: "stable"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "[b]PhotoStructure is your new home for all your photos and videos.[/b]
-
-  "
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/photostructure
-icon: https://truecharts.org/img/chart-icons/photostructure.png
+description: "[b]PhotoStructure is your new home for all your photos and videos.[/b]\n"
+home: https://truecharts.org/docs/charts/incubator/photostructure
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photostructure.png
 keywords:
   - photostructure
   - MediaApp-Photos
@@ -29,7 +26,8 @@ maintainers:
     url: https://truecharts.org
 name: photostructure
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/photostructure
   - https://photostructure.com/
   - https://hub.docker.com/r/photostructure/server/
 type: application
-version: 0.0.14
+version: 0.0.16

@@ -10,13 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "FlutterCoin may be a coin with the tried and true algorithm of scrypt,\
-  \ but it's definitely anything but ordinary.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/fluttercoin-wallet
-icon: https://truecharts.org/img/chart-icons/fluttercoin-wallet.png
+description: "FlutterCoin may be a coin with the tried and true algorithm of scrypt, but it's definitely anything but ordinary.\r\n"
+home: https://truecharts.org/docs/charts/incubator/fluttercoin-wallet
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fluttercoin-wallet.png
 keywords:
   - fluttercoin-wallet
   - Network-Other
@@ -30,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: fluttercoin-wallet
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fluttercoin-wallet
   - https://fluttercoin.me/
   - https://hub.docker.com/r/ich777/fluttercoin
 type: application
-version: 0.0.14
+version: 0.0.16

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/synclounge
   pullPolicy: IfNotPresent
-  tag: v5.1.123@sha256:acf1980a6169b85a874fb54d3039f9a133899038a5d1900e876ff0490601161e
+  tag: v5.1.123@sha256:b3837c7760cd32931f7cf9d6989f294e5a797ae02892907a41c4e66c7589cffc
 
 securityContext:
   runAsNonRoot: false
@@ -24,3 +24,6 @@ service:
 persistence:
   varrun:
     enabled: true
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/focalboard
   pullPolicy: IfNotPresent
-  tag: v7.1.0@sha256:b09e4006a079faecf0037213fe5b28046fc5fe70d00419295d26faa3b2714e30
+  tag: 7.2.0@sha256:dbd5129cd4eac9092d11dabeb58fb6009fbda6b33703a37f6c8e1a41b6c10d97
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -30,3 +30,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: focalboard
   postgresqlDatabase: focalboard
+
+portal:
+  enabled: true

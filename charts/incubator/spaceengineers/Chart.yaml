@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: "Space Engineers Dedicated Server build on Debian10\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/spaceengineers
-icon: https://truecharts.org/img/chart-icons/spaceengineers.png
+home: https://truecharts.org/docs/charts/incubator/spaceengineers
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/spaceengineers.png
 keywords:
   - spaceengineers
   - GameServers
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: spaceengineers
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/spaceengineers
   - https://hub.docker.com/r/devidian/spaceengineers/
   - https://hub.docker.com/r/devidian/spaceengineers/
 type: application
-version: 0.0.14
+version: 0.0.16

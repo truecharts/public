@@ -12,15 +12,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  Tired of searching for media on different torrent websites or paying
-  for Usenet server access? Well look no further! You can now use PlexRipper to download
-  "everything" from the Plex servers you have access to and expand your collection
-  that way! Let others collect media for you and then just download everything!
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/plexripper
-icon: https://truecharts.org/img/chart-icons/plexripper.png
+description: Tired of searching for media on different torrent websites or paying for Usenet server access? Well look no further! You can now use PlexRipper to download "everything" from the Plex servers you have access to and expand your collection that way! Let others collect media for you and then just download everything!
+home: https://truecharts.org/docs/charts/incubator/plexripper
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexripper.png
 keywords:
   - plexripper
   - Backup
@@ -36,7 +32,8 @@ maintainers:
     url: https://truecharts.org
 name: plexripper
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plexripper
   - https://github.com/PlexRipper/PlexRipper/
   - https://hub.docker.com/r/plexripper/plexripper/
 type: application
-version: 0.0.14
+version: 0.0.16

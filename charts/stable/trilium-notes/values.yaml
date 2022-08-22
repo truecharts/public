@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/trilium-notes
   pullPolicy: IfNotPresent
-  tag: v0.53.2@sha256:98aacb5914707b4f36f88bf24ebdd0484d91cc0bddd531d1954080728edec6d6
+  tag: 0.54.2@sha256:7e8323008b914adeda828a812acb1789933798670e80498388ae67f94260f8a2
 
 securityContext:
   runAsNonRoot: false
@@ -23,3 +23,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/home/node"
+
+portal:
+  enabled: true

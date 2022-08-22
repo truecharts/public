@@ -27,7 +27,7 @@ secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
 env:
-  RCON_PORT: 25578
+  RCON_PORT: "{{ .Values.service.main.ports.main.port }}"
   TYPE: "BUNGEECORD"
   ONLINE_MODE: false
   MEMORY: 512M
@@ -45,13 +45,12 @@ service:
       main:
         port: 25565
         targetPort: 25577
-rcon:
-  enabled: true
-  ports:
-    rcon:
-      enabled: true
-      port: "{{ .Values.env.RCON_PORT }}"
-      targetPort: "{{ .Values.env.RCON_PORT }}"
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
 
 persistence:
   config:
@@ -63,3 +62,6 @@ persistence:
   plugins:
     enabled: true
     mountPath: "/plugins"
+
+portal:
+  enabled: false

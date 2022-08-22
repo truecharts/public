@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nzbget
   pullPolicy: IfNotPresent
-  tag: v21.1@sha256:85f05eaac8ff44ba8d1a761d9dc90b00d10c2b1cbd7ef8747ecbda65abc5cd5a
+  tag: v21.1@sha256:08bbf5b40643e7e695e3cd44ce5255160e2ee178ea1b27f19cff23aaef570061
 
 service:
   main:
@@ -24,3 +24,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

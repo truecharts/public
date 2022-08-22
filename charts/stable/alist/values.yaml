@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/alist
   pullPolicy: IfNotPresent
-  tag: 2.6.3@sha256:dba5f6ba14a582ae6810742d7d97daef83f754d672c358661b13a3eb48b58999
+  tag: 2.6.4@sha256:a268951c7e96d20f3176650ff974b08db16b9d62fe2c6433d4496a7ece753959
 
 service:
   main:
@@ -14,3 +14,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/opt/alist/data"
+
+portal:
+  enabled: true

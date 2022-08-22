@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
-  tag: latest@sha256:d5be57d09ef1deb9067d947f8c64bb97f688d70c6871b6e670935ef8dfef6795
+  tag: latest@sha256:c4b800274d8bdab178603a74f7c53f5b07f03eeac81cc29bdd8e48bf86878a5b
 persistence:
   config:
     enabled: true
@@ -28,3 +28,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

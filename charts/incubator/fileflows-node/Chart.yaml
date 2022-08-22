@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  Additinal processing node for FileFlows.  See http://fileflows.com for
-  more information
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/fileflows-node
-icon: https://truecharts.org/img/chart-icons/fileflows-node.png
+description: Additinal processing node for FileFlows.  See http://fileflows.com for more information
+home: https://truecharts.org/docs/charts/incubator/fileflows-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileflows-node.png
 keywords:
   - fileflows-node
   - Productivity
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: fileflows-node
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileflows-node
   - https://fileflows.com/
   - https://hub.docker.com/r/revenz/fileflows/
 type: application
-version: 0.0.14
+version: 0.0.18

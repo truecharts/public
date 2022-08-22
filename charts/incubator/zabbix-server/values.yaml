@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/zabbix-server
-  tag: v6.2.0@sha256:acd24ad91390d2d13e237672b779e3d0c0a19ae53781c87124c26b617d1d811f
+  tag: 6.2.1@sha256:99d47e8e23dd610add738475ccf200a391a7acd0546e325d0e0cfde8b36def8e
   pullPolicy: IfNotPresent
 
 frontImage:
   repository: tccr.io/truecharts/zabbix-web
-  tag: v6.2.0@sha256:d10519431cc2d68af85f2e3a49891296810fae5c9bf6561f1717f01073a7ff6d
+  tag: 6.2.1@sha256:caca82736ba1182f87155e350589ef9e9d38f41f4321939856f9bed54f279787
   pullPolicy: IfNotPresent
 
 snmptrapsImage:
   repository: tccr.io/truecharts/zabbix-snmptraps
-  tag: v6.2.0@sha256:6d637a56a3073159f59e474b175486b8a6fa74ff2315374e096f87c737ca1b73
+  tag: 6.2.1@sha256:1afacdd29934d403cd2618105af43f01637aac2b8bf42546a86721eddad70cb3
   pullPolicy: IfNotPresent
 
 tty: true
@@ -230,3 +230,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: zabbix
   postgresqlDatabase: zabbix
+
+portal:
+  enabled: true

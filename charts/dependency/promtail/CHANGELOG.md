@@ -2,6 +2,44 @@
 
 
 
+## [promtail-3.0.40](https://github.com/truecharts/charts/compare/promtail-3.0.39...promtail-3.0.40) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+
+
+
+
+## [promtail-3.0.39](https://github.com/truecharts/charts/compare/promtail-3.0.38...promtail-3.0.39) (2022-08-12)
+
+### Chore
+
+- update helm chart common to v10.4.12
+
+
+
+
+## [promtail-3.0.38](https://github.com/truecharts/charts/compare/promtail-3.0.37...promtail-3.0.38) (2022-08-10)
+
+### Chore
+
+- update helm chart common to v10.4.11 ([#3428](https://github.com/truecharts/charts/issues/3428))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [promtail-3.0.37](https://github.com/truecharts/apps/compare/promtail-3.0.36...promtail-3.0.37) (2022-07-29)
+
+### Chore
+
+- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+  - update helm chart common to v10.4.9
+
+
+
+
 ## [promtail-3.0.36](https://github.com/truecharts/apps/compare/promtail-3.0.34...promtail-3.0.36) (2022-07-25)
 
 ### Chore

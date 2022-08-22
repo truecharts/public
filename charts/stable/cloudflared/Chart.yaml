@@ -1,22 +1,23 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: cloudflared
-version: 1.0.5
-appVersion: "2022.7.1"
+version: 1.0.8
+appVersion: "2022.8.0"
 description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge.
 type: application
 deprecated: false
-home: https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
-icon: https://truecharts.org/img/chart-icons/cloudflared.png
+home: https://truecharts.org/docs/charts/stable/cloudflared
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflared.png
 keywords:
   - cloudflared
   - networking
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
   - https://hub.docker.com/r/cloudflare/cloudflared
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
     # condition:
 maintainers:
   - email: info@truecharts.org

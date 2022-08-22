@@ -2,6 +2,48 @@
 
 
 
+## [ddns-go-2.0.28](https://github.com/truecharts/charts/compare/ddns-go-2.0.27...ddns-go-2.0.28) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [ddns-go-2.0.27](https://github.com/truecharts/charts/compare/ddns-go-2.0.26...ddns-go-2.0.27) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [ddns-go-2.0.26](https://github.com/truecharts/charts/compare/ddns-go-2.0.25...ddns-go-2.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
+## [ddns-go-2.0.25](https://github.com/truecharts/apps/compare/ddns-go-2.0.24...ddns-go-2.0.25) (2022-08-01)
+
+### Chore
+
+- update container image tccr.io/truecharts/ddns-go to v4.0.0 ([#3357](https://github.com/truecharts/apps/issues/3357))
+
+
+
+
 ## [ddns-go-2.0.24](https://github.com/truecharts/apps/compare/ddns-go-2.0.23...ddns-go-2.0.24) (2022-07-26)
 
 ### Chore

@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "2.0.14"
+appVersion: "2.0.15"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Eclipse Mosquitto - An open source MQTT broker
-home: https://github.com/truecharts/charts/tree/master/charts/stable/mosquitto
-icon: https://truecharts.org/img/chart-icons/mosquitto.png
+home: https://truecharts.org/docs/charts/stable/mosquitto
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosquitto.png
 keywords:
   - mosquitto
   - MQTT
@@ -19,9 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: mosquitto
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mosquitto
   - https://github.com/eclipse/mosquitto
 type: application
-version: 6.0.27
+version: 6.0.31
 annotations:
   truecharts.org/catagories: |
     - homeautomation

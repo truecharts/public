@@ -3,10 +3,10 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 description: Simple text sharing
-home: https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
-icon: https://truecharts.org/img/chart-icons/haste-server.png
+home: https://truecharts.org/docs/charts/stable/haste-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/haste-server.png
 keywords:
   - haste
   - hastebin
@@ -19,9 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: haste-server
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
   - https://github.com/seejohnrun/haste-server
   - https://github.com/k8s-at-home/container-images
-version: 6.0.25
+version: 6.0.27
 annotations:
   truecharts.org/catagories: |
     - utilities

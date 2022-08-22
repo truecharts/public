@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/flexget
   pullPolicy: IfNotPresent
-  tag: v3.3.21@sha256:5928a8a06804adc7d71ed44671d05073b1f7b70a47a8f8db09b7e84b6655b1be
+  tag: 3.3.24@sha256:48df9700b65e1e64a301e55e2c394e96974eac90369422a2893a3b917f35a83f
 
 securityContext:
   runAsNonRoot: false
@@ -33,3 +33,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
+portal:
+  enabled: true

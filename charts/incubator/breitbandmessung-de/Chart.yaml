@@ -11,13 +11,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  "A script to enable customers of lazy ISPs to perform measurement campaigns\
-  \ of the connection speed as described here in an automated way.\r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/breitbandmessung-de
-icon: https://truecharts.org/img/chart-icons/breitbandmessung-de.png
+description: "A script to enable customers of lazy ISPs to perform measurement campaigns of the connection speed as described here in an automated way.\r\n"
+home: https://truecharts.org/docs/charts/incubator/breitbandmessung-de
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/breitbandmessung-de.png
 keywords:
   - breitbandmessung-de
   - HomeAutomation
@@ -32,7 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: breitbandmessung-de
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/breitbandmessung-de
   - https://github.com/shneezin/breitbandmessung-node
   - https://hub.docker.com/r/shneezin/breitbandmessung-node
 type: application
-version: 0.0.14
+version: 0.0.18

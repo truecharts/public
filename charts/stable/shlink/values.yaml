@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/shlink
   pullPolicy: IfNotPresent
-  tag: v3.1.2@sha256:7c200144f6d93231f44835e7d162c1a0ee3dccd0cf9667c2e76d32fd5d13c605
+  tag: 3.2.1@sha256:1268404557f916afa5688926a9b023add0e9a81960805bd733ab9cb9342041a0
 
 securityContext:
   runAsNonRoot: false
@@ -58,3 +58,6 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: "default"
+
+portal:
+  enabled: false

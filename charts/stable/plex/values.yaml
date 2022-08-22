@@ -1,12 +1,13 @@
 image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
-  tag: v1.27.2.5929@sha256:a3c4d2fbf317754e1535544240417d6020a3f1160592436d3b817859578bbd97
+  tag: 1.28.1.6104@sha256:df3c89bdef22d8b618aadcc538fcff658cd707a4567c2fd2bffe4dbbf34f16b9
 
 service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 32400
         targetPort: 32400
 
@@ -15,7 +16,19 @@ persistence:
     enabled: true
     mountPath: "/config"
 
+plex:
+  serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.plex.serverIP }}:{{ .Values.service.main.ports.main.port }}"
+  serverIngressURL: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}{{ end }}{{ end }}"
+  serverIngressURLPort: "{{ if .Values.ingress.main.enabled }}{{ $port := .Values.service.main.ports.main.port }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}:{{ $port }}{{ end }}{{ end }}"
+  # User Defined
+  serverIP: "127.0.0.1"
+  additionalAdvertiseURL: ""
+
 env:
+  ADVERTISE_IP: "{{ tpl (.Values.plex.serverURL) .}}{{ tpl (.Values.plex.serverIngressURL) . }}{{ tpl (.Values.plex.serverIngressURLPort) . }}{{ with .Values.plex.additionalAdvertiseURL }},{{ . }}{{ end }}"
+  # User Defined
   ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
-  ADVERTISE_IP: ""
   PLEX_CLAIM: ""
+
+portal:
+  enabled: true

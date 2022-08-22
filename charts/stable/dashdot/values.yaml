@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: 4.3.6@sha256:d3103e1a8ea72622c576fde7c10b7f8fb3ba6c94fe2ab2c844583f5d8c5b1b0c
+  tag: 4.3.10@sha256:4c4dfe4cebc54706ea20a3e598e1b7986cf097da66660de83a6bbd1578a0cc48
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -92,3 +92,6 @@ persistence:
     hostPath: "/dev/mem"
     mountPath: "/dev/mem"
     readOnly: true
+
+portal:
+  enabled: true

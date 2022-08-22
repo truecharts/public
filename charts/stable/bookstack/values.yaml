@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/bookstack
   pullPolicy: IfNotPresent
-  tag: v22.06.20220624@sha256:95121a3a4b773466ba8f93c4a96cdce37d20ebaf9a21dd7d45d2ebca2a5ae98c
+  tag: 22.07.20220728@sha256:e323c1d90d22572d49f20cd297bb27be698c2e7fc197d9e237c9e32f52ca030b
 
 env:
   DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
@@ -47,3 +47,6 @@ mariadb:
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
   existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true

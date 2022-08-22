@@ -7,13 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
-description:
-  Genea allows visually building and editing a family tree online. It consumes
-  and saves genealogy data in the GEDCOM format without any server side components.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/genea
-icon: https://truecharts.org/img/chart-icons/genea.png
+description: Genea allows visually building and editing a family tree online. It consumes and saves genealogy data in the GEDCOM format without any server side components.
+home: https://truecharts.org/docs/charts/incubator/genea
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/genea.png
 keywords:
   - genea
   - Other
@@ -24,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: genea
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/genea
   - https://github.com/genea-app/genea-app
   - https://hub.docker.com/r/biggiesize/genea-app
 type: application
-version: 0.0.14
+version: 0.0.16

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/boinc
   pullPolicy: IfNotPresent
-  tag: latest@sha256:388226f2ed116b97c237de4379a230a960ce2efc9737af001f0ac649ed42a892
+  tag: latest@sha256:b89110095088b6cd16eb51b183bf9250a534fe78ec5db3f76d16fd096942b4f2
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -27,3 +27,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

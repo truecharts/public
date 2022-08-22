@@ -10,11 +10,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: "minimal ics / iCal / Calendar hoster, \r\n"
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/minimal-ics-hoster
-icon: https://truecharts.org/img/chart-icons/minimal-ics-hoster.png
+home: https://truecharts.org/docs/charts/incubator/minimal-ics-hoster
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/minimal-ics-hoster.png
 keywords:
   - minimal-ics-hoster
   - HomeAutomation
@@ -28,7 +28,8 @@ maintainers:
     url: https://truecharts.org
 name: minimal-ics-hoster
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/minimal-ics-hoster
   - https://github.com/patrickstigler/minimal-ics-host/tree/master
   - https://hub.docker.com/r/patrickstigler/minimal-ics-hoster
 type: application
-version: 0.0.14
+version: 0.0.16

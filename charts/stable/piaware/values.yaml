@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/piaware
-  tag: v7.2@sha256:bc8f2b74ae507053bac92233d2d5af39c7b1e83e6e58126aac3d53eea090fa36
+  tag: v7.2@sha256:4278a870bf7c313aefe67c8456521f29da0cdf28bb596ac0ae09c70d11e9449e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -33,3 +33,6 @@ affinity: {}
 #           operator: In
 #           values:
 #           - piaware
+
+portal:
+  enabled: true

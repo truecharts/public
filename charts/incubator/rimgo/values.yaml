@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rimgo
-  tag: latest@sha256:189d5a0a9fb63a2853610e650df93643fc940c481cf234aded1b49854c3f4476
+  tag: latest@sha256:f56a98eca24a3dceb68cdb87ab11f541354b3af21fcc354d8ca7c4ad4472a940
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -22,3 +22,6 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+
+portal:
+  enabled: true

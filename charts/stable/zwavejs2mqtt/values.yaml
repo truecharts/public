@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 6.14.1@sha256:1cc84935aaa51dd17f4ec8a76b4f5bef0ab916a330b108d84462a3ac0832b379
+  tag: 6.15.2@sha256:ab4a641c9645002e108263bee5e4c1af757d8deab9f33da372be8c404b619fd1
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -80,3 +80,6 @@ persistence:
 #           operator: In
 #           values:
 #           - zwave-controller
+
+portal:
+  enabled: true

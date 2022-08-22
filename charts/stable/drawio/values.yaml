@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/drawio
-  tag: 20.2.1@sha256:cf6ef2f011e76c82afa675fbc726dcaa8ddaa6e46f434c164a189ba4db7c25d4
+  tag: 20.2.5@sha256:41e23ba8a13564344a6946bf42139728dd5d83f1874209726b254971d8fbc41c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,3 +17,6 @@ service:
       main:
         port: 10214
         targetPort: 8080
+
+portal:
+  enabled: true

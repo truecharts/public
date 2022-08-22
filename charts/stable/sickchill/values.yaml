@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/sickchill
   pullPolicy: IfNotPresent
-  tag: 2022.7.20@sha256:4bf21faf5d3efb9175edd1dd7fdc064ec019700aeac6189e4ecaef619d4f28c0
+  tag: 2022.8.15@sha256:8b7dd9703a1cc8888a8144cad679ecc735788e401a42261322e7b18f0cfcdc2a
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -24,3 +24,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

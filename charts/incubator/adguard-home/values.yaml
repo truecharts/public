@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/adguard-home
-  tag: v0.107.8@sha256:b4e36ff9e4e2e172827b2caae72d99528c92c8c0481c09c17704a18416bc08b3
+  tag: 0.107.11@sha256:daa7a7f8f3a8f09c65becbc7e94bb939f625a4248532e6d6109611b40b5ec206
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -102,3 +102,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/opt/adguardhome/work"
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/code-server
   pullPolicy: IfNotPresent
-  tag: v4.5.1@sha256:6fe1562f98333108b6004cdade0d28577dcf7523e62b0e5217bf4feb14fa4593
+  tag: 4.6.0@sha256:6b8bb7b4fd3821d2838e8d2131e17bb35779c91434277684ee1e8899d1d4d0bb
 
 args:
   - --user-data-dir
@@ -32,3 +32,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

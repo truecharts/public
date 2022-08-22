@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/satisfactory-server
-  tag: latest@sha256:3091f09addf7b27a37ec412eb54fed8fe30af93dc29b5b3fb80f2d12bbc3e757
+  tag: latest@sha256:b9a488856beef5eb0310829283b9ca83fe3359ce551fcbfda731297fe10fca64
 persistence:
   config:
     enabled: true
@@ -47,3 +47,6 @@ service:
         port: 15777
         protocol: UDP
         targetPort: 15777
+
+portal:
+  enabled: true

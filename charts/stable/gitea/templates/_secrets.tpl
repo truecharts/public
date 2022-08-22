@@ -77,6 +77,9 @@ stringData:
     {{- end }}
     {{- end }}
 
+    [webhook]
+    ALLOWED_HOST_LIST = {{ .Values.config.ALLOWED_HOST_LIST }}
+
     [server]
     APP_DATA_PATH = /data
     DOMAIN = {{ $DOMAIN }}

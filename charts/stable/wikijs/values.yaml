@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/wikijs
-  tag: v2.5.285@sha256:7b0b6ca76a6dd7bada8dce10ca85129a3cdd34f21fd8385b977057d0c90817b5
+  tag: 2.5.286@sha256:0491fa2d0a5591536c08c81fe74700f640cb8aae74c7f202fedfbf6ee2454c53
   pullPolicy: IfNotPresent
 
 env:
@@ -45,3 +45,6 @@ persistence:
     enabled: true
     mountPath: "/wiki/data/"
     type: emptyDir
+
+portal:
+  enabled: true

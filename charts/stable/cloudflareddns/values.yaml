@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/cloudflareddns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:c375a9203178413dbb09fdb9fb0464fa8f59e1772111786408985af0723da36f
+  tag: latest@sha256:f47010bfd436cc42cc0fc19c817686aa874c3e65e702c527f80808fac5fc6f4d
 
 securityContext:
   runAsNonRoot: false
@@ -50,3 +50,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: false

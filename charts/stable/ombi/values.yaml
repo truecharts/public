@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: 4.22.2@sha256:cedad004b2922ddbe5a40981e1161fd48bed2d954c155cd85246b2f35d7aa1a4
+  tag: 4.23.1@sha256:39aefd4843f75acc2033f0006f0615e762c126a94f491d18065d6f0f036d0eaf
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -30,3 +30,6 @@ mariadb:
   primary:
     persistence:
       enabled: false
+
+portal:
+  enabled: true

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/clickhouse
   pullPolicy: IfNotPresent
-  tag: 22.7.1.2484@sha256:126149cf68734feef6f5a7f9799873718d4c2b394aef39a53d2d016705f66478
+  tag: 22.8.1.2097@sha256:b48e4472cf843aaaa60eb28f821934a8e7df7eabad904494746e48b29654d9db
 
 controller:
   type: statefulset
@@ -65,3 +65,6 @@ env:
     secretKeyRef:
       name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
       key: "clickhouse-password"
+
+portal:
+  enabled: false

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/grocy
-  tag: v3.3.1@sha256:24ae904c9ff06128ffd5704f25b0b06a13c5e2777bdde12da478baaef9d75a65
+  tag: v3.3.1@sha256:f91e0ba5259499044969434f5dd07e119554953da6e8fd311965dd78754d11b5
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -22,3 +22,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+portal:
+  enabled: true

@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "14.4.0"
+appVersion: "14.5.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.13
 deprecated: false
 description: PostgresSQL
-home: https://github.com/truecharts/charts/tree/master/charts/dependency/postgresql
-icon: https://truecharts.org/img/chart-icons/postgresql.png
+home: https://truecharts.org/docs/charts/dependency/postgresql
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
 keywords:
   - postgres
   - postgressql
@@ -20,9 +20,10 @@ maintainers:
     url: https://truecharts.org
 name: postgresql
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/postgresql
   - https://www.postgresql.org/
 type: application
-version: 8.0.49
+version: 8.0.62
 annotations:
   truecharts.org/catagories: |
     - database

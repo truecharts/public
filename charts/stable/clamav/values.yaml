@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: 0.105.1@sha256:201894e5039604aca8da9061e0638b3383d7fecfb8c4592b020fd250064887c5
+  tag: 0.105.1@sha256:2872c49de8b98fc020c3c9e2800891bf6b952b82fd33de3bcd386ff6f9cf490b
 
 podSecurityContext:
   runAsUser: 0
@@ -80,3 +80,6 @@ persistence:
   logs:
     enabled: true
     mountPath: "/logs"
+
+portal:
+  enabled: false

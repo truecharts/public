@@ -7,11 +7,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: A super-sexy voice interface for the Plex HTPC.
-home: https://github.com/truecharts/charts/tree/master/charts/incubator/flextv
-icon: https://truecharts.org/img/chart-icons/flextv.png
+home: https://truecharts.org/docs/charts/incubator/flextv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flextv.png
 keywords:
   - flextv
   - MediaApp
@@ -22,7 +22,8 @@ maintainers:
     url: https://truecharts.org
 name: flextv
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/flextv
   - https://github.com/d8ahazard/FlexTV
   - https://registry.hub.docker.com/r/jcreynolds/flextv/
 type: application
-version: 0.0.14
+version: 0.0.16

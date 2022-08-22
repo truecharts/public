@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.3@sha256:a307c7d49d5c7c691916f2e6bdbb10bc698bbd58498de12c4db992c4755a7018
+  tag: 24.0.4@sha256:cd4940a4de764b25b74dd76371d249a42c0a2d2e3218331f9ead1817d3a340ff
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.1@sha256:54510c4a9a85d0e4e3cfdad07bc26e5ca13065c3007d5e2170f5cc2931de76d8
+  tag: 1.23.1@sha256:97f3a0be27466773c0ed8939e9c578f9a31e0a9c4d660696f7a0414a2acd7621
 
 imaginaryImage:
   repository: h2non/imaginary
@@ -250,7 +250,7 @@ configmap:
                 #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
 
                 # set max upload size
-                client_max_body_size 512M;
+                client_max_body_size {{ .Values.env.PHP_UPLOAD_LIMIT | default "512M" }};
                 fastcgi_buffers 64 4K;
 
                 # Enable gzip but do not remove ETag headers
@@ -399,6 +399,33 @@ hpb:
 
 imaginary:
   enabled: true
+  preview_max_x: 2048
+  preview_max_y: 2048
+  preview_max_memory: 512
+  preview_max_filesize_image: 150
+  preview_png: true
+  preview_jpeg: true
+  preview_gif: true
+  preview_bmp: true
+  preview_xbitmap: true
+  preview_mp3: true
+  preview_markdown: true
+  preview_opendoc: true
+  preview_txt: true
+  preview_krita: true
+  preview_illustrator: false
+  preview_heic: false
+  preview_movie: false
+  preview_msoffice2003: false
+  preview_msoffice2007: false
+  preview_msofficedoc: false
+  preview_pdf: false
+  preview_photoshop: false
+  preview_postscript: false
+  preview_staroffice: false
+  preview_svg: false
+  preview_tiff: false
+  preview_font: false
 
 collabora:
   enabled: false
@@ -421,3 +448,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+
+portal:
+  enabled: true

@@ -3,12 +3,10 @@ appVersion: "3.12.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
-description:
-  A high quality, visual, open source tool to create, design, and edit
-  database files compatible with SQLite
-home: https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
-icon: https://truecharts.org/img/chart-icons/sqlitebrowser.png
+    version: 10.4.12
+description: A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite
+home: https://truecharts.org/docs/charts/stable/sqlitebrowser
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlitebrowser.png
 keywords:
   - sqlite
   - browser
@@ -21,10 +19,11 @@ maintainers:
     url: https://truecharts.org
 name: sqlitebrowser
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
   - https://github.com/linuxserver/docker-sqlitebrowser
   - https://sqlitebrowser.org/
 type: application
-version: 3.0.22
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - media

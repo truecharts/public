@@ -2,6 +2,48 @@
 
 
 
+## [xbackbone-3.0.31](https://github.com/truecharts/charts/compare/xbackbone-3.0.30...xbackbone-3.0.31) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
+## [xbackbone-3.0.30](https://github.com/truecharts/charts/compare/xbackbone-3.0.29...xbackbone-3.0.30) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [xbackbone-3.0.29](https://github.com/truecharts/charts/compare/xbackbone-3.0.28...xbackbone-3.0.29) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [xbackbone-3.0.28](https://github.com/truecharts/charts/compare/xbackbone-3.0.27...xbackbone-3.0.28) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [xbackbone-3.0.27](https://github.com/truecharts/apps/compare/xbackbone-3.0.26...xbackbone-3.0.27) (2022-07-26)
 
 ### Chore

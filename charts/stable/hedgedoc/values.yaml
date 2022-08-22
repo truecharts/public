@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/hedgedoc
   pullPolicy: IfNotPresent
-  tag: v1.9.4@sha256:caa979da8e8f77397ab359ff70e481236977d5c312ecbd81e24b8bc448963b28
+  tag: v1.9.4@sha256:add232e394f31fa58c77790dfeba10173ddd80bea631d8af271c2a13af0c1ee9
 
 env:
   NODE_ENV: "production"
@@ -139,3 +139,6 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: hedgedoc
   postgresqlDatabase: hedgedoc
+
+portal:
+  enabled: true

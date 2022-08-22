@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/calibre
-  tag: v6.1.0@sha256:4c2fe2206da7e8a5858e4b5358450a3f94dab1b468dfde45f7e78a88a8af22fa
+  tag: 6.3.0@sha256:b1dc651c2152f20ec92b25ec06ba287902ee51637ace5ec84144276368d6b294
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -37,3 +37,6 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+portal:
+  enabled: true

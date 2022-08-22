@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "3.0.8.1507"
+appVersion: "3.0.9.1549"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.8
+    version: 10.4.12
 deprecated: false
 description: Smart PVR for newsgroup and bittorrent users
-home: https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
-icon: https://truecharts.org/img/chart-icons/sonarr.png
+home: https://truecharts.org/docs/charts/stable/sonarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarr.png
 keywords:
   - sonarr
   - torrent
@@ -19,9 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: sonarr
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
   - https://github.com/Sonarr/Sonarr
 type: application
-version: 11.0.24
+version: 11.0.28
 annotations:
   truecharts.org/catagories: |
     - media

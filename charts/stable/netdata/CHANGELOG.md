@@ -2,6 +2,57 @@
 
 
 
+## [netdata-2.0.30](https://github.com/truecharts/charts/compare/netdata-2.0.29...netdata-2.0.30) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [netdata-2.0.29](https://github.com/truecharts/charts/compare/netdata-2.0.28...netdata-2.0.29) (2022-08-14)
+
+### Chore
+
+- add some more default confs ([#3473](https://github.com/truecharts/charts/issues/3473))
+
+
+
+
+## [netdata-2.0.28](https://github.com/truecharts/charts/compare/netdata-2.0.27...netdata-2.0.28) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [netdata-2.0.27](https://github.com/truecharts/charts/compare/netdata-2.0.26...netdata-2.0.27) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [netdata-2.0.26](https://github.com/truecharts/charts/compare/netdata-2.0.25...netdata-2.0.26) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [netdata-2.0.25](https://github.com/truecharts/apps/compare/netdata-2.0.24...netdata-2.0.25) (2022-07-26)
 
 ### Chore

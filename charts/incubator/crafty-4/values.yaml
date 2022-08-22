@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crafty-4
-  tag: latest@sha256:3f7be257e206543f86e6a1529f0ab57649fc1ab5408d6554a3b9ff343fbf3e72
+  tag: latest@sha256:92584dc10a023c1dea08b0c24733cec524c6c7631c5b5d68067985886bd3a2eb
 persistence:
   backupfiles:
     enabled: true
@@ -58,3 +58,6 @@ service:
         port: 8123
         protocol: TCP
         targetPort: 8123
+
+portal:
+  enabled: true

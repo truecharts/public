@@ -2,6 +2,58 @@
 
 
 
+## [boinc-2.0.39](https://github.com/truecharts/charts/compare/boinc-2.0.38...boinc-2.0.39) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
+## [boinc-2.0.38](https://github.com/truecharts/charts/compare/boinc-2.0.37...boinc-2.0.38) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [boinc-2.0.37](https://github.com/truecharts/charts/compare/boinc-2.0.36...boinc-2.0.37) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [boinc-2.0.36](https://github.com/truecharts/charts/compare/boinc-2.0.35...boinc-2.0.36) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [boinc-2.0.35](https://github.com/truecharts/charts/compare/boinc-2.0.33...boinc-2.0.35) (2022-08-08)
+
+### Chore
+
+- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+
+
+
 ## [boinc-2.0.33](https://github.com/truecharts/apps/compare/boinc-2.0.32...boinc-2.0.33) (2022-07-26)
 
 ### Chore

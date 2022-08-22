@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/cups-server
-  tag: latest@sha256:4b3f49b8de057bd5326a5377687180a35a67f9ac1bedbe4b63a07d66c664663d
+  tag: latest@sha256:2acd556f0b9f90f0125520ef6b459d4c3e0d5c34a165009c4acbf6ef23010b29
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -31,3 +31,6 @@ persistence:
     hostPath: "/var/run/dbus"
     mountPath: "/var/run/dbus"
     readOnly: false
+
+portal:
+  enabled: true
