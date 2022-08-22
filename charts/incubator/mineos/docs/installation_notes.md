@@ -1,6 +1,6 @@
 # Installation Notes
 
-- Set `USE_HTTPS` to **false**, to use **http** for the web interface. However, if using ingress and MineOS no longer runs on http internally, set `USE_HTTPS` to **true**.
+- Set `USE_HTTPS` to **false**, to use **http** for the web interface. However, if using ingress set `USE_HTTPS` to **true**.
 
 - Set `USER_NAME` to **mc** or whatever username that you want other than ~~root~~, to set the user for the web interface.
 
