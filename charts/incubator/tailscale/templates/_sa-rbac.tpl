@@ -1,5 +1,5 @@
 {{/* Define the secret */}}
-{{- define "tailscale.sarbac" -}}
+{{- define "tailscale.sa-rbac" -}}
 
 {{- $secretName := printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}
 
