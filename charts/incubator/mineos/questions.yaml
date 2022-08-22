@@ -343,7 +343,7 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: mc-port-1-udp-br
+                    - variable: br-port-1-udp
                       label: "MC Port 1 UDP"
                       schema:
                         additional_attrs: true
@@ -363,7 +363,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19132
-                    - variable: mc-port-2-udp-br
+                    - variable: br-port-2-udp
                       label: "MC Port 2 UDP"
                       schema:
                         additional_attrs: true
@@ -383,7 +383,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19133
-                    - variable: mc-port-3-udp-br
+                    - variable: br-port-3-udp
                       label: "MC Port 3 UDP"
                       schema:
                         additional_attrs: true
@@ -404,7 +404,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19134
-                    - variable: mc-port-4-udp-br
+                    - variable: br-port-4-udp
                       label: "MC Port 4 UDP"
                       schema:
                         additional_attrs: true
@@ -424,7 +424,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19135
-                    - variable: mc-port-5-udp-br
+                    - variable: br-port-5-udp
                       label: "MC Port 5 UDP"
                       schema:
                         additional_attrs: true
@@ -444,7 +444,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19136
-                    - variable: mc-port-6-udp-br
+                    - variable: br-port-6-udp
                       label: "MC Port 6 UDP"
                       schema:
                         additional_attrs: true
