@@ -77,7 +77,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 10278
-        - variable: minecraft_java
+        - variable: minecraft-java-tcp
           label: "Minecraft Java"
           description: "Minecraft Java ports"
           schema:
@@ -206,7 +206,136 @@ questions:
                                   schema:
                                     type: int
                                     default: 25570
-        - variable: minecraft_br
+        - variable: minecraft-java-udp
+          label: "Minecraft Java"
+          description: "Minecraft Java ports"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: mc-port-1-udp
+                      label: "MC Port 1 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25565
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25565
+                    - variable: mc-port-2-udp
+                      label: "MC Port 2 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25566
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25566
+                    - variable: mc-port-3-udp
+                      label: "MC Port 3 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25567
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25567
+                    - variable: mc-port-4-udp
+                      label: "MC Port 4 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25568
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25568
+                    - variable: mc-port-5-udp
+                      label: "MC Port 5 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25569
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25569
+                    - variable: mc-port-6-udp
+                      label: "MC Port 6 UDP"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25570
+                              required: true
+# Include{advancedPortUDP}
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25570
+        - variable: minecraft-br
           label: "Minecraft Bedrock"
           description: "Minecraft Bedrock ports"
           schema:
@@ -335,7 +464,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 19137
-        - variable: minecraft_rcon
+        - variable: minecraft-rcon
           label: "rcon"
           description: "rcon"
           schema:
