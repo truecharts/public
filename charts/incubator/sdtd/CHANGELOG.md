@@ -2,6 +2,15 @@
 
 
 
+## [sdtd-0.0.17]sdtd-0.0.17 (2022-08-22)
+
+### Fix
+
+- rename 7daystodie to stdt and cleanup ([#3529](https://github.com/truecharts/charts/issues/3529))
+
+
+
+
 ## [server-7daystodie-0.0.16](https://github.com/truecharts/charts/compare/server-7daystodie-0.0.15...server-7daystodie-0.0.16) (2022-08-12)
 
 ### Chore

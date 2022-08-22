@@ -1,19 +1,19 @@
-# server-7daystodie
+# sdtd
 
-![Version: 0.0.16](https://img.shields.io/badge/Version-0.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.17](https://img.shields.io/badge/Version-0.0.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 This Docker will download and install SteamCMD. It will also install 7 Days to Die and run it.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [server-7daystodie](https://truecharts.org/docs/charts/stable/server-7daystodie)
+For more information, please click here: [sdtd](https://truecharts.org/docs/charts/stable/sdtd)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/server-7daystodie>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/sdtd>
 * <https://www.steampowered.com/>
 * <https://hub.docker.com/r/ich777/steamcmd/>
 
@@ -35,12 +35,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `server-7daystodie`
+To install the chart with the release name `sdtd`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install server-7daystodie TrueCharts/server-7daystodie
+helm install sdtd TrueCharts/sdtd
 ```
 
 ## Uninstall
@@ -53,10 +53,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `server-7daystodie` deployment
+To uninstall the `sdtd` deployment
 
 ```console
-helm uninstall server-7daystodie
+helm uninstall sdtd
 ```
 
 ## Configuration
@@ -73,9 +73,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install server-7daystodie \
+helm install sdtd \
   --set env.TZ="America/New York" \
-    TrueCharts/server-7daystodie
+    TrueCharts/sdtd
 ```
 
 #### Configure using a yaml file
@@ -83,7 +83,7 @@ helm install server-7daystodie \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install server-7daystodie TrueCharts/server-7daystodie -f values.yaml
+helm install sdtd TrueCharts/sdtd -f values.yaml
 ```
 
 #### Connecting to other charts
