@@ -2,6 +2,15 @@
 
 
 
+## [drone-runner-1.0.0](https://github.com/truecharts/charts/compare/drone-runner-0.0.2...drone-runner-1.0.0) (2022-08-22)
+
+### Feat
+
+- Move to stable ([#3533](https://github.com/truecharts/charts/issues/3533))
+
+
+
+
 ## [drone-runner-0.0.2](https://github.com/truecharts/charts/compare/drone-runner-0.0.1...drone-runner-0.0.2) (2022-08-19)
 
 ### Chore
