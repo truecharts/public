@@ -30,15 +30,10 @@ service:
         protocol: HTTP
         targetPort: 10278
         port: 10278
-  minecraft_java:
+  minecraft_java_tcp:
     enabled: true
     ports:
       mc-port-1-tcp:
-        enabled: true
-        port: 25565
-        targetPort: 25565
-      mc-port-1-udp:
-        protocol: UDP
         enabled: true
         port: 25565
         targetPort: 25565
@@ -46,17 +41,7 @@ service:
         enabled: true
         port: 25566
         targetPort: 25566
-      mc-port-2-udp:
-        protocol: UDP
-        enabled: true
-        port: 25566
-        targetPort: 25566
       mc-port-3-tcp:
-        enabled: true
-        port: 25567
-        targetPort: 25567
-      mc-port-3-udp:
-        protocol: UDP
         enabled: true
         port: 25567
         targetPort: 25567
@@ -64,17 +49,7 @@ service:
         enabled: true
         port: 25568
         targetPort: 25568
-      mc-port-4-udp:
-        protocol: UDP
-        enabled: true
-        port: 25568
-        targetPort: 25568
       mc-port-5-tcp:
-        enabled: true
-        port: 25569
-        targetPort: 25569
-      mc-port-5-udp:
-        protocol: UDP
         enabled: true
         port: 25569
         targetPort: 25569
@@ -82,6 +57,34 @@ service:
         enabled: true
         port: 25570
         targetPort: 25570
+  minecraft_java_udp:
+    enabled: true
+    ports:
+      mc-port-1-udp:
+        protocol: UDP
+        enabled: true
+        port: 25565
+        targetPort: 25565
+      mc-port-2-udp:
+        protocol: UDP
+        enabled: true
+        port: 25566
+        targetPort: 25566         
+      mc-port-3-udp:
+        protocol: UDP
+        enabled: true
+        port: 25567
+        targetPort: 25567        
+      mc-port-4-udp:
+        protocol: UDP
+        enabled: true
+        port: 25568
+        targetPort: 25568         
+      mc-port-5-udp:
+        protocol: UDP
+        enabled: true
+        port: 25569
+        targetPort: 25569              
       mc-port-6-udp:
         protocol: UDP
         enabled: true
@@ -93,26 +96,32 @@ service:
       mc-port-1-udp:
         enabled: true
         port: 19132
+        protocol: UDP
         targetPort: 19132
       mc-port-2-udp:
         enabled: true
         port: 19133
+        protocol: UDP        
         targetPort: 19133
       mc-port-3-udp:
         enabled: true
         port: 19134
+        protocol: UDP
         targetPort: 19134
       mc-port-4-udp:
         enabled: true
         port: 19135
+        protocol: UDP
         targetPort: 19135
       mc-port-5-udp:
         enabled: true
         port: 19136
+        protocol: UDP
         targetPort: 19136
       mc-port-6-udp:
         enabled: true
         port: 19137
+        protocol: UDP
         targetPort: 19137
   minecraft_rcon:
     enabled: true
