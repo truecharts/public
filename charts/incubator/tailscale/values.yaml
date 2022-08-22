@@ -22,27 +22,29 @@ serviceAccount:
   main:
     create: true
 
-rbac:
-  main:
-    enabled: true
-    rules:
-      - apiGroups:
-          - ""
-        resources:
-          - "secrets"
-        verbs:
-          - "create"
-      - apiGroups:
-          - ""
-        resources:
-          - "secrets"
-        resourceNames:
-          - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
-        verbs:
-          - "get"
-          - "update"
+# rbac:
+#   main:
+#     enabled: true
+#     rules:
+#       - apiGroups:
+#           - ""
+#         resources:
+#           - "secrets"
+#         verbs:
+#           - "create"
+#       - apiGroups:
+#           - ""
+#         resources:
+#           - "secrets"
+#         resourceNames:
+#           - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+#         verbs:
+#           - "get"
+#           - "update"
 
 envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-tailscale-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
