@@ -2,6 +2,15 @@
 
 
 
+## [jackett-11.0.66](https://github.com/truecharts/charts/compare/jackett-11.0.65...jackett-11.0.66) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [jackett-11.0.65](https://github.com/truecharts/charts/compare/jackett-11.0.64...jackett-11.0.65) (2022-08-23)
 
 ### Chore

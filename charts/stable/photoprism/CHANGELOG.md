@@ -2,6 +2,15 @@
 
 
 
+## [photoprism-10.0.36](https://github.com/truecharts/charts/compare/photoprism-10.0.35...photoprism-10.0.36) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [photoprism-10.0.35](https://github.com/truecharts/charts/compare/photoprism-10.0.34...photoprism-10.0.35) (2022-08-17)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [healthchecks-7.0.27](https://github.com/truecharts/charts/compare/healthchecksdashboard-0.0.16...healthchecks-7.0.27) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [healthchecks-7.0.26](https://github.com/truecharts/charts/compare/healthchecksdashboard-0.0.15...healthchecks-7.0.26) (2022-08-12)
 
 ### Chore

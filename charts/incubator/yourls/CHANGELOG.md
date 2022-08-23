@@ -2,6 +2,15 @@
 
 
 
+## [yourls-0.0.18](https://github.com/truecharts/charts/compare/yourls-0.0.17...yourls-0.0.18) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [yourls-0.0.17](https://github.com/truecharts/charts/compare/yourls-0.0.16...yourls-0.0.17) (2022-08-12)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [grafana-4.0.49](https://github.com/truecharts/charts/compare/grafana-4.0.48...grafana-4.0.49) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [grafana-4.0.48](https://github.com/truecharts/charts/compare/grafana-4.0.47...grafana-4.0.48) (2022-08-23)
 
 ### Chore

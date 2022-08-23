@@ -2,6 +2,15 @@
 
 
 
+## [minio-3.0.43](https://github.com/truecharts/charts/compare/minio-3.0.42...minio-3.0.43) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [minio-3.0.42](https://github.com/truecharts/charts/compare/minio-console-3.0.30...minio-3.0.42) (2022-08-17)
 
 ### Chore

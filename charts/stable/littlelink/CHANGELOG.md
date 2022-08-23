@@ -2,6 +2,15 @@
 
 
 
+## [littlelink-6.0.52](https://github.com/truecharts/charts/compare/littlelink-6.0.51...littlelink-6.0.52) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [littlelink-6.0.51](https://github.com/truecharts/charts/compare/littlelink-6.0.50...littlelink-6.0.51) (2022-08-23)
 
 ### Chore

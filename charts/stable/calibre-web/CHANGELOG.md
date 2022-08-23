@@ -2,6 +2,15 @@
 
 
 
+## [calibre-web-11.0.34](https://github.com/truecharts/charts/compare/calibre-web-11.0.33...calibre-web-11.0.34) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [calibre-web-11.0.33](https://github.com/truecharts/charts/compare/calibre-web-11.0.32...calibre-web-11.0.33) (2022-08-12)
 
 ### Chore

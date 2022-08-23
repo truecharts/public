@@ -2,6 +2,15 @@
 
 
 
+## [jenkins-0.1.2](https://github.com/truecharts/charts/compare/jenkins-0.1.1...jenkins-0.1.2) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [jenkins-0.1.1](https://github.com/truecharts/charts/compare/jenkins-0.1.0...jenkins-0.1.1) (2022-08-12)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [vikunja-3.0.42](https://github.com/truecharts/charts/compare/vikunja-3.0.41...vikunja-3.0.42) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [vikunja-3.0.41](https://github.com/truecharts/charts/compare/vikunja-3.0.40...vikunja-3.0.41) (2022-08-19)
 
 ### Chore

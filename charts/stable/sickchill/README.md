@@ -1,6 +1,6 @@
 # sickchill
 
-![Version: 3.0.34](https://img.shields.io/badge/Version-3.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.8.22](https://img.shields.io/badge/AppVersion-2022.8.22-informational?style=flat-square)
+![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.8.22](https://img.shields.io/badge/AppVersion-2022.8.22-informational?style=flat-square)
 
 An Automatic Video Library Manager for TV Shows
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

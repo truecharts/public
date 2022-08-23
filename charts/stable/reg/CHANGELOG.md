@@ -2,6 +2,15 @@
 
 
 
+## [reg-6.0.26](https://github.com/truecharts/charts/compare/dockerregistry-0.0.15...reg-6.0.26) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [reg-6.0.25](https://github.com/truecharts/charts/compare/dockerregistry-0.0.14...reg-6.0.25) (2022-08-12)
 
 ### Chore

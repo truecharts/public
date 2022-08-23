@@ -1,13 +1,13 @@
 # authentik
 
-![Version: 3.0.7](https://img.shields.io/badge/Version-3.0.7-informational?style=flat-square) ![AppVersion: 2022.8.2](https://img.shields.io/badge/AppVersion-2022.8.2-informational?style=flat-square)
+![Version: 3.0.8](https://img.shields.io/badge/Version-3.0.8-informational?style=flat-square) ![AppVersion: 2022.8.2](https://img.shields.io/badge/AppVersion-2022.8.2-informational?style=flat-square)
 
 authentik is an open-source Identity Provider focused on flexibility and versatility.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [authentik](https://truecharts.org/docs/charts/stable/authentik)
+For more information, please click here: [authentik](https://truecharts.org/docs/charts/incubator/authentik)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -25,9 +25,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.56 |
-| https://charts.truecharts.org | redis | 3.0.54 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | postgresql | 8.0.62 |
+| https://charts.truecharts.org | redis | 3.0.58 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

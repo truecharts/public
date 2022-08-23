@@ -2,6 +2,15 @@
 
 
 
+## [qdirstat-1.0.5](https://github.com/truecharts/charts/compare/qdirstat-1.0.4...qdirstat-1.0.5) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [qdirstat-1.0.4](https://github.com/truecharts/charts/compare/qdirstat-1.0.3...qdirstat-1.0.4) (2022-08-12)
 
 ### Chore

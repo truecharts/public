@@ -2,6 +2,15 @@
 
 
 
+## [btdex-0.0.19](https://github.com/truecharts/charts/compare/btdex-0.0.18...btdex-0.0.19) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [btdex-0.0.18](https://github.com/truecharts/charts/compare/btdex-0.0.17...btdex-0.0.18) (2022-08-17)
 
 ### Chore

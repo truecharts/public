@@ -2,6 +2,15 @@
 
 
 
+## [theme-park-2.0.8](https://github.com/truecharts/charts/compare/theme-park-2.0.7...theme-park-2.0.8) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [theme-park-2.0.7](https://github.com/truecharts/charts/compare/theme-park-2.0.6...theme-park-2.0.7) (2022-08-23)
 
 ### Chore

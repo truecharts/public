@@ -2,6 +2,15 @@
 
 
 
+## [redmine-3.0.37](https://github.com/truecharts/charts/compare/redmine-3.0.36...redmine-3.0.37) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [redmine-3.0.36](https://github.com/truecharts/charts/compare/redmine-3.0.35...redmine-3.0.36) (2022-08-17)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [ghost-3.0.46](https://github.com/truecharts/charts/compare/ghost-3.0.45...ghost-3.0.46) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [ghost-3.0.45](https://github.com/truecharts/charts/compare/ghost-3.0.44...ghost-3.0.45) (2022-08-21)
 
 ### Chore

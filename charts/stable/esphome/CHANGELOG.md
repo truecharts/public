@@ -2,6 +2,15 @@
 
 
 
+## [esphome-11.0.30](https://github.com/truecharts/charts/compare/esphome-11.0.29...esphome-11.0.30) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [esphome-11.0.29](https://github.com/truecharts/charts/compare/esphome-11.0.28...esphome-11.0.29) (2022-08-18)
 
 ### Chore

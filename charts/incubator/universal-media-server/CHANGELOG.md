@@ -2,6 +2,15 @@
 
 
 
+## [universal-media-server-0.0.18](https://github.com/truecharts/charts/compare/universal-media-server-0.0.17...universal-media-server-0.0.18) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [universal-media-server-0.0.17](https://github.com/truecharts/charts/compare/universal-media-server-0.0.16...universal-media-server-0.0.17) (2022-08-12)
 
 ### Chore

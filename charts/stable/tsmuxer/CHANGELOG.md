@@ -2,6 +2,15 @@
 
 
 
+## [tsmuxer-1.0.4](https://github.com/truecharts/charts/compare/tsmuxer-1.0.3...tsmuxer-1.0.4) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [tsmuxer-1.0.3](https://github.com/truecharts/charts/compare/tsmuxer-1.0.2...tsmuxer-1.0.3) (2022-08-12)
 
 ### Chore

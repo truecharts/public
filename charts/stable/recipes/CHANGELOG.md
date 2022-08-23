@@ -2,6 +2,15 @@
 
 
 
+## [recipes-8.0.40](https://github.com/truecharts/charts/compare/recipes-8.0.39...recipes-8.0.40) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [recipes-8.0.39](https://github.com/truecharts/charts/compare/recipes-8.0.38...recipes-8.0.39) (2022-08-18)
 
 ### Chore

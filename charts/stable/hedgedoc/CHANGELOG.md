@@ -2,6 +2,15 @@
 
 
 
+## [hedgedoc-4.0.37](https://github.com/truecharts/charts/compare/hedgedoc-4.0.36...hedgedoc-4.0.37) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [hedgedoc-4.0.36](https://github.com/truecharts/charts/compare/hedgedoc-4.0.35...hedgedoc-4.0.36) (2022-08-18)
 
 ### Chore

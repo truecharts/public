@@ -2,6 +2,15 @@
 
 
 
+## [trilium-notes-5.0.28](https://github.com/truecharts/charts/compare/trilium-notes-5.0.27...trilium-notes-5.0.28) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [trilium-notes-5.0.27](https://github.com/truecharts/charts/compare/trilium-notes-5.0.26...trilium-notes-5.0.27) (2022-08-12)
 
 ### Chore

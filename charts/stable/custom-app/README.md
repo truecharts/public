@@ -1,6 +1,6 @@
 # custom-app
 
-![Version: 5.1.42](https://img.shields.io/badge/Version-5.1.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1778](https://img.shields.io/badge/AppVersion-0.20.1778-informational?style=flat-square)
+![Version: 5.1.43](https://img.shields.io/badge/Version-5.1.43-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1778](https://img.shields.io/badge/AppVersion-0.20.1778-informational?style=flat-square)
 
 Advanced tool to create your own TrueCharts-based App
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

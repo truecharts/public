@@ -2,6 +2,15 @@
 
 
 
+## [deepstack-4.0.26](https://github.com/truecharts/charts/compare/deepstack-4.0.25...deepstack-4.0.26) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [deepstack-4.0.25](https://github.com/truecharts/charts/compare/deepstack-4.0.24...deepstack-4.0.25) (2022-08-12)
 
 ### Chore

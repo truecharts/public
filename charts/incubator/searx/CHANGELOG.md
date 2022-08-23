@@ -2,6 +2,15 @@
 
 
 
+## [searx-0.0.24](https://github.com/truecharts/charts/compare/searxng-0.0.26...searx-0.0.24) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [searx-0.0.23](https://github.com/truecharts/charts/compare/searxng-0.0.24...searx-0.0.23) (2022-08-23)
 
 ### Chore

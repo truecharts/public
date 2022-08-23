@@ -2,6 +2,15 @@
 
 
 
+## [flexget-2.0.37](https://github.com/truecharts/charts/compare/flexget-2.0.36...flexget-2.0.37) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [flexget-2.0.36](https://github.com/truecharts/charts/compare/flexget-2.0.35...flexget-2.0.36) (2022-08-23)
 
 ### Chore

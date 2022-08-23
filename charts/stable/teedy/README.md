@@ -1,6 +1,6 @@
 # teedy
 
-![Version: 7.0.30](https://img.shields.io/badge/Version-7.0.30-informational?style=flat-square) ![AppVersion: 1.10](https://img.shields.io/badge/AppVersion-1.10-informational?style=flat-square)
+![Version: 7.0.31](https://img.shields.io/badge/Version-7.0.31-informational?style=flat-square) ![AppVersion: 1.10](https://img.shields.io/badge/AppVersion-1.10-informational?style=flat-square)
 
 Teedy is an open source, lightweight document management system for individuals and businesses.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.56 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | postgresql | 8.0.62 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 
