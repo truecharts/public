@@ -2,6 +2,15 @@
 
 
 
+## [searx-0.0.23](https://github.com/truecharts/charts/compare/searxng-0.0.24...searx-0.0.23) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [searx-0.0.22](https://github.com/truecharts/charts/compare/searxng-0.0.22...searx-0.0.22) (2022-08-17)
 
 ### Chore

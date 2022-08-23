@@ -2,6 +2,15 @@
 
 
 
+## [deemix-3.0.27](https://github.com/truecharts/charts/compare/deemix-3.0.26...deemix-3.0.27) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [deemix-3.0.26](https://github.com/truecharts/charts/compare/deemix-3.0.25...deemix-3.0.26) (2022-08-14)
 
 ### Chore

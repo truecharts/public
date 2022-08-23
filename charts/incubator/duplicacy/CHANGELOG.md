@@ -2,6 +2,15 @@
 
 
 
+## [duplicacy-0.0.19](https://github.com/truecharts/charts/compare/duplicacy-0.0.18...duplicacy-0.0.19) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [duplicacy-0.0.18](https://github.com/truecharts/charts/compare/duplicacy-0.0.17...duplicacy-0.0.18) (2022-08-14)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [sickchill-3.0.34](https://github.com/truecharts/charts/compare/sickchill-3.0.33...sickchill-3.0.34) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [sickchill-3.0.33](https://github.com/truecharts/charts/compare/sickchill-3.0.32...sickchill-3.0.33) (2022-08-17)
 
 ### Chore

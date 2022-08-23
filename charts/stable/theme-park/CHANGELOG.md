@@ -2,6 +2,15 @@
 
 
 
+## [theme-park-2.0.7](https://github.com/truecharts/charts/compare/theme-park-2.0.6...theme-park-2.0.7) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [theme-park-2.0.6](https://github.com/truecharts/charts/compare/theme-park-2.0.5...theme-park-2.0.6) (2022-08-14)
 
 ### Chore
