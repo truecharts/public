@@ -15,8 +15,8 @@ data:
   API_SESSION_TIMEOUT: {{ . | quote }}
   {{- end }}
   {{/* TOTP */}}
-  {{- with .Values.totp.TOTP_ENABLED }}
-  TOTP_ENABLED: {{ . | quote }}
+  {{- if .Values.totp.TOTP_ENABLED }}
+  TOTP_ENABLED: {{ .Values.totp.TOTP_ENABLED | quote }}
   {{- with .Values.totp.TOTP_ISSUER }}
   TOTP_ISSUER: {{ . | quote }}
   {{- end }}
@@ -31,8 +31,8 @@ data:
   {{- end }}
   {{- end }}
   {{/* HEADER */}}
-  {{- with .Values.header.HEADER_ENABLED }}
-  HEADER_ENABLED: {{ . | quote }}
+  {{- if .Values.header.HEADER_ENABLED }}
+  HEADER_ENABLED: {{ .Values.header.HEADER_ENABLED | quote }}
   {{- with .Values.header.HTTP_AUTH_HEADER }}
   HTTP_AUTH_HEADER: {{ . | quote }}
   {{- end }}
@@ -118,8 +118,8 @@ data:
   {{- with .Values.radius.RADIUS_CA_PASSWORD }}
   RADIUS_CA_PASSWORD: {{ . | quote }}
   {{- end }}
-  {{- with .Values.radius.RADIUS_TRUST_ALL }}
-  RADIUS_TRUST_ALL: {{ . | quote }}
+  {{- if .Values.radius.RADIUS_TRUST_ALL }}
+  RADIUS_TRUST_ALL: {{ .Values.radius.RADIUS_TRUST_ALL | quote }}
   {{- end }}
   {{- with .Values.radius.RADIUS_RETRIES }}
   RADIUS_RETRIES: {{ . | quote }}
@@ -180,8 +180,8 @@ data:
   {{- with .Values.ldap.LDAP_DEREFERENCE_ALIASES }}
   LDAP_DEREFERENCE_ALIASES: {{ . | quote }}
   {{- end }}
-  {{- with .Values.ldap.LDAP_FOLLOW_REFERRALS }}
-  LDAP_FOLLOW_REFERRALS: {{ . | quote }}
+  {{- if .Values.ldap.LDAP_FOLLOW_REFERRALS }}
+  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }}
   {{- with .Values.ldap.LDAP_MAX_REFERRAL_HOPS }}
   LDAP_MAX_REFERRAL_HOPS: {{ . | quote }}
   {{- end }}
@@ -204,25 +204,25 @@ data:
   {{- with .Values.saml.SAML_IDP_URL }}
   SAML_IDP_URL: {{ . | quote }}
   {{- end }}
-  {{- with .Values.saml.SAML_STRICT }}
-  SAML_STRICT: {{ . | quote }}
+  {{- if .Values.saml.SAML_STRICT }}
+  SAML_STRICT: {{ .Values.saml.SAML_STRICT | quote }}
   {{- end }}
-  {{- with .Values.saml.SAML_DEBUG }}
-  SAML_DEBUG: {{ . | quote }}
+  {{- if .Values.saml.SAML_DEBUG }}
+  SAML_DEBUG: {{ .Values.saml.SAML_DEBUG | quote }}
   {{- end }}
-  {{- with .Values.saml.SAML_COMPRESS_REQUEST }}
-  SAML_COMPRESS_REQUEST: {{ . | quote }}
+  {{- if .Values.saml.SAML_COMPRESS_REQUEST }}
+  SAML_COMPRESS_REQUEST: {{ .Values.saml.SAML_COMPRESS_REQUEST | quote }}
   {{- end }}
-  {{- with .Values.saml.SAML_COMPRESS_RESPONSE }}
-  SAML_COMPRESS_RESPONSE: {{ . | quote }}
+  {{- if .Values.saml.SAML_COMPRESS_RESPONSE }}
+  SAML_COMPRESS_RESPONSE: {{ .alues.saml.SAML_COMPRESS_RESPONSE | quote }}
   {{- end }}
   {{- with .Values.saml.SAML_GROUP_ATTRIBUTE }}
   SAML_GROUP_ATTRIBUTE: {{ . | quote }}
   {{- end }}
   {{- end }}
   {{/* PROXY */}}
-  {{- with .Values.proxy.REMOTE_IP_VALVE_ENABLED }}
-  REMOTE_IP_VALVE_ENABLED: {{ . | quote }}
+  {{- if .Values.proxy.REMOTE_IP_VALVE_ENABLED }}
+  REMOTE_IP_VALVE_ENABLED: {{ .Values.proxy.REMOTE_IP_VALVE_ENABLED | quote }}
   {{- with .Values.proxy.PROXY_BY_HEADER }}
   PROXY_BY_HEADER: {{ . | quote }}
   {{- end }}
