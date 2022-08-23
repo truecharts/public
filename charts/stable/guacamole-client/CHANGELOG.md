@@ -2,6 +2,15 @@
 
 
 
+## [guacamole-client-4.0.33](https://github.com/truecharts/charts/compare/guacamole-client-4.0.32...guacamole-client-4.0.33) (2022-08-23)
+
+### Fix
+
+- booleans don't work the same with `with` ([#3549](https://github.com/truecharts/charts/issues/3549))
+
+
+
+
 ## [guacamole-client-4.0.32](https://github.com/truecharts/charts/compare/guacamole-client-4.0.31...guacamole-client-4.0.32) (2022-08-22)
 
 ### Fix
