@@ -3,6 +3,10 @@ image:
   pullPolicy: IfNotPresent
   tag: version-1.8.14@sha256:4900f0e787ca22cf93090ae44ecceb5689d4427c739e1eb637a6e3a913161bf8
 
+secretEnv:
+  ADMIN_PASSWORD: "adminpass"
+  USER_PASSWORD: "firstuserpass"
+
 env:
   DB_TYPE: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -16,6 +20,10 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+  # User Defined
+  TITLE: "Etherpad"
+  FAVICON: "favicon.ico"
+  DEFAULT_PAD_TEXT: "Welcome to Etherpad! This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents! Get involved with Etherpad at https://etherpad.org"
 
 securityContext:
   readOnlyRootFilesystem: false
