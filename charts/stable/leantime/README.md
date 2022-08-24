@@ -1,6 +1,6 @@
 # leantime
 
-![Version: 4.0.34](https://img.shields.io/badge/Version-4.0.34-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 4.0.36](https://img.shields.io/badge/Version-4.0.36-informational?style=flat-square) ![AppVersion: 2.2.5](https://img.shields.io/badge/AppVersion-2.2.5-informational?style=flat-square)
 
 Straightforward open source project management system to make your ideas reality.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.54 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | mariadb | 3.0.58 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

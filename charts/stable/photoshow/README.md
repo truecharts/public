@@ -1,6 +1,6 @@
 # photoshow
 
-![Version: 3.0.24](https://img.shields.io/badge/Version-3.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 48aabb98](https://img.shields.io/badge/AppVersion-48aabb98-informational?style=flat-square)
+![Version: 3.0.25](https://img.shields.io/badge/Version-3.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 48aabb98](https://img.shields.io/badge/AppVersion-48aabb98-informational?style=flat-square)
 
 A gallery software at its easiest, it doesn't even require a database.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

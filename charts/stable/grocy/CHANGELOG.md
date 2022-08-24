@@ -2,6 +2,15 @@
 
 
 
+## [grocy-11.0.36](https://github.com/truecharts/charts/compare/grocy-11.0.35...grocy-11.0.36) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [grocy-11.0.35](https://github.com/truecharts/charts/compare/grocy-11.0.34...grocy-11.0.35) (2022-08-19)
 
 ### Chore

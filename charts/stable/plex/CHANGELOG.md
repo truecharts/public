@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.1.3](https://github.com/truecharts/charts/compare/plex-10.1.2...plex-10.1.3) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [plex-10.1.2](https://github.com/truecharts/charts/compare/plex-10.1.1...plex-10.1.2) (2022-08-19)
 
 ### Fix

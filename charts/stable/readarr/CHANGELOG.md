@@ -2,6 +2,15 @@
 
 
 
+## [readarr-11.0.25](https://github.com/truecharts/charts/compare/readarr-11.0.24...readarr-11.0.25) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [readarr-11.0.24](https://github.com/truecharts/charts/compare/readarr-11.0.23...readarr-11.0.24) (2022-08-12)
 
 ### Chore

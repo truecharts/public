@@ -2,6 +2,15 @@
 
 
 
+## [doplarr-2.0.27](https://github.com/truecharts/charts/compare/doplarr-2.0.26...doplarr-2.0.27) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [doplarr-2.0.26](https://github.com/truecharts/charts/compare/doplarr-2.0.25...doplarr-2.0.26) (2022-08-12)
 
 ### Chore

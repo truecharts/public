@@ -2,6 +2,26 @@
 
 
 
+## [wger-0.0.44](https://github.com/truecharts/charts/compare/wger-0.0.43...wger-0.0.44) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [wger-0.0.43](https://github.com/truecharts/charts/compare/wger-0.0.41...wger-0.0.43) (2022-08-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+  - update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [wger-0.0.42](https://github.com/truecharts/charts/compare/wger-0.0.41...wger-0.0.42) (2022-08-21)
 
 ### Chore

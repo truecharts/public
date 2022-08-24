@@ -2,6 +2,15 @@
 
 
 
+## [lancache-dns-0.0.15](https://github.com/truecharts/charts/compare/lancache-dns-0.0.14...lancache-dns-0.0.15) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [lancache-dns-0.0.14](https://github.com/truecharts/charts/compare/lancache-dns-0.0.13...lancache-dns-0.0.14) (2022-08-12)
 
 ### Chore

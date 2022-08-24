@@ -2,6 +2,15 @@
 
 
 
+## [commento-plusplus-3.0.33](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.32...commento-plusplus-3.0.33) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [commento-plusplus-3.0.32](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.31...commento-plusplus-3.0.32) (2022-08-21)
 
 ### Chore

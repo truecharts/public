@@ -2,6 +2,15 @@
 
 
 
+## [mosquitto-6.0.32](https://github.com/truecharts/charts/compare/mosquitto-6.0.31...mosquitto-6.0.32) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [mosquitto-6.0.31](https://github.com/truecharts/charts/compare/mosquitto-6.0.30...mosquitto-6.0.31) (2022-08-17)
 
 ### Chore

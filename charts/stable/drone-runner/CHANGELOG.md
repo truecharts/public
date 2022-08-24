@@ -2,6 +2,15 @@
 
 
 
+## [drone-runner-1.0.1](https://github.com/truecharts/charts/compare/drone-runner-1.0.0...drone-runner-1.0.1) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [drone-runner-1.0.0](https://github.com/truecharts/charts/compare/drone-runner-0.0.2...drone-runner-1.0.0) (2022-08-22)
 
 ### Feat

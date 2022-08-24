@@ -2,6 +2,15 @@
 
 
 
+## [sheetable-0.0.7](https://github.com/truecharts/charts/compare/sheetable-0.0.6...sheetable-0.0.7) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [sheetable-0.0.6](https://github.com/truecharts/charts/compare/sheetable-0.0.5...sheetable-0.0.6) (2022-08-17)
 
 ### Chore

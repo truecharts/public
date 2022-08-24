@@ -1,13 +1,13 @@
 # cups-server
 
-![Version: 1.0.33](https://img.shields.io/badge/Version-1.0.33-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.35](https://img.shields.io/badge/Version-1.0.35-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 CUPS printing server
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [cups-server](https://truecharts.org/docs/charts/stable/cups-server)
+For more information, please click here: [cups-server](https://truecharts.org/docs/charts/incubator/cups-server)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

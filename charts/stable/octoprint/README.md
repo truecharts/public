@@ -1,6 +1,6 @@
 # octoprint
 
-![Version: 6.0.28](https://img.shields.io/badge/Version-6.0.28-informational?style=flat-square) ![AppVersion: 1.8.2](https://img.shields.io/badge/AppVersion-1.8.2-informational?style=flat-square)
+![Version: 6.0.29](https://img.shields.io/badge/Version-6.0.29-informational?style=flat-square) ![AppVersion: 1.8.2](https://img.shields.io/badge/AppVersion-1.8.2-informational?style=flat-square)
 
 OctoPrint is the snappy web interface for your 3D printer
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

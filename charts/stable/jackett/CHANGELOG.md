@@ -2,6 +2,33 @@
 
 
 
+## [jackett-11.0.67](https://github.com/truecharts/charts/compare/jackett-11.0.66...jackett-11.0.67) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [jackett-11.0.66](https://github.com/truecharts/charts/compare/jackett-11.0.65...jackett-11.0.66) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [jackett-11.0.65](https://github.com/truecharts/charts/compare/jackett-11.0.64...jackett-11.0.65) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [jackett-11.0.64](https://github.com/truecharts/charts/compare/jackett-11.0.63...jackett-11.0.64) (2022-08-22)
 
 ### Chore

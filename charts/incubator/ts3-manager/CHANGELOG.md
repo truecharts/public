@@ -2,6 +2,15 @@
 
 
 
+## [ts3-manager-0.0.6](https://github.com/truecharts/charts/compare/ts3-manager-0.0.5...ts3-manager-0.0.6) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [ts3-manager-0.0.5](https://github.com/truecharts/charts/compare/ts3-manager-0.0.4...ts3-manager-0.0.5) (2022-08-12)
 
 ### Chore

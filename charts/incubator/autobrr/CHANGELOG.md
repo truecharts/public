@@ -2,6 +2,15 @@
 
 
 
+## [autobrr-0.0.8](https://github.com/truecharts/charts/compare/autobrr-0.0.7...autobrr-0.0.8) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [cadquery-jupyter-0.0.17](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.16...cadquery-jupyter-0.0.17) (2022-08-21)
 
 ### Chore

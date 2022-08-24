@@ -2,6 +2,15 @@
 
 
 
+## [mineos-0.0.19](https://github.com/truecharts/charts/compare/mineos-0.0.18...mineos-0.0.19) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [mineos-0.0.18](https://github.com/truecharts/charts/compare/mineos-0.0.17...mineos-0.0.18) (2022-08-22)
 
 ### Fix

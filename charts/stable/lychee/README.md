@@ -1,6 +1,6 @@
 # lychee
 
-![Version: 13.0.32](https://img.shields.io/badge/Version-13.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.5.3](https://img.shields.io/badge/AppVersion-4.5.3-informational?style=flat-square)
+![Version: 13.0.33](https://img.shields.io/badge/Version-13.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.5.3](https://img.shields.io/badge/AppVersion-4.5.3-informational?style=flat-square)
 
 Lychee is a free photo-management tool, which runs on your server or web-space
 
@@ -25,9 +25,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.56 |
-| https://charts.truecharts.org | redis | 3.0.54 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | postgresql | 8.0.62 |
+| https://charts.truecharts.org | redis | 3.0.58 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

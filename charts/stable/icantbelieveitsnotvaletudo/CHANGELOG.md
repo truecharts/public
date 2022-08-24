@@ -2,6 +2,15 @@
 
 
 
+## [icantbelieveitsnotvaletudo-4.0.28](https://github.com/truecharts/charts/compare/icantbelieveitsnotvaletudo-4.0.27...icantbelieveitsnotvaletudo-4.0.28) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [icantbelieveitsnotvaletudo-4.0.27](https://github.com/truecharts/charts/compare/icantbelieveitsnotvaletudo-4.0.26...icantbelieveitsnotvaletudo-4.0.27) (2022-08-12)
 
 ### Chore

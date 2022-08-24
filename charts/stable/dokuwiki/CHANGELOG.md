@@ -2,6 +2,15 @@
 
 
 
+## [dokuwiki-3.0.46](https://github.com/truecharts/charts/compare/dokuwiki-3.0.45...dokuwiki-3.0.46) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [dokuwiki-3.0.45](https://github.com/truecharts/charts/compare/dokuwiki-3.0.44...dokuwiki-3.0.45) (2022-08-12)
 
 ### Chore

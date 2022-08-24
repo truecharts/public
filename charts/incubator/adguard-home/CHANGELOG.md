@@ -2,6 +2,15 @@
 
 
 
+## [adguard-home-1.0.32](https://github.com/truecharts/charts/compare/adguard-home-1.0.31...adguard-home-1.0.32) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [adguard-home-1.0.31](https://github.com/truecharts/charts/compare/adguard-home-1.0.30...adguard-home-1.0.31) (2022-08-21)
 
 ### Chore

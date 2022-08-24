@@ -2,6 +2,15 @@
 
 
 
+## [rdesktop-0.0.21](https://github.com/truecharts/charts/compare/rdesktop-0.0.20...rdesktop-0.0.21) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [rdesktop-0.0.20](https://github.com/truecharts/charts/compare/rdesktop-0.0.19...rdesktop-0.0.20) (2022-08-21)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [cura-novnc-0.0.17](https://github.com/truecharts/charts/compare/cura-novnc-0.0.16...cura-novnc-0.0.17) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [cura-novnc-0.0.16](https://github.com/truecharts/charts/compare/cura-novnc-0.0.15...cura-novnc-0.0.16) (2022-08-12)
 
 ### Chore

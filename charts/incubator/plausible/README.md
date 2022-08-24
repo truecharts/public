@@ -1,13 +1,13 @@
 # plausible
 
-![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.4](https://img.shields.io/badge/AppVersion-1.4.4-informational?style=flat-square)
+![Version: 1.0.10](https://img.shields.io/badge/Version-1.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.4](https://img.shields.io/badge/AppVersion-1.4.4-informational?style=flat-square)
 
 Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [plausible](https://truecharts.org/docs/charts/stable/plausible)
+For more information, please click here: [plausible](https://truecharts.org/docs/charts/incubator/plausible)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -28,9 +28,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | clickhouse | 1.0.9 |
-| https://charts.truecharts.org/ | postgresql | 8.0.56 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | clickhouse | 1.0.11 |
+| https://charts.truecharts.org/ | postgresql | 8.0.62 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

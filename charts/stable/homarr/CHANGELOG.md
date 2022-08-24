@@ -2,6 +2,15 @@
 
 
 
+## [homarr-2.0.30](https://github.com/truecharts/charts/compare/homarr-2.0.29...homarr-2.0.30) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [homarr-2.0.29](https://github.com/truecharts/charts/compare/homarr-2.0.28...homarr-2.0.29) (2022-08-14)
 
 ### Chore

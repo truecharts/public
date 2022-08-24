@@ -2,6 +2,15 @@
 
 
 
+## [apache-musicindex-4.0.26](https://github.com/truecharts/charts/compare/apache-musicindex-4.0.25...apache-musicindex-4.0.26) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [apache-musicindex-4.0.25](https://github.com/truecharts/charts/compare/apache-musicindex-4.0.24...apache-musicindex-4.0.25) (2022-08-12)
 
 ### Chore

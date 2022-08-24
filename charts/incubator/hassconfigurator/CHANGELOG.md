@@ -2,6 +2,15 @@
 
 
 
+## [hassconfigurator-0.0.16](https://github.com/truecharts/charts/compare/hassconfigurator-0.0.15...hassconfigurator-0.0.16) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [hassconfigurator-0.0.15](https://github.com/truecharts/charts/compare/hassconfigurator-0.0.14...hassconfigurator-0.0.15) (2022-08-12)
 
 ### Chore

@@ -2,6 +2,24 @@
 
 
 
+## [tailscale-1.0.0](https://github.com/truecharts/charts/compare/tailscale-0.0.9...tailscale-1.0.0) (2022-08-24)
+
+### Feat
+
+- Move to stable and add How-To Guide ([#3556](https://github.com/truecharts/charts/issues/3556))
+
+
+
+
+## [tailscale-0.0.9](https://github.com/truecharts/charts/compare/tailscale-0.0.8...tailscale-0.0.9) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [tailscale-0.0.8](https://github.com/truecharts/charts/compare/tailscale-0.0.7...tailscale-0.0.8) (2022-08-22)
 
 ### Fix

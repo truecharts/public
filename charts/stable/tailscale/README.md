@@ -1,19 +1,19 @@
 # tailscale
 
-![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![AppVersion: 1.29.125](https://img.shields.io/badge/AppVersion-1.29.125-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.29.125](https://img.shields.io/badge/AppVersion-1.29.125-informational?style=flat-square)
 
 Tailscale lets you connect your devices and users together in your own secure virtual private network
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [tailscale](https://truecharts.org/docs/charts/incubator/tailscale)
+For more information, please click here: [tailscale](https://truecharts.org/docs/charts/stable/tailscale)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/tailscale>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/tailscale>
 * <https://hub.docker.com/r/tailscale/tailscale>
 * <https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh>
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

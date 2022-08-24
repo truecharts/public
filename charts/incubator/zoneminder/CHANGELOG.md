@@ -2,6 +2,15 @@
 
 
 
+## [zoneminder-0.0.18](https://github.com/truecharts/charts/compare/zoneminder-0.0.17...zoneminder-0.0.18) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [zoneminder-0.0.17](https://github.com/truecharts/charts/compare/zoneminder-0.0.16...zoneminder-0.0.17) (2022-08-12)
 
 ### Chore

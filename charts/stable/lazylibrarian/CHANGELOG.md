@@ -2,6 +2,24 @@
 
 
 
+## [lazylibrarian-11.0.43](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.42...lazylibrarian-11.0.43) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [lazylibrarian-11.0.42](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.41...lazylibrarian-11.0.42) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [lazylibrarian-11.0.41](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.40...lazylibrarian-11.0.41) (2022-08-20)
 
 ### Chore

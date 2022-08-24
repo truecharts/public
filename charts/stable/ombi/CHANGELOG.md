@@ -2,6 +2,24 @@
 
 
 
+## [ombi-11.0.33](https://github.com/truecharts/charts/compare/ombi-11.0.32...ombi-11.0.33) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [ombi-11.0.32](https://github.com/truecharts/charts/compare/ombi-11.0.31...ombi-11.0.32) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [ombi-11.0.31](https://github.com/truecharts/charts/compare/ombi-11.0.30...ombi-11.0.31) (2022-08-14)
 
 ### Chore

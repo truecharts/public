@@ -2,6 +2,15 @@
 
 
 
+## [ts-dnsserver-0.0.23](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.22...ts-dnsserver-0.0.23) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [ts-dnsserver-0.0.22](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.21...ts-dnsserver-0.0.22) (2022-08-20)
 
 ### Chore
