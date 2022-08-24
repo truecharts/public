@@ -92,4 +92,5 @@ You most likely will have to reach to the upstream support channels for that.
 
 ## Why is my OpenVPN password not working?
 
-Don't use $ in your passwords, it won't work due to an upstream bug in OpenVPN container
+Don't use $ in your passwords, it won't work due to an upstream
+[bug](https://github.com/dperson/openvpn-client/issues/376) in OpenVPN container
