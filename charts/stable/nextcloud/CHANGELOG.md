@@ -2,6 +2,15 @@
 
 
 
+## [nextcloud-15.2.44](https://github.com/truecharts/charts/compare/nextcloud-15.2.43...nextcloud-15.2.44) (2022-08-24)
+
+### Fix
+
+- Add port on non-ingressed installs ([#3557](https://github.com/truecharts/charts/issues/3557))
+
+
+
+
 ## [nextcloud-15.2.43](https://github.com/truecharts/charts/compare/nextcloud-15.2.42...nextcloud-15.2.43) (2022-08-24)
 
 ### Chore
