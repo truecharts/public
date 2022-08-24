@@ -2,6 +2,15 @@
 
 
 
+## [nextcloud-15.2.43](https://github.com/truecharts/charts/compare/nextcloud-15.2.42...nextcloud-15.2.43) (2022-08-24)
+
+### Chore
+
+- set overwrite.cli.url ([#3541](https://github.com/truecharts/charts/issues/3541))
+
+
+
+
 ## [nextcloud-15.2.42](https://github.com/truecharts/charts/compare/nextcloud-15.2.41...nextcloud-15.2.42) (2022-08-24)
 
 ### Chore
