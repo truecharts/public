@@ -33,7 +33,7 @@ Step 3:
 - Keep `Userspace` checked (default) unless you wish to create your own Wireguard tunnels,
 - The default for `Accept DNS` is unchecked but enabling it will pass your Global Nameservers from Tailscale to your local install
 - Change `Routes` to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example
-- Extra Args passes `UP_ARGS` from the `tailscale up` command to the chart. The most common one is `--advertise-exit-node` to pass traffic through tailscale like a private VPN. For more Extra Arghs please check the[Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
+- `Extra Args` passes arguments/flags to the `tailscale up` command. The most common one is `--advertise-exit-node` to pass traffic through tailscale like a private VPN. For more Extra Args please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 
 ![tailscale-step-3](img/How-To-Image-2.png)
 
@@ -47,7 +47,6 @@ Steps 5-9: Adjust as necessary but defaults are fine.
 
 ## Support
 
-- If you need more details or have a more custom setup the documentation on the [upstream](https://github.com/weejewel/wg-easy) is very complete so check the descriptions of the options there.
 - You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
 
