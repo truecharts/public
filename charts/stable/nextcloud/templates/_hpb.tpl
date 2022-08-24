@@ -109,7 +109,7 @@ command:
     {{- end }}
 
     # Set overwrite.cli.uri
-    {{- $url := (  printf "http://%s/" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
+    {{- $url := (  printf "http://%s:{{ .Values.service.main.ports.main.port }}/" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
     {{- if .Values.ingress.main.enabled }}
       {{- with (first .Values.ingress.main.hosts) }}
       {{- $url = (  printf "https://%s/" .host ) }}
