@@ -55,6 +55,7 @@ questions:
             default: ""
         - variable: extra_args
           label: "Extra Args"
+          description: UP_ARGS or flags to pass along to Tailscale, such as --advertise-exit-node
           schema:
             type: string
             default: ""
