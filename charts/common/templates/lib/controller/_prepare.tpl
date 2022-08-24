@@ -86,7 +86,7 @@ before chart installation.
     - |
       /bin/bash <<'EOF'
       echo "Automatically correcting permissions..."
-      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( not ( eq .Values.addons.vpn.type "disabled" )) }}
+      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
       echo "Automatically correcting permissions for vpn config file..."
       if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
         echo "NFSv4 ACLs detected, using nfs4_setfacl to set permissions..."
@@ -187,7 +187,7 @@ before chart installation.
       subPath: {{ $hpm.subPath }}
       {{- end }}
     {{- end }}
-    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( not ( eq .Values.addons.vpn.type "disabled" )) }}
+    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailsacale" ) }}
     - name: vpnconfig
       mountPath: /vpn/vpn.conf
     {{- end }}
