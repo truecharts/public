@@ -2,6 +2,15 @@
 
 
 
+## [pyload-ng-0.0.20](https://github.com/truecharts/charts/compare/pyload-ng-0.0.19...pyload-ng-0.0.20) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [pyload-ng-0.0.19](https://github.com/truecharts/charts/compare/pyload-ng-0.0.18...pyload-ng-0.0.19) (2022-08-23)
 
 ### Chore

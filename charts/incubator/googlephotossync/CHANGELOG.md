@@ -2,6 +2,15 @@
 
 
 
+## [googlephotossync-0.0.22](https://github.com/truecharts/charts/compare/googlephotossync-0.0.21...googlephotossync-0.0.22) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [googlephotossync-0.0.21](https://github.com/truecharts/charts/compare/googlephotossync-0.0.20...googlephotossync-0.0.21) (2022-08-23)
 
 ### Chore

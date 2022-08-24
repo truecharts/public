@@ -2,6 +2,15 @@
 
 
 
+## [recipes-8.0.41](https://github.com/truecharts/charts/compare/recipes-8.0.40...recipes-8.0.41) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [recipes-8.0.40](https://github.com/truecharts/charts/compare/recipes-8.0.39...recipes-8.0.40) (2022-08-23)
 
 ### Chore

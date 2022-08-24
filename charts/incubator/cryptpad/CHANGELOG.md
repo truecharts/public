@@ -2,6 +2,15 @@
 
 
 
+## [cryptpad-0.0.31](https://github.com/truecharts/charts/compare/cryptpad-0.0.30...cryptpad-0.0.31) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [cryptpad-0.0.30](https://github.com/truecharts/charts/compare/cryptpad-0.0.29...cryptpad-0.0.30) (2022-08-23)
 
 ### Chore

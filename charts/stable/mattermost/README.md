@@ -1,6 +1,6 @@
 # mattermost
 
-![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: 6.3](https://img.shields.io/badge/AppVersion-6.3-informational?style=flat-square)
+![Version: 3.0.34](https://img.shields.io/badge/Version-3.0.34-informational?style=flat-square) ![AppVersion: 6.3](https://img.shields.io/badge/AppVersion-6.3-informational?style=flat-square)
 
 Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 

@@ -2,6 +2,15 @@
 
 
 
+## [odoo-8.0.39](https://github.com/truecharts/charts/compare/odoo-8.0.38...odoo-8.0.39) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [odoo-8.0.38](https://github.com/truecharts/charts/compare/odoo-8.0.37...odoo-8.0.38) (2022-08-23)
 
 ### Chore

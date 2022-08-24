@@ -2,6 +2,15 @@
 
 
 
+## [zerotier-2.0.27](https://github.com/truecharts/charts/compare/zerotier-2.0.26...zerotier-2.0.27) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [zerotier-2.0.26](https://github.com/truecharts/charts/compare/zerotier-2.0.25...zerotier-2.0.26) (2022-08-23)
 
 ### Chore

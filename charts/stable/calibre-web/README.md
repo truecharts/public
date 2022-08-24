@@ -1,6 +1,6 @@
 # calibre-web
 
-![Version: 11.0.34](https://img.shields.io/badge/Version-11.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.19](https://img.shields.io/badge/AppVersion-0.6.19-informational?style=flat-square)
+![Version: 11.0.35](https://img.shields.io/badge/Version-11.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.19](https://img.shields.io/badge/AppVersion-0.6.19-informational?style=flat-square)
 
 Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
 

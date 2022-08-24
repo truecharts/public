@@ -2,6 +2,15 @@
 
 
 
+## [rimgo-0.0.33](https://github.com/truecharts/charts/compare/rimgo-0.0.32...rimgo-0.0.33) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
 ## [rimgo-0.0.32](https://github.com/truecharts/charts/compare/rimgo-0.0.31...rimgo-0.0.32) (2022-08-23)
 
 ### Chore
