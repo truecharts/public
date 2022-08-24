@@ -2,6 +2,15 @@
 
 
 
+## [snipe-it-4.0.39](https://github.com/truecharts/charts/compare/snipe-it-4.0.38...snipe-it-4.0.39) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [snipe-it-4.0.38](https://github.com/truecharts/charts/compare/snipe-it-4.0.37...snipe-it-4.0.38) (2022-08-17)
 
 ### Chore

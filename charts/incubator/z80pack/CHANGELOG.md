@@ -2,6 +2,15 @@
 
 
 
+## [z80pack-0.0.17](https://github.com/truecharts/charts/compare/z80pack-0.0.16...z80pack-0.0.17) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [z80pack-0.0.16](https://github.com/truecharts/charts/compare/z80pack-0.0.15...z80pack-0.0.16) (2022-08-12)
 
 ### Chore

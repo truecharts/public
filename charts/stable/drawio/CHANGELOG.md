@@ -2,6 +2,33 @@
 
 
 
+## [drawio-2.0.38](https://github.com/truecharts/charts/compare/drawio-2.0.37...drawio-2.0.38) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [drawio-2.0.37](https://github.com/truecharts/charts/compare/drawio-2.0.36...drawio-2.0.37) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
+## [drawio-2.0.36](https://github.com/truecharts/charts/compare/drawio-2.0.35...drawio-2.0.36) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [drawio-2.0.35](https://github.com/truecharts/charts/compare/drawio-2.0.34...drawio-2.0.35) (2022-08-14)
 
 ### Chore

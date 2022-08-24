@@ -2,6 +2,24 @@
 
 
 
+## [appsmith-2.0.40](https://github.com/truecharts/charts/compare/appsmith-2.0.39...appsmith-2.0.40) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [appsmith-2.0.39](https://github.com/truecharts/charts/compare/appsmith-2.0.38...appsmith-2.0.39) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [appsmith-2.0.38](https://github.com/truecharts/charts/compare/appsmith-2.0.37...appsmith-2.0.38) (2022-08-17)
 
 ### Chore

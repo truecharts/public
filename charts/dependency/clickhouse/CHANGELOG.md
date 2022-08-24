@@ -2,6 +2,24 @@
 
 
 
+## [clickhouse-1.0.12](https://github.com/truecharts/charts/compare/clickhouse-1.0.11...clickhouse-1.0.12) (2022-08-23)
+
+### Chore
+
+- update helm chart common to v10.5.0 ([#3546](https://github.com/truecharts/charts/issues/3546))
+
+
+
+
+## [clickhouse-1.0.11](https://github.com/truecharts/charts/compare/clickhouse-1.0.10...clickhouse-1.0.11) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [clickhouse-1.0.10](https://github.com/truecharts/charts/compare/clickhouse-1.0.9...clickhouse-1.0.10) (2022-08-17)
 
 ### Chore

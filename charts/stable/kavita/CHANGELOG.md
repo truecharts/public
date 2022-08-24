@@ -2,6 +2,24 @@
 
 
 
+## [kavita-2.0.29](https://github.com/truecharts/charts/compare/kavita-2.0.28...kavita-2.0.29) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [kavita-2.0.28](https://github.com/truecharts/charts/compare/kavita-2.0.27...kavita-2.0.28) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [kavita-2.0.27](https://github.com/truecharts/charts/compare/kavita-2.0.26...kavita-2.0.27) (2022-08-12)
 
 ### Chore

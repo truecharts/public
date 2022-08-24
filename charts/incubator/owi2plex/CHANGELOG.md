@@ -2,6 +2,15 @@
 
 
 
+## [owi2plex-0.0.17](https://github.com/truecharts/charts/compare/owi2plex-0.0.16...owi2plex-0.0.17) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 
 ## [owi2plex-0.0.15](https://github.com/truecharts/charts/compare/owi2plex-0.0.14...owi2plex-0.0.15) (2022-08-08)
 

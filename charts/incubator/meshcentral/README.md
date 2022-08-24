@@ -1,13 +1,13 @@
 # meshcentral
 
-![Version: 3.0.34](https://img.shields.io/badge/Version-3.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.61](https://img.shields.io/badge/AppVersion-1.0.61-informational?style=flat-square)
+![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.61](https://img.shields.io/badge/AppVersion-1.0.61-informational?style=flat-square)
 
 MeshCentral is a full computer management web site
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [meshcentral](https://truecharts.org/docs/charts/stable/meshcentral)
+For more information, please click here: [meshcentral](https://truecharts.org/docs/charts/incubator/meshcentral)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mongodb | 1.0.56 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | mongodb | 1.0.57 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

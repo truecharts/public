@@ -2,6 +2,24 @@
 
 
 
+## [tubearchivist-es-0.0.18](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.17...tubearchivist-es-0.0.18) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [tubearchivist-es-0.0.17](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.16...tubearchivist-es-0.0.17) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [tubearchivist-es-0.0.16](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.15...tubearchivist-es-0.0.16) (2022-08-12)
 
 ### Chore

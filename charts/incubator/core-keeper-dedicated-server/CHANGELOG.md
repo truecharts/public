@@ -2,6 +2,33 @@
 
 
 
+## [core-keeper-dedicated-server-0.0.19](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.18...core-keeper-dedicated-server-0.0.19) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [core-keeper-dedicated-server-0.0.18](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.17...core-keeper-dedicated-server-0.0.18) (2022-08-22)
+
+### Chore
+
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
+
+
+
+
+## [core-keeper-dedicated-server-0.0.17](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.16...core-keeper-dedicated-server-0.0.17) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
 ## [core-keeper-dedicated-server-0.0.16](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.15...core-keeper-dedicated-server-0.0.16) (2022-08-12)
 
 ### Chore

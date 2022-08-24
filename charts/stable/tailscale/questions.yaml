@@ -55,6 +55,12 @@ questions:
             default: ""
         - variable: extra_args
           label: "Extra Args"
+          description: UP_ARGS or flags to pass along to Tailscale, such as --advertise-exit-node
+          schema:
+            type: string
+            default: ""
+        - variable: daemon_extra_args
+          label: "Tailscale Daemon Extra Args"
           schema:
             type: string
             default: ""
@@ -79,7 +85,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 41641
+                              default: 41600
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
@@ -87,7 +93,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 41641
+                                    default: 41700
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

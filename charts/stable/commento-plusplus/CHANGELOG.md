@@ -2,6 +2,33 @@
 
 
 
+## [commento-plusplus-3.0.33](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.32...commento-plusplus-3.0.33) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [commento-plusplus-3.0.32](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.31...commento-plusplus-3.0.32) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
+## [commento-plusplus-3.0.31](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.30...commento-plusplus-3.0.31) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [commento-plusplus-3.0.30](https://github.com/truecharts/charts/compare/commento-plusplus-3.0.29...commento-plusplus-3.0.30) (2022-08-17)
 
 ### Chore

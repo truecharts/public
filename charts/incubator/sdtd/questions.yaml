@@ -12,6 +12,26 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USERNAME
+          label: Username
+          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            default: ""
+        - variable: PASSWRD
+          label: Password
+          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -20,43 +40,31 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
-          description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)If you want to use a static version of the game and not always the latest one then enter this 294420 -beta stablealpha19.4 or 294420 -beta latestexperimental (without quotes) if you want to stay for example on alpha19.4."
+          label: Game ID
+          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
-            type: string
-            default: "294420"
+            type: int
+            default: 294420
         - variable: SERVERCONFIG
-          label: 'SERVERCONFIG'
-          description: "Please change if your serverconfigfile has another name."
+          label: Server Config
+          description: "Please change if your serverconfig file has another name."
           schema:
             type: string
             default: "serverconfig.xml"
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: Game Params
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: "-logfile 7DaysToDie_Data/output_log.txt $@"
-        - variable: USERNAME
-          label: 'USERNAME'
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
         - variable: VALIDATE
-          label: 'VALIDATE'
+          label: Validate
           description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: string
             default: ""
-        - variable: PASSWRD
-          label: 'PASSWRD'
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
         - variable: ENABLE_BEPINEX
-          label: 'ENABLE_BEPINEX'
+          label: Enable BepInEx
           description: "If you want to enable BepInEx set this variable to true (without quotes)."
           schema:
             type: string

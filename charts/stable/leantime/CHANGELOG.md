@@ -2,6 +2,24 @@
 
 
 
+## [leantime-4.0.36](https://github.com/truecharts/charts/compare/leantime-4.0.35...leantime-4.0.36) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [leantime-4.0.35](https://github.com/truecharts/charts/compare/leantime-4.0.34...leantime-4.0.35) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [leantime-4.0.34](https://github.com/truecharts/charts/compare/leantime-4.0.33...leantime-4.0.34) (2022-08-17)
 
 ### Chore

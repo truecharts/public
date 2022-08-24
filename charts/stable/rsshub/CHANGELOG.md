@@ -2,6 +2,60 @@
 
 
 
+## [rsshub-3.0.72](https://github.com/truecharts/charts/compare/rsshub-3.0.71...rsshub-3.0.72) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [rsshub-3.0.71](https://github.com/truecharts/charts/compare/rsshub-3.0.70...rsshub-3.0.71) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [rsshub-3.0.70](https://github.com/truecharts/charts/compare/rsshub-3.0.69...rsshub-3.0.70) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
+## [rsshub-3.0.69](https://github.com/truecharts/charts/compare/rsshub-3.0.68...rsshub-3.0.69) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
+## [rsshub-3.0.68](https://github.com/truecharts/charts/compare/rsshub-3.0.67...rsshub-3.0.68) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
+## [rsshub-3.0.67](https://github.com/truecharts/charts/compare/rsshub-3.0.66...rsshub-3.0.67) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [rsshub-3.0.66](https://github.com/truecharts/charts/compare/rsshub-3.0.65...rsshub-3.0.66) (2022-08-18)
 
 ### Chore

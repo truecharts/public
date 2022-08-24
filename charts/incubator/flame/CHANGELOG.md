@@ -2,6 +2,15 @@
 
 
 
+## [flame-0.0.21](https://github.com/truecharts/charts/compare/flame-0.0.20...flame-0.0.21) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [flame-0.0.20](https://github.com/truecharts/charts/compare/flame-0.0.19...flame-0.0.20) (2022-08-12)
 
 ### Chore

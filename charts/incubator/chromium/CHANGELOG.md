@@ -2,6 +2,15 @@
 
 
 
+## [chromium-0.0.20](https://github.com/truecharts/charts/compare/chromium-0.0.19...chromium-0.0.20) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [fileflows-node-0.0.18](https://github.com/truecharts/charts/compare/fileflows-node-0.0.17...fileflows-node-0.0.18) (2022-08-18)
 
 ### Chore

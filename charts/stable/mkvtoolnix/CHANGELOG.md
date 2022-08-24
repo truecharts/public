@@ -2,6 +2,15 @@
 
 
 
+## [mkvtoolnix-2.0.28](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.27...mkvtoolnix-2.0.28) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [mkvtoolnix-2.0.27](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.26...mkvtoolnix-2.0.27) (2022-08-18)
 
 ### Chore

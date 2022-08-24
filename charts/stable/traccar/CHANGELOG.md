@@ -2,6 +2,24 @@
 
 
 
+## [traccar-7.0.33](https://github.com/truecharts/charts/compare/traccar-7.0.32...traccar-7.0.33) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [traccar-7.0.32](https://github.com/truecharts/charts/compare/traccar-7.0.31...traccar-7.0.32) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [traccar-7.0.31](https://github.com/truecharts/charts/compare/traccar-7.0.30...traccar-7.0.31) (2022-08-17)
 
 ### Chore

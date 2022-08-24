@@ -2,6 +2,24 @@
 
 
 
+## [openproject-0.0.21](https://github.com/truecharts/charts/compare/openproject-0.0.20...openproject-0.0.21) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [openproject-0.0.20](https://github.com/truecharts/charts/compare/openproject-0.0.19...openproject-0.0.20) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [openproject-0.0.19](https://github.com/truecharts/charts/compare/openproject-0.0.18...openproject-0.0.19) (2022-08-17)
 
 ### Chore

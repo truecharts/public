@@ -24,6 +24,8 @@
                       description: OpenVPN
                     - value: wireguard
                       description: Wireguard
+                    - value: tailscale
+                      description: Tailscale
               - variable: openvpn
                 label: OpenVPN Settings
                 schema:
@@ -43,6 +45,61 @@
                         type: string
                         default: ""
                         required: true
+              - variable: tailscale
+                label: Tailscale Settings
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "tailscale"]]
+                  attrs:
+                    - variable: authkey
+                      label: Authentication Key
+                      description: Provide an auth key to automatically authenticate the node as your user account.
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: accept_dns
+                      label: Accept DNS
+                      description: Accept DNS configuration from the admin console.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: userspace
+                      label: Userspace
+                      description: Userspace Networking mode allows running Tailscale where you do not have access to create a VPN tunnel device.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: routes
+                      label: Routes
+                      description: Expose physical subnet routes to your entire Tailscale network.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: dest_ip
+                      label: Destination IP
+                      description: Tells the DNAT mechanism which Destination IP to set in the IP header, and where to send packets that are matched.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: sock5_server
+                      label: Sock5 Server
+                      description: Sock5 Server
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: extra_args
+                      label: Extra Args
+                      description: Extra Args
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: daemon_extra_args
+                      label: Tailscale Daemon Extra Args
+                      description: Tailscale Daemon Extra Args
+                      schema:
+                        type: string
+                        default: ""
               - variable: killSwitch
                 label: Enable Killswitch
                 schema:

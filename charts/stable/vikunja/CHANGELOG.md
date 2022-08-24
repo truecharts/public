@@ -2,6 +2,33 @@
 
 
 
+## [vikunja-3.0.43](https://github.com/truecharts/charts/compare/vikunja-3.0.42...vikunja-3.0.43) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [vikunja-3.0.42](https://github.com/truecharts/charts/compare/vikunja-3.0.41...vikunja-3.0.42) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [vikunja-3.0.41](https://github.com/truecharts/charts/compare/vikunja-3.0.40...vikunja-3.0.41) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [vikunja-3.0.40](https://github.com/truecharts/charts/compare/vikunja-3.0.39...vikunja-3.0.40) (2022-08-18)
 
 ### Chore

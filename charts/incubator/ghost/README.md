@@ -1,13 +1,13 @@
 # ghost
 
-![Version: 3.0.44](https://img.shields.io/badge/Version-3.0.44-informational?style=flat-square) ![AppVersion: 5.9.4](https://img.shields.io/badge/AppVersion-5.9.4-informational?style=flat-square)
+![Version: 3.0.47](https://img.shields.io/badge/Version-3.0.47-informational?style=flat-square) ![AppVersion: 5.10.1](https://img.shields.io/badge/AppVersion-5.10.1-informational?style=flat-square)
 
 Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [ghost](https://truecharts.org/docs/charts/stable/ghost)
+For more information, please click here: [ghost](https://truecharts.org/docs/charts/incubator/ghost)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.54 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | mariadb | 3.0.58 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

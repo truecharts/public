@@ -2,6 +2,15 @@
 
 
 
+## [emulatorjs-2.0.29](https://github.com/truecharts/charts/compare/emulatorjs-2.0.28...emulatorjs-2.0.29) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [emulatorjs-2.0.28](https://github.com/truecharts/charts/compare/emulatorjs-2.0.27...emulatorjs-2.0.28) (2022-08-12)
 
 ### Chore

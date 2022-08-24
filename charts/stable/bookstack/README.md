@@ -1,6 +1,6 @@
 # bookstack
 
-![Version: 3.0.32](https://img.shields.io/badge/Version-3.0.32-informational?style=flat-square) ![AppVersion: 22.07.2022](https://img.shields.io/badge/AppVersion-22.07.2022-informational?style=flat-square)
+![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: 22.07.2022](https://img.shields.io/badge/AppVersion-22.07.2022-informational?style=flat-square)
 
 A simple, self-hosted, easy-to-use platform for organising and storing information.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.54 |
-| https://library-charts.truecharts.org | common | 10.4.12 |
+| https://charts.truecharts.org/ | mariadb | 3.0.58 |
+| https://library-charts.truecharts.org | common | 10.5.0 |
 
 ## Installing the Chart
 

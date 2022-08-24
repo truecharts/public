@@ -1,20 +1,22 @@
 image:
-  repository: tccr.io/truecharts/tailscale
+  repository: tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.29.125@sha256:fb2ad07557c351805a126d0056be083fb67e3b22abae12a18c52f1461b55ca55
+  tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
 
 command: ["ash", "/tailscale/run.sh"]
 
 tty: true
 
-# Only un-comment this if you are going to have `userspace: false`
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - NET_ADMIN
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 serviceAccount:
   main:
@@ -41,6 +43,8 @@ rbac:
           - "update"
 
 envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-tailscale-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
@@ -52,6 +56,7 @@ tailscale:
   dest_ip: ""
   sock5_server: ""
   extra_args: ""
+  daemon_extra_args: ""
 
 probes:
   liveness:
@@ -66,12 +71,21 @@ service:
     ports:
       main:
         protocol: UDP
-        port: 41641
+        port: 41700
 
 persistence:
+  varrun:
+    enabled: false
   config:
     enabled: true
     mountPath: "/var/lib"
+  tun:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/net/tun
+    mountPath: /dev/net/tun
+    hostPathType: ""
+    readOnly: false
 
 portal:
   enabled: false

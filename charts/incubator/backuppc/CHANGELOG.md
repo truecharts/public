@@ -2,6 +2,15 @@
 
 
 
+## [backuppc-0.0.20](https://github.com/truecharts/charts/compare/backuppc-0.0.19...backuppc-0.0.20) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 
 ## [backuppc-0.0.18](https://github.com/truecharts/charts/compare/backuppc-0.0.17...backuppc-0.0.18) (2022-08-17)
 

@@ -2,6 +2,15 @@
 
 
 
+## [quickshare-0.0.18](https://github.com/truecharts/charts/compare/quickshare-0.0.17...quickshare-0.0.18) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [quickshare-0.0.17](https://github.com/truecharts/charts/compare/quickshare-0.0.16...quickshare-0.0.17) (2022-08-14)
 
 ### Chore

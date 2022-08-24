@@ -2,6 +2,42 @@
 
 
 
+## [plex-10.1.3](https://github.com/truecharts/charts/compare/plex-10.1.2...plex-10.1.3) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [plex-10.1.2](https://github.com/truecharts/charts/compare/plex-10.1.1...plex-10.1.2) (2022-08-19)
+
+### Fix
+
+- fix tpl error ([#3515](https://github.com/truecharts/charts/issues/3515))
+
+
+
+
+## [plex-10.1.1](https://github.com/truecharts/charts/compare/plex-10.1.0...plex-10.1.1) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
+## [plex-10.1.0](https://github.com/truecharts/charts/compare/plextraktsync-0.0.20...plex-10.1.0) (2022-08-18)
+
+### Feat
+
+- Pre-fill ADVERTISE_IP with the server ip and ingress ([#3464](https://github.com/truecharts/charts/issues/3464))
+
+
+
+
 ## [plex-10.0.34](https://github.com/truecharts/charts/compare/plex-10.0.33...plex-10.0.34) (2022-08-12)
 
 ### Chore

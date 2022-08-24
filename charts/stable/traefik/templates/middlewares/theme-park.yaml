@@ -17,4 +17,10 @@ spec:
       app: {{ $middlewareData.appName }}
       theme: {{ $middlewareData.themeName }}
       baseUrl: {{ $middlewareData.baseUrl }}
+      {{- if $middlewareData.addons }}
+      addons:
+        {{- range $middlewareData.addons }}
+        - {{ . | quote }}
+        {{- end }}
+      {{- end }}
 {{- end }}

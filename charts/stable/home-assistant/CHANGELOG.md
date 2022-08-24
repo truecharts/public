@@ -2,6 +2,24 @@
 
 
 
+## [home-assistant-15.0.43](https://github.com/truecharts/charts/compare/home-assistant-15.0.42...home-assistant-15.0.43) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [home-assistant-15.0.42](https://github.com/truecharts/charts/compare/home-assistant-15.0.41...home-assistant-15.0.42) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [home-assistant-15.0.41](https://github.com/truecharts/charts/compare/home-assistant-15.0.40...home-assistant-15.0.41) (2022-08-17)
 
 ### Chore

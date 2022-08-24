@@ -2,6 +2,24 @@
 
 
 
+## [cups-server-1.0.35](https://github.com/truecharts/charts/compare/cups-server-1.0.34...cups-server-1.0.35) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [cups-server-1.0.34](https://github.com/truecharts/charts/compare/cups-server-1.0.33...cups-server-1.0.34) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
 ## [cups-server-1.0.33](https://github.com/truecharts/charts/compare/cups-server-1.0.32...cups-server-1.0.33) (2022-08-17)
 
 ### Chore

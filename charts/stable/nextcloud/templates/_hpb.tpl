@@ -108,6 +108,15 @@ command:
     {{ if .Values.imaginary.preview_font }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Font'{{ $c = add1 $c }}{{ end }}
     {{- end }}
 
+    # Set overwrite.cli.uri
+    {{- $url := (  printf "http://%s/" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
+    {{- if .Values.ingress.main.enabled }}
+      {{- with (first .Values.ingress.main.hosts) }}
+      {{- $url = (  printf "https://%s/" .host ) }}
+      {{- end }}
+    {{- end }}
+    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $url }}'
+
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
         echo "High Performance Backend not running ... waiting..."
         sleep 10

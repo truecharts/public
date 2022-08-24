@@ -2,6 +2,24 @@
 
 
 
+## [nexus-oss-0.0.5](https://github.com/truecharts/charts/compare/nexus-oss-0.0.4...nexus-oss-0.0.5) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [nexus-oss-0.0.4](https://github.com/truecharts/charts/compare/nexus-oss-0.0.3...nexus-oss-0.0.4) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [nexus-oss-0.0.3](https://github.com/truecharts/charts/compare/nexus-oss-0.0.2...nexus-oss-0.0.3) (2022-08-12)
 
 ### Chore

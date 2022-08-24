@@ -2,6 +2,24 @@
 
 
 
+## [sabnzbd-11.0.30](https://github.com/truecharts/charts/compare/sabnzbd-11.0.29...sabnzbd-11.0.30) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [sabnzbd-11.0.29](https://github.com/truecharts/charts/compare/sabnzbd-11.0.28...sabnzbd-11.0.29) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [sabnzbd-11.0.28](https://github.com/truecharts/charts/compare/sabnzbd-11.0.27...sabnzbd-11.0.28) (2022-08-12)
 
 ### Chore

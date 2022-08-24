@@ -2,6 +2,42 @@
 
 
 
+## [filestash-0.0.21](https://github.com/truecharts/charts/compare/filestash-0.0.20...filestash-0.0.21) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [filestash-0.0.20](https://github.com/truecharts/charts/compare/filestash-0.0.19...filestash-0.0.20) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [filestash-0.0.19](https://github.com/truecharts/charts/compare/filestash-0.0.18...filestash-0.0.19) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
+## [filestash-0.0.18](https://github.com/truecharts/charts/compare/filestash-0.0.17...filestash-0.0.18) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [filestash-0.0.17](https://github.com/truecharts/charts/compare/filestash-0.0.16...filestash-0.0.17) (2022-08-12)
 
 ### Chore

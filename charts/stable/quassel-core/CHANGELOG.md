@@ -2,6 +2,15 @@
 
 
 
+## [quassel-core-3.0.28](https://github.com/truecharts/charts/compare/quassel-core-3.0.27...quassel-core-3.0.28) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [quassel-core-3.0.27](https://github.com/truecharts/charts/compare/quassel-core-3.0.26...quassel-core-3.0.27) (2022-08-17)
 
 ### Chore

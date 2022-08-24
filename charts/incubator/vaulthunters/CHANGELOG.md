@@ -2,6 +2,33 @@
 
 
 
+## [vaulthunters-0.0.19](https://github.com/truecharts/charts/compare/vaulthunters-0.0.18...vaulthunters-0.0.19) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [vaulthunters-0.0.18](https://github.com/truecharts/charts/compare/vaulthunters-0.0.17...vaulthunters-0.0.18) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
+## [vaulthunters-0.0.17](https://github.com/truecharts/charts/compare/vaulthunters-0.0.16...vaulthunters-0.0.17) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [vaulthunters-0.0.16](https://github.com/truecharts/charts/compare/vaulthunters-0.0.15...vaulthunters-0.0.16) (2022-08-12)
 
 ### Chore

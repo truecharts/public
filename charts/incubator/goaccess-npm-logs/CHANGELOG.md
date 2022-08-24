@@ -2,6 +2,24 @@
 
 
 
+## [goaccess-npm-logs-0.0.20](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.19...goaccess-npm-logs-0.0.20) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [goaccess-npm-logs-0.0.19](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.18...goaccess-npm-logs-0.0.19) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
 ## [goaccess-npm-logs-0.0.18](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.17...goaccess-npm-logs-0.0.18) (2022-08-14)
 
 ### Chore

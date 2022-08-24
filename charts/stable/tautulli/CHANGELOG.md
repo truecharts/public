@@ -2,6 +2,15 @@
 
 
 
+## [tautulli-11.0.29](https://github.com/truecharts/charts/compare/tautulli-11.0.28...tautulli-11.0.29) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
 ## [tautulli-11.0.28](https://github.com/truecharts/charts/compare/tautulli-11.0.27...tautulli-11.0.28) (2022-08-14)
 
 ### Chore

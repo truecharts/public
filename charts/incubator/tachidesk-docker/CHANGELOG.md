@@ -2,6 +2,24 @@
 
 
 
+## [tachidesk-docker-0.0.19](https://github.com/truecharts/charts/compare/tachidesk-docker-0.0.18...tachidesk-docker-0.0.19) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [tachidesk-docker-0.0.18](https://github.com/truecharts/charts/compare/tachidesk-docker-0.0.17...tachidesk-docker-0.0.18) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
 ## [tachidesk-docker-0.0.17](https://github.com/truecharts/charts/compare/tachidesk-docker-0.0.16...tachidesk-docker-0.0.17) (2022-08-14)
 
 ### Chore
