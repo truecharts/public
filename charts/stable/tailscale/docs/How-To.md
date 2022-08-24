@@ -10,7 +10,7 @@ This can be applied to other systems but this specific guide is SCALE specific w
 
 ## Prerequisites
 
-For proper access to your local network (LAN), this chart requires two `sysctl` values set on your TrueNAS or system. For TrueNAS SCALE the way to change these values are inside `System` then `Advanced`. On that screen you add the following two values
+For proper access to your local network (LAN), this chart requires two `sysctl` values set on your TrueNAS or system. For TrueNAS SCALE the way to change these values are inside `System` then `Advanced`. On that screen you add the following two values:
 
 - `net.ipv4.ip_forward`
 - `net.ipv4.conf.all.src_valid_mark`
