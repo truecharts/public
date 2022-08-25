@@ -2,6 +2,7 @@
 
 
 
+
 ## [clickhouse-1.0.12](https://github.com/truecharts/charts/compare/clickhouse-1.0.11...clickhouse-1.0.12) (2022-08-23)
 
 ### Chore
