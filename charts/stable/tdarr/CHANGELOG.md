@@ -2,6 +2,15 @@
 
 
 
+## [tdarr-2.0.28](https://github.com/truecharts/charts/compare/tdarr-2.0.27...tdarr-2.0.28) (2022-08-25)
+
+### Fix
+
+- enable portal button ([#3571](https://github.com/truecharts/charts/issues/3571))
+
+
+
+
 ## [tdarr-2.0.27](https://github.com/truecharts/charts/compare/tdarr-2.0.26...tdarr-2.0.27) (2022-08-23)
 
 ### Chore
