@@ -2,6 +2,15 @@
 
 
 
+## [clickhouse-1.0.14](https://github.com/truecharts/charts/compare/clickhouse-1.0.13...clickhouse-1.0.14) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 
 ## [clickhouse-1.0.12](https://github.com/truecharts/charts/compare/clickhouse-1.0.11...clickhouse-1.0.12) (2022-08-23)
 

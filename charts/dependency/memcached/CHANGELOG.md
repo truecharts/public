@@ -2,6 +2,15 @@
 
 
 
+## [memcached-3.0.62](https://github.com/truecharts/charts/compare/memcached-3.0.61...memcached-3.0.62) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 ## [clickhouse-1.0.13](https://github.com/truecharts/charts/compare/clickhouse-1.0.12...clickhouse-1.0.13) (2022-08-25)
 
 ### Chore

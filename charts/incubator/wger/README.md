@@ -1,6 +1,6 @@
 # wger
 
-![Version: 0.0.44](https://img.shields.io/badge/Version-0.0.44-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.45](https://img.shields.io/badge/Version-0.0.45-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 

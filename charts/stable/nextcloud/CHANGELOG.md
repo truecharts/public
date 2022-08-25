@@ -2,6 +2,15 @@
 
 
 
+## [nextcloud-15.2.45](https://github.com/truecharts/charts/compare/nextcloud-15.2.44...nextcloud-15.2.45) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 ## [nextcloud-15.2.44](https://github.com/truecharts/charts/compare/nextcloud-15.2.43...nextcloud-15.2.44) (2022-08-24)
 
 ### Fix

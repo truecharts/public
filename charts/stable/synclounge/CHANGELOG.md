@@ -2,6 +2,15 @@
 
 
 
+## [synclounge-2.0.37](https://github.com/truecharts/charts/compare/synclounge-2.0.36...synclounge-2.0.37) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 ## [synclounge-2.0.36](https://github.com/truecharts/charts/compare/synclounge-2.0.35...synclounge-2.0.36) (2022-08-23)
 
 ### Chore

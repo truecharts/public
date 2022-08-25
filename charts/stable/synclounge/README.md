@@ -1,6 +1,6 @@
 # synclounge
 
-![Version: 2.0.36](https://img.shields.io/badge/Version-2.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.1.123](https://img.shields.io/badge/AppVersion-5.1.123-informational?style=flat-square)
+![Version: 2.0.37](https://img.shields.io/badge/Version-2.0.37-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.1.123](https://img.shields.io/badge/AppVersion-5.1.123-informational?style=flat-square)
 
 Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.
 

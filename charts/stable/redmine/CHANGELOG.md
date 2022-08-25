@@ -2,6 +2,15 @@
 
 
 
+## [redmine-3.0.39](https://github.com/truecharts/charts/compare/redmine-3.0.38...redmine-3.0.39) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 ## [redmine-3.0.38](https://github.com/truecharts/charts/compare/redmine-3.0.37...redmine-3.0.38) (2022-08-24)
 
 ### Chore

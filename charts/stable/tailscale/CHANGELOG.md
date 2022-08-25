@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-1.0.1](https://github.com/truecharts/charts/compare/tailscale-1.0.0...tailscale-1.0.1) (2022-08-25)
+
+### Docs
+
+- Add more info to How-To guide and another example of Extra Args ([#3564](https://github.com/truecharts/charts/issues/3564))
+
+
+
+
 ## [tailscale-1.0.0](https://github.com/truecharts/charts/compare/tailscale-0.0.9...tailscale-1.0.0) (2022-08-24)
 
 ### Feat

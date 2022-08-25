@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.61](https://github.com/truecharts/charts/compare/redis-3.0.60...redis-3.0.61) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
 ## [redis-3.0.60](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.17...redis-3.0.60) (2022-08-25)
 
 ### Chore
