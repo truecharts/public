@@ -33,7 +33,7 @@ Step 3:
 - Keep `Userspace` checked (default) unless you wish to create your own Wireguard tunnels,
 - The default for `Accept DNS` is unchecked but enabling it will pass your Global Nameservers from Tailscale to your local install
 - Change `Routes` to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example
-- `Extra Args` passes arguments/flags to the `tailscale up` command. The most common one is `--advertise-exit-node` to pass traffic through tailscale like a private VPN. Another common one is `--hostname=<name>`, where you can specify a specific hostname for use inside Tailscale (see image below). For more Extra Args please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
+- `Extra Args` passes arguments/flags to the `tailscale up` command. The most common one is `--advertise-exit-node` to pass traffic through tailscale like a private VPN. Another common one is `--hostname=<name>`, where you can specify a specific hostname for use inside Tailscale (see image below). For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up) since we consider these advanced features and these may/not be compatible with everyone's exact setup.
 
 ![tailscale-step-3](img/How-To-Image-2.png)
 
