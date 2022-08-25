@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/redmine
   pullPolicy: IfNotPresent
-  tag: v5.0.2@sha256:f7754cb9991c3ef0aae6bd8f33d9aa0d3c2aacff1ec69b4f970f86531ef2f891
+  tag: v5.0.2@sha256:8741f2e5505dabb247e9ba5f97e96d40df083b8673565907a6c552852a63bb9e
 
 env:
   REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
