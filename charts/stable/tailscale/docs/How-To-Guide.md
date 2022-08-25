@@ -38,11 +38,11 @@ Step 3:
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
 
   Common flags/arguments:
-  
+
   - `--advertise-exit-node`
-  This is used to pass traffic through tailscale like a private VPN.
+    This is used to pass traffic through tailscale like a private VPN.
   - `--hostname=<name>`
-  You can specify a specific hostname for use inside Tailscale (see image below).
+    You can specify a specific hostname for use inside Tailscale (see image below).
 
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
