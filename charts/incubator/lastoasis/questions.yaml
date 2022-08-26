@@ -26,7 +26,7 @@ questions:
             type: string
             default: ""
         - variable: PASSWRD
-          label: 'PASSWRD'
+          label: "PASSWRD"
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -40,7 +40,7 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
+          label: "GAME_ID"
           description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
@@ -52,31 +52,31 @@ questions:
             type: boolean
             default: true
         - variable: IDENTIFIER
-          label: 'IDENTIFIER'
+          label: "IDENTIFIER"
           description: "Enter your preferred server identifier."
           schema:
             type: string
             default: "dockeroasis"
         - variable: SLOTS
-          label: 'SLOTS'
+          label: "SLOTS"
           description: "Enter the maximum server slots."
           schema:
             type: string
             default: "20"
         - variable: CUSTOMER_KEY
-          label: 'CUSTOMER_KEY'
+          label: "CUSTOMER_KEY"
           description: "Your Customer Key goes here (You can get your Customer Key here httpsmyrealm.lastoasis.gg  Log in -&gt; click on the Hosting drop down and select Providers)."
           schema:
             type: string
             default: "pwHB3mLCOUWscFi7"
         - variable: PROVIDER_KEY
-          label: 'PROVIDER_KEY'
+          label: "PROVIDER_KEY"
           description: "Your Provider Key goes here (You can get your Provider Key here httpsmyrealm.lastoasis.gg  Log in -&gt; click on the Hosting drop down -&gt; select Providers -&gt; click Add Key -&gt; enter a Name and click Add)."
           schema:
             type: string
             default: " 8IhohaMRZIJJubv5 "
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "Enter your game parameters."
           schema:
             type: string

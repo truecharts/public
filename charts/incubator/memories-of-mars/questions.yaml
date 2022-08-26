@@ -26,7 +26,7 @@ questions:
             type: string
             default: ""
         - variable: PASSWRD
-          label: 'PASSWRD'
+          label: "PASSWRD"
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -40,19 +40,19 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
+          label: "GAME_ID"
           description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "897590"
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "Enter Extra Startup Parameters here if needed, otherwise leave empty (eg -port=7778, -maxplayers=12)"
           schema:
             type: string
             default: ""
         - variable: MULTIHOME
-          label: 'MULTIHOME'
+          label: "MULTIHOME"
           description: "This has to be the IP of your TrueNAS server otherwise you cant connect to the game and the game will lost connection to the server!"
           schema:
             type: string

@@ -26,7 +26,7 @@ questions:
             type: string
             default: ""
         - variable: PASSWRD
-          label: 'PASSWRD'
+          label: "PASSWRD"
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -40,19 +40,19 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
+          label: "GAME_ID"
           description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "222840"
         - variable: GAME_NAME
-          label: 'GAME_NAME'
+          label: "GAME_NAME"
           description: "Game name to start (is connected to the GAMEPARAMS)."
           schema:
             type: string
             default: "left4dead"
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "Enter your start up commands for the server."
           schema:
             type: string
@@ -64,7 +64,7 @@ questions:
             type: boolean
             default: true
         - variable: GAME_PORT
-          label: 'GAME_PORT'
+          label: "GAME_PORT"
           description: "Container Variable GAMEPORT"
           schema:
             type: string

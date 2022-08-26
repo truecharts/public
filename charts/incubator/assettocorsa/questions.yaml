@@ -26,7 +26,7 @@ questions:
             type: string
             default: ""
         - variable: PASSWRD
-          label: 'PASSWRD'
+          label: "PASSWRD"
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -40,7 +40,7 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
+          label: "GAME_ID"
           description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
@@ -52,13 +52,13 @@ questions:
             type: boolean
             default: true
         - variable: INSTALL_STRACKER
-          label: 'INSTALL_STRACKER'
+          label: "INSTALL_STRACKER"
           description: "Set to true (without quotes) to install Stacker, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string
             default: ""
         - variable: INSTALL_ASSETTO_SERVER_MANAGER
-          label: 'INSTALL_ASSETTO_SERVER_MANAGER'
+          label: "INSTALL_ASSETTO_SERVER_MANAGER"
           description: "Set to true (without quotes) to install Assetto-Server-Manager, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string

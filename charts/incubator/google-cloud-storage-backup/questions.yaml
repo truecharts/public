@@ -18,27 +18,27 @@ questions:
       type: dict
       attrs:
         - variable: ACCESS_KEY
-          label: 'ACCESS_KEY'
+          label: "ACCESS_KEY"
           schema:
             type: string
             default: "Container Variable: ACCESS_KEY"
         - variable: SECRET_KEY
-          label: 'SECRET_KEY'
+          label: "SECRET_KEY"
           schema:
             type: string
             default: "Container Variable: SECRET_KEY"
         - variable: GCSPATH
-          label: 'GCSPATH'
+          label: "GCSPATH"
           schema:
             type: string
             default: "gs://mybucket/"
         - variable: GCSOPTIONS
-          label: 'GCSOPTIONS'
+          label: "GCSOPTIONS"
           schema:
             type: string
             default: ""
         - variable: CRON_SCHEDULE
-          label: 'CRON_SCHEDULE'
+          label: "CRON_SCHEDULE"
           schema:
             type: string
             default: "0 * * * *"
