@@ -133,7 +133,7 @@ command:
     done
     echo  "High Performance Backend found..."
     echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
-    php /var/www/html/occ notify_push:setup {{ $accessurl }}/push
+    php /var/www/html/occ config:app:set notify_push base_endpoint --value="{{ $accessurl }}/push"
     fg
     EOF
 env:
