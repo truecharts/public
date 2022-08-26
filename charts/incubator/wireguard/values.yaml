@@ -1,0 +1,42 @@
+image:
+  repository: tccr.io/truecharts/wireguard
+  tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
+  pullPolicy: IfNotPresent
+
+securityContext:
+  capabilities:
+    add:
+      - NET_ADMIN
+      - SYS_MODULE
+
+env:
+  # The separator that is used to split the KILLSWITCH_EXCLUDEDNETWORKS lists
+  SEPARATOR: ";"
+  # Override the backend used by iptables. Valid values are nft and legacy
+  IPTABLES_BACKEND: nft
+  # Enable a killswitch that kills all traffic when the VPN is not connected
+  KILLSWITCH: false
+  # A separated list of IPv4 networks that will be excluded from the VPN/killswitch
+  KILLSWITCH_EXCLUDEDNETWORKS_IPV4: ""
+  # A separatedlist of IPv6 networks that will be excluded from the VPN/killswitch
+  KILLSWITCH_EXCLUDEDNETWORKS_IPV6: ""
+  CONFIG_FILE_PATH: "/mnt/tests"
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 51820
+        targetPort: 51820
+        protocol: UDP
+
+portal:
+  enabled: false

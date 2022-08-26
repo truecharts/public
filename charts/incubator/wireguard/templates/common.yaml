@@ -1,0 +1,12 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- if .Values.env.CONFIG_FILE_PATH -}}
+{{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
+volumeMounts:
+  - name: configfile
+    mountPath: "/etc/wireguard/wg0.conf"
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
