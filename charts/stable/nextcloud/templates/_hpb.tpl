@@ -124,7 +124,7 @@ command:
     php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}'
 
     echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
-    php /var/www/html/occ config:app:set notify_push base_endpoint --value="{{ $accessurl }}/push"
+    php /var/www/html/occ config:app:set notify_push base_endpoint --value='{{ $accessurl }}/push'
     fg
     EOF
 env:
