@@ -2,6 +2,15 @@
 
 
 
+## [pgadmin-7.0.30](https://github.com/truecharts/charts/compare/pgadmin-7.0.29...pgadmin-7.0.30) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [pgadmin-7.0.29](https://github.com/truecharts/charts/compare/pgadmin-7.0.28...pgadmin-7.0.29) (2022-08-23)
 
 ### Chore

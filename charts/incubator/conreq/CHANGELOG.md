@@ -2,6 +2,15 @@
 
 
 
+## [conreq-0.0.20](https://github.com/truecharts/charts/compare/conreq-0.0.19...conreq-0.0.20) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [conreq-0.0.19](https://github.com/truecharts/charts/compare/conreq-0.0.18...conreq-0.0.19) (2022-08-23)
 
 ### Chore

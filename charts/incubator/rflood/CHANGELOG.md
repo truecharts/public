@@ -2,6 +2,15 @@
 
 
 
+## [rflood-0.0.20](https://github.com/truecharts/charts/compare/rflood-0.0.19...rflood-0.0.20) (2022-08-26)
+
+### Fix
+
+- remove duplicate vars and cleanup ([#3576](https://github.com/truecharts/charts/issues/3576))
+
+
+
+
 ## [rflood-0.0.19](https://github.com/truecharts/charts/compare/rflood-0.0.18...rflood-0.0.19) (2022-08-23)
 
 ### Chore

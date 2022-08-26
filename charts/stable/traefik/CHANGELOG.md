@@ -2,6 +2,11 @@
 
 
 
+## [traefik-13.2.3](https://github.com/truecharts/charts/compare/traefik-13.2.2...traefik-13.2.3) (2022-08-25)
+
+
+
+
 ## [traefik-13.2.2](https://github.com/truecharts/charts/compare/traefik-13.2.1...traefik-13.2.2) (2022-08-23)
 
 ### Chore

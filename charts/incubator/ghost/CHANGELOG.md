@@ -2,6 +2,15 @@
 
 
 
+## [ghost-3.0.48](https://github.com/truecharts/charts/compare/ghost-3.0.47...ghost-3.0.48) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [ghost-3.0.47](https://github.com/truecharts/charts/compare/ghost-3.0.46...ghost-3.0.47) (2022-08-24)
 
 ### Chore

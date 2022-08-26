@@ -2,6 +2,15 @@
 
 
 
+## [twonky-server-0.0.21](https://github.com/truecharts/charts/compare/twonky-server-0.0.20...twonky-server-0.0.21) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [twonky-server-0.0.20](https://github.com/truecharts/charts/compare/twonky-server-0.0.19...twonky-server-0.0.20) (2022-08-23)
 
 ### Chore

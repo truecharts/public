@@ -2,6 +2,15 @@
 
 
 
+## [filerun-2.1.0](https://github.com/truecharts/charts/compare/filerun-2.0.30...filerun-2.1.0) (2022-08-25)
+
+### Feat
+
+- run app as apps user and set id and gid according to PUID and fsgroup ([#3568](https://github.com/truecharts/charts/issues/3568))
+
+
+
+
 ## [filerun-2.0.30](https://github.com/truecharts/charts/compare/filerun-2.0.29...filerun-2.0.30) (2022-08-23)
 
 ### Chore

@@ -1,6 +1,6 @@
 # qinglong
 
-![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.13.8](https://img.shields.io/badge/AppVersion-2.13.8-informational?style=flat-square)
+![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.13.9](https://img.shields.io/badge/AppVersion-2.13.9-informational?style=flat-square)
 
 A timed task management panel that supports typescript, javaScript, python3, and shell
 
