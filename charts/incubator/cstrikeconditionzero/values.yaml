@@ -32,7 +32,6 @@ probes:
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
 
-
 service:
   main:
     ports:

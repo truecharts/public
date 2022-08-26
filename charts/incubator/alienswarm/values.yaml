@@ -21,7 +21,6 @@ env:
   GAME_PORT: "27015"
   VALIDATE: false
 
-
 probes:
   liveness:
     port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
