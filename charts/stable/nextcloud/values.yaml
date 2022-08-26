@@ -103,7 +103,7 @@ initContainers:
       - "-c"
       - |
         /bin/bash <<'EOF'
-        echo "Forcing ownership to group 33"
+        echo "Forcing permissions on userdata folder..."
         if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
           echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
           nfs4_setfacl -R -a A:g:33:RWX "/var/www/html/data"
