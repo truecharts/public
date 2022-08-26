@@ -67,6 +67,20 @@ questions:
             required: true
             $ref:
               - "definitions/nodeIP"
+  - variable: nextcloud
+    group: "Container Configuration"
+    label: "Nextcloud Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: default_phone_region
+          label: "Default Phone Region"
+          description: "Sets the default phone region in ISO_3166-1 format (e.g. US). https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements"
+          schema:
+            type: string
+            valid_chars: '^[A-Z]{2}$'
+            default: ""
   - variable: imaginary
     group: "Container Configuration"
     label: "Preview Generation Configuration"
