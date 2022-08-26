@@ -42,10 +42,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 5121
         protocol: UDP
         targetPort: 5121

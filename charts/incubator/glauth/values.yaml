@@ -31,10 +31,8 @@ service:
         protocol: TCP
         targetPort: 636
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 5555
         protocol: HTTP
         targetPort: 5555

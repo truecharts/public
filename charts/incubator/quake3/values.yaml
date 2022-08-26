@@ -28,10 +28,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 27960
         protocol: UDP
         targetPort: 27960

@@ -22,10 +22,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 10578
         protocol: UDP
         targetPort: 10578

@@ -18,10 +18,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9078
         protocol: TCP
         targetPort: 9078
