@@ -118,7 +118,6 @@ command:
     php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $url }}'
 
     # Set default phone region
-
     {{- with .Values.nextcloud.default_phone_region | upper }}
     php /var/www/html/occ config:system:set default_phone_region --value='{{ . }}'
     {{- end }}
