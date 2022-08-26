@@ -117,6 +117,12 @@ command:
     {{- end }}
     php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $url }}'
 
+    # Set default phone region
+
+    {{- with .Values.nextcloud.default_phone_region | upper }}
+    php /var/www/html/occ config:system:set default_phone_region --value='{{ . }}'
+    {{- end }}
+
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
         echo "High Performance Backend not running ... waiting..."
         sleep 10
