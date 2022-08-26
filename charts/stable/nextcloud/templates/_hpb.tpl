@@ -71,6 +71,16 @@ command:
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
 
+    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
+    {{- if .Values.ingress.main.enabled }}
+      {{- with (first .Values.ingress.main.hosts) }}
+      {{- $accessurl = (  printf "https://%s" .host ) }}
+      {{- end }}
+    {{- end }}
+
+    echo  "Configuring CLI url..."
+    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}/'
+
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
     php /var/www/html/occ config:system:set preview_imaginary_url --value='http://127.0.0.1:9090'
@@ -112,16 +122,6 @@ command:
     {{- with .Values.nextcloud.default_phone_region | upper }}
     php /var/www/html/occ config:system:set default_phone_region --value='{{ . }}'
     {{- end }}
-
-    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
-    {{- if .Values.ingress.main.enabled }}
-      {{- with (first .Values.ingress.main.hosts) }}
-      {{- $accessurl = (  printf "https://%s" .host ) }}
-      {{- end }}
-    {{- end }}
-
-    echo  "Configuring CLI url..."
-    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}/'
 
     echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
     php /var/www/html/occ config:app:set notify_push base_endpoint --value='{{ $accessurl }}/push'
