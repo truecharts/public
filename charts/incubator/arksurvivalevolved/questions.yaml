@@ -30,18 +30,21 @@ questions:
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
+            private: true
             default: ""
         - variable: SRV_PWD
           label: "SRV_PWD"
           description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
           schema:
             type: string
+            private: true
             default: ""
         - variable: SRV_ADMIN_PWD
           label: "SRV_ADMIN_PWD"
           description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
           schema:
             type: string
+            private: true
             default: ""
   - variable: env
     group: "Container Configuration"
