@@ -25,10 +25,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 26000
         protocol: UDP
         targetPort: 26000

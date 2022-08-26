@@ -29,10 +29,8 @@ service:
         protocol: UDP
         targetPort: 34197
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8888
         protocol: HTTP
         targetPort: 80

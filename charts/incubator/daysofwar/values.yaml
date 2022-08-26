@@ -1,25 +1,27 @@
-env:
-  GAME_ID: "541790"
-  GAME_PARAMS: dow_cathedral
-  GAME_PORT: "7777"
-  PASSWRD: ""
-  QUERY_PORT: "27015"
-  USERNAME: ""
-  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/daysofwar
   tag: latest@sha256:052b02441badc0d70427a767bf311a9502343b47dff94fcf1f083950a58e8a71
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
+env:
+  GAME_ID: "541790"
+  GAME_PARAMS: dow_cathedral
+  GAME_PORT: "7777"
+  QUERY_PORT: "27015"
+  VALIDATE: false
+
 probes:
   liveness:
     enabled: false
@@ -27,15 +29,11 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 7777
         protocol: UDP
         targetPort: 7777
@@ -47,6 +45,14 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: WEBUI_PWD
-          label: 'WEBUI_PWD'
+          label: "WEBUI_PWD"
           description: "Password for WebUI."
           schema:
             type: string
             default: "admin"
         - variable: WEBUI_TEMPLATE
-          label: 'WEBUI_TEMPLATE'
+          label: "WEBUI_TEMPLATE"
           description: "Alternative material WebUI design."
           schema:
             type: string

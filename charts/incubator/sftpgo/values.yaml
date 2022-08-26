@@ -39,10 +39,8 @@ service:
         protocol: TCP
         targetPort: 2121
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 2221
         protocol: HTTP
         targetPort: 8080
