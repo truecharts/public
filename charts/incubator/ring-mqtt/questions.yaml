@@ -18,73 +18,73 @@ questions:
       type: dict
       attrs:
         - variable: RINGTOKEN
-          label: 'RINGTOKEN'
+          label: "RINGTOKEN"
           description: "Container Variable RINGTOKEN"
           schema:
             type: string
             default: ""
         - variable: MQTTHOST
-          label: 'MQTTHOST'
+          label: "MQTTHOST"
           description: "Container Variable MQTTHOST"
           schema:
             type: string
             default: ""
         - variable: MQTTPORT
-          label: 'MQTTPORT'
+          label: "MQTTPORT"
           description: "Container Variable MQTTPORT"
           schema:
             type: string
             default: "1883"
         - variable: MQTTUSER
-          label: 'MQTTUSER'
+          label: "MQTTUSER"
           description: "Container Variable MQTTUSER"
           schema:
             type: string
             default: ""
         - variable: MQTTPASSWORD
-          label: 'MQTTPASSWORD'
+          label: "MQTTPASSWORD"
           description: "Container Variable MQTTPASSWORD"
           schema:
             type: string
             default: ""
         - variable: ENABLECAMERAS
-          label: 'ENABLECAMERAS'
+          label: "ENABLECAMERAS"
           description: "Container Variable ENABLECAMERAS"
           schema:
             type: string
             default: "false"
         - variable: SNAPSHOTMODE
-          label: 'SNAPSHOTMODE'
+          label: "SNAPSHOTMODE"
           description: "Container Variable SNAPSHOTMODE"
           schema:
             type: string
             default: "disabled"
         - variable: ENABLEMODES
-          label: 'ENABLEMODES'
+          label: "ENABLEMODES"
           description: "Container Variable ENABLEMODES"
           schema:
             type: string
             default: "false"
         - variable: ENABLEPANIC
-          label: 'ENABLEPANIC'
+          label: "ENABLEPANIC"
           description: "Container Variable ENABLEPANIC"
           schema:
             type: string
             default: "false"
         - variable: BEAMDURATION
-          label: 'BEAMDURATION'
+          label: "BEAMDURATION"
           description: "Container Variable BEAMDURATION"
           schema:
             type: string
             default: "0"
         - variable: DISARMCODE
-          label: 'DISARMCODE'
+          label: "DISARMCODE"
           description: "Container Variable DISARMCODE"
           schema:
             type: string
             default: ""
         - variable: RINGLOCATIONIDS
-          label: 'RINGLOCATIONIDS'
+          label: "RINGLOCATIONIDS"
           description: "Container Variable RINGLOCATIONIDS"
           schema:
             type: string

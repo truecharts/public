@@ -56,10 +56,8 @@ service:
         protocol: TCP
         targetPort: 23524
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 23423
         protocol: HTTP
         targetPort: 23423

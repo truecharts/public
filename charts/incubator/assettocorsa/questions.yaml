@@ -12,6 +12,26 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USERNAME
+          label: "USERNAME"
+          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            default: ""
+        - variable: PASSWRD
+          label: "PASSWRD"
+          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -20,37 +40,25 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
-          description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
+          label: "GAME_ID"
+          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "302550"
-        - variable: USERNAME
-          label: 'USERNAME'
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
         - variable: VALIDATE
-          label: 'VALIDATE'
+          label: "VALIDATE"
           description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: 'PASSWRD'
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
+            type: boolean
+            default: true
         - variable: INSTALL_STRACKER
-          label: 'INSTALL_STRACKER'
+          label: "INSTALL_STRACKER"
           description: "Set to true (without quotes) to install Stacker, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string
             default: ""
         - variable: INSTALL_ASSETTO_SERVER_MANAGER
-          label: 'INSTALL_ASSETTO_SERVER_MANAGER'
+          label: "INSTALL_ASSETTO_SERVER_MANAGER"
           description: "Set to true (without quotes) to install Assetto-Server-Manager, otherwise leave blank (Please note that you can only Stacker or Assetto-Server-Manager, not both at the same time)."
           schema:
             type: string

@@ -1,36 +1,30 @@
-env:
-  GAME_ID: "233780"
-  GAME_PARAMS: -config=server.cfg -mod=
-  GAME_PORT: "2302"
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arma3
   tag: latest@sha256:310a25a393a791867f6e4b0f83c6b75f4acae798da836791e8819f629f9a7f4a
-persistence:
-  profiles:
-    enabled: true
-    mountPath: /serverdata/.local/share
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
+env:
+  GAME_ID: "233780"
+  GAME_PARAMS: -config=server.cfg -mod=
+  GAME_PORT: "2302"
+  VALIDATE: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 2302
         protocol: TCP
         targetPort: 2302
@@ -74,6 +68,17 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
+
+persistence:
+  profiles:
+    enabled: true
+    mountPath: /serverdata/.local/share
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

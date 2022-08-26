@@ -1,3 +1,16 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/unturned
+  tag: latest@sha256:01d413b18dcdad02edeaf54a675809e8d2ca0a6106542622d41ed120bd446b33
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 env:
   GAME_ID: "1110390"
   GAME_PARAMS: -pei -normal -nosync -pve
@@ -7,11 +20,8 @@ env:
   ROCKET_MOD: ""
   ROCKET_URL: https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip
   USERNAME: ""
-  VALIDATE: ""
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/unturned
-  tag: latest@sha256:01d413b18dcdad02edeaf54a675809e8d2ca0a6106542622d41ed120bd446b33
+  VALIDATE: false
+
 persistence:
   serverfiles:
     enabled: true
@@ -19,9 +29,7 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+
 probes:
   liveness:
     enabled: false
@@ -29,15 +37,11 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 27017
         protocol: UDP
         targetPort: 27017

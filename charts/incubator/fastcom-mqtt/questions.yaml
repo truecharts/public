@@ -18,25 +18,25 @@ questions:
       type: dict
       attrs:
         - variable: MQTT_SERVER
-          label: 'MQTT_SERVER'
+          label: "MQTT_SERVER"
           description: "Container Variable MQTTSERVER"
           schema:
             type: string
             default: ""
         - variable: MQTT_UP
-          label: 'MQTT_UP'
+          label: "MQTT_UP"
           description: "Container Variable MQTTUP"
           schema:
             type: string
             default: ""
         - variable: MQTT_DOWN
-          label: 'MQTT_DOWN'
+          label: "MQTT_DOWN"
           description: "Container Variable MQTTDOWN"
           schema:
             type: string
             default: ""
         - variable: SLEEP
-          label: 'SLEEP'
+          label: "SLEEP"
           description: "Container Variable sleep"
           schema:
             type: string

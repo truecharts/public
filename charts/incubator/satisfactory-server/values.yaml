@@ -32,10 +32,8 @@ service:
         protocol: UDP
         targetPort: 15000
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 7777
         protocol: UDP
         targetPort: 7777

@@ -35,10 +35,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 27017
         protocol: UDP
         targetPort: 27017
