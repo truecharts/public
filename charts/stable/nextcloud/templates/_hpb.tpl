@@ -121,7 +121,7 @@ command:
     {{- end }}
 
     echo  "Configuring CLI url..."
-    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $url }}'
+    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}'
 
     echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
     php /var/www/html/occ config:app:set notify_push base_endpoint --value="{{ $accessurl }}/push"
