@@ -12,22 +12,16 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: USERNAME
-          label: 'USERNAME'
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: VALIDATE
-          label: 'VALIDATE'
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+          label: "USERNAME"
+          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""
@@ -36,7 +30,21 @@ questions:
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
+            private: true
             default: ""
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: VALIDATE
+          label: "VALIDATE"
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+          schema:
+            type: boolean
+            default: true
         - variable: GAME_PARAMS
           label: 'GAME_PARAMS'
           description: "Enter here your extra game startup parameters if needed starting with (eg rcon.port 27016 rcon.password YOURPASSWORD dont forget to add also a new port here on the template page with container and host port set to the corresponding RCON port)"

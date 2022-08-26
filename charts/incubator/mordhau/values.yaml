@@ -1,26 +1,29 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/mordhau
+  tag: latest@sha256:268b06ed7ee5be160953f3d967f6c3ecc096f4e2b251602f1f1edff811cbd690
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
 env:
   BEACON_PORT: "15000"
   GAME_ID: "629800"
   GAME_PARAMS: ""
   GAME_PORT: "7777"
-  PASSWRD: ""
   QUERY_PORT: "27015"
-  USERNAME: ""
-  VALIDATE: "false"
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mordhau
-  tag: latest@sha256:268b06ed7ee5be160953f3d967f6c3ecc096f4e2b251602f1f1edff811cbd690
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  VALIDATE: false
+
+
 probes:
   liveness:
     enabled: false
@@ -28,10 +31,14 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
+  main:
+    ports:
+      main:
+        port: 7777
+        protocol: UDP
+        targetPort: 7777
   beaconport:
     enabled: true
     ports:
@@ -40,14 +47,6 @@ service:
         port: 15000
         protocol: UDP
         targetPort: 15000
-  main:
-    enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 7777
-        protocol: UDP
-        targetPort: 7777
   udp:
     enabled: true
     ports:
@@ -56,6 +55,14 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

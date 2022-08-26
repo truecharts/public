@@ -1,39 +1,33 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/arma3exilemod
+  tag: latest@sha256:208329fc94dbc999c01e76ee4322efe6ac1358b466ba1e73327a4db55b01e00f
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
 env:
   EXILEMOD_SERVER_URL: http://www.exilemod.com/ExileServer-1.0.4a.zip
   GAME_ID: "233780"
   GAME_PARAMS: ""
   GAME_PORT: "2302"
   MARIA_DB_ROOT_PWD: ExileMod
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: ""
+  VALIDATE: false
   WORKSHOP_MAN_INST: ""
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/arma3exilemod
-  tag: latest@sha256:208329fc94dbc999c01e76ee4322efe6ac1358b466ba1e73327a4db55b01e00f
-persistence:
-  profiles:
-    enabled: true
-    mountPath: /serverdata/.local/share
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 2302
         protocol: TCP
         targetPort: 2302
@@ -85,6 +79,17 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
+
+persistence:
+  profiles:
+    enabled: true
+    mountPath: /serverdata/.local/share
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

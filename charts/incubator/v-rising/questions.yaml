@@ -12,6 +12,26 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USERNAME
+          label: "USERNAME"
+          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            default: ""
+        - variable: PASSWRD
+          label: 'PASSWRD'
+          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -21,16 +41,16 @@ questions:
       attrs:
         - variable: GAME_ID
           label: 'GAME_ID'
-          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to 1829350 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "1829350"
         - variable: VALIDATE
-          label: 'VALIDATE'
+          label: "VALIDATE"
           description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: true
         - variable: SERVER_NAME
           label: 'SERVER_NAME'
           description: "Enter your preferred server name."
@@ -52,18 +72,6 @@ questions:
         - variable: ENABLE_BEPINEX
           label: 'ENABLE_BEPINEX'
           description: "If you want to enable BepInEx for V Rising set this variable to true (without quotes).For more information please refer to this site httpsv-rising.thunderstore.iopackageBepInExBepInExPackVRising"
-          schema:
-            type: string
-            default: ""
-        - variable: USERNAME
-          label: 'USERNAME'
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: 'PASSWRD'
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
             default: ""

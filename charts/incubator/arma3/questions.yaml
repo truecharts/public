@@ -12,27 +12,15 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: GAME_ID
-          label: 'GAME_ID'
-          description: "The GAMEID that the container download at startup.(httpsdeveloper.valvesoftware.comwikiDedicatedServersList)"
-          schema:
-            type: string
-            default: "233780"
-        - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
-          description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
-          schema:
-            type: string
-            default: "-config=server.cfg -mod="
         - variable: USERNAME
-          label: 'USERNAME'
+          label: "USERNAME"
           description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
@@ -42,13 +30,33 @@ questions:
           description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
           schema:
             type: string
+            private: true
             default: ""
-        - variable: VALIDATE
-          label: 'VALIDATE'
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: GAME_ID
+          label: 'GAME_ID'
+          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
-            default: ""
+            default: "233780"
+        - variable: GAME_PARAMS
+          label: 'GAME_PARAMS'
+          description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
+          schema:
+            type: string
+            default: "-config=server.cfg -mod="
+        - variable: VALIDATE
+          label: "VALIDATE"
+          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+          schema:
+            type: boolean
+            default: true
         - variable: GAME_PORT
           label: 'GAME_PORT'
           description: "Container Variable GAMEPORT"
