@@ -57,11 +57,11 @@ command:
     until [ -f /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push ]
     do
          sleep 10
-         echo "Notify_push not found... waiting..."
+         echo "Notify_push app not found... waiting..."
     done
     echo "Waiting for Nextcloud to start..."
     until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php); do
-        echo "Nextcloud not found... waiting..."
+        echo "Nextcloud not responding... waiting..."
         sleep 10
     done
     until $(curl --silent --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php | jq --raw-output '.installed' | grep "true"); do
@@ -70,6 +70,16 @@ command:
     done
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
+
+    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
+    {{- if .Values.ingress.main.enabled }}
+      {{- with (first .Values.ingress.main.hosts) }}
+      {{- $accessurl = (  printf "https://%s" .host ) }}
+      {{- end }}
+    {{- end }}
+
+    echo  "Configuring CLI url..."
+    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}/'
 
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
@@ -108,37 +118,13 @@ command:
     {{ if .Values.imaginary.preview_font }}php /var/www/html/occ config:system:set enabledPreviewProviders {{ $c }} --value='OC\Preview\Font'{{ $c = add1 $c }}{{ end }}
     {{- end }}
 
-    # Set overwrite.cli.uri
-    {{- $url := (  printf "http://%s:{{ .Values.service.main.ports.main.port }}/" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
-    {{- if .Values.ingress.main.enabled }}
-      {{- with (first .Values.ingress.main.hosts) }}
-      {{- $url = (  printf "https://%s/" .host ) }}
-      {{- end }}
-    {{- end }}
-    php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $url }}'
-
     # Set default phone region
     {{- with .Values.nextcloud.default_phone_region | upper }}
     php /var/www/html/occ config:system:set default_phone_region --value='{{ . }}'
     {{- end }}
 
-    until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:7867/push/test/cookie); do
-        echo "High Performance Backend not running ... waiting..."
-        sleep 10
-    done
-    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
-    {{- if .Values.ingress.main.enabled }}
-      {{- with (first .Values.ingress.main.hosts) }}
-      {{- $accessurl = (  printf "https://%s" .host ) }}
-      {{- end }}
-    {{- end }}
-    until $(curl --output /dev/null --silent --head --fail {{ $accessurl }}/push/test/cookie); do
-        echo "High Performance Backend service not accessable ... waiting..."
-        sleep 10
-    done
-    echo  "High Performance Backend found..."
     echo  "Configuring High Performance Backend for url: {{ $accessurl }}"
-    php /var/www/html/occ notify_push:setup {{ $accessurl }}/push
+    php /var/www/html/occ config:app:set notify_push base_endpoint --value='{{ $accessurl }}/push'
     fg
     EOF
 env:
