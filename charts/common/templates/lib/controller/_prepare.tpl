@@ -109,10 +109,6 @@ before chart installation.
         chmod -R g+rwx {{ tpl $hpm.mountPath $ | squote }}
       fi
       {{- end }}
-      {{- if .Values.patchInotify }}
-      echo "increasing inotify limits..."
-      ( sysctl -w fs.inotify.max_user_watches=524288 || echo "error setting inotify") && ( sysctl -w fs.inotify.max_user_instances=512 || echo "error setting inotify")
-      {{- end }}
       {{- if .Values.postgresql.enabled }}
       {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
       until
