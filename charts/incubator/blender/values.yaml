@@ -18,10 +18,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 3000
         protocol: TCP
         targetPort: 3000

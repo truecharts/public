@@ -24,10 +24,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 36963
         protocol: UDP
         targetPort: 36963

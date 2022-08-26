@@ -1,28 +1,33 @@
-env:
-  GAME_ID: "302550"
-  INSTALL_ASSETTO_SERVER_MANAGER: ""
-  INSTALL_STRACKER: ""
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/assettocorsa
   tag: latest@sha256:d069fd03e5bd5a4f8b3dde501fb3dcee7d8821893f82fc36270985c5e458c94d
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
+env:
+  GAME_ID: "302550"
+  INSTALL_ASSETTO_SERVER_MANAGER: ""
+  INSTALL_STRACKER: ""
+  VALIDATE: false
+
 service:
+  main:
+    ports:
+      main:
+        port: 9600
+        protocol: TCP
+        targetPort: 9600
   assetto:
     enabled: true
     ports:
@@ -31,14 +36,6 @@ service:
         port: 8772
         protocol: TCP
         targetPort: 8772
-  main:
-    enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 9600
-        protocol: TCP
-        targetPort: 9600
   stracker:
     enabled: true
     ports:
@@ -63,6 +60,14 @@ service:
         port: 9600
         protocol: UDP
         targetPort: 9600
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

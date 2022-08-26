@@ -18,10 +18,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 5901
         protocol: TCP
         targetPort: 5901

@@ -1,31 +1,44 @@
-env:
-  GALAXY_NAME: AvorionDocker
-  GAME_ID: "565060"
-  GAME_PARAMS: ""
-  PASSWRD: ""
-  UMASK: "000"
-  USERNAME: ""
-  VALIDATE: ""
-stdin: true
-tty: true
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/avorion
   tag: latest@sha256:b7e32a75276e0976268d5aa2a11bc51ccfc9225d63ae10ea1e27f73a7ea4db17
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
+
+stdin: true
+tty: true
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
+env:
+  GALAXY_NAME: AvorionDocker
+  GAME_ID: "565060"
+  GAME_PARAMS: ""
+  VALIDATE: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 service:
+  main:
+    ports:
+      main:
+        port: 27000
+        protocol: TCP
+        targetPort: 27000
   hostport2:
     enabled: true
     ports:
@@ -58,21 +71,14 @@ service:
         port: 27021
         protocol: UDP
         targetPort: 27021
-  main:
+
+persistence:
+  serverfiles:
     enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 27000
-        protocol: TCP
-        targetPort: 27000
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

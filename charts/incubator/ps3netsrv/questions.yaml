@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: USER_ID
-          label: 'USER_ID'
+          label: "USER_ID"
           description: "UID for permissions.  Do not change unless you know what youre doing."
           schema:
             type: string
             default: ""
         - variable: GROUP_ID
-          label: 'GROUP_ID'
+          label: "GROUP_ID"
           description: "GID for permissions.  Do not change unless you know what youre doing."
           schema:
             type: string

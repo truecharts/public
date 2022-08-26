@@ -20,19 +20,19 @@ questions:
       type: dict
       attrs:
         - variable: PASSWORD
-          label: 'PASSWORD'
+          label: "PASSWORD"
           description: "Container Variable PASSWORD"
           schema:
             type: string
             default: "yourpasswordhere"
         - variable: ROOT
-          label: 'ROOT'
+          label: "ROOT"
           description: "Give the user root permissions"
           schema:
             type: string
             default: "FALSE"
         - variable: ADD
-          label: 'ADD'
+          label: "ADD"
           description: "Input shiny without quotes to add shiny server"
           schema:
             type: string

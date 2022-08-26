@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: GUAC_USER
-          label: 'GUAC_USER'
+          label: "GUAC_USER"
           description: "Username for the desktop GUI."
           schema:
             type: string
             default: ""
         - variable: GUAC_PASS
-          label: 'GUAC_PASS'
+          label: "GUAC_PASS"
           description: "Password MD5 hash for the desktop GUI."
           schema:
             type: string

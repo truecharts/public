@@ -20,25 +20,25 @@ questions:
       type: dict
       attrs:
         - variable: RWA_ADMIN
-          label: 'RWA_ADMIN'
+          label: "RWA_ADMIN"
           description: "Container Variable RWAADMIN"
           schema:
             type: string
             default: "TRUE"
         - variable: RWA_USERNAME
-          label: 'RWA_USERNAME'
+          label: "RWA_USERNAME"
           description: "Container Variable RWAUSERNAME"
           schema:
             type: string
             default: "admin"
         - variable: RWA_PASSWORD
-          label: 'RWA_PASSWORD'
+          label: "RWA_PASSWORD"
           description: "Container Variable RWAPASSWORD"
           schema:
             type: string
             default: "admin"
         - variable: RWA_ENV
-          label: 'RWA_ENV'
+          label: "RWA_ENV"
           description: "Container Variable RWAENV"
           schema:
             type: string

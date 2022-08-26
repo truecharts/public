@@ -20,25 +20,25 @@ questions:
       type: dict
       attrs:
         - variable: KASM_PORT
-          label: 'KASM_PORT'
+          label: "KASM_PORT"
           description: "Specify the port you bind to the outside for Kasm Workspaces."
           schema:
             type: string
             default: ""
         - variable: DOCKER_HUB_USERNAME
-          label: 'DOCKER_HUB_USERNAME'
+          label: "DOCKER_HUB_USERNAME"
           description: "Optionally specify a DockerHub Username to pull private images."
           schema:
             type: string
             default: ""
         - variable: DOCKER_HUB_PASSWORD
-          label: 'DOCKER_HUB_PASSWORD'
+          label: "DOCKER_HUB_PASSWORD"
           description: "Optionally specify a DockerHub password to pull private images."
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: 'UMASK'
+          label: "UMASK"
           description: "Container Variable UMASK"
           schema:
             type: string

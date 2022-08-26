@@ -28,10 +28,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6080
         protocol: TCP
         targetPort: 6080
