@@ -20,10 +20,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8322
         protocol: TCP
         targetPort: 8080

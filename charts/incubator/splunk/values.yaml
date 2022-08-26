@@ -31,10 +31,8 @@ service:
         protocol: TCP
         targetPort: 9997
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8000
         protocol: HTTP
         targetPort: 8000

@@ -23,10 +23,8 @@ service:
         protocol: TCP
         targetPort: 8443
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8090
         protocol: HTTP
         targetPort: 8090

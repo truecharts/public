@@ -18,37 +18,37 @@ questions:
       type: dict
       attrs:
         - variable: ACCESS_KEY
-          label: 'ACCESS_KEY'
+          label: "ACCESS_KEY"
           description: "Your AWS Access Key."
           schema:
             type: string
             default: "your_access_key_here"
         - variable: SECRET_KEY
-          label: 'SECRET_KEY'
+          label: "SECRET_KEY"
           description: "Your AWS Secret Key."
           schema:
             type: string
             default: "your_secret_key_here"
         - variable: REGION
-          label: 'REGION'
+          label: "REGION"
           description: "The region of your bucket."
           schema:
             type: string
             default: "bucket_region_here"
         - variable: S3SYNCPARAMS
-          label: 'S3SYNCPARAMS'
+          label: "S3SYNCPARAMS"
           description: "(Optional) Extra parameters for the s3 sync command."
           schema:
             type: string
             default: ""
         - variable: S3PATH
-          label: 'S3PATH'
+          label: "S3PATH"
           description: "The target bucket path with optional prefix."
           schema:
             type: string
             default: "s3://your_bucket_name"
         - variable: CRON_SCHEDULE
-          label: 'CRON_SCHEDULE'
+          label: "CRON_SCHEDULE"
           description: "Cron schedule of backup."
           schema:
             type: string

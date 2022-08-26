@@ -27,10 +27,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8443
         protocol: HTTP
         targetPort: 8443

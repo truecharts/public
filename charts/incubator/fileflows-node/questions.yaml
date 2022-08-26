@@ -18,19 +18,19 @@ questions:
       type: dict
       attrs:
         - variable: ServerUrl
-          label: 'ServerUrl'
+          label: "ServerUrl"
           description: "FileFlows Server URL"
           schema:
             type: string
             default: ""
         - variable: NodeName
-          label: 'NodeName'
+          label: "NodeName"
           description: "A unique name to identify this Node instance"
           schema:
             type: string
             default: ""
         - variable: TempPath
-          label: 'TempPath'
+          label: "TempPath"
           description: "Path for temporary files created"
           schema:
             type: string

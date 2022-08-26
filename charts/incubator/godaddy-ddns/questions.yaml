@@ -18,19 +18,19 @@ questions:
       type: dict
       attrs:
         - variable: GODADDY_API_KEY
-          label: 'GODADDY_API_KEY'
+          label: "GODADDY_API_KEY"
           description: "Use the key from your godaddy account"
           schema:
             type: string
             default: ""
         - variable: GODADDY_API_SECRET
-          label: 'GODADDY_API_SECRET'
+          label: "GODADDY_API_SECRET"
           description: "Use the secret from your godaddy account "
           schema:
             type: string
             default: ""
         - variable: GODADDY_DOMAINS
-          label: 'GODADDY_DOMAINS'
+          label: "GODADDY_DOMAINS"
           description: "A comma-separated list of domains that youd like to update. For example mydomain.com or mydomain.com,anotherdomain.com"
           schema:
             type: string

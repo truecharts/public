@@ -1,3 +1,20 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/pixark
+  tag: latest@sha256:0fb1706f1087004644424ddcb7ec7f4ddd11a36831944c4b60e06f8f8c78511e
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
 env:
   GAME_ID: "824360"
   GAME_PARAMS: ?MaxPlayers=10
@@ -5,26 +22,11 @@ env:
     -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
     -game -server -log
   MAP: CubeWorld_Light
-  PASSWRD: ""
   SERVER_NAME: PIXARKDocker
   SRV_ADMIN_PWD: adminDocker
   SRV_PWD: Docker
-  USERNAME: ""
-  VALIDATE: ""
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pixark
-  tag: latest@sha256:0fb1706f1087004644424ddcb7ec7f4ddd11a36831944c4b60e06f8f8c78511e
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  VALIDATE: false
+
 probes:
   liveness:
     enabled: false
@@ -32,10 +34,14 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
+  main:
+    ports:
+      main:
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
   cubeport:
     enabled: true
     ports:
@@ -44,14 +50,6 @@ service:
         port: 27018
         protocol: UDP
         targetPort: 27018
-  main:
-    enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 27015
-        protocol: UDP
-        targetPort: 27015
   queryport:
     enabled: true
     ports:
@@ -60,6 +58,14 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true
