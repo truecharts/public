@@ -6,6 +6,10 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
@@ -15,8 +19,8 @@ service:
         port: 13080
 
 env:
-  TARGET_UID: "{{ .Values.security.PUID }}"
-  TARGET_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+  TARGET_UID: 0
+  TARGET_GID: 0
   AUTO_UPDATE: true
   WEBSITE_NAME: "Docusaurus HomeLab Website"
   TEMPLATE: classic
