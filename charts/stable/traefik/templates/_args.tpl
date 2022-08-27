@@ -69,7 +69,7 @@ args:
   {{- range $entrypoint, $config := $ports }}
   {{/* add args for proxyProtocol support */}}
   {{- if $config.proxyProtocol.enabled }}
-  {{- if $config.proxyProtocol.insecureMode  }}
+  {{- if $config.proxyProtocol.insecureMode }}
   - "--entrypoints.{{ $entrypoint }}.proxyProtocol.insecure"
   {{- end }}
   {{- if not ( empty $config.proxyProtocol.trustedIPs ) }}
