@@ -3,10 +3,10 @@
 image: {{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}
 imagePullPolicy: '{{ .Values.nginxImage.pullPolicy }}'
 securityContext:
-  runAsUser: 0
-  runAsGroup: 100
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
+  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
+  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 ports:
   - containerPort: {{ .Values.service.main.ports.main.port }}
     name: main

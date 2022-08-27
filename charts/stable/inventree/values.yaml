@@ -9,9 +9,10 @@ nginxImage:
 
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 100
+  runAsUser: 0
   runAsGroup: 0
 
 envFrom:
