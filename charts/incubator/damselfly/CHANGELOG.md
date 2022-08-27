@@ -2,6 +2,15 @@
 
 
 
+## [damselfly-0.0.19](https://github.com/truecharts/charts/compare/damselfly-0.0.17...damselfly-0.0.19) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [damselfly-0.0.17](https://github.com/truecharts/charts/compare/damselfly-0.0.16...damselfly-0.0.17) (2022-08-23)
 
 ### Chore

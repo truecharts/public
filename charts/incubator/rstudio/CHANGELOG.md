@@ -2,6 +2,19 @@
 
 
 
+## [rstudio-0.0.21](https://github.com/truecharts/charts/compare/rstudio-0.0.18...rstudio-0.0.21) (2022-08-27)
+
+### Chore
+
+- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [rstudio-0.0.18](https://github.com/truecharts/charts/compare/rstudio-0.0.17...rstudio-0.0.18) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [obsidian-0.0.21](https://github.com/truecharts/charts/compare/obsidian-0.0.19...obsidian-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [obsidian-0.0.19](https://github.com/truecharts/charts/compare/obsidian-0.0.18...obsidian-0.0.19) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [nexus-oss-0.0.7](https://github.com/truecharts/charts/compare/nexus-oss-0.0.5...nexus-oss-0.0.7) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [nexus-oss-0.0.5](https://github.com/truecharts/charts/compare/nexus-oss-0.0.4...nexus-oss-0.0.5) (2022-08-23)
 
 ### Chore

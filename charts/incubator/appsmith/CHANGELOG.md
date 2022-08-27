@@ -2,6 +2,15 @@
 
 
 
+## [appsmith-2.0.43](https://github.com/truecharts/charts/compare/appsmith-2.0.41...appsmith-2.0.43) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [appsmith-2.0.41](https://github.com/truecharts/charts/compare/appsmith-2.0.40...appsmith-2.0.41) (2022-08-25)
 
 ### Chore

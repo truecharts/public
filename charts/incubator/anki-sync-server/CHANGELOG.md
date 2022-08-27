@@ -2,6 +2,15 @@
 
 
 
+## [anki-sync-server-0.0.6](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.4...anki-sync-server-0.0.6) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [anki-sync-server-0.0.4](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.3...anki-sync-server-0.0.4) (2022-08-23)
 
 ### Chore

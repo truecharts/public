@@ -2,6 +2,15 @@
 
 
 
+## [passwordpusherephemeral-0.0.23](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.21...passwordpusherephemeral-0.0.23) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [passwordpusherephemeral-0.0.21](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.20...passwordpusherephemeral-0.0.21) (2022-08-23)
 
 ### Chore

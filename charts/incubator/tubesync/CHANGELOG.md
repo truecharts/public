@@ -2,6 +2,15 @@
 
 
 
+## [tubesync-0.0.21](https://github.com/truecharts/charts/compare/tubesync-0.0.19...tubesync-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [tubesync-0.0.19](https://github.com/truecharts/charts/compare/tubesync-0.0.18...tubesync-0.0.19) (2022-08-26)
 
 ### Chore

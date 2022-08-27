@@ -2,6 +2,15 @@
 
 
 
+## [jenkins-0.1.4](https://github.com/truecharts/charts/compare/jenkins-0.1.2...jenkins-0.1.4) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [jenkins-0.1.2](https://github.com/truecharts/charts/compare/jenkins-0.1.1...jenkins-0.1.2) (2022-08-23)
 
 ### Chore

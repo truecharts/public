@@ -2,6 +2,15 @@
 
 
 
+## [actualserver-0.0.22](https://github.com/truecharts/charts/compare/actualserver-0.0.20...actualserver-0.0.22) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [actualserver-0.0.20](https://github.com/truecharts/charts/compare/actualserver-0.0.19...actualserver-0.0.20) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [mongodb-1.0.60](https://github.com/truecharts/charts/compare/mongodb-1.0.59...mongodb-1.0.60) (2022-08-26)
+
+### Chore
+
+- update helm chart common to v10.5.2 ([#3583](https://github.com/truecharts/charts/issues/3583))
+
+
+
+
 ## [mongodb-1.0.59](https://github.com/truecharts/charts/compare/mongodb-1.0.58...mongodb-1.0.59) (2022-08-25)
 
 ### Chore

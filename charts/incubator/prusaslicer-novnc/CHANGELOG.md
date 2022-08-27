@@ -2,6 +2,19 @@
 
 
 
+## [prusaslicer-novnc-0.0.23](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.20...prusaslicer-novnc-0.0.23) (2022-08-27)
+
+### Chore
+
+- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [prusaslicer-novnc-0.0.20](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.19...prusaslicer-novnc-0.0.20) (2022-08-23)
 
 ### Chore

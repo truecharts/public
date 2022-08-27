@@ -2,6 +2,15 @@
 
 
 
+## [privatebin-0.0.31](https://github.com/truecharts/charts/compare/privatebin-0.0.29...privatebin-0.0.31) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [privatebin-0.0.29](https://github.com/truecharts/charts/compare/privatebin-0.0.28...privatebin-0.0.29) (2022-08-23)
 
 ### Chore

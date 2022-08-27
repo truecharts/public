@@ -2,6 +2,15 @@
 
 
 
+## [sourcegraph-0.0.21](https://github.com/truecharts/charts/compare/sourcegraph-0.0.19...sourcegraph-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [sourcegraph-0.0.19](https://github.com/truecharts/charts/compare/sourcegraph-0.0.18...sourcegraph-0.0.19) (2022-08-24)
 
 ### Chore
