@@ -35,6 +35,12 @@ questions:
             type: string
             valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
             default: ""
+        - variable: disableGDM
+          label: "Disable GDM"
+          description: "Recommended to keep this to true. Disables legacy local network discovery. Keeping it enabled might break discovery for some Plex Clients"
+          schema:
+            type: boolean
+            default: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
