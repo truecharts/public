@@ -1,0 +1,31 @@
+image:
+  repository: docker.io/awesometic/docusaurus
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:5a4777dae1ce0d5b9aab8945a026a1c99ec26346f19461ceef792761a88e4f62
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 13080
+
+env:
+  TARGET_UID: 568
+  TARGET_GID: 568
+  AUTO_UPDATE: true
+  WEBSITE_NAME: ""
+  TEMPLATE: classic
+        
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/docusaurus"
+
+portal:
+  enabled: true
