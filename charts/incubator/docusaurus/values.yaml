@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/docusaurus
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b1f84f0cf4fe9e96ba199e0edc78101718a84ca48fb1b547b4fb342db5f72564
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 13080
+
+env:
+  TARGET_UID: "{{ .Values.security.PUID }}"
+  TARGET_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+  AUTO_UPDATE: true
+  WEBSITE_NAME: "Docusaurus HomeLab Website"
+  TEMPLATE: classic
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/docusaurus"
+
+portal:
+  enabled: true

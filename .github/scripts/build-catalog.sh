@@ -276,6 +276,16 @@ include_questions(){
     /# Include{documentation}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/documentation.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{[forwardedHeaders]} with the standard forwardedHeaders codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{forwardedHeaders}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/forwardedHeaders.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{proxyProtocol} with the standard proxyProtocol codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{proxyProtocol}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/proxyProtocol.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     }
 export -f include_questions
 

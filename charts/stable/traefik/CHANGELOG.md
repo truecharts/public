@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.0](https://github.com/truecharts/charts/compare/traefik-13.2.3...traefik-13.3.0) (2022-08-27)
+
+### Feat
+
+- add support for proxyProtocol ([#3593](https://github.com/truecharts/charts/issues/3593))
+
+
+
+
 ## [traefik-13.2.3](https://github.com/truecharts/charts/compare/traefik-13.2.2...traefik-13.2.3) (2022-08-25)
 
 

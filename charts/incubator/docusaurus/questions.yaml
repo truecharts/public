@@ -2,7 +2,6 @@
 portals:
   open:
 # Include{portalLink}
-    path: "/web"
 questions:
 # Include{global}
 # Include{controller}
@@ -13,34 +12,6 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: plex
-    group: "Container Configuration"
-    label: "Plex Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: serverIP
-          label: "Server IP"
-          description: "Set to the IP-Address used to reach Plex."
-          schema:
-            type: string
-            required: true
-            $ref:
-              - "definitions/nodeIP"
-        - variable: additionalAdvertiseURL
-          label: "Addition Advertise URLs"
-          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
-          schema:
-            type: string
-            valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
-            default: ""
-        - variable: disableGDM
-          label: "Disable GDM"
-          description: "Recommended to keep this to true. Disables legacy local network discovery. Keeping it enabled might break discovery for some Plex Clients"
-          schema:
-            type: boolean
-            default: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -48,18 +19,34 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ALLOWED_NETWORKS
-          label: "Allowed Networks"
-          description: "Networks allowed to connect to plex. Add your local network IP to this list"
+        - variable: AUTO_UPDATE
+          label: "Auto Update"
+          schema:
+            type: boolean
+            default: true
+        - variable: WEBSITE_NAME
+          label: "Website Name"
+          description: "The name for your Docusaurus website"
           schema:
             type: string
-            default: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
-        - variable: PLEX_CLAIM
-          label: "Plex Claim Token"
-          description: "Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
+            default: "Docusaurus HomeLab Website"
+        - variable: TEMPLATE
+          label: "Docusaurus Default Template"
+          description: "Default template for your Docusaurus website"
           schema:
             type: string
-            default: ""
+            default: "classic"
+        - variable: RUN_MODE
+          label: "Run Mode"
+          description: "Specify the mode to start Docusaurus"
+          schema:
+            type: string
+            default: "Production"
+            enum:
+              - value: production
+                description: Production
+              - value: development
+                description: Development
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -81,7 +68,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 32400
+                              default: 13080
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -89,7 +76,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 32400
+                                    default: 80
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -128,7 +115,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -138,7 +125,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -146,13 +133,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

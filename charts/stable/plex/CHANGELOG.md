@@ -2,6 +2,24 @@
 
 
 
+## [plex-10.2.1](https://github.com/truecharts/charts/compare/plex-10.2.0...plex-10.2.1) (2022-08-27)
+
+### Fix
+
+- init script quotes it automatically ([#3598](https://github.com/truecharts/charts/issues/3598))
+
+
+
+
+## [plex-10.2.0](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.18...plex-10.2.0) (2022-08-27)
+
+### Feat
+
+- disable GDM by default ([#3597](https://github.com/truecharts/charts/issues/3597))
+
+
+
+
 ## [plex-10.1.3](https://github.com/truecharts/charts/compare/plex-10.1.2...plex-10.1.3) (2022-08-23)
 
 ### Chore
