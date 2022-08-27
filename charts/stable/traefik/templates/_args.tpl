@@ -72,7 +72,7 @@ args:
   {{- if $config.proxyProtocol.insecureMode  }}
   - "--entrypoints.{{ $entrypoint }}.proxyProtocol.insecure"
   {{- end }}
-  {{- if not ( empty $config.proxyProtocol.trustedIPs }}
+  {{- if not ( empty $config.proxyProtocol.trustedIPs ) }}
   - "--entrypoints.{{ $entrypoint }}.proxyProtocol.trustedIPs={{ join "," $config.proxyProtocol.trustedIPs }}"
   {{- end }}
   {{- end }}
