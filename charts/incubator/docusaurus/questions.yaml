@@ -19,20 +19,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TARGET_UID
-          label: "TARGET_UID"
-          description: "Specify the user passed onto container for non-root"
-          schema:
-            type: int
-            required: true
-            default: 568
-        - variable: TARGET_GID
-          label: "TARGET_GID"
-          description: "Specify the group passed onto the container for non-root"
-          schema:
-            type: int
-            required: true
-            default: 568
         - variable: WEBSITE_NAME
           label: "Website Name"
           description: "The name for your Docusaurus website"
