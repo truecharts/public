@@ -129,7 +129,7 @@ initContainers:
     name: init-migrate
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
-      runAsUser: 100
+      runAsUser: 0
       runAsGroup: 0
       runAsNonRoot: true
       readOnlyRootFilesystem: false
