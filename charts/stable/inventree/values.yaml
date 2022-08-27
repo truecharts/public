@@ -118,7 +118,7 @@ persistence:
   inventree-config:
     enabled: "true"
     mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx-confing"
+    subPath: "nginx-config"
     type: "custom"
     volumeSpec:
       configMap:
