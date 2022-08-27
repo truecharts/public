@@ -188,6 +188,13 @@ service:
           trustedIPs: []
           # -- Trust all forwarded headers
           insecureMode: false
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
+          insecureMode: false
   #      tcpexample:
   #        enabled: true
   #        targetPort: 9443
@@ -213,6 +220,9 @@ service:
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
+          enabled: false
+        # -- Proxy Protocol should never be enabled on Metrics entrypoint
+        proxyProtocol:
           enabled: false
   udp:
     enabled: false
