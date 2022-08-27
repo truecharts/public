@@ -54,7 +54,7 @@ persistence:
   inventree-nginx:
     enabled: "true"
     noMount: true
-    subPath: "nginx-config"
+    subPath: "nginx.conf"
     type: "custom"
     volumeSpec:
       configMap:

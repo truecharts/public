@@ -49,7 +49,7 @@ data:
   {{- with .Values.inventree.general.login_attempts }}
   INVENTREE_LOGIN_ATTEMPTS: {{ . | quote }}
   {{- end }}
-nginx-config: |-
+nginx.conf: |-
   server {
     listen {{ .Values.service.main.ports.main.port }};
     real_ip_header proxy_protocol;
