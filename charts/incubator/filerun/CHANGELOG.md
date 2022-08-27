@@ -2,6 +2,15 @@
 
 
 
+## [filerun-2.1.2](https://github.com/truecharts/charts/compare/filerun-2.1.0...filerun-2.1.2) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [filerun-2.1.0](https://github.com/truecharts/charts/compare/filerun-2.0.30...filerun-2.1.0) (2022-08-25)
 
 ### Feat

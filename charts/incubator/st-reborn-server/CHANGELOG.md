@@ -2,6 +2,15 @@
 
 
 
+## [st-reborn-server-0.0.13](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.11...st-reborn-server-0.0.13) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [st-reborn-server-0.0.11](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.10...st-reborn-server-0.0.11) (2022-08-23)
 
 ### Chore

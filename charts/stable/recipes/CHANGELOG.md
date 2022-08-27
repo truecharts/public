@@ -2,6 +2,15 @@
 
 
 
+## [recipes-8.0.43](https://github.com/truecharts/charts/compare/recipes-8.0.42...recipes-8.0.43) (2022-08-27)
+
+### Chore
+
+- expose CSRF_TRUSTED_ORIGINS to gui ([#3592](https://github.com/truecharts/charts/issues/3592))
+
+
+
+
 ## [recipes-8.0.42](https://github.com/truecharts/charts/compare/recipes-8.0.41...recipes-8.0.42) (2022-08-25)
 
 ### Chore

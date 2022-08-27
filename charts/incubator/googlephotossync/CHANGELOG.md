@@ -2,6 +2,15 @@
 
 
 
+## [googlephotossync-0.0.24](https://github.com/truecharts/charts/compare/googlephotossync-0.0.22...googlephotossync-0.0.24) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [googlephotossync-0.0.22](https://github.com/truecharts/charts/compare/googlephotossync-0.0.21...googlephotossync-0.0.22) (2022-08-24)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [adguard-home-1.0.34](https://github.com/truecharts/charts/compare/adguard-home-1.0.32...adguard-home-1.0.34) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [adguard-home-1.0.32](https://github.com/truecharts/charts/compare/adguard-home-1.0.31...adguard-home-1.0.32) (2022-08-23)
 
 ### Chore

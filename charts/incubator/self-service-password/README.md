@@ -1,6 +1,6 @@
 # self-service-password
 
-![Version: 1.0.30](https://img.shields.io/badge/Version-1.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.2.3](https://img.shields.io/badge/AppVersion-5.2.3-informational?style=flat-square)
+![Version: 1.0.33](https://img.shields.io/badge/Version-1.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.3.0](https://img.shields.io/badge/AppVersion-5.3.0-informational?style=flat-square)
 
 Self Service Password is a PHP application that allows users to change their password in an LDAP directory.
 

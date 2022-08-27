@@ -1,6 +1,6 @@
 # anki-sync-server
 
-![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![AppVersion: 20220516](https://img.shields.io/badge/AppVersion-20220516-informational?style=flat-square)
+![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ![AppVersion: 20220516](https://img.shields.io/badge/AppVersion-20220516-informational?style=flat-square)
 
 A cross-platform Anki sync server.
 

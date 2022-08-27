@@ -2,6 +2,15 @@
 
 
 
+## [technitium-1.0.30](https://github.com/truecharts/charts/compare/technitium-1.0.28...technitium-1.0.30) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [technitium-1.0.28](https://github.com/truecharts/charts/compare/technitium-1.0.27...technitium-1.0.28) (2022-08-23)
 
 ### Chore

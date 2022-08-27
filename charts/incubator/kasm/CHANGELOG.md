@@ -2,6 +2,15 @@
 
 
 
+## [kasm-0.0.23](https://github.com/truecharts/charts/compare/kasm-0.0.21...kasm-0.0.23) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [kasm-0.0.21](https://github.com/truecharts/charts/compare/kasm-0.0.20...kasm-0.0.21) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [hassconfigurator-0.0.18](https://github.com/truecharts/charts/compare/hassconfigurator-0.0.16...hassconfigurator-0.0.18) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [hassconfigurator-0.0.16](https://github.com/truecharts/charts/compare/hassconfigurator-0.0.15...hassconfigurator-0.0.16) (2022-08-23)
 
 ### Chore
