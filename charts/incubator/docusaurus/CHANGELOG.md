@@ -7,5 +7,3 @@
 ### Feat
 
 - Add Docusaurus ([#3589](https://github.com/truecharts/charts/issues/3589))
-  
-  
