@@ -16,9 +16,42 @@ data:
   INVENTREE_DB_HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
   INVENTREE_DB_PORT: "5432"
   INVENTREE_CACHE_PORT: "6379"
+  INVENTREE_WEB_PORT: "8000"
+  {{- with .Values.inventree.mail.backend }}
+  INVENTREE_EMAIL_BACKEND: {{ . }}
+  {{- end }}
+  {{- with .Values.inventree.mail.host }}
+  INVENTREE_EMAIL_HOST: {{ . }}
+  {{- end }}
+  {{- with .Values.inventree.mail.port }}
+  INVENTREE_EMAIL_PORT: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.inventree.mail.username }}
+  INVENTREE_EMAIL_USERNAME: {{ . }}
+  {{- end }}
+  INVENTREE_EMAIL_TLS: '{{ ternary "True" "False" .Values.inventree.mail.tls | default "False" }}'
+  INVENTREE_EMAIL_SSL: '{{ ternary "True" "False" .Values.inventree.mail.ssl | default "False" }}'
+  {{- with .Values.inventree.mail.sender }}
+  INVENTREE_EMAIL_SENDER: {{ . }}
+  {{- end }}
+  {{- if .Values.inventree.general.debug }}
+  INVENTREE_DEBUG: {{ .Values.inventree.general.debug | quote }}
+  {{- end }}
+  {{- with .Values.inventree.general.log_level }}
+  INVENTREE_LOG_LEVEL: {{ . }}
+  {{- end }}
+  {{- if .Values.inventree.general.plugins_enabled }}
+  INVENTREE_PLUGINS_ENABLED: {{ .Values.inventree.general.plugins_enabled | quote }}
+  {{- end }}
+  {{- with .Values.inventree.general.login_confirm_days }}
+  INVENTREE_LOGIN_CONFIRM_DAYS: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.inventree.general.login_attempts }}
+  INVENTREE_LOGIN_ATTEMPTS: {{ . | quote }}
+  {{- end }}
 nginx-config: |-
   server {
-    listen 10231;
+    listen {{ .Values.service.main.ports.main.port }};
     real_ip_header proxy_protocol;
     location / {
         proxy_set_header      Host              $http_host;

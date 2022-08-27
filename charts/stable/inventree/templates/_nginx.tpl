@@ -8,7 +8,7 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 ports:
-  - containerPort: 10231
+  - containerPort: {{ .Values.service.main.ports.main.port }}
     name: main
 volumeMounts:
   - name: inventree-nginx
