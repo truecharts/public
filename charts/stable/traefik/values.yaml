@@ -161,6 +161,8 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # Options: Empty, 0 (ingore), or positive int
+        # redirectPort:
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:
           enabled: false
@@ -168,8 +170,13 @@ service:
           trustedIPs: []
           # -- Trust all forwarded headers
           insecureMode: false
-        # Options: Empty, 0 (ingore), or positive int
-        # redirectPort:
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
+          insecureMode: false
       websecure:
         enabled: true
         port: 9443
