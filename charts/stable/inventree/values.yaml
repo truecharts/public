@@ -19,76 +19,13 @@ secretEnv:
   INVENTREE_ADMIN_USER: "testuser"
   INVENTREE_ADMIN_PASSWORD: "secret"
 
-configmap:
-  config:
-    enabled: true
-    data:
-      nginx-config: |-
-        server {
-          listen 10231;
-          real_ip_header proxy_protocol;
-          location / {
-              proxy_set_header      Host              $http_host;
-              proxy_set_header      X-Forwarded-By    $server_addr:$server_port;
-              proxy_set_header      X-Forwarded-For   $remote_addr;
-              proxy_set_header      X-Forwarded-Proto $scheme;
-              proxy_set_header      X-Real-IP         $remote_addr;
-              proxy_set_header      CLIENT_IP         $remote_addr;
-              proxy_pass_request_headers on;
-              proxy_redirect off;
-              client_max_body_size 100M;
-              proxy_buffering off;
-              proxy_request_buffering off;
-              proxy_pass http://localhost:8000;
-          }
-          # Redirect any requests for static files
-          location /static/ {
-              alias /var/www/static/;
-              autoindex on;
-              # Caching settings
-              expires 30d;
-              add_header Pragma public;
-              add_header Cache-Control "public";
-          }
-          # Redirect any requests for media files
-          location /media/ {
-              alias /var/www/media/;
-              # Media files require user authentication
-              auth_request /auth;
-          }
-          # Use the 'user' API endpoint for auth
-          location /auth {
-              internal;
-              proxy_pass http://localhost:8000/auth/;
-              proxy_pass_request_body off;
-              proxy_set_header Content-Length "";
-              proxy_set_header X-Original-URI $request_uri;
-          }
-        }
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
 
 env:
-  INVENTREE_TIMEZONE: "{{ .Values.TZ }}"
-  INVENTREE_DB_ENGINE: "postgresql"
-  INVENTREE_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  INVENTREE_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  INVENTREE_DB_PORT: "5432"
-  INVENTREE_CACHE_PORT: "6379"
-  INVENTREE_CACHE_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhostpass
-  INVENTREE_DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  INVENTREE_DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  INVENTREE_SECRET_KEY:
-    secretKeyRef:
-      name: inventree-secrets
-      key: INVENTREE_SECRET_KEY
   # User Defined
   INVENTREE_DEBUG: false
   INVENTREE_LOG_LEVEL: "INFO"
@@ -115,14 +52,14 @@ persistence:
   data:
     enabled: true
     mountPath: "/home/inventree/data"
-  inventree-config:
+  inventree-nginx:
     enabled: "true"
     mountPath: "/etc/nginx/nginx.conf"
     subPath: "nginx-config"
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+        name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
 
 initContainers:
   init-migrate:
@@ -136,37 +73,11 @@ initContainers:
     volumeMounts:
       - name: data
         mountPath: "/home/inventree/data"
-    env:
-      - name: INVENTREE_DB_ENGINE
-        value: "postgresql"
-      - name: INVENTREE_DB_NAME
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: INVENTREE_DB_USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: INVENTREE_DB_PORT
-        value: "5432"
-      - name: INVENTREE_CACHE_PORT
-        value: "6379"
-      - name: INVENTREE_CACHE_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhostpass
-      - name: INVENTREE_DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: INVENTREE_DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: INVENTREE_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: inventree-secrets
-            key: INVENTREE_SECRET_KEY
+    envFrom:
+      - secretRef:
+          name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+      - configMapRef:
+          name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
     command: ["sh", "-c"]
     args:
       - |-
@@ -185,7 +96,7 @@ additionalContainers:
       readOnlyRootFilesystem: false
       runAsNonRoot: false
     volumeMounts:
-      - name: inventree-config
+      - name: inventree-nginx
         mountPath: "/etc/nginx/conf.d/default.conf"
         subPath: nginx-config
         readOnly: true
@@ -198,37 +109,11 @@ additionalContainers:
     volumeMounts:
       - name: data
         mountPath: "/home/inventree/data"
-    env:
-      - name: INVENTREE_DB_ENGINE
-        value: "postgresql"
-      - name: INVENTREE_DB_NAME
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: INVENTREE_DB_USER
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: INVENTREE_DB_PORT
-        value: "5432"
-      - name: INVENTREE_CACHE_PORT
-        value: "6379"
-      - name: INVENTREE_CACHE_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhostpass
-      - name: INVENTREE_DB_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-      - name: INVENTREE_DB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: INVENTREE_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: inventree-secrets
-            key: INVENTREE_SECRET_KEY
+    envFrom:
+      - secretRef:
+          name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+      - configMapRef:
+          name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
 
 postgresql:
   enabled: true

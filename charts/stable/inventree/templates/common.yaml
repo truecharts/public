@@ -4,5 +4,8 @@
 {{/* Render secrets for inventree */}}
 {{- include "inventree.secrets" . }}
 
+{{/* Render config for inventree */}}
+{{- include "inventree.config" . }}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
