@@ -18,18 +18,18 @@ data:
   INVENTREE_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
   INVENTREE_DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-  {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" | b64enc }}
-  INVENTREE_CACHE_HOST: {{ printf "%v:%v@%v-redis" .Values.redis.redisUsername $redisPass .Release.Name }}
+  {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" }}
+  INVENTREE_CACHE_HOST: {{ printf "%v:%v@%v-redis" .Values.redis.redisUsername $redisPass .Release.Name | b64enc }}
   {{- with .Values.inventree.credentials.admin_mail }}
-  INVENTREE_ADMIN_EMAIL: {{ . }}
+  INVENTREE_ADMIN_EMAIL: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.inventree.credentials.admin_user }}
-  INVENTREE_ADMIN_USER: {{ . }}
+  INVENTREE_ADMIN_USER: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.inventree.credentials.admin_password }}
-  INVENTREE_ADMIN_PASSWORD: {{ . }}
+  INVENTREE_ADMIN_PASSWORD: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.inventree.mail.password }}
-  INVENTREE_EMAIL_PASSWORD: {{ . }}
+  INVENTREE_EMAIL_PASSWORD: {{ . | b64enc }}
   {{- end }}
 {{- end -}}
