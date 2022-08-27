@@ -53,7 +53,7 @@ persistence:
     mountPath: "/home/inventree/data"
   inventree-nginx:
     enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
+    noMount: true
     subPath: "nginx-config"
     type: "custom"
     volumeSpec:
