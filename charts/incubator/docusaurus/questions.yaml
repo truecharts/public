@@ -19,6 +19,11 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: AUTO_UPDATE
+          label: "Auto Update"
+          schema:
+            type: boolean
+            default: true      
         - variable: WEBSITE_NAME
           label: "Website Name"
           description: "The name for your Docusaurus website"
