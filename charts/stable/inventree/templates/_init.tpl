@@ -7,8 +7,7 @@ args:
   - |-
     echo "Staring invoke update!"
     echo "Staring at $(pwd)"
-    cd /home/inventree || exit
-    echo "Changed to $(pwd)"
+    ls -ls
     invoke update
     echo "Init done!"
 securityContext:
