@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bungeecord-0.0.16](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.14...minecraft-bungeecord-0.0.16) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [minecraft-bungeecord-0.0.14](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.13...minecraft-bungeecord-0.0.14) (2022-08-23)
 
 ### Chore

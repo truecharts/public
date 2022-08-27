@@ -2,6 +2,15 @@
 
 
 
+## [autobrr-0.0.10](https://github.com/truecharts/charts/compare/autobrr-0.0.8...autobrr-0.0.10) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [autobrr-0.0.8](https://github.com/truecharts/charts/compare/autobrr-0.0.7...autobrr-0.0.8) (2022-08-23)
 
 ### Chore

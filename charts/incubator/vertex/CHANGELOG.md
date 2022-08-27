@@ -2,6 +2,19 @@
 
 
 
+## [vertex-0.0.35](https://github.com/truecharts/charts/compare/vertex-0.0.32...vertex-0.0.35) (2022-08-27)
+
+### Chore
+
+- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [vertex-0.0.32](https://github.com/truecharts/charts/compare/vertex-0.0.31...vertex-0.0.32) (2022-08-26)
 
 ### Chore

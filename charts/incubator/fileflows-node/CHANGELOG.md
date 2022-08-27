@@ -2,6 +2,15 @@
 
 
 
+## [fileflows-node-0.0.21](https://github.com/truecharts/charts/compare/fileflows-node-0.0.19...fileflows-node-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [fileflows-node-0.0.19](https://github.com/truecharts/charts/compare/fileflows-node-0.0.18...fileflows-node-0.0.19) (2022-08-23)
 
 ### Chore

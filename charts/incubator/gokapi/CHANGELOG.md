@@ -2,6 +2,15 @@
 
 
 
+## [gokapi-0.0.25](https://github.com/truecharts/charts/compare/gokapi-0.0.23...gokapi-0.0.25) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [gokapi-0.0.23](https://github.com/truecharts/charts/compare/gokapi-0.0.22...gokapi-0.0.23) (2022-08-23)
 
 ### Chore

@@ -31,6 +31,12 @@ questions:
           schema:
             type: string
             default: "*"
+        - variable: CSRF_TRUSTED_ORIGINS
+          label: "CSRF_TRUSTED_ORIGINS"
+          description: "Sets the CSRF_TRUSTED_ORIGINS env var"
+          schema:
+            type: string
+            default: ""
         - variable: GUNICORN_MEDIA
           label: "GUNICORN_MEDIA"
           description: "Sets the GUNICORN_MEDIA env var"

@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-0.0.30](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.28...youtubedl-material-0.0.30) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [youtubedl-material-0.0.28](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.27...youtubedl-material-0.0.28) (2022-08-23)
 
 ### Chore

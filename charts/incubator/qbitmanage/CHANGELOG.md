@@ -2,6 +2,15 @@
 
 
 
+## [qbitmanage-0.0.20](https://github.com/truecharts/charts/compare/qbitmanage-0.0.18...qbitmanage-0.0.20) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [qbitmanage-0.0.18](https://github.com/truecharts/charts/compare/qbitmanage-0.0.17...qbitmanage-0.0.18) (2022-08-23)
 
 ### Chore

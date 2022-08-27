@@ -2,6 +2,19 @@
 
 
 
+## [wger-0.0.49](https://github.com/truecharts/charts/compare/wger-0.0.46...wger-0.0.49) (2022-08-27)
+
+### Chore
+
+- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [wger-0.0.46](https://github.com/truecharts/charts/compare/wger-0.0.45...wger-0.0.46) (2022-08-26)
 
 ### Chore

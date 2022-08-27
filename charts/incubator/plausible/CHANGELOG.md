@@ -2,6 +2,15 @@
 
 
 
+## [plausible-1.0.12](https://github.com/truecharts/charts/compare/plausible-1.0.10...plausible-1.0.12) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [plausible-1.0.10](https://github.com/truecharts/charts/compare/plausible-1.0.9...plausible-1.0.10) (2022-08-23)
 
 ### Chore

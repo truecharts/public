@@ -2,6 +2,15 @@
 
 
 
+## [kiwix-serve-0.0.21](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.19...kiwix-serve-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [kiwix-serve-0.0.19](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.18...kiwix-serve-0.0.19) (2022-08-25)
 
 ### Chore
