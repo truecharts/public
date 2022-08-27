@@ -8,6 +8,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $configName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   INVENTREE_TIMEZONE: {{ .Values.TZ }}
   INVENTREE_DB_ENGINE: "postgresql"

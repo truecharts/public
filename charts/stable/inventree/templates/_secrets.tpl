@@ -9,6 +9,8 @@ kind: Secret
 type: Opaque
 metadata:
   name: {{ $secretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{- with lookup "v1" "Secret" .Release.Namespace $secretName }}
   INVENTREE_SECRET_KEY: {{ index .data "INVENTREE_SECRET_KEY" }}
@@ -16,7 +18,7 @@ data:
   INVENTREE_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
   INVENTREE_DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-  {{ $redisPass := .Values.redis.redisPassword | trimAll "\"" | b64enc }}
+  {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   INVENTREE_CACHE_HOST: {{ printf "%v:%v@%v-redis" .Values.redis.redisUsername $redisPass .Release.Name }}
   {{- with .Values.inventree.credentials.admin_mail }}
   INVENTREE_ADMIN_EMAIL: {{ . }}
