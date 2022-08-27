@@ -20,8 +20,8 @@ service:
         port: 13080
 
 env:
-  TARGET_UID: 0
-  TARGET_GID: 0
+  TARGET_UID: "{{ .Values.security.PUID }}"
+  TARGET_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   AUTO_UPDATE: true
   WEBSITE_NAME: "Docusaurus HomeLab Website"
   TEMPLATE: classic
