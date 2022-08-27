@@ -31,6 +31,17 @@ questions:
           schema:
             type: string
             default: "classic"
+        - variable: RUN_MODE
+          label: "Run Mode"
+          description: "Specify the mode to start Docusaurus"
+          schema:
+            type: string
+            default: "Production"
+            enum:
+              - value: production
+                description: Production
+              - value: development
+                description: Development
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
