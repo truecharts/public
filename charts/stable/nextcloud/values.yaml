@@ -109,7 +109,13 @@ initContainers:
           nfs4_setfacl -R -a A:g:33:RWX "/var/www/html/data"
         else
           echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
-          chown -R :33 "/var/www/html/data"
+          echo "checking ownership..."
+          if [ $(stat -c %g .) -eq 33 ]; then
+            echo "Ownership already set to 33, skipping..."
+          else
+            echo "Changing ownership to group 33..."
+            chown -R :33 "/var/www/html/data"
+          fi
           chmod 770 /var/www/html/data
         fi
         EOF
