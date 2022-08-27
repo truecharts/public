@@ -132,6 +132,7 @@ initContainers:
       runAsUser: 100
       runAsGroup: 0
       runAsNonRoot: true
+      readOnlyRootFilesystem: false
     volumeMounts:
       - name: data
         mountPath: "/home/inventree/data"
