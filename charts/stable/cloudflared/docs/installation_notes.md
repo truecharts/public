@@ -4,7 +4,7 @@
 
 ![cf-tunnel-access-tunnel.png](imgs/cf-tunnel-access.png)
 
-- create a tunnel like so(or migrate a current one)
+- Create a tunnel like so (or migrate a current one)
 
 ![cf-tunnel-tunnel-create.png](imgs/cf-tunnel-create.png)
 
