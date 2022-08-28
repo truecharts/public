@@ -5,7 +5,13 @@ image:
 
 command: ["cat", "/etc/wireguard/wg0.conf"]
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
   capabilities:
     add:
       - NET_ADMIN
@@ -15,6 +21,7 @@ wg:
   # Enable a killswitch that kills all traffic when the VPN is not connected
   killswitch: false
   excludedIP4networks: []
+    # - "192.168.1.0/24"
   excludedIP6networks: []
 
 envFrom:
