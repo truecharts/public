@@ -1,6 +1,6 @@
 # Installation Notes
 
-- Go to [cloudflare team dash](https://dash.teams.cloudflare.com) and create a tunnel or migrate a current tunnel(this action is not reversible) by going to access and then tunnels tab.
+- Go to [cloudflare team dash](https://dash.teams.cloudflare.com) and create a tunnel or migrate a current tunnel (this action is not reversible) by going to access and then tunnels tab.
 
 ![cf-tunnel-access-tunnel.png](imgs/cf-tunnel-access.png)
 
