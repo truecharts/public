@@ -19,10 +19,11 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: configFilePath
-          label: Config File Path
+        - variable: configFileHostPath
+          label: Config File Host Path
           schema:
             type: string
+            required: true
             default: ""
         - variable: killswitch
           label: Killswitch
