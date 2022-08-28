@@ -3,10 +3,11 @@
 
 {{- if .Values.env.CONFIG_FILE_PATH -}}
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
+
 # This must be appended to the volumeMounts existing list
-# volumeMounts:
-#  - name: configfile
-#    mountPath: "/etc/wireguard/wg0.conf"
+volumeMounts:
+ - name: configfile
+   mountPath: "/etc/wireguard/wg0.conf"
 {{- end -}}
 
 {{/* Render the templates */}}

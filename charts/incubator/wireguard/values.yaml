@@ -3,6 +3,8 @@ image:
   tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
   pullPolicy: IfNotPresent
 
+command: ["cat", "/etc/wireguard/wg0.conf"]
+
 securityContext:
   capabilities:
     add:
@@ -20,7 +22,8 @@ env:
   KILLSWITCH_EXCLUDEDNETWORKS_IPV4: ""
   # A separated list of IPv6 networks that will be excluded from the VPN/killswitch
   KILLSWITCH_EXCLUDEDNETWORKS_IPV6: ""
-  CONFIG_FILE_PATH: "/mnt/tests"
+  # Testing
+  CONFIG_FILE_PATH: "/etc/hosts"
 
 probes:
   liveness:
@@ -37,6 +40,8 @@ service:
         port: 51820
         targetPort: 51820
         protocol: UDP
+
+
 
 portal:
   enabled: false
