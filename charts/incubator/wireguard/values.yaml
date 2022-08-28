@@ -22,9 +22,9 @@ wg:
   excludedIP4networks: []
   excludedIP6networks: []
   # Leave empty if you going to use the paste your config bellow
-  configFileHostPath: ""
+  configFileHostPath: "/etc/hosts"
   config:
-    enabled: true
+    enabled: false
     data: |
       # Your wg config here
 
