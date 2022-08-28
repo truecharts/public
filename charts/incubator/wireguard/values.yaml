@@ -17,18 +17,15 @@ wg:
   excludedIP6networks: []
   # Leave empty if you going to use the secret bellow
   configFilePath: ""
-
-secret:
-  wg-config-secret:
-    # Set to true to enable the secret
+  config:
     enabled: true
-    data:
-      wg0.conf: |-
-        # Your wireguard config content
+    data: |
+      # Your wg config here
+
 
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-wg-config'
+      name: '{{ include "tc.common.names.fullname" . }}-wg-env-config'
 
 probes:
   liveness:

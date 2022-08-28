@@ -2,7 +2,7 @@
 {{- include "tc.common.loader.init" . }}
 
 {{/* Render config */}}
-{{- include "wg.config" . }}
+{{- include "wg.env.configmap" . }}
 
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
 
