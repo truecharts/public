@@ -34,10 +34,8 @@ service:
         protocol: TCP
         targetPort: 3370
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 7080
         protocol: HTTP
         targetPort: 7080

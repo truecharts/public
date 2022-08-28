@@ -2,6 +2,15 @@
 
 
 
+## [ts3-manager-0.0.8](https://github.com/truecharts/charts/compare/ts3-manager-0.0.6...ts3-manager-0.0.8) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [ts3-manager-0.0.6](https://github.com/truecharts/charts/compare/ts3-manager-0.0.5...ts3-manager-0.0.6) (2022-08-23)
 
 ### Chore

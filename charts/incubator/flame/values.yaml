@@ -19,10 +19,8 @@ env:
 
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 10291
         protocol: HTTP
         targetPort: 5005

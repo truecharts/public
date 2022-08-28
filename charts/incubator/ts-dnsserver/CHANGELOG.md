@@ -2,6 +2,19 @@
 
 
 
+## [ts-dnsserver-0.0.26](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.23...ts-dnsserver-0.0.26) (2022-08-27)
+
+### Chore
+
+- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [ts-dnsserver-0.0.23](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.22...ts-dnsserver-0.0.23) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [timetagger-0.0.6](https://github.com/truecharts/charts/compare/timetagger-0.0.4...timetagger-0.0.6) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [timetagger-0.0.4](https://github.com/truecharts/charts/compare/timetagger-0.0.3...timetagger-0.0.4) (2022-08-23)
 
 ### Chore

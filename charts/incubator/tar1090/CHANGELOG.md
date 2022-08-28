@@ -2,6 +2,24 @@
 
 
 
+## [tar1090-0.0.21](https://github.com/truecharts/charts/compare/tar1090-0.0.19...tar1090-0.0.21) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
+## [tar1090-0.0.19](https://github.com/truecharts/charts/compare/tar1090-0.0.18...tar1090-0.0.19) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [tar1090-0.0.18](https://github.com/truecharts/charts/compare/tar1090-0.0.16...tar1090-0.0.18) (2022-08-23)
 
 ### Chore

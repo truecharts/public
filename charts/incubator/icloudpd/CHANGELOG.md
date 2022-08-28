@@ -2,6 +2,33 @@
 
 
 
+## [icloudpd-0.0.24](https://github.com/truecharts/charts/compare/icloudpd-0.0.23...icloudpd-0.0.24) (2022-08-28)
+
+### Chore
+
+- update docker general non-major ([#3600](https://github.com/truecharts/charts/issues/3600))
+
+
+
+
+## [icloudpd-0.0.23](https://github.com/truecharts/charts/compare/icloudpd-0.0.21...icloudpd-0.0.23) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
+## [icloudpd-0.0.21](https://github.com/truecharts/charts/compare/icloudpd-0.0.20...icloudpd-0.0.21) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [icloudpd-0.0.20](https://github.com/truecharts/charts/compare/icloudpd-0.0.19...icloudpd-0.0.20) (2022-08-25)
 
 ### Chore

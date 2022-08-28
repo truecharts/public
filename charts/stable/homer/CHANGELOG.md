@@ -2,6 +2,15 @@
 
 
 
+## [homer-2.0.32](https://github.com/truecharts/charts/compare/homer-2.0.31...homer-2.0.32) (2022-08-28)
+
+### Chore
+
+- update docker general non-major ([#3600](https://github.com/truecharts/charts/issues/3600))
+
+
+
+
 ## [homer-2.0.31](https://github.com/truecharts/charts/compare/homer-2.0.30...homer-2.0.31) (2022-08-23)
 
 ### Chore

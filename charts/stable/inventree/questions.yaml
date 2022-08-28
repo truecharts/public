@@ -12,133 +12,137 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
+  - variable: inventree
+    group: Container Configuration
+    label: Inventree Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: INVENTREE_ADMIN_EMAIL
-          label: "INVENTREE_ADMIN_EMAIL (Initial install only)"
+        - variable: credentials
+          label: Credentials
           schema:
-            type: string
-            required: true
-            default: ""
-        - variable: INVENTREE_ADMIN_USER
-          label: "INVENTREE_ADMIN_USER (Initial install only)"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: INVENTREE_ADMIN_PASSWORD
-          label: "INVENTREE_ADMIN_PASSWORD (Initial install only)"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INVENTREE_LOGIN_CONFIRM_DAYS
-          label: 'INVENTREE_LOGIN_CONFIRM_DAYS'
-          description: "Duration for which confirmation links are valid"
-          schema:
-            type: int
-            default: 3
-        - variable: INVENTREE_LOGIN_ATTEMPTS
-          label: 'INVENTREE_LOGIN_ATTEMPTS'
-          description: "Count of allowed login attempts before blocking user"
-          schema:
-            type: int
-            default: 5
-        - variable: INVENTREE_PLUGINS_ENABLED
-          label: 'INVENTREE_PLUGINS_ENABLED'
-          description: "Enable plugin support"
-          schema:
-            type: boolean
-            default: false
-        - variable: INVENTREE_DEBUG
-          label: 'INVENTREE_DEBUG'
-          description: "Enable debug mode"
-          schema:
-            type: boolean
-            default: false
-        - variable: INVENTREE_LOG_LEVEL
-          label: 'INVENTREE_LOG_LEVEL'
-          description: "Set level of logging to terminal"
-          schema:
-            type: string
-            default: "INFO"
-            enum:
-              - value: "INFO"
-                description: "INFO"
-              - value: "DEBUG"
-                description: "DEBUG"
-              - value: "WARNING"
-                description: "WARNING"
-              - value: "ERROR"
-                description: "ERROR"
-              - value: "CRITICAL"
-                description: "CRITICAL"
-        - variable: email_settings
-          label: 'Show Email Settings'
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if:
-            subquestions:
-              - variable: INVENTREE_EMAIL_BACKEND
-                label: 'INVENTREE_EMAIL_BACKEND'
-                description: "Email backend module"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: admin_mail
+                label: Admin Mail (Initial Install Only)
                 schema:
                   type: string
-                  default: "django.core.mail.backends.smtp.EmailBackend"
-              - variable: INVENTREE_EMAIL_HOST
-                label: 'INVENTREE_EMAIL_HOST'
-                description: "Email server host"
+                  required: true
+                  default: ""
+              - variable: admin_user
+                label: Admin User (Initial Install Only)
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: admin_password
+                label: Admin Password (Initial Install Only)
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: general
+          label: General
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: plugins_enabled
+                label: Enable Plugins
+                description: Enable plugin support
+                schema:
+                  type: boolean
+                  default: false
+              - variable: login_confirm_days
+                label: Login Confirm Days
+                description: Duration for which confirmation links are valid
+                schema:
+                  type: int
+                  default: 3
+              - variable: login_attempts
+                label: Login Attempts
+                description: Count of allowed login attempts before blocking user
+                schema:
+                  type: int
+                  default: 5
+              - variable: debug
+                label: "Debug"
+                description: "Enable debug mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: log_level
+                label: Log Level
+                description: Set level of logging to terminal
+                schema:
+                  type: string
+                  default: INFO
+                  enum:
+                    - value: INFO
+                      description: INFO
+                    - value: DEBUG
+                      description: DEBUG
+                    - value: WARNING
+                      description: WARNING
+                    - value: ERROR
+                      description: ERROR
+                    - value: CRITICAL
+                      description: CRITICAL
+        - variable: mail
+          label: Email Settings
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: backend
+                label: Mail Backend
+                description: Email backend module
+                schema:
+                  type: string
+                  default: django.core.mail.backends.smtp.EmailBackend
+              - variable: host
+                label: Mail Host
+                description: Email server host
                 schema:
                   type: string
                   default: ""
-              - variable: INVENTREE_EMAIL_PORT
-                label: 'INVENTREE_EMAIL_PORT'
-                description: "Email server port"
+              - variable: port
+                label: Mail Port
+                description: Email server port
                 schema:
                   type: int
                   default: 587
-              - variable: INVENTREE_EMAIL_USERNAME
-                label: 'INVENTREE_EMAIL_USERNAME'
-                description: "Email account username"
+              - variable: username
+                label: Mail Username
+                description: Email account username
                 schema:
                   type: string
                   default: ""
-              - variable: INVENTREE_EMAIL_PASSWORD
-                label: 'INVENTREE_EMAIL_PASSWORD'
-                description: "Email account password"
+              - variable: password
+                label: Mail Password
+                description: Email account password
                 schema:
                   type: string
                   private: true
                   default: ""
-              - variable: INVENTREE_EMAIL_TLS
-                label: 'INVENTREE_EMAIL_TLS'
-                description: "Enable TLS support"
+              - variable: tls
+                label: Mail TLS
+                description: Enable TLS support
                 schema:
                   type: boolean
                   default: false
-              - variable: INVENTREE_EMAIL_SSL
-                label: 'INVENTREE_EMAIL_SSL'
-                description: "Enable SSL support"
+              - variable: ssl
+                label: Mail SSL
+                description: Enable SSL support
                 schema:
                   type: boolean
                   default: false
-              - variable: INVENTREE_EMAIL_SENDER
-                label: 'INVENTREE_EMAIL_SENDER'
-                description: "Name of sender"
+              - variable: sender
+                label: Mail Sender
+                description: Name of sender
                 schema:
                   type: string
                   default: ""
@@ -171,7 +175,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
+                                    default: 10231
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -220,7 +224,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -228,7 +232,7 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 100
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"

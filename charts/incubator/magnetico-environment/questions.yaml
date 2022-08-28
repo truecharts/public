@@ -20,61 +20,61 @@ questions:
       type: dict
       attrs:
         - variable: MAGNETICOW_USERNAME
-          label: 'MAGNETICOW_USERNAME'
+          label: "MAGNETICOW_USERNAME"
           description: "Username used to access the magneticow web interface"
           schema:
             type: string
             default: "magnetico"
         - variable: MAGNETICOW_PASSWORD
-          label: 'MAGNETICOW_PASSWORD'
+          label: "MAGNETICOW_PASSWORD"
           description: "Password used to access the magneticow web interface"
           schema:
             type: string
             default: "magnetico"
         - variable: MAGNETICOD_NEIGHBORS
-          label: 'MAGNETICOD_NEIGHBORS'
+          label: "MAGNETICOD_NEIGHBORS"
           description: "The maximum numbers of neighbors of an indexer"
           schema:
             type: string
             default: "1000"
         - variable: MAGNETICOD_LEECHES
-          label: 'MAGNETICOD_LEECHES'
+          label: "MAGNETICOD_LEECHES"
           description: "The maximum numbers of leeches"
           schema:
             type: string
             default: "50"
         - variable: MAGNETICOW_ADDRESS
-          label: 'MAGNETICOW_ADDRESS'
+          label: "MAGNETICOW_ADDRESS"
           description: "Host address of magneticow"
           schema:
             type: string
             default: "0.0.0.0"
         - variable: MAGNETICOD_ADDRESS
-          label: 'MAGNETICOD_ADDRESS'
+          label: "MAGNETICOD_ADDRESS"
           description: "IP-address used by magneticod for indexing on the DHT network"
           schema:
             type: string
             default: "0.0.0.0"
         - variable: MAGNETICOD_INTERVAL
-          label: 'MAGNETICOD_INTERVAL'
+          label: "MAGNETICOD_INTERVAL"
           description: "The indexing interval used by magneticod in seconds"
           schema:
             type: string
             default: "1"
         - variable: MAGNETICOD_PORT
-          label: 'MAGNETICOD_PORT'
+          label: "MAGNETICOD_PORT"
           description: "Port used by magneticod for indexing on the DHT network"
           schema:
             type: string
             default: "0"
         - variable: MAGNETICOW_VERBOSE
-          label: 'MAGNETICOW_VERBOSE'
+          label: "MAGNETICOW_VERBOSE"
           description: "Container Variable MAGNETICOWVERBOSE"
           schema:
             type: string
             default: ""
         - variable: MAGNETICOD_VERBOSE
-          label: 'MAGNETICOD_VERBOSE'
+          label: "MAGNETICOD_VERBOSE"
           description: "Container Variable MAGNETICODVERBOSE"
           schema:
             type: string

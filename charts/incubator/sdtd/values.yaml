@@ -20,7 +20,7 @@ env:
   GAME_ID: 294420
   GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
   SERVERCONFIG: serverconfig.xml
-  VALIDATE: ""
+  VALIDATE: false
 
 service:
   main:

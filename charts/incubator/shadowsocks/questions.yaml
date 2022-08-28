@@ -20,25 +20,25 @@ questions:
       type: dict
       attrs:
         - variable: PASSWORD
-          label: 'PASSWORD'
+          label: "PASSWORD"
           description: "Container Variable PASSWORD"
           schema:
             type: string
             default: ""
         - variable: METHOD
-          label: 'METHOD'
+          label: "METHOD"
           description: "Container Variable METHOD"
           schema:
             type: string
             default: "chacha20-ietf-poly1305"
         - variable: DNS_ADDRS
-          label: 'DNS_ADDRS'
+          label: "DNS_ADDRS"
           description: "Container Variable DNSADDRS"
           schema:
             type: string
             default: "8.8.8.8,8.8.4.4"
         - variable: TIMEOUT
-          label: 'TIMEOUT'
+          label: "TIMEOUT"
           description: "Container Variable TIMEOUT"
           schema:
             type: string

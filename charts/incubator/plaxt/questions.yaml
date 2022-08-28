@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: TRAKT_ID
-          label: 'TRAKT_ID'
+          label: "TRAKT_ID"
           description: "Client ID (From Trakt .tv API App)"
           schema:
             type: string
             default: ""
         - variable: TRAKT_SECRET
-          label: 'TRAKT_SECRET'
+          label: "TRAKT_SECRET"
           description: "Client SECRET (From Trakt .tv API App)"
           schema:
             type: string

@@ -2,6 +2,15 @@
 
 
 
+## [trilium-notes-5.0.29](https://github.com/truecharts/charts/compare/trilium-notes-5.0.28...trilium-notes-5.0.29) (2022-08-28)
+
+### Chore
+
+- update docker general non-major ([#3600](https://github.com/truecharts/charts/issues/3600))
+
+
+
+
 ## [trilium-notes-5.0.28](https://github.com/truecharts/charts/compare/trilium-notes-5.0.27...trilium-notes-5.0.28) (2022-08-23)
 
 ### Chore

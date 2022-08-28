@@ -1,6 +1,6 @@
 # storj-node
 
-![Version: 2.0.41](https://img.shields.io/badge/Version-2.0.41-informational?style=flat-square) ![AppVersion: 1.62.3](https://img.shields.io/badge/AppVersion-1.62.3-informational?style=flat-square)
+![Version: 2.0.42](https://img.shields.io/badge/Version-2.0.42-informational?style=flat-square) ![AppVersion: 1.62.4](https://img.shields.io/badge/AppVersion-1.62.4-informational?style=flat-square)
 
 Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
 

@@ -2,6 +2,15 @@
 
 
 
+## [focalboard-9.0.32](https://github.com/truecharts/charts/compare/focalboard-9.0.31...focalboard-9.0.32) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
 ## [focalboard-9.0.31](https://github.com/truecharts/charts/compare/focalboard-9.0.30...focalboard-9.0.31) (2022-08-23)
 
 ### Chore

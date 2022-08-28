@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.10](https://github.com/truecharts/charts/compare/authentik-3.0.8...authentik-3.0.10) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [authentik-3.0.8](https://github.com/truecharts/charts/compare/authentik-3.0.7...authentik-3.0.8) (2022-08-23)
 
 ### Chore

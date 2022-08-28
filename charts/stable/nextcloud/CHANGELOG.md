@@ -2,6 +2,24 @@
 
 
 
+## [nextcloud-15.3.1](https://github.com/truecharts/charts/compare/nextcloud-15.3.0...nextcloud-15.3.1) (2022-08-27)
+
+
+
+
+## [nextcloud-15.3.0](https://github.com/truecharts/charts/compare/nextcloud-15.2.45...nextcloud-15.3.0) (2022-08-26)
+
+### Feat
+
+- set default phone region ([#3578](https://github.com/truecharts/charts/issues/3578))
+
+  ### Fix
+
+- multiple small fixes ([#3580](https://github.com/truecharts/charts/issues/3580))
+
+
+
+
 ## [nextcloud-15.2.45](https://github.com/truecharts/charts/compare/nextcloud-15.2.44...nextcloud-15.2.45) (2022-08-25)
 
 ### Chore

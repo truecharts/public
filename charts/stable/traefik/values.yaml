@@ -152,6 +152,9 @@ service:
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
           enabled: false
+        # -- Proxy Protocol should never be enabled on Main entrypoint
+        proxyProtocol:
+          enabled: false
   tcp:
     enabled: true
     type: LoadBalancer
@@ -161,6 +164,8 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # Options: Empty, 0 (ingore), or positive int
+        # redirectPort:
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:
           enabled: false
@@ -168,8 +173,13 @@ service:
           trustedIPs: []
           # -- Trust all forwarded headers
           insecureMode: false
-        # Options: Empty, 0 (ingore), or positive int
-        # redirectPort:
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
+          insecureMode: false
       websecure:
         enabled: true
         port: 9443
@@ -180,6 +190,13 @@ service:
           # -- List of trusted IP and CIDR references
           trustedIPs: []
           # -- Trust all forwarded headers
+          insecureMode: false
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
           insecureMode: false
   #      tcpexample:
   #        enabled: true
@@ -206,6 +223,9 @@ service:
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
+          enabled: false
+        # -- Proxy Protocol should never be enabled on Metrics entrypoint
+        proxyProtocol:
           enabled: false
   udp:
     enabled: false
@@ -328,7 +348,7 @@ middlewares:
   redirectRegex: []
   # - name: redirectRegexName
   #   regex: putregexhere
-  #   replacement: repslacementurlhere
+  #   replacement: replacementurlhere
   #   permanent: false
   stripPrefixRegex: []
   # - name: stripPrefixRegexName

@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: VNC_PW
-          label: 'VNC_PW'
+          label: "VNC_PW"
           description: "default vncpassword"
           schema:
             type: string
             default: "vncpassword"
         - variable: VNC_RESOLUTION
-          label: 'VNC_RESOLUTION'
+          label: "VNC_RESOLUTION"
           description: "default 1920x1080"
           schema:
             type: string

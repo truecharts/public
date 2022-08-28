@@ -18,25 +18,25 @@ questions:
       type: dict
       attrs:
         - variable: script
-          label: 'script'
+          label: "script"
           description: "encode.sh or mkvdts2ac3.sh"
           schema:
             type: string
             default: "encode.sh"
         - variable: parameters
-          label: 'parameters'
+          label: "parameters"
           description: "Parameters for FFmpeg"
           schema:
             type: string
             default: "-map 0;-vcodec copy;-scodec copy;-acodec ac3;-b:a 640k"
         - variable: output_format
-          label: 'output_format'
+          label: "output_format"
           description: "Format of output file."
           schema:
             type: string
             default: "mkv"
         - variable: mkvdts2ac3_params
-          label: 'mkvdts2ac3_params'
+          label: "mkvdts2ac3_params"
           description: "Parameters for mkvdts2ac3"
           schema:
             type: string

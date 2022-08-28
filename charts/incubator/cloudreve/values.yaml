@@ -24,10 +24,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 5212
         protocol: TCP
         targetPort: 5212
