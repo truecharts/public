@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.0
+description: WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
+home: https://truecharts.org/docs/charts/stable/wireguard
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireguard.png
+keywords:
+  - wireguard
+  - vpn
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: wireguard
+sources:
+  - https://github.com/k8s-at-home/container-images/tree/main/apps/wireguard
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
