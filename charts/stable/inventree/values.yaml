@@ -10,7 +10,7 @@ nginxImage:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
+# https://github.com/inventree/InvenTree/pull/3096
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0

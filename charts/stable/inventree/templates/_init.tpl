@@ -5,12 +5,10 @@ imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 command: ["sh", "-c"]
 args:
   - |-
-    echo "Staring initiation..."
-    echo "Staring at $(pwd)"
+    echo "Starting initialization..."
     cd /home/inventree || exit
-    ls -ls
     invoke update
-    echo "Initation finished!"
+    echo "Initialization finished!"
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
