@@ -6,8 +6,8 @@
 
 - The upstream project decided that you have to run the same program temporarily on another system that can run commands to get the necessary files like `.env` and `.pytrakt.json` when authenticating for plex and `trakt.tv`.
 
-- Grab your App's pin from trakt.tv and [authorize](https://trakt.tv/activate/authorize) the pin to activate the app.
-
 - Here's [PlexTraktSync](https://github.com/Taxel/PlexTraktSync#setup) trakt.tv setup instructions.
+
+- Grab your App's pin from trakt.tv and [authorize](https://trakt.tv/activate/authorize) the pin to activate the app.
 
 - Here's [PlexTraktSync](https://github.com/Taxel/PlexTraktSync#installation) installation instructions.
