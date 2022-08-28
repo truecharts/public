@@ -9,6 +9,7 @@ podSecurityContext:
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
   capabilities:
     add:
       - NET_ADMIN
