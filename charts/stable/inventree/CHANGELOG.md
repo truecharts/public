@@ -2,6 +2,15 @@
 
 
 
+## [inventree-4.0.1](https://github.com/truecharts/charts/compare/inventree-4.0.0...inventree-4.0.1) (2022-08-28)
+
+### Chore
+
+- update docker general non-major ([#3600](https://github.com/truecharts/charts/issues/3600))
+
+
+
+
 ## [inventree-4.0.0](https://github.com/truecharts/charts/compare/inventree-3.0.45...inventree-4.0.0) (2022-08-28)
 
 ### Fix
