@@ -12,7 +12,7 @@ mountPath: /etc/wireguard/wg0.conf
 enabled: true
 type: secret
 readOnly: true
-defaultMode: "600"
+defaultMode: "0600"
 objectName: '{{ printf "%s-wg-config-secret" (include "tc.common.names.fullname" .) }}'
 mountPath: /etc/wireguard
 items:
