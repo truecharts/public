@@ -1,9 +1,11 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
+{{/* Render config */}}
+{{- include "wg.config" . }}
+
 {{- if .Values.env.CONFIG_FILE_PATH -}}
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
-
 # This must be appended to the volumeMounts existing list
 volumeMounts:
  - name: configfile

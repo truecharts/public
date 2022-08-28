@@ -11,17 +11,20 @@ securityContext:
       - NET_ADMIN
       - SYS_MODULE
 
-env:
-  # The separator that is used to split the KILLSWITCH_EXCLUDEDNETWORKS lists
-  SEPARATOR: ";"
-  # Override the backend used by iptables. Valid values are nft and legacy
-  IPTABLES_BACKEND: nft
+wg:
   # Enable a killswitch that kills all traffic when the VPN is not connected
-  KILLSWITCH: false
+  killswitch: false
+  excludedIP4networks: []
+  excludedIP6networks: []
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-wg-config'
+
+env:
+  # Override the backend used by iptables. Valid values are nft and legacy
   # A separated list of IPv4 networks that will be excluded from the VPN/killswitch
-  KILLSWITCH_EXCLUDEDNETWORKS_IPV4: ""
   # A separated list of IPv6 networks that will be excluded from the VPN/killswitch
-  KILLSWITCH_EXCLUDEDNETWORKS_IPV6: ""
   # Testing
   CONFIG_FILE_PATH: "/etc/hosts"
 
@@ -40,7 +43,6 @@ service:
         port: 51820
         targetPort: 51820
         protocol: UDP
-
 
 portal:
   enabled: false
