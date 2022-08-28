@@ -23,11 +23,12 @@ wg:
   configFileHostPath: ""
   config:
     enabled: true
+    # Your wg config here eg:
     data: |
       [Interface]
       Address = 10.0.0.1/24
       ListenPort = 51820
-      PrivateKey = PRIVATE_KEY
+      PrivateKey = AAAAAAAAAAAAAAAAAAA++AAAAAAAAAAAAAAAAAAAAAA=
 
       [Peer]
       PublicKey = PUBLIC_KEY
