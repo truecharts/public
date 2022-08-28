@@ -26,6 +26,7 @@ questions:
             default: ""
         - variable: killswitch
           label: Killswitch
+          description: Enable a killswitch that kills all traffic when the VPN is not connected
           schema:
             type: boolean
             default: false
