@@ -46,5 +46,9 @@ service:
         targetPort: 51820
         protocol: UDP
 
+persistence:
+  temp:
+    enabled: false
+
 portal:
   enabled: false
