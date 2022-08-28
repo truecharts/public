@@ -13,5 +13,4 @@ metadata:
 data:
   wg0.conf: |
 {{ .Values.wg.config.data | indent 4 | b64enc }}
-  {{- end }}
 {{- end -}}

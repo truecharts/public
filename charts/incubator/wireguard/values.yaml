@@ -5,7 +5,13 @@ image:
 
 command: ["cat", "/etc/wireguard/wg0.conf"]
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
   capabilities:
     add:
       - NET_ADMIN
@@ -15,13 +21,12 @@ wg:
   killswitch: false
   excludedIP4networks: []
   excludedIP6networks: []
-  # Leave empty if you going to use the secret bellow
-  configFilePath: ""
+  # Leave empty if you going to use the paste your config bellow
+  configFileHostPath: ""
   config:
     enabled: true
     data: |
       # Your wg config here
-
 
 envFrom:
   - configMapRef:
