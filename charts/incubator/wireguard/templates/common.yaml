@@ -3,6 +3,7 @@
 
 {{/* Render config */}}
 {{- include "wg.env.configmap" . }}
+{{/* Render secret */}}
 {{- include "wg.config-secret" . }}
 
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
