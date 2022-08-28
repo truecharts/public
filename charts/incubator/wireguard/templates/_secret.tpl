@@ -12,5 +12,5 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   wg0.conf: |
-{{ .Values.wg.config.data | indent 4 | b64enc }}
+{{ .Values.wg.config.data | indent 4 | b64enc | quote }}
 {{- end -}}
