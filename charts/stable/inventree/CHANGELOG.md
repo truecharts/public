@@ -2,6 +2,16 @@
 
 
 
+## [inventree-4.0.0](https://github.com/truecharts/charts/compare/inventree-3.0.45...inventree-4.0.0) (2022-08-28)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+  - fix errors and restructure chart to be readable ([#3594](https://github.com/truecharts/charts/issues/3594))
+
+
+
+
 ## [inventree-3.0.45](https://github.com/truecharts/charts/compare/inventree-3.0.44...inventree-3.0.45) (2022-08-25)
 
 ### Chore
