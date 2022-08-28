@@ -3,7 +3,8 @@ image:
   tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
   pullPolicy: IfNotPresent
 
-command: ["cat", "/etc/wireguard/wg0.conf"]
+# command: ["cat", "/etc/wireguard/wg0.conf"]
+command: ["ls", "-la"]
 
 podSecurityContext:
   runAsUser: 0
