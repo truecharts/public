@@ -1,19 +1,19 @@
 # plex-auto-languages
 
-![Version: 0.0.19](https://img.shields.io/badge/Version-0.0.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-Mes vidos sur TrueNAS disponibles sur : https://www.youtube.com/superboki
+Automated language selection for Plex TV Shows.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [plex-auto-languages](https://truecharts.org/docs/charts/incubator/plex-auto-languages)
+For more information, please click here: [plex-auto-languages](https://truecharts.org/docs/charts/stable/plex-auto-languages)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/plex-auto-languages>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/plex-auto-languages>
 * <https://github.com/remirigal/plex-auto-languages>
 * <https://hub.docker.com/r/remirigal/plex-auto-languages>
 

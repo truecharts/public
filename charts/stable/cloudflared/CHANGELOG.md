@@ -2,6 +2,15 @@
 
 
 
+## [cloudflared-1.0.10](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.15...cloudflared-1.0.10) (2022-08-28)
+
+### Fix
+
+- update the docs. ([#3602](https://github.com/truecharts/charts/issues/3602))
+
+
+
+
 ## [cloudflared-1.0.9](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.14...cloudflared-1.0.9) (2022-08-23)
 
 ### Chore
