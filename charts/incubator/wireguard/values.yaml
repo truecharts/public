@@ -20,9 +20,11 @@ securityContext:
 wg:
   # Enable a killswitch that kills all traffic when the VPN is not connected
   killswitch: false
-  excludedIP4networks: []
+  excludedIP4networks:
     # - "192.168.1.0/24"
-  excludedIP6networks: []
+    []
+  excludedIP6networks:
+    []
 
 envFrom:
   - configMapRef:
