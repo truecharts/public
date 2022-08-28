@@ -1,12 +1,18 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plextraktsync
   tag: latest@sha256:55d0b5927a1bc11dd83a94cd56375a201de3dc03f099345b71404ca20757d373
-persistence: {}
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env: {}
+
 probes:
   liveness:
     enabled: false
@@ -14,15 +20,18 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"
 
 portal:
   enabled: false
