@@ -22,16 +22,16 @@ wg:
   # Leave empty if you going to use the paste your config bellow
   configFileHostPath: ""
   config:
-    enabled: true
+    enabled: false
     # Your wg config here eg:
     data: |
       [Interface]
       Address = 10.0.0.1/24
       ListenPort = 51820
-      PrivateKey = AAAAAAAAAAAAAAAAAAA++AAAAAAAAAAAAAAAAAAAAAA=
+      PrivateKey = PRIVATE_KEY
 
       [Peer]
-      PublicKey = BBBBBBBBBBBBBBBBBBB++BBBBBBBBBBBBBBBBBBBBBB=
+      PublicKey = PUBLIC_KEY
       AllowedIPs = 10.0.0.0/24
       Endpoint = wg.example:51820
 
