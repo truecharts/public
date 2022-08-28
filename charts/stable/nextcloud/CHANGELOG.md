@@ -2,6 +2,11 @@
 
 
 
+## [nextcloud-15.3.1](https://github.com/truecharts/charts/compare/nextcloud-15.3.0...nextcloud-15.3.1) (2022-08-27)
+
+
+
+
 ## [nextcloud-15.3.0](https://github.com/truecharts/charts/compare/nextcloud-15.2.45...nextcloud-15.3.0) (2022-08-26)
 
 ### Feat
