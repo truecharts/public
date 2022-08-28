@@ -3,6 +3,7 @@
 enabled: true
 type: hostPath
 readOnly: true
+defaultMode: 0600
 hostPathType: File
 hostPath: {{ .Values.wg.configFilePath }}
 mountPath: /etc/wireguard/wg0.conf
@@ -11,6 +12,7 @@ mountPath: /etc/wireguard/wg0.conf
 enabled: true
 type: secret
 readOnly: true
+defaultMode: 0600
 objectName: '{{ printf "%s-wg-config-secret" (include "tc.common.names.fullname" .) }}'
 mountPath: /etc/wireguard
 items:
