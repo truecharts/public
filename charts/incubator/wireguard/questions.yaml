@@ -12,6 +12,47 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: wg
+    group: Container Configuration
+    label: Wireguard Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: configFilePath
+          label: Config File Path
+          schema:
+            type: string
+            default: ""
+        - variable: killswitch
+          label: Killswitch
+          schema:
+            type: boolean
+            default: false
+        - variable: excludedIP4networks
+          label: Killswitch Excluded IPv4 networks
+          description: List of Killswitch Excluded IPv4 Addresses
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: networkv4
+                label: IPv4 Network
+                schema:
+                  type: string
+                  required: true
+        - variable: excludedIP6networks
+          label: Killswitch Excluded IPv6 networks
+          description: List of Killswitch Excluded IPv6 Addresses
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: networkv6
+                label: IPv6 Network
+                schema:
+                  type: string
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -33,29 +74,19 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 51820
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortUDP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 51820
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -80,7 +111,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -90,7 +121,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -98,13 +129,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: "The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

@@ -3,16 +3,7 @@ image:
   tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
   pullPolicy: IfNotPresent
 
-command: ["cat", "/etc/wireguard/wg0.conf"]
-# command: ["ls", "-la"]
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
   capabilities:
     add:
       - NET_ADMIN
@@ -23,17 +14,18 @@ wg:
   killswitch: false
   excludedIP4networks: []
   excludedIP6networks: []
+  configFilePath: ""
+
+secret:
+  wg-config-secret:
+    enabled: false
+    data:
+      wg0.conf: |-
+        # Your wireguard config content
 
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-wg-config'
-
-env:
-  # Override the backend used by iptables. Valid values are nft and legacy
-  # A separated list of IPv4 networks that will be excluded from the VPN/killswitch
-  # A separated list of IPv6 networks that will be excluded from the VPN/killswitch
-  # Testing
-  CONFIG_FILE_PATH: "/etc/hosts"
 
 probes:
   liveness:

@@ -4,9 +4,7 @@
 {{/* Render config */}}
 {{- include "wg.config" . }}
 
-{{- if .Values.env.CONFIG_FILE_PATH -}}
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
-{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
