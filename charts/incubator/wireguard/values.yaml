@@ -20,7 +20,15 @@ wg:
   config:
     enabled: true
     data: |
-      # Your wg config here
+      [Interface]
+      Address = 10.0.0.1/24
+      ListenPort = 51820
+      PrivateKey = PRIVATE_KEY
+
+      [Peer]
+      PublicKey = PUBLIC_KEY
+      AllowedIPs = 10.0.0.0/24
+      Endpoint = wg.example:51820
 
 envFrom:
   - configMapRef:
