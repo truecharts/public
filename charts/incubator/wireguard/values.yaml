@@ -3,7 +3,12 @@ image:
   tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
   pullPolicy: IfNotPresent
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 securityContext:
+  runAsNonRoot: false
   capabilities:
     add:
       - NET_ADMIN
