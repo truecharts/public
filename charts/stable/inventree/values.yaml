@@ -70,7 +70,7 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: inventree
+  redisUsername: default
 
 portal:
   enabled: true
