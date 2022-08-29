@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.66
+    version: 8.0.67
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.63
+    version: 3.0.64
 description: authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/docs/charts/incubator/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
@@ -27,7 +27,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/authentik
   - https://github.com/goauthentik/authentik
   - https://goauthentik.io/docs/
-version: 3.0.11
+version: 3.0.12
 annotations:
   truecharts.org/catagories: |
     - authentication

@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.66
+    version: 8.0.67
 description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 home: https://truecharts.org/docs/charts/stable/mattermost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.png
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
   - https://github.com/mattermost/mattermost-server
   - https://github.com/mattermost/docker
-version: 3.0.35
+version: 3.0.36
 annotations:
   truecharts.org/catagories: |
     - hosting
