@@ -1,6 +1,6 @@
 # dashdot
 
-![Version: 1.0.42](https://img.shields.io/badge/Version-1.0.42-informational?style=flat-square) ![AppVersion: 4.3.10](https://img.shields.io/badge/AppVersion-4.3.10-informational?style=flat-square)
+![Version: 1.0.43](https://img.shields.io/badge/Version-1.0.43-informational?style=flat-square) ![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square)
 
 dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind.
 

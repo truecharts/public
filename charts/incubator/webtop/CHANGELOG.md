@@ -2,6 +2,15 @@
 
 
 
+## [webtop-0.0.23](https://github.com/truecharts/charts/compare/webtop-0.0.22...webtop-0.0.23) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [webtop-0.0.22](https://github.com/truecharts/charts/compare/webtop-0.0.20...webtop-0.0.22) (2022-08-26)
 
 ### Fix

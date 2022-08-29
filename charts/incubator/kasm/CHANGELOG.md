@@ -2,6 +2,15 @@
 
 
 
+## [kasm-0.0.24](https://github.com/truecharts/charts/compare/kasm-0.0.23...kasm-0.0.24) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [kasm-0.0.23](https://github.com/truecharts/charts/compare/kasm-0.0.21...kasm-0.0.23) (2022-08-26)
 
 ### Fix
