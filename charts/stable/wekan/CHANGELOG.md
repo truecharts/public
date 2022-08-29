@@ -2,6 +2,15 @@
 
 
 
+## [wekan-5.0.0](https://github.com/truecharts/charts/compare/wekan-4.0.40...wekan-5.0.0) (2022-08-29)
+
+### Chore
+
+- update helm chart mongodb to v2 ([#3617](https://github.com/truecharts/charts/issues/3617))
+
+
+
+
 ## [wekan-4.0.40](https://github.com/truecharts/charts/compare/wekan-4.0.39...wekan-4.0.40) (2022-08-29)
 
 ### Chore

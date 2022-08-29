@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-1.0.0](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.30...youtubedl-material-1.0.0) (2022-08-29)
+
+### Chore
+
+- update helm chart mongodb to v2 ([#3617](https://github.com/truecharts/charts/issues/3617))
+
+
+
+
 ## [youtubedl-material-0.0.30](https://github.com/truecharts/charts/compare/youtubedl-material-0.0.28...youtubedl-material-0.0.30) (2022-08-26)
 
 ### Fix

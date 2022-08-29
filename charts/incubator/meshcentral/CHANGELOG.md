@@ -2,6 +2,15 @@
 
 
 
+## [meshcentral-4.0.0](https://github.com/truecharts/charts/compare/meshcentral-3.0.38...meshcentral-4.0.0) (2022-08-29)
+
+### Chore
+
+- update helm chart mongodb to v2 ([#3617](https://github.com/truecharts/charts/issues/3617))
+
+
+
+
 ## [meshcentral-3.0.38](https://github.com/truecharts/charts/compare/meshcentral-3.0.37...meshcentral-3.0.38) (2022-08-29)
 
 ### Chore

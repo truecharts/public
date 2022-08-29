@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.64](https://github.com/truecharts/charts/compare/redis-3.0.63...redis-3.0.64) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.4 ([#3613](https://github.com/truecharts/charts/issues/3613))
+
+
+
+
 ## [redis-3.0.63](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.19...redis-3.0.63) (2022-08-29)
 
 ### Chore
