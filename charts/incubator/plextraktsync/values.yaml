@@ -31,5 +31,36 @@ persistence:
     enabled: true
     mountPath: "/app/config"
 
+initContainers:
+  create-config:
+    name: create-config
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    volumeMounts:
+    - name: config
+      mountPath: "/app/config"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "Creating config files...";
+        export env=/app/config/.env;
+        export pytrakt=/app/config/.pytrakt.json;
+        if [ ! -f $env ]; then
+          echo '# This is .env file for PlexTraktSync' > $env;
+          echo 'PLEX_BASEURL=http://plex.ix-plex.svc.cluster.local:32400' >> $env;
+          echo 'PLEX_FALLBACKURL=http://plex.ix-plex.svc.cluster.local:32400' >> $env;
+          echo 'PLEX_LOCALURL=http://localhost:32400' >> $env;
+          echo 'PLEX_TOKEN=MY_PLEX_TOKEN' >> $env;
+          echo 'PLEX_OWNER_TOKEN=' >> $env;
+          echo 'PLEX_USERNAME=PLEX_USER_NAME' >> $env;
+          echo 'TRAKT_USERNAME=TRAKT_USER_NAME' >> $env;
+        else
+          echo ".env file exists, skipping...";
+        fi;
+        if [ ! -f $pytrakt ]; then
+          echo '{"CLIENT_ID": "", "CLIENT_SECRET": "", "OAUTH_TOKEN": "", "OAUTH_REFRESH": "", "OAUTH_EXPIRES_AT": 1669482096}' > $pytrakt;
+        else
+          echo ".pytrakt file exists, skipping...";
+        fi;
+
 portal:
   enabled: false

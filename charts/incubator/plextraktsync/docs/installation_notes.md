@@ -11,3 +11,7 @@
 - Grab your App's pin from trakt.tv and [authorize](https://trakt.tv/activate/authorize) the pin to activate the app.
 
 - Here's [PlexTraktSync](https://github.com/Taxel/PlexTraktSync#installation) installation instructions.
+
+Notes:
+
+- The config option `PLEX_OWNER_TOKEN` in `.env` can be left blank because if set, causes the chart to not work.
