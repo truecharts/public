@@ -2,6 +2,15 @@
 
 
 
+## [nexus-oss-0.0.8](https://github.com/truecharts/charts/compare/nexus-oss-0.0.7...nexus-oss-0.0.8) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [nexus-oss-0.0.7](https://github.com/truecharts/charts/compare/nexus-oss-0.0.5...nexus-oss-0.0.7) (2022-08-26)
 
 ### Fix

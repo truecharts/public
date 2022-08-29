@@ -2,6 +2,15 @@
 
 
 
+## [grocy-11.0.38](https://github.com/truecharts/charts/compare/grocy-11.0.37...grocy-11.0.38) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [grocy-11.0.37](https://github.com/truecharts/charts/compare/grocy-11.0.36...grocy-11.0.37) (2022-08-26)
 
 ### Chore

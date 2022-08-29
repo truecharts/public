@@ -2,6 +2,15 @@
 
 
 
+## [lancache-monolithic-0.0.22](https://github.com/truecharts/charts/compare/lancache-monolithic-0.0.21...lancache-monolithic-0.0.22) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [lancache-monolithic-0.0.21](https://github.com/truecharts/charts/compare/lancache-monolithic-0.0.20...lancache-monolithic-0.0.21) (2022-08-29)
 
 ### Chore

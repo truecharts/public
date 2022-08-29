@@ -1,6 +1,6 @@
 # resilio-sync
 
-![Version: 6.0.27](https://img.shields.io/badge/Version-6.0.27-informational?style=flat-square) ![AppVersion: 2.7.2.1375](https://img.shields.io/badge/AppVersion-2.7.2.1375-informational?style=flat-square)
+![Version: 6.0.28](https://img.shields.io/badge/Version-6.0.28-informational?style=flat-square) ![AppVersion: 2.7.2.1375](https://img.shields.io/badge/AppVersion-2.7.2.1375-informational?style=flat-square)
 
 Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

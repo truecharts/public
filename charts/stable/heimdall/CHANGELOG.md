@@ -2,6 +2,15 @@
 
 
 
+## [heimdall-11.0.36](https://github.com/truecharts/charts/compare/heimdall-11.0.35...heimdall-11.0.36) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [heimdall-11.0.35](https://github.com/truecharts/charts/compare/heimdall-11.0.34...heimdall-11.0.35) (2022-08-29)
 
 ### Chore

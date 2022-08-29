@@ -2,6 +2,17 @@
 
 
 
+## [nextcloud-15.3.3](https://github.com/truecharts/charts/compare/nextcloud-15.3.1...nextcloud-15.3.3) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3620](https://github.com/truecharts/charts/issues/3620))
+  - update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [nextcloud-15.3.1](https://github.com/truecharts/charts/compare/nextcloud-15.3.0...nextcloud-15.3.1) (2022-08-27)
 
 

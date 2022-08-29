@@ -2,6 +2,15 @@
 
 
 
+## [reg-6.0.27](https://github.com/truecharts/charts/compare/wireguard-0.0.1...reg-6.0.27) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [reg-6.0.26](https://github.com/truecharts/charts/compare/dockerregistry-0.0.15...reg-6.0.26) (2022-08-23)
 
 ### Chore

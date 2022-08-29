@@ -2,6 +2,15 @@
 
 
 
+## [aria2-5.0.29](https://github.com/truecharts/charts/compare/aria2-5.0.28...aria2-5.0.29) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [aria2-5.0.28](https://github.com/truecharts/charts/compare/aria2-5.0.27...aria2-5.0.28) (2022-08-23)
 
 ### Chore

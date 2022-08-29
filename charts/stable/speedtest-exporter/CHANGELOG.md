@@ -2,6 +2,15 @@
 
 
 
+## [speedtest-exporter-3.0.29](https://github.com/truecharts/charts/compare/speedtest-exporter-3.0.28...speedtest-exporter-3.0.29) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [speedtest-exporter-3.0.28](https://github.com/truecharts/charts/compare/speedtest-exporter-3.0.27...speedtest-exporter-3.0.28) (2022-08-23)
 
 ### Chore

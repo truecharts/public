@@ -2,6 +2,15 @@
 
 
 
+## [goaccess-npm-logs-0.0.24](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.23...goaccess-npm-logs-0.0.24) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [goaccess-npm-logs-0.0.23](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.20...goaccess-npm-logs-0.0.23) (2022-08-27)
 
 ### Chore

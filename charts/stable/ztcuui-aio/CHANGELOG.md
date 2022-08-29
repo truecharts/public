@@ -2,6 +2,15 @@
 
 
 
+## [ztcuui-aio-1.0.4](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.3...ztcuui-aio-1.0.4) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [ztcuui-aio-1.0.3](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.2...ztcuui-aio-1.0.3) (2022-08-23)
 
 ### Chore

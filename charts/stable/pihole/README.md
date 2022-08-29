@@ -1,6 +1,6 @@
 # pihole
 
-![Version: 6.0.31](https://img.shields.io/badge/Version-6.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.08.2](https://img.shields.io/badge/AppVersion-2022.08.2-informational?style=flat-square)
+![Version: 6.0.32](https://img.shields.io/badge/Version-6.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.08.2](https://img.shields.io/badge/AppVersion-2022.08.2-informational?style=flat-square)
 
 DNS and Ad-filtering for your network
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

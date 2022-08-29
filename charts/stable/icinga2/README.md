@@ -1,6 +1,6 @@
 # icinga2
 
-![Version: 3.0.31](https://img.shields.io/badge/Version-3.0.31-informational?style=flat-square) ![AppVersion: 2.13.3](https://img.shields.io/badge/AppVersion-2.13.3-informational?style=flat-square)
+![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: 2.13.3](https://img.shields.io/badge/AppVersion-2.13.3-informational?style=flat-square)
 
 A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | mariadb | 3.0.64 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

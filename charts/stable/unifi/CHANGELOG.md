@@ -2,6 +2,7 @@
 
 
 
+
 ## [unifi-11.0.28](https://github.com/truecharts/charts/compare/unifi-11.0.27...unifi-11.0.28) (2022-08-23)
 
 ### Chore

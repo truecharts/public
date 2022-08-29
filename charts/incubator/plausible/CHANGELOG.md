@@ -2,6 +2,16 @@
 
 
 
+## [plausible-1.0.14](https://github.com/truecharts/charts/compare/plausible-1.0.12...plausible-1.0.14) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [plausible-1.0.12](https://github.com/truecharts/charts/compare/plausible-1.0.10...plausible-1.0.12) (2022-08-26)
 
 ### Fix

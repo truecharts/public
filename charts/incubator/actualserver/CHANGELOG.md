@@ -2,6 +2,15 @@
 
 
 
+## [actualserver-0.0.23](https://github.com/truecharts/charts/compare/actualserver-0.0.22...actualserver-0.0.23) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [actualserver-0.0.22](https://github.com/truecharts/charts/compare/actualserver-0.0.20...actualserver-0.0.22) (2022-08-26)
 
 ### Fix

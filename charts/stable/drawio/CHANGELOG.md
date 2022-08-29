@@ -2,6 +2,15 @@
 
 
 
+## [drawio-2.0.39](https://github.com/truecharts/charts/compare/drawio-2.0.38...drawio-2.0.39) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [drawio-2.0.38](https://github.com/truecharts/charts/compare/drawio-2.0.37...drawio-2.0.38) (2022-08-23)
 
 ### Chore

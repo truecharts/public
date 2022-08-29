@@ -2,6 +2,15 @@
 
 
 
+## [fluidd-2.0.31](https://github.com/truecharts/charts/compare/fluidd-2.0.30...fluidd-2.0.31) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [fluidd-2.0.30](https://github.com/truecharts/charts/compare/fluidd-2.0.29...fluidd-2.0.30) (2022-08-29)
 
 ### Chore

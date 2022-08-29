@@ -2,6 +2,16 @@
 
 
 
+## [n8n-4.0.47](https://github.com/truecharts/charts/compare/n8n-4.0.45...n8n-4.0.47) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [n8n-4.0.45](https://github.com/truecharts/charts/compare/n8n-4.0.44...n8n-4.0.45) (2022-08-26)
 
 ### Chore

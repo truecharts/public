@@ -2,6 +2,15 @@
 
 
 
+## [docusaurus-1.0.1](https://github.com/truecharts/charts/compare/docusaurus-1.0.0...docusaurus-1.0.1) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [docusaurus-1.0.0](https://github.com/truecharts/charts/compare/docusaurus-0.0.1...docusaurus-1.0.0) (2022-08-29)
 
 ### Feat

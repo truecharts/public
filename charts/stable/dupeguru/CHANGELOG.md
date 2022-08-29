@@ -2,6 +2,15 @@
 
 
 
+## [dupeguru-1.0.6](https://github.com/truecharts/charts/compare/dupeguru-1.0.5...dupeguru-1.0.6) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [dupeguru-1.0.5](https://github.com/truecharts/charts/compare/dupeguru-1.0.4...dupeguru-1.0.5) (2022-08-23)
 
 ### Chore

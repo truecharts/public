@@ -2,6 +2,15 @@
 
 
 
+## [openttd-0.0.20](https://github.com/truecharts/charts/compare/openttd-0.0.19...openttd-0.0.20) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [openttd-0.0.19](https://github.com/truecharts/charts/compare/openttd-0.0.17...openttd-0.0.19) (2022-08-26)
 
 ### Fix

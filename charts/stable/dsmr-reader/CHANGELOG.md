@@ -2,6 +2,16 @@
 
 
 
+## [dsmr-reader-8.0.33](https://github.com/truecharts/charts/compare/dsmr-reader-8.0.31...dsmr-reader-8.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [dsmr-reader-8.0.31](https://github.com/truecharts/charts/compare/dsmr-reader-8.0.30...dsmr-reader-8.0.31) (2022-08-23)
 
 ### Chore

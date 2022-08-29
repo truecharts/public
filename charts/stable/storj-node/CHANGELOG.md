@@ -2,6 +2,15 @@
 
 
 
+## [storj-node-2.0.43](https://github.com/truecharts/charts/compare/storj-node-2.0.42...storj-node-2.0.43) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [storj-node-2.0.42](https://github.com/truecharts/charts/compare/storj-node-2.0.41...storj-node-2.0.42) (2022-08-26)
 
 ### Chore

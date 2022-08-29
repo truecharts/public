@@ -2,6 +2,15 @@
 
 
 
+## [quassel-web-2.0.26](https://github.com/truecharts/charts/compare/quassel-web-2.0.25...quassel-web-2.0.26) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [quassel-web-2.0.25](https://github.com/truecharts/charts/compare/quassel-web-2.0.24...quassel-web-2.0.25) (2022-08-23)
 
 ### Chore

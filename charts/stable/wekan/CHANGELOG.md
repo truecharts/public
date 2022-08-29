@@ -2,6 +2,16 @@
 
 
 
+## [wekan-5.0.2](https://github.com/truecharts/charts/compare/wekan-5.0.0...wekan-5.0.2) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [wekan-5.0.0](https://github.com/truecharts/charts/compare/wekan-4.0.40...wekan-5.0.0) (2022-08-29)
 
 ### Chore

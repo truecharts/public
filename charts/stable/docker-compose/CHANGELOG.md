@@ -2,6 +2,15 @@
 
 
 
+## [docker-compose-2.0.38](https://github.com/truecharts/charts/compare/docker-compose-2.0.37...docker-compose-2.0.38) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [docker-compose-2.0.37](https://github.com/truecharts/charts/compare/docker-compose-2.0.36...docker-compose-2.0.37) (2022-08-27)
 
 ### Chore

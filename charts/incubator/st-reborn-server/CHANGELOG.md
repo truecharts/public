@@ -2,6 +2,15 @@
 
 
 
+## [st-reborn-server-0.0.14](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.13...st-reborn-server-0.0.14) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [st-reborn-server-0.0.13](https://github.com/truecharts/charts/compare/st-reborn-server-0.0.11...st-reborn-server-0.0.13) (2022-08-26)
 
 ### Fix

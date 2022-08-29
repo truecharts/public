@@ -2,6 +2,15 @@
 
 
 
+## [k8s-gateway-6.1.13](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.12...k8s-gateway-6.1.13) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [k8s-gateway-6.1.12](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.11...k8s-gateway-6.1.12) (2022-08-23)
 
 ### Chore

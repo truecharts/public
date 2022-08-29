@@ -2,6 +2,15 @@
 
 
 
+## [google-cloud-storage-backup-0.0.21](https://github.com/truecharts/charts/compare/google-cloud-storage-backup-0.0.20...google-cloud-storage-backup-0.0.21) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [google-cloud-storage-backup-0.0.20](https://github.com/truecharts/charts/compare/google-cloud-storage-backup-0.0.17...google-cloud-storage-backup-0.0.20) (2022-08-27)
 
 ### Chore

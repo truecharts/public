@@ -2,6 +2,15 @@
 
 
 
+## [kitchenowl-0.0.11](https://github.com/truecharts/charts/compare/kitchenowl-0.0.10...kitchenowl-0.0.11) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [kitchenowl-0.0.10](https://github.com/truecharts/charts/compare/kitchenowl-0.0.8...kitchenowl-0.0.10) (2022-08-26)
 
 ### Fix
