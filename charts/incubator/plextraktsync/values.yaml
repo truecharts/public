@@ -3,7 +3,7 @@ image:
   repository: tccr.io/truecharts/plextraktsync
   tag: latest@sha256:55d0b5927a1bc11dd83a94cd56375a201de3dc03f099345b71404ca20757d373
 
-env:
+plexTraktSync:
   PLEX_BASEURL: "http://plex.ix-plex.svc.cluster.local:32400"
   PLEX_FALLBACKURL: "http://plex.ix-plex.svc.cluster.local:32400"
   PLEX_LOCALURL: "http://localhost:32400"
