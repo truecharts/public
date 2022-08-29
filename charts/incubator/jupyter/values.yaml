@@ -1,0 +1,52 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: jupyter/base-notebook
+  tag: latest
+imageMiniaml:
+  pullPolicy: IfNotPresent
+  repository: jupyter/minimal-notebook
+  tag: latest
+imageR:
+  pullPolicy: IfNotPresent
+  repository: jupyter/r-notebook
+  tag: latest
+imageScipy:
+  pullPolicy: IfNotPresent
+  repository: jupyter/scipy-notebook
+  tag: latest
+imageTensorflow:
+  pullPolicy: IfNotPresent
+  repository: jupyter/tensorflow-notebook
+  tag: latest
+imageDataScience:
+  pullPolicy: IfNotPresent
+  repository: jupyter/datascience-notebook
+  tag: latest
+imagePySpark:
+  pullPolicy: IfNotPresent
+  repository: jupyter/pyspark-notebook
+  tag: latest
+imageAllSpark:
+  pullPolicy: IfNotPresent
+  repository: jupyter/all-spark-notebook
+  tag: latest
+persistence:
+data:
+    enabled: true
+    mountPath: /work
+podSecurityContext:
+  runAsGroup: 568
+  runAsUser: 568
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+service:
+  main:
+    ports:
+      main:
+        port: 8888
+        protocol: TCP
+        targetPort: 80
+
+portal:
+  enabled: true

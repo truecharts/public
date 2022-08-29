@@ -1,0 +1,29 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.0
+deprecated: false
+description: "Very simple WebDAV server based on Apache. You need a WebDAV client to transfer files. It does not include a WebUI to upload files through your browser.\r\n"
+home: https://truecharts.org/docs/charts/incubator/jupyter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
+keywords:
+  - Jupyter
+  - Notebook
+  - Lab
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: jupyter
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/juypter
+  - https://github.com/jupyter/docker-stacks
+type: application
+version: 0.0.1
