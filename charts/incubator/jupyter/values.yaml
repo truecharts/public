@@ -34,12 +34,6 @@ persistence:
   data:
     enabled: true
     mountPath: /work
-podSecurityContext:
-  runAsGroup: 568
-  runAsUser: 568
-securityContext:
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
 service:
   main:
     ports:
