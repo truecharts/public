@@ -3,6 +3,15 @@ image:
   repository: tccr.io/truecharts/plextraktsync
   tag: latest@sha256:55d0b5927a1bc11dd83a94cd56375a201de3dc03f099345b71404ca20757d373
 
+env:
+  PLEX_BASEURL: "http://plex.ix-plex.svc.cluster.local:32400"
+  PLEX_FALLBACKURL: "http://plex.ix-plex.svc.cluster.local:32400"
+  PLEX_LOCALURL: "http://localhost:32400"
+  PLEX_TOKEN: "MY_PLEX_TOKEN"
+  PLEX_OWNER_TOKEN: "" # left blank for now
+  PLEX_USERNAME: "MY_PLEX_USERNAME"
+  TRAKT_USERNAME: "MY_TRAKT_USERNAME"
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
@@ -38,6 +47,21 @@ initContainers:
     volumeMounts:
       - name: config
         mountPath: "/app/config"
+    env:
+      - name: PLEX_BASEURL
+        value: "{{ .Values.env.PLEX_BASEURL }}"
+      - name: PLEX_FALLBACKURL
+        value: "{{ .Values.env.PLEX_FALLBACKURL }}"
+      - name: PLEX_LOCALURL
+        value: "{{ .Values.env.PLEX_LOCALURL }}"
+      - name: PLEX_TOKEN
+        value: "{{ .Values.env.PLEX_TOKEN }}"
+      - name: PLEX_OWNER_TOKEN
+        value: "{{ .Values.env.PLEX_OWNER_TOKEN }}"
+      - name: PLEX_USERNAME
+        value: "{{ .Values.env.PLEX_USERNAME }}"
+      - name: TRAKT_USERNAME
+        value: "{{ .Values.env.TRAKT_USERNAME }}"
     command: ["/bin/sh", "-c"]
     args:
       - >
@@ -46,13 +70,13 @@ initContainers:
         export pytrakt=/app/config/.pytrakt.json;
         if [ ! -f $env ]; then
           echo '# This is .env file for PlexTraktSync' > $env;
-          echo 'PLEX_BASEURL=http://plex.ix-plex.svc.cluster.local:32400' >> $env;
-          echo 'PLEX_FALLBACKURL=http://plex.ix-plex.svc.cluster.local:32400' >> $env;
-          echo 'PLEX_LOCALURL=http://localhost:32400' >> $env;
-          echo 'PLEX_TOKEN=MY_PLEX_TOKEN' >> $env;
-          echo 'PLEX_OWNER_TOKEN=' >> $env;
-          echo 'PLEX_USERNAME=PLEX_USER_NAME' >> $env;
-          echo 'TRAKT_USERNAME=TRAKT_USER_NAME' >> $env;
+          echo 'PLEX_BASEURL=$PLEX_BASEURL' >> $env;
+          echo 'PLEX_FALLBACKURL=$PLEX_FALLBACKURL' >> $env;
+          echo 'PLEX_LOCALURL=$PLEX_LOCALURL' >> $env;
+          echo 'PLEX_TOKEN=$PLEX_TOKEN' >> $env;
+          echo 'PLEX_OWNER_TOKEN=$PLEX_OWNER_TOKEN' >> $env;
+          echo 'PLEX_USERNAME=$PLEX_USERNAME' >> $env;
+          echo 'TRAKT_USERNAME=$TRAKT_USERNAME' >> $env;
         else
           echo ".env file exists, skipping...";
         fi;

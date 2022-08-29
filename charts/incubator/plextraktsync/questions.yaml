@@ -10,6 +10,61 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PLEX_BASEURL
+          label: "PLEX BASEURL"
+          description: "A single plex url: http://IP:32400 | http://localhost:32400 | http://plex.ix-plex.svc.cluster.local:32400"
+          schema:
+            type: string
+            required: true
+            default: "http://plex.ix-plex.svc.cluster.local:32400"
+        - variable: PLEX_FALLBACKURL
+          label: "PLEX FALLBACKURL"
+          description: "A single plex url: http://IP:32400 | http://localhost:32400 | http://plex.ix-plex.svc.cluster.local:32400"
+          schema:
+            type: string
+            required: true
+            default: "http://IP:32400"
+        - variable: PLEX_LOCALURL
+          label: "PLEX LOCALURL"
+          description: "A single plex url: http://IP:32400 | http://localhost:32400 | http://plex.ix-plex.svc.cluster.local:32400"
+          schema:
+            type: string
+            required: true
+            default: "http://localhost:32400"
+        - variable: PLEX_TOKEN
+          label: "PLEX TOKEN"
+          description: "Get this token from the locally temp .env program"
+          schema:
+            type: string
+            required: true
+            default: "REPLACE_ME"
+        - variable: PLEX_OWNER_TOKEN
+          label: "PLEX OWNER TOKEN"
+          description: "Set Owner token: note can be left blank"
+          schema:
+            type: string
+            default: ""
+        - variable: PLEX_USERNAME
+          label: "PLEX USERNAME"
+          description: "A single user on the Plex account"
+          schema:
+            type: string
+            required: true
+            default: "REPLACE_ME"
+        - variable: TRAKT_USERNAME
+          label: "TRAKT USERNAME"
+          description: "A single username on the trakt account"
+          schema:
+            type: string
+            required: true
+            default: "REPLACE_ME"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
