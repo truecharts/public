@@ -2,6 +2,15 @@
 
 
 
+## [mariadb-3.0.63](https://github.com/truecharts/charts/compare/mariadb-3.0.62...mariadb-3.0.63) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.3 ([#3610](https://github.com/truecharts/charts/issues/3610))
+
+
+
+
 ## [collabora-online-12.1.33](https://github.com/truecharts/charts/compare/collabora-online-12.1.32...collabora-online-12.1.33) (2022-08-26)
 
 ### Chore

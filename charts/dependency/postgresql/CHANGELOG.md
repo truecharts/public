@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.66](https://github.com/truecharts/charts/compare/postgresql-8.0.65...postgresql-8.0.66) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.3 ([#3610](https://github.com/truecharts/charts/issues/3610))
+
+
+
+
 ## [postgresql-8.0.65](https://github.com/truecharts/charts/compare/postgresql-8.0.64...postgresql-8.0.65) (2022-08-26)
 
 ### Chore
