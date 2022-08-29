@@ -1,19 +1,19 @@
 # docusaurus
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Docusaurus makes it easy to maintain Open Source documentation websites.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [docusaurus](https://truecharts.org/docs/charts/incubator/docusaurus)
+For more information, please click here: [docusaurus](https://truecharts.org/docs/charts/stable/docusaurus)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/docusaurus>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/docusaurus>
 * <https://hub.docker.com/r/awesometic/docusaurus>
 * <https://github.com/awesometic/docker-docusaurus>
 
