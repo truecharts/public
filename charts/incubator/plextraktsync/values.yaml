@@ -69,14 +69,14 @@ initContainers:
         export env=/app/config/.env;
         export pytrakt=/app/config/.pytrakt.json;
         if [ ! -f $env ]; then
-          echo '# This is .env file for PlexTraktSync' > $env;
-          echo 'PLEX_BASEURL=$PLEX_BASEURL' >> $env;
-          echo 'PLEX_FALLBACKURL=$PLEX_FALLBACKURL' >> $env;
-          echo 'PLEX_LOCALURL=$PLEX_LOCALURL' >> $env;
-          echo 'PLEX_TOKEN=$PLEX_TOKEN' >> $env;
-          echo 'PLEX_OWNER_TOKEN=$PLEX_OWNER_TOKEN' >> $env;
-          echo 'PLEX_USERNAME=$PLEX_USERNAME' >> $env;
-          echo 'TRAKT_USERNAME=$TRAKT_USERNAME' >> $env;
+          echo "# This is .env file for PlexTraktSync" > $env;
+          echo "PLEX_BASEURL=$PLEX_BASEURL" >> $env;
+          echo "PLEX_FALLBACKURL=$PLEX_FALLBACKURL" >> $env;
+          echo "PLEX_LOCALURL=$PLEX_LOCALURL" >> $env;
+          echo "PLEX_TOKEN=$PLEX_TOKEN" >> $env;
+          echo "PLEX_OWNER_TOKEN=$PLEX_OWNER_TOKEN" >> $env;
+          echo "PLEX_USERNAME=$PLEX_USERNAME" >> $env;
+          echo "TRAKT_USERNAME=$TRAKT_USERNAME" >> $env;
         else
           echo ".env file exists, skipping...";
         fi;
