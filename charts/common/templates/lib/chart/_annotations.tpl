@@ -18,4 +18,5 @@ k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurat
 
 {{/* Annotations on all workload objects */}}
 {{- define "tc.common.annotations.workload" -}}
+rollme: {{ randAlphaNum 5 | quote }}
 {{- end -}}
