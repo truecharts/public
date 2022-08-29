@@ -118,7 +118,7 @@ before chart installation.
       {{- end }}
       {{- if .Values.mongodb.enabled }}
       until
-        echo "db.runCommand(\"ping\")" | mongo --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
+        echo "db.runCommand(\"ping\")" | mongosh --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
         do sleep 2;
       done
       {{- end }}
