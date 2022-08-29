@@ -10,6 +10,7 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -53,7 +54,7 @@ questions:
             default: ""
         - variable: PLEX_USERNAME
           label: "PLEX USERNAME"
-          description: "A single user on the Plex account"
+          description: "A single username on the plex account"
           schema:
             type: string
             required: true
@@ -65,6 +66,8 @@ questions:
             type: string
             required: true
             default: "REPLACE_ME"
+# Include{containerConfig}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
