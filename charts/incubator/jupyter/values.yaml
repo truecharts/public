@@ -31,7 +31,7 @@ imageAllSpark:
   repository: jupyter/all-spark-notebook
   tag: latest
 persistence:
-data:
+  data:
     enabled: true
     mountPath: /work
 podSecurityContext:
