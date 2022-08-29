@@ -2,6 +2,19 @@
 
 
 
+## [tvheadend-12.0.29](https://github.com/truecharts/charts/compare/tvheadend-12.0.28...tvheadend-12.0.29) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+  ### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
 ## [tvheadend-12.0.28](https://github.com/truecharts/charts/compare/tvheadend-12.0.26...tvheadend-12.0.28) (2022-08-23)
 
 ### Chore

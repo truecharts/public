@@ -7,5 +7,3 @@
 ### Feat
 
 - add standalone wireguard ([#3575](https://github.com/truecharts/charts/issues/3575))
-  
-  

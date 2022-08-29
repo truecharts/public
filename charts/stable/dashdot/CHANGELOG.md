@@ -2,6 +2,15 @@
 
 
 
+## [dashdot-1.0.43](https://github.com/truecharts/charts/compare/dashdot-1.0.42...dashdot-1.0.43) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [dashdot-1.0.42](https://github.com/truecharts/charts/compare/dashdot-1.0.41...dashdot-1.0.42) (2022-08-23)
 
 ### Chore

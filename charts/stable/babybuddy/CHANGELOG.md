@@ -2,6 +2,15 @@
 
 
 
+## [babybuddy-8.0.42](https://github.com/truecharts/charts/compare/babybuddy-8.0.41...babybuddy-8.0.42) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [babybuddy-8.0.41](https://github.com/truecharts/charts/compare/babybuddy-8.0.40...babybuddy-8.0.41) (2022-08-23)
 
 ### Chore

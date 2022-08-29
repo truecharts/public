@@ -2,6 +2,15 @@
 
 
 
+## [lazylibrarian-11.0.47](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.46...lazylibrarian-11.0.47) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [lazylibrarian-11.0.46](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.45...lazylibrarian-11.0.46) (2022-08-28)
 
 ### Chore

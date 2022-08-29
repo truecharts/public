@@ -2,6 +2,15 @@
 
 
 
+## [fluidd-2.0.30](https://github.com/truecharts/charts/compare/fluidd-2.0.29...fluidd-2.0.30) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+
+
+
+
 ## [fluidd-2.0.29](https://github.com/truecharts/charts/compare/fluidd-2.0.28...fluidd-2.0.29) (2022-08-23)
 
 ### Chore

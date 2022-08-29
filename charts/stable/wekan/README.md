@@ -1,6 +1,6 @@
 # wekan
 
-![Version: 4.0.39](https://img.shields.io/badge/Version-4.0.39-informational?style=flat-square) ![AppVersion: 6.40](https://img.shields.io/badge/AppVersion-6.40-informational?style=flat-square)
+![Version: 4.0.40](https://img.shields.io/badge/Version-4.0.40-informational?style=flat-square) ![AppVersion: 6.41](https://img.shields.io/badge/AppVersion-6.41-informational?style=flat-square)
 
 WeKan - Open Source kanban
 
