@@ -49,19 +49,19 @@ initContainers:
         mountPath: "/app/config"
     env:
       - name: PLEX_BASEURL
-        value: "{{ .Values.env.PLEX_BASEURL }}"
+        value: "{{ .Values.plexTraktSync.PLEX_BASEURL }}"
       - name: PLEX_FALLBACKURL
-        value: "{{ .Values.env.PLEX_FALLBACKURL }}"
+        value: "{{ .Values.plexTraktSync.PLEX_FALLBACKURL }}"
       - name: PLEX_LOCALURL
-        value: "{{ .Values.env.PLEX_LOCALURL }}"
+        value: "{{ .Values.plexTraktSync.PLEX_LOCALURL }}"
       - name: PLEX_TOKEN
-        value: "{{ .Values.env.PLEX_TOKEN }}"
+        value: "{{ .Values.plexTraktSync.PLEX_TOKEN }}"
       - name: PLEX_OWNER_TOKEN
-        value: "{{ .Values.env.PLEX_OWNER_TOKEN }}"
+        value: "{{ .Values.plexTraktSync.PLEX_OWNER_TOKEN }}"
       - name: PLEX_USERNAME
-        value: "{{ .Values.env.PLEX_USERNAME }}"
+        value: "{{ .Values.plexTraktSync.PLEX_USERNAME }}"
       - name: TRAKT_USERNAME
-        value: "{{ .Values.env.TRAKT_USERNAME }}"
+        value: "{{ .Values.plexTraktSync.TRAKT_USERNAME }}"
     command: ["/bin/sh", "-c"]
     args:
       - >
