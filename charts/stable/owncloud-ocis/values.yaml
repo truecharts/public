@@ -41,7 +41,9 @@ initContainers:
     volumeMounts:
       - name: config
         mountPath: "/etc/ocis"
-    command: ["init"]
+    command:
+      - "/usr/bin/ocis"
+      - "init"
 
 persistence:
   data:
