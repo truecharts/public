@@ -17,10 +17,17 @@ secretEnv:
 
 env:
   ENABLE_BEPINEX: false
-  GAME_ID: 294420
-  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
+  BACKUP_FILES: false
+  BACKUP_INTERVAL: 60
+  BACKUP_TO_KEEP: 12
+  GAME_ID: "294420"
+  GAME_PARAMS: "-logfile 7DaysToDie_Data/output_log.txt $@"
   SERVERCONFIG: serverconfig.xml
   VALIDATE: false
+
+probes:
+  startup:
+    failureThreshold: 360
 
 service:
   main:
