@@ -44,7 +44,7 @@ initContainers:
     command:
       - "/usr/bin/ocis"
       - |
-        init <<EOF
+        init <<'EOF'
         yes
         EOF
 
