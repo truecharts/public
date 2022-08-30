@@ -2,6 +2,15 @@
 
 
 
+## [onlyoffice-document-server-6.0.32](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.31...onlyoffice-document-server-6.0.32) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [onlyoffice-document-server-6.0.31](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.29...onlyoffice-document-server-6.0.31) (2022-08-29)
 
 ### Chore

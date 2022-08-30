@@ -2,6 +2,15 @@
 
 
 
+## [nocodb-3.0.39](https://github.com/truecharts/charts/compare/nocodb-3.0.38...nocodb-3.0.39) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [nocodb-3.0.38](https://github.com/truecharts/charts/compare/nocodb-3.0.36...nocodb-3.0.38) (2022-08-29)
 
 ### Chore

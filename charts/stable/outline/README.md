@@ -1,6 +1,6 @@
 # outline
 
-![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.65.2](https://img.shields.io/badge/AppVersion-0.65.2-informational?style=flat-square)
+![Version: 3.0.36](https://img.shields.io/badge/Version-3.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.65.2](https://img.shields.io/badge/AppVersion-0.65.2-informational?style=flat-square)
 
 A fast, collaborative, knowledge base for your team built using React and Node.js.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://charts.truecharts.org | redis | 3.0.64 |
+| https://charts.truecharts.org | redis | 3.0.65 |
 | https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart

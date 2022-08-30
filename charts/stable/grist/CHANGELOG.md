@@ -2,6 +2,15 @@
 
 
 
+## [grist-3.0.33](https://github.com/truecharts/charts/compare/grist-3.0.32...grist-3.0.33) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [grist-3.0.32](https://github.com/truecharts/charts/compare/grist-3.0.30...grist-3.0.32) (2022-08-29)
 
 ### Chore

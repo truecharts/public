@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-1.0.3](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.2...youtubedl-material-1.0.3) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [youtubedl-material-1.0.2](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.0...youtubedl-material-1.0.2) (2022-08-29)
 
 ### Chore

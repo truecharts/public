@@ -2,6 +2,15 @@
 
 
 
+## [papermerge-3.0.31](https://github.com/truecharts/charts/compare/papermerge-3.0.30...papermerge-3.0.31) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [papermerge-3.0.30](https://github.com/truecharts/charts/compare/papermerge-3.0.28...papermerge-3.0.30) (2022-08-29)
 
 ### Chore

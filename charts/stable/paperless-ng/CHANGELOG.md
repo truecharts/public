@@ -2,6 +2,15 @@
 
 
 
+## [paperless-ng-4.0.35](https://github.com/truecharts/charts/compare/paperless-ng-4.0.34...paperless-ng-4.0.35) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
 ## [paperless-ng-4.0.34](https://github.com/truecharts/charts/compare/paperless-ng-4.0.32...paperless-ng-4.0.34) (2022-08-29)
 
 ### Chore
