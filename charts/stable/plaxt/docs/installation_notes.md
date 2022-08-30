@@ -2,7 +2,7 @@
 
 ## TRAKT.TV Setup
 
-- Please create a [app](https://trakt.tv/oauth/applications/new) in trakt.tv.
+- Please create an [app](https://trakt.tv/oauth/applications/new) in trakt.tv.
 - Set the trakt app name to whatever you like for ex: `plaxt`.
 - Optionally set an icon, you can download this [icon](https://raw.githubusercontent.com/truecharts/charts/9056d3c8f7893e02a070b542cc7985274a05aad2/charts/incubator/plaxt/icon.png).
 - Set the redirect uri to for ex (must end with `/authorize`):
