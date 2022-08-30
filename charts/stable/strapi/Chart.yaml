@@ -3,11 +3,11 @@ appVersion: "3.6.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.5
+    version: 10.5.6
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.67
+    version: 8.0.69
 description: Strapi is the leading open-source headless CMS. JavaScript, fully customizable and developer-first.
 home: https://truecharts.org/docs/charts/stable/strapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.png
@@ -25,7 +25,7 @@ sources:
   - https://hub.docker.com/r/strapi/strapi
   - https://github.com/strapi/strapi
   - https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project
-version: 4.0.33
+version: 4.0.34
 annotations:
   truecharts.org/catagories: |
     - media
