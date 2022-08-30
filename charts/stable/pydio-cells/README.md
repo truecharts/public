@@ -1,6 +1,6 @@
 # pydio-cells
 
-![Version: 4.0.32](https://img.shields.io/badge/Version-4.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.9](https://img.shields.io/badge/AppVersion-3.0.9-informational?style=flat-square)
+![Version: 4.0.33](https://img.shields.io/badge/Version-4.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.9](https://img.shields.io/badge/AppVersion-3.0.9-informational?style=flat-square)
 
 Pydio-cells is the nextgen file sharing platform for organizations.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.truecharts.org/ | mariadb | 3.0.64 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

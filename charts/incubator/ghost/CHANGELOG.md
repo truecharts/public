@@ -2,6 +2,15 @@
 
 
 
+## [ghost-3.0.54](https://github.com/truecharts/charts/compare/ghost-3.0.53...ghost-3.0.54) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [ghost-3.0.53](https://github.com/truecharts/charts/compare/ghost-3.0.51...ghost-3.0.53) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [cyberchef-2.0.72](https://github.com/truecharts/charts/compare/cyberchef-2.0.71...cyberchef-2.0.72) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [cyberchef-2.0.71](https://github.com/truecharts/charts/compare/cyberchef-2.0.69...cyberchef-2.0.71) (2022-08-29)
 
 ### Chore

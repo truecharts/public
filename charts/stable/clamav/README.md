@@ -1,6 +1,6 @@
 # clamav
 
-![Version: 3.0.34](https://img.shields.io/badge/Version-3.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.105.1](https://img.shields.io/badge/AppVersion-0.105.1-informational?style=flat-square)
+![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.105.1](https://img.shields.io/badge/AppVersion-0.105.1-informational?style=flat-square)
 
 ClamAV is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

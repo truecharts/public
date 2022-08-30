@@ -2,6 +2,15 @@
 
 
 
+## [conreq-0.0.25](https://github.com/truecharts/charts/compare/conreq-0.0.24...conreq-0.0.25) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [conreq-0.0.24](https://github.com/truecharts/charts/compare/conreq-0.0.23...conreq-0.0.24) (2022-08-29)
 
 ### Chore

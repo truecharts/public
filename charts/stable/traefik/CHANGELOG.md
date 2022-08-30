@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.2](https://github.com/truecharts/charts/compare/traefik-13.3.1...traefik-13.3.2) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [traefik-13.3.1](https://github.com/truecharts/charts/compare/traefik-13.3.0...traefik-13.3.1) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [gitea-9.0.11](https://github.com/truecharts/charts/compare/gitea-9.0.10...gitea-9.0.11) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [gitea-9.0.10](https://github.com/truecharts/charts/compare/gitea-9.0.9...gitea-9.0.10) (2022-08-30)
 
 ### Chore

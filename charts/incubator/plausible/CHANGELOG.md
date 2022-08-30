@@ -2,6 +2,15 @@
 
 
 
+## [plausible-1.0.16](https://github.com/truecharts/charts/compare/plausible-1.0.15...plausible-1.0.16) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [plausible-1.0.15](https://github.com/truecharts/charts/compare/plausible-1.0.14...plausible-1.0.15) (2022-08-30)
 
 ### Chore

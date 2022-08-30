@@ -1,6 +1,6 @@
 # docker-compose
 
-![Version: 2.0.38](https://img.shields.io/badge/Version-2.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 20.10.17](https://img.shields.io/badge/AppVersion-20.10.17-informational?style=flat-square)
+![Version: 2.0.39](https://img.shields.io/badge/Version-2.0.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 20.10.17](https://img.shields.io/badge/AppVersion-20.10.17-informational?style=flat-square)
 
 Dedicated App for using Docker-Compose on TrueNAS SCALE
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

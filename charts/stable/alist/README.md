@@ -1,6 +1,6 @@
 # alist
 
-![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.6.4](https://img.shields.io/badge/AppVersion-2.6.4-informational?style=flat-square)
+![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.6.4](https://img.shields.io/badge/AppVersion-2.6.4-informational?style=flat-square)
 
 Alist program that supports multiple storage, powered by Gin and React
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

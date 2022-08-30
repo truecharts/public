@@ -1,6 +1,6 @@
 # snipe-it
 
-![Version: 4.0.43](https://img.shields.io/badge/Version-4.0.43-informational?style=flat-square) ![AppVersion: 6.0.10](https://img.shields.io/badge/AppVersion-6.0.10-informational?style=flat-square)
+![Version: 4.0.44](https://img.shields.io/badge/Version-4.0.44-informational?style=flat-square) ![AppVersion: 6.0.10](https://img.shields.io/badge/AppVersion-6.0.10-informational?style=flat-square)
 
 Open source asset management
 
@@ -27,7 +27,7 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://charts.truecharts.org/ | mariadb | 3.0.64 |
 | https://charts.truecharts.org | redis | 3.0.65 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

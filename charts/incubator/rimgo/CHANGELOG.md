@@ -2,6 +2,15 @@
 
 
 
+## [rimgo-0.0.43](https://github.com/truecharts/charts/compare/rimgo-0.0.42...rimgo-0.0.43) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [rimgo-0.0.42](https://github.com/truecharts/charts/compare/rimgo-0.0.41...rimgo-0.0.42) (2022-08-30)
 
 ### Chore

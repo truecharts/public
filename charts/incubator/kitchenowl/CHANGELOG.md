@@ -2,6 +2,15 @@
 
 
 
+## [kitchenowl-0.0.12](https://github.com/truecharts/charts/compare/kitchenowl-0.0.11...kitchenowl-0.0.12) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [kitchenowl-0.0.11](https://github.com/truecharts/charts/compare/kitchenowl-0.0.10...kitchenowl-0.0.11) (2022-08-29)
 
 ### Chore

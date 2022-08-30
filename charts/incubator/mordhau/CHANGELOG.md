@@ -2,6 +2,15 @@
 
 
 
+## [mordhau-0.0.21](https://github.com/truecharts/charts/compare/mordhau-0.0.20...mordhau-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [mordhau-0.0.20](https://github.com/truecharts/charts/compare/mordhau-0.0.19...mordhau-0.0.20) (2022-08-29)
 
 ### Chore

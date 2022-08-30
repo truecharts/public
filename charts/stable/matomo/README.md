@@ -1,6 +1,6 @@
 # matomo
 
-![Version: 3.0.54](https://img.shields.io/badge/Version-3.0.54-informational?style=flat-square) ![AppVersion: 4.11.0](https://img.shields.io/badge/AppVersion-4.11.0-informational?style=flat-square)
+![Version: 3.0.55](https://img.shields.io/badge/Version-3.0.55-informational?style=flat-square) ![AppVersion: 4.11.0](https://img.shields.io/badge/AppVersion-4.11.0-informational?style=flat-square)
 
 Matomo is the leading Free/Libre open analytics platform
 
@@ -27,7 +27,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.truecharts.org/ | mariadb | 3.0.64 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

@@ -2,6 +2,15 @@
 
 
 
+## [komga-6.0.35](https://github.com/truecharts/charts/compare/komga-6.0.34...komga-6.0.35) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [komga-6.0.34](https://github.com/truecharts/charts/compare/komga-6.0.33...komga-6.0.34) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [icinga2-3.0.34](https://github.com/truecharts/charts/compare/icinga2-3.0.33...icinga2-3.0.34) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [icinga2-3.0.33](https://github.com/truecharts/charts/compare/icinga2-3.0.31...icinga2-3.0.33) (2022-08-29)
 
 ### Chore

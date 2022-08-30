@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.2.4](https://github.com/truecharts/charts/compare/plex-10.2.3...plex-10.2.4) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [plex-10.2.3](https://github.com/truecharts/charts/compare/plexripper-0.0.20...plex-10.2.3) (2022-08-30)
 
 ### Chore

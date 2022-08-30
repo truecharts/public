@@ -2,6 +2,15 @@
 
 
 
+## [vertex-0.0.38](https://github.com/truecharts/charts/compare/vertex-0.0.37...vertex-0.0.38) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [vertex-0.0.37](https://github.com/truecharts/charts/compare/vertex-0.0.35...vertex-0.0.37) (2022-08-29)
 
 ### Chore

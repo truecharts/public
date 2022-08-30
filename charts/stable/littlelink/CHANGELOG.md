@@ -2,6 +2,15 @@
 
 
 
+## [littlelink-6.0.57](https://github.com/truecharts/charts/compare/littlelink-6.0.56...littlelink-6.0.57) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [littlelink-6.0.56](https://github.com/truecharts/charts/compare/littlelink-6.0.55...littlelink-6.0.56) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [rsshub-3.0.82](https://github.com/truecharts/charts/compare/rsshub-3.0.81...rsshub-3.0.82) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [rsshub-3.0.81](https://github.com/truecharts/charts/compare/rsshub-3.0.80...rsshub-3.0.81) (2022-08-30)
 
 ### Chore

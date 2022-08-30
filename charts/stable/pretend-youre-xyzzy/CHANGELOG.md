@@ -2,6 +2,15 @@
 
 
 
+## [pretend-youre-xyzzy-6.0.30](https://github.com/truecharts/charts/compare/pretend-youre-xyzzy-6.0.29...pretend-youre-xyzzy-6.0.30) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [pretend-youre-xyzzy-6.0.29](https://github.com/truecharts/charts/compare/pretend-youre-xyzzy-6.0.28...pretend-youre-xyzzy-6.0.29) (2022-08-29)
 
 ### Chore

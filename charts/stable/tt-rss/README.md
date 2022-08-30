@@ -1,6 +1,6 @@
 # tt-rss
 
-![Version: 7.0.32](https://img.shields.io/badge/Version-7.0.32-informational?style=flat-square) ![AppVersion: 2.0.9113](https://img.shields.io/badge/AppVersion-2.0.9113-informational?style=flat-square)
+![Version: 7.0.33](https://img.shields.io/badge/Version-7.0.33-informational?style=flat-square) ![AppVersion: 2.0.9113](https://img.shields.io/badge/AppVersion-2.0.9113-informational?style=flat-square)
 
 Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom) reader and aggregator
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

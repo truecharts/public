@@ -2,6 +2,15 @@
 
 
 
+## [jackett-11.0.73](https://github.com/truecharts/charts/compare/jackett-11.0.72...jackett-11.0.73) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [jackett-11.0.72](https://github.com/truecharts/charts/compare/jackett-11.0.71...jackett-11.0.72) (2022-08-29)
 
 ### Chore

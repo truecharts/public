@@ -2,6 +2,15 @@
 
 
 
+## [custom-app-5.1.50](https://github.com/truecharts/charts/compare/custom-app-5.1.49...custom-app-5.1.50) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [custom-app-5.1.49](https://github.com/truecharts/charts/compare/custom-app-5.1.48...custom-app-5.1.49) (2022-08-29)
 
 ### Chore

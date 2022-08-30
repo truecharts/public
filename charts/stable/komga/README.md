@@ -1,6 +1,6 @@
 # komga
 
-![Version: 6.0.34](https://img.shields.io/badge/Version-6.0.34-informational?style=flat-square) ![AppVersion: 0.157.1](https://img.shields.io/badge/AppVersion-0.157.1-informational?style=flat-square)
+![Version: 6.0.35](https://img.shields.io/badge/Version-6.0.35-informational?style=flat-square) ![AppVersion: 0.157.1](https://img.shields.io/badge/AppVersion-0.157.1-informational?style=flat-square)
 
 A comics/mangas server to serve/stream pages via API
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 
