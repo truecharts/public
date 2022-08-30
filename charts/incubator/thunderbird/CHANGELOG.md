@@ -2,6 +2,15 @@
 
 
 
+## [thunderbird-0.0.23](https://github.com/truecharts/charts/compare/thunderbird-0.0.22...thunderbird-0.0.23) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
 ## [thunderbird-0.0.22](https://github.com/truecharts/charts/compare/thunderbird-0.0.21...thunderbird-0.0.22) (2022-08-29)
 
 ### Chore

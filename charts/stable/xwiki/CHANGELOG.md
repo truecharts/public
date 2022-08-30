@@ -2,6 +2,15 @@
 
 
 
+## [xwiki-3.0.39](https://github.com/truecharts/charts/compare/xwiki-3.0.38...xwiki-3.0.39) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
 ## [xwiki-3.0.38](https://github.com/truecharts/charts/compare/xwiki-3.0.36...xwiki-3.0.38) (2022-08-29)
 
 ### Chore

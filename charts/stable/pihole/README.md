@@ -1,6 +1,6 @@
 # pihole
 
-![Version: 6.0.32](https://img.shields.io/badge/Version-6.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.08.2](https://img.shields.io/badge/AppVersion-2022.08.2-informational?style=flat-square)
+![Version: 6.0.33](https://img.shields.io/badge/Version-6.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.08.3](https://img.shields.io/badge/AppVersion-2022.08.3-informational?style=flat-square)
 
 DNS and Ad-filtering for your network
 
