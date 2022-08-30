@@ -2,6 +2,7 @@
 
 
 
+
 ## [mariadb-3.0.65](https://github.com/truecharts/charts/compare/mariadb-3.0.64...mariadb-3.0.65) (2022-08-30)
 
 ### Chore

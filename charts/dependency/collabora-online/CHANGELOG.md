@@ -2,6 +2,7 @@
 
 
 
+
 ## [collabora-online-12.1.36](https://github.com/truecharts/charts/compare/collabora-online-12.1.35...collabora-online-12.1.36) (2022-08-30)
 
 ### Chore
