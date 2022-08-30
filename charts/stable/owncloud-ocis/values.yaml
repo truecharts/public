@@ -43,7 +43,10 @@ initContainers:
         mountPath: "/etc/ocis"
     command:
       - "/usr/bin/ocis"
-      - "init"
+      - |
+        init <<EOF
+        yes
+        EOF
 
 persistence:
   data:
