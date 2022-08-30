@@ -2,6 +2,15 @@
 
 
 
+## [sdtd-1.0.0](https://github.com/truecharts/charts/compare/sdtd-0.0.21...sdtd-1.0.0) (2022-08-30)
+
+### Feat
+
+- move to stable ([#3633](https://github.com/truecharts/charts/issues/3633))
+
+
+
+
 ## [sdtd-0.0.22](https://github.com/truecharts/charts/compare/sdtd-0.0.21...sdtd-0.0.22) (2022-08-30)
 
 ### Chore

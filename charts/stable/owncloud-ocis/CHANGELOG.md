@@ -2,6 +2,20 @@
 
 
 
+## [owncloud-ocis-8.0.0](https://github.com/truecharts/charts/compare/owncloud-ocis-7.0.27...owncloud-ocis-8.0.0) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+  ### Fix
+
+- Fix init ([#3630](https://github.com/truecharts/charts/issues/3630))
+
+
+
+
 ## [owncloud-ocis-7.0.28](https://github.com/truecharts/charts/compare/owncloud-ocis-7.0.27...owncloud-ocis-7.0.28) (2022-08-30)
 
 ### Chore
