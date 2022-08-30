@@ -10,8 +10,9 @@ tests:
         isKind:
           of: StatefulSet
       - documentIndex: *ControllerDoc
-        isNull:
-          path: metadata.annotations
+        matchRegex:
+          path: metadata.annotations.rollme
+          pattern: ^[a-zA-Z0-9]{5}$
       - documentIndex: *ControllerDoc
         equal:
           path: metadata.labels
@@ -35,9 +36,8 @@ tests:
           of: StatefulSet
       - documentIndex: *ControllerDoc
         equal:
-          path: metadata.annotations
-          value:
-            test_annotation: test
+          path: metadata.annotations.test_annotation
+          value: test
       - documentIndex: *ControllerDoc
         equal:
           path: metadata.labels
@@ -67,10 +67,12 @@ tests:
           of: StatefulSet
       - documentIndex: *ControllerDoc
         equal:
-          path: metadata.annotations
-          value:
-            global_annotation: test
-            test_annotation: test
+          path: metadata.annotations.global_annotation
+          value: test
+      - documentIndex: *ControllerDoc
+        equal:
+          path: metadata.annotations.test_annotation
+          value: test
       - documentIndex: *ControllerDoc
         equal:
           path: metadata.labels

@@ -11,22 +11,10 @@ tests:
         equal:
           path: spec.template.spec.containers[0].env
           value:
-            - name: PUID
-              value: "568"
-            - name: USER_ID
-              value: "568"
-            - name: UID
-              value: "568"
             - name: UMASK
               value: "2"
             - name: UMASK_SET
               value: "2"
-            - name: PGID
-              value: "568"
-            - name: GROUP_ID
-              value: "568"
-            - name: GID
-              value: "568"
             - name: S6_READ_ONLY_ROOT
               value: "1"
             - name: NVIDIA_VISIBLE_DEVICES
@@ -44,7 +32,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: string
             value: value_of_env
@@ -59,7 +47,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: string
             value: "4.2"
@@ -74,7 +62,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: string
             value: "1"
@@ -89,7 +77,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: string
             value: "4.2"
@@ -105,7 +93,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: STATIC_ENV_FROM_LIST
             value: STATIC_ENV_VALUE_FROM_LIST
@@ -123,7 +111,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: DYNAMIC_ENV_FROM_LIST
             valueFrom:
@@ -142,7 +130,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: DYNAMIC_ENV
             valueFrom:
@@ -159,7 +147,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: DYNAMIC_ENV
             value: RELEASE-NAME-admin
@@ -178,7 +166,7 @@ tests:
           of: Deployment
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[11]
+          path: spec.template.spec.containers[0].env[5]
           value:
             name: DYNAMIC_ENV
             valueFrom:
@@ -186,7 +174,7 @@ tests:
                 fieldPath: spec.nodeName
       - documentIndex: *DeploymentDoc
         equal:
-          path: spec.template.spec.containers[0].env[12]
+          path: spec.template.spec.containers[0].env[6]
           value:
             name: STATIC_ENV
             value: static

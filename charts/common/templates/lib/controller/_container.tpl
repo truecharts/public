@@ -50,22 +50,26 @@
   {{- end }}
 
   env:
+   {{- if and ( not .Values.podSecurityContext.runAsUser) ( .Values.security.PUID ) }}
     - name: PUID
       value: {{ tpl ( toYaml .Values.security.PUID ) $ | quote }}
     - name: USER_ID
       value: {{ tpl ( toYaml .Values.security.PUID ) $ | quote }}
     - name: UID
       value: {{ tpl ( toYaml .Values.security.PUID ) $ | quote }}
+   {{- end }}
     - name: UMASK
       value: {{ tpl ( toYaml .Values.security.UMASK ) $ | quote }}
     - name: UMASK_SET
       value: {{ tpl ( toYaml .Values.security.UMASK ) $ | quote }}
+   {{- if and ( not .Values.podSecurityContext.runAsUser) ( .Values.security.PUID ) }}
     - name: PGID
       value: {{ tpl ( toYaml .Values.podSecurityContext.fsGroup ) $ | quote }}
     - name: GROUP_ID
       value: {{ tpl ( toYaml .Values.podSecurityContext.fsGroup ) $ | quote }}
     - name: GID
       value: {{ tpl ( toYaml .Values.podSecurityContext.fsGroup ) $ | quote }}
+   {{- end }}
    {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
     - name: S6_READ_ONLY_ROOT
       value: "1"

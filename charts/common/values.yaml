@@ -22,9 +22,9 @@ wireguardImage:
 # @default -- See below
 tailscaleImage:
   # -- Specify the Tailscale image
-  repository: tccr.io/truecharts/tailscale
+  repository: tailscale/tailscale
   # -- Specify the Tailscale image tag
-  tag: 1.29.212@sha256:46e12a937be3dd586c90c05b5781705acc5e6c91ec1b2e49339b50ee0caa9ee5
+  tag: v1.29.212@sha256:b9677e81b881afc7e5a908cd7215a56b0ca21aacbd9605009d8eb4d6acdd48cd
   # -- Specify the Tailscale image pull policy
   pullPolicy: IfNotPresent
 
