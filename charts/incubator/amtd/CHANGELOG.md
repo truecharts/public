@@ -2,6 +2,7 @@
 
 
 
+
 ## [amtd-0.0.25](https://github.com/truecharts/charts/compare/amtd-0.0.24...amtd-0.0.25) (2022-08-29)
 
 ### Chore

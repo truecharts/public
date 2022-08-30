@@ -2,6 +2,15 @@
 
 
 
+## [chromium-0.0.24](https://github.com/truecharts/charts/compare/chromium-0.0.23...chromium-0.0.24) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [chromium-0.0.23](https://github.com/truecharts/charts/compare/chromium-0.0.22...chromium-0.0.23) (2022-08-29)
 
 ### Chore

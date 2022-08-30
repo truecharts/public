@@ -1,6 +1,6 @@
 # flood
 
-![Version: 6.0.29](https://img.shields.io/badge/Version-6.0.29-informational?style=flat-square) ![AppVersion: 4.7.0](https://img.shields.io/badge/AppVersion-4.7.0-informational?style=flat-square)
+![Version: 6.0.30](https://img.shields.io/badge/Version-6.0.30-informational?style=flat-square) ![AppVersion: 4.7.0](https://img.shields.io/badge/AppVersion-4.7.0-informational?style=flat-square)
 
 Flood is a monitoring service for various torrent clients
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

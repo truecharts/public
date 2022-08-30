@@ -2,6 +2,15 @@
 
 
 
+## [openvscode-server-2.0.33](https://github.com/truecharts/charts/compare/openvscode-server-2.0.32...openvscode-server-2.0.33) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [openvscode-server-2.0.32](https://github.com/truecharts/charts/compare/openvscode-server-2.0.31...openvscode-server-2.0.32) (2022-08-29)
 
 ### Chore

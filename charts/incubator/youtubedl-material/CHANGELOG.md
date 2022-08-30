@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-1.0.4](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.3...youtubedl-material-1.0.4) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [youtubedl-material-1.0.3](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.2...youtubedl-material-1.0.3) (2022-08-30)
 
 ### Chore

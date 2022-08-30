@@ -1,6 +1,6 @@
 # kitchenowl
 
-![Version: 0.0.11](https://img.shields.io/badge/Version-0.0.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
+![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
 
 KitchenOwl is a smart self-hosted grocery list and recipe manager.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

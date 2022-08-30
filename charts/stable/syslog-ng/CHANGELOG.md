@@ -2,6 +2,15 @@
 
 
 
+## [syslog-ng-2.0.30](https://github.com/truecharts/charts/compare/syslog-ng-2.0.29...syslog-ng-2.0.30) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [syslog-ng-2.0.29](https://github.com/truecharts/charts/compare/syslog-ng-2.0.28...syslog-ng-2.0.29) (2022-08-30)
 
 ### Chore

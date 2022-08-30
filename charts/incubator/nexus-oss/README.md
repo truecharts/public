@@ -1,6 +1,6 @@
 # nexus-oss
 
-![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.41.1](https://img.shields.io/badge/AppVersion-3.41.1-informational?style=flat-square)
+![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.41.1](https://img.shields.io/badge/AppVersion-3.41.1-informational?style=flat-square)
 
 Sonatype Nexus open source is a artifact repository manager
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

@@ -2,6 +2,15 @@
 
 
 
+## [ombi-11.0.36](https://github.com/truecharts/charts/compare/ombi-11.0.35...ombi-11.0.36) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [ombi-11.0.35](https://github.com/truecharts/charts/compare/ombi-11.0.34...ombi-11.0.35) (2022-08-29)
 
 ### Chore

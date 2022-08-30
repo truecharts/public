@@ -2,6 +2,15 @@
 
 
 
+## [counterstrike2d-0.0.21](https://github.com/truecharts/charts/compare/counterstrike2d-0.0.20...counterstrike2d-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [counterstrike2d-0.0.20](https://github.com/truecharts/charts/compare/counterstrike2d-0.0.19...counterstrike2d-0.0.20) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [homebridge-1.0.32](https://github.com/truecharts/charts/compare/homebridge-1.0.31...homebridge-1.0.32) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [homebridge-1.0.31](https://github.com/truecharts/charts/compare/homebridge-1.0.30...homebridge-1.0.31) (2022-08-29)
 
 ### Chore

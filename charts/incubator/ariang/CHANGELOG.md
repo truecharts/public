@@ -2,6 +2,15 @@
 
 
 
+## [ariang-0.0.24](https://github.com/truecharts/charts/compare/ariang-0.0.23...ariang-0.0.24) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [ariang-0.0.23](https://github.com/truecharts/charts/compare/ariang-0.0.22...ariang-0.0.23) (2022-08-29)
 
 ### Chore

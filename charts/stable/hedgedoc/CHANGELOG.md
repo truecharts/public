@@ -2,6 +2,15 @@
 
 
 
+## [hedgedoc-4.0.42](https://github.com/truecharts/charts/compare/hedgedoc-4.0.41...hedgedoc-4.0.42) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [hedgedoc-4.0.41](https://github.com/truecharts/charts/compare/hedgedoc-4.0.39...hedgedoc-4.0.41) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [send-0.0.21](https://github.com/truecharts/charts/compare/projectsend-3.0.32...send-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [send-0.0.20](https://github.com/truecharts/charts/compare/send-0.0.19...send-0.0.20) (2022-08-29)
 
 ### Chore

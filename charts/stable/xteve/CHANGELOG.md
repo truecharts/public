@@ -2,6 +2,15 @@
 
 
 
+## [xteve-6.0.29](https://github.com/truecharts/charts/compare/xteve-6.0.28...xteve-6.0.29) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [xteve-6.0.28](https://github.com/truecharts/charts/compare/xteve-6.0.27...xteve-6.0.28) (2022-08-29)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [slack-invite-0.0.21](https://github.com/truecharts/charts/compare/slack-invite-0.0.20...slack-invite-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [slack-invite-0.0.20](https://github.com/truecharts/charts/compare/slack-invite-0.0.19...slack-invite-0.0.20) (2022-08-29)
 
 ### Chore

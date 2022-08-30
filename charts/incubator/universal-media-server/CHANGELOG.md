@@ -2,6 +2,15 @@
 
 
 
+## [universal-media-server-0.0.23](https://github.com/truecharts/charts/compare/universal-media-server-0.0.22...universal-media-server-0.0.23) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [universal-media-server-0.0.22](https://github.com/truecharts/charts/compare/universal-media-server-0.0.21...universal-media-server-0.0.22) (2022-08-29)
 
 ### Chore

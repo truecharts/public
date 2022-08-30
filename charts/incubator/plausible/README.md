@@ -1,6 +1,6 @@
 # plausible
 
-![Version: 1.0.15](https://img.shields.io/badge/Version-1.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.4](https://img.shields.io/badge/AppVersion-1.4.4-informational?style=flat-square)
+![Version: 1.0.16](https://img.shields.io/badge/Version-1.0.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.4](https://img.shields.io/badge/AppVersion-1.4.4-informational?style=flat-square)
 
 Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 
@@ -30,7 +30,7 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://charts.truecharts.org/ | clickhouse | 1.0.18 |
 | https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

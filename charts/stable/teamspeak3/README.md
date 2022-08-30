@@ -1,6 +1,6 @@
 # teamspeak3
 
-![Version: 4.0.30](https://img.shields.io/badge/Version-4.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.13.7](https://img.shields.io/badge/AppVersion-3.13.7-informational?style=flat-square)
+![Version: 4.0.31](https://img.shields.io/badge/Version-4.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.13.7](https://img.shields.io/badge/AppVersion-3.13.7-informational?style=flat-square)
 
 TeamSpeak is software for quality voice communication via the Internet.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.5 |
 
 ## Installing the Chart
 

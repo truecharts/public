@@ -2,6 +2,15 @@
 
 
 
+## [plex-meta-manager-0.0.20](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.19...plex-meta-manager-0.0.20) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [plex-meta-manager-0.0.19](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.18...plex-meta-manager-0.0.19) (2022-08-29)
 
 ### Chore
