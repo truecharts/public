@@ -2,6 +2,15 @@
 
 
 
+## [wireguard-1.0.0](https://github.com/truecharts/charts/compare/wireguard-0.0.2...wireguard-1.0.0) (2022-08-30)
+
+### Feat
+
+- move to stable and add docs ([#3637](https://github.com/truecharts/charts/issues/3637))
+
+
+
+
 ## [wireguard-0.0.3](https://github.com/truecharts/charts/compare/wireguard-0.0.2...wireguard-0.0.3) (2022-08-30)
 
 ### Chore
