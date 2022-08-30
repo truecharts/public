@@ -3,7 +3,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.4
+    version: 10.5.5
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/filerun
   - https://hub.docker.com/r/filerun/filerun
   - https://github.com/filerun/docker
-version: 2.1.4
+version: 2.1.5
 annotations:
   truecharts.org/catagories: |
     - media
