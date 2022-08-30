@@ -35,10 +35,21 @@ service:
         port: 9200
         targetPort: 9200
 
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: config
+        mountPath: "/etc/ocis"
+    command: ["init"]
+
 persistence:
   data:
     enabled: true
     mountPath: "/var/lib/ocis"
+  config:
+    enabled: true
+    mountPath: "/etc/ocis"
 
 portal:
   enabled: true
