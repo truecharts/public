@@ -42,9 +42,10 @@ initContainers:
       - name: config
         mountPath: "/etc/ocis"
     command:
-      - "/usr/bin/ocis"
+      - "/bin/sh"
+      - "-c"
       - |
-        init <<'EOF'
+        /usr/bin/ocis init <<'EOF'
         yes
         EOF
 
