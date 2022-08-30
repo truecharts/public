@@ -1,4 +1,4 @@
-# Installation Notes
+# How-To
 
 ## Scale App
 
