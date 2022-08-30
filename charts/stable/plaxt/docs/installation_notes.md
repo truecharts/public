@@ -21,7 +21,7 @@
 - If successful, you will be given a generated webhook to add to plex in `Step 2`.
 
 - Go to plex -> settings -> webhooks -> add the webhook.
-- profit.
+- Profit.
 
 Notes:
 
