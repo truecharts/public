@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Cloud
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.0
+    version: 10.5.4
 deprecated: false
-description: "Jupyter a web based IDE \r\n"
+description: "Jupyter a web based IDE"
 home: https://truecharts.org/docs/charts/incubator/jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
 keywords:
@@ -27,3 +23,7 @@ sources:
   - https://github.com/jupyter/docker-stacks
 type: application
 version: 0.0.1
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
