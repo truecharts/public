@@ -2,6 +2,24 @@
 
 
 
+## [solr-0.0.39](https://github.com/truecharts/charts/compare/solr-0.0.38...solr-0.0.39) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [solr-0.0.38](https://github.com/truecharts/charts/compare/solr-0.0.37...solr-0.0.38) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.4 ([#3613](https://github.com/truecharts/charts/issues/3613))
+
+
+
+
 ## [solr-0.0.37](https://github.com/truecharts/charts/compare/solr-0.0.36...solr-0.0.37) (2022-08-29)
 
 ### Chore

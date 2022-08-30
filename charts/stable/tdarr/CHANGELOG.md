@@ -2,6 +2,15 @@
 
 
 
+## [tdarr-2.0.29](https://github.com/truecharts/charts/compare/tdarr-2.0.28...tdarr-2.0.29) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [tdarr-2.0.28](https://github.com/truecharts/charts/compare/tdarr-2.0.27...tdarr-2.0.28) (2022-08-25)
 
 ### Fix

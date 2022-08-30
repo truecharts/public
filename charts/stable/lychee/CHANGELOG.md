@@ -2,6 +2,25 @@
 
 
 
+## [lychee-13.0.36](https://github.com/truecharts/charts/compare/lychee-13.0.35...lychee-13.0.36) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
+## [lychee-13.0.35](https://github.com/truecharts/charts/compare/lychee-13.0.33...lychee-13.0.35) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [lychee-13.0.33](https://github.com/truecharts/charts/compare/lychee-13.0.32...lychee-13.0.33) (2022-08-23)
 
 ### Chore

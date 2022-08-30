@@ -1,6 +1,6 @@
 # tailscale
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![AppVersion: 1.29.125](https://img.shields.io/badge/AppVersion-1.29.125-informational?style=flat-square)
+![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![AppVersion: 1.29.212](https://img.shields.io/badge/AppVersion-1.29.212-informational?style=flat-square)
 
 Tailscale lets you connect your devices and users together in your own secure virtual private network
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

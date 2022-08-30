@@ -2,6 +2,15 @@
 
 
 
+## [tinymediamanager-2.0.30](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.29...tinymediamanager-2.0.30) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [tinymediamanager-2.0.29](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.28...tinymediamanager-2.0.29) (2022-08-27)
 
 ### Chore

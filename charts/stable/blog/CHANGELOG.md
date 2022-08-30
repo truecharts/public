@@ -2,6 +2,16 @@
 
 
 
+## [blog-3.0.34](https://github.com/truecharts/charts/compare/hexo-blog-0.0.19...blog-3.0.34) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [blog-3.0.32](https://github.com/truecharts/charts/compare/blog-3.0.31...blog-3.0.32) (2022-08-23)
 
 ### Chore

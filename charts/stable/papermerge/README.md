@@ -1,6 +1,6 @@
 # papermerge
 
-![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
+![Version: 3.0.31](https://img.shields.io/badge/Version-3.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.1](https://img.shields.io/badge/AppVersion-2.0.1-informational?style=flat-square)
 
 Papermerge is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org | redis | 3.0.65 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

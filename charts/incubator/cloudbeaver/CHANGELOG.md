@@ -2,6 +2,15 @@
 
 
 
+## [cloudbeaver-0.0.21](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.20...cloudbeaver-0.0.21) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [cloudbeaver-0.0.20](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.18...cloudbeaver-0.0.20) (2022-08-26)
 
 ### Fix

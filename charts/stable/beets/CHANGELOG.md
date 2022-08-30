@@ -2,6 +2,15 @@
 
 
 
+## [beets-4.0.33](https://github.com/truecharts/charts/compare/beets-4.0.32...beets-4.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [beets-4.0.32](https://github.com/truecharts/charts/compare/beets-4.0.31...beets-4.0.32) (2022-08-26)
 
 ### Chore

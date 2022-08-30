@@ -2,6 +2,24 @@
 
 
 
+## [searxng-0.0.34](https://github.com/truecharts/charts/compare/searxng-0.0.33...searxng-0.0.34) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [searxng-0.0.33](https://github.com/truecharts/charts/compare/searxng-0.0.32...searxng-0.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [searxng-0.0.32](https://github.com/truecharts/charts/compare/searxng-0.0.31...searxng-0.0.32) (2022-08-29)
 
 ### Chore

@@ -1,6 +1,6 @@
 # ntfy
 
-![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![AppVersion: 1.27.2](https://img.shields.io/badge/AppVersion-1.27.2-informational?style=flat-square)
+![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![AppVersion: 1.27.2](https://img.shields.io/badge/AppVersion-1.27.2-informational?style=flat-square)
 
 ntfy is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

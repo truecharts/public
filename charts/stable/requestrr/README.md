@@ -1,6 +1,6 @@
 # requestrr
 
-![Version: 2.0.25](https://img.shields.io/badge/Version-2.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
+![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.2](https://img.shields.io/badge/AppVersion-2.1.2-informational?style=flat-square)
 
 Requestrr is a chatbot used to simplify using services like Sonarr/Radarr/Ombi via the use of chat.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # ghost
 
-![Version: 3.0.51](https://img.shields.io/badge/Version-3.0.51-informational?style=flat-square) ![AppVersion: 5.12.0](https://img.shields.io/badge/AppVersion-5.12.0-informational?style=flat-square)
+![Version: 3.0.53](https://img.shields.io/badge/Version-3.0.53-informational?style=flat-square) ![AppVersion: 5.12.0](https://img.shields.io/badge/AppVersion-5.12.0-informational?style=flat-square)
 
 Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | mariadb | 3.0.64 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

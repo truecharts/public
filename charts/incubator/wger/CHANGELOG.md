@@ -2,6 +2,25 @@
 
 
 
+## [wger-0.0.52](https://github.com/truecharts/charts/compare/wger-0.0.51...wger-0.0.52) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
+## [wger-0.0.51](https://github.com/truecharts/charts/compare/wger-0.0.49...wger-0.0.51) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [wger-0.0.49](https://github.com/truecharts/charts/compare/wger-0.0.46...wger-0.0.49) (2022-08-27)
 
 ### Chore

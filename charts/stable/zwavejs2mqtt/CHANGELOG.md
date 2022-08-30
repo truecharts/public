@@ -2,6 +2,24 @@
 
 
 
+## [zwavejs2mqtt-11.0.33](https://github.com/truecharts/charts/compare/zwavejs2mqtt-11.0.32...zwavejs2mqtt-11.0.33) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [zwavejs2mqtt-11.0.32](https://github.com/truecharts/charts/compare/zwavejs2mqtt-11.0.31...zwavejs2mqtt-11.0.32) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [zwavejs2mqtt-11.0.31](https://github.com/truecharts/charts/compare/zwavejs2mqtt-11.0.30...zwavejs2mqtt-11.0.31) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [thelounge-6.0.27](https://github.com/truecharts/charts/compare/thelounge-6.0.26...thelounge-6.0.27) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [thelounge-6.0.26](https://github.com/truecharts/charts/compare/thelounge-6.0.25...thelounge-6.0.26) (2022-08-23)
 
 ### Chore

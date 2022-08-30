@@ -2,6 +2,15 @@
 
 
 
+## [davos-4.0.26](https://github.com/truecharts/charts/compare/davos-4.0.25...davos-4.0.26) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [davos-4.0.25](https://github.com/truecharts/charts/compare/davos-4.0.24...davos-4.0.25) (2022-08-23)
 
 ### Chore

@@ -2,6 +2,25 @@
 
 
 
+## [librephotos-4.0.34](https://github.com/truecharts/charts/compare/librephotos-4.0.33...librephotos-4.0.34) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
+## [librephotos-4.0.33](https://github.com/truecharts/charts/compare/librephotos-4.0.31...librephotos-4.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [librephotos-4.0.31](https://github.com/truecharts/charts/compare/librephotos-4.0.30...librephotos-4.0.31) (2022-08-23)
 
 ### Chore

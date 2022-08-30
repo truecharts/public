@@ -1,6 +1,6 @@
 # paperless-ng
 
-![Version: 4.0.32](https://img.shields.io/badge/Version-4.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square)
+![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square)
 
 Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 
@@ -25,9 +25,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.62 |
-| https://charts.truecharts.org | redis | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | postgresql | 8.0.67 |
+| https://charts.truecharts.org | redis | 3.0.65 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

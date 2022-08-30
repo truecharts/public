@@ -2,6 +2,24 @@
 
 
 
+## [tailscale-1.0.3](https://github.com/truecharts/charts/compare/tailscale-1.0.2...tailscale-1.0.3) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [tailscale-1.0.2](https://github.com/truecharts/charts/compare/tailscale-1.0.1...tailscale-1.0.2) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [tailscale-1.0.1](https://github.com/truecharts/charts/compare/tailscale-1.0.0...tailscale-1.0.1) (2022-08-25)
 
 ### Docs

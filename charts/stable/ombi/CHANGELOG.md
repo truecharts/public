@@ -2,6 +2,15 @@
 
 
 
+## [ombi-11.0.35](https://github.com/truecharts/charts/compare/ombi-11.0.34...ombi-11.0.35) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [ombi-11.0.34](https://github.com/truecharts/charts/compare/ombi-11.0.33...ombi-11.0.34) (2022-08-25)
 
 ### Chore

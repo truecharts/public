@@ -2,6 +2,16 @@
 
 
 
+## [leantime-4.0.39](https://github.com/truecharts/charts/compare/leantime-4.0.37...leantime-4.0.39) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [leantime-4.0.37](https://github.com/truecharts/charts/compare/leantime-4.0.36...leantime-4.0.37) (2022-08-25)
 
 ### Chore

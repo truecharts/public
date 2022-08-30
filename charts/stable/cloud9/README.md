@@ -1,6 +1,6 @@
 # cloud9
 
-![Version: 4.0.25](https://img.shields.io/badge/Version-4.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.29.2](https://img.shields.io/badge/AppVersion-1.29.2-informational?style=flat-square)
+![Version: 4.0.26](https://img.shields.io/badge/Version-4.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.29.2](https://img.shields.io/badge/AppVersion-1.29.2-informational?style=flat-square)
 
 A complete web based IDE with terminal access
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

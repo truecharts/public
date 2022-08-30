@@ -2,6 +2,15 @@
 
 
 
+## [clamav-3.0.34](https://github.com/truecharts/charts/compare/clamav-3.0.33...clamav-3.0.34) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [clamav-3.0.33](https://github.com/truecharts/charts/compare/clamav-3.0.32...clamav-3.0.33) (2022-08-23)
 
 ### Chore

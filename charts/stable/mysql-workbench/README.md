@@ -1,6 +1,6 @@
 # mysql-workbench
 
-![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.0.30](https://img.shields.io/badge/AppVersion-8.0.30-informational?style=flat-square)
+![Version: 2.0.27](https://img.shields.io/badge/Version-2.0.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.0.30](https://img.shields.io/badge/AppVersion-8.0.30-informational?style=flat-square)
 
 MySQL Workbench is a unified visual tool for database architects, developers and DBAs.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

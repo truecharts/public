@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bungeecord-0.0.17](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.16...minecraft-bungeecord-0.0.17) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [minecraft-bungeecord-0.0.16](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.14...minecraft-bungeecord-0.0.16) (2022-08-26)
 
 ### Fix

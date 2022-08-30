@@ -1,6 +1,6 @@
 # loki
 
-![Version: 5.0.31](https://img.shields.io/badge/Version-5.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.6.1](https://img.shields.io/badge/AppVersion-2.6.1-informational?style=flat-square)
+![Version: 5.0.33](https://img.shields.io/badge/Version-5.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.6.1](https://img.shields.io/badge/AppVersion-2.6.1-informational?style=flat-square)
 
 Loki: like Prometheus, but for logs.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | promtail | 3.0.40 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org | promtail | 3.0.45 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

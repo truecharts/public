@@ -2,6 +2,24 @@
 
 
 
+## [z80pack-0.0.21](https://github.com/truecharts/charts/compare/z80pack-0.0.20...z80pack-0.0.21) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [z80pack-0.0.20](https://github.com/truecharts/charts/compare/z80pack-0.0.19...z80pack-0.0.20) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [z80pack-0.0.19](https://github.com/truecharts/charts/compare/z80pack-0.0.17...z80pack-0.0.19) (2022-08-26)
 
 ### Fix

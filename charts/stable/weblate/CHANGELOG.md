@@ -2,6 +2,25 @@
 
 
 
+## [weblate-4.0.34](https://github.com/truecharts/charts/compare/weblate-4.0.33...weblate-4.0.34) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
+## [weblate-4.0.33](https://github.com/truecharts/charts/compare/weblate-4.0.31...weblate-4.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [weblate-4.0.31](https://github.com/truecharts/charts/compare/weblate-4.0.30...weblate-4.0.31) (2022-08-23)
 
 ### Chore

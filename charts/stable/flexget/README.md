@@ -1,6 +1,6 @@
 # flexget
 
-![Version: 2.0.38](https://img.shields.io/badge/Version-2.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.3.24](https://img.shields.io/badge/AppVersion-3.3.24-informational?style=flat-square)
+![Version: 2.0.39](https://img.shields.io/badge/Version-2.0.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.3.24](https://img.shields.io/badge/AppVersion-3.3.24-informational?style=flat-square)
 
 FlexGet is a multipurpose automation tool for all of your media
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

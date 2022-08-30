@@ -2,6 +2,15 @@
 
 
 
+## [tar1090-0.0.22](https://github.com/truecharts/charts/compare/tar1090-0.0.21...tar1090-0.0.22) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [tar1090-0.0.21](https://github.com/truecharts/charts/compare/tar1090-0.0.19...tar1090-0.0.21) (2022-08-26)
 
 ### Fix

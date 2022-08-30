@@ -1,6 +1,6 @@
 # minecraft-java
 
-![Version: 1.0.42](https://img.shields.io/badge/Version-1.0.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.11.0](https://img.shields.io/badge/AppVersion-2022.11.0-informational?style=flat-square)
+![Version: 1.0.43](https://img.shields.io/badge/Version-1.0.43-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.11.0](https://img.shields.io/badge/AppVersion-2022.11.0-informational?style=flat-square)
 
 Minecraft Java Dedicated Server
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

@@ -2,6 +2,15 @@
 
 
 
+## [jitsi-0.0.28](https://github.com/truecharts/charts/compare/jitsi-0.0.27...jitsi-0.0.28) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [jitsi-0.0.27](https://github.com/truecharts/charts/compare/jitsi-0.0.25...jitsi-0.0.27) (2022-08-26)
 
 ### Fix

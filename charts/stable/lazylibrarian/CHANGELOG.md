@@ -2,6 +2,15 @@
 
 
 
+## [lazylibrarian-11.0.48](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.47...lazylibrarian-11.0.48) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [lazylibrarian-11.0.47](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.46...lazylibrarian-11.0.47) (2022-08-29)
 
 ### Chore

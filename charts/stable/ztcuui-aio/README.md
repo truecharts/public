@@ -1,6 +1,6 @@
 # ztcuui-aio
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![AppVersion: 1.2.11](https://img.shields.io/badge/AppVersion-1.2.11-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![AppVersion: 1.2.11](https://img.shields.io/badge/AppVersion-1.2.11-informational?style=flat-square)
 
 ZeroTier network controller user interface in a Docker container
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

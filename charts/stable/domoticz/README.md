@@ -1,6 +1,6 @@
 # domoticz
 
-![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.1.202](https://img.shields.io/badge/AppVersion-2022.1.202-informational?style=flat-square)
+![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.1.202](https://img.shields.io/badge/AppVersion-2022.1.202-informational?style=flat-square)
 
 Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.4 |
 
 ## Installing the Chart
 

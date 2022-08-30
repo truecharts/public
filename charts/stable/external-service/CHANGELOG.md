@@ -2,6 +2,16 @@
 
 
 
+## [external-service-6.0.27](https://github.com/truecharts/charts/compare/external-service-6.0.25...external-service-6.0.27) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3620](https://github.com/truecharts/charts/issues/3620))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [external-service-6.0.25](https://github.com/truecharts/charts/compare/external-service-6.0.24...external-service-6.0.25) (2022-08-23)
 
 ### Chore

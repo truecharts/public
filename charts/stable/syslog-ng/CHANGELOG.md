@@ -2,6 +2,24 @@
 
 
 
+## [syslog-ng-2.0.29](https://github.com/truecharts/charts/compare/syslog-ng-2.0.28...syslog-ng-2.0.29) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [syslog-ng-2.0.28](https://github.com/truecharts/charts/compare/syslog-ng-2.0.27...syslog-ng-2.0.28) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [syslog-ng-2.0.27](https://github.com/truecharts/charts/compare/syslog-ng-2.0.26...syslog-ng-2.0.27) (2022-08-23)
 
 ### Chore
