@@ -86,8 +86,7 @@ before chart installation.
     - |
       /bin/bash <<'EOF'
       echo "Automatically correcting permissions..."
-      {{- if ne "tailscale" .Values.addons.vpn.type -}}
-      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( not ( eq .Values.addons.vpn.type "disabled" )) }}
+      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
       echo "Automatically correcting permissions for vpn config file..."
       if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
         echo "NFSv4 ACLs detected, using nfs4_setfacl to set permissions..."
@@ -98,7 +97,6 @@ before chart installation.
         chown -R 568:568 /vpn/vpn.conf || echo "Setting ownership failed..."
         chmod -R g+w /vpn/vpn.conf || echo "Setting group permissions failed..."
       fi
-      {{- end }}
       {{- end }}
       {{- range $_, $hpm := $hostPathMounts }}
       echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
@@ -185,10 +183,8 @@ before chart installation.
       subPath: {{ $hpm.subPath }}
       {{- end }}
     {{- end }}
-    {{- if ne "tailscale" .Values.addons.vpn.type -}}
-    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( not ( eq .Values.addons.vpn.type "disabled" )) }}
+    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
     - name: vpnconfig
       mountPath: /vpn/vpn.conf
-    {{- end }}
     {{- end }}
 {{- end -}}
