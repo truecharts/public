@@ -1,18 +1,12 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
-    - MediaApp-Other
-    - MediaServer-Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.5
+    version: 10.5.0
 deprecated: false
-description: "This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.\r\n"
-home: https://truecharts.org/docs/charts/incubator/plaxt
+description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.
+home: https://truecharts.org/docs/charts/stable/plaxt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
 keywords:
   - plaxt
@@ -30,4 +24,11 @@ sources:
   - https://github.com/XanderStrike/goplaxt
   - https://hub.docker.com/r/xanderstrike/goplaxt
 type: application
-version: 0.0.21
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Other
+    - MediaApp-Other
+    - MediaServer-Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
