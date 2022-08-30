@@ -30,17 +30,19 @@ imageAllSpark:
   pullPolicy: IfNotPresent
   repository: jupyter/all-spark-notebook
   tag: latest
-persistence:
-  data:
-    enabled: true
-    mountPath: /work
+
 service:
   main:
     ports:
       main:
-        port: 8888
+        port: 10300
         protocol: TCP
-        targetPort: 80
+        targetPort: 8888
 
+persistence:
+  data:
+    enabled: true
+    mountPath: /home/jovyan/work
+    
 portal:
   enabled: true
