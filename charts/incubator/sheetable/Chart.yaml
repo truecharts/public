@@ -3,7 +3,7 @@ appVersion: "0.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.4
+    version: 10.5.5
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
   - https://sheetable.net/docs
   - https://github.com/SheetAble
-version: 0.0.11
+version: 0.0.12
 annotations:
   truecharts.org/catagories: |
     - music
