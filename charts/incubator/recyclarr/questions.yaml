@@ -19,7 +19,7 @@ questions:
       attrs:
         - variable: CRON_SCHEDULE
           label: "CRON_SCHEDULE"
-          description: "Standard cron syntax for how often you want Recyclarr to run. See httpsgithub.comrecyclarrrecyclarrwikiDocker#cron-mode"
+          description: Standard cron syntax for how often you want Recyclarr to run.
           schema:
             type: string
             default: "@daily"
@@ -30,7 +30,7 @@ questions:
 # Include{persistenceRoot}
         - variable: config
           label: "config Storage"
-          description: "This is the application data directory for Recyclarr. In this directory, files like recyclarr.yml and settings.yml exist, as well as logs, cache, and other directories."
+          description: "This is the application data directory for Recyclarr"
           schema:
             additional_attrs: true
             type: dict
@@ -50,7 +50,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
