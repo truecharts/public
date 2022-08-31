@@ -2,6 +2,24 @@
 
 
 
+## [authentik-3.0.15](https://github.com/truecharts/charts/compare/authentik-3.0.14...authentik-3.0.15) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [authentik-3.0.14](https://github.com/truecharts/charts/compare/authentik-3.0.13...authentik-3.0.14) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [authentik-3.0.13](https://github.com/truecharts/charts/compare/authentik-3.0.12...authentik-3.0.13) (2022-08-30)
 
 ### Chore

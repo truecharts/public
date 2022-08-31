@@ -2,6 +2,26 @@
 
 
 
+## [mongodb-2.0.5](https://github.com/truecharts/charts/compare/mongodb-2.0.3...mongodb-2.0.5) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.5.6 ([#3635](https://github.com/truecharts/charts/issues/3635))
+  - update helm chart common to v10.5.5
+
+
+
+
+## [mongodb-2.0.4](https://github.com/truecharts/charts/compare/mongodb-2.0.3...mongodb-2.0.4) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5
+
+
+
+
 ## [memcached-3.0.66](https://github.com/truecharts/charts/compare/memcached-3.0.65...memcached-3.0.66) (2022-08-30)
 
 ### Chore

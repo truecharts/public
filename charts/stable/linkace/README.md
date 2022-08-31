@@ -1,6 +1,6 @@
 # linkace
 
-![Version: 4.0.40](https://img.shields.io/badge/Version-4.0.40-informational?style=flat-square) ![AppVersion: 1.10.3](https://img.shields.io/badge/AppVersion-1.10.3-informational?style=flat-square)
+![Version: 4.0.42](https://img.shields.io/badge/Version-4.0.42-informational?style=flat-square) ![AppVersion: 1.10.3](https://img.shields.io/badge/AppVersion-1.10.3-informational?style=flat-square)
 
 Your self-hosted bookmark archive. Free and open source.
 
@@ -26,9 +26,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.64 |
-| https://charts.truecharts.org | redis | 3.0.65 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | mariadb | 3.0.66 |
+| https://charts.truecharts.org | redis | 3.0.67 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

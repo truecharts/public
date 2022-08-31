@@ -1,6 +1,6 @@
 # avidemux
 
-![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
+![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
 
 Avidemux is a free video editor designed for simple cutting, filtering and encoding tasks.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

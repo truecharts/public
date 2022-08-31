@@ -2,6 +2,35 @@
 
 
 
+## [vertex-0.0.40](https://github.com/truecharts/charts/compare/vertex-0.0.39...vertex-0.0.40) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [vertex-0.0.39](https://github.com/truecharts/charts/compare/vertex-0.0.37...vertex-0.0.39) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [vertex-0.0.38](https://github.com/truecharts/charts/compare/vertex-0.0.37...vertex-0.0.38) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [vertex-0.0.37](https://github.com/truecharts/charts/compare/vertex-0.0.35...vertex-0.0.37) (2022-08-29)
 
 ### Chore

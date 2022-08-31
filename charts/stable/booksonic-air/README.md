@@ -1,6 +1,6 @@
 # booksonic-air
 
-![Version: 6.0.37](https://img.shields.io/badge/Version-6.0.37-informational?style=flat-square) ![AppVersion: 2201.1.0](https://img.shields.io/badge/AppVersion-2201.1.0-informational?style=flat-square)
+![Version: 6.0.39](https://img.shields.io/badge/Version-6.0.39-informational?style=flat-square) ![AppVersion: 2201.1.0](https://img.shields.io/badge/AppVersion-2201.1.0-informational?style=flat-square)
 
 Booksonic is a platform for accessing the audibooks you own wherever you are
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

@@ -12,6 +12,25 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: TRAKT_ID
+          label: "TRAKT_ID"
+          description: "Client ID (From Trakt .tv API App)"
+          schema:
+            type: string
+            default: ""
+        - variable: TRAKT_SECRET
+          label: "TRAKT_SECRET"
+          description: "Client SECRET (From Trakt .tv API App)"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -33,7 +52,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 80
+                              default: 8000
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
@@ -41,33 +60,15 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 8000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: plexlibrary
-          label: "plexlibrary Storage"
-          description: "Location of your Plex media files.Needed if you want to create backup posters"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config
-          label: "config Storage"
-          description: "Location of your config file"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-        - variable: logs
-          label: "logs Storage"
-          description: "Container Path logs"
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict

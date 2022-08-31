@@ -1,6 +1,6 @@
 # phpldapadmin
 
-![Version: 6.0.28](https://img.shields.io/badge/Version-6.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.0](https://img.shields.io/badge/AppVersion-0.9.0-informational?style=flat-square)
+![Version: 6.0.30](https://img.shields.io/badge/Version-6.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.0](https://img.shields.io/badge/AppVersion-0.9.0-informational?style=flat-square)
 
 Web-based LDAP browser to manage your LDAP server
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

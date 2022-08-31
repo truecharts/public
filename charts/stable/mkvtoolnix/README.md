@@ -1,6 +1,6 @@
 # mkvtoolnix
 
-![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.65.0](https://img.shields.io/badge/AppVersion-1.65.0-informational?style=flat-square)
+![Version: 2.0.31](https://img.shields.io/badge/Version-2.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.65.0](https://img.shields.io/badge/AppVersion-1.65.0-informational?style=flat-square)
 
 MKVToolNix is a set of tools to create, alter and inspect Matroska files.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

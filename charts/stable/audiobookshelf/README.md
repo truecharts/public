@@ -1,6 +1,6 @@
 # audiobookshelf
 
-![Version: 2.0.34](https://img.shields.io/badge/Version-2.0.34-informational?style=flat-square) ![AppVersion: 2.1.4](https://img.shields.io/badge/AppVersion-2.1.4-informational?style=flat-square)
+![Version: 2.0.36](https://img.shields.io/badge/Version-2.0.36-informational?style=flat-square) ![AppVersion: 2.1.4](https://img.shields.io/badge/AppVersion-2.1.4-informational?style=flat-square)
 
 Audiobookshelf is a self-hosted audiobook server for managing and playing your audiobooks.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # zabbix-server
 
-![Version: 2.0.36](https://img.shields.io/badge/Version-2.0.36-informational?style=flat-square) ![AppVersion: 6.2.1](https://img.shields.io/badge/AppVersion-6.2.1-informational?style=flat-square)
+![Version: 2.0.38](https://img.shields.io/badge/Version-2.0.38-informational?style=flat-square) ![AppVersion: 6.2.1](https://img.shields.io/badge/AppVersion-6.2.1-informational?style=flat-square)
 
 Zabbix is an enterprise-class open source distributed monitoring solution.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # onlyoffice-document-server
 
-![Version: 6.0.32](https://img.shields.io/badge/Version-6.0.32-informational?style=flat-square) ![AppVersion: 7.1.1](https://img.shields.io/badge/AppVersion-7.1.1-informational?style=flat-square)
+![Version: 6.0.34](https://img.shields.io/badge/Version-6.0.34-informational?style=flat-square) ![AppVersion: 7.1.1](https://img.shields.io/badge/AppVersion-7.1.1-informational?style=flat-square)
 
 ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time.
 
@@ -26,9 +26,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://charts.truecharts.org | redis | 3.0.65 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://charts.truecharts.org | redis | 3.0.67 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

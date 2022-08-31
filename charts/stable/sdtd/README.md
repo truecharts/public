@@ -1,21 +1,21 @@
-# plaxt
+# sdtd
 
-![Version: 0.0.20](https://img.shields.io/badge/Version-0.0.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.
+This chart will download and install SteamCMD. It will also install 7 Days to Die and run it.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [plaxt](https://truecharts.org/docs/charts/incubator/plaxt)
+For more information, please click here: [sdtd](https://truecharts.org/docs/charts/stable/sdtd)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/plaxt>
-* <https://github.com/XanderStrike/goplaxt>
-* <https://hub.docker.com/r/xanderstrike/goplaxt>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/sdtd>
+* <https://www.steampowered.com/>
+* <https://hub.docker.com/r/ich777/steamcmd/>
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 
@@ -35,12 +35,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `plaxt`
+To install the chart with the release name `sdtd`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install plaxt TrueCharts/plaxt
+helm install sdtd TrueCharts/sdtd
 ```
 
 ## Uninstall
@@ -53,10 +53,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `plaxt` deployment
+To uninstall the `sdtd` deployment
 
 ```console
-helm uninstall plaxt
+helm uninstall sdtd
 ```
 
 ## Configuration
@@ -73,9 +73,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install plaxt \
+helm install sdtd \
   --set env.TZ="America/New York" \
-    TrueCharts/plaxt
+    TrueCharts/sdtd
 ```
 
 #### Configure using a yaml file
@@ -83,7 +83,7 @@ helm install plaxt \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install plaxt TrueCharts/plaxt -f values.yaml
+helm install sdtd TrueCharts/sdtd -f values.yaml
 ```
 
 #### Connecting to other charts

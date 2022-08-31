@@ -1,6 +1,6 @@
 # verysync
 
-![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![AppVersion: 2.13.0](https://img.shields.io/badge/AppVersion-2.13.0-informational?style=flat-square)
+![Version: 2.0.32](https://img.shields.io/badge/Version-2.0.32-informational?style=flat-square) ![AppVersion: 2.13.0](https://img.shields.io/badge/AppVersion-2.13.0-informational?style=flat-square)
 
 very sync is an easy-to-use multi-platform file synchronization software
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

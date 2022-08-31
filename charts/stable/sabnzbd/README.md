@@ -1,6 +1,6 @@
 # sabnzbd
 
-![Version: 11.0.31](https://img.shields.io/badge/Version-11.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.6.1](https://img.shields.io/badge/AppVersion-3.6.1-informational?style=flat-square)
+![Version: 11.0.33](https://img.shields.io/badge/Version-11.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.6.1](https://img.shields.io/badge/AppVersion-3.6.1-informational?style=flat-square)
 
 Free and easy binary newsreader
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

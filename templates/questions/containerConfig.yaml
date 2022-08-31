@@ -7,7 +7,8 @@
       $ref:
         - "definitions/timezone"
   - variable: envList
-    label: Image Environment
+    label: Extra Environment Variables
+    description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
     group: Container Configuration
     schema:
       type: list

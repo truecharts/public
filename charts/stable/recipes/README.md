@@ -1,6 +1,6 @@
 # recipes
 
-![Version: 8.0.45](https://img.shields.io/badge/Version-8.0.45-informational?style=flat-square) ![AppVersion: 1.3.3](https://img.shields.io/badge/AppVersion-1.3.3-informational?style=flat-square)
+![Version: 8.0.47](https://img.shields.io/badge/Version-8.0.47-informational?style=flat-square) ![AppVersion: 1.3.3](https://img.shields.io/badge/AppVersion-1.3.3-informational?style=flat-square)
 
 Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

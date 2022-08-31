@@ -1,6 +1,6 @@
 # kutt
 
-![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
+![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.4](https://img.shields.io/badge/AppVersion-2.7.4-informational?style=flat-square)
 
 Kutt is a modern URL shortener with support for custom domains. Shorten URLs, manage your links and view the click rate statistics.
 
@@ -24,9 +24,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://charts.truecharts.org | redis | 3.0.65 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://charts.truecharts.org | redis | 3.0.67 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

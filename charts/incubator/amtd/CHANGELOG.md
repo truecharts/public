@@ -2,6 +2,16 @@
 
 
 
+## [amtd-0.0.27](https://github.com/truecharts/charts/compare/amtd-0.0.26...amtd-0.0.27) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+
 ## [amtd-0.0.25](https://github.com/truecharts/charts/compare/amtd-0.0.24...amtd-0.0.25) (2022-08-29)
 
 ### Chore

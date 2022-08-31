@@ -1,6 +1,6 @@
 # gotify
 
-![Version: 8.0.34](https://img.shields.io/badge/Version-8.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.5](https://img.shields.io/badge/AppVersion-2.1.5-informational?style=flat-square)
+![Version: 8.0.36](https://img.shields.io/badge/Version-8.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.5](https://img.shields.io/badge/AppVersion-2.1.5-informational?style=flat-square)
 
 a simple server for sending and receiving messages
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

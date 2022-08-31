@@ -1,6 +1,6 @@
 # metube
 
-![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
+![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
 
 Web GUI for youtube-dl (using the yt-dlp fork) with playlist support. Allows you to download videos from YouTube and dozens of other sites
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

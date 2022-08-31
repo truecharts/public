@@ -1,6 +1,6 @@
 # unmanic
 
-![Version: 3.0.27](https://img.shields.io/badge/Version-3.0.27-informational?style=flat-square) ![AppVersion: 0.2.3](https://img.shields.io/badge/AppVersion-0.2.3-informational?style=flat-square)
+![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![AppVersion: 0.2.3](https://img.shields.io/badge/AppVersion-0.2.3-informational?style=flat-square)
 
 Unmanic is a simple tool for optimising your file library.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

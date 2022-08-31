@@ -1,6 +1,6 @@
 # deconz
 
-![Version: 8.0.31](https://img.shields.io/badge/Version-8.0.31-informational?style=flat-square) ![AppVersion: 2.18.00](https://img.shields.io/badge/AppVersion-2.18.00-informational?style=flat-square)
+![Version: 8.0.33](https://img.shields.io/badge/Version-8.0.33-informational?style=flat-square) ![AppVersion: 2.18.00](https://img.shields.io/badge/AppVersion-2.18.00-informational?style=flat-square)
 
 deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

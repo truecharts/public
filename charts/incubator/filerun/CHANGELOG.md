@@ -2,6 +2,24 @@
 
 
 
+## [filerun-2.1.6](https://github.com/truecharts/charts/compare/filerun-2.1.5...filerun-2.1.6) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [filerun-2.1.5](https://github.com/truecharts/charts/compare/filerun-2.1.4...filerun-2.1.5) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [filerun-2.1.4](https://github.com/truecharts/charts/compare/filerun-2.1.2...filerun-2.1.4) (2022-08-29)
 
 ### Chore

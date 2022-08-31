@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{controller}
@@ -12,25 +10,49 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+  - variable: wg
+    group: Container Configuration
+    label: Wireguard Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: TRAKT_ID
-          label: "TRAKT_ID"
-          description: "Client ID (From Trakt .tv API App)"
+        - variable: configFileHostPath
+          label: Config File Host Path
           schema:
             type: string
+            required: true
             default: ""
-        - variable: TRAKT_SECRET
-          label: "TRAKT_SECRET"
-          description: "Client SECRET (From Trakt .tv API App)"
+        - variable: killswitch
+          label: Killswitch
+          description: Enable a killswitch that kills all traffic when the VPN is not connected
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
+        - variable: excludedIP4networks
+          label: Killswitch Excluded IPv4 networks
+          description: List of Killswitch Excluded IPv4 Addresses
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: networkv4
+                label: IPv4 Network
+                schema:
+                  type: string
+                  required: true
+        - variable: excludedIP6networks
+          label: Killswitch Excluded IPv6 networks
+          description: List of Killswitch Excluded IPv6 Addresses
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: networkv6
+                label: IPv6 Network
+                schema:
+                  type: string
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -52,29 +74,19 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8000
+                              default: 51821
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortUDP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
+                                    default: 51820
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: hostpathforkeystore
-          label: "hostpathforkeystore Storage"
-          description: "Usually  mntuserappdataplaxt"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -120,7 +132,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          description: "The groupID this App of the user running the application"
           schema:
             type: int
             default: 0

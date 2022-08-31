@@ -32,7 +32,7 @@ wg:
 
       [Peer]
       PublicKey = PUBLIC_KEY
-      AllowedIPs = 10.0.0.0/24
+      AllowedIPs = 0.0.0.0/0
       Endpoint = wg.example:51820
 
 envFrom:
@@ -51,7 +51,7 @@ service:
   main:
     ports:
       main:
-        port: 51820
+        port: 51821
         targetPort: 51820
         protocol: UDP
 

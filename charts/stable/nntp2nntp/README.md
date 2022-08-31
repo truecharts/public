@@ -1,6 +1,6 @@
 # nntp2nntp
 
-![Version: 2.0.26](https://img.shields.io/badge/Version-2.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.202205](https://img.shields.io/badge/AppVersion-0.3.202205-informational?style=flat-square)
+![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.202205](https://img.shields.io/badge/AppVersion-0.3.202205-informational?style=flat-square)
 
 Nntp2nntp proxy allow you to use your NNTP Account from multiple systems, each with own user name and password.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

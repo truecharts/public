@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.6
+deprecated: false
+description: A utility to help manage your library.
+home: https://truecharts.org/docs/charts/stable/plex-utills
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-utills.png
+keywords:
+  - plex-utills
+  - Tools-Utilities
+  - MediaApp-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: plex-utills
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-utills
+  - https://github.com/jkirkcaldy/plex-utills
+  - https://hub.docker.com/r/jkirkcaldy/plex-utills/
+type: application
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - MediaApp-Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

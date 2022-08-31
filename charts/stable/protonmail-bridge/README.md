@@ -1,6 +1,6 @@
 # protonmail-bridge
 
-![Version: 6.0.27](https://img.shields.io/badge/Version-6.0.27-informational?style=flat-square) ![AppVersion: 1.8.10](https://img.shields.io/badge/AppVersion-1.8.10-informational?style=flat-square)
+![Version: 6.0.29](https://img.shields.io/badge/Version-6.0.29-informational?style=flat-square) ![AppVersion: 1.8.10](https://img.shields.io/badge/AppVersion-1.8.10-informational?style=flat-square)
 
 Container for protonmail bridge to work on the network.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

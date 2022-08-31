@@ -1,6 +1,6 @@
 # shlink-web-client
 
-![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.7.2](https://img.shields.io/badge/AppVersion-3.7.2-informational?style=flat-square)
+![Version: 3.0.31](https://img.shields.io/badge/Version-3.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.7.2](https://img.shields.io/badge/AppVersion-3.7.2-informational?style=flat-square)
 
 A ReactJS-based progressive web application for Shlink.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

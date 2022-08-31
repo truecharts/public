@@ -1,6 +1,6 @@
 # xwiki
 
-![Version: 3.0.39](https://img.shields.io/badge/Version-3.0.39-informational?style=flat-square) ![AppVersion: 14.7.0](https://img.shields.io/badge/AppVersion-14.7.0-informational?style=flat-square)
+![Version: 3.0.41](https://img.shields.io/badge/Version-3.0.41-informational?style=flat-square) ![AppVersion: 14.7.0](https://img.shields.io/badge/AppVersion-14.7.0-informational?style=flat-square)
 
 XWiki is a free wiki software platform written in Java with a design emphasis on extensibility
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

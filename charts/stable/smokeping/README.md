@@ -1,6 +1,6 @@
 # smokeping
 
-![Version: 3.0.26](https://img.shields.io/badge/Version-3.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.3](https://img.shields.io/badge/AppVersion-2.7.3-informational?style=flat-square)
+![Version: 3.0.28](https://img.shields.io/badge/Version-3.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7.3](https://img.shields.io/badge/AppVersion-2.7.3-informational?style=flat-square)
 
 Keep track of your network latency.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

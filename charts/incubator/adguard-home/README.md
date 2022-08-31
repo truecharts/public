@@ -1,6 +1,6 @@
 # adguard-home
 
-![Version: 1.0.35](https://img.shields.io/badge/Version-1.0.35-informational?style=flat-square) ![AppVersion: 0.107.11](https://img.shields.io/badge/AppVersion-0.107.11-informational?style=flat-square)
+![Version: 1.0.37](https://img.shields.io/badge/Version-1.0.37-informational?style=flat-square) ![AppVersion: 0.107.11](https://img.shields.io/badge/AppVersion-0.107.11-informational?style=flat-square)
 
 Free and open source, powerful network-wide ads & trackers blocking DNS server.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

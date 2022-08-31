@@ -1,6 +1,6 @@
 # icantbelieveitsnotvaletudo
 
-![Version: 4.0.29](https://img.shields.io/badge/Version-4.0.29-informational?style=flat-square) ![AppVersion: 2021.2.1](https://img.shields.io/badge/AppVersion-2021.2.1-informational?style=flat-square)
+![Version: 4.0.31](https://img.shields.io/badge/Version-4.0.31-informational?style=flat-square) ![AppVersion: 2021.2.1](https://img.shields.io/badge/AppVersion-2021.2.1-informational?style=flat-square)
 
 Create live map data from Valetudo powered robots
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

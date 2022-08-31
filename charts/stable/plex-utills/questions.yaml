@@ -12,49 +12,6 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: wg
-    group: Container Configuration
-    label: Wireguard Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: configFileHostPath
-          label: Config File Host Path
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: killswitch
-          label: Killswitch
-          description: Enable a killswitch that kills all traffic when the VPN is not connected
-          schema:
-            type: boolean
-            default: false
-        - variable: excludedIP4networks
-          label: Killswitch Excluded IPv4 networks
-          description: List of Killswitch Excluded IPv4 Addresses
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: networkv4
-                label: IPv4 Network
-                schema:
-                  type: string
-                  required: true
-        - variable: excludedIP6networks
-          label: Killswitch Excluded IPv6 networks
-          description: List of Killswitch Excluded IPv6 Addresses
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: networkv6
-                label: IPv6 Network
-                schema:
-                  type: string
-                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -76,19 +33,47 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 51820
+                              default: 10380
                               required: true
-# Include{advancedPortUDP}
+# Include{advancedPortTCP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 51820
+                                    default: 80
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: "config Storage"
+          description: "Location of your config file"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: "logs Storage"
+          description: "Container Path logs"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: plexlibrary
+          label: "plexlibrary Storage"
+          description: "Location of your Plex media files.Needed if you want to create backup posters"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -134,7 +119,7 @@ questions:
             default: 0
         - variable: runAsGroup
           label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          description: The groupID this App of the user running the application"
           schema:
             type: int
             default: 0
