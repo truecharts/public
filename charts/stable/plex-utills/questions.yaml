@@ -47,15 +47,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: plexlibrary
-          label: "plexlibrary Storage"
-          description: "Location of your Plex media files.Needed if you want to create backup posters"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config
           label: "config Storage"
           description: "Location of your config file"
@@ -68,6 +59,15 @@ questions:
         - variable: logs
           label: "logs Storage"
           description: "Container Path logs"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: plexlibrary
+          label: "plexlibrary Storage"
+          description: "Location of your Plex media files.Needed if you want to create backup posters"
           schema:
             additional_attrs: true
             type: dict
