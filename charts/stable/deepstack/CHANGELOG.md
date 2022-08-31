@@ -2,6 +2,15 @@
 
 
 
+## [deepstack-4.0.29](https://github.com/truecharts/charts/compare/deepstack-4.0.28...deepstack-4.0.29) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [deepstack-4.0.28](https://github.com/truecharts/charts/compare/deepstack-4.0.27...deepstack-4.0.28) (2022-08-30)
 
 ### Chore

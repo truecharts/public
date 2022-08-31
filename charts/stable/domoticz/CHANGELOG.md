@@ -2,6 +2,15 @@
 
 
 
+## [domoticz-2.0.33](https://github.com/truecharts/charts/compare/domoticz-2.0.32...domoticz-2.0.33) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [domoticz-2.0.32](https://github.com/truecharts/charts/compare/domoticz-2.0.31...domoticz-2.0.32) (2022-08-30)
 
 ### Chore

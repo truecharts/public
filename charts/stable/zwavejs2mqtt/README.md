@@ -1,6 +1,6 @@
 # zwavejs2mqtt
 
-![Version: 11.0.34](https://img.shields.io/badge/Version-11.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.16.0](https://img.shields.io/badge/AppVersion-6.16.0-informational?style=flat-square)
+![Version: 11.0.35](https://img.shields.io/badge/Version-11.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.16.0](https://img.shields.io/badge/AppVersion-6.16.0-informational?style=flat-square)
 
 Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

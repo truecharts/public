@@ -2,6 +2,15 @@
 
 
 
+## [deluge-11.0.31](https://github.com/truecharts/charts/compare/deluge-11.0.30...deluge-11.0.31) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [deluge-11.0.30](https://github.com/truecharts/charts/compare/deluge-11.0.29...deluge-11.0.30) (2022-08-30)
 
 ### Chore

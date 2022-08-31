@@ -2,7 +2,18 @@
 
 
 
-## [strapi-4.0.33](https://github.com/truecharts/charts/compare/strapi-4.0.32...strapi-4.0.33) (2022-08-30)
+## [synclounge-2.0.40](https://github.com/truecharts/charts/compare/synclounge-2.0.38...synclounge-2.0.40) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [synclounge-2.0.39](https://github.com/truecharts/charts/compare/synclounge-2.0.38...synclounge-2.0.39) (2022-08-30)
 
 ### Chore
 
@@ -11,17 +22,25 @@
 
 
 
-## [strapi-4.0.32](https://github.com/truecharts/charts/compare/strapi-4.0.30...strapi-4.0.32) (2022-08-29)
+## [synclounge-2.0.38](https://github.com/truecharts/charts/compare/synclounge-2.0.37...synclounge-2.0.38) (2022-08-29)
 
 ### Chore
 
-- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
-  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 
 
 
 
-## [strapi-4.0.30](https://github.com/truecharts/charts/compare/strapi-4.0.29...strapi-4.0.30) (2022-08-23)
+## [synclounge-2.0.37](https://github.com/truecharts/charts/compare/synclounge-2.0.36...synclounge-2.0.37) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
+## [synclounge-2.0.36](https://github.com/truecharts/charts/compare/synclounge-2.0.35...synclounge-2.0.36) (2022-08-23)
 
 ### Chore
 
@@ -30,16 +49,25 @@
 
 
 
-## [strapi-4.0.29](https://github.com/truecharts/charts/compare/strapi-4.0.28...strapi-4.0.29) (2022-08-17)
+## [synclounge-2.0.35](https://github.com/truecharts/charts/compare/synclounge-2.0.34...synclounge-2.0.35) (2022-08-17)
 
 ### Chore
 
-- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
 
 
 
 
-## [strapi-4.0.28](https://github.com/truecharts/charts/compare/strapi-4.0.27...strapi-4.0.28) (2022-08-12)
+## [synclounge-2.0.34](https://github.com/truecharts/charts/compare/synclounge-2.0.33...synclounge-2.0.34) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [synclounge-2.0.33](https://github.com/truecharts/charts/compare/synclounge-2.0.32...synclounge-2.0.33) (2022-08-12)
 
 ### Chore
 
@@ -53,16 +81,16 @@
 
 
 
-## [strapi-4.0.27](https://github.com/truecharts/charts/compare/strapi-4.0.26...strapi-4.0.27) (2022-08-09)
+## [synclounge-2.0.32](https://github.com/truecharts/charts/compare/synclounge-2.0.31...synclounge-2.0.32) (2022-08-09)
 
 ### Chore
 
-- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
 
 
 
 
-## [strapi-4.0.26](https://github.com/truecharts/charts/compare/strapi-4.0.25...strapi-4.0.26) (2022-08-08)
+## [synclounge-2.0.31](https://github.com/truecharts/charts/compare/synclounge-2.0.30...synclounge-2.0.31) (2022-08-08)
 
 ### Chore
 
@@ -72,7 +100,16 @@
 
 
 
-## [strapi-4.0.25](https://github.com/truecharts/apps/compare/strapi-4.0.24...strapi-4.0.25) (2022-07-26)
+## [synclounge-2.0.30](https://github.com/truecharts/apps/compare/synclounge-2.0.29...synclounge-2.0.30) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [synclounge-2.0.29](https://github.com/truecharts/apps/compare/synclounge-2.0.28...synclounge-2.0.29) (2022-07-26)
 
 ### Chore
 
@@ -82,7 +119,7 @@
 
 
 
-## [strapi-4.0.24](https://github.com/truecharts/apps/compare/strapi-4.0.23...strapi-4.0.24) (2022-07-25)
+## [synclounge-2.0.28](https://github.com/truecharts/apps/compare/synclounge-2.0.27...synclounge-2.0.28) (2022-07-25)
 
 ### Chore
 
@@ -92,7 +129,7 @@
 
 
 
-## [strapi-4.0.24](https://github.com/truecharts/apps/compare/strapi-4.0.23...strapi-4.0.24) (2022-07-25)
+## [synclounge-2.0.28](https://github.com/truecharts/apps/compare/synclounge-2.0.27...synclounge-2.0.28) (2022-07-25)
 
 ### Chore
 
@@ -101,7 +138,7 @@
 
 
 
-## [strapi-4.0.23](https://github.com/truecharts/apps/compare/strapi-4.0.22...strapi-4.0.23) (2022-07-23)
+## [synclounge-2.0.27](https://github.com/truecharts/apps/compare/synclounge-2.0.26...synclounge-2.0.27) (2022-07-23)
 
 ### Chore
 
@@ -112,7 +149,7 @@
 
 
 
-## [strapi-4.0.23](https://github.com/truecharts/apps/compare/strapi-4.0.22...strapi-4.0.23) (2022-07-23)
+## [synclounge-2.0.27](https://github.com/truecharts/apps/compare/synclounge-2.0.26...synclounge-2.0.27) (2022-07-23)
 
 ### Chore
 
@@ -122,7 +159,7 @@
 
 
 
-## [strapi-4.0.23](https://github.com/truecharts/apps/compare/strapi-4.0.22...strapi-4.0.23) (2022-07-23)
+## [synclounge-2.0.27](https://github.com/truecharts/apps/compare/synclounge-2.0.26...synclounge-2.0.27) (2022-07-23)
 
 ### Chore
 
@@ -131,38 +168,17 @@
 
 
 
-## [strapi-4.0.22](https://github.com/truecharts/apps/compare/strapi-4.0.21...strapi-4.0.22) (2022-07-23)
-
-### Chore
-
-- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
-
-
-
-
-## [strapi-4.0.21](https://github.com/truecharts/apps/compare/strapi-4.0.19...strapi-4.0.21) (2022-07-22)
+## [synclounge-2.0.26](https://github.com/truecharts/apps/compare/synclounge-2.0.24...synclounge-2.0.26) (2022-07-22)
 
 ### Chore
 
 - Bump all charts to generate config and container references due to huge increase of repository
-  - move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
   - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
-
-  ### Fix
-
-- remove some non-utf8 characters
+  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
 
 
 
-## [strapi-4.0.19](https://github.com/truecharts/apps/compare/strapi-4.0.18...strapi-4.0.19) (2022-07-20)
-
-### Chore
-
-- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
-
-
-
-## [strapi-4.0.18](https://github.com/truecharts/apps/compare/strapi-4.0.17...strapi-4.0.18) (2022-07-19)
+## [synclounge-2.0.24](https://github.com/truecharts/apps/compare/synclounge-2.0.23...synclounge-2.0.24) (2022-07-19)
 
 ### Chore
 
@@ -170,7 +186,15 @@
 
 
 
-## [strapi-4.0.17](https://github.com/truecharts/apps/compare/strapi-4.0.16...strapi-4.0.17) (2022-07-14)
+## [synclounge-2.0.23](https://github.com/truecharts/apps/compare/synclounge-2.0.22...synclounge-2.0.23) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [synclounge-2.0.22](https://github.com/truecharts/apps/compare/synclounge-2.0.21...synclounge-2.0.22) (2022-07-14)
 
 ### Fix
 
@@ -178,7 +202,7 @@
 
 
 
-## [strapi-4.0.16](https://github.com/truecharts/apps/compare/strapi-4.0.14...strapi-4.0.16) (2022-07-14)
+## [synclounge-2.0.21](https://github.com/truecharts/apps/compare/synclounge-2.0.19...synclounge-2.0.21) (2022-07-14)
 
 ### Fix
 
@@ -186,7 +210,15 @@
 
 
 
-## [strapi-4.0.14](https://github.com/truecharts/apps/compare/strapi-4.0.12...strapi-4.0.14) (2022-07-12)
+## [synclounge-2.0.19](https://github.com/truecharts/apps/compare/synclounge-2.0.18...synclounge-2.0.19) (2022-07-13)
+
+### Fix
+
+- make root fs writable on several LSIO apps ([#3168](https://github.com/truecharts/apps/issues/3168))
+
+
+
+## [synclounge-2.0.18](https://github.com/truecharts/apps/compare/synclounge-2.0.16...synclounge-2.0.18) (2022-07-12)
 
 ### Chore
 
@@ -195,7 +227,7 @@
 
 
 
-## [strapi-4.0.12](https://github.com/truecharts/apps/compare/strapi-4.0.11...strapi-4.0.12) (2022-07-12)
+## [synclounge-2.0.16](https://github.com/truecharts/apps/compare/synclounge-2.0.15...synclounge-2.0.16) (2022-07-12)
 
 ### Chore
 
@@ -203,8 +235,8 @@
 
 
 
-<a name="strapi-4.0.11"></a>
-### [strapi-4.0.11](https://github.com/truecharts/apps/compare/strapi-4.0.10...strapi-4.0.11) (2022-07-12)
+<a name="synclounge-2.0.15"></a>
+### [synclounge-2.0.15](https://github.com/truecharts/apps/compare/synclounge-2.0.14...synclounge-2.0.15) (2022-07-12)
 
 #### Chore
 
@@ -212,8 +244,8 @@
 
 
 
-<a name="strapi-4.0.10"></a>
-### [strapi-4.0.10](https://github.com/truecharts/apps/compare/strapi-4.0.9...strapi-4.0.10) (2022-07-11)
+<a name="synclounge-2.0.14"></a>
+### [synclounge-2.0.14](https://github.com/truecharts/apps/compare/synclounge-2.0.13...synclounge-2.0.14) (2022-07-11)
 
 #### Chore
 
@@ -221,8 +253,8 @@
 
 
 
-<a name="strapi-4.0.9"></a>
-### [strapi-4.0.9](https://github.com/truecharts/apps/compare/strapi-4.0.8...strapi-4.0.9) (2022-07-09)
+<a name="synclounge-2.0.13"></a>
+### [synclounge-2.0.13](https://github.com/truecharts/apps/compare/synclounge-2.0.12...synclounge-2.0.13) (2022-07-09)
 
 #### Chore
 
@@ -230,17 +262,8 @@
 
 
 
-<a name="strapi-4.0.8"></a>
-### [strapi-4.0.8](https://github.com/truecharts/apps/compare/strapi-4.0.7...strapi-4.0.8) (2022-07-05)
-
-#### Chore
-
-* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
-
-
-
-<a name="strapi-4.0.7"></a>
-### [strapi-4.0.7](https://github.com/truecharts/apps/compare/strapi-4.0.6...strapi-4.0.7) (2022-07-04)
+<a name="synclounge-2.0.12"></a>
+### [synclounge-2.0.12](https://github.com/truecharts/apps/compare/synclounge-2.0.11...synclounge-2.0.12) (2022-07-04)
 
 #### Chore
 
@@ -248,8 +271,8 @@
 
 
 
-<a name="strapi-4.0.6"></a>
-### [strapi-4.0.6](https://github.com/truecharts/apps/compare/strapi-4.0.5...strapi-4.0.6) (2022-06-25)
+<a name="synclounge-2.0.11"></a>
+### [synclounge-2.0.11](https://github.com/truecharts/apps/compare/synclounge-2.0.10...synclounge-2.0.11) (2022-06-25)
 
 #### Chore
 
@@ -257,35 +280,46 @@
 
 
 
-<a name="strapi-4.0.5"></a>
-### [strapi-4.0.5](https://github.com/truecharts/apps/compare/strapi-4.0.4...strapi-4.0.5) (2022-06-22)
+<a name="synclounge-2.0.10"></a>
+### [synclounge-2.0.10](https://github.com/truecharts/apps/compare/synclounge-2.0.9...synclounge-2.0.10) (2022-06-25)
 
 #### Chore
 
+* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
+
+
+
+<a name="synclounge-2.0.9"></a>
+### [synclounge-2.0.9](https://github.com/truecharts/apps/compare/synclounge-2.0.8...synclounge-2.0.9) (2022-06-22)
+
+#### Chore
+
+* update docker general non-major ([#2954](https://github.com/truecharts/apps/issues/2954))
 * update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
 
 
 
-<a name="strapi-4.0.4"></a>
-### [strapi-4.0.4](https://github.com/truecharts/apps/compare/strapi-4.0.3...strapi-4.0.4) (2022-06-21)
+<a name="synclounge-2.0.8"></a>
+### [synclounge-2.0.8](https://github.com/truecharts/apps/compare/synclounge-2.0.7...synclounge-2.0.8) (2022-06-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
 
 
 
-<a name="strapi-4.0.3"></a>
-### [strapi-4.0.3](https://github.com/truecharts/apps/compare/strapi-4.0.2...strapi-4.0.3) (2022-06-14)
+<a name="synclounge-2.0.7"></a>
+### [synclounge-2.0.7](https://github.com/truecharts/apps/compare/synclounge-2.0.6...synclounge-2.0.7) (2022-06-16)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+* update docker general non-major ([#2904](https://github.com/truecharts/apps/issues/2904))
 
 
 
-<a name="strapi-4.0.2"></a>
-### [strapi-4.0.2](https://github.com/truecharts/apps/compare/strapi-4.0.1...strapi-4.0.2) (2022-06-14)
+<a name="synclounge-2.0.6"></a>
+### [synclounge-2.0.6](https://github.com/truecharts/apps/compare/synclounge-2.0.5...synclounge-2.0.6) (2022-06-14)
 
 #### Chore
 
@@ -293,8 +327,8 @@
 
 
 
-<a name="strapi-4.0.1"></a>
-### [strapi-4.0.1](https://github.com/truecharts/apps/compare/strapi-4.0.0...strapi-4.0.1) (2022-06-11)
+<a name="synclounge-2.0.5"></a>
+### [synclounge-2.0.5](https://github.com/truecharts/apps/compare/synclounge-2.0.4...synclounge-2.0.5) (2022-06-11)
 
 #### Chore
 
@@ -302,12 +336,47 @@
 
 
 
-<a name="strapi-4.0.0"></a>
-### [strapi-4.0.0](https://github.com/truecharts/apps/compare/strapi-3.0.1...strapi-4.0.0) (2022-06-07)
+<a name="synclounge-2.0.4"></a>
+### [synclounge-2.0.4](https://github.com/truecharts/apps/compare/synclounge-2.0.3...synclounge-2.0.4) (2022-06-11)
 
 #### Chore
 
-* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
+* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
+
+
+
+<a name="synclounge-2.0.3"></a>
+### [synclounge-2.0.3](https://github.com/truecharts/apps/compare/synclounge-2.0.2...synclounge-2.0.3) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="synclounge-2.0.3"></a>
+### [synclounge-2.0.3](https://github.com/truecharts/apps/compare/synclounge-2.0.2...synclounge-2.0.3) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="synclounge-2.0.3"></a>
+### [synclounge-2.0.3](https://github.com/truecharts/apps/compare/synclounge-2.0.2...synclounge-2.0.3) (2022-06-08)
+
+#### Chore
+
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="synclounge-2.0.2"></a>
+### [synclounge-2.0.2](https://github.com/truecharts/apps/compare/synclounge-2.0.1...synclounge-2.0.2) (2022-06-07)
 
 #### Fix
 
@@ -315,14 +384,12 @@
 
 
 
-<a name="strapi-3.0.1"></a>
-### [strapi-3.0.1](https://github.com/truecharts/apps/compare/strapi-2.0.23...strapi-3.0.1) (2022-06-07)
+<a name="synclounge-2.0.1"></a>
+### [synclounge-2.0.1](https://github.com/truecharts/apps/compare/synclounge-1.0.21...synclounge-2.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* sync all apps persistence configuration and always default to PVC
-* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 
 #### Fix
 
@@ -334,12 +401,8 @@
 
 
 
-<a name="strapi-3.0.0"></a>
-### [strapi-3.0.0](https://github.com/truecharts/apps/compare/strapi-2.0.23...strapi-3.0.0) (2022-06-07)
-
-#### Chore
-
-* sync all apps persistence configuration and always default to PVC
+<a name="synclounge-2.0.0"></a>
+### [synclounge-2.0.0](https://github.com/truecharts/apps/compare/synclounge-1.0.21...synclounge-2.0.0) (2022-06-07)
 
 #### Refactor
 
@@ -347,8 +410,26 @@
 
 
 
-<a name="strapi-2.0.23"></a>
-### [strapi-2.0.23](https://github.com/truecharts/apps/compare/strapi-2.0.22...strapi-2.0.23) (2022-05-31)
+<a name="synclounge-1.0.21"></a>
+### [synclounge-1.0.21](https://github.com/truecharts/apps/compare/synclounge-1.0.20...synclounge-1.0.21) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="synclounge-1.0.20"></a>
+### [synclounge-1.0.20](https://github.com/truecharts/apps/compare/synclounge-1.0.19...synclounge-1.0.20) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
+<a name="synclounge-1.0.19"></a>
+### [synclounge-1.0.19](https://github.com/truecharts/apps/compare/synclounge-1.0.18...synclounge-1.0.19) (2022-05-31)
 
 #### Chore
 
@@ -356,8 +437,8 @@
 
 
 
-<a name="strapi-2.0.22"></a>
-### [strapi-2.0.22](https://github.com/truecharts/apps/compare/strapi-2.0.21...strapi-2.0.22) (2022-05-26)
+<a name="synclounge-1.0.18"></a>
+### [synclounge-1.0.18](https://github.com/truecharts/apps/compare/synclounge-1.0.17...synclounge-1.0.18) (2022-05-26)
 
 #### Chore
 
@@ -366,8 +447,8 @@
 
 
 
-<a name="strapi-2.0.22"></a>
-### [strapi-2.0.22](https://github.com/truecharts/apps/compare/strapi-2.0.21...strapi-2.0.22) (2022-05-26)
+<a name="synclounge-1.0.18"></a>
+### [synclounge-1.0.18](https://github.com/truecharts/apps/compare/synclounge-1.0.17...synclounge-1.0.18) (2022-05-26)
 
 #### Chore
 
@@ -375,8 +456,8 @@
 
 
 
-<a name="strapi-2.0.21"></a>
-### [strapi-2.0.21](https://github.com/truecharts/apps/compare/strapi-2.0.20...strapi-2.0.21) (2022-05-24)
+<a name="synclounge-1.0.17"></a>
+### [synclounge-1.0.17](https://github.com/truecharts/apps/compare/synclounge-1.0.16...synclounge-1.0.17) (2022-05-24)
 
 #### Chore
 
@@ -384,8 +465,8 @@
 
 
 
-<a name="strapi-2.0.20"></a>
-### [strapi-2.0.20](https://github.com/truecharts/apps/compare/strapi-2.0.19...strapi-2.0.20) (2022-05-17)
+<a name="synclounge-1.0.16"></a>
+### [synclounge-1.0.16](https://github.com/truecharts/apps/compare/synclounge-1.0.15...synclounge-1.0.16) (2022-05-17)
 
 #### Chore
 
@@ -394,8 +475,8 @@
 
 
 
-<a name="strapi-2.0.20"></a>
-### [strapi-2.0.20](https://github.com/truecharts/apps/compare/strapi-2.0.19...strapi-2.0.20) (2022-05-17)
+<a name="synclounge-1.0.16"></a>
+### [synclounge-1.0.16](https://github.com/truecharts/apps/compare/synclounge-1.0.15...synclounge-1.0.16) (2022-05-17)
 
 #### Chore
 
@@ -403,8 +484,8 @@
 
 
 
-<a name="strapi-2.0.19"></a>
-### [strapi-2.0.19](https://github.com/truecharts/apps/compare/strapi-2.0.18...strapi-2.0.19) (2022-05-17)
+<a name="synclounge-1.0.15"></a>
+### [synclounge-1.0.15](https://github.com/truecharts/apps/compare/synclounge-1.0.14...synclounge-1.0.15) (2022-05-17)
 
 #### Chore
 
@@ -412,8 +493,8 @@
 
 
 
-<a name="strapi-2.0.18"></a>
-### [strapi-2.0.18](https://github.com/truecharts/apps/compare/strapi-2.0.17...strapi-2.0.18) (2022-05-10)
+<a name="synclounge-1.0.14"></a>
+### [synclounge-1.0.14](https://github.com/truecharts/apps/compare/synclounge-1.0.13...synclounge-1.0.14) (2022-05-10)
 
 #### Chore
 
@@ -421,8 +502,8 @@
 
 
 
-<a name="strapi-2.0.17"></a>
-### [strapi-2.0.17](https://github.com/truecharts/apps/compare/strapi-2.0.16...strapi-2.0.17) (2022-05-05)
+<a name="synclounge-1.0.13"></a>
+### [synclounge-1.0.13](https://github.com/truecharts/apps/compare/synclounge-1.0.12...synclounge-1.0.13) (2022-05-05)
 
 #### Chore
 
@@ -430,17 +511,8 @@
 
 
 
-<a name="strapi-2.0.16"></a>
-### [strapi-2.0.16](https://github.com/truecharts/apps/compare/strapi-2.0.15...strapi-2.0.16) (2022-05-04)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
-
-
-
-<a name="strapi-2.0.15"></a>
-### [strapi-2.0.15](https://github.com/truecharts/apps/compare/strapi-2.0.14...strapi-2.0.15) (2022-04-26)
+<a name="synclounge-1.0.12"></a>
+### [synclounge-1.0.12](https://github.com/truecharts/apps/compare/synclounge-1.0.11...synclounge-1.0.12) (2022-04-26)
 
 #### Chore
 
@@ -448,8 +520,8 @@
 
 
 
-<a name="strapi-2.0.14"></a>
-### [strapi-2.0.14](https://github.com/truecharts/apps/compare/strapi-2.0.13...strapi-2.0.14) (2022-04-20)
+<a name="synclounge-1.0.11"></a>
+### [synclounge-1.0.11](https://github.com/truecharts/apps/compare/synclounge-1.0.10...synclounge-1.0.11) (2022-04-20)
 
 #### Chore
 
@@ -458,8 +530,8 @@
 
 
 
-<a name="strapi-2.0.13"></a>
-### [strapi-2.0.13](https://github.com/truecharts/apps/compare/strapi-2.0.12...strapi-2.0.13) (2022-04-12)
+<a name="synclounge-1.0.10"></a>
+### [synclounge-1.0.10](https://github.com/truecharts/apps/compare/synclounge-1.0.9...synclounge-1.0.10) (2022-04-12)
 
 #### Chore
 
@@ -467,8 +539,8 @@
 
 
 
-<a name="strapi-2.0.12"></a>
-### [strapi-2.0.12](https://github.com/truecharts/apps/compare/strapi-2.0.11...strapi-2.0.12) (2022-04-03)
+<a name="synclounge-1.0.9"></a>
+### [synclounge-1.0.9](https://github.com/truecharts/apps/compare/synclounge-1.0.8...synclounge-1.0.9) (2022-04-03)
 
 #### Chore
 
@@ -476,17 +548,8 @@
 
 
 
-<a name="strapi-2.0.11"></a>
-### [strapi-2.0.11](https://github.com/truecharts/apps/compare/strapi-2.0.10...strapi-2.0.11) (2022-03-31)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
-
-
-
-<a name="strapi-2.0.10"></a>
-### [strapi-2.0.10](https://github.com/truecharts/apps/compare/strapi-2.0.9...strapi-2.0.10) (2022-03-31)
+<a name="synclounge-1.0.8"></a>
+### [synclounge-1.0.8](https://github.com/truecharts/apps/compare/synclounge-1.0.7...synclounge-1.0.8) (2022-03-31)
 
 #### Chore
 
@@ -494,27 +557,17 @@
 
 
 
-<a name="strapi-2.0.9"></a>
-### [strapi-2.0.9](https://github.com/truecharts/apps/compare/strapi-2.0.8...strapi-2.0.9) (2022-03-30)
+<a name="synclounge-1.0.7"></a>
+### [synclounge-1.0.7](https://github.com/truecharts/apps/compare/synclounge-1.0.6...synclounge-1.0.7) (2022-03-30)
 
 #### Chore
 
-* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="strapi-2.0.8"></a>
-### [strapi-2.0.8](https://github.com/truecharts/apps/compare/strapi-2.0.7...strapi-2.0.8) (2022-03-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
-
-
-
-<a name="strapi-2.0.7"></a>
-### [strapi-2.0.7](https://github.com/truecharts/apps/compare/strapi-2.0.6...strapi-2.0.7) (2022-03-26)
+<a name="synclounge-1.0.6"></a>
+### [synclounge-1.0.6](https://github.com/truecharts/apps/compare/synclounge-1.0.5...synclounge-1.0.6) (2022-03-26)
 
 #### Chore
 
@@ -522,17 +575,8 @@
 
 
 
-<a name="strapi-2.0.2"></a>
-### [strapi-2.0.2](https://github.com/truecharts/apps/compare/strapi-2.0.1...strapi-2.0.2) (2022-03-08)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
-
-
-
-<a name="strapi-2.0.1"></a>
-### [strapi-2.0.1](https://github.com/truecharts/apps/compare/strapi-2.0.0...strapi-2.0.1) (2022-03-07)
+<a name="synclounge-1.0.1"></a>
+### [synclounge-1.0.1](https://github.com/truecharts/apps/compare/synclounge-1.0.0...synclounge-1.0.1) (2022-03-07)
 
 #### Chore
 
@@ -541,13 +585,13 @@
 
 
 
-<a name="strapi-2.0.0"></a>
-### [strapi-2.0.0](https://github.com/truecharts/apps/compare/strapi-1.0.7...strapi-2.0.0) (2022-03-03)
+<a name="synclounge-1.0.0"></a>
+### [synclounge-1.0.0](https://github.com/truecharts/apps/compare/synclounge-0.0.24...synclounge-1.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* remove PUID from per-app env-vars if set to 568
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -556,8 +600,8 @@
 
 
 
-<a name="strapi-1.0.7"></a>
-### [strapi-1.0.7](https://github.com/truecharts/apps/compare/strapi-1.0.6...strapi-1.0.7) (2022-03-02)
+<a name="synclounge-0.0.24"></a>
+### [synclounge-0.0.24](https://github.com/truecharts/apps/compare/synclounge-0.0.23...synclounge-0.0.24) (2022-03-02)
 
 #### Chore
 
@@ -566,8 +610,8 @@
 
 
 
-<a name="strapi-1.0.6"></a>
-### [strapi-1.0.6](https://github.com/truecharts/apps/compare/strapi-1.0.5...strapi-1.0.6) (2022-02-21)
+<a name="synclounge-0.0.23"></a>
+### [synclounge-0.0.23](https://github.com/truecharts/apps/compare/synclounge-0.0.22...synclounge-0.0.23) (2022-02-21)
 
 #### Chore
 
@@ -575,8 +619,8 @@
 
 
 
-<a name="strapi-1.0.5"></a>
-### [strapi-1.0.5](https://github.com/truecharts/apps/compare/strapi-1.0.4...strapi-1.0.5) (2022-02-15)
+<a name="synclounge-0.0.22"></a>
+### [synclounge-0.0.22](https://github.com/truecharts/apps/compare/synclounge-0.0.21...synclounge-0.0.22) (2022-02-15)
 
 #### Chore
 
@@ -584,8 +628,8 @@
 
 
 
-<a name="strapi-1.0.4"></a>
-### [strapi-1.0.4](https://github.com/truecharts/apps/compare/strapi-1.0.3...strapi-1.0.4) (2022-02-08)
+<a name="synclounge-0.0.21"></a>
+### [synclounge-0.0.21](https://github.com/truecharts/apps/compare/synclounge-0.0.20...synclounge-0.0.21) (2022-02-08)
 
 #### Chore
 
@@ -593,8 +637,8 @@
 
 
 
-<a name="strapi-1.0.3"></a>
-### [strapi-1.0.3](https://github.com/truecharts/apps/compare/strapi-1.0.2...strapi-1.0.3) (2022-02-06)
+<a name="synclounge-0.0.20"></a>
+### [synclounge-0.0.20](https://github.com/truecharts/apps/compare/synclounge-0.0.19...synclounge-0.0.20) (2022-02-06)
 
 #### Chore
 
@@ -602,8 +646,8 @@
 
 
 
-<a name="strapi-1.0.2"></a>
-### [strapi-1.0.2](https://github.com/truecharts/apps/compare/strapi-1.0.1...strapi-1.0.2) (2022-02-05)
+<a name="synclounge-0.0.19"></a>
+### [synclounge-0.0.19](https://github.com/truecharts/apps/compare/synclounge-0.0.18...synclounge-0.0.19) (2022-02-05)
 
 #### Chore
 
@@ -611,8 +655,8 @@
 
 
 
-<a name="strapi-1.0.1"></a>
-### [strapi-1.0.1](https://github.com/truecharts/apps/compare/strapi-1.0.0...strapi-1.0.1) (2022-02-02)
+<a name="synclounge-0.0.18"></a>
+### [synclounge-0.0.18](https://github.com/truecharts/apps/compare/synclounge-0.0.17...synclounge-0.0.18) (2022-02-02)
 
 #### Chore
 
@@ -620,32 +664,158 @@
 
 
 
-<a name="strapi-1.0.0"></a>
-### [strapi-1.0.0](https://github.com/truecharts/apps/compare/strapi-0.0.3...strapi-1.0.0) (2022-01-31)
-
-
-
-<a name="strapi-0.0.3"></a>
-### [strapi-0.0.3](https://github.com/truecharts/apps/compare/strapi-0.0.2...strapi-0.0.3) (2022-01-28)
+<a name="synclounge-0.0.17"></a>
+### [synclounge-0.0.17](https://github.com/truecharts/apps/compare/synclounge-0.0.16...synclounge-0.0.17) (2022-01-25)
 
 #### Chore
 
-* Add NODE_ENV on GUI ([#1808](https://github.com/truecharts/apps/issues/1808))
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
 
 
 
-<a name="strapi-0.0.2"></a>
-### [strapi-0.0.2](https://github.com/truecharts/apps/compare/strapi-0.0.1...strapi-0.0.2) (2022-01-28)
+<a name="synclounge-0.0.16"></a>
+### [synclounge-0.0.16](https://github.com/truecharts/apps/compare/synclounge-0.0.15...synclounge-0.0.16) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="synclounge-0.0.15"></a>
+### [synclounge-0.0.15](https://github.com/truecharts/apps/compare/synclounge-0.0.14...synclounge-0.0.15) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="synclounge-0.0.14"></a>
+### [synclounge-0.0.14](https://github.com/truecharts/apps/compare/synclounge-0.0.13...synclounge-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
+<a name="synclounge-0.0.13"></a>
+### [synclounge-0.0.13](https://github.com/truecharts/apps/compare/synclounge-0.0.12...synclounge-0.0.13) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
+<a name="synclounge-0.0.12"></a>
+### [synclounge-0.0.12](https://github.com/truecharts/apps/compare/synclounge-0.0.11...synclounge-0.0.12) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
 
 #### Feat
 
-* add admin portal ([#1803](https://github.com/truecharts/apps/issues/1803))
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
 
 
 
-<a name="strapi-0.0.1"></a>
-### strapi-0.0.1 (2022-01-27)
+<a name="synclounge-0.0.11"></a>
+### [synclounge-0.0.11](https://github.com/truecharts/apps/compare/synclounge-0.0.10...synclounge-0.0.11) (2022-01-12)
 
-#### Feat
+#### Chore
 
-* Add strapi ([#1800](https://github.com/truecharts/apps/issues/1800))
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
+<a name="synclounge-0.0.10"></a>
+### [synclounge-0.0.10](https://github.com/truecharts/apps/compare/synclounge-0.0.9...synclounge-0.0.10) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="synclounge-0.0.9"></a>
+### [synclounge-0.0.9](https://github.com/truecharts/apps/compare/synclounge-0.0.8...synclounge-0.0.9) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="synclounge-0.0.8"></a>
+### [synclounge-0.0.8](https://github.com/truecharts/apps/compare/synclounge-0.0.7...synclounge-0.0.8) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="synclounge-0.0.7"></a>
+### [synclounge-0.0.7](https://github.com/truecharts/apps/compare/synclounge-0.0.6...synclounge-0.0.7) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="synclounge-0.0.6"></a>
+### [synclounge-0.0.6](https://github.com/truecharts/apps/compare/synclounge-0.0.5...synclounge-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="synclounge-0.0.5"></a>
+### [synclounge-0.0.5](https://github.com/truecharts/apps/compare/synclounge-0.0.4...synclounge-0.0.5) (2021-12-19)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="synclounge-0.0.4"></a>
+### [synclounge-0.0.4](https://github.com/truecharts/apps/compare/synclounge-0.0.3...synclounge-0.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
+<a name="synclounge-0.0.3"></a>
+### [synclounge-0.0.3](https://github.com/truecharts/apps/compare/synclounge-0.0.2...synclounge-0.0.3) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="synclounge-0.0.2"></a>
+### [synclounge-0.0.2](https://github.com/truecharts/apps/compare/synclounge-0.0.1...synclounge-0.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="synclounge-0.0.1"></a>
+### synclounge-0.0.1 (2021-12-12)

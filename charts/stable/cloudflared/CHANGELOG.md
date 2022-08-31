@@ -2,6 +2,15 @@
 
 
 
+## [cloudflared-1.0.13](https://github.com/truecharts/charts/compare/cloudflared-1.0.12...cloudflared-1.0.13) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [cloudflared-1.0.12](https://github.com/truecharts/charts/compare/cloudflared-1.0.11...cloudflared-1.0.12) (2022-08-30)
 
 ### Chore

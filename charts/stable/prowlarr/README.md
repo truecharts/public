@@ -1,6 +1,6 @@
 # prowlarr
 
-![Version: 6.0.33](https://img.shields.io/badge/Version-6.0.33-informational?style=flat-square) ![AppVersion: 0.4.4.1947](https://img.shields.io/badge/AppVersion-0.4.4.1947-informational?style=flat-square)
+![Version: 6.0.34](https://img.shields.io/badge/Version-6.0.34-informational?style=flat-square) ![AppVersion: 0.4.4.1947](https://img.shields.io/badge/AppVersion-0.4.4.1947-informational?style=flat-square)
 
 Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

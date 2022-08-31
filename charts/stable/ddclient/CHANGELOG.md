@@ -2,6 +2,15 @@
 
 
 
+## [ddclient-2.0.29](https://github.com/truecharts/charts/compare/ddclient-2.0.28...ddclient-2.0.29) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [ddclient-2.0.28](https://github.com/truecharts/charts/compare/ddclient-2.0.27...ddclient-2.0.28) (2022-08-30)
 
 ### Chore

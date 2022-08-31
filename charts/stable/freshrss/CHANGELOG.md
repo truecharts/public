@@ -2,6 +2,15 @@
 
 
 
+## [freshrss-11.0.28](https://github.com/truecharts/charts/compare/freshrss-11.0.27...freshrss-11.0.28) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [freshrss-11.0.27](https://github.com/truecharts/charts/compare/freshrss-11.0.26...freshrss-11.0.27) (2022-08-30)
 
 ### Chore

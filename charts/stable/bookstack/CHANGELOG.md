@@ -2,6 +2,15 @@
 
 
 
+## [bookstack-3.0.37](https://github.com/truecharts/charts/compare/bookstack-3.0.36...bookstack-3.0.37) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [bookstack-3.0.36](https://github.com/truecharts/charts/compare/bookstack-3.0.35...bookstack-3.0.36) (2022-08-30)
 
 ### Chore

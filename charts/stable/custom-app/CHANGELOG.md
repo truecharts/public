@@ -2,6 +2,15 @@
 
 
 
+## [custom-app-5.1.51](https://github.com/truecharts/charts/compare/custom-app-5.1.50...custom-app-5.1.51) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [custom-app-5.1.50](https://github.com/truecharts/charts/compare/custom-app-5.1.49...custom-app-5.1.50) (2022-08-30)
 
 ### Chore

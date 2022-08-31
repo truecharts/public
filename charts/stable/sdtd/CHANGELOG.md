@@ -2,6 +2,15 @@
 
 
 
+## [sdtd-1.0.1](https://github.com/truecharts/charts/compare/sdtd-1.0.0...sdtd-1.0.1) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [sdtd-1.0.0](https://github.com/truecharts/charts/compare/sdtd-0.0.21...sdtd-1.0.0) (2022-08-30)
 
 ### Feat

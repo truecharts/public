@@ -2,6 +2,15 @@
 
 
 
+## [cloudcommander-0.0.23](https://github.com/truecharts/charts/compare/cloudcommander-0.0.22...cloudcommander-0.0.23) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [cloudcommander-0.0.22](https://github.com/truecharts/charts/compare/cloudcommander-0.0.21...cloudcommander-0.0.22) (2022-08-30)
 
 ### Chore

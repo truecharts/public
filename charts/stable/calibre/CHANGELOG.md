@@ -2,6 +2,15 @@
 
 
 
+## [calibre-7.0.39](https://github.com/truecharts/charts/compare/calibre-7.0.38...calibre-7.0.39) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [calibre-7.0.38](https://github.com/truecharts/charts/compare/calibre-7.0.37...calibre-7.0.38) (2022-08-30)
 
 ### Chore

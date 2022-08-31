@@ -2,6 +2,15 @@
 
 
 
+## [factorio-0.0.28](https://github.com/truecharts/charts/compare/factorio-0.0.27...factorio-0.0.28) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [factorio-0.0.27](https://github.com/truecharts/charts/compare/factorio-0.0.26...factorio-0.0.27) (2022-08-30)
 
 ### Chore

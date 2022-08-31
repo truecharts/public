@@ -1,6 +1,6 @@
 # librephotos
 
-![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![AppVersion: 2022w6](https://img.shields.io/badge/AppVersion-2022w6-informational?style=flat-square)
+![Version: 4.0.36](https://img.shields.io/badge/Version-4.0.36-informational?style=flat-square) ![AppVersion: 2022w6](https://img.shields.io/badge/AppVersion-2022w6-informational?style=flat-square)
 
 A self-hosted open source photo management service.
 
@@ -25,9 +25,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.67 |
-| https://charts.truecharts.org | redis | 3.0.65 |
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://charts.truecharts.org | redis | 3.0.67 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

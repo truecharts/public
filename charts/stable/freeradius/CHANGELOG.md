@@ -2,6 +2,15 @@
 
 
 
+## [freeradius-6.0.30](https://github.com/truecharts/charts/compare/freeradius-6.0.29...freeradius-6.0.30) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [freeradius-6.0.29](https://github.com/truecharts/charts/compare/freeradius-6.0.28...freeradius-6.0.29) (2022-08-30)
 
 ### Chore
