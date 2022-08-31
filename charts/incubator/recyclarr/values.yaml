@@ -7,9 +7,6 @@ podSecurityContext:
   runAsGroup: 568
   runAsUser: 568
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-
 env:
   CRON_SCHEDULE: "@daily"
 
@@ -20,7 +17,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 
 service:
   main:
