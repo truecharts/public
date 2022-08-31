@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "2.4.1"
 dependencies:
@@ -9,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.5.6
 deprecated: false
-description: "A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.\r\n"
+description: A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
 home: https://truecharts.org/docs/charts/incubator/recyclarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/recyclarr.png
 keywords:
@@ -26,4 +22,8 @@ sources:
   - https://github.com/recyclarr/recyclarr
   - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
 type: application
-version: 0.0.27
+version: 1.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Tools-Utilities

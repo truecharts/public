@@ -19,7 +19,7 @@ questions:
       attrs:
         - variable: CRON_SCHEDULE
           label: "CRON_SCHEDULE"
-          description: "Standard cron syntax for how often you want Recyclarr to run. See httpsgithub.comrecyclarrrecyclarrwikiDocker#cron-mode"
+          description: Standard cron syntax for how often you want Recyclarr to run.
           schema:
             type: string
             default: "@daily"
@@ -50,7 +50,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
