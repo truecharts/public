@@ -2,6 +2,15 @@
 
 
 
+## [cyberchef-2.0.73](https://github.com/truecharts/charts/compare/cyberchef-2.0.72...cyberchef-2.0.73) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [cyberchef-2.0.72](https://github.com/truecharts/charts/compare/cyberchef-2.0.71...cyberchef-2.0.72) (2022-08-30)
 
 ### Chore

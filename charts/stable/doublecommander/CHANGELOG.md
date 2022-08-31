@@ -2,6 +2,15 @@
 
 
 
+## [doublecommander-4.0.28](https://github.com/truecharts/charts/compare/doublecommander-4.0.27...doublecommander-4.0.28) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [doublecommander-4.0.27](https://github.com/truecharts/charts/compare/doublecommander-4.0.26...doublecommander-4.0.27) (2022-08-30)
 
 ### Chore

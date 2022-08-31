@@ -2,6 +2,15 @@
 
 
 
+## [anki-sync-server-0.0.9](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.8...anki-sync-server-0.0.9) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [anki-sync-server-0.0.8](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.7...anki-sync-server-0.0.8) (2022-08-30)
 
 ### Chore

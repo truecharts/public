@@ -1,6 +1,6 @@
 # filezilla
 
-![Version: 4.0.34](https://img.shields.io/badge/Version-4.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.55.1](https://img.shields.io/badge/AppVersion-3.55.1-informational?style=flat-square)
+![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.55.1](https://img.shields.io/badge/AppVersion-3.55.1-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

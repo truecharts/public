@@ -1,6 +1,6 @@
 # kimai
 
-![Version: 3.0.32](https://img.shields.io/badge/Version-3.0.32-informational?style=flat-square) ![AppVersion: 1.20](https://img.shields.io/badge/AppVersion-1.20-informational?style=flat-square)
+![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: 1.20](https://img.shields.io/badge/AppVersion-1.20-informational?style=flat-square)
 
 Kimai is a free, open source and online time-tracking software designed for small businesses and freelancers.
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.64 |
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://charts.truecharts.org/ | mariadb | 3.0.66 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

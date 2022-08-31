@@ -2,6 +2,7 @@
 
 
 
+
 ## [synclounge-2.0.39](https://github.com/truecharts/charts/compare/synclounge-2.0.38...synclounge-2.0.39) (2022-08-30)
 
 ### Chore

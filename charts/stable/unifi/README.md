@@ -1,6 +1,6 @@
 # unifi
 
-![Version: 11.0.30](https://img.shields.io/badge/Version-11.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.2.92](https://img.shields.io/badge/AppVersion-7.2.92-informational?style=flat-square)
+![Version: 11.0.31](https://img.shields.io/badge/Version-11.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.2.92](https://img.shields.io/badge/AppVersion-7.2.92-informational?style=flat-square)
 
 Ubiquiti Network's Unifi Controller
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

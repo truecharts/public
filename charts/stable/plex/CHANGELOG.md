@@ -2,6 +2,17 @@
 
 
 
+## [plex-10.2.5](https://github.com/truecharts/charts/compare/plex-10.2.3...plex-10.2.5) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [plex-10.2.4](https://github.com/truecharts/charts/compare/plex-10.2.3...plex-10.2.4) (2022-08-30)
 
 ### Chore

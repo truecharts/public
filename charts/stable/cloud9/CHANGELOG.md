@@ -2,6 +2,15 @@
 
 
 
+## [cloud9-4.0.28](https://github.com/truecharts/charts/compare/cloud9-4.0.27...cloud9-4.0.28) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [cloud9-4.0.27](https://github.com/truecharts/charts/compare/cloud9-4.0.26...cloud9-4.0.27) (2022-08-30)
 
 ### Chore

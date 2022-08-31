@@ -1,6 +1,6 @@
 # pgadmin
 
-![Version: 7.0.32](https://img.shields.io/badge/Version-7.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.13](https://img.shields.io/badge/AppVersion-6.13-informational?style=flat-square)
+![Version: 7.0.33](https://img.shields.io/badge/Version-7.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.13](https://img.shields.io/badge/AppVersion-6.13-informational?style=flat-square)
 
 Web-Based postgresql database management utility
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

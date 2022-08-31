@@ -2,6 +2,15 @@
 
 
 
+## [booksonic-air-6.0.39](https://github.com/truecharts/charts/compare/booksonic-air-6.0.38...booksonic-air-6.0.39) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [booksonic-air-6.0.38](https://github.com/truecharts/charts/compare/booksonic-air-6.0.37...booksonic-air-6.0.38) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [digikam-4.0.28](https://github.com/truecharts/charts/compare/digikam-4.0.27...digikam-4.0.28) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [digikam-4.0.27](https://github.com/truecharts/charts/compare/digikam-4.0.26...digikam-4.0.27) (2022-08-30)
 
 ### Chore

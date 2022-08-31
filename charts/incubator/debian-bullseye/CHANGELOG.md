@@ -2,6 +2,15 @@
 
 
 
+## [debian-bullseye-0.0.22](https://github.com/truecharts/charts/compare/debian-bullseye-0.0.21...debian-bullseye-0.0.22) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [debian-bullseye-0.0.21](https://github.com/truecharts/charts/compare/debian-bullseye-0.0.20...debian-bullseye-0.0.21) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [acestream-0.0.21](https://github.com/truecharts/charts/compare/acestream-0.0.20...acestream-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [acestream-0.0.20](https://github.com/truecharts/charts/compare/acestream-0.0.19...acestream-0.0.20) (2022-08-30)
 
 ### Chore

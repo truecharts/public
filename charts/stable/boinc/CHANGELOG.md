@@ -2,6 +2,15 @@
 
 
 
+## [boinc-2.0.44](https://github.com/truecharts/charts/compare/boinc-2.0.43...boinc-2.0.44) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [boinc-2.0.43](https://github.com/truecharts/charts/compare/boinc-2.0.42...boinc-2.0.43) (2022-08-30)
 
 ### Chore

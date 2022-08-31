@@ -2,6 +2,15 @@
 
 
 
+## [anonaddy-9.0.43](https://github.com/truecharts/charts/compare/anonaddy-9.0.42...anonaddy-9.0.43) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [anonaddy-9.0.42](https://github.com/truecharts/charts/compare/anonaddy-9.0.41...anonaddy-9.0.42) (2022-08-30)
 
 ### Chore

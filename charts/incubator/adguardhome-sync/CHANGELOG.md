@@ -2,6 +2,15 @@
 
 
 
+## [adguardhome-sync-0.0.26](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.25...adguardhome-sync-0.0.26) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [adguardhome-sync-0.0.25](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.24...adguardhome-sync-0.0.25) (2022-08-30)
 
 ### Chore

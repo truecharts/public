@@ -1,6 +1,6 @@
 # libreoffice
 
-![Version: 2.0.27](https://img.shields.io/badge/Version-2.0.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.2.2](https://img.shields.io/badge/AppVersion-7.2.2-informational?style=flat-square)
+![Version: 2.0.28](https://img.shields.io/badge/Version-2.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.2.2](https://img.shields.io/badge/AppVersion-7.2.2-informational?style=flat-square)
 
 LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.5 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
 

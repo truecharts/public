@@ -2,6 +2,17 @@
 
 
 
+## [rsshub-3.0.83](https://github.com/truecharts/charts/compare/rsshub-3.0.81...rsshub-3.0.83) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
 ## [rsshub-3.0.82](https://github.com/truecharts/charts/compare/rsshub-3.0.81...rsshub-3.0.82) (2022-08-30)
 
 ### Chore

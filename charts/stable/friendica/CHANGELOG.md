@@ -2,6 +2,15 @@
 
 
 
+## [friendica-4.0.47](https://github.com/truecharts/charts/compare/friendica-4.0.46...friendica-4.0.47) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
 ## [friendica-4.0.46](https://github.com/truecharts/charts/compare/friendica-4.0.45...friendica-4.0.46) (2022-08-30)
 
 ### Chore
