@@ -2,6 +2,15 @@
 
 
 
+## [wireguard-1.0.3](https://github.com/truecharts/charts/compare/wireguard-1.0.2...wireguard-1.0.3) (2022-08-31)
+
+### Fix
+
+- fix default port in UDP ([#3645](https://github.com/truecharts/charts/issues/3645))
+
+
+
+
 ## [wireguard-1.0.2](https://github.com/truecharts/charts/compare/wireguard-1.0.1...wireguard-1.0.2) (2022-08-31)
 
 ### Chore
