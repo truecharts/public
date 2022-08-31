@@ -2,6 +2,15 @@
 
 
 
+## [budge-2.0.39](https://github.com/truecharts/charts/compare/budge-2.0.38...budge-2.0.39) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [budge-2.0.38](https://github.com/truecharts/charts/compare/budge-2.0.37...budge-2.0.38) (2022-08-30)
 
 ### Chore

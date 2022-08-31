@@ -2,6 +2,15 @@
 
 
 
+## [wireguard-1.0.2](https://github.com/truecharts/charts/compare/wireguard-1.0.1...wireguard-1.0.2) (2022-08-31)
+
+### Chore
+
+- use different port to allow easier deploy for host-net and remove portal ([#3642](https://github.com/truecharts/charts/issues/3642))
+
+
+
+
 ## [wireguard-1.0.1](https://github.com/truecharts/charts/compare/wireguard-1.0.0...wireguard-1.0.1) (2022-08-30)
 
 ### Chore

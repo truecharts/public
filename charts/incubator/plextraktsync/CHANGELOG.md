@@ -2,6 +2,15 @@
 
 
 
+## [plextraktsync-0.0.28](https://github.com/truecharts/charts/compare/plextraktsync-0.0.27...plextraktsync-0.0.28) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [plextraktsync-0.0.27](https://github.com/truecharts/charts/compare/plextraktsync-0.0.25...plextraktsync-0.0.27) (2022-08-30)
 
 ### Chore

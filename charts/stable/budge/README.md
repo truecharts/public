@@ -1,6 +1,6 @@
 # budge
 
-![Version: 2.0.38](https://img.shields.io/badge/Version-2.0.38-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
+![Version: 2.0.39](https://img.shields.io/badge/Version-2.0.39-informational?style=flat-square) ![AppVersion: 0.0.9](https://img.shields.io/badge/AppVersion-0.0.9-informational?style=flat-square)
 
 Budge is an open source 'budgeting with envelopes' personal finance app.
 

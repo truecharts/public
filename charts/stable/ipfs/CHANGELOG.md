@@ -2,6 +2,15 @@
 
 
 
+## [ipfs-3.0.34](https://github.com/truecharts/charts/compare/ipfs-3.0.33...ipfs-3.0.34) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [ipfs-3.0.33](https://github.com/truecharts/charts/compare/ipfs-3.0.31...ipfs-3.0.33) (2022-08-30)
 
 ### Chore

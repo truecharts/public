@@ -2,6 +2,15 @@
 
 
 
+## [koel-3.0.37](https://github.com/truecharts/charts/compare/koel-3.0.36...koel-3.0.37) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [koel-3.0.36](https://github.com/truecharts/charts/compare/koel-3.0.34...koel-3.0.36) (2022-08-30)
 
 ### Chore

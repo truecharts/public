@@ -2,6 +2,7 @@
 
 
 
+
 ## [cryptpad-0.0.41](https://github.com/truecharts/charts/compare/cryptpad-0.0.40...cryptpad-0.0.41) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [notea-0.0.23](https://github.com/truecharts/charts/compare/notea-0.0.22...notea-0.0.23) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [notea-0.0.22](https://github.com/truecharts/charts/compare/notea-0.0.20...notea-0.0.22) (2022-08-30)
 
 ### Chore

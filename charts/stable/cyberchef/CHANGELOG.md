@@ -2,6 +2,15 @@
 
 
 
+## [cyberchef-2.0.74](https://github.com/truecharts/charts/compare/cyberchef-2.0.73...cyberchef-2.0.74) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
 ## [cyberchef-2.0.73](https://github.com/truecharts/charts/compare/cyberchef-2.0.72...cyberchef-2.0.73) (2022-08-30)
 
 ### Chore
