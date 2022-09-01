@@ -31,6 +31,10 @@ imageAllSpark:
   repository: jupyter/all-spark-notebook
   tag: latest
 
+env:
+  NB_UID: "568"
+  NB_GID: "568"
+
 service:
   main:
     ports:

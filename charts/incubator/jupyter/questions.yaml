@@ -35,6 +35,40 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: GEN_CERT
+          label: "Gen Cert"
+          description: "Choose whether or not Jupyter will generate a self signed Cert"
+          schema:
+            type: string
+            default: "yes"
+        - variable: DOCKER_STACKS_JUPYTER_CMD
+          label: "Jupyter start Command"
+          description: "Choose the start up command for Jupyter"
+          schema:
+            type: string
+            default: "lab"
+            enum:
+            - value: "lab"
+              description: "Lab"
+            - value: "notebook"
+              description: "Notebook"
+            - value: "nbclassic"
+              description: "Notebook Classic"
+            - value: "server"
+              description: "Server"
+        - variable: RESTARTABLE
+          label: "Restartable"
+          description: "Choose whether restarting Jupyter will kill the container or not"
+          schema:
+            type: string
+            default: "yes"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -72,7 +106,7 @@ questions:
 # Include{persistenceRoot}
         - variable: data
           label: "data Storage"
-          description: "Container Path varlibdavdata"
+          description: "Container Data Path"
           schema:
             additional_attrs: true
             type: dict
