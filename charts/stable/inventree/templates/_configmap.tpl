@@ -3,6 +3,7 @@
 
 {{- $configName := printf "%s-inventree-config" (include "tc.common.names.fullname" .) }}
 {{- $nginxConfigName := printf "%s-inventree-config-nginx" (include "tc.common.names.fullname" .) }}
+
 ---
 
 apiVersion: v1
