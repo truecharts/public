@@ -43,7 +43,10 @@ data:
   {{/* Captcha */}}
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.captcha.nocaptcha | squote }}
   {{/* Mail */}}
-  ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
+  {{- if .Values.wger.mail.enable_email }}
+  {{/* Any value is considered true */}}
+  ENABLE_EMAIL: "True"
+  {{- end }}
   FROM_EMAIL: {{ .Values.wger.mail.from_email | quote }}
   EMAIL_HOST: {{ .Values.wger.mail.email_host | quote }}
   EMAIL_PORT: {{ .Values.wger.mail.email_port | quote }}
