@@ -94,9 +94,8 @@ questions:
                     - variable: email_port
                       label: "EMAIL_PORT"
                       schema:
-                        type: string
-                        required: true
-                        default: "587"
+                        type: int
+                        default: 587
                     - variable: email_host_user
                       label: "EMAIL_HOST_USER"
                       schema:
