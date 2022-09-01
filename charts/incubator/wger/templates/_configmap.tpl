@@ -56,24 +56,24 @@ data:
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.email_use_ssl | squote }}
   {{- end }}
   nginx.conf: |-
-  upstream wger {
-      server localhost:8000;
-  }
-  server {
-      listen {{ .Values.service.main.ports.main.port }};
-      location / {
-          proxy_pass http://localhost:8000;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header Host $host;
-          proxy_redirect off;
-      }
-      location /static/ {
-          alias /static/;
-      }
-      location /media/ {
-          alias /media/;
-      }
-      # Increase max body size to allow for video uploads
-      client_max_body_size 100M;
-  }
+    upstream wger {
+        server localhost:8000;
+    }
+    server {
+        listen {{ .Values.service.main.ports.main.port }};
+        location / {
+            proxy_pass http://localhost:8000;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $host;
+            proxy_redirect off;
+        }
+        location /static/ {
+            alias /static/;
+        }
+        location /media/ {
+            alias /media/;
+        }
+        # Increase max body size to allow for video uploads
+        client_max_body_size 100M;
+    }
 {{- end }}
