@@ -2,6 +2,15 @@
 
 
 
+## [clamav-3.0.37](https://github.com/truecharts/charts/compare/clamav-3.0.36...clamav-3.0.37) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [clamav-3.0.36](https://github.com/truecharts/charts/compare/clamav-3.0.35...clamav-3.0.36) (2022-08-30)
 
 ### Chore

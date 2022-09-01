@@ -2,6 +2,15 @@
 
 
 
+## [impostor-server-1.0.37](https://github.com/truecharts/charts/compare/impostor-server-1.0.36...impostor-server-1.0.37) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [impostor-server-1.0.36](https://github.com/truecharts/charts/compare/impostor-server-1.0.34...impostor-server-1.0.36) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [ring-mqtt-0.0.23](https://github.com/truecharts/charts/compare/ring-mqtt-0.0.22...ring-mqtt-0.0.23) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [ring-mqtt-0.0.22](https://github.com/truecharts/charts/compare/ring-mqtt-0.0.20...ring-mqtt-0.0.22) (2022-08-30)
 
 ### Chore
