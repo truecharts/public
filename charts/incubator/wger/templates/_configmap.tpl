@@ -42,8 +42,8 @@ data:
   {{/* Captcha */}}
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.captcha.nocaptcha | squote }}
   {{/* Mail */}}
-  ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
   {{- if .Values.wger.mail.enable_email }}
+  ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
   {{- with .Values.wger.mail.from_email }}
   FROM_EMAIL: {{ . }}
   {{- end }}
