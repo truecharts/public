@@ -1,7 +1,7 @@
 {{/* Define the nginx container */}}
 {{- define "inventree.nginx" -}}
 image: {{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}
-imagePullPolicy: '{{ .Values.nginxImage.pullPolicy }}'
+imagePullPolicy: {{ .Values.nginxImage.pullPolicy }}
 securityContext:
   runAsUser: 0
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}

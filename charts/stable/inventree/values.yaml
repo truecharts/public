@@ -6,6 +6,7 @@ image:
 nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.23.1@sha256:1620254cd011e2b81361f1f4682fd6cceadf13b07f8e37f322b60407d6d5a766
+  pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -55,7 +56,6 @@ persistence:
   inventree-nginx:
     enabled: "true"
     noMount: true
-    readOnly: true
     type: "custom"
     volumeSpec:
       configMap:
