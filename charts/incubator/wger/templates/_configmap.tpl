@@ -49,7 +49,6 @@ data:
   EMAIL_PORT: {{ .Values.wger.mail.email_port | default "587" | quote }}
   EMAIL_USE_TLS: {{ ternary "True" "False" .Values.wger.mail.email_use_tls | squote }}
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.mail.email_use_ssl | squote }}
-  {{- end }}
 ---
 apiVersion: v1
 kind: ConfigMap
