@@ -55,7 +55,6 @@ persistence:
     mountPath: "/home/inventree/data"
   inventree-nginx:
     enabled: "true"
-    noMount: true
     type: "custom"
     mountPath: "/etc/nginx/conf.d"
     volumeSpec:
