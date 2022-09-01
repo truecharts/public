@@ -13,7 +13,7 @@ ports:
 volumeMounts:
   - name: inventree-nginx
     mountPath: "/etc/nginx/conf.d/default.conf"
-    subPath: nginx.conf
+    subPath: default.conf
     readOnly: true
   - name: data
     mountPath: "/var/www"

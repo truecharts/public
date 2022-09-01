@@ -2,6 +2,7 @@
 {{- define "inventree.config" -}}
 
 {{- $configName := printf "%s-inventree-config" (include "tc.common.names.fullname" .) }}
+{{- $nginxConfigName := printf "%s-inventree-config-nginx" (include "tc.common.names.fullname" .) }}
 ---
 
 apiVersion: v1
@@ -51,6 +52,14 @@ data:
   {{- with .Values.inventree.general.login_attempts }}
   INVENTREE_LOGIN_ATTEMPTS: {{ . | quote }}
   {{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $nginxConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
   nginx.conf: |-
     server {
       listen {{ .Values.service.main.ports.main.port }};
