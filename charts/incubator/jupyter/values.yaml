@@ -31,6 +31,14 @@ imageAllSpark:
   repository: jupyter/all-spark-notebook
   tag: latest
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   NB_UID: "568"
   NB_GID: "568"
