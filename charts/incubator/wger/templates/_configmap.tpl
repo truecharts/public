@@ -43,14 +43,12 @@ data:
   {{/* Captcha */}}
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.captcha.nocaptcha | squote }}
   {{/* Mail */}}
-  {{- if .Values.wger.mail.enable_email }}
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
   FROM_EMAIL: {{ .Values.wger.mail.from_email | quote }}
   EMAIL_HOST: {{ .Values.wger.mail.email_host | quote }}
   EMAIL_PORT: {{ .Values.wger.mail.email_port | quote }}
   EMAIL_USE_TLS: {{ ternary "True" "False" .Values.wger.mail.email_use_tls | squote }}
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.mail.email_use_ssl | squote }}
-  {{- end }}
 ---
 apiVersion: v1
 kind: ConfigMap
