@@ -1,20 +1,35 @@
 {{/* Define the secrets */}}
 {{- define "wger.secrets" -}}
+
+{{- $secretName := printf "%s-wger-secret" (include "tc.common.names.fullname" .) }}
+
 ---
 
 apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: wger-secrets
-{{- $wgerprevious := lookup "v1" "Secret" .Release.Namespace "wger-secrets" }}
-{{- $secret_key := "" }}
+  name: {{ $secretName }}
 data:
-  {{- if $wgerprevious}}
-  SECRET_KEY: {{ index $wgerprevious.data "SECRET_KEY" }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+  SECRET_KEY: {{ index .data "SECRET_KEY" }}
   {{- else }}
-  {{- $secret_key := randAlphaNum 32 }}
-  SECRET_KEY: {{ $secret_key | b64enc }}
+  SECRET_KEY: {{ randAlpha 32 | b64enc }}
+  {{- end }}
+  {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" }}
+  DJANGO_CACHE_LOCATION: {{ printf "redis://%v:%v@%v-redis/%v" .Values.redis.redisUsername $redisPass .Release.Name .Values.redis.redisDatabase | b64enc }}
+  DJANGO_DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  {{- with .Values.wger.email_host_user }}
+  EMAIL_HOST_USER: {{ . | b64enc }}
+  {{- end }}
+  {{- with .Values.wger.email_host_password }}
+  EMAIL_HOST_PASSWORD: {{ . | b64enc }}
+  {{- end }}
+  {{- with .Values.wger.recaptha_public_key }}
+  RECAPTCHA_PUBLIC_KEY: {{ . | b64enc }}
+  {{- end }}
+  {{- with .Values.wger.recaptha_private_key }}
+  RECAPTCHA_PRIVATE_KEY: {{ . | b64enc }}
   {{- end }}
 
 {{- end -}}
