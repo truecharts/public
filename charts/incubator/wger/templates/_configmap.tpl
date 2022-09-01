@@ -42,7 +42,6 @@ data:
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.nocaptcha | squote }}
   {{/* Mail */}}
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.enable_email | squote }}
-  {{- if .Values.wger.enable_email }}
   {{- with .Values.wger.from_email }}
   FROM_EMAIL: {{ . }}
   {{- end }}
@@ -54,7 +53,6 @@ data:
   {{- end }}
   EMAIL_USE_TLS: {{ ternary "True" "False" .Values.wger.email_use_tls | squote }}
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.email_use_ssl | squote }}
-  {{- end }}
   nginx.conf: |-
     upstream wger {
         server localhost:8000;
