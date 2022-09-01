@@ -1,19 +1,19 @@
 # recyclarr
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.1](https://img.shields.io/badge/AppVersion-2.4.1-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.1](https://img.shields.io/badge/AppVersion-2.4.1-informational?style=flat-square)
 
 A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [recyclarr](https://truecharts.org/docs/charts/incubator/recyclarr)
+For more information, please click here: [recyclarr](https://truecharts.org/docs/charts/stable/recyclarr)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/recyclarr>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr>
 * <https://github.com/recyclarr/recyclarr>
 * <https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr>
 
