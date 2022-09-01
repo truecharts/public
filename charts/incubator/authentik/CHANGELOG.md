@@ -2,6 +2,15 @@
 
 
 
+## [authentik-3.0.16](https://github.com/truecharts/charts/compare/authentik-3.0.15...authentik-3.0.16) (2022-09-01)
+
+### Fix
+
+- geoip disable rofs ([#3651](https://github.com/truecharts/charts/issues/3651))
+
+
+
+
 ## [authentik-3.0.15](https://github.com/truecharts/charts/compare/authentik-3.0.14...authentik-3.0.15) (2022-08-30)
 
 ### Chore
