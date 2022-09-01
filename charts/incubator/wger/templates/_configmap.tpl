@@ -2,7 +2,7 @@
 {{- define "wger.configmap" -}}
 
 {{- $configName := printf "%s-wger-configmap" (include "tc.common.names.fullname" .) }}
-{{- $nginxCnfigName := printf "%s-wger-nginx-config" (include "tc.common.names.fullname" .) }}
+{{- $nginxConfigName := printf "%s-wger-nginx-config" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
