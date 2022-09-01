@@ -40,7 +40,6 @@ data:
   DJANGO_PERFORM_MIGRATIONS: {{ ternary "True" "False" .Values.wger.django_perform_migrations | squote }}
   DJANGO_DEBUG: {{ ternary "True" "False" .Values.wger.django_debug | squote }}
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.nocaptcha | squote }}
-
   {{/* Mail */}}
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.enable_email | squote }}
   {{- if .Values.wger.enable_email }}
