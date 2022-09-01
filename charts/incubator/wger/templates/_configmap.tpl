@@ -47,10 +47,10 @@ data:
   {{- with .Values.wger.mail.from_email }}
   FROM_EMAIL: {{ . }}
   {{- end }}
-  {{- if .Values.wger.mail.enable_email }}
   {{- with .Values.wger.mail.email_host }}
   EMAIL_HOST: {{ . }}
   {{- end }}
+  {{- if .Values.wger.mail.enable_email }}
   {{- with .Values.wger.mail.email_port }}
   EMAIL_PORT: {{ . | quote }}
   {{- end }}
