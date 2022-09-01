@@ -24,27 +24,30 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-wger-configmap'
 
 wger:
-  # Where the backend will listen. Leave this as is, unless nginx is removed
-  site_url: "http://localhost:8000"
-  sync_exercises_on_startup: false
-  download_exercise_images_on_startup: false
-  allow_registration: true
-  allow_guest_users: true
-  allow_upload_videos: true
-  exercise_cache_ttl: "3600"
-  django_perform_migrations: true
-  django_debug: false
-  enable_email: false
-  from_email: ""
-  email_host: ""
-  email_port: "587"
-  email_host_user: ""
-  email_host_password: ""
-  email_use_tls: true
-  email_use_ssl: true
-  recaptha_public_key: ""
-  recaptha_private_key: ""
-  nocaptcha: true
+  general:
+    # Where the backend will listen. Leave this as is, unless nginx is removed
+    site_url: "http://localhost:8000"
+    sync_exercises_on_startup: false
+    download_exercise_images_on_startup: false
+    allow_registration: true
+    allow_guest_users: true
+    allow_upload_videos: true
+    exercise_cache_ttl: "3600"
+    django_perform_migrations: true
+    django_debug: false
+  mail:
+    enable_email: false
+    from_email: ""
+    email_host: ""
+    email_port: "587"
+    email_host_user: ""
+    email_host_password: ""
+    email_use_tls: true
+    email_use_ssl: true
+  captcha:
+    recaptha_public_key: ""
+    recaptha_private_key: ""
+    nocaptcha: true
 
 service:
   main:
