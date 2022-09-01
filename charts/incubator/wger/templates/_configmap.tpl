@@ -2,6 +2,7 @@
 {{- define "wger.configmap" -}}
 
 {{- $configName := printf "%s-wger-configmap" (include "tc.common.names.fullname" .) }}
+{{- $nginxCnfigName := printf "%s-wger-nginx-config" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
@@ -42,11 +43,11 @@ data:
   {{/* Captcha */}}
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.captcha.nocaptcha | squote }}
   {{/* Mail */}}
-  {{- if .Values.wger.mail.enable_email }}
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
   {{- with .Values.wger.mail.from_email }}
   FROM_EMAIL: {{ . }}
   {{- end }}
+  {{- if .Values.wger.mail.enable_email }}
   {{- with .Values.wger.mail.email_host }}
   EMAIL_HOST: {{ . }}
   {{- end }}
@@ -56,6 +57,14 @@ data:
   EMAIL_USE_TLS: {{ ternary "True" "False" .Values.wger.mail.email_use_tls | squote }}
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.mail.email_use_ssl | squote }}
   {{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $nginxConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
   nginx.conf: |-
     upstream wger {
         server localhost:8000;

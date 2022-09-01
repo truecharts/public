@@ -8,8 +8,6 @@ nginxImage:
   tag: v1.23.1@sha256:1620254cd011e2b81361f1f4682fd6cceadf13b07f8e37f322b60407d6d5a766
   pullPolicy: IfNotPresent
 
-command: ["env"]
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -72,7 +70,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-wger-configmap'
+        name: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
         items:
           - key: nginx.conf
             path: default.conf
