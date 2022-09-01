@@ -57,6 +57,7 @@ persistence:
     enabled: "true"
     noMount: true
     type: "custom"
+    mountPath: "/etc/nginx/conf.d"
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-inventree-config-nginx'
