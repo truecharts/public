@@ -5,7 +5,7 @@ imagePullPolicy: '{{ .Values.geoipImage.pullPolicy }}'
 securityContext:
   runAsUser: 0
   runAsGroup: 0
-  readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 volumeMounts:
   - name: geoip
