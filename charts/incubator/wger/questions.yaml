@@ -19,116 +19,138 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: sync_exercises_on_startup
-          label: "SYNC_EXERCISES_ON_STARTUP (Slow Startup)"
-          description: "Enabling that can greatly impact the startup of this app"
+        - variable: general
+          label: "General Configuration"
           schema:
-            type: boolean
-            default: false
-        - variable: download_exercise_images_on_startup
-          label: "DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP (Slow Startup)"
-          description: "Enabling that can greatly impact the startup of this app"
-          schema:
-            type: boolean
-            default: false
-        - variable: allow_registration
-          label: "ALLOW_REGISTRATION"
-          schema:
-            type: boolean
-            default: true
-        - variable: allow_guest_users
-          label: "ALLOW_GUEST_USERS"
-          schema:
-            type: boolean
-            default: true
-        - variable: allow_upload_videos
-          label: "ALLOW_UPLOAD_VIDEOS"
-          schema:
-            type: boolean
-            default: true
-        - variable: exercise_cache_ttl
-          label: "EXERCISE_CACHE_TTL"
-          schema:
-            type: string
-            required: true
-            default: "3600"
-        - variable: django_perform_migrations
-          label: "DJANGO_PERFORM_MIGRATIONS"
-          schema:
-            type: boolean
-            default: true
-        - variable: django_debug
-          label: "DJANGO_DEBUG"
-          schema:
-            type: boolean
-            default: false
-        - variable: enable_email
-          label: "Email Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: from_email
-                label: "FROM_EMAIL"
-                schema:
-                  type: string
-                  default: ""
-              - variable: email_host
-                label: "EMAIL_HOST"
-                schema:
-                  type: string
-                  default: ""
-              - variable: email_port
-                label: "EMAIL_PORT"
-                schema:
-                  type: string
-                  required: true
-                  default: "587"
-              - variable: email_host_user
-                label: "EMAIL_HOST_USER"
-                schema:
-                  type: string
-                  default: ""
-              - variable: email_host_password
-                label: "EMAIL_HOST_PASSWORD"
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: email_use_tls
-                label: "EMAIL_USE_TLS"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: sync_exercises_on_startup
+                label: "SYNC_EXERCISES_ON_STARTUP (Slow Startup)"
+                description: "Enabling that can greatly impact the startup of this app"
                 schema:
                   type: boolean
                   default: false
-              - variable: email_use_ssl
-                label: "EMAIL_USE_SSL"
+              - variable: download_exercise_images_on_startup
+                label: "DOWNLOAD_EXERCISE_IMAGES_ON_STARTUP (Slow Startup)"
+                description: "Enabling that can greatly impact the startup of this app"
                 schema:
                   type: boolean
                   default: false
-        - variable: captchasettings
-          label: "Captcha Settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: recaptha_public_key
-                label: "RECAPTCHA_PUBLIC_KEY"
-                schema:
-                  type: string
-                  default: ""
-              - variable: recaptha_private_key
-                label: "RECAPTCHA_PRIVATE_KEY"
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: nocaptcha
-                label: "NOCAPTCHA"
+              - variable: allow_registration
+                label: "ALLOW_REGISTRATION"
                 schema:
                   type: boolean
                   default: true
+              - variable: allow_guest_users
+                label: "ALLOW_GUEST_USERS"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allow_upload_videos
+                label: "ALLOW_UPLOAD_VIDEOS"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exercise_cache_ttl
+                label: "EXERCISE_CACHE_TTL"
+                schema:
+                  type: string
+                  required: true
+                  default: "3600"
+              - variable: django_perform_migrations
+                label: "DJANGO_PERFORM_MIGRATIONS"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: django_debug
+                label: "DJANGO_DEBUG"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: mail
+          label: "Mail Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enable_email
+                label: "Email Settings"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: from_email
+                      label: "FROM_EMAIL"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: email_host
+                      label: "EMAIL_HOST"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: email_port
+                      label: "EMAIL_PORT"
+                      schema:
+                        type: int
+                        required: true
+                        default: 587
+                    - variable: email_host_user
+                      label: "EMAIL_HOST_USER"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: email_host_password
+                      label: "EMAIL_HOST_PASSWORD"
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+                    - variable: email_use_tls
+                      label: "EMAIL_USE_TLS"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: email_use_ssl
+                      label: "EMAIL_USE_SSL"
+                      schema:
+                        type: boolean
+                        default: false
+        - variable: captca
+          label: "Captca Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: captchasettings
+                label: "Captcha Settings"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: recaptha_public_key
+                      label: "RECAPTCHA_PUBLIC_KEY"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: recaptha_private_key
+                      label: "RECAPTCHA_PRIVATE_KEY"
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: nocaptcha
+                      label: "NOCAPTCHA"
+                      schema:
+                        type: boolean
+                        default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -158,7 +180,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 10249
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
