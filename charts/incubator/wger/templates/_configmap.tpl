@@ -46,10 +46,7 @@ data:
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
   FROM_EMAIL: {{ .Values.wger.mail.from_email | default "noreply@example.com" }}
   EMAIL_HOST: {{ .Values.wger.mail.email_host | default "smtp.example.com" }}
-  {{- if .Values.wger.mail.enable_email }}
-  {{- with .Values.wger.mail.email_port }}
-  EMAIL_PORT: {{ . | quote }}
-  {{- end }}
+  EMAIL_PORT: {{ .Values.wger.mail.email_port | default "587" | quote }}
   EMAIL_USE_TLS: {{ ternary "True" "False" .Values.wger.mail.email_use_tls | squote }}
   EMAIL_USE_SSL: {{ ternary "True" "False" .Values.wger.mail.email_use_ssl | squote }}
   {{- end }}
