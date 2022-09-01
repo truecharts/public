@@ -2,6 +2,15 @@
 
 
 
+## [recyclarr-1.0.1](https://github.com/truecharts/charts/compare/recyclarr-1.0.0...recyclarr-1.0.1) (2022-09-01)
+
+### Feat
+
+- actually move it to stable ([#3650](https://github.com/truecharts/charts/issues/3650))
+
+
+
+
 ## [recyclarr-1.0.0](https://github.com/truecharts/charts/compare/recyclarr-0.0.27...recyclarr-1.0.0) (2022-08-31)
 
 ### Feat
