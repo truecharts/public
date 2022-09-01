@@ -85,26 +85,31 @@ questions:
                       label: "FROM_EMAIL"
                       schema:
                         type: string
+                        required: true
                         default: ""
                     - variable: email_host
                       label: "EMAIL_HOST"
                       schema:
                         type: string
+                        required: true
                         default: ""
                     - variable: email_port
                       label: "EMAIL_PORT"
                       schema:
                         type: int
+                        required: true
                         default: 587
                     - variable: email_host_user
                       label: "EMAIL_HOST_USER"
                       schema:
                         type: string
+                        required: true
                         default: ""
                     - variable: email_host_password
                       label: "EMAIL_HOST_PASSWORD"
                       schema:
                         type: string
+                        required: true
                         private: true
                         default: ""
                     - variable: email_use_tls
