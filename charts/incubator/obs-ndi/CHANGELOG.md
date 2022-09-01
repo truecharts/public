@@ -2,6 +2,15 @@
 
 
 
+## [obs-ndi-0.0.24](https://github.com/truecharts/charts/compare/obs-ndi-0.0.23...obs-ndi-0.0.24) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [obs-ndi-0.0.23](https://github.com/truecharts/charts/compare/obs-ndi-0.0.21...obs-ndi-0.0.23) (2022-08-30)
 
 ### Chore
