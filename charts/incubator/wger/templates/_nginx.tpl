@@ -1,5 +1,5 @@
 {{/* Define the nginx container */}}
-{{- define "inventree.nginx" -}}
+{{- define "wger.nginx" -}}
 image: {{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}
 imagePullPolicy: {{ .Values.nginxImage.pullPolicy }}
 ports:
