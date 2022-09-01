@@ -27,7 +27,7 @@ data:
   {{/* User Defined */}}
   {{/* General */}}
   {{- with .Values.wger.site_url }}
-  SITE_URL: {{ . }}
+  SITE_URL: {{ . | quote }}
   {{- end }}
   {{- with .Values.wger.exercise_cache_ttl }}
   EXERCISE_CACHE_TTL: {{ . | quote }}
