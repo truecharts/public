@@ -44,12 +44,8 @@ data:
   NOCAPTCHA: {{ ternary "True" "False" .Values.wger.captcha.nocaptcha | squote }}
   {{/* Mail */}}
   ENABLE_EMAIL: {{ ternary "True" "False" .Values.wger.mail.enable_email | squote }}
-  {{- with .Values.wger.mail.from_email }}
-  FROM_EMAIL: {{ . }}
-  {{- end }}
-  {{- with .Values.wger.mail.email_host }}
-  EMAIL_HOST: {{ . }}
-  {{- end }}
+  FROM_EMAIL: {{ .Values.wger.mail.from_email | default "noreply@example.com" }}
+  EMAIL_HOST: {{ . | default "smtp.example.com" }}
   {{- if .Values.wger.mail.enable_email }}
   {{- with .Values.wger.mail.email_port }}
   EMAIL_PORT: {{ . | quote }}
