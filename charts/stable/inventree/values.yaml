@@ -56,6 +56,8 @@ persistence:
   inventree-nginx:
     enabled: "true"
     type: "custom"
+    readOnly: true
+    noMount: true
     mountPath: "/etc/nginx/conf.d"
     volumeSpec:
       configMap:
