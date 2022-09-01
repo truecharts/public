@@ -13,7 +13,7 @@ securityContext:
 volumeMounts:
   - name: wger-config
     mountPath: "/etc/nginx/conf.d/default.conf"
-    subPath: nginx.conf
+    subPath: default.conf
     readOnly: true
   - name: media
     mountPath: "/media"
