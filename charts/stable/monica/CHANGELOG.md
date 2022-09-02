@@ -2,6 +2,15 @@
 
 
 
+## [monica-3.0.45](https://github.com/truecharts/charts/compare/monica-3.0.44...monica-3.0.45) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
 ## [monica-3.0.44](https://github.com/truecharts/charts/compare/monica-3.0.42...monica-3.0.44) (2022-08-30)
 
 ### Chore
