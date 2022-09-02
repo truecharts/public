@@ -2,6 +2,15 @@
 
 
 
+## [pasta-0.0.23](https://github.com/truecharts/charts/compare/pasta-0.0.22...pasta-0.0.23) (2022-09-02)
+
+### Fix
+
+- cleanup and fix service ([#3667](https://github.com/truecharts/charts/issues/3667))
+
+
+
+
 ## [pasta-0.0.22](https://github.com/truecharts/charts/compare/pasta-0.0.20...pasta-0.0.22) (2022-08-30)
 
 ### Chore
