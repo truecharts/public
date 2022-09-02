@@ -9,8 +9,8 @@ metadata:
   name: {{ $saName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-  {{- with .Values.addons.vpn.tailscale.annotations }}
   annotations:
+  {{- with .Values.addons.vpn.tailscale.annotations }}
     {{- tpl ( toYaml . ) $ | nindent 4 }}
   {{- end }}
 {{- end -}}

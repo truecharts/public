@@ -19,26 +19,6 @@ securityContext:
     add:
       - NET_ADMIN
 
-rbac:
-  main:
-    enabled: true
-    rules:
-      - apiGroups:
-          - ""
-        resources:
-          - "secrets"
-        verbs:
-          - "create"
-      - apiGroups:
-          - ""
-        resources:
-          - "secrets"
-        resourceNames:
-          - '{{ $secretName }}'
-        verbs:
-          - "get"
-          - "update"
-
 envFrom:
   - secretRef:
       name: {{ $secretName }}
