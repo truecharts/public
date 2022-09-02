@@ -35,7 +35,7 @@ service:
         port: 9200
         targetPort: 9200
 
-initContainers:
+installContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
@@ -45,7 +45,7 @@ initContainers:
       - "/bin/sh"
       - "-c"
       - |
-        /usr/bin/ocis init <<'EOF'
+        /usr/bin/ocis init > /etc/ocis/password <<'EOF'
         yes
         EOF
 
