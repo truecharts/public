@@ -2,6 +2,7 @@
 {{- define "inventree.nginx" -}}
 image: {{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}
 imagePullPolicy: {{ .Values.nginxImage.pullPolicy }}
+command: ["cat", "/etc/nginx/conf.d/default.conf"]
 securityContext:
   runAsUser: 0
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
