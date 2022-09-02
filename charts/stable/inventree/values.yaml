@@ -56,14 +56,12 @@ persistence:
   inventree-nginx:
     enabled: "true"
     type: "custom"
+    subPath: "nginx.conf"
     readOnly: true
     noMount: true
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-inventree-config-nginx'
-        items:
-          - key: nginx.conf
-            path: default.conf
 
 postgresql:
   enabled: true
