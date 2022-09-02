@@ -48,6 +48,8 @@ installContainers:
         /usr/bin/ocis init > /etc/ocis/password <<'EOF'
         yes
         EOF
+      - echo "show password"
+      - cat /etc/ocis/password
 
 persistence:
   data:
