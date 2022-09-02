@@ -2,6 +2,15 @@
 
 
 
+## [wger-1.1.0](https://github.com/truecharts/charts/compare/wger-1.0.0...wger-1.1.0) (2022-09-01)
+
+### Feat
+
+- move to stable ([#3658](https://github.com/truecharts/charts/issues/3658))
+
+
+
+
 ## [wger-1.0.0](https://github.com/truecharts/charts/compare/wger-0.0.54...wger-1.0.0) (2022-09-01)
 
 ### Chore
