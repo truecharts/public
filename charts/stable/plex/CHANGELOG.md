@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.2.6](https://github.com/truecharts/charts/compare/plex-utills-1.0.0...plex-10.2.6) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
 ## [plex-10.2.5](https://github.com/truecharts/charts/compare/plex-10.2.3...plex-10.2.5) (2022-08-30)
 
 ### Chore
