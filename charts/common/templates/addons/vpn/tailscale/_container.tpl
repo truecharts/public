@@ -19,10 +19,6 @@ securityContext:
     add:
       - NET_ADMIN
 
-serviceAccount:
-  main:
-    create: true
-
 rbac:
   main:
     enabled: true

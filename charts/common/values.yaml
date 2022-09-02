@@ -1014,6 +1014,8 @@ addons:
       sock5_server: ""
       extra_args: ""
       daemon_extra_args: ""
+      # -- Annotations for tailscale sidecar
+      annotations: {}
 
     killSwitch: true
     excludedNetworks_IPv4: []
