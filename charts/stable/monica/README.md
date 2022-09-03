@@ -1,6 +1,6 @@
 # monica
 
-![Version: 3.0.45](https://img.shields.io/badge/Version-3.0.45-informational?style=flat-square) ![AppVersion: 3.7.0](https://img.shields.io/badge/AppVersion-3.7.0-informational?style=flat-square)
+![Version: 3.0.46](https://img.shields.io/badge/Version-3.0.46-informational?style=flat-square) ![AppVersion: 3.7.0](https://img.shields.io/badge/AppVersion-3.7.0-informational?style=flat-square)
 
 Monica is a great open source personal relationship management system.
 

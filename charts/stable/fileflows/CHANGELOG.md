@@ -2,6 +2,15 @@
 
 
 
+## [fileflows-2.0.40](https://github.com/truecharts/charts/compare/fileflows-node-0.0.24...fileflows-2.0.40) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [fileflows-2.0.39](https://github.com/truecharts/charts/compare/fileflows-node-0.0.23...fileflows-2.0.39) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [prometheus-4.0.77](https://github.com/truecharts/charts/compare/prometheus-4.0.76...prometheus-4.0.77) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [prometheus-4.0.76](https://github.com/truecharts/charts/compare/prometheus-4.0.75...prometheus-4.0.76) (2022-09-02)
 
 ### Chore

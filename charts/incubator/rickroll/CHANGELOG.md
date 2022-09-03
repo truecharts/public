@@ -2,6 +2,15 @@
 
 
 
+## [rickroll-0.0.29](https://github.com/truecharts/charts/compare/rickroll-0.0.28...rickroll-0.0.29) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [rickroll-0.0.28](https://github.com/truecharts/charts/compare/rickroll-0.0.27...rickroll-0.0.28) (2022-09-02)
 
 ### Chore

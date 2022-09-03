@@ -1,6 +1,6 @@
 # friendica
 
-![Version: 4.0.47](https://img.shields.io/badge/Version-4.0.47-informational?style=flat-square) ![AppVersion: 2022.06](https://img.shields.io/badge/AppVersion-2022.06-informational?style=flat-square)
+![Version: 4.0.48](https://img.shields.io/badge/Version-4.0.48-informational?style=flat-square) ![AppVersion: 2022.06](https://img.shields.io/badge/AppVersion-2022.06-informational?style=flat-square)
 
 Welcome to the free social web
 

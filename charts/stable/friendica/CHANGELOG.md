@@ -2,6 +2,15 @@
 
 
 
+## [friendica-4.0.48](https://github.com/truecharts/charts/compare/friendica-4.0.47...friendica-4.0.48) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [friendica-4.0.47](https://github.com/truecharts/charts/compare/friendica-4.0.46...friendica-4.0.47) (2022-08-30)
 
 ### Chore

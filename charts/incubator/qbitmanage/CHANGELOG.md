@@ -2,6 +2,15 @@
 
 
 
+## [qbitmanage-0.0.25](https://github.com/truecharts/charts/compare/qbitmanage-0.0.24...qbitmanage-0.0.25) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [qbitmanage-0.0.24](https://github.com/truecharts/charts/compare/qbitmanage-0.0.22...qbitmanage-0.0.24) (2022-08-30)
 
 ### Chore

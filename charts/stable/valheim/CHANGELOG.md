@@ -2,6 +2,15 @@
 
 
 
+## [valheim-3.0.33](https://github.com/truecharts/charts/compare/valheim-3.0.32...valheim-3.0.33) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [valheim-3.0.32](https://github.com/truecharts/charts/compare/valheim-3.0.30...valheim-3.0.32) (2022-08-30)
 
 ### Chore

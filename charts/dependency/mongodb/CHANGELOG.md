@@ -2,6 +2,15 @@
 
 
 
+## [mongodb-2.0.7](https://github.com/truecharts/charts/compare/mongodb-2.0.6...mongodb-2.0.7) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 
 ## [mongodb-2.0.5](https://github.com/truecharts/charts/compare/mongodb-2.0.3...mongodb-2.0.5) (2022-08-30)
 

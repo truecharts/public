@@ -1,6 +1,6 @@
 # valheim
 
-![Version: 3.0.32](https://img.shields.io/badge/Version-3.0.32-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 3.0.33](https://img.shields.io/badge/Version-3.0.33-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Valheim dedicated gameserver with automatic update and world backup support
 

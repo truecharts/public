@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.71](https://github.com/truecharts/charts/compare/postgresql-8.0.70...postgresql-8.0.71) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
 ## [cryptpad-0.0.42](https://github.com/truecharts/charts/compare/cryptpad-0.0.41...cryptpad-0.0.42) (2022-08-31)
 
 ### Chore
