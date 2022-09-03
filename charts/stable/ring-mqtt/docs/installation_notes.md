@@ -39,7 +39,7 @@
 
 ```yaml
 shell_command:
-  ring_snap: 'ffmpeg -y -i {{RTSP_URL}} -vframes 1 {{fileDirName}}'
+  ring_snap: "ffmpeg -y -i {{RTSP_URL}} -vframes 1 {{fileDirName}}"
 ```
 
 - Create a new dir called `www` in `/config/`.
