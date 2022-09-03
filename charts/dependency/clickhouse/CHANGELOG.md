@@ -2,6 +2,15 @@
 
 
 
+## [clickhouse-1.0.22](https://github.com/truecharts/charts/compare/clickhouse-1.0.21...clickhouse-1.0.22) (2022-09-03)
+
+### Chore
+
+- update helm chart common to v10.5.7 ([#3676](https://github.com/truecharts/charts/issues/3676))
+
+
+
+
 
 ## [memcached-3.0.68](https://github.com/truecharts/charts/compare/memcached-3.0.66...memcached-3.0.68) (2022-08-30)
 

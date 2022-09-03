@@ -2,6 +2,15 @@
 
 
 
+## [ring-mqtt-1.0.0](https://github.com/truecharts/charts/compare/ring-mqtt-0.0.23...ring-mqtt-1.0.0) (2022-09-03)
+
+### Fix
+
+- move to stable + docs ([#3675](https://github.com/truecharts/charts/issues/3675))
+
+
+
+
 ## [ring-mqtt-0.0.23](https://github.com/truecharts/charts/compare/ring-mqtt-0.0.22...ring-mqtt-0.0.23) (2022-09-01)
 
 ### Chore
