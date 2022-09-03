@@ -47,7 +47,6 @@ workerContainer:
 authentik:
   credentials:
     password: "supersecret"
-    token: "supersecretapitoken"
   general:
     disable_update_check: false
     disable_startup_analytics: true
@@ -88,12 +87,14 @@ outposts:
     enabled: false
     insecure: false
     host: ""
+    overrideToken: false
     token: ""
     metrics: false
   proxy:
     enabled: false
     insecure: false
     host: ""
+    overrideToken: false
     token: ""
     metrics: false
 

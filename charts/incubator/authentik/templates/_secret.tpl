@@ -5,7 +5,7 @@
 {{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
 {{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
 {{- $proxySecretName := printf "%s-proxy-secret" (include "tc.common.names.fullname" .) }}
-
+{{- $token := "" }}
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
 apiVersion: v1
@@ -19,18 +19,18 @@ data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
   AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
+  {{ $token := index .data "AUTHENTIK_BOOTSTRAP_TOKEN" }}
   {{- else }}
   AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
+  {{ $token := randAlphaNum 32 | b64enc }}
   {{- end }}
+  AUTHENTIK_BOOTSTRAP_TOKEN: {{ $token }}
   {{/* Dependencies */}}
   AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
   AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{/* Credentials */}}
   {{- with .Values.authentik.credentials.password }}
   AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . | b64enc }}
-  {{- end }}
-  {{- with .Values.authentik.credentials.token }}
-  AUTHENTIK_BOOTSTRAP_TOKEN: {{ . | b64enc }}
   {{- end }}
   {{/* Mail */}}
   {{- with .Values.authentik.mail.host }}
@@ -79,9 +79,13 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+{{- if .Values.outposts.ldap.overrideToken -}}
   {{- with .Values.outposts.ldap.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
+{{- else }}
+  AUTHENTIK_TOKEN: {{ $token }}
+{{- end }}
 ---
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
@@ -92,7 +96,11 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+{{- if .Values.outposts.proxy.overrideToken -}}
   {{- with .Values.outposts.proxy.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
+{{- else }}
+  AUTHENTIK_TOKEN: {{ $token }}
+{{- end }}
 {{- end }}
