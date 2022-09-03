@@ -56,8 +56,14 @@ persistence:
   inventree-nginx:
     enabled: true
     noMount: true
-    type: configMap
-    objectName: '{{ include "tc.common.names.fullname" . }}-inventree-config-nginx'
+    type: custom
+    mountPath: "/etc/nginx/conf.d"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-inventree-config-nginx'
+        items:
+          - key: nginx.conf
+            path: default.conf
 
 postgresql:
   enabled: true

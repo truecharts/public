@@ -66,8 +66,14 @@ persistence:
   wger-config:
     enabled: true
     noMount: true
-    type: configMap
-    objectName: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
+    type: custom
+    mountPath: "/etc/nginx/conf.d"
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
+        items:
+          - key: nginx.conf
+            path: default.conf
 
 postgresql:
   enabled: true
