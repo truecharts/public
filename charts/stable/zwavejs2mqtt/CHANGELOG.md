@@ -2,6 +2,15 @@
 
 
 
+## [zwavejs2mqtt-11.0.36](https://github.com/truecharts/charts/compare/zwavejs2mqtt-11.0.35...zwavejs2mqtt-11.0.36) (2022-09-03)
+
+### Chore
+
+- update container image tccr.io/truecharts/zwavejs2mqtt to v7.0.0 ([#3670](https://github.com/truecharts/charts/issues/3670))
+
+
+
+
 ## [zwavejs2mqtt-11.0.35](https://github.com/truecharts/charts/compare/zwavejs2mqtt-11.0.33...zwavejs2mqtt-11.0.35) (2022-08-30)
 
 ### Chore
