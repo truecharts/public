@@ -55,11 +55,11 @@ startupProbe:
 enabled: true
 type: ClusterIP
 ports:
-  ldap-389:
+  ldap:
     enabled: true
     port: 389
     targetPort: 3389
-  ldap-636:
+  ldaps:
     enabled: true
     port: 636
     targetPort: 6636
