@@ -2,6 +2,24 @@
 
 
 
+## [filestash-0.0.32](https://github.com/truecharts/charts/compare/filestash-0.0.31...filestash-0.0.32) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
+## [filestash-0.0.31](https://github.com/truecharts/charts/compare/filestash-0.0.30...filestash-0.0.31) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [filestash-0.0.30](https://github.com/truecharts/charts/compare/filestash-0.0.29...filestash-0.0.30) (2022-08-31)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [jackett-11.0.76](https://github.com/truecharts/charts/compare/jackett-11.0.75...jackett-11.0.76) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
 ## [jackett-11.0.75](https://github.com/truecharts/charts/compare/jackett-11.0.74...jackett-11.0.75) (2022-08-31)
 
 ### Chore

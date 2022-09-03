@@ -1,21 +1,21 @@
-# recyclarr
+# wger
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.1](https://img.shields.io/badge/AppVersion-2.4.1-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
+Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [recyclarr](https://truecharts.org/docs/charts/incubator/recyclarr)
+For more information, please click here: [wger](https://truecharts.org/docs/charts/stable/wger)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/recyclarr>
-* <https://github.com/recyclarr/recyclarr>
-* <https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/wger>
+* <https://github.com/wger-project/wger>
+* <https://github.com/wger-project/docker>
 
 ## Requirements
 
@@ -25,6 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
+| https://charts.truecharts.org/ | postgresql | 8.0.69 |
+| https://charts.truecharts.org | redis | 3.0.67 |
 | https://library-charts.truecharts.org | common | 10.5.6 |
 
 ## Installing the Chart
@@ -35,12 +37,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `recyclarr`
+To install the chart with the release name `wger`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install recyclarr TrueCharts/recyclarr
+helm install wger TrueCharts/wger
 ```
 
 ## Uninstall
@@ -53,10 +55,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `recyclarr` deployment
+To uninstall the `wger` deployment
 
 ```console
-helm uninstall recyclarr
+helm uninstall wger
 ```
 
 ## Configuration
@@ -73,9 +75,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install recyclarr \
+helm install wger \
   --set env.TZ="America/New York" \
-    TrueCharts/recyclarr
+    TrueCharts/wger
 ```
 
 #### Configure using a yaml file
@@ -83,7 +85,7 @@ helm install recyclarr \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install recyclarr TrueCharts/recyclarr -f values.yaml
+helm install wger TrueCharts/wger -f values.yaml
 ```
 
 #### Connecting to other charts

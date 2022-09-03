@@ -2,6 +2,15 @@
 
 
 
+## [photoprism-10.0.41](https://github.com/truecharts/charts/compare/photoprism-10.0.40...photoprism-10.0.41) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
 ## [photoprism-10.0.40](https://github.com/truecharts/charts/compare/photoprism-10.0.38...photoprism-10.0.40) (2022-08-30)
 
 ### Chore

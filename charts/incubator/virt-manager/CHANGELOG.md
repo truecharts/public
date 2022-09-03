@@ -2,6 +2,24 @@
 
 
 
+## [virt-manager-0.0.46](https://github.com/truecharts/charts/compare/virt-manager-0.0.45...virt-manager-0.0.46) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
+## [virt-manager-0.0.45](https://github.com/truecharts/charts/compare/virt-manager-0.0.44...virt-manager-0.0.45) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
 ## [virt-manager-0.0.44](https://github.com/truecharts/charts/compare/virt-manager-0.0.43...virt-manager-0.0.44) (2022-08-31)
 
 ### Chore

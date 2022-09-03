@@ -1,21 +1,21 @@
-# fileflows-node
+# recyclarr
 
-![Version: 0.0.24](https://img.shields.io/badge/Version-0.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.1](https://img.shields.io/badge/AppVersion-2.4.1-informational?style=flat-square)
 
-Additinal processing node for FileFlows.  See http://fileflows.com for more information
+A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [fileflows-node](https://truecharts.org/docs/charts/incubator/fileflows-node)
+For more information, please click here: [recyclarr](https://truecharts.org/docs/charts/stable/recyclarr)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/fileflows-node>
-* <https://fileflows.com/>
-* <https://hub.docker.com/r/revenz/fileflows/>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/recyclarr>
+* <https://github.com/recyclarr/recyclarr>
+* <https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr>
 
 ## Requirements
 
@@ -35,12 +35,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `fileflows-node`
+To install the chart with the release name `recyclarr`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install fileflows-node TrueCharts/fileflows-node
+helm install recyclarr TrueCharts/recyclarr
 ```
 
 ## Uninstall
@@ -53,10 +53,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `fileflows-node` deployment
+To uninstall the `recyclarr` deployment
 
 ```console
-helm uninstall fileflows-node
+helm uninstall recyclarr
 ```
 
 ## Configuration
@@ -73,9 +73,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install fileflows-node \
+helm install recyclarr \
   --set env.TZ="America/New York" \
-    TrueCharts/fileflows-node
+    TrueCharts/recyclarr
 ```
 
 #### Configure using a yaml file
@@ -83,7 +83,7 @@ helm install fileflows-node \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install fileflows-node TrueCharts/fileflows-node -f values.yaml
+helm install recyclarr TrueCharts/recyclarr -f values.yaml
 ```
 
 #### Connecting to other charts

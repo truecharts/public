@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "6.2.1"
+appVersion: "6.2.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/zabbix-server
   - https://hub.docker.com/r/zabbix/zabbix-server-pgsql
   - https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql
-version: 2.0.38
+version: 2.0.39
 annotations:
   truecharts.org/catagories: |
     - utilities
