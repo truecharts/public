@@ -8,6 +8,11 @@ geoipImage:
   tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
   pullPolicy: IfNotPresent
 
+ldapImage:
+  repository: tccr.io/truecharts/authentik-ldap
+  tag: 2022.8.2@sha256:53c681184a447add074fda306acd58e69e48a6189dc5046de27769f1dceac835
+  pullPolicy: IfNotPresent
+
 extraArgs: ["server"]
 
 podSecurityContext:
@@ -21,9 +26,6 @@ authentik:
   credentials:
     password: "supersecret"
     token: "supersecretapitoken"
-  outposts:
-    container_image_base: tccr.io/truecharts/authentik-%(type)s:%(version)s
-    discover: true
   general:
     disable_update_check: false
     disable_startup_analytics: true
@@ -71,74 +73,13 @@ geoip:
   preserve_file_times: false
   verbose: false
 
-serviceAccount:
-  main:
-    enabled: true
-
-rbac:
-  main:
-    enabled: true
-    rules:
-      - apiGroups:
-          - ""
-        resources:
-          - secrets
-          - services
-          - configmaps
-        verbs:
-          - get
-          - create
-          - delete
-          - list
-          - patch
-      - apiGroups:
-          - extensions
-          - apps
-        resources:
-          - deployments
-        verbs:
-          - get
-          - create
-          - delete
-          - list
-          - patch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses
-        verbs:
-          - get
-          - create
-          - delete
-          - list
-          - patch
-      - apiGroups:
-          - traefik.containo.us
-        resources:
-          - middlewares
-        verbs:
-          - get
-          - create
-          - delete
-          - list
-          - patch
-      - apiGroups:
-          - monitoring.coreos.com
-        resources:
-          - servicemonitors
-        verbs:
-          - get
-          - create
-          - delete
-          - list
-          - patch
-      - apiGroups:
-          - apiextensions.k8s.io
-        resources:
-          - customresourcedefinitions
-        verbs:
-          - list
+outposts:
+  ldap:
+    enabled: false
+    insecure: false
+    host: ""
+    token: "test"
+    metrics: true
 
 envFrom:
   - secretRef:
@@ -195,6 +136,22 @@ service:
         protocol: HTTP
         port: 10231
         targetPort: 9301
+  ldap:
+    enabled: true
+    ports:
+      ldap1:
+        enabled: true
+        port: 389
+        targetPort: 3389
+      ldap2:
+        enabled: true
+        port: 636
+        targetPort: 6636
+      ldap-metrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9300
 
 persistence:
   media:
