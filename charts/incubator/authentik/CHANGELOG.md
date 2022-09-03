@@ -2,6 +2,15 @@
 
 
 
+## [authentik-4.0.0](https://github.com/truecharts/charts/compare/authentik-3.0.16...authentik-4.0.0) (2022-09-03)
+
+### Feat
+
+- BREAKING CHANGE move to k8s integration instead of manual ([#3673](https://github.com/truecharts/charts/issues/3673))
+
+
+
+
 ## [authentik-3.0.16](https://github.com/truecharts/charts/compare/authentik-3.0.15...authentik-3.0.16) (2022-09-01)
 
 ### Fix
