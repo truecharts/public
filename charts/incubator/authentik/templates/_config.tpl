@@ -69,7 +69,7 @@ data:
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
   {{/* Metrics */}}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote | default "9301"}}
 
 ---
 
@@ -84,7 +84,9 @@ data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote | default "true" }}
   AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default "http://localhost:9000" }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.ldap.metricsInternalPort }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.ldap.metricsInternalPort | quote | default "9302" }}
+  AUTHENTIK_LISTEN__LDAPS: {{ .Values.outposts.ldap.ldapsInternalPort | quote | default "6636" }}
+  AUTHENTIK_LISTEN__LDAP: {{ .Values.outposts.ldap.ldapInternalPort | quote | default "3389" }}
 
 ---
 
@@ -99,7 +101,9 @@ data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote | default "true" }}
   AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default "http://localhost:9000" }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.proxy.metricsInternalPort }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.proxy.metricsInternalPort | quote | default "9303" }}
+  AUTHENTIK_LISTEN__HTTPS: {{ .Values.outposts.proxy.httpsInternalPort | quote | default "9444" }}
+  AUTHENTIK_LISTEN__HTTP: {{ .Values.outposts.proxy.httpInternalPort | quote | default "9001" }}
 
 ---
 

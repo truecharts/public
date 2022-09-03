@@ -13,10 +13,10 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
 ports:
-  - containerPort: 9000
-  - containerPort: 9443
+  - containerPort: {{ .Values.outposts.proxy.httpsInternalPort }}
+  - containerPort: {{ .Values.outposts.proxy.httpInternalPort }}
 {{- if .Values.outposts.proxy.metrics }}
-  - containerPort: 9300
+  - containerPort: {{ .Values.outposts.proxy.metricsInternalPort }}
     name: proxy-metrics
 {{- end }}
 readinessProbe:
@@ -59,17 +59,17 @@ ports:
     enabled: true
     port: 10233
     protocol: HTTPS
-    targetPort: 9443
+    targetPort: {{ .Values.outposts.proxy.httpsInternalPort }}
   proxy-http:
     enabled: true
     port: 10234
     protocl: HTTP
-    targetPort: 9000
+    targetPort: {{ .Values.outposts.proxy.httpInternalPort }}
 {{- if .Values.outposts.ldap.metrics }}
   proxy-metrics:
     enabled: true
     port: 10235
     protocol: HTTP
-    targetPort: 9303
+    targetPort: {{ .Values.outposts.proxy.metricsInternalPort }}
 {{- end }}
 {{- end -}}

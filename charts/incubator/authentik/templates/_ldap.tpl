@@ -13,10 +13,10 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
 ports:
-  - containerPort: 3389
-  - containerPort: 6636
+  - containerPort: {{ .Values.outposts.ldap.ldapsInternalPort }}
+  - containerPort: {{ .Values.outposts.ldap.ldapInternalPort }}
 {{- if .Values.outposts.ldap.metrics }}
-  - containerPort: 9300
+  - containerPort: {{ .Values.outposts.ldap.metricsInternalPort }}
     name: ldap-metrics
 {{- end }}
 readinessProbe:
@@ -58,16 +58,16 @@ ports:
   ldaps:
     enabled: true
     port: 636
-    targetPort: 6636
+    targetPort: {{ .Values.outposts.ldap.ldapsInternalPort }}
   ldap:
     enabled: true
     port: 389
-    targetPort: 3389
+    targetPort: {{ .Values.outposts.ldap.ldapInternalPort }}
 {{- if .Values.outposts.ldap.metrics }}
   ldap-metrics:
     enabled: true
     port: 10232
     protocol: HTTP
-    targetPort: 9302
+    targetPort: {{ .Values.outposts.ldap.metricsInternalPort }}
 {{- end }}
 {{- end -}}
