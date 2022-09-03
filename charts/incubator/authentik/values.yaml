@@ -89,6 +89,7 @@ outposts:
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
     metrics: false
+    metricsInternalPort: 9302
   proxy:
     enabled: true
     # -- Host Browser by default is set to the first ingress host you set
@@ -100,6 +101,7 @@ outposts:
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
     metrics: false
+    metricsInternalPort: 9303
 
 envFrom:
   - secretRef:
@@ -171,23 +173,25 @@ service:
         enabled: true
         port: 10232
         protocol: HTTP
-        targetPort: 9300
+        targetPort: 9302
   proxy:
     enabled: true
     ports:
       proxy1:
         enabled: true
         port: 10233
-        targetPort: 9000
+        protocol: HTTPS
+        targetPort: 9443
       proxy2:
         enabled: true
         port: 10234
-        targetPort: 9443
+        protocl: HTTP
+        targetPort: 9000
       proxy-metrics:
         enabled: true
         port: 10235
         protocol: HTTP
-        targetPort: 9300
+        targetPort: 9303
 
 persistence:
   media:

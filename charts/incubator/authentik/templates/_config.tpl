@@ -84,6 +84,7 @@ data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote | default "true" }}
   AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default "http://localhost:9000" }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.ldap.metricsInternalPort }}
 
 ---
 
@@ -98,6 +99,7 @@ data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote | default "true" }}
   AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default "http://localhost:9000" }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.proxy.metricsInternalPort }}
 
 ---
 
