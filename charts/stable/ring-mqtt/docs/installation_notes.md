@@ -6,16 +6,14 @@
 
 - I used the chart called `mosquitto` install it as normal and set `Authentication` to **true**. here's the [auth guide](https://truecharts.org/docs/charts/stable/mosquitto/setup-guide).
 
-____
-
 ## Ring-MQTT setup
 
 - `RINGTOKEN` can be left blank as you can auth through the temporarily web interface which is just for the authorization of your ring account.
 - Go to `http://SCALE_IP:55123`.
-- set `MQTTHOST` to **mosquitto.ix-mosquitto.svc.cluster.local**.
-- set `MQTTPORT` to **1883**.
-- set `MQTTUSER` to **user_name** from the authentication setup.
-- set `MQTTPASSWORD` to **user_pass** from the authentication setup.
+- Set `MQTTHOST` to **mosquitto.ix-mosquitto.svc.cluster.local**.
+- Set `MQTTPORT` to **1883**.
+- Set `MQTTUSER` to **user_name** from the authentication setup.
+- Set `MQTTPASSWORD` to **user_pass** from the authentication setup.
 - Set `ENABLECAMERAS` to **true** to enable cameras.
 - Set `SNAPSHOTMODE` to **Auto** to optimize based on high vs low-power Ring devices.
 - Set `ENABLEMODES` to **false**.
@@ -24,29 +22,27 @@ ____
 - Leave `DISARMCODE` blank.
 - Leave `RINGLOCATIONIDS` blank.
 
-____
-
 ## Home-assistant setup
 
 - Install the chart `home-assistant` if you have not done so.
 
 - In home-assistant go to settings -> devices & integrations -> click add integration -> search for `mqtt`.
 
-- set `broker` to `mosquitto.ix-mosquitto.svc.cluster.local`.
-- set `port` to `1883`.
-- set `username` and `password` to the MQTT auth user and pass.
-- set the `MQTT options` as needed.
+- Set `broker` to `mosquitto.ix-mosquitto.svc.cluster.local`.
+- Set `port` to `1883`.
+- Set `username` and `password` to the MQTT auth user and pass.
+- Set the `MQTT options` as needed.
 
 - Shell into home-assistant, use truetool.sh or other means to modify the file `/config/configuration.yaml`.
 
-- add the following code.
+- Add the following code.
 
 ```yaml
 shell_command:
    ring_snap: 'ffmpeg -y -i {{RTSP_URL}} -vframes 1 {{fileDirName}}'
 ```
 
-- create a new dir called `www` in `/config/`.
+- Create a new dir called `www` in `/config/`.
 - Validate home-assistant configuration in `developer tools` and if passes; click on restart to use the service `ring_snap` in automations.
 
 - Here's a sample on how to create a `live snapshot` automation.
@@ -59,6 +55,6 @@ data:
   fileDirName: "/config/www/snapshot.jpg"
 ```
 
-- note: You **must** save the file in `/config/www/` or set the option to allow other dirs for home-assistant to be used.
+- Note: You **must** save the file in `/config/www/` or set the option to allow other dirs for home-assistant to be used.
 
 - Now you can create a live snapshot automation in `home-assistant`.
