@@ -4,6 +4,7 @@
 {{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.common.names.fullname" .) }}
 {{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
 {{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
+{{- $proxySecretName := printf "%s-proxy-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
@@ -45,19 +46,6 @@ data:
   AUTHENTIK_EMAIL__FROM: {{ . | b64enc }}
   {{- end }}
 ---
-{{/* This secrets are loaded on ldap container */}}
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $ldapSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  {{- with .Values.outposts.ldap.token }}
-  AUTHENTIK_TOKEN: {{ . | b64enc }}
-  {{- end }}
----
 {{/* This secrets are loaded on geoip container */}}
 apiVersion: v1
 kind: Secret
@@ -80,5 +68,31 @@ data:
   {{- end }}
   {{- with .Values.geoip.proxy_user_pass }}
   GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . | b64enc }}
+  {{- end }}
+---
+{{/* This secrets are loaded on ldap container */}}
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $ldapSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  {{- with .Values.outposts.ldap.token }}
+  AUTHENTIK_TOKEN: {{ . | b64enc }}
+  {{- end }}
+---
+{{/* This secrets are loaded on ldap container */}}
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $proxySecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  {{- with .Values.outposts.proxy.token }}
+  AUTHENTIK_TOKEN: {{ . | b64enc }}
   {{- end }}
 {{- end }}

@@ -29,5 +29,13 @@
 {{/* - end - */}}
 {{- end -}}
 
+{{- if .Values.outposts.proxy.enabled -}}
+{{- $_ := set .Values.additionalContainers "proxy" (include "authentik.proxy" . | fromYaml) -}}
+{{/* - if .Values.outposts.proxy.metrics - */}}
+{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
+{{/* We can't define multiple ports/endpoints with annotations */}}
+{{/* - end - */}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

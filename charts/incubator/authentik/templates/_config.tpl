@@ -4,6 +4,7 @@
 {{- $authentikConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
+{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
@@ -61,8 +62,6 @@ data:
   {{- end }}
   {{/* Metrics */}}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
-  {{/* Outposts */}}
-  AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST: "true"
 ---
 {{/* This configmap is loaded on ldap container */}}
 apiVersion: v1
@@ -74,6 +73,19 @@ metadata:
 data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote }}
   {{- with .Values.outposts.ldap.host }}
+  AUTHENTIK_HOST: {{ . }}
+  {{- end }}
+---
+{{/* This configmap is loaded on ldap container */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $proxyConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote }}
+  {{- with .Values.outposts.proxy.host }}
   AUTHENTIK_HOST: {{ . }}
   {{- end }}
 ---

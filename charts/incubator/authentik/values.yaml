@@ -13,11 +13,33 @@ ldapImage:
   tag: 2022.8.2@sha256:53c681184a447add074fda306acd58e69e48a6189dc5046de27769f1dceac835
   pullPolicy: IfNotPresent
 
+proxyImage:
+  repository: tccr.io/truecharts/authentik-proxy
+  tag: 2022.8.2@sha256:ecc83a3c15e3c093e6c8002f534b16769e2e1e953cd508071c7920a4d8bd7c3d
+  pullPolicy: IfNotPresent
+
+# radiusImage:
+#   repository: tccr.io/truecharts/authentik-radius
+#   tag:
+#   pullPolicy: IfNotPresent
+
 extraArgs: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
+
+geoip:
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
 
 workerContainer:
   enabled: true
@@ -61,25 +83,19 @@ authentik:
     # This sets internal Authentik metrics port to 9301
     internalPort: 9301
 
-geoip:
-  enabled: false
-  account_id: ""
-  license_key: ""
-  proxy: ""
-  proxy_user_pass: ""
-  edition_ids: "GeoLite2-City"
-  frequency: 8
-  host_server: "updates.maxmind.com"
-  preserve_file_times: false
-  verbose: false
-
 outposts:
   ldap:
     enabled: false
     insecure: false
     host: ""
-    token: "test"
-    metrics: true
+    token: ""
+    metrics: false
+  proxy:
+    enabled: false
+    insecure: false
+    host: ""
+    token: ""
+    metrics: false
 
 envFrom:
   - secretRef:
@@ -150,6 +166,22 @@ service:
       ldap-metrics:
         enabled: true
         port: 10232
+        protocol: HTTP
+        targetPort: 9300
+  proxy:
+    enabled: true
+    ports:
+      proxy1:
+        enabled: true
+        port: 10233
+        targetPort: 9000
+      proxy2:
+        enabled: true
+        port: 10234
+        targetPort: 9443
+      proxy-metrics:
+        enabled: true
+        port: 10235
         protocol: HTTP
         targetPort: 9300
 
