@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-1.0.7](https://github.com/truecharts/charts/compare/tailscale-1.0.6...tailscale-1.0.7) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
 ## [tailscale-1.0.6](https://github.com/truecharts/charts/compare/tailscale-1.0.5...tailscale-1.0.6) (2022-09-01)
 
 ### Chore
