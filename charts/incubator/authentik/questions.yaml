@@ -247,19 +247,26 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: insecure
-                      label: Insecure
-                      description: Check only if you accessing Authentik in an unsecure way
+                    - variable: overrideHost
+                      label: Override Host
                       schema:
                         type: boolean
                         default: false
-                    - variable: host
-                      label: Authentik Host
-                      description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: host
+                            label: Authentik Host
+                            description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: insecure
+                            label: Insecure
+                            description: Check only if you accessing Authentik in an unsecure way
+                            schema:
+                              type: boolean
+                              default: false
                     - variable: overrideToken
                       label: Override Token
                       description: Overrides the random generated token to provide your own
@@ -274,6 +281,21 @@ questions:
                           schema:
                             type: string
                             private: true
+                            required: true
+                            default: ""
+                    - variable: overrideBrowserHost
+                      label: Override Host Browser
+                      description: Overrides the Browser Host, by default the first ingress host is used
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                        - variable: host_browser
+                          label: Host Browser
+                          description: URL to use in the browser, when it differs from << host >>
+                          schema:
+                            type: string
                             required: true
                             default: ""
                     - variable: metrics
@@ -295,19 +317,26 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: insecure
-                      label: Insecure
-                      description: Check only if you accessing Authentik in an unsecure way
+                    - variable: overrideHost
+                      label: Override Host
                       schema:
                         type: boolean
                         default: false
-                    - variable: host
-                      label: Authentik Host
-                      description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: host
+                            label: Authentik Host
+                            description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: insecure
+                            label: Insecure
+                            description: Check only if you accessing Authentik in an unsecure way
+                            schema:
+                              type: boolean
+                              default: false
                     - variable: overrideToken
                       label: Override Token
                       description: Overrides the random generated token to provide your own
@@ -322,6 +351,21 @@ questions:
                           schema:
                             type: string
                             private: true
+                            required: true
+                            default: ""
+                    - variable: overrideBrowserHost
+                      label: Override Host Browser
+                      description: Overrides the Browser Host, by default the first ingress host is used
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                        - variable: host_browser
+                          label: Host Browser
+                          description: URL to use in the browser, when it differs from << host >>
+                          schema:
+                            type: string
                             required: true
                             default: ""
                     - variable: metrics

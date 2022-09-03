@@ -5,6 +5,13 @@
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
 {{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
+{{ $host := "" }}
+{{- if .Values.ingress.main.enabled }}
+  {{ $first := (first .Values.ingress.main.hosts) }}
+  {{- if $first }}
+    {{ $host = printf "https://%s" $first.host }}
+  {{- end }}
+{{- end }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
@@ -71,10 +78,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote }}
-  {{- with .Values.outposts.ldap.host }}
-  AUTHENTIK_HOST: {{ . }}
-  {{- end }}
+  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote | default "true" }}
+  AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default "http://localhost:9000" }}
+  AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
 ---
 {{/* This configmap is loaded on ldap container */}}
 apiVersion: v1
@@ -84,10 +90,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote }}
-  {{- with .Values.outposts.proxy.host }}
-  AUTHENTIK_HOST: {{ . }}
-  {{- end }}
+  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote | default "true" }}
+  AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default "http://localhost:9000" }}
+  AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
 ---
 {{/* This configmap is loaded on geoip container */}}
 apiVersion: v1

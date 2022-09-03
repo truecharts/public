@@ -5,7 +5,8 @@
 {{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
 {{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
 {{- $proxySecretName := printf "%s-proxy-secret" (include "tc.common.names.fullname" .) }}
-{{- $token := "" }}
+{{- $token := randAlphaNum 32 | b64enc }}
+
 ---
 {{/* This secrets are loaded on both main authentik container and worker */}}
 apiVersion: v1
@@ -19,10 +20,9 @@ data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
   AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
-  {{ $token := index .data "AUTHENTIK_BOOTSTRAP_TOKEN" }}
+  {{ $token = index .data "AUTHENTIK_BOOTSTRAP_TOKEN" }}
   {{- else }}
   AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
-  {{ $token := randAlphaNum 32 | b64enc }}
   {{- end }}
   AUTHENTIK_BOOTSTRAP_TOKEN: {{ $token }}
   {{/* Dependencies */}}
@@ -79,13 +79,11 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-{{- if .Values.outposts.ldap.overrideToken -}}
   {{- with .Values.outposts.ldap.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
-  {{- end }}
-{{- else }}
+  {{- else }}
   AUTHENTIK_TOKEN: {{ $token }}
-{{- end }}
+  {{- end }}
 ---
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
@@ -96,11 +94,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-{{- if .Values.outposts.proxy.overrideToken -}}
   {{- with .Values.outposts.proxy.token }}
   AUTHENTIK_TOKEN: {{ . | b64enc }}
-  {{- end }}
-{{- else }}
+  {{- else }}
   AUTHENTIK_TOKEN: {{ $token }}
-{{- end }}
+  {{- end }}
 {{- end }}
