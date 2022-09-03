@@ -2,7 +2,6 @@
 {{- define "wger.nginx" -}}
 image: {{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}
 imagePullPolicy: {{ .Values.nginxImage.pullPolicy }}
-command: ["cat", "/etc/nginx/conf.d/default.conf"]
 ports:
   - containerPort: {{ .Values.service.main.ports.main.port }}
     name: main
