@@ -235,54 +235,6 @@ questions:
                 schema:
                   type: string
                   default: "null"
-  - variable: outposts
-    group: "Container Configuration"
-    label: "Outpost Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ldap
-          label: "LDAP"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable LDAP outpost"
-                description: "Enable only AFTER you created an LDAP Provider and an API Token"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: insecure
-                      label: "Insecure"
-                      description: "Check only if you accessing Authentik in an unsecure way"
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: host
-                      label: "Authentik Host"
-                      description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: token
-                      label: "API Token"
-                      description: "Generated in the Authentik GUI > Directory > Token & App Passwords"
-                      schema:
-                        type: string
-                        private: true
-                        required: true
-                        default: ""
-                    - variable: metrics
-                      label: "Metrics Endpoint"
-                      description: "Enables metric endpoint in LDAP Outpost"
-                      schema:
-                        type: boolean
-                        default: false
   - variable: geoip
     group: "Container Configuration"
     label: "GeoIP Configuration"

@@ -3,7 +3,6 @@
 
 {{- $authentikConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
-{{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}
@@ -61,19 +60,9 @@ data:
   {{- end }}
   {{/* Metrics */}}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
----
-{{/* This configmap is loaded on ldap container */}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $ldapConfigName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote }}
-  {{- with .Values.outposts.ldap.host }}
-  AUTHENTIK_HOST: {{ . }}
-  {{- end }}
+  {{/* Metrics */}}
+  AUTHENTIK_OUTPOSTS__CONTAINER_IMAGE_BASE: {{ .Values.authentik.outposts.container_image_base | quote }}
+  AUTHENTIK_OUTPOSTS__DISCOVER: {{ .Values.authentik.outposts.discover | quote }}
 ---
 {{/* This configmap is loaded on geoip container */}}
 apiVersion: v1
