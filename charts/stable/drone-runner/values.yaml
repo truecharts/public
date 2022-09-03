@@ -18,6 +18,10 @@ service:
         protocol: HTTP
         targetPort: 3000
 
+serviceAccount:
+  main:
+    enabled: true
+
 rbac:
   main:
     enabled: true

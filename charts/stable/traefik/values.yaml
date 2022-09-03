@@ -313,7 +313,7 @@ rbac:
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 # -- SCALE Middleware Handlers
 middlewares:
