@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.4](https://github.com/truecharts/charts/compare/traefik-13.3.3...traefik-13.3.4) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
 ## [traefik-13.3.3](https://github.com/truecharts/charts/compare/traefik-13.3.1...traefik-13.3.3) (2022-08-30)
 
 ### Chore

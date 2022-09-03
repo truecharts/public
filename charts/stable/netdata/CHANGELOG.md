@@ -2,6 +2,15 @@
 
 
 
+## [netdata-2.0.35](https://github.com/truecharts/charts/compare/netdata-2.0.34...netdata-2.0.35) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
 ## [netdata-2.0.34](https://github.com/truecharts/charts/compare/netdata-2.0.32...netdata-2.0.34) (2022-08-30)
 
 ### Chore
