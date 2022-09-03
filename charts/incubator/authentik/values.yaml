@@ -83,14 +83,18 @@ outposts:
     enabled: false
     insecure: false
     host: ""
+    # -- Set overrideToken to true, for the token to have effect
     overrideToken: false
+    # -- Token is only needed if you accidentally deleted the token within the UI
     token: ""
     metrics: false
   proxy:
     enabled: false
     insecure: false
     host: ""
+    # -- Set overrideToken to true, for the token to have effect
     overrideToken: false
+    # -- Token is only needed if you accidentally deleted the token within the UI
     token: ""
     metrics: false
 
