@@ -61,6 +61,8 @@ data:
   {{- end }}
   {{/* Metrics */}}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
+  {{/* Outposts */}}
+  AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST: "true"
 ---
 {{/* This configmap is loaded on ldap container */}}
 apiVersion: v1
