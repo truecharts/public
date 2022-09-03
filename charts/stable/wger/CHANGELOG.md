@@ -2,6 +2,15 @@
 
 
 
+## [wger-1.1.1](https://github.com/truecharts/charts/compare/wger-1.1.0...wger-1.1.1) (2022-09-03)
+
+### Fix
+
+- update nginx.conf mount method ([#3656](https://github.com/truecharts/charts/issues/3656))
+
+
+
+
 ## [wger-1.1.0](https://github.com/truecharts/charts/compare/wger-1.0.0...wger-1.1.0) (2022-09-01)
 
 ### Feat

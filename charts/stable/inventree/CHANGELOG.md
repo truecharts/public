@@ -2,6 +2,15 @@
 
 
 
+## [inventree-4.0.7](https://github.com/truecharts/charts/compare/inventree-4.0.6...inventree-4.0.7) (2022-09-03)
+
+### Fix
+
+- update nginx.conf mount method ([#3656](https://github.com/truecharts/charts/issues/3656))
+
+
+
+
 ## [inventree-4.0.6](https://github.com/truecharts/charts/compare/inventree-4.0.4...inventree-4.0.6) (2022-08-30)
 
 ### Chore
