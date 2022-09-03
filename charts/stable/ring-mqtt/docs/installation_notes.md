@@ -39,7 +39,7 @@
 
 ```yaml
 shell_command:
-   ring_snap: 'ffmpeg -y -i {{RTSP_URL}} -vframes 1 {{fileDirName}}'
+  ring_snap: 'ffmpeg -y -i {{RTSP_URL}} -vframes 1 {{fileDirName}}'
 ```
 
 - Create a new dir called `www` in `/config/`.
@@ -50,7 +50,7 @@ shell_command:
 
 ```yaml
 service: shell_command.ring_snap
-data: 
+data:
   RTSP_URL: "{{ states.sensor.front_door_info.attributes.stream_Source }}"
   fileDirName: "/config/www/snapshot.jpg"
 ```
