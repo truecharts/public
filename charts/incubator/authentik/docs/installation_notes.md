@@ -2,9 +2,14 @@
 
 ## Outposts
 
-Under each outpost configuration you will find an `Override Token` (checkbox for Truenas Scale users)
-or `overrideToken`(boolean for Native Helm Users).
+### Host
 
-This is only need to be set to true/checked only if you accidentally delete the API token within the UI.
+`host` should not need to be overridden. Defaults to http://localhost:9000
 
-Only when this is true/checked the `token` has effect.
+### Host Browser
+
+`host_browser` by default is set to the first ingress host you set
+
+### Token
+
+`token` is only needed if you accidentally deleted it within the UI
