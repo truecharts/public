@@ -15,10 +15,10 @@ envFrom:
 ports:
   - containerPort: 9000
   - containerPort: 9443
-{{ if .Values.outposts.proxy.metrics }}
+{{- if .Values.outposts.proxy.metrics }}
   - containerPort: 9300
     name: proxy-metrics
-{{ end }}
+{{- end }}
 readinessProbe:
   exec:
     command:
@@ -49,4 +49,27 @@ startupProbe:
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+{{- end -}}
+
+{{- define "authentik.proxy.service" -}}
+enabled: true
+type: ClusterIP
+ports:
+  proxy-https:
+    enabled: true
+    port: 10233
+    protocol: HTTPS
+    targetPort: 9443
+  proxy-http:
+    enabled: true
+    port: 10234
+    protocl: HTTP
+    targetPort: 9000
+{{- if .Values.outposts.ldap.metrics }}
+  proxy-metrics:
+    enabled: true
+    port: 10235
+    protocol: HTTP
+    targetPort: 9303
+{{- end }}
 {{- end -}}

@@ -15,10 +15,10 @@ envFrom:
 ports:
   - containerPort: 3389
   - containerPort: 6636
-{{ if .Values.outposts.ldap.metrics }}
+{{- if .Values.outposts.ldap.metrics }}
   - containerPort: 9300
     name: ldap-metrics
-{{ end }}
+{{- end }}
 readinessProbe:
   exec:
     command:
@@ -49,4 +49,25 @@ startupProbe:
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+{{- end -}}
+
+{{- define "authentik.ldap.service" -}}
+enabled: true
+type: ClusterIP
+ports:
+  ldap-389:
+    enabled: true
+    port: 389
+    targetPort: 3389
+  ldap-636:
+    enabled: true
+    port: 636
+    targetPort: 6636
+{{- if .Values.outposts.ldap.metrics }}
+  ldap-metrics:
+    enabled: true
+    port: 10232
+    protocol: HTTP
+    targetPort: 9302
+{{- end }}
 {{- end -}}

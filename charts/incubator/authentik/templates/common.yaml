@@ -22,7 +22,8 @@
 {{- end -}}
 
 {{- if .Values.outposts.ldap.enabled -}}
-{{- $_ := set .Values.additionalContainers "ldap" (include "authentik.ldap" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
+{{- $_ := set .Values.service "ldap-outpost" (include "authentik.ldap.service" . | fromYaml) -}}
 {{/* - if .Values.outposts.ldap.metrics - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
@@ -31,7 +32,8 @@
 {{- end -}}
 
 {{- if .Values.outposts.proxy.enabled -}}
-{{- $_ := set .Values.additionalContainers "proxy" (include "authentik.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.service "proxy-outpost" (include "authentik.proxy.service" . | fromYaml) -}}
 {{/* - if .Values.outposts.proxy.metrics - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}

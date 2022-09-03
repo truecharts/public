@@ -158,40 +158,6 @@ service:
         protocol: HTTP
         port: 10231
         targetPort: 9301
-  ldap:
-    enabled: true
-    ports:
-      ldap1:
-        enabled: true
-        port: 389
-        targetPort: 3389
-      ldap2:
-        enabled: true
-        port: 636
-        targetPort: 6636
-      ldap-metrics:
-        enabled: true
-        port: 10232
-        protocol: HTTP
-        targetPort: 9302
-  proxy:
-    enabled: true
-    ports:
-      proxy1:
-        enabled: true
-        port: 10233
-        protocol: HTTPS
-        targetPort: 9443
-      proxy2:
-        enabled: true
-        port: 10234
-        protocl: HTTP
-        targetPort: 9000
-      proxy-metrics:
-        enabled: true
-        port: 10235
-        protocol: HTTP
-        targetPort: 9303
 
 persistence:
   media:
