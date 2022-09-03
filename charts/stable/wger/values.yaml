@@ -64,17 +64,10 @@ persistence:
     type: emptyDir
     mountPath: "/home/wger/static"
   wger-config:
-    enabled: "true"
+    enabled: true
     noMount: true
-    readOnly: true
-    type: "custom"
-    mountPath: "/etc/nginx/conf.d"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
-        items:
-          - key: nginx.conf
-            path: default.conf
+    type: configMap
+    objectName: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
 
 postgresql:
   enabled: true
