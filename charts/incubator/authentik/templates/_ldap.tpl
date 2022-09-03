@@ -55,14 +55,14 @@ startupProbe:
 enabled: true
 type: ClusterIP
 ports:
-  ldap:
-    enabled: true
-    port: 389
-    targetPort: 3389
   ldaps:
     enabled: true
     port: 636
     targetPort: 6636
+  ldap:
+    enabled: true
+    port: 389
+    targetPort: 3389
 {{- if .Values.outposts.ldap.metrics }}
   ldap-metrics:
     enabled: true
