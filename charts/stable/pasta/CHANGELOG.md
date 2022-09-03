@@ -2,6 +2,15 @@
 
 
 
+## [pasta-1.0.0](https://github.com/truecharts/charts/compare/pasta-0.0.23...pasta-1.0.0) (2022-09-03)
+
+### Feat
+
+- move to stable ([#3674](https://github.com/truecharts/charts/issues/3674))
+
+
+
+
 ## [pasta-0.0.23](https://github.com/truecharts/charts/compare/pasta-0.0.22...pasta-0.0.23) (2022-09-02)
 
 ### Fix
