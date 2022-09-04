@@ -613,7 +613,7 @@ questions:
                               type: int
                               default: 10232
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
@@ -641,7 +641,7 @@ questions:
                               type: int
                               default: 10233
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
@@ -669,7 +669,7 @@ questions:
                               type: int
                               default: 10234
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
@@ -697,7 +697,7 @@ questions:
                               type: int
                               default: 10235
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
