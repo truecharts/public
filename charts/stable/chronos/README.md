@@ -1,20 +1,21 @@
-# kitchenowl
+# chronos
 
-![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2](https://img.shields.io/badge/AppVersion-0.2-informational?style=flat-square)
 
-KitchenOwl is a smart self-hosted grocery list and recipe manager.
+Chronos is a small container to run and schedule Python 3.7 scripts. You can create virtual enviroments, edit your scripts, install Pip dependencies, view execution logs, and debug your scripts, all from the sleek web UI.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [kitchenowl](https://truecharts.org/docs/charts/incubator/kitchenowl)
+For more information, please click here: [chronos](https://truecharts.org/docs/charts/stable/chronos)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/kitchenowl>
-* <https://tombursch.github.io/kitchenowl>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/chronos>
+* <https://github.com/simse/chronos>
+* <https://hub.docker.com/r/simsemand/chronos>
 
 ## Requirements
 
@@ -34,12 +35,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `kitchenowl`
+To install the chart with the release name `chronos`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install kitchenowl TrueCharts/kitchenowl
+helm install chronos TrueCharts/chronos
 ```
 
 ## Uninstall
@@ -52,10 +53,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `kitchenowl` deployment
+To uninstall the `chronos` deployment
 
 ```console
-helm uninstall kitchenowl
+helm uninstall chronos
 ```
 
 ## Configuration
@@ -64,7 +65,7 @@ helm uninstall kitchenowl
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line
@@ -72,9 +73,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install kitchenowl \
+helm install chronos \
   --set env.TZ="America/New York" \
-    TrueCharts/kitchenowl
+    TrueCharts/chronos
 ```
 
 #### Configure using a yaml file
@@ -82,7 +83,7 @@ helm install kitchenowl \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install kitchenowl TrueCharts/kitchenowl -f values.yaml
+helm install chronos TrueCharts/chronos -f values.yaml
 ```
 
 #### Connecting to other charts

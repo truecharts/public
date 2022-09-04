@@ -1,10 +1,5 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Downloaders
-    - MediaApp-Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: "3.2.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -25,7 +20,12 @@ maintainers:
 name: qbitmanage
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/qbitmanage
-  - https://hotio.dev/containers/qbitmanage
-  - https://hub.docker.com/r/hotio/qbitmanage
+  - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
+  - https://hub.docker.com/r/bobokun/qbit_manage
 type: application
-version: 0.0.25
+version: 0.0.26
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaApp-Other

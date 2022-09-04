@@ -1,16 +1,32 @@
-env:
-  UMASK: ""
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/qbitmanage
-  tag: latest@sha256:eee5eb84edb83eb944cc7898d1bd6bc226238255ce1191be0e44720e374629f2
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
+  pullPolicy: IfNotPresent
+  tag: v3.2.6@sha256:401b64bdd155e0be2bfd76901ffd15ddfcb8000aa216d97a5b3465516ce3b5fb
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env:
+  QBT_RUN: false
+  QBT_SCHEDULE: 30
+  QBT_CROSS_SEED: false
+  QBT_RECHECK: false
+  QBT_CAT_UPDATE: false
+  QBT_TAG_UPDATE: false
+  QBT_REM_UNREGISTERED: false
+  QBT_REM_ORPHANED: false
+  QBT_TAG_NOHARDLINKS: false
+  QBT_SKIP_RECYCLE: false
+  QBT_DRY_RUN: false
+  QBT_LOG_LEVEL: INFO
+  QBT_DIVIDER: "="
+  QBT_WIDTH: 100
+
 probes:
   liveness:
     enabled: false
@@ -18,15 +34,21 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data
 
 portal:
   enabled: false

@@ -1,6 +1,6 @@
 # qbitmanage
 
-![Version: 0.0.25](https://img.shields.io/badge/Version-0.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.26](https://img.shields.io/badge/Version-0.0.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.2.6](https://img.shields.io/badge/AppVersion-3.2.6-informational?style=flat-square)
 
 This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
 
@@ -14,8 +14,8 @@ For more information, please click here: [qbitmanage](https://truecharts.org/doc
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/qbitmanage>
-* <https://hotio.dev/containers/qbitmanage>
-* <https://hub.docker.com/r/hotio/qbitmanage>
+* <https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation>
+* <https://hub.docker.com/r/bobokun/qbit_manage>
 
 ## Requirements
 
@@ -65,7 +65,7 @@ helm uninstall qbitmanage
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

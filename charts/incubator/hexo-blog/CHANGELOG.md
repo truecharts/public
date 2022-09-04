@@ -2,7 +2,16 @@
 
 
 
-## [hexo-blog-0.0.22](https://github.com/truecharts/charts/compare/hexo-blog-0.0.20...hexo-blog-0.0.22) (2022-08-30)
+## [hexchat-0.0.23](https://github.com/truecharts/charts/compare/hexchat-0.0.22...hexchat-0.0.23) (2022-09-04)
+
+### Fix
+
+- hexo-blog, hexchat, qbitmanage, whisparr ([#3688](https://github.com/truecharts/charts/issues/3688))
+
+
+
+
+## [hexchat-0.0.22](https://github.com/truecharts/charts/compare/hexchat-0.0.20...hexchat-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -13,7 +22,7 @@
 
 
 
-## [hexo-blog-0.0.21](https://github.com/truecharts/charts/compare/hexo-blog-0.0.20...hexo-blog-0.0.21) (2022-08-30)
+## [hexchat-0.0.21](https://github.com/truecharts/charts/compare/hexchat-0.0.20...hexchat-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -22,7 +31,7 @@
 
 
 
-## [hexo-blog-0.0.20](https://github.com/truecharts/charts/compare/hexo-blog-0.0.19...hexo-blog-0.0.20) (2022-08-29)
+## [hexchat-0.0.20](https://github.com/truecharts/charts/compare/hexchat-0.0.19...hexchat-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -31,7 +40,7 @@
 
 
 
-## [hexo-blog-0.0.19](https://github.com/truecharts/charts/compare/hexo-blog-0.0.17...hexo-blog-0.0.19) (2022-08-26)
+## [hexchat-0.0.19](https://github.com/truecharts/charts/compare/hexchat-0.0.17...hexchat-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -40,7 +49,7 @@
 
 
 
-## [hexo-blog-0.0.17](https://github.com/truecharts/charts/compare/hexo-blog-0.0.16...hexo-blog-0.0.17) (2022-08-23)
+## [hexchat-0.0.17](https://github.com/truecharts/charts/compare/hexchat-0.0.16...hexchat-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -49,7 +58,7 @@
 
 
 
-## [hexo-blog-0.0.16](https://github.com/truecharts/charts/compare/hexo-blog-0.0.15...hexo-blog-0.0.16) (2022-08-12)
+## [hexchat-0.0.16](https://github.com/truecharts/charts/compare/hexchat-0.0.15...hexchat-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -63,7 +72,7 @@
 
 
 
-## [hexo-blog-0.0.15](https://github.com/truecharts/charts/compare/hexo-blog-0.0.14...hexo-blog-0.0.15) (2022-08-08)
+## [hexchat-0.0.15](https://github.com/truecharts/charts/compare/hexchat-0.0.14...hexchat-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -73,7 +82,7 @@
 
 
 
-## [hexo-blog-0.0.14](https://github.com/truecharts/apps/compare/hexo-blog-0.0.13...hexo-blog-0.0.14) (2022-07-26)
+## [hexchat-0.0.14](https://github.com/truecharts/apps/compare/hexchat-0.0.13...hexchat-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -83,7 +92,7 @@
 
 
 
-## [hexo-blog-0.0.13](https://github.com/truecharts/apps/compare/hexo-blog-0.0.12...hexo-blog-0.0.13) (2022-07-25)
+## [hexchat-0.0.13](https://github.com/truecharts/apps/compare/hexchat-0.0.12...hexchat-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -96,7 +105,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -107,7 +116,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -117,7 +126,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -126,7 +135,7 @@
 
 
 
-## [hexo-blog-0.0.11](https://github.com/truecharts/apps/compare/hexo-blog-0.0.10...hexo-blog-0.0.11) (2022-07-22)
+## [hexchat-0.0.11](https://github.com/truecharts/apps/compare/hexchat-0.0.10...hexchat-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -134,7 +143,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -145,7 +154,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -155,7 +164,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -164,7 +173,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-20)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-20)
 
 ### Chore
 
@@ -172,4 +181,27 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-20)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-20)
+Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [qbitmanage-0.0.10]qbitmanage-0.0.10 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [qbitmanage-0.0.10]qbitmanage-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup
