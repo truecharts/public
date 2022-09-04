@@ -2,6 +2,7 @@
 
 
 
+
 ## [hexchat-0.0.22](https://github.com/truecharts/charts/compare/hexchat-0.0.20...hexchat-0.0.22) (2022-08-30)
 
 ### Chore

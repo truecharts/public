@@ -2,6 +2,7 @@
 
 
 
+
 ## [whisparr-0.0.21](https://github.com/truecharts/charts/compare/whisparr-0.0.19...whisparr-0.0.21) (2022-08-30)
 
 ### Chore

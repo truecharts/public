@@ -2,6 +2,7 @@
 
 
 
+
 ## [qbitmanage-0.0.25](https://github.com/truecharts/charts/compare/qbitmanage-0.0.24...qbitmanage-0.0.25) (2022-09-03)
 
 ### Chore
