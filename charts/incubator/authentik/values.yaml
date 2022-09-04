@@ -24,18 +24,6 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
-geoip:
-  enabled: false
-  account_id: ""
-  license_key: ""
-  proxy: ""
-  proxy_user_pass: ""
-  edition_ids: "GeoLite2-City"
-  frequency: 8
-  host_server: "updates.maxmind.com"
-  preserve_file_times: false
-  verbose: false
-
 workerContainer:
   enabled: true
 
@@ -76,6 +64,18 @@ authentik:
     # LDAP Outpost listens on 9300. To avoid conflicts
     # This sets internal Authentik metrics port to 9301
     internalPort: 9301
+
+geoip:
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
 
 outposts:
   ldap:
