@@ -82,13 +82,13 @@ questions:
           description: "Enter your game parameters separated with ? and start with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)"
           schema:
             type: string
-            default: ""
+            default: "?RCONPort=27020?RCONEnabled=True"
         - variable: GAME_PARAMS_EXTRA
           label: "GAME_PARAMS_EXTRA"
           description: "Values to start the server"
           schema:
             type: string
-            default: "-server -log"
+            default: "-server -log -crossplay"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
