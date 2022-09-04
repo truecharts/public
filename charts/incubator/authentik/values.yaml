@@ -108,8 +108,8 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-  # - configMapRef:
-  #     name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
 
 probes:
   liveness:
@@ -147,7 +147,7 @@ service:
         enabled: true
         protocol: HTTP
         port: 10231
-        targetPort: 9300
+        targetPort: 9301
   ldapldaps:
     enabled: true
     type: ClusterIP
