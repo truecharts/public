@@ -10,11 +10,18 @@ questions:
       type: dict
       attrs:
         - variable: ipAddressPools
-          label: IP Address Pools
+          label: IP Address Pools Object
           schema:
             additional_attrs: true
-            type: dict
-            attrs:
+            type: list
+            default: []
+            items:
+              - variable: name
+                label: Name
+                description: Name of the IP address pool
+                schema:
+                  type: string
+                  default: ""
               - variable: autoAssign
                 label: Auto Assign
                 description: AutoAssign flag used to prevent MetallB from automatic
@@ -29,7 +36,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: Addresses
+              - variable: addresses
                 label: Addresses Pools
                 description: A list of IP address ranges over which MetalLB has authority.
                     You can list multiple ranges in a single pool, they will all share
@@ -39,8 +46,8 @@ questions:
                   type: list
                   default: []
                   items:
-                    - variable: address
-                      label: Address Pool
+                    - variable: addressPoolEntry
+                      label: Address Pool Entry
                       schema:
                         type: string
                         default: ""
