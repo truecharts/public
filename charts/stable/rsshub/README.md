@@ -1,6 +1,6 @@
 # rsshub
 
-![Version: 3.0.87](https://img.shields.io/badge/Version-3.0.87-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 3.0.88](https://img.shields.io/badge/Version-3.0.88-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 RSSHub can generate RSS feeds from pretty much everything
 
@@ -66,7 +66,7 @@ helm uninstall rsshub
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

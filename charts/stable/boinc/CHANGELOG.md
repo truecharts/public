@@ -2,6 +2,15 @@
 
 
 
+## [boinc-2.0.45](https://github.com/truecharts/charts/compare/boinc-2.0.44...boinc-2.0.45) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [boinc-2.0.44](https://github.com/truecharts/charts/compare/boinc-2.0.43...boinc-2.0.44) (2022-08-30)
 
 ### Chore

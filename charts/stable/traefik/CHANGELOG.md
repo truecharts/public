@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.5](https://github.com/truecharts/charts/compare/traefik-13.3.4...traefik-13.3.5) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [traefik-13.3.4](https://github.com/truecharts/charts/compare/traefik-13.3.3...traefik-13.3.4) (2022-09-03)
 
 ### Fix

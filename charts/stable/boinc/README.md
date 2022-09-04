@@ -1,6 +1,6 @@
 # boinc
 
-![Version: 2.0.44](https://img.shields.io/badge/Version-2.0.44-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 2.0.45](https://img.shields.io/badge/Version-2.0.45-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
 
@@ -64,7 +64,7 @@ helm uninstall boinc
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

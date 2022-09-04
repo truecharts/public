@@ -2,6 +2,15 @@
 
 
 
+## [tubesync-0.0.25](https://github.com/truecharts/charts/compare/tubesync-0.0.24...tubesync-0.0.25) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [tubesync-0.0.24](https://github.com/truecharts/charts/compare/tubesync-0.0.22...tubesync-0.0.24) (2022-08-30)
 
 ### Chore
