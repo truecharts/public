@@ -79,7 +79,7 @@ geoip:
 
 outposts:
   ldap:
-    enabled: false
+    enabled: true
     # -- Host Browser by default is set to the first ingress host you set
     # host_browser: ""
     # -- Host should not need to be overridden. Defaults to http://localhost:9000
@@ -93,7 +93,7 @@ outposts:
     ldapsInternalPort: 6636
     ldapInternalPort: 3389
   proxy:
-    enabled: false
+    enabled: true
     # -- Host Browser by default is set to the first ingress host you set
     # host_browser: ""
     # -- As we use http://localhost:9000 it's an unsecure connection
