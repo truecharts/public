@@ -5,8 +5,8 @@ imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 args: ["worker"]
 envFrom:
   - secretRef:
@@ -45,8 +45,8 @@ startupProbe:
     command:
       - /lifecycle/ak
       - healthcheck
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+  initialDelaySeconds: 20
+  periodSeconds: 20
+  timeoutSeconds: 10
+  failureThreshold: 10
 {{- end -}}
