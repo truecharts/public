@@ -68,7 +68,9 @@ data:
   {{- with .Values.authentik.ldap.tls_ciphers }}
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
-  {{/* Metrics */}}
+  {{/* Listen */}}
+  AUTHENTIK_LISTEN__HTTPS: {{ .Values.service.main.ports.main.targetPort | quote | default "9443" | quote }}
+  AUTHENTIK_LISTEN__HTTP: {{ .Values.service.http.ports.http.targetPort | quote | default "9000" | quote }}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.service.metrics.ports.metrics.targetPort | quote | default "9301" | quote }}
   {{/* Outposts */}}
   AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
