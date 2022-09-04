@@ -3,14 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.1.0.49@sha256:5887cb2e9e0b08732e03ee8040308134d0524138f13ef6d92023243708c01179
 
-# podSecurityContext:
-#   runAsGroup: 0
-#   runAsUser: 0
-
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
 probes:
   liveness:
     enabled: true
