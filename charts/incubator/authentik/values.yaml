@@ -147,7 +147,7 @@ service:
         enabled: true
         protocol: HTTP
         port: 10231
-        targetPort: 9301
+        targetPort: 9300
   ldapldaps:
     enabled: true
     type: ClusterIP
