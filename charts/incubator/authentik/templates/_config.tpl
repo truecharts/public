@@ -81,7 +81,8 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote | default "true" }}
+  {{/* Both quotes are needed. */}}
+  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote | default "true" | quote }}
   AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default (printf "http://localhost:%v" .Values.service.http.ports.http.targetPort) }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.ldap.metricsInternalPort | quote | default "9302" }}
@@ -98,7 +99,8 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote | default "true" }}
+  {{/* Both quotes are needed. */}}
+  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | quote | default "true" | quote }}
   AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default (printf "http://localhost:%v" .Values.service.http.ports.http.targetPort) }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.outposts.proxy.metricsInternalPort | quote | default "9303" }}
