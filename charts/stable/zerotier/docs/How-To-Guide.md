@@ -27,7 +27,7 @@ Also prepare your Zerotier Network ID for your setup, easy to create and copy at
 
 ## Zerotier Chart Setup
 
- Ideally name your chart `Zerotier` but you can use any name here and leave defaults for Step 2
+Ideally name your chart `Zerotier` but you can use any name here and leave defaults for Step 2
 
 - Extra Args:
 
