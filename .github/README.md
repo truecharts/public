@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-116-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-117-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -284,6 +284,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/piwi3910"><img src="https://avatars.githubusercontent.com/u/12539757?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Watteel Pascal</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=piwi3910" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/JamesOsborn-SE"><img src="https://avatars.githubusercontent.com/u/3580335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JamesOsborn-SE</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=JamesOsborn-SE" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/neoestremi"><img src="https://avatars.githubusercontent.com/u/1340877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NeoToxic</b></sub></a><br /><a href="#mentoring-neoestremi" title="Mentoring">🧑‍🏫</a></td>
+    <td align="center"><a href="https://github.com/jab416171"><img src="https://avatars.githubusercontent.com/u/345752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jab416171</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jab416171" title="Documentation">📖</a></td>
   </tr>
 </table>
 
