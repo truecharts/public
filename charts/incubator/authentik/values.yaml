@@ -113,7 +113,9 @@ probes:
     spec:
       exec:
         command:
-          - /lifecycle/ak
+          - curl
+          - --user-agent "goauthentik.io lifecycle Healthcheck"
+          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
           - healthcheck
   readiness:
     enabled: true
@@ -121,7 +123,9 @@ probes:
     spec:
       exec:
         command:
-          - /lifecycle/ak
+          - curl
+          - --user-agent "goauthentik.io lifecycle Healthcheck"
+          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
           - healthcheck
   startup:
     enabled: true
@@ -129,7 +133,9 @@ probes:
     spec:
       exec:
         command:
-          - /lifecycle/ak
+          - curl
+          - --user-agent "goauthentik.io lifecycle Healthcheck"
+          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
           - healthcheck
 
 service:

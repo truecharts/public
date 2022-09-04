@@ -24,9 +24,9 @@ ports:
 readinessProbe:
   exec:
     command:
-      - "wget"
-      - "--spider"
-      - "http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping"
+      - wget
+      - --spider
+      - http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
@@ -34,9 +34,9 @@ readinessProbe:
 livenessProbe:
   exec:
     command:
-      - "wget"
-      - "--spider"
-      - "http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping"
+      - wget
+      - --spider
+      - http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
@@ -44,9 +44,9 @@ livenessProbe:
 startupProbe:
   exec:
     command:
-      - "wget"
-      - "--spider"
-      - "http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping"
+      - wget
+      - --spider
+      - http://localhost:${AUTHENTIK_LISTEN__METRICS}/outpost.goauthentik.io/ping
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
