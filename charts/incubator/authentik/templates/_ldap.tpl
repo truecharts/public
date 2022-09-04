@@ -26,23 +26,23 @@ readinessProbe:
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
