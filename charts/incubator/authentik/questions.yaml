@@ -536,6 +536,174 @@ questions:
                                   schema:
                                     type: int
                                     default: 9301
+        - variable: ldapldaps
+          label: LDAPS Service
+          description: The LDAPS service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: ldapldaps
+                      label: LDAPS Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 636
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 6636
+        - variable: ldapldap
+          label: LDAP Service
+          description: The LDAPS service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: ldapldap
+                      label: LDAP Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 389
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 3389
+        - variable: ldapmetrics
+          label: LDAP Metrics Service
+          description: The LDAP Metrics service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: ldapmetrics
+                      label: LDAP Metrics Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10232
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 9302
+        - variable: proxyhttps
+          label: Proxy HTTPS Service
+          description: The Proxy HTTPS service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: proxyhttps
+                      label: Proxy HTTPS Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10233
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 9444
+        - variable: proxyhttp
+          label: Proxy HTTP Service
+          description: The Proxy HTTP service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: proxyhttp
+                      label: Proxy HTTP Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10234
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 9001
+        - variable: proxymetrics
+          label: Proxy Metrics Service
+          description: The Proxy HTTP service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: proxymetrics
+                      label: Proxy Metrics Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10235
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 9303
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -599,7 +767,7 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressExpert}
-        - variable: proxy-https
+        - variable: proxyhttps
           label: Proxy HTTPS Ingress
           schema:
             additional_attrs: true
@@ -609,7 +777,7 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressExpert}
-        - variable: proxy-http
+        - variable: proxyhttp
           label: Proxy HTTP Ingress
           schema:
             additional_attrs: true
