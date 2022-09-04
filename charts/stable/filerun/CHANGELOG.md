@@ -2,6 +2,15 @@
 
 
 
+## [filerun-3.0.0](https://github.com/truecharts/charts/compare/filerun-2.1.6...filerun-3.0.0) (2022-09-04)
+
+### Feat
+
+- move to stable ([#3687](https://github.com/truecharts/charts/issues/3687))
+
+
+
+
 ## [filerun-2.1.6](https://github.com/truecharts/charts/compare/filerun-2.1.5...filerun-2.1.6) (2022-08-30)
 
 ### Chore

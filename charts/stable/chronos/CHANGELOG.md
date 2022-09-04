@@ -2,6 +2,15 @@
 
 
 
+## [chronos-1.0.0](https://github.com/truecharts/charts/compare/chronos-0.0.22...chronos-1.0.0) (2022-09-04)
+
+### Feat
+
+- move to stable ([#3687](https://github.com/truecharts/charts/issues/3687))
+
+
+
+
 ## [chronos-0.0.22](https://github.com/truecharts/charts/compare/chronos-0.0.21...chronos-0.0.22) (2022-08-30)
 
 ### Chore

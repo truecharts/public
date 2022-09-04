@@ -1,19 +1,19 @@
 # kitchenowl
 
-![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: beta](https://img.shields.io/badge/AppVersion-beta-informational?style=flat-square)
 
 KitchenOwl is a smart self-hosted grocery list and recipe manager.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [kitchenowl](https://truecharts.org/docs/charts/incubator/kitchenowl)
+For more information, please click here: [kitchenowl](https://truecharts.org/docs/charts/stable/kitchenowl)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/kitchenowl>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl>
 * <https://tombursch.github.io/kitchenowl>
 
 ## Requirements
@@ -64,7 +64,7 @@ helm uninstall kitchenowl
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

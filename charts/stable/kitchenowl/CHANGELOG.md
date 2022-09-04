@@ -2,6 +2,15 @@
 
 
 
+## [kitchenowl-1.0.0](https://github.com/truecharts/charts/compare/kitchenowl-0.0.13...kitchenowl-1.0.0) (2022-09-04)
+
+### Feat
+
+- move to stable ([#3687](https://github.com/truecharts/charts/issues/3687))
+
+
+
+
 ## [kitchenowl-0.0.13](https://github.com/truecharts/charts/compare/kitchenowl-0.0.11...kitchenowl-0.0.13) (2022-08-30)
 
 ### Chore
