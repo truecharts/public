@@ -1,16 +1,19 @@
 {{- define "metallb.ipAddressPool" -}}
+{{ $namespace := .Release.Namespace }}
 {{- if .Values.metallb.ipAddressPools }}
+{{- range .Values.metallb.ipAddressPools }}
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: {{ .Release.Name }}
-  namespace: {{ .Release.Namespace }}
+  name: {{ .addressPool.name }}
+  namespace: {{ $namespace }}
 spec:
   addresses:
-{{- range .Values.metallb.ipAddressPools.addresses }}
+    {{- range .addressPool.addresses }}
     - {{ . }}
+    {{- end }}
+  autoAssign: {{ .addressPool.autoAssign | default true }}
+  avoidBuggyIPs: {{ .addressPool.avoidBuggyIPs | default false }}
 {{- end }}
-  autoAssign: {{ .Values.metallb.ipAddressPools.autoAssign | default true }}
-  avoidBuggyIPs: {{ .Values.metallb.ipAddressPools.avoidBuggyIPs | default false }}
 {{- end }}
 {{- end -}}

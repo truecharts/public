@@ -5,10 +5,20 @@ image:
 
 metallb:
   ipAddressPools:
-    addresses:
-      # - 192.168.1.0/24
-    autoAssign: true
-    avoidBuggyIPs: false
+    - addressPool:
+        name: "test"
+        addresses:
+          - 192.168.1.0/24
+          - 192.168.2.0/24
+        autoAssign: true
+        avoidBuggyIPs: false
+    - addressPool:
+        name: "test2"
+        addresses:
+          - 192.168.3.0/24
+          - 192.168.4.0/24
+        autoAssign: true
+        avoidBuggyIPs: false
 
 portal:
   enabled: false
