@@ -35,8 +35,10 @@ service:
         targetPort: 55123
         port: 55123
   rtsp:
+    enabled: true
     ports:
       rtsp:
+        enabled: true
         protocol: TCP
         targetPort: 8554
         port: 8554
