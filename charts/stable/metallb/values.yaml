@@ -1,18 +1,14 @@
 image:
   repository: placeholder
-  # defaults to appVersion
   tag: upstream
   pullPolicy: IfNotPresent
 
 metallb:
-  # configInline specifies MetalLB's configuration directly, in yaml
-  # format. When configInline is used, Helm manages MetalLB's
-  # configuration ConfigMap as part of the release, and
-  # existingConfigMap is ignored.
-  #
-  # Refer to https://metallb.universe.tf/configuration/ for
-  # available options.
-  configInline: {}
+  ipAddressPools:
+    addresses: []
+      # - 192.168.1.0/24
+    autoAssign: true
+    avoidBuggyIPs: false
 
 portal:
   enabled: false

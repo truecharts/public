@@ -15,8 +15,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: address-pools
-                label: "Address Pools"
+              - variable: ipAddressPools
+                label: "IP Address Pools"
                 schema:
                   type: list
                   default: []
@@ -51,7 +51,7 @@ questions:
                               default: []
                               items:
                                 - variable: address
-                                  label: "Adress"
+                                  label: "Address"
                                   schema:
                                     type: string
                                     default: ""
