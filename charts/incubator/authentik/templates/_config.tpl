@@ -5,7 +5,7 @@
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
 {{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
-{{ $host := "http://localhost:9000" }}
+{{ $host := printf "http://localhost:%v" .Values.service.http.ports.http.targetPort }}
 {{- if .Values.ingress.main.enabled }}
   {{ $first := (first .Values.ingress.main.hosts) }}
   {{- if $first }}
