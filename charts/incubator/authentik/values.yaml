@@ -108,35 +108,17 @@ envFrom:
 
 probes:
   liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - curl
-          - --user-agent "goauthentik.io lifecycle Healthcheck"
-          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
-          - healthcheck
+    type: HTTP
+    path: /-/health/ready/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - curl
-          - --user-agent "goauthentik.io lifecycle Healthcheck"
-          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
-          - healthcheck
+    type: HTTP
+    path: /-/health/ready/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - curl
-          - --user-agent "goauthentik.io lifecycle Healthcheck"
-          - -I http://localhost:${AUTHENTIK_LISTEN__HTTP}/-/health/ready/
-          - healthcheck
+    type: HTTP
+    path: /-/health/ready/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
 
 service:
   main:
