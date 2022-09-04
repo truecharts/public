@@ -7,8 +7,7 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-command: ["env"]
-# args: ["worker"]
+args: ["worker"]
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'

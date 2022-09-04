@@ -1,7 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "authentik.config" -}}
 
-{{- $authentikConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $authServerWorkerConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $authServerConfigName := printf "%s-authentik-server-config" (include "tc.common.names.fullname" .) }}
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
 {{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
@@ -19,7 +20,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $authentikConfigName }}
+  name: {{ $authServerWorkerConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
@@ -68,13 +69,23 @@ data:
   {{- with .Values.authentik.ldap.tls_ciphers }}
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
+  {{/* Outposts */}}
+  AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
+
+---
+
+{{/* This configmap are loaded on both main authentik container and worker */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $authServerConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
   {{/* Listen */}}
   AUTHENTIK_LISTEN__HTTPS: {{ .Values.service.main.ports.main.targetPort | default 9443 | quote }}
   AUTHENTIK_LISTEN__HTTP: {{ .Values.service.http.ports.http.targetPort | default 9000 | quote }}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.service.metrics.ports.metrics.targetPort | default 9301 | quote }}
-  {{/* Outposts */}}
-  AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
-
 ---
 
 {{/* This configmap is loaded on ldap container */}}

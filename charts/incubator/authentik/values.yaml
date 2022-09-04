@@ -17,8 +17,8 @@ proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
   tag: 2022.8.2@sha256:ecc83a3c15e3c093e6c8002f534b16769e2e1e953cd508071c7920a4d8bd7c3d
   pullPolicy: IfNotPresent
-command: ["env"]
-#args: ["server"]
+
+args: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
@@ -108,6 +108,8 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
 
 probes:
   liveness:
