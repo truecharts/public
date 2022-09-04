@@ -169,6 +169,11 @@
     // Tag semantic version type based on regex
     //
     {
+      "matchDatasources": ["helm"],
+      "versioning": "regex:^(?<major>0)\\.(?<minor>12)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["metallb"]
+    },
+    {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/photoprism"],
