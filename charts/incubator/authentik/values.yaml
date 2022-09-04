@@ -115,15 +115,18 @@ probes:
   liveness:
     type: HTTP
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    # port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: 9010
   readiness:
     type: HTTP
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    # port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: 9010
   startup:
     type: HTTP
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    # port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: 9010
 
 service:
   main:
@@ -139,7 +142,7 @@ service:
         enabled: true
         protocol: HTTP
         port: 10230
-        targetPort: 9000
+        targetPort: 9010
   metrics:
     enabled: true
     ports:
