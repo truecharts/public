@@ -79,6 +79,7 @@ geoip:
 
 outposts:
   ldap:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: true
     # -- Host Browser by default is set to the first ingress host you set
     # host_browser: ""
@@ -93,6 +94,7 @@ outposts:
     ldapsInternalPort: 6636
     ldapInternalPort: 3389
   proxy:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
     # -- Host Browser by default is set to the first ingress host you set
     # host_browser: ""

@@ -70,6 +70,8 @@ data:
   {{- end }}
   {{/* Metrics */}}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote | default "9301"}}
+  {{/* Outposts */}}
+  AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
 
 ---
 
