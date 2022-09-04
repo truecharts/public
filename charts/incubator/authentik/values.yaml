@@ -24,6 +24,9 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 workerContainer:
   enabled: true
 
