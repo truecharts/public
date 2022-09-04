@@ -1,7 +1,7 @@
 {{/* Define the worker container */}}
 {{- define "authentik.worker" -}}
 image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
