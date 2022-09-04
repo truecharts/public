@@ -120,7 +120,6 @@ probes:
     path: /-/health/ready/
     port: "{{ .Values.service.http.ports.http.targetPort }}"
 
-
 service:
   main:
     ports:
