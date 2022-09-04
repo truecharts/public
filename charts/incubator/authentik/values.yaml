@@ -61,9 +61,6 @@ authentik:
     tls_ciphers: "null"
   metrics:
     enabled: true
-    # LDAP Outpost listens on 9300. To avoid conflicts
-    # This sets internal Authentik metrics port to 9301
-    internalPort: 9301
 
 geoip:
   enabled: false
@@ -90,9 +87,6 @@ outposts:
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
     metrics: false
-    metricsInternalPort: 9302
-    ldapsInternalPort: 6636
-    ldapInternalPort: 3389
   proxy:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
@@ -105,9 +99,6 @@ outposts:
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
     metrics: false
-    metricsInternalPort: 9303
-    httpsInternalPort: 9444
-    httpInternalPort: 9001
 
 envFrom:
   - secretRef:

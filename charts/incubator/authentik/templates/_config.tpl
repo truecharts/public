@@ -69,7 +69,7 @@ data:
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
   {{/* Metrics */}}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote | default "9301"}}
+  AUTHENTIK_LISTEN__METRICS: {{ .Values.service.metrics.ports.metrics.targetPort | quote | default "9301" | quote }}
   {{/* Outposts */}}
   AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
 
