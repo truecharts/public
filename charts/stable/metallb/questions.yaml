@@ -3,56 +3,93 @@ questions:
 # Include{global}
 # Include{controller}
   - variable: metallb
-    group: "App Configuration"
-    label: ""
+    group: App Configuration
+    label: MetalLB Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: configInline
-          label: "MetalLB Configuration"
+        - variable: ipAddressPools
+          label: IP Address Pools
           schema:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: ipAddressPools
-                label: "IP Address Pools"
+              - variable: autoAssign
+                label: Auto Assign
+                description: AutoAssign flag used to prevent MetallB from automatic
+                    allocation for a pool.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: avoidBuggyIPs
+                label: Avoid Buggy IPs
+                description: AvoidBuggyIPs prevents addresses ending with .0 and .255
+                    to be used by a pool.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: Addresses
+                label: Addresses Pools
+                description: A list of IP address ranges over which MetalLB has authority.
+                    You can list multiple ranges in a single pool, they will all share
+                    the same settings. Each range can be either a CIDR prefix, or an
+                    explicit start-end range of IPs.
                 schema:
                   type: list
                   default: []
                   items:
-                    - variable: address-pools-entry
-                      group: "Address Pool"
-                      label: ""
+                    - variable: address
+                      label: Address Pool
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                              default: ""
-                              required: true
-                          - variable: protocol
-                            label: "Protocol"
-                            schema:
-                              type: string
-                              default: "layer2"
-                              enum:
-                                - value: "layer2"
-                                  description: "layer2"
-                                - value: "bgp"
-                                  description: "bgp"
-                          - variable: addresses
-                            label: "Addresses"
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: address
-                                  label: "Address"
-                                  schema:
-                                    type: string
-                                    default: ""
-                                    required: true
+                        type: string
+                        default: ""
+                        required: true
+
+        # - variable: configInline
+        #   label: "MetalLB Configuration"
+        #   schema:
+        #     additional_attrs: true
+        #     type: dict
+        #     attrs:
+        #       - variable: ipAddressPools
+        #         label: "IP Address Pools"
+        #         schema:
+        #           type: list
+        #           default: []
+        #           items:
+        #             - variable: address-pools-entry
+        #               group: "Address Pool"
+        #               label: ""
+        #               schema:
+        #                 additional_attrs: true
+        #                 type: dict
+        #                 attrs:
+        #                   - variable: name
+        #                     label: "Name"
+        #                     schema:
+        #                       type: string
+        #                       default: ""
+        #                       required: true
+        #                   - variable: protocol
+        #                     label: "Protocol"
+        #                     schema:
+        #                       type: string
+        #                       default: "layer2"
+        #                       enum:
+        #                         - value: "layer2"
+        #                           description: "layer2"
+        #                         - value: "bgp"
+        #                           description: "bgp"
+        #                   - variable: addresses
+        #                     label: "Addresses"
+        #                     schema:
+        #                       type: list
+        #                       default: []
+        #                       items:
+        #                         - variable: address
+        #                           label: "Address"
+        #                           schema:
+        #                             type: string
+        #                             default: ""
+        #                             required: true
