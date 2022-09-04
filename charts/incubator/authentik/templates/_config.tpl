@@ -84,7 +84,7 @@ metadata:
 data:
   {{/* Listen */}}
   AUTHENTIK_LISTEN__HTTPS: {{ .Values.service.main.ports.main.targetPort | default 9443 | quote }}
-  AUTHENTIK_LISTEN__HTTP: {{ .Values.service.http.ports.http.targetPort | quote | default "9000" }}
+  AUTHENTIK_LISTEN__HTTP: "9000"
   AUTHENTIK_LISTEN__METRICS: {{ .Values.service.metrics.ports.metrics.targetPort | default 9301 | quote }}
 ---
 
