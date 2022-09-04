@@ -163,6 +163,10 @@ service:
         port: 10231
         targetPort: 9301
 
+ingress:
+  http:
+    autoLink: true
+
 persistence:
   media:
     enabled: true

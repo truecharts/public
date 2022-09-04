@@ -580,7 +580,37 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: Main Ingress
+          label: Main (HTTPS) Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: http
+          label: HTTP Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: proxy-https
+          label: Proxy HTTPS Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: proxy-http
+          label: Proxy HTTP Ingress
           schema:
             additional_attrs: true
             type: dict

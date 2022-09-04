@@ -73,3 +73,7 @@ ports:
     targetPort: {{ .Values.outposts.proxy.metricsInternalPort }}
 {{- end }}
 {{- end -}}
+
+{{- define "authentik.proxy.autoLink" -}}
+autoLink: true
+{{- end -}}
