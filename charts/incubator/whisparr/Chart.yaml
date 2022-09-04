@@ -1,8 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Downloaders
-    - MediaApp-Other
 apiVersion: v2
 appVersion: "nightly"
 dependencies:
@@ -25,7 +20,11 @@ maintainers:
 name: whisparr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/whisparr
-  - https://hotio.dev/containers/whisparr
-  - https://hub.docker.com/r/hotio/whisparr
+  - https://github.com/onedr0p/containers/tree/main/apps/whisparr
 type: application
-version: 0.0.21
+version: 0.0.22
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaApp-Other
