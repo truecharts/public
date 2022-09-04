@@ -1,19 +1,19 @@
 # whisparr
 
-![Version: 0.0.22](https://img.shields.io/badge/Version-0.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.0.49](https://img.shields.io/badge/AppVersion-0.1.0.49-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.0.49](https://img.shields.io/badge/AppVersion-0.1.0.49-informational?style=flat-square)
 
 An adult media thingy.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [whisparr](https://truecharts.org/docs/charts/incubator/whisparr)
+For more information, please click here: [whisparr](https://truecharts.org/docs/charts/stable/whisparr)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/whisparr>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/whisparr>
 * <https://github.com/onedr0p/containers/tree/main/apps/whisparr>
 
 ## Requirements
