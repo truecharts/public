@@ -48,5 +48,5 @@ startupProbe:
   initialDelaySeconds: 20
   periodSeconds: 20
   timeoutSeconds: 10
-  failureThreshold: 10
+  failureThreshold: 60
 {{- end -}}
