@@ -1,5 +1,9 @@
 # Installation notes
 
+## Credentials
+
+Default username: `akadmin`
+
 ## Outposts
 
 Enable each outpost by simple setting `enabled` to `true`.
