@@ -33,9 +33,9 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5000
+                              default: 10305
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
