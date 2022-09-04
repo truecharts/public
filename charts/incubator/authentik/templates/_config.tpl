@@ -105,7 +105,7 @@ data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | default "true" | quote }}
   AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default (printf "http://localhost:%v" .Values.service.http.ports.http.targetPort) }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
-  AUTHENTIK_LISTEN__HTTPS: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort | 9444 }}
+  AUTHENTIK_LISTEN__HTTPS: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort | default 9444 }}
   AUTHENTIK_LISTEN__HTTP: {{ .Values.service.proxyhttp.ports.proxyhttp.targetPort | default 9001 }}
   AUTHENTIK_LISTEN__METRICS: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort | default 9303 }}
 
