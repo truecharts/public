@@ -164,9 +164,65 @@ service:
         protocol: HTTP
         port: 10231
         targetPort: 9301
+  ldapldaps:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapldaps:
+        enabled: true
+        port: 636
+        targetPort: 6636
+  ldapldap:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapldap:
+        enabled: true
+        port: 389
+        targetPort: 3389
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9302
+  proxyhttps:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttps:
+        enabled: true
+        port: 10233
+        protocol: HTTPS
+        targetPort: 9444
+  proxyhttp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttp:
+        enabled: true
+        port: 10234
+        protocl: HTTP
+        targetPort: 9001
+  proxymetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxymetrics:
+        enabled: true
+        port: 10235
+        protocol: HTTP
+        targetPort: 9303
 
 ingress:
   http:
+    autoLink: true
+  proxyhttps:
+    autoLink: true
+  proxyhttp:
     autoLink: true
 
 persistence:

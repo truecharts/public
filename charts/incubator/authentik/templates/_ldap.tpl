@@ -13,11 +13,13 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
 ports:
-  - containerPort: {{ .Values.outposts.ldap.ldapsInternalPort }}
-  - containerPort: {{ .Values.outposts.ldap.ldapInternalPort }}
+  - containerPort: {{ .Values.service.ldapldaps.ports.ldapldaps.targetPort }}
+    name: ldapldaps
+  - containerPort: {{ .Values.service.ldapldap.ports.ldapldap.targetPort }}
+    name: ldapldap
 {{- if .Values.outposts.ldap.metrics }}
-  - containerPort: {{ .Values.outposts.ldap.metricsInternalPort }}
-    name: ldap-metrics
+  - containerPort: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
+    name: ldapmetrics
 {{- end }}
 readinessProbe:
   exec:
@@ -49,25 +51,4 @@ startupProbe:
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
-{{- end -}}
-
-{{- define "authentik.ldap.service" -}}
-enabled: true
-type: ClusterIP
-ports:
-  ldaps:
-    enabled: true
-    port: 636
-    targetPort: {{ .Values.outposts.ldap.ldapsInternalPort }}
-  ldap:
-    enabled: true
-    port: 389
-    targetPort: {{ .Values.outposts.ldap.ldapInternalPort }}
-{{- if .Values.outposts.ldap.metrics }}
-  ldap-metrics:
-    enabled: true
-    port: 10232
-    protocol: HTTP
-    targetPort: {{ .Values.outposts.ldap.metricsInternalPort }}
-{{- end }}
 {{- end -}}

@@ -13,11 +13,13 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
 ports:
-  - containerPort: {{ .Values.outposts.proxy.httpsInternalPort }}
-  - containerPort: {{ .Values.outposts.proxy.httpInternalPort }}
+  - containerPort: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort }}
+    name: proxyhttps
+  - containerPort: {{ .Values.service.proxyhttp.ports.proxyhttp.targetPort }}
+    name: proxyhttp
 {{- if .Values.outposts.proxy.metrics }}
-  - containerPort: {{ .Values.outposts.proxy.metricsInternalPort }}
-    name: proxy-metrics
+  - containerPort: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
+    name: proxymetrics
 {{- end }}
 readinessProbe:
   exec:
@@ -49,31 +51,4 @@ startupProbe:
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
-{{- end -}}
-
-{{- define "authentik.proxy.service" -}}
-enabled: true
-type: ClusterIP
-ports:
-  proxy-https:
-    enabled: true
-    port: 10233
-    protocol: HTTPS
-    targetPort: {{ .Values.outposts.proxy.httpsInternalPort }}
-  proxy-http:
-    enabled: true
-    port: 10234
-    protocl: HTTP
-    targetPort: {{ .Values.outposts.proxy.httpInternalPort }}
-{{- if .Values.outposts.ldap.metrics }}
-  proxy-metrics:
-    enabled: true
-    port: 10235
-    protocol: HTTP
-    targetPort: {{ .Values.outposts.proxy.metricsInternalPort }}
-{{- end }}
-{{- end -}}
-
-{{- define "authentik.proxy.autoLink" -}}
-autoLink: true
 {{- end -}}
