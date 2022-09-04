@@ -2,6 +2,15 @@
 
 
 
+## [humhub-0.0.24](https://github.com/truecharts/charts/compare/humhub-0.0.23...humhub-0.0.24) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [humhub-0.0.23](https://github.com/truecharts/charts/compare/humhub-0.0.21...humhub-0.0.23) (2022-08-30)
 
 ### Chore

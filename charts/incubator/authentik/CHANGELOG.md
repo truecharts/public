@@ -2,6 +2,11 @@
 
 
 
+## [authentik-5.0.0](https://github.com/truecharts/charts/compare/authentik-4.0.0...authentik-5.0.0) (2022-09-03)
+
+
+
+
 ## [authentik-4.0.0](https://github.com/truecharts/charts/compare/authentik-3.0.16...authentik-4.0.0) (2022-09-03)
 
 ### Feat

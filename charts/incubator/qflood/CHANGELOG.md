@@ -2,6 +2,15 @@
 
 
 
+## [qflood-0.0.28](https://github.com/truecharts/charts/compare/qflood-0.0.27...qflood-0.0.28) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [qflood-0.0.27](https://github.com/truecharts/charts/compare/qflood-0.0.26...qflood-0.0.27) (2022-08-31)
 
 ### Chore

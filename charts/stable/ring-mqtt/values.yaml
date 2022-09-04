@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ring-mqtt
-  tag: 5.0.3@sha256:a089c8c1514c5c80cc2fc1fa529f633290538a963df5e3d0c7c93b14fd92b633
+  tag: 5.0.3@sha256:bf3eec51cf04e5b8e7118b5c7a1827ba9150b0c9b9ff2621910a1d7001ac462e
 
 podSecurityContext:
   runAsGroup: 0
@@ -35,8 +35,10 @@ service:
         targetPort: 55123
         port: 55123
   rtsp:
+    enabled: true
     ports:
       rtsp:
+        enabled: true
         protocol: TCP
         targetPort: 8554
         port: 8554

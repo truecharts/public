@@ -2,6 +2,24 @@
 
 
 
+## [ring-mqtt-1.0.2](https://github.com/truecharts/charts/compare/ring-mqtt-1.0.1...ring-mqtt-1.0.2) (2022-09-04)
+
+### Fix
+
+- enable ports ([#3686](https://github.com/truecharts/charts/issues/3686))
+
+
+
+
+## [ring-mqtt-1.0.1](https://github.com/truecharts/charts/compare/ring-mqtt-1.0.0...ring-mqtt-1.0.1) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [ring-mqtt-1.0.0](https://github.com/truecharts/charts/compare/ring-mqtt-0.0.23...ring-mqtt-1.0.0) (2022-09-03)
 
 ### Fix

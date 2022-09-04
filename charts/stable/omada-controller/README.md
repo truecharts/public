@@ -1,6 +1,6 @@
 # omada-controller
 
-![Version: 6.0.60](https://img.shields.io/badge/Version-6.0.60-informational?style=flat-square) ![AppVersion: 5.5](https://img.shields.io/badge/AppVersion-5.5-informational?style=flat-square)
+![Version: 6.0.61](https://img.shields.io/badge/Version-6.0.61-informational?style=flat-square) ![AppVersion: 5.5](https://img.shields.io/badge/AppVersion-5.5-informational?style=flat-square)
 
 Omada is a SDN tool for TP-Link Omada hardware
 
@@ -64,7 +64,7 @@ helm uninstall omada-controller
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

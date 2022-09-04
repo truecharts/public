@@ -2,6 +2,15 @@
 
 
 
+## [omada-controller-6.0.61](https://github.com/truecharts/charts/compare/omada-controller-6.0.60...omada-controller-6.0.61) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
 ## [omada-controller-6.0.60](https://github.com/truecharts/charts/compare/omada-controller-6.0.59...omada-controller-6.0.60) (2022-09-03)
 
 ### Chore
