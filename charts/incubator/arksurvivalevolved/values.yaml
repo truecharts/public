@@ -19,8 +19,8 @@ secretEnv:
 
 env:
   GAME_ID: "376030"
-  GAME_PARAMS: ""
-  GAME_PARAMS_EXTRA: -server -log
+  GAME_PARAMS: "?RCONPort=27020?RCONEnabled=True"
+  GAME_PARAMS_EXTRA: -server -log -crossplay
   MAP: TheIsland
   SERVER_NAME: ""
   VALIDATE: false

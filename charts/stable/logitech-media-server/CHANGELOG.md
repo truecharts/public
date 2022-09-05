@@ -2,6 +2,15 @@
 
 
 
+## [logitech-media-server-4.0.36](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.35...logitech-media-server-4.0.36) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [logitech-media-server-4.0.35](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.33...logitech-media-server-4.0.35) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [qbitmanage-0.0.27](https://github.com/truecharts/charts/compare/qbitmanage-0.0.26...qbitmanage-0.0.27) (2022-09-04)
+
+### Fix
+
+- wrong variable name ([#3693](https://github.com/truecharts/charts/issues/3693))
+
+
+
+
 
 ## [qbitmanage-0.0.25](https://github.com/truecharts/charts/compare/qbitmanage-0.0.24...qbitmanage-0.0.25) (2022-09-03)
 
