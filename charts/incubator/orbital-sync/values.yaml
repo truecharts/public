@@ -1,0 +1,31 @@
+image:
+  repository: ghcr.io/mattwebbio/orbital-sync
+  pullPolicy: IfNotPresent
+  tag: v1.1.0@sha256:01e8abdcb4863c047fc081c7aae33c0fa1d28da3cfbb27f5b6692c3f311d88f4
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+secretEnv:
+  PRIMARY_HOST_PASSWORD: 'your_password1'
+  SECONDARY_HOST_1_PASSWORD: 'your_password2'
+
+env:
+  PRIMARY_HOST_BASE_URL: 'https://pihole1.example.com'
+  SECONDARY_HOST_1_BASE_URL: 'https://pihole2.example.com'
+  INTERVAL_MINUTES: 30
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app"
+
+portal:
+  enabled: false
