@@ -115,8 +115,8 @@ probes:
   liveness:
     type: HTTP
     path: /-/health/ready
-    # port: "{{ .Values.service.http.ports.http.targetPort }}"
-    port: 9010
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    # port: 9010
   readiness:
     enabled: false
     type: HTTP
