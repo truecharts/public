@@ -2,6 +2,15 @@
 
 
 
+## [euterpe-0.0.23](https://github.com/truecharts/charts/compare/euterpe-0.0.22...euterpe-0.0.23) (2022-09-05)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+
+
+
+
 ## [euterpe-0.0.22](https://github.com/truecharts/charts/compare/euterpe-0.0.21...euterpe-0.0.22) (2022-08-30)
 
 ### Chore
