@@ -113,7 +113,6 @@ envFrom:
 
 probes:
   liveness:
-    enabled: false
     type: HTTP
     path: /-/health/ready/
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
