@@ -2,6 +2,15 @@
 
 
 
+## [adguard-home-2.0.0](https://github.com/truecharts/charts/compare/adguard-home-1.0.37...adguard-home-2.0.0) (2022-09-05)
+
+### Feat
+
+- move to stable and cleanup ports a bit ([#3703](https://github.com/truecharts/charts/issues/3703))
+
+
+
+
 ## [adguard-home-1.0.37](https://github.com/truecharts/charts/compare/adguard-home-1.0.36...adguard-home-1.0.37) (2022-08-30)
 
 ### Chore

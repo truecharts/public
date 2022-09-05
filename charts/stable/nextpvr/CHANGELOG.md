@@ -2,6 +2,15 @@
 
 
 
+## [nextpvr-2.0.30](https://github.com/truecharts/charts/compare/nextpvr-2.0.29...nextpvr-2.0.30) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [nextpvr-2.0.29](https://github.com/truecharts/charts/compare/nextpvr-2.0.27...nextpvr-2.0.29) (2022-08-30)
 
 ### Chore

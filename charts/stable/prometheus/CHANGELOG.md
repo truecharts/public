@@ -2,6 +2,19 @@
 
 
 
+## [prometheus-4.0.78](https://github.com/truecharts/charts/compare/prometheus-4.0.77...prometheus-4.0.78) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+  ### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
 ## [prometheus-4.0.77](https://github.com/truecharts/charts/compare/prometheus-4.0.76...prometheus-4.0.77) (2022-09-03)
 
 ### Chore

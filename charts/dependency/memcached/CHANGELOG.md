@@ -2,7 +2,16 @@
 
 
 
-## [memcached-3.0.70](https://github.com/truecharts/charts/compare/memcached-3.0.69...memcached-3.0.70) (2022-09-03)
+## [solr-0.0.44](https://github.com/truecharts/charts/compare/solr-0.0.43...solr-0.0.44) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
+## [solr-0.0.43](https://github.com/truecharts/charts/compare/solr-0.0.42...solr-0.0.43) (2022-09-03)
 
 ### Chore
 
@@ -11,7 +20,7 @@
 
 
 
-## [memcached-3.0.69](https://github.com/truecharts/charts/compare/memcached-3.0.68...memcached-3.0.69) (2022-09-02)
+## [solr-0.0.42](https://github.com/truecharts/charts/compare/solr-0.0.41...solr-0.0.42) (2022-09-02)
 
 ### Chore
 
@@ -20,8 +29,18 @@
 
 
 
+## [solr-0.0.41](https://github.com/truecharts/charts/compare/solr-0.0.39...solr-0.0.41) (2022-08-30)
 
-## [memcached-3.0.67](https://github.com/truecharts/charts/compare/memcached-3.0.66...memcached-3.0.67) (2022-08-30)
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.5.6 ([#3635](https://github.com/truecharts/charts/issues/3635))
+  - update helm chart common to v10.5.5
+
+
+
+
+## [solr-0.0.40](https://github.com/truecharts/charts/compare/solr-0.0.39...solr-0.0.40) (2022-08-30)
 
 ### Chore
 
@@ -30,8 +49,16 @@
 
 
 
+## [solr-0.0.39](https://github.com/truecharts/charts/compare/solr-0.0.38...solr-0.0.39) (2022-08-30)
 
-## [memcached-3.0.65](https://github.com/truecharts/charts/compare/memcached-3.0.64...memcached-3.0.65) (2022-08-29)
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [solr-0.0.38](https://github.com/truecharts/charts/compare/solr-0.0.37...solr-0.0.38) (2022-08-29)
 
 ### Chore
 
@@ -40,7 +67,7 @@
 
 
 
-## [memcached-3.0.64](https://github.com/truecharts/charts/compare/memcached-3.0.63...memcached-3.0.64) (2022-08-29)
+## [solr-0.0.37](https://github.com/truecharts/charts/compare/solr-0.0.36...solr-0.0.37) (2022-08-29)
 
 ### Chore
 
@@ -49,8 +76,16 @@
 
 
 
+## [solr-0.0.36](https://github.com/truecharts/charts/compare/solr-0.0.35...solr-0.0.36) (2022-08-26)
 
-## [memcached-3.0.62](https://github.com/truecharts/charts/compare/memcached-3.0.61...memcached-3.0.62) (2022-08-25)
+### Chore
+
+- update helm chart common to v10.5.2 ([#3583](https://github.com/truecharts/charts/issues/3583))
+
+
+
+
+## [solr-0.0.35](https://github.com/truecharts/charts/compare/solr-0.0.34...solr-0.0.35) (2022-08-25)
 
 ### Chore
 
@@ -59,7 +94,7 @@
 
 
 
-## [clickhouse-1.0.13](https://github.com/truecharts/charts/compare/clickhouse-1.0.12...clickhouse-1.0.13) (2022-08-25)
+## [solr-0.0.34](https://github.com/truecharts/charts/compare/solr-0.0.33...solr-0.0.34) (2022-08-25)
 
 ### Chore
 
@@ -68,7 +103,7 @@
 
 
 
-## [clickhouse-1.0.12](https://github.com/truecharts/charts/compare/clickhouse-1.0.11...clickhouse-1.0.12) (2022-08-23)
+## [solr-0.0.33](https://github.com/truecharts/charts/compare/solr-0.0.32...solr-0.0.33) (2022-08-23)
 
 ### Chore
 
@@ -77,34 +112,44 @@
 
 
 
-## [clickhouse-1.0.11](https://github.com/truecharts/charts/compare/clickhouse-1.0.10...clickhouse-1.0.11) (2022-08-19)
+## [solr-0.0.32](https://github.com/truecharts/charts/compare/solr-0.0.31...solr-0.0.32) (2022-08-23)
 
 ### Chore
 
-- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
 
 
 
 
-## [clickhouse-1.0.10](https://github.com/truecharts/charts/compare/clickhouse-1.0.9...clickhouse-1.0.10) (2022-08-17)
+## [solr-0.0.31](https://github.com/truecharts/charts/compare/solr-0.0.30...solr-0.0.31) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
+## [solr-0.0.30](https://github.com/truecharts/charts/compare/solr-0.0.28...solr-0.0.30) (2022-08-17)
 
 ### Chore
 
 - update helm chart common to v10.4.13
+  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
 
 
 
 
-## [clickhouse-1.0.9](https://github.com/truecharts/charts/compare/clickhouse-1.0.8...clickhouse-1.0.9) (2022-08-14)
+## [solr-0.0.28](https://github.com/truecharts/charts/compare/solr-0.0.27...solr-0.0.28) (2022-08-12)
 
 ### Chore
 
-- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
 
 
 
 
-## [clickhouse-1.0.8](https://github.com/truecharts/charts/compare/clickhouse-1.0.7...clickhouse-1.0.8) (2022-08-12)
+## [solr-0.0.27](https://github.com/truecharts/charts/compare/solr-0.0.26...solr-0.0.27) (2022-08-12)
 
 ### Chore
 
@@ -118,7 +163,7 @@
 
 
 
-## [clickhouse-1.0.7](https://github.com/truecharts/charts/compare/clickhouse-1.0.6...clickhouse-1.0.7) (2022-08-10)
+## [solr-0.0.26](https://github.com/truecharts/charts/compare/solr-0.0.25...solr-0.0.26) (2022-08-10)
 
 ### Chore
 
@@ -127,47 +172,64 @@
 
 
 
-## [clickhouse-1.0.6](https://github.com/truecharts/charts/compare/clickhouse-1.0.5...clickhouse-1.0.6) (2022-08-10)
+## [solr-0.0.25](https://github.com/truecharts/charts/compare/solr-0.0.24...solr-0.0.25) (2022-08-10)
 
 ### Chore
 
 - update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [solr-0.0.24](https://github.com/truecharts/charts/compare/solr-0.0.23...solr-0.0.24) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
 
 
 
-## [clickhouse-1.0.5](https://github.com/truecharts/apps/compare/clickhouse-1.0.4...clickhouse-1.0.5) (2022-07-29)
+## [solr-0.0.23](https://github.com/truecharts/apps/compare/solr-0.0.22...solr-0.0.23) (2022-07-29)
+
+### Chore
+
+- update helm chart common to v10.4.9
+
+
+
+
+## [solr-0.0.22](https://github.com/truecharts/apps/compare/solr-0.0.21...solr-0.0.22) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [solr-0.0.21](https://github.com/truecharts/apps/compare/solr-0.0.20...solr-0.0.21) (2022-07-27)
 
 ### Chore
 
 - update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
-  - update helm chart common to v10.4.9
+  - update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
 
 
 
 
-## [clickhouse-1.0.4](https://github.com/truecharts/apps/compare/clickhouse-1.0.2...clickhouse-1.0.4) (2022-07-25)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update helm chart common to v10.4.8 ([#3296](https://github.com/truecharts/apps/issues/3296))
-  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
-
-
-
-
-## [clickhouse-1.0.3](https://github.com/truecharts/apps/compare/clickhouse-1.0.2...clickhouse-1.0.3) (2022-07-25)
+## [solr-0.0.20](https://github.com/truecharts/apps/compare/solr-0.0.19...solr-0.0.20) (2022-07-25)
 
 ### Chore
 
-- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+- update helm chart common to v10.4.8 ([#3296](https://github.com/truecharts/apps/issues/3296))
+  - update docker general non-major ([#3298](https://github.com/truecharts/apps/issues/3298))
 
 
 
 
-## [clickhouse-1.0.2](https://github.com/truecharts/apps/compare/clickhouse-1.0.1...clickhouse-1.0.2) (2022-07-23)
+## [solr-0.0.19](https://github.com/truecharts/apps/compare/solr-0.0.18...solr-0.0.19) (2022-07-23)
 
 ### Chore
 
@@ -176,24 +238,78 @@
 
 
 
-## [clickhouse-1.0.1](https://github.com/truecharts/apps/compare/clickhouse-1.0.0...clickhouse-1.0.1) (2022-07-22)
+## [solr-0.0.18](https://github.com/truecharts/apps/compare/solr-0.0.17...solr-0.0.18) (2022-07-23)
+
+### Chore
+
+- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+
+
+
+
+## [solr-0.0.17](https://github.com/truecharts/apps/compare/solr-0.0.16...solr-0.0.17) (2022-07-22)
 
 ### Chore
 
 - Bump all charts to generate config and container references due to huge increase of repository
-  - update docker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
 
 
 
-## [clickhouse-1.0.0](https://github.com/truecharts/apps/compare/clickhouse-0.0.12...clickhouse-1.0.0) (2022-07-21)
+## [solr-0.0.16](https://github.com/truecharts/apps/compare/solr-0.0.15...solr-0.0.16) (2022-07-22)
 
 ### Chore
 
-- move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
+- update image refs ([#3261](https://github.com/truecharts/apps/issues/3261))
 
 
 
-## [clickhouse-0.0.12](https://github.com/truecharts/apps/compare/clickhouse-0.0.11...clickhouse-0.0.12) (2022-07-19)
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.15](https://github.com/truecharts/apps/compare/solr-0.0.14...solr-0.0.15) (2022-07-20)
+
+### Chore
+
+- update helm chart common to v10.4.6
+
+
+
+## [solr-0.0.14](https://github.com/truecharts/apps/compare/solr-0.0.13...solr-0.0.14) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [solr-0.0.13](https://github.com/truecharts/apps/compare/solr-0.0.12...solr-0.0.13) (2022-07-19)
 
 ### Chore
 
@@ -201,7 +317,23 @@
 
 
 
-## [clickhouse-0.0.11](https://github.com/truecharts/apps/compare/clickhouse-0.0.10...clickhouse-0.0.11) (2022-07-14)
+## [solr-0.0.12](https://github.com/truecharts/apps/compare/solr-0.0.11...solr-0.0.12) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
+## [solr-0.0.11](https://github.com/truecharts/apps/compare/solr-0.0.10...solr-0.0.11) (2022-07-16)
+
+### Chore
+
+- update docker general non-major ([#3192](https://github.com/truecharts/apps/issues/3192))
+
+
+
+## [solr-0.0.10](https://github.com/truecharts/apps/compare/solr-0.0.9...solr-0.0.10) (2022-07-14)
 
 ### Fix
 
@@ -209,7 +341,7 @@
 
 
 
-## [clickhouse-0.0.10](https://github.com/truecharts/apps/compare/clickhouse-0.0.8...clickhouse-0.0.10) (2022-07-14)
+## [solr-0.0.9](https://github.com/truecharts/apps/compare/solr-0.0.7...solr-0.0.9) (2022-07-14)
 
 ### Fix
 
@@ -217,7 +349,7 @@
 
 
 
-## [clickhouse-0.0.8](https://github.com/truecharts/apps/compare/clickhouse-0.0.6...clickhouse-0.0.8) (2022-07-12)
+## [solr-0.0.7](https://github.com/truecharts/apps/compare/solr-0.0.5...solr-0.0.7) (2022-07-12)
 
 ### Chore
 
@@ -226,7 +358,7 @@
 
 
 
-## [clickhouse-0.0.6](https://github.com/truecharts/apps/compare/clickhouse-0.0.5...clickhouse-0.0.6) (2022-07-12)
+## [solr-0.0.5](https://github.com/truecharts/apps/compare/solr-0.0.4...solr-0.0.5) (2022-07-12)
 
 ### Chore
 
@@ -235,41 +367,34 @@
 
 
 
-<a name="clickhouse-0.0.5"></a>
-### [clickhouse-0.0.5](https://github.com/truecharts/apps/compare/clickhouse-0.0.4...clickhouse-0.0.5) (2022-07-11)
-
-
-
-<a name="clickhouse-0.0.4"></a>
-### [clickhouse-0.0.4](https://github.com/truecharts/apps/compare/clickhouse-0.0.3...clickhouse-0.0.4) (2022-07-11)
+<a name="solr-0.0.4"></a>
+### [solr-0.0.4](https://github.com/truecharts/apps/compare/solr-0.0.3...solr-0.0.4) (2022-07-12)
 
 #### Chore
 
-* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.4 ([#3146](https://github.com/truecharts/apps/issues/3146))
 
 
 
-<a name="clickhouse-0.0.3"></a>
-### [clickhouse-0.0.3](https://github.com/truecharts/apps/compare/clickhouse-0.0.2...clickhouse-0.0.3) (2022-07-11)
+<a name="solr-0.0.3"></a>
+### [solr-0.0.3](https://github.com/truecharts/apps/compare/solr-0.0.2...solr-0.0.3) (2022-07-11)
 
 
 
-<a name="clickhouse-0.0.2"></a>
-### [clickhouse-0.0.2](https://github.com/truecharts/apps/compare/clickhouse-0.0.1...clickhouse-0.0.2) (2022-07-11)
+<a name="solr-0.0.2"></a>
+### [solr-0.0.2](https://github.com/truecharts/apps/compare/solr-0.0.1...solr-0.0.2) (2022-07-11)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-
-#### Fix
-
-* Fix ClickHouse upstream repo ([#3134](https://github.com/truecharts/apps/issues/3134))
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* update helm chart common to v10.4.3 ([#3137](https://github.com/truecharts/apps/issues/3137))
 
 
 
-<a name="clickhouse-0.0.1"></a>
-### clickhouse-0.0.1 (2022-07-10)
+<a name="solr-0.0.1"></a>
+### solr-0.0.1 (2022-07-11)
 
 #### Feat
 
-* Add ClickHouse ([#3060](https://github.com/truecharts/apps/issues/3060))
+* add solr as dep ([#3120](https://github.com/truecharts/apps/issues/3120))

@@ -2,6 +2,15 @@
 
 
 
+## [passwordpusherephemeral-0.0.31](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.30...passwordpusherephemeral-0.0.31) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [passwordpusherephemeral-0.0.30](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.29...passwordpusherephemeral-0.0.30) (2022-09-03)
 
 ### Chore
