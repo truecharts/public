@@ -1,9 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Network-Proxy
-    - Network-Other
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -30,4 +24,10 @@ sources:
   - https://www.unix-ag.uni-kl.de/~bloch/acng/
   - https://hub.docker.com/r/sameersbn/apt-cacher-ng/
 type: application
-version: 0.0.22
+version: 1.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-Proxy
+    - Network-Other
+    - Tools-Utilities
