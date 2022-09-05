@@ -2,6 +2,15 @@
 
 
 
+## [qbitmanage-1.0.0](https://github.com/truecharts/charts/compare/qbitmanage-0.0.27...qbitmanage-1.0.0) (2022-09-05)
+
+### Feat
+
+- move to stable ([#3705](https://github.com/truecharts/charts/issues/3705))
+
+
+
+
 ## [qbitmanage-0.0.27](https://github.com/truecharts/charts/compare/qbitmanage-0.0.26...qbitmanage-0.0.27) (2022-09-04)
 
 ### Fix

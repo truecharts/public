@@ -7,5 +7,3 @@
 ### Feat
 
 - Add Orbital Sync chart ([#3702](https://github.com/truecharts/charts/issues/3702))
-  
-  
