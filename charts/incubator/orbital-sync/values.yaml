@@ -44,12 +44,11 @@ env:
 
 orbital:
   honeybadger_api_key: ""
-  primary_host_base_url: ""
-  primary_host_password: ""
+  primary_host_base_url: "http://pihole.local"
+  primary_host_password: "password"
   secondary_hosts:
-    []
-    # - host: http://piholehost1.localdomain
-    #   password: "secretpass"
+    - host: http://pihole2.local
+      password: "password"
     # - host: http://10.10.10.1:1234
     #   password: "supersecretpass"
 
