@@ -6,7 +6,6 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  # allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
@@ -17,6 +16,7 @@ service:
     ports:
       main:
         port: 10232
+        protocol: HTTP
         targetPort: 3000
   dns-tcp:
     enabled: true
@@ -38,6 +38,7 @@ service:
     ports:
       dns-http:
         enabled: true
+        protocol: HTTP
         port: 10233
         targetPort: 80
   dns-https:
@@ -45,6 +46,7 @@ service:
     ports:
       dns-https:
         enabled: true
+        protocol: HTTPS
         port: 10234
         targetPort: 443
   dns-https-udp:
@@ -60,6 +62,7 @@ service:
     ports:
       dns-crypt:
         enabled: true
+        protocol: HTTP
         port: 5443
         targetPort: 5443
   dns-crypt-udp:
@@ -78,17 +81,11 @@ service:
         protocol: UDP
         port: 784
         targetPort: 784
-  dns-quic-udp-2:
-    enabled: true
-    ports:
       dns-quic-udp-2:
         enabled: true
         protocol: UDP
         port: 853
         targetPort: 853
-  dns-quic-udp-3:
-    enabled: true
-    ports:
       dns-quic-udp-3:
         enabled: true
         protocol: UDP
