@@ -2,7 +2,7 @@
 
 ![Version: 0.0.22](https://img.shields.io/badge/Version-0.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-DESCRIPTION
+Mojopaste is a pastebin application. There's about one million of these out there, but if you have the need to run something internally at work or you just fancy having your own pastebin, this is your application.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 

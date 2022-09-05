@@ -2,7 +2,7 @@
 
 ![Version: 0.0.23](https://img.shields.io/badge/Version-0.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-DESCRIPTION
+Aurora Files is an open-source file storage platform for small teams and personal users. Afterlogic Aurora Files image for Docker using Nginx, PHP-FPM 8.1, MySQL on Alpine Linux. Loosely based on khromov/alpine-nginx-php8 package.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
