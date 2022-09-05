@@ -10,11 +10,12 @@ Enable each outpost by simple setting `enabled` to `true`.
 Scale users, just have to check the checkbox
 
 > You have to create an outpost in the GUI first.
+> And afterwards enable it.
 > Applications > Outposts
 
 ### Host
 
-`host` should not need to be overridden. Defaults to `http://localhost:9000`
+`host` should not need to be overridden. Defaults to `https://localhost:9443`
 
 ### Host Browser
 
@@ -22,4 +23,6 @@ Scale users, just have to check the checkbox
 
 ### Token
 
-`token` is only needed if you accidentally deleted it within the UI
+`token` is only needed if you accidentally deleted the bootstrap token within the UI.
+
+> You can get one from Applications > Outposts > View Deployment Info

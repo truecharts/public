@@ -5,7 +5,7 @@
 {{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
 {{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
 {{- $proxySecretName := printf "%s-proxy-secret" (include "tc.common.names.fullname" .) }}
-{{- $token := randAlphaNum 32 | b64enc }}
+{{- $token := randAlphaNum 128 | b64enc }}
 
 ---
 

@@ -6,7 +6,7 @@
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
 {{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
-{{ $host := printf "http://localhost:%v" .Values.service.http.ports.http.targetPort }}
+{{ $host := printf "https://localhost:%v" .Values.service.main.ports.main.targetPort }}
 {{- if .Values.ingress.main.enabled }}
   {{ $first := (first .Values.ingress.main.hosts) }}
   {{- if $first }}
@@ -98,7 +98,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | default "true" | quote }}
-  AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default (printf "http://localhost:%v" .Values.service.http.ports.http.targetPort) }}
+  AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default (printf "https://localhost:%v" .Values.service.main.ports.main.targetPort) }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
   AUTHENTIK_LISTEN__LDAPS: 0.0.0.0:{{ .Values.service.ldapldaps.ports.ldapldaps.targetPort | default 6636 }}
   AUTHENTIK_LISTEN__LDAP: 0.0.0.0:{{ .Values.service.ldapldap.ports.ldapldap.targetPort | default 3389 }}
@@ -115,7 +115,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | default "true" | quote }}
-  AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default (printf "http://localhost:%v" .Values.service.http.ports.http.targetPort) }}
+  AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default (printf "https://localhost:%v" .Values.service.main.ports.main.targetPort) }}
   AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
   AUTHENTIK_LISTEN__HTTPS: 0.0.0.0:{{ .Values.service.proxyhttps.ports.proxyhttps.targetPort | default 9444 }}
   AUTHENTIK_LISTEN__HTTP: 0.0.0.0:{{ .Values.service.proxyhttp.ports.proxyhttp.targetPort | default 9001 }}
