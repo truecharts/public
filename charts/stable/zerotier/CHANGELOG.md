@@ -2,6 +2,15 @@
 
 
 
+## [zerotier-2.0.31](https://github.com/truecharts/charts/compare/zerotier-2.0.30...zerotier-2.0.31) (2022-09-05)
+
+### Feat
+
+- Add How-To guide ([#3698](https://github.com/truecharts/charts/issues/3698))
+
+
+
+
 ## [zerotier-2.0.30](https://github.com/truecharts/charts/compare/zerotier-2.0.28...zerotier-2.0.30) (2022-08-30)
 
 ### Chore
