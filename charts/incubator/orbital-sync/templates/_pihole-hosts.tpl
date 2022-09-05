@@ -12,11 +12,11 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-PRIMARY_HOST_BASE_URL: {{ .Values.orbital.primary_host_base_url | b64enc }}
-PRIMARY_HOST_PASSWORD: {{ .Values.orbital.primary_host_password | b64enc }}
-{{- with .Values.orbital.honeybadger_api_key }}
-HONEYBADGER_API_KEY: {{ . | b64enc }}
-{{- end }}
+  PRIMARY_HOST_BASE_URL: {{ .Values.orbital.primary_host_base_url | b64enc }}
+  PRIMARY_HOST_PASSWORD: {{ .Values.orbital.primary_host_password | b64enc }}
+  {{- with .Values.orbital.honeybadger_api_key }}
+  HONEYBADGER_API_KEY: {{ . | b64enc }}
+  {{- end }}
 
 {{ $idx := 1 }}
 {{- range .Values.orbital.secondary_hosts }}
