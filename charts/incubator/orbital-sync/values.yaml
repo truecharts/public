@@ -13,7 +13,7 @@ probes:
     enabled: false
   startup:
     enabled: false
-    
+
 service:
   main:
     enabled: false
@@ -22,6 +22,7 @@ service:
         enabled: false
 
 secretEnv:
+  HONEYBADGER_API_KEY: ""
   PRIMARY_HOST_PASSWORD: ""
   SECONDARY_HOST_1_PASSWORD: ""
 
@@ -29,6 +30,20 @@ env:
   PRIMARY_HOST_BASE_URL: ""
   SECONDARY_HOST_1_BASE_URL: ""
   INTERVAL_MINUTES: 30
+  SYNC_WHITELIST: true
+  SYNC_REGEX_WHITELIST: true
+  SYNC_BLACKLIST: true
+  SYNC_REGEXLIST: true
+  SYNC_ADLIST: true
+  SYNC_CLIENT: true
+  SYNC_GROUP: true
+  SYNC_AUDITLOG: false
+  SYNC_STATICDHCPLEASES: false
+  SYNC_LOCALDNSRECORDS: true
+  SYNC_LOCALCNAMERECORDS: true
+  SYNC_FLUSHTABLES: true
+  RUN_ONCE: false
+  VERBOSE: false
 
 persistence:
   config:
