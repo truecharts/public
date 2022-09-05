@@ -114,18 +114,18 @@ envFrom:
 probes:
   liveness:
     type: HTTP
-    path: /-/health/ready/
+    path: /-/health/ready
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
     port: 9010
   readiness:
     type: HTTP
-    path: /-/health/ready/
+    path: /-/health/ready
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
     port: 9010
   startup:
     enabled: false
     type: HTTP
-    path: /-/health/ready/
+    path: /-/health/ready
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
     port: 9010
 
