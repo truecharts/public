@@ -37,6 +37,7 @@ If you wish to automatically join a specific Zerotier Network upon startup simpl
 ![How-To-Step-1](img/How-To-Step-1.png)
 
 - Container Configuration:
+
   - `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
   - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
   - `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
