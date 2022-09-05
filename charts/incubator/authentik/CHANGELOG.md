@@ -2,6 +2,15 @@
 
 
 
+## [authentik-6.0.0](https://github.com/truecharts/charts/compare/authentik-5.0.0...authentik-6.0.0) (2022-09-05)
+
+### Feat
+
+- make manual outpost much easier for both helm and scale gui ([#3679](https://github.com/truecharts/charts/issues/3679))
+
+
+
+
 ## [authentik-5.0.0](https://github.com/truecharts/charts/compare/authentik-4.0.0...authentik-5.0.0) (2022-09-03)
 
 

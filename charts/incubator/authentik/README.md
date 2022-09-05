@@ -1,6 +1,6 @@
 # authentik
 
-![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ![AppVersion: 2022.8.2](https://img.shields.io/badge/AppVersion-2022.8.2-informational?style=flat-square)
+![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![AppVersion: 2022.8.2](https://img.shields.io/badge/AppVersion-2022.8.2-informational?style=flat-square)
 
 authentik is an open-source Identity Provider focused on flexibility and versatility.
 
@@ -67,7 +67,7 @@ helm uninstall authentik
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line
