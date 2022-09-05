@@ -116,12 +116,10 @@ probes:
     type: HTTP
     path: /-/health/ready
     port: "{{ .Values.service.http.ports.http.targetPort }}"
-    spec:
   readiness:
     type: HTTP
     path: /-/health/ready
     port: "{{ .Values.service.http.ports.http.targetPort }}"
-    spec:
   startup:
     type: HTTP
     path: /-/health/ready

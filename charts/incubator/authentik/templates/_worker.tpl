@@ -45,8 +45,8 @@ startupProbe:
     command:
       - /lifecycle/ak
       - healthcheck
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
+  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
+  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
+  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}

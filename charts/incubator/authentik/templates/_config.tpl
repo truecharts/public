@@ -140,4 +140,4 @@ data:
   {{- end }}
   GEOIPUPDATE_PRESERVE_FILE_TIMES: {{ ternary "1" "0" .Values.geoip.preserve_file_times | quote }}
   GEOIPUPDATE_VERBOSE: {{ ternary "1" "0" .Values.geoip.verbose | quote }}
-{{- end }}
+{{- end -}}
