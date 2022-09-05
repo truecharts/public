@@ -31,8 +31,8 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           {{ include "common.resources.limitation" . | nindent 8 }}
         {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
         env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}
-        {{ $envList := list }}
         {{ $secretName := (include "common.names.fullname" .) }}
+        {{ $envList := (default list .Values.environmentVariables) }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_HOST" "value" (printf "%s:5432" (include "common.names.fullname" $postgres_values))) }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_DB" "value" (include "postgres.DatabaseName" .)) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
