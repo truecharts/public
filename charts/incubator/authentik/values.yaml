@@ -124,6 +124,7 @@ probes:
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
     port: 9010
   startup:
+    enabled: false
     type: HTTP
     path: /-/health/ready
     # port: "{{ .Values.service.http.ports.http.targetPort }}"
