@@ -7,6 +7,12 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+command:
+  - sleep 120
+  - "&&"
+  - /usr/local/bin/dumb-init
+  - --
+  - /lifecycle/ak
 args: ["worker"]
 envFrom:
   - secretRef:
