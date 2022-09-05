@@ -8,6 +8,8 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
+  - /bin/bash
+  - -ec
   - 'until curl --user-agent "goauthentik.io lifecycle Healthcheck" -I http://localhost:{{ .Values.service.main.ports.main.targetPort }}/-/health/live/; do sleep 2; done'
   - '/usr/local/bin/dumb-init -- /lifecycle/ak'
 args: ["worker"]
