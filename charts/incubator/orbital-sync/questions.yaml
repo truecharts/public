@@ -10,19 +10,6 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PRIMARY_HOST_BASE_URL
-          label: "PRIMARY_HOST_BASE_URL"
-          description: "The base URL of your Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash."
-          schema:
-            type: string
-            default: "https://pihole1.example.com"
   - variable: secretEnv
     group: "Container Configuration"
     label: "Image Secrets"
@@ -37,26 +24,6 @@ questions:
             type: string
             private: true
             default: ""
- - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SECONDARY_HOST_1_BASE_URL
-          label: "SECONDARY_HOST_1_BASE_URL"
-          description: "The base URL of your secondary Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash. Replace (#) with a number, starting at 1, to add multiple secondary Pi-holes."
-          schema:
-            type: string
-            default: "https://pihole2.example.com"
-  - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: SECONDARY_HOST_1_PASSWORD
           label: "SECONDARY_HOST_1_PASSWORD"
           description: "The password used to log in to the admin interface."
@@ -64,6 +31,25 @@ questions:
             type: string
             private: true
             default: ""
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PRIMARY_HOST_BASE_URL
+          label: "PRIMARY_HOST_BASE_URL"
+          description: "The base URL of your Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash."
+          schema:
+            type: string
+            default: "https://pihole1.example.com"
+        - variable: SECONDARY_HOST_1_BASE_URL
+          label: "SECONDARY_HOST_1_BASE_URL"
+          description: "The base URL of your secondary Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash. Replace (#) with a number, starting at 1, to add multiple secondary Pi-holes."
+          schema:
+            type: string
+            default: "https://pihole2.example.com"
         - variable: INTERVAL_MINUTES
           label: "INTERVAL_MINUTES"
           description: "How long to wait between synchronizations. Defaults to five minutes. Remember that the DNS server on your secondary servers restarts everytime a sync is performed."
