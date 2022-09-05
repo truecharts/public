@@ -114,18 +114,19 @@ envFrom:
 probes:
   liveness:
     type: HTTP
-    path: /-/health/ready
+    path: /-/health/live/
     port: "{{ .Values.service.http.ports.http.targetPort }}"
   readiness:
-    enabled: false
     type: HTTP
-    path: /-/health/ready
+    path: /-/health/ready/
     port: "{{ .Values.service.http.ports.http.targetPort }}"
   startup:
     enabled: false
     type: HTTP
-    path: /-/health/ready
+    path: /-/health/ready/
     port: "{{ .Values.service.http.ports.http.targetPort }}"
+    spec:
+      initialDelaySeconds: 120
 
 service:
   main:
