@@ -14,12 +14,12 @@ service:
         enabled: false
 
 secretEnv:
-  PRIMARY_HOST_PASSWORD: "your_password1"
-  SECONDARY_HOST_1_PASSWORD: "your_password2"
+  PRIMARY_HOST_PASSWORD: ""
+  SECONDARY_HOST_1_PASSWORD: ""
 
 env:
-  PRIMARY_HOST_BASE_URL: "https://pihole1.example.com"
-  SECONDARY_HOST_1_BASE_URL: "https://pihole2.example.com"
+  PRIMARY_HOST_BASE_URL: ""
+  SECONDARY_HOST_1_BASE_URL: ""
   INTERVAL_MINUTES: 30
 
 persistence:
