@@ -2,6 +2,15 @@
 
 
 
+## [apt-cacher-ng-1.0.0](https://github.com/truecharts/charts/compare/apt-cacher-ng-0.0.22...apt-cacher-ng-1.0.0) (2022-09-05)
+
+### Feat
+
+- move to stable and add docs ([#3707](https://github.com/truecharts/charts/issues/3707))
+
+
+
+
 ## [apt-cacher-ng-0.0.22](https://github.com/truecharts/charts/compare/apt-cacher-ng-0.0.21...apt-cacher-ng-0.0.22) (2022-08-30)
 
 ### Chore
