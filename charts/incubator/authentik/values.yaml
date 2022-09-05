@@ -123,7 +123,7 @@ probes:
     path: /-/health/ready
     port: "{{ .Values.service.http.ports.http.targetPort }}"
     spec:
-      initialDelaySeconds: 60
+      initialDelaySeconds: 120
   startup:
     enabled: false
     type: HTTP
