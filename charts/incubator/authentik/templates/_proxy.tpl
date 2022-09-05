@@ -1,7 +1,7 @@
-{{/* Define the ldap container */}}
-{{- define "authentik.ldap" -}}
-image: {{ .Values.ldapImage.repository }}:{{ .Values.ldapImage.tag }}
-imagePullPolicy: {{ .Values.ldapImage.pullPolicy }}
+{{/* Define the proxy container */}}
+{{- define "authentik.proxy" -}}
+image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
+imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
@@ -9,22 +9,22 @@ securityContext:
   runAsNonRoot: true
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-proxy-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
+      name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
 ports:
-  - containerPort: {{ .Values.service.ldapldaps.ports.ldapldaps.targetPort }}
-    name: ldapldaps
-  - containerPort: {{ .Values.service.ldapldap.ports.ldapldap.targetPort }}
-    name: ldapldap
-{{- if .Values.outposts.ldap.metrics }}
-  - containerPort: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-    name: ldapmetrics
+  - containerPort: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort }}
+    name: proxyhttps
+  - containerPort: {{ .Values.service.proxyhttp.ports.proxyhttp.targetPort }}
+    name: proxyhttp
+{{- if .Values.outposts.proxy.metrics }}
+  - containerPort: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
+    name: proxymetrics
 {{- end }}
 readinessProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -32,7 +32,7 @@ readinessProbe:
 livenessProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -40,7 +40,7 @@ livenessProbe:
 startupProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
