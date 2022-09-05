@@ -266,7 +266,7 @@ questions:
                             description: Check only if you accessing Authentik in an unsecure way
                             schema:
                               type: boolean
-                              default: false
+                              default: true
                     - variable: overrideToken
                       label: Override Token
                       description: Overrides the random generated token to provide your own
@@ -277,7 +277,7 @@ questions:
                         subquestions:
                         - variable: token
                           label: API Token
-                          description: Generated in the Authentik GUI > Directory > Token & App Passwords
+                          description: You can get this from Applications > Outposts > View Deployment Info
                           schema:
                             type: string
                             private: true
@@ -336,7 +336,7 @@ questions:
                             description: Check only if you accessing Authentik in an unsecure way
                             schema:
                               type: boolean
-                              default: false
+                              default: true
                     - variable: overrideToken
                       label: Override Token
                       description: Overrides the random generated token to provide your own
@@ -347,7 +347,7 @@ questions:
                         subquestions:
                         - variable: token
                           label: API Token
-                          description: Generated in the Authentik GUI > Directory > Token & App Passwords
+                          description: You can get this from Applications > Outposts > View Deployment Info
                           schema:
                             type: string
                             private: true

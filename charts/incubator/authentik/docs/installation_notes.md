@@ -14,7 +14,7 @@ Scale users, just have to check the checkbox
 
 ### Host
 
-`host` should not need to be overridden. Defaults to `http://localhost:9000`
+`host` should not need to be overridden. Defaults to `https://localhost:9443`
 
 ### Host Browser
 
@@ -23,3 +23,4 @@ Scale users, just have to check the checkbox
 ### Token
 
 `token` is only needed if you accidentally deleted it within the UI
+You can get this from Applications > Outposts > View Deployment Info
