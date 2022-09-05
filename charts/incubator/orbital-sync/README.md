@@ -1,20 +1,20 @@
-# whisparr
+# orbital-sync
 
-![Version: 0.0.22](https://img.shields.io/badge/Version-0.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.0.49](https://img.shields.io/badge/AppVersion-0.1.0.49-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square)
 
-An adult media thingy.
+Orbital Sync synchronizes multiple Pi-hole instances for high availability.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [whisparr](https://truecharts.org/docs/charts/incubator/whisparr)
+For more information, please click here: [orbital-sync](https://truecharts.org/docs/charts/incubator/orbital-sync)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/whisparr>
-* <https://github.com/onedr0p/containers/tree/main/apps/whisparr>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/orbital-sync>
+* <https://github.com/mattwebbio/orbital-sync/pkgs/container/orbital-sync>
 
 ## Requirements
 
@@ -34,12 +34,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `whisparr`
+To install the chart with the release name `orbital-sync`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install whisparr TrueCharts/whisparr
+helm install orbital-sync TrueCharts/orbital-sync
 ```
 
 ## Uninstall
@@ -52,10 +52,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `whisparr` deployment
+To uninstall the `orbital-sync` deployment
 
 ```console
-helm uninstall whisparr
+helm uninstall orbital-sync
 ```
 
 ## Configuration
@@ -72,9 +72,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install whisparr \
+helm install orbital-sync \
   --set env.TZ="America/New York" \
-    TrueCharts/whisparr
+    TrueCharts/orbital-sync
 ```
 
 #### Configure using a yaml file
@@ -82,7 +82,7 @@ helm install whisparr \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install whisparr TrueCharts/whisparr -f values.yaml
+helm install orbital-sync TrueCharts/orbital-sync -f values.yaml
 ```
 
 #### Connecting to other charts

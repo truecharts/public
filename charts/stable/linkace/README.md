@@ -1,6 +1,6 @@
 # linkace
 
-![Version: 4.0.42](https://img.shields.io/badge/Version-4.0.42-informational?style=flat-square) ![AppVersion: 1.10.3](https://img.shields.io/badge/AppVersion-1.10.3-informational?style=flat-square)
+![Version: 4.0.43](https://img.shields.io/badge/Version-4.0.43-informational?style=flat-square) ![AppVersion: 1.10.4](https://img.shields.io/badge/AppVersion-1.10.4-informational?style=flat-square)
 
 Your self-hosted bookmark archive. Free and open source.
 
@@ -68,7 +68,7 @@ helm uninstall linkace
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

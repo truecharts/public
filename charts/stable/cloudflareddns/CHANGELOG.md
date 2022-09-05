@@ -2,6 +2,15 @@
 
 
 
+## [cloudflareddns-1.0.19](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.18...cloudflareddns-1.0.19) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [cloudflareddns-1.0.18](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.17...cloudflareddns-1.0.18) (2022-08-30)
 
 ### Chore

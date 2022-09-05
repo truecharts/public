@@ -2,6 +2,15 @@
 
 
 
+## [linkace-4.0.43](https://github.com/truecharts/charts/compare/linkace-4.0.42...linkace-4.0.43) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [linkace-4.0.42](https://github.com/truecharts/charts/compare/linkace-4.0.40...linkace-4.0.42) (2022-08-30)
 
 ### Chore

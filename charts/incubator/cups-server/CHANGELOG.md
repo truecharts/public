@@ -2,6 +2,15 @@
 
 
 
+## [cups-server-1.0.42](https://github.com/truecharts/charts/compare/cups-server-1.0.41...cups-server-1.0.42) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
 ## [cups-server-1.0.41](https://github.com/truecharts/charts/compare/cups-server-1.0.40...cups-server-1.0.41) (2022-08-30)
 
 ### Chore

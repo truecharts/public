@@ -147,7 +147,7 @@ questions:
                               type: int
                               default: 10234
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
@@ -266,14 +266,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 784
-        - variable: dns-quic-udp-2
-          label: "dns-quic-udp-2 Service"
-          description: "The dns-quic-udp-2 service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-quic-udp-2
                       label: "dns-quic-udp-2 Service Port Configuration"
                       schema:
@@ -294,14 +286,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 853
-        - variable: dns-quic-udp-3
-          label: "dns-quic-udp-3 Service"
-          description: "The dns-quic-udp-3 service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
                     - variable: dns-quic-udp-3
                       label: "dns-quic-udp-3 Service Port Configuration"
                       schema:

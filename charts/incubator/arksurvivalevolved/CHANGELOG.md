@@ -2,6 +2,15 @@
 
 
 
+## [arksurvivalevolved-0.0.24](https://github.com/truecharts/charts/compare/arksurvivalevolved-0.0.23...arksurvivalevolved-0.0.24) (2022-09-04)
+
+### Fix
+
+- add some default params ([#3694](https://github.com/truecharts/charts/issues/3694))
+
+
+
+
 ## [arksurvivalevolved-0.0.23](https://github.com/truecharts/charts/compare/arksurvivalevolved-0.0.22...arksurvivalevolved-0.0.23) (2022-08-30)
 
 ### Chore
