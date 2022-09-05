@@ -31,23 +31,23 @@ Ideally name your chart `Zerotier` but you can use any name here and leave defau
 
 - Extra Args:
 
-If you wish to automatically join a specific Zerotier Network upon startup simply enter the `Network-ID` in this space. **Note** This is not required for the chart to run but is **highly recommended**.
+If you wish to automatically join a specific Zerotier Network upon startup simply enter the `Network-ID` in this space.
+**Note** This is not required for the chart to run but is **highly recommended**.
 
 ![How-To-Step-1](img/How-To-Step-1.png)
 
 - Container Configuration:
+  - `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
+  - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
+  - `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 
-ZEROTIER_API_SECRET : Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
-
-ZEROTIER_IDENTITY_PUBLIC : The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
-
-ZEROTIER_IDENTITY_SECRET : The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
-
-![How-To-Step-2](img/How-To-Step-2.png)
+  ![How-To-Step-2](img/How-To-Step-2.png)
 
 Networking and Services:
 
-- The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router. However many people will want to access their SMB shares or TrueNAS GUI via Zerotier. In order to do so you will have to ensure the screen is setup as below and enable `Host-Networking`.
+- The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
+  However many people will want to access their SMB shares or TrueNAS GUI via Zerotier.
+  In order to do so you will have to ensure the screen is setup as below and enable `Host-Networking`.
 
 ![Zerotier Host Networking](img/How-To-Step-3.png)
 
