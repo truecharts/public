@@ -108,8 +108,8 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-  # - configMapRef:
-  #     name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
 
 probes:
   liveness:
