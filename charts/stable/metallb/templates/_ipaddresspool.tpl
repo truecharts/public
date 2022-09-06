@@ -7,6 +7,8 @@ kind: IPAddressPool
 metadata:
   name: {{ .addressPool.name }}
   namespace: {{ $namespace }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
 spec:
   addresses:
     {{- range .addressPool.addresses }}
