@@ -51,6 +51,7 @@ service:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: rsshub
 
 additionalContainers:
   browserless:
