@@ -8,6 +8,9 @@ keywords:
   - metallb
   - loadbalancer
 dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.6
   - name: metallb
     repository: https://metallb.github.io/metallb
     version: 0.13.5
