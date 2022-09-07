@@ -3,12 +3,12 @@
 ## L3 Adoption (DNS)
 
 One solution to solve problems when trying to adopt devices is to
-correctly set DNS on your LAN.
+correctly configure your DNS server.
 
 By default all Unifi Devices try to resolve `unifi.localdomain`,
 to find the controller. Even adopted devices, uses this as a fallback.
 
-What you have to do is configure your LAN DNS server, to resolve
+What you have to do is configure your DNS server, to resolve
 `unifi.localdomain` to the IP of your Unifi Controller. So the devices can find the
 controller.
 
