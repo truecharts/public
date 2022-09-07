@@ -2,6 +2,15 @@
 
 
 
+## [lychee-13.0.39](https://github.com/truecharts/charts/compare/lychee-13.0.38...lychee-13.0.39) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [lychee-13.0.38](https://github.com/truecharts/charts/compare/lychee-13.0.36...lychee-13.0.38) (2022-08-30)
 
 ### Chore

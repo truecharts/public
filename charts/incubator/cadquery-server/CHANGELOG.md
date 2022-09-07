@@ -2,6 +2,16 @@
 
 
 
+## [cadquery-server-0.0.23](https://github.com/truecharts/charts/compare/cadquery-server-0.0.22...cadquery-server-0.0.23) (2022-09-06)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [cadquery-server-0.0.22](https://github.com/truecharts/charts/compare/cadquery-server-0.0.21...cadquery-server-0.0.22) (2022-08-30)
 
 ### Chore

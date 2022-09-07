@@ -2,6 +2,15 @@
 
 
 
+## [icinga2-3.0.37](https://github.com/truecharts/charts/compare/icinga2-3.0.36...icinga2-3.0.37) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [icinga2-3.0.36](https://github.com/truecharts/charts/compare/icinga2-3.0.35...icinga2-3.0.36) (2022-09-04)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [mealie-9.0.0](https://github.com/truecharts/charts/compare/mealie-8.0.35...mealie-9.0.0) (2022-09-07)
+
+### Fix
+
+- use the new var for defining db type ([#3714](https://github.com/truecharts/charts/issues/3714))
+
+
+
+
 ## [mealie-8.0.35](https://github.com/truecharts/charts/compare/mealie-8.0.33...mealie-8.0.35) (2022-08-30)
 
 ### Chore

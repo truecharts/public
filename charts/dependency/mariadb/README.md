@@ -1,6 +1,6 @@
 # mariadb
 
-![Version: 3.0.69](https://img.shields.io/badge/Version-3.0.69-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.8.4](https://img.shields.io/badge/AppVersion-10.8.4-informational?style=flat-square)
+![Version: 3.0.70](https://img.shields.io/badge/Version-3.0.70-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.8.4](https://img.shields.io/badge/AppVersion-10.8.4-informational?style=flat-square)
 
 Fast, reliable, scalable, and easy to use open-source relational database system.
 
@@ -66,7 +66,7 @@ helm uninstall mariadb
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

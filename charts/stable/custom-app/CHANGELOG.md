@@ -2,6 +2,15 @@
 
 
 
+## [custom-app-5.1.56](https://github.com/truecharts/charts/compare/custom-app-5.1.55...custom-app-5.1.56) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [custom-app-5.1.55](https://github.com/truecharts/charts/compare/custom-app-5.1.54...custom-app-5.1.55) (2022-09-05)
 
 ### Chore

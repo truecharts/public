@@ -1,6 +1,6 @@
 # wekan
 
-![Version: 5.0.7](https://img.shields.io/badge/Version-5.0.7-informational?style=flat-square) ![AppVersion: 6.43](https://img.shields.io/badge/AppVersion-6.43-informational?style=flat-square)
+![Version: 5.0.8](https://img.shields.io/badge/Version-5.0.8-informational?style=flat-square) ![AppVersion: 6.44](https://img.shields.io/badge/AppVersion-6.44-informational?style=flat-square)
 
 WeKan - Open Source kanban
 
@@ -66,7 +66,7 @@ helm uninstall wekan
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

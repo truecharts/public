@@ -2,6 +2,15 @@
 
 
 
+## [wekan-5.0.8](https://github.com/truecharts/charts/compare/wekan-5.0.7...wekan-5.0.8) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [wekan-5.0.7](https://github.com/truecharts/charts/compare/wekan-5.0.6...wekan-5.0.7) (2022-09-03)
 
 ### Chore

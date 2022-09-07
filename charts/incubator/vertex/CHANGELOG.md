@@ -2,6 +2,16 @@
 
 
 
+## [vertex-0.0.45](https://github.com/truecharts/charts/compare/vertex-0.0.44...vertex-0.0.45) (2022-09-06)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [vertex-0.0.44](https://github.com/truecharts/charts/compare/vertex-0.0.43...vertex-0.0.44) (2022-09-05)
 
 ### Chore

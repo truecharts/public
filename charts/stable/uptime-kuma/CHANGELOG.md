@@ -2,6 +2,15 @@
 
 
 
+## [uptime-kuma-3.0.31](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.30...uptime-kuma-3.0.31) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [uptime-kuma-3.0.30](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.28...uptime-kuma-3.0.30) (2022-08-30)
 
 ### Chore
