@@ -2,6 +2,16 @@
 
 
 
+## [pihole-6.0.37](https://github.com/truecharts/charts/compare/pihole-6.0.36...pihole-6.0.37) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [pihole-6.0.37](https://github.com/truecharts/charts/compare/pihole-6.0.36...pihole-6.0.37) (2022-09-06)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [googlephotossync-0.0.30](https://github.com/truecharts/charts/compare/googlephotossync-0.0.29...googlephotossync-0.0.30) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
 ## [googlephotossync-0.0.30](https://github.com/truecharts/charts/compare/googlephotossync-0.0.29...googlephotossync-0.0.30) (2022-09-06)
 
 ### Chore

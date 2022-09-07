@@ -2,6 +2,15 @@
 
 
 
+## [unifi-11.0.32](https://github.com/truecharts/charts/compare/unifi-11.0.31...unifi-11.0.32) (2022-09-07)
+
+### Chore
+
+- Add docs for L3 adoption ([#3715](https://github.com/truecharts/charts/issues/3715))
+
+
+
+
 ## [unifi-11.0.31](https://github.com/truecharts/charts/compare/unifi-11.0.29...unifi-11.0.31) (2022-08-30)
 
 ### Chore
