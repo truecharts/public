@@ -9,8 +9,6 @@ env:
     secretKeyRef:
       name: dbcreds
       key: url
-
-secretEnv:
   HASH_SALT:
     secretKeyRef:
       name: umami-salt
