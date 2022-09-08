@@ -10,9 +10,12 @@ env:
       name: dbcreds
       key: url
 
-envFrom:
-  - configMapRef:
-      name: umami-paths
+secretEnv:
+  HASH_SALT:
+    valueFrom:
+      secretKeyRef:
+        name: umami-salt
+        key: HASH_SALT
 
 service:
   main:

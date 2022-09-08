@@ -3,7 +3,5 @@
 
 {{- include "umami.secrets" . }}
 
-{{- include "umami.configmap" . }}
-
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
