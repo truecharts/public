@@ -5,7 +5,7 @@ image:
 
 env:
   DATABASE_TYPE: "postgresql"
-  HASH_SALT: {{randAlphaNum 32}}
+  HASH_SALT: { { randAlphaNum 32 } }
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
