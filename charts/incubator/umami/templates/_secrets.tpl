@@ -11,6 +11,5 @@ metadata:
 data:
   {{- $salt := randAlphaNum 30 }}
   HASH_SALT: {{ $salt | b64enc }}
-  {{- end }}
-{{- end }}
+
 {{- end -}}
