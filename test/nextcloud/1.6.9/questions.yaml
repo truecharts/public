@@ -327,3 +327,24 @@ questions:
       show_if: [["enableResourceLimits", "=", true]]
       valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
       default: "8Gi"
+
+  - variable: environmentVariables
+    label: "Nextcloud environment"
+    group: "Nextcloud Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
