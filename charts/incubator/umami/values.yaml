@@ -12,7 +12,6 @@ env:
 
 secretEnv:
   HASH_SALT:
-    valueFrom:
       secretKeyRef:
         name: umami-salt
         key: HASH_SALT
