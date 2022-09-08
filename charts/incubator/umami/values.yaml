@@ -3,17 +3,9 @@ image:
   tag: postgresql-v1.38.0@sha256:1b2361dbe5397938a1016e77a6329b2607d6483789ce161eb7886423fec0a533
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   DATABASE_TYPE: "postgresql"
-  HASH_SALT: "replace-me-with-a-random-string"
+  HASH_SALT: {{randAlphaNum 32}}
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
@@ -23,7 +15,7 @@ service:
   main:
     ports:
       main:
-        port: 3000
+        port: 10381
         protocol: HTTP
         targetPort: 3000
 
