@@ -12,9 +12,9 @@ env:
 
 secretEnv:
   HASH_SALT:
-      secretKeyRef:
-        name: umami-salt
-        key: HASH_SALT
+    secretKeyRef:
+      name: umami-salt
+      key: HASH_SALT
 
 service:
   main:
