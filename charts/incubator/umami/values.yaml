@@ -5,11 +5,14 @@ image:
 
 env:
   DATABASE_TYPE: "postgresql"
-  HASH_SALT: { { randAlphaNum 32 } }
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: url
+
+envFrom:
+  - configMapRef:
+      name: umami-paths
 
 service:
   main:
