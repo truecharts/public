@@ -9,10 +9,9 @@ env:
     secretKeyRef:
       name: dbcreds
       key: url
-  HASH_SALT:
-    secretKeyRef:
-      name: umami-salt
-      key: salt
+
+secretEnv:
+  HASH_SALT: "replace-me-with-a-random-string"
 
 service:
   main:
