@@ -10,6 +10,6 @@ metadata:
 {{- $salt := "" }}
 data:
   {{- $salt := randAlphaNum 30 }}
-  HASH_SALT: {{ $salt | b64enc }}
+  salt: {{ $salt | b64enc }}
 
 {{- end -}}
