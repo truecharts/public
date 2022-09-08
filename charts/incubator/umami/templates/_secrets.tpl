@@ -9,7 +9,7 @@ metadata:
   name: umami-salt
 {{- $salt := "" }}
 data:
-  {{- $salt := randAlphaNum 30 }}
+  {{- $salt = randAlphaNum 30 }}
   salt: {{ $salt | b64enc }}
 
 {{- end -}}
