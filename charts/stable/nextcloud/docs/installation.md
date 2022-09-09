@@ -6,13 +6,16 @@ This is the optional location your Nextcloud userdata will be located
 
 > You do NOT need to create a dataset if you do not plan on using one. Nextcloud does not require one, instead you can rely on the PVC default
 
-??? Note "Note"
+:::note
+
 The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE. You do not have to create a separate user for each application.
 
-    When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
+When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
 
-- You are REQUIRED to use the `www-data` group and setting the permissions exactly, If you have anything different, chances are it will not work
-- ACL's are known to cause problems with the Nextcloud Userdata folder, we advice you not to use them.
+:::
+
+- You are **REQUIRED** to use the `www-data` group and setting the permissions exactly, If you have anything different, chances are it will not work
+- ACL's are known to cause problems with the Nextcloud `Userdata` folder, we advice you not to use them.
 
 ![!Dataset: Nextcloud](images/dataset.png)
 
@@ -30,7 +33,7 @@ For this application We used the `Nextcloud` provided by [TrueCharts](https://tr
 
 **Application Name**
 
-```
+```text
 nextcloud
 ```
 
@@ -38,7 +41,7 @@ Name it whatever you want, We stick with the chart name for now
 
 **NEXTCLOUD_ADMIN_USER (First Install Only)**
 
-```
+```text
 USERNAME
 ```
 
@@ -48,7 +51,7 @@ USERNAME
 
 **NEXTCLOUD_ADMIN_PASSWORD (First Install Only)**
 
-```
+```text
 PASSWORD
 ```
 
