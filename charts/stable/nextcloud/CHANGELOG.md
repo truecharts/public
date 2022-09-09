@@ -2,6 +2,15 @@
 
 
 
+## [nextcloud-15.3.10](https://github.com/truecharts/charts/compare/nextcloud-15.3.9...nextcloud-15.3.10) (2022-09-09)
+
+### Chore
+
+- doc polishing ([#3725](https://github.com/truecharts/charts/issues/3725))
+
+
+
+
 ## [nextcloud-15.3.9](https://github.com/truecharts/charts/compare/nextcloud-15.3.8...nextcloud-15.3.9) (2022-09-07)
 
 ### Chore

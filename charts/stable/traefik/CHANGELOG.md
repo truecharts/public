@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.6](https://github.com/truecharts/charts/compare/traefik-13.3.5...traefik-13.3.6) (2022-09-09)
+
+### Chore
+
+- move docs from website repo ([#3722](https://github.com/truecharts/charts/issues/3722))
+
+
+
+
 ## [traefik-13.3.5](https://github.com/truecharts/charts/compare/traefik-13.3.4...traefik-13.3.5) (2022-09-04)
 
 ### Chore
