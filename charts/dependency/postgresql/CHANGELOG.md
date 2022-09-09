@@ -2,6 +2,15 @@
 
 
 
+## [postgresql-8.0.74](https://github.com/truecharts/charts/compare/postgresql-8.0.73...postgresql-8.0.74) (2022-09-09)
+
+### Fix
+
+- fix building ([#3724](https://github.com/truecharts/charts/issues/3724))
+
+
+
+
 ## [postgresql-8.0.73](https://github.com/truecharts/charts/compare/postgresql-8.0.72...postgresql-8.0.73) (2022-09-07)
 
 ### Chore
