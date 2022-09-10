@@ -121,6 +121,103 @@ questions:
                   type: string
                   required: true
                   default: ""
+        - variable: Peers
+          label: Peers
+          description: BGPPeer is the Schema for the peers API.
+          schema:
+            additional_attrs: true
+            type: list
+            default: []
+            items:
+              - variable: name
+                label: Name
+                description: The name of the peer.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: bfdProfile
+                label: BFD Profile
+                description: The name of the BFD Profile to be used for the BFD session
+                    associated to the BGP session. If not set, the BFD session won't
+                    be set up.
+                schema:
+                  type: string
+                  default: ""
+              - variable: ebgpMultiHop
+                label: EBGP MultiHop
+                description: TTo set if the BGPPeer is multi-hops away. Needed for
+                    FRR mode only.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: holdTime
+                label: Hold Time
+                description: Requested BGP hold time, per RFC4271.
+                schema:
+                  type: int
+              - variable: keepaliveTime
+                label: Keep Alive Time
+                description: Requested BGP keep alive time, per RFC4271.
+                schema:
+                  type: int
+              - variable: myASN
+                label: My ASN
+                description: AS number to use for the local end of the session.
+                schema:
+                  type: int
+              - variable: password
+                label: Password
+                description: Authentication password for routers enforcing TCP MD5
+                    authenticated sessions
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: peerASN
+                label: Peer ASN
+                description: AS number to expect from the remote end of the session.
+                schema:
+                  type: int
+                  default: 0
+              - variable: peerAddress
+                label: Peer Address
+                description: Address to dial when establishing the session.
+                schema:
+                  type: string
+                  default: ""
+              - variable: peerPort
+                label: Peer Port
+                description: Port to dial when establishing the session.
+                schema:
+                  type: int
+                  default: 179
+              - variable: routerID
+                label: Router ID
+                description: BGP router ID to advertise to the peer
+                schema:
+                  type: string
+                  default: ""
+              - variable: sourceAddress
+                label: Source Address
+                description: Source address to use when establishing the session.
+                schema:
+                  type: string
+                  default: ""
+              - variable: nodeSelectors
+                label: Node Selectors
+                description: Only connect to this peer on nodes that match one of
+                    these selectors.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: nodeSelectorEntry
+                      label: Node Selector Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
         - variable: BGPAdvertisements
           label: BGP Advertisements
           description: BGPAdvertisement allows to advertise the IPs coming from the
@@ -151,40 +248,22 @@ questions:
                         type: string
                         default: ""
                         required: true
-              - variable: setAggLen
-                label: Set Aggregation Length
-                description: Allows you to set aggregation length
+              - variable: aggregationLength
+                label: Aggregation Length
+                description: The aggregation-length advertisement option lets you
+                  "roll up" the /32s into a larger prefix. Defaults to 32. Works for
+                  IPv4 addresses.
                 schema:
-                  type: boolean
-                  required:
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: aggregationLength
-                      label: Aggregation Length
-                      description: The aggregation-length advertisement option lets you
-                        "roll up" the /32s into a larger prefix. Defaults to 32. Works for
-                        IPv4 addresses.
-                      schema:
-                        type: int
-                        default: 24
-              - variable: setLocalPref
-                label: Set Local Pref
-                description: Allows you to set local pref
+                  type: int
+                  default: 24
+              - variable: localpref
+                label: Local Pref
+                description: The BGP LOCAL_PREF attribute which is used by BGP best
+                  path algorithm, Path with higher localpref is preferred over one
+                  with lower localpref.
                 schema:
-                  type: boolean
-                  required:
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: localpref
-                      label: Local Pref
-                      description: The BGP LOCAL_PREF attribute which is used by BGP best
-                        path algorithm, Path with higher localpref is preferred over one
-                        with lower localpref.
-                      schema:
-                        type: int
-                        default: 100
+                  type: int
+                  default: 100
               - variable: communities
                 label: Communities
                 description: The BGP communities to be associated with the announcement.

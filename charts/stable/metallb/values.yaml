@@ -4,60 +4,46 @@ image:
   pullPolicy: IfNotPresent
 
 metallb:
-  ipAddressPools:
-    - addressPool:
-        name: test
-        addresses:
-          - 192.168.1.0/24
-          - 192.168.2.0/24
-        autoAssign: true
-        avoidBuggyIPs: false
-    - addressPool:
-        name: test2
-        addresses:
-          - 192.168.3.0/24
-          - 192.168.4.0/24
-        autoAssign: true
-        avoidBuggyIPs: false
-    - addressPool:
-        name: test3
-        addresses:
-          - 192.168.5.0/24
-          - 192.168.6.0/24
-        autoAssign: true
-        avoidBuggyIPs: false
-    - addressPool:
-        name: test4
-        addresses:
-          - 192.168.7.0/24
-          - 192.168.8.0/24
-        autoAssign: true
-        avoidBuggyIPs: false
-  L2Advertisements:
-    - name: testL2Adv
-      addressPools:
-        - test
-        - test2
-      nodeSelectors:
-        - node1
-  BGPAdvertisements:
-    - name: testBGPAdv
-      addressPools:
-        - test3
-        - test4
-      aggregationLength: 24
-      localpref: 100
-      communities:
-        - 65535:65282
-        - 35535:35282
-      peers:
-        - peer1
-        - peer2
-  Communities:
-    - name: comm1
-      value: 1234:1
-    - name: comm2
-      value: 5678:2
+  # ipAddressPools:
+  #   - addressPool:
+  #       name: pool1
+  #       addresses:
+  #         - 192.168.1.0/24
+  #       autoAssign: true
+  #       avoidBuggyIPs: false
+  # L2Advertisements:
+  #   - name: l2adv
+  #     addressPools:
+  #       - pool1
+  #     nodeSelectors:
+  #       - nodeA
+  # BGPAdvertisements:
+  #   - name: bgpadv
+  #     addressPools:
+  #       - pool1
+  #     aggregationLength: 24
+  #     localpref: 100
+  #     communities:
+  #       - 1234:1
+  #     peers:
+  #       - peer1
+  # Communities:
+  #   - name: community1
+  #     value: 1234:1
+  # Peers:
+  #   - name: peer1
+  #     myASN: 1234
+  #     password: pass
+  #     routerID: 1234
+  #     bfdProfile: profile
+  #     ebgpMultiHop: false
+  #     holdTime: 10
+  #     keepaliveTime: 10
+  #     peerAddress: 172.30.0.2
+  #     peerPort: 179
+  #     sourceAddress: 172.30.0.3
+  #     nodeSelectors:
+  #       - nodeA
 
 portal:
   enabled: false
