@@ -35,13 +35,13 @@ spec:
   myASN: {{ . }}
   {{- end }}
   {{- with .peerASN }}
-  peerASN: {{ . }}
+  peerASN: {{ . | int }}
   {{- end }}
   {{- with .peerAddress }}
   peerAddress: {{ . }}
   {{- end }}
   {{- with .peerPort }}
-  peerPort: {{ . }}
+  peerPort: {{ . | int }}
   {{- end }}
   {{- with .sourceAddress }}
   sourceAddress: {{ . }}

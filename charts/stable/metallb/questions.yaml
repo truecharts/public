@@ -178,8 +178,9 @@ questions:
                 label: Peer ASN
                 description: AS number to expect from the remote end of the session.
                 schema:
-                  type: int
-                  default: 0
+                  type: string
+                  valid_chars: '^[0-9]*$'
+                  default: ""
               - variable: peerAddress
                 label: Peer Address
                 description: Address to dial when establishing the session.
@@ -190,8 +191,9 @@ questions:
                 label: Peer Port
                 description: Port to dial when establishing the session.
                 schema:
-                  type: int
-                  default: 179
+                  type: string
+                  valid_chars: '^[0-9]*$'
+                  default: ""
               - variable: routerID
                 label: Router ID
                 description: BGP router ID to advertise to the peer
@@ -254,16 +256,18 @@ questions:
                   "roll up" the /32s into a larger prefix. Defaults to 32. Works for
                   IPv4 addresses.
                 schema:
-                  type: int
-                  default: 24
+                  type: string
+                  valid_chars: '^[0-9]*$'
+                  default: ""
               - variable: localpref
                 label: Local Pref
                 description: The BGP LOCAL_PREF attribute which is used by BGP best
                   path algorithm, Path with higher localpref is preferred over one
                   with lower localpref.
                 schema:
-                  type: int
-                  default: 100
+                  type: string
+                  valid_chars: '^[0-9]*$'
+                  default: ""
               - variable: communities
                 label: Communities
                 description: The BGP communities to be associated with the announcement.

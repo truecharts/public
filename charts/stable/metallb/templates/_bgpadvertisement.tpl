@@ -18,10 +18,10 @@ spec:
     - {{ . }}
   {{- end }}
   {{- with .aggregationLength }}
-  aggregationLength: {{ . }}
+  aggregationLength: {{ . | int }}
   {{- end }}
   {{- with .localpref }}
-  localpref: {{ . }}
+  localpref: {{ . | int }}
   {{- end }}
   {{- if .communities }}
   communities:
