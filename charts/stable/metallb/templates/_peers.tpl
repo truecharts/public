@@ -1,5 +1,7 @@
 {{- define "metallb.peer" -}}
 
+{{ $namespace := .Release.Namespace }}
+
 {{- if .Values.metallb.Peers }}
 {{- range .Values.metallb.Peers }}
 apiVersion: metallb.io/v1beta2
@@ -8,6 +10,8 @@ metadata:
   name: {{ .name }}
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-namespace: {{ $namespace }}
 spec:
   {{- with .password }}
   password: {{ . }}

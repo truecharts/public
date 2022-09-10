@@ -1,5 +1,7 @@
 {{- define "metallb.bgpadv" -}}
 
+{{ $namespace := .Release.Namespace }}
+
 {{- if .Values.metallb.BGPAdvertisements }}
 {{- range .Values.metallb.BGPAdvertisements }}
 apiVersion: metallb.io/v1beta1
@@ -8,6 +10,8 @@ metadata:
   name: {{ .name }}
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-namespace: {{ $namespace }}
 spec:
   ipAddressPools:
   {{- range .addressPools }}
