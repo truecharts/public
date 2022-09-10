@@ -2,6 +2,15 @@
 
 
 
+## [tailscale-1.0.8](https://github.com/truecharts/charts/compare/tailscale-1.0.7...tailscale-1.0.8) (2022-09-10)
+
+### Chore
+
+- update docs a bit ([#3732](https://github.com/truecharts/charts/issues/3732))
+
+
+
+
 ## [tailscale-1.0.7](https://github.com/truecharts/charts/compare/tailscale-1.0.6...tailscale-1.0.7) (2022-09-03)
 
 ### Fix
