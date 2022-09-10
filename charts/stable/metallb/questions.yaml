@@ -98,3 +98,97 @@ questions:
                         type: string
                         default: ""
                         required: true
+        - variable: BGPAdvertisements
+          label: BGP Advertisements
+          description: BGPAdvertisement allows to advertise the IPs coming from the
+            selected IPAddressPools via BGP.
+          schema:
+            additional_attrs: true
+            type: list
+            default: []
+            items:
+              - variable: name
+                label: Name
+                description: Name of the BGP Advertisement
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: addressPools
+                label: Address Pools
+                description: The list of IPAddressPools to advertise via this advertisement,
+                    selected by name.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: addressPoolEntry
+                      label: Address Pool Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: setAggLen
+                label: Set Aggregation Length
+                description: Allows you to set aggregation length
+                schema:
+                  type: boolean
+                  required:
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: aggregationLength
+                      label: Aggregation Length
+                      description: The aggregation-length advertisement option lets you
+                        "roll up" the /32s into a larger prefix. Defaults to 32. Works for
+                        IPv4 addresses.
+                      schema:
+                        type: int
+                        default: 24
+              - variable: setLocalPref
+                label: Set Local Pref
+                description: Allows you to set local pref
+                schema:
+                  type: boolean
+                  required:
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: localpref
+                      label: Local Pref
+                      description: The BGP LOCAL_PREF attribute which is used by BGP best
+                        path algorithm, Path with higher localpref is preferred over one
+                        with lower localpref.
+                      schema:
+                        type: int
+                        default: 100
+              - variable: communities
+                label: Communities
+                description: The BGP communities to be associated with the announcement.
+                    Each item can be a community of the form 1234:1234 or the name of
+                    an alias defined in the Community CRD.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: communityEntry
+                      label: Community Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: peers
+                label: Peers
+                description: Peers limits the BGPpeer to advertise the ips of the
+                    selected pools to. When empty, the loadbalancer IP is announced
+                    to all the BGPPeers configured.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: peerEntry
+                      label: Peer Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true

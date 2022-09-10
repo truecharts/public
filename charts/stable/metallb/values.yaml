@@ -49,6 +49,10 @@ metallb:
       localpref: 100
       communities:
         - 65535:65282
+        - 35535:35282
+      peers:
+        - peer1
+        - peer2
 
 portal:
   enabled: false
