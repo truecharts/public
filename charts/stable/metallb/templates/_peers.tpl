@@ -6,7 +6,7 @@ apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
   name: {{ .name }}
-  namespace: {{ $.Release.Namespace }}
+  namespace: metallb-system
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:

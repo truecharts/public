@@ -5,7 +5,7 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: {{ .addressPool.name }}
-  namespace: {{ $.Release.Namespace }}
+  namespace: metallb-system
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:

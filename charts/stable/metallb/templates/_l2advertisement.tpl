@@ -6,7 +6,6 @@ apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: {{ .name }}
-  namespace: {{ $.Release.Namespace }}
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:
