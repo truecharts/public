@@ -8,7 +8,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:
-    meta.helm.sh/release-name: {{ $.Release.Name }}
+    meta.helm.sh/release-name: {{ include "tc.common.names.fullname" $ }}
     meta.helm.sh/release-namespace: {{ $.Release.Namespace }}
 spec:
   communities:
