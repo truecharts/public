@@ -53,6 +53,11 @@ metallb:
       peers:
         - peer1
         - peer2
+  Communities:
+    - name: comm1
+      value: 1234:1
+    - name: comm2
+      value: 5678:2
 
 portal:
   enabled: false

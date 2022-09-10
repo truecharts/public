@@ -6,3 +6,5 @@
 {{- include "metallb.layer2adv" . }}
 
 {{- include "metallb.bgpadv" . }}
+
+{{- include "metallb.community" . }}

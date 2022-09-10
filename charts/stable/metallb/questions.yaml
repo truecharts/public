@@ -98,6 +98,29 @@ questions:
                         type: string
                         default: ""
                         required: true
+        - variable: Communities
+          label: Communities
+          description: Community is a collection of aliases for communities. Users can
+            define named aliases to be used in the BGPPeer CRD.
+          schema:
+            additional_attrs: true
+            type: list
+            default: []
+            items:
+              - variable: name
+                label: Name
+                description: The name of the alias for the community.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: value
+                label: Value
+                description: The BGP community value corresponding to the given name.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
         - variable: BGPAdvertisements
           label: BGP Advertisements
           description: BGPAdvertisement allows to advertise the IPs coming from the
