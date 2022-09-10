@@ -4,13 +4,13 @@ image:
   pullPolicy: IfNotPresent
 
 metallb:
-  # ipAddressPools:
-  #   - addressPool:
-  #       name: pool1
-  #       addresses:
-  #         - 192.168.1.0/24
-  #       autoAssign: true
-  #       avoidBuggyIPs: false
+  ipAddressPools:
+    - addressPool:
+        name: pool1
+        addresses:
+          - 192.168.1.0/24
+        autoAssign: true
+        avoidBuggyIPs: false
   # L2Advertisements:
   #   - name: l2adv
   #     addressPools:
