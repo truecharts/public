@@ -5,7 +5,6 @@ apiVersion: metallb.io/v1beta1
 kind: Community
 metadata:
   name: communities
-  namespace: metallb-system
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:

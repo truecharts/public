@@ -6,7 +6,6 @@ apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
 metadata:
   name: {{ .name }}
-  namespace: metallb-system
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:
