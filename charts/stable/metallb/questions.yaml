@@ -21,6 +21,7 @@ questions:
                 description: Name of the IP address pool
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: autoAssign
                 label: Auto Assign
@@ -52,51 +53,48 @@ questions:
                         type: string
                         default: ""
                         required: true
-
-        # - variable: configInline
-        #   label: "MetalLB Configuration"
-        #   schema:
-        #     additional_attrs: true
-        #     type: dict
-        #     attrs:
-        #       - variable: ipAddressPools
-        #         label: "IP Address Pools"
-        #         schema:
-        #           type: list
-        #           default: []
-        #           items:
-        #             - variable: address-pools-entry
-        #               group: "Address Pool"
-        #               label: ""
-        #               schema:
-        #                 additional_attrs: true
-        #                 type: dict
-        #                 attrs:
-        #                   - variable: name
-        #                     label: "Name"
-        #                     schema:
-        #                       type: string
-        #                       default: ""
-        #                       required: true
-        #                   - variable: protocol
-        #                     label: "Protocol"
-        #                     schema:
-        #                       type: string
-        #                       default: "layer2"
-        #                       enum:
-        #                         - value: "layer2"
-        #                           description: "layer2"
-        #                         - value: "bgp"
-        #                           description: "bgp"
-        #                   - variable: addresses
-        #                     label: "Addresses"
-        #                     schema:
-        #                       type: list
-        #                       default: []
-        #                       items:
-        #                         - variable: address
-        #                           label: "Address"
-        #                           schema:
-        #                             type: string
-        #                             default: ""
-        #                             required: true
+        - variable: L2Advertisements
+          label: L2 Advertisements
+          description: L2Advertisement allows to advertise the LoadBalancer IPs provided
+              by the selected pools via L2.
+          schema:
+            additional_attrs: true
+            type: list
+            default: []
+            items:
+              - variable: name
+                label: Name
+                description: Name of the L2 Advertisement
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: addressPools
+                label: Address Pools
+                description: The list of IPAddressPools to advertise via this advertisement,
+                    selected by name.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: addressPoolEntry
+                      label: Address Pool Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: nodeSelectors
+                label: Node Selectors
+                description: NodeSelectors allows to limit the nodes to announce as
+                    next hops for the LoadBalancer IP. When empty, all the nodes having  are
+                    announced as next hops.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: nodeSelectorEntry
+                      label: Node Selector Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true

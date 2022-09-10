@@ -6,19 +6,49 @@ image:
 metallb:
   ipAddressPools:
     - addressPool:
-        name: "test"
+        name: test
         addresses:
           - 192.168.1.0/24
           - 192.168.2.0/24
         autoAssign: true
         avoidBuggyIPs: false
     - addressPool:
-        name: "test2"
+        name: test2
         addresses:
           - 192.168.3.0/24
           - 192.168.4.0/24
         autoAssign: true
         avoidBuggyIPs: false
+    - addressPool:
+        name: test3
+        addresses:
+          - 192.168.5.0/24
+          - 192.168.6.0/24
+        autoAssign: true
+        avoidBuggyIPs: false
+    - addressPool:
+        name: test4
+        addresses:
+          - 192.168.7.0/24
+          - 192.168.8.0/24
+        autoAssign: true
+        avoidBuggyIPs: false
+  L2Advertisements:
+    - name: testL2Adv
+      addressPools:
+        - test
+        - test2
+      nodeSelectors:
+        - node1
+  BGPAdvertisements:
+    - name: testBGPAdv
+      addressPools:
+        - test3
+        - test4
+      aggregationLength: 24
+      localpref: 100
+      communities:
+        - 65535:65282
 
 portal:
   enabled: false
