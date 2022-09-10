@@ -1,0 +1,25 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render config */}}
+{{- include "blocky.configmap" . }}
+
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.targetPort | quote) -}}
+
+{{- if .Values.blocky.enableWebUI -}}
+{{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
+{{- end -}}
+
+{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
+
+{{- if .Values.blocky.configPath -}}
+{{- $_ := set .Values.persistence "config" (include "blocky.config" . | fromYaml) -}}
+{{- end -}}
+
+{{- $_ := set .Values.persistence "whitelist" (include "blocky.whitelist" . | fromYaml) -}}
+{{- $_ := set .Values.persistence "blacklist" (include "blocky.blacklist" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

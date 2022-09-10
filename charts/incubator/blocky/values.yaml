@@ -1,0 +1,96 @@
+image:
+  repository: spx01/blocky
+  tag: development@sha256:c55e676e89cee31edeee687d70f7ed957b727d61b5611e213809f7a0399fe4ef
+  # repository: tccr.io/truecharts/blocky
+  # tag: v0.19@sha256:77a474542f12f480deca33ff0a6375846918b86988c13f858620839d8818ca84
+  pullPolicy: IfNotPresent
+
+imageWebUI:
+  repository: tccr.io/truecharts/blocky-frontend
+  tag: v0.0.1@sha256:def38c0c7e21d3aa0e3d77819f28406d7ee1240c8b927d19f08f3e8fc616c3a0
+  pullPolicy: IfNotPresent
+
+env:
+  # When host path for config is defined, we switch to directory source for configs.
+  # Cause we mount the configMap with some basic configs like redis, prometheus, paths for while/blacklists
+  # Plus the hostPath config file defined.
+  BLOCKY_CONFIG_FILE: '{{ ternary "/app/tc/" "/app/tc/tc-config.yaml" (ne .Values.blocky.configPath "")}}'
+
+blocky:
+  enableWebUI: true
+  enablePrometheus: true
+  configPath: ""
+  whitelistPath: ""
+  blacklistPath: ""
+
+probes:
+  liveness:
+    enabled:
+    custom: true
+    spec:
+      exec:
+        command:
+          - /app/blocky
+          - healthcheck
+  readiness:
+    custom: true
+    spec:
+      exec:
+        command:
+          - /app/blocky
+          - healthcheck
+  startup:
+    custom: true
+    spec:
+      exec:
+        command:
+          - /app/blocky
+          - healthcheck
+
+service:
+  main:
+    ports:
+      main:
+        port: 10315
+        protocol: HTTP
+        targetPort: 80
+  dns-tcp:
+    enabled: true
+    ports:
+      dns-tcp:
+        enabled: true
+        port: 53
+        targetPort: 53
+  dns-udp:
+    enabled: true
+    ports:
+      dns-udp:
+        enabled: true
+        port: 53
+        protocol: UDP
+        targetPort: 53
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        port: 4000
+        protocol: HTTP
+        targetPort: 4000
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true
+# blockyWhitelist: |
+#  # Whitelist here
+
+# blockyBlacklist: |
+#  # Blacklist here
+
+# blockyConfig:
+#   upstream:
+#     default:
+#       - 1.1.1.1
