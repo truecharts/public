@@ -2,6 +2,16 @@
 
 
 
+## [ra-rom-processor-0.0.28](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.27...ra-rom-processor-0.0.28) (2022-09-10)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [ra-rom-processor-0.0.27](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.25...ra-rom-processor-0.0.27) (2022-08-30)
 
 ### Chore

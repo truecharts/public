@@ -2,6 +2,15 @@
 
 
 
+## [calibre-web-11.0.39](https://github.com/truecharts/charts/compare/calibre-web-11.0.38...calibre-web-11.0.39) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [calibre-web-11.0.38](https://github.com/truecharts/charts/compare/calibre-web-11.0.37...calibre-web-11.0.38) (2022-08-30)
 
 ### Chore

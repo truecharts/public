@@ -2,6 +2,16 @@
 
 
 
+## [send-0.0.23](https://github.com/truecharts/charts/compare/send-0.0.22...send-0.0.23) (2022-09-10)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [send-0.0.22](https://github.com/truecharts/charts/compare/projectsend-3.0.32...send-0.0.22) (2022-08-30)
 
 ### Chore

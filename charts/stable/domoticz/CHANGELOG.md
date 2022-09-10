@@ -2,6 +2,15 @@
 
 
 
+## [domoticz-2.0.34](https://github.com/truecharts/charts/compare/domoticz-2.0.33...domoticz-2.0.34) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [domoticz-2.0.33](https://github.com/truecharts/charts/compare/domoticz-2.0.32...domoticz-2.0.33) (2022-08-30)
 
 ### Chore
