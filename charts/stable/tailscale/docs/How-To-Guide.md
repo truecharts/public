@@ -74,7 +74,7 @@ You will have to ensure that `Host Networking` is enabled.
 
 ### Storage and Persistence
 
-Highly reccomended to leave it as `PVC (Simple)`
+Highly recommended to leave it as `PVC (Simple)`
 
 ### Ingress
 
