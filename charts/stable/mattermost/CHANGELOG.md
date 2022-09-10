@@ -2,6 +2,15 @@
 
 
 
+## [mattermost-3.0.41](https://github.com/truecharts/charts/compare/mattermost-3.0.40...mattermost-3.0.41) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [mattermost-3.0.40](https://github.com/truecharts/charts/compare/mattermost-3.0.39...mattermost-3.0.40) (2022-09-04)
 
 ### Chore

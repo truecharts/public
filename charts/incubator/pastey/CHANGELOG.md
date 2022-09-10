@@ -2,6 +2,15 @@
 
 
 
+## [pastey-0.0.24](https://github.com/truecharts/charts/compare/pastey-0.0.23...pastey-0.0.24) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [fireshare-0.0.26](https://github.com/truecharts/charts/compare/fireshare-0.0.25...fireshare-0.0.26) (2022-08-31)
 
 ### Chore

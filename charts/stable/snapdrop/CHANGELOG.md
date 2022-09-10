@@ -2,6 +2,15 @@
 
 
 
+## [snapdrop-2.0.41](https://github.com/truecharts/charts/compare/snapdrop-2.0.40...snapdrop-2.0.41) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [snapdrop-2.0.40](https://github.com/truecharts/charts/compare/snapdrop-2.0.38...snapdrop-2.0.40) (2022-08-30)
 
 ### Chore

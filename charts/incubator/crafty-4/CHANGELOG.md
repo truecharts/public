@@ -2,6 +2,16 @@
 
 
 
+## [crafty-4-0.0.26](https://github.com/truecharts/charts/compare/crafty-4-0.0.25...crafty-4-0.0.26) (2022-09-10)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [crafty-4-0.0.25](https://github.com/truecharts/charts/compare/crafty-4-0.0.24...crafty-4-0.0.25) (2022-08-30)
 
 ### Chore

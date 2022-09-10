@@ -2,6 +2,15 @@
 
 
 
+## [grocy-11.0.41](https://github.com/truecharts/charts/compare/grocy-11.0.40...grocy-11.0.41) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [grocy-11.0.40](https://github.com/truecharts/charts/compare/grocy-11.0.38...grocy-11.0.40) (2022-08-30)
 
 ### Chore

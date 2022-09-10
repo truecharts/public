@@ -2,6 +2,15 @@
 
 
 
+## [gitea-9.0.13](https://github.com/truecharts/charts/compare/gitea-9.0.12...gitea-9.0.13) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [gitea-9.0.12](https://github.com/truecharts/charts/compare/gitea-9.0.10...gitea-9.0.12) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [digikam-4.0.30](https://github.com/truecharts/charts/compare/digikam-4.0.29...digikam-4.0.30) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [digikam-4.0.29](https://github.com/truecharts/charts/compare/digikam-4.0.28...digikam-4.0.29) (2022-09-03)
 
 ### Chore

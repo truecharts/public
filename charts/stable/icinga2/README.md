@@ -1,6 +1,6 @@
 # icinga2
 
-![Version: 3.0.37](https://img.shields.io/badge/Version-3.0.37-informational?style=flat-square) ![AppVersion: 2.13.5](https://img.shields.io/badge/AppVersion-2.13.5-informational?style=flat-square)
+![Version: 3.0.38](https://img.shields.io/badge/Version-3.0.38-informational?style=flat-square) ![AppVersion: 2.13.5](https://img.shields.io/badge/AppVersion-2.13.5-informational?style=flat-square)
 
 A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting.
 

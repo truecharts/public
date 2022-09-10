@@ -2,6 +2,15 @@
 
 
 
+## [kiwix-serve-0.0.25](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.24...kiwix-serve-0.0.25) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
 ## [kiwix-serve-0.0.24](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.22...kiwix-serve-0.0.24) (2022-08-30)
 
 ### Chore

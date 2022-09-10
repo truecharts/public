@@ -1,6 +1,6 @@
 # domoticz
 
-![Version: 2.0.33](https://img.shields.io/badge/Version-2.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.1.202](https://img.shields.io/badge/AppVersion-2022.1.202-informational?style=flat-square)
+![Version: 2.0.34](https://img.shields.io/badge/Version-2.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.1.202](https://img.shields.io/badge/AppVersion-2022.1.202-informational?style=flat-square)
 
 Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more.
 
@@ -64,7 +64,7 @@ helm uninstall domoticz
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line
