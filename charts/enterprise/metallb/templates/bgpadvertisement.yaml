@@ -1,17 +1,9 @@
-{{- define "metallb.bgpadv" -}}
-
-{{ $namespace := .Release.Namespace }}
-
-{{- if .Values.metallb.BGPAdvertisements }}
-{{- range .Values.metallb.BGPAdvertisements }}
+{{- range .Values.BGPAdvertisements }}
+---
 apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
 metadata:
   name: {{ .name }}
-  labels:
-    {{- include "tc.common.labels" $ | nindent 4 }}
-  annotations:
-    {{- include "tc.common.annotations" $ | nindent 4 }}
 spec:
   ipAddressPools:
   {{- range .addressPools }}
@@ -36,6 +28,3 @@ spec:
     {{- end }}
   {{- end }}
 {{- end }}
-{{- end }}
-
-{{- end -}}
