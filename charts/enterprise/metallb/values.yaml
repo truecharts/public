@@ -155,7 +155,7 @@ persistence:
     enabled: true
     type: secret
     # -- Specify the name of the secret object to be mounted
-    objectName: "webhook-server-cert"
+    objectName: "{{ include ' tc.common.names.fullname' . }}-webhook-cert"
     # -- Where to mount the volume in the main container.
     mountPath: "/tmp/k8s-webhook-server/serving-certs"
     # -- Specify if the volume should be mounted read-only.
