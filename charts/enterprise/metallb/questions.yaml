@@ -30,9 +30,9 @@ questions:
                   type: string
                   required: false
                   default: ""
-              - variable: loglevel
-                label: loglevel
-                description: loglevel
+              - variable: logLevel
+                label: logLevel
+                description: logLevel
                 schema:
                   type: string
                   required: true
@@ -69,6 +69,12 @@ questions:
               schema:
                 type: boolean
                 default: true
+        - variable: tolerateMaster
+              label: tolerateMaster
+              description: tolerateMaster
+              schema:
+                type: boolean
+                default: true
         - variable: memberlist
           label: memberlist Configuration
           schema:
@@ -81,6 +87,13 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: mlBindPort
+                label: mlBindPort
+                description: mlBindPort
+                schema:
+                  type: int
+                  required: true
+                  default: 7946
         - variable: frr
           label: frr Configuration
           schema:
@@ -93,6 +106,13 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: metricsPort
+                label: metricsPort
+                description: metricsPort
+                schema:
+                  type: int
+                  required: true
+                  default: 7473
   - variable: ipAddressPools
     group: App Configuration
     label: IP Address Pools Object
