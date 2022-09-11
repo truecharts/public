@@ -8,7 +8,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:
-    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+    {{- include "tc.common.annotations" $ | nindent 4 }}
 spec:
   communities:
   {{- range .Values.metallb.Communities }}

@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" $ | nindent 4 }}
   annotations:
-    meta.helm.sh/release-namespace: {{ $namespace }}
+    {{- include "tc.common.annotations" $ | nindent 4 }}
 spec:
   {{- with .password }}
   password: {{ . }}
