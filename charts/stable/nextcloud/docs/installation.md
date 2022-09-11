@@ -4,11 +4,11 @@
 
 This is the optional location your Nextcloud userdata will be located
 
-> You do NOT need to create a dataset if you do not plan on using one. Nextcloud does not require one, instead you can rely on the PVC default
+> You do NOT need to create a userdata dataset if you do not plan on using one. Nextcloud does not require one, instead you can rely on the PVC default
 
 :::note
 
-The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE. You do not have to create a separate user for each application.
+The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE. You do not have to create a separate user for each application. www-data is also included with TrueNAS SCALE by default with user/group ID `33`
 
 When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
 
@@ -16,6 +16,7 @@ When configuring your application you'll typically see user:group `568`, this is
 
 - You are **REQUIRED** to use the `www-data` group and setting the permissions exactly, If you have anything different, chances are it will not work
 - ACL's are known to cause problems with the Nextcloud `Userdata` folder, we advice you not to use them.
+- Below is an example on how the permissions window should like like when done with your userdata dataset. If it looks totally different, you're most likely using ACL's
 
 ![!Dataset: Nextcloud](images/dataset.png)
 
@@ -75,7 +76,7 @@ PASSWORD
 
 ### Ingress
 
-> This is another optional step, if you never plan on using ingress, you can skip this.
+> While it technically might be possible to run Nextcloud without Ingress, We only offer support for people using ingress. Running it without adds complications and is not in accordance with the Nextcloud Deployment guidelines
 
 <br />
 
