@@ -50,13 +50,15 @@ envFrom:
 
 tailscale:
   authkey: "supersecret"
-  userspace: true
+  userspace: false
   accept_dns: false
   routes: ""
   dest_ip: ""
   sock5_server: ""
   extra_args: ""
   daemon_extra_args: ""
+  hostname: ""
+  advertise_as_exit_node: false
 
 probes:
   liveness:

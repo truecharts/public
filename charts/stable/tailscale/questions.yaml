@@ -18,79 +18,91 @@ questions:
       type: dict
       attrs:
         - variable: authkey
-          label: "Auth Key"
-          description: "Provide an auth key to automatically authenticate the node as your user account."
+          label: Auth Key
+          description: Provide an auth key to automatically authenticate the node as your user account.
           schema:
             type: string
             private: true
             default: ""
         - variable: userspace
-          label: "Userspace"
-          description: "Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device."
+          label: Userspace
+          description: Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device.
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: accept_dns
-          label: "Accept DNS"
-          description: "Accept DNS configuration from the admin console."
+          label: Accept DNS
+          description: Accept DNS configuration from the admin console.
           schema:
             type: boolean
             default: false
         - variable: routes
-          label: "Routes"
+          label: Routes
           description: Expose physical subnet routes to your entire Tailscale network.
           schema:
             type: string
             default: ""
         - variable: dest_ip
-          label: "Dest IP"
+          label: Dest IP
           description: Tells the DNAT mechanism which Destination IP to set in the IP header, and where to send packets that are matched.
           schema:
             type: string
             default: ""
         - variable: sock5_server
-          label: "Sock5 Server"
+          label: Sock5 Server
           schema:
             type: string
             default: ""
+        - variable: hostname
+          label: Hostname
+          description: You can specify a specific hostname for use inside Tailscale. (Passes --hostname HOSTNAME to extra_args)
+          schema:
+            type: string
+            default: ""
+        - variable: advertise_as_exit_node
+          label: Advertise as exit node
+          description: This is used to pass traffic through tailscale like a private VPN. (Passes --advertise-exit-node to extra_args)
+          schema:
+            type: boolean
+            default: false
         - variable: extra_args
-          label: "Extra Args"
+          label: Extra Args
           description: UP_ARGS or flags to pass along to Tailscale, such as --advertise-exit-node
           schema:
             type: string
             default: ""
         - variable: daemon_extra_args
-          label: "Tailscale Daemon Extra Args"
+          label: Tailscale Daemon Extra Args
           schema:
             type: string
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 41600
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 41700
@@ -100,8 +112,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -111,7 +123,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -124,42 +136,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
