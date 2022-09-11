@@ -1,0 +1,14 @@
+{{- range .Values.ipAddressPools }}
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: {{ .addressPool.name }}
+spec:
+  addresses:
+    {{- range .addressPool.addresses }}
+    - {{ . }}
+    {{- end }}
+  autoAssign: {{ .addressPool.autoAssign | default true }}
+  avoidBuggyIPs: {{ .addressPool.avoidBuggyIPs | default false }}
+{{- end }}
