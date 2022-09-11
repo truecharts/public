@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.72](https://github.com/truecharts/charts/compare/redis-3.0.71...redis-3.0.72) (2022-09-11)
+
+### Chore
+
+- update helm chart common to v10.5.9
+
+
+
+
 ## [redis-3.0.71](https://github.com/truecharts/charts/compare/redis-3.0.70...redis-3.0.71) (2022-09-10)
 
 ### Chore

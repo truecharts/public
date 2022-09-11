@@ -1,6 +1,6 @@
 # mariadb
 
-![Version: 3.0.71](https://img.shields.io/badge/Version-3.0.71-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.8.4](https://img.shields.io/badge/AppVersion-10.8.4-informational?style=flat-square)
+![Version: 3.0.72](https://img.shields.io/badge/Version-3.0.72-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.8.4](https://img.shields.io/badge/AppVersion-10.8.4-informational?style=flat-square)
 
 Fast, reliable, scalable, and easy to use open-source relational database system.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.8 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
