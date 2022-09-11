@@ -2,6 +2,16 @@
 
 
 
+## [chromium-0.0.27](https://github.com/truecharts/charts/compare/chromium-0.0.26...chromium-0.0.27) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [chromium-0.0.26](https://github.com/truecharts/charts/compare/chromium-0.0.25...chromium-0.0.26) (2022-09-03)
 
 ### Chore

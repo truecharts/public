@@ -1,8 +1,8 @@
 # awesome-ttrss
 
-![Version: 0.0.40](https://img.shields.io/badge/Version-0.0.40-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
+![Version: 0.0.41](https://img.shields.io/badge/Version-0.0.41-informational?style=flat-square) ![AppVersion: 2022](https://img.shields.io/badge/AppVersion-2022-informational?style=flat-square)
 
-Awesome TTRSS aims to provide a powerful Dockerized all-in-one solution for Tiny Tiny RSS
+Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.69 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -65,7 +65,7 @@ helm uninstall awesome-ttrss
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

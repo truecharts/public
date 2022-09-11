@@ -2,6 +2,15 @@
 
 
 
+## [frigate-2.0.33](https://github.com/truecharts/charts/compare/frigate-2.0.32...frigate-2.0.33) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [frigate-2.0.32](https://github.com/truecharts/charts/compare/frigate-2.0.31...frigate-2.0.32) (2022-08-30)
 
 ### Chore

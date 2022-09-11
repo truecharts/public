@@ -2,6 +2,15 @@
 
 
 
+## [restic-rest-server-0.0.23](https://github.com/truecharts/charts/compare/restic-rest-server-0.0.22...restic-rest-server-0.0.23) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [restic-rest-server-0.0.22](https://github.com/truecharts/charts/compare/restic-rest-server-0.0.20...restic-rest-server-0.0.22) (2022-08-30)
 
 ### Chore

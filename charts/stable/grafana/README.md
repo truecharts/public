@@ -1,6 +1,6 @@
 # grafana
 
-![Version: 4.0.57](https://img.shields.io/badge/Version-4.0.57-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 9.1.2](https://img.shields.io/badge/AppVersion-9.1.2-informational?style=flat-square)
+![Version: 4.0.58](https://img.shields.io/badge/Version-4.0.58-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 9.1.4](https://img.shields.io/badge/AppVersion-9.1.4-informational?style=flat-square)
 
 Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 

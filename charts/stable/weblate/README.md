@@ -1,6 +1,6 @@
 # weblate
 
-![Version: 4.0.36](https://img.shields.io/badge/Version-4.0.36-informational?style=flat-square) ![AppVersion: 4.13.1](https://img.shields.io/badge/AppVersion-4.13.1-informational?style=flat-square)
+![Version: 4.0.37](https://img.shields.io/badge/Version-4.0.37-informational?style=flat-square) ![AppVersion: 4.13.1](https://img.shields.io/badge/AppVersion-4.13.1-informational?style=flat-square)
 
 Weblate is a copylefted libre software web-based continuous localization system
 
@@ -27,9 +27,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.69 |
-| https://charts.truecharts.org | redis | 3.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://charts.truecharts.org | redis | 3.0.71 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -69,7 +69,7 @@ helm uninstall weblate
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

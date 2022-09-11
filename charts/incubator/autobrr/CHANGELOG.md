@@ -2,6 +2,16 @@
 
 
 
+## [autobrr-0.0.14](https://github.com/truecharts/charts/compare/autobrr-0.0.13...autobrr-0.0.14) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [autobrr-0.0.13](https://github.com/truecharts/charts/compare/autobrr-0.0.12...autobrr-0.0.13) (2022-08-30)
 
 ### Chore

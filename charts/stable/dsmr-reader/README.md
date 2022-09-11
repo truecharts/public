@@ -1,6 +1,6 @@
 # dsmr-reader
 
-![Version: 8.0.35](https://img.shields.io/badge/Version-8.0.35-informational?style=flat-square) ![AppVersion: 2021.09.02](https://img.shields.io/badge/AppVersion-2021.09.02-informational?style=flat-square)
+![Version: 8.0.36](https://img.shields.io/badge/Version-8.0.36-informational?style=flat-square) ![AppVersion: 2021.09.02](https://img.shields.io/badge/AppVersion-2021.09.02-informational?style=flat-square)
 
 DSMR-protocol reader, telegram data storage and energy consumption visualizer.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.69 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -66,7 +66,7 @@ helm uninstall dsmr-reader
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

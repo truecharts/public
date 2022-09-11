@@ -2,6 +2,15 @@
 
 
 
+## [shaarli-0.0.22](https://github.com/truecharts/charts/compare/shaarli-0.0.21...shaarli-0.0.22) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [shaarli-0.0.21](https://github.com/truecharts/charts/compare/shaarli-0.0.19...shaarli-0.0.21) (2022-08-30)
 
 ### Chore

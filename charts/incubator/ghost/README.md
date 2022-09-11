@@ -1,6 +1,6 @@
 # ghost
 
-![Version: 3.0.57](https://img.shields.io/badge/Version-3.0.57-informational?style=flat-square) ![AppVersion: 5.12.3](https://img.shields.io/badge/AppVersion-5.12.3-informational?style=flat-square)
+![Version: 3.0.58](https://img.shields.io/badge/Version-3.0.58-informational?style=flat-square) ![AppVersion: 5.13.2](https://img.shields.io/badge/AppVersion-5.13.2-informational?style=flat-square)
 
 Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.66 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | mariadb | 3.0.71 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -67,7 +67,7 @@ helm uninstall ghost
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

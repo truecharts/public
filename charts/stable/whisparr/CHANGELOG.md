@@ -2,6 +2,15 @@
 
 
 
+## [whisparr-1.0.2](https://github.com/truecharts/charts/compare/whisparr-1.0.1...whisparr-1.0.2) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [whisparr-1.0.1](https://github.com/truecharts/charts/compare/whisparr-1.0.0...whisparr-1.0.1) (2022-09-10)
 
 ### Chore

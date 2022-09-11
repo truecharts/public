@@ -2,6 +2,15 @@
 
 
 
+## [prowlarr-6.0.36](https://github.com/truecharts/charts/compare/prowlarr-6.0.35...prowlarr-6.0.36) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [prowlarr-6.0.35](https://github.com/truecharts/charts/compare/prowlarr-6.0.34...prowlarr-6.0.35) (2022-09-10)
 
 ### Chore

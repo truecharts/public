@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [traefik-13.3.6](https://github.com/truecharts/charts/compare/traefik-13.3.5...traefik-13.3.6) (2022-09-09)
 
 ### Chore

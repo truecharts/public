@@ -2,6 +2,15 @@
 
 
 
+## [shlink-4.0.38](https://github.com/truecharts/charts/compare/shlink-4.0.37...shlink-4.0.38) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [shlink-4.0.37](https://github.com/truecharts/charts/compare/shlink-4.0.35...shlink-4.0.37) (2022-08-30)
 
 ### Chore

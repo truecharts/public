@@ -2,6 +2,16 @@
 
 
 
+## [deconz-8.0.34](https://github.com/truecharts/charts/compare/deconz-8.0.33...deconz-8.0.34) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [deconz-8.0.33](https://github.com/truecharts/charts/compare/deconz-8.0.32...deconz-8.0.33) (2022-08-30)
 
 ### Chore

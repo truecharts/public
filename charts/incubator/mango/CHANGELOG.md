@@ -2,6 +2,15 @@
 
 
 
+## [mango-0.0.24](https://github.com/truecharts/charts/compare/mango-0.0.23...mango-0.0.24) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [mango-0.0.23](https://github.com/truecharts/charts/compare/mango-0.0.21...mango-0.0.23) (2022-08-30)
 
 ### Chore

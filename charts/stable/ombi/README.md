@@ -1,6 +1,6 @@
 # ombi
 
-![Version: 11.0.38](https://img.shields.io/badge/Version-11.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.25.1](https://img.shields.io/badge/AppVersion-4.25.1-informational?style=flat-square)
+![Version: 11.0.39](https://img.shields.io/badge/Version-11.0.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.25.1](https://img.shields.io/badge/AppVersion-4.25.1-informational?style=flat-square)
 
 Want a Movie or TV Show on Plex or Emby? Use Ombi!
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 

@@ -2,6 +2,7 @@
 
 
 
+
 ## [nosqlclient-0.0.22](https://github.com/truecharts/charts/compare/nosqlclient-0.0.20...nosqlclient-0.0.22) (2022-08-30)
 
 ### Chore

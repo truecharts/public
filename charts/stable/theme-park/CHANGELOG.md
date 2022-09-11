@@ -2,6 +2,15 @@
 
 
 
+## [theme-park-2.0.12](https://github.com/truecharts/charts/compare/theme-park-2.0.11...theme-park-2.0.12) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [theme-park-2.0.11](https://github.com/truecharts/charts/compare/theme-park-2.0.9...theme-park-2.0.11) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [external-service-6.0.30](https://github.com/truecharts/charts/compare/external-service-6.0.29...external-service-6.0.30) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [external-service-6.0.29](https://github.com/truecharts/charts/compare/external-service-6.0.28...external-service-6.0.29) (2022-08-30)
 
 ### Chore

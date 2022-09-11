@@ -2,6 +2,16 @@
 
 
 
+## [plex-auto-languages-1.0.4](https://github.com/truecharts/charts/compare/plex-auto-languages-1.0.3...plex-auto-languages-1.0.4) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [plex-auto-languages-1.0.3](https://github.com/truecharts/charts/compare/plex-auto-languages-1.0.1...plex-auto-languages-1.0.3) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [filerun-3.0.1](https://github.com/truecharts/charts/compare/filerun-3.0.0...filerun-3.0.1) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [filerun-3.0.0](https://github.com/truecharts/charts/compare/filerun-2.1.6...filerun-3.0.0) (2022-09-04)
 
 ### Feat

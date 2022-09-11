@@ -2,6 +2,15 @@
 
 
 
+## [pihole-6.0.38](https://github.com/truecharts/charts/compare/pihole-6.0.37...pihole-6.0.38) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [pihole-6.0.37](https://github.com/truecharts/charts/compare/pihole-6.0.36...pihole-6.0.37) (2022-09-07)
 
 ### Chore

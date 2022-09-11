@@ -2,6 +2,15 @@
 
 
 
+## [matomo-3.0.60](https://github.com/truecharts/charts/compare/matomo-3.0.59...matomo-3.0.60) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [matomo-3.0.59](https://github.com/truecharts/charts/compare/matomo-3.0.58...matomo-3.0.59) (2022-09-10)
 
 ### Chore

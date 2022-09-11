@@ -2,6 +2,15 @@
 
 
 
+## [koel-3.0.39](https://github.com/truecharts/charts/compare/koel-3.0.38...koel-3.0.39) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [koel-3.0.38](https://github.com/truecharts/charts/compare/koel-3.0.37...koel-3.0.38) (2022-09-03)
 
 ### Chore

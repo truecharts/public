@@ -2,6 +2,15 @@
 
 
 
+## [obsidian-0.0.25](https://github.com/truecharts/charts/compare/obsidian-0.0.24...obsidian-0.0.25) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [obsidian-0.0.24](https://github.com/truecharts/charts/compare/obsidian-0.0.22...obsidian-0.0.24) (2022-08-30)
 
 ### Chore

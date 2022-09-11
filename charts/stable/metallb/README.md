@@ -1,6 +1,6 @@
 # metallb
 
-![Version: 2.0.14](https://img.shields.io/badge/Version-2.0.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: upstream](https://img.shields.io/badge/AppVersion-upstream-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: upstream](https://img.shields.io/badge/AppVersion-upstream-informational?style=flat-square)
 
 A network load-balancer implementation for Kubernetes using standard routing protocols
 
@@ -13,6 +13,7 @@ For more information, please click here: [metallb](https://truecharts.org/docs/c
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/stable/metallb>
 * <https://github.com/metallb/metallb>
 * <https://metallb.universe.tf>
 
@@ -24,20 +25,21 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://metallb.github.io/metallb | metallb | 0.13.4 |
+| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://metallb.github.io/metallb | metallb | 0.13.5 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/02-Installing-an-App/).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
 
 ### Helm
 
 To install the chart with the release name `metallb`
 
 ```console
-helm repo add TrueCharts https://helm.truecharts.org
+helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
 helm install metallb TrueCharts/metallb
 ```
@@ -48,7 +50,7 @@ helm install metallb TrueCharts/metallb
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/Quick-Start%20Guides/04-Upgrade-rollback-delete-an-App/).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -64,10 +66,10 @@ helm uninstall metallb
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
-#### Configure using the Commandline
+#### Configure using the command line
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -85,9 +87,9 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install metallb TrueCharts/metallb -f values.yaml
 ```
 
-#### Connecting to other apps
+#### Connecting to other charts
 
-If you need to connect this App to other Apps on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/docs/manual/Quick-Start%20Guides/06-linking-apps/) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
 
 ## Support
 

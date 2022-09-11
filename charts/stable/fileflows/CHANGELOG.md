@@ -2,6 +2,15 @@
 
 
 
+## [fileflows-2.0.41](https://github.com/truecharts/charts/compare/fileflows-2.0.40...fileflows-2.0.41) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [fileflows-2.0.40](https://github.com/truecharts/charts/compare/fileflows-node-0.0.24...fileflows-2.0.40) (2022-09-03)
 
 ### Chore

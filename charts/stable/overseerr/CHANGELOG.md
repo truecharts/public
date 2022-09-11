@@ -2,6 +2,15 @@
 
 
 
+## [overseerr-6.0.31](https://github.com/truecharts/charts/compare/overseerr-6.0.30...overseerr-6.0.31) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [overseerr-6.0.30](https://github.com/truecharts/charts/compare/overseerr-6.0.28...overseerr-6.0.30) (2022-08-30)
 
 ### Chore

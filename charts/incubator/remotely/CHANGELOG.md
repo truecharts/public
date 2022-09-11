@@ -2,6 +2,15 @@
 
 
 
+## [remotely-0.0.24](https://github.com/truecharts/charts/compare/remotely-0.0.23...remotely-0.0.24) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [remotely-0.0.23](https://github.com/truecharts/charts/compare/remotely-0.0.21...remotely-0.0.23) (2022-08-30)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [scrutiny-3.0.30](https://github.com/truecharts/charts/compare/scrutiny-3.0.29...scrutiny-3.0.30) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [scrutiny-3.0.29](https://github.com/truecharts/charts/compare/scrutiny-3.0.27...scrutiny-3.0.29) (2022-08-30)
 
 ### Chore

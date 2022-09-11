@@ -2,6 +2,15 @@
 
 
 
+## [hyperion-ng-6.0.31](https://github.com/truecharts/charts/compare/hyperion-ng-6.0.30...hyperion-ng-6.0.31) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [hyperion-ng-6.0.30](https://github.com/truecharts/charts/compare/hyperion-ng-6.0.28...hyperion-ng-6.0.30) (2022-08-30)
 
 ### Chore

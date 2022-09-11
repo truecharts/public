@@ -2,6 +2,15 @@
 
 
 
+## [linkace-4.0.44](https://github.com/truecharts/charts/compare/linkace-4.0.43...linkace-4.0.44) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [linkace-4.0.43](https://github.com/truecharts/charts/compare/linkace-4.0.42...linkace-4.0.43) (2022-09-05)
 
 ### Chore

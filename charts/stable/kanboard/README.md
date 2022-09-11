@@ -1,6 +1,6 @@
 # kanboard
 
-![Version: 8.0.35](https://img.shields.io/badge/Version-8.0.35-informational?style=flat-square) ![AppVersion: 1.2.23](https://img.shields.io/badge/AppVersion-1.2.23-informational?style=flat-square)
+![Version: 8.0.36](https://img.shields.io/badge/Version-8.0.36-informational?style=flat-square) ![AppVersion: 1.2.23](https://img.shields.io/badge/AppVersion-1.2.23-informational?style=flat-square)
 
 Kanboard is a free and open source Kanban project management software.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.69 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 

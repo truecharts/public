@@ -2,6 +2,16 @@
 
 
 
+## [googlephotossync-0.0.31](https://github.com/truecharts/charts/compare/googlephotossync-0.0.30...googlephotossync-0.0.31) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [googlephotossync-0.0.30](https://github.com/truecharts/charts/compare/googlephotossync-0.0.29...googlephotossync-0.0.30) (2022-09-07)
 
 ### Chore

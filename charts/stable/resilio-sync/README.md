@@ -1,6 +1,6 @@
 # resilio-sync
 
-![Version: 6.0.30](https://img.shields.io/badge/Version-6.0.30-informational?style=flat-square) ![AppVersion: 2.7.2.1375](https://img.shields.io/badge/AppVersion-2.7.2.1375-informational?style=flat-square)
+![Version: 6.0.31](https://img.shields.io/badge/Version-6.0.31-informational?style=flat-square) ![AppVersion: 2.7.2.1375](https://img.shields.io/badge/AppVersion-2.7.2.1375-informational?style=flat-square)
 
 Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -64,7 +64,7 @@ helm uninstall resilio-sync
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

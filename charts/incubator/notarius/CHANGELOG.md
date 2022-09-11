@@ -2,7 +2,16 @@
 
 
 
-## [notarius-0.0.22](https://github.com/truecharts/charts/compare/notarius-0.0.20...notarius-0.0.22) (2022-08-30)
+## [nosqlclient-0.0.23](https://github.com/truecharts/charts/compare/nosqlclient-0.0.22...nosqlclient-0.0.23) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [nosqlclient-0.0.22](https://github.com/truecharts/charts/compare/nosqlclient-0.0.20...nosqlclient-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -13,7 +22,7 @@
 
 
 
-## [notarius-0.0.21](https://github.com/truecharts/charts/compare/notarius-0.0.20...notarius-0.0.21) (2022-08-30)
+## [nosqlclient-0.0.21](https://github.com/truecharts/charts/compare/nosqlclient-0.0.20...nosqlclient-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -22,7 +31,7 @@
 
 
 
-## [notarius-0.0.20](https://github.com/truecharts/charts/compare/notarius-0.0.19...notarius-0.0.20) (2022-08-29)
+## [nosqlclient-0.0.20](https://github.com/truecharts/charts/compare/nosqlclient-0.0.19...nosqlclient-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -31,7 +40,7 @@
 
 
 
-## [notarius-0.0.19](https://github.com/truecharts/charts/compare/notarius-0.0.17...notarius-0.0.19) (2022-08-26)
+## [nosqlclient-0.0.19](https://github.com/truecharts/charts/compare/nosqlclient-0.0.17...nosqlclient-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -40,7 +49,7 @@
 
 
 
-## [notarius-0.0.17](https://github.com/truecharts/charts/compare/notarius-0.0.16...notarius-0.0.17) (2022-08-23)
+## [nosqlclient-0.0.17](https://github.com/truecharts/charts/compare/nosqlclient-0.0.16...nosqlclient-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -49,7 +58,7 @@
 
 
 
-## [notarius-0.0.16](https://github.com/truecharts/charts/compare/notarius-0.0.15...notarius-0.0.16) (2022-08-12)
+## [nosqlclient-0.0.16](https://github.com/truecharts/charts/compare/nosqlclient-0.0.15...nosqlclient-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -63,7 +72,7 @@
 
 
 
-## [notarius-0.0.15](https://github.com/truecharts/charts/compare/notarius-0.0.14...notarius-0.0.15) (2022-08-08)
+## [nosqlclient-0.0.15](https://github.com/truecharts/charts/compare/nosqlclient-0.0.14...nosqlclient-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -73,7 +82,7 @@
 
 
 
-## [notarius-0.0.14](https://github.com/truecharts/apps/compare/notarius-0.0.13...notarius-0.0.14) (2022-07-26)
+## [nosqlclient-0.0.14](https://github.com/truecharts/apps/compare/nosqlclient-0.0.13...nosqlclient-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -83,7 +92,7 @@
 
 
 
-## [notarius-0.0.13](https://github.com/truecharts/apps/compare/notarius-0.0.12...notarius-0.0.13) (2022-07-25)
+## [nosqlclient-0.0.13](https://github.com/truecharts/apps/compare/nosqlclient-0.0.12...nosqlclient-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -96,7 +105,7 @@
 
 
 
-## [notarius-0.0.12](https://github.com/truecharts/apps/compare/notarius-0.0.11...notarius-0.0.12) (2022-07-23)
+## [nosqlclient-0.0.12](https://github.com/truecharts/apps/compare/nosqlclient-0.0.11...nosqlclient-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -107,7 +116,7 @@
 
 
 
-## [notarius-0.0.12](https://github.com/truecharts/apps/compare/notarius-0.0.11...notarius-0.0.12) (2022-07-23)
+## [nosqlclient-0.0.12](https://github.com/truecharts/apps/compare/nosqlclient-0.0.11...nosqlclient-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -117,7 +126,7 @@
 
 
 
-## [notarius-0.0.12](https://github.com/truecharts/apps/compare/notarius-0.0.11...notarius-0.0.12) (2022-07-23)
+## [nosqlclient-0.0.12](https://github.com/truecharts/apps/compare/nosqlclient-0.0.11...nosqlclient-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -126,7 +135,7 @@
 
 
 
-## [notarius-0.0.11]notarius-0.0.11 (2022-07-22)
+## [nosqlclient-0.0.11]nosqlclient-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -138,9 +147,18 @@
 
 
 
-## [notarius-0.0.10]notarius-0.0.10 (2022-07-22)
+## [nosqlclient-0.0.10]nosqlclient-0.0.10 (2022-07-22)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Move Dev to incubator and some cleanup
+
+
+
+
+## [nosqlclient-0.0.10]nosqlclient-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup

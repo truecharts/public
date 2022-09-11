@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.2.7](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plex-10.2.7) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [plex-10.2.6](https://github.com/truecharts/charts/compare/plex-utills-1.0.0...plex-10.2.6) (2022-09-02)
 
 ### Chore

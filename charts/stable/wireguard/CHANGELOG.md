@@ -2,6 +2,7 @@
 
 
 
+
 ## [wireguard-1.0.3](https://github.com/truecharts/charts/compare/wireguard-1.0.2...wireguard-1.0.3) (2022-08-31)
 
 ### Fix

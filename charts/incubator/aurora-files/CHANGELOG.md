@@ -2,6 +2,16 @@
 
 
 
+## [aurora-files-0.0.24](https://github.com/truecharts/charts/compare/aurora-files-0.0.23...aurora-files-0.0.24) (2022-09-11)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [cryptpad-0.0.44](https://github.com/truecharts/charts/compare/cryptpad-0.0.43...cryptpad-0.0.44) (2022-09-02)
 
 ### Chore

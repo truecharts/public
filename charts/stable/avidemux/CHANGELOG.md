@@ -2,6 +2,7 @@
 
 
 
+
 ## [avidemux-1.0.8](https://github.com/truecharts/charts/compare/avidemux-1.0.7...avidemux-1.0.8) (2022-08-30)
 
 ### Chore

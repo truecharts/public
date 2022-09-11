@@ -2,6 +2,16 @@
 
 
 
+## [neko-0.0.30](https://github.com/truecharts/charts/compare/neko-0.0.29...neko-0.0.30) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [neko-0.0.29](https://github.com/truecharts/charts/compare/neko-0.0.28...neko-0.0.29) (2022-09-07)
 
 ### Chore

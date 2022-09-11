@@ -2,6 +2,15 @@
 
 
 
+## [snipe-it-4.0.46](https://github.com/truecharts/charts/compare/snipe-it-4.0.45...snipe-it-4.0.46) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [snipe-it-4.0.45](https://github.com/truecharts/charts/compare/snipe-it-4.0.43...snipe-it-4.0.45) (2022-08-30)
 
 ### Chore

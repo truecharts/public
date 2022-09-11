@@ -2,6 +2,15 @@
 
 
 
+## [homebridge-1.0.34](https://github.com/truecharts/charts/compare/homebridge-1.0.33...homebridge-1.0.34) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [homebridge-1.0.33](https://github.com/truecharts/charts/compare/homebridge-1.0.31...homebridge-1.0.33) (2022-08-30)
 
 ### Chore

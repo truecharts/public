@@ -2,6 +2,15 @@
 
 
 
+## [dashdot-1.0.47](https://github.com/truecharts/charts/compare/dashdot-1.0.46...dashdot-1.0.47) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [dashdot-1.0.46](https://github.com/truecharts/charts/compare/dashdot-1.0.45...dashdot-1.0.46) (2022-08-30)
 
 ### Chore

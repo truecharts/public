@@ -1,6 +1,6 @@
 # appsmith
 
-![Version: 2.0.48](https://img.shields.io/badge/Version-2.0.48-informational?style=flat-square) ![AppVersion: 1.7.14](https://img.shields.io/badge/AppVersion-1.7.14-informational?style=flat-square)
+![Version: 2.0.49](https://img.shields.io/badge/Version-2.0.49-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square)
 
 Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.67 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org | redis | 3.0.71 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
@@ -65,7 +65,7 @@ helm uninstall appsmith
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

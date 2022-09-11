@@ -2,6 +2,15 @@
 
 
 
+## [suistartpage-0.0.23](https://github.com/truecharts/charts/compare/suistartpage-0.0.22...suistartpage-0.0.23) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [suistartpage-0.0.22](https://github.com/truecharts/charts/compare/suistartpage-0.0.20...suistartpage-0.0.22) (2022-08-30)
 
 ### Chore

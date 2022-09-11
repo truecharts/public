@@ -2,6 +2,15 @@
 
 
 
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [hexchat-0.0.23](https://github.com/truecharts/charts/compare/hexchat-0.0.22...hexchat-0.0.23) (2022-09-04)
 
 ### Fix

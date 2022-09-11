@@ -2,6 +2,15 @@
 
 
 
+## [ml-workspace-2.0.30](https://github.com/truecharts/charts/compare/ml-workspace-2.0.29...ml-workspace-2.0.30) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [ml-workspace-2.0.29](https://github.com/truecharts/charts/compare/ml-workspace-2.0.27...ml-workspace-2.0.29) (2022-08-30)
 
 ### Chore
