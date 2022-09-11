@@ -1,6 +1,6 @@
 # collabora-online
 
-![Version: 12.1.39](https://img.shields.io/badge/Version-12.1.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.05.5.4](https://img.shields.io/badge/AppVersion-22.05.5.4-informational?style=flat-square)
+![Version: 12.1.40](https://img.shields.io/badge/Version-12.1.40-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.05.5.4](https://img.shields.io/badge/AppVersion-22.05.5.4-informational?style=flat-square)
 
 An awesome Online Office suite.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.8 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart
 
