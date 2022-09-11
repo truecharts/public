@@ -2,8 +2,8 @@
 
 {{ $namespace := .Release.Namespace }}
 
-{{- if .Values.metallb.ipAddressPools }}
-{{- range .Values.metallb.ipAddressPools }}
+{{- if .Values.ipAddressPools }}
+{{- range .Values.ipAddressPools }}
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:

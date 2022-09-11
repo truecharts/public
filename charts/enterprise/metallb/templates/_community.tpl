@@ -1,6 +1,6 @@
 {{- define "metallb.community" -}}
 
-{{- if .Values.metallb.Communities }}
+{{- if .Values.Communities }}
 apiVersion: metallb.io/v1beta1
 kind: Community
 metadata:

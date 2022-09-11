@@ -1,0 +1,32 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- $newArgs :=  (include "metallb.controller.args" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs }}
+{{- $mergedargs := concat .Values.args .Values.newArgs.args }}
+{{- $_ := set .Values "args" $mergedargs }}
+
+{{/* Render env configmap for controller */}}
+{{- include "metallb.controller.envs" . }}
+
+{{/* Render rbac */}}
+{{- include "metallb.rbac" . }}
+
+{{/* Render webhooks */}}
+{{- include "metallb.webhooks" . }}
+
+{{/* Render speaker */}}
+{{- include "metallb.speaker" . }}
+
+{{- include "metallb.ipAddressPool" . }}
+
+{{- include "metallb.layer2adv" . }}
+
+{{- include "metallb.bgpadv" . }}
+
+{{- include "metallb.community" . }}
+
+{{- include "metallb.peer" . }}
+
+{{/* Render the templates */}}
+{{- include "tc.common.loader.apply" . }}

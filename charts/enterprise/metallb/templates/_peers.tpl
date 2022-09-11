@@ -2,8 +2,8 @@
 
 {{ $namespace := .Release.Namespace }}
 
-{{- if .Values.metallb.Peers }}
-{{- range .Values.metallb.Peers }}
+{{- if .Values.Peers }}
+{{- range .Values.Peers }}
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:

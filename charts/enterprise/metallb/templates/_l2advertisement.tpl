@@ -2,8 +2,8 @@
 
 {{ $namespace := .Release.Namespace }}
 
-{{- if .Values.metallb.L2Advertisements }}
-{{- range .Values.metallb.L2Advertisements }}
+{{- if .Values.L2Advertisements }}
+{{- range .Values.L2Advertisements }}
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:

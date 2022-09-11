@@ -2,8 +2,8 @@
 
 {{ $namespace := .Release.Namespace }}
 
-{{- if .Values.metallb.BGPAdvertisements }}
-{{- range .Values.metallb.BGPAdvertisements }}
+{{- if .Values.BGPAdvertisements }}
+{{- range .Values.BGPAdvertisements }}
 apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
 metadata:

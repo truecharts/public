@@ -1,0 +1,162 @@
+{{/* Define the webhooks */}}
+{{- define "metallb.webhooks" -}}
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: metallb-webhook-configuration
+  labels:
+    {{- include "tc.common.labels" $ | nindent 4 }}
+  annotations:
+    {{- include "tc.common.annotations" $ | nindent 4 }}
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-addresspool
+  failurePolicy: Fail
+  name: addresspoolvalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - addresspools
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta2-bgppeer
+  failurePolicy: Fail
+  name: bgppeervalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - bgppeers
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-ipaddresspool
+  failurePolicy: Fail
+  name: ipaddresspoolvalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - ipaddresspools
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-bgpadvertisement
+  failurePolicy: Fail
+  name: bgpadvertisementvalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - bgpadvertisements
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-community
+  failurePolicy: Fail
+  name: communityvalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - communities
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-bfdprofile
+  failurePolicy: Fail
+  name: bfdprofilevalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - DELETE
+    resources:
+    - bfdprofiles
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "tc.common.names.fullname" . }}-webhook
+      namespace: {{ .Release.Namespace }}
+      path: /validate-metallb-io-v1beta1-l2advertisement
+  failurePolicy: Fail
+  name: l2advertisementvalidationwebhook.metallb.io
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - l2advertisements
+  sideEffects: None
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "tc.common.names.fullname" . }}-webhook-cert
+  labels:
+    {{- include "tc.common.labels" $ | nindent 4 }}
+  annotations:
+    {{- include "tc.common.annotations" $ | nindent 4 }}
+{{- end -}}

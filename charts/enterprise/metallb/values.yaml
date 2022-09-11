@@ -1,0 +1,165 @@
+image:
+  repository: quay.io/metallb/controller
+  tag: latest
+  pullPolicy: IfNotPresent
+
+speakerImage:
+  repository: quay.io/metallb/speaker
+  tag: latest
+  pullPolicy: IfNotPresent
+
+frrImage:
+  repository: frrouting/frr
+  tag: v7.5.1
+  pullPolicy: IfNotPresent
+
+speaker:
+  enabled: true
+  tolerateMaster: true
+  memberlist:
+    enabled: true
+    mlBindPort: 7946
+  frr:
+    enabled: false
+    metricsPort: 7473
+
+metallb:
+  controller:
+    webhookMode:
+    loglevel: info
+  loadBalancerClass:
+  rbac:
+    create: true
+
+ipAddressPools: []
+#  - addressPool:
+#      name: pool1
+#      addresses:
+#        - 192.168.1.0/24
+#      autoAssign: true
+#      avoidBuggyIPs: false
+L2Advertisements: []
+#   - name: l2adv
+#     addressPools:
+#       - pool1
+#     nodeSelectors:
+#       - nodeA
+BGPAdvertisements: []
+#   - name: bgpadv
+#     addressPools:
+#       - pool1
+#     aggregationLength: 24
+#     localpref: 100
+#     communities:
+#       - 1234:1
+#     peers:
+#       - peer1
+Communities: []
+#   - name: community1
+#     value: 1234:1
+Peers: []
+#   - name: peer1
+#     myASN: 1234
+#     password: pass
+#     routerID: 1234
+#     bfdProfile: profile
+#     ebgpMultiHop: false
+#     holdTime: 10
+#     keepaliveTime: 10
+#     peerAddress: 172.30.0.2
+#     peerPort: 179
+#     sourceAddress: 172.30.0.3
+#     nodeSelectors:
+#       - nodeA
+
+envFrom:
+  - configMapRef:
+      name: controllerenvs
+
+portal:
+  enabled: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 7472
+        targetPort: 7472
+  webhook:
+    ports:
+      webhook:
+        port: 443
+        targetPort: 9443
+
+probes:
+  liveness:
+    custom: true
+    spec:
+      initialDelaySeconds: 25
+      httpGet:
+        path: /metrics
+        port: monitoring
+
+  readiness:
+    custom: true
+    spec:
+      initialDelaySeconds: 25
+      httpGet:
+        path: /metrics
+        port: monitoring
+
+  startup:
+    custom: true
+    spec:
+      initialDelaySeconds: 25
+      httpGet:
+        path: /metrics
+        port: monitoring
+
+# -- Create serviceaccount
+# @default -- See below
+serviceAccount:
+  main:
+    # -- Make this the primary serviceAccount (used in probes, notes, etc...).
+    # If there is more than 1 serviceAccount, make sure that only 1 serviceAccount is marked as primary.
+    primary: true
+
+    # -- Specifies whether a service account should be created
+    enabled: true
+
+    # -- Annotations to add to the service account
+    annotations: {}
+
+    # -- The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+  speaker:
+    # -- Make this the primary serviceAccount (used in probes, notes, etc...).
+    # If there is more than 1 serviceAccount, make sure that only 1 serviceAccount is marked as primary.
+    primary: false
+
+    # -- Specifies whether a service account should be created
+    enabled: true
+
+    # -- Annotations to add to the service account
+    annotations: {}
+
+    # -- The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: "speaker"
+
+persistence:
+  # -- Webhook server cert mountpoint
+  # @default -- See below
+  webhook-server-cert:
+    enabled: true
+    type: secret
+    # -- Specify the name of the secret object to be mounted
+    objectName: "webhook-server-cert"
+    # -- Where to mount the volume in the main container.
+    mountPath: "/tmp/k8s-webhook-server/serving-certs"
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: true
+
+crds:
+  enabled: true
