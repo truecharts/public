@@ -6,6 +6,17 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.51](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.51) (2022-09-11)
+
+### Chore
+
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 

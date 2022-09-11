@@ -6,6 +6,16 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [website-shot-2.0.31](https://github.com/truecharts/charts/compare/website-shot-2.0.30...website-shot-2.0.31) (2022-09-11)
+
+### Chore
+
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

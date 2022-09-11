@@ -2,6 +2,7 @@
 
 
 
+
 ## [fogproject-0.0.23](https://github.com/truecharts/charts/compare/fogproject-0.0.22...fogproject-0.0.23) (2022-09-11)
 
 ### Chore

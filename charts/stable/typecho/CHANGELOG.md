@@ -6,6 +6,16 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [typecho-3.0.35](https://github.com/truecharts/charts/compare/typecho-3.0.34...typecho-3.0.35) (2022-09-11)
+
+### Chore
+
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

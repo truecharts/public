@@ -2,6 +2,16 @@
 
 
 
+## [notarius-0.0.23](https://github.com/truecharts/charts/compare/notarius-0.0.22...notarius-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [nosqlclient-0.0.23](https://github.com/truecharts/charts/compare/nosqlclient-0.0.22...nosqlclient-0.0.23) (2022-09-11)
 
 ### Chore

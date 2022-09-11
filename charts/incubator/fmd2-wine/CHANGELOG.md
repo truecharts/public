@@ -2,7 +2,18 @@
 
 
 
-## [fmd2-wine-0.0.23](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.22...fmd2-wine-0.0.23) (2022-09-11)
+## [fogproject-0.0.23](https://github.com/truecharts/charts/compare/fogproject-0.0.22...fogproject-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [fogproject-0.0.23](https://github.com/truecharts/charts/compare/fogproject-0.0.22...fogproject-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -12,7 +23,7 @@
 
 
 
-## [fmd2-wine-0.0.22](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.21...fmd2-wine-0.0.22) (2022-08-30)
+## [fogproject-0.0.22](https://github.com/truecharts/charts/compare/fogproject-0.0.21...fogproject-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -21,7 +32,7 @@
 
 
 
-## [fmd2-wine-0.0.21](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.20...fmd2-wine-0.0.21) (2022-08-30)
+## [fogproject-0.0.21](https://github.com/truecharts/charts/compare/fogproject-0.0.20...fogproject-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -30,7 +41,7 @@
 
 
 
-## [fmd2-wine-0.0.20](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.19...fmd2-wine-0.0.20) (2022-08-29)
+## [fogproject-0.0.20](https://github.com/truecharts/charts/compare/fogproject-0.0.19...fogproject-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -39,7 +50,7 @@
 
 
 
-## [fmd2-wine-0.0.19](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.17...fmd2-wine-0.0.19) (2022-08-26)
+## [fogproject-0.0.19](https://github.com/truecharts/charts/compare/fogproject-0.0.17...fogproject-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -48,7 +59,7 @@
 
 
 
-## [fmd2-wine-0.0.17](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.16...fmd2-wine-0.0.17) (2022-08-23)
+## [fogproject-0.0.17](https://github.com/truecharts/charts/compare/fogproject-0.0.16...fogproject-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -57,7 +68,7 @@
 
 
 
-## [fmd2-wine-0.0.16](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.15...fmd2-wine-0.0.16) (2022-08-12)
+## [fogproject-0.0.16](https://github.com/truecharts/charts/compare/fogproject-0.0.15...fogproject-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -71,7 +82,7 @@
 
 
 
-## [fmd2-wine-0.0.15](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.14...fmd2-wine-0.0.15) (2022-08-08)
+## [fogproject-0.0.15](https://github.com/truecharts/charts/compare/fogproject-0.0.14...fogproject-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -81,7 +92,7 @@
 
 
 
-## [fmd2-wine-0.0.14](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.13...fmd2-wine-0.0.14) (2022-07-26)
+## [fogproject-0.0.14](https://github.com/truecharts/apps/compare/fogproject-0.0.13...fogproject-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -91,7 +102,7 @@
 
 
 
-## [fmd2-wine-0.0.13](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.12...fmd2-wine-0.0.13) (2022-07-25)
+## [fogproject-0.0.13](https://github.com/truecharts/apps/compare/fogproject-0.0.12...fogproject-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -104,7 +115,7 @@
 
 
 
-## [fmd2-wine-0.0.12](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.11...fmd2-wine-0.0.12) (2022-07-23)
+## [fogproject-0.0.12](https://github.com/truecharts/apps/compare/fogproject-0.0.11...fogproject-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -115,7 +126,7 @@
 
 
 
-## [fmd2-wine-0.0.12](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.11...fmd2-wine-0.0.12) (2022-07-23)
+## [fogproject-0.0.12](https://github.com/truecharts/apps/compare/fogproject-0.0.11...fogproject-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -125,7 +136,7 @@
 
 
 
-## [fmd2-wine-0.0.12](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.11...fmd2-wine-0.0.12) (2022-07-23)
+## [fogproject-0.0.12](https://github.com/truecharts/apps/compare/fogproject-0.0.11...fogproject-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -134,7 +145,7 @@
 
 
 
-## [fmd2-wine-0.0.11](https://github.com/truecharts/apps/compare/fmd2-wine-0.0.10...fmd2-wine-0.0.11) (2022-07-22)
+## [fogproject-0.0.11](https://github.com/truecharts/apps/compare/fogproject-0.0.10...fogproject-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -142,7 +153,7 @@
 
 
 
-## [fmd2-wine-0.0.10]fmd2-wine-0.0.10 (2022-07-21)
+## [fogproject-0.0.10]fogproject-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -153,7 +164,7 @@
 
 
 
-## [fmd2-wine-0.0.10]fmd2-wine-0.0.10 (2022-07-21)
+## [fogproject-0.0.10]fogproject-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -163,7 +174,7 @@
 
 
 
-## [fmd2-wine-0.0.10]fmd2-wine-0.0.10 (2022-07-21)
+## [fogproject-0.0.10]fogproject-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -172,7 +183,7 @@
 
 
 
-## [fmd2-wine-0.0.10]fmd2-wine-0.0.10 (2022-07-20)
+## [fogproject-0.0.10]fogproject-0.0.10 (2022-07-20)
 
 ### Chore
 
@@ -180,4 +191,4 @@
 
 
 
-## [fmd2-wine-0.0.10]fmd2-wine-0.0.10 (2022-07-20)
+## [fogproject-0.0.10]fogproject-0.0.10 (2022-07-20)

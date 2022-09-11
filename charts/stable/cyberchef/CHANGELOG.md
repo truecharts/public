@@ -6,6 +6,17 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cyberchef-2.0.81](https://github.com/truecharts/charts/compare/cyberchef-2.0.80...cyberchef-2.0.81) (2022-09-11)
+
+### Chore
+
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 

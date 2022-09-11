@@ -2,6 +2,7 @@
 
 
 
+
 ## [goaccess-npm-logs-0.0.27](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.26...goaccess-npm-logs-0.0.27) (2022-09-11)
 
 ### Chore

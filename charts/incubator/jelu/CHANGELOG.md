@@ -6,6 +6,17 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [jelu-0.0.28](https://github.com/truecharts/charts/compare/jelu-0.0.27...jelu-0.0.28) (2022-09-11)
+
+### Chore
+
 - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 

@@ -6,6 +6,21 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
+
+  ### Feat
+
+- update for v0.13 ([#3695](https://github.com/truecharts/charts/issues/3695))
+
+
+
+
+## [metallb-3.0.0](https://github.com/truecharts/charts/compare/metallb-2.0.14...metallb-3.0.0) (2022-09-11)
+
+### Chore
+
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
