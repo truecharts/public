@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [ddns-go-2.0.33](https://github.com/truecharts/charts/compare/ddns-go-2.0.32...ddns-go-2.0.33) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [pgadmin-7.0.34](https://github.com/truecharts/charts/compare/pgadmin-7.0.33...pgadmin-7.0.34) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

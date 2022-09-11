@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [factorio-0.0.30](https://github.com/truecharts/charts/compare/factorio-0.0.29...factorio-0.0.30) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

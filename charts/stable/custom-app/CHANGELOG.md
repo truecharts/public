@@ -7,6 +7,18 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.58](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.58) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
