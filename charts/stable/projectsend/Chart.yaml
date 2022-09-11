@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: projectsend
-version: 3.0.34
+version: 3.0.35
 appVersion: "2021.12.10"
 description: Projectsend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself.
 type: application
@@ -14,11 +14,11 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.6
+    version: 10.5.9
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
-    version: 3.0.66
+    version: 3.0.71
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
