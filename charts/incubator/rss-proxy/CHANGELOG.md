@@ -2,6 +2,7 @@
 
 
 
+
 ## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-11)
 
 ### Chore

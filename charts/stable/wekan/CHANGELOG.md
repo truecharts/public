@@ -2,6 +2,19 @@
 
 
 
+## [wekan-5.0.9](https://github.com/truecharts/charts/compare/wekan-5.0.8...wekan-5.0.9) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [wekan-5.0.9](https://github.com/truecharts/charts/compare/wekan-5.0.8...wekan-5.0.9) (2022-09-11)
 
 ### Chore

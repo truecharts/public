@@ -1,6 +1,6 @@
 # typecho
 
-![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
+![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
 
 Typecho is a PHP Blogging Platform.
 

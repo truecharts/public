@@ -2,6 +2,19 @@
 
 
 
+## [phpmyadmin-0.0.23](https://github.com/truecharts/charts/compare/phpmyadmin-0.0.22...phpmyadmin-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [phpmyadmin-0.0.23](https://github.com/truecharts/charts/compare/phpmyadmin-0.0.22...phpmyadmin-0.0.23) (2022-09-11)
 
 ### Chore

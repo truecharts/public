@@ -2,6 +2,19 @@
 
 
 
+## [hedgedoc-4.0.44](https://github.com/truecharts/charts/compare/hedgedoc-4.0.43...hedgedoc-4.0.44) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [hedgedoc-4.0.44](https://github.com/truecharts/charts/compare/hedgedoc-4.0.43...hedgedoc-4.0.44) (2022-09-11)
 
 ### Chore

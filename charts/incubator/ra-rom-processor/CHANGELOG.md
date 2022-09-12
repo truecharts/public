@@ -2,6 +2,20 @@
 
 
 
+## [ra-rom-processor-0.0.29](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.28...ra-rom-processor-0.0.29) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
 ## [ra-rom-processor-0.0.29](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.28...ra-rom-processor-0.0.29) (2022-09-11)
 
 ### Chore
