@@ -46,21 +46,27 @@ questions:
             type: list
             default: []
             items:
-              - variable: host
-                label: Secondary Host Base URL
-                description: The base URL of your Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash.
+              - variable: hostEntry
+                label: "Secondary Host Entry"
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: password
-                label: Secondary Host Password
-                description: The password used to log in to the admin interface.
-                schema:
-                  type: string
-                  required: true
-                  private: true
-                  default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: host
+                      label: Secondary Host Base URL
+                      description: The base URL of your Pi-hole, including the scheme (HTTP or HTTPS) and port but not including a following slash.
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: Secondary Host Password
+                      description: The password used to log in to the admin interface.
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
   - variable: env
     group: Container Configuration
     label: Image Environment
