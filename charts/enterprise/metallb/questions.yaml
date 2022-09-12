@@ -6,7 +6,6 @@ questions:
     group: "App Configuration"
     label: IP Address Pools Object
     schema:
-      additional_attrs: true
       type: list
       default: []
       items:
@@ -53,7 +52,6 @@ questions:
     description: L2Advertisement allows to advertise the LoadBalancer IPs provided
         by the selected pools via L2.
     schema:
-      additional_attrs: true
       type: list
       default: []
       items:
@@ -99,7 +97,6 @@ questions:
     description: Community is a collection of aliases for communities. Users can
       define named aliases to be used in the BGPPeer CRD.
     schema:
-      additional_attrs: true
       type: list
       default: []
       items:
@@ -223,7 +220,6 @@ questions:
     description: BGPAdvertisement allows to advertise the IPs coming from the
       selected IPAddressPools via BGP.
     schema:
-      additional_attrs: true
       type: list
       default: []
       items:
