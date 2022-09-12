@@ -2,6 +2,18 @@
 
 
 
+## [fmd2-wine-0.0.23](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.22...fmd2-wine-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
 ## [fogproject-0.0.23](https://github.com/truecharts/charts/compare/fogproject-0.0.22...fogproject-0.0.23) (2022-09-11)
 
 ### Chore

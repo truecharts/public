@@ -1,0 +1,13 @@
+{{- if .Values.Communities }}
+---
+apiVersion: metallb.io/v1beta1
+kind: Community
+metadata:
+  name: communities
+spec:
+  communities:
+  {{- range .Values.Communities }}
+    - name: {{ .name }}
+      value: {{ .value }}
+  {{- end }}
+{{- end }}

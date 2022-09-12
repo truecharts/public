@@ -1,17 +1,9 @@
-{{- define "metallb.peer" -}}
-
-{{ $namespace := .Release.Namespace }}
-
-{{- if .Values.metallb.Peers }}
-{{- range .Values.metallb.Peers }}
+{{- range .Values.Peers }}
+---
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
   name: {{ .name }}
-  labels:
-    {{- include "tc.common.labels" $ | nindent 4 }}
-  annotations:
-    {{- include "tc.common.annotations" $ | nindent 4 }}
 spec:
   {{- with .password }}
   password: {{ . }}
@@ -54,6 +46,3 @@ spec:
   {{- end }}
   {{- end }}
 {{- end }}
-{{- end }}
-
-{{- end -}}
