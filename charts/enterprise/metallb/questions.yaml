@@ -3,6 +3,7 @@ questions:
 # Include{global}
 # Include{controller}
   - variable: ipAddressPools
+    group: "App Configuration"
     label: IP Address Pools Object
     schema:
       additional_attrs: true
@@ -47,6 +48,7 @@ questions:
                   default: ""
                   required: true
   - variable: L2Advertisements
+    group: "App Configuration"
     label: L2 Advertisements
     description: L2Advertisement allows to advertise the LoadBalancer IPs provided
         by the selected pools via L2.
@@ -92,6 +94,7 @@ questions:
                   default: ""
                   required: true
   - variable: Communities
+    group: "App Configuration"
     label: Communities
     description: Community is a collection of aliases for communities. Users can
       define named aliases to be used in the BGPPeer CRD.
@@ -115,6 +118,7 @@ questions:
             required: true
             default: ""
   - variable: Peers
+    group: "App Configuration"
     label: Peers
     description: BGPPeer is the Schema for the peers API.
     schema:
@@ -214,6 +218,7 @@ questions:
                   default: ""
                   required: true
   - variable: BGPAdvertisements
+    group: "App Configuration"
     label: BGP Advertisements
     description: BGPAdvertisement allows to advertise the IPs coming from the
       selected IPAddressPools via BGP.
