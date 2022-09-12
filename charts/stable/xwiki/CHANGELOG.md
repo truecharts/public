@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [xwiki-3.0.43](https://github.com/truecharts/charts/compare/xwiki-3.0.42...xwiki-3.0.43) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

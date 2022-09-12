@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [kimai-3.0.34](https://github.com/truecharts/charts/compare/kimai-3.0.33...kimai-3.0.34) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 

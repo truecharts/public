@@ -42,8 +42,8 @@ Leave defaults here.
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
 - `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
-- `Hostname` You can specify a specific hostname for use inside Tailscale (see image below). (Passes `--hostname HOSTNAME` to `extra_args`)
-- `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `extra_args`)
+- `Hostname` You can specify a specific hostname for use inside Tailscale (see image below). (Passes `--hostname HOSTNAME` to `Extra args`)
+- `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `Extra args`)
 
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
