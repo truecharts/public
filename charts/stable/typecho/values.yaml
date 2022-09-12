@@ -26,8 +26,6 @@ env:
   MEMORY_LIMIT: "100M"
   MAX_POST_BODY: "50M"
   TYPECHO_SITE_URL: "https://your-domain.com"
-  TYPECHO_USER_NAME: "typecho"
-  TYPECHO_USER_PASSWORD: "testtypecho"
   TYPECHO_USER_MAIL: "test@truecharts.org"
   TYPECHO_DB_HOST:
     secretKeyRef:
@@ -37,6 +35,10 @@ env:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
+
+secretEnv:
+  TYPECHO_USER_NAME: "typecho"
+  TYPECHO_USER_PASSWORD: "testtypecho"
 
 service:
   main:
