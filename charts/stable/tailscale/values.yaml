@@ -70,6 +70,7 @@ probes:
 
 service:
   main:
+    type: ClusterIP
     ports:
       main:
         protocol: UDP

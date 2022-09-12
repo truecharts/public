@@ -97,7 +97,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 41600
+                              default: 41700
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
@@ -105,9 +105,9 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 41700
+                                    default: 41600
 # Include{serviceExpertRoot}
-            default: false
+            default: true
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
