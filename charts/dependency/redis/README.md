@@ -1,6 +1,6 @@
 # redis
 
-![Version: 3.0.72](https://img.shields.io/badge/Version-3.0.72-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.0.4](https://img.shields.io/badge/AppVersion-7.0.4-informational?style=flat-square)
+![Version: 3.0.73](https://img.shields.io/badge/Version-3.0.73-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.0.4](https://img.shields.io/badge/AppVersion-7.0.4-informational?style=flat-square)
 
 Open source, advanced key-value store.
 

@@ -1,6 +1,6 @@
 # fireflyiii
 
-![Version: 16.0.41](https://img.shields.io/badge/Version-16.0.41-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.7.11](https://img.shields.io/badge/AppVersion-5.7.11-informational?style=flat-square)
+![Version: 16.0.42](https://img.shields.io/badge/Version-16.0.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 5.7.12](https://img.shields.io/badge/AppVersion-5.7.12-informational?style=flat-square)
 
 A free and open source personal finance manager
 

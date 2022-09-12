@@ -1,6 +1,6 @@
 # cups-server
 
-![Version: 1.0.43](https://img.shields.io/badge/Version-1.0.43-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.44](https://img.shields.io/badge/Version-1.0.44-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 CUPS printing server
 

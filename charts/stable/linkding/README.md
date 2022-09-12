@@ -1,6 +1,6 @@
 # linkding
 
-![Version: 2.0.33](https://img.shields.io/badge/Version-2.0.33-informational?style=flat-square) ![AppVersion: 1.14.0](https://img.shields.io/badge/AppVersion-1.14.0-informational?style=flat-square)
+![Version: 2.0.34](https://img.shields.io/badge/Version-2.0.34-informational?style=flat-square) ![AppVersion: 1.15.0](https://img.shields.io/badge/AppVersion-1.15.0-informational?style=flat-square)
 
 Linkding is a simple bookmark service that you can host yourself. It's designed be to be minimal, fast and easy.
 

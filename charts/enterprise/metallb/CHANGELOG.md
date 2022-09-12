@@ -2,6 +2,17 @@
 
 
 
+## [metallb-4.0.1](https://github.com/truecharts/charts/compare/metallb-2.0.14...metallb-4.0.1) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - fix questions.yaml ([#3744](https://github.com/truecharts/charts/issues/3744))
+  - cleanup and move to enterprise train ([#3740](https://github.com/truecharts/charts/issues/3740))
+
+
+
+
 ## [metallb-4.0.0](https://github.com/truecharts/charts/compare/metallb-2.0.14...metallb-4.0.0) (2022-09-11)
 
 ### Chore

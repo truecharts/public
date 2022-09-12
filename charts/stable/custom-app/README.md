@@ -1,6 +1,6 @@
 # custom-app
 
-![Version: 5.1.58](https://img.shields.io/badge/Version-5.1.58-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1861](https://img.shields.io/badge/AppVersion-0.20.1861-informational?style=flat-square)
+![Version: 5.1.59](https://img.shields.io/badge/Version-5.1.59-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.20.1885](https://img.shields.io/badge/AppVersion-0.20.1885-informational?style=flat-square)
 
 Advanced tool to create your own TrueCharts-based App
 
