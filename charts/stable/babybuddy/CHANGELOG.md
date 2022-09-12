@@ -10,6 +10,21 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [babybuddy-8.0.48](https://github.com/truecharts/charts/compare/babybuddy-8.0.46...babybuddy-8.0.48) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 

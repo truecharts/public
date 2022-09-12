@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+
+
+
+
+## [redis-3.0.73](https://github.com/truecharts/charts/compare/redis-3.0.72...redis-3.0.73) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
 
 
