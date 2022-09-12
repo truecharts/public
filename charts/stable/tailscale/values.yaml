@@ -72,11 +72,10 @@ hostNetwork: true
 
 service:
   main:
-    type: ClusterIP
+    enabled: false
     ports:
       main:
-        protocol: UDP
-        port: 41700
+        enabled: false
 
 persistence:
   varrun:
