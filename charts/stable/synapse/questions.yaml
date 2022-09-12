@@ -247,38 +247,44 @@ questions:
                   type: boolean
                   default: true
               - variable: trustedKeyServers
-                label: "Truested Key Servers"
+                label: "Trusted Key Servers"
                 schema:
                   type: list
                   default: []
                   items:
-                    - variable: serverName
-                      label: "Server Name"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: verifyKeys
-                      label: "Verify Keys"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: id
-                            label: "id"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: key
-                            label: "key"
-                            schema:
-                              type: string
-                              default: ""
-                              private: true
-                    - variable: acceptKeysInsecurely
-                      label: "Accept Keys Insecurely"
-                      schema:
-                        type: boolean
-                        default: false
+                  - variable: trustedKeyServersEntry
+                    label: Trusted Key Servers Entry
+                    schema:
+                      additional_attrs: true
+                      type: dict
+                      attrs:
+                        - variable: serverName
+                          label: "Server Name"
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: verifyKeys
+                          label: "Verify Keys"
+                          schema:
+                            additional_attrs: true
+                            type: dict
+                            attrs:
+                              - variable: id
+                                label: "id"
+                                schema:
+                                  type: string
+                                  default: ""
+                              - variable: key
+                                label: "key"
+                                schema:
+                                  type: string
+                                  default: ""
+                                  private: true
+                        - variable: acceptKeysInsecurely
+                          label: "Accept Keys Insecurely"
+                          schema:
+                            type: boolean
+                            default: false
         - variable: logging
           group: "Container Configuration"
           label: "Logging Configuration"
