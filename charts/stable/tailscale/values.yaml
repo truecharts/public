@@ -68,6 +68,8 @@ probes:
   startup:
     enabled: false
 
+hostNetwork: true
+
 service:
   main:
     type: ClusterIP
