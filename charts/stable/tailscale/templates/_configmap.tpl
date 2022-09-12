@@ -15,7 +15,7 @@
 {{- end }}
 
 {{- if .Values.tailscale.extra_args }}
-{{- $customArgs = (printf "%v %v" $customArgs .Values.tailscale.extra_args | trim) -}}
+{{- $customArgs = (printf "%v %v" .Values.tailscale.extra_args $customArgs | trim) -}}
 {{- end }}
 ---
 apiVersion: v1
