@@ -9,5 +9,6 @@ Template to render Tailscale addon. It will add the container to the list of add
     {{- $_ := set .Values.additionalContainers "addon-tailscale" $container -}}
     {{ include "tailscale.sa" . }}
     {{ include "tailscale.rbac" . }}
+    {{ include "tailscale.secret" . }}
   {{- end -}}
 {{- end -}}
