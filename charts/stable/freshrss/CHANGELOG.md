@@ -2,6 +2,15 @@
 
 
 
+## [freshrss-11.0.30](https://github.com/truecharts/charts/compare/freshrss-11.0.29...freshrss-11.0.30) (2022-09-13)
+
+### Fix
+
+- fix tag scheme ([#3764](https://github.com/truecharts/charts/issues/3764))
+
+
+
+
 ## [freshrss-11.0.29](https://github.com/truecharts/charts/compare/freshrss-11.0.28...freshrss-11.0.29) (2022-09-12)
 
 ### Chore
