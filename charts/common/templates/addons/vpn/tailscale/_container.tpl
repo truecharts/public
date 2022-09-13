@@ -11,13 +11,22 @@ command: ["ash", "/tailscale/run.sh"]
 
 tty: true
 
-# It should run rootless. But needs test
 securityContext:
+{{- if .Values.addons.vpn.tailscale.userspace }}
   runAsUser: 1000
   runAsGroup: 1000
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+{{- else }}
+  runAsUser: 0
+  runAsGroup: 0
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+{{- end }}
   capabilities:
     add:
       - NET_ADMIN
+
 
 envFrom:
   - secretRef:
