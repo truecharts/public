@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-118-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-119-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -287,6 +287,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/neoestremi"><img src="https://avatars.githubusercontent.com/u/1340877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NeoToxic</b></sub></a><br /><a href="#mentoring-neoestremi" title="Mentoring">🧑‍🏫</a></td>
       <td align="center"><a href="https://github.com/jab416171"><img src="https://avatars.githubusercontent.com/u/345752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jab416171</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jab416171" title="Documentation">📖</a></td>
       <td align="center"><a href="http://www.zioniyes.me"><img src="https://avatars.githubusercontent.com/u/16231288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anna</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=HumbleDeer" title="Documentation">📖</a></td>
+      <td align="center"><a href="https://github.com/ChaosBlades"><img src="https://avatars.githubusercontent.com/u/7530545?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ChaosBlades</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AChaosBlades" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
