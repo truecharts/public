@@ -1,4 +1,7 @@
 {{- range .Values.BGPAdvertisements }}
+{{- if .Release.IsInstall  }}
+{{- fail "Please only add MetalLB configuration after initial installation" }}
+{{- end }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
