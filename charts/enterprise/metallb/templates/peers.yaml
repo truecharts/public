@@ -1,8 +1,6 @@
 {{- range .Values.Peers }}
-{{- if hasKey .Release "IsInstall" }}
-{{- if .Release.IsInstall }}
+{{- if $.Release.IsInstall  }}
 {{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 {{- end }}
 ---
 apiVersion: metallb.io/v1beta2
