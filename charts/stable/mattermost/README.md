@@ -1,6 +1,6 @@
 # mattermost
 
-![Version: 3.0.42](https://img.shields.io/badge/Version-3.0.42-informational?style=flat-square) ![AppVersion: 7.3](https://img.shields.io/badge/AppVersion-7.3-informational?style=flat-square)
+![Version: 3.0.43](https://img.shields.io/badge/Version-3.0.43-informational?style=flat-square) ![AppVersion: 7.3](https://img.shields.io/badge/AppVersion-7.3-informational?style=flat-square)
 
 Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://charts.truecharts.org/ | postgresql | 8.0.76 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

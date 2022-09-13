@@ -1,6 +1,6 @@
 # sheetable
 
-![Version: 0.0.14](https://img.shields.io/badge/Version-0.0.14-informational?style=flat-square) ![AppVersion: 0.8](https://img.shields.io/badge/AppVersion-0.8-informational?style=flat-square)
+![Version: 0.0.15](https://img.shields.io/badge/Version-0.0.15-informational?style=flat-square) ![AppVersion: 0.8](https://img.shields.io/badge/AppVersion-0.8-informational?style=flat-square)
 
 SheetAble is an easy to use music sheet organiser for all the music enthusiasts out there.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://charts.truecharts.org/ | postgresql | 8.0.76 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

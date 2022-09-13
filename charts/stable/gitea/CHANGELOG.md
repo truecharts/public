@@ -2,6 +2,15 @@
 
 
 
+## [gitea-9.0.15](https://github.com/truecharts/charts/compare/gitea-9.0.14...gitea-9.0.15) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [gitea-9.0.14](https://github.com/truecharts/charts/compare/gitea-9.0.13...gitea-9.0.14) (2022-09-12)
 
 ### Chore

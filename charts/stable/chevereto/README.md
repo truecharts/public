@@ -1,6 +1,6 @@
 # chevereto
 
-![Version: 3.0.35](https://img.shields.io/badge/Version-3.0.35-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.6.2](https://img.shields.io/badge/AppVersion-1.6.2-informational?style=flat-square)
+![Version: 3.0.36](https://img.shields.io/badge/Version-3.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.6.2](https://img.shields.io/badge/AppVersion-1.6.2-informational?style=flat-square)
 
 Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.71 |
+| https://charts.truecharts.org/ | mariadb | 3.0.72 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

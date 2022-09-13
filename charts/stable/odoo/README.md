@@ -1,6 +1,6 @@
 # odoo
 
-![Version: 8.0.46](https://img.shields.io/badge/Version-8.0.46-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 15.0](https://img.shields.io/badge/AppVersion-15.0-informational?style=flat-square)
+![Version: 8.0.47](https://img.shields.io/badge/Version-8.0.47-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 15.0](https://img.shields.io/badge/AppVersion-15.0-informational?style=flat-square)
 
 All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.75 |
+| https://charts.truecharts.org/ | postgresql | 8.0.76 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

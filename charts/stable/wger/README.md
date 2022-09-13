@@ -1,6 +1,6 @@
 # wger
 
-![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.75 |
-| https://charts.truecharts.org | redis | 3.0.71 |
+| https://charts.truecharts.org/ | postgresql | 8.0.76 |
+| https://charts.truecharts.org | redis | 3.0.72 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

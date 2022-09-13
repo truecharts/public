@@ -2,6 +2,15 @@
 
 
 
+## [odoo-8.0.47](https://github.com/truecharts/charts/compare/odoo-8.0.46...odoo-8.0.47) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [odoo-8.0.46](https://github.com/truecharts/charts/compare/odoo-8.0.45...odoo-8.0.46) (2022-09-12)
 
 ### Chore

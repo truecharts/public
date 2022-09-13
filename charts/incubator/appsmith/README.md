@@ -1,6 +1,6 @@
 # appsmith
 
-![Version: 2.0.49](https://img.shields.io/badge/Version-2.0.49-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square)
+![Version: 2.0.50](https://img.shields.io/badge/Version-2.0.50-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square)
 
 Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | redis | 3.0.71 |
+| https://charts.truecharts.org | redis | 3.0.72 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

@@ -2,6 +2,15 @@
 
 
 
+## [inventree-4.0.10](https://github.com/truecharts/charts/compare/inventree-4.0.9...inventree-4.0.10) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [inventree-4.0.9](https://github.com/truecharts/charts/compare/inventree-4.0.8...inventree-4.0.9) (2022-09-12)
 
 ### Chore

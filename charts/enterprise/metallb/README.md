@@ -1,6 +1,6 @@
 # metallb
 
-![Version: 4.0.2](https://img.shields.io/badge/Version-4.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: upstream](https://img.shields.io/badge/AppVersion-upstream-informational?style=flat-square)
+![Version: 4.0.4](https://img.shields.io/badge/Version-4.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: upstream](https://img.shields.io/badge/AppVersion-upstream-informational?style=flat-square)
 
 A network load-balancer implementation for Kubernetes using standard routing protocols
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.7 |
+| https://library-charts.truecharts.org | common | 10.5.9 |
 | https://metallb.github.io/metallb | metallb | 0.13.5 |
 
 ## Installing the Chart

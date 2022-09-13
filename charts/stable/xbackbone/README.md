@@ -1,6 +1,6 @@
 # xbackbone
 
-![Version: 3.0.37](https://img.shields.io/badge/Version-3.0.37-informational?style=flat-square) ![AppVersion: 3.3.3](https://img.shields.io/badge/AppVersion-3.3.3-informational?style=flat-square)
+![Version: 3.0.38](https://img.shields.io/badge/Version-3.0.38-informational?style=flat-square) ![AppVersion: 3.3.3](https://img.shields.io/badge/AppVersion-3.3.3-informational?style=flat-square)
 
 XBackBone is a simple, self-hosted, lightweight PHP file manager
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.71 |
+| https://charts.truecharts.org/ | mariadb | 3.0.72 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

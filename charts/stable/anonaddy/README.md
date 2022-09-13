@@ -1,6 +1,6 @@
 # anonaddy
 
-![Version: 9.0.45](https://img.shields.io/badge/Version-9.0.45-informational?style=flat-square) ![AppVersion: 0.13.7](https://img.shields.io/badge/AppVersion-0.13.7-informational?style=flat-square)
+![Version: 9.0.46](https://img.shields.io/badge/Version-9.0.46-informational?style=flat-square) ![AppVersion: 0.13.7](https://img.shields.io/badge/AppVersion-0.13.7-informational?style=flat-square)
 
 Protect your email from spam using disposable addresses.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.71 |
-| https://charts.truecharts.org | redis | 3.0.71 |
+| https://charts.truecharts.org/ | mariadb | 3.0.72 |
+| https://charts.truecharts.org | redis | 3.0.72 |
 | https://library-charts.truecharts.org | common | 10.5.9 |
 
 ## Installing the Chart

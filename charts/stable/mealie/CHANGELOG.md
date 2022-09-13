@@ -2,6 +2,15 @@
 
 
 
+## [mealie-9.0.2](https://github.com/truecharts/charts/compare/mealie-9.0.1...mealie-9.0.2) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [mealie-9.0.1](https://github.com/truecharts/charts/compare/mealie-9.0.0...mealie-9.0.1) (2022-09-12)
 
 ### Chore

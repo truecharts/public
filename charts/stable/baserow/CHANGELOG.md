@@ -2,6 +2,15 @@
 
 
 
+## [baserow-3.0.41](https://github.com/truecharts/charts/compare/baserow-3.0.40...baserow-3.0.41) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [baserow-3.0.40](https://github.com/truecharts/charts/compare/baserow-3.0.39...baserow-3.0.40) (2022-09-12)
 
 ### Chore

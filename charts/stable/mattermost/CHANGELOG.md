@@ -2,6 +2,15 @@
 
 
 
+## [mattermost-3.0.43](https://github.com/truecharts/charts/compare/mattermost-3.0.42...mattermost-3.0.43) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
 ## [mattermost-3.0.42](https://github.com/truecharts/charts/compare/mattermost-3.0.41...mattermost-3.0.42) (2022-09-12)
 
 ### Chore
