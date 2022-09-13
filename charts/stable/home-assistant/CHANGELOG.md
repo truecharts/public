@@ -2,6 +2,15 @@
 
 
 
+## [home-assistant-15.0.50](https://github.com/truecharts/charts/compare/home-assistant-15.0.49...home-assistant-15.0.50) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
 ## [home-assistant-15.0.49](https://github.com/truecharts/charts/compare/home-assistant-15.0.48...home-assistant-15.0.49) (2022-09-12)
 
 ### Chore

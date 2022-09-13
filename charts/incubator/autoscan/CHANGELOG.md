@@ -2,6 +2,15 @@
 
 
 
+## [autoscan-0.0.28](https://github.com/truecharts/charts/compare/autoscan-0.0.27...autoscan-0.0.28) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
 ## [autoscan-0.0.27](https://github.com/truecharts/charts/compare/autoscan-0.0.25...autoscan-0.0.27) (2022-09-12)
 
 ### Chore

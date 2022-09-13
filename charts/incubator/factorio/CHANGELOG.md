@@ -2,6 +2,15 @@
 
 
 
+## [factorio-0.0.31](https://github.com/truecharts/charts/compare/factorio-0.0.30...factorio-0.0.31) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
 ## [factorio-0.0.30](https://github.com/truecharts/charts/compare/factorio-0.0.29...factorio-0.0.30) (2022-09-12)
 
 ### Chore

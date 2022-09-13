@@ -2,6 +2,15 @@
 
 
 
+## [neko-0.0.32](https://github.com/truecharts/charts/compare/neko-0.0.31...neko-0.0.32) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
 ## [neko-0.0.31](https://github.com/truecharts/charts/compare/neko-0.0.29...neko-0.0.31) (2022-09-12)
 
 ### Chore

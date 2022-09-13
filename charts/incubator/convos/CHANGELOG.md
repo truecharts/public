@@ -2,6 +2,15 @@
 
 
 
+## [convos-0.0.25](https://github.com/truecharts/charts/compare/convos-0.0.24...convos-0.0.25) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
 ## [convos-0.0.24](https://github.com/truecharts/charts/compare/convos-0.0.22...convos-0.0.24) (2022-09-12)
 
 ### Chore
