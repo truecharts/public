@@ -2,6 +2,15 @@
 
 
 
+## [metallb-4.0.7](https://github.com/truecharts/charts/compare/metallb-4.0.6...metallb-4.0.7) (2022-09-13)
+
+### Fix
+
+- fix error/warning on upgrade
+
+
+
+
 ## [metallb-4.0.6](https://github.com/truecharts/charts/compare/metallb-4.0.5...metallb-4.0.6) (2022-09-13)
 
 
