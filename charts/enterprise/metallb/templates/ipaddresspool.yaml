@@ -3,12 +3,12 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: {{ .addressPool.name }}
+  name: {{ .name }}
 spec:
   addresses:
-    {{- range .addressPool.addresses }}
+    {{- range .addresses }}
     - {{ . }}
     {{- end }}
-  autoAssign: {{ .addressPool.autoAssign | default true }}
-  avoidBuggyIPs: {{ .addressPool.avoidBuggyIPs | default false }}
+  autoAssign: {{ .autoAssign | default true }}
+  avoidBuggyIPs: {{ .avoidBuggyIPs | default false }}
 {{- end }}
