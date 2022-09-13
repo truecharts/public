@@ -2,6 +2,11 @@
 
 
 
+## [metallb-4.0.6](https://github.com/truecharts/charts/compare/metallb-4.0.5...metallb-4.0.6) (2022-09-13)
+
+
+
+
 ## [metallb-4.0.5](https://github.com/truecharts/charts/compare/metallb-4.0.4...metallb-4.0.5) (2022-09-13)
 
 
