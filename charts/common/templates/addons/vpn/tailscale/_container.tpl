@@ -27,7 +27,6 @@ securityContext:
     add:
       - NET_ADMIN
 
-
 envFrom:
   - secretRef:
       name: {{ $secretName }}
