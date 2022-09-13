@@ -2,6 +2,15 @@
 
 
 
+## [gitea-9.0.16](https://github.com/truecharts/charts/compare/gitea-9.0.15...gitea-9.0.16) (2022-09-13)
+
+### Chore
+
+- update helm chart memcached to v3.0.75 ([#3759](https://github.com/truecharts/charts/issues/3759))
+
+
+
+
 ## [gitea-9.0.15](https://github.com/truecharts/charts/compare/gitea-9.0.14...gitea-9.0.15) (2022-09-13)
 
 ### Chore
