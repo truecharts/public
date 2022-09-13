@@ -2,6 +2,15 @@
 
 
 
+## [promtail-3.0.51](https://github.com/truecharts/charts/compare/promtail-3.0.50...promtail-3.0.51) (2022-09-13)
+
+### Chore
+
+- update helm chart common to v10.5.10
+
+
+
+
 ## [promtail-3.0.50](https://github.com/truecharts/charts/compare/promtail-3.0.49...promtail-3.0.50) (2022-09-11)
 
 ### Chore
