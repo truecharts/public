@@ -12,76 +12,120 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+  - variable: secretEnv
+    group: Container Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: RWA_ENV
-          label: "RWA_ENV"
-          description: "Enables configuration by environment variables."
-          schema:
-            type: string
-            default: "True"
-        - variable: RWA_ADMIN
-          label: "RWA_ADMIN"
-          description: "Sets the initial user as an admin"
-          schema:
-            type: string
-            default: "TRUE"
         - variable: RWA_USERNAME
-          label: "RWA_USERNAME"
-          description: "Sets the initial user's username for the web interface."
+          label: RWA USERNAME
+          description: Sets the initial user's username for the web interface.
           schema:
             type: string
-            default: "admin"
+            default: ""
         - variable: RWA_PASSWORD
-          label: "RWA_PASSWORD"
-          description: "Sets the initial user's password for the web interface."
+          label: RWA PASSWORD
+          description: Sets the initial user's password for the web interface.
           schema:
             type: string
             default: ""
             private: true
             required: true
-        - variable: RWA_GAME
-          label: "RWA_GAME"
-          description: "The initial game you wish to control."
-          schema:
-            type: string
-            default: "minecraft"
-        - variable: RWA_SERVER_NAME
-          label: "RWA_SERVER_NAME"
-          description: "The display name of the initial server"
-          schema:
-            type: string
-            default: "minecraft"
-        - variable: RWA_RCON_HOST
-          label: "RWA_RCON_HOST"
-          description: "The initial RCON server IP to control"
-          schema:
-            type: string
-            default: ""
-        - variable: RWA_RCON_PORT
-          label: "RWA_RCON_PORT"
-          description: "The port number of the initial RCON server to control"
-          schema:
-            type: string
-            default: "25575"
         - variable: RWA_RCON_PASSWORD
-          label: "RWA_RCON_PASSWORD"
-          description: "The password for the initial RCON server to control"
+          label: RWA RCON PASSWORD
+          description: The password for the initial RCON server to control
           schema:
             type: string
             default: ""
             private: true
-            required: true
+  - variable: rcon
+    group: Container Configuration
+    label: RCON Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: rwa_env
+          label: RWA ENV
+          description: Enables configuration by environment variables.
+          schema:
+            type: boolean
+            default: false
+        - variable: rwa_admin
+          label: RWA ADMIN
+          description: Sets the initial user as an admin
+          schema:
+            type: boolean
+            default: true
+        - variable: rwa_web_rcon
+          label: RWA WEB RCON
+          description: Enables web rcon if supported by the game server
+          schema:
+            type: boolean
+            default: false
+        - variable: rwa_read_only_widget_options
+          label: RWA READ ONLY WIDGET OPTIONS
+          description: 	Prevent the initial user changing options in the widget options tab
+          schema:
+            type: boolean
+            default: false
+        - variable: rwa_game
+          label: RWA GAME
+          description: The initial game you wish to control.
+          schema:
+            type: string
+            default: minecraft
+        - variable: rwa_server_name
+          label: RWA SERVER NAME
+          description: The display name of the initial server
+          schema:
+            type: string
+            default: minecraft
+        - variable: rwa_rcon_host
+          label: RWA RCON HOST
+          description: The initial RCON server IP to control
+          schema:
+            type: string
+            default: ""
+        - variable: rwa_rcon_port
+          label: RWA_RCON_PORT
+          description: The port number of the initial RCON server to control
+          schema:
+            type: int
+            default: 25575
+        - variable: rwa_restrict_commands
+          label: RWA RESTRICT COMMANDS
+          description: Prevent the initial user user executing these commands
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: command
+                label: command
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: rwa_restrict_widgets
+          label: RWA RESTRICT WIDGETS
+          description: Prevent the initial user user executing these commands
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: widget
+                label: widget
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -89,51 +133,51 @@ questions:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 4326
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 4326
         - variable: websocketaccess
-          label: 'websocketaccess service'
-          description: "Container Port 4327"
+          label: Web Socket Access service
+          description: Container Port 4327
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
-                    - variable: websocketacces
-                      label: "websocketacces Service Port Configuration"
+                    - variable: websocketaccess
+                      label: Web Socket Access Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 4327
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 4327
@@ -143,8 +187,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: db
-          label: "App DB Storage"
-          description: "Stores the Application DB."
+          label: App DB Storage
+          description: Stores the Application DB.
           schema:
             additional_attrs: true
             type: dict
@@ -154,7 +198,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -167,42 +211,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
