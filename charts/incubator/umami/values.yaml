@@ -1,17 +1,43 @@
 image:
-  repository: ghcr.io/umami-software/umami
-  tag: postgresql-v1.38.0@sha256:1b2361dbe5397938a1016e77a6329b2607d6483789ce161eb7886423fec0a533
+  repository: tccr.io/truecharts/umami
+  tag: v1.38.0@sha256:67f016d7fc4af69b0a25f057dab533fef0aacf457b280516f652d8b5de54bc36
   pullPolicy: IfNotPresent
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+umami:
+  ignore_ip:
+    - "1.1.1.1"
+    - "2.2.2.2"
+  force_ssl: true
+  hostname: ""
+  client_ip_header: ""
+  remove_trailing_slash: 1
+  tracker_script_name: umami
+  collect_api_endpoint: /api/collect
+  disable_updates: 1
+  disable_login: 1
+  disable_telemetry: 1
+
 env:
-  DATABASE_TYPE: "postgresql"
+  PORT: "{{ .Values.main.ports.main.port }}"
+  DATABASE_TYPE: postgresql
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: url
-
-secretEnv:
-  HASH_SALT: "replace-me-with-a-random-string"
+  IGNORE_IP: '{{ join "," .Values.umami.ignore_ip }}'
+  FORCE_SSL: '{{ ternary "1" "0" .Values.umami.force_ssl }}'
+  HOSTNAME: "{{ .Values.umami.hostname }}"
+  CLIENT_IP_HEADER: "{{ .Values.umami.client_ip_header }}"
+  REMOVE_TRAILING_SLASH: '{{ ternary "1" "0" .Values.umami.remove_trailing_slash }}'
+  TRACKER_SCRIPT_NAME: "{{ .Values.umami.tracker_script_name }}"
+  COLLECT_API_ENDPOINT: "{{ .Values.umami.collect_api_endpoint }}"
+  DISABLE_UPDATES: '{{ ternary "1" "0" .Values.umami.disable_updates }}'
+  DISABLE_LOGIN: '{{ ternary "1" "0" .Values.umami.disable_login }}'
+  DISABLE_TELEMETRY: '{{ ternary "1" "0" .Values.umami.disable_telemetry }}'
 
 service:
   main:
@@ -19,7 +45,6 @@ service:
       main:
         port: 10381
         protocol: HTTP
-        targetPort: 3000
 
 postgresql:
   enabled: true
