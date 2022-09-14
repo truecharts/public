@@ -88,21 +88,21 @@ questions:
                         type: string
                         default: ""
                         required: true
-        - variable: nodeSelectors
-          label: Node Selectors
-          description: NodeSelectors allows to limit the nodes to announce as
-              next hops for the LoadBalancer IP. When empty, all the nodes having  are
-              announced as next hops.
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: nodeSelectorEntry
-                label: Node Selector Entry
+              - variable: nodeSelectors
+                label: Node Selectors
+                description: NodeSelectors allows to limit the nodes to announce as
+                    next hops for the LoadBalancer IP. When empty, all the nodes having  are
+                    announced as next hops.
                 schema:
-                  type: string
-                  default: ""
-                  required: true
+                  type: list
+                  default: []
+                  items:
+                    - variable: nodeSelectorEntry
+                      label: Node Selector Entry
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
   - variable: Communities
     group: App Configuration
     label: Communities
