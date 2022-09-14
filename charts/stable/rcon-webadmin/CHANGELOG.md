@@ -2,6 +2,15 @@
 
 
 
+## [rcon-webadmin-1.0.0](https://github.com/truecharts/charts/compare/rcon-webadmin-0.0.23...rcon-webadmin-1.0.0) (2022-09-14)
+
+### Fix
+
+- move to stable. ([#3775](https://github.com/truecharts/charts/issues/3775))
+
+
+
+
 ## [rcon-webadmin-0.0.23](https://github.com/truecharts/charts/compare/rcon-webadmin-0.0.22...rcon-webadmin-0.0.23) (2022-09-12)
 
 ### Chore
