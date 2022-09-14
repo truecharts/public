@@ -19,30 +19,64 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: RWA_ENV
+          label: "RWA_ENV"
+          description: "Enables configuration by environment variables."
+          schema:
+            type: string
+            default: "True"
         - variable: RWA_ADMIN
           label: "RWA_ADMIN"
-          description: "Container Variable RWAADMIN"
+          description: "Sets the initial user as an admin"
           schema:
             type: string
             default: "TRUE"
         - variable: RWA_USERNAME
           label: "RWA_USERNAME"
-          description: "Container Variable RWAUSERNAME"
+          description: "Sets the initial user's username for the web interface."
           schema:
             type: string
             default: "admin"
         - variable: RWA_PASSWORD
           label: "RWA_PASSWORD"
-          description: "Container Variable RWAPASSWORD"
+          description: "Sets the initial user's password for the web interface."
           schema:
             type: string
-            default: "admin"
-        - variable: RWA_ENV
-          label: "RWA_ENV"
-          description: "Container Variable RWAENV"
+            default: ""
+            private: true
+            required: true
+        - variable: RWA_GAME
+          label: "RWA_GAME"
+          description: "The initial game you wish to control."
           schema:
             type: string
-            default: "False"
+            default: "minecraft"
+        - variable: RWA_SERVER_NAME
+          label: "RWA_SERVER_NAME"
+          description: "The display name of the initial server"
+          schema:
+            type: string
+            default: "minecraft"
+        - variable: RWA_RCON_HOST
+          label: "RWA_RCON_HOST"
+          description: "The initial RCON server IP to control"
+          schema:
+            type: string
+            default: ""
+        - variable: RWA_RCON_PORT
+          label: "RWA_RCON_PORT"
+          description: "The port number of the initial RCON server to control"
+          schema:
+            type: string
+            default: "25575"
+        - variable: RWA_RCON_PASSWORD
+          label: "RWA_RCON_PASSWORD"
+          description: "The password for the initial RCON server to control"
+          schema:
+            type: string
+            default: ""
+            private: true
+            required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -74,8 +108,8 @@ questions:
                                   schema:
                                     type: int
                                     default: 4326
-        - variable: websocketacces
-          label: 'websocketacces service'
+        - variable: websocketaccess
+          label: 'websocketaccess service'
           description: "Container Port 4327"
           schema:
             additional_attrs: true
@@ -109,8 +143,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: db
-          label: "db Storage"
-          description: "Container Path optrcon-web-admindb"
+          label: "App DB Storage"
+          description: "Stores the Application DB."
           schema:
             additional_attrs: true
             type: dict
