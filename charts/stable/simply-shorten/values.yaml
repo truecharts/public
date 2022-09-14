@@ -10,7 +10,7 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  
+
 secretEnv:
   password: user
   username: pass
