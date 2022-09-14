@@ -67,7 +67,7 @@ questions:
             default: false
         - variable: rwa_read_only_widget_options
           label: RWA READ ONLY WIDGET OPTIONS
-          description: 	Prevent the initial user changing options in the widget options tab
+          description: Prevent the initial user changing options in the widget options tab
           schema:
             type: boolean
             default: false
@@ -110,7 +110,7 @@ questions:
                   default: ""
         - variable: rwa_restrict_widgets
           label: RWA RESTRICT WIDGETS
-          description: Prevent the initial user user executing these commands
+          description: Hide this list of widgets from the initial user
           schema:
             type: list
             default: []
