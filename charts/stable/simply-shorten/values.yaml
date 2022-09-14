@@ -1,17 +1,21 @@
-env:
-  password: unraid
-  username: unraid
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/simply-shorten
   tag: latest@sha256:a3f74beafc532e55b087f7274b3072561e6d0cab9271bf236612b3ad1c3dc4cd
-persistence: {}
+
+env:
+  password: unraid
+  username: unraid
+  db_url: "/config/urls.sqlite"
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -19,6 +23,11 @@ service:
         port: 4567
         protocol: TCP
         targetPort: 4567
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config/urls.sqlite"
 
 portal:
   enabled: true
