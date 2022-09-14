@@ -12,9 +12,9 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
@@ -23,12 +23,13 @@ questions:
           label: "username"
           schema:
             type: string
-            default: "TrueNAS"
+            default: ""
         - variable: password
           label: "password"
           schema:
             type: string
-            default: "TrueNAS"
+            private: true
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -52,7 +53,7 @@ questions:
                               type: int
                               default: 4567
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
