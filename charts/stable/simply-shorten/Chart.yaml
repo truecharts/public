@@ -1,18 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Cloud
-    - Productivity
-    - Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.9
-deprecated: false
-description: "A simple selfhosted URL shortener with no unnecessary features."
-home: https://truecharts.org/docs/charts/incubator/simply-shorten
+description: A dead simple URL shortener.
+home: https://truecharts.org/docs/charts/stable/simply-shorten
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/simply-shorten.png
 keywords:
   - simply-shorten
@@ -30,4 +23,11 @@ sources:
   - https://gitlab.com/draganczukp/simply-shorten
   - https://hub.docker.com/r/draganczukp/simply-shorten
 type: application
-version: 0.0.23
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Network-Web
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
