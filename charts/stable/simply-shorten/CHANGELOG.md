@@ -2,6 +2,15 @@
 
 
 
+## [simply-shorten-1.0.0](https://github.com/truecharts/charts/compare/simply-shorten-0.0.22...simply-shorten-1.0.0) (2022-09-14)
+
+### Fix
+
+- move to stable. ([#3774](https://github.com/truecharts/charts/issues/3774))
+
+
+
+
 ## [simply-shorten-0.0.23](https://github.com/truecharts/charts/compare/simply-shorten-0.0.22...simply-shorten-0.0.23) (2022-09-12)
 
 ### Chore
