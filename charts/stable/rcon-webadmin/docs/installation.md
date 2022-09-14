@@ -10,7 +10,7 @@
 
 - Set `RWA ADMIN` to **true** to make the initial user a admin.
 - Set `RWA ENV` to **true** to use env variables. Setting this to **false** will use all default values.
-- Set `RWA_WEB_RCON` to **true** to enable web rcon *if* supported by the game server
+- Set `RWA_WEB_RCON` to **true** to enable web rcon _if_ supported by the game server
 - Set `RWA_READ_ONLY_WIDGET_OPTIONS` to **true** to prevent the initial user changing options in the widget options tab
 - Set `RWA GAME` to a game such as minecraft | rust | csgo | other.
 - Set `RWA SERVER NAME` to a custom name for the initial server.
