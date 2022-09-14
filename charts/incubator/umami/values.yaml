@@ -8,27 +8,26 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 umami:
-  ignore_ip:
-    - "1.1.1.1"
-    - "2.2.2.2"
   force_ssl: true
   hostname: ""
   client_ip_header: ""
-  remove_trailing_slash: 1
+  remove_trailing_slash: true
   tracker_script_name: umami
   collect_api_endpoint: /api/collect
-  disable_updates: 1
-  disable_login: 1
-  disable_telemetry: 1
+  disable_updates: true
+  disable_login: true
+  disable_telemetry: true
+  ignore_ip:
+    - "1.1.1.1"
+    - "2.2.2.2"
 
 env:
-  PORT: "{{ .Values.main.ports.main.port }}"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
   DATABASE_TYPE: postgresql
   DATABASE_URL:
     secretKeyRef:
       name: dbcreds
       key: url
-  IGNORE_IP: '{{ join "," .Values.umami.ignore_ip }}'
   FORCE_SSL: '{{ ternary "1" "0" .Values.umami.force_ssl }}'
   HOSTNAME: "{{ .Values.umami.hostname }}"
   CLIENT_IP_HEADER: "{{ .Values.umami.client_ip_header }}"
@@ -38,6 +37,7 @@ env:
   DISABLE_UPDATES: '{{ ternary "1" "0" .Values.umami.disable_updates }}'
   DISABLE_LOGIN: '{{ ternary "1" "0" .Values.umami.disable_login }}'
   DISABLE_TELEMETRY: '{{ ternary "1" "0" .Values.umami.disable_telemetry }}'
+  IGNORE_IP: '{{ join "," .Values.umami.ignore_ip }}'
 
 service:
   main:
