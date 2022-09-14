@@ -32,7 +32,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: smtp
                       label: "smtp Service Port Configuration"
                       schema:

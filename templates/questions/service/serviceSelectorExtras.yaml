@@ -1,24 +1,3 @@
-              - variable: enabled
-                label: Enable the Service
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: Service Type
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: Simple
-                  enum:
-                    - value: Simple
-                      description: Simple
-                    - value: ClusterIP
-                      description: ClusterIP
-                    - value: NodePort
-                      description: NodePort (Advanced)
-                    - value: LoadBalancer
-                      description: LoadBalancer (Advanced)
               - variable: loadBalancerIP
                 label: LoadBalancer IP
                 description: LoadBalancerIP
