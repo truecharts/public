@@ -1,6 +1,6 @@
 # impostor-server
 
-![Version: 1.0.39](https://img.shields.io/badge/Version-1.0.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.2](https://img.shields.io/badge/AppVersion-1.7.2-informational?style=flat-square)
+![Version: 1.0.40](https://img.shields.io/badge/Version-1.0.40-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.2](https://img.shields.io/badge/AppVersion-1.7.2-informational?style=flat-square)
 
 A private Among Us server
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

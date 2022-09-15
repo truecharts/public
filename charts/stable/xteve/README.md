@@ -1,6 +1,6 @@
 # xteve
 
-![Version: 6.0.31](https://img.shields.io/badge/Version-6.0.31-informational?style=flat-square) ![AppVersion: 2.2.0.200](https://img.shields.io/badge/AppVersion-2.2.0.200-informational?style=flat-square)
+![Version: 6.0.32](https://img.shields.io/badge/Version-6.0.32-informational?style=flat-square) ![AppVersion: 2.2.0.200](https://img.shields.io/badge/AppVersion-2.2.0.200-informational?style=flat-square)
 
 M3U Proxy for Plex DVR and Emby Live TV.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

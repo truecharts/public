@@ -1,6 +1,6 @@
 # code-server
 
-![Version: 4.0.37](https://img.shields.io/badge/Version-4.0.37-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.7.0](https://img.shields.io/badge/AppVersion-4.7.0-informational?style=flat-square)
+![Version: 4.0.38](https://img.shields.io/badge/Version-4.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.7.0](https://img.shields.io/badge/AppVersion-4.7.0-informational?style=flat-square)
 
 Run VS Code on any machine anywhere and access it in the browser.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

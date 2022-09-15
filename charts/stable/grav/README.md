@@ -1,6 +1,6 @@
 # grav
 
-![Version: 4.0.29](https://img.shields.io/badge/Version-4.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.18](https://img.shields.io/badge/AppVersion-1.7.18-informational?style=flat-square)
+![Version: 4.0.30](https://img.shields.io/badge/Version-4.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.18](https://img.shields.io/badge/AppVersion-1.7.18-informational?style=flat-square)
 
 A Fast, Simple, and Flexible, file-based Web-platform.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

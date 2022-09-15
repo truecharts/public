@@ -1,6 +1,6 @@
 # dsmr-reader
 
-![Version: 8.0.37](https://img.shields.io/badge/Version-8.0.37-informational?style=flat-square) ![AppVersion: 2021.09.02](https://img.shields.io/badge/AppVersion-2021.09.02-informational?style=flat-square)
+![Version: 8.0.38](https://img.shields.io/badge/Version-8.0.38-informational?style=flat-square) ![AppVersion: 2021.09.02](https://img.shields.io/badge/AppVersion-2021.09.02-informational?style=flat-square)
 
 DSMR-protocol reader, telegram data storage and energy consumption visualizer.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

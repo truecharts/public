@@ -2,6 +2,16 @@
 
 
 
+## [vertex-0.0.49](https://github.com/truecharts/charts/compare/vertex-0.0.48...vertex-0.0.49) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [vertex-0.0.48](https://github.com/truecharts/charts/compare/vertex-0.0.45...vertex-0.0.48) (2022-09-13)
 
 ### Chore

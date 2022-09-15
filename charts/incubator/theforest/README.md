@@ -1,6 +1,6 @@
 # theforest
 
-![Version: 0.0.23](https://img.shields.io/badge/Version-0.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.24](https://img.shields.io/badge/Version-0.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 This Docker will download and install SteamCMD. It will also install The Forest and run it. SERVERNAME: 'The Forest Docker' SERVERPASSWORD: 'Chart' ADMINPASSWORD: 'adminChart' (you can change this in your SERVERFOLDER/config/config.cfg)
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

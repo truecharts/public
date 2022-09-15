@@ -1,6 +1,6 @@
 # traccar
 
-![Version: 7.0.39](https://img.shields.io/badge/Version-7.0.39-informational?style=flat-square) ![AppVersion: 5.3](https://img.shields.io/badge/AppVersion-5.3-informational?style=flat-square)
+![Version: 7.0.40](https://img.shields.io/badge/Version-7.0.40-informational?style=flat-square) ![AppVersion: 5.3](https://img.shields.io/badge/AppVersion-5.3-informational?style=flat-square)
 
 Traccar is an open source GPS tracking system.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # etesync
 
-![Version: 0.0.33](https://img.shields.io/badge/Version-0.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.1](https://img.shields.io/badge/AppVersion-0.9.1-informational?style=flat-square)
+![Version: 0.0.34](https://img.shields.io/badge/Version-0.0.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.1](https://img.shields.io/badge/AppVersion-0.9.1-informational?style=flat-square)
 
 Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
 
@@ -27,8 +27,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

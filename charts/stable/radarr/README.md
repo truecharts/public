@@ -1,6 +1,6 @@
 # radarr
 
-![Version: 11.0.32](https://img.shields.io/badge/Version-11.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.1.0.6175](https://img.shields.io/badge/AppVersion-4.1.0.6175-informational?style=flat-square)
+![Version: 11.0.33](https://img.shields.io/badge/Version-11.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.1.0.6175](https://img.shields.io/badge/AppVersion-4.1.0.6175-informational?style=flat-square)
 
 A fork of Sonarr to work with movies à la Couchpotato
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

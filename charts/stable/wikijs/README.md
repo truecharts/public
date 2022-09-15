@@ -1,6 +1,6 @@
 # wikijs
 
-![Version: 7.0.38](https://img.shields.io/badge/Version-7.0.38-informational?style=flat-square) ![AppVersion: 2.5.287](https://img.shields.io/badge/AppVersion-2.5.287-informational?style=flat-square)
+![Version: 7.0.39](https://img.shields.io/badge/Version-7.0.39-informational?style=flat-square) ![AppVersion: 2.5.287](https://img.shields.io/badge/AppVersion-2.5.287-informational?style=flat-square)
 
 Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

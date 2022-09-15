@@ -2,6 +2,16 @@
 
 
 
+## [loki-5.0.38](https://github.com/truecharts/charts/compare/loki-5.0.37...loki-5.0.38) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [loki-5.0.37](https://github.com/truecharts/charts/compare/loki-5.0.36...loki-5.0.37) (2022-09-13)
 
 ### Chore

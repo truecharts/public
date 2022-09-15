@@ -1,6 +1,6 @@
 # sqlitebrowser
 
-![Version: 3.0.29](https://img.shields.io/badge/Version-3.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.12.2](https://img.shields.io/badge/AppVersion-3.12.2-informational?style=flat-square)
+![Version: 3.0.30](https://img.shields.io/badge/Version-3.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.12.2](https://img.shields.io/badge/AppVersion-3.12.2-informational?style=flat-square)
 
 A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

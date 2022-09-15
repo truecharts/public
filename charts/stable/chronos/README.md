@@ -1,6 +1,6 @@
 # chronos
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2](https://img.shields.io/badge/AppVersion-0.2-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2](https://img.shields.io/badge/AppVersion-0.2-informational?style=flat-square)
 
 Chronos is a small container to run and schedule Python 3.7 scripts. You can create virtual enviroments, edit your scripts, install Pip dependencies, view execution logs, and debug your scripts, all from the sleek web UI.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

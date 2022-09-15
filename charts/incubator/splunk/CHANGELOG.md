@@ -2,6 +2,15 @@
 
 
 
+## [splunk-0.0.24](https://github.com/truecharts/charts/compare/splunk-0.0.23...splunk-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
 ## [splunk-0.0.23](https://github.com/truecharts/charts/compare/splunk-0.0.22...splunk-0.0.23) (2022-09-12)
 
 ### Chore

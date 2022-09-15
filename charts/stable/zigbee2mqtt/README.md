@@ -1,6 +1,6 @@
 # zigbee2mqtt
 
-![Version: 4.0.34](https://img.shields.io/badge/Version-4.0.34-informational?style=flat-square) ![AppVersion: 1.27.2](https://img.shields.io/badge/AppVersion-1.27.2-informational?style=flat-square)
+![Version: 4.0.35](https://img.shields.io/badge/Version-4.0.35-informational?style=flat-square) ![AppVersion: 1.27.2](https://img.shields.io/badge/AppVersion-1.27.2-informational?style=flat-square)
 
 Bridges events and allows you to control your Zigbee devices via MQTT
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

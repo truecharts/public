@@ -1,6 +1,6 @@
 # wireshark
 
-![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.13](https://img.shields.io/badge/AppVersion-3.4.13-informational?style=flat-square)
+![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.13](https://img.shields.io/badge/AppVersion-3.4.13-informational?style=flat-square)
 
 Wireshark is the worlds foremost and widely-used network protocol analyzer.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

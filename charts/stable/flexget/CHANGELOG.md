@@ -2,6 +2,16 @@
 
 
 
+## [flexget-2.0.44](https://github.com/truecharts/charts/compare/flexget-2.0.43...flexget-2.0.44) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [flexget-2.0.43](https://github.com/truecharts/charts/compare/flexget-2.0.42...flexget-2.0.43) (2022-09-12)
 
 ### Chore

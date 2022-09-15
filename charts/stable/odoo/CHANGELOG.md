@@ -2,6 +2,16 @@
 
 
 
+## [odoo-8.0.48](https://github.com/truecharts/charts/compare/odoo-8.0.47...odoo-8.0.48) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [odoo-8.0.47](https://github.com/truecharts/charts/compare/odoo-8.0.46...odoo-8.0.47) (2022-09-13)
 
 ### Chore

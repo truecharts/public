@@ -2,6 +2,17 @@
 
 
 
+## [rsshub-3.0.95](https://github.com/truecharts/charts/compare/rsshub-3.0.94...rsshub-3.0.95) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [rsshub-3.0.94](https://github.com/truecharts/charts/compare/rsshub-3.0.93...rsshub-3.0.94) (2022-09-13)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [k8s-gateway-6.1.18](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.17...k8s-gateway-6.1.18) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [k8s-gateway-6.1.17](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.16...k8s-gateway-6.1.17) (2022-09-12)
 
 ### Chore

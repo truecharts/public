@@ -2,6 +2,16 @@
 
 
 
+## [tt-rss-7.0.37](https://github.com/truecharts/charts/compare/tt-rss-7.0.36...tt-rss-7.0.37) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [tt-rss-7.0.36](https://github.com/truecharts/charts/compare/tt-rss-7.0.34...tt-rss-7.0.36) (2022-09-13)
 
 ### Chore

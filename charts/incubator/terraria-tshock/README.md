@@ -1,6 +1,6 @@
 # terraria-tshock
 
-![Version: 0.0.22](https://img.shields.io/badge/Version-0.0.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: tshock](https://img.shields.io/badge/AppVersion-tshock-informational?style=flat-square)
+![Version: 0.0.23](https://img.shields.io/badge/Version-0.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: tshock](https://img.shields.io/badge/AppVersion-tshock-informational?style=flat-square)
 
 This Chart will download and install Terraria and the TShock MOD and run it. SERVER PASSWORD: Chart
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

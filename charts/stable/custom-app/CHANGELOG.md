@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.61](https://github.com/truecharts/charts/compare/custom-app-5.1.60...custom-app-5.1.61) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [custom-app-5.1.60](https://github.com/truecharts/charts/compare/custom-app-5.1.59...custom-app-5.1.60) (2022-09-13)
 
 ### Chore

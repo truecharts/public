@@ -2,6 +2,16 @@
 
 
 
+## [wger-1.1.5](https://github.com/truecharts/charts/compare/wger-1.1.4...wger-1.1.5) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [wger-1.1.4](https://github.com/truecharts/charts/compare/wger-1.1.2...wger-1.1.4) (2022-09-13)
 
 ### Chore

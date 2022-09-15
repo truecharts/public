@@ -1,6 +1,6 @@
 # wireguard
 
-![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![AppVersion: 1.0.202109](https://img.shields.io/badge/AppVersion-1.0.202109-informational?style=flat-square)
+![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![AppVersion: 1.0.202109](https://img.shields.io/badge/AppVersion-1.0.202109-informational?style=flat-square)
 
 WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

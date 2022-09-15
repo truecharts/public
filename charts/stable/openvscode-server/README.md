@@ -1,6 +1,6 @@
 # openvscode-server
 
-![Version: 2.0.36](https://img.shields.io/badge/Version-2.0.36-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.71.0](https://img.shields.io/badge/AppVersion-1.71.0-informational?style=flat-square)
+![Version: 2.0.37](https://img.shields.io/badge/Version-2.0.37-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.71.0](https://img.shields.io/badge/AppVersion-1.71.0-informational?style=flat-square)
 
 Openvscode-server provides a version of VS Code that runs a server on a remote machine.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

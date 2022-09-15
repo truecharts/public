@@ -2,6 +2,16 @@
 
 
 
+## [archiveteam-warrior-0.0.24](https://github.com/truecharts/charts/compare/archiveteam-warrior-0.0.23...archiveteam-warrior-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [archiveteam-warrior-0.0.23](https://github.com/truecharts/charts/compare/archiveteam-warrior-0.0.22...archiveteam-warrior-0.0.23) (2022-09-12)
 
 ### Chore

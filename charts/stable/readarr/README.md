@@ -1,6 +1,6 @@
 # readarr
 
-![Version: 11.0.29](https://img.shields.io/badge/Version-11.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.1.1352](https://img.shields.io/badge/AppVersion-0.1.1.1352-informational?style=flat-square)
+![Version: 11.0.30](https://img.shields.io/badge/Version-11.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.1.1352](https://img.shields.io/badge/AppVersion-0.1.1.1352-informational?style=flat-square)
 
 A fork of Radarr to work with Books & AudioBooks
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

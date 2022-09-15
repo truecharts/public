@@ -1,6 +1,6 @@
 # umami
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![AppVersion: 1.38.0](https://img.shields.io/badge/AppVersion-1.38.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![AppVersion: 1.38.0](https://img.shields.io/badge/AppVersion-1.38.0-informational?style=flat-square)
 
 Umami is a simple, fast, privacy-focused alternative to Google Analytics.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.69 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

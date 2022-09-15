@@ -2,6 +2,15 @@
 
 
 
+## [metallb-4.0.10](https://github.com/truecharts/charts/compare/metallb-4.0.9...metallb-4.0.10) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
 ## [metallb-4.0.9](https://github.com/truecharts/charts/compare/metallb-4.0.8...metallb-4.0.9) (2022-09-14)
 
 ### Fix

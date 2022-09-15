@@ -1,6 +1,6 @@
 # n8n
 
-![Version: 4.0.54](https://img.shields.io/badge/Version-4.0.54-informational?style=flat-square) ![AppVersion: 0.193.5](https://img.shields.io/badge/AppVersion-0.193.5-informational?style=flat-square)
+![Version: 4.0.55](https://img.shields.io/badge/Version-4.0.55-informational?style=flat-square) ![AppVersion: 0.193.5](https://img.shields.io/badge/AppVersion-0.193.5-informational?style=flat-square)
 
 n8n is an extendable workflow automation tool.
 
@@ -26,9 +26,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://charts.truecharts.org | redis | 3.0.72 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://charts.truecharts.org | redis | 3.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

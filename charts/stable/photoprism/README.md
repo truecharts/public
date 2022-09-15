@@ -1,6 +1,6 @@
 # photoprism
 
-![Version: 10.0.43](https://img.shields.io/badge/Version-10.0.43-informational?style=flat-square) ![AppVersion: 220901](https://img.shields.io/badge/AppVersion-220901-informational?style=flat-square)
+![Version: 10.0.44](https://img.shields.io/badge/Version-10.0.44-informational?style=flat-square) ![AppVersion: 220901](https://img.shields.io/badge/AppVersion-220901-informational?style=flat-square)
 
 PhotoPrismÂ® is a server-based application for browsing, organizing and sharing your personal photo collection
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.72 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | mariadb | 3.0.73 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

@@ -1,6 +1,6 @@
 # jump
 
-![Version: 0.0.35](https://img.shields.io/badge/Version-0.0.35-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
+![Version: 0.0.36](https://img.shields.io/badge/Version-0.0.36-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
 
 Jump is yet another self-hosted startpage for your server designed to be simple, stylish, fast and secure.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

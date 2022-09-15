@@ -1,6 +1,6 @@
 # photoview
 
-![Version: 4.0.36](https://img.shields.io/badge/Version-4.0.36-informational?style=flat-square) ![AppVersion: 2.3.13](https://img.shields.io/badge/AppVersion-2.3.13-informational?style=flat-square)
+![Version: 4.0.37](https://img.shields.io/badge/Version-4.0.37-informational?style=flat-square) ![AppVersion: 2.3.13](https://img.shields.io/badge/AppVersion-2.3.13-informational?style=flat-square)
 
 Photoview is a simple and user-friendly photo gallery.
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.76 |
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

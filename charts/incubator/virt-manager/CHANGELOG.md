@@ -2,6 +2,15 @@
 
 
 
+## [virt-manager-0.0.53](https://github.com/truecharts/charts/compare/virt-manager-0.0.52...virt-manager-0.0.53) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
 ## [virt-manager-0.0.52](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.52) (2022-09-12)
 
 ### Chore

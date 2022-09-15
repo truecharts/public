@@ -2,6 +2,16 @@
 
 
 
+## [minecraft-java-1.0.53](https://github.com/truecharts/charts/compare/minecraft-java-1.0.52...minecraft-java-1.0.53) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [minecraft-java-1.0.52](https://github.com/truecharts/charts/compare/minecraft-java-1.0.50...minecraft-java-1.0.52) (2022-09-12)
 
 ### Chore

@@ -1,6 +1,6 @@
 # kodi-headless
 
-![Version: 2.0.29](https://img.shields.io/badge/Version-2.0.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 190](https://img.shields.io/badge/AppVersion-190-informational?style=flat-square)
+![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 190](https://img.shields.io/badge/AppVersion-190-informational?style=flat-square)
 
 A headless install of kodi in a docker container.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

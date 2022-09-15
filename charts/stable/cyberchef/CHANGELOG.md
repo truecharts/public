@@ -2,6 +2,16 @@
 
 
 
+## [cyberchef-2.0.83](https://github.com/truecharts/charts/compare/cyberchef-2.0.82...cyberchef-2.0.83) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [cyberchef-2.0.82](https://github.com/truecharts/charts/compare/cyberchef-2.0.80...cyberchef-2.0.82) (2022-09-12)
 
 ### Chore

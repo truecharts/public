@@ -1,6 +1,6 @@
 # timetagger
 
-![Version: 0.0.11](https://img.shields.io/badge/Version-0.0.11-informational?style=flat-square) ![AppVersion: 22.9.1](https://img.shields.io/badge/AppVersion-22.9.1-informational?style=flat-square)
+![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square) ![AppVersion: 22.9.1](https://img.shields.io/badge/AppVersion-22.9.1-informational?style=flat-square)
 
 An open source time-tracker with an interactive user experience and powerful reporting.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
