@@ -1,0 +1,269 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: Container Configuration
+    label: Image Secrets
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: CORE_API_AUTH_USERNAME
+          label: "CORE API AUTH USERNAME"
+          description: "Username for the backend."
+          schema:
+            type: string
+            default: "admin"
+        - variable: CORE_API_AUTH_PASSWORD
+          label: "CORE API AUTH PASSWORD"
+          description: "Password for the backend."
+          schema:
+            type: string
+            default: ""
+            private: true
+            required: true
+
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8080
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8080
+        - variable: main-secure
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: main-secure
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8081
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8081
+        - variable: rtsp
+          label: "RTSP Service"
+          description: "The RTSP service for live streaming"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: rtsp
+                      label: "RTSP Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 1935
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 1935
+        - variable: rtsp-secure
+          label: "RTSP Secure Service"
+          description: "The RTSP service for live streaming"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: rtsp-secure
+                      label: "RTSP Secure Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 1936
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 1936
+
+# Include{serviceExpertRoot}
+            default: false
+        - variable: srt
+          label: "SRT Data Service"
+          description: "The SRT service for data"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: srt
+                      label: "SRT Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 6000
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 6000
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{documentation}

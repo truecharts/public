@@ -1,0 +1,67 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/restreamer
+  tag: latest@sha256:21f235d53ba6df104a570569d158a33123262c7b76a8c0c1fab08cd347616d4e
+
+secretEnv:
+  CORE_API_AUTH_USERNAME: admin
+  CORE_API_AUTH_PASSWORD: Password
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: HTTP
+        targetPort: 8080
+  main-secure:
+    enabled: true
+    ports:
+      main-secure:
+        enabled: true
+        protocol: HTTPS
+        port: 8081
+        targetPort: 8081
+  rtsp:
+    enabled: true
+    ports:
+      rtsp:
+        enabled: true
+        protocol: TCP
+        port: 1935
+        targetPort: 1935
+  rtsp-secure:
+    enabled: true
+    ports:
+      rtsp-secure:
+        enabled: true
+        protocol: TCP
+        port: 1936
+        targetPort: 1936
+  srt:
+    enabled: true
+    ports:
+      srt:
+        enabled: true
+        protocol: UDP
+        port: 6000
+        targetPort: 6000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /core/config
+  data:
+    enabled: true
+    mountPath: /core/data
+
+portal:
+  enabled: true
