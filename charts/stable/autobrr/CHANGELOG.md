@@ -2,6 +2,15 @@
 
 
 
+## [autobrr-1.0.0](https://github.com/truecharts/charts/compare/autobrr-0.0.14...autobrr-1.0.0) (2022-09-15)
+
+### Fix
+
+- move to stable. ([#3781](https://github.com/truecharts/charts/issues/3781))
+
+
+
+
 ## [autobrr-0.0.14](https://github.com/truecharts/charts/compare/autobrr-0.0.13...autobrr-0.0.14) (2022-09-12)
 
 ### Chore
