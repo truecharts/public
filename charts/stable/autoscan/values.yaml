@@ -3,10 +3,6 @@ image:
   repository: tccr.io/truecharts/autoscan
   tag: latest@sha256:bda572ee500b9e613aa031d98127c12b32aaf663e4958c9c3c53a85bbb16f5a5
 
-env:
-  PLEX_LOGIN: ""
-  PLEX_PASSWORD: ""
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
@@ -14,6 +10,10 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  PLEX_LOGIN: ""
+  PLEX_PASSWORD: ""
 
 probes:
   liveness:
