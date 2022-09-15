@@ -3,19 +3,19 @@ appVersion: "24.0.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.9
+    version: 10.5.10
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.76
+    version: 8.0.78
   - condition: collabora.enabled
     name: collabora-online
     repository: https://charts.truecharts.org/
-    version: 12.1.40
+    version: 12.1.41
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.72
+    version: 3.0.75
 deprecated: false
 description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/docs/charts/stable/nextcloud
@@ -37,7 +37,7 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 15.3.13
+version: 15.3.14
 annotations:
   truecharts.org/catagories: |
     - cloud
