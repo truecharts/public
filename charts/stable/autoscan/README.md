@@ -1,19 +1,19 @@
 # autoscan
 
-![Version: 0.0.28](https://img.shields.io/badge/Version-0.0.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-Autoscan replaces the default Plex and Emby behaviour for picking up file changes on the file system. Autoscan integrates with Sonarr, Radarr and Lidarr to fetch changes in near real-time without relying on the file system.
+Autoscan replaces the default Plex and Emby behaviour for picking up file changes on the file system.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [autoscan](https://truecharts.org/docs/charts/incubator/autoscan)
+For more information, please click here: [autoscan](https://truecharts.org/docs/charts/stable/autoscan)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/autoscan>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/autoscan>
 * <https://hotio.dev/containers/autoscan>
 * <https://hub.docker.com/r/hotio/autoscan>
 

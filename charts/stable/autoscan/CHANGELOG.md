@@ -2,6 +2,15 @@
 
 
 
+## [autoscan-1.0.0](https://github.com/truecharts/charts/compare/autoscan-0.0.28...autoscan-1.0.0) (2022-09-15)
+
+### Fix
+
+- move to stable. ([#3782](https://github.com/truecharts/charts/issues/3782))
+
+
+
+
 ## [autoscan-0.0.28](https://github.com/truecharts/charts/compare/autoscan-0.0.27...autoscan-0.0.28) (2022-09-13)
 
 ### Chore
