@@ -7,5 +7,3 @@
 ### Feat
 
 - Add umami ([#3717](https://github.com/truecharts/charts/issues/3717))
-  
-  

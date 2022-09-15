@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.75](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...redis-3.0.75) (2022-09-15)
+
+### Chore
+
+- remove unneeded element from UI ([#3779](https://github.com/truecharts/charts/issues/3779))
+
+
+
+
 ## [redis-3.0.74](https://github.com/truecharts/charts/compare/redisinsight-0.0.24...redis-3.0.74) (2022-09-13)
 
 ### Chore
