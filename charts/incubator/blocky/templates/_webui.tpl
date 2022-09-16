@@ -1,6 +1,6 @@
 {{- define "blocky.frontend" -}}
-image: {{ .Values.imageWebUI.repository }}:{{ .Values.imageWebUI.tag }}
-imagePullPolicy: {{ .Values.imageWebUI.pullPolicy }}
+image: {{ .Values.WebUIImage.repository }}:{{ .Values.WebUIImage.tag }}
+imagePullPolicy: {{ .Values.WebUIImage.pullPolicy }}
 securityContext:
   runAsUser: 0
   runAsGroup: 0

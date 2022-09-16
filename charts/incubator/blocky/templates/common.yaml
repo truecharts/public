@@ -1,25 +1,51 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{/* Render config */}}
-{{- include "blocky.configmap" . }}
+{{ include "blocky.configmap" . }}
+
+{{/* Always mount the configmap, with the basic config, plus the 'blockyConfig' */}}
+{{- define "blocky.configmap.mount" -}}
+enabled: true
+type: custom
+mountPath: /app/config/tc-config.yaml
+subPath: tc-config.yaml
+readOnly: true
+volumeSpec:
+  configMap:
+    name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
+{{- end -}}
+{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
 
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.targetPort | quote) -}}
 
+{{/* Render configmap for nextcloud */}}
+{{- include "k8sgateway.configmap" . }}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "k8sgateway.configvolume" -}}
+enabled: "true"
+mountPath: "/etc/coredns"
+readOnly: true
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "tc.common.names.fullname" . }}-corefile
+    items:
+    - key: Corefile
+      path: Corefile
+{{- end -}}
+
+{{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
+
 {{- if .Values.blocky.enableWebUI -}}
 {{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
 {{- end -}}
 
-{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
-
-{{- if .Values.blocky.configPath -}}
-{{- $_ := set .Values.persistence "config" (include "blocky.config" . | fromYaml) -}}
+{{- if .Values.k8sgateway.enabled -}}
+{{- $_ := set .Values.additionalContainers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
 {{- end -}}
-
-{{- $_ := set .Values.persistence "whitelist" (include "blocky.whitelist" . | fromYaml) -}}
-{{- $_ := set .Values.persistence "blacklist" (include "blocky.blacklist" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

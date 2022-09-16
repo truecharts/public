@@ -1,10 +1,10 @@
 # Installation notes
 
-## Configuration
+## Default Configuration
 
-This app pre-defines the following configuration:
+The following config will be pre-configured and merged with any config you manually add to `blockyConfig` option in `values.yaml`:
 
-Redis (always):
+Redis (always present):
 
 ```yaml
 redis:
@@ -16,7 +16,7 @@ redis:
   connectionCooldown: 3s
 ```
 
-Prometheus (Only if enabled):
+Prometheus (Only present if enabled):
 
 ```yaml
 prometheus:
@@ -24,30 +24,64 @@ prometheus:
   path: /metrics
 ```
 
-Whitelist/Blacklist (Only if hostPath or on values.yaml is defined):
+Upstreams (from values.yaml):
+
+```yaml
+upstream:
+  default:
+    -  # Content from `.Values.defaultUpstreams`
+  # Additional upstream groups from `.Values.upstreams`
+```
+
+Whitelist/Blacklist (from values.yaml) :
 
 ```yaml
 blocking:
+  blockType: nxDomain
+  blockTTL: 6h
+  refreshPeriod: 4h
+  downloadTimeout: 60s
+  downloadAttempts: 3
+  downloadCooldown: 2s
+  failStartOnListError: false
+  processingConcurrency: 4
   whiteLists:
-    ads:
-      - whitelist.txt
-      - |
-        # inline definition with YAML literal block scalar style
+    # Groupname:
+      -  # Content from .Valuesblocking.whiteList
   blackLists:
-    ads:
-      - blackist.txt
-      - |
-        # inline definition with YAML literal block scalar style
+    # Groupname:
+      -  # Content from .Valuesblocking.blackList
+  clientGroupsBlock
+    # Groupname:
+      -  # Content from .Values.blocking.clientGroupsBlock
 ```
 
-## TrueNAS Scale
+## Configuration Instructions
 
-- `Config File Host Path`: Define your host config file path
-- `Whitelist File Host Path`: Define your host whitelist file path
-- `Blacklist File Host Path`: Define your host whitelist file path
+### TrueNAS SCALE
 
-## Helm Native
+For TrueNAS SCALE, we offer only a limited subset of configuration options:
+
+- Upstream DNS servers
+- Whitelists
+- Blocklists
+
+Those have special variables in `values.yaml`, so we can show them nicely in the TrueNAS SCALE GUI
+
+### Native Helm
+
+For anything but TrueNAS SCALE, we would advice to instead use `blockyConfig` in `Values.yaml` and NOT mount any configuration file manually.
+
+In short:
 
 - Add your config in `values.yaml` under `blockyConfig:`
-- Add your whitelist in `values.yaml` under `blockyWhitelist:`
-- Add your blacklist in `values.yaml` under `blockyBlacklist:`
+- Add your whitelists in `values.yaml` under `blockyWhitelist` or manually using blockyConfig
+- Add your blacklists in `values.yaml` under `blockyBlacklist` or manually using blockyConfig
+
+### Adding config by mounting files
+
+You can mount custom config files, using `persistence` or, in SCALE GUI, `Additional Storage` to the following path:
+`/app/config/`
+_However it cannot reference any of the pre-defined variables listed above, so it's use is severely limited._
+
+You can also mount custom Whitelist/Blacklist files, using `persistence` or, in SCALE GUI, `Additional Storage` and enter the path in your whitelist or blacklist settings manually
