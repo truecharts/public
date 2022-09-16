@@ -1,16 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plextraktsync
-  tag: latest@sha256:55d0b5927a1bc11dd83a94cd56375a201de3dc03f099345b71404ca20757d373
-
-plexTraktSync:
-  PLEX_BASEURL: "http://plex.ix-plex.svc.cluster.local:32400"
-  PLEX_FALLBACKURL: "http://plex.ix-plex.svc.cluster.local:32400"
-  PLEX_LOCALURL: "http://localhost:32400"
-  PLEX_TOKEN: "MY_PLEX_TOKEN"
-  PLEX_OWNER_TOKEN: ""
-  PLEX_USERNAME: "MY_PLEX_USERNAME"
-  TRAKT_USERNAME: "MY_TRAKT_USERNAME"
+  tag: latest@sha256:d76e19db77e87d4eea07c90baf43f5c37e9f4f41987aca1fa96bd52554beb7c7
 
 podSecurityContext:
   runAsGroup: 0
@@ -19,6 +10,18 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+plexTraktSync:
+  base_url: http://plex.ix-plex.svc.cluster.local:32400
+  fallback_url: http://plex.ix-plex.svc.cluster.local:32400
+  local_url: http://localhost:32400
+  token: MY_PLEX_TOKEN
+  owner_token: ""
+  username: MY_PLEX_USERNAME
+  trakt_username: MY_TRAKT_USERNAME
+
+tty: true
+stdin: true
 
 probes:
   liveness:
@@ -38,53 +41,31 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/app/config"
+    mountPath: /app/config
+  envfile:
+    enabled: true
+    mountPath: /app/config/.env
+    subPath: .env
+    type: custom
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-plextraktsync-configmap'
 
-initContainers:
-  create-config:
-    name: create-config
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
-    volumeMounts:
-      - name: config
-        mountPath: "/app/config"
-    env:
-      - name: PLEX_BASEURL
-        value: "{{ .Values.plexTraktSync.PLEX_BASEURL }}"
-      - name: PLEX_FALLBACKURL
-        value: "{{ .Values.plexTraktSync.PLEX_FALLBACKURL }}"
-      - name: PLEX_LOCALURL
-        value: "{{ .Values.plexTraktSync.PLEX_LOCALURL }}"
-      - name: PLEX_TOKEN
-        value: "{{ .Values.plexTraktSync.PLEX_TOKEN }}"
-      - name: PLEX_OWNER_TOKEN
-        value: "{{ .Values.plexTraktSync.PLEX_OWNER_TOKEN }}"
-      - name: PLEX_USERNAME
-        value: "{{ .Values.plexTraktSync.PLEX_USERNAME }}"
-      - name: TRAKT_USERNAME
-        value: "{{ .Values.plexTraktSync.TRAKT_USERNAME }}"
-    command: ["/bin/sh", "-c"]
-    args:
-      - >
-        echo "Creating config files...";
-        export env=/app/config/.env;
-        export pytrakt=/app/config/.pytrakt.json;
-        if [ ! -f $env ]; then
-          echo "# This is .env file for PlexTraktSync" > $env;
-          echo "PLEX_BASEURL=$PLEX_BASEURL" >> $env;
-          echo "PLEX_FALLBACKURL=$PLEX_FALLBACKURL" >> $env;
-          echo "PLEX_LOCALURL=$PLEX_LOCALURL" >> $env;
-          echo "PLEX_TOKEN=$PLEX_TOKEN" >> $env;
-          echo "PLEX_OWNER_TOKEN=$PLEX_OWNER_TOKEN" >> $env;
-          echo "PLEX_USERNAME=$PLEX_USERNAME" >> $env;
-          echo "TRAKT_USERNAME=$TRAKT_USERNAME" >> $env;
-        else
-          echo ".env file exists, skipping...";
-        fi;
-        if [ ! -f $pytrakt ]; then
-          echo '{"CLIENT_ID": "", "CLIENT_SECRET": "", "OAUTH_TOKEN": "", "OAUTH_REFRESH": "", "OAUTH_EXPIRES_AT": 1669482096}' > $pytrakt;
-        else
-          echo ".pytrakt file exists, skipping...";
-        fi;
+# initContainers:
+#   create-config:
+#     name: create-config
+#     image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+#     volumeMounts:
+#       - name: config
+#         mountPath: "/app/config"
+#     command: ["/bin/sh", "-c"]
+#     args:
+#       - >
+#         if [ ! -f $pytrakt ]; then
+#           echo '{"CLIENT_ID": "", "CLIENT_SECRET": "", "OAUTH_TOKEN": "", "OAUTH_REFRESH": "", "OAUTH_EXPIRES_AT": 1669482096}' > $pytrakt;
+#         else
+#           echo ".pytrakt file exists, skipping...";
+#         fi;
 
 portal:
   enabled: false
