@@ -6,6 +6,17 @@
 
 ### Chore
 
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-16)
+
+### Chore
+
 - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
