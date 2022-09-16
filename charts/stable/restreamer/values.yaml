@@ -66,6 +66,15 @@ restreamer:
     rtmps_enable: false
     rtmp_app: "/"
     rtmp_token: ""
+  ffmpeg:
+    ffmpeg_binary: ffmpeg
+    ffmpeg_max_processes: 0
+    ffmpeg_access_input_allow: []
+    ffmpeg_access_input_block: []
+    ffmpeg_access_output_allow: []
+    ffmpeg_access_output_block: []
+    ffmpeg_log_max_lines: 50
+    ffmpeg_log_max_history: 3
   logs:
     log_level: info
     log_topics: []
@@ -73,10 +82,6 @@ restreamer:
 
 env:
  #TODO: structure for cofngimap
-  CORE_FFMPEG_ACCESS_INPUT_ALLOW: []
-  CORE_FFMPEG_ACCESS_INPUT_BLOCK: []
-  CORE_FFMPEG_ACCESS_OUTPUT_ALLOW: []
-  CORE_FFMPEG_ACCESS_OUTPUT_BLOCK: []
   CORE_PLAYOUT_ENABLE: false
   CORE_METRICS_ENABLE: false
   CORE_METRICS_ENABLE_PROMETHEUS: false

@@ -27,8 +27,8 @@ data:
   CORE_HOST_NAME: {{ . }}
   {{- end }}
   CORE_HOST_AUTO: {{ .Values.restreamer.general.host_auto | quote }}
-  {{- if .Values.restreamer.general.origins }}
-  CORE_STORAGE_COCORE_ORIGINS: {{ join "," .Values.restreamer.general.origins }}
+  {{- with .Values.restreamer.general.origins }}
+  CORE_STORAGE_COCORE_ORIGINS: {{ join "," . }}
   {{- else }}
   CORE_STORAGE_COCORE_ORIGINS: '*'
   {{- end }}
@@ -42,8 +42,8 @@ data:
   {{- with .Values.restreamer.logs.log_topics }}
   CORE_LOG_TOPICS: {{ join "," . }}
   {{- end }}
-  {{- with .Values.restreamer.logs.log_max_lines }}
-  CORE_LOG_MAXLINES: {{ . | quote }}
+  {{- if or .Values.restreamer.logs.log_max_lines (eq (int .Values.restreamer.logs.log_max_lines) 0)   }}
+  CORE_LOG_MAXLINES: {{ .Values.restreamer.logs.log_max_lines | quote }}
   {{- end }}
   {{/* API */}}
   CORE_API_READ_ONLY: {{ .Values.restreamer.api.api_read_only | quote }}
@@ -66,32 +66,58 @@ data:
   CORE_API_AUTH_AUTH0_TENANTS: {{ join "," . }}
   {{- end }}
   {{/* Storage Disk */}}
-  {{- with .Values.restreamer.storage_disk.disk_max_size_mb }}
-  CORE_STORAGE_DISK_MAXSIZEMBYTES: {{ . | quote }}
+  {{- if or .Values.restreamer.storage_disk.disk_max_size_mb (eq (int .Values.restreamer.storage_disk.disk_max_size_mb) 0)   }}
+  CORE_STORAGE_DISK_MAXSIZEMBYTES: {{ .Values.restreamer.storage_disk.disk_max_size_mb | quote }}
   {{- end }}
   CORE_STORAGE_DISK_CACHE_ENABLE: {{ .Values.restreamer.storage_disk.cache_enable | quote }}
-  {{- with .Values.restreamer.storage_disk.disk_max_size_mb }}
-  CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: {{ . | quote }}
+  {{- if or .Values.restreamer.storage_disk.cache_max_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_size_mb) 0)   }}
+  CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: {{ .Values.restreamer.storage_disk.cache_max_size_mb | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk.cache_ttl }}
-  CORE_STORAGE_DISK_CACHE_TTLSECONDS: {{ . | quote }}
+  {{- if or .Values.restreamer.storage_disk.cache_ttl (eq (int .Values.restreamer.storage_disk.cache_ttl) 0)   }}
+  CORE_STORAGE_DISK_CACHE_TTLSECONDS: {{ .Values.restreamer.storage_disk.cache_ttl | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk.cache_max_file_size_mb }}
-  CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: {{ . | quote }}
+  {{- if or .Values.restreamer.storage_disk.cache_max_file_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_file_size_mb) 0)   }}
+  CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: {{ .Values.restreamer.storage_disk.cache_max_file_size_mb | quote }}
   {{- end }}
   {{- with .Values.restreamer.storage_disk.cache_types }}
   CORE_STORAGE_DISK_CACHE_TYPES: {{ join " " . }}
   {{- end }}
   {{/* Storage Mem */}}
   CORE_STORAGE_MEMORY_AUTH_ENABLE: {{ .Values.restreamer.storage_mem.storage_mem_auth_enable | quote }}
-  {{- with .Values.restreamer.storage_mem.storage_mem_max_size_mb }}
-  CORE_STORAGE_MEMORY_MAXSIZEMBYTES: {{ . | quote }}
+  {{- if or .Values.restreamer.storage_mem.storage_mem_max_size_mb (eq (int .Values.restreamer.storage_mem.storage_mem_max_size_mb) 0)   }}
+  CORE_STORAGE_MEMORY_MAXSIZEMBYTES: {{ .Values.restreamer.storage_mem.storage_mem_max_size_mb | quote }}
   {{- end }}
   CORE_STORAGE_MEMORY_PURGE: {{ .Values.restreamer.storage_mem.storage_mem_purge | quote }}
   {{/* RTMP */}}
   CORE_RTMP_ENABLE: {{ . | quote }}
   CORE_RTMP_ENABLE_TLS: {{ . | quote }}
-  {{- if .Values.restreamer.rtmp.rtmp_app }}
-  CORE_RTMP_APP: {{ . }}
+  {{- with .Values.restreamer.rtmp.rtmp_app }}
+  CORE_RTMP_APP: {{ . | quote }}
   {{- end }}
+  {{/* FFMPEG */}}
+  {{- with .Values.restreamer.ffmpeg.ffmpeg_binary }}
+  CORE_FFMPEG_BINARY: {{ . }}
+  {{- end }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_max_processes (eq (int .Values.restreamer.ffmpeg.ffmpeg_max_processes) 0)   }}
+  CORE_FFMPEG_MAXPROCESSES: {{ .Values.restreamer.ffmpeg.ffmpeg_max_processes | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.ffmpeg.ffmpeg_access_input_allow }}
+  CORE_FFMPEG_ACCESS_INPUT_ALLOW: {{ . }}
+  {{- end }}
+  {{- with .Values.restreamer.ffmpeg.ffmpeg_access_input_block }}
+  CORE_FFMPEG_ACCESS_INPUT_BLOCK: {{ . }}
+  {{- end }}
+  {{- with .Values.restreamer.ffmpeg.ffmpeg_access_output_allow }}
+  CORE_FFMPEG_ACCESS_OUTPUT_ALLOW: {{ . }}
+  {{- end }}
+  {{- with .Values.restreamer.ffmpeg.ffmpeg_access_output_block }}
+  CORE_FFMPEG_ACCESS_OUTPUT_BLOCK: {{ . }}
+  {{- end }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_lines (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_lines) 0)   }}
+  CORE_FFMPEG_LOG_MAXLINES: {{ .Values.restreamer.ffmpeg.ffmpeg_log_max_lines | quote }}
+  {{- end }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_history (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_history) 0)   }}
+  CORE_FFMPEG_LOG_MAXHISTORY: {{ .Values.restreamer.ffmpeg.ffmpeg_log_max_history | quote }}
+  {{- end }}
+
 {{- end }}

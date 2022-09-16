@@ -312,6 +312,87 @@ questions:
                 schema:
                   type: string
                   default: "/"
+        - variable: ffmpeg
+          label: FFMPEG
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: ffmpeg_binary
+                label: FFMPEG Binary
+                description: Path to FFmpeg binary.
+                schema:
+                  type: string
+                  default: ffmpeg
+                  required: true
+              - variable: ffmpeg_max_processes
+                label: FFMPEG Max Processes
+                description: Max. allowed simultaneously running FFmpeg instances. (0 for unlimited.)
+                schema:
+                  type: string
+                  default: ffmpeg
+              - variable: ffmpeg_access_input_allow
+                label: FFMPEG Access Input Allow
+                description: List of pattern for allowed input URI
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: allowInput
+                      label: Allow Input
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: ffmpeg_access_input_block
+                label: FFMPEG Access Input Block
+                description: List of pattern for blocked input URI
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: blockInput
+                      label: Block Input
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: ffmpeg_access_output_allow
+                label: FFMPEG Access Output Allow
+                description: List of pattern for allowed output URI
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: allowOutput
+                      label: Allow Output
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: ffmpeg_access_output_block
+                label: FFMPEG Access Output Block
+                description: List of pattern for blocked output URI
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: blockOutput
+                      label: Block Output
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: ffmpeg_log_max_lines
+                label: FFMPEG Log Max Lines
+                schema:
+                  type: int
+                  default: 50
+              - variable: ffmpeg_log_max_history
+                label: FFMPEG Log Max History
+                schema:
+                  type: int
+                  default: 3
         - variable: logs
           label: Logs
           schema:
