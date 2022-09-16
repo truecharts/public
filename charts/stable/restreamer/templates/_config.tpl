@@ -12,16 +12,16 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* Ports */}}
-  CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
-  CORE_TLS_ADDRESS: {{ .Values.service.http.ports.http.port }}
-  CORE_RTMP_ADDRESS: {{ .Values.service.rtmp.ports.rtmp.port }}
-  CORE_RTMP_ADDRESS_TLS: {{ .Values.service.rtmps.ports.rtmps.port }}
-  CORE_SRT_ADDRESS: {{ .Values.service.srt.ports.srt.port }}
-  CORE_TLS_ENABLE: "true"
   {{/* Paths */}}
   CORE_DB_DIR: /core/config
   CORE_STORAGE_DISK_DIR: /core/data
+  {{/* Ports */}}
+  CORE_TLS_ENABLE: {{ .Values.restreamer.general.tls_enable | quote }}
+  CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
+  CORE_TLS_ADDRESS: {{ .Values.service.https.ports.https.port }}
+  CORE_RTMP_ADDRESS: {{ .Values.service.rtmp.ports.rtmp.port }}
+  CORE_RTMP_ADDRESS_TLS: {{ .Values.service.rtmps.ports.rtmps.port }}
+  CORE_SRT_ADDRESS: {{ .Values.service.srt.ports.srt.port }}
   {{/* General */}}
   {{- with .Values.restreamer.general.hostname }}
   CORE_HOST_NAME: {{ . }}

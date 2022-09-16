@@ -50,6 +50,12 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: tls_enable
+                label: TLS Enable
+                description: Set to true to enable TLS support.
+                schema:
+                  type: boolean
+                  default: false
               - variable: origins
                 label: Origins
                 description: List of allowed CORS origins. Will be used for / and /memfs.
@@ -289,7 +295,7 @@ questions:
                   default: false
               - variable: rtmps_enable
                 label: RTMPS Enable
-                description: Enable RTMP over TLS (RTMPS).
+                description: Enable RTMP over TLS (Requires TLS to be enabled)
                 schema:
                   type: boolean
                   default: false
@@ -377,17 +383,17 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-        - variable: http
-          label: HTTP Service
-          description: The HTTP service
+        - variable: https
+          label: HTTPS Service
+          description: The HTTPS service
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
-                    - variable: http
-                      label: HTTP Service Port Configuration
+                    - variable: https
+                      label: HTTPS Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -464,9 +470,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 1936
-
-# Include{serviceExpertRoot}
-            default: false
         - variable: srt
           label: SRT Data Service
           description: The SRT service for data
@@ -523,6 +526,16 @@ questions:
 # Include{ingressRoot}
         - variable: main
           label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: https
+          label: HTTPS Ingress
           schema:
             additional_attrs: true
             type: dict

@@ -35,6 +35,7 @@ restreamer:
     host_auto: true
     origins: []
     mimetypes_file: "mime.types"
+    tls_enable: false
   api:
     api_auth_username: admin
     api_auth_password: password
@@ -100,15 +101,15 @@ service:
   main:
     ports:
       main:
-        port: 8081
-        protocol: HTTPS
-  http:
+        port: 8080
+        protocol: HTTP
+  https:
     enabled: true
     ports:
-      http:
+      https:
         enabled: true
-        protocol: HTTP
-        port: 8080
+        protocol: HTTPS
+        port: 8081
   rtmp:
     enabled: true
     ports:
@@ -130,6 +131,10 @@ service:
         enabled: true
         protocol: UDP
         port: 6000
+
+ingress:
+  https:
+    autoLink: true
 
 persistence:
   # CORE_DB_DIR
