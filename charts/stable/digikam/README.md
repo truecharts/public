@@ -1,6 +1,6 @@
 # digikam
 
-![Version: 4.0.32](https://img.shields.io/badge/Version-4.0.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.8.0](https://img.shields.io/badge/AppVersion-7.8.0-informational?style=flat-square)
+![Version: 4.0.33](https://img.shields.io/badge/Version-4.0.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 7.8.0](https://img.shields.io/badge/AppVersion-7.8.0-informational?style=flat-square)
 
 Professional Photo Management with the Power of Open Source
 

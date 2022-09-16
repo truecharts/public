@@ -2,6 +2,16 @@
 
 
 
+## [mongodb-2.0.14](https://github.com/truecharts/charts/compare/mongodb-2.0.13...mongodb-2.0.14) (2022-09-15)
+
+### Chore
+
+- update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [mongodb-2.0.13](https://github.com/truecharts/charts/compare/mongodb-2.0.12...mongodb-2.0.13) (2022-09-13)
 
 ### Chore

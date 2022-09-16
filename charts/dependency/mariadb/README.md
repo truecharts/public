@@ -1,6 +1,6 @@
 # mariadb
 
-![Version: 3.0.73](https://img.shields.io/badge/Version-3.0.73-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.9.2](https://img.shields.io/badge/AppVersion-10.9.2-informational?style=flat-square)
+![Version: 3.0.74](https://img.shields.io/badge/Version-3.0.74-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.9.2](https://img.shields.io/badge/AppVersion-10.9.2-informational?style=flat-square)
 
 Fast, reliable, scalable, and easy to use open-source relational database system.
 

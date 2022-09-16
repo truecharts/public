@@ -1,6 +1,6 @@
 # weblate
 
-![Version: 4.0.39](https://img.shields.io/badge/Version-4.0.39-informational?style=flat-square) ![AppVersion: 4.13.1](https://img.shields.io/badge/AppVersion-4.13.1-informational?style=flat-square)
+![Version: 4.0.40](https://img.shields.io/badge/Version-4.0.40-informational?style=flat-square) ![AppVersion: 4.14.1](https://img.shields.io/badge/AppVersion-4.14.1-informational?style=flat-square)
 
 Weblate is a copylefted libre software web-based continuous localization system
 
