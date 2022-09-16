@@ -11,15 +11,6 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-plexTraktSync:
-  base_url: http://plex.ix-plex.svc.cluster.local:32400
-  fallback_url: http://plex.ix-plex.svc.cluster.local:32400
-  local_url: http://localhost:32400
-  token: MY_PLEX_TOKEN
-  owner_token: ""
-  username: MY_PLEX_USERNAME
-  trakt_username: MY_TRAKT_USERNAME
-
 tty: true
 stdin: true
 
@@ -42,30 +33,6 @@ persistence:
   config:
     enabled: true
     mountPath: /app/config
-  envfile:
-    enabled: true
-    mountPath: /app/config/.env
-    subPath: .env
-    type: custom
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-plextraktsync-configmap'
-
-# initContainers:
-#   create-config:
-#     name: create-config
-#     image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
-#     volumeMounts:
-#       - name: config
-#         mountPath: "/app/config"
-#     command: ["/bin/sh", "-c"]
-#     args:
-#       - >
-#         if [ ! -f $pytrakt ]; then
-#           echo '{"CLIENT_ID": "", "CLIENT_SECRET": "", "OAUTH_TOKEN": "", "OAUTH_REFRESH": "", "OAUTH_EXPIRES_AT": 1669482096}' > $pytrakt;
-#         else
-#           echo ".pytrakt file exists, skipping...";
-#         fi;
 
 portal:
   enabled: false

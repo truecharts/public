@@ -1,7 +1,2 @@
-{{- include "tc.common.loader.init" . }}
-
-{{/* Render secrets for plextraktsync */}}
-{{- include "plextraktsync.configmap" . }}
-
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.common.loader.all" . }}
