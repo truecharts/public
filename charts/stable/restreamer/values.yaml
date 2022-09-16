@@ -30,9 +30,21 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
 
 restreamer:
+  general:
+    hostname: ""
+    host_auto: true
   api:
     api_auth_username: admin
     api_auth_password: password
+    api_read_only: false
+    api_access_http_allow: []
+    api_access_http_block: []
+    api_access_https_allow: []
+    api_access_https_block: []
+    api_auth_enable: true
+    api_auth_disable_localhost: false
+    api_auth0_enable: false
+    api_auth0_tenants: ""
   storage_mem:
     storage_auth_username: ""
     storage_auth_password: ""
@@ -45,17 +57,6 @@ restreamer:
 
 env:
  #TODO: structure for cofngimap
-  CORE_HOST_NAME: ""
-  CORE_HOST_AUTO: true
-  CORE_API_READ_ONLY: false
-  CORE_API_ACCESS_HTTP_ALLOW: []
-  CORE_API_ACCESS_HTTP_BLOCK: []
-  CORE_API_ACCESS_HTTPS_ALLOW: []
-  CORE_API_ACCESS_HTTPS_BLOCK: []
-  CORE_API_AUTH_ENABLE: true
-  CORE_API_AUTH_DISABLE_LOCALHOST: false
-  CORE_API_AUTH_AUTH0_ENABLE: false
-  CORE_API_AUTH_AUTH0_TENANTS: []
   CORE_STORAGE_DISK_MAXSIZEMBYTES: 0
   CORE_STORAGE_DISK_CACHE_ENABLE: true
   CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: 0
@@ -90,20 +91,21 @@ env:
   CORE_DEBUG_PROFILING: false
   CORE_DEBUG_FORCEGC: 0
 
+# TODO: healthcheck
+
 service:
   main:
     ports:
       main:
-        port: 8080
-        protocol: HTTP
-  main-secure:
+        port: 8081
+        protocol: HTTPS
+  http:
     enabled: true
     ports:
-      main-secure:
+      http:
         enabled: true
-        protocol: HTTPS
-        port: 8081
-        targetPort: 8081
+        protocol: HTTP
+        port: 8080
   rtsp:
     enabled: true
     ports:

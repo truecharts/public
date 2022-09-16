@@ -14,14 +14,52 @@ metadata:
 data:
   {{/* Ports */}}
   CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
+  CORE_TLS_ADDRESS: {{ .Values.service.https.ports.https.port  }}
+  CORE_TLS_ENABLE: "true"
+  {{/* General */}}
+  {{- with .Values.restreamer.general.hostname }}
+  CORE_HOST_NAME: {{ . }}
+  {{- end }}
+  {{- with .Values.restreamer.general.host_auto }}
+  CORE_HOST_AUTO: {{ . | quote }}
+  {{- end }}
   {{/* Logs */}}
-  {{- with .Values.logs.log_level }}
+  {{- with .Values.restreamer.logs.log_level }}
   CORE_LOG_LEVEL: {{ . }}
   {{- end }}
-  {{- with .Values.logs.log_topics }}
+  {{- with .Values.restreamer.logs.log_topics }}
   CORE_LOG_TOPICS: {{ join "," . }}
   {{- end }}
-  {{- with .Values.logs.log_max_lines }}
+  {{- with .Values.restreamer.logs.log_max_lines }}
   CORE_LOG_MAXLINES: {{ . | quote }}
   {{- end }}
+  {{/* API */}}
+  {{- with .Values.restreamer.api.api_read_only }}
+  CORE_API_READ_ONLY: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_access_http_allow }}
+  CORE_API_ACCESS_HTTP_ALLOW: {{ join "," . }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_access_http_block }}
+  CORE_API_ACCESS_HTTP_BLOCK: {{ join "," . }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_access_http_allow }}
+  CORE_API_ACCESS_HTTPS_ALLOW: {{ join "," . }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_access_https_block }}
+  CORE_API_ACCESS_HTTPS_BLOCK: {{ join "," . }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_auth_enable }}
+  CORE_API_AUTH_ENABLE: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_auth_disable_localhost }}
+  CORE_API_AUTH_DISABLE_LOCALHOST: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_auth0_enable }}
+  CORE_API_AUTH_AUTH0_ENABLE: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.api.api_auth0_tenants }}
+  CORE_API_AUTH_AUTH0_TENANTS: {{ join "," . }}
+  {{- end }}
+
 {{- end }}

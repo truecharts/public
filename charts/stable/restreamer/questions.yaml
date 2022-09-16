@@ -32,6 +32,24 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: general
+          label: General
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: hostname
+                label: Hostname
+                description: Set to the domain name of the host this instance is running on.
+                schema:
+                  type: string
+                  default: ""
+              - variable: host_auto
+                label: Host Auto
+                description: Enable detection of public IP addresses.
+                schema:
+                  type: boolean
+                  default: true
         - variable: api
           label: API
           schema:
@@ -39,20 +57,109 @@ questions:
             type: dict
             attrs:
               - variable: api_auth_username
-                label: Core API Auth Username
+                label: API Auth Username
                 description: Username for auth
                 schema:
                   type: string
                   default: ""
                   required: true
               - variable: api_auth_password
-                label: Core API Auth Password
+                label: API Auth Password
                 description: Password for auth.
                 schema:
                   type: string
                   default: ""
                   private: true
                   required: true
+              - variable: api_read_only
+                label: API Read Only
+                description: Allow only ready only access to the API
+                schema:
+                  type: boolean
+                  default: false
+              - variable: api_access_http_allow
+                label: API Access HTTP Allow
+                description: List of IP ranges in CIDR notation
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipRangeAllow
+                      label: IP Range to Allow
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: api_access_http_block
+                label: API Access HTTP Block
+                description: List of IP ranges in CIDR notation
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipRangeBlock
+                      label: IP Range to Block
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: api_access_https_allow
+                label: API Access HTTPS Allow
+                description: List of IP ranges in CIDR notation
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipRangeAllow
+                      label: IP Range to Allow
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: api_access_https_block
+                label: API Access HTTPS Block
+                description: List of IP ranges in CIDR notation
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipRangeBlock
+                      label: IP Range to Block
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: api_auth_enable
+                label: API Auth Enable
+                description: Set to false to disable auth for all clients.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: api_auth_disable_localhost
+                label: API Auth Disable Localhost
+                description: Set to true to disable auth for clients from localhost.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: api_auth0_enable
+                label: API Auth0 Enable
+                description: Enable Auth0.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: api_auth0_tenants
+                label: API Auth0 Tenants
+                description: List of base64 encoded Auth0 tenant JSON objects.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: tenant
+                      label: Tenant
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
         - variable: storage_mem
           label: Storage memory
           schema:
@@ -156,17 +263,17 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-        - variable: main-secure
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+        - variable: http
+          label: HTTP Service
+          description: The HTTP service
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
-                    - variable: main-secure
-                      label: Main Service Port Configuration
+                    - variable: http
+                      label: HTTP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
