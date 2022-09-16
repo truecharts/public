@@ -50,6 +50,26 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: origins
+                label: Origins
+                description: List of allowed CORS origins. Will be used for / and /memfs.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: origin
+                      label: Origin
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: mimetype_file
+                label: Mime Types File
+                description: Path to file with MIME type definitions.
+                schema:
+                  type: string
+                  required: true
+                  default: mime.types
         - variable: api
           label: API
           schema:
@@ -220,19 +240,41 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: storage_auth_username
+              - variable: storage_mem_auth_enable
+                label: Storage Memory Auth Enable
+                description: Enable basic auth for PUT,POST, and DELETE on /memfs.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: storage_mem_auth_username
                 label: Storage Memory Auth Username
                 description: Username for Basic-Auth of /memfs. Required if auth is enabled.
                 schema:
                   type: string
                   default: ""
-              - variable: storage_auth_password
+                  required: true
+                  show_if: [[storage_mem_auth_enable, "=", true]]
+              - variable: storage_mem_auth_password
                 label: Storage Memory Auth Password
                 description: Password for Basic-Auth of /memfs. Required if auth is enabled.
                 schema:
                   type: string
                   default: ""
                   private: true
+                  required: true
+                  show_if: [[storage_mem_auth_enable, "=", true]]
+              - variable: storage_mem_max_size_mb
+                label: Storage Memory Max Size MBytes
+                description: Max. allowed megabytes for /memfs. (0 for Unlimited)
+                schema:
+                  type: int
+                  default: 0
+              - variable: storage_mem_purge
+                label: Storage Memory Purge
+                description: Set to true to remove the oldest entries if the /memfs is full.
+                schema:
+                  type: boolean
+                  default: false
         - variable: rtmp
           label: RTMP
           schema:

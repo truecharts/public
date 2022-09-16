@@ -14,7 +14,7 @@ metadata:
 data:
   {{/* Ports */}}
   CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
-  CORE_TLS_ADDRESS: {{ .Values.service.https.ports.https.port  }}
+  CORE_TLS_ADDRESS: {{ .Values.service.http.ports.http.port }}
   CORE_TLS_ENABLE: "true"
   {{/* Paths */}}
   CORE_DB_DIR: /core/config
@@ -23,8 +23,14 @@ data:
   {{- with .Values.restreamer.general.hostname }}
   CORE_HOST_NAME: {{ . }}
   {{- end }}
-  {{- with .Values.restreamer.general.host_auto }}
-  CORE_HOST_AUTO: {{ . | quote }}
+  CORE_HOST_AUTO: {{ .Values.restreamer.general.host_auto | quote }}
+  {{- if .Values.restreamer.general.origins }}
+  CORE_STORAGE_COCORE_ORIGINS: {{ join "," .Values.restreamer.general.origins }}
+  {{- else }}
+  CORE_STORAGE_COCORE_ORIGINS: '*'
+  {{- end }}
+  {{- with .Values.restreamer.general.mimetypes_file }}
+  CORE_STORAGE_MIMETYPES_FILE: {{ . }}
   {{- end }}
   {{/* Logs */}}
   {{- with .Values.restreamer.logs.log_level }}
@@ -37,9 +43,7 @@ data:
   CORE_LOG_MAXLINES: {{ . | quote }}
   {{- end }}
   {{/* API */}}
-  {{- with .Values.restreamer.api.api_read_only }}
-  CORE_API_READ_ONLY: {{ . | quote }}
-  {{- end }}
+  CORE_API_READ_ONLY: {{ .Values.restreamer.api.api_read_only | quote }}
   {{- with .Values.restreamer.api.api_access_http_allow }}
   CORE_API_ACCESS_HTTP_ALLOW: {{ join "," . }}
   {{- end }}
@@ -52,35 +56,33 @@ data:
   {{- with .Values.restreamer.api.api_access_https_block }}
   CORE_API_ACCESS_HTTPS_BLOCK: {{ join "," . }}
   {{- end }}
-  {{- with .Values.restreamer.api.api_auth_enable }}
-  CORE_API_AUTH_ENABLE: {{ . | quote }}
-  {{- end }}
-  {{- with .Values.restreamer.api.api_auth_disable_localhost }}
-  CORE_API_AUTH_DISABLE_LOCALHOST: {{ . | quote }}
-  {{- end }}
-  {{- with .Values.restreamer.api.api_auth0_enable }}
-  CORE_API_AUTH_AUTH0_ENABLE: {{ . | quote }}
-  {{- end }}
+  CORE_API_AUTH_ENABLE: {{ .Values.restreamer.api.api_auth_enable | quote }}
+  CORE_API_AUTH_DISABLE_LOCALHOST: {{ .Values.restreamer.api.api_auth_disable_localhost | quote }}
+  CORE_API_AUTH_AUTH0_ENABLE: {{ .Values.restreamer.api.api_auth0_enable | quote }}
   {{- with .Values.restreamer.api.api_auth0_tenants }}
   CORE_API_AUTH_AUTH0_TENANTS: {{ join "," . }}
   {{- end }}
   {{/* Storage Disk */}}
-  {{- with .Values.restreamer.storage_disk. }}
+  {{- with .Values.restreamer.storage_disk.disk_max_size_mb }}
   CORE_STORAGE_DISK_MAXSIZEMBYTES: {{ . | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk. }}
-  CORE_STORAGE_DISK_CACHE_ENABLE: {{ . | quote }}
-  {{- end }}
-  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_ENABLE: {{ .Values.restreamer.storage_disk.cache_enable | quote }}
+  {{- with .Values.restreamer.storage_disk.disk_max_size_mb }}
   CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: {{ . | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk. }}
+  {{- with .Values.restreamer.storage_disk.cache_ttl }}
   CORE_STORAGE_DISK_CACHE_TTLSECONDS: {{ . | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk. }}
+  {{- with .Values.restreamer.storage_disk.cache_max_file_size_mb }}
   CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: {{ . | quote }}
   {{- end }}
-  {{- with .Values.restreamer.storage_disk. }}
+  {{- with .Values.restreamer.storage_disk.cache_types }}
   CORE_STORAGE_DISK_CACHE_TYPES: {{ join " " . }}
   {{- end }}
+  {{/* Storage Mem */}}
+  CORE_STORAGE_MEMORY_AUTH_ENABLE: {{ .Values.restreamer.storage_mem.storage_mem_auth_enable | quote }}
+  {{- with .Values.restreamer.storage_mem.storage_mem_max_size_mb }}
+  CORE_STORAGE_MEMORY_MAXSIZEMBYTES: {{ . | quote }}
+  {{- end }}
+  CORE_STORAGE_MEMORY_PURGE: {{ .Values.restreamer.storage_mem.storage_mem_purge | quote }}
 {{- end }}

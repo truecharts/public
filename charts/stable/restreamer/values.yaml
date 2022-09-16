@@ -33,6 +33,8 @@ restreamer:
   general:
     hostname: ""
     host_auto: true
+    origins: []
+    mimetypes_file: "mime.types"
   api:
     api_auth_username: admin
     api_auth_password: password
@@ -53,8 +55,11 @@ restreamer:
     cache_max_file_size_mb: 1
     cache_types: []
   storage_mem:
-    storage_auth_username: ""
-    storage_auth_password: ""
+    storage_mem_auth_enable: true
+    storage_mem_auth_username: ""
+    storage_mem_auth_password: ""
+    storage_mem_max_size_mb: 0
+    storage_mem_purge: false
   rtmp:
     rtmp_token: ""
   logs:
@@ -64,10 +69,6 @@ restreamer:
 
 env:
  #TODO: structure for cofngimap
-  CORE_STORAGE_MEMORY_AUTH_ENABLE: true
-  CORE_STORAGE_MEMORY_MAXSIZEMBYTES: 0
-  CORE_STORAGE_MEMORY_PURGE: false
-  CORE_STORAGE_COCORE_ORIGINS: "*"
   CORE_RTMP_ENABLE: false
   CORE_RTMP_ENABLE_TLS: false
   CORE_FFMPEG_ACCESS_INPUT_ALLOW: []

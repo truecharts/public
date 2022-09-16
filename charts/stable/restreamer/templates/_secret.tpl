@@ -22,10 +22,10 @@ data:
   {{- with .Values.restreamer.api.api_auth_password }}
   CORE_API_AUTH_PASSWORD: {{ . }}
   {{- end }}
-  {{- with .Values.restreamer.storage_mem.storage_auth_username }}
+  {{- with .Values.restreamer.storage_mem.storage_mem_auth_username }}
   CORE_STORAGE_MEMORY_AUTH_USERNAME: {{ . }}
   {{- end }}
-  {{- with .Values.restreamer.storage_mem.storage_auth_password }}
+  {{- with .Values.restreamer.storage_mem.storage_mem_auth_password }}
   CORE_STORAGE_MEMORY_AUTH_PASSWORD: {{ . }}
   {{- end }}
   {{- with .Values.restreamer.rtmp.rtmp_token }}
