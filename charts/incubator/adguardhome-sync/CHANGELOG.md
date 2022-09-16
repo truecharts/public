@@ -2,6 +2,7 @@
 
 
 
+
 ## [adguardhome-sync-0.0.28](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.27...adguardhome-sync-0.0.28) (2022-09-15)
 
 ### Chore
