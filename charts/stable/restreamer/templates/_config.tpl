@@ -12,5 +12,16 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-
+  {{/* Ports */}}
+  CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
+  {{/* Logs */}}
+  {{- with .Values.logs.log_level }}
+  CORE_LOG_LEVEL: {{ . }}
+  {{- end }}
+  {{- with .Values.logs.log_topics }}
+  CORE_LOG_TOPICS: {{ join "," . }}
+  {{- end }}
+  {{- with .Values.logs.log_max_lines }}
+  CORE_LOG_MAXLINES: {{ . | quote }}
+  {{- end }}
 {{- end }}

@@ -85,6 +85,46 @@ questions:
                   type: string
                   default: ""
                   private: true
+        - variable: logs
+          label: Logs
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: log_level
+                label: Log Level
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: info
+                      description: info
+                    - value: silent
+                      description: silent
+                    - value: warn
+                      description: warn
+                    - value: error
+                      description: error
+                    - value: debug
+                      description: debug
+              - variable: log_topics
+                label: Log Topics
+                description: List of topics to log
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: topic
+                      label: Topic
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: log_max_lines
+                label: Log Max Lines
+                schema:
+                  type: int
+                  default: 10000
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

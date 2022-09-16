@@ -38,6 +38,10 @@ restreamer:
     storage_auth_password: ""
   rtmp:
     rtmp_token: ""
+  logs:
+    log_level: info
+    log_topics: []
+    log_max_lines: 1000
 
 env:
  #TODO: structure for cofngimap
@@ -81,9 +85,6 @@ env:
   CORE_SESSIONS_MAXSESSIONS: 0
   CORE_ROUTER_BLOCKED_PREFIXES: /api
   CORE_ROUTER_ROUTES: ""
-  CORE_LOG_LEVEL: info
-  CORE_LOG_TOPICS: []
-  CORE_LOG_MAXLINES: 1000
   CORE_FFMPEG_LOG_MAXLINES: 50
   CORE_FFMPEG_LOG_MAXHISTORY: 3
   CORE_DEBUG_PROFILING: false
@@ -95,7 +96,6 @@ service:
       main:
         port: 8080
         protocol: HTTP
-        targetPort: 8080
   main-secure:
     enabled: true
     ports:
