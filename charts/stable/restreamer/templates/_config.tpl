@@ -15,6 +15,9 @@ data:
   {{/* Ports */}}
   CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
   CORE_TLS_ADDRESS: {{ .Values.service.http.ports.http.port }}
+  CORE_RTMP_ADDRESS: {{ .Values.service.rtmp.ports.rtmp.port }}
+  CORE_RTMP_ADDRESS_TLS: {{ .Values.service.rtmps.ports.rtmps.port }}
+  CORE_SRT_ADDRESS: {{ .Values.service.srt.ports.srt.port }}
   CORE_TLS_ENABLE: "true"
   {{/* Paths */}}
   CORE_DB_DIR: /core/config
@@ -85,4 +88,10 @@ data:
   CORE_STORAGE_MEMORY_MAXSIZEMBYTES: {{ . | quote }}
   {{- end }}
   CORE_STORAGE_MEMORY_PURGE: {{ .Values.restreamer.storage_mem.storage_mem_purge | quote }}
+  {{/* RTMP */}}
+  CORE_RTMP_ENABLE: {{ . | quote }}
+  CORE_RTMP_ENABLE_TLS: {{ . | quote }}
+  {{- if .Values.restreamer.rtmp.rtmp_app }}
+  CORE_RTMP_APP: {{ . }}
+  {{- end }}
 {{- end }}

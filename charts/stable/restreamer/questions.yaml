@@ -281,6 +281,18 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: rtmp_enable
+                label: RTMP Enable
+                description: Enable RTMP server.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: rtmps_enable
+                label: RTMPS Enable
+                description: Enable RTMP over TLS (RTMPS).
+                schema:
+                  type: boolean
+                  default: false
               - variable: rtmp_token
                 label: RTMP Token
                 description: RTMP token for publishing and playing. The token is the value of the URL query parameter token.
@@ -288,6 +300,12 @@ questions:
                   type: string
                   default: ""
                   private: true
+              - variable: rtmp_app
+                label: RTMP App
+                description: RTMP app for publishing.
+                schema:
+                  type: string
+                  default: "/"
         - variable: logs
           label: Logs
           schema:
@@ -388,17 +406,17 @@ questions:
                                   schema:
                                     type: int
                                     default: 8081
-        - variable: rtsp
-          label: RTSP Service
-          description: The RTSP service for live streaming
+        - variable: rtmp
+          label: RTmP Service
+          description: The RTmP service for live streaming
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
-                    - variable: rtsp
-                      label: RTSP Service Port Configuration
+                    - variable: rtmp
+                      label: RTMP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -417,16 +435,16 @@ questions:
                                   schema:
                                     type: int
                                     default: 1935
-        - variable: rtsp-secure
-          label: RTSP Secure Service
-          description: The RTSP service for live streaming
+        - variable: rtmps
+          label: RTMP Secure Service
+          description: The RTMP service for live streaming
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorSimple}
 # Include{serviceSelectorExtras}
-                    - variable: rtsp-secure
+                    - variable: rtmps
                       label: RTSP Secure Service Port Configuration
                       schema:
                         additional_attrs: true
