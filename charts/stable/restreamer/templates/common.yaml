@@ -6,5 +6,11 @@
 {{/* Render configmap for restreamer */}}
 {{- include "restreamer.configmap" . }}
 
+{{- if .Values.restreamer.metrics.prometheus_enabled -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.port | quote) -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

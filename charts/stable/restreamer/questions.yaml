@@ -475,6 +475,36 @@ questions:
                 schema:
                   type: boolean
                   default: false
+        - variable: metrics
+          label: Metrics
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: metrics_enable
+                label: Metrics Enable
+                description: Enable collecting historic metrics data.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: metrics_prometheus_enable
+                label: Prometheus Metrics Enable
+                description: Enable prometheus endpoint /metrics.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: metrics_range_seconds
+                label: Metrics Range Seconds
+                description: Seconds to keep history metric data.
+                schema:
+                  type: int
+                  default: 300
+              - variable: metrics_interval_seconds
+                label: Metrics Interval Seconds
+                description: Interval for collecting metrics.
+                schema:
+                  type: int
+                  default: 2
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

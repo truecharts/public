@@ -86,16 +86,14 @@ restreamer:
   debug:
     debug_profiling: false
     debug_force_gc: 0
+  metrics:
+    metrics_enable: false
+    metrics_prometheus_enable: false
+    metrics_range_seconds: 300
+    metrics_interval_seconds: 2
+
 
 env:
-# Enable collecting historic metrics data.
-CORE_METRICS_ENABLE: false
-# Enable prometheus endpoint /metrics.
-CORE_METRICS_ENABLE_PROMETHEUS: false
-# Seconds to keep history metric data.
-CORE_METRICS_RANGE_SECONDS: 300
-# Interval for collecting metrics.
-CORE_METRICS_INTERVAL_SECONDS: 2
 # Enable HLS statistics for /memfs.
 CORE_SESSIONS_ENABLE: false
 # Comma separated list of IP ranges in CIDR notation, e.g. 127.0.0.1/32,::1/128.

@@ -88,8 +88,8 @@ data:
   {{- end }}
   CORE_STORAGE_MEMORY_PURGE: {{ .Values.restreamer.storage_mem.storage_mem_purge | quote }}
   {{/* RTMP */}}
-  CORE_RTMP_ENABLE: {{ . | quote }}
-  CORE_RTMP_ENABLE_TLS: {{ . | quote }}
+  CORE_RTMP_ENABLE: {{ .Values.restreamer.rtmp.rtmp_enable | quote }}
+  CORE_RTMP_ENABLE_TLS: {{ .Values.restreamer.rtmp.rtmps_enable | quote }}
   {{- with .Values.restreamer.rtmp.rtmp_app }}
   CORE_RTMP_APP: {{ . | quote }}
   {{- end }}
@@ -130,5 +130,14 @@ data:
   CORE_DEBUG_PROFILING: {{ .Values.restreamer.debug.debug_profiling | quote }}
   {{- if or .Values.restreamer.debug.debug_force_gc (eq (int .Values.restreamer.debug.debug_force_gc) 0) }}
   CORE_DEBUG_FORCEGC: {{ .Values.restreamer.debug.debug_force_gc | quote }}
+  {{- end }}
+  {{/* Metrics */}}
+  CORE_METRICS_ENABLE: {{ .Values.restreamer.metrics.metrics_enable | quote }}
+  CORE_METRICS_ENABLE_PROMETHEUS: {{ .Values.restreamer.metrics.metrics_prometheus_enable | quote }}
+  {{- if or .Values.restreamer.metrics.metrics_range_seconds (eq (int .Values.restreamer.metrics.metrics_range_seconds) 0) }}
+  CORE_METRICS_RANGE_SECONDS: {{ .Values.restreamer.metrics.metrics_range_seconds | quote }}
+  {{- end }}
+  {{- if or .Values.restreamer.metrics.metrics_interval_seconds (eq (int .Values.restreamer.metrics.metrics_interval_seconds) 0) }}
+  CORE_METRICS_INTERVAL_SECONDS: {{ .Values.restreamer.metrics.metrics_interval_seconds | quote }}
   {{- end }}
   {{- end }}
