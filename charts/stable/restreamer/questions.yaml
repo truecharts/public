@@ -160,6 +160,60 @@ questions:
                         type: string
                         default: ""
                         required: true
+        - variable: storage_disk
+          label: Storage Disk
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: disk_max_size_mb
+                label: Storage Disk Max Size MByte
+                description: Max allowed megabytes for Disk Dir (0 for Unlimited)
+                schema:
+                  type: int
+                  default: 0
+              - variable: cache_enable
+                label: Storage Disk Cache Enable
+                description: Enable cache for files Storage Disk
+                schema:
+                  type: boolean
+                  default: true
+              - variable: cache_max_size_mb
+                label: Storage Disk Cache Max Size MByte
+                description: Max allowed cache size. (0 for Unlimited)
+                schema:
+                  type: int
+                  default: 0
+              - variable: cache_ttl
+                label: Storage Disk Cache TTL Seconds
+                description: Seconds to keep files in cache.
+                schema:
+                  type: int
+                  default: 300
+              - variable: cache_max_file_size_mb
+                label: Storage Disk Max File Size MBytes
+                description: Max. file size to put in cache. (0 for Unlimited)
+                schema:
+                  type: int
+                  default: 0
+              - variable: cache_types
+                label: Cache Types
+                description: List of file extensions to cache
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: log_max_lines
+                label: Log Max Lines
+                schema:
+                  type: int
+                  default: 10000
         - variable: storage_mem
           label: Storage memory
           schema:

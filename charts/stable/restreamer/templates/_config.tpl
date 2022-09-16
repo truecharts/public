@@ -16,6 +16,9 @@ data:
   CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
   CORE_TLS_ADDRESS: {{ .Values.service.https.ports.https.port  }}
   CORE_TLS_ENABLE: "true"
+  {{/* Paths */}}
+  CORE_DB_DIR: /core/config
+  CORE_STORAGE_DISK_DIR: /core/data
   {{/* General */}}
   {{- with .Values.restreamer.general.hostname }}
   CORE_HOST_NAME: {{ . }}
@@ -61,5 +64,23 @@ data:
   {{- with .Values.restreamer.api.api_auth0_tenants }}
   CORE_API_AUTH_AUTH0_TENANTS: {{ join "," . }}
   {{- end }}
-
+  {{/* Storage Disk */}}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_MAXSIZEMBYTES: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_ENABLE: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_TTLSECONDS: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.restreamer.storage_disk. }}
+  CORE_STORAGE_DISK_CACHE_TYPES: {{ join " " . }}
+  {{- end }}
 {{- end }}

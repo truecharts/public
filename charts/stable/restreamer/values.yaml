@@ -45,6 +45,13 @@ restreamer:
     api_auth_disable_localhost: false
     api_auth0_enable: false
     api_auth0_tenants: ""
+  storage_disk:
+    disk_max_size_mb: 0
+    cache_enable: true
+    cache_max_size_mb: 0
+    cache_ttl: 300
+    cache_max_file_size_mb: 1
+    cache_types: []
   storage_mem:
     storage_auth_username: ""
     storage_auth_password: ""
@@ -57,12 +64,6 @@ restreamer:
 
 env:
  #TODO: structure for cofngimap
-  CORE_STORAGE_DISK_MAXSIZEMBYTES: 0
-  CORE_STORAGE_DISK_CACHE_ENABLE: true
-  CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: 0
-  CORE_STORAGE_DISK_CACHE_TTLSECONDS: 300
-  CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: 1
-  CORE_STORAGE_DISK_CACHE_TYPES: ""
   CORE_STORAGE_MEMORY_AUTH_ENABLE: true
   CORE_STORAGE_MEMORY_MAXSIZEMBYTES: 0
   CORE_STORAGE_MEMORY_PURGE: false
@@ -132,9 +133,11 @@ service:
         targetPort: 6000
 
 persistence:
+  # CORE_DB_DIR
   config:
     enabled: true
     mountPath: /core/config
+  # CORE_STORAGE_DISK_DIR
   data:
     enabled: true
     mountPath: /core/data
