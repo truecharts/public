@@ -14,6 +14,10 @@ securityContext:
 tty: true
 stdin: true
 
+plexTraktSync:
+  task: ""
+  schedule: "0 */6 * * *"
+
 probes:
   liveness:
     enabled: false
@@ -36,3 +40,8 @@ persistence:
 
 portal:
   enabled: false
+
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
