@@ -12,8 +12,8 @@ metadata:
   labels:  {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Paths */}}
-  CORE_DB_DIR: /core/config
-  CORE_STORAGE_DISK_DIR: /core/data
+  CORE_DB_DIR: "/core/config"
+  CORE_STORAGE_DISK_DIR: "/core/data"
   {{/* Ports */}}
   CORE_TLS_ENABLE: {{ .Values.restreamer.general.tls_enable | quote }}
   CORE_ADDRESS: {{ .Values.service.main.ports.main.port }}
