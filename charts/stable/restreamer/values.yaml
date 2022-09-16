@@ -1,11 +1,19 @@
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/restreamer
-  tag: latest@sha256:21f235d53ba6df104a570569d158a33123262c7b76a8c0c1fab08cd347616d4e
+  pullPolicy: IfNotPresent
+  tag: 2.1.0@sha256:f5074958201e8e165f9b1c77071cdb8b711ba81965a8283bae133e6f76a827b7
 
-secretEnv:
-  CORE_API_AUTH_USERNAME: admin
-  CORE_API_AUTH_PASSWORD: Password
+cudaImage:
+  repository: tccr.io/truecharts/restreamer-cuda
+  pullPolicy: IfNotPresent
+  tag: 2.1.0@sha256:f5074958201e8e165f9b1c77071cdb8b711ba81965a8283bae133e6f76a827b7
+
+vaapiImage:
+  repository: tccr.io/truecharts/restreamer-vaapi
+  pullPolicy: IfNotPresent
+  tag: 2.1.0@sha256:21f235d53ba6df104a570569d158a33123262c7b76a8c0c1fab08cd347616d4e
+
+imageSelector: "image"
 
 podSecurityContext:
   runAsGroup: 0
@@ -14,6 +22,72 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
+
+restreamer:
+  api:
+    api_auth_username: admin
+    api_auth_password: password
+  storage_mem:
+    storage_auth_username: ""
+    storage_auth_password: ""
+  rtmp:
+    rtmp_token: ""
+
+env:
+ #TODO: structure for cofngimap
+  CORE_HOST_NAME: ""
+  CORE_HOST_AUTO: true
+  CORE_API_READ_ONLY: false
+  CORE_API_ACCESS_HTTP_ALLOW: []
+  CORE_API_ACCESS_HTTP_BLOCK: []
+  CORE_API_ACCESS_HTTPS_ALLOW: []
+  CORE_API_ACCESS_HTTPS_BLOCK: []
+  CORE_API_AUTH_ENABLE: true
+  CORE_API_AUTH_DISABLE_LOCALHOST: false
+  CORE_API_AUTH_AUTH0_ENABLE: false
+  CORE_API_AUTH_AUTH0_TENANTS: []
+  CORE_STORAGE_DISK_MAXSIZEMBYTES: 0
+  CORE_STORAGE_DISK_CACHE_ENABLE: true
+  CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: 0
+  CORE_STORAGE_DISK_CACHE_TTLSECONDS: 300
+  CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: 1
+  CORE_STORAGE_DISK_CACHE_TYPES: ""
+  CORE_STORAGE_MEMORY_AUTH_ENABLE: true
+  CORE_STORAGE_MEMORY_MAXSIZEMBYTES: 0
+  CORE_STORAGE_MEMORY_PURGE: false
+  CORE_STORAGE_COCORE_ORIGINS: "*"
+  CORE_RTMP_ENABLE: false
+  CORE_RTMP_ENABLE_TLS: false
+  CORE_FFMPEG_ACCESS_INPUT_ALLOW: []
+  CORE_FFMPEG_ACCESS_INPUT_BLOCK: []
+  CORE_FFMPEG_ACCESS_OUTPUT_ALLOW: []
+  CORE_FFMPEG_ACCESS_OUTPUT_BLOCK: []
+  CORE_PLAYOUT_ENABLE: false
+  CORE_METRICS_ENABLE: false
+  CORE_METRICS_ENABLE_PROMETHEUS: false
+  CORE_METRICS_RANGE_SECONDS: 300
+  CORE_METRICS_INTERVAL_SECONDS: 2
+  CORE_SESSIONS_ENABLE: false
+  CORE_SESSIONS_IP_IGNORELIST: []
+  CORE_SESSIONS_SESSION_TIMEOUT_SEC: 30
+  CORE_SESSIONS_PERSIST: false
+  CORE_SESSIONS_MAXBITRATE_MBIT: 0
+  CORE_SESSIONS_MAXSESSIONS: 0
+  CORE_ROUTER_BLOCKED_PREFIXES: /api
+  CORE_ROUTER_ROUTES: ""
+  CORE_LOG_LEVEL: info
+  CORE_LOG_TOPICS: []
+  CORE_LOG_MAXLINES: 1000
+  CORE_FFMPEG_LOG_MAXLINES: 50
+  CORE_FFMPEG_LOG_MAXHISTORY: 3
+  CORE_DEBUG_PROFILING: false
+  CORE_DEBUG_FORCEGC: 0
 
 service:
   main:
