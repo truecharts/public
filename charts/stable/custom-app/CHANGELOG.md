@@ -2,6 +2,219 @@
 
 
 
+## [custom-app-5.1.61](https://github.com/truecharts/charts/compare/custom-app-5.1.60...custom-app-5.1.61) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [custom-app-5.1.61](https://github.com/truecharts/charts/compare/custom-app-5.1.60...custom-app-5.1.61) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [custom-app-5.1.61](https://github.com/truecharts/charts/compare/custom-app-5.1.60...custom-app-5.1.61) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [custom-app-5.1.60](https://github.com/truecharts/charts/compare/custom-app-5.1.59...custom-app-5.1.60) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
+## [custom-app-5.1.59](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.59) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.59](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.59) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.59](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.59) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.58](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.58) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.58](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.58) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.58](https://github.com/truecharts/charts/compare/custom-app-5.1.57...custom-app-5.1.58) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [custom-app-5.1.57](https://github.com/truecharts/charts/compare/custom-app-5.1.56...custom-app-5.1.57) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
+## [custom-app-5.1.56](https://github.com/truecharts/charts/compare/custom-app-5.1.55...custom-app-5.1.56) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [custom-app-5.1.56](https://github.com/truecharts/charts/compare/custom-app-5.1.55...custom-app-5.1.56) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [custom-app-5.1.55](https://github.com/truecharts/charts/compare/custom-app-5.1.54...custom-app-5.1.55) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+
+
+
+## [custom-app-5.1.54](https://github.com/truecharts/charts/compare/custom-app-5.1.53...custom-app-5.1.54) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
+## [custom-app-5.1.53](https://github.com/truecharts/charts/compare/custom-app-5.1.52...custom-app-5.1.53) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
+## [custom-app-5.1.52](https://github.com/truecharts/charts/compare/custom-app-5.1.51...custom-app-5.1.52) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [custom-app-5.1.51](https://github.com/truecharts/charts/compare/custom-app-5.1.50...custom-app-5.1.51) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [custom-app-5.1.50](https://github.com/truecharts/charts/compare/custom-app-5.1.49...custom-app-5.1.50) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [custom-app-5.1.49](https://github.com/truecharts/charts/compare/custom-app-5.1.48...custom-app-5.1.49) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [custom-app-5.1.48](https://github.com/truecharts/charts/compare/custom-app-5.1.47...custom-app-5.1.48) (2022-08-29)
 
 ### Chore

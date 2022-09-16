@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/autoscan
+  tag: latest@sha256:1e344be4de2c1f8ed8394fb89e6c514cd7f15502a6b02795592e20f739831e56
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  PLEX_LOGIN: ""
+  PLEX_PASSWORD: ""
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 3030
+        targetPort: 3030
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: false

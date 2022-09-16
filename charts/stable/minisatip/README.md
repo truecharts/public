@@ -1,6 +1,6 @@
 # minisatip
 
-![Version: 2.0.25](https://img.shields.io/badge/Version-2.0.25-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.12.01](https://img.shields.io/badge/AppVersion-2021.12.01-informational?style=flat-square)
+![Version: 2.0.30](https://img.shields.io/badge/Version-2.0.30-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.12.01](https://img.shields.io/badge/AppVersion-2021.12.01-informational?style=flat-square)
 
 Minisatip is a multi-threaded satip server version 1.2 that runs under Linux.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -64,7 +64,7 @@ helm uninstall minisatip
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

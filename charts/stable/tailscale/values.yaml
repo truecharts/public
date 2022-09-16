@@ -1,7 +1,7 @@
 image:
   repository: tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.29.125@sha256:5bfeda9594bfbc8ad5f7fbb0fb4827ed8066bd07af0fc3435e44e0494552447c
+  tag: v1.31.7@sha256:86f1b87db67525a8468767e4fa64941265e918db36362dc7fc488112133de6f5
 
 command: ["ash", "/tailscale/run.sh"]
 
@@ -20,7 +20,7 @@ podSecurityContext:
 
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 rbac:
   main:
@@ -50,13 +50,15 @@ envFrom:
 
 tailscale:
   authkey: "supersecret"
-  userspace: true
+  userspace: false
   accept_dns: false
   routes: ""
   dest_ip: ""
   sock5_server: ""
   extra_args: ""
   daemon_extra_args: ""
+  hostname: ""
+  advertise_as_exit_node: false
 
 probes:
   liveness:
@@ -66,12 +68,14 @@ probes:
   startup:
     enabled: false
 
+hostNetwork: true
+
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: UDP
-        port: 41700
+        enabled: false
 
 persistence:
   varrun:

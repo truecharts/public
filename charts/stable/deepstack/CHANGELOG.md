@@ -2,7 +2,136 @@
 
 
 
-## [deepstack-4.0.26](https://github.com/truecharts/charts/compare/deepstack-4.0.25...deepstack-4.0.26) (2022-08-23)
+## [deepstack-4.0.31](https://github.com/truecharts/charts/compare/deepstack-4.0.30...deepstack-4.0.31) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [deepstack-4.0.31](https://github.com/truecharts/charts/compare/deepstack-4.0.30...deepstack-4.0.31) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [deluge-11.0.33](https://github.com/truecharts/charts/compare/deluge-11.0.32...deluge-11.0.33) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.32](https://github.com/truecharts/charts/compare/deluge-11.0.31...deluge-11.0.32) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [deluge-11.0.31](https://github.com/truecharts/charts/compare/deluge-11.0.30...deluge-11.0.31) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [deluge-11.0.30](https://github.com/truecharts/charts/compare/deluge-11.0.29...deluge-11.0.30) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [deluge-11.0.29](https://github.com/truecharts/charts/compare/deluge-11.0.28...deluge-11.0.29) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [deluge-11.0.28](https://github.com/truecharts/charts/compare/deluge-11.0.27...deluge-11.0.28) (2022-08-23)
 
 ### Chore
 
@@ -11,7 +140,7 @@
 
 
 
-## [deepstack-4.0.25](https://github.com/truecharts/charts/compare/deepstack-4.0.24...deepstack-4.0.25) (2022-08-12)
+## [deluge-11.0.27](https://github.com/truecharts/charts/compare/deluge-11.0.26...deluge-11.0.27) (2022-08-12)
 
 ### Chore
 
@@ -25,7 +154,7 @@
 
 
 
-## [deepstack-4.0.24](https://github.com/truecharts/charts/compare/deepstack-4.0.23...deepstack-4.0.24) (2022-08-08)
+## [deluge-11.0.26](https://github.com/truecharts/charts/compare/deluge-11.0.25...deluge-11.0.26) (2022-08-08)
 
 ### Chore
 
@@ -35,7 +164,7 @@
 
 
 
-## [deepstack-4.0.23](https://github.com/truecharts/apps/compare/deepstack-4.0.22...deepstack-4.0.23) (2022-07-26)
+## [deluge-11.0.25](https://github.com/truecharts/apps/compare/deluge-11.0.24...deluge-11.0.25) (2022-07-26)
 
 ### Chore
 
@@ -45,7 +174,7 @@
 
 
 
-## [deepstack-4.0.22](https://github.com/truecharts/apps/compare/deepstack-4.0.21...deepstack-4.0.22) (2022-07-25)
+## [deluge-11.0.24](https://github.com/truecharts/apps/compare/deluge-11.0.23...deluge-11.0.24) (2022-07-25)
 
 ### Chore
 
@@ -55,7 +184,7 @@
 
 
 
-## [deepstack-4.0.22](https://github.com/truecharts/apps/compare/deepstack-4.0.21...deepstack-4.0.22) (2022-07-25)
+## [deluge-11.0.24](https://github.com/truecharts/apps/compare/deluge-11.0.23...deluge-11.0.24) (2022-07-25)
 
 ### Chore
 
@@ -64,7 +193,7 @@
 
 
 
-## [deepstack-4.0.21](https://github.com/truecharts/apps/compare/deepstack-4.0.20...deepstack-4.0.21) (2022-07-23)
+## [deluge-11.0.23](https://github.com/truecharts/apps/compare/deluge-11.0.22...deluge-11.0.23) (2022-07-23)
 
 ### Chore
 
@@ -75,7 +204,7 @@
 
 
 
-## [deepstack-4.0.21](https://github.com/truecharts/apps/compare/deepstack-4.0.20...deepstack-4.0.21) (2022-07-23)
+## [deluge-11.0.23](https://github.com/truecharts/apps/compare/deluge-11.0.22...deluge-11.0.23) (2022-07-23)
 
 ### Chore
 
@@ -85,7 +214,7 @@
 
 
 
-## [deepstack-4.0.21](https://github.com/truecharts/apps/compare/deepstack-4.0.20...deepstack-4.0.21) (2022-07-23)
+## [deluge-11.0.23](https://github.com/truecharts/apps/compare/deluge-11.0.22...deluge-11.0.23) (2022-07-23)
 
 ### Chore
 
@@ -94,7 +223,7 @@
 
 
 
-## [deepstack-4.0.20](https://github.com/truecharts/apps/compare/deepstack-4.0.18...deepstack-4.0.20) (2022-07-22)
+## [deluge-11.0.22](https://github.com/truecharts/apps/compare/deluge-11.0.20...deluge-11.0.22) (2022-07-22)
 
 ### Chore
 
@@ -103,7 +232,7 @@
 
 
 
-## [deepstack-4.0.18](https://github.com/truecharts/apps/compare/deepstack-4.0.17...deepstack-4.0.18) (2022-07-19)
+## [deluge-11.0.20](https://github.com/truecharts/apps/compare/deluge-11.0.19...deluge-11.0.20) (2022-07-19)
 
 ### Chore
 
@@ -111,7 +240,7 @@
 
 
 
-## [deepstack-4.0.17](https://github.com/truecharts/apps/compare/deepstack-4.0.16...deepstack-4.0.17) (2022-07-14)
+## [deluge-11.0.19](https://github.com/truecharts/apps/compare/deluge-11.0.18...deluge-11.0.19) (2022-07-14)
 
 ### Fix
 
@@ -119,7 +248,7 @@
 
 
 
-## [deepstack-4.0.16](https://github.com/truecharts/apps/compare/deepstack-4.0.14...deepstack-4.0.16) (2022-07-14)
+## [deluge-11.0.18](https://github.com/truecharts/apps/compare/deluge-11.0.16...deluge-11.0.18) (2022-07-14)
 
 ### Fix
 
@@ -127,7 +256,7 @@
 
 
 
-## [deepstack-4.0.14](https://github.com/truecharts/apps/compare/deepstack-4.0.12...deepstack-4.0.14) (2022-07-12)
+## [deluge-11.0.16](https://github.com/truecharts/apps/compare/deluge-11.0.14...deluge-11.0.16) (2022-07-12)
 
 ### Chore
 
@@ -136,7 +265,7 @@
 
 
 
-## [deepstack-4.0.12](https://github.com/truecharts/apps/compare/deepstack-4.0.11...deepstack-4.0.12) (2022-07-12)
+## [deluge-11.0.14](https://github.com/truecharts/apps/compare/deluge-11.0.13...deluge-11.0.14) (2022-07-12)
 
 ### Chore
 
@@ -144,8 +273,8 @@
 
 
 
-<a name="deepstack-4.0.11"></a>
-### [deepstack-4.0.11](https://github.com/truecharts/apps/compare/deepstack-4.0.10...deepstack-4.0.11) (2022-07-12)
+<a name="deluge-11.0.13"></a>
+### [deluge-11.0.13](https://github.com/truecharts/apps/compare/deluge-11.0.12...deluge-11.0.13) (2022-07-12)
 
 #### Chore
 
@@ -153,18 +282,26 @@
 
 
 
-<a name="deepstack-4.0.10"></a>
-### [deepstack-4.0.10](https://github.com/truecharts/apps/compare/deepstack-4.0.9...deepstack-4.0.10) (2022-07-11)
+<a name="deluge-11.0.12"></a>
+### [deluge-11.0.12](https://github.com/truecharts/apps/compare/deluge-11.0.11...deluge-11.0.12) (2022-07-11)
 
 #### Chore
 
 * move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
-* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
 
 
 
-<a name="deepstack-4.0.9"></a>
-### [deepstack-4.0.9](https://github.com/truecharts/apps/compare/deepstack-4.0.8...deepstack-4.0.9) (2022-07-09)
+<a name="deluge-11.0.11"></a>
+### [deluge-11.0.11](https://github.com/truecharts/apps/compare/deluge-11.0.10...deluge-11.0.11) (2022-07-10)
+
+#### Fix
+
+* revert combine ports ([#3119](https://github.com/truecharts/apps/issues/3119))
+
+
+
+<a name="deluge-11.0.10"></a>
+### [deluge-11.0.10](https://github.com/truecharts/apps/compare/deluge-11.0.9...deluge-11.0.10) (2022-07-09)
 
 #### Chore
 
@@ -172,8 +309,17 @@
 
 
 
-<a name="deepstack-4.0.8"></a>
-### [deepstack-4.0.8](https://github.com/truecharts/apps/compare/deepstack-4.0.7...deepstack-4.0.8) (2022-07-04)
+<a name="deluge-11.0.9"></a>
+### [deluge-11.0.9](https://github.com/truecharts/apps/compare/deluge-11.0.8...deluge-11.0.9) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="deluge-11.0.8"></a>
+### [deluge-11.0.8](https://github.com/truecharts/apps/compare/deluge-11.0.7...deluge-11.0.8) (2022-07-04)
 
 #### Chore
 
@@ -181,8 +327,8 @@
 
 
 
-<a name="deepstack-4.0.7"></a>
-### [deepstack-4.0.7](https://github.com/truecharts/apps/compare/deepstack-4.0.6...deepstack-4.0.7) (2022-06-25)
+<a name="deluge-11.0.7"></a>
+### [deluge-11.0.7](https://github.com/truecharts/apps/compare/deluge-11.0.6...deluge-11.0.7) (2022-06-25)
 
 #### Chore
 
@@ -190,8 +336,8 @@
 
 
 
-<a name="deepstack-4.0.6"></a>
-### [deepstack-4.0.6](https://github.com/truecharts/apps/compare/deepstack-4.0.5...deepstack-4.0.6) (2022-06-22)
+<a name="deluge-11.0.6"></a>
+### [deluge-11.0.6](https://github.com/truecharts/apps/compare/deluge-11.0.5...deluge-11.0.6) (2022-06-22)
 
 #### Chore
 
@@ -199,8 +345,8 @@
 
 
 
-<a name="deepstack-4.0.5"></a>
-### [deepstack-4.0.5](https://github.com/truecharts/apps/compare/deepstack-4.0.4...deepstack-4.0.5) (2022-06-21)
+<a name="deluge-11.0.5"></a>
+### [deluge-11.0.5](https://github.com/truecharts/apps/compare/deluge-11.0.4...deluge-11.0.5) (2022-06-21)
 
 #### Chore
 
@@ -208,8 +354,8 @@
 
 
 
-<a name="deepstack-4.0.4"></a>
-### [deepstack-4.0.4](https://github.com/truecharts/apps/compare/deepstack-4.0.3...deepstack-4.0.4) (2022-06-14)
+<a name="deluge-11.0.4"></a>
+### [deluge-11.0.4](https://github.com/truecharts/apps/compare/deluge-11.0.3...deluge-11.0.4) (2022-06-14)
 
 #### Chore
 
@@ -217,8 +363,8 @@
 
 
 
-<a name="deepstack-4.0.3"></a>
-### [deepstack-4.0.3](https://github.com/truecharts/apps/compare/deepstack-4.0.2...deepstack-4.0.3) (2022-06-11)
+<a name="deluge-11.0.3"></a>
+### [deluge-11.0.3](https://github.com/truecharts/apps/compare/deluge-11.0.2...deluge-11.0.3) (2022-06-11)
 
 #### Chore
 
@@ -226,8 +372,8 @@
 
 
 
-<a name="deepstack-4.0.2"></a>
-### [deepstack-4.0.2](https://github.com/truecharts/apps/compare/deepstack-4.0.1...deepstack-4.0.2) (2022-06-07)
+<a name="deluge-11.0.2"></a>
+### [deluge-11.0.2](https://github.com/truecharts/apps/compare/deluge-11.0.1...deluge-11.0.2) (2022-06-07)
 
 #### Fix
 
@@ -235,8 +381,8 @@
 
 
 
-<a name="deepstack-4.0.1"></a>
-### [deepstack-4.0.1](https://github.com/truecharts/apps/compare/deepstack-3.0.21...deepstack-4.0.1) (2022-06-07)
+<a name="deluge-11.0.1"></a>
+### [deluge-11.0.1](https://github.com/truecharts/apps/compare/deluge-10.0.23...deluge-11.0.1) (2022-06-07)
 
 #### Chore
 
@@ -253,8 +399,8 @@
 
 
 
-<a name="deepstack-4.0.0"></a>
-### [deepstack-4.0.0](https://github.com/truecharts/apps/compare/deepstack-3.0.21...deepstack-4.0.0) (2022-06-07)
+<a name="deluge-11.0.0"></a>
+### [deluge-11.0.0](https://github.com/truecharts/apps/compare/deluge-10.0.23...deluge-11.0.0) (2022-06-07)
 
 #### Chore
 
@@ -266,8 +412,8 @@
 
 
 
-<a name="deepstack-3.0.21"></a>
-### [deepstack-3.0.21](https://github.com/truecharts/apps/compare/deepstack-3.0.20...deepstack-3.0.21) (2022-05-31)
+<a name="deluge-10.0.23"></a>
+### [deluge-10.0.23](https://github.com/truecharts/apps/compare/deluge-10.0.22...deluge-10.0.23) (2022-05-31)
 
 #### Chore
 
@@ -275,8 +421,8 @@
 
 
 
-<a name="deepstack-3.0.20"></a>
-### [deepstack-3.0.20](https://github.com/truecharts/apps/compare/deepstack-3.0.19...deepstack-3.0.20) (2022-05-26)
+<a name="deluge-10.0.22"></a>
+### [deluge-10.0.22](https://github.com/truecharts/apps/compare/deluge-10.0.21...deluge-10.0.22) (2022-05-26)
 
 #### Chore
 
@@ -285,8 +431,8 @@
 
 
 
-<a name="deepstack-3.0.20"></a>
-### [deepstack-3.0.20](https://github.com/truecharts/apps/compare/deepstack-3.0.19...deepstack-3.0.20) (2022-05-26)
+<a name="deluge-10.0.22"></a>
+### [deluge-10.0.22](https://github.com/truecharts/apps/compare/deluge-10.0.21...deluge-10.0.22) (2022-05-26)
 
 #### Chore
 
@@ -294,8 +440,8 @@
 
 
 
-<a name="deepstack-3.0.19"></a>
-### [deepstack-3.0.19](https://github.com/truecharts/apps/compare/deepstack-3.0.18...deepstack-3.0.19) (2022-05-24)
+<a name="deluge-10.0.21"></a>
+### [deluge-10.0.21](https://github.com/truecharts/apps/compare/deluge-10.0.20...deluge-10.0.21) (2022-05-24)
 
 #### Chore
 
@@ -303,8 +449,8 @@
 
 
 
-<a name="deepstack-3.0.18"></a>
-### [deepstack-3.0.18](https://github.com/truecharts/apps/compare/deepstack-3.0.17...deepstack-3.0.18) (2022-05-17)
+<a name="deluge-10.0.20"></a>
+### [deluge-10.0.20](https://github.com/truecharts/apps/compare/deluge-10.0.19...deluge-10.0.20) (2022-05-17)
 
 #### Chore
 
@@ -313,8 +459,8 @@
 
 
 
-<a name="deepstack-3.0.18"></a>
-### [deepstack-3.0.18](https://github.com/truecharts/apps/compare/deepstack-3.0.17...deepstack-3.0.18) (2022-05-17)
+<a name="deluge-10.0.20"></a>
+### [deluge-10.0.20](https://github.com/truecharts/apps/compare/deluge-10.0.19...deluge-10.0.20) (2022-05-17)
 
 #### Chore
 
@@ -322,8 +468,8 @@
 
 
 
-<a name="deepstack-3.0.17"></a>
-### [deepstack-3.0.17](https://github.com/truecharts/apps/compare/deepstack-3.0.16...deepstack-3.0.17) (2022-05-17)
+<a name="deluge-10.0.19"></a>
+### [deluge-10.0.19](https://github.com/truecharts/apps/compare/deluge-10.0.18...deluge-10.0.19) (2022-05-17)
 
 #### Chore
 
@@ -331,8 +477,8 @@
 
 
 
-<a name="deepstack-3.0.16"></a>
-### [deepstack-3.0.16](https://github.com/truecharts/apps/compare/deepstack-3.0.15...deepstack-3.0.16) (2022-05-10)
+<a name="deluge-10.0.18"></a>
+### [deluge-10.0.18](https://github.com/truecharts/apps/compare/deluge-10.0.17...deluge-10.0.18) (2022-05-10)
 
 #### Chore
 
@@ -340,17 +486,8 @@
 
 
 
-<a name="deepstack-3.0.15"></a>
-### [deepstack-3.0.15](https://github.com/truecharts/apps/compare/deepstack-3.0.14...deepstack-3.0.15) (2022-05-09)
-
-#### Chore
-
-* add threadcount gui option ([#2643](https://github.com/truecharts/apps/issues/2643))
-
-
-
-<a name="deepstack-3.0.14"></a>
-### [deepstack-3.0.14](https://github.com/truecharts/apps/compare/deepstack-3.0.13...deepstack-3.0.14) (2022-05-05)
+<a name="deluge-10.0.17"></a>
+### [deluge-10.0.17](https://github.com/truecharts/apps/compare/deluge-10.0.16...deluge-10.0.17) (2022-05-05)
 
 #### Chore
 
@@ -358,8 +495,8 @@
 
 
 
-<a name="deepstack-3.0.13"></a>
-### [deepstack-3.0.13](https://github.com/truecharts/apps/compare/deepstack-3.0.12...deepstack-3.0.13) (2022-04-26)
+<a name="deluge-10.0.16"></a>
+### [deluge-10.0.16](https://github.com/truecharts/apps/compare/deluge-10.0.15...deluge-10.0.16) (2022-04-26)
 
 #### Chore
 
@@ -367,8 +504,8 @@
 
 
 
-<a name="deepstack-3.0.12"></a>
-### [deepstack-3.0.12](https://github.com/truecharts/apps/compare/deepstack-3.0.11...deepstack-3.0.12) (2022-04-20)
+<a name="deluge-10.0.15"></a>
+### [deluge-10.0.15](https://github.com/truecharts/apps/compare/deluge-10.0.14...deluge-10.0.15) (2022-04-20)
 
 #### Chore
 
@@ -377,8 +514,17 @@
 
 
 
-<a name="deepstack-3.0.11"></a>
-### [deepstack-3.0.11](https://github.com/truecharts/apps/compare/deepstack-3.0.10...deepstack-3.0.11) (2022-04-12)
+<a name="deluge-10.0.14"></a>
+### [deluge-10.0.14](https://github.com/truecharts/apps/compare/deluge-10.0.13...deluge-10.0.14) (2022-04-13)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="deluge-10.0.13"></a>
+### [deluge-10.0.13](https://github.com/truecharts/apps/compare/deluge-10.0.12...deluge-10.0.13) (2022-04-12)
 
 #### Chore
 
@@ -386,8 +532,17 @@
 
 
 
-<a name="deepstack-3.0.10"></a>
-### [deepstack-3.0.10](https://github.com/truecharts/apps/compare/deepstack-3.0.9...deepstack-3.0.10) (2022-04-03)
+<a name="deluge-10.0.12"></a>
+### [deluge-10.0.12](https://github.com/truecharts/apps/compare/deluge-10.0.11...deluge-10.0.12) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
+<a name="deluge-10.0.11"></a>
+### [deluge-10.0.11](https://github.com/truecharts/apps/compare/deluge-10.0.10...deluge-10.0.11) (2022-04-03)
 
 #### Chore
 
@@ -395,8 +550,17 @@
 
 
 
-<a name="deepstack-3.0.9"></a>
-### [deepstack-3.0.9](https://github.com/truecharts/apps/compare/deepstack-3.0.8...deepstack-3.0.9) (2022-03-31)
+<a name="deluge-10.0.10"></a>
+### [deluge-10.0.10](https://github.com/truecharts/apps/compare/deluge-10.0.9...deluge-10.0.10) (2022-04-03)
+
+#### Fix
+
+* fix versioning scheme ([#2404](https://github.com/truecharts/apps/issues/2404))
+
+
+
+<a name="deluge-10.0.9"></a>
+### [deluge-10.0.9](https://github.com/truecharts/apps/compare/deluge-10.0.8...deluge-10.0.9) (2022-03-31)
 
 #### Chore
 
@@ -404,8 +568,8 @@
 
 
 
-<a name="deepstack-3.0.8"></a>
-### [deepstack-3.0.8](https://github.com/truecharts/apps/compare/deepstack-3.0.7...deepstack-3.0.8) (2022-03-30)
+<a name="deluge-10.0.8"></a>
+### [deluge-10.0.8](https://github.com/truecharts/apps/compare/deluge-10.0.7...deluge-10.0.8) (2022-03-30)
 
 #### Chore
 
@@ -413,8 +577,8 @@
 
 
 
-<a name="deepstack-3.0.7"></a>
-### [deepstack-3.0.7](https://github.com/truecharts/apps/compare/deepstack-3.0.6...deepstack-3.0.7) (2022-03-26)
+<a name="deluge-10.0.7"></a>
+### [deluge-10.0.7](https://github.com/truecharts/apps/compare/deluge-10.0.6...deluge-10.0.7) (2022-03-26)
 
 #### Chore
 
@@ -422,17 +586,17 @@
 
 
 
-<a name="deepstack-3.0.4"></a>
-### [deepstack-3.0.4](https://github.com/truecharts/apps/compare/deepstack-3.0.3...deepstack-3.0.4) (2022-03-19)
+<a name="deluge-10.0.5"></a>
+### [deluge-10.0.5](https://github.com/truecharts/apps/compare/deluge-10.0.4...deluge-10.0.5) (2022-03-24)
 
-#### Chore
+#### Fix
 
-* update container image tccr.io/truecharts/deepstack-cpu to v2022.01.1 ([#2217](https://github.com/truecharts/apps/issues/2217))
+* small fixes ([#2274](https://github.com/truecharts/apps/issues/2274))
 
 
 
-<a name="deepstack-3.0.1"></a>
-### [deepstack-3.0.1](https://github.com/truecharts/apps/compare/deepstack-3.0.0...deepstack-3.0.1) (2022-03-07)
+<a name="deluge-10.0.1"></a>
+### [deluge-10.0.1](https://github.com/truecharts/apps/compare/deluge-10.0.0...deluge-10.0.1) (2022-03-07)
 
 #### Chore
 
@@ -441,14 +605,11 @@
 
 
 
-<a name="deepstack-3.0.0"></a>
-### [deepstack-3.0.0](https://github.com/truecharts/apps/compare/deepstack-2.0.8...deepstack-3.0.0) (2022-03-03)
+<a name="deluge-10.0.0"></a>
+### [deluge-10.0.0](https://github.com/truecharts/apps/compare/deluge-9.0.44...deluge-10.0.0) (2022-03-03)
 
 #### Chore
 
-* remove fixed env from questions.yaml
-* remove PUID from per-app env-vars if set to 568
-* remove some ugly whitespace
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -457,8 +618,8 @@
 
 
 
-<a name="deepstack-2.0.8"></a>
-### [deepstack-2.0.8](https://github.com/truecharts/apps/compare/deepstack-2.0.7...deepstack-2.0.8) (2022-03-02)
+<a name="deluge-9.0.44"></a>
+### [deluge-9.0.44](https://github.com/truecharts/apps/compare/deluge-9.0.43...deluge-9.0.44) (2022-03-02)
 
 #### Chore
 
@@ -467,8 +628,8 @@
 
 
 
-<a name="deepstack-2.0.7"></a>
-### [deepstack-2.0.7](https://github.com/truecharts/apps/compare/deepstack-2.0.6...deepstack-2.0.7) (2022-02-21)
+<a name="deluge-9.0.43"></a>
+### [deluge-9.0.43](https://github.com/truecharts/apps/compare/deluge-9.0.42...deluge-9.0.43) (2022-02-21)
 
 #### Chore
 
@@ -476,8 +637,8 @@
 
 
 
-<a name="deepstack-2.0.6"></a>
-### [deepstack-2.0.6](https://github.com/truecharts/apps/compare/deepstack-2.0.5...deepstack-2.0.6) (2022-02-15)
+<a name="deluge-9.0.42"></a>
+### [deluge-9.0.42](https://github.com/truecharts/apps/compare/deluge-9.0.41...deluge-9.0.42) (2022-02-15)
 
 #### Chore
 
@@ -485,8 +646,8 @@
 
 
 
-<a name="deepstack-2.0.5"></a>
-### [deepstack-2.0.5](https://github.com/truecharts/apps/compare/deepstack-2.0.4...deepstack-2.0.5) (2022-02-08)
+<a name="deluge-9.0.41"></a>
+### [deluge-9.0.41](https://github.com/truecharts/apps/compare/deluge-9.0.40...deluge-9.0.41) (2022-02-08)
 
 #### Chore
 
@@ -494,8 +655,8 @@
 
 
 
-<a name="deepstack-2.0.4"></a>
-### [deepstack-2.0.4](https://github.com/truecharts/apps/compare/deepstack-2.0.3...deepstack-2.0.4) (2022-02-06)
+<a name="deluge-9.0.40"></a>
+### [deluge-9.0.40](https://github.com/truecharts/apps/compare/deluge-9.0.39...deluge-9.0.40) (2022-02-06)
 
 #### Chore
 
@@ -503,8 +664,8 @@
 
 
 
-<a name="deepstack-2.0.3"></a>
-### [deepstack-2.0.3](https://github.com/truecharts/apps/compare/deepstack-2.0.2...deepstack-2.0.3) (2022-02-05)
+<a name="deluge-9.0.39"></a>
+### [deluge-9.0.39](https://github.com/truecharts/apps/compare/deluge-9.0.38...deluge-9.0.39) (2022-02-05)
 
 #### Chore
 
@@ -512,18 +673,26 @@
 
 
 
-<a name="deepstack-2.0.2"></a>
-### [deepstack-2.0.2](https://github.com/truecharts/apps/compare/deepstack-2.0.1...deepstack-2.0.2) (2022-02-02)
+<a name="deluge-9.0.38"></a>
+### [deluge-9.0.38](https://github.com/truecharts/apps/compare/deluge-9.0.37...deluge-9.0.38) (2022-02-02)
 
 #### Chore
 
-* use single quote instead of espace ([#1793](https://github.com/truecharts/apps/issues/1793))
 * update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
 
 
 
-<a name="deepstack-2.0.1"></a>
-### [deepstack-2.0.1](https://github.com/truecharts/apps/compare/deepstack-2.0.0...deepstack-2.0.1) (2022-01-25)
+<a name="deluge-9.0.37"></a>
+### [deluge-9.0.37](https://github.com/truecharts/apps/compare/deluge-9.0.36...deluge-9.0.37) (2022-01-31)
+
+#### Fix
+
+* rofs false ([#1821](https://github.com/truecharts/apps/issues/1821))
+
+
+
+<a name="deluge-9.0.36"></a>
+### [deluge-9.0.36](https://github.com/truecharts/apps/compare/deluge-9.0.35...deluge-9.0.36) (2022-01-25)
 
 #### Chore
 
@@ -531,17 +700,8 @@
 
 
 
-<a name="deepstack-2.0.0"></a>
-### [deepstack-2.0.0](https://github.com/truecharts/apps/compare/deepstack-1.0.7...deepstack-2.0.0) (2022-01-24)
-
-#### Feat
-
-* use configmap to clean up gui ([#1771](https://github.com/truecharts/apps/issues/1771))
-
-
-
-<a name="deepstack-1.0.7"></a>
-### [deepstack-1.0.7](https://github.com/truecharts/apps/compare/deepstack-1.0.6...deepstack-1.0.7) (2022-01-22)
+<a name="deluge-9.0.35"></a>
+### [deluge-9.0.35](https://github.com/truecharts/apps/compare/deluge-9.0.34...deluge-9.0.35) (2022-01-22)
 
 #### Chore
 
@@ -549,8 +709,8 @@
 
 
 
-<a name="deepstack-1.0.6"></a>
-### [deepstack-1.0.6](https://github.com/truecharts/apps/compare/deepstack-1.0.5...deepstack-1.0.6) (2022-01-21)
+<a name="deluge-9.0.34"></a>
+### [deluge-9.0.34](https://github.com/truecharts/apps/compare/deluge-9.0.33...deluge-9.0.34) (2022-01-21)
 
 #### Chore
 
@@ -562,8 +722,8 @@
 
 
 
-<a name="deepstack-1.0.5"></a>
-### [deepstack-1.0.5](https://github.com/truecharts/apps/compare/deepstack-1.0.4...deepstack-1.0.5) (2022-01-18)
+<a name="deluge-9.0.33"></a>
+### [deluge-9.0.33](https://github.com/truecharts/apps/compare/deluge-9.0.32...deluge-9.0.33) (2022-01-18)
 
 #### Chore
 
@@ -571,8 +731,8 @@
 
 
 
-<a name="deepstack-1.0.4"></a>
-### [deepstack-1.0.4](https://github.com/truecharts/apps/compare/deepstack-1.0.3...deepstack-1.0.4) (2022-01-13)
+<a name="deluge-9.0.32"></a>
+### [deluge-9.0.32](https://github.com/truecharts/apps/compare/deluge-9.0.31...deluge-9.0.32) (2022-01-13)
 
 #### Chore
 
@@ -584,8 +744,8 @@
 
 
 
-<a name="deepstack-1.0.3"></a>
-### [deepstack-1.0.3](https://github.com/truecharts/apps/compare/deepstack-1.0.2...deepstack-1.0.3) (2022-01-12)
+<a name="deluge-9.0.31"></a>
+### [deluge-9.0.31](https://github.com/truecharts/apps/compare/deluge-9.0.30...deluge-9.0.31) (2022-01-12)
 
 #### Chore
 
@@ -593,8 +753,8 @@
 
 
 
-<a name="deepstack-1.0.2"></a>
-### [deepstack-1.0.2](https://github.com/truecharts/apps/compare/deepstack-1.0.1...deepstack-1.0.2) (2022-01-11)
+<a name="deluge-9.0.30"></a>
+### [deluge-9.0.30](https://github.com/truecharts/apps/compare/deluge-9.0.29...deluge-9.0.30) (2022-01-11)
 
 #### Chore
 
@@ -602,8 +762,8 @@
 
 
 
-<a name="deepstack-1.0.1"></a>
-### [deepstack-1.0.1](https://github.com/truecharts/apps/compare/deepstack-1.0.0...deepstack-1.0.1) (2022-01-04)
+<a name="deluge-9.0.29"></a>
+### [deluge-9.0.29](https://github.com/truecharts/apps/compare/deluge-9.0.28...deluge-9.0.29) (2022-01-04)
 
 #### Chore
 
@@ -611,14 +771,508 @@
 
 
 
-<a name="deepstack-1.0.0"></a>
-### [deepstack-1.0.0](https://github.com/truecharts/apps/compare/deepstack-0.0.1...deepstack-1.0.0) (2021-12-29)
+<a name="deluge-9.0.28"></a>
+### [deluge-9.0.28](https://github.com/truecharts/apps/compare/deluge-9.0.27...deluge-9.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
 
 
 
-<a name="deepstack-0.0.1"></a>
-### [deepstack-0.0.1](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.9...deepstack-0.0.1) (2021-12-29)
+<a name="deluge-9.0.27"></a>
+### [deluge-9.0.27](https://github.com/truecharts/apps/compare/deluge-9.0.26...deluge-9.0.27) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="deluge-9.0.26"></a>
+### [deluge-9.0.26](https://github.com/truecharts/apps/compare/deluge-9.0.25...deluge-9.0.26) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
+<a name="deluge-9.0.25"></a>
+### [deluge-9.0.25](https://github.com/truecharts/apps/compare/deluge-9.0.24...deluge-9.0.25) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="deluge-9.0.24"></a>
+### [deluge-9.0.24](https://github.com/truecharts/apps/compare/deluge-9.0.23...deluge-9.0.24) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
+<a name="deluge-9.0.23"></a>
+### [deluge-9.0.23](https://github.com/truecharts/apps/compare/deluge-9.0.22...deluge-9.0.23) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
+<a name="deluge-9.0.22"></a>
+### [deluge-9.0.22](https://github.com/truecharts/apps/compare/deluge-9.0.21...deluge-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
+<a name="deluge-9.0.21"></a>
+### [deluge-9.0.21](https://github.com/truecharts/apps/compare/deluge-9.0.20...deluge-9.0.21) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
+<a name="deluge-9.0.20"></a>
+### [deluge-9.0.20](https://github.com/truecharts/apps/compare/deluge-9.0.19...deluge-9.0.20) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
+<a name="deluge-9.0.19"></a>
+### deluge-9.0.19 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
+<a name="deluge-9.0.18"></a>
+### [deluge-9.0.18](https://github.com/truecharts/apps/compare/deluge-9.0.17...deluge-9.0.18) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
+<a name="deluge-9.0.17"></a>
+### [deluge-9.0.17](https://github.com/truecharts/apps/compare/deluge-9.0.16...deluge-9.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
+<a name="deluge-9.0.16"></a>
+### [deluge-9.0.16](https://github.com/truecharts/apps/compare/deluge-9.0.15...deluge-9.0.16) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
+<a name="deluge-9.0.15"></a>
+### [deluge-9.0.15](https://github.com/truecharts/apps/compare/deluge-9.0.14...deluge-9.0.15) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="deluge-9.0.14"></a>
+### [deluge-9.0.14](https://github.com/truecharts/apps/compare/deluge-9.0.13...deluge-9.0.14) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update default ports docs ([#1412](https://github.com/truecharts/apps/issues/1412))
+
+
+
+<a name="deluge-9.0.13"></a>
+### [deluge-9.0.13](https://github.com/truecharts/apps/compare/deluge-9.0.12...deluge-9.0.13) (2021-11-23)
+
+#### Chore
+
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+
+
+
+<a name="deluge-9.0.12"></a>
+### [deluge-9.0.12](https://github.com/truecharts/apps/compare/deluge-9.0.11...deluge-9.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
+<a name="deluge-9.0.11"></a>
+### [deluge-9.0.11](https://github.com/truecharts/apps/compare/deluge-9.0.10...deluge-9.0.11) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
+<a name="deluge-9.0.10"></a>
+### [deluge-9.0.10](https://github.com/truecharts/apps/compare/deluge-9.0.9...deluge-9.0.10) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
+<a name="deluge-9.0.9"></a>
+### [deluge-9.0.9](https://github.com/truecharts/apps/compare/deluge-9.0.8...deluge-9.0.9) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
+<a name="deluge-9.0.8"></a>
+### [deluge-9.0.8](https://github.com/truecharts/apps/compare/deluge-9.0.7...deluge-9.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
+<a name="deluge-9.0.7"></a>
+### [deluge-9.0.7](https://github.com/truecharts/apps/compare/deluge-9.0.6...deluge-9.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
+<a name="deluge-9.0.6"></a>
+### [deluge-9.0.6](https://github.com/truecharts/apps/compare/deluge-9.0.5...deluge-9.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
+<a name="deluge-9.0.5"></a>
+### [deluge-9.0.5](https://github.com/truecharts/apps/compare/deluge-9.0.4...deluge-9.0.5) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
 
 #### Feat
 
-* create deepstack cpu+gpu app as multi-container PoC ([#1628](https://github.com/truecharts/apps/issues/1628))
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
+<a name="deluge-9.0.4"></a>
+### [deluge-9.0.4](https://github.com/truecharts/apps/compare/deluge-9.0.3...deluge-9.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
+<a name="deluge-9.0.3"></a>
+### [deluge-9.0.3](https://github.com/truecharts/apps/compare/deluge-9.0.2...deluge-9.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
+<a name="deluge-9.0.2"></a>
+### [deluge-9.0.2](https://github.com/truecharts/apps/compare/deluge-9.0.1...deluge-9.0.2) (2021-10-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
+
+
+
+<a name="deluge-9.0.1"></a>
+### [deluge-9.0.1](https://github.com/truecharts/apps/compare/deluge-9.0.0...deluge-9.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
+<a name="deluge-9.0.0"></a>
+### [deluge-9.0.0](https://github.com/truecharts/apps/compare/deluge-8.0.20...deluge-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
+<a name="deluge-8.0.20"></a>
+### [deluge-8.0.20](https://github.com/truecharts/apps/compare/deluge-8.0.19...deluge-8.0.20) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
+<a name="deluge-8.0.17"></a>
+### [deluge-8.0.17](https://github.com/truecharts/apps/compare/deluge-8.0.16...deluge-8.0.17) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
+<a name="deluge-8.0.16"></a>
+### [deluge-8.0.16](https://github.com/truecharts/apps/compare/deluge-8.0.15...deluge-8.0.16) (2021-10-19)
+
+#### Change
+
+* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
+
+#### Chore
+
+* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
+
+#### Feat
+
+* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
+
+#### Refactor
+
+* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
+
+
+
+<a name="deluge-8.0.15"></a>
+### [deluge-8.0.15](https://github.com/truecharts/apps/compare/deluge-8.0.14...deluge-8.0.15) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
+<a name="deluge-8.0.14"></a>
+### [deluge-8.0.14](https://github.com/truecharts/apps/compare/deluge-8.0.13...deluge-8.0.14) (2021-10-19)
+
+#### Fix
+
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+
+
+
+<a name="deluge-8.0.13"></a>
+### [deluge-8.0.13](https://github.com/truecharts/apps/compare/deluge-8.0.12...deluge-8.0.13) (2021-10-18)
+
+#### Refactor
+
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+
+
+
+<a name="deluge-8.0.12"></a>
+### [deluge-8.0.12](https://github.com/truecharts/apps/compare/deluge-8.0.11...deluge-8.0.12) (2021-10-17)
+
+#### Chore
+
+* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+
+#### Fix
+
+* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+
+
+
+<a name="deluge-8.0.11"></a>
+### [deluge-8.0.11](https://github.com/truecharts/apps/compare/deluge-8.0.10...deluge-8.0.11) (2021-10-13)
+
+#### Chore
+
+* update non-major deps helm releases ([#1133](https://github.com/truecharts/apps/issues/1133))
+
+
+
+<a name="deluge-8.0.10"></a>
+### [deluge-8.0.10](https://github.com/truecharts/apps/compare/deluge-8.0.9...deluge-8.0.10) (2021-10-13)
+
+#### Chore
+
+* update non-major docker tags ([#1134](https://github.com/truecharts/apps/issues/1134))
+
+
+
+<a name="deluge-8.0.9"></a>
+### [deluge-8.0.9](https://github.com/truecharts/apps/compare/deluge-8.0.8...deluge-8.0.9) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
+
+
+
+<a name="deluge-8.0.8"></a>
+### [deluge-8.0.8](https://github.com/truecharts/apps/compare/deluge-8.0.7...deluge-8.0.8) (2021-10-12)
+
+#### Chore
+
+* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
+
+
+
+<a name="deluge-8.0.7"></a>
+### [deluge-8.0.7](https://github.com/truecharts/apps/compare/deluge-8.0.6...deluge-8.0.7) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
+
+
+
+<a name="deluge-8.0.6"></a>
+### [deluge-8.0.6](https://github.com/truecharts/apps/compare/deluge-8.0.5...deluge-8.0.6) (2021-10-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
+
+
+
+<a name="deluge-8.0.5"></a>
+### [deluge-8.0.5](https://github.com/truecharts/apps/compare/deluge-8.0.4...deluge-8.0.5) (2021-10-05)
+
+#### Chore
+
+* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
+
+
+
+<a name="deluge-8.0.4"></a>
+### [deluge-8.0.4](https://github.com/truecharts/apps/compare/deluge-8.0.3...deluge-8.0.4) (2021-09-29)
+
+#### Chore
+
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
+
+
+
+<a name="deluge-8.0.2"></a>
+### [deluge-8.0.2](https://github.com/truecharts/apps/compare/deluge-8.0.1...deluge-8.0.2) (2021-09-28)
+
+#### Chore
+
+* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))
+
+
+
+<a name="deluge-8.0.1"></a>
+### [deluge-8.0.1](https://github.com/truecharts/apps/compare/deluge-8.0.0...deluge-8.0.1) (2021-09-26)
+
+
+
+<a name="deluge-8.0.0"></a>
+### [deluge-8.0.0](https://github.com/truecharts/apps/compare/deluge-7.0.2...deluge-8.0.0) (2021-09-26)
+
+
+
+<a name="deluge-7.0.2"></a>
+### [deluge-7.0.2](https://github.com/truecharts/apps/compare/deluge-7.0.1...deluge-7.0.2) (2021-09-21)
+
+#### Chore
+
+* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+
+
+
+<a name="deluge-7.0.1"></a>
+### [deluge-7.0.1](https://github.com/truecharts/apps/compare/deluge-6.11.15...deluge-7.0.1) (2021-09-13)
+
+#### Chore
+
+* move all LSIO containers to github registry ([#957](https://github.com/truecharts/apps/issues/957))
+* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
+
+#### Feat
+
+* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
+* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
+* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
+* Move some common containers to our own containers
+
+#### Fix
+
+* make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
+
+<a name="deluge-6.11.15"></a>
+## [deluge-6.11.15](https://github.com/truecharts/apps/compare/deluge-6.11.14...deluge-6.11.15) (2021-09-08)
+
+### Fix
+
+* repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))

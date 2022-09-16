@@ -7,9 +7,9 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.0
+    version: 10.5.10
 deprecated: false
-description: This Docker image will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console) as a Dynamic DNS (DDNS) Provider.
+description: This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console) as a Dynamic DNS (DDNS) Provider.
 home: https://truecharts.org/docs/charts/incubator/hetzner-ddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hetzner-ddns.png
 keywords:
@@ -26,4 +26,4 @@ sources:
   - https://github.com/kutzilla/docker-hetzner-ddns
   - https://hub.docker.com/r/kutzilla/hetzner-ddns
 type: application
-version: 0.0.19
+version: 0.0.24

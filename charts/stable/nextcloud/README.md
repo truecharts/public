@@ -1,6 +1,6 @@
 # nextcloud
 
-![Version: 15.3.1](https://img.shields.io/badge/Version-15.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 24.0.4](https://img.shields.io/badge/AppVersion-24.0.4-informational?style=flat-square)
+![Version: 15.3.15](https://img.shields.io/badge/Version-15.3.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 24.0.5](https://img.shields.io/badge/AppVersion-24.0.5-informational?style=flat-square)
 
 A private cloud server that puts the control and security of your own data back into your hands.
 
@@ -25,10 +25,10 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | collabora-online | 12.1.30 |
-| https://charts.truecharts.org/ | postgresql | 8.0.62 |
-| https://charts.truecharts.org | redis | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | collabora-online | 12.1.41 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://charts.truecharts.org | redis | 3.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -68,7 +68,7 @@ helm uninstall nextcloud
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

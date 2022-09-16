@@ -2,16 +2,165 @@
 
 
 
-## [plextraktsync-0.0.24](https://github.com/truecharts/charts/compare/plextraktsync-0.0.23...plextraktsync-0.0.24) (2022-08-29)
+## [plextraktsync-0.0.31](https://github.com/truecharts/charts/compare/plextraktsync-0.0.30...plextraktsync-0.0.31) (2022-09-16)
 
 ### Chore
 
-- update docker general non-major ([#3606](https://github.com/truecharts/charts/issues/3606))
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [plextraktsync-0.0.23](https://github.com/truecharts/charts/compare/plextraktsync-0.0.21...plextraktsync-0.0.23) (2022-08-26)
+## [plextraktsync-0.0.31](https://github.com/truecharts/charts/compare/plextraktsync-0.0.30...plextraktsync-0.0.31) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [plextraktsync-0.0.31](https://github.com/truecharts/charts/compare/plextraktsync-0.0.30...plextraktsync-0.0.31) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.30](https://github.com/truecharts/charts/compare/plextraktsync-0.0.29...plextraktsync-0.0.30) (2022-09-11)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [plextraktsync-0.0.29](https://github.com/truecharts/charts/compare/plextraktsync-0.0.28...plextraktsync-0.0.29) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
+## [plextraktsync-0.0.28](https://github.com/truecharts/charts/compare/plextraktsync-0.0.27...plextraktsync-0.0.28) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [plextraktsync-0.0.27](https://github.com/truecharts/charts/compare/plextraktsync-0.0.25...plextraktsync-0.0.27) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [plexripper-0.0.21](https://github.com/truecharts/charts/compare/plexripper-0.0.20...plexripper-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [plexripper-0.0.20](https://github.com/truecharts/charts/compare/plexripper-0.0.19...plexripper-0.0.20) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [plexripper-0.0.19](https://github.com/truecharts/charts/compare/plexripper-0.0.17...plexripper-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -20,7 +169,7 @@
 
 
 
-## [plextraktsync-0.0.21](https://github.com/truecharts/charts/compare/plextraktsync-0.0.20...plextraktsync-0.0.21) (2022-08-23)
+## [plexripper-0.0.17](https://github.com/truecharts/charts/compare/plexripper-0.0.16...plexripper-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -29,16 +178,7 @@
 
 
 
-## [plextraktsync-0.0.20](https://github.com/truecharts/charts/compare/plextraktsync-0.0.19...plextraktsync-0.0.20) (2022-08-14)
-
-### Chore
-
-- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
-
-
-
-
-## [plextraktsync-0.0.19](https://github.com/truecharts/charts/compare/plextraktsync-0.0.18...plextraktsync-0.0.19) (2022-08-12)
+## [plexripper-0.0.16](https://github.com/truecharts/charts/compare/plexripper-0.0.15...plexripper-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -52,25 +192,7 @@
 
 
 
-## [plextraktsync-0.0.18](https://github.com/truecharts/charts/compare/plextraktsync-0.0.17...plextraktsync-0.0.18) (2022-08-10)
-
-### Chore
-
-- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
-
-
-
-
-## [plextraktsync-0.0.17](https://github.com/truecharts/charts/compare/plextraktsync-0.0.16...plextraktsync-0.0.17) (2022-08-09)
-
-### Chore
-
-- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
-
-
-
-
-## [plextraktsync-0.0.16](https://github.com/truecharts/charts/compare/plextraktsync-0.0.15...plextraktsync-0.0.16) (2022-08-08)
+## [plexripper-0.0.15](https://github.com/truecharts/charts/compare/plexripper-0.0.14...plexripper-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -80,16 +202,7 @@
 
 
 
-## [plextraktsync-0.0.15](https://github.com/truecharts/apps/compare/plextraktsync-0.0.14...plextraktsync-0.0.15) (2022-07-27)
-
-### Chore
-
-- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
-
-
-
-
-## [plextraktsync-0.0.14](https://github.com/truecharts/apps/compare/plextraktsync-0.0.13...plextraktsync-0.0.14) (2022-07-26)
+## [plexripper-0.0.14](https://github.com/truecharts/apps/compare/plexripper-0.0.13...plexripper-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -99,7 +212,7 @@
 
 
 
-## [plextraktsync-0.0.13](https://github.com/truecharts/apps/compare/plextraktsync-0.0.12...plextraktsync-0.0.13) (2022-07-25)
+## [plexripper-0.0.13](https://github.com/truecharts/apps/compare/plexripper-0.0.12...plexripper-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -112,7 +225,7 @@
 
 
 
-## [plextraktsync-0.0.12](https://github.com/truecharts/apps/compare/plextraktsync-0.0.11...plextraktsync-0.0.12) (2022-07-23)
+## [plexripper-0.0.12](https://github.com/truecharts/apps/compare/plexripper-0.0.11...plexripper-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -123,7 +236,7 @@
 
 
 
-## [plextraktsync-0.0.12](https://github.com/truecharts/apps/compare/plextraktsync-0.0.11...plextraktsync-0.0.12) (2022-07-23)
+## [plexripper-0.0.12](https://github.com/truecharts/apps/compare/plexripper-0.0.11...plexripper-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -133,7 +246,7 @@
 
 
 
-## [plextraktsync-0.0.12](https://github.com/truecharts/apps/compare/plextraktsync-0.0.11...plextraktsync-0.0.12) (2022-07-23)
+## [plexripper-0.0.12](https://github.com/truecharts/apps/compare/plexripper-0.0.11...plexripper-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -142,7 +255,7 @@
 
 
 
-## [plextraktsync-0.0.11]plextraktsync-0.0.11 (2022-07-22)
+## [plexripper-0.0.11]plexripper-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -154,7 +267,7 @@
 
 
 
-## [plextraktsync-0.0.10]plextraktsync-0.0.10 (2022-07-22)
+## [plexripper-0.0.10]plexripper-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -164,7 +277,7 @@
 
 
 
-## [plextraktsync-0.0.10]plextraktsync-0.0.10 (2022-07-22)
+## [plexripper-0.0.10]plexripper-0.0.10 (2022-07-22)
 
 ### Chore
 

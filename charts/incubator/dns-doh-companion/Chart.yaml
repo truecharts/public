@@ -7,9 +7,9 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.0
+    version: 10.5.10
 deprecated: false
-description: "A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH docker, without Pihole.\r\n"
+description: "A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole."
 home: https://truecharts.org/docs/charts/incubator/dns-doh-companion
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dns-doh-companion.png
 keywords:
@@ -26,4 +26,4 @@ sources:
   - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
   - https://hub.docker.com/r/testdasi/simple-dns-doh/
 type: application
-version: 0.0.19
+version: 0.0.24

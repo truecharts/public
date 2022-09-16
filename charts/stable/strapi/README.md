@@ -1,6 +1,6 @@
 # strapi
 
-![Version: 4.0.30](https://img.shields.io/badge/Version-4.0.30-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
+![Version: 4.0.37](https://img.shields.io/badge/Version-4.0.37-informational?style=flat-square) ![AppVersion: 3.6.8](https://img.shields.io/badge/AppVersion-3.6.8-informational?style=flat-square)
 
 Strapi is the leading open-source headless CMS. JavaScript, fully customizable and developer-first.
 
@@ -26,8 +26,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.62 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | postgresql | 8.0.78 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -67,7 +67,7 @@ helm uninstall strapi
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

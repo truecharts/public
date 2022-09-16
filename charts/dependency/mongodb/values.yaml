@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: 5.0.10@sha256:0629317721b4d71e5eef1179903a6f81b520b801fe91e641afb9a39fb2fb56bd
+  tag: 6.0.1@sha256:4f96fe4cf2e04c73131dfe730cd6f029b315d92f132e0a74814196f05c0f3459
 
 controller:
   # -- Set the controller type.
@@ -61,7 +61,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -78,7 +78,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
   # -- Startup probe configuration
   # @default -- See below
@@ -94,7 +94,7 @@ probes:
         command:
           - /bin/bash
           - -ec
-          - echo "db.runCommand(\"ping\")" | mongo --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"

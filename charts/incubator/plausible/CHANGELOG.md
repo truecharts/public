@@ -2,6 +2,156 @@
 
 
 
+## [plausible-1.0.20](https://github.com/truecharts/charts/compare/plausible-1.0.19...plausible-1.0.20) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [plausible-1.0.20](https://github.com/truecharts/charts/compare/plausible-1.0.19...plausible-1.0.20) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [plausible-1.0.20](https://github.com/truecharts/charts/compare/plausible-1.0.19...plausible-1.0.20) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [plausible-1.0.19](https://github.com/truecharts/charts/compare/plausible-1.0.18...plausible-1.0.19) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.18](https://github.com/truecharts/charts/compare/plausible-1.0.17...plausible-1.0.18) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [plausible-1.0.17](https://github.com/truecharts/charts/compare/plausible-1.0.15...plausible-1.0.17) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [plausible-1.0.16](https://github.com/truecharts/charts/compare/plausible-1.0.15...plausible-1.0.16) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [plausible-1.0.15](https://github.com/truecharts/charts/compare/plausible-1.0.14...plausible-1.0.15) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+
+
+
+
+## [plausible-1.0.14](https://github.com/truecharts/charts/compare/plausible-1.0.12...plausible-1.0.14) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [plausible-1.0.12](https://github.com/truecharts/charts/compare/plausible-1.0.10...plausible-1.0.12) (2022-08-26)
 
 ### Fix

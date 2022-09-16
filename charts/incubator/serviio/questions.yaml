@@ -21,7 +21,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -49,7 +50,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: hostport2
                       label: "hostport2 Service Port Configuration"
                       schema:
@@ -77,7 +79,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: hostport3
                       label: "hostport3 Service Port Configuration"
                       schema:
@@ -105,7 +108,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: hostport5
                       label: "hostport5 Service Port Configuration"
                       schema:
@@ -133,7 +137,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: hostport6
                       label: "hostport6 Service Port Configuration"
                       schema:

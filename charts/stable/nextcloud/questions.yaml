@@ -42,7 +42,7 @@ questions:
       type: dict
       attrs:
         - variable: TRUSTED_PROXIES
-          label: "Trusted Proxies (First Install Only - Advanced)"
+          label: "Trusted Proxies (Advanced)"
           description: "Sets nextcloud Trusted Proxies"
           schema:
             type: string
@@ -240,7 +240,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

@@ -1,0 +1,34 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/recyclarr
+  tag: 2.4.1@sha256:f5ba2ca89835221e6a1a9bf08540da2f8b93c5f540a011b20d0824b1d3811860
+
+podSecurityContext:
+  runAsGroup: 568
+  runAsUser: 568
+
+env:
+  CRON_SCHEDULE: "@daily"
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: false

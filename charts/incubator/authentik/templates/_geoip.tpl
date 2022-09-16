@@ -1,11 +1,11 @@
 {{/* Define the geoip container */}}
 {{- define "authentik.geoip" -}}
 image: {{ .Values.geoipImage.repository }}:{{ .Values.geoipImage.tag }}
-imagePullPolicy: '{{ .Values.geoipImage.pullPolicy }}'
+imagePullPolicy: {{ .Values.geoipImage.pullPolicy }}
 securityContext:
   runAsUser: 0
   runAsGroup: 0
-  readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 volumeMounts:
   - name: geoip

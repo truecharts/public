@@ -82,13 +82,13 @@ questions:
           description: "Enter your game parameters separated with ? and start with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)"
           schema:
             type: string
-            default: ""
+            default: "?RCONPort=27020?RCONEnabled=True"
         - variable: GAME_PARAMS_EXTRA
           label: "GAME_PARAMS_EXTRA"
           description: "Values to start the server"
           schema:
             type: string
-            default: "-server -log"
+            default: "-server -log -crossplay"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -98,7 +98,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -126,7 +127,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: udp2
                       label: "udp2 Service Port Configuration"
                       schema:
@@ -154,7 +156,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: udpsteam
                       label: "udpsteam Service Port Configuration"
                       schema:
@@ -182,7 +185,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: rcontcp
                       label: "rcontcp Service Port Configuration"
                       schema:

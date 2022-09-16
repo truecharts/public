@@ -1,6 +1,6 @@
 # pretend-youre-xyzzy
 
-![Version: 6.0.28](https://img.shields.io/badge/Version-6.0.28-informational?style=flat-square) ![AppVersion: 4](https://img.shields.io/badge/AppVersion-4-informational?style=flat-square)
+![Version: 6.0.33](https://img.shields.io/badge/Version-6.0.33-informational?style=flat-square) ![AppVersion: 4](https://img.shields.io/badge/AppVersion-4-informational?style=flat-square)
 
 pretend-youre-xyzzy, a cards against humanity clone
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -65,7 +65,7 @@ helm uninstall pretend-youre-xyzzy
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

@@ -13,11 +13,19 @@ ldapImage:
   tag: 2022.8.2@sha256:53c681184a447add074fda306acd58e69e48a6189dc5046de27769f1dceac835
   pullPolicy: IfNotPresent
 
-extraArgs: ["server"]
+proxyImage:
+  repository: tccr.io/truecharts/authentik-proxy
+  tag: 2022.8.2@sha256:ecc83a3c15e3c093e6c8002f534b16769e2e1e953cd508071c7920a4d8bd7c3d
+  pullPolicy: IfNotPresent
+
+args: ["server"]
 
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
+
+securityContext:
+  readOnlyRootFilesystem: false
 
 workerContainer:
   enabled: true
@@ -25,7 +33,6 @@ workerContainer:
 authentik:
   credentials:
     password: "supersecret"
-    token: "supersecretapitoken"
   general:
     disable_update_check: false
     disable_startup_analytics: true
@@ -57,9 +64,6 @@ authentik:
     tls_ciphers: "null"
   metrics:
     enabled: true
-    # LDAP Outpost listens on 9300. To avoid conflicts
-    # This sets internal Authentik metrics port to 9301
-    internalPort: 9301
 
 geoip:
   enabled: false
@@ -75,43 +79,51 @@ geoip:
 
 outposts:
   ldap:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
-    insecure: false
-    host: ""
-    token: "test"
-    metrics: true
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+    metrics: false
+  proxy:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+    metrics: false
 
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
 
 probes:
   liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /lifecycle/ak
-          - healthcheck
+    type: HTTP
+    path: /-/health/live/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /lifecycle/ak
-          - healthcheck
+    type: HTTP
+    path: /-/health/ready/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /lifecycle/ak
-          - healthcheck
+    type: HTTP
+    path: /-/health/ready/
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
 
 service:
   main:
@@ -136,22 +148,66 @@ service:
         protocol: HTTP
         port: 10231
         targetPort: 9301
-  ldap:
+  ldapldaps:
     enabled: true
+    type: ClusterIP
     ports:
-      ldap1:
-        enabled: true
-        port: 389
-        targetPort: 3389
-      ldap2:
+      ldapldaps:
         enabled: true
         port: 636
         targetPort: 6636
-      ldap-metrics:
+  ldapldap:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapldap:
+        enabled: true
+        port: 389
+        targetPort: 3389
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
         enabled: true
         port: 10232
         protocol: HTTP
-        targetPort: 9300
+        targetPort: 9302
+  proxyhttps:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttps:
+        enabled: true
+        port: 10233
+        protocol: HTTPS
+        targetPort: 9444
+  proxyhttp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttp:
+        enabled: true
+        port: 10234
+        protocl: HTTP
+        targetPort: 9001
+  proxymetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxymetrics:
+        enabled: true
+        port: 10235
+        protocol: HTTP
+        targetPort: 9303
+
+ingress:
+  http:
+    autoLink: true
+  proxyhttps:
+    autoLink: true
+  proxyhttp:
+    autoLink: true
 
 persistence:
   media:

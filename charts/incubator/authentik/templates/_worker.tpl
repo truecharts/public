@@ -1,12 +1,12 @@
 {{/* Define the worker container */}}
 {{- define "authentik.worker" -}}
 image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 args: ["worker"]
 envFrom:
   - secretRef:
@@ -28,8 +28,8 @@ readinessProbe:
       - /lifecycle/ak
       - healthcheck
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   exec:
@@ -37,8 +37,8 @@ livenessProbe:
       - /lifecycle/ak
       - healthcheck
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
   exec:
@@ -46,7 +46,7 @@ startupProbe:
       - /lifecycle/ak
       - healthcheck
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}

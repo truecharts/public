@@ -1,6 +1,6 @@
 # calibre
 
-![Version: 7.0.36](https://img.shields.io/badge/Version-7.0.36-informational?style=flat-square) ![AppVersion: 6.3.0](https://img.shields.io/badge/AppVersion-6.3.0-informational?style=flat-square)
+![Version: 7.0.42](https://img.shields.io/badge/Version-7.0.42-informational?style=flat-square) ![AppVersion: 6.4.0](https://img.shields.io/badge/AppVersion-6.4.0-informational?style=flat-square)
 
 Calibre is a powerful and easy to use e-book manager.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -65,7 +65,7 @@ helm uninstall calibre
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

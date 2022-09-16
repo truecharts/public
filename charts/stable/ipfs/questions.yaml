@@ -48,7 +48,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -76,7 +77,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: peer-tcp
                       label: "Peer-TCP Service Port Configuration"
                       schema:
@@ -104,7 +106,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: peer-udp
                       label: "Peer-UDP Service Port Configuration"
                       schema:
@@ -132,7 +135,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
                     - variable: gateway
                       label: "Gateway Service Port Configuration"
                       schema:

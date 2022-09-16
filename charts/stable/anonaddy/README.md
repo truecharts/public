@@ -1,6 +1,6 @@
 # anonaddy
 
-![Version: 9.0.38](https://img.shields.io/badge/Version-9.0.38-informational?style=flat-square) ![AppVersion: 0.13.5](https://img.shields.io/badge/AppVersion-0.13.5-informational?style=flat-square)
+![Version: 9.0.47](https://img.shields.io/badge/Version-9.0.47-informational?style=flat-square) ![AppVersion: 0.13.7](https://img.shields.io/badge/AppVersion-0.13.7-informational?style=flat-square)
 
 Protect your email from spam using disposable addresses.
 
@@ -24,9 +24,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.58 |
-| https://charts.truecharts.org | redis | 3.0.58 |
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://charts.truecharts.org/ | mariadb | 3.0.73 |
+| https://charts.truecharts.org | redis | 3.0.75 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -66,7 +66,7 @@ helm uninstall anonaddy
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

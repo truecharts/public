@@ -2,6 +2,231 @@
 
 
 
+## [virt-manager-0.0.54](https://github.com/truecharts/charts/compare/virt-manager-0.0.52...virt-manager-0.0.54) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [virt-manager-0.0.54](https://github.com/truecharts/charts/compare/virt-manager-0.0.52...virt-manager-0.0.54) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [virt-manager-0.0.53](https://github.com/truecharts/charts/compare/virt-manager-0.0.52...virt-manager-0.0.53) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [virt-manager-0.0.52](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.52) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.52](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.52) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.52](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.52) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.51](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.51) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.51](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.51) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.51](https://github.com/truecharts/charts/compare/virt-manager-0.0.50...virt-manager-0.0.51) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [virt-manager-0.0.50](https://github.com/truecharts/charts/compare/virt-manager-0.0.49...virt-manager-0.0.50) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
+## [virt-manager-0.0.49](https://github.com/truecharts/charts/compare/virt-manager-0.0.48...virt-manager-0.0.49) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [virt-manager-0.0.49](https://github.com/truecharts/charts/compare/virt-manager-0.0.48...virt-manager-0.0.49) (2022-09-06)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [virt-manager-0.0.48](https://github.com/truecharts/charts/compare/virt-manager-0.0.47...virt-manager-0.0.48) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
+## [virt-manager-0.0.47](https://github.com/truecharts/charts/compare/virt-manager-0.0.46...virt-manager-0.0.47) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
+## [virt-manager-0.0.46](https://github.com/truecharts/charts/compare/virt-manager-0.0.45...virt-manager-0.0.46) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
+## [virt-manager-0.0.45](https://github.com/truecharts/charts/compare/virt-manager-0.0.44...virt-manager-0.0.45) (2022-09-01)
+
+### Chore
+
+- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
+
+
+
+
+## [virt-manager-0.0.44](https://github.com/truecharts/charts/compare/virt-manager-0.0.43...virt-manager-0.0.44) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [virt-manager-0.0.43](https://github.com/truecharts/charts/compare/virt-manager-0.0.41...virt-manager-0.0.43) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [virt-manager-0.0.42](https://github.com/truecharts/charts/compare/virt-manager-0.0.41...virt-manager-0.0.42) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [virt-manager-0.0.41](https://github.com/truecharts/charts/compare/virt-manager-0.0.40...virt-manager-0.0.41) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [virt-manager-0.0.40](https://github.com/truecharts/charts/compare/virt-manager-0.0.39...virt-manager-0.0.40) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
 ## [virt-manager-0.0.39](https://github.com/truecharts/charts/compare/virt-manager-0.0.38...virt-manager-0.0.39) (2022-08-29)
 
 ### Chore

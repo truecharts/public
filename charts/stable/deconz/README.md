@@ -1,6 +1,6 @@
 # deconz
 
-![Version: 8.0.30](https://img.shields.io/badge/Version-8.0.30-informational?style=flat-square) ![AppVersion: 2.18.00](https://img.shields.io/badge/AppVersion-2.18.00-informational?style=flat-square)
+![Version: 8.0.35](https://img.shields.io/badge/Version-8.0.35-informational?style=flat-square) ![AppVersion: 2.18.01](https://img.shields.io/badge/AppVersion-2.18.01-informational?style=flat-square)
 
 deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
 
@@ -25,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.0 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -65,7 +65,7 @@ helm uninstall deconz
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

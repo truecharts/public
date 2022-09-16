@@ -1,0 +1,12 @@
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secrets for wger */}}
+{{- include "wger.secrets" . }}
+
+{{/* Render configmap for wger */}}
+{{- include "wger.configmap" . }}
+
+{{- $_ := set .Values.additionalContainers "nginx" (include "wger.nginx" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
