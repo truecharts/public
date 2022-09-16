@@ -75,30 +75,41 @@ restreamer:
     ffmpeg_access_output_block: []
     ffmpeg_log_max_lines: 50
     ffmpeg_log_max_history: 3
+  playout:
+    playout_enable: false
+    playout_min_port: 0
+    playout_max_port: 0
   logs:
     log_level: info
     log_topics: []
     log_max_lines: 1000
+  debug:
+    debug_profiling: false
+    debug_force_gc: 0
 
 env:
- #TODO: structure for cofngimap
-  CORE_PLAYOUT_ENABLE: false
-  CORE_METRICS_ENABLE: false
-  CORE_METRICS_ENABLE_PROMETHEUS: false
-  CORE_METRICS_RANGE_SECONDS: 300
-  CORE_METRICS_INTERVAL_SECONDS: 2
-  CORE_SESSIONS_ENABLE: false
-  CORE_SESSIONS_IP_IGNORELIST: []
-  CORE_SESSIONS_SESSION_TIMEOUT_SEC: 30
-  CORE_SESSIONS_PERSIST: false
-  CORE_SESSIONS_MAXBITRATE_MBIT: 0
-  CORE_SESSIONS_MAXSESSIONS: 0
-  CORE_ROUTER_BLOCKED_PREFIXES: /api
-  CORE_ROUTER_ROUTES: ""
-  CORE_FFMPEG_LOG_MAXLINES: 50
-  CORE_FFMPEG_LOG_MAXHISTORY: 3
-  CORE_DEBUG_PROFILING: false
-  CORE_DEBUG_FORCEGC: 0
+# Enable collecting historic metrics data.
+CORE_METRICS_ENABLE: false
+# Enable prometheus endpoint /metrics.
+CORE_METRICS_ENABLE_PROMETHEUS: false
+# Seconds to keep history metric data.
+CORE_METRICS_RANGE_SECONDS: 300
+# Interval for collecting metrics.
+CORE_METRICS_INTERVAL_SECONDS: 2
+# Enable HLS statistics for /memfs.
+CORE_SESSIONS_ENABLE: false
+# Comma separated list of IP ranges in CIDR notation, e.g. 127.0.0.1/32,::1/128.
+CORE_SESSIONS_IP_IGNORELIST: (not set)
+# Timeout of a session in seconds.
+CORE_SESSIONS_SESSION_TIMEOUT_SEC: 30
+# Whether to persist the session history. Will be stored in CORE_DB_DIR.: CORE_SESSIONS_MAXBITRATE_MBIT: 0Max. allowed outgoing bitrate in mbit/s, 0 for unlimited.
+CORE_SESSIONS_PERSIST: false
+# Max. allowed number of simultaneous sessions, 0 for unlimited.
+CORE_SESSIONS_MAXSESSIONS: 0
+# List of path prefixes that can't be routed.
+CORE_ROUTER_BLOCKED_PREFIXES: /api
+# List of route mappings of the form [from]:[to], e.g. /foo:/bar. Leave empty for no routings.
+CORE_ROUTER_ROUTES: (not set)
 
 # TODO: healthcheck
 

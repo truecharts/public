@@ -9,8 +9,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+  labels:  {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Paths */}}
   CORE_DB_DIR: /core/config
@@ -42,7 +41,7 @@ data:
   {{- with .Values.restreamer.logs.log_topics }}
   CORE_LOG_TOPICS: {{ join "," . }}
   {{- end }}
-  {{- if or .Values.restreamer.logs.log_max_lines (eq (int .Values.restreamer.logs.log_max_lines) 0)   }}
+  {{- if or .Values.restreamer.logs.log_max_lines (eq (int .Values.restreamer.logs.log_max_lines) 0) }}
   CORE_LOG_MAXLINES: {{ .Values.restreamer.logs.log_max_lines | quote }}
   {{- end }}
   {{/* API */}}
@@ -66,17 +65,17 @@ data:
   CORE_API_AUTH_AUTH0_TENANTS: {{ join "," . }}
   {{- end }}
   {{/* Storage Disk */}}
-  {{- if or .Values.restreamer.storage_disk.disk_max_size_mb (eq (int .Values.restreamer.storage_disk.disk_max_size_mb) 0)   }}
+  {{- if or .Values.restreamer.storage_disk.disk_max_size_mb (eq (int .Values.restreamer.storage_disk.disk_max_size_mb) 0) }}
   CORE_STORAGE_DISK_MAXSIZEMBYTES: {{ .Values.restreamer.storage_disk.disk_max_size_mb | quote }}
   {{- end }}
   CORE_STORAGE_DISK_CACHE_ENABLE: {{ .Values.restreamer.storage_disk.cache_enable | quote }}
-  {{- if or .Values.restreamer.storage_disk.cache_max_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_size_mb) 0)   }}
+  {{- if or .Values.restreamer.storage_disk.cache_max_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_size_mb) 0) }}
   CORE_STORAGE_DISK_CACHE_MAXSIZEMBYTES: {{ .Values.restreamer.storage_disk.cache_max_size_mb | quote }}
   {{- end }}
-  {{- if or .Values.restreamer.storage_disk.cache_ttl (eq (int .Values.restreamer.storage_disk.cache_ttl) 0)   }}
+  {{- if or .Values.restreamer.storage_disk.cache_ttl (eq (int .Values.restreamer.storage_disk.cache_ttl) 0) }}
   CORE_STORAGE_DISK_CACHE_TTLSECONDS: {{ .Values.restreamer.storage_disk.cache_ttl | quote }}
   {{- end }}
-  {{- if or .Values.restreamer.storage_disk.cache_max_file_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_file_size_mb) 0)   }}
+  {{- if or .Values.restreamer.storage_disk.cache_max_file_size_mb (eq (int .Values.restreamer.storage_disk.cache_max_file_size_mb) 0) }}
   CORE_STORAGE_DISK_CACHE_MAXFILESIZEMBYTES: {{ .Values.restreamer.storage_disk.cache_max_file_size_mb | quote }}
   {{- end }}
   {{- with .Values.restreamer.storage_disk.cache_types }}
@@ -84,7 +83,7 @@ data:
   {{- end }}
   {{/* Storage Mem */}}
   CORE_STORAGE_MEMORY_AUTH_ENABLE: {{ .Values.restreamer.storage_mem.storage_mem_auth_enable | quote }}
-  {{- if or .Values.restreamer.storage_mem.storage_mem_max_size_mb (eq (int .Values.restreamer.storage_mem.storage_mem_max_size_mb) 0)   }}
+  {{- if or .Values.restreamer.storage_mem.storage_mem_max_size_mb (eq (int .Values.restreamer.storage_mem.storage_mem_max_size_mb) 0) }}
   CORE_STORAGE_MEMORY_MAXSIZEMBYTES: {{ .Values.restreamer.storage_mem.storage_mem_max_size_mb | quote }}
   {{- end }}
   CORE_STORAGE_MEMORY_PURGE: {{ .Values.restreamer.storage_mem.storage_mem_purge | quote }}
@@ -98,7 +97,7 @@ data:
   {{- with .Values.restreamer.ffmpeg.ffmpeg_binary }}
   CORE_FFMPEG_BINARY: {{ . }}
   {{- end }}
-  {{- if or .Values.restreamer.ffmpeg.ffmpeg_max_processes (eq (int .Values.restreamer.ffmpeg.ffmpeg_max_processes) 0)   }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_max_processes (eq (int .Values.restreamer.ffmpeg.ffmpeg_max_processes) 0) }}
   CORE_FFMPEG_MAXPROCESSES: {{ .Values.restreamer.ffmpeg.ffmpeg_max_processes | quote }}
   {{- end }}
   {{- with .Values.restreamer.ffmpeg.ffmpeg_access_input_allow }}
@@ -113,11 +112,23 @@ data:
   {{- with .Values.restreamer.ffmpeg.ffmpeg_access_output_block }}
   CORE_FFMPEG_ACCESS_OUTPUT_BLOCK: {{ . }}
   {{- end }}
-  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_lines (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_lines) 0)   }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_lines (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_lines) 0) }}
   CORE_FFMPEG_LOG_MAXLINES: {{ .Values.restreamer.ffmpeg.ffmpeg_log_max_lines | quote }}
   {{- end }}
-  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_history (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_history) 0)   }}
+  {{- if or .Values.restreamer.ffmpeg.ffmpeg_log_max_history (eq (int .Values.restreamer.ffmpeg.ffmpeg_log_max_history) 0) }}
   CORE_FFMPEG_LOG_MAXHISTORY: {{ .Values.restreamer.ffmpeg.ffmpeg_log_max_history | quote }}
   {{- end }}
-
-{{- end }}
+  {{/* Playout */}}
+  CORE_PLAYOUT_ENABLE: {{ .Values.restreamer.playout.playout_enable | quote }}
+  {{- if or .Values.restreamer.playout.playout_min_port (eq (int .Values.restreamer.playout.playout_min_port) 0) }}
+  CORE_PLAYOUT_MINPORT: {{ .Values.restreamer.playout.playout_min_port | quote }}
+  {{- end }}
+  {{- if or .Values.restreamer.playout.playout_max_port (eq (int .Values.restreamer.playout.playout_max_port) 0) }}
+  CORE_PLAYOUT_MAXPORT: {{ .Values.restreamer.playout.playout_max_port | quote }}
+  {{- end }}
+  {{/* Debug */}}
+  CORE_DEBUG_PROFILING: {{ .Values.restreamer.debug.debug_profiling | quote }}
+  {{- if or .Values.restreamer.debug.debug_force_gc (eq (int .Values.restreamer.debug.debug_force_gc) 0) }}
+  CORE_DEBUG_FORCEGC: {{ .Values.restreamer.debug.debug_force_gc | quote }}
+  {{- end }}
+  {{- end }}

@@ -393,6 +393,30 @@ questions:
                 schema:
                   type: int
                   default: 3
+        - variable: playout
+          label: Playout
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: playout_enable
+                label: Playout Enable
+                description: Enable playout API where available
+                schema:
+                  type: boolean
+                  default: false
+              - variable: playout_min_port
+                label: Playout Min Port
+                description: Min. port a playout server per input can run on.
+                schema:
+                  type: int
+                  default: 0
+              - variable: playout_max_port
+                label: Playout Max Port
+                description: Max. port a playout server per input can run on.
+                schema:
+                  type: int
+                  default: 0
         - variable: logs
           label: Logs
           schema:
@@ -433,6 +457,24 @@ questions:
                 schema:
                   type: int
                   default: 10000
+        - variable: debug
+          label: Debug
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: debug_profiling
+                label: Debug Profiling
+                description: Set to true to enable profiling endpoint on /profiling.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: debug_force_gc
+                label: Debug Force GC
+                description: Number of seconds between forcing GC to return memory to the OS.
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
