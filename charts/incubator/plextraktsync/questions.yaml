@@ -28,7 +28,12 @@ questions:
           description: How often to run the task
           schema:
             type: cron
-            default: ""
+            default:
+              minute: "0"
+              hour: "*/6"
+              dom: "*"
+              month: "*"
+              dow: "*"
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
