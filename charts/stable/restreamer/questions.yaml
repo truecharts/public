@@ -505,6 +505,87 @@ questions:
                 schema:
                   type: int
                   default: 2
+        - variable: sessions
+          label: Sessions
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: sessions_enable
+                label: Sessions Enable
+                description: Enable HLS statistics for /memfs.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: sessions_ip_ignore_list
+                label: Session IP Ignore List
+                description: List of IP ranges in CIDR notation
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ignoreIP
+                      label: Ignore IP
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: sessions_timeout_sec
+                label: Session Timeout Seconds
+                description: Timeout of a session in seconds.
+                schema:
+                  type: int
+                  default: 30
+              - variable: sessions_persist
+                label: Sessions Persist
+                description: Whether to persist the session history
+                schema:
+                  type: boolean
+                  default: false
+              - variable: sessions_max_bitrate
+                label: Session Max Bitrate
+                description: Max. allowed outgoing bitrate in mbit/s. (0 for unlimited.)
+                schema:
+                  type: int
+                  default: 0
+              - variable: sessions_max_sessions
+                label: Max Session
+                description: Max. allowed number of simultaneous sessions. (0 for unlimited.)
+                schema:
+                  type: int
+                  default: 0
+        - variable: router
+          label: Router
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: router_blocked_prefixes
+                label: Blocked Prefixes
+                description: List of path prefixes that can't be routed.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: blockedPrefix
+                      label: Blocked Prefix
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: router_routes
+                label: Routes
+                description: "List of route mappings of the form [from]:[to], e.g."
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: route
+                      label: Route
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

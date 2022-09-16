@@ -91,23 +91,16 @@ restreamer:
     metrics_prometheus_enable: false
     metrics_range_seconds: 300
     metrics_interval_seconds: 2
-
-
-env:
-# Enable HLS statistics for /memfs.
-CORE_SESSIONS_ENABLE: false
-# Comma separated list of IP ranges in CIDR notation, e.g. 127.0.0.1/32,::1/128.
-CORE_SESSIONS_IP_IGNORELIST: (not set)
-# Timeout of a session in seconds.
-CORE_SESSIONS_SESSION_TIMEOUT_SEC: 30
-# Whether to persist the session history. Will be stored in CORE_DB_DIR.: CORE_SESSIONS_MAXBITRATE_MBIT: 0Max. allowed outgoing bitrate in mbit/s, 0 for unlimited.
-CORE_SESSIONS_PERSIST: false
-# Max. allowed number of simultaneous sessions, 0 for unlimited.
-CORE_SESSIONS_MAXSESSIONS: 0
-# List of path prefixes that can't be routed.
-CORE_ROUTER_BLOCKED_PREFIXES: /api
-# List of route mappings of the form [from]:[to], e.g. /foo:/bar. Leave empty for no routings.
-CORE_ROUTER_ROUTES: (not set)
+  sessions:
+    sessions_enable: false
+    sessions_ip_ignore_list: []
+    sessions_timeout_sec: 30
+    sessions_persist: false
+    sessions_max_bitrate: 0
+    sessions_max_sessions: 0
+  router:
+    router_blocked_prefixes: []
+    router_routes: []
 
 # TODO: healthcheck
 

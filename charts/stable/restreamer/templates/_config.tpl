@@ -140,4 +140,28 @@ data:
   {{- if or .Values.restreamer.metrics.metrics_interval_seconds (eq (int .Values.restreamer.metrics.metrics_interval_seconds) 0) }}
   CORE_METRICS_INTERVAL_SECONDS: {{ .Values.restreamer.metrics.metrics_interval_seconds | quote }}
   {{- end }}
+  {{/* Sessions */}}
+  CORE_SESSIONS_ENABLE: {{ .Values.restreamer.sessions.sessions_enable | quote }}
+  {{- with .Values.restreamer.sessions.sessions_ip_ignore_list }}
+  CORE_SESSIONS_IP_IGNORELIST: {{ join "," . }}
   {{- end }}
+  {{- if or .Values.restreamer.sessions.sessions_timeout_sec (eq (int .Values.restreamer.sessions.sessions_timeout_sec) 0) }}
+  CORE_SESSIONS_SESSION_TIMEOUT_SEC: {{ .Values.restreamer.sessions.sessions_timeout_sec | quote }}
+  {{- end }}
+  CORE_SESSIONS_PERSIST: {{ .Values.restreamer.sessions.sessions_persist | quote }}
+  {{- if or .Values.restreamer.sessions.sessions_max_bitrate (eq (int .Values.restreamer.sessions.sessions_max_bitrate) 0) }}
+  CORE_SESSIONS_MAXBITRATE_MBIT: {{ .Values.restreamer.sessions.sessions_max_bitrate | quote }}
+  {{- end }}
+  {{- if or .Values.restreamer.sessions.sessions_max_sessions (eq (int .Values.restreamer.sessions.sessions_max_sessions) 0) }}
+  CORE_SESSIONS_MAXSESSIONS: {{ .Values.restreamer.sessions.sessions_max_sessions | quote }}
+  {{- end }}
+  {{/* Router */}}
+  {{- with .Values.restreamer.router.router_blocked_prefixes }}
+  CORE_ROUTER_BLOCKED_PREFIXES: {{ join "," . }}
+  {{- else }}
+  CORE_ROUTER_BLOCKED_PREFIXES: "/api"
+  {{- end }}
+  {{- with .Values.restreamer.router.router_routes }}
+  CORE_ROUTER_ROUTES: {{ join " " . }}
+  {{- end }}
+{{- end -}}
