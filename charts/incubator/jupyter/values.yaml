@@ -40,7 +40,7 @@ podSecurityContext:
   runAsGroup: 0
 
 jupyter:
-  chown_home: true
+  chown_home: false
   jupyter_cmd: lab
   restartable: true
 

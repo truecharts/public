@@ -61,14 +61,14 @@ questions:
           label: Restartable
           description: Choose whether restarting Jupyter will kill the container or not
           schema:
-            type: string
-            default: yes
+            type: boolean
+            default: true
         - variable: chown_home
           label: chown Home
           description: chown the home directory based on the values of PUID and fsGroup
           schema:
-            type: string
-            default: yes
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
