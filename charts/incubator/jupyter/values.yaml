@@ -40,7 +40,6 @@ podSecurityContext:
   runAsGroup: 0
 
 jupyter:
-  chown_home: false
   jupyter_cmd: lab
   restartable: true
 
@@ -49,7 +48,6 @@ env:
   NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   NB_UMASK: "{{ .Values.security.UMASK }}"
   # User Defined
-  CHOWN_HOME: '{{ ternary "yes" "no" .Values.jupyter.chown_home }}'
   DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
   RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'
 

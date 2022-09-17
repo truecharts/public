@@ -63,12 +63,6 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: chown_home
-          label: chown Home
-          description: chown the home directory based on the values of PUID and fsGroup
-          schema:
-            type: boolean
-            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
