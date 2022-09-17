@@ -55,6 +55,18 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: scrapeInterval
+                label: "Scrape interval"
+                description: "Interval between consecutive scrapes"
+                schema:
+                  type: string
+                  default: "15s"
+              - variable: evaluationInterval
+                label: "Evaluation interval"
+                description: "Interval between consecutive evaluations"
+                schema:
+                  type: string
+                  default: "30s"
               - variable: disableCompaction
                 label: "Disable Compaction"
                 description: "Disable the compaction of the Prometheus TSDB"
@@ -66,7 +78,7 @@ questions:
                 description: "Enable compression of the write-ahead log using Snappy"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
