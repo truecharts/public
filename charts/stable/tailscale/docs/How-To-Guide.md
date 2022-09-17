@@ -27,38 +27,67 @@ Also prepare your Tailscale Auth Key for your setup, easy to generate on the pag
 
 ## Tailscale Chart Setup
 
-Step 1-2: Ideally use `tailscale` but you can use any name here and leave defaults for Step 2
+### Application name
 
-Step 3:
+Ideally use `tailscale` but you can use any name here.
 
-- Enter `Auth Key` you received from tailscale in prerequisites above
-- Keep `Userspace` checked (default) unless you wish to create your own Wireguard tunnels,
-- The default for `Accept DNS` is unchecked but enabling it will pass your Global Nameservers from Tailscale to your local install
-- Change `Routes` to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example
+### Controller
+
+Leave defaults here.
+
+### Container Configuration
+
+- `Auth Key`: The key you received from tailscale in prerequisites above
+- `Userspace`: Keep checked (default) unless you wish to create your own tunnels.
+- `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
+- `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
-
-  Common flags/arguments:
-
-  - `--advertise-exit-node`
-    This is used to pass traffic through tailscale like a private VPN.
-  - `--hostname=<name>`
-    You can specify a specific hostname for use inside Tailscale (see image below).
+- `Hostname` You can specify a specific hostname for use inside Tailscale (see image below). (Passes `--hostname HOSTNAME` to `Extra args`)
+- `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `Extra args`)
 
 For more Extra Args and their usage please check the [Tailscale Knowledge Base](https://tailscale.com/kb/1080/cli/#up)
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
 
+TODO: Update image with the new fields
 ![tailscale-step-3](img/How-To-Image-2.png)
 
-Hostname example
+**Hostname example**
+
 ![hostname-example](img/Hostname.png)
 
-Step 4:
+### Networking and Services
 
-- The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router. However many people will want to access their SMB shares or TrueNAS GUI via Tailscale. In order to do so you will have to ensure the screen is setup as below.
+The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
+
+:::caution
+
+In case you want to access their SMB shares or TrueNAS GUI via Tailscale.
+You will have to ensure that `Host Networking` is enabled and `Userspace` is disabled.
+
+:::
 
 ![tailscale-step-4](img/How-To-Image-3.png)
 
-Steps 5-9: Adjust as necessary but defaults are fine.
+### Storage and Persistence
+
+Highly recommended to leave it as `PVC (Simple)`
+
+### Ingress
+
+Shouldn't need to enable this.
+
+### Security and Permissions
+
+Should be left as is, unless you know what you are doing!
+
+### Resources and Devices
+
+You can set custom resources for CPU/RAM, but defaults should be work fine in most cases
+Defaults are 4 vCores and 8G RAM.
+
+### Addons
+
+Shouldn't need to enable any.
 
 ## Support
 

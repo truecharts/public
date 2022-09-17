@@ -1,0 +1,23 @@
+image:
+  repository: tccr.io/truecharts/pasta
+  pullPolicy: IfNotPresent
+  tag: v1.6.2@sha256:bf58e696b81dc381508e54d8dbdd237314225e443b8e67db7400d5a0db07b5a5
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10302
+        protocol: HTTP
+        targetPort: 80
+
+portal:
+  enabled: true

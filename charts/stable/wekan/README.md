@@ -1,6 +1,6 @@
 # wekan
 
-![Version: 5.0.6](https://img.shields.io/badge/Version-5.0.6-informational?style=flat-square) ![AppVersion: 6.42](https://img.shields.io/badge/AppVersion-6.42-informational?style=flat-square)
+![Version: 5.0.11](https://img.shields.io/badge/Version-5.0.11-informational?style=flat-square) ![AppVersion: 6.46](https://img.shields.io/badge/AppVersion-6.46-informational?style=flat-square)
 
 WeKan - Open Source kanban
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | mongodb | 2.0.5 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org | mongodb | 2.0.13 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -66,7 +66,7 @@ helm uninstall wekan
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

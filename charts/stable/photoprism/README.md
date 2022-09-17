@@ -1,6 +1,6 @@
 # photoprism
 
-![Version: 10.0.41](https://img.shields.io/badge/Version-10.0.41-informational?style=flat-square) ![AppVersion: 220901](https://img.shields.io/badge/AppVersion-220901-informational?style=flat-square)
+![Version: 10.0.44](https://img.shields.io/badge/Version-10.0.44-informational?style=flat-square) ![AppVersion: 220901](https://img.shields.io/badge/AppVersion-220901-informational?style=flat-square)
 
 PhotoPrismÂ® is a server-based application for browsing, organizing and sharing your personal photo collection
 
@@ -25,8 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | mariadb | 3.0.66 |
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://charts.truecharts.org/ | mariadb | 3.0.73 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -66,7 +66,7 @@ helm uninstall photoprism
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

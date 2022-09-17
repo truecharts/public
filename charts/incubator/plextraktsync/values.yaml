@@ -1,12 +1,23 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plextraktsync
-  tag: latest@sha256:bf4dc36125d8abc956390fcf9c9892b9011bc5fcee5d1f3eb57c877a496f6d79
-persistence: {}
+  tag: latest@sha256:d76e19db77e87d4eea07c90baf43f5c37e9f4f41987aca1fa96bd52554beb7c7
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+tty: true
+stdin: true
+
+plexTraktSync:
+  task: ""
+  schedule: "0 */6 * * *"
+
 probes:
   liveness:
     enabled: false
@@ -14,9 +25,7 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     enabled: false
@@ -24,5 +33,15 @@ service:
       main:
         enabled: false
 
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+
 portal:
   enabled: false
+
+cronjob:
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2

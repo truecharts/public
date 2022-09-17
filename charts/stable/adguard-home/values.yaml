@@ -1,0 +1,104 @@
+image:
+  repository: tccr.io/truecharts/adguard-home
+  tag: 0.107.13@sha256:0cc6c26020c2ea7c205fa77d48994f6ab008f6f6b88dd10894dd7fd842cfc14b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10232
+        protocol: HTTP
+        targetPort: 3000
+  dns-tcp:
+    enabled: true
+    ports:
+      dns-tcp:
+        enabled: true
+        port: 53
+        targetPort: 53
+  dns-udp:
+    enabled: true
+    ports:
+      dns-udp:
+        enabled: true
+        protocol: UDP
+        port: 53
+        targetPort: 53
+  dns-http:
+    enabled: true
+    ports:
+      dns-http:
+        enabled: true
+        protocol: HTTP
+        port: 10233
+        targetPort: 80
+  dns-https:
+    enabled: true
+    ports:
+      dns-https:
+        enabled: true
+        protocol: HTTPS
+        port: 10234
+        targetPort: 443
+  dns-https-udp:
+    enabled: true
+    ports:
+      dns-https-udp:
+        enabled: true
+        protocol: UDP
+        port: 10234
+        targetPort: 443
+  dns-crypt:
+    enabled: true
+    ports:
+      dns-crypt:
+        enabled: true
+        protocol: HTTP
+        port: 5443
+        targetPort: 5443
+  dns-crypt-udp:
+    enabled: true
+    ports:
+      dns-crypt-udp:
+        enabled: true
+        protocol: UDP
+        port: 5443
+        targetPort: 5443
+  dns-quic-udp-1:
+    enabled: true
+    ports:
+      dns-quic-udp-1:
+        enabled: true
+        protocol: UDP
+        port: 784
+        targetPort: 784
+      dns-quic-udp-2:
+        enabled: true
+        protocol: UDP
+        port: 853
+        targetPort: 853
+      dns-quic-udp-3:
+        enabled: true
+        protocol: UDP
+        port: 8853
+        targetPort: 8853
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/opt/adguardhome/conf"
+  data:
+    enabled: true
+    mountPath: "/opt/adguardhome/work"
+
+portal:
+  enabled: true

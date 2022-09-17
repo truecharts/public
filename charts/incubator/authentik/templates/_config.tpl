@@ -1,16 +1,26 @@
 {{/* Define the configmap */}}
 {{- define "authentik.config" -}}
 
-{{- $authentikConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $authServerWorkerConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
+{{- $authServerConfigName := printf "%s-authentik-server-config" (include "tc.common.names.fullname" .) }}
 {{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
 {{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
+{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
+{{ $host := printf "https://localhost:%v" .Values.service.main.ports.main.targetPort }}
+{{- if .Values.ingress.main.enabled }}
+  {{ $first := (first .Values.ingress.main.hosts) }}
+  {{- if $first }}
+    {{ $host = printf "https://%s" $first.host }}
+  {{- end }}
+{{- end }}
 
 ---
+
 {{/* This configmap are loaded on both main authentik container and worker */}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $authentikConfigName }}
+  name: {{ $authServerWorkerConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
@@ -59,9 +69,26 @@ data:
   {{- with .Values.authentik.ldap.tls_ciphers }}
   AUTHENTIK_LDAP__TLS__CIPHERS: {{ . | quote }}
   {{- end }}
-  {{/* Metrics */}}
-  AUTHENTIK_LISTEN__METRICS: {{ .Values.authentik.metrics.internalPort | quote }}
+  {{/* Outposts */}}
+  AUTHENTIK_OUTPOSTS__DISCOVER: {{ "false" | quote }}
+
 ---
+
+{{/* This configmap are loaded on both main authentik container and worker */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $authServerConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  {{/* Listen */}}
+  AUTHENTIK_LISTEN__HTTPS: 0.0.0.0:{{ .Values.service.main.ports.main.targetPort | default 9443 }}
+  AUTHENTIK_LISTEN__HTTP: 0.0.0.0:{{ .Values.service.http.ports.http.targetPort | default 9000 }}
+  AUTHENTIK_LISTEN__METRICS: 0.0.0.0:{{ .Values.service.metrics.ports.metrics.targetPort | default 9301 }}
+
+---
+
 {{/* This configmap is loaded on ldap container */}}
 apiVersion: v1
 kind: ConfigMap
@@ -70,11 +97,32 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | quote }}
-  {{- with .Values.outposts.ldap.host }}
-  AUTHENTIK_HOST: {{ . }}
-  {{- end }}
+  AUTHENTIK_INSECURE: {{ .Values.outposts.ldap.insecure | default "true" | quote }}
+  AUTHENTIK_HOST: {{ .Values.outposts.ldap.host | default (printf "https://localhost:%v" .Values.service.main.ports.main.targetPort) }}
+  AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.ldap.host_browser | default $host }}
+  AUTHENTIK_LISTEN__LDAPS: 0.0.0.0:{{ .Values.service.ldapldaps.ports.ldapldaps.targetPort | default 6636 }}
+  AUTHENTIK_LISTEN__LDAP: 0.0.0.0:{{ .Values.service.ldapldap.ports.ldapldap.targetPort | default 3389 }}
+  AUTHENTIK_LISTEN__METRICS: 0.0.0.0:{{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort | default 9302 }}
+
 ---
+
+{{/* This configmap is loaded on ldap container */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $proxyConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  AUTHENTIK_INSECURE: {{ .Values.outposts.proxy.insecure | default "true" | quote }}
+  AUTHENTIK_HOST: {{ .Values.outposts.proxy.host | default (printf "https://localhost:%v" .Values.service.main.ports.main.targetPort) }}
+  AUTHENTIK_HOST_BROWSER: {{ .Values.outposts.proxy.host_browser | default $host }}
+  AUTHENTIK_LISTEN__HTTPS: 0.0.0.0:{{ .Values.service.proxyhttps.ports.proxyhttps.targetPort | default 9444 }}
+  AUTHENTIK_LISTEN__HTTP: 0.0.0.0:{{ .Values.service.proxyhttp.ports.proxyhttp.targetPort | default 9001 }}
+  AUTHENTIK_LISTEN__METRICS: 0.0.0.0:{{ .Values.service.proxymetrics.ports.proxymetrics.targetPort | default 9303 }}
+
+---
+
 {{/* This configmap is loaded on geoip container */}}
 apiVersion: v1
 kind: ConfigMap
@@ -90,6 +138,6 @@ data:
   {{- with .Values.geoip.host_server }}
   GEOIPUPDATE_HOST: {{ . }}
   {{- end }}
-  GEOIPUPDATE_PRESERVE_FILE_TIMES: '{{ ternary "1" "0" .Values.geoip.preserve_file_times }}'
-  GEOIPUPDATE_VERBOSE: '{{ ternary "1" "0" .Values.geoip.verbose }}'
-{{- end }}
+  GEOIPUPDATE_PRESERVE_FILE_TIMES: {{ ternary "1" "0" .Values.geoip.preserve_file_times | quote }}
+  GEOIPUPDATE_VERBOSE: {{ ternary "1" "0" .Values.geoip.verbose | quote }}
+{{- end -}}

@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/chronos
+  pullPolicy: IfNotPresent
+  tag: v0.2@sha256:f8dd4381e007a4fa1846c0bfa1691c7bd4f77720b79d3513ab293ecbcc5d1e36
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10305
+        protocol: HTTP
+        targetPort: 5000
+
+persistence:
+  chronos:
+    enabled: true
+    mountPath: /chronos
+
+portal:
+  enabled: true

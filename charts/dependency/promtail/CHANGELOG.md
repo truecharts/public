@@ -2,6 +2,42 @@
 
 
 
+## [promtail-3.0.51](https://github.com/truecharts/charts/compare/promtail-3.0.50...promtail-3.0.51) (2022-09-13)
+
+### Chore
+
+- update helm chart common to v10.5.10
+
+
+
+
+## [promtail-3.0.50](https://github.com/truecharts/charts/compare/promtail-3.0.49...promtail-3.0.50) (2022-09-11)
+
+### Chore
+
+- update helm chart common to v10.5.9
+
+
+
+
+## [promtail-3.0.49](https://github.com/truecharts/charts/compare/promtail-3.0.48...promtail-3.0.49) (2022-09-10)
+
+### Chore
+
+- update helm chart common to v10.5.8 ([#3729](https://github.com/truecharts/charts/issues/3729))
+
+
+
+
+## [promtail-3.0.48](https://github.com/truecharts/charts/compare/promtail-3.0.47...promtail-3.0.48) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
 ## [promtail-3.0.47](https://github.com/truecharts/charts/compare/promtail-3.0.45...promtail-3.0.47) (2022-08-30)
 
 ### Chore

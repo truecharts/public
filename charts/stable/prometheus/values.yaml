@@ -1,18 +1,18 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.58.0@sha256:031a4cee9771fbb8bb20673001f65cba6807291f9886c179c458b267f584d35f
+  tag: 0.59.1@sha256:936eb3be99227dc84188a777a0b7b6fef7b85f86433de3894fc487baae032fe6
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.38.0@sha256:333684f6ef1b83234dc285c115d27d8c5bcfe3b867969d53999e8439c0ba88a1
+  tag: 2.38.0@sha256:3cc509538bba9e7d57e58c3cfb2053a84015da65473dd0a8fa89080dc4efb25c
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: 0.28.0@sha256:ebd288d48d9239ba9cd10a8843c7592a7ba3c9ed812231b5f699b9f905ce432f
+  tag: 0.28.0@sha256:c7e16f0acd431eaeaff18d2f6a258cfc52dd7101adc9abaa6c32c7bbf7600b25
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:e32bd395d5377187038c41c567bf23a4679148f1addbd1bb774ac94321d42181
+  tag: v0.24.0@sha256:08db913cd0bd94e315ef5037685767d1090dd023a83de3cdba65881f59dbac2b
 
 global:
   labels: {}
@@ -176,7 +176,7 @@ rbac:
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -1150,8 +1150,17 @@ node-exporter:
     enabled: true
     jobLabel: jobLabel
   extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+)($|/)"
+    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
     collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+    path.rootfs: /host
+  extraVolumes:
+    - name: host
+      hostPath:
+        path: /
+  extraVolumeMounts:
+    - name: host
+      mountPath: /host
+      readOnly: true
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:

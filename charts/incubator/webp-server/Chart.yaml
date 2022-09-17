@@ -12,9 +12,9 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.6
+    version: 10.5.10
 deprecated: false
-description: "DESCRIPTION\r\n"
+description: "This is a Server based on Golang, which allows you to serve WebP images on the fly. It will convert jpg,jpeg,png files by default, this can be customized by editing the config.json."
 home: https://truecharts.org/docs/charts/incubator/webp-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webp-server.png
 keywords:
@@ -36,4 +36,4 @@ sources:
   - https://github.com/webp-sh/webp_server_go
   - https://hub.docker.com/r/webpsh/webps
 type: application
-version: 0.0.26
+version: 0.0.29

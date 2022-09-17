@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: 2.8.3@sha256:2ec0dfeaf0c51577627b4e7e64a8b1a45c54e7745b5f7d92c2d17e9b6ef2f96b
+  tag: 2.8.5@sha256:886113b038caea4d31bf1f5c0e96fd883c700f509a9d918754c7f32000b90201
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -313,7 +313,7 @@ rbac:
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 # -- SCALE Middleware Handlers
 middlewares:

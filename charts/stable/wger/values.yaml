@@ -5,7 +5,7 @@ image:
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:1620254cd011e2b81361f1f4682fd6cceadf13b07f8e37f322b60407d6d5a766
+  tag: v1.23.1@sha256:751dcda748469474cf4f0c8f404671d6d0e6b39f26d92196aa9312d9633b5f7b
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -64,10 +64,9 @@ persistence:
     type: emptyDir
     mountPath: "/home/wger/static"
   wger-config:
-    enabled: "true"
+    enabled: true
     noMount: true
-    readOnly: true
-    type: "custom"
+    type: custom
     mountPath: "/etc/nginx/conf.d"
     volumeSpec:
       configMap:

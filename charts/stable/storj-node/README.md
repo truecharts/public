@@ -1,6 +1,6 @@
 # storj-node
 
-![Version: 2.0.46](https://img.shields.io/badge/Version-2.0.46-informational?style=flat-square) ![AppVersion: 1.63.1](https://img.shields.io/badge/AppVersion-1.63.1-informational?style=flat-square)
+![Version: 2.0.48](https://img.shields.io/badge/Version-2.0.48-informational?style=flat-square) ![AppVersion: 1.63.1](https://img.shields.io/badge/AppVersion-1.63.1-informational?style=flat-square)
 
 Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.6 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 
@@ -66,7 +66,7 @@ helm uninstall storj-node
 
 #### Available Settings
 
-Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+Read through the values.yaml file. It has several commented out suggested values.
 Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
 
 #### Configure using the command line

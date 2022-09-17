@@ -20,7 +20,7 @@ podSecurityContext:
 
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 rbac:
   main:
@@ -50,13 +50,15 @@ envFrom:
 
 tailscale:
   authkey: "supersecret"
-  userspace: true
+  userspace: false
   accept_dns: false
   routes: ""
   dest_ip: ""
   sock5_server: ""
   extra_args: ""
   daemon_extra_args: ""
+  hostname: ""
+  advertise_as_exit_node: false
 
 probes:
   liveness:
@@ -66,12 +68,14 @@ probes:
   startup:
     enabled: false
 
+hostNetwork: true
+
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: UDP
-        port: 41700
+        enabled: false
 
 persistence:
   varrun:

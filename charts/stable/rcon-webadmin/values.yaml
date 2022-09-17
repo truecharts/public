@@ -1,0 +1,69 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rcon-webadmin
+  tag: latest@sha256:1a43f3e778887d61fbdc037c0ead3ffc71fbaf7eb4537ef8b73236772cb2fb8c
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  RWA_USERNAME: admin
+  RWA_PASSWORD: pass
+  RWA_RCON_PASSWORD: pass
+
+rcon:
+  rwa_admin: true
+  rwa_env: false
+  rwa_web_rcon: false
+  rwa_read_only_widget_options: false
+  rwa_game: minecraft
+  rwa_server_name: minecraft
+  rwa_rcon_host: ""
+  rwa_rcon_port: 25575
+  rwa_restrict_commands:
+    - command1
+    - command2
+  rwa_restrict_widgets:
+    - widget1
+    - widget2
+
+env:
+  RWA_ADMIN: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_admin }}'
+  RWA_ENV: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_env }}'
+  RWA_WEB_RCON: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_web_rcon }}'
+  RWA_READ_ONLY_WIDGET_OPTIONS: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_read_only_widget_options }}'
+  RWA_GAME: "{{ .Values.rcon.rwa_game }}"
+  RWA_SERVER_NAME: "{{ .Values.rcon.rwa_server_name }}"
+  RWA_RCON_HOST: "{{ .Values.rcon.rwa_rcon_host }}"
+  RWA_RCON_PORT: "{{ .Values.rcon.rwa_rcon_port }}"
+  RWA_RESTRICT_COMMANDS: '{{ join "," .Values.rcon.rwa_restrict_commands }}'
+  RWA_RESTRICT_WIDGETS: '{{ join "," .Values.rcon.rwa_restrict_widgets }}'
+
+service:
+  main:
+    ports:
+      main:
+        port: 4326
+        protocol: HTTP
+        targetPort: 4326
+  websocketaccess:
+    enabled: true
+    ports:
+      websocketaccess:
+        enabled: true
+        port: 4327
+        protocol: TCP
+        targetPort: 4327
+
+persistence:
+  db:
+    enabled: true
+    mountPath: /opt/rcon-web-admin/db
+
+portal:
+  enabled: true

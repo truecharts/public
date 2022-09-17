@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/simply-shorten
+  tag: v1.1@sha256:40e1ae029e52ef3429ec022e2eeac27639fb102fdaea6802f28cd0d628dc74df
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  password: user
+  username: pass
+
+env:
+  db_url: "/config/db/urls.sqlite"
+
+service:
+  main:
+    ports:
+      main:
+        port: 4567
+        protocol: HTTP
+        targetPort: 4567
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config/db"
+
+portal:
+  enabled: true
