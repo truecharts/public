@@ -2,7 +2,7 @@ image:
   pullPolicy: IfNotPresent
   repository: jupyter/base-notebook
   tag: latest
-imageMiniaml:
+imageMinimal:
   pullPolicy: IfNotPresent
   repository: jupyter/minimal-notebook
   tag: latest
@@ -40,21 +40,21 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  NB_UID: "568"
-  NB_GID: "568"
+  NB_UID: "{{ .Values.security.PUID }} "
+  NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
     ports:
       main:
         port: 10300
-        protocol: TCP
+        protocol: HTTP
         targetPort: 8888
 
 persistence:
   data:
     enabled: true
     mountPath: /home/jovyan/work
-    
+
 portal:
   enabled: true
