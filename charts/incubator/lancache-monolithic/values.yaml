@@ -26,7 +26,7 @@ service:
       main:
         port: 10279
         targetPort: 80
-
+        protocol: HTTP
   https:
     enabled: true
     ports:
@@ -34,6 +34,7 @@ service:
         enabled: true
         port: 10280
         targetPort: 443
+        protocol: HTTPS
 
 persistence:
   config:
