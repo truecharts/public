@@ -24,7 +24,7 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10279
         targetPort: 80
 
   https:
@@ -32,7 +32,7 @@ service:
     ports:
       https:
         enabled: true
-        port: 443
+        port: 10280
         targetPort: 443
 
 persistence:
