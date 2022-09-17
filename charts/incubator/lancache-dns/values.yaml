@@ -1,7 +1,7 @@
 image:
-  repository: lancachenet/lancache-dns
-  tag: latest
+  repository: tccr.io/truecharts/lancache-dns
   pullPolicy: IfNotPresent
+  tag: latest@sha256:0d04cbb893f0b1da8154e2d0a9911b5e9c71f6b2dbb2e66d62e8763b4fe2a17f
 
 env:
   CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"

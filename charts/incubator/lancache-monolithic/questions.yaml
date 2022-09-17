@@ -77,11 +77,11 @@ questions:
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: "Port (Change to 80 if you want to use Lancache)"
+                            description: "This port exposes the container port on the service (Change to 80 if you want to use Lancache)"
                             schema:
                               type: int
-                              default: 80
+                              default: 10279
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -106,13 +106,13 @@ questions:
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: "Port (Change to 443 if you want to use Lancache)"
+                            description: "This port exposes the container port on the service (Change to 443 if you want to use Lancache)"
                             schema:
                               type: int
-                              default: 443
+                              default: 10280
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortHTTPs}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
