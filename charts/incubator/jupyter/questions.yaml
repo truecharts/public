@@ -87,7 +87,7 @@ questions:
                               type: int
                               default: 10300
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
