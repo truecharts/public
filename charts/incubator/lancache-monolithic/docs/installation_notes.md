@@ -1,10 +1,10 @@
-## Installation Notes
+# Installation Notes
 
-Clients like Steam, Battlenet, etc sends requests to port 80/443. 
-In case you don't want to use traefik infront of this app, you need to change the ports.
+Clients like Steam, Battlenet, etc sends requests to port 80/443.
+In case you don't want to use traefik in front of this app, you need to change the ports.
 
-- `Service` -> `Main` -> `Port`: **80** 
-- `Service` -> `https` -> `Port`: **443** 
+- `Service` -> `Main` -> `Port`: **80**
+- `Service` -> `https` -> `Port`: **443**
 
 :::danger
 
