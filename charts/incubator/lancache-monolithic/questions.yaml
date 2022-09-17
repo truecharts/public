@@ -77,8 +77,8 @@ questions:
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port (Change to 80 if you want to use Lancache)"
-                            description: "This port exposes the container port on the service (Change to 80 if you want to use Lancache)"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 10279
@@ -106,8 +106,8 @@ questions:
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port (Change to 443 if you want to use Lancache)"
-                            description: "This port exposes the container port on the service (Change to 443 if you want to use Lancache)"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 10280

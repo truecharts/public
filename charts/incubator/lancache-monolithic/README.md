@@ -11,6 +11,12 @@ For more information, please click here: [lancache-monolithic](https://truechart
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
+## Important
+
+**⚠️ Port 10279 needs to be changed to 80**
+
+**⚠️ Port 10280 needs to be changed to 443**
+
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/lancache-monolithic>
