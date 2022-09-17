@@ -32,9 +32,6 @@ blockyConfig: {}
 #     - 1.1.1.1
 
 env:
-  # Besides personal configuration, We also mount a configMap with some basic configs like redis, prometheus, paths for while/blacklists
-  # For this reason we instead use directory source for configs, if additional files (`configPath`, `whitelistPath` or `blacklistPath`) are defined
-
   BLOCKY_CONFIG_FILE: "/app/config/"
 
 blocky:
@@ -87,14 +84,6 @@ service:
         port: 53
         protocol: UDP
         targetPort: 53
-  metrics:
-    enabled: true
-    ports:
-      metrics:
-        enabled: true
-        port: 4000
-        protocol: HTTP
-        targetPort: 4000
   k8sgateway:
     enabled: true
     ports:
@@ -103,6 +92,14 @@ service:
         port: 5353
         protocol: UDP
         targetPort: 5353
+  metrics:
+    enabled: true
+    ports:
+      metrics:
+        enabled: true
+        port: 4000
+        protocol: HTTP
+        targetPort: 4000
 
 # -- set the default DNS upstream servers
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
@@ -128,8 +125,8 @@ defaultUpstreams:
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 upstreams:
   #  - name: group2
-  #     dnsservers:
-  #       - 1.1.1.1
+  #    dnsservers:
+  #      - 1.1.1.1
 
 # -- set conditional settings
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
@@ -146,7 +143,7 @@ conditional:
 blocking:
   # -- Sets the blocktype
   blockType: nxDomain
-  # -- sets the block ttl
+  # -- Sets the block ttl
   blockTTL: 6h
   # -- Sets the block refreshPeriod
   refreshPeriod: 4h
@@ -213,9 +210,6 @@ k8sgateway:
       - name: tls_servername
         value: cloudflare-dns.com
 
-portal:
-  enabled: true
-
 serviceAccount:
   main:
     # -- Specifies whether a service account should be created
@@ -246,6 +240,9 @@ rbac:
         verbs:
           - list
           - watch
+
+portal:
+  enabled: true
 
 redis:
   enabled: true

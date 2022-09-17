@@ -2,10 +2,10 @@
 image: {{ .Values.WebUIImage.repository }}:{{ .Values.WebUIImage.tag }}
 imagePullPolicy: {{ .Values.WebUIImage.pullPolicy }}
 securityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  runAsUser: 568
+  runAsGroup: 568
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
 ports:
   - containerPort: {{ .Values.service.main.ports.main.targetPort }}
     name: main

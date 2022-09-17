@@ -31,27 +31,407 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: configPath
-          label: Config File Host Path
-          description: Path to your config file on your host
+  - variable: overrideDefaults
+    label: Override Default Upstreams
+    description: Overrides the predefined DNS server upstream list
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: defaultUpstreams
+          label: Default Upstreams
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: upstreamEntry
+                label: Upstream Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+  - variable: upstreams
+    group: Container Configuration
+    label: Upstreams Groups
+    description:
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: upstreamsGroupEntry
+          label: Upstreams Group Entry
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Group Name
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: upstreams
+                label: Upstreams
+                schema:
+                  type: list
+                  required: true
+                  default: []
+                  items:
+                    - variable: upstreamEntry
+                      label: upstream Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+  - variable: conditional
+    group: Container Configuration
+    label: Conditional
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: rewrite
+          label: Rewrite
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rewriteEntry
+                label: Rewrite Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: in
+                      label: In
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: out
+                      label: Out
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: mapping
+          label: Mapping
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: mappingEntry
+                label: Mapping Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: dnsserver
+                      label: DNS Server
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+  - variable: blocking
+    group: Container Configuration
+    label: Blocking
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: blockType
+          label: Block Type
+          description: Set the response should be sent to the client, if a requested query is blocked
           schema:
             type: string
-            valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-            default: ""
-        - variable: whitelistPath
-          label: Whitelist File Host Path
-          description: Path to your whitelist file on your host
+            default: nxDomain
+        - variable: blockTTL
+          label: Block TTL
+          description: Set the TTL for answers to blocked domains
           schema:
             type: string
-            valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-            default: ""
-        - variable: blacklistPath
-          label: Blacklist File Host Path
-          description: Path to your blacklist file on your host
+            default: 6h
+        - variable: refreshPeriod
+          label: Refresh Period
+          description: Set how often blocky should refresh list cache
           schema:
             type: string
-            valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-            default: ""
+            default: 4h
+        - variable: downloadTimeout
+          label: Download Timeout
+          description: Download attempt timeout
+          schema:
+            type: string
+            default: 60s
+        - variable: downloadAttempts
+          label: Download Attempts
+          description: How many download attempts should be performed
+          schema:
+            type: int
+            default: 3
+        - variable: downloadCooldown
+          label: Download Cooldown
+          description: Time between the download attempts
+          schema:
+            type: string
+            default: 2s
+        - variable: failStartOnListError
+          label: Fail Start on List Error
+          description: Fail to start if at least one list can't be downloaded or opened
+          schema:
+            type: boolean
+            default: false
+        - variable: processingConcurrency
+          label: Processing Concurrency
+          description: Sets how many list-groups can be processed at the same time
+          schema:
+            type: int
+            default: 4
+        - variable: whitelist
+          label: Whitelist
+          description: Define whitelists, either URL or file
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: whitelistEntry
+                label: Whitelist Group Entry
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Group Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: lists
+                      label: Lists
+                      schema:
+                        type: list
+                        required: true
+                        default: []
+                        items:
+                          - variable: listEntry
+                            label: List Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+        - variable: blacklist
+          label: Blacklist
+          description: Define blacklists, either URL or file
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: blacklistEntry
+                label: Blacklist Group Entry
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Group Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: lists
+                      label: Lists
+                      schema:
+                        type: list
+                        required: true
+                        default: []
+                        items:
+                          - variable: listEntry
+                            label: List Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+        - variable: clientGroupsBlock
+          label: Client Groups Block
+          description: Define, which blocking group(s) should be used for which client in your network.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: clientGroupBlockEntry
+                label: Client Group Block Entry
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Client Group Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: groups
+                      label: Groups
+                      schema:
+                        type: list
+                        required: true
+                        default: []
+                        items:
+                          - variable: groupEntry
+                            label: Group Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+  - variable: k8sgateway
+    group: Container Configuration
+    label: k8s-Gateway Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enable k8s-Gateway
+          description: Enables k8s-Gateway
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: domains
+                label: Domains
+                description: Please refer to CoreDNS docs for options
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: domainEntry
+                      label: ""
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: domain
+                            label: Domain name
+                            schema:
+                              type: string
+                              required: true
+                              default: example.com
+                          - variable: dnsChallenge
+                            label: Forward dnsChallenge
+                            description: Optional configuration option for DNS01 challenge that will redirect all acme
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: domain
+                                        label: Forward to Domain
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: dns01.clouddns.com
+              - variable: forward
+                label: Forward DNS To
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: true
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: primary
+                            label: Primary
+                            schema:
+                              type: string
+                              required: true
+                              default: 1.1.1.1
+                          - variable: secondary
+                            label: Secondary
+                            schema:
+                              type: string
+                              required: true
+                              default: 1.0.0.1
+                          - variable: options
+                            label: Forward Options
+                            description: Please refer to CoreDNS docs for options
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: optionEntry
+                                  label: Option
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: name
+                                        label: Name
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: value
+                                        label: Value
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+        - variable: advancedOptions
+          label: Advanced Options
+          schema:
+            type: boolean
+            default: false
+            show_if: [["enabled", "=", "true"]]
+            show_subquestions_if: true
+            subquestions:
+              - variable: ttl
+                label: ttl
+                description: TTL for non-apex responses (in seconds)
+                schema:
+                  type: int
+                  default: 300
+              - variable: watchedResources
+                label: Watched Resources
+                description: imit what kind of resources to watch, e.g. Ingress
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: watchedResource
+                      label: Watched Resource
+                      schema:
+                        type: string
+                        default: ""
+              - variable: secondary
+                label: Secondary DNS Server Service
+                description: Service name of a secondary DNS server (should be serviceName.namespace)
+                schema:
+                  type: string
+                  default: ""
+              - variable: apex
+                label: Apex
+                description: Override the default `serviceName.namespace` domain apex
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -61,7 +441,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: Main Service Port Configuration
@@ -90,7 +470,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-tcp
                       label: DNS TCP Port Configuration
@@ -119,7 +499,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-udp
                       label: DNS UDP Port Configuration
@@ -141,6 +521,35 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
+        - variable: k8sgateway
+          label: k8s-Gateway DNS UPD Service
+          description: The k8s-Gateway DNS UDP service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: k8sgateway
+                      label: k8s-Gateway DNS UDP Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 5353
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 5353
         - variable: metrics
           label: Metrics Service
           description: The Metrics service
@@ -148,7 +557,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: metrics
                       label: Metrics Port Configuration

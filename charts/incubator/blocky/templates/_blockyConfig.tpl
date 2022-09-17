@@ -29,14 +29,14 @@ prometheus:
 {{- end }}
 upstream:
   default:
-{{- .Values.defaultUpstreams| toYaml | nindent 8}}
+{{- .Values.defaultUpstreams | toYaml | nindent 8 }}
 
 {{- range $id, $value := .Values.upstreams }}
   {{ $value.name }}:
 {{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
-{{- if or .Values.conditional.rewrite .Values.conditional.mapping ( and .Values.k8sgateway.enabled .Values.k8sgateway.domains  ) }}
+{{- if or .Values.conditional.rewrite .Values.conditional.mapping ( and .Values.k8sgateway.enabled .Values.k8sgateway.domains ) }}
 conditional:
 {{- if .Values.conditional.rewrite }}
   rewrite:
@@ -45,7 +45,7 @@ conditional:
 {{- end }}
 {{- end }}
 
-{{- if or .Values.conditional.mapping ( and .Values.k8sgateway.enabled .Values.k8sgateway.domains  ) }}
+{{- if or .Values.conditional.mapping ( and .Values.k8sgateway.enabled .Values.k8sgateway.domains ) }}
   mapping:
 {{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains }}
 {{- range $id, $value := .Values.k8sgateway.domains }}
@@ -90,6 +90,5 @@ blocking:
 {{- $value.groups | toYaml | nindent 10 }}
 {{- end }}
 {{- end }}
-
 
 {{- end -}}

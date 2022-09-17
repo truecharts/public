@@ -47,13 +47,13 @@ blocking:
   processingConcurrency: 4
   whiteLists:
     # Groupname:
-      -  # Content from .Valuesblocking.whiteList
+    -  # Content from .Values.blocking.whiteList
   blackLists:
     # Groupname:
-      -  # Content from .Valuesblocking.blackList
-  clientGroupsBlock
+    -  # Content from .Values.blocking.blackList
+  clientGroupsBlock:
     # Groupname:
-      -  # Content from .Values.blocking.clientGroupsBlock
+    -  # Content from .Values.blocking.clientGroupsBlock
 ```
 
 ## Configuration Instructions
@@ -64,7 +64,7 @@ For TrueNAS SCALE, we offer only a limited subset of configuration options:
 
 - Upstream DNS servers
 - Whitelists
-- Blocklists
+- Blacklists
 
 Those have special variables in `values.yaml`, so we can show them nicely in the TrueNAS SCALE GUI
 
