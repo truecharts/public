@@ -45,7 +45,7 @@ jupyter:
   restartable: true
 
 env:
-  NB_UID: "{{ .Values.security.PUID }} "
+  NB_UID: "{{ .Values.security.PUID }}"
   NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   NB_UMASK: "{{ .Values.security.UMASK }}"
   # User Defined
