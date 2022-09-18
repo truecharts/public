@@ -6,9 +6,10 @@ image:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 securityContext:
   runAsNonRoot: false
-  readOnlyFilesystem: false
+  readOnlyRootFilesystem: false
 
 bender:
   init_assets: true
