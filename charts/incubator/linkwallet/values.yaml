@@ -1,0 +1,24 @@
+image:
+  repository: tccr.io/truecharts/linkwallet
+  tag: v0.0.34@sha256:eb343e670493587fa67abae1ab16966169aa98110dd901d01b01ff3dcbc4dc10
+  pullPolicy: IfNotPresent
+
+args:
+  - -db-path
+  - /data/linkwallet.db
+
+service:
+  main:
+    ports:
+      main:
+        port: 10353
+        protocol: HTTP
+        targetPort: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  enabled: true
