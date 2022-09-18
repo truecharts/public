@@ -2,6 +2,20 @@
 
 
 
+## [autoscan-1.0.1](https://github.com/truecharts/charts/compare/autoscan-1.0.0...autoscan-1.0.1) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
 ## [autoscan-1.0.1](https://github.com/truecharts/charts/compare/autoscan-1.0.0...autoscan-1.0.1) (2022-09-16)
 
 ### Chore
