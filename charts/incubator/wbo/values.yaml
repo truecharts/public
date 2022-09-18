@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/wbo
+  tag: v1.19.0@sha256:c86e8f81fc24a861e8c7bbb961a1b3dc1c1f0c60322699f22297d004a1fde737
+  pullPolicy: IfNotPresent
+
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
+wbo:
+  auth_secret_key: ""
+  save_interval: 2000
+  max_save_delay: 60000
+  max_item_count: 32768
+  max_children: 192
+  max_board_size: 65536
+  max_emit_count: 192
+  max_emit_count_period: 4096
+  auto_finger_whiteout: true
+  blocked_tools: []
+  blocked_selection_buttons: []
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-config'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10354
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt/app/server-data
+
+portal:
+  enabled: true
