@@ -1,5 +1,7 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
 # Include{controller}
@@ -10,34 +12,45 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: plexTraktSync
-    group: Container Configuration
-    label: Plex Trakt Sync Config
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: task
-          label: Task
-          description: Task to run on schedule. Leave empty for default. Default is <sync --sync=all>
-          schema:
-            type: string
-            default: ""
-        - variable: schedule
-          label: Schedule
-          description: How often to run the task
-          schema:
-            type: string
-            default: "0 */6 * * *"
 # Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10353
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 8080
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: Config Storage
-          description: Container Path Config
+        - variable: data
+          label: Data Storage
+          description: Data Storage
           schema:
             additional_attrs: true
             type: dict
@@ -45,6 +58,17 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -57,7 +81,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
@@ -67,7 +91,7 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -75,13 +99,13 @@ questions:
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
