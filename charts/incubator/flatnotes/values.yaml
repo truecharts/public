@@ -3,6 +3,9 @@ image:
   tag: v1.0.4@sha256:9136a8f68d557a35ca1f3abd26fefcad8f213659ce2f1dfaeef665a044847d89
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 secretEnv:
   FLATNOTES_USERNAME: "user"
   FLATNOTES_PASSWORD: "pass"
