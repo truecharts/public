@@ -24,14 +24,6 @@ service:
         protocol: HTTP
         targetPort: 8080
 
-probes:
-  startup:
-    enabled: false
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-
 persistence:
   config:
     enabled: true
