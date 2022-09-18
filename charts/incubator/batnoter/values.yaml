@@ -3,6 +3,9 @@ image:
   tag: latest@sha256:50bf9ba29f6ed9a297fb4f2160f0895b97e5cd4838099e089ce052dd83762533
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
