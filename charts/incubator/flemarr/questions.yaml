@@ -24,6 +24,7 @@ questions:
           description:
           schema:
             type: string
+            required: true
             valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
             default: ""
 # Include{containerConfig}
