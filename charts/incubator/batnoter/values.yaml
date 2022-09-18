@@ -11,6 +11,7 @@ service:
     ports:
       main:
         port: 10351
+        protocol: HTTP
         targetPort: 3000
 
 portal:
