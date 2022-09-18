@@ -18,6 +18,7 @@ service:
     ports:
       main:
         port: 10353
+        protocol: HTTP
         targetPort: 8080
 
 persistence:
