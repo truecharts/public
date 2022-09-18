@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: BatNoter is a web application that allows users to store notes in their git repository.
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - notes
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: batnoter
+sources:
+  - https://github.com/batnoter/batnoter
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - notes
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

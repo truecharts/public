@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: A self-hosted bookmark database with full-text page content search.
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - bookmarks
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: linkwallet
+sources:
+  - https://github.com/tardisx/linkwallet
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - bookmarks
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
