@@ -1,8 +1,8 @@
 # plextraktsync
 
-![Version: 0.0.31](https://img.shields.io/badge/Version-0.0.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-Cette app permet de synchroniser le contenu de votre bibliotheque plex (pas de plexpass obligatoire) avec le site trakt.tv .
+Two-way-sync between trakt.tv and Plex Media Server.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
