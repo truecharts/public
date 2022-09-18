@@ -28,6 +28,7 @@ service:
     ports:
       main:
         port: 10350
+        protocol: HTTP
         targetPort: 80
 
 persistence:
