@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "0.3.57"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 description: A highly customizable homepage
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/homepage
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homepage.png
 keywords:
   - homepage
 kubeVersion: ">=1.16.0-0"
@@ -16,6 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: homepage
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/homepage
   - https://github.com/benphelps/homepage
 version: 0.0.1
 annotations:

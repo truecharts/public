@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "0.0.34"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 description: A self-hosted bookmark database with full-text page content search.
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/linkwallet
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkwallet.png
 keywords:
   - bookmarks
 kubeVersion: ">=1.16.0-0"
@@ -16,6 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: linkwallet
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/linkwallet
   - https://github.com/tardisx/linkwallet
 version: 0.0.1
 annotations:
