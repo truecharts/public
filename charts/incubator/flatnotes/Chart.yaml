@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "1.12.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: A database-less note taking web app that utilizes a flat folder of markdown files for storage.
+home: https://truecharts.org/docs/charts/stable/flatnotes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flatnotes.png
+keywords:
+  - notes
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: flatnotes
+sources:
+  - https://hub.docker.com/r/dullage/flatnotes
+  - https://github.com/Dullage/flatnotes
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

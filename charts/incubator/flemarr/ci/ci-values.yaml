@@ -1,0 +1,28 @@
+flemarrConfig:
+  sonarr:
+    server:
+      address: sonarr
+      port: 8989
+    config:
+      host:
+        analyticsEnabled: false
+      ui:
+        firstDayOfWeek: 1
+        timeFormat: HH:mm
+    rootfolder:
+      - name: Series
+        path: /data/series
+        defaultTags: []
+        defaultQualityProfileId: 1
+        defaultMetadataProfileId: 1
+    downloadclient:
+      - name: Transmission
+        enable: true
+        protocol: torrent
+        fields:
+          - name: host
+            value: transmission
+          - name: port
+            value: 9091
+        implementation: Transmission
+        configContract: TransmissionSettings

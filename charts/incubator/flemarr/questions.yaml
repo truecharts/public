@@ -10,40 +10,27 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: plexTraktSync
+  - variable: flemarr
     group: Container Configuration
-    label: Plex Trakt Sync Config
+    label: Flemarr Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: task
-          label: Task
-          description: Task to run on schedule. Leave empty for default. Default is <sync --sync=all>
+        - variable: configFilePath
+          label: Config File Host Path
+          description: Path to file with flemarr configuration based on https://github.com/Flemmarr/Flemmarr#configuration
+          description:
           schema:
             type: string
+            required: true
+            valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
             default: ""
-        - variable: schedule
-          label: Schedule
-          description: How often to run the task
-          schema:
-            type: string
-            default: "0 */6 * * *"
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: Config Storage
-          description: Container Path Config
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressList}
 # Include{security}
@@ -57,7 +44,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
@@ -67,7 +54,7 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -75,13 +62,13 @@ questions:
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
