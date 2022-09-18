@@ -27,13 +27,8 @@ questions:
           label: Schedule
           description: How often to run the task
           schema:
-            type: cron
-            default:
-              minute: "0"
-              hour: "*/6"
-              dom: "*"
-              month: "*"
-              dow: "*"
+            type: string
+            default: "0 */6 * * *"
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
