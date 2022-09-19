@@ -11,7 +11,7 @@ ports:
   - containerPort: {{ .Values.service.k8sgateway.ports.k8sgateway.targetPort }}
     name: main
 volumeMounts:
-  - name: {{ include "tc.common.names.fullname" . }}-corefile
+  - name: config-volume
     mountPath: /etc/coredns
 readinessProbe:
   httpGet:
