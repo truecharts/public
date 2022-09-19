@@ -72,7 +72,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
@@ -101,7 +101,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpgameport
                       label: "udpgameport Service Port Configuration"
@@ -130,7 +130,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpsteamquerry
                       label: "udpsteamquerry Service Port Configuration"
@@ -159,7 +159,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpsteammaster
                       label: "udpsteammaster Service Port Configuration"
@@ -188,7 +188,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpvonport
                       label: "udpvonport Service Port Configuration"
@@ -217,7 +217,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpbattleyetra
                       label: "udpbattleyetra Service Port Configuration"

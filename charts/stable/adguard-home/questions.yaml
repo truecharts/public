@@ -21,7 +21,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
@@ -50,7 +50,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-tcp
                       label: "dns-tcp Service Port Configuration"
@@ -79,7 +79,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-udp
                       label: "dns-udp Service Port Configuration"
@@ -108,7 +108,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-http
                       label: "dns-http Service Port Configuration"
@@ -137,7 +137,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-https
                       label: "dns-https Service Port Configuration"
@@ -166,7 +166,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-https-udp
                       label: "dns-https-udp Service Port Configuration"
@@ -195,7 +195,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-crypt
                       label: "dns-crypt Service Port Configuration"
@@ -224,7 +224,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-crypt-udp
                       label: "dns-crypt-udp Service Port Configuration"
@@ -253,7 +253,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dns-quic-udp-1
                       label: "dns-quic-udp-1 Service Port Configuration"

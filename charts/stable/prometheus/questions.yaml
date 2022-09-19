@@ -55,6 +55,18 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: scrapeInterval
+                label: "Scrape interval"
+                description: "Interval between consecutive scrapes"
+                schema:
+                  type: string
+                  default: "15s"
+              - variable: evaluationInterval
+                label: "Evaluation interval"
+                description: "Interval between consecutive evaluations"
+                schema:
+                  type: string
+                  default: "30s"
               - variable: disableCompaction
                 label: "Disable Compaction"
                 description: "Disable the compaction of the Prometheus TSDB"
@@ -67,6 +79,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
+
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -101,7 +114,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
@@ -130,7 +143,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: alertmanager
                       label: "alertmanager Service Port Configuration"

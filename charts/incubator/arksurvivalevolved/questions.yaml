@@ -98,7 +98,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
@@ -127,7 +127,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udp2
                       label: "udp2 Service Port Configuration"
@@ -156,7 +156,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpsteam
                       label: "udpsteam Service Port Configuration"
@@ -185,7 +185,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: rcontcp
                       label: "rcontcp Service Port Configuration"

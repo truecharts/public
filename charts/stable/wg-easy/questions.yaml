@@ -79,7 +79,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Web GUI port configuration"
@@ -108,7 +108,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorSimple}
+# Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: vpn
                       label: "Wireguard Interal Port"

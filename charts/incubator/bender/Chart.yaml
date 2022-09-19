@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: A link dashboard that can be managed without any code.
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - bender
+  - dashboard
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: bender
+sources:
+  - https://github.com/jez500/bender
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - dashboard
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

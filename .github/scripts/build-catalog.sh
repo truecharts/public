@@ -121,11 +121,6 @@ include_questions(){
     /# Include{serviceSelectorExtras}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/service/serviceSelectorExtras.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
-    # Replace # Include{serviceSelectorSimple} with the standard serviceSelectorSimple codesnippet
-    awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{serviceSelectorSimple}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/service/serviceSelectorSimple.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
-
     # Replace # Include{serviceSelectorClusterIP} with the standard serviceSelectorClusterIP codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelectorClusterIP}/ { for (i=0;i<n;++i) print a[i]; next }
@@ -135,11 +130,6 @@ include_questions(){
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelectorLoadBalancer}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/service/serviceSelectorLoadBalancer.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
-
-    # Replace # Include{serviceSelectorNodePort} with the standard serviceSelectorNodePort codesnippet
-    awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{serviceSelectorNodePort}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/service/serviceSelectorNodePort.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{advancedPortHTTP} with the standard advancedPortHTTP codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
