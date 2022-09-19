@@ -84,6 +84,30 @@ service:
         port: 53
         protocol: UDP
         targetPort: 53
+  dot:
+    enabled: true
+    dot:
+      metrics:
+        enabled: true
+        port: 853
+        protocol: TCP
+        targetPort: 853
+  http:
+    enabled: true
+    http:
+      metrics:
+        enabled: true
+        port: 4000
+        protocol: HTTP
+        targetPort: 4000
+  https:
+    enabled: true
+    https:
+      metrics:
+        enabled: true
+        port: 4443
+        protocol: HTTPS
+        targetPort: 4443
   k8sgateway:
     enabled: true
     ports:
@@ -92,14 +116,16 @@ service:
         port: 5353
         protocol: UDP
         targetPort: 5353
-  metrics:
-    enabled: true
-    ports:
-      metrics:
-        enabled: true
-        port: 4000
-        protocol: HTTP
-        targetPort: 4000
+
+## TODO Add support for SCALE certificates and certificates secrets here
+certFile: ""
+keyFile: ""
+logLevel: info
+logFormat: text
+logTimestamp: true
+logPrivacy: false
+dohUserAgent: ""
+minTlsServeVersion: 1.2
 
 # -- set the default DNS upstream servers
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
@@ -128,13 +154,57 @@ upstreams:
   #    dnsservers:
   #      - 1.1.1.1
 
+# -- set bootstrap dns (not needed)
+# Ensures bootstrap encryption and ensure it doesn't use k8s dns
+bootstrapDns:
+  # -- Upstream
+  upstream: ""
+  # -- IP's linked to upstream DoT/DoH DNS name
+  ips: []
+
+# -- Return empty answer for these queries
+filtering:
+  # -- Ensures filtering by query type
+  queryTypes: []
+
+# -- Set manual custom DNS resolution
+customDNS:
+  customTTL: 1h
+  filterUnmappedTypes: true
+  rewrite: []
+  # - in: something.com
+  #   out: somethingelse.com
+  mapping: []
+  # - domain: something.com
+  #   dnsserver: 192.168.178.1
+
+# -- Setup client-name lookup
+clientLookup:
+  # -- upstream used for client-name lookup
+  upstream: ""
+  singleNameOrder: []
+  clients:
+  # - domain: laptop
+  #   ips: []
+
+# -- Setup caching
+caching:
+  minTime: 5m
+  maxTime: 30m
+  maxItemsCount: 0
+  prefetching: false
+  prefetchExpires: 2h
+  prefetchThreshold: 5
+  prefetchMaxItemsCount: 0
+  cacheTimeNegative: 30m
+
 # -- set conditional settings
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 conditional:
-  rewrite:
+  rewrite: []
   # - in: something.com
   #   out: somethingelse.com
-  mapping:
+  mapping: []
   # - domain: something.com
   #   dnsserver: 192.168.178.1
 
@@ -177,6 +247,56 @@ blocking:
   #   groups:
   #     - ads
 
+# -- configure using hostsfile for lookups
+# Allows for using the hosts configured in kubernetes and such
+hostsFile:
+  enabled: false
+  filePath: /etc/hosts
+  hostsTTL: 60m
+  refreshPeriod: 30m
+
+## TODO: add this with postgresql support as well
+# queryLog:
+#   type: csv
+#   target: /logs
+#   logRetentionDays: 0
+#   creationAttempts: 3
+#   CreationCooldown: 2
+
+portal:
+  enabled: true
+
+serviceAccount:
+  main:
+    # -- Specifies whether a service account should be created
+    enabled: true
+
+# -- Create a ClusterRole and ClusterRoleBinding
+# @default -- See below
+rbac:
+  main:
+    # -- Enables or disables the ClusterRole and ClusterRoleBinding
+    enabled: true
+
+    # -- Set Rules on the ClusterRole
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - namespaces
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+        verbs:
+          - list
+          - watch
+
 k8sgateway:
   enabled: true
   # -- TTL for non-apex responses (in seconds)
@@ -210,39 +330,8 @@ k8sgateway:
       - name: tls_servername
         value: cloudflare-dns.com
 
-serviceAccount:
-  main:
-    # -- Specifies whether a service account should be created
-    enabled: true
-
-# -- Create a ClusterRole and ClusterRoleBinding
-# @default -- See below
-rbac:
-  main:
-    # -- Enables or disables the ClusterRole and ClusterRoleBinding
-    enabled: true
-
-    # -- Set Rules on the ClusterRole
-    rules:
-      - apiGroups:
-          - ""
-        resources:
-          - services
-          - namespaces
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses
-        verbs:
-          - list
-          - watch
-
-portal:
-  enabled: true
+unbound:
+  enabled: false
 
 redis:
   enabled: true

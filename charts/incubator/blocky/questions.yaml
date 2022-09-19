@@ -344,56 +344,7 @@ questions:
                                           type: string
                                           required: true
                                           default: dns01.clouddns.com
-              - variable: forward
-                label: Forward DNS To
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: Enabled
-                      schema:
-                        type: boolean
-                        default: true
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: primary
-                            label: Primary
-                            schema:
-                              type: string
-                              required: true
-                              default: 1.1.1.1
-                          - variable: secondary
-                            label: Secondary
-                            schema:
-                              type: string
-                              required: true
-                              default: 1.0.0.1
-                          - variable: options
-                            label: Forward Options
-                            description: Please refer to CoreDNS docs for options
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: optionEntry
-                                  label: Option
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: name
-                                        label: Name
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: value
-                                        label: Value
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
+
         - variable: advancedOptions
           label: Advanced Options
           schema:
@@ -521,6 +472,64 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
+        - variable: dot
+          label: DoT Service
+          description: "DNS-over-TLS service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: dot
+                      label: DoT Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 853
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 853
+        - variable: http
+          label: HTTP and Metrics Service
+          description: "service for things like metrics, pprof, API, DoH etc"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: http
+                      label: HTTP and Metrics Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 4000
+                              required: true
+# Include{advancedPortUDP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 4000
         - variable: k8sgateway
           label: k8s-Gateway DNS UPD Service
           description: The k8s-Gateway DNS UDP service
@@ -550,35 +559,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 5353
-        - variable: metrics
-          label: Metrics Service
-          description: The Metrics service
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: metrics
-                      label: Metrics Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 4000
-                              required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 4000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
