@@ -2,62 +2,118 @@
 
 
 
-## [uptime-kuma-3.0.33](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.32...uptime-kuma-3.0.33) (2022-09-18)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-18)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [uptime-kuma-3.0.33](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.32...uptime-kuma-3.0.33) (2022-09-16)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-18)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [uptime-kuma-3.0.33](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.32...uptime-kuma-3.0.33) (2022-09-16)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [uptime-kuma-3.0.33](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.32...uptime-kuma-3.0.33) (2022-09-15)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [uptime-kuma-3.0.33](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.32...uptime-kuma-3.0.33) (2022-09-15)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-15)
 
 ### Chore
 
-- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-12)
+## [unpoller-3.0.34](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.34) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-12)
 
 ### Chore
 
@@ -71,7 +127,7 @@
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-12)
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-12)
 
 ### Chore
 
@@ -84,7 +140,7 @@
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-11)
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-11)
 
 ### Chore
 
@@ -96,7 +152,7 @@
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-11)
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-11)
 
 ### Chore
 
@@ -107,7 +163,7 @@
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-11)
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-11)
 
 ### Chore
 
@@ -117,7 +173,7 @@
 
 
 
-## [uptime-kuma-3.0.32](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.31...uptime-kuma-3.0.32) (2022-09-11)
+## [unpoller-3.0.33](https://github.com/truecharts/charts/compare/unpoller-3.0.32...unpoller-3.0.33) (2022-09-11)
 
 ### Chore
 
@@ -126,26 +182,7 @@
 
 
 
-## [uptime-kuma-3.0.31](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.30...uptime-kuma-3.0.31) (2022-09-07)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
-
-
-
-
-## [uptime-kuma-3.0.31](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.30...uptime-kuma-3.0.31) (2022-09-06)
-
-### Chore
-
-- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
-
-
-
-
-## [uptime-kuma-3.0.30](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.28...uptime-kuma-3.0.30) (2022-08-30)
+## [unpoller-3.0.32](https://github.com/truecharts/charts/compare/unpoller-3.0.30...unpoller-3.0.32) (2022-08-30)
 
 ### Chore
 
@@ -156,7 +193,7 @@
 
 
 
-## [uptime-kuma-3.0.29](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.28...uptime-kuma-3.0.29) (2022-08-30)
+## [unpoller-3.0.31](https://github.com/truecharts/charts/compare/unpoller-3.0.30...unpoller-3.0.31) (2022-08-30)
 
 ### Chore
 
@@ -165,7 +202,7 @@
 
 
 
-## [uptime-kuma-3.0.28](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.27...uptime-kuma-3.0.28) (2022-08-29)
+## [unpoller-3.0.30](https://github.com/truecharts/charts/compare/unpoller-3.0.29...unpoller-3.0.30) (2022-08-29)
 
 ### Chore
 
@@ -174,7 +211,7 @@
 
 
 
-## [uptime-kuma-3.0.27](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.26...uptime-kuma-3.0.27) (2022-08-23)
+## [unpoller-3.0.29](https://github.com/truecharts/charts/compare/unpoller-3.0.28...unpoller-3.0.29) (2022-08-23)
 
 ### Chore
 
@@ -183,21 +220,17 @@
 
 
 
-## [uptime-kuma-3.0.26](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.25...uptime-kuma-3.0.26) (2022-08-12)
+## [unpoller-3.0.28](https://github.com/truecharts/charts/compare/unpoller-3.0.27...unpoller-3.0.28) (2022-08-12)
 
 ### Chore
 
 - add documentation checkbox/section to all SCALE Apps
   - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
-  ### Fix
-
-- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 
 
 
-
-## [uptime-kuma-3.0.25](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.24...uptime-kuma-3.0.25) (2022-08-08)
+## [unpoller-3.0.27](https://github.com/truecharts/charts/compare/unpoller-3.0.26...unpoller-3.0.27) (2022-08-08)
 
 ### Chore
 
@@ -207,7 +240,7 @@
 
 
 
-## [uptime-kuma-3.0.24](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.23...uptime-kuma-3.0.24) (2022-07-26)
+## [unpoller-3.0.26](https://github.com/truecharts/apps/compare/unpoller-3.0.25...unpoller-3.0.26) (2022-07-26)
 
 ### Chore
 
@@ -217,7 +250,7 @@
 
 
 
-## [uptime-kuma-3.0.23](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.22...uptime-kuma-3.0.23) (2022-07-25)
+## [unpoller-3.0.25](https://github.com/truecharts/apps/compare/unpoller-3.0.24...unpoller-3.0.25) (2022-07-25)
 
 ### Chore
 
@@ -227,7 +260,7 @@
 
 
 
-## [uptime-kuma-3.0.23](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.22...uptime-kuma-3.0.23) (2022-07-25)
+## [unpoller-3.0.25](https://github.com/truecharts/apps/compare/unpoller-3.0.24...unpoller-3.0.25) (2022-07-25)
 
 ### Chore
 
@@ -236,7 +269,7 @@
 
 
 
-## [uptime-kuma-3.0.22](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.21...uptime-kuma-3.0.22) (2022-07-23)
+## [unpoller-3.0.24](https://github.com/truecharts/apps/compare/unpoller-3.0.23...unpoller-3.0.24) (2022-07-23)
 
 ### Chore
 
@@ -247,7 +280,7 @@
 
 
 
-## [uptime-kuma-3.0.22](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.21...uptime-kuma-3.0.22) (2022-07-23)
+## [unpoller-3.0.24](https://github.com/truecharts/apps/compare/unpoller-3.0.23...unpoller-3.0.24) (2022-07-23)
 
 ### Chore
 
@@ -257,7 +290,7 @@
 
 
 
-## [uptime-kuma-3.0.22](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.21...uptime-kuma-3.0.22) (2022-07-23)
+## [unpoller-3.0.24](https://github.com/truecharts/apps/compare/unpoller-3.0.23...unpoller-3.0.24) (2022-07-23)
 
 ### Chore
 
@@ -266,7 +299,7 @@
 
 
 
-## [uptime-kuma-3.0.21](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.19...uptime-kuma-3.0.21) (2022-07-22)
+## [unpoller-3.0.23](https://github.com/truecharts/apps/compare/unpoller-3.0.21...unpoller-3.0.23) (2022-07-22)
 
 ### Chore
 
@@ -275,7 +308,15 @@
 
 
 
-## [uptime-kuma-3.0.19](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.18...uptime-kuma-3.0.19) (2022-07-19)
+## [unpoller-3.0.21](https://github.com/truecharts/apps/compare/unpoller-3.0.20...unpoller-3.0.21) (2022-07-20)
+
+### Chore
+
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
+
+
+
+## [unpoller-3.0.20](https://github.com/truecharts/apps/compare/unpoller-3.0.19...unpoller-3.0.20) (2022-07-19)
 
 ### Chore
 
@@ -283,7 +324,7 @@
 
 
 
-## [uptime-kuma-3.0.18](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.17...uptime-kuma-3.0.18) (2022-07-14)
+## [unpoller-3.0.19](https://github.com/truecharts/apps/compare/unpoller-3.0.18...unpoller-3.0.19) (2022-07-14)
 
 ### Fix
 
@@ -291,7 +332,7 @@
 
 
 
-## [uptime-kuma-3.0.17](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.15...uptime-kuma-3.0.17) (2022-07-14)
+## [unpoller-3.0.18](https://github.com/truecharts/apps/compare/unpoller-3.0.16...unpoller-3.0.18) (2022-07-14)
 
 ### Fix
 
@@ -299,7 +340,7 @@
 
 
 
-## [uptime-kuma-3.0.15](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.13...uptime-kuma-3.0.15) (2022-07-12)
+## [unpoller-3.0.16](https://github.com/truecharts/apps/compare/unpoller-3.0.14...unpoller-3.0.16) (2022-07-12)
 
 ### Chore
 
@@ -308,7 +349,7 @@
 
 
 
-## [uptime-kuma-3.0.13](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.12...uptime-kuma-3.0.13) (2022-07-12)
+## [unpoller-3.0.14](https://github.com/truecharts/apps/compare/unpoller-3.0.13...unpoller-3.0.14) (2022-07-12)
 
 ### Chore
 
@@ -316,8 +357,8 @@
 
 
 
-<a name="uptime-kuma-3.0.12"></a>
-### [uptime-kuma-3.0.12](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.11...uptime-kuma-3.0.12) (2022-07-12)
+<a name="unpoller-3.0.13"></a>
+### [unpoller-3.0.13](https://github.com/truecharts/apps/compare/unpoller-3.0.12...unpoller-3.0.13) (2022-07-12)
 
 #### Chore
 
@@ -325,8 +366,8 @@
 
 
 
-<a name="uptime-kuma-3.0.11"></a>
-### [uptime-kuma-3.0.11](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.10...uptime-kuma-3.0.11) (2022-07-11)
+<a name="unpoller-3.0.12"></a>
+### [unpoller-3.0.12](https://github.com/truecharts/apps/compare/unpoller-3.0.11...unpoller-3.0.12) (2022-07-11)
 
 #### Chore
 
@@ -334,8 +375,8 @@
 
 
 
-<a name="uptime-kuma-3.0.10"></a>
-### [uptime-kuma-3.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.9...uptime-kuma-3.0.10) (2022-07-09)
+<a name="unpoller-3.0.11"></a>
+### [unpoller-3.0.11](https://github.com/truecharts/apps/compare/unpoller-3.0.10...unpoller-3.0.11) (2022-07-09)
 
 #### Chore
 
@@ -343,8 +384,8 @@
 
 
 
-<a name="uptime-kuma-3.0.9"></a>
-### [uptime-kuma-3.0.9](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.8...uptime-kuma-3.0.9) (2022-07-04)
+<a name="unpoller-3.0.10"></a>
+### [unpoller-3.0.10](https://github.com/truecharts/apps/compare/unpoller-3.0.9...unpoller-3.0.10) (2022-07-04)
 
 #### Chore
 
@@ -352,8 +393,17 @@
 
 
 
-<a name="uptime-kuma-3.0.8"></a>
-### [uptime-kuma-3.0.8](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.7...uptime-kuma-3.0.8) (2022-06-25)
+<a name="unpoller-3.0.9"></a>
+### [unpoller-3.0.9](https://github.com/truecharts/apps/compare/unpoller-3.0.8...unpoller-3.0.9) (2022-06-30)
+
+#### Fix
+
+* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
+
+
+
+<a name="unpoller-3.0.8"></a>
+### [unpoller-3.0.8](https://github.com/truecharts/apps/compare/unpoller-3.0.7...unpoller-3.0.8) (2022-06-25)
 
 #### Chore
 
@@ -361,17 +411,8 @@
 
 
 
-<a name="uptime-kuma-3.0.7"></a>
-### [uptime-kuma-3.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.6...uptime-kuma-3.0.7) (2022-06-25)
-
-#### Chore
-
-* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
-
-
-
-<a name="uptime-kuma-3.0.6"></a>
-### [uptime-kuma-3.0.6](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.5...uptime-kuma-3.0.6) (2022-06-22)
+<a name="unpoller-3.0.7"></a>
+### [unpoller-3.0.7](https://github.com/truecharts/apps/compare/unpoller-3.0.6...unpoller-3.0.7) (2022-06-22)
 
 #### Chore
 
@@ -379,8 +420,8 @@
 
 
 
-<a name="uptime-kuma-3.0.5"></a>
-### [uptime-kuma-3.0.5](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.4...uptime-kuma-3.0.5) (2022-06-21)
+<a name="unpoller-3.0.6"></a>
+### [unpoller-3.0.6](https://github.com/truecharts/apps/compare/unpoller-3.0.5...unpoller-3.0.6) (2022-06-21)
 
 #### Chore
 
@@ -388,8 +429,17 @@
 
 
 
-<a name="uptime-kuma-3.0.4"></a>
-### [uptime-kuma-3.0.4](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.3...uptime-kuma-3.0.4) (2022-06-14)
+<a name="unpoller-3.0.5"></a>
+### [unpoller-3.0.5](https://github.com/truecharts/apps/compare/unpoller-3.0.4...unpoller-3.0.5) (2022-06-17)
+
+#### Chore
+
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
+
+
+
+<a name="unpoller-3.0.4"></a>
+### [unpoller-3.0.4](https://github.com/truecharts/apps/compare/unpoller-3.0.3...unpoller-3.0.4) (2022-06-14)
 
 #### Chore
 
@@ -397,8 +447,8 @@
 
 
 
-<a name="uptime-kuma-3.0.3"></a>
-### [uptime-kuma-3.0.3](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.2...uptime-kuma-3.0.3) (2022-06-11)
+<a name="unpoller-3.0.3"></a>
+### [unpoller-3.0.3](https://github.com/truecharts/apps/compare/unpoller-3.0.2...unpoller-3.0.3) (2022-06-11)
 
 #### Chore
 
@@ -406,8 +456,8 @@
 
 
 
-<a name="uptime-kuma-3.0.2"></a>
-### [uptime-kuma-3.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-3.0.1...uptime-kuma-3.0.2) (2022-06-07)
+<a name="unpoller-3.0.2"></a>
+### [unpoller-3.0.2](https://github.com/truecharts/apps/compare/unpoller-3.0.1...unpoller-3.0.2) (2022-06-07)
 
 #### Fix
 
@@ -415,13 +465,12 @@
 
 
 
-<a name="uptime-kuma-3.0.1"></a>
-### [uptime-kuma-3.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.27...uptime-kuma-3.0.1) (2022-06-07)
+<a name="unpoller-3.0.1"></a>
+### [unpoller-3.0.1](https://github.com/truecharts/apps/compare/unpoller-2.0.19...unpoller-3.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* sync all apps persistence configuration and always default to PVC
 
 #### Fix
 
@@ -433,12 +482,8 @@
 
 
 
-<a name="uptime-kuma-3.0.0"></a>
-### [uptime-kuma-3.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.27...uptime-kuma-3.0.0) (2022-06-07)
-
-#### Chore
-
-* sync all apps persistence configuration and always default to PVC
+<a name="unpoller-3.0.0"></a>
+### [unpoller-3.0.0](https://github.com/truecharts/apps/compare/unpoller-2.0.19...unpoller-3.0.0) (2022-06-07)
 
 #### Refactor
 
@@ -446,18 +491,17 @@
 
 
 
-<a name="uptime-kuma-2.0.27"></a>
-### [uptime-kuma-2.0.27](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.26...uptime-kuma-2.0.27) (2022-05-31)
+<a name="unpoller-2.0.19"></a>
+### [unpoller-2.0.19](https://github.com/truecharts/apps/compare/unpoller-2.0.18...unpoller-2.0.19) (2022-05-31)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
-* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
 
 
 
-<a name="uptime-kuma-2.0.26"></a>
-### [uptime-kuma-2.0.26](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.25...uptime-kuma-2.0.26) (2022-05-26)
+<a name="unpoller-2.0.18"></a>
+### [unpoller-2.0.18](https://github.com/truecharts/apps/compare/unpoller-2.0.17...unpoller-2.0.18) (2022-05-26)
 
 #### Chore
 
@@ -466,8 +510,8 @@
 
 
 
-<a name="uptime-kuma-2.0.26"></a>
-### [uptime-kuma-2.0.26](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.25...uptime-kuma-2.0.26) (2022-05-26)
+<a name="unpoller-2.0.18"></a>
+### [unpoller-2.0.18](https://github.com/truecharts/apps/compare/unpoller-2.0.17...unpoller-2.0.18) (2022-05-26)
 
 #### Chore
 
@@ -475,8 +519,8 @@
 
 
 
-<a name="uptime-kuma-2.0.25"></a>
-### [uptime-kuma-2.0.25](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.24...uptime-kuma-2.0.25) (2022-05-24)
+<a name="unpoller-2.0.17"></a>
+### [unpoller-2.0.17](https://github.com/truecharts/apps/compare/unpoller-2.0.16...unpoller-2.0.17) (2022-05-24)
 
 #### Chore
 
@@ -484,8 +528,8 @@
 
 
 
-<a name="uptime-kuma-2.0.24"></a>
-### [uptime-kuma-2.0.24](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.23...uptime-kuma-2.0.24) (2022-05-17)
+<a name="unpoller-2.0.16"></a>
+### [unpoller-2.0.16](https://github.com/truecharts/apps/compare/unpoller-2.0.15...unpoller-2.0.16) (2022-05-17)
 
 #### Chore
 
@@ -494,8 +538,8 @@
 
 
 
-<a name="uptime-kuma-2.0.24"></a>
-### [uptime-kuma-2.0.24](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.23...uptime-kuma-2.0.24) (2022-05-17)
+<a name="unpoller-2.0.16"></a>
+### [unpoller-2.0.16](https://github.com/truecharts/apps/compare/unpoller-2.0.15...unpoller-2.0.16) (2022-05-17)
 
 #### Chore
 
@@ -503,8 +547,8 @@
 
 
 
-<a name="uptime-kuma-2.0.23"></a>
-### [uptime-kuma-2.0.23](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.22...uptime-kuma-2.0.23) (2022-05-17)
+<a name="unpoller-2.0.15"></a>
+### [unpoller-2.0.15](https://github.com/truecharts/apps/compare/unpoller-2.0.14...unpoller-2.0.15) (2022-05-17)
 
 #### Chore
 
@@ -512,8 +556,8 @@
 
 
 
-<a name="uptime-kuma-2.0.22"></a>
-### [uptime-kuma-2.0.22](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.21...uptime-kuma-2.0.22) (2022-05-10)
+<a name="unpoller-2.0.14"></a>
+### [unpoller-2.0.14](https://github.com/truecharts/apps/compare/unpoller-2.0.13...unpoller-2.0.14) (2022-05-10)
 
 #### Chore
 
@@ -521,8 +565,8 @@
 
 
 
-<a name="uptime-kuma-2.0.21"></a>
-### [uptime-kuma-2.0.21](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.20...uptime-kuma-2.0.21) (2022-05-05)
+<a name="unpoller-2.0.13"></a>
+### [unpoller-2.0.13](https://github.com/truecharts/apps/compare/unpoller-2.0.12...unpoller-2.0.13) (2022-05-05)
 
 #### Chore
 
@@ -530,26 +574,8 @@
 
 
 
-<a name="uptime-kuma-2.0.20"></a>
-### [uptime-kuma-2.0.20](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.19...uptime-kuma-2.0.20) (2022-05-04)
-
-#### Chore
-
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
-
-
-
-<a name="uptime-kuma-2.0.19"></a>
-### [uptime-kuma-2.0.19](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.18...uptime-kuma-2.0.19) (2022-04-28)
-
-#### Chore
-
-* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
-
-
-
-<a name="uptime-kuma-2.0.18"></a>
-### [uptime-kuma-2.0.18](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.17...uptime-kuma-2.0.18) (2022-04-26)
+<a name="unpoller-2.0.12"></a>
+### [unpoller-2.0.12](https://github.com/truecharts/apps/compare/unpoller-2.0.11...unpoller-2.0.12) (2022-04-26)
 
 #### Chore
 
@@ -557,36 +583,18 @@
 
 
 
-<a name="uptime-kuma-2.0.17"></a>
-### [uptime-kuma-2.0.17](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.16...uptime-kuma-2.0.17) (2022-04-20)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
-
-
-
-<a name="uptime-kuma-2.0.16"></a>
-### [uptime-kuma-2.0.16](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.15...uptime-kuma-2.0.16) (2022-04-20)
+<a name="unpoller-2.0.11"></a>
+### [unpoller-2.0.11](https://github.com/truecharts/apps/compare/unpoller-2.0.10...unpoller-2.0.11) (2022-04-20)
 
 #### Chore
 
 * add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
 
 
 
-<a name="uptime-kuma-2.0.15"></a>
-### [uptime-kuma-2.0.15](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.14...uptime-kuma-2.0.15) (2022-04-12)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="uptime-kuma-2.0.14"></a>
-### [uptime-kuma-2.0.14](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.13...uptime-kuma-2.0.14) (2022-04-12)
+<a name="unpoller-2.0.10"></a>
+### [unpoller-2.0.10](https://github.com/truecharts/apps/compare/unpoller-2.0.9...unpoller-2.0.10) (2022-04-12)
 
 #### Chore
 
@@ -594,17 +602,8 @@
 
 
 
-<a name="uptime-kuma-2.0.13"></a>
-### [uptime-kuma-2.0.13](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.12...uptime-kuma-2.0.13) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
-
-
-
-<a name="uptime-kuma-2.0.12"></a>
-### [uptime-kuma-2.0.12](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.11...uptime-kuma-2.0.12) (2022-04-03)
+<a name="unpoller-2.0.9"></a>
+### [unpoller-2.0.9](https://github.com/truecharts/apps/compare/unpoller-2.0.8...unpoller-2.0.9) (2022-04-03)
 
 #### Chore
 
@@ -612,8 +611,8 @@
 
 
 
-<a name="uptime-kuma-2.0.11"></a>
-### [uptime-kuma-2.0.11](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.10...uptime-kuma-2.0.11) (2022-03-31)
+<a name="unpoller-2.0.8"></a>
+### [unpoller-2.0.8](https://github.com/truecharts/apps/compare/unpoller-2.0.7...unpoller-2.0.8) (2022-03-31)
 
 #### Chore
 
@@ -621,8 +620,8 @@
 
 
 
-<a name="uptime-kuma-2.0.10"></a>
-### [uptime-kuma-2.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.9...uptime-kuma-2.0.10) (2022-03-30)
+<a name="unpoller-2.0.7"></a>
+### [unpoller-2.0.7](https://github.com/truecharts/apps/compare/unpoller-2.0.6...unpoller-2.0.7) (2022-03-30)
 
 #### Chore
 
@@ -630,8 +629,8 @@
 
 
 
-<a name="uptime-kuma-2.0.9"></a>
-### [uptime-kuma-2.0.9](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.8...uptime-kuma-2.0.9) (2022-03-26)
+<a name="unpoller-2.0.6"></a>
+### [unpoller-2.0.6](https://github.com/truecharts/apps/compare/unpoller-2.0.5...unpoller-2.0.6) (2022-03-26)
 
 #### Chore
 
@@ -639,50 +638,24 @@
 
 
 
-<a name="uptime-kuma-2.0.7"></a>
-### [uptime-kuma-2.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.6...uptime-kuma-2.0.7) (2022-03-26)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="uptime-kuma-2.0.5"></a>
-### [uptime-kuma-2.0.5](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.4...uptime-kuma-2.0.5) (2022-03-19)
-
-#### Fix
-
-* make security questions overridable in values ([#2211](https://github.com/truecharts/apps/issues/2211))
-
-
-
-<a name="uptime-kuma-2.0.2"></a>
-### [uptime-kuma-2.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.1...uptime-kuma-2.0.2) (2022-03-07)
+<a name="unpoller-2.0.1"></a>
+### [unpoller-2.0.1](https://github.com/truecharts/apps/compare/unpoller-2.0.0...unpoller-2.0.1) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
-
-
-
-<a name="uptime-kuma-2.0.1"></a>
-### [uptime-kuma-2.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.0...uptime-kuma-2.0.1) (2022-03-07)
-
-#### Chore
-
-* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
 * Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="uptime-kuma-2.0.0"></a>
-### [uptime-kuma-2.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.44...uptime-kuma-2.0.0) (2022-03-03)
+<a name="unpoller-2.0.0"></a>
+### [unpoller-2.0.0](https://github.com/truecharts/apps/compare/unpoller-1.0.34...unpoller-2.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove empty env var declaration from questions.yaml
+* remove some ugly whitespace
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -691,18 +664,17 @@
 
 
 
-<a name="uptime-kuma-1.0.44"></a>
-### [uptime-kuma-1.0.44](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.43...uptime-kuma-1.0.44) (2022-03-02)
+<a name="unpoller-1.0.34"></a>
+### [unpoller-1.0.34](https://github.com/truecharts/apps/compare/unpoller-1.0.33...unpoller-1.0.34) (2022-03-02)
 
 #### Chore
 
-* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
 * update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="uptime-kuma-1.0.43"></a>
-### [uptime-kuma-1.0.43](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.42...uptime-kuma-1.0.43) (2022-02-21)
+<a name="unpoller-1.0.33"></a>
+### [unpoller-1.0.33](https://github.com/truecharts/apps/compare/unpoller-1.0.32...unpoller-1.0.33) (2022-02-21)
 
 #### Chore
 
@@ -710,8 +682,8 @@
 
 
 
-<a name="uptime-kuma-1.0.42"></a>
-### [uptime-kuma-1.0.42](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.41...uptime-kuma-1.0.42) (2022-02-15)
+<a name="unpoller-1.0.32"></a>
+### [unpoller-1.0.32](https://github.com/truecharts/apps/compare/unpoller-1.0.31...unpoller-1.0.32) (2022-02-15)
 
 #### Chore
 
@@ -719,17 +691,8 @@
 
 
 
-<a name="uptime-kuma-1.0.41"></a>
-### [uptime-kuma-1.0.41](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.40...uptime-kuma-1.0.41) (2022-02-10)
-
-#### Chore
-
-* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
-
-
-
-<a name="uptime-kuma-1.0.40"></a>
-### [uptime-kuma-1.0.40](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.39...uptime-kuma-1.0.40) (2022-02-08)
+<a name="unpoller-1.0.31"></a>
+### [unpoller-1.0.31](https://github.com/truecharts/apps/compare/unpoller-1.0.30...unpoller-1.0.31) (2022-02-08)
 
 #### Chore
 
@@ -737,8 +700,8 @@
 
 
 
-<a name="uptime-kuma-1.0.39"></a>
-### [uptime-kuma-1.0.39](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.38...uptime-kuma-1.0.39) (2022-02-06)
+<a name="unpoller-1.0.30"></a>
+### [unpoller-1.0.30](https://github.com/truecharts/apps/compare/unpoller-1.0.29...unpoller-1.0.30) (2022-02-06)
 
 #### Chore
 
@@ -746,8 +709,8 @@
 
 
 
-<a name="uptime-kuma-1.0.38"></a>
-### [uptime-kuma-1.0.38](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.37...uptime-kuma-1.0.38) (2022-02-05)
+<a name="unpoller-1.0.29"></a>
+### [unpoller-1.0.29](https://github.com/truecharts/apps/compare/unpoller-1.0.28...unpoller-1.0.29) (2022-02-05)
 
 #### Chore
 
@@ -755,8 +718,8 @@
 
 
 
-<a name="uptime-kuma-1.0.37"></a>
-### [uptime-kuma-1.0.37](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.36...uptime-kuma-1.0.37) (2022-02-02)
+<a name="unpoller-1.0.28"></a>
+### [unpoller-1.0.28](https://github.com/truecharts/apps/compare/unpoller-1.0.27...unpoller-1.0.28) (2022-02-02)
 
 #### Chore
 
@@ -764,8 +727,8 @@
 
 
 
-<a name="uptime-kuma-1.0.36"></a>
-### [uptime-kuma-1.0.36](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.35...uptime-kuma-1.0.36) (2022-01-25)
+<a name="unpoller-1.0.27"></a>
+### [unpoller-1.0.27](https://github.com/truecharts/apps/compare/unpoller-1.0.26...unpoller-1.0.27) (2022-01-25)
 
 #### Chore
 
@@ -773,8 +736,8 @@
 
 
 
-<a name="uptime-kuma-1.0.35"></a>
-### [uptime-kuma-1.0.35](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.34...uptime-kuma-1.0.35) (2022-01-22)
+<a name="unpoller-1.0.26"></a>
+### [unpoller-1.0.26](https://github.com/truecharts/apps/compare/unpoller-1.0.25...unpoller-1.0.26) (2022-01-22)
 
 #### Chore
 
@@ -782,8 +745,8 @@
 
 
 
-<a name="uptime-kuma-1.0.34"></a>
-### [uptime-kuma-1.0.34](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.33...uptime-kuma-1.0.34) (2022-01-21)
+<a name="unpoller-1.0.25"></a>
+### [unpoller-1.0.25](https://github.com/truecharts/apps/compare/unpoller-1.0.24...unpoller-1.0.25) (2022-01-21)
 
 #### Chore
 
@@ -792,12 +755,11 @@
 #### Fix
 
 * set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
-* fix tag ([#1739](https://github.com/truecharts/apps/issues/1739))
 
 
 
-<a name="uptime-kuma-1.0.33"></a>
-### [uptime-kuma-1.0.33](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.32...uptime-kuma-1.0.33) (2022-01-18)
+<a name="unpoller-1.0.24"></a>
+### [unpoller-1.0.24](https://github.com/truecharts/apps/compare/unpoller-1.0.23...unpoller-1.0.24) (2022-01-18)
 
 #### Chore
 
@@ -805,8 +767,8 @@
 
 
 
-<a name="uptime-kuma-1.0.32"></a>
-### [uptime-kuma-1.0.32](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.31...uptime-kuma-1.0.32) (2022-01-13)
+<a name="unpoller-1.0.23"></a>
+### [unpoller-1.0.23](https://github.com/truecharts/apps/compare/unpoller-1.0.22...unpoller-1.0.23) (2022-01-13)
 
 #### Chore
 
@@ -818,8 +780,8 @@
 
 
 
-<a name="uptime-kuma-1.0.31"></a>
-### [uptime-kuma-1.0.31](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.30...uptime-kuma-1.0.31) (2022-01-12)
+<a name="unpoller-1.0.22"></a>
+### [unpoller-1.0.22](https://github.com/truecharts/apps/compare/unpoller-1.0.21...unpoller-1.0.22) (2022-01-12)
 
 #### Chore
 
@@ -827,8 +789,8 @@
 
 
 
-<a name="uptime-kuma-1.0.30"></a>
-### [uptime-kuma-1.0.30](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.29...uptime-kuma-1.0.30) (2022-01-11)
+<a name="unpoller-1.0.21"></a>
+### [unpoller-1.0.21](https://github.com/truecharts/apps/compare/unpoller-1.0.20...unpoller-1.0.21) (2022-01-11)
 
 #### Chore
 
@@ -836,8 +798,8 @@
 
 
 
-<a name="uptime-kuma-1.0.29"></a>
-### [uptime-kuma-1.0.29](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.28...uptime-kuma-1.0.29) (2022-01-04)
+<a name="unpoller-1.0.20"></a>
+### [unpoller-1.0.20](https://github.com/truecharts/apps/compare/unpoller-1.0.19...unpoller-1.0.20) (2022-01-04)
 
 #### Chore
 
@@ -845,8 +807,8 @@
 
 
 
-<a name="uptime-kuma-1.0.28"></a>
-### [uptime-kuma-1.0.28](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.27...uptime-kuma-1.0.28) (2021-12-28)
+<a name="unpoller-1.0.19"></a>
+### [unpoller-1.0.19](https://github.com/truecharts/apps/compare/unpoller-1.0.18...unpoller-1.0.19) (2021-12-28)
 
 #### Chore
 
@@ -854,8 +816,8 @@
 
 
 
-<a name="uptime-kuma-1.0.27"></a>
-### [uptime-kuma-1.0.27](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.26...uptime-kuma-1.0.27) (2021-12-21)
+<a name="unpoller-1.0.18"></a>
+### [unpoller-1.0.18](https://github.com/truecharts/apps/compare/unpoller-1.0.17...unpoller-1.0.18) (2021-12-21)
 
 #### Chore
 
@@ -863,28 +825,36 @@
 
 
 
-<a name="uptime-kuma-1.0.26"></a>
-### [uptime-kuma-1.0.26](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.25...uptime-kuma-1.0.26) (2021-12-19)
+<a name="unpoller-1.0.17"></a>
+### [unpoller-1.0.17](https://github.com/truecharts/apps/compare/unpoller-1.0.16...unpoller-1.0.17) (2021-12-20)
+
+#### Fix
+
+* InfluxDB is always disabled with current value. ([#1579](https://github.com/truecharts/apps/issues/1579))
+
+
+
+<a name="unpoller-1.0.16"></a>
+### [unpoller-1.0.16](https://github.com/truecharts/apps/compare/unpoller-1.0.15...unpoller-1.0.16) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
-* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
 
 
 
-<a name="uptime-kuma-1.0.25"></a>
-### [uptime-kuma-1.0.25](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.24...uptime-kuma-1.0.25) (2021-12-19)
+<a name="unpoller-1.0.15"></a>
+### [unpoller-1.0.15](https://github.com/truecharts/apps/compare/unpoller-1.0.14...unpoller-1.0.15) (2021-12-19)
 
 #### Chore
 
-* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
 * update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
 
 
 
-<a name="uptime-kuma-1.0.24"></a>
-### [uptime-kuma-1.0.24](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.23...uptime-kuma-1.0.24) (2021-12-18)
+<a name="unpoller-1.0.14"></a>
+### [unpoller-1.0.14](https://github.com/truecharts/apps/compare/unpoller-1.0.13...unpoller-1.0.14) (2021-12-18)
 
 #### Chore
 
@@ -893,8 +863,8 @@
 
 
 
-<a name="uptime-kuma-1.0.23"></a>
-### [uptime-kuma-1.0.23](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.22...uptime-kuma-1.0.23) (2021-12-14)
+<a name="unpoller-1.0.13"></a>
+### [unpoller-1.0.13](https://github.com/truecharts/apps/compare/unpoller-1.0.12...unpoller-1.0.13) (2021-12-14)
 
 #### Chore
 
@@ -902,8 +872,8 @@
 
 
 
-<a name="uptime-kuma-1.0.22"></a>
-### [uptime-kuma-1.0.22](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.21...uptime-kuma-1.0.22) (2021-12-13)
+<a name="unpoller-1.0.12"></a>
+### [unpoller-1.0.12](https://github.com/truecharts/apps/compare/unpoller-1.0.11...unpoller-1.0.12) (2021-12-13)
 
 #### Chore
 
@@ -911,8 +881,8 @@
 
 
 
-<a name="uptime-kuma-1.0.21"></a>
-### [uptime-kuma-1.0.21](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.20...uptime-kuma-1.0.21) (2021-12-11)
+<a name="unpoller-1.0.11"></a>
+### [unpoller-1.0.11](https://github.com/truecharts/apps/compare/unpoller-1.0.10...unpoller-1.0.11) (2021-12-11)
 
 #### Chore
 
@@ -920,8 +890,8 @@
 
 
 
-<a name="uptime-kuma-1.0.20"></a>
-### [uptime-kuma-1.0.20](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.19...uptime-kuma-1.0.20) (2021-12-07)
+<a name="unpoller-1.0.10"></a>
+### [unpoller-1.0.10](https://github.com/truecharts/apps/compare/unpoller-1.0.9...unpoller-1.0.10) (2021-12-07)
 
 #### Chore
 
@@ -929,8 +899,8 @@
 
 
 
-<a name="uptime-kuma-1.0.19"></a>
-### uptime-kuma-1.0.19 (2021-12-05)
+<a name="unpoller-1.0.9"></a>
+### unpoller-1.0.9 (2021-12-05)
 
 #### Chore
 
@@ -949,8 +919,8 @@
 
 
 
-<a name="uptime-kuma-1.0.18"></a>
-### [uptime-kuma-1.0.18](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.17...uptime-kuma-1.0.18) (2021-12-05)
+<a name="unpoller-1.0.8"></a>
+### [unpoller-1.0.8](https://github.com/truecharts/apps/compare/unpoller-1.0.7...unpoller-1.0.8) (2021-12-05)
 
 #### Chore
 
@@ -958,8 +928,8 @@
 
 
 
-<a name="uptime-kuma-1.0.17"></a>
-### [uptime-kuma-1.0.17](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.16...uptime-kuma-1.0.17) (2021-12-04)
+<a name="unpoller-1.0.7"></a>
+### [unpoller-1.0.7](https://github.com/truecharts/apps/compare/unpoller-1.0.6...unpoller-1.0.7) (2021-12-04)
 
 #### Chore
 
@@ -967,8 +937,8 @@
 
 
 
-<a name="uptime-kuma-1.0.16"></a>
-### [uptime-kuma-1.0.16](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.15...uptime-kuma-1.0.16) (2021-12-04)
+<a name="unpoller-1.0.6"></a>
+### [unpoller-1.0.6](https://github.com/truecharts/apps/compare/unpoller-1.0.5...unpoller-1.0.6) (2021-12-04)
 
 #### Chore
 
@@ -976,8 +946,8 @@
 
 
 
-<a name="uptime-kuma-1.0.15"></a>
-### [uptime-kuma-1.0.15](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.14...uptime-kuma-1.0.15) (2021-12-03)
+<a name="unpoller-1.0.5"></a>
+### [unpoller-1.0.5](https://github.com/truecharts/apps/compare/unpoller-1.0.4...unpoller-1.0.5) (2021-12-03)
 
 #### Chore
 
@@ -987,8 +957,8 @@
 
 
 
-<a name="uptime-kuma-1.0.14"></a>
-### [uptime-kuma-1.0.14](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.13...uptime-kuma-1.0.14) (2021-11-30)
+<a name="unpoller-1.0.4"></a>
+### [unpoller-1.0.4](https://github.com/truecharts/apps/compare/unpoller-1.0.3...unpoller-1.0.4) (2021-11-30)
 
 #### Chore
 
@@ -996,244 +966,37 @@
 
 
 
-<a name="uptime-kuma-1.0.13"></a>
-### [uptime-kuma-1.0.13](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.12...uptime-kuma-1.0.13) (2021-11-23)
+<a name="unpoller-1.0.3"></a>
+### [unpoller-1.0.3](https://github.com/truecharts/apps/compare/unpoller-1.0.2...unpoller-1.0.3) (2021-11-30)
 
 #### Chore
 
-* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+* update non-major deps helm releases
 
 
 
-<a name="uptime-kuma-1.0.12"></a>
-### [uptime-kuma-1.0.12](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.11...uptime-kuma-1.0.12) (2021-11-22)
-
-#### Chore
-
-* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
-
-#### Fix
-
-* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
-
-
-
-<a name="uptime-kuma-1.0.11"></a>
-### [uptime-kuma-1.0.11](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.10...uptime-kuma-1.0.11) (2021-11-16)
+<a name="unpoller-1.0.1"></a>
+### unpoller-1.0.1 (2021-11-25)
 
 #### Chore
 
-* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+* rename unifi-poller to unpoller
 
 
 
-<a name="uptime-kuma-1.0.10"></a>
-### [uptime-kuma-1.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.9...uptime-kuma-1.0.10) (2021-11-15)
-
-#### Chore
-
-* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
-* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
-
-
-
-<a name="uptime-kuma-1.0.9"></a>
-### [uptime-kuma-1.0.9](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.8...uptime-kuma-1.0.9) (2021-11-14)
+<a name="unifi-poller-1.0.0"></a>
+### [unifi-poller-1.0.0](https://github.com/truecharts/apps/compare/unifi-poller-0.0.1...unifi-poller-1.0.0) (2021-11-24)
 
 #### Chore
 
-* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
-* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
-* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
-* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
-* update non-major ([#1302](https://github.com/truecharts/apps/issues/1302))
-
-#### Fix
-
-* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
-* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+* bump unifipoller
+* move unifi-poller to stable
 
 
 
-<a name="uptime-kuma-1.0.8"></a>
-### [uptime-kuma-1.0.8](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.7...uptime-kuma-1.0.8) (2021-11-09)
-
-#### Chore
-
-* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
-* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
-
-
-
-<a name="uptime-kuma-1.0.7"></a>
-### [uptime-kuma-1.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.6...uptime-kuma-1.0.7) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
-
-
-
-<a name="uptime-kuma-1.0.6"></a>
-### [uptime-kuma-1.0.6](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.5...uptime-kuma-1.0.6) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
-
-#### Chore
-
-* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+<a name="unifi-poller-0.0.1"></a>
+### unifi-poller-0.0.1 (2021-11-23)
 
 #### Feat
 
-* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
-
-
-
-<a name="uptime-kuma-1.0.5"></a>
-### [uptime-kuma-1.0.5](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.4...uptime-kuma-1.0.5) (2021-11-02)
-
-#### Chore
-
-* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
-
-
-
-<a name="uptime-kuma-1.0.4"></a>
-### [uptime-kuma-1.0.4](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.3...uptime-kuma-1.0.4) (2021-11-01)
-
-#### Chore
-
-* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
-
-
-
-<a name="uptime-kuma-1.0.3"></a>
-### [uptime-kuma-1.0.3](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.2...uptime-kuma-1.0.3) (2021-11-01)
-
-#### Chore
-
-* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
-
-
-
-<a name="uptime-kuma-1.0.2"></a>
-### [uptime-kuma-1.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.1...uptime-kuma-1.0.2) (2021-10-26)
-
-#### Chore
-
-* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
-
-
-
-<a name="uptime-kuma-1.0.1"></a>
-### [uptime-kuma-1.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.0...uptime-kuma-1.0.1) (2021-10-26)
-
-#### Chore
-
-* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
-
-#### Fix
-
-* apply same user to questions.yaml as in values.yaml ([#1229](https://github.com/truecharts/apps/issues/1229))
-
-
-
-<a name="uptime-kuma-1.0.0"></a>
-### [uptime-kuma-1.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.10...uptime-kuma-1.0.0) (2021-10-25)
-
-#### Chore
-
-* Adapt for TrueNAS SCALE RC1
-
-
-
-<a name="uptime-kuma-0.0.10"></a>
-### [uptime-kuma-0.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.7...uptime-kuma-0.0.10) (2021-10-20)
-
-#### Chore
-
-* bump apps, remove duplicates and move incubator to stable for RC1
-
-
-
-<a name="uptime-kuma-0.0.7"></a>
-### [uptime-kuma-0.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.6...uptime-kuma-0.0.7) (2021-10-20)
-
-#### Chore
-
-* bump versions to rerelease and fix icons
-
-
-
-<a name="uptime-kuma-0.0.6"></a>
-### [uptime-kuma-0.0.6](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.5...uptime-kuma-0.0.6) (2021-10-19)
-
-#### Change
-
-* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
-
-#### Chore
-
-* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
-* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
-* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
-* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
-
-#### Feat
-
-* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
-
-#### Refactor
-
-* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
-
-
-
-<a name="uptime-kuma-0.0.5"></a>
-### [uptime-kuma-0.0.5](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.4...uptime-kuma-0.0.5) (2021-10-19)
-
-#### Fix
-
-* fix previous SCALE bugfix not correctly being applied
-
-
-
-<a name="uptime-kuma-0.0.4"></a>
-### [uptime-kuma-0.0.4](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.3...uptime-kuma-0.0.4) (2021-10-19)
-
-#### Fix
-
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
-
-
-
-<a name="uptime-kuma-0.0.3"></a>
-### [uptime-kuma-0.0.3](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.2...uptime-kuma-0.0.3) (2021-10-18)
-
-#### Chore
-
-* Add description on persistence ([#1172](https://github.com/truecharts/apps/issues/1172))
-
-#### Refactor
-
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
-
-
-
-<a name="uptime-kuma-0.0.2"></a>
-### [uptime-kuma-0.0.2](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.1...uptime-kuma-0.0.2) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
-
-
-
-<a name="uptime-kuma-0.0.1"></a>
-### uptime-kuma-0.0.1 (2021-10-14)
+* add some prometheus exporter-Apps ([#1388](https://github.com/truecharts/apps/issues/1388))

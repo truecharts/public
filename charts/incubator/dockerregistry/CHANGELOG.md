@@ -2,7 +2,21 @@
 
 
 
-## [dockerregistry-0.0.23](https://github.com/truecharts/charts/compare/dockerregistry-0.0.22...dockerregistry-0.0.23) (2022-09-18)
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -11,12 +25,11 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [dockerregistry-0.0.23](https://github.com/truecharts/charts/compare/dockerregistry-0.0.22...dockerregistry-0.0.23) (2022-09-16)
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -24,45 +37,41 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [dockerregistry-0.0.23](https://github.com/truecharts/charts/compare/dockerregistry-0.0.22...dockerregistry-0.0.23) (2022-09-16)
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [dockerregistry-0.0.23](https://github.com/truecharts/charts/compare/dockerregistry-0.0.22...dockerregistry-0.0.23) (2022-09-15)
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-15)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [dockerregistry-0.0.23](https://github.com/truecharts/charts/compare/dockerregistry-0.0.22...dockerregistry-0.0.23) (2022-09-15)
+## [docker-hub-rss-0.0.24](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.23...docker-hub-rss-0.0.24) (2022-09-15)
 
 ### Chore
 
 - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-12)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -77,7 +86,7 @@
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-12)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -91,7 +100,7 @@
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-11)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -104,7 +113,7 @@
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-11)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -116,7 +125,7 @@
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-11)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -127,7 +136,7 @@
 
 
 
-## [dockerregistry-0.0.22](https://github.com/truecharts/charts/compare/dockerregistry-0.0.21...dockerregistry-0.0.22) (2022-09-11)
+## [docker-hub-rss-0.0.23](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.22...docker-hub-rss-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -137,7 +146,7 @@
 
 
 
-## [dockerregistry-0.0.21](https://github.com/truecharts/charts/compare/dockerregistry-0.0.20...dockerregistry-0.0.21) (2022-08-30)
+## [docker-hub-rss-0.0.22](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.21...docker-hub-rss-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -146,7 +155,7 @@
 
 
 
-## [dockerregistry-0.0.20](https://github.com/truecharts/charts/compare/dockerregistry-0.0.19...dockerregistry-0.0.20) (2022-08-30)
+## [docker-hub-rss-0.0.21](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.20...docker-hub-rss-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -155,7 +164,7 @@
 
 
 
-## [dockerregistry-0.0.19](https://github.com/truecharts/charts/compare/dockerregistry-0.0.18...dockerregistry-0.0.19) (2022-08-29)
+## [docker-hub-rss-0.0.20](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.19...docker-hub-rss-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -164,7 +173,7 @@
 
 
 
-## [dockerregistry-0.0.18](https://github.com/truecharts/charts/compare/dockerregistry-0.0.16...dockerregistry-0.0.18) (2022-08-26)
+## [docker-hub-rss-0.0.19](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.17...docker-hub-rss-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -173,7 +182,7 @@
 
 
 
-## [dockerregistry-0.0.16](https://github.com/truecharts/charts/compare/dockerregistry-0.0.15...dockerregistry-0.0.16) (2022-08-23)
+## [docker-hub-rss-0.0.17](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.16...docker-hub-rss-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -182,7 +191,7 @@
 
 
 
-## [dockerregistry-0.0.15](https://github.com/truecharts/charts/compare/dockerregistry-0.0.14...dockerregistry-0.0.15) (2022-08-12)
+## [docker-hub-rss-0.0.16](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.15...docker-hub-rss-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -196,7 +205,7 @@
 
 
 
-## [dockerregistry-0.0.14](https://github.com/truecharts/charts/compare/dockerregistry-0.0.13...dockerregistry-0.0.14) (2022-08-08)
+## [docker-hub-rss-0.0.15](https://github.com/truecharts/charts/compare/docker-hub-rss-0.0.14...docker-hub-rss-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -206,7 +215,7 @@
 
 
 
-## [dockerregistry-0.0.13](https://github.com/truecharts/apps/compare/dockerregistry-0.0.12...dockerregistry-0.0.13) (2022-07-26)
+## [docker-hub-rss-0.0.14](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.13...docker-hub-rss-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -216,7 +225,20 @@
 
 
 
-## [dockerregistry-0.0.12](https://github.com/truecharts/apps/compare/dockerregistry-0.0.11...dockerregistry-0.0.12) (2022-07-23)
+## [docker-hub-rss-0.0.13](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.12...docker-hub-rss-0.0.13) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
+
+  ### Chore
+
+- add fake digest to new incubator Apps to fetch digests
+
+
+
+
+## [docker-hub-rss-0.0.12](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.11...docker-hub-rss-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -227,7 +249,7 @@
 
 
 
-## [dockerregistry-0.0.12](https://github.com/truecharts/apps/compare/dockerregistry-0.0.11...dockerregistry-0.0.12) (2022-07-23)
+## [docker-hub-rss-0.0.12](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.11...docker-hub-rss-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -237,7 +259,7 @@
 
 
 
-## [dockerregistry-0.0.12](https://github.com/truecharts/apps/compare/dockerregistry-0.0.11...dockerregistry-0.0.12) (2022-07-23)
+## [docker-hub-rss-0.0.12](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.11...docker-hub-rss-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -246,7 +268,7 @@
 
 
 
-## [dockerregistry-0.0.11](https://github.com/truecharts/apps/compare/dockerregistry-0.0.10...dockerregistry-0.0.11) (2022-07-22)
+## [docker-hub-rss-0.0.11](https://github.com/truecharts/apps/compare/docker-hub-rss-0.0.10...docker-hub-rss-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -254,7 +276,7 @@
 
 
 
-## [dockerregistry-0.0.10]dockerregistry-0.0.10 (2022-07-21)
+## [docker-hub-rss-0.0.10]docker-hub-rss-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -265,7 +287,7 @@
 
 
 
-## [dockerregistry-0.0.10]dockerregistry-0.0.10 (2022-07-21)
+## [docker-hub-rss-0.0.10]docker-hub-rss-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -275,7 +297,7 @@
 
 
 
-## [dockerregistry-0.0.10]dockerregistry-0.0.10 (2022-07-21)
+## [docker-hub-rss-0.0.10]docker-hub-rss-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -284,7 +306,7 @@
 
 
 
-## [dockerregistry-0.0.10]dockerregistry-0.0.10 (2022-07-20)
+## [docker-hub-rss-0.0.10]docker-hub-rss-0.0.10 (2022-07-20)
 
 ### Chore
 
@@ -292,4 +314,4 @@
 
 
 
-## [dockerregistry-0.0.10]dockerregistry-0.0.10 (2022-07-20)
+## [docker-hub-rss-0.0.10]docker-hub-rss-0.0.10 (2022-07-20)
