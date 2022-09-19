@@ -16,7 +16,7 @@ The MetalLB chart must be installed initially without any config changes. Once i
 
 Create a new entry under `Configure IP Address Pools Object`
 
-- **Name**: Enter a general name for this IP range. Something like  _apps_ or _charts_ for this field is fine.
+- **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
 - **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 4).
 
 Create a single entry under `Configure Address Pools`
