@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "1.19.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 description: WBO is an online collaborative whiteboard that allows many users to draw simultaneously on a large virtual board.
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/wbo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wbo.png
 keywords:
   - wbo
   - whiteboard
@@ -17,6 +17,7 @@ maintainers:
     url: https://truecharts.org
 name: wbo
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wbo
   - https://github.com/lovasoa/whitebophir
 version: 0.0.1
 annotations:

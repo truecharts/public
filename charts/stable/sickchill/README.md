@@ -1,6 +1,6 @@
 # sickchill
 
-![Version: 3.0.42](https://img.shields.io/badge/Version-3.0.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.9.14](https://img.shields.io/badge/AppVersion-2022.9.14-informational?style=flat-square)
+![Version: 3.0.43](https://img.shields.io/badge/Version-3.0.43-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.9.17](https://img.shields.io/badge/AppVersion-2022.9.17-informational?style=flat-square)
 
 An Automatic Video Library Manager for TV Shows
 
