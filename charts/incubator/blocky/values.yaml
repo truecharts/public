@@ -86,24 +86,24 @@ service:
         targetPort: 53
   dot:
     enabled: true
-    dot:
-      metrics:
+    ports:
+      dot:
         enabled: true
         port: 853
         protocol: TCP
         targetPort: 853
   http:
     enabled: true
-    http:
-      metrics:
+    ports:
+      http:
         enabled: true
         port: 4000
         protocol: HTTP
         targetPort: 4000
   https:
     enabled: true
-    https:
-      metrics:
+    ports:
+      https:
         enabled: true
         port: 4443
         protocol: HTTPS
