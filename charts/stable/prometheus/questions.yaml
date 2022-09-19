@@ -78,7 +78,8 @@ questions:
                 description: "Enable compression of the write-ahead log using Snappy"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
+
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
