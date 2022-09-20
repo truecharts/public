@@ -2,6 +2,7 @@
 
 
 
+
 ## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-19)
 
 ### Chore

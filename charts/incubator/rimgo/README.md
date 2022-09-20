@@ -1,6 +1,6 @@
 # rimgo
 
-![Version: 0.0.56](https://img.shields.io/badge/Version-0.0.56-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.0.57](https://img.shields.io/badge/Version-0.0.57-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Alternative Imgur front-end
 

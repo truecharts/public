@@ -1,6 +1,6 @@
 # mylar
 
-![Version: 6.0.38](https://img.shields.io/badge/Version-6.0.38-informational?style=flat-square) ![AppVersion: 0.6.9](https://img.shields.io/badge/AppVersion-0.6.9-informational?style=flat-square)
+![Version: 6.0.39](https://img.shields.io/badge/Version-6.0.39-informational?style=flat-square) ![AppVersion: 0.6.9](https://img.shields.io/badge/AppVersion-0.6.9-informational?style=flat-square)
 
 Mylar is a automated Comic Book downloader
 
