@@ -32,6 +32,7 @@ questions:
             type: boolean
             default: true
   - variable: overrideDefaults
+    group: Container Configuration  
     label: Override Default Upstreams
     description: Overrides the predefined DNS server upstream list
     schema:
