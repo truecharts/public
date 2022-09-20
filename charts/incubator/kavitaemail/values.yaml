@@ -1,0 +1,23 @@
+image:
+  repository: kizaing/kavitaemail
+  pullPolicy: IfNotPresent
+  tag: 0.1.2@sha256:20254b06faaed0e55b05433b0e183972057c5cddd20032898642fd683fa89680
+
+env:
+  SMTP_HOST: ""
+  SMTP_PORT: ""
+  SMTP_USER: ""
+  SMTP_PASS: ""
+  SEND_ADDR: ""
+  DISP_NAME: "kavita"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 5003
+        port: 15003
+
+portal:
+  enabled: false
