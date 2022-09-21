@@ -2,6 +2,7 @@
 
 
 
+
 ## [kdenlive-0.0.31](https://github.com/truecharts/charts/compare/kdenlive-0.0.29...kdenlive-0.0.31) (2022-09-20)
 
 ### Chore
