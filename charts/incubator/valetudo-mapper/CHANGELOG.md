@@ -2,6 +2,7 @@
 
 
 
+
 ## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-20)
 
 ### Chore
