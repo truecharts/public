@@ -23,6 +23,14 @@ service:
         targetPort: 5003
         port: 15003
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 persistence:
   config:
     enabled: true
