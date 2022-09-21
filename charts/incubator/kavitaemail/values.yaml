@@ -8,6 +8,7 @@ env:
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -20,6 +21,11 @@ service:
         protocol: HTTP
         targetPort: 5003
         port: 15003
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /app
 
 portal:
   enabled: false
