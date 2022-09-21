@@ -31,9 +31,115 @@ upstream:
   default:
 {{- .Values.defaultUpstreams | toYaml | nindent 8 }}
 
+{{- if .Values.certFile }}
+certFile: {{ .Values.certFile }}
+{{- end }}
+
+{{- if .Values.keyFile }}
+keyFile: {{ .Values.keyFile }}
+{{- end }}
+
+{{- if .Values.logLevel }}
+logLevel: {{ .Values.logLevel }}
+{{- end }}
+
+{{- if .Values.logTimestamp }}
+logTimestamp: {{ .Values.logTimestamp }}
+{{- end }}
+
+{{- if .Values.logPrivacy }}
+logPrivacy: {{ .Values.logPrivacy }}
+{{- end }}
+
+{{- if .Values.dohUserAgent }}
+dohUserAgent: {{ .Values.dohUserAgent }}
+{{- end }}
+
+{{- if .Values.minTlsServeVersion }}
+minTlsServeVersion: {{ .Values.minTlsServeVersion }}
+{{- end }}
+
+caching:
+{{ toYaml .Values.caching | indent 2 }}
+
+
+{{- if .Values.hostsFile.enabled }}
+{{ $hostsfile := omit .Values.hostsFile "enabled" }}
+hostsFile:
+{{ toYaml $hostsfile | indent 2 }}
+{{- end }}
+
 {{- range $id, $value := .Values.upstreams }}
   {{ $value.name }}:
 {{- $value.dnsservers | toYaml | nindent 8 }}
+{{- end }}
+
+{{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}
+bootstrapDns:
+{{- if .Values.bootstrapDns.upstream }}
+  upstream: {{ .Values.bootstrapDns.upstream }}
+{{- end }}
+{{- if .Values.bootstrapDns.ips }}
+  ips:
+{{- range $id, $value := .Values.bootstrapDns.ips }}
+    - {{ $value }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- if or .Values.filtering.filtering }}
+filtering:
+{{- if .Values.filtering.ips }}
+  queryTypes:
+{{- range $id, $value := .Values.filtering.ips }}
+    - {{ $value }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- if or .Values.customDNS.filterUnmappedTypes .Values.customDNS.customTTL .Values.customDNS.rewrite .Values.customDNS.mapping }}
+customDNS:
+{{- if .Values.customDNS.customTTL }}
+  upstream: {{ .Values.customDNS.customTTL }}
+{{- end }}
+{{- if .Values.customDNS.filterUnmappedTypes }}
+  customTTL: {{ .Values.customDNS.filterUnmappedTypes }}
+{{- end }}
+{{- if .Values.customDNS.rewrite }}
+  rewrite:
+{{- range $id, $value := .Values.customDNS.rewrite }}
+    {{ $value.in }}: {{ $value.out }}
+{{- end }}
+{{- end }}
+
+{{- if .Values.customDNS.mapping }}
+  mapping:
+{{- range $id, $value := .Values.customDNS.mapping }}
+    {{ $value.domain }}: {{ $value.dnsserver }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- if or .Values.clientLookup.upstream .Values.clientLookup.ips }}
+clientLookup:
+{{- if .Values.clientLookup.upstream }}
+  upstream: {{ .Values.clientLookup.upstream }}
+{{- end }}
+{{- if .Values.clientLookup.ips }}
+  singleNameOrder:
+{{- range $id, $value := .Values.clientLookup.ips }}
+    - {{ $value }}
+{{- end }}
+{{- end }}
+{{- if .Values.clientLookup.clients }}
+  clients:
+{{- range $id, $value := .Values.clientLookup.clients }}
+    {{ $value.domain }}:
+      {{- range $id, $value := .ips }}
+      - {{ $value }}
+      {{- end }}
+{{- end }}
+{{- end }}
 {{- end }}
 
 {{- if or .Values.conditional.rewrite .Values.conditional.mapping ( and .Values.k8sgateway.enabled .Values.k8sgateway.domains ) }}

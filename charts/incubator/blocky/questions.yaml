@@ -531,35 +531,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 4000
-        - variable: k8sgateway
-          label: k8s-Gateway DNS UPD Service
-          description: The k8s-Gateway DNS UDP service
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorClusterIP}
-# Include{serviceSelectorExtras}
-                    - variable: k8sgateway
-                      label: k8s-Gateway DNS UDP Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 5353
-                              required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 5353
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
