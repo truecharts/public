@@ -14,14 +14,6 @@ volumeSpec:
   configMap:
     name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
 {{- end -}}
-{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
-
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.targetPort | quote) -}}
-
-{{/* Render configmap for nextcloud */}}
-{{- include "k8sgateway.configmap" . }}
 
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "k8sgateway.configvolume" -}}
@@ -37,13 +29,20 @@ volumeSpec:
       path: Corefile
 {{- end -}}
 
-{{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
+
+{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
+
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.targetPort | quote) -}}
 
 {{- if .Values.blocky.enableWebUI -}}
 {{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
 {{- end -}}
 
 {{- if .Values.k8sgateway.enabled -}}
+{{- include "k8sgateway.configmap" . }}
+{{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
 {{- end -}}
 
