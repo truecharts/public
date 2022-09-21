@@ -43,6 +43,10 @@ persistence:
   config:
     enabled: true
     mountPath: "/opt/bitnami/grafana/data"
+  grafana-tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /opt/bitnami/grafana/tmp
 
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
