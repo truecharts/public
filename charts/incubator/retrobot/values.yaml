@@ -6,6 +6,14 @@ image:
 env:
   DISCORD_TOKEN: ""
 
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 10579
+        port: 10579
+
 persistence:
   data:
     enabled: true
