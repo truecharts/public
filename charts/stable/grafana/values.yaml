@@ -43,7 +43,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/opt/bitnami/grafana/data"
-  grafana_tmp:
+  grafana-tmp:
     enabled: true
     type: emptyDir
     mountPath: /opt/bitnami/grafana/tmp
