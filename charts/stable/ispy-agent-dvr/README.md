@@ -1,6 +1,6 @@
 # ispy-agent-dvr
 
-![Version: 2.0.43](https://img.shields.io/badge/Version-2.0.43-informational?style=flat-square) ![AppVersion: 4.2.4.0](https://img.shields.io/badge/AppVersion-4.2.4.0-informational?style=flat-square)
+![Version: 2.0.44](https://img.shields.io/badge/Version-2.0.44-informational?style=flat-square) ![AppVersion: 4.2.5.0](https://img.shields.io/badge/AppVersion-4.2.5.0-informational?style=flat-square)
 
 iSpy's Agent DVR, a standalone DVR service to manage IP cameras.
 
