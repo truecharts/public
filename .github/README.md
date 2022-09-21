@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-121-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-122-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -292,6 +292,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center"><a href="https://github.com/TrueBrain"><img src="https://avatars.githubusercontent.com/u/1663690?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Patric Stout</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=TrueBrain" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/SuperQ"><img src="https://avatars.githubusercontent.com/u/1320667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Kochie</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=SuperQ" title="Code">💻</a></td>
+      <td align="center"><a href="https://www.cepheid.org/~jeff/"><img src="https://avatars.githubusercontent.com/u/3298329?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeff Bachtel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jeffb4" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
