@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.0@sha256:fbb2eb0dd1cc3003c8155ea90a78495eae88ccd45c0cf373551be9dc76a368ee
 
-env:
-  DISCORD_TOKEN: ""
-
 service:
   main:
     ports:
