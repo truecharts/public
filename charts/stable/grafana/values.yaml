@@ -45,7 +45,7 @@ persistence:
     mountPath: "/opt/bitnami/grafana/data"
   grafana_tmp:
     enabled: true
-    type: emtpyDir
+    type: emptyDir
     mountPath: /opt/bitnami/grafana/tmp
 
 metrics:
