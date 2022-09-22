@@ -98,6 +98,10 @@ data:
           {{- end }}
         }
         loop
+        {{- else }}
+        template ANY ANY {
+        rcode NXDOMAIN
+        }
         {{- end }}
         reload
         loadbalance
