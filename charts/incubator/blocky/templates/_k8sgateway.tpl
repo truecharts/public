@@ -97,8 +97,8 @@ data:
           {{ .name }} {{ .value }}
           {{- end }}
         }
-        {{- end }}
         loop
+        {{- end }}
         reload
         loadbalance
     }
