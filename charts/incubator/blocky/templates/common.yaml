@@ -40,7 +40,7 @@ volumeSpec:
 {{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
 {{- end -}}
 
-{{- if .Values.k8sgateway.enabled -}}
+{{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains -}}
 {{- include "k8sgateway.configmap" . }}
 {{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
