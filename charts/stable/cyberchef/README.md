@@ -1,6 +1,6 @@
 # cyberchef
 
-![Version: 2.0.85](https://img.shields.io/badge/Version-2.0.85-informational?style=flat-square) ![AppVersion: 9.46.5](https://img.shields.io/badge/AppVersion-9.46.5-informational?style=flat-square)
+![Version: 2.0.86](https://img.shields.io/badge/Version-2.0.86-informational?style=flat-square) ![AppVersion: 9.46.5](https://img.shields.io/badge/AppVersion-9.46.5-informational?style=flat-square)
 
 CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser.
 

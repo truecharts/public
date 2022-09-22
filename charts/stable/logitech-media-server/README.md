@@ -1,6 +1,6 @@
 # logitech-media-server
 
-![Version: 4.0.38](https://img.shields.io/badge/Version-4.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.3.0](https://img.shields.io/badge/AppVersion-8.3.0-informational?style=flat-square)
+![Version: 4.0.39](https://img.shields.io/badge/Version-4.0.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.3.0](https://img.shields.io/badge/AppVersion-8.3.0-informational?style=flat-square)
 
 Logitech Media Server is a platform for home/office audio streaming.
 

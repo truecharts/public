@@ -1,6 +1,6 @@
 # vertex
 
-![Version: 0.0.51](https://img.shields.io/badge/Version-0.0.51-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: stable](https://img.shields.io/badge/AppVersion-stable-informational?style=flat-square)
+![Version: 0.0.52](https://img.shields.io/badge/Version-0.0.52-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: stable](https://img.shields.io/badge/AppVersion-stable-informational?style=flat-square)
 
 Vertex
 

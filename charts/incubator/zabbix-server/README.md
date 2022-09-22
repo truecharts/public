@@ -1,6 +1,6 @@
 # zabbix-server
 
-![Version: 2.0.42](https://img.shields.io/badge/Version-2.0.42-informational?style=flat-square) ![AppVersion: 6.2.2](https://img.shields.io/badge/AppVersion-6.2.2-informational?style=flat-square)
+![Version: 2.0.43](https://img.shields.io/badge/Version-2.0.43-informational?style=flat-square) ![AppVersion: 6.2.3](https://img.shields.io/badge/AppVersion-6.2.3-informational?style=flat-square)
 
 Zabbix is an enterprise-class open source distributed monitoring solution.
 

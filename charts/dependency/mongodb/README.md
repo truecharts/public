@@ -1,6 +1,6 @@
 # mongodb
 
-![Version: 2.0.15](https://img.shields.io/badge/Version-2.0.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.0.1](https://img.shields.io/badge/AppVersion-6.0.1-informational?style=flat-square)
+![Version: 2.0.17](https://img.shields.io/badge/Version-2.0.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.0.1](https://img.shields.io/badge/AppVersion-6.0.1-informational?style=flat-square)
 
 Fast, reliable, scalable, and easy to use open-source no-sql database system.
 
@@ -26,7 +26,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.10 |
+| https://library-charts.truecharts.org | common | 10.5.11 |
 
 ## Installing the Chart
 

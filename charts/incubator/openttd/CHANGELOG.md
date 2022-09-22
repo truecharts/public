@@ -2,6 +2,7 @@
 
 
 
+
 ## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-21)
 
 ### Chore
