@@ -2,7 +2,31 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-21)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -25,7 +49,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-21)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -47,7 +71,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-20)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -68,7 +92,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-20)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -88,7 +112,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-19)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -107,7 +131,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-19)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -125,7 +149,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-19)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -142,7 +166,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-17)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -158,7 +182,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-18)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -172,7 +196,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-16)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -185,7 +209,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-16)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -197,7 +221,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-15)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -208,7 +232,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.24](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.23...freecad-desktop-g3-0.0.24) (2022-09-15)
+## [fotosho-0.0.24](https://github.com/truecharts/charts/compare/fotosho-0.0.23...fotosho-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -218,7 +242,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-12)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -227,13 +251,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-12)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -241,59 +264,54 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-11)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-11)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-11)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.23](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.22...freecad-desktop-g3-0.0.23) (2022-09-11)
+## [fotosho-0.0.23](https://github.com/truecharts/charts/compare/fotosho-0.0.22...fotosho-0.0.23) (2022-09-11)
 
 ### Chore
 
-- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [freecad-desktop-g3-0.0.22](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.21...freecad-desktop-g3-0.0.22) (2022-08-30)
+## [fotosho-0.0.22](https://github.com/truecharts/charts/compare/fotosho-0.0.21...fotosho-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -302,7 +320,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.21](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.20...freecad-desktop-g3-0.0.21) (2022-08-30)
+## [fotosho-0.0.21](https://github.com/truecharts/charts/compare/fotosho-0.0.20...fotosho-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -311,7 +329,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.20](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.19...freecad-desktop-g3-0.0.20) (2022-08-29)
+## [fotosho-0.0.20](https://github.com/truecharts/charts/compare/fotosho-0.0.19...fotosho-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -320,7 +338,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.19](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.17...freecad-desktop-g3-0.0.19) (2022-08-26)
+## [fotosho-0.0.19](https://github.com/truecharts/charts/compare/fotosho-0.0.17...fotosho-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -329,7 +347,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.17](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.16...freecad-desktop-g3-0.0.17) (2022-08-23)
+## [fotosho-0.0.17](https://github.com/truecharts/charts/compare/fotosho-0.0.16...fotosho-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -338,7 +356,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.16](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.15...freecad-desktop-g3-0.0.16) (2022-08-12)
+## [fotosho-0.0.16](https://github.com/truecharts/charts/compare/fotosho-0.0.15...fotosho-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -352,7 +370,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.15](https://github.com/truecharts/charts/compare/freecad-desktop-g3-0.0.14...freecad-desktop-g3-0.0.15) (2022-08-08)
+## [fotosho-0.0.15](https://github.com/truecharts/charts/compare/fotosho-0.0.14...fotosho-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -362,7 +380,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.14](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.13...freecad-desktop-g3-0.0.14) (2022-07-26)
+## [fotosho-0.0.14](https://github.com/truecharts/apps/compare/fotosho-0.0.13...fotosho-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -372,7 +390,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.13](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.12...freecad-desktop-g3-0.0.13) (2022-07-25)
+## [fotosho-0.0.13](https://github.com/truecharts/apps/compare/fotosho-0.0.12...fotosho-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -385,7 +403,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.12](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.11...freecad-desktop-g3-0.0.12) (2022-07-23)
+## [fotosho-0.0.12](https://github.com/truecharts/apps/compare/fotosho-0.0.11...fotosho-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -396,7 +414,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.12](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.11...freecad-desktop-g3-0.0.12) (2022-07-23)
+## [fotosho-0.0.12](https://github.com/truecharts/apps/compare/fotosho-0.0.11...fotosho-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -406,7 +424,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.12](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.11...freecad-desktop-g3-0.0.12) (2022-07-23)
+## [fotosho-0.0.12](https://github.com/truecharts/apps/compare/fotosho-0.0.11...fotosho-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -415,7 +433,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.11](https://github.com/truecharts/apps/compare/freecad-desktop-g3-0.0.10...freecad-desktop-g3-0.0.11) (2022-07-22)
+## [fotosho-0.0.11](https://github.com/truecharts/apps/compare/fotosho-0.0.10...fotosho-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -423,7 +441,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.10]freecad-desktop-g3-0.0.10 (2022-07-21)
+## [fotosho-0.0.10]fotosho-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -434,7 +452,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.10]freecad-desktop-g3-0.0.10 (2022-07-21)
+## [fotosho-0.0.10]fotosho-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -444,7 +462,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.10]freecad-desktop-g3-0.0.10 (2022-07-21)
+## [fotosho-0.0.10]fotosho-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -453,7 +471,7 @@
 
 
 
-## [freecad-desktop-g3-0.0.10]freecad-desktop-g3-0.0.10 (2022-07-20)
+## [fotosho-0.0.10]fotosho-0.0.10 (2022-07-20)
 
 ### Chore
 
@@ -461,4 +479,4 @@
 
 
 
-## [freecad-desktop-g3-0.0.10]freecad-desktop-g3-0.0.10 (2022-07-20)
+## [fotosho-0.0.10]fotosho-0.0.10 (2022-07-20)
