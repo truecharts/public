@@ -97,12 +97,10 @@ data:
           {{ .name }} {{ .value }}
           {{- end }}
         }
-        loop
         {{- else }}
-        template ANY ANY {
-        rcode NXDOMAIN
-        }
+        forward . 1.1.1.1
         {{- end }}
+        loop
         reload
         loadbalance
     }
