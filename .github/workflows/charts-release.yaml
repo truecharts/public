@@ -11,11 +11,10 @@ on:
       - "charts/**"
 
 jobs:
-  release:
+  release-scale:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:cefec796e714cd07bae25ef48670999819ceefa0cbb5ff8b9738fabc916ceea7
-    concurrency: gitpush
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
@@ -173,14 +172,49 @@ jobs:
           cd -
           rm -rf catalog
 
+  release-helm:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:cefec796e714cd07bae25ef48670999819ceefa0cbb5ff8b9738fabc916ceea7
+    needs: release-scale
+    steps:
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - name: Install helm-docs
+        run: |
+          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
+          sudo dpkg -i /tmp/helm-docs.deb
+
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo update
+
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
           fetch-depth: 0
+
+      - name: Fix Pre-Commit issues
+        shell: bash
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
 
       - name: Configure Git
         if: |
@@ -191,8 +225,6 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@a3454e46a6f5ac4811069a381e646961dda2e1bf # tag=v1.4.0
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           charts_dir: charts/*
           charts_repo_url: https://charts.truecharts.org
