@@ -9,7 +9,7 @@ You can download a `.zim` file from [here](https://wiki.kiwix.org/wiki/Content)
 For 1 `.zim` file:
 
 - Enter the download link in the `DOWNLOAD` field box. You have to remove the link afterwards,
-  otherwise it will re-download the file on each start.
+  otherwise it will keep re-downloading the file on each start.
 
 For 1 or more `.zim` files:
 
