@@ -1,4 +1,7 @@
 k8sgateway:
   enabled: true
   # -- list of processed domains
-  domains: [something.com]
+  domains:
+    - domain: something.com
+      dnsChallenge:
+        enabled: false
