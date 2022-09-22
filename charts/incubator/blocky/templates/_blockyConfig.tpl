@@ -155,7 +155,7 @@ conditional:
   mapping:
 {{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains }}
 {{- range $id, $value := .Values.k8sgateway.domains }}
-    {{ . }}: 127.0.0.1:{{ .Values.service.k8sgateway.ports.k8sgateway.targetPort }}
+    {{ . }}: 127.0.0.1:{{ $.Values.service.k8sgateway.ports.k8sgateway.targetPort }}
 {{- end }}
 {{- end }}
 {{- range $id, $value := .Values.conditional.mapping }}
