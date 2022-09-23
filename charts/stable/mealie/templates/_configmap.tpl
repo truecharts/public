@@ -33,7 +33,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $authSerapiConfigNameverConfigName }}
+  name: {{ $apiConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
