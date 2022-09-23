@@ -25,6 +25,36 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: templates
+          label: Templates URL
+          description: Specifies the URL to the templates (apps) definitions.
+          schema:
+            type: string
+            default: ""
+        - variable: edge_compute
+          label: Edge Compute
+          description: Automatically enables Edge Compute features.
+          schema:
+            type: boolean
+            default: false
+        - variable: snapshot_interval
+          label: Snapshot Interval
+          description: Specifies the time interval between two environment snapshot jobs expressed as a string. For example 30s, 5m, 1h… Supported by the time.ParseDuration method
+          schema:
+            type: string
+            default: 5m
+        - variable: hide_labels
+          label: Hide Labels
+          description: Hides containers with a specific label in the UI. Format "label=value"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: label
+                label: Label
+                schema:
+                  type: string
+                  default:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
