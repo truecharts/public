@@ -30,21 +30,21 @@ probes:
     spec:
       httpGet:
         path: /
-        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        port: 9443
         scheme: HTTPS
   readiness:
     custom: true
     spec:
       httpGet:
         path: /
-        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        port: 9443
         scheme: HTTPS
   startup:
     custom: true
     spec:
       httpGet:
         path: /
-        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        port: 9443
         scheme: HTTPS
 
 service:
