@@ -1,11 +1,11 @@
 image:
-  repository: hkotel/mealie
-  tag: frontend-v1.0.0beta-4
+  repository: tccr.io/truecharts/mealie-frontend
+  tag: v1.0.0beta@sha256:be031b8c1c6a1698f18e7750a1482ca85f6c311bbb594cf8da46d0e206b0729a
   pullPolicy: IfNotPresent
 
 apiImage:
-  repository: hkotel/mealie
-  tag: api-v1.0.0beta-4
+  repository: tccr.io/truecharts/mealie-api
+  tag: v1.0.0beta@sha256:4dad1521060d896c2e4782f57ca48007e831b2df497746637eb8f2d6a4a23c90
   pullPolicy: IfNotPresent
 
 securityContext:

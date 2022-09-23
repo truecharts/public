@@ -28,6 +28,7 @@ data:
   THEME_DARK_INFO: {{ .Values.mealie_frontend.theme.dark_info | default "#1976D2" }}
   THEME_DARK_WARNING: {{ .Values.mealie_frontend.theme.dark_warning | default "#FF6D00" }}
   THEME_DARK_ERROR: {{ .Values.mealie_frontend.theme.dark_error | default "#EF5350" }}
+
 ---
 
 apiVersion: v1
@@ -63,32 +64,39 @@ data:
   {{- if or .Values.mealie_backend.general.token_time (eq 0 (int .Values.mealie_backend.general.token_time)) }}
   TOKEN_TIME: {{ .Values.mealie_backend.general.token_time | quote }}
   {{- end }}
+  {{- end }}
   {{/* Security */}}
   {{- if hasKey .Values.mealie_backend.security "max_login_attempts" }}
   {{- if or .Values.mealie_backend.security.max_login_attempts (eq 0 (int .Values.mealie_backend.security.max_login_attempts)) }}
   SECURITY_MAX_LOGIN_ATTEMPTS: {{ .Values.mealie_backend.security.max_login_attempts | quote }}
   {{- end }}
+  {{- end }}
   {{- if hasKey .Values.mealie_backend.security "user_lockout_time" }}
   {{- if or .Values.mealie_backend.security.user_lockout_time (eq 0 (int .Values.mealie_backend.security.user_lockout_time)) }}
   SECURITY_USER_LOCKOUT_TIME: {{ .Values.mealie_backend.security.user_lockout_time | quote }}
+  {{- end }}
   {{- end }}
   {{/* Security */}}
   {{- if hasKey .Values.mealie_backend.webworkers "workers_per_core" }}
   {{- if or .Values.mealie_backend.webworkers.workers_per_core (eq 0 (int .Values.mealie_backend.webworkers.workers_per_core)) }}
   WORKERS_PER_CORE: {{ .Values.mealie_backend.webworkers.workers_per_core | quote }}
   {{- end }}
+  {{- end }}
   {{- if hasKey .Values.mealie_backend.webworkers "max_workers" }}
   {{- if or .Values.mealie_backend.webworkers.max_workers (eq 0 (int .Values.mealie_backend.webworkers.max_workers)) }}
   MAX_WORKERS: {{ .Values.mealie_backend.webworkers.max_workers | quote }}
+  {{- end }}
   {{- end }}
   {{- if hasKey .Values.mealie_backend.webworkers "web_concurrency" }}
   {{- if or .Values.mealie_backend.webworkers.web_concurrency (eq 0 (int .Values.mealie_backend.webworkers.web_concurrency)) }}
   WEB_CONCURRENCY: {{ .Values.mealie_backend.webworkers.web_concurrency | quote }}
   {{- end }}
+  {{- end }}
   {{/* SMTP */}}
   {{- if hasKey .Values.mealie_backend.smtp "port" }}
   {{- if or .Values.mealie_backend.smtp.port (eq 0 (int .Values.mealie_backend.smtp.port)) }}
   SMTP_PORT: 587
+  {{- end }}
   {{- end }}
   {{- with .Values.mealie_backend.smtp.host }}
   SMTP_HOST:  {{ . }}
