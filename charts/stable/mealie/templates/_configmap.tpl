@@ -38,12 +38,12 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  PUID: {{ .Values.security.PUID }}
-  PGID: {{ .Values.podSecurityContext.fsGroup }}
+  PUID: {{ .Values.security.PUID | quote }}
+  PGID: {{ .Values.podSecurityContext.fsGroup | quote }}
   TZ: {{ .Values.TZ }}
   DB_ENGINE: "postgres"
   POSTGRES_PORT: "5432"
-  POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername}}
+  POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
   POSTGRES_DB: {{ .Values.postgresql.postgresqlDatabase }}
   POSTGRES_SERVER: {{ printf "%v-%v" .Release.Name "postgresql" }}
   API_PORT: {{ .Values.service.api.ports.api.port | quote }}
