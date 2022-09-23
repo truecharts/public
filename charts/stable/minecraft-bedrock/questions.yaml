@@ -115,7 +115,7 @@ questions:
           label: "Player idle timeout"
           schema:
             type: int
-            min: 1
+            min: 0
             required: true
             default: 30
         - variable: MAX_THREADS
