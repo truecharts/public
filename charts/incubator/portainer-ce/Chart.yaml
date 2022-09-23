@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: Container management made easy
+home: https://truecharts.org/docs/charts/stable/portainer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.png
+keywords:
+  - portainer
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: portainer
+sources:
+  - https://docs.portainer.io/v/ce-2.11/start/install/server/kubernetes/baremetal
+  - https://hub.docker.com/r/portainer/portainer-ce
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - management
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

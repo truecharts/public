@@ -1,0 +1,56 @@
+image:
+  repository: tccr.io/truecharts/portainer-ce
+  tag: 2.15.1@sha256:fa301d57c2e4668a911ebedf920af5639dc101d3cea0a3266885a999a0c4398b
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+portainer:
+  # Logo URL
+  logo:
+
+serviceAccount:
+  main:
+    enabled: true
+
+rbac:
+  main:
+    enabled: true
+
+probes:
+  liveness:
+    path: "/"
+  readiness:
+    path: "/"
+  startup:
+    path: "/"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10400
+        protocol: HTTPS
+        targetPort: 9443
+  edge:
+    enabled: true
+    ports:
+      edge:
+        enabled: true
+        port: 10401
+        protocol: HTTP
+        targetPort: 8000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true
