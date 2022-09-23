@@ -2,6 +2,16 @@
 
 
 
+## [longvinter-0.0.25](https://github.com/truecharts/charts/compare/longvinter-0.0.24...longvinter-0.0.25) (2022-09-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3850](https://github.com/truecharts/charts/issues/3850))
+
+
+
+
 ## [longvinter-0.0.24](https://github.com/truecharts/charts/compare/longvinter-0.0.23...longvinter-0.0.24) (2022-09-22)
 
 ### Chore

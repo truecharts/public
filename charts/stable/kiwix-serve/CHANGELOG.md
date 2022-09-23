@@ -2,6 +2,16 @@
 
 
 
+## [kiwix-serve-1.0.2](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.1...kiwix-serve-1.0.2) (2022-09-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3850](https://github.com/truecharts/charts/issues/3850))
+
+
+
+
 
 ## [kiwix-serve-0.0.27](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.26...kiwix-serve-0.0.27) (2022-09-22)
 
