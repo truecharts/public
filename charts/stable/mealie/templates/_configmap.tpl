@@ -95,7 +95,7 @@ data:
   {{/* SMTP */}}
   {{- if hasKey .Values.mealie_backend.smtp "port" }}
   {{- if or .Values.mealie_backend.smtp.port (eq 0 (int .Values.mealie_backend.smtp.port)) }}
-  SMTP_PORT: 587
+  SMTP_PORT: {{ .Values.mealie_backend.smtp.port | quote }}
   {{- end }}
   {{- end }}
   {{- with .Values.mealie_backend.smtp.host }}
