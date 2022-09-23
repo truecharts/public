@@ -13,23 +13,23 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+    group: Container Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: DOWNLOAD
-          label: "DOWNLOAD"
-          description: "Add download link here to download contents httpswiki.kiwix.orgwikiContent"
+          label: DOWNLOAD
+          description: Add download link here to download contents https://wiki.kiwix.org/wiki/Content. You have to remove link after it's downloaded.
           schema:
             type: string
-            default: "http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim"
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -37,22 +37,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8040
+                              default: 10323
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 80
@@ -62,8 +62,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "data Storage"
-          description: "Container Path data"
+          label: data Storage
+          description: Container Path data
           schema:
             additional_attrs: true
             type: dict
@@ -73,7 +73,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -86,42 +86,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

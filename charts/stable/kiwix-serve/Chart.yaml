@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -9,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 deprecated: false
-description: Kiwix enables you to have the whole Wikipedia at hand wherever you go! [br]Remove download link after download complete.[/br]
+description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
 home: https://truecharts.org/docs/charts/incubator/kiwix-serve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.png
 keywords:
@@ -25,5 +21,10 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/kiwix-serve
   - https://www.kiwix.org/
   - https://hub.docker.com/r/kiwix/kiwix-serve/
+  - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
 type: application
-version: 0.0.27
+version: 1.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
