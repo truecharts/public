@@ -14,20 +14,20 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   API_URL: http://localhost:9000
-  THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" }}
-  THEME_LIGHT_ACCENT: {{ .Values.mealie_frontend.theme.light_accent | default "#007A99" }}
-  THEME_LIGHT_SECONDARY: {{ .Values.mealie_frontend.theme.light_secondary | default "#973542" }}
-  THEME_LIGHT_SUCCESS: {{ .Values.mealie_frontend.theme.light_success | default "#43A047" }}
-  THEME_LIGHT_INFO: {{ .Values.mealie_frontend.theme.light_info | default "#1976D2" }}
-  THEME_LIGHT_WARNING: {{ .Values.mealie_frontend.theme.light_warning | default "#FF6D00" }}
-  THEME_LIGHT_ERROR: {{ .Values.mealie_frontend.theme.light_error | default "#EF5350" }}
-  THEME_DARK_PRIMARY: {{ .Values.mealie_frontend.theme.dark_primary | default "#E58325" }}
-  THEME_DARK_ACCENT: {{ .Values.mealie_frontend.theme.dark_accent | default "#007A99" }}
-  THEME_DARK_SECONDARY: {{ .Values.mealie_frontend.theme.dark_secondary | default "#973542" }}
-  THEME_DARK_SUCCESS: {{ .Values.mealie_frontend.theme.dark_success | default "#43A047" }}
-  THEME_DARK_INFO: {{ .Values.mealie_frontend.theme.dark_info | default "#1976D2" }}
-  THEME_DARK_WARNING: {{ .Values.mealie_frontend.theme.dark_warning | default "#FF6D00" }}
-  THEME_DARK_ERROR: {{ .Values.mealie_frontend.theme.dark_error | default "#EF5350" }}
+  THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" | quote }}
+  THEME_LIGHT_ACCENT: {{ .Values.mealie_frontend.theme.light_accent | default "#007A99" | quote }}
+  THEME_LIGHT_SECONDARY: {{ .Values.mealie_frontend.theme.light_secondary | default "#973542" | quote }}
+  THEME_LIGHT_SUCCESS: {{ .Values.mealie_frontend.theme.light_success | default "#43A047" | quote }}
+  THEME_LIGHT_INFO: {{ .Values.mealie_frontend.theme.light_info | default "#1976D2" | quote }}
+  THEME_LIGHT_WARNING: {{ .Values.mealie_frontend.theme.light_warning | default "#FF6D00" | quote }}
+  THEME_LIGHT_ERROR: {{ .Values.mealie_frontend.theme.light_error | default "#EF5350" | quote }}
+  THEME_DARK_PRIMARY: {{ .Values.mealie_frontend.theme.dark_primary | default "#E58325" | quote }}
+  THEME_DARK_ACCENT: {{ .Values.mealie_frontend.theme.dark_accent | default "#007A99" | quote }}
+  THEME_DARK_SECONDARY: {{ .Values.mealie_frontend.theme.dark_secondary | default "#973542" | quote }}
+  THEME_DARK_SUCCESS: {{ .Values.mealie_frontend.theme.dark_success | default "#43A047" | quote }}
+  THEME_DARK_INFO: {{ .Values.mealie_frontend.theme.dark_info | default "#1976D2" | quote }}
+  THEME_DARK_WARNING: {{ .Values.mealie_frontend.theme.dark_warning | default "#FF6D00" | quote }}
+  THEME_DARK_ERROR: {{ .Values.mealie_frontend.theme.dark_error | default "#EF5350" | quote }}
 
 ---
 
