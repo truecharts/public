@@ -12,7 +12,194 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  # Docker specific env
+  - variable: mealie_frontend
+    group: Container Configuration
+    label: Mealie Frontend Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: theme
+          label: Theme
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: light_primary
+                label: Light Primary
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#E58325"
+              - variable: light_accent
+                label: Light Accent
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#007A99"
+              - variable: light_secondary
+                label: Light Secondary
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#973542"
+              - variable: light_success
+                label: Light Success
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#43A047"
+              - variable: light_info
+                label: Light Info
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#1976D2"
+              - variable: light_warning
+                label: Light Warning
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#FF6D00"
+              - variable: light_error
+                label: Light Error
+                description: Light Theme Config Variable
+                schema:
+                  type: string
+                  default: "#EF5350"
+              - variable: dark_primary
+                label: Dark Primary
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#E58325"
+              - variable: dark_accent
+                label: Dark Accent
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#007A99"
+              - variable: dark_secondary
+                label: Dark Secondary
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#973542"
+              - variable: dark_success
+                label: Dark Success
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#43A047"
+              - variable: dark_info
+                label: Dark Info
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#1976D2"
+              - variable: dark_warning
+                label: Dark Warning
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#FF6D00"
+              - variable: dark_error
+                label: Dark Error
+                description: Dark Theme Config Variable
+                schema:
+                  type: string
+                  default: "#EF5350"
+  - variable: mealie_frontend
+    group: Container Configuration
+    label: Mealie Frontend Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: general
+          label: General
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: allow_signup
+                label: Allow Sign up
+                description: Allow user sign-up without token
+                schema:
+                  type: boolean
+                  default: true
+              - variable: api_docs
+                label: API Docs
+                description: Turns on/off access to the API documentation locally.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: default_group
+                label: Default Group
+                description: The default group for users
+                schema:
+                  type: string
+                  default: Home
+              - variable: default_email
+                label: Default Email
+                description: The default username for the superuser
+                schema:
+                  type: string
+                  default: changeme@email.com
+              - variable: base_url
+                label: Base URL
+                description: Used for Notifications
+                schema:
+                  type: string
+                  default: ""
+              - variable: token_time
+                label: Token Time
+                description: The time in hours that a login/auth token is valid
+                schema:
+                  type: int
+                  default: 48
+        - variable: security
+          label: Security
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: max_login_attempts
+                label: Max Login Attempts
+                description: Maximum times a user can provide an invalid password before their account is locked
+                schema:
+                  type: int
+                  default: 5
+              - variable: user_lockout_time
+                label: User Lockout Time
+                description: Time in hours for how long a users account is locked
+                schema:
+                  type: int
+                  default: 24
+        - variable: webworkers
+          label: Web Workers
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: workers_per_core
+                label: Workers Per Core
+                description: Set the number of workers to the number of CPU cores multiplied by this value.
+                schema:
+                  type: int
+                  default: 1
+              - variable: max_workers
+                label: Max Workers
+                description: Set the maximum number of workers to use. Default is not set meaning unlimited.
+                schema:
+                  type: int
+                  default: 1
+              - variable: web_concurrency
+                label: Web Concurrency
+                description: Override the automatic definition of number of workers.
+                schema:
+                  type: int
+                  default: 1
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

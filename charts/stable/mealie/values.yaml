@@ -16,7 +16,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-#TODO: UI
 mealie_frontend:
   theme:
     light_primary: "#E58325"
@@ -37,6 +36,7 @@ mealie_frontend:
 mealie_backend:
   general:
     allow_signup: true
+    # TODO: Test with off, to make sure healthcheck does not fail
     api_docs: true
     default_group: Home
     default_email: changeme@email.com
