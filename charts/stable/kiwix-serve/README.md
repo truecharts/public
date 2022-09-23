@@ -1,19 +1,20 @@
 # kiwix-serve
 
-Kiwix enables you to have the whole Wikipedia at hand wherever you go! [br]Remove download link after download complete.[/br]
+Kiwix enables you to have the whole Wikipedia at hand wherever you go!
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [kiwix-serve](https://truecharts.org/docs/charts/incubator/kiwix-serve)
+For more information, please click here: [kiwix-serve](https://truecharts.org/docs/charts/stable/kiwix-serve)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/kiwix-serve>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve>
 * <https://www.kiwix.org/>
 * <https://hub.docker.com/r/kiwix/kiwix-serve/>
+* <https://github.com/kiwix/kiwix-tools/blob/master/docker/server>
 
 ## Requirements
 

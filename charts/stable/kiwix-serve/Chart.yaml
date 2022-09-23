@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "latest"
+appVersion: "3.3.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 deprecated: false
 description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
-home: https://truecharts.org/docs/charts/incubator/kiwix-serve
+home: https://truecharts.org/docs/charts/stable/kiwix-serve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.png
 keywords:
   - kiwix-serve
@@ -18,7 +18,7 @@ maintainers:
     url: https://truecharts.org
 name: kiwix-serve
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kiwix-serve
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve
   - https://www.kiwix.org/
   - https://hub.docker.com/r/kiwix/kiwix-serve/
   - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
