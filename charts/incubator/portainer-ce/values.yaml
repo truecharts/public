@@ -13,7 +13,7 @@ image:
 
 portainer:
   # Logo URL
-  logo:
+  logo: ""
 
 serviceAccount:
   main:
@@ -44,8 +44,8 @@ service:
       edge:
         enabled: true
         port: 10401
-        protocol: HTTP
-        targetPort: 8000
+        protocol:
+        targetPort: 10401
 
 persistence:
   data:
