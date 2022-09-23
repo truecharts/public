@@ -17,7 +17,8 @@ volumeMounts:
 readinessProbe:
   httpGet:
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
+    port: {{ .Values.service.api.ports.api.targetPort }}
+    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -25,7 +26,8 @@ readinessProbe:
 livenessProbe:
   httpGet:
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
+    port: {{ .Values.service.api.ports.api.targetPort }}
+    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -33,7 +35,8 @@ livenessProbe:
 startupProbe:
   httpGet:
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
+    port: {{ .Values.service.api.ports.api.targetPort }}
+    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
