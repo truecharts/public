@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "elopment"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -9,8 +9,8 @@ dependencies:
     repository: https://charts.truecharts.org
     version: 3.0.67
 description: Blocky is a DNS proxy and ad-blocker for the local network written in Go
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/blocky
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
 keywords:
   - dns
   - blocky
@@ -21,6 +21,7 @@ maintainers:
     url: https://truecharts.org
 name: blocky
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blocky
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/Mozart409/blocky-frontend
