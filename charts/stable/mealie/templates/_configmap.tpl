@@ -13,7 +13,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  API_URL: http://localhost:9000
+  API_URL: http://localhost:{{ .Values.service.api.ports.api.port }}
   THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" | quote }}
   THEME_LIGHT_ACCENT: {{ .Values.mealie_frontend.theme.light_accent | default "#007A99" | quote }}
   THEME_LIGHT_SECONDARY: {{ .Values.mealie_frontend.theme.light_secondary | default "#973542" | quote }}
