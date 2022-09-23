@@ -200,6 +200,110 @@ questions:
                 schema:
                   type: int
                   default: 1
+        - variable: smtp
+          label: SMTP
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: user
+                label: User
+                description: Mail User
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                description: Mail Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: host
+                label: Host
+                description: Mail Host
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: Port
+                description: Mail Port
+                schema:
+                  type: int
+                  default: 587
+              - variable: from_name
+                label: From Name
+                description: Mail From Name
+                schema:
+                  type: string
+                  default: Mealie
+              - variable: from_email
+                label: From Email
+                description: Mail From Email
+                schema:
+                  type: string
+                  default: ""
+              - variable: auth_strategy
+                label: Auth Strategy
+                description: Mail Auth Strategy
+                schema:
+                  type: string
+                  default: "TLS"
+                  enum:
+                    - value: TLS
+                      description: TLS
+                    - value: SSL
+                      description: SSL
+                    - value: NONE
+                      description: NONE
+        - variable: ldap
+          label: LDAP
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: auth_enabled
+                label: Auth Enabled
+                description: Authenticate via an external LDAP server in addition to built-in Mealie auth
+                schema:
+                  type: boolean
+                  default: false
+              - variable: server_url
+                label: Server URL
+                description: LDAP server URL
+                schema:
+                  type: string
+                  default: ""
+              - variable: tls_insecure
+                label: TLS Insecure
+                description: Do not verify server certificate when using secure LDAP
+                schema:
+                  type: boolean
+                  default: false
+              - variable: tls_cacertfile
+                label: TLS CA Cert File
+                description: File path to Certificate Authority used to verify server certificate
+                schema:
+                  type: string
+                  default: ""
+              - variable: bind_template
+                label: Bind Template
+                description: Templated DN for users, {} will be replaced with the username.
+                schema:
+                  type: string
+                  default: ""
+              - variable: base_dn
+                label: Base DN
+                description: Starting point when searching for users authentication.
+                schema:
+                  type: string
+                  default: ""
+              - variable: admin_filter
+                label: Admin Filter
+                description: Optional LDAP filter, which tells Mealie the LDAP user .is an admin
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
