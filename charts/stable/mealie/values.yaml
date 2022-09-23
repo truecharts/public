@@ -36,8 +36,6 @@ mealie_frontend:
 mealie_backend:
   general:
     allow_signup: true
-    # TODO: Test with off, to make sure healthcheck does not fail
-    api_docs: false
     default_group: Home
     default_email: changeme@email.com
     base_url: ""

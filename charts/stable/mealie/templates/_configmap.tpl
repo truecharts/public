@@ -54,7 +54,7 @@ data:
   {{/* User Defined */}}
   {{/* General */}}
   ALLOW_SIGNUP: {{ .Values.mealie_backend.general.allow_signup | quote }}
-  API_DOCS: {{ .Values.mealie_backend.general.api_docs | quote }}
+  API_DOCS: "true"
   {{- with .Values.mealie_backend.general.default_group }}
   DEFAULT_GROUP: {{ . }}
   {{- end }}
