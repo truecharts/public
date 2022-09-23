@@ -1,19 +1,21 @@
-# redis
+# blocky
 
-Open source, advanced key-value store.
+Blocky is a DNS proxy and ad-blocker for the local network written in Go
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [redis](https://truecharts.org/docs/charts/dependency/redis)
+For more information, please click here: [blocky](https://truecharts.org/docs/charts/incubator/blocky)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/dependency/redis>
-* <https://github.com/bitnami/bitnami-docker-redis>
-* <http://redis.io/>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/blocky>
+* <https://0xerr0r.github.io/blocky/>
+* <https://github.com/0xERR0R/blocky>
+* <https://github.com/Mozart409/blocky-frontend>
+* <https://hub.docker.com/r/spx01/blocky>
 
 ## Requirements
 
@@ -23,7 +25,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.12 |
+| https://charts.truecharts.org | redis | 3.0.67 |
+| https://library-charts.truecharts.org | common | 10.5.7 |
 
 ## Installing the Chart
 
@@ -33,12 +36,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `redis`
+To install the chart with the release name `blocky`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install redis TrueCharts/redis
+helm install blocky TrueCharts/blocky
 ```
 
 ## Uninstall
@@ -51,10 +54,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `redis` deployment
+To uninstall the `blocky` deployment
 
 ```console
-helm uninstall redis
+helm uninstall blocky
 ```
 
 ## Configuration
@@ -71,9 +74,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install redis \
+helm install blocky \
   --set env.TZ="America/New York" \
-    TrueCharts/redis
+    TrueCharts/blocky
 ```
 
 #### Configure using a yaml file
@@ -81,7 +84,7 @@ helm install redis \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install redis TrueCharts/redis -f values.yaml
+helm install blocky TrueCharts/blocky -f values.yaml
 ```
 
 #### Connecting to other charts
