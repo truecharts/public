@@ -13,7 +13,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  API_URL: http://localhost:{{ .Values.service.api.ports.api.port }}
+  API_URL: http://localhost:{{ .Values.service.api.ports.api.targetPort }}
+  {{/* https://github.com/hay-kot/mealie/issues/1666 */}}
+  {{/* API_URL: http://localhost:{{ .Values.service.api.ports.api.port }} */}}
   THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" | quote }}
   THEME_LIGHT_ACCENT: {{ .Values.mealie_frontend.theme.light_accent | default "#007A99" | quote }}
   THEME_LIGHT_SECONDARY: {{ .Values.mealie_frontend.theme.light_secondary | default "#973542" | quote }}
@@ -46,7 +48,9 @@ data:
   POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
   POSTGRES_DB: {{ .Values.postgresql.postgresqlDatabase }}
   POSTGRES_SERVER: {{ printf "%v-%v" .Release.Name "postgresql" }}
-  API_PORT: {{ .Values.service.api.ports.api.port | quote }}
+  API_PORT: {{ .Values.service.api.ports.api.targetPort | quote }}
+  {{/* https://github.com/hay-kot/mealie/issues/1666 */}}
+  {{/* API_PORT: {{ .Values.service.api.ports.api.port | quote }} */}}
   {{/* User Defined */}}
   {{/* General */}}
   ALLOW_SIGNUP: {{ .Values.mealie_backend.general.allow_signup | quote }}
