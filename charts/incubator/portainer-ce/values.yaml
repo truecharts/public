@@ -34,11 +34,26 @@ rbac:
 
 probes:
   liveness:
-    path: "/"
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        scheme: HTTPS
   readiness:
-    path: "/"
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        scheme: HTTPS
   startup:
-    path: "/"
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: "{{ .Values.service.main.ports.main.targetPort }}"
+        scheme: HTTPS
 
 service:
   main:
