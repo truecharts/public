@@ -500,6 +500,35 @@ questions:
                               type: string
                               required: true
                               default: ""
+  - variable: hostsFile
+    group: Container Configuration
+    label: Hosts File
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enabled
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: filePath
+                label: File Path
+                schema:
+                  type: string
+                  default: /etc/hosts
+              - variable: hostsTTL
+                label: Hosts TTL
+                schema:
+                  type: string
+                  default: 60m
+              - variable: refreshPeriod
+                label: Refresh Period
+                schema:
+                  type: string
+                  default: 30m
   - variable: k8sgateway
     group: Container Configuration
     label: k8s-Gateway Configuration
