@@ -1,9 +1,13 @@
 image:
-  repository: spx01/blocky
-  tag: development@sha256:ddb35986cbc924de11cd37ccf625ff6bd0896fad456e57ee9c0bd67bd034770e
+  repository: tccr.io/truecharts/alpine
+  tag: 3.16.2@sha256:71198b13ca5eaa344c6bd2bd0c1a29fb084772433c2811bcf9a78b77838b87fa
+  # repository: spx01/blocky
+  # tag: development@sha256:ddb35986cbc924de11cd37ccf625ff6bd0896fad456e57ee9c0bd67bd034770e
   # repository: tccr.io/truecharts/blocky
   # tag: v0.19@sha256:77a474542f12f480deca33ff0a6375846918b86988c13f858620839d8818ca84
   pullPolicy: IfNotPresent
+
+command: ["cat", "/app/config/tc-config.yaml"]
 
 WebUIImage:
   repository: tccr.io/truecharts/blocky-frontend
