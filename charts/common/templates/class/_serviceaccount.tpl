@@ -3,7 +3,6 @@ This template serves as a blueprint for ServiceAccount objects that are created
 using the common library.
 */}}
 {{- define "tc.common.class.serviceAccount" -}}
-  {{- $targetName := include "tc.common.names.fullname" . }}
   {{- $fullName := include "tc.common.names.fullname" . -}}
   {{- $saName := $fullName -}}
   {{- $values := .Values.serviceAccount -}}

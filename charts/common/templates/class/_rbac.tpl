@@ -3,7 +3,6 @@ This template serves as a blueprint for rbac objects that are created
 using the common library.
 */}}
 {{- define "tc.common.class.rbac" -}}
-  {{- $targetName := include "tc.common.names.fullname" . }}
   {{- $fullName := include "tc.common.names.fullname" . -}}
   {{- $rbacName := $fullName -}}
   {{- $values := .Values.rbac -}}
