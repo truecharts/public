@@ -2,6 +2,16 @@
 
 
 
+## [traktarr-0.0.32](https://github.com/truecharts/charts/compare/traktarr-0.0.31...traktarr-0.0.32) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
 ## [traktarr-0.0.31](https://github.com/truecharts/charts/compare/traktarr-0.0.28...traktarr-0.0.31) (2022-09-22)
 
 ### Chore

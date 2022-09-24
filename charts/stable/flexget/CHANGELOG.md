@@ -2,6 +2,16 @@
 
 
 
+## [flexget-2.0.46](https://github.com/truecharts/charts/compare/flexget-2.0.45...flexget-2.0.46) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
 ## [flexget-2.0.45](https://github.com/truecharts/charts/compare/flexget-2.0.43...flexget-2.0.45) (2022-09-22)
 
 ### Chore

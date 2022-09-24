@@ -2,6 +2,16 @@
 
 
 
+## [crypto-exchanges-gateway-0.0.25](https://github.com/truecharts/charts/compare/crypto-exchanges-gateway-0.0.24...crypto-exchanges-gateway-0.0.25) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
 ## [crypto-exchanges-gateway-0.0.24](https://github.com/truecharts/charts/compare/crypto-exchanges-gateway-0.0.23...crypto-exchanges-gateway-0.0.24) (2022-09-22)
 
 ### Chore
