@@ -5,13 +5,13 @@ Easy platform to combine all your social links
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [littlelink](https://truecharts.org/docs/charts/enterprise/littlelink)
+For more information, please click here: [littlelink](https://truecharts.org/docs/charts/stable/littlelink)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/enterprise/littlelink>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/littlelink>
 * <https://github.com/techno-tim/littlelink-server>
 * <https://github.com/sethcottle/littlelink>
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.9 |
+| https://library-charts.truecharts.org | common | 10.5.10 |
 
 ## Installing the Chart
 

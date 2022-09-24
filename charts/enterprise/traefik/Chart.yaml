@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "2.8.4"
+appVersion: "2.8.7"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.9
+    version: 10.6.0
 deprecated: false
 description: Traefik is a flexible reverse proxy and Ingress Provider.
-home: https://truecharts.org/docs/charts/enterprise/traefik
+home: https://truecharts.org/docs/charts/stable/traefik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
 keywords:
   - traefik
@@ -18,12 +18,12 @@ maintainers:
     url: https://truecharts.org
 name: traefik
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
+  - https://github.com/truecharts/charts/tree/master/charts/stable/traefik
   - https://github.com/traefik/traefik
   - https://github.com/traefik/traefik-helm-chart
   - https://traefik.io/
 type: application
-version: 13.3.7
+version: 14.0.0
 annotations:
   truecharts.org/catagories: |
     - network
