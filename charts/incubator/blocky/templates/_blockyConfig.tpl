@@ -30,6 +30,10 @@ prometheus:
 upstream:
   default:
 {{- .Values.defaultUpstreams | toYaml | nindent 8 }}
+{{- range $id, $value := .Values.upstreams }}
+  {{ $value.name }}:
+{{- $value.dnsservers | toYaml | nindent 8 }}
+{{- end }}
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
@@ -66,12 +70,6 @@ caching:
 {{ $hostsfile := omit .Values.hostsFile "enabled" }}
 hostsFile:
 {{ toYaml $hostsfile | indent 2 }}
-{{- end }}
-
-
-{{- range $id, $value := .Values.upstreams }}
-  {{ $value.name }}:
-{{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
 {{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}
