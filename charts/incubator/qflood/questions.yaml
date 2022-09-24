@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -68,7 +69,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: hostportfor808
                       label: "hostportfor808 Service Port Configuration"
                       schema:

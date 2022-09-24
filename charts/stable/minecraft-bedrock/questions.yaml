@@ -115,14 +115,14 @@ questions:
           label: "Player idle timeout"
           schema:
             type: int
-            min: 1
+            min: 0
             required: true
             default: 30
         - variable: MAX_THREADS
           label: "Max threads"
           schema:
             type: int
-            min: 1
+            min: 0
             required: true
             default: 8
         - variable: LEVEL_NAME
@@ -201,7 +201,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

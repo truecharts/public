@@ -2,37 +2,321 @@
 
 
 
-## [root-0.0.23](https://github.com/truecharts/charts/compare/root-0.0.22...root-0.0.23) (2022-09-11)
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-22)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.24](https://github.com/truecharts/charts/compare/root-0.0.23...root-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [root-0.0.23](https://github.com/truecharts/charts/compare/root-0.0.22...root-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [root-0.0.23](https://github.com/truecharts/charts/compare/root-0.0.22...root-0.0.23) (2022-09-11)
+## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-12)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [root-0.0.23](https://github.com/truecharts/charts/compare/root-0.0.22...root-0.0.23) (2022-09-11)
+## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-11)
 
 ### Chore
 
-- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [root-0.0.22](https://github.com/truecharts/charts/compare/root-0.0.20...root-0.0.22) (2022-08-30)
+## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [rss-proxy-0.0.23](https://github.com/truecharts/charts/compare/rss-proxy-0.0.22...rss-proxy-0.0.23) (2022-09-11)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [rss-proxy-0.0.22](https://github.com/truecharts/charts/compare/rss-proxy-0.0.20...rss-proxy-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -43,7 +327,7 @@
 
 
 
-## [root-0.0.21](https://github.com/truecharts/charts/compare/root-0.0.20...root-0.0.21) (2022-08-30)
+## [rss-proxy-0.0.21](https://github.com/truecharts/charts/compare/rss-proxy-0.0.20...rss-proxy-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -52,7 +336,7 @@
 
 
 
-## [root-0.0.20](https://github.com/truecharts/charts/compare/root-0.0.19...root-0.0.20) (2022-08-29)
+## [rss-proxy-0.0.20](https://github.com/truecharts/charts/compare/rss-proxy-0.0.19...rss-proxy-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -61,7 +345,7 @@
 
 
 
-## [root-0.0.19](https://github.com/truecharts/charts/compare/root-0.0.17...root-0.0.19) (2022-08-26)
+## [rss-proxy-0.0.19](https://github.com/truecharts/charts/compare/rss-proxy-0.0.17...rss-proxy-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -70,7 +354,7 @@
 
 
 
-## [root-0.0.17](https://github.com/truecharts/charts/compare/root-0.0.16...root-0.0.17) (2022-08-23)
+## [rss-proxy-0.0.17](https://github.com/truecharts/charts/compare/rss-proxy-0.0.16...rss-proxy-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -79,7 +363,7 @@
 
 
 
-## [root-0.0.16](https://github.com/truecharts/charts/compare/root-0.0.15...root-0.0.16) (2022-08-12)
+## [rss-proxy-0.0.16](https://github.com/truecharts/charts/compare/rss-proxy-0.0.15...rss-proxy-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -93,7 +377,7 @@
 
 
 
-## [root-0.0.15](https://github.com/truecharts/charts/compare/root-0.0.14...root-0.0.15) (2022-08-08)
+## [rss-proxy-0.0.15](https://github.com/truecharts/charts/compare/rss-proxy-0.0.14...rss-proxy-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -103,7 +387,7 @@
 
 
 
-## [root-0.0.14](https://github.com/truecharts/apps/compare/root-0.0.13...root-0.0.14) (2022-07-26)
+## [rss-proxy-0.0.14](https://github.com/truecharts/apps/compare/rss-proxy-0.0.13...rss-proxy-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -113,7 +397,7 @@
 
 
 
-## [root-0.0.13](https://github.com/truecharts/apps/compare/root-0.0.12...root-0.0.13) (2022-07-25)
+## [rss-proxy-0.0.13](https://github.com/truecharts/apps/compare/rss-proxy-0.0.12...rss-proxy-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -126,7 +410,7 @@
 
 
 
-## [root-0.0.12](https://github.com/truecharts/apps/compare/root-0.0.11...root-0.0.12) (2022-07-23)
+## [rss-proxy-0.0.12](https://github.com/truecharts/apps/compare/rss-proxy-0.0.11...rss-proxy-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -137,7 +421,7 @@
 
 
 
-## [root-0.0.12](https://github.com/truecharts/apps/compare/root-0.0.11...root-0.0.12) (2022-07-23)
+## [rss-proxy-0.0.12](https://github.com/truecharts/apps/compare/rss-proxy-0.0.11...rss-proxy-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -147,7 +431,7 @@
 
 
 
-## [root-0.0.12](https://github.com/truecharts/apps/compare/root-0.0.11...root-0.0.12) (2022-07-23)
+## [rss-proxy-0.0.12](https://github.com/truecharts/apps/compare/rss-proxy-0.0.11...rss-proxy-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -156,7 +440,7 @@
 
 
 
-## [root-0.0.11]root-0.0.11 (2022-07-22)
+## [rss-proxy-0.0.11]rss-proxy-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -168,7 +452,7 @@
 
 
 
-## [root-0.0.10]root-0.0.10 (2022-07-22)
+## [rss-proxy-0.0.10]rss-proxy-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -178,7 +462,7 @@
 
 
 
-## [root-0.0.10]root-0.0.10 (2022-07-22)
+## [rss-proxy-0.0.10]rss-proxy-0.0.10 (2022-07-22)
 
 ### Chore
 

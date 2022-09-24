@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -68,7 +69,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: porttcp
                       label: "porttcp Service Port Configuration"
                       schema:
@@ -96,7 +98,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: portudp
                       label: "portudp Service Port Configuration"
                       schema:

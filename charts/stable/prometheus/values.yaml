@@ -1,10 +1,10 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.59.0@sha256:4a764f9e38347b1c5b8b651c6d1c59d588fc57405ab7bf69a0d3501769299e6a
+  tag: 0.59.2@sha256:eaced1323a58241b843b475344cd5edb726ed01da54ea5bd37c86df0807e743d
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.38.0@sha256:656a1a1e03b40d4278613115d9b43ddfc0cf81f5916254483b33d8095b23da1b
+  tag: 2.38.0@sha256:c5e19845c4eeee7b406c01b26562419709b4bc0d1014d48ca99828649eadfd52
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
@@ -12,7 +12,7 @@ thanosImage:
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:899447e4e3be55745f81f38e72f396ad413b693391b83aa35bf4634ecd8a5a75
+  tag: v0.24.0@sha256:6f0ba761a9a80db718dea6ad3c09e5d8f2803d094d5dbc32a991f10059ba9417
 
 global:
   labels: {}
@@ -404,10 +404,10 @@ prometheus:
   tolerations: []
   ## @param prometheus.scrapeInterval Interval between consecutive scrapes
   ##
-  scrapeInterval: ""
+  scrapeInterval: "15s"
   ## @param prometheus.evaluationInterval Interval between consecutive evaluations
   ##
-  evaluationInterval: ""
+  evaluationInterval: "30s"
   ## @param prometheus.listenLocal ListenLocal makes the Prometheus server listen on loopback
   ##
   listenLocal: false
@@ -1150,8 +1150,17 @@ node-exporter:
     enabled: true
     jobLabel: jobLabel
   extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+)($|/)"
+    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
     collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+    path.rootfs: /host
+  extraVolumes:
+    - name: host
+      hostPath:
+        path: /
+  extraVolumeMounts:
+    - name: host
+      mountPath: /host
+      readOnly: true
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:

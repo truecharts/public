@@ -32,7 +32,7 @@ All our charts are supposed to work together, be easy to setup using the TrueNAS
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Adding-TrueCharts) for more information.
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Adding-TrueCharts) for more information.
 
 ### Support
 
@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-118-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-122-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -196,7 +196,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/PylotLight"><img src="https://avatars.githubusercontent.com/u/7006124?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Light</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3APylotLight" title="Bug reports">🐛</a></td>
       <td align="center"><a href="https://github.com/Boostflow"><img src="https://avatars.githubusercontent.com/u/18465315?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Boostflow</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3ABoostflow" title="Bug reports">🐛</a></td>
       <td align="center"><a href="https://github.com/Trigardon"><img src="https://avatars.githubusercontent.com/u/98973534?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Trigardon</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3ATrigardon" title="Bug reports">🐛</a></td>
-      <td align="center"><a href="https://github.com/dbb12345"><img src="https://avatars.githubusercontent.com/u/52704517?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dbb12345</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Adbb12345" title="Bug reports">🐛</a></td>
+      <td align="center"><a href="https://github.com/dbb12345"><img src="https://avatars.githubusercontent.com/u/52704517?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dbb12345</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Adbb12345" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=dbb12345" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/karypid"><img src="https://avatars.githubusercontent.com/u/1221101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>karypid</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Akarypid" title="Bug reports">🐛</a></td>
     </tr>
     <tr>
@@ -287,6 +287,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/neoestremi"><img src="https://avatars.githubusercontent.com/u/1340877?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NeoToxic</b></sub></a><br /><a href="#mentoring-neoestremi" title="Mentoring">🧑‍🏫</a></td>
       <td align="center"><a href="https://github.com/jab416171"><img src="https://avatars.githubusercontent.com/u/345752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jab416171</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jab416171" title="Documentation">📖</a></td>
       <td align="center"><a href="http://www.zioniyes.me"><img src="https://avatars.githubusercontent.com/u/16231288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anna</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=HumbleDeer" title="Documentation">📖</a></td>
+      <td align="center"><a href="https://github.com/ChaosBlades"><img src="https://avatars.githubusercontent.com/u/7530545?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ChaosBlades</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AChaosBlades" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/TrueBrain"><img src="https://avatars.githubusercontent.com/u/1663690?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Patric Stout</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=TrueBrain" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/SuperQ"><img src="https://avatars.githubusercontent.com/u/1320667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben Kochie</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=SuperQ" title="Code">💻</a></td>
+      <td align="center"><a href="https://www.cepheid.org/~jeff/"><img src="https://avatars.githubusercontent.com/u/3298329?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeff Bachtel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jeffb4" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

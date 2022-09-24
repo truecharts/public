@@ -56,7 +56,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -84,7 +85,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: mc-port-1-tcp
                       label: "MC Port 1 TCP"
                       schema:
@@ -213,7 +215,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: mc-port-1-udp
                       label: "MC Port 1 UDP"
                       schema:
@@ -342,7 +345,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: br-port-1-udp
                       label: "MC Port 1 UDP"
                       schema:
@@ -471,7 +475,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: mc-rcon-1
                       label: "MC Port 1 RCON"
                       schema:

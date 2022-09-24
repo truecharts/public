@@ -1,21 +1,16 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/universal-media-server
-  tag: latest@sha256:9eec93ce42f11c478bcb7ffd41526cecc74ac61c833df1fed13d74513b069066
-persistence:
-  config:
-    enabled: true
-    mountPath: /root/.config/UMS/
-  media:
-    enabled: true
-    mountPath: /media
+  tag: latest@sha256:3521d5a9b0f85f740c7450df35a9a03acd66f5b889ce5539837cb60e60b99a70
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -23,22 +18,30 @@ service:
         port: 9001
         protocol: HTTP
         targetPort: 9001
-  port1044:
+  sub:
     enabled: true
     ports:
-      port1044:
+      sub:
         enabled: true
         port: 1044
         protocol: TCP
         targetPort: 1044
-  port5002:
+  api:
     enabled: true
     ports:
-      port5002:
+      api:
         enabled: true
-        port: 5002
+        port: 5001
         protocol: TCP
-        targetPort: 5002
+        targetPort: 5001
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /root/.config/UMS/
+  media:
+    enabled: true
+    mountPath: /media
 
 portal:
   enabled: true

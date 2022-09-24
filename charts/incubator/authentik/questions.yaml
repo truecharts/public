@@ -459,7 +459,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: Main Service Port Configuration
                       schema:
@@ -487,7 +488,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: http
                       label: http Service Port Configuration
                       schema:
@@ -515,7 +517,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: metrics
                       label: metrics Service Port Configuration
                       schema:
@@ -543,7 +546,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: ldapldaps
                       label: LDAPS Service Port Configuration
                       schema:
@@ -571,7 +575,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: ldapldap
                       label: LDAP Service Port Configuration
                       schema:
@@ -599,7 +604,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: ldapmetrics
                       label: LDAP Metrics Service Port Configuration
                       schema:
@@ -627,7 +633,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: proxyhttps
                       label: Proxy HTTPS Service Port Configuration
                       schema:
@@ -655,7 +662,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: proxyhttp
                       label: Proxy HTTP Service Port Configuration
                       schema:
@@ -683,7 +691,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: proxymetrics
                       label: Proxy Metrics Service Port Configuration
                       schema:

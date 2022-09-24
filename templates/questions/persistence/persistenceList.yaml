@@ -59,14 +59,14 @@
                 schema:
                   show_if: [["type", "=", "simpleHP"]]
                   type: boolean
-                  default: true
+                  default: false
               - variable: setPermissions
                 label: Automatic Permissions
                 description: Automatically set permissions on install
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: boolean
-                  default: true
+                  default: false
               - variable: readOnly
                 label: Read Only
                 schema:

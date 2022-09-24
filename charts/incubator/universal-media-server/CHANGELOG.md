@@ -2,7 +2,259 @@
 
 
 
-## [universal-media-server-0.0.25](https://github.com/truecharts/charts/compare/universal-media-server-0.0.24...universal-media-server-0.0.25) (2022-09-11)
+## [universal-media-server-0.0.28](https://github.com/truecharts/charts/compare/universal-media-server-0.0.25...universal-media-server-0.0.28) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+  ### Fix
+
+- fix port and code ([#3829](https://github.com/truecharts/charts/issues/3829))
+
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.24](https://github.com/truecharts/charts/compare/unturned-0.0.23...unturned-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -14,7 +266,7 @@
 
 
 
-## [universal-media-server-0.0.25](https://github.com/truecharts/charts/compare/universal-media-server-0.0.24...universal-media-server-0.0.25) (2022-09-11)
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -25,7 +277,7 @@
 
 
 
-## [universal-media-server-0.0.25](https://github.com/truecharts/charts/compare/universal-media-server-0.0.24...universal-media-server-0.0.25) (2022-09-11)
+## [unturned-0.0.23](https://github.com/truecharts/charts/compare/unturned-0.0.22...unturned-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -35,7 +287,7 @@
 
 
 
-## [universal-media-server-0.0.24](https://github.com/truecharts/charts/compare/universal-media-server-0.0.22...universal-media-server-0.0.24) (2022-08-30)
+## [unturned-0.0.22](https://github.com/truecharts/charts/compare/unturned-0.0.20...unturned-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -46,7 +298,7 @@
 
 
 
-## [universal-media-server-0.0.23](https://github.com/truecharts/charts/compare/universal-media-server-0.0.22...universal-media-server-0.0.23) (2022-08-30)
+## [unturned-0.0.21](https://github.com/truecharts/charts/compare/unturned-0.0.20...unturned-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -55,7 +307,7 @@
 
 
 
-## [universal-media-server-0.0.22](https://github.com/truecharts/charts/compare/universal-media-server-0.0.21...universal-media-server-0.0.22) (2022-08-29)
+## [unturned-0.0.20](https://github.com/truecharts/charts/compare/unturned-0.0.19...unturned-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -64,20 +316,16 @@
 
 
 
-## [universal-media-server-0.0.21](https://github.com/truecharts/charts/compare/universal-media-server-0.0.18...universal-media-server-0.0.21) (2022-08-27)
+## [unturned-0.0.19](https://github.com/truecharts/charts/compare/unturned-0.0.17...unturned-0.0.19) (2022-08-26)
 
-### Chore
-
-- update docker general non-major ([#3587](https://github.com/truecharts/charts/issues/3587))
-
-  ### Fix
+### Fix
 
 - some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
 
 
 
 
-## [universal-media-server-0.0.18](https://github.com/truecharts/charts/compare/universal-media-server-0.0.17...universal-media-server-0.0.18) (2022-08-23)
+## [unturned-0.0.17](https://github.com/truecharts/charts/compare/unturned-0.0.16...unturned-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -86,7 +334,7 @@
 
 
 
-## [universal-media-server-0.0.17](https://github.com/truecharts/charts/compare/universal-media-server-0.0.16...universal-media-server-0.0.17) (2022-08-12)
+## [unturned-0.0.16](https://github.com/truecharts/charts/compare/unturned-0.0.15...unturned-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -100,18 +348,17 @@
 
 
 
-## [universal-media-server-0.0.16](https://github.com/truecharts/charts/compare/universal-media-server-0.0.14...universal-media-server-0.0.16) (2022-08-08)
+## [unturned-0.0.15](https://github.com/truecharts/charts/compare/unturned-0.0.14...unturned-0.0.15) (2022-08-08)
 
 ### Chore
 
 - update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
-  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
 
 
 
-## [universal-media-server-0.0.14](https://github.com/truecharts/apps/compare/universal-media-server-0.0.13...universal-media-server-0.0.14) (2022-07-26)
+## [unturned-0.0.14](https://github.com/truecharts/apps/compare/unturned-0.0.13...unturned-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -121,7 +368,7 @@
 
 
 
-## [universal-media-server-0.0.13](https://github.com/truecharts/apps/compare/universal-media-server-0.0.12...universal-media-server-0.0.13) (2022-07-25)
+## [unturned-0.0.13](https://github.com/truecharts/apps/compare/unturned-0.0.12...unturned-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -134,7 +381,7 @@
 
 
 
-## [universal-media-server-0.0.12](https://github.com/truecharts/apps/compare/universal-media-server-0.0.11...universal-media-server-0.0.12) (2022-07-23)
+## [unturned-0.0.12](https://github.com/truecharts/apps/compare/unturned-0.0.11...unturned-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -145,7 +392,7 @@
 
 
 
-## [universal-media-server-0.0.12](https://github.com/truecharts/apps/compare/universal-media-server-0.0.11...universal-media-server-0.0.12) (2022-07-23)
+## [unturned-0.0.12](https://github.com/truecharts/apps/compare/unturned-0.0.11...unturned-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -155,7 +402,7 @@
 
 
 
-## [universal-media-server-0.0.12](https://github.com/truecharts/apps/compare/universal-media-server-0.0.11...universal-media-server-0.0.12) (2022-07-23)
+## [unturned-0.0.12](https://github.com/truecharts/apps/compare/unturned-0.0.11...unturned-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -164,7 +411,7 @@
 
 
 
-## [universal-media-server-0.0.11]universal-media-server-0.0.11 (2022-07-22)
+## [unturned-0.0.11]unturned-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -176,7 +423,7 @@
 
 
 
-## [universal-media-server-0.0.10]universal-media-server-0.0.10 (2022-07-22)
+## [unturned-0.0.10]unturned-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -186,7 +433,7 @@
 
 
 
-## [universal-media-server-0.0.10]universal-media-server-0.0.10 (2022-07-22)
+## [unturned-0.0.10]unturned-0.0.10 (2022-07-22)
 
 ### Chore
 
