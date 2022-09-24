@@ -128,6 +128,71 @@ questions:
                   type: string
                   required: true
                   default: ""
+  - variable: customDNS
+    group: Container Configuration
+    label: Custom DNS
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: customTTL
+          label: Custom TTL
+          schema:
+            type: string
+            default: 1h
+        - variable: filterUnmappedTypes
+          label: Filter Unmapped Types
+          schema:
+            type: boolean
+            default: true
+        - variable: rewrite
+          label: Rewrite
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rewriteEntry
+                label: Rewrite Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: in
+                      label: In
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: out
+                      label: Out
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: mapping
+          label: Mapping
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: mappingEntry
+                label: Mapping Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: in
+                      label: In
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: out
+                      label: Out
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
   - variable: conditional
     group: Container Configuration
     label: Conditional
