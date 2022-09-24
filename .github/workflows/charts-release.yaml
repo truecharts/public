@@ -208,8 +208,6 @@ jobs:
 
       - name: Fix Pre-Commit issues
         shell: bash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
           pre-commit run --all ||:
@@ -217,8 +215,6 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Configure Git
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           git config user.name "truecharts-bot"
           git config user.email "bot@truecharts.org"
