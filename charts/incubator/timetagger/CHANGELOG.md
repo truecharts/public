@@ -2,6 +2,16 @@
 
 
 
+## [timetagger-0.0.14](https://github.com/truecharts/charts/compare/timetagger-0.0.13...timetagger-0.0.14) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing icon ([#3879](https://github.com/truecharts/charts/issues/3879))
+
+
+
+
 ## [timetagger-0.0.13](https://github.com/truecharts/charts/compare/timetagger-0.0.11...timetagger-0.0.13) (2022-09-22)
 
 ### Chore

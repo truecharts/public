@@ -2,6 +2,15 @@
 
 
 
+## [traefik-13.3.11](https://github.com/truecharts/charts/compare/traefik-14.0.0...traefik-13.3.11) (2022-09-24)
+
+### Chore
+
+- regex redirect docs ([#3880](https://github.com/truecharts/charts/issues/3880))
+
+
+
+
 ## [traefik-13.3.10](https://github.com/truecharts/charts/compare/traefik-13.3.9...traefik-13.3.10) (2022-09-24)
 
 ### Chore
