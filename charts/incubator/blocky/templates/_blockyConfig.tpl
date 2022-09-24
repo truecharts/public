@@ -62,12 +62,12 @@ minTlsServeVersion: {{ .Values.minTlsServeVersion }}
 caching:
 {{ toYaml .Values.caching | indent 2 }}
 
-
 {{- if .Values.hostsFile.enabled }}
 {{ $hostsfile := omit .Values.hostsFile "enabled" }}
 hostsFile:
 {{ toYaml $hostsfile | indent 2 }}
 {{- end }}
+
 
 {{- range $id, $value := .Values.upstreams }}
   {{ $value.name }}:
