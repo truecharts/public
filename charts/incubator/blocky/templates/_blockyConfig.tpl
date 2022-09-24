@@ -11,7 +11,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   tc-config.yaml: |
-{{ $config | toYaml | indent 6 }}
+{{ $config | toYaml | indent 4 }}
 {{- end -}}
 
 {{- define "blocky.config" -}}
@@ -30,6 +30,10 @@ prometheus:
 upstream:
   default:
 {{- .Values.defaultUpstreams | toYaml | nindent 8 }}
+{{- range $id, $value := .Values.upstreams }}
+  {{ $value.name }}:
+{{- $value.dnsservers | toYaml | nindent 8 }}
+{{- end }}
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
@@ -62,16 +66,10 @@ minTlsServeVersion: {{ .Values.minTlsServeVersion }}
 caching:
 {{ toYaml .Values.caching | indent 2 }}
 
-
 {{- if .Values.hostsFile.enabled }}
 {{ $hostsfile := omit .Values.hostsFile "enabled" }}
 hostsFile:
 {{ toYaml $hostsfile | indent 2 }}
-{{- end }}
-
-{{- range $id, $value := .Values.upstreams }}
-  {{ $value.name }}:
-{{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
 {{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}

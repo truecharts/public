@@ -43,8 +43,8 @@ startupProbe:
 Create the matchable regex from domain
 */}}
 {{- define "k8sgateway.configmap.regex" -}}
-{{- if .Values.k8sgateway.domain }}
-{{- .Values.k8sgateway.domain | replace "." "[.]" -}}
+{{- if .dnsChallenge.domain }}
+{{- .dnsChallenge.domain | replace "." "[.]" -}}
 {{- else -}}
     {{ "unset" }}
 {{- end }}
@@ -72,9 +72,9 @@ data:
         ready
         {{- range .Values.k8sgateway.domains }}
         {{- if .dnsChallenge.enabled }}
-        template IN ANY {{ required "Delegated domain ('domain') is mandatory " .domain }} {
+        template IN ANY {{ required "Delegated domain ('domain') is mandatory" .domain }} {
            match "_acme-challenge[.](.*)[.]{{ include "k8sgateway.configmap.regex" . }}"
-           answer "{{ "{{" }} .Name {{ "}}" }} 5 IN CNAME {{ "{{" }}  index .Match 1 {{ "}}" }}.{{ required "DNS01 challenge domain is mandatory " $values.dnsChallenge.domain }}"
+           answer "{{ "{{" }} .Name {{ "}}" }} 5 IN CNAME {{ "{{" }}  index .Match 1 {{ "}}" }}.{{ required "DNS01 challenge domain is mandatory" .dnsChallenge.domain }}"
            fallthrough
         }
         {{- end }}

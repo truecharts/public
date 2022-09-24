@@ -85,6 +85,215 @@ questions:
                         type: string
                         required: true
                         default: ""
+  - variable: bootstrapDns
+    group: Container Configuration
+    label: Bootstrap DNS
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: upstream
+          label: Upstream
+          schema:
+            type: string
+            default: ""
+        - variable: ips
+          label: IPs
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: ipEntry
+                label: IP Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+  - variable: filtering
+    group: Container Configuration
+    label: Filtering
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: queryTypes
+          label: Query Types
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: queryTypeEntry
+                label: Query Type Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+  - variable: customDNS
+    group: Container Configuration
+    label: Custom DNS
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: customTTL
+          label: Custom TTL
+          schema:
+            type: string
+            default: 1h
+        - variable: filterUnmappedTypes
+          label: Filter Unmapped Types
+          schema:
+            type: boolean
+            default: true
+        - variable: rewrite
+          label: Rewrite
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rewriteEntry
+                label: Rewrite Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: in
+                      label: In
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: out
+                      label: Out
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: mapping
+          label: Mapping
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: mappingEntry
+                label: Mapping Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: in
+                      label: In
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: out
+                      label: Out
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+  - variable: clientLookup
+    group: Container Configuration
+    label: Client Lookup
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: upstream
+          label: Upstream
+          schema:
+            type: string
+            default: ""
+        - variable: singleNameOrder
+          label: Single Name Order
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: singleNameEntry
+                label: Single Name Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: clients
+          label: Clients
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: clientEntry
+                label: Client Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: ips
+                      label: IPs
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: ipEntry
+                            label: IP Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+  - variable: caching
+    group: Container Configuration
+    label: Caching
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: minTime
+          label: Min Time
+          schema:
+            type: string
+            default: ""
+        - variable: maxTime
+          label: Max Time
+          schema:
+            type: string
+            default: ""
+        - variable: maxItemsCount
+          label: Max Items Count
+          schema:
+            type: int
+            default: 0
+        - variable: prefetching
+          label: Prefetching
+          schema:
+            type: boolean
+            default: false
+        - variable: prefetchExpires
+          label: Prefetch Expires
+          schema:
+            type: string
+            default: 2h
+        - variable: prefetchThreshold
+          label: Prefetch Threshold
+          schema:
+            type: int
+            default: 5
+        - variable: prefetchMaxItemsCount
+          label: Prefetch Max Items Count
+          schema:
+            type: int
+            default: 0
+        - variable: cacheTimeNegative
+          label: Cache Time Negative
+          schema:
+            type: string
+            default: 30m
   - variable: conditional
     group: Container Configuration
     label: Conditional
@@ -291,6 +500,35 @@ questions:
                               type: string
                               required: true
                               default: ""
+  - variable: hostsFile
+    group: Container Configuration
+    label: Hosts File
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enabled
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: filePath
+                label: File Path
+                schema:
+                  type: string
+                  default: /etc/hosts
+              - variable: hostsTTL
+                label: Hosts TTL
+                schema:
+                  type: string
+                  default: 60m
+              - variable: refreshPeriod
+                label: Refresh Period
+                schema:
+                  type: string
+                  default: 30m
   - variable: k8sgateway
     group: Container Configuration
     label: k8s-Gateway Configuration
@@ -345,7 +583,6 @@ questions:
                                           type: string
                                           required: true
                                           default: dns01.clouddns.com
-
         - variable: advancedOptions
           label: Advanced Options
           schema:
