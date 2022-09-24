@@ -7,12 +7,14 @@
 {{- define "blocky.configmap.mount" -}}
 enabled: true
 type: custom
-mountPath: /app/config/tc-config.yaml
-subPath: tc-config.yaml
+mountPath: /app/config
 readOnly: true
 volumeSpec:
   configMap:
     name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
+    items:
+      - key: tc.config.yaml
+        path: tc.config.yaml
 {{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
