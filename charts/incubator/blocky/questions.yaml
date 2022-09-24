@@ -109,6 +109,25 @@ questions:
                   type: string
                   required: true
                   default: ""
+  - variable: filtering
+    group: Container Configuration
+    label: Filtering
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: queryTypes
+          label: Query Types
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: queryTypeEntry
+                label: Query Type Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
   - variable: conditional
     group: Container Configuration
     label: Conditional
