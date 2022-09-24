@@ -85,6 +85,30 @@ questions:
                         type: string
                         required: true
                         default: ""
+  - variable: bootstrapDns
+    group: Container Configuration
+    label: Bootstrap DNS
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: upstream
+          label: Upstream
+          schema:
+            type: string
+            default: ""
+        - variable: ips
+          label: IPs
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: ipEntry
+                label: IP Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
   - variable: conditional
     group: Container Configuration
     label: Conditional
