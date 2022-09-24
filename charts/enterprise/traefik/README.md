@@ -5,13 +5,13 @@ Traefik is a flexible reverse proxy and Ingress Provider.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [traefik](https://truecharts.org/docs/charts/stable/traefik)
+For more information, please click here: [traefik](https://truecharts.org/docs/charts/enterprise/traefik)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/stable/traefik>
+* <https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik>
 * <https://github.com/traefik/traefik>
 * <https://github.com/traefik/traefik-helm-chart>
 * <https://traefik.io/>
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.10 |
+| https://library-charts.truecharts.org | common | 10.6.0 |
 
 ## Installing the Chart
 
