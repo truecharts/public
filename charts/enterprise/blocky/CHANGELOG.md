@@ -2,6 +2,15 @@
 
 
 
+## [blocky-1.0.0](https://github.com/truecharts/charts/compare/blocky-0.0.4...blocky-1.0.0) (2022-09-24)
+
+### Chore
+
+- move blocky to enterprise ([#3875](https://github.com/truecharts/charts/issues/3875))
+
+
+
+
 ## [blocky-0.0.4](https://github.com/truecharts/charts/compare/blocky-0.0.3...blocky-0.0.4) (2022-09-24)
 
 ### Chore
