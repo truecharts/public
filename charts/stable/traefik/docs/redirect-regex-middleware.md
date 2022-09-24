@@ -3,7 +3,7 @@
 The Redirect Regex middleware redirects a request using regex matching and replacement.
 
 In the `Regex` field enter the capturing regex expression
-In the replacement enter the URL to redirect to.
+In the `Replacement` enter the URL to redirect to.
 
 ## Creating the middleware on traefik
 
