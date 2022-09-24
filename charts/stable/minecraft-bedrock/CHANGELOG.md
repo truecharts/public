@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bedrock-1.0.34](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.33...minecraft-bedrock-1.0.34) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [kiwix-serve-1.0.1](https://github.com/truecharts/charts/compare/kiwix-serve-0.0.27...kiwix-serve-1.0.1) (2022-09-23)
 
 ### Fix

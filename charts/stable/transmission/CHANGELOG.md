@@ -2,6 +2,15 @@
 
 
 
+## [transmission-12.0.35](https://github.com/truecharts/charts/compare/transmission-12.0.34...transmission-12.0.35) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [transmission-12.0.34](https://github.com/truecharts/charts/compare/transmission-12.0.33...transmission-12.0.34) (2022-09-22)
 
 ### Chore
