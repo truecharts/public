@@ -7,7 +7,7 @@ image:
   # tag: v0.19@sha256:77a474542f12f480deca33ff0a6375846918b86988c13f858620839d8818ca84
   pullPolicy: IfNotPresent
 
-command: ["ls", "-la /app/config"]
+command: ["ls", "-la", "/app/config"]
 
 WebUIImage:
   repository: tccr.io/truecharts/blocky-frontend
