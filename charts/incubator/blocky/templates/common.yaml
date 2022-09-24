@@ -13,8 +13,8 @@ volumeSpec:
   configMap:
     name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
     items:
-      - key: tc.config.yaml
-        path: tc.config.yaml
+      - key: tc-config.yaml
+        path: tc-config.yaml
 {{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
