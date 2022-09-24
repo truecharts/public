@@ -1,0 +1,62 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: compress
+  namespace: {{ $namespace }}
+spec:
+  compress: {}
+---
+# Here, an average of 300 requests per second is allowed.
+# In addition, a burst of 200 requests is allowed.
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-ratelimit
+  namespace: {{ $namespace }}
+spec:
+  rateLimit:
+    average: 600
+    burst: 400
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-secure-headers
+  namespace: {{ $namespace }}
+spec:
+  headers:
+    accessControlAllowMethods:
+      - GET
+      - OPTIONS
+      - HEAD
+      - PUT
+    accessControlMaxAge: 100
+    stsSeconds: 63072000
+    # stsIncludeSubdomains: false
+    # stsPreload: false
+    forceSTSHeader: true
+    contentTypeNosniff: true
+    browserXssFilter: true
+    referrerPolicy: same-origin
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
+    customResponseHeaders:
+      server: ''
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: chain-basic
+  namespace: {{ $namespace }}
+spec:
+  chain:
+    middlewares:
+    - name: basic-ratelimit
+    - name: basic-secure-headers
+    - name: compress

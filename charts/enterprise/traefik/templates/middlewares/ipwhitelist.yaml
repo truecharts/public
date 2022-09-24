@@ -1,0 +1,33 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{ range $index, $middlewareData := .Values.middlewares.ipWhiteList }}
+
+---
+# Declaring the user list
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  ipWhiteList:
+    sourceRange:
+      {{- range $middlewareData.sourceRange }}
+      - {{ . }}
+      {{- end }}
+    {{- if $middlewareData.ipStrategy }}
+    ipStrategy:
+      {{- if $middlewareData.ipStrategy.depth }}
+      depth: {{ $middlewareData.ipStrategy.depth }}
+      {{- end }}
+      {{- if $middlewareData.ipStrategy.excludedIPs }}
+      excludedIPs:
+        {{- range $middlewareData.ipStrategy.excludedIPs }}
+        - {{ . }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+{{ end }}
