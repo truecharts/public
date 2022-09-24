@@ -193,6 +193,60 @@ questions:
                         type: string
                         required: true
                         default: ""
+  - variable: clientLookup
+    group: Container Configuration
+    label: Client Lookup
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: upstream
+          label: Upstream
+          schema:
+            type: string
+            default: ""
+        - variable: singleNameOrder
+          label: Single Name Order
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: singleNameEntry
+                label: Single Name Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: clients
+          label: Clients
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: clientEntry
+                label: Client Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: ips
+                      label: IPs
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: ipEntry
+                            label: IP Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
   - variable: conditional
     group: Container Configuration
     label: Conditional
