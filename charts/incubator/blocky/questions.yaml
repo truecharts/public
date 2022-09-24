@@ -247,6 +247,53 @@ questions:
                               type: string
                               required: true
                               default: ""
+  - variable: caching
+    group: Container Configuration
+    label: Caching
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: minTime
+          label: Min Time
+          schema:
+            type: string
+            default: ""
+        - variable: maxTime
+          label: Max Time
+          schema:
+            type: string
+            default: ""
+        - variable: maxItemsCount
+          label: Max Items Count
+          schema:
+            type: int
+            default: 0
+        - variable: prefetching
+          label: Prefetching
+          schema:
+            type: boolean
+            default: false
+        - variable: prefetchExpires
+          label: Prefetch Expires
+          schema:
+            type: string
+            default: 2h
+        - variable: prefetchThreshold
+          label: Prefetch Threshold
+          schema:
+            type: int
+            default: 5
+        - variable: prefetchMaxItemsCount
+          label: Prefetch Max Items Count
+          schema:
+            type: int
+            default: 0
+        - variable: cacheTimeNegative
+          label: Cache Time Negative
+          schema:
+            type: string
+            default: 30m
   - variable: conditional
     group: Container Configuration
     label: Conditional
