@@ -667,7 +667,18 @@ questions:
                                   schema:
                                     type: string
                                     default: ""
-
+  - variable: unbound
+    group: Container Configuration
+    label: Unbound
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enabled
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
