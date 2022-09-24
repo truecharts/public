@@ -10,7 +10,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  tc-config.yaml: |
+  config.yml: |
 {{ $config | toYaml | indent 4 }}
 {{- end -}}
 

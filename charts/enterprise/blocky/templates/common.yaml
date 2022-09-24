@@ -7,8 +7,8 @@
 {{- define "blocky.configmap.mount" -}}
 enabled: true
 type: custom
-mountPath: /app/config/tc-config.yaml
-subPath: tc-config.yaml
+mountPath: /app/config.yml
+subPath: config.yml
 readOnly: true
 volumeSpec:
   configMap:
