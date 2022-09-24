@@ -11,7 +11,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   tc-config.yaml: |
-{{ $config | toYaml | indent 6 }}
+{{ $config | toYaml | indent 4 }}
 {{- end -}}
 
 {{- define "blocky.config" -}}
