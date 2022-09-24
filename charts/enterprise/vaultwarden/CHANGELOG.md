@@ -2,6 +2,15 @@
 
 
 
+## [vaultwarden-16.0.37](https://github.com/truecharts/charts/compare/vaultwarden-16.0.39...vaultwarden-16.0.37) (2022-09-24)
+
+### Chore
+
+- Add a copy of Initial Apps selected for Enterprise Train ([#3749](https://github.com/truecharts/charts/issues/3749))
+
+
+
+
 ## [vaultwarden-16.0.37](https://github.com/truecharts/charts/compare/vaultwarden-16.0.36...vaultwarden-16.0.37) (2022-09-11)
 
 ### Chore

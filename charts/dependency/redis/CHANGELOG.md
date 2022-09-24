@@ -2,6 +2,16 @@
 
 
 
+## [redis-3.0.82](https://github.com/truecharts/charts/compare/redis-3.0.81...redis-3.0.82) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.0
+
+
+
+
 ## [redis-3.0.81](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.24...redis-3.0.81) (2022-09-23)
 
 ### Chore
