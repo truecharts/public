@@ -32,7 +32,7 @@ questions:
                 description: Absolute host path of the config file
                 schema:
                   type: string
-                  default: true
+                  default: ""
               - variable: configFileHostReadOnly
                 label: Config File Read Only
                 description: Mount config file as read Only
