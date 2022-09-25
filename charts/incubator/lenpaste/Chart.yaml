@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "1.1.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -9,8 +9,8 @@ dependencies:
     repository: https://charts.truecharts.org/
     version: 8.0.78
 description: Lenpaste is a web service that allows you to share notes anonymously
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/lenpaste
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lenpaste.png
 keywords:
   - lenpaste
 kubeVersion: ">=1.16.0-0"
@@ -20,6 +20,7 @@ maintainers:
     url: https://truecharts.org
 name: lenpaste
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/lenpaste
   - https://git.lcomrade.su/root/lenpaste
 version: 0.0.1
 annotations:
