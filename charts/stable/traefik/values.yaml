@@ -368,11 +368,11 @@ middlewares:
   # Cf-Connecting-Ip (If from Cloudflare)
   # Evaluation of those headers will go from last to first
   realIP:
-    - name: realIPName
-      # The real IP will be the first one that is
-      # not included in any of the CIDRs passed here
-      excludedNetworks:
-        - 1.1.1.1/24
+  # - name: realIPName
+  # -- The real IP will be the first one that is
+  # -- not included in any of the CIDRs passed here
+  #   excludedNetworks:
+  #     - 1.1.1.1/24
 
 portalhook:
   enabled: true
