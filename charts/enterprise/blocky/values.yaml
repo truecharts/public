@@ -77,17 +77,17 @@ service:
         port: 10315
         protocol: HTTP
         targetPort: 80
-  dns-tcp:
+  dnstcp:
     enabled: true
     ports:
-      dns-tcp:
+      dnstcp:
         enabled: true
         port: 53
         targetPort: 53
-  dns-udp:
+  dnsudp:
     enabled: true
     ports:
-      dns-udp:
+      dnsudp:
         enabled: true
         port: 53
         protocol: UDP
@@ -337,9 +337,6 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
-
-unbound:
-  enabled: false
 
 redis:
   enabled: true

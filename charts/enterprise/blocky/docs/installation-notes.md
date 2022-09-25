@@ -24,64 +24,31 @@ prometheus:
   path: /metrics
 ```
 
-Upstreams (from values.yaml):
-
-```yaml
-upstream:
-  default:
-    -  # Content from `.Values.defaultUpstreams`
-  # Additional upstream groups from `.Values.upstreams`
-```
-
-Whitelist/Blacklist (from values.yaml) :
-
-```yaml
-blocking:
-  blockType: nxDomain
-  blockTTL: 6h
-  refreshPeriod: 4h
-  downloadTimeout: 60s
-  downloadAttempts: 3
-  downloadCooldown: 2s
-  failStartOnListError: false
-  processingConcurrency: 4
-  whiteLists:
-    # Groupname:
-    -  # Content from .Values.blocking.whiteList
-  blackLists:
-    # Groupname:
-    -  # Content from .Values.blocking.blackList
-  clientGroupsBlock:
-    # Groupname:
-    -  # Content from .Values.blocking.clientGroupsBlock
-```
-
 ## Configuration Instructions
+
+We offer two styles of configuration, both can be directly applied in values.yaml, without the need of persistence or editing configmaps.
+Besides this, the TrueNAS SCALE App exposes all config options directly in the GUI, except the Redis and Prometheus settings which are automatically configured.
 
 ### TrueNAS SCALE
 
-For TrueNAS SCALE, we offer only a limited subset of configuration options:
-
-- Upstream DNS servers
-- Whitelists
-- Blacklists
-
-Those have special variables in `values.yaml`, so we can show them nicely in the TrueNAS SCALE GUI
+All configuration options are directly reflected in the TrueNAS SCALE App GUI and can be edited as you see fit.
+The App is, by default, configured to be high available so editing and updates should not cause needless downtime.
 
 ### Native Helm
 
-For anything but TrueNAS SCALE, we would advice to instead use `blockyConfig` in `Values.yaml` and NOT mount any configuration file manually.
+There are two ways of editing configuration, we will call them `List Style` and `Blocky Style`.
 
-In short:
+**Blocky Style**
 
-- Add your config in `values.yaml` under `blockyConfig:`
-- Add your whitelists in `values.yaml` under `blockyWhitelist` or manually using blockyConfig
-- Add your blacklists in `values.yaml` under `blockyBlacklist` or manually using blockyConfig
+- `Blocky Style` configuration, can be directly added below the `blockyConfig` object in `values.yaml`, please make sure the config is correctly indented
+- `List Style` configuration has been developed by us to optimise for display in the TrueNAS SCALE WebUI. However: It can also be completely edited in `values.yaml`. In this case each setting has been pre-configured and is documented in `values.yaml` (available on github)
 
 ### Adding config by mounting files
 
-You can mount custom config files, using `persistence` or, in SCALE GUI, `Additional Storage` to the following path:
-`/app/config/`
-_However it cannot reference any of the pre-defined variables listed above, so it's use is severely limited._
+Adding additional configuration files is not possible, as this feature has not been released yet.
+
+However: We have verified if this would work and we will have to conclude that when 0.20 is released, we will not support multiple config files, as those will inherently conflict with our design. Due to duplicate keys breaking blocky.
+With all the config already available in values.yaml, we do not really see a usecase for this on kubernetes. Apart from this, manually mounting configfiles might negatively affect High Availability and Rollback on kubernetes.
 
 You can also mount custom Whitelist/Blacklist files, using `persistence` or, in SCALE GUI, `Additional Storage` and enter the path in your whitelist or blacklist settings manually
+However: this negatively affects rollback and high availability, so we _highly_ advice against doing this.

@@ -35,13 +35,13 @@ upstream:
 {{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
-{{- if .Values.service.dns-udp.enabled }}
-port: {{ .Values.service.dns-udp.ports.dns-udp.targetPort }}
-{[- end }}
+{{- if .Values.service.dnsudp.enabled }}
+port: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
+{{- end }}
 
 {{- if .Values.service.dot.enabled }}
 tlsPort: {{ .Values.service.dot.ports.dot.targetPort }}
-{[- end }}
+{{- end }}
 
 {{- if .Values.service.http.enabled }}
 httpPort: {{ .Values.service.http.ports.http.targetPort }}
@@ -49,7 +49,7 @@ httpPort: {{ .Values.service.http.ports.http.targetPort }}
 
 {{- if .Values.service.https.enabled }}
 httpsPort: {{ .Values.service.https.ports.https.targetPort }}
-{[- end }}
+{{- end }}
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
