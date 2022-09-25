@@ -2,6 +2,19 @@
 
 
 
+## [blocky-1.0.3](https://github.com/truecharts/charts/compare/blocky-1.0.2...blocky-1.0.3) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- use new common SA handler
+
+
+
+
 ## [blocky-1.0.2](https://github.com/truecharts/charts/compare/blocky-1.0.1...blocky-1.0.2) (2022-09-25)
 
 ### Chore
