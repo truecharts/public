@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/lenpaste
+  tag: 1.1.1@sha256:7b44286222485b37cb27b46b1208c3f1eac8abb6dac9ed3a123053524432862a
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secretEnv:
+  LENPASTE_ADMIN_NAME:
+  LENPASTE_ADMIN_MAIL:
+
+env:
+  LENPASTE_ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
+  LENPASTE_DB_DRIVER: postgres
+  LENPASTE_DB_SOURCE:
+    secretKeyRef:
+      name: dbcreds
+      key: url-noql
+  # User Defined
+  LENPASTE_DB_CLEANUP_PERIOD: 3h
+  LENPASTE_ROBOTS_DISALLOW: true
+  LENPASTE_TITLE_MAX_LENGTH: 100
+  LENPASTE_BODY_MAX_LENGTH: 10000
+  LENPASTE_MAX_PASTE_LIFETIME: unlimited
+
+service:
+  main:
+    ports:
+      main:
+        port: 10326
+        protocol: HTTP
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: lenpaste
+  postgresqlDatabase: lenpaste
+
+portal:
+  enabled: true
