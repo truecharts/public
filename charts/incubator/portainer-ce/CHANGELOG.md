@@ -2,6 +2,16 @@
 
 
 
+## [portainer-ce-0.0.3](https://github.com/truecharts/charts/compare/portainer-ce-0.0.2...portainer-ce-0.0.3) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - bump common to test ([#3888](https://github.com/truecharts/charts/issues/3888))
+
+
+
+
 ## [portainer-ce-0.0.2](https://github.com/truecharts/charts/compare/portainer-ce-0.0.1...portainer-ce-0.0.2) (2022-09-25)
 
 ### Chore
