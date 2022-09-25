@@ -373,6 +373,9 @@ middlewares:
   # -- not included in any of the CIDRs passed here
   #   excludedNetworks:
   #     - 1.1.1.1/24
+  addPrefix: []
+  # - name: addPrefixName
+  #   prefix: "/foo"
 
 portalhook:
   enabled: true

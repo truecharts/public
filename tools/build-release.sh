@@ -438,6 +438,11 @@ include_questions(){
     /# Include{realIP}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/traefik/middlewares/realIP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{addPrefix} with the standard addPrefix codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{addPrefix}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/addPrefix.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     }
 export -f include_questions
 
