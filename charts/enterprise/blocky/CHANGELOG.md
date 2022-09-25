@@ -2,6 +2,19 @@
 
 
 
+## [blocky-1.0.1](https://github.com/truecharts/charts/compare/blocky-1.0.0...blocky-1.0.1) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- set defaults to some durations ([#3885](https://github.com/truecharts/charts/issues/3885))
+
+
+
+
 ## [blocky-1.0.0](https://github.com/truecharts/charts/compare/blocky-0.0.4...blocky-1.0.0) (2022-09-24)
 
 ### Chore
