@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.5.10
 description: All your audiobooks in one place
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/openaudible
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openaudible.png
 keywords:
   - audible
 kubeVersion: ">=1.16.0-0"
@@ -16,6 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: openaudible
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openaudible
   - https://github.com/openaudible/openaudible_docker
 version: 0.0.1
 annotations:
