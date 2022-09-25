@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: Dashy helps you organize your self-hosted services by making them accessible from a single place
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - dashboard
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: dashy
+sources:
+  - https://github.com/airsonic/airsonic
+  - https://hub.docker.com/r/lissy93/dashy
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - dashboard
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
