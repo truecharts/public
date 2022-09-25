@@ -2,6 +2,19 @@
 
 
 
+## [blocky-1.0.2](https://github.com/truecharts/charts/compare/blocky-1.0.1...blocky-1.0.2) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- disable probes until next release ([#3886](https://github.com/truecharts/charts/issues/3886))
+
+
+
+
 ## [blocky-1.0.1](https://github.com/truecharts/charts/compare/blocky-1.0.0...blocky-1.0.1) (2022-09-25)
 
 ### Chore
