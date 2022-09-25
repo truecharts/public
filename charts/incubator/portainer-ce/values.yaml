@@ -24,12 +24,12 @@ rbac:
   main:
     enabled: true
     rules:
-    - apiGroups:
-        - ""
-      resources:
-        - "*"
-      verbs:
-        - "*"
+      - apiGroups:
+          - ""
+        resources:
+          - "*"
+        verbs:
+          - "*"
 
 probes:
   liveness:
