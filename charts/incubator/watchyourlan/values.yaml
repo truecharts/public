@@ -3,14 +3,6 @@ image:
   tag: 0.7.5@sha256:6047a781b8584f44f6128b38b0cf0a6f26ed4daf4aa2d5db62a5117920d1bbe5
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 hostNetwork: true
 
 watchyourlan:
@@ -29,11 +21,24 @@ env:
   TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
   SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
 
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+
 service:
   main:
     ports:
       main:
         port: 10355
+        protocol: HTTP
 
 persistence:
   data:
