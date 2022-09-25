@@ -19,6 +19,14 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: gui_ip
+          label: GUI IP
+          description: Address for web GUI
+          schema:
+            type: string
+            required: true
+            $ref:
+              - "definitions/nodeIP"
         - variable: interfaces
           label: Interfaces
           description: Interface to scan. Could be one or more

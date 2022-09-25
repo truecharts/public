@@ -6,6 +6,7 @@ image:
 hostNetwork: true
 
 watchyourlan:
+  gui_ip: "0.0.0.0"
   interfaces:
     - enp1s0
   theme: darkly
@@ -16,6 +17,7 @@ env:
   GUIPORT: "{{ .Values.service.main.ports.main.port }}"
   DBPATH: /data/db.sqlite
   # User Defined
+  GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
   IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
   THEME: "{{ .Values.watchyourlan.theme }}"
   TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
