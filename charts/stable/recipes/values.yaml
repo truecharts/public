@@ -41,7 +41,7 @@ configmap:
             location / {
               proxy_set_header Host $http_host;
               proxy_pass http://localhost:8080;
-              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
             }
           }
         }
