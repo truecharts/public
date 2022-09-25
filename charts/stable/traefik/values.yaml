@@ -367,7 +367,7 @@ middlewares:
   # Sets X-Real-Ip with an IP from the X-Forwarded-For or
   # Cf-Connecting-Ip (If from Cloudflare)
   # Evaluation of those headers will go from last to first
-  realIP:
+  realIP: []
   # - name: realIPName
   # -- The real IP will be the first one that is
   # -- not included in any of the CIDRs passed here
