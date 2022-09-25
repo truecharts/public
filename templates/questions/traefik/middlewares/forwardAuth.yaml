@@ -1,0 +1,56 @@
+        - variable: forwardAuth
+          label: forwardAuth
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: basicAuthEntry
+                label: ""
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: address
+                      label: Address
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: trustForwardHeader
+                      label: trustForwardHeader
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: authResponseHeadersRegex
+                      label: authResponseHeadersRegex
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: authResponseHeaders
+                      label: authResponseHeaders
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authResponseHeadersEntry
+                            label: ""
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authRequestHeaders
+                      label: authRequestHeaders
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authRequestHeadersEntry
+                            label: ""
+                            schema:
+                              type: string
+                              default: ""
