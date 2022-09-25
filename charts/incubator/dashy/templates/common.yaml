@@ -3,7 +3,7 @@
 
 {{- define "dashy.configvolume" -}}
 enabled: true
-mountPath: "/app/public"
+mountPath: /app/public
 type: custom
 readOnly: true
 volumeSpec:
@@ -14,10 +14,21 @@ volumeSpec:
       path: conf.yml
 {{- end -}}
 
+{{- define "dashy.confighostpath" -}}
+enabled: true
+type: hostPath
+readOnly: {{ .Values.dashy.configFileHostReadOnly }}
+hostPathType: File
+hostPath: {{ .Values.dashy.configFileHostPath }}
+mountPath: /app/public/conf.yml
+{{- end -}}
+
 {{- if .Values.dashyConfig -}}
 {{/* Render config for dashy */}}
 {{- include "dashy.config" . -}}
 {{- $_ := set .Values.persistence "dashy-config" (include "dashy.configvolume" . | fromYaml) -}}
+{{- else if .Values.dashy.enabled -}}
+{{- $_ := set .Values.persistence "dashy-config" (include "dashy.confighostpath" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Render the templates */}}

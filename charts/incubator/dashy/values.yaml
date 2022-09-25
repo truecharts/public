@@ -11,6 +11,13 @@ image:
 #   runAsUser: 0
 #   runAsGroup: 0
 
+dashy:
+  # Enable config file mount from host path
+  enabled: false
+  configFileHostPath: ""
+  configFileHostReadOnly: true
+
+# Leave empty if you plan to use config file from host path
 dashyConfig:
   pageInfo:
     title: Home Lab
