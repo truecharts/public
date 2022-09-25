@@ -6,7 +6,12 @@ The pod definition included in the controller.
 imagePullSecrets:
     {{ tpl ( toYaml . ) $ | nindent 2 }}
   {{- end }}
-serviceAccountName: {{ include "tc.common.names.serviceAccountName" . }}
+
+{{- $saName := include "tc.common.names.fullname" . -}}
+{{- if not .Values.serviceAccount.main.enabled }}
+  {{ $saName = "default" }}
+{{- end }}
+serviceAccountName: {{ $saName }}
   {{- with .Values.podSecurityContext }}
 securityContext:
     {{ tpl ( toYaml . ) $ | nindent 2 }}

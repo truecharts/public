@@ -4,14 +4,22 @@ using the common library.
 */}}
 {{- define "tc.common.class.rbac" -}}
   {{- $fullName := include "tc.common.names.fullname" . -}}
+  {{- $saName := $fullName -}}
   {{- $rbacName := $fullName -}}
   {{- $values := .Values.rbac -}}
-
+  {{- $saValues := .Values.serviceAccount -}}
   {{- if hasKey . "ObjectValues" -}}
     {{- with .ObjectValues.rbac -}}
       {{- $values = . -}}
     {{- end -}}
   {{ end -}}
+
+  {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
+    {{- $saName = printf "%v-%v" $saName $values.nameOverride -}}
+    {{- if not (hasKey $saValues $values.nameOverride) -}}
+      {{- $saName = "default" -}}
+    {{- end }}
+  {{- end }}
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $rbacName = printf "%v-%v" $rbacName $values.nameOverride -}}
@@ -55,7 +63,7 @@ roleRef:
   name: {{ $rbacName }}
 subjects:
   - kind: ServiceAccount
-    name: {{ default (include "tc.common.names.serviceAccountName" .) $values.serviceAccountName }}
+    name: {{ $saName }}
     namespace: {{ .Release.Namespace }}
   {{- with $values.subjects }}
   {{- toYaml . | nindent 2 }}

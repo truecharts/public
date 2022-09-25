@@ -11,11 +11,12 @@ using the common library.
     {{- with .ObjectValues.serviceAccount -}}
       {{- $values = . -}}
     {{- end -}}
-  {{ end -}}
+  {{- end -}}
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $saName = printf "%v-%v" $saName $values.nameOverride -}}
   {{- end }}
+
 ---
 apiVersion: v1
 kind: ServiceAccount

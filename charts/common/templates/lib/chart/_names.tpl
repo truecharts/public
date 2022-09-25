@@ -35,15 +35,6 @@ If release name contains chart name it will be used as a full name.
   {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{/* Create the name of the ServiceAccount to use */}}
-{{- define "tc.common.names.serviceAccountName" -}}
-  {{- if .Values.serviceAccount.create -}}
-    {{- default (include "tc.common.names.fullname" .) .Values.serviceAccount.name -}}
-  {{- else -}}
-    {{- default "default" .Values.serviceAccount.name -}}
-  {{- end -}}
-{{- end -}}
-
 {{/* Return the properly cased version of the controller type */}}
 {{- define "tc.common.names.controllerType" -}}
   {{- if eq .Values.controller.type "deployment" -}}
