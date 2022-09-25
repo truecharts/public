@@ -2,6 +2,16 @@
 
 
 
+## [mariadb-3.0.82](https://github.com/truecharts/charts/compare/mariadb-3.0.81...mariadb-3.0.82) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.1 ([#3893](https://github.com/truecharts/charts/issues/3893))
+
+
+
+
 ## [mariadb-3.0.81](https://github.com/truecharts/charts/compare/mariadb-3.0.80...mariadb-3.0.81) (2022-09-24)
 
 ### Chore
