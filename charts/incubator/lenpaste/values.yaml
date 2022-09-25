@@ -17,7 +17,7 @@ env:
   LENPASTE_DB_SOURCE:
     secretKeyRef:
       name: dbcreds
-      key: url-noql
+      key: urlnossl
   # User Defined
   LENPASTE_ADMIN_NAME: admin
   LENPASTE_ADMIN_MAIL: admin@example.com
