@@ -296,6 +296,61 @@ include_questions(){
     /# Include{proxyProtocol}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/traefik/proxyProtocol.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{basicAuth} with the standard basicAuth codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{basicAuth}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/basicAuth.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{forwardAuth} with the standard forwardAuth codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{forwardAuth}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/forwardAuth.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{chain} with the standard chain codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{chain}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/chain.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{redirectScheme} with the standard redirectScheme codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{redirectScheme}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/redirectScheme.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{rateLimit} with the standard rateLimit codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{rateLimit}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/rateLimit.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{redirectRegex} with the standard redirectRegex codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{redirectRegex}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/redirectRegex.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{stripPrefixRegex} with the standard stripPrefixRegex codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{stripPrefixRegex}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/stripPrefixRegex.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{ipWhitelist} with the standard ipWhitelist codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ipWhitelist}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/ipWhitelist.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{themePark} with the standard themePark codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{themePark}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/themePark.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{realIP} with the standard realIP codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{realIP}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/realIP.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{addPrefix} with the standard addPrefix codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{addPrefix}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/traefik/middlewares/addPrefix.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     }
 export -f include_questions
 

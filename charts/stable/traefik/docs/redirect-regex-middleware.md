@@ -22,7 +22,7 @@ Edit your existing traefik install (or install fresh if you don't have it instal
 This will capture `https://remote.domain.com` or `https://remote.domain.com/`
 and redirect it to `https://remote.domain.com/guacamole`
 
-## Applying the theme to the app
+## Applying the regex redirect middleware to the app
 
 Edit your existing _App_, in this example we will use `guacamole-client`.
 

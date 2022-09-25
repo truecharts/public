@@ -45,7 +45,7 @@ jobs:
           echo "changed apps: ${APPS[*]}"
           for chart in ${APPS[*]}
           do
-            if [[ "${chart}" == '.gitkee' ]]; then
+            if [[ "${chart}" == '.gitkeep' ]]; then
               echo "Skipping..."
               return
             elif test -f "./charts/stable/${chart}/Chart.yaml"; then

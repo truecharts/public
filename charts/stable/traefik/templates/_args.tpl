@@ -158,6 +158,12 @@ args:
   - "--experimental.plugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
   {{- end }}
   {{/* End of theme.park */}}
+  {{/* RealIP */}}
+  {{- if .Values.middlewares.realIP }}
+  - "--experimental.plugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"
+  - "--experimental.plugins.traefik-real-ip.version={{ .Values.middlewares.realIPVersion }}"
+  {{- end }}
+  {{/* End of RealIP */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}
