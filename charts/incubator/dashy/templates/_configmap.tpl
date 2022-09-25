@@ -11,6 +11,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  conf.yml:
+  conf.yml: |
 {{- .Values.dashyConfig | toYaml | nindent 4 }}
 {{- end -}}
