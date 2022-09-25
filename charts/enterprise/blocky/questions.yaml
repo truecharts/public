@@ -258,12 +258,12 @@ questions:
           label: Min Time
           schema:
             type: string
-            default: ""
+            default: 5m
         - variable: maxTime
           label: Max Time
           schema:
             type: string
-            default: ""
+            default: 30m
         - variable: maxItemsCount
           label: Max Items Count
           schema:
