@@ -2,6 +2,19 @@
 
 
 
+## [traefik-13.4.0](https://github.com/truecharts/charts/compare/traefik-13.3.11...traefik-13.4.0) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- add RealIP and addPrefix middleware ([#3884](https://github.com/truecharts/charts/issues/3884))
+
+
+
+
 ## [traefik-13.3.11](https://github.com/truecharts/charts/compare/traefik-14.0.0...traefik-13.3.11) (2022-09-24)
 
 ### Chore

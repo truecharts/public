@@ -2,6 +2,19 @@
 
 
 
+## [recipes-8.0.54](https://github.com/truecharts/charts/compare/recipes-8.0.52...recipes-8.0.54) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- fix nginx conf ([#3878](https://github.com/truecharts/charts/issues/3878))
+
+
+
+
 ## [recipes-8.0.52](https://github.com/truecharts/charts/compare/recipes-8.0.51...recipes-8.0.52) (2022-09-24)
 
 ### Chore
