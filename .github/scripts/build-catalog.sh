@@ -9,7 +9,9 @@ include_questions(){
     local train="$3"
     local chartversion="$4"
 
-    local source="charts/charts/${train}/${chartname}/questions.yaml"
+    ls -la
+
+    local source="charts/${train}/${chartname}/questions.yaml"
     local target="catalog/${train}/${chartname}/${chartversion}/questions.yaml"
 
     echo "Making copy of $source to $target"
