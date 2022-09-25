@@ -2,6 +2,16 @@
 
 
 
+## [restreamer-0.1.3](https://github.com/truecharts/charts/compare/restreamer-0.1.2...restreamer-0.1.3) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [restreamer-0.1.2](https://github.com/truecharts/charts/compare/restreamer-0.0.23...restreamer-0.1.2) (2022-09-22)
 
 ### Chore

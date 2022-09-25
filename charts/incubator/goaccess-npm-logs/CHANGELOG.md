@@ -2,6 +2,16 @@
 
 
 
+## [goaccess-npm-logs-0.0.30](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.29...goaccess-npm-logs-0.0.30) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [goaccess-npm-logs-0.0.29](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.27...goaccess-npm-logs-0.0.29) (2022-09-22)
 
 ### Chore

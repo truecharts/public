@@ -2,6 +2,16 @@
 
 
 
+## [tailscale-1.1.4](https://github.com/truecharts/charts/compare/tailscale-1.1.3...tailscale-1.1.4) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [tailscale-1.1.3](https://github.com/truecharts/charts/compare/tailscale-1.1.0...tailscale-1.1.3) (2022-09-22)
 
 ### Chore

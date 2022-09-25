@@ -2,6 +2,16 @@
 
 
 
+## [batnoter-0.0.3](https://github.com/truecharts/charts/compare/batnoter-0.0.2...batnoter-0.0.3) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [batnoter-0.0.2]batnoter-0.0.2 (2022-09-22)
 
 ### Chore

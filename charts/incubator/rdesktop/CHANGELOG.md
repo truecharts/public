@@ -2,6 +2,16 @@
 
 
 
+## [rdesktop-0.0.32](https://github.com/truecharts/charts/compare/rdesktop-0.0.31...rdesktop-0.0.32) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [rdesktop-0.0.31](https://github.com/truecharts/charts/compare/rdesktop-0.0.30...rdesktop-0.0.31) (2022-09-25)
 
 ### Chore

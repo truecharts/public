@@ -2,6 +2,16 @@
 
 
 
+## [authentik-6.0.7](https://github.com/truecharts/charts/compare/authentik-6.0.6...authentik-6.0.7) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [authentik-6.0.6](https://github.com/truecharts/charts/compare/authentik-6.0.5...authentik-6.0.6) (2022-09-24)
 
 ### Chore

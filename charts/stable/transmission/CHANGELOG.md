@@ -2,6 +2,16 @@
 
 
 
+## [transmission-12.0.36](https://github.com/truecharts/charts/compare/transmission-12.0.35...transmission-12.0.36) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [transmission-12.0.35](https://github.com/truecharts/charts/compare/transmission-12.0.34...transmission-12.0.35) (2022-09-24)
 
 ### Chore

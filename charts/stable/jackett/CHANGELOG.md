@@ -2,6 +2,16 @@
 
 
 
+## [jackett-11.0.93](https://github.com/truecharts/charts/compare/jackett-11.0.92...jackett-11.0.93) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [jackett-11.0.92](https://github.com/truecharts/charts/compare/jackett-11.0.91...jackett-11.0.92) (2022-09-25)
 
 ### Chore

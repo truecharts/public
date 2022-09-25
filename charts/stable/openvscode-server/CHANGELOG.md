@@ -2,6 +2,16 @@
 
 
 
+## [openvscode-server-2.0.39](https://github.com/truecharts/charts/compare/openvscode-server-2.0.38...openvscode-server-2.0.39) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [openvscode-server-2.0.38](https://github.com/truecharts/charts/compare/openvscode-server-2.0.36...openvscode-server-2.0.38) (2022-09-22)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [cloudflared-1.0.16](https://github.com/truecharts/charts/compare/cloudflared-1.0.15...cloudflared-1.0.16) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [cloudflared-1.0.15](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.20...cloudflared-1.0.15) (2022-09-22)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [medusa-3.0.47](https://github.com/truecharts/charts/compare/medusa-3.0.46...medusa-3.0.47) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [medusa-3.0.46](https://github.com/truecharts/charts/compare/medusa-3.0.45...medusa-3.0.46) (2022-09-23)
 
 ### Chore

@@ -2,6 +2,19 @@
 
 
 
+## [portainer-ce-0.0.4](https://github.com/truecharts/charts/compare/portainer-ce-0.0.3...portainer-ce-0.0.4) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- rbac - full access ([#3896](https://github.com/truecharts/charts/issues/3896))
+
+
+
+
 ## [portainer-ce-0.0.3](https://github.com/truecharts/charts/compare/portainer-ce-0.0.2...portainer-ce-0.0.3) (2022-09-25)
 
 ### Chore

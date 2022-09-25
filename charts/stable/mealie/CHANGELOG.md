@@ -2,6 +2,16 @@
 
 
 
+## [mealie-10.0.1](https://github.com/truecharts/charts/compare/mealie-10.0.0...mealie-10.0.1) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [mealie-10.0.0](https://github.com/truecharts/charts/compare/mealie-9.0.3...mealie-10.0.0) (2022-09-23)
 
 ### Chore

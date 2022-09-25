@@ -2,6 +2,16 @@
 
 
 
+## [remmina-3.0.31](https://github.com/truecharts/charts/compare/remmina-3.0.30...remmina-3.0.31) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [remmina-3.0.30](https://github.com/truecharts/charts/compare/remmina-3.0.29...remmina-3.0.30) (2022-09-22)
 
 ### Chore

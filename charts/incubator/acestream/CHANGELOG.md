@@ -2,7 +2,17 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-22)
+## [actualserver-0.0.28](https://github.com/truecharts/charts/compare/actualserver-0.0.27...actualserver-0.0.28) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-22)
 
 ### Chore
 
@@ -26,7 +36,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-21)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-21)
 
 ### Chore
 
@@ -49,7 +59,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-21)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-21)
 
 ### Chore
 
@@ -71,7 +81,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-20)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-20)
 
 ### Chore
 
@@ -92,7 +102,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-20)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-20)
 
 ### Chore
 
@@ -112,7 +122,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-19)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-19)
 
 ### Chore
 
@@ -131,7 +141,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-19)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-19)
 
 ### Chore
 
@@ -149,7 +159,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-19)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-19)
 
 ### Chore
 
@@ -166,7 +176,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-17)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-17)
 
 ### Chore
 
@@ -182,7 +192,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-18)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-18)
 
 ### Chore
 
@@ -196,7 +206,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-16)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-16)
 
 ### Chore
 
@@ -209,7 +219,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-16)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-16)
 
 ### Chore
 
@@ -221,7 +231,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-15)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-15)
 
 ### Chore
 
@@ -232,7 +242,7 @@
 
 
 
-## [acestream-0.0.23](https://github.com/truecharts/charts/compare/acestream-0.0.22...acestream-0.0.23) (2022-09-15)
+## [actualserver-0.0.27](https://github.com/truecharts/charts/compare/actualserver-0.0.26...actualserver-0.0.27) (2022-09-15)
 
 ### Chore
 
@@ -242,7 +252,7 @@
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-12)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-12)
 
 ### Chore
 
@@ -251,13 +261,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-12)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-12)
 
 ### Chore
 
@@ -265,59 +274,54 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-11)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-11)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-11)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.22](https://github.com/truecharts/charts/compare/acestream-0.0.21...acestream-0.0.22) (2022-09-11)
+## [actualserver-0.0.26](https://github.com/truecharts/charts/compare/actualserver-0.0.25...actualserver-0.0.26) (2022-09-11)
 
 ### Chore
 
-- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [acestream-0.0.21](https://github.com/truecharts/charts/compare/acestream-0.0.20...acestream-0.0.21) (2022-08-30)
+## [actualserver-0.0.25](https://github.com/truecharts/charts/compare/actualserver-0.0.24...actualserver-0.0.25) (2022-08-30)
 
 ### Chore
 
@@ -326,7 +330,7 @@
 
 
 
-## [acestream-0.0.20](https://github.com/truecharts/charts/compare/acestream-0.0.19...acestream-0.0.20) (2022-08-30)
+## [actualserver-0.0.24](https://github.com/truecharts/charts/compare/actualserver-0.0.23...actualserver-0.0.24) (2022-08-30)
 
 ### Chore
 
@@ -335,7 +339,7 @@
 
 
 
-## [acestream-0.0.19](https://github.com/truecharts/charts/compare/acestream-0.0.18...acestream-0.0.19) (2022-08-29)
+## [actualserver-0.0.23](https://github.com/truecharts/charts/compare/actualserver-0.0.22...actualserver-0.0.23) (2022-08-29)
 
 ### Chore
 
@@ -344,7 +348,7 @@
 
 
 
-## [acestream-0.0.18](https://github.com/truecharts/charts/compare/acestream-0.0.17...acestream-0.0.18) (2022-08-26)
+## [actualserver-0.0.22](https://github.com/truecharts/charts/compare/actualserver-0.0.20...actualserver-0.0.22) (2022-08-26)
 
 ### Fix
 
@@ -353,7 +357,7 @@
 
 
 
-## [acestream-0.0.17](https://github.com/truecharts/charts/compare/acestream-0.0.16...acestream-0.0.17) (2022-08-23)
+## [actualserver-0.0.20](https://github.com/truecharts/charts/compare/actualserver-0.0.19...actualserver-0.0.20) (2022-08-23)
 
 ### Chore
 
@@ -362,7 +366,7 @@
 
 
 
-## [acestream-0.0.16](https://github.com/truecharts/charts/compare/acestream-0.0.15...acestream-0.0.16) (2022-08-12)
+## [actualserver-0.0.19](https://github.com/truecharts/charts/compare/actualserver-0.0.18...actualserver-0.0.19) (2022-08-12)
 
 ### Chore
 
@@ -376,7 +380,29 @@
 
 
 
-## [acestream-0.0.15](https://github.com/truecharts/charts/compare/acestream-0.0.14...acestream-0.0.15) (2022-08-08)
+## [actualserver-0.0.18](https://github.com/truecharts/charts/compare/actualserver-0.0.17...actualserver-0.0.18) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [actualserver-0.0.17](https://github.com/truecharts/charts/compare/actualserver-0.0.15...actualserver-0.0.17) (2022-08-09)
+
+### Chore
+
+- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+
+  ### Fix
+
+- cleanup ([#3388](https://github.com/truecharts/charts/issues/3388))
+
+
+
+
+## [actualserver-0.0.15](https://github.com/truecharts/charts/compare/actualserver-0.0.14...actualserver-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -386,7 +412,7 @@
 
 
 
-## [acestream-0.0.14](https://github.com/truecharts/apps/compare/acestream-0.0.13...acestream-0.0.14) (2022-07-26)
+## [actualserver-0.0.14](https://github.com/truecharts/apps/compare/actualserver-0.0.13...actualserver-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -396,7 +422,7 @@
 
 
 
-## [acestream-0.0.13](https://github.com/truecharts/apps/compare/acestream-0.0.12...acestream-0.0.13) (2022-07-25)
+## [actualserver-0.0.13](https://github.com/truecharts/apps/compare/actualserver-0.0.12...actualserver-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -409,101 +435,239 @@
 
 
 
-## [acestream-0.0.12](https://github.com/truecharts/apps/compare/acestream-0.0.11...acestream-0.0.12) (2022-07-23)
+## [actualserver-0.0.12](https://github.com/truecharts/apps/compare/actualserver-0.0.11...actualserver-0.0.12) (2022-07-23)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Bump all charts to generate config and container references due to huge increase of repository
   - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
-  ### Feat
-
-- move dev apps to incubator and remove bad content from dev
 
 
 
-
-## [acestream-0.0.12](https://github.com/truecharts/apps/compare/acestream-0.0.11...acestream-0.0.12) (2022-07-23)
+## [actualserver-0.0.12](https://github.com/truecharts/apps/compare/actualserver-0.0.11...actualserver-0.0.12) (2022-07-23)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Bump all charts to generate config and container references due to huge increase of repository
   - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
-  ### Feat
-
-- move dev apps to incubator and remove bad content from dev
 
 
 
-
-## [acestream-0.0.12](https://github.com/truecharts/apps/compare/acestream-0.0.11...acestream-0.0.12) (2022-07-23)
+## [adguard-home-1.0.24](https://github.com/truecharts/apps/compare/adguard-home-1.0.23...adguard-home-1.0.24) (2022-07-23)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Bump all charts to generate config and container references due to huge increase of repository
-  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
-
-  ### Feat
-
-- move dev apps to incubator and remove bad content from dev
+- update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
 
 
 
+## [adguard-home-1.0.23](https://github.com/truecharts/apps/compare/adguard-home-1.0.21...adguard-home-1.0.23) (2022-07-22)
+
+### Chore
+
+- Bump all charts to generate config and container references due to huge increase of repository
+  - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
 
 
 
-<a name="acestream-0.0.5"></a>
-### [acestream-0.0.5](https://github.com/truecharts/apps/compare/acestream-0.0.4...acestream-0.0.5) (2022-05-05)
+## [ariang-0.0.12](https://github.com/truecharts/apps/compare/ariang-0.0.11...ariang-0.0.12) (2022-07-19)
+
+### Chore
+
+- Update Readme and Description on SCALE
+
+
+
+## [ariang-0.0.11](https://github.com/truecharts/apps/compare/ariang-0.0.10...ariang-0.0.11) (2022-07-18)
+
+### Chore
+
+- update image refs ([#3210](https://github.com/truecharts/apps/issues/3210))
+
+
+
+## [ariang-0.0.10](https://github.com/truecharts/apps/compare/ariang-0.0.9...ariang-0.0.10) (2022-07-14)
+
+### Fix
+
+- regenerate catalog and update template
+
+
+
+## [ariang-0.0.9](https://github.com/truecharts/apps/compare/ariang-0.0.7...ariang-0.0.9) (2022-07-14)
+
+### Fix
+
+- bump to ensure .helmignore is present on all Charts
+
+
+
+## [ariang-0.0.7](https://github.com/truecharts/apps/compare/ariang-0.0.5...ariang-0.0.7) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [ariang-0.0.5](https://github.com/truecharts/apps/compare/ariang-0.0.4...ariang-0.0.5) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="ariang-0.0.4"></a>
+### [ariang-0.0.4](https://github.com/truecharts/apps/compare/ariang-0.0.3...ariang-0.0.4) (2022-07-12)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2612](https://github.com/truecharts/apps/issues/2612))
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
 
 
 
-<a name="acestream-0.0.4"></a>
-### [acestream-0.0.4](https://github.com/truecharts/apps/compare/acestream-0.0.3...acestream-0.0.4) (2022-04-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2573](https://github.com/truecharts/apps/issues/2573))
-
-
-
-<a name="acestream-0.0.3"></a>
-### [acestream-0.0.3](https://github.com/truecharts/apps/compare/acestream-0.0.2...acestream-0.0.3) (2022-04-20)
+<a name="ariang-0.0.3"></a>
+### [ariang-0.0.3](https://github.com/truecharts/apps/compare/ariang-0.0.2...ariang-0.0.3) (2022-07-11)
 
 #### Chore
 
-* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
 
 
 
-<a name="acestream-0.0.2"></a>
-### [acestream-0.0.2](https://github.com/truecharts/apps/compare/acestream-0.0.1...acestream-0.0.2) (2022-04-12)
+<a name="ariang-0.0.2"></a>
+### [ariang-0.0.2](https://github.com/truecharts/apps/compare/ariang-0.0.1...ariang-0.0.2) (2022-07-09)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* update helm general non-major helm releases ([#2480](https://github.com/truecharts/apps/issues/2480))
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
 
 
 
-<a name="acestream-0.0.1"></a>
-### acestream-0.0.1 (2022-04-08)
+<a name="ariang-0.0.1"></a>
+### ariang-0.0.1 (2022-07-08)
 
 #### Feat
 
-* Unraid Port - A ([#2438](https://github.com/truecharts/apps/issues/2438))
+* add Ariang ([#3098](https://github.com/truecharts/apps/issues/3098))
+es/3119))
+
+
+
+<a name="adguard-home-1.0.10"></a>
+### [adguard-home-1.0.10](https://github.com/truecharts/apps/compare/adguard-home-1.0.9...adguard-home-1.0.10) (2022-07-09)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="adguard-home-1.0.9"></a>
+### [adguard-home-1.0.9](https://github.com/truecharts/apps/compare/adguard-home-1.0.8...adguard-home-1.0.9) (2022-07-09)
+
+#### Chore
+
+* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
+
+
+
+<a name="adguard-home-1.0.8"></a>
+### [adguard-home-1.0.8](https://github.com/truecharts/apps/compare/adguard-home-1.0.7...adguard-home-1.0.8) (2022-07-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3066](https://github.com/truecharts/apps/issues/3066))
+
+
+
+<a name="adguard-home-1.0.7"></a>
+### [adguard-home-1.0.7](https://github.com/truecharts/apps/compare/adguard-home-1.0.6...adguard-home-1.0.7) (2022-06-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2977](https://github.com/truecharts/apps/issues/2977))
+
+
+
+<a name="adguard-home-1.0.6"></a>
+### [adguard-home-1.0.6](https://github.com/truecharts/apps/compare/adguard-home-1.0.5...adguard-home-1.0.6) (2022-06-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2948](https://github.com/truecharts/apps/issues/2948))
+
+
+
+<a name="adguard-home-1.0.5"></a>
+### [adguard-home-1.0.5](https://github.com/truecharts/apps/compare/adguard-home-1.0.4...adguard-home-1.0.5) (2022-06-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+
+
+
+<a name="adguard-home-1.0.4"></a>
+### [adguard-home-1.0.4](https://github.com/truecharts/apps/compare/adguard-home-1.0.3...adguard-home-1.0.4) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2886](https://github.com/truecharts/apps/issues/2886))
+
+
+
+<a name="adguard-home-1.0.3"></a>
+### [adguard-home-1.0.3](https://github.com/truecharts/apps/compare/adguard-home-1.0.2...adguard-home-1.0.3) (2022-06-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2854](https://github.com/truecharts/apps/issues/2854))
+
+
+
+<a name="adguard-home-1.0.2"></a>
+### [adguard-home-1.0.2](https://github.com/truecharts/apps/compare/adguard-home-1.0.1...adguard-home-1.0.2) (2022-06-07)
+
+#### Fix
+
+* hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+
+
+
+<a name="adguard-home-1.0.1"></a>
+### [adguard-home-1.0.1](https://github.com/truecharts/apps/compare/adguard-home-0.0.11...adguard-home-1.0.1) (2022-06-07)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* sync all apps persistence configuration and always default to PVC
+* update docker general non-major ([#2831](https://github.com/truecharts/apps/issues/2831))
+
+#### Fix
+
+* remove malfunctioning SCALE migration script
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))
+
+
+
+<a name="adguard-home-1.0.0"></a>
+### [adguard-home-1.0.0](https://github.com/truecharts/apps/compare/adguard-home-0.0.11...adguard-home-1.0.0) (2022-06-07)
+
+#### Chore
+
+* sync all apps persistence configuration and always default to PVC
+
+#### Refactor
+
+* BREAKING CHANGE ([#2836](https://github.com/truecharts/apps/issues/2836))

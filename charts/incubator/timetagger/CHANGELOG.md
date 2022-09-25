@@ -2,6 +2,16 @@
 
 
 
+## [timetagger-0.0.15](https://github.com/truecharts/charts/compare/timetagger-0.0.14...timetagger-0.0.15) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [timetagger-0.0.14](https://github.com/truecharts/charts/compare/timetagger-0.0.13...timetagger-0.0.14) (2022-09-24)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [grafana-4.0.64](https://github.com/truecharts/charts/compare/grafana-4.0.63...grafana-4.0.64) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [grafana-4.0.63](https://github.com/truecharts/charts/compare/grafana-4.0.62...grafana-4.0.63) (2022-09-24)
 
 ### Chore

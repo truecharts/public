@@ -2,6 +2,15 @@
 
 
 
+## [vaultwarden-16.0.40](https://github.com/truecharts/charts/compare/vaultwarden-17.0.0...vaultwarden-16.0.40) (2022-09-25)
+
+### Chore
+
+- update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [vaultwarden-16.0.39](https://github.com/truecharts/charts/compare/vaultwarden-16.0.38...vaultwarden-16.0.39) (2022-09-22)
 
 ### Chore

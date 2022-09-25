@@ -2,6 +2,16 @@
 
 
 
+## [kanboard-8.0.39](https://github.com/truecharts/charts/compare/kanboard-8.0.38...kanboard-8.0.39) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [kanboard-8.0.38](https://github.com/truecharts/charts/compare/kanboard-8.0.37...kanboard-8.0.38) (2022-09-22)
 
 ### Chore

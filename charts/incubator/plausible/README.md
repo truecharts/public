@@ -26,9 +26,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | clickhouse | 1.0.25 |
-| https://charts.truecharts.org/ | postgresql | 8.0.78 |
-| https://library-charts.truecharts.org | common | 10.5.10 |
+| https://charts.truecharts.org/ | clickhouse | 1.0.30 |
+| https://charts.truecharts.org/ | postgresql | 8.0.87 |
+| https://library-charts.truecharts.org | common | 10.6.1 |
 
 ## Installing the Chart
 

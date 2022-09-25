@@ -2,6 +2,16 @@
 
 
 
+## [blocky-1.0.5](https://github.com/truecharts/charts/compare/blocky-1.0.4...blocky-1.0.5) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
 ## [blocky-1.0.4](https://github.com/truecharts/charts/compare/blocky-1.0.3...blocky-1.0.4) (2022-09-25)
 
 ### Chore
