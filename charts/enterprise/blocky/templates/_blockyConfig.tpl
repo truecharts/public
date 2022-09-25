@@ -45,7 +45,7 @@ tlsPort: {{ .Values.service.dot.ports.dot.targetPort }}
 
 {{- if .Values.service.http.enabled }}
 httpPort: {{ .Values.service.http.ports.http.targetPort }}
-{[- end }}
+{{- end }}
 
 {{- if .Values.service.https.enabled }}
 httpsPort: {{ .Values.service.https.ports.https.targetPort }}
