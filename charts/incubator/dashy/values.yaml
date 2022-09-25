@@ -61,9 +61,9 @@ service:
         targetPort: 80
 
 persistence:
-  config:
+  icons:
     enabled: true
-    mountPath: "/app/public"
+    mountPath: /app/public/item-icons
 
 portal:
   enabled: true

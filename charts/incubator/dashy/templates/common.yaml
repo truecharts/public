@@ -3,13 +3,15 @@
 
 {{- define "dashy.configvolume" -}}
 enabled: true
-mountPath: /app/public/conf.yml
-subPath: conf.yml
+mountPath: /app/public
 type: custom
 readOnly: true
 volumeSpec:
   configMap:
     name: {{ include "tc.common.names.fullname" . }}-dashy-config
+    items:
+    - key: conf.yml
+      path: conf.yml
 {{- end -}}
 
 {{- define "dashy.confighostpath" -}}
