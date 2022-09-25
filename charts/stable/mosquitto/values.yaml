@@ -9,9 +9,20 @@ service:
       main:
         port: 1883
         targetPort: 1883
+  websockets:
+    enabled: true
+    ports:
+      websockets:
+        enabled: true
+        port: 9001
+        targetPort: 9001
 
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
+  enabled: false
+
+websockets:
+  # -- By enabling this, an additional listener with protocol websockets is added in the mosquitto config.
   enabled: false
 
 configmap:
@@ -20,6 +31,10 @@ configmap:
     data:
       mosquitto.conf: |
         listener {{ .Values.service.main.ports.main.port }}
+        {{- if .Values.websockets.enabled }}
+        listener {{ .Values.service.websockets.ports.websockets.targetPort }}
+        protocol websockets
+        {{- end }}
         {{- if .Values.auth.enabled }}
         allow_anonymous false
         {{- else }}
