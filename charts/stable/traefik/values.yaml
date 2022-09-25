@@ -359,8 +359,7 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
-  # -- Currently requires to enable Traefik Pilot.
-  # -- Until it's deprecated.
+  themeParkVersion: v1.2.1
   themePark: []
   # - name: themeParkName
   # -- Supported apps, lower case name
@@ -372,7 +371,16 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  themeParkVersion: v1.2.1
+  realIPVersion: v1.0.3
+  realIP:
+  # Sets X-Real-Ip with an IP from the X-Forwarded-For or
+  # Cf-Connecting-Ip (If from Cloudflare)
+  # Evaluation of those headers will go from last to first
+    - name: realIPName
+      # The real IP will be the first one that is
+      # not included in any of the CIDRs passed here
+      excludedNetworks:
+        - 1.1.1.1/24
 
 portalhook:
   enabled: true

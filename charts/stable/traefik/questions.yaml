@@ -500,6 +500,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        default: ""
                     - variable: appName
                       label: App Name
                       description: Lower case, name of the app to be themed.
@@ -507,6 +508,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        default: ""
                     - variable: themeName
                       label: Theme Name
                       description: Lower case, name of the theme to be applied.
@@ -514,6 +516,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        default: ""
                     - variable: baseUrl
                       label: Base URL
                       description: Replace `https://theme-park.dev` URL for self-hosting reference.
@@ -532,6 +535,37 @@ questions:
                             description: Currently only supports 'darker' and '4k-logo' for *arr apps.
                               <br />Go to <a href="https://docs.theme-park.dev/themes/addons/">https://docs.theme-park.dev/themes/addons/</a> for Addon information.
                               <br />Go to <a href="https://github.com/packruler/traefik-themepark">https://github.com/packruler/traefik-themepark</a> for more context on plugin
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+        - variable: realIP
+          label: Real IP
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: realIPEntry
+                label: ""
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: excludedNetworks
+                      label: Excluded Networks
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: excludedNetEntry
+                            label: Excluded Network Entry
+                            description: Network to exclude setting it to X-Real-Ip
                             schema:
                               type: string
                               required: true
