@@ -11,10 +11,6 @@ image:
 #   runAsUser: 0
 #   runAsGroup: 0
 
-secretEnv:
-  LENPASTE_ADMIN_NAME:
-  LENPASTE_ADMIN_MAIL:
-
 env:
   LENPASTE_ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
   LENPASTE_DB_DRIVER: postgres
@@ -23,6 +19,8 @@ env:
       name: dbcreds
       key: url-noql
   # User Defined
+  LENPASTE_ADMIN_NAME: admin
+  LENPASTE_ADMIN_MAIL: admin@example.com
   LENPASTE_DB_CLEANUP_PERIOD: 3h
   LENPASTE_ROBOTS_DISALLOW: true
   LENPASTE_TITLE_MAX_LENGTH: 100

@@ -12,9 +12,9 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
+  - variable: env
     group: Container Configuration
-    label: Image Secrets
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -31,13 +31,6 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: Container Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: LENPASTE_DB_CLEANUP_PERIOD
           label: DB Cleanup Period
           description: Interval at which the DB is cleared of expired but not yet deleted pastes.
