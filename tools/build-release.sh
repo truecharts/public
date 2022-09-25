@@ -84,11 +84,11 @@ chart_runner(){
       #copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
       #package_chart "${1}"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
-        time clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
-        time copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
-        time patch_apps "${1}" "${chartname}" "$train" "${chartversion}"
-        time include_questions "${1}" "${chartname}" "$train" "${chartversion}"
-        time clean_catalog "${1}" "${chartname}" "$train" "${chartversion}"
+        clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        patch_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        include_questions "${1}" "${chartname}" "$train" "${chartversion}"
+        clean_catalog "${1}" "${chartname}" "$train" "${chartversion}"
       else
         echo "Skipping chart ${1}, no correct SCALE compatibility layer detected"
       fi

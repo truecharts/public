@@ -123,11 +123,11 @@ if [[ -d "charts/${1}" ]]; then
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
     helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
     if [[ "${SCALESUPPORT}" == "true" ]]; then
-      time clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      time copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      time patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      time include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      time clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
+      clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
     else
       echo "Skipping chart charts/${1}, no correct SCALE compatibility layer detected"
     fi
