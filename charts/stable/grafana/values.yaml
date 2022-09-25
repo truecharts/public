@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: 9.1.5@sha256:1e70b9295f808ee47127ef2409550a45327727e01dcfd0c750f6d8fee62f9c89
+  tag: 9.1.6@sha256:380d5d312fa2b5770de6cf5dec595604bbc28eb019801cc5783d7c7a652d457a
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -43,6 +43,10 @@ persistence:
   config:
     enabled: true
     mountPath: "/opt/bitnami/grafana/data"
+  grafana-tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /opt/bitnami/grafana/tmp
 
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
