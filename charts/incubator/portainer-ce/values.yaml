@@ -23,6 +23,13 @@ serviceAccount:
 rbac:
   main:
     enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "*"
+        verbs:
+          - "*"
 
 probes:
   liveness:
