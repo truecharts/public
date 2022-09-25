@@ -23,6 +23,7 @@ set_key_to_version() {
 
     content=$(grep "$key:" "$traefikValuesFile" | sed "s/\s*${key}:\s*//" )
     echo "New content of $key in values.yaml: $content"
+    echo ""
 }
 
 update_plugin() {
