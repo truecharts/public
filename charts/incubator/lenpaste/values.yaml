@@ -3,14 +3,6 @@ image:
   tag: 1.1.1@sha256:7b44286222485b37cb27b46b1208c3f1eac8abb6dac9ed3a123053524432862a
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   LENPASTE_ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
   LENPASTE_DB_DRIVER: postgres
