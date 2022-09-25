@@ -652,7 +652,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 80
-        - variable: dns-tcp
+        - variable: dnstcp
           label: DNS TCP Service
           description: The DNS TCP service
           schema:
@@ -661,7 +661,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: dns-tcp
+                    - variable: dnstcp
                       label: DNS TCP Port Configuration
                       schema:
                         additional_attrs: true
@@ -681,7 +681,7 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
-        - variable: dns-udp
+        - variable: dnsudp
           label: DNS UDP Service
           description: The DNS UDP service
           schema:
@@ -690,7 +690,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: dns-udp
+                    - variable: dnsudp
                       label: DNS UDP Port Configuration
                       schema:
                         additional_attrs: true
