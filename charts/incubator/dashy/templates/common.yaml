@@ -1,0 +1,24 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- define "dashy.configvolume" -}}
+enabled: true
+mountPath: "/app/public"
+type: custom
+readOnly: true
+volumeSpec:
+  configMap:
+    name: {{ include "tc.common.names.fullname" . }}-dashy-config
+    items:
+    - key: conf.yml
+      path: conf.yml
+{{- end -}}
+
+{{- if .Values.dashyConfig -}}
+{{/* Render config for dashy */}}
+{{- include "dashy.config" . -}}
+{{- $_ := set .Values.persistence "dashy-config" (include "dashy.configvolume" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
