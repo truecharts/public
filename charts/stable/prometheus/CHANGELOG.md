@@ -2,6 +2,16 @@
 
 
 
+## [prometheus-4.0.89](https://github.com/truecharts/charts/compare/prometheus-4.0.88...prometheus-4.0.89) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
 ## [prometheus-4.0.88](https://github.com/truecharts/charts/compare/prometheus-4.0.87...prometheus-4.0.88) (2022-09-24)
 
 ### Chore

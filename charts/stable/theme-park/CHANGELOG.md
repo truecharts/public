@@ -2,6 +2,16 @@
 
 
 
+## [theme-park-2.0.16](https://github.com/truecharts/charts/compare/theme-park-2.0.15...theme-park-2.0.16) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
 ## [theme-park-2.0.15](https://github.com/truecharts/charts/compare/theme-park-2.0.14...theme-park-2.0.15) (2022-09-24)
 
 ### Chore

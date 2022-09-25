@@ -2,6 +2,16 @@
 
 
 
+## [tubesync-0.0.28](https://github.com/truecharts/charts/compare/tubesync-0.0.27...tubesync-0.0.28) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
 ## [tubesync-0.0.27](https://github.com/truecharts/charts/compare/tubesync-0.0.26...tubesync-0.0.27) (2022-09-22)
 
 ### Chore

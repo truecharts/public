@@ -2,6 +2,16 @@
 
 
 
+## [prowlarr-6.0.39](https://github.com/truecharts/charts/compare/prowlarr-6.0.38...prowlarr-6.0.39) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
 ## [prowlarr-6.0.38](https://github.com/truecharts/charts/compare/prowlarr-6.0.36...prowlarr-6.0.38) (2022-09-22)
 
 ### Chore

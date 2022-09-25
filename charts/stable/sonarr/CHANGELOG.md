@@ -2,6 +2,16 @@
 
 
 
+## [sonarr-11.0.35](https://github.com/truecharts/charts/compare/sonarr-11.0.34...sonarr-11.0.35) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
 ## [sonarr-11.0.34](https://github.com/truecharts/charts/compare/sonarr-11.0.33...sonarr-11.0.34) (2022-09-22)
 
 ### Chore
