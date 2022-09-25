@@ -16,6 +16,7 @@ service:
     ports:
       main:
         port: 10325
+        protocol: HTTP
         targetPort: 3000
 
 persistence:
