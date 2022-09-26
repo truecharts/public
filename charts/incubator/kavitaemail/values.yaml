@@ -12,12 +12,12 @@ env:
   SEND_ADDR: ""
 
 securityContext:
-  readOnlyRootFilesystem: false
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
-  fsGroup: 1000
+  runAsGroup: 0
 
 service:
   main:
