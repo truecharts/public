@@ -6,5 +6,7 @@
 {{/* Render config for openproject */}}
 {{- include "openproject.config" . }}
 
+{{- $_ := set .Values.additionalContainers "seeder" (include "openproject.seeder" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
