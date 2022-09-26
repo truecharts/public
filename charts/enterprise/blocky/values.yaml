@@ -31,11 +31,17 @@ blockyConfig: {}
 #   default:
 #     - 1.1.1.1
 
+# -- Configures blocky webUI
+# Requires apiURL or ingress
 webUI:
+  # -- Enable the WebUI
   enabled: true
+  # -- url to the api, used by the WebUI. Only required when not using ingress
   apiURL: "127.0.0.1:4000"
 
+# -- some general blocky settings
 blocky:
+  # -- Enable prometheus annotations
   enablePrometheus: true
 
 probes:
