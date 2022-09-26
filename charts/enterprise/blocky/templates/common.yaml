@@ -36,7 +36,7 @@ volumeSpec:
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.http.ports.http.targetPort | toString) -}}
 
-{{- if .Values.blocky.enableWebUI -}}
+{{- if .Values.webUI.enabled -}}
 {{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
 {{- end -}}
 
