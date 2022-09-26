@@ -2,6 +2,20 @@
 
 
 
+## [blocky-1.0.6](https://github.com/truecharts/charts/compare/blocky-1.0.5...blocky-1.0.6) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - bump version
+
+  ### Fix
+
+- allow port changes, allow dot, fix prometheus and fix api access ([#3899](https://github.com/truecharts/charts/issues/3899))
+
+
+
+
 ## [blocky-1.0.5](https://github.com/truecharts/charts/compare/blocky-1.0.4...blocky-1.0.5) (2022-09-25)
 
 ### Chore
