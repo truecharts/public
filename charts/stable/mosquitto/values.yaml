@@ -30,7 +30,7 @@ configmap:
     enabled: true
     data:
       mosquitto.conf: |
-        listener {{ .Values.service.main.ports.main.port }}
+        listener {{ .Values.service.main.ports.main.targetPort }}
         {{- if .Values.websockets.enabled }}
         listener {{ .Values.service.websockets.ports.websockets.targetPort }}
         protocol websockets
