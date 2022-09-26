@@ -2,6 +2,16 @@
 
 
 
+## [flaresolverr-6.0.37](https://github.com/truecharts/charts/compare/flaresolverr-6.0.36...flaresolverr-6.0.37) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3906](https://github.com/truecharts/charts/issues/3906))
+
+
+
+
 ## [flaresolverr-6.0.36](https://github.com/truecharts/charts/compare/flaresolverr-6.0.35...flaresolverr-6.0.36) (2022-09-25)
 
 ### Chore

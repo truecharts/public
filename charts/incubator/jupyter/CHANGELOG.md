@@ -2,6 +2,16 @@
 
 
 
+## [jupyter-0.0.11](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.28...jupyter-0.0.11) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3906](https://github.com/truecharts/charts/issues/3906))
+
+
+
+
 ## [jupyter-0.0.10](https://github.com/truecharts/charts/compare/jupyter-0.0.9...jupyter-0.0.10) (2022-09-25)
 
 ### Chore
