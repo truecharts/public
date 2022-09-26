@@ -22,7 +22,7 @@ redis:
   required: true
   connectionAttempts: 10
   connectionCooldown: 3s
-{{- if .Values.blocky.enablePrometheus }}
+{{- if .Values.metrics.enabled }}
 prometheus:
   enable: true
   path: /metrics
