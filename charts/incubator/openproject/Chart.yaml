@@ -3,7 +3,7 @@ appVersion: "12"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.1
+    version: 10.6.4
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -29,8 +29,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openproject
   - http://openproject.org
   - https://hub.docker.com/u/openproject
+  - https://www.openproject.org/docs/installation-and-operations/configuration/
 type: application
-version: 0.0.33
+version: 1.0.0
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |

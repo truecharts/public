@@ -16,6 +16,8 @@ data:
   OPENPROJECT_CACHE__MEMCACHE__SERVER: {{ printf "%v-%v:%v" .Release.Name "memcached" "11211" }}
   OPENPROJECT_RAILS__CACHE__STORE: memcache
   OPENPROJECT_CACHE__NAMESPACE: openproject
-  OPENPROJECT_EDITION: standard
+  {{/* User Defined */}}
+  OPENPROJECT_CACHE__EXPIRES__IN__SECONDS: {{ .Values.openproject.cache.expires_in_seconds | quote }}
+  OPENPROJECT_EDITION: {{ .Values.openproject.edition }}
 
 {{- end -}}

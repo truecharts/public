@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v12@sha256:d9f223fe3ba4724d48466de22ddaed8786b5998585bc93ec569ed91209aa6b06
 
+args:
+  - ./docker/prod/proxy
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -11,15 +14,16 @@ podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 
+openproject:
+  edition: standard
+  cache:
+    expires_in_seconds: 0
+
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-main-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-main-config'
 
 persistence:
   assets:
