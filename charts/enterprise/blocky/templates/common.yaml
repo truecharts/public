@@ -32,9 +32,11 @@ volumeSpec:
 
 {{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
 
+{{- if .Values.metrics.enabled -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.http.ports.http.targetPort | toString) -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.http.ports.http.port | toString) -}}
+{{- end -}}
 
 {{- if .Values.webUI.enabled -}}
 {{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
