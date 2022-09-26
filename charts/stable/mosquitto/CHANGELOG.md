@@ -2,6 +2,19 @@
 
 
 
+## [mosquitto-6.1.0](https://github.com/truecharts/charts/compare/mosquitto-6.0.38...mosquitto-6.1.0) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- Add optional websockets support ([#3883](https://github.com/truecharts/charts/issues/3883))
+
+
+
+
 ## [mosquitto-6.0.38](https://github.com/truecharts/charts/compare/mosquitto-6.0.37...mosquitto-6.0.38) (2022-09-25)
 
 ### Chore

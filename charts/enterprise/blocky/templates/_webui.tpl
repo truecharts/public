@@ -43,6 +43,6 @@ env:
 {{- else }}
 {{- $url = .Values.webUI.apiURL }}
 {{- end }}
-  - name: API_URL 
+  - name: API_URL
     value: "{{ $url }}"
 {{- end -}}
