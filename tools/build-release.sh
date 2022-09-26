@@ -112,7 +112,7 @@ include_questions(){
     cp ${source} ${target}
 
     echo "Including standardised questions.yaml includes for: ${chartname}"
-    sed -i -E 's:.*# Include\{(.*)\}:cat templates/questions/**/\1.yaml:e' ${target}
+    sed -i -E 's:^.*# Include\{(.*)\}.*$:cat templates/questions/**/\1.yaml:e' ${target}
     }
 export -f include_questions
 
