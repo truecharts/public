@@ -36,6 +36,13 @@ startupProbe:
 env:
   - name: NODE_ENV
     value: "production"
+{{- if .Values.ingress.main.enabled }}
+  {{- with (first .Values.ingress.main.hosts) }}
+  {{- $url = (  printf "https://%s" .host ) }}
+  {{- end }}
+{{- else }}
+{{- $url = .Values.webUI.apiURL }}
+{{- end }}
   - name: API_URL 
-    value: "{{ .Values.webUI.apiURL }}"
+    value: "{{ $url }}"
 {{- end -}}
