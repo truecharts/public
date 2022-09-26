@@ -2,6 +2,19 @@
 
 
 
+## [traefik-13.4.2](https://github.com/truecharts/charts/compare/traefik-13.4.1...traefik-13.4.2) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- make include replace simpler ([#3904](https://github.com/truecharts/charts/issues/3904))
+
+
+
+
 ## [traefik-13.4.1](https://github.com/truecharts/charts/compare/traefik-13.4.0...traefik-13.4.1) (2022-09-25)
 
 ### Chore

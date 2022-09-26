@@ -2,6 +2,23 @@
 
 
 
+## [lancache-monolithic-0.0.29](https://github.com/truecharts/charts/compare/lancache-monolithic-0.0.28...lancache-monolithic-0.0.29) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- make include replace simpler ([#3904](https://github.com/truecharts/charts/issues/3904))
+
+  ### Fix
+
+- fix port assignments ([#3798](https://github.com/truecharts/charts/issues/3798))
+
+
+
+
 ## [lancache-monolithic-0.0.28](https://github.com/truecharts/charts/compare/lancache-monolithic-0.0.27...lancache-monolithic-0.0.28) (2022-09-25)
 
 ### Chore

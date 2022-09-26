@@ -1,6 +1,6 @@
 # lancache-monolithic
 
-A monolithic lancache service capable of caching all CDN's in a single instance.
+A monolithic lancache service capable of caching all CDNs in a single instance.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 

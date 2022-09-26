@@ -1,6 +1,6 @@
 # lancache-dns
 
-DNS Chart service for a steamcache.
+DNS Chart service for a steam cache.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
