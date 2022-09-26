@@ -71,9 +71,7 @@ service:
 {{- end -}}
 
 {{/* inject api paths in ingress */}}
-{{- if .Values.blocky.apiIngress -}}
 {{- include "blocky.apiinjector" . }}
-{{- end }}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
