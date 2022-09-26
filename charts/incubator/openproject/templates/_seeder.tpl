@@ -1,7 +1,7 @@
 {{/* Define the seeder container */}}
 {{- define "openproject.seeder" -}}
-image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
-imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
+image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
