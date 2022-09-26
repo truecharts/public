@@ -3,5 +3,8 @@
 {{/* Render secrets for openproject */}}
 {{- include "openproject.secrets" . }}
 
+{{/* Render config for openproject */}}
+{{- include "openproject.config" . }}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

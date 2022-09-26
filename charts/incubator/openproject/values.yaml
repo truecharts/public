@@ -11,18 +11,15 @@ podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 
-env:
-  SECRET_KEY_BASE:
-    secretKeyRef:
-      name: openproject-secrets
-      key: SECRET_KEY_BASE
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: url-noql
-  OPENPROJECT_CACHE__MEMCACHE__SERVER: localhost:11211
-  OPENPROJECT_RAILS__CACHE__STORE: memcache
-  OPENPROJECT_CACHE__NAMESPACE: openproject
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-main-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-main-config'
 
 persistence:
   assets:
@@ -38,7 +35,7 @@ service:
 
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: openproject
   postgresqlDatabase: openproject
 

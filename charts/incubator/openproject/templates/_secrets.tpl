@@ -1,20 +1,30 @@
 {{/* Define the secrets */}}
 {{- define "openproject.secrets" -}}
+
+{{- $commonSecretName := printf "%s-common-secret" (include "tc.common.names.fullname" .) }}
+{{- $mainSecretName := printf "%s-main-secret" (include "tc.common.names.fullname" .) }}
+
 ---
 
 apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: openproject-secrets
-{{- $openprojectprevious := lookup "v1" "Secret" .Release.Namespace "openproject-secrets" }}
-{{- $secret_key_base := "" }}
+  name: {{ $commonSecretName }}
 data:
-  {{- if $openprojectprevious}}
-  SECRET_KEY_BASE: {{ index $openprojectprevious.data "SECRET_KEY_BASE" }}
-  {{- else }}
-  {{- $secret_key_base := randAlphaNum 32 }}
-  SECRET_KEY_BASE: {{ $secret_key_base | b64enc }}
-  {{- end }}
+  DATABASE_URL: {{ index .Values.postgresql.url "complete-noql" | trimAll "\"" | b64enc }}
 
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $mainSecretName }}
+data:
+  {{- with (lookup "v1" "Secret" .Release.Namespace $openprojectSecretName) }}
+  SECRET_KEY_BASE: {{ index $.data "SECRET_KEY_BASE" }}
+  {{- else }}
+  SECRET_KEY_BASE: {{ randAlphaNum 32 | b64enc }}
+  {{- end }}
 {{- end -}}
