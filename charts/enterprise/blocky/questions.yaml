@@ -31,19 +31,6 @@ questions:
           schema:
             type: string
             default: "http://127.0.0.1:4000"
-  - variable: blocky
-    group: Container Configuration
-    label: Blocky Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enablePrometheus
-          label: Enable Prometheus Endpoint
-          description: Enables Prometheus Endpoint
-          schema:
-            type: boolean
-            default: true
   - variable: overrideDefaults
     group: Container Configuration
     label: Override Default Upstreams
@@ -842,6 +829,7 @@ questions:
             default: 568
 # Include{podSecurityContextAdvanced}
 # Include{resources}
+# Include{metrics}
 # Include{advanced}
 # Include{addons}
 # Include{documentation}
