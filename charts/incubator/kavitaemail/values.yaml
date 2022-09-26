@@ -5,6 +5,11 @@ image:
 
 env:
   DISP_NAME: "kavita"
+  SMTP_HOST: ""
+  SMTP_PORT: ""
+  SMTP_USER: ""
+  SMTP_PASS: ""
+  SEND_ADDR: ""
 
 securityContext:
   runAsNonRoot: false
@@ -34,7 +39,7 @@ probes:
 persistence:
   config:
     enabled: true
-    mountPath: /app
+    mountPath: "/app/"
 
 portal:
   enabled: false
