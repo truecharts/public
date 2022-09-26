@@ -11,15 +11,6 @@ env:
   SMTP_PASS: ""
   SEND_ADDR: ""
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
 service:
   main:
     ports:
