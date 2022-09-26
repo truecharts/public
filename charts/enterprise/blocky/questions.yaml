@@ -27,7 +27,7 @@ questions:
             default: true
         - variable: apiURL
           label: API URL
-          description: API URL for webUI, including port
+          description: API URL for webUI, including port. Only used when not using ingress
           schema:
             type: string
             default: "http://127.0.0.1:4000"
