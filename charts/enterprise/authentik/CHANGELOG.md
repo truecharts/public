@@ -2,6 +2,15 @@
 
 
 
+## [authentik-7.0.0](https://github.com/truecharts/charts/compare/authentik-6.0.7...authentik-7.0.0) (2022-09-25)
+
+### Feat
+
+- move to enterprise ([#3902](https://github.com/truecharts/charts/issues/3902))
+
+
+
+
 ## [authentik-6.0.7](https://github.com/truecharts/charts/compare/authentik-6.0.6...authentik-6.0.7) (2022-09-25)
 
 ### Chore

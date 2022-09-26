@@ -2,6 +2,19 @@
 
 
 
+## [portainer-ce-0.0.5](https://github.com/truecharts/charts/compare/portainer-ce-0.0.4...portainer-ce-0.0.5) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- allow all api groups ([#3903](https://github.com/truecharts/charts/issues/3903))
+
+
+
+
 ## [portainer-ce-0.0.4](https://github.com/truecharts/charts/compare/portainer-ce-0.0.3...portainer-ce-0.0.4) (2022-09-25)
 
 ### Chore
