@@ -84,6 +84,7 @@ customLdifFiles:
     add: olcModuleLoad
     olcModuleLoad: {0}pw-argon2
   51-argon2-default.ldif: |-
+    # Make argon2 hashing support default
     dn: olcDatabase={-1}frontend,cn=config
     changetype: modify
     add: olcPasswordHash

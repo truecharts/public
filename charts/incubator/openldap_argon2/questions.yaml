@@ -170,6 +170,7 @@ questions:
             type: string
             required: false
             default: |-
+              # Make argon2 hashing support default
               dn: olcDatabase={-1}frontend,cn=config
               changetype: modify
               add: olcPasswordHash
