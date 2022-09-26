@@ -16,6 +16,9 @@ podSecurityContext:
 
 openproject:
   edition: standard
+  hostname: proj.example.com
+  # TODO: Set to true after tests
+  enable_https: false
   cache:
     expires_in_seconds: 0
 

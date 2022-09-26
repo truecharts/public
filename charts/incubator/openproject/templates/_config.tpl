@@ -19,5 +19,7 @@ data:
   {{/* User Defined */}}
   OPENPROJECT_CACHE__EXPIRES__IN__SECONDS: {{ .Values.openproject.cache.expires_in_seconds | quote }}
   OPENPROJECT_EDITION: {{ .Values.openproject.edition }}
+  OPENPROJECT_HOST__NAME: {{ .Values.openproject.hostname }}
+  OPENPROJECT_HTTPS: {{ .Values.openproject.enable_https | quote }}
 
 {{- end -}}
