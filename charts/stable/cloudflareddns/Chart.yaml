@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: cloudflareddns
-version: 1.0.25
+version: 1.0.26
 appVersion: "latest"
 description: Update your Cloudflare DNS records automatically for those with a dynamic IP
 type: application
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.1
+    version: 10.6.4
     # condition:
 maintainers:
   - email: info@truecharts.org

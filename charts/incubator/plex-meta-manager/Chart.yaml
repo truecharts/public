@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: plex-meta-manager
-version: 0.0.24
+version: 0.0.25
 appVersion: "1.17.3"
 description: Python script to update metadata and automatically build collections.
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.1
+    version: 10.6.4
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
