@@ -61,15 +61,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: pathvarrundocker-sock
-          label: "pathvarrundocker-sock Storage"
-          description: "Docker Socket on the system, if you want to use Docker in the container"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config
           label: "config Storage"
           description: "abc users home directory"
