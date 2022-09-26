@@ -1,17 +1,17 @@
 apiVersion: v2
-appVersion: "1.17.0"
+appVersion: "1.17.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.9
+    version: 10.6.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.52
+    version: 8.0.87
   - condition: memcached.enabled
     name: memcached
     repository: https://charts.truecharts.org/
-    version: 3.0.51
+    version: 3.0.83
 deprecated: false
 description: Self hosted GIT repositories
 home: https://truecharts.org/docs/charts/stable/gitea
@@ -35,7 +35,7 @@ sources:
   - https://github.com/go-gitea/gitea
   - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 9.0.2
+version: 9.0.18
 annotations:
   truecharts.org/catagories: |
     - GIT

@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: FUNKWHALE_HOSTNAME
-          label: 'FUNKWHALE_HOSTNAME'
+          label: "FUNKWHALE_HOSTNAME"
           description: "Container Variable FUNKWHALEHOSTNAME"
           schema:
             type: string
             default: ""
         - variable: NESTED_PROXY
-          label: 'NESTED_PROXY'
+          label: "NESTED_PROXY"
           description: "Container Variable NESTEDPROXY  Set to 1 when container is behind a reverse proxy."
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

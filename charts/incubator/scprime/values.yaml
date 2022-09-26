@@ -27,10 +27,8 @@ service:
         protocol: TCP
         targetPort: 4283
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 4282
         protocol: TCP
         targetPort: 4282

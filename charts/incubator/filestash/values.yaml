@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/filestash
-  tag: latest@sha256:4460a25294ea6b684d9be25c807d1d7f2d2938f3d7625e9f9bc84a96557fee21
+  tag: latest@sha256:b9111677eaa8c53b87ab0c89a7e67b1b273e28e242d7b5607edbd8481a35a1f8
 persistence:
   appdata:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8334
         protocol: TCP
         targetPort: 8334

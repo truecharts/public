@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: LIVEBOOK_PASSWORD
-          label: 'LIVEBOOK_PASSWORD'
+          label: "LIVEBOOK_PASSWORD"
           description: "Password needed to access livebook (must be at least 12 characters)"
           schema:
             type: string
@@ -34,7 +34,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

@@ -67,6 +67,17 @@ args:
   - "--providers.kubernetesingress.ingressclass={{ .Release.Name }}"
   {{- end }}
   {{- range $entrypoint, $config := $ports }}
+  {{/* add args for proxyProtocol support */}}
+  {{- if $config.proxyProtocol }}
+  {{- if $config.proxyProtocol.enabled }}
+  {{- if $config.proxyProtocol.insecureMode }}
+  - "--entrypoints.{{ $entrypoint }}.proxyProtocol.insecure"
+  {{- end }}
+  {{- if not ( empty $config.proxyProtocol.trustedIPs ) }}
+  - "--entrypoints.{{ $entrypoint }}.proxyProtocol.trustedIPs={{ join "," $config.proxyProtocol.trustedIPs }}"
+  {{- end }}
+  {{- end }}
+  {{- end }}
   {{/* add args for forwardedHeaders support */}}
   {{- if $config.forwardedHeaders.enabled }}
   {{- if not ( empty $config.forwardedHeaders.trustedIPs ) }}
@@ -147,6 +158,12 @@ args:
   - "--experimental.plugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
   {{- end }}
   {{/* End of theme.park */}}
+  {{/* RealIP */}}
+  {{- if .Values.middlewares.realIP }}
+  - "--experimental.plugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"
+  - "--experimental.plugins.traefik-real-ip.version={{ .Values.middlewares.realIPVersion }}"
+  {{- end }}
+  {{/* End of RealIP */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}

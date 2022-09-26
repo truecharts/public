@@ -16,10 +16,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9014
         protocol: HTTP
         targetPort: 8080

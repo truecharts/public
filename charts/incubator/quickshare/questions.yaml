@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: DEFAULTADMIN
-          label: 'DEFAULTADMIN'
+          label: "DEFAULTADMIN"
           description: "Default user name."
           schema:
             type: string
             default: "admin"
         - variable: DEFAULTADMINPWD
-          label: 'DEFAULTADMINPWD'
+          label: "DEFAULTADMINPWD"
           description: "Default user password."
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/yourls
-  tag: latest@sha256:e5e54ee59330c616019e13c45bfd0197b220cd26046834fdfab8156c277b4b37
+  tag: latest@sha256:0bf45fa625575a9e36514a769a5e245dfed872b785a36dad9734b9fbd00809d4
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -20,10 +20,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 80
         protocol: TCP
         targetPort: 80

@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/longvinter
-  tag: latest@sha256:8bf1d02dbd00377600977b75c7f780324e0e1882acedc0800089616bbc650201
+  tag: latest@sha256:78cc7ab2521e60e1a6cddc89c2f266ff97bb87a74bb41b9e6d4a9cdf138a9b43
 persistence:
   serverfiles:
     enabled: true
@@ -27,10 +27,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 27016
         protocol: UDP
         targetPort: 27016

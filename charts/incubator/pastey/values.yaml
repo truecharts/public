@@ -10,7 +10,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pastey
-  tag: latest@sha256:7cce600a6d404f7b32ff2b0270252b3f06834787086abe4aac755ff000b94206
+  tag: latest@sha256:636025eadb99257ec7cb21f7f519a52aed65fbd16b446f71d1d921850a6af996
 persistence:
   data:
     enabled: true
@@ -23,10 +23,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 5000
         protocol: TCP
         targetPort: 5000

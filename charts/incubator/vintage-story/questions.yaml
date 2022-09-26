@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: VS_CHANNEL
-          label: 'VS_CHANNEL'
+          label: "VS_CHANNEL"
           description: "Select which release channel you want to use (valid values are stable, unstable &amp; pre without quotes)."
           schema:
             type: string
             default: "stable"
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "Extra startup parameters (leave empty if you dont need it)."
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

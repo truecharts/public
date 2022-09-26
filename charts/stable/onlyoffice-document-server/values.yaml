@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/onlyoffice-ds
-  tag: v7.0.0@sha256:9f65d6ff113646f85144a7653d06e8d2b73e0b17ce8d6b99765e4577f5068d19
+  tag: 7.2.0@sha256:433191fc368ee9c45914c78a6d126e5ec1f60b7aef4218b4cc846cc67a87caef
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -33,7 +33,11 @@ env:
   REDIS_SERVER_HOST:
     secretKeyRef:
       name: rediscreds
-      key: url
+      key: plainhost
+  REDIS_SERVER_PASS:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 probes:
   liveness:

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/conreq
-  tag: latest@sha256:2362375828e6e7c9f8ebe6daa029cb4c08ef386e31179abadcdc490e5124475a
+  tag: latest@sha256:4ec1a322a3bc20965e9bc675b2f4b495355ea5c783b7554f5ebc156355f1eb45
 persistence:
   config:
     enabled: true
@@ -16,10 +16,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8000
         protocol: TCP
         targetPort: 8000

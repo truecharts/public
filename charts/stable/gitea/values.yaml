@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/gitea
-  tag: 1.17.0@sha256:782681fe3055ae34948d7c71c4819edbe36f43326d140624a42f6c80ef6f2d3c
+  tag: 1.17.2@sha256:51729d57ee659d986c23249699528a16a52d161b56fcac5ceb3dab06123d6df1
   pullPolicy: IfNotPresent
 
 podSecurityContext:
@@ -120,6 +120,7 @@ oauth:
 config:
   APP_NAME: "Gitea: Git with a cup of tea"
   RUN_MODE: dev
+  ALLOWED_HOST_LIST: "127.0.0.1"
 
 customConfig:
   []

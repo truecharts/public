@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/poste
-  tag: latest@sha256:94452bea81e4823c02c971a00ba9f7a33e6520c5e434880c409b496e84cf0df8
+  tag: latest@sha256:cb95b73aa43fbf9958ee0a29066bea4ff4b72017e1d5d154451b6ffef1cd2b55
 persistence:
   data:
     enabled: true
@@ -71,10 +71,8 @@ service:
         protocol: TCP
         targetPort: 143
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8280
         protocol: HTTP
         targetPort: 80

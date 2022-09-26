@@ -1,0 +1,106 @@
+  - variable: TZ
+    label: Timezone
+    group: Container Configuration
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+  - variable: envList
+    label: Extra Environment Variables
+    description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
+    group: Container Configuration
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: envItem
+          label: Environment Variable
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                schema:
+                  type: string
+              - variable: value
+                label: Value
+                schema:
+                  type: string
+  - variable: expertpodconf
+    group: Container Configuration
+    label: Show Expert Configuration
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: tty
+          label: Enable TTY
+          description: Determines whether containers in a pod runs with TTY enabled. By default pod has it disabled.
+          group: Workload Details
+          schema:
+            type: boolean
+            default: false
+        - variable: stdin
+          label: Enable STDIN
+          description: Determines whether containers in a pod runs with stdin enabled. By default pod has it disabled.
+          group: Workload Details
+          schema:
+            type: boolean
+            default: false
+        - variable: termination
+          group: Container Configuration
+          label: Termination settings
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: gracePeriodSeconds
+                label: Grace Period Seconds
+                schema:
+                  type: int
+                  default: 10
+        - variable: podLabelsList
+          group: Container Configuration
+          label: Pod Labels
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: podLabelItem
+                label: Label
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+        - variable: podAnnotationsList
+          group: Container Configuration
+          label: Pod Annotations
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: podAnnotationItem
+                label: Label
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string

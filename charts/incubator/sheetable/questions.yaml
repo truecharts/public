@@ -20,14 +20,14 @@ questions:
       type: dict
       attrs:
         - variable: ADMIN_EMAIL
-          label: 'ADMIN_EMAIL'
+          label: "ADMIN_EMAIL"
           description: "Your admin email"
           schema:
             type: string
             required: true
             default: ""
         - variable: ADMIN_PASSWORD
-          label: 'ADMIN_PASSWORD'
+          label: "ADMIN_PASSWORD"
           description: "Your admin password"
           schema:
             type: string
@@ -43,7 +43,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

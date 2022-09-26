@@ -22,10 +22,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 18080
         protocol: TCP
         targetPort: 18080

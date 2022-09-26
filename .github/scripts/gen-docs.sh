@@ -93,6 +93,7 @@ generate_docs() {
             --output-file="README.md" \
             --template-files="/__w/charts/charts/templates/docs/README.md.gotmpl" \
             --chart-search-root="${chart}"
+        sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
     }
     export -f generate_docs
 

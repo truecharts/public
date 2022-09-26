@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/opengl-desktop-g3
-  tag: latest@sha256:bba4ae1e47547ff8056797969c5900ac07f628e5a2dd4568c81e1eb93b7396c0
+  tag: latest@sha256:e0fd449edc2c916fabe32aef31a92ff5ac45d0bd0416a3c24a91a3791e3070e3
 persistence:
   internalshare:
     enabled: true
@@ -17,10 +17,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6901
         protocol: HTTP
         targetPort: 6901

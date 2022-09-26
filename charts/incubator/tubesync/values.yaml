@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubesync
-  tag: latest@sha256:20e8fc6a2eaa8ee3ae875ff40529e534e467600e6efc412f02ef04baefa7ffbf
+  tag: latest@sha256:2e3e77a539bf8e76d57b27e1af0ae1b3ea770a8c4ab8b19aba65adb49fbabfdf
 persistence:
   config:
     enabled: true
@@ -24,10 +24,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 4848
         protocol: TCP
         targetPort: 4848

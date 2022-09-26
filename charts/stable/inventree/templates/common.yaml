@@ -4,5 +4,12 @@
 {{/* Render secrets for inventree */}}
 {{- include "inventree.secrets" . }}
 
+{{/* Render config for inventree */}}
+{{- include "inventree.config" . }}
+
+{{- $_ := set .Values.initContainers "init" (include "inventree.init" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "nginx" (include "inventree.nginx" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "worker" (include "inventree.worker" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

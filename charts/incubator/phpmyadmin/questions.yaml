@@ -20,25 +20,25 @@ questions:
       type: dict
       attrs:
         - variable: MYSQL_USER
-          label: 'MYSQL_USER'
+          label: "MYSQL_USER"
           description: "Container Variable MYSQLUSER"
           schema:
             type: string
             default: "root"
         - variable: MYSQL_PASSWORD
-          label: 'MYSQL_PASSWORD'
+          label: "MYSQL_PASSWORD"
           description: "Container Variable MYSQLPASSWORD"
           schema:
             type: string
             default: "root"
         - variable: PMA_HOST
-          label: 'PMA_HOST'
+          label: "PMA_HOST"
           description: "Container Variable PMAHOST"
           schema:
             type: string
             default: "192.168.70.99"
         - variable: PMA_PORT
-          label: 'PMA_PORT'
+          label: "PMA_PORT"
           description: "Container Variable PMAPORT"
           schema:
             type: string
@@ -52,7 +52,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

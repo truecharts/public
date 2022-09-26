@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: ARGS
-          label: 'ARGS'
+          label: "ARGS"
           description: "Shapeshifter-Obfuscator start-up argument. Change 127.0.0.13333 to an IP on your subnet."
           schema:
             type: string
@@ -34,7 +34,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

@@ -1,10 +1,10 @@
 image:
   repository: tccr.io/truecharts/minecraft-java
-  tag: 2022.10.0@sha256:0efc203e488f2cbe77e31e1b7cbd277965496e72edee5014daea2071c205a76a
+  tag: 2022.11.0@sha256:776addf8f0ce74ea616cd913de671b719a9c42be8f2fc1c25c59aac4c37cf1e6
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:8e047d6978f0e5ae0d5debb38f6a38c00d9df1497bd584776e45e55ba9a77ad4
+  tag: latest@sha256:76591c4953caf3dc84e4c20bcfaaf3a8d06616ec595a3e184e1a9bfb9646edbe
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
@@ -12,11 +12,11 @@ j11j9Image:
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:26e8d2d0ca32e9ab8b9e8d5e2af510706bd609708932bd4003f07e3e722ed2c8
+  tag: latest@sha256:ac34603d105c5bf5abdfe3713b3821b72eb5b1fa304e426ecb1643bea1ee1720
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:26e8d2d0ca32e9ab8b9e8d5e2af510706bd609708932bd4003f07e3e722ed2c8
+  tag: latest@sha256:ac34603d105c5bf5abdfe3713b3821b72eb5b1fa304e426ecb1643bea1ee1720
   pullPolicy: Always
 
 securityContext:

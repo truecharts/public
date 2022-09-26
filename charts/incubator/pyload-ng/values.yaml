@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pyload-ng
-  tag: latest@sha256:0bcf3cc0b4318874b3aaf38170037787ab7f29e9da35205d24af517e0e91f06c
+  tag: latest@sha256:3f0d03ee02bb3e4bb7e1d0fb448e341ddf461d4ca71b77e42966401380eee13a
 persistence:
   config:
     enabled: true
@@ -19,10 +19,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8000
         protocol: HTTP
         targetPort: 8000

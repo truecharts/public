@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chromium-desktop-g3
-  tag: latest@sha256:030e348c2c67c1ae613a33c62580fbe77c16f9de1ab6b6deeb0e49666e672b9b
+  tag: latest@sha256:5038cc2a0a3641a8acdd6f3c9408a88905034c8f91c259306f197c2ee5a07330
 persistence:
   internalshare:
     enabled: true
@@ -17,10 +17,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6901
         protocol: HTTP
         targetPort: 6901

@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: SCPRIME_WALLET_PASSWORD
-          label: 'SCPRIME_WALLET_PASSWORD'
+          label: "SCPRIME_WALLET_PASSWORD"
           description: "Enter your password to automatically unlock your wallet when the docker starts.&lt;br&gt;&lt;b&gt;NOTE&lt;b&gt; Your default password is your seed phrase unless changed."
           schema:
             type: string
@@ -34,7 +34,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -62,7 +63,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: hostapiaddress
                       label: "hostapiaddress Service Port Configuration"
                       schema:

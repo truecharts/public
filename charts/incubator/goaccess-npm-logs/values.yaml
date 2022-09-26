@@ -8,7 +8,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/goaccess-npm-logs
-  tag: latest@sha256:3d31bde313c65145230ef5c02fa44d9ed631af5f224bad41da5fda12918e51de
+  tag: latest@sha256:2411cb90bb202382eddb5fab1a622662f335c0a2880c7b95f1542e2088243a95
 persistence:
   hostpath1:
     enabled: true
@@ -22,10 +22,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 7880
         protocol: TCP
         targetPort: 7880

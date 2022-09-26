@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/remotely
-  tag: latest@sha256:1aef14385210c233d0dd81f6aa76f38f50cdf8cb9ca23117ca057f9667d87c12
+  tag: latest@sha256:f443102cfc770a4a0e5c08870ec07147c60afde68deb6e7172ac2b96332a6f0f
 persistence:
   data:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9280
         protocol: TCP
         targetPort: 5000

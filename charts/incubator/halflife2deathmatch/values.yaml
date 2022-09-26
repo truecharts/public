@@ -1,25 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/halflife2deathmatch
+  tag: latest@sha256:a53dab98bd037d5e1c1e65b39d49a7075e9a06172301c72e889aa22db9e1e414
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+secretEnv:
+  USERNAME: ""
+  PASSWRD: ""
+
 env:
   GAME_ID: "232370"
   GAME_NAME: hl2mp
   GAME_PARAMS: -secure +maxplayers 16 +map dm_overwatch
   GAME_PORT: "27015"
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: ""
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/halflife2deathmatch
-  tag: latest@sha256:a53dab98bd037d5e1c1e65b39d49a7075e9a06172301c72e889aa22db9e1e414
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  VALIDATE: false
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -27,15 +28,11 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 27015
         protocol: UDP
         targetPort: 27015
@@ -47,6 +44,14 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
+
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 
 portal:
   enabled: true

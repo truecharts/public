@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cadquery-jupyter
-  tag: v3.1.0rc4
+  tag: 3.3.0
 persistence:
   workdir:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8888
         protocol: TCP
         targetPort: 8888

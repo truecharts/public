@@ -20,19 +20,19 @@ questions:
       type: dict
       attrs:
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "To load the last autosavegame you MUST specifie the following in the GAMEPARAMETERS variable -g serverdataserverfiles.localshareopenttdsaveautosaveautosave0.sav"
           schema:
             type: string
             default: ""
         - variable: GAME_VERSION
-          label: 'GAME_VERSION'
+          label: "GAME_VERSION"
           description: "Define the prefered game version (eg 1.10.3 without quotes) or set to latest (without quotes) to pull the newest build."
           schema:
             type: string
             default: "latest"
         - variable: GFX_PK_V
-          label: 'GFX_PK_V'
+          label: "GFX_PK_V"
           description: "Define the prefered OpenGFX version (eg 0.6.0 without quotes) or set to latest (without quotes) to pull the newest build."
           schema:
             type: string
@@ -46,7 +46,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -74,7 +75,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: tcpgameport
                       label: "tcpgameport Service Port Configuration"
                       schema:
@@ -102,7 +104,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: udpgameport
                       label: "udpgameport Service Port Configuration"
                       schema:

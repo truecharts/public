@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crypto-exchanges-gateway
-  tag: latest@sha256:777cfe5bc72cfa14e3a2548ea2cc2b04267a357d36b9b1718572992d4a701664
+  tag: latest@sha256:f513b05ee00410153a93c827c7f96577df74fa547dd38d44cf838c9d82ff4fa4
 persistence:
   configpath:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8000
         protocol: HTTP
         targetPort: 8000

@@ -18,19 +18,19 @@ questions:
       type: dict
       attrs:
         - variable: PASSWORD
-          label: 'PASSWORD'
+          label: "PASSWORD"
           description: "Set the password to use on Noteas Website"
           schema:
             type: string
             default: ""
         - variable: STORE_USER
-          label: 'STORE_USER'
+          label: "STORE_USER"
           description: "User for MinIO Backend"
           schema:
             type: string
             default: ""
         - variable: STORE_PASSWORD
-          label: 'STORE_PASSWORD'
+          label: "STORE_PASSWORD"
           description: "Password for MinIO Backend"
           schema:
             type: string

@@ -1,29 +1,31 @@
-env:
-  FLOOD_AUTH: ""
-  UMASK: ""
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rflood
-  tag: latest@sha256:d0b6da54899ff0580bea934d5638e9f887217b72935eb668958cf4391e747fcd
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:3296a193667a777c8565c23c801d289af0231a1efe93d309cd75f57297b56ea7
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env:
+  FLOOD_AUTH: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: HTTP
+        targetPort: 3000
+
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  main:
-    enabled: true
-    ports:
-      main:
-        enabled: true
-        port: 3000
-        protocol: TCP
-        targetPort: 3000
 
 portal:
   enabled: true

@@ -7,9 +7,9 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.9
+    version: 10.6.1
 deprecated: false
-description: Self-hosted Rickrolls. Image is based on Nginx stable alpine, and all the content is local to the container.
+description: Self-hosted Rickrolls. Image is based on Nginx stable alpine, and all the content is local to the Chart.
 home: https://truecharts.org/docs/charts/incubator/rickroll
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rickroll.png
 keywords:
@@ -26,4 +26,4 @@ sources:
   - https://github.com/modem7/docker-rickroll
   - https://hub.docker.com/r/modem7/docker-rickroll
 type: application
-version: 0.0.18
+version: 0.0.32

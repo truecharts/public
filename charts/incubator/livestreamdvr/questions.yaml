@@ -20,12 +20,12 @@ questions:
       type: dict
       attrs:
         - variable: UMASK
-          label: 'UMASK'
+          label: "UMASK"
           schema:
             type: string
             default: "022"
         - variable: TCD_ENABLE_FILES_API
-          label: 'TCD_ENABLE_FILES_API'
+          label: "TCD_ENABLE_FILES_API"
           description: "May enable exploits."
           schema:
             type: string
@@ -39,7 +39,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

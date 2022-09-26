@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "tailscale.secret" . }}
+
+{{/* Render config */}}
+{{- include "tailscale.config" . }}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

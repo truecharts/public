@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/vaulthunters
-  tag: latest@sha256:aedef733b5f40101888a91bf56987a19fa5836e994666926291de2ed7518306d
+  tag: latest@sha256:e32b5bb57fbadca782d9a48880ffd4b9d15c16cca227cd1b577424422b00dea1
 persistence:
   data:
     enabled: true
@@ -18,10 +18,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 25565
         protocol: TCP
         targetPort: 25565

@@ -21,7 +21,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -42,16 +43,17 @@ questions:
                                   schema:
                                     type: int
                                     default: 9001
-        - variable: port5002
-          label: 'port5002 service'
-          description: "Container Port 5002"
+        - variable: api
+          label: 'API service'
+          description: "Container Port API"
           schema:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
-                    - variable: port5002
-                      label: "port5002 Service Port Configuration"
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: api
+                      label: "API Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -61,7 +63,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5002
+                              default: 5001
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
@@ -69,17 +71,18 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 5002
-        - variable: port1044
-          label: 'port1044 service'
-          description: "Container Port 1044"
+                                    default: 5001
+        - variable: sub
+          label: 'Sub service'
+          description: "Container Port Sub"
           schema:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
-                    - variable: port1044
-                      label: "port1044 Service Port Configuration"
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: sub
+                      label: "Sub Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -103,18 +106,18 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: media
-          label: "media Storage"
-          description: "Container Path media"
+        - variable: config
+          label: "config Storage"
+          description: "Container Path root.configUMS"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: config
-          label: "config Storage"
-          description: "Container Path root.configUMS"
+        - variable: media
+          label: "media Storage"
+          description: "Container Path media"
           schema:
             additional_attrs: true
             type: dict

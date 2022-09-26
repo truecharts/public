@@ -2,7 +2,396 @@
 
 
 
-## [hexo-blog-0.0.15](https://github.com/truecharts/charts/compare/hexo-blog-0.0.14...hexo-blog-0.0.15) (2022-08-08)
+## [hexo-blog-0.0.26](https://github.com/truecharts/charts/compare/hexo-blog-0.0.25...hexo-blog-0.0.26) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.25](https://github.com/truecharts/charts/compare/hexo-blog-0.0.24...hexo-blog-0.0.25) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexo-blog-0.0.24](https://github.com/truecharts/charts/compare/hexo-blog-0.0.23...hexo-blog-0.0.24) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [hexchat-0.0.23](https://github.com/truecharts/charts/compare/hexchat-0.0.22...hexchat-0.0.23) (2022-09-04)
+
+### Fix
+
+- hexo-blog, hexchat, qbitmanage, whisparr ([#3688](https://github.com/truecharts/charts/issues/3688))
+
+
+
+
+## [hexchat-0.0.22](https://github.com/truecharts/charts/compare/hexchat-0.0.20...hexchat-0.0.22) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [hexchat-0.0.21](https://github.com/truecharts/charts/compare/hexchat-0.0.20...hexchat-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [hexchat-0.0.20](https://github.com/truecharts/charts/compare/hexchat-0.0.19...hexchat-0.0.20) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [hexchat-0.0.19](https://github.com/truecharts/charts/compare/hexchat-0.0.17...hexchat-0.0.19) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
+## [hexchat-0.0.17](https://github.com/truecharts/charts/compare/hexchat-0.0.16...hexchat-0.0.17) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [hexchat-0.0.16](https://github.com/truecharts/charts/compare/hexchat-0.0.15...hexchat-0.0.16) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [hexchat-0.0.15](https://github.com/truecharts/charts/compare/hexchat-0.0.14...hexchat-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -12,7 +401,7 @@
 
 
 
-## [hexo-blog-0.0.14](https://github.com/truecharts/apps/compare/hexo-blog-0.0.13...hexo-blog-0.0.14) (2022-07-26)
+## [hexchat-0.0.14](https://github.com/truecharts/apps/compare/hexchat-0.0.13...hexchat-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -22,7 +411,7 @@
 
 
 
-## [hexo-blog-0.0.13](https://github.com/truecharts/apps/compare/hexo-blog-0.0.12...hexo-blog-0.0.13) (2022-07-25)
+## [hexchat-0.0.13](https://github.com/truecharts/apps/compare/hexchat-0.0.12...hexchat-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -35,7 +424,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -46,7 +435,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -56,7 +445,7 @@
 
 
 
-## [hexo-blog-0.0.12](https://github.com/truecharts/apps/compare/hexo-blog-0.0.11...hexo-blog-0.0.12) (2022-07-23)
+## [hexchat-0.0.12](https://github.com/truecharts/apps/compare/hexchat-0.0.11...hexchat-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -65,7 +454,7 @@
 
 
 
-## [hexo-blog-0.0.11](https://github.com/truecharts/apps/compare/hexo-blog-0.0.10...hexo-blog-0.0.11) (2022-07-22)
+## [hexchat-0.0.11](https://github.com/truecharts/apps/compare/hexchat-0.0.10...hexchat-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -73,7 +462,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -84,7 +473,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -94,7 +483,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-21)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -103,7 +492,7 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-20)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-20)
 
 ### Chore
 
@@ -111,4 +500,27 @@
 
 
 
-## [hexo-blog-0.0.10]hexo-blog-0.0.10 (2022-07-20)
+## [hexchat-0.0.10]hexchat-0.0.10 (2022-07-20)
+Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [qbitmanage-0.0.10]qbitmanage-0.0.10 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [qbitmanage-0.0.10]qbitmanage-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup

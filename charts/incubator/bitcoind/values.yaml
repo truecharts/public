@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/bitcoind
-  tag: latest@sha256:c5fde748a5ca6508095b9f33033ace8fd5e070d26dd9201ffe38056d68ce0828
+  tag: latest@sha256:d02946c6c81a98364c1b2643caa72c3d2bccba1618cb720dd5cf8f38a7056d60
 persistence:
   data:
     enabled: true
@@ -23,10 +23,8 @@ service:
         protocol: TCP
         targetPort: 8332
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8333
         protocol: TCP
         targetPort: 8333

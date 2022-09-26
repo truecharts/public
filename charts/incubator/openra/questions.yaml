@@ -20,61 +20,61 @@ questions:
       type: dict
       attrs:
         - variable: ListenPort
-          label: 'ListenPort'
+          label: "ListenPort"
           description: "ListenPort for multiple servers "
           schema:
             type: string
             default: "1234"
         - variable: ExternalPort
-          label: 'ExternalPort'
+          label: "ExternalPort"
           description: "ExternalPort for multiple servers"
           schema:
             type: string
             default: "1234"
         - variable: Mod
-          label: 'Mod'
+          label: "Mod"
           description: "Game the server runs eg- cnc, ra or d2k"
           schema:
             type: string
             default: "ra"
         - variable: Name
-          label: 'Name'
+          label: "Name"
           description: "Name of server to advertise"
           schema:
             type: string
             default: "DEDICATED SERVER"
         - variable: Ban
-          label: 'Ban'
+          label: "Ban"
           description: "Comma delimited list of banned IP addresses"
           schema:
             type: string
             default: ""
         - variable: MOTD
-          label: 'MOTD'
+          label: "MOTD"
           description: "Message shown to users on joining game"
           schema:
             type: string
             default: "Have Fun!!"
         - variable: Password
-          label: 'Password'
+          label: "Password"
           description: "Password needed by users to join server"
           schema:
             type: string
             default: ""
         - variable: MAP
-          label: 'MAP'
+          label: "MAP"
           description: "Hash ID of selected startup map"
           schema:
             type: string
             default: ""
         - variable: AdvertiseOnline
-          label: 'AdvertiseOnline'
+          label: "AdvertiseOnline"
           description: "Advertise server on openRA public servers"
           schema:
             type: string
             default: "True"
         - variable: EnableSingleplayer
-          label: 'EnableSingleplayer'
+          label: "EnableSingleplayer"
           description: "Enable single players on server"
           schema:
             type: string
@@ -88,7 +88,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

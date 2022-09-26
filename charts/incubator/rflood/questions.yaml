@@ -20,17 +20,10 @@ questions:
       type: dict
       attrs:
         - variable: FLOOD_AUTH
-          label: 'FLOOD_AUTH'
-          description: "Container Variable FLOODAUTH"
+          label: "FLOOD_AUTH"
           schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: 'UMASK'
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -40,7 +33,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -54,7 +48,7 @@ questions:
                               type: int
                               default: 3000
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"

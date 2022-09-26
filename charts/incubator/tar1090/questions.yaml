@@ -20,25 +20,25 @@ questions:
       type: dict
       attrs:
         - variable: BEASTHOST
-          label: 'BEASTHOST'
+          label: "BEASTHOST"
           description: "You will need a source of Beast data. This could be an RPi running PiAware, the mikenyepiaware image or mikenyereadsb."
           schema:
             type: string
             default: "<BEASTHOST>"
         - variable: MLATHOST
-          label: 'MLATHOST'
+          label: "MLATHOST"
           description: "IP address of a host that can provide MLAT data."
           schema:
             type: string
             default: "<MLATHOST>"
         - variable: LAT
-          label: 'LAT'
+          label: "LAT"
           description: "Latitude"
           schema:
             type: string
             default: "xx.xxxxx"
         - variable: LONG
-          label: 'LONG'
+          label: "LONG"
           description: "Longitude"
           schema:
             type: string
@@ -52,7 +52,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

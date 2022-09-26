@@ -2,6 +2,591 @@
 
 
 
+## [prometheus-4.0.90](https://github.com/truecharts/charts/compare/prometheus-4.0.89...prometheus-4.0.90) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [prometheus-4.0.89](https://github.com/truecharts/charts/compare/prometheus-4.0.88...prometheus-4.0.89) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
+## [prometheus-4.0.88](https://github.com/truecharts/charts/compare/prometheus-4.0.87...prometheus-4.0.88) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
+## [prometheus-4.0.87](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.87) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.87](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.87) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [prometheus-4.0.83](https://github.com/truecharts/charts/compare/prometheus-4.0.82...prometheus-4.0.83) (2022-09-15)
+
+### Chore
+
+- split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [prometheus-4.0.82](https://github.com/truecharts/charts/compare/prometheus-4.0.81...prometheus-4.0.82) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.80](https://github.com/truecharts/charts/compare/prometheus-4.0.79...prometheus-4.0.80) (2022-09-10)
+
+### Chore
+
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
+
+
+
+
+## [prometheus-4.0.79](https://github.com/truecharts/charts/compare/prometheus-4.0.78...prometheus-4.0.79) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [prometheus-4.0.79](https://github.com/truecharts/charts/compare/prometheus-4.0.78...prometheus-4.0.79) (2022-09-06)
+
+### Chore
+
+- update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [prometheus-4.0.78](https://github.com/truecharts/charts/compare/prometheus-4.0.77...prometheus-4.0.78) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+  ### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
+## [prometheus-4.0.77](https://github.com/truecharts/charts/compare/prometheus-4.0.76...prometheus-4.0.77) (2022-09-03)
+
+### Chore
+
+- update docker general non-major ([#3668](https://github.com/truecharts/charts/issues/3668))
+
+
+
+
+## [prometheus-4.0.76](https://github.com/truecharts/charts/compare/prometheus-4.0.75...prometheus-4.0.76) (2022-09-02)
+
+### Chore
+
+- update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
+
+
+
+
+## [prometheus-4.0.75](https://github.com/truecharts/charts/compare/prometheus-4.0.74...prometheus-4.0.75) (2022-08-31)
+
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [prometheus-4.0.74](https://github.com/truecharts/charts/compare/prometheus-4.0.72...prometheus-4.0.74) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [prometheus-4.0.73](https://github.com/truecharts/charts/compare/prometheus-4.0.72...prometheus-4.0.73) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [prometheus-4.0.72](https://github.com/truecharts/charts/compare/prometheus-4.0.71...prometheus-4.0.72) (2022-08-30)
+
+### Chore
+
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+
+
+
+
+## [prometheus-4.0.71](https://github.com/truecharts/charts/compare/prometheus-4.0.69...prometheus-4.0.71) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3620](https://github.com/truecharts/charts/issues/3620))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [prometheus-4.0.69](https://github.com/truecharts/charts/compare/prometheus-4.0.68...prometheus-4.0.69) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
+
+
+
+
+## [prometheus-4.0.68](https://github.com/truecharts/charts/compare/prometheus-4.0.67...prometheus-4.0.68) (2022-08-25)
+
+### Chore
+
+- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
+
+
+
+
+## [prometheus-4.0.67](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.29...prometheus-4.0.67) (2022-08-24)
+
+### Chore
+
+- update docker general non-major ([#3552](https://github.com/truecharts/charts/issues/3552))
+
+
+
+
+## [prometheus-4.0.66](https://github.com/truecharts/charts/compare/prometheus-4.0.65...prometheus-4.0.66) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [prometheus-4.0.65](https://github.com/truecharts/charts/compare/prometheus-4.0.64...prometheus-4.0.65) (2022-08-22)
+
+### Chore
+
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
+
+
+
+
+## [prometheus-4.0.64](https://github.com/truecharts/charts/compare/prometheus-4.0.63...prometheus-4.0.64) (2022-08-20)
+
+### Chore
+
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
+
+
+
+
+## [prometheus-4.0.63](https://github.com/truecharts/charts/compare/prometheus-4.0.62...prometheus-4.0.63) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
+## [prometheus-4.0.62](https://github.com/truecharts/charts/compare/prometheus-4.0.61...prometheus-4.0.62) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
+## [prometheus-4.0.61](https://github.com/truecharts/charts/compare/prometheus-4.0.60...prometheus-4.0.61) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [prometheus-4.0.60](https://github.com/truecharts/charts/compare/prometheus-4.0.59...prometheus-4.0.60) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [prometheus-4.0.59](https://github.com/truecharts/charts/compare/prometheus-4.0.58...prometheus-4.0.59) (2022-08-12)
+
+### Chore
+
+- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+
+
+
 ## [prometheus-4.0.58](https://github.com/truecharts/charts/compare/prometheus-4.0.57...prometheus-4.0.58) (2022-08-10)
 
 ### Chore

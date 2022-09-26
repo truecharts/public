@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/blender-desktop-g3
-  tag: latest@sha256:6527c3beffa754df10c44ec1ae1c84a3602ca37d4c179779b0cdd651cf89f630
+  tag: latest@sha256:242f5f1050bc2ae864add3671c6044564a0d0108102bd80ca003b453d8d99079
 persistence:
   internalshare:
     enabled: true
@@ -20,10 +20,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6901
         protocol: HTTP
         targetPort: 6901

@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: OVERRIDE_PASSWORD
-          label: 'OVERRIDE_PASSWORD'
+          label: "OVERRIDE_PASSWORD"
           schema:
             type: string
             default: "foobar"
@@ -33,7 +33,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

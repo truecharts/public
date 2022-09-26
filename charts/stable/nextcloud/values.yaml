@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v24.0.3@sha256:bd950c86f788ad9937941b48917209238a06aef5f9e1546996edb4e8220a8ec0
+  tag: 24.0.5@sha256:1516301290268ff9738acc2c669e8a4fb8f8f78dbb64c0b8f36ef4c791c9f568
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.1@sha256:a81430bf9632f79615c9c6dc79137fbd1dbc8b9ea244c88f000d51aa14dd370f
+  tag: 1.23.1@sha256:bb6daed37713a1870831e7fde3e6c281419ff522bc244926661777e592978639
 
 imaginaryImage:
   repository: h2non/imaginary
@@ -103,22 +103,21 @@ initContainers:
       - "-c"
       - |
         /bin/bash <<'EOF'
-        if [[ -f /data/config/config.php ]] && [[ ! -f /html/config/config.php ]]; then
-        echo "migrating from single to dual PVC's..."
-        echo "moving to placeholder location..."
-        mv -f /var/www/html/data/* /var/www/html/data/tomigrate/
-        echo "moving userdata to data-pvc root..."
-        mv -f /var/www/html/data/tomigrate/data/* /var/www/html/data/
-        echo "removing old data folder..."
-        rm -rf /var/www/html/data/tomigrate/data
-        echo "moving config, apps, templates and other content to html-pvc root..."
-        mv -f /var/www/html/data/tomigrate/* /var/www/html/
-        echo "Removing migration temporary folder..."
-        rm -rf /var/www/html/data/tomigrate
+        echo "Forcing permissions on userdata folder..."
+        if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
+          echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
+          nfs4_setfacl -R -a A:g:33:RWX "/var/www/html/data"
+        else
+          echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
+          echo "checking ownership..."
+          if [ $(stat -c %g .) -eq 33 ]; then
+            echo "Ownership already set to 33, skipping..."
+          else
+            echo "Changing ownership to group 33..."
+            chown -R :33 "/var/www/html/data"
+          fi
+          chmod 770 /var/www/html/data
         fi
-        echo "Enforcing chmod 770 on data-dir..."
-        chmod 770 /var/www/html/data
-        echo "Migrating old data when found..."
         EOF
 
     volumeMounts:
@@ -139,6 +138,7 @@ env:
   TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  NC_check_data_directory_permissions: "true"
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
@@ -396,6 +396,10 @@ cronjob:
 
 hpb:
   enabled: true
+
+nextcloud:
+  # https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
+  default_phone_region: ""
 
 imaginary:
   enabled: true

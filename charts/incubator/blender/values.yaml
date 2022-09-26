@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/blender
-  tag: latest@sha256:7c04802fc036008a06b723ef138e921cdf3ce25d3e711efe931cbebddb202771
+  tag: latest@sha256:10b65b7b4c49e46e858d18f42cd11665aa3b0360a9803d70996707780c1a1e71
 persistence:
   config:
     enabled: true
@@ -18,10 +18,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 3000
         protocol: TCP
         targetPort: 3000

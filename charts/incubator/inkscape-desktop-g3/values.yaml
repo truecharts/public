@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/inkscape-desktop-g3
-  tag: latest@sha256:583601cb7651e62bdd02b1c1e29f5481dc7d8b6013bd08b4a350f4c27e7059e9
+  tag: latest@sha256:9010f8a20121d1fc04eef61101b2e5a701da89f515fc3d4b298e3308895d53d5
 persistence:
   internalshare:
     enabled: true
@@ -17,10 +17,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6901
         protocol: HTTP
         targetPort: 6901

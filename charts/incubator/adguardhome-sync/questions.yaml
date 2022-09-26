@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: CONFIGFILE
-          label: 'CONFIGFILE'
+          label: "CONFIGFILE"
           description: "Set a custom config file."
           schema:
             type: string
             default: ""
         - variable: UMASK
-          label: 'UMASK'
+          label: "UMASK"
           description: "Container Variable UMASK"
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

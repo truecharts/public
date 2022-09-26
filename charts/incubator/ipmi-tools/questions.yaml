@@ -20,19 +20,19 @@ questions:
       type: dict
       attrs:
         - variable: APP_IPMI_HOST
-          label: 'APP_IPMI_HOST'
+          label: "APP_IPMI_HOST"
           description: "The IP or host of your iDRAC interface."
           schema:
             type: string
             default: ""
         - variable: APP_IPMI_USER
-          label: 'APP_IPMI_USER'
+          label: "APP_IPMI_USER"
           description: "Your IPMI username (same as your iDRAC user)"
           schema:
             type: string
             default: ""
         - variable: APP_IPMI_PASS
-          label: 'APP_IPMI_PASS'
+          label: "APP_IPMI_PASS"
           description: "Your IPMI password (same as your iDRAC password)"
           schema:
             type: string
@@ -46,7 +46,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

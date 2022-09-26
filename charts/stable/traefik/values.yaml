@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: v2.8.1@sha256:c56594c74ae0ed5f4dd466f05d2e8cebe528b7ca6796edd3b4870a6f6f75cbd4
+  tag: 2.8.7@sha256:6aed036bb4faf8fa769f94b5eff931b73885043f870509344620098b9220f13c
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -11,14 +11,6 @@ ingressClass:
   isDefaultClass: false
   # Use to force a networking.k8s.io API Version for certain CI/CD applications. E.g. "v1beta1"
   fallbackApiVersion: ""
-
-# -- Deprecated (will be removed later)
-# -- Activate Pilot integration
-pilot:
-  enabled: false
-  token: ""
-  # Toggle Pilot Dashboard
-  # dashboard: false
 
 # -- Create an IngressRoute for the dashboard
 ingressRoute:
@@ -152,6 +144,9 @@ service:
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
           enabled: false
+        # -- Proxy Protocol should never be enabled on Main entrypoint
+        proxyProtocol:
+          enabled: false
   tcp:
     enabled: true
     type: LoadBalancer
@@ -161,6 +156,8 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # Options: Empty, 0 (ingore), or positive int
+        # redirectPort:
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:
           enabled: false
@@ -168,8 +165,13 @@ service:
           trustedIPs: []
           # -- Trust all forwarded headers
           insecureMode: false
-        # Options: Empty, 0 (ingore), or positive int
-        # redirectPort:
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
+          insecureMode: false
       websecure:
         enabled: true
         port: 9443
@@ -180,6 +182,13 @@ service:
           # -- List of trusted IP and CIDR references
           trustedIPs: []
           # -- Trust all forwarded headers
+          insecureMode: false
+        # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
+        proxyProtocol:
+          enabled: false
+          # -- Only IPs in trustedIPs will lead to remote client address replacement
+          trustedIPs: []
+          # -- Trust every incoming connection
           insecureMode: false
   #      tcpexample:
   #        enabled: true
@@ -206,6 +215,9 @@ service:
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
+          enabled: false
+        # -- Proxy Protocol should never be enabled on Metrics entrypoint
+        proxyProtocol:
           enabled: false
   udp:
     enabled: false
@@ -293,7 +305,7 @@ rbac:
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 # -- SCALE Middleware Handlers
 middlewares:
@@ -328,7 +340,7 @@ middlewares:
   redirectRegex: []
   # - name: redirectRegexName
   #   regex: putregexhere
-  #   replacement: repslacementurlhere
+  #   replacement: replacementurlhere
   #   permanent: false
   stripPrefixRegex: []
   # - name: stripPrefixRegexName
@@ -339,8 +351,7 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
-  # -- Currently requires to enable Traefik Pilot.
-  # -- Until it's deprecated.
+  themeParkVersion: v1.2.2
   themePark: []
   # - name: themeParkName
   # -- Supported apps, lower case name
@@ -352,7 +363,19 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  themeParkVersion: v1.1.0
+  realIPVersion: v1.0.3
+  # Sets X-Real-Ip with an IP from the X-Forwarded-For or
+  # Cf-Connecting-Ip (If from Cloudflare)
+  # Evaluation of those headers will go from last to first
+  realIP: []
+  # - name: realIPName
+  # -- The real IP will be the first one that is
+  # -- not included in any of the CIDRs passed here
+  #   excludedNetworks:
+  #     - 1.1.1.1/24
+  addPrefix: []
+  # - name: addPrefixName
+  #   prefix: "/foo"
 
 portalhook:
   enabled: true

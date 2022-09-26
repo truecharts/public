@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/linkace
-  tag: v1.10.2@sha256:9be04e26b1a25e6847bbad5a12e0198ec2fd8c36504c0f0e3cfad85f92f64850
+  tag: 1.10.4@sha256:a2299c14e9f6e56067f8ead85dd641216ea6143d90514131d5b7a792fa1f556e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -43,7 +43,7 @@ env:
   APP_URL: "http://localhost"
   APP_DEBUG: false
   BACKUP_ENABLED: false
-  BACKUP_DISK: s3
+  BACKUP_DISK: local_backups
   BACKUP_NOTIFICATION_EMAIL: your@email.com
   BACKUP_MAX_SIZE: 512
   DB_HOST:

@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/artifactory-oss
-  tag: 7.41.6
+  tag: 7.41.13
 persistence:
   varoptjfrogartifactory:
     enabled: true
@@ -16,10 +16,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8181
         protocol: TCP
         targetPort: 8081

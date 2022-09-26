@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/firefox-desktop-g3
-  tag: latest@sha256:0155395d3d791a0df0ce8db438adf7102765bd31562ddb48142b2094f7a59852
+  tag: latest@sha256:d8ffe92db292fd1665faba88722651007cbb1509ee430717551a83bdcf835f09
 persistence:
   internalshare:
     enabled: true
@@ -17,10 +17,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 6901
         protocol: HTTP
         targetPort: 6901

@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: SIA_WALLET_PASSWORD
-          label: 'SIA_WALLET_PASSWORD'
+          label: "SIA_WALLET_PASSWORD"
           description: "Container Variable SIAWALLETPASSWORD"
           schema:
             type: string
             default: ""
         - variable: SIA_API_PASSWORD
-          label: 'SIA_API_PASSWORD'
+          label: "SIA_API_PASSWORD"
           description: "Container Variable SIAAPIPASSWORD"
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -68,7 +69,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: hostrhp2port
                       label: "hostrhp2port Service Port Configuration"
                       schema:
@@ -96,7 +98,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: hostrhp3port
                       label: "hostrhp3port Service Port Configuration"
                       schema:

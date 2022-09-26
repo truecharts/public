@@ -19,7 +19,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        # General
         - variable: DASHDOT_WIDGET_LIST
           label: "DASHDOT_WIDGET_LIST"
           description: "Change the order of the elements in the list, to change the position on the page, or remove an item from the list, to remove it from the page. Storage Widget does not work correctly with ZFS"
@@ -51,6 +50,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: DASHDOT_FS_DEVICE_FILTER
+          label: "DASHDOT_FS_DEVICE_FILTER"
+          description: "To hide specific drives, you can pass the device names as a string list using this parameter. If you don't know the device names of your drives, have a look at the log of dash. and look for the Static Server Info -> storage output."
+          schema:
+            type: string
+            default: ""
         - variable: DASHDOT_FS_TYPE_FILTER
           label: "DASHDOT_FS_TYPE_FILTER"
           description: "If dash. detects network drives as internal drives, you can provide a list of ignored FS types here."
@@ -384,7 +389,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

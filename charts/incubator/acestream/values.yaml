@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/acestream
-  tag: latest@sha256:c2e5f59fc6456c761056c9d8fae7e389d275dc9b3e7b94467ddcd632bb2bcb19
+  tag: latest@sha256:302fecdf58b3f4fbb7ad768766bba635f0c335d6d3a64fb6ebb532304f147400
 persistence:
   acestreamcache:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8008
         protocol: TCP
         targetPort: 6878

@@ -2,6 +2,157 @@
 
 
 
+## [promtail-3.0.55](https://github.com/truecharts/charts/compare/promtail-3.0.54...promtail-3.0.55) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.4 ([#3914](https://github.com/truecharts/charts/issues/3914))
+
+
+
+
+## [promtail-3.0.54](https://github.com/truecharts/charts/compare/promtail-3.0.53...promtail-3.0.54) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.1 ([#3893](https://github.com/truecharts/charts/issues/3893))
+
+
+
+
+## [promtail-3.0.53](https://github.com/truecharts/charts/compare/promtail-3.0.52...promtail-3.0.53) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.0
+
+
+
+
+## [promtail-3.0.52](https://github.com/truecharts/charts/compare/promtail-3.0.51...promtail-3.0.52) (2022-09-22)
+
+### Chore
+
+- refactor Services SCALE GUI
+  - update helm chart common to v10.5.12
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [promtail-3.0.51](https://github.com/truecharts/charts/compare/promtail-3.0.50...promtail-3.0.51) (2022-09-13)
+
+### Chore
+
+- update helm chart common to v10.5.10
+
+
+
+
+## [promtail-3.0.50](https://github.com/truecharts/charts/compare/promtail-3.0.49...promtail-3.0.50) (2022-09-11)
+
+### Chore
+
+- update helm chart common to v10.5.9
+
+
+
+
+## [promtail-3.0.49](https://github.com/truecharts/charts/compare/promtail-3.0.48...promtail-3.0.49) (2022-09-10)
+
+### Chore
+
+- update helm chart common to v10.5.8 ([#3729](https://github.com/truecharts/charts/issues/3729))
+
+
+
+
+## [promtail-3.0.48](https://github.com/truecharts/charts/compare/promtail-3.0.47...promtail-3.0.48) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
+## [promtail-3.0.47](https://github.com/truecharts/charts/compare/promtail-3.0.45...promtail-3.0.47) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.5.6 ([#3635](https://github.com/truecharts/charts/issues/3635))
+  - update helm chart common to v10.5.5
+
+
+
+
+## [promtail-3.0.46](https://github.com/truecharts/charts/compare/promtail-3.0.45...promtail-3.0.46) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5
+
+
+
+
+## [promtail-3.0.45](https://github.com/truecharts/charts/compare/promtail-3.0.44...promtail-3.0.45) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.4 ([#3613](https://github.com/truecharts/charts/issues/3613))
+
+
+
+
+## [promtail-3.0.44](https://github.com/truecharts/charts/compare/promtail-3.0.43...promtail-3.0.44) (2022-08-29)
+
+### Chore
+
+- update helm chart common to v10.5.3 ([#3610](https://github.com/truecharts/charts/issues/3610))
+
+
+
+
+## [promtail-3.0.43](https://github.com/truecharts/charts/compare/promtail-3.0.42...promtail-3.0.43) (2022-08-26)
+
+### Chore
+
+- update helm chart common to v10.5.2 ([#3583](https://github.com/truecharts/charts/issues/3583))
+
+
+
+
+## [promtail-3.0.42](https://github.com/truecharts/charts/compare/promtail-3.0.41...promtail-3.0.42) (2022-08-25)
+
+### Chore
+
+- update helm chart common to v10.5.1 ([#3562](https://github.com/truecharts/charts/issues/3562))
+
+
+
+
+## [promtail-3.0.41](https://github.com/truecharts/charts/compare/promtail-3.0.40...promtail-3.0.41) (2022-08-23)
+
+### Chore
+
+- update helm chart common to v10.5.0 ([#3546](https://github.com/truecharts/charts/issues/3546))
+
+
+
+
+## [promtail-3.0.40](https://github.com/truecharts/charts/compare/promtail-3.0.39...promtail-3.0.40) (2022-08-17)
+
+### Chore
+
+- update helm chart common to v10.4.13
+
+
+
+
 ## [promtail-3.0.39](https://github.com/truecharts/charts/compare/promtail-3.0.38...promtail-3.0.39) (2022-08-12)
 
 ### Chore

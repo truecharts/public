@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: WEBUI_PWD
-          label: 'WEBUI_PWD'
+          label: "WEBUI_PWD"
           description: "Password for WebUI."
           schema:
             type: string
             default: "admin"
         - variable: WEBUI_TEMPLATE
-          label: 'WEBUI_TEMPLATE'
+          label: "WEBUI_TEMPLATE"
           description: "Alternative material WebUI design."
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -68,7 +69,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: porttcp
                       label: "porttcp Service Port Configuration"
                       schema:
@@ -96,7 +98,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: portudp
                       label: "portudp Service Port Configuration"
                       schema:

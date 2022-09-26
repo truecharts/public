@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/factorio
-  tag: vstable@sha256:921d610536f5b952eeedb8abde966ebf65d28138be662455b6413b6ce56bf853
+  tag: vstable@sha256:3ec91b15ae9b9a16edea94ba0f0875ef9e1ded01b9166ad72a40c28a07d2e90c
 persistence:
   path:
     enabled: true
@@ -22,10 +22,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 34197
         protocol: UDP
         targetPort: 34197

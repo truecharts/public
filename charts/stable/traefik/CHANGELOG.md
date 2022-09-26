@@ -2,6 +2,487 @@
 
 
 
+## [traefik-13.4.2](https://github.com/truecharts/charts/compare/traefik-13.4.1...traefik-13.4.2) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- make include replace simpler ([#3904](https://github.com/truecharts/charts/issues/3904))
+
+
+
+
+## [traefik-13.4.1](https://github.com/truecharts/charts/compare/traefik-13.4.0...traefik-13.4.1) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [traefik-13.4.0](https://github.com/truecharts/charts/compare/traefik-13.3.11...traefik-13.4.0) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- add RealIP and addPrefix middleware ([#3884](https://github.com/truecharts/charts/issues/3884))
+
+
+
+
+## [traefik-13.3.11](https://github.com/truecharts/charts/compare/traefik-14.0.0...traefik-13.3.11) (2022-09-24)
+
+### Chore
+
+- regex redirect docs ([#3880](https://github.com/truecharts/charts/issues/3880))
+
+
+
+
+## [traefik-13.3.10](https://github.com/truecharts/charts/compare/traefik-13.3.9...traefik-13.3.10) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
+## [traefik-13.3.9](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.9) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - fix prometheus annotations ([#3841](https://github.com/truecharts/charts/issues/3841))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.8](https://github.com/truecharts/charts/compare/traefik-13.3.7...traefik-13.3.8) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.7](https://github.com/truecharts/charts/compare/traefik-13.3.6...traefik-13.3.7) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [traefik-13.3.6](https://github.com/truecharts/charts/compare/traefik-13.3.5...traefik-13.3.6) (2022-09-09)
+
+### Chore
+
+- move docs from website repo ([#3722](https://github.com/truecharts/charts/issues/3722))
+
+
+
+
+## [traefik-13.3.5](https://github.com/truecharts/charts/compare/traefik-13.3.4...traefik-13.3.5) (2022-09-04)
+
+### Chore
+
+- update docker general non-major ([#3681](https://github.com/truecharts/charts/issues/3681))
+
+
+
+
+## [traefik-13.3.4](https://github.com/truecharts/charts/compare/traefik-13.3.3...traefik-13.3.4) (2022-09-03)
+
+### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
+## [traefik-13.3.3](https://github.com/truecharts/charts/compare/traefik-13.3.1...traefik-13.3.3) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [traefik-13.3.2](https://github.com/truecharts/charts/compare/traefik-13.3.1...traefik-13.3.2) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [traefik-13.3.1](https://github.com/truecharts/charts/compare/traefik-13.3.0...traefik-13.3.1) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [traefik-13.3.0](https://github.com/truecharts/charts/compare/traefik-13.2.3...traefik-13.3.0) (2022-08-27)
+
+### Feat
+
+- add support for proxyProtocol ([#3593](https://github.com/truecharts/charts/issues/3593))
+
+
+
+
+## [traefik-13.2.3](https://github.com/truecharts/charts/compare/traefik-13.2.2...traefik-13.2.3) (2022-08-25)
+
+
+
+
+## [traefik-13.2.2](https://github.com/truecharts/charts/compare/traefik-13.2.1...traefik-13.2.2) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [traefik-13.2.1](https://github.com/truecharts/charts/compare/traefik-13.1.10...traefik-13.2.1) (2022-08-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
+## [traefik-13.2.0](https://github.com/truecharts/charts/compare/traefik-13.1.10...traefik-13.2.0) (2022-08-21)
+
+
+
+
+## [traefik-13.1.10](https://github.com/truecharts/charts/compare/traefik-13.1.9...traefik-13.1.10) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [traefik-13.1.9](https://github.com/truecharts/charts/compare/traefik-13.1.8...traefik-13.1.9) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+  - make trustedIPs vars to string ([#3391](https://github.com/truecharts/charts/issues/3391))
+
+
+
+
 ## [traefik-13.1.8](https://github.com/truecharts/charts/compare/traefik-13.1.7...traefik-13.1.8) (2022-08-08)
 
 ### Chore

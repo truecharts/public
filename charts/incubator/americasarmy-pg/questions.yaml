@@ -12,6 +12,26 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USERNAME
+          label: "USERNAME"
+          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            default: ""
+        - variable: PASSWRD
+          label: "PASSWRD"
+          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+          schema:
+            type: string
+            private: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -20,41 +40,29 @@ questions:
       type: dict
       attrs:
         - variable: GAME_ID
-          label: 'GAME_ID'
-          description: "The GAMEID that the container download at startup.If you want to install a static or beta version of the game change the value to 203300 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+          label: "GAME_ID"
+          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "203300"
         - variable: SRV_NAME
-          label: 'SRV_NAME'
+          label: "SRV_NAME"
           description: "Container Variable SRVNAME"
           schema:
             type: string
             default: "Army Docker"
         - variable: GAME_PARAMS
-          label: 'GAME_PARAMS'
+          label: "GAME_PARAMS"
           description: "Enter your start up commands for the server."
           schema:
             type: string
             default: "-port=7778 -SAP=8778 -SQP=27015 -aauregion=1 -log=Server.log"
-        - variable: USERNAME
-          label: 'USERNAME'
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
         - variable: VALIDATE
-          label: 'VALIDATE'
+          label: "VALIDATE"
           description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: 'PASSWRD'
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -64,7 +72,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -92,7 +101,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: steamqueryport
                       label: "steamqueryport Service Port Configuration"
                       schema:

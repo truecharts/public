@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
-  tag: v15.0@sha256:7ae49cd6cb272c2bfb7d120b9e71e16434b477340218b03045846476bc5f6614
+  tag: v15.0@sha256:f7d2ab13cf5214ddfbc09d5322bd61ad064a877edbec1620579392838a0a44d7
 
 env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"

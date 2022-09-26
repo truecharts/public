@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/qflood
-  tag: latest@sha256:9b75f4cc61225f5b0d0b9535d1f480a21d6e7d3f8b689b6ec8c770cd028f2e35
+  tag: latest@sha256:b67a7f9665829db06e5fdb5a5676ae234bee9519d3893cd440f6f643f19659c5
 persistence:
   config:
     enabled: true
@@ -25,10 +25,8 @@ service:
         protocol: TCP
         targetPort: 8080
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 3000
         protocol: HTTP
         targetPort: 3000

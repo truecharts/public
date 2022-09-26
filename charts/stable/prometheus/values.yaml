@@ -1,18 +1,18 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.58.0@sha256:99110f4151bbb488f0600f5b9692719110bdbc546780462230881e6ec0e8da5b
+  tag: 0.59.2@sha256:eaced1323a58241b843b475344cd5edb726ed01da54ea5bd37c86df0807e743d
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: v2.37.0@sha256:bacc335c67f9c59ae2885787c3f1607b840de5877b7240008b70e24eb60e39ac
+  tag: 2.38.0@sha256:d19adf8e381be6f2be8493ed8d327a7c06f574abb9c9e09cc30c02f8ad50ff3b
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: v0.27.0@sha256:e93a457cd77bbb38b08afc85b1f10e082dd2ef1c9f17c607cef747e372acc639
+  tag: 0.28.0@sha256:c7e16f0acd431eaeaff18d2f6a258cfc52dd7101adc9abaa6c32c7bbf7600b25
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:5f0ed9d6402a1048af184a646f30b6139d2190b19a5c1b8190db2d781b826835
+  tag: v0.24.0@sha256:6f0ba761a9a80db718dea6ad3c09e5d8f2803d094d5dbc32a991f10059ba9417
 
 global:
   labels: {}
@@ -176,7 +176,7 @@ rbac:
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
-    create: true
+    enabled: true
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -404,10 +404,10 @@ prometheus:
   tolerations: []
   ## @param prometheus.scrapeInterval Interval between consecutive scrapes
   ##
-  scrapeInterval: ""
+  scrapeInterval: "15s"
   ## @param prometheus.evaluationInterval Interval between consecutive evaluations
   ##
-  evaluationInterval: ""
+  evaluationInterval: "30s"
   ## @param prometheus.listenLocal ListenLocal makes the Prometheus server listen on loopback
   ##
   listenLocal: false
@@ -1150,8 +1150,17 @@ node-exporter:
     enabled: true
     jobLabel: jobLabel
   extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+)($|/)"
+    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
     collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+    path.rootfs: /host
+  extraVolumes:
+    - name: host
+      hostPath:
+        path: /
+  extraVolumeMounts:
+    - name: host
+      mountPath: /host
+      readOnly: true
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:

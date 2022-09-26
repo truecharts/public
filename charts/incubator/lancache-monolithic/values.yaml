@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/lancache-monolithic
   pullPolicy: IfNotPresent
-  tag: latest@sha256:114e6d8dcdf4a305d9d1f4fee836c76802135564c98d6585164234e18bbe687a
+  tag: latest@sha256:ed47044d1421424a134ff80e38da33d4a362812364e99dc1a09521a55dab42c1
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -27,6 +27,14 @@ service:
         port: 10279
         targetPort: 80
         protocol: HTTP
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 10280
+        targetPort: 443
+        protocol: HTTPS
 
 persistence:
   config:

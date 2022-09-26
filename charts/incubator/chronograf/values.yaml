@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chronograf
-  tag: latest@sha256:59ccf30079d9ae534d54babd9c141b237ded549f57c608f9ab0c56c5f673f785
+  tag: latest@sha256:18edbc4ecb283e02083d1083a366725b557e76b68d81c0cb712625abb9ae56f9
 persistence:
   chronograf:
     enabled: true
@@ -15,10 +15,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8888
         protocol: TCP
         targetPort: 8888

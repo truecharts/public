@@ -12,7 +12,7 @@ Will NOT work if you access them via `IP:PORT`.
 
 Edit your existing traefik install (or install fresh if you don't have it installed)
 
-- Scroll down to `theme-park`
+- Scroll down to `theme.park`
 - Click <kbd>Add</kbd>
 - Name: `guactheme` (Any name you want, remember it, you will need it later)
 - App Name: `guacamole` (Replace with the name of the app you want to theme)
@@ -30,7 +30,7 @@ Edit your existing traefik install (or install fresh if you don't have it instal
 
 Edit your existing _App_, in this example we will use `guacamole-client`.
 
-- Scroll down to `Treafik MIddlewares` (Remember, you need to have `ingress` enabled)
+- Scroll down to `Traefik MIddlewares` (Remember, you need to have `ingress` enabled)
 - Click <kbd>Add</kbd>
 - Name: `guactheme` (Replace with the name you gave to your middleware on the previous step)
 - Click <kbd>Save</kbd>

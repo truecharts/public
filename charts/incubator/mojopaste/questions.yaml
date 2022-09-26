@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: PASTE_ENABLE_CHARTS
-          label: 'PASTE_ENABLE_CHARTS'
+          label: "PASTE_ENABLE_CHARTS"
           description: "The application can make charts from the input data. (10)"
           schema:
             type: string
@@ -34,7 +34,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

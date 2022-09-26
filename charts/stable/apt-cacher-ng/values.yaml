@@ -1,0 +1,28 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/apt-cacher-ng
+  tag: v3.7.4@sha256:230be67941a442e6a47f4928cf8d7882d645d1c21752155c42e104e10520ace4
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 3142
+        protocol: TCP
+        targetPort: 3142
+
+persistence:
+  apt-cacher-ng:
+    enabled: true
+    mountPath: /var/cache/apt-cacher-ng
+
+portal:
+  enabled: true

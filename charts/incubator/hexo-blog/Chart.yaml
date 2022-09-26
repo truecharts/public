@@ -1,13 +1,9 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.9
+    version: 10.6.1
 deprecated: false
 description: A self-hosted blogging platform in which posts are written in markdown
 home: https://truecharts.org/docs/charts/incubator/hexo-blog
@@ -26,4 +22,8 @@ sources:
   - https://github.com/fletchto99/hexo-dev-docker
   - https://hub.docker.com/r/fletchto99/hexo-dev-blog/
 type: application
-version: 0.0.15
+version: 0.0.26
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity

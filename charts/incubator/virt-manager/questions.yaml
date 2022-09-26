@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: HOSTS
-          label: 'HOSTS'
+          label: "HOSTS"
           description: "Container Variable HOSTS"
           schema:
             type: string
@@ -34,7 +34,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

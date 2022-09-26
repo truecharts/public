@@ -2,7 +2,376 @@
 
 
 
-## [eco-0.0.15](https://github.com/truecharts/charts/compare/ecodms-0.0.14...eco-0.0.15) (2022-08-08)
+## [eco-0.0.25](https://github.com/truecharts/charts/compare/truecommand-12.0.0...eco-0.0.25) (2022-09-25)
+
+### Chore
+
+- update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.31...eco-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.23](https://github.com/truecharts/charts/compare/doublecommander-4.0.28...eco-0.0.23) (2022-09-11)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [eco-0.0.22](https://github.com/truecharts/charts/compare/doublecommander-4.0.27...eco-0.0.22) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [eco-0.0.21](https://github.com/truecharts/charts/compare/eco-0.0.20...eco-0.0.21) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [eco-0.0.20](https://github.com/truecharts/charts/compare/cstrikeconditionzero-0.0.19...eco-0.0.20) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [eco-0.0.19](https://github.com/truecharts/charts/compare/eco-0.0.17...eco-0.0.19) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
+## [dvblink-0.0.17](https://github.com/truecharts/charts/compare/dvblink-0.0.16...dvblink-0.0.17) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [dvblink-0.0.16](https://github.com/truecharts/charts/compare/dvblink-0.0.15...dvblink-0.0.16) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [dvblink-0.0.15](https://github.com/truecharts/charts/compare/dvblink-0.0.14...dvblink-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -12,7 +381,7 @@
 
 
 
-## [eco-0.0.14](https://github.com/truecharts/apps/compare/truecommand-11.0.22...eco-0.0.14) (2022-07-26)
+## [dvblink-0.0.14](https://github.com/truecharts/apps/compare/dvblink-0.0.13...dvblink-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -22,7 +391,7 @@
 
 
 
-## [eco-0.0.13](https://github.com/truecharts/apps/compare/post-recording-0.0.12...eco-0.0.13) (2022-07-25)
+## [dvblink-0.0.13](https://github.com/truecharts/apps/compare/dvblink-0.0.12...dvblink-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -35,7 +404,7 @@
 
 
 
-## [eco-0.0.12](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.5...eco-0.0.12) (2022-07-23)
+## [dvblink-0.0.12](https://github.com/truecharts/apps/compare/dvblink-0.0.11...dvblink-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -46,7 +415,7 @@
 
 
 
-## [eco-0.0.12](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.5...eco-0.0.12) (2022-07-23)
+## [dvblink-0.0.12](https://github.com/truecharts/apps/compare/dvblink-0.0.11...dvblink-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -56,7 +425,7 @@
 
 
 
-## [eco-0.0.12](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.5...eco-0.0.12) (2022-07-23)
+## [dvblink-0.0.12](https://github.com/truecharts/apps/compare/dvblink-0.0.11...dvblink-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -65,7 +434,7 @@
 
 
 
-## [eco-0.0.11](https://github.com/truecharts/apps/compare/minecraft-bungeecord-0.0.2...eco-0.0.11) (2022-07-22)
+## [dvblink-0.0.11](https://github.com/truecharts/apps/compare/dvblink-0.0.10...dvblink-0.0.11) (2022-07-22)
 
 ### Chore
 
@@ -73,7 +442,7 @@
 
 
 
-## [eco-0.0.10](https://github.com/truecharts/apps/compare/cstrikeconditionzero-0.0.10...eco-0.0.10) (2022-07-21)
+## [dvblink-0.0.10]dvblink-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -84,7 +453,7 @@
 
 
 
-## [eco-0.0.10](https://github.com/truecharts/apps/compare/cstrikeconditionzero-0.0.10...eco-0.0.10) (2022-07-21)
+## [dvblink-0.0.10]dvblink-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -94,7 +463,7 @@
 
 
 
-## [eco-0.0.10](https://github.com/truecharts/apps/compare/cstrikeconditionzero-0.0.10...eco-0.0.10) (2022-07-21)
+## [dvblink-0.0.10]dvblink-0.0.10 (2022-07-21)
 
 ### Chore
 
@@ -103,7 +472,16 @@
 
 
 
-## [eco-0.0.10](https://github.com/truecharts/apps/compare/cstrikeconditionzero-0.0.10...eco-0.0.10) (2022-07-20)
+## [dvblink-0.0.10]dvblink-0.0.10 (2022-07-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+## [dvblink-0.0.10]dvblink-0.0.10 (2022-07-20)
+
 
 ### Chore
 

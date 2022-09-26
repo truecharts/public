@@ -2,6 +2,434 @@
 
 
 
+## [mosquitto-6.1.2](https://github.com/truecharts/charts/compare/mosquitto-6.1.1...mosquitto-6.1.2) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- add second ingress question for websockets service ([#3916](https://github.com/truecharts/charts/issues/3916))
+
+
+
+
+## [mosquitto-6.1.1](https://github.com/truecharts/charts/compare/mosquitto-6.1.0...mosquitto-6.1.1) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- use targetPort in mosquitto.conf ([#3911](https://github.com/truecharts/charts/issues/3911))
+
+
+
+
+## [mosquitto-6.1.0](https://github.com/truecharts/charts/compare/mosquitto-6.0.38...mosquitto-6.1.0) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- Add optional websockets support ([#3883](https://github.com/truecharts/charts/issues/3883))
+
+
+
+
+## [mosquitto-6.0.38](https://github.com/truecharts/charts/compare/mosquitto-6.0.37...mosquitto-6.0.38) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.37](https://github.com/truecharts/charts/compare/mosquitto-6.0.36...mosquitto-6.0.37) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.36](https://github.com/truecharts/charts/compare/mosquitto-6.0.35...mosquitto-6.0.36) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [mosquitto-6.0.35](https://github.com/truecharts/charts/compare/mosquitto-6.0.33...mosquitto-6.0.35) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [mosquitto-6.0.34](https://github.com/truecharts/charts/compare/mosquitto-6.0.33...mosquitto-6.0.34) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [mosquitto-6.0.33](https://github.com/truecharts/charts/compare/mosquitto-6.0.32...mosquitto-6.0.33) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [mosquitto-6.0.32](https://github.com/truecharts/charts/compare/mosquitto-6.0.31...mosquitto-6.0.32) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [mosquitto-6.0.31](https://github.com/truecharts/charts/compare/mosquitto-6.0.30...mosquitto-6.0.31) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [mosquitto-6.0.30](https://github.com/truecharts/charts/compare/mosquitto-6.0.29...mosquitto-6.0.30) (2022-08-12)
+
+### Chore
+
+- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+
+
+
+## [mosquitto-6.0.29](https://github.com/truecharts/charts/compare/mosquitto-6.0.28...mosquitto-6.0.29) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [mosquitto-6.0.28](https://github.com/truecharts/charts/compare/mosquitto-6.0.27...mosquitto-6.0.28) (2022-08-08)
 
 ### Chore

@@ -33,10 +33,8 @@ service:
         protocol: TCP
         targetPort: 9983
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9981
         protocol: TCP
         targetPort: 9981

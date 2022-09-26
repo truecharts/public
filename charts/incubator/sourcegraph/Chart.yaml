@@ -7,13 +7,13 @@ annotations:
     - Productivity
     - Tools-Utilities
 apiVersion: v2
-appVersion: "3.42.2"
+appVersion: "4.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.4.9
+    version: 10.6.1
 deprecated: false
-description: Sourcegraph docker image.
+description: Sourcegraph Chart.
 home: https://truecharts.org/docs/charts/incubator/sourcegraph
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sourcegraph.png
 keywords:
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/sourcegraph
   - https://hub.docker.com/r/sourcegraph/server/
 type: application
-version: 0.0.16
+version: 0.0.29

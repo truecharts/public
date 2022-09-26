@@ -2,6 +2,401 @@
 
 
 
+## [dokuwiki-3.0.55](https://github.com/truecharts/charts/compare/dokuwiki-3.0.54...dokuwiki-3.0.55) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [dokuwiki-3.0.54](https://github.com/truecharts/charts/compare/dokuwiki-3.0.53...dokuwiki-3.0.54) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
+## [dokuwiki-3.0.53](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.53) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.53](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.53) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.53](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.53) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.53](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.53) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.53](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.53) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.52](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.52) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update container image tccr.io/truecharts/dokuwiki to v20220731.1.0 ([#3791](https://github.com/truecharts/charts/issues/3791))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.51](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.51) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.51](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.51) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.51](https://github.com/truecharts/charts/compare/dokuwiki-3.0.50...dokuwiki-3.0.51) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.50](https://github.com/truecharts/charts/compare/dokuwiki-3.0.49...dokuwiki-3.0.50) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [dokuwiki-3.0.49](https://github.com/truecharts/charts/compare/dokuwiki-3.0.48...dokuwiki-3.0.49) (2022-08-30)
+
+### Chore
+
+- update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+
+
+
+
+## [dokuwiki-3.0.48](https://github.com/truecharts/charts/compare/dokuwiki-3.0.47...dokuwiki-3.0.48) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [dokuwiki-3.0.47](https://github.com/truecharts/charts/compare/dokuwiki-3.0.46...dokuwiki-3.0.47) (2022-08-29)
+
+### Chore
+
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [dokuwiki-3.0.46](https://github.com/truecharts/charts/compare/dokuwiki-3.0.45...dokuwiki-3.0.46) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [dokuwiki-3.0.45](https://github.com/truecharts/charts/compare/dokuwiki-3.0.44...dokuwiki-3.0.45) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
 ## [dokuwiki-3.0.44](https://github.com/truecharts/charts/compare/dokuwiki-3.0.43...dokuwiki-3.0.44) (2022-08-10)
 
 ### Chore

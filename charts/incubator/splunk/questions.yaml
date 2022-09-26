@@ -20,13 +20,13 @@ questions:
       type: dict
       attrs:
         - variable: SPLUNK_CLI_ARGS
-          label: 'SPLUNK_CLI_ARGS'
+          label: "SPLUNK_CLI_ARGS"
           description: "Arguments to start Splunk with. "
           schema:
             type: string
             default: "--accept-license --no-prompt"
         - variable: ADMIN_PASSWORD
-          label: 'ADMIN_PASSWORD'
+          label: "ADMIN_PASSWORD"
           description: "Splunk Web UI admin password."
           schema:
             type: string
@@ -40,7 +40,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -68,7 +69,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: management
                       label: "management Service Port Configuration"
                       schema:
@@ -96,7 +98,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: dataingest
                       label: "dataingest Service Port Configuration"
                       schema:

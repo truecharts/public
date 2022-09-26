@@ -1,6 +1,11 @@
 image:
-  repository: tccr.io/truecharts/mealie
-  tag: v0.5.6@sha256:e54cf37a3da0d6853197c200ddbb858de03e0f12752c1f862856376b0733af0a
+  repository: tccr.io/truecharts/mealie-frontend
+  tag: v1.0.0beta@sha256:be031b8c1c6a1698f18e7750a1482ca85f6c311bbb594cf8da46d0e206b0729a
+  pullPolicy: IfNotPresent
+
+apiImage:
+  repository: tccr.io/truecharts/mealie-api
+  tag: v1.0.0beta@sha256:4dad1521060d896c2e4782f57ca48007e831b2df497746637eb8f2d6a4a23c90
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,36 +16,97 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  DB_TYPE: postgres
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_SERVER:
-    secretKeyRef:
-      name: dbcreds
-      key: plainporthost
+mealie_frontend:
+  theme:
+    light_primary: "#E58325"
+    light_accent: "#007A99"
+    light_secondary: "#973542"
+    light_success: "#43A047"
+    light_info: "#1976D2"
+    light_warning: "#FF6D00"
+    light_error: "#EF5350"
+    dark_primary: "#E58325"
+    dark_accent: "#007A99"
+    dark_secondary: "#973542"
+    dark_success: "#43A047"
+    dark_info: "#1976D2"
+    dark_warning: "#FF6D00"
+    dark_error: "#EF5350"
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: mealie
-  postgresqlDatabase: mealie
+mealie_backend:
+  general:
+    allow_signup: true
+    default_group: Home
+    default_email: changeme@email.com
+    base_url: ""
+    token_time: 48
+  security:
+    max_login_attempts: 5
+    user_lockout_time: 24
+  webworkers:
+    workers_per_core: 1
+    max_workers: 1
+    web_concurrency: 1
+  smtp:
+    user: ""
+    password: ""
+    host: ""
+    port: 587
+    from_name: Mealie
+    from_email: ""
+    # TLS | SSL | NONE
+    auth_strategy: TLS
+  ldap:
+    auth_enabled: false
+    server_url: ""
+    tls_insecure: false
+    tls_cacertfile: ""
+    bind_template: ""
+    base_dn: ""
+    admin_filter: ""
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-frontend-config'
+
+probes:
+  liveness:
+    type: HTTP
+    path: "/"
+  readiness:
+    type: HTTP
+    path: "/"
+  startup:
+    type: HTTP
+    path: "/"
 
 service:
   main:
     ports:
       main:
         port: 10018
-        targetPort: 80
+        protocol: HTTP
+        targetPort: 3000
+  api:
+    enabled: true
+    type: ClusterIP
+    ports:
+      api:
+        enabled: true
+        protocol: HTTP
+        port: 10019
+        targetPort: 9000
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/app/data"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: mealie
+  postgresqlDatabase: mealie
 
 portal:
   enabled: true

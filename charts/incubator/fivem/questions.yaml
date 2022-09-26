@@ -20,37 +20,37 @@ questions:
       type: dict
       attrs:
         - variable: GAME_CONFIG
-          label: 'GAME_CONFIG'
+          label: "GAME_CONFIG"
           description: "You can edit the server.cfg after the first start (if you dont want to use the server.cfg then leave this field empty. For exampele if you plan to use txAdmin you have to add another port in the template with the host and container port 40120, you then can connect to txAdmin with YOURSERVERIP40120)."
           schema:
             type: string
             default: "server.cfg"
         - variable: START_VARS
-          label: 'START_VARS'
+          label: "START_VARS"
           description: "Extra start variables."
           schema:
             type: string
             default: ""
         - variable: SRV_NAME
-          label: 'SRV_NAME'
+          label: "SRV_NAME"
           description: "Your Servername"
           schema:
             type: string
             default: ""
         - variable: SERVER_KEY
-          label: 'SERVER_KEY'
+          label: "SERVER_KEY"
           description: "Your Server Key from httpskeymaster.fivem.net"
           schema:
             type: string
             default: ""
         - variable: SRV_ADR
-          label: 'SRV_ADR'
+          label: "SRV_ADR"
           description: "Looks something like this httpsruntime.fivem.netartifactsfivembuildprootlinuxmaster"
           schema:
             type: string
             default: "https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/"
         - variable: MANUAL_UPDATES
-          label: 'MANUAL_UPDATES'
+          label: "MANUAL_UPDATES"
           description: "Set this to true without quotes to update your server manually (otherwise leave blank)"
           schema:
             type: string
@@ -64,7 +64,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -92,7 +93,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: tcp1
                       label: "tcp1 Service Port Configuration"
                       schema:
@@ -120,7 +122,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: tcp2
                       label: "tcp2 Service Port Configuration"
                       schema:
@@ -148,7 +151,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: udp1
                       label: "udp1 Service Port Configuration"
                       schema:
@@ -176,7 +180,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: udp2
                       label: "udp2 Service Port Configuration"
                       schema:

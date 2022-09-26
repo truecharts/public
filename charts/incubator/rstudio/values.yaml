@@ -5,7 +5,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rstudio
-  tag: latest@sha256:f9773f831fc92998463898e617000b36211bb7503a02059e206c647f7af5ed0e
+  tag: latest@sha256:c02b7d6e0d1c6899c71a78f285c2e0dd4c28f542bd773587f95e27bf3266e822
 persistence:
   userdatadirectory:
     enabled: true
@@ -26,10 +26,8 @@ service:
         protocol: TCP
         targetPort: 3838
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8787
         protocol: HTTP
         targetPort: 8787

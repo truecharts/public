@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/adminer
-  tag: latest@sha256:590e4d8d46517c2850a2bae1f5280a6b0740bc1f6734e40d321d3d57594300a9
+  tag: latest@sha256:aa36e8f0403e65cbb4ec73c3a9292caa9b96c7e974cce7bb36d78b6cf1075776
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -14,10 +14,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8080
         protocol: TCP
         targetPort: 8080

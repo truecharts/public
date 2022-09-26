@@ -20,22 +20,22 @@ questions:
       type: dict
       attrs:
         - variable: TITLE
-          label: 'TITLE'
+          label: "TITLE"
           schema:
             type: string
             default: "Photo Stream for TrueNAS"
         - variable: AUTHOR_NAME
-          label: 'AUTHOR_NAME'
+          label: "AUTHOR_NAME"
           schema:
             type: string
             default: "TrueNAS"
         - variable: DESCRIPTION
-          label: 'DESCRIPTION'
+          label: "DESCRIPTION"
           schema:
             type: string
             default: "My TrueNAS Photo Stream collection."
         - variable: SHOW_OFFICIAL_GITHUB
-          label: 'SHOW_OFFICIAL_GITHUB'
+          label: "SHOW_OFFICIAL_GITHUB"
           schema:
             type: string
             default: "0"
@@ -48,7 +48,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

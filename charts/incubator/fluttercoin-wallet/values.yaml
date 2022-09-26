@@ -28,10 +28,8 @@ service:
         protocol: TCP
         targetPort: 7474
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 8080
         protocol: HTTP
         targetPort: 8080

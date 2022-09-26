@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/eclipse-mosquitto
-  tag: v2.0.14@sha256:1602c5f074318d37f05e78f82e01fd9c22fa2d5616fc10eb2f8c8d0c7e5b2913
+  tag: 2.0.15@sha256:6518ae763d40841e19f86cf845a3014ce2e927bb175de38fe81efc77f77ea294
   pullPolicy: IfNotPresent
 
 service:
@@ -9,9 +9,24 @@ service:
       main:
         port: 1883
         targetPort: 1883
+  websockets:
+    enabled: true
+    ports:
+      websockets:
+        enabled: true
+        port: 9001
+        targetPort: 9001
+
+ingress:
+  websockets:
+    autoLink: true
 
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
+  enabled: false
+
+websockets:
+  # -- By enabling this, an additional listener with protocol websockets is added in the mosquitto config.
   enabled: false
 
 configmap:
@@ -19,7 +34,11 @@ configmap:
     enabled: true
     data:
       mosquitto.conf: |
-        listener {{ .Values.service.main.ports.main.port }}
+        listener {{ .Values.service.main.ports.main.targetPort }}
+        {{- if .Values.websockets.enabled }}
+        listener {{ .Values.service.websockets.ports.websockets.targetPort }}
+        protocol websockets
+        {{- end }}
         {{- if .Values.auth.enabled }}
         allow_anonymous false
         {{- else }}

@@ -20,7 +20,7 @@ questions:
       type: dict
       attrs:
         - variable: ADMIN_PASSWORD
-          label: 'ADMIN_PASSWORD'
+          label: "ADMIN_PASSWORD"
           description: "The admin account password"
           schema:
             type: string
@@ -33,7 +33,7 @@ questions:
       type: dict
       attrs:
         - variable: MINUTES_BETWEEN_VIDEO_SCANS
-          label: 'MINUTES_BETWEEN_VIDEO_SCANS'
+          label: "MINUTES_BETWEEN_VIDEO_SCANS"
           description: "How often in minutes Fireshare will scan for new videos"
           schema:
             type: int
@@ -47,7 +47,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

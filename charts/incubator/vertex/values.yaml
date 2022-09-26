@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/vertex
-  tag: vstable@sha256:cc199e612721ef59adbca4590fed8e61a620c7e6e8045ce6d7d158784d35f589
+  tag: vstable@sha256:3b5e1e3b2259d2b2c22b563f9c6adedda4573a71de35a6f11577e5239eb7b791
 persistence:
   config:
     enabled: true
@@ -16,10 +16,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 3000
         protocol: TCP
         targetPort: 3000

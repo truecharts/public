@@ -26,10 +26,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 1787
         protocol: TCP
         targetPort: 1787

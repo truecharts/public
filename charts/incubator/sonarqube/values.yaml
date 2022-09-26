@@ -3,7 +3,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sonarqube
-  tag: latest@sha256:b49655aeb4df5079430b106f88020137ce6b339ea937ab55ffd0a068274a5bc3
+  tag: latest@sha256:20181edd7381196fb04d36617407cbededd80785c5703d9b4233c0f0f0c199d7
 persistence:
   data:
     enabled: true
@@ -22,10 +22,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9000
         protocol: TCP
         targetPort: 9000

@@ -20,18 +20,18 @@ questions:
       type: dict
       attrs:
         - variable: LMP_V
-          label: 'LMP_V'
+          label: "LMP_V"
           description: "Enter the prefered version (valid options are latest and nightly both without quotes)."
           schema:
             type: string
             default: "latest"
         - variable: UMASK
-          label: 'UMASK'
+          label: "UMASK"
           schema:
             type: string
             default: "0000"
         - variable: DATA_PERM
-          label: 'DATA_PERM'
+          label: "DATA_PERM"
           schema:
             type: string
             default: "770"
@@ -44,7 +44,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:

@@ -11,7 +11,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/send
-  tag: latest@sha256:71dcab99565e992555e2cfcfd23b3de5d3f7a7b7f65f9ad841ef3b57b41c5ab5
+  tag: latest@sha256:3a83cf589bde4f7110bd6d891e563956140f4a307e9312d7c387bbfdee8a8123
 persistence:
   uploadpath:
     enabled: true
@@ -24,10 +24,8 @@ securityContext:
   runAsNonRoot: false
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 1443
         protocol: TCP
         targetPort: 1443

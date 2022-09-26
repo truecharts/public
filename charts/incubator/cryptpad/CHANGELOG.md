@@ -2,25 +2,544 @@
 
 
 
-## [cryptpad-0.0.21](https://github.com/truecharts/charts/compare/cryptpad-0.0.20...cryptpad-0.0.21) (2022-08-10)
+## [cryptpad-0.0.60](https://github.com/truecharts/charts/compare/cryptpad-0.0.59...cryptpad-0.0.60) (2022-09-26)
 
 ### Chore
 
-- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3906](https://github.com/truecharts/charts/issues/3906))
 
 
 
 
-## [cryptpad-0.0.20](https://github.com/truecharts/charts/compare/cryptpad-0.0.19...cryptpad-0.0.20) (2022-08-09)
+## [cryptpad-0.0.59](https://github.com/truecharts/charts/compare/cryptpad-0.0.58...cryptpad-0.0.59) (2022-09-25)
 
 ### Chore
 
-- update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
 
 
 
 
-## [cryptpad-0.0.19](https://github.com/truecharts/charts/compare/cryptpad-0.0.17...cryptpad-0.0.19) (2022-08-08)
+## [cryptpad-0.0.58](https://github.com/truecharts/charts/compare/cryptpad-0.0.57...cryptpad-0.0.58) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
+## [cryptpad-0.0.57](https://github.com/truecharts/charts/compare/cryptpad-0.0.56...cryptpad-0.0.57) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
+## [cryptpad-0.0.56](https://github.com/truecharts/charts/compare/cryptpad-0.0.55...cryptpad-0.0.56) (2022-09-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3850](https://github.com/truecharts/charts/issues/3850))
+
+
+
+
+## [cryptpad-0.0.55](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.55) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.55](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.55) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.54](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.54) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.54](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.54) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.54](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.54) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.53](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.53) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.53](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.53) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.53](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.53) (2022-09-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.52](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.52) (2022-09-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.52](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.52) (2022-09-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.52](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.52) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.52](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.52) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.52](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.52) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.51](https://github.com/truecharts/charts/compare/cryptpad-0.0.50...cryptpad-0.0.51) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [cryptpad-0.0.50](https://github.com/truecharts/charts/compare/cryptpad-0.0.49...cryptpad-0.0.50) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
+## [cryptpad-0.0.49](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.49) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.49](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.49) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.49](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.49) (2022-09-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.48](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.48) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.48](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.48) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.48](https://github.com/truecharts/charts/compare/cryptpad-0.0.47...cryptpad-0.0.48) (2022-09-11)
+
+### Chore
+
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+
+
+
+
+## [cryptpad-0.0.47](https://github.com/truecharts/charts/compare/cryptpad-0.0.46...cryptpad-0.0.47) (2022-09-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [neko-0.0.29](https://github.com/truecharts/charts/compare/neko-0.0.28...neko-0.0.29) (2022-09-06)
+
+### Chore
+
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update docker general non-major ([#3710](https://github.com/truecharts/charts/issues/3710))
+
+
+
+
+## [neko-0.0.28](https://github.com/truecharts/charts/compare/neko-0.0.26...neko-0.0.28) (2022-08-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3639](https://github.com/truecharts/charts/issues/3639))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [neko-0.0.27](https://github.com/truecharts/charts/compare/neko-0.0.26...neko-0.0.27) (2022-08-30)
+
+### Chore
+
+- update helm chart common to v10.5.5 ([#3626](https://github.com/truecharts/charts/issues/3626))
+
+
+
+
+## [neko-0.0.26](https://github.com/truecharts/charts/compare/neko-0.0.24...neko-0.0.26) (2022-08-29)
+
+### Chore
+
+- update docker general non-major ([#3620](https://github.com/truecharts/charts/issues/3620))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+
+
+
+
+## [neko-0.0.24](https://github.com/truecharts/charts/compare/neko-0.0.22...neko-0.0.24) (2022-08-26)
+
+### Fix
+
+- some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
+
+
+
+
+## [neko-0.0.22](https://github.com/truecharts/charts/compare/neko-0.0.21...neko-0.0.22) (2022-08-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
+
+
+
+
+## [neko-0.0.21](https://github.com/truecharts/charts/compare/neko-0.0.20...neko-0.0.21) (2022-08-23)
+
+### Chore
+
+- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+
+
+
+
+## [neko-0.0.20](https://github.com/truecharts/charts/compare/neko-0.0.19...neko-0.0.20) (2022-08-21)
+
+### Chore
+
+- update docker general non-major docker tags ([#3523](https://github.com/truecharts/charts/issues/3523))
+
+
+
+
+## [neko-0.0.19](https://github.com/truecharts/charts/compare/neko-0.0.18...neko-0.0.19) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [neko-0.0.18](https://github.com/truecharts/charts/compare/neko-0.0.17...neko-0.0.18) (2022-08-14)
+
+### Chore
+
+- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+
+
+
+
+## [neko-0.0.17](https://github.com/truecharts/charts/compare/neko-0.0.16...neko-0.0.17) (2022-08-12)
+
+### Chore
+
+- add documentation checkbox/section to all SCALE Apps
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
+
+  ### Fix
+
+- cleanup ([#3390](https://github.com/truecharts/charts/issues/3390))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+
+
+
+
+## [neko-0.0.16](https://github.com/truecharts/charts/compare/neko-0.0.14...neko-0.0.16) (2022-08-08)
 
 ### Chore
 
@@ -31,34 +550,7 @@
 
 
 
-## [cryptpad-0.0.17](https://github.com/truecharts/apps/compare/cryptpad-0.0.16...cryptpad-0.0.17) (2022-07-29)
-
-### Chore
-
-- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
-
-
-
-
-## [cryptpad-0.0.16](https://github.com/truecharts/apps/compare/cryptpad-0.0.15...cryptpad-0.0.16) (2022-07-28)
-
-### Chore
-
-- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
-
-
-
-
-## [cryptpad-0.0.15](https://github.com/truecharts/apps/compare/cryptpad-0.0.14...cryptpad-0.0.15) (2022-07-27)
-
-### Chore
-
-- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
-
-
-
-
-## [cryptpad-0.0.14](https://github.com/truecharts/apps/compare/cryptpad-0.0.13...cryptpad-0.0.14) (2022-07-26)
+## [neko-0.0.14](https://github.com/truecharts/apps/compare/neko-0.0.13...neko-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -68,7 +560,7 @@
 
 
 
-## [cryptpad-0.0.13](https://github.com/truecharts/apps/compare/cryptpad-0.0.12...cryptpad-0.0.13) (2022-07-25)
+## [neko-0.0.13](https://github.com/truecharts/apps/compare/neko-0.0.12...neko-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -81,7 +573,7 @@
 
 
 
-## [cryptpad-0.0.12](https://github.com/truecharts/apps/compare/cryptpad-0.0.11...cryptpad-0.0.12) (2022-07-23)
+## [neko-0.0.12](https://github.com/truecharts/apps/compare/neko-0.0.11...neko-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -92,7 +584,7 @@
 
 
 
-## [cryptpad-0.0.12](https://github.com/truecharts/apps/compare/cryptpad-0.0.11...cryptpad-0.0.12) (2022-07-23)
+## [neko-0.0.12](https://github.com/truecharts/apps/compare/neko-0.0.11...neko-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -102,7 +594,7 @@
 
 
 
-## [cryptpad-0.0.12](https://github.com/truecharts/apps/compare/cryptpad-0.0.11...cryptpad-0.0.12) (2022-07-23)
+## [neko-0.0.12](https://github.com/truecharts/apps/compare/neko-0.0.11...neko-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -111,17 +603,30 @@
 
 
 
-## [cryptpad-0.0.11](https://github.com/truecharts/apps/compare/cryptpad-0.0.10...cryptpad-0.0.11) (2022-07-22)
+## [neko-0.0.11]neko-0.0.11 (2022-07-22)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Bump all charts to generate config and container references due to huge increase of repository
+  - Move Dev to incubator and some cleanup
 
 
 
-## [cryptpad-0.0.10]cryptpad-0.0.10 (2022-07-20)
 
-### Feat
+## [neko-0.0.10]neko-0.0.10 (2022-07-22)
 
-- move dev apps to incubator and remove bad content from dev
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [neko-0.0.10]neko-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup

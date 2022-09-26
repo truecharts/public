@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/dashdot
-  tag: 4.3.9@sha256:30db0cdf4da9369486d8b545af43879cbdc09bc2d96ea5318b0b88eea332388e
+  tag: 4.5.2@sha256:fa52c37860f71806ebfb0954299c613614e9451cf696d5eaf75e2cb1c57c5300
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -27,6 +27,7 @@ env:
   # DASHDOT_SHOW_HOST: true
   # DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
   # DASHDOT_FS_TYPE_FILTER: "cifs,9p,fuse.rclone,fuse.mergerfs"
+  # DASHDOT_FS_DEVICE_FILTER: "sda,sdb"
   # DASHDOT_FS_VIRTUAL_MOUNTS: ""
   # DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
   # DASHDOT_OS_WIDGET_GROW: "1.5"

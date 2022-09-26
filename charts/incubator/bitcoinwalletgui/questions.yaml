@@ -20,19 +20,19 @@ questions:
       type: dict
       attrs:
         - variable: VNC_PW
-          label: 'VNC_PW'
+          label: "VNC_PW"
           description: "Container Variable  VNCPW"
           schema:
             type: string
             default: "vncpassword"
         - variable: VNC_RESOLUTION
-          label: 'VNC_RESOLUTION'
+          label: "VNC_RESOLUTION"
           description: "Container Variable VNCRESOLUTION"
           schema:
             type: string
             default: "1280x1024"
         - variable: VNC_VIEW_ONLY
-          label: 'VNC_VIEW_ONLY'
+          label: "VNC_VIEW_ONLY"
           description: "Container Variable VNCVIEWONLY"
           schema:
             type: string
@@ -46,7 +46,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -74,7 +75,8 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelector}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: vncport
                       label: "vncport Service Port Configuration"
                       schema:

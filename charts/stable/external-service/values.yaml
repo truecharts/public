@@ -1,8 +1,8 @@
 # Fake external service image
 image:
-  repository: tccr.io/truecharts/bs
+  repository: tccr.io/truecharts/alpine
   pullPolicy: IfNotPresent
-  tag: v0.66.6@sha256:666
+  tag: latest@sha256:71198b13ca5eaa344c6bd2bd0c1a29fb084772433c2811bcf9a78b77838b87fa
 
 # Disable Deployment
 controller:
