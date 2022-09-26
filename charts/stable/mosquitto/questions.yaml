@@ -131,6 +131,16 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressExpert}
+        - variable: websockets
+          label: "WebSockets Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
