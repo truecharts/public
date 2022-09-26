@@ -1,7 +1,10 @@
 image:
   repository: tccr.io/truecharts/openproject
   pullPolicy: IfNotPresent
-  tag: v12@sha256:d9f223fe3ba4724d48466de22ddaed8786b5998585bc93ec569ed91209aa6b06
+  tag: v12.2.4@sha256:35cee0e2a3c0d1ba696c839327cedd18fbaa74ed462ee188474a8c1472aadb3c
+
+args:
+  - ./docker/prod/proxy
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,15 +14,19 @@ podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 
-env:
-  SECRET_KEY_BASE:
-    secretKeyRef:
-      name: openproject-secrets
-      key: SECRET_KEY_BASE
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: url-noql
+openproject:
+  edition: standard
+  hostname: proj.example.com
+  # TODO: Set to true after tests
+  enable_https: false
+  cache:
+    expires_in_seconds: 0
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
 
 persistence:
   assets:
@@ -35,9 +42,12 @@ service:
 
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: openproject
   postgresqlDatabase: openproject
+
+memcached:
+  enabled: true
 
 portal:
   enabled: true

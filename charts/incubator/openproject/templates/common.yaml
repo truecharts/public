@@ -3,5 +3,12 @@
 {{/* Render secrets for openproject */}}
 {{- include "openproject.secrets" . }}
 
+{{/* Render config for openproject */}}
+{{- include "openproject.config" . }}
+
+{{- $_ := set .Values.initContainers "seeder" (include "openproject.seeder" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "worker" (include "openproject.worker" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "web" (include "openproject.web" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
