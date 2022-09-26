@@ -8,7 +8,7 @@ Renders the serviceAccount objects required by the chart.
       {{- $saValues := $serviceAccount -}}
 
       {{/* set the default nameOverride to the serviceAccount name */}}
-      {{- if and (not $saValues.nameOverride) (ne $name (include "tc.common.lib.util.service.primary" $)) -}}
+      {{- if and (not $saValues.nameOverride) (ne $name (include "tc.common.lib.util.serviceaccount.primary" $)) -}}
         {{- $_ := set $saValues "nameOverride" $name -}}
       {{ end -}}
 
