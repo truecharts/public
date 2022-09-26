@@ -13,7 +13,7 @@ spec:
     matchLabels:
       {{- include "tc.common.labels.selectorLabels" . | nindent 6 }}
   endpoints:
-    - port: {{ .Values.service.http.ports.http.port }}
+    - port: http
       {{- with .Values.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
