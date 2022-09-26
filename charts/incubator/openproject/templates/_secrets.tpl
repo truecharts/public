@@ -12,7 +12,7 @@ type: Opaque
 metadata:
   name: {{ $commonSecretName }}
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $openprojectSecretName) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $commonSecretName) }}
   SECRET_KEY_BASE: {{ index $.data "SECRET_KEY_BASE" }}
   {{- else }}
   SECRET_KEY_BASE: {{ randAlphaNum 32 | b64enc }}
