@@ -31,8 +31,11 @@ blockyConfig: {}
 #   default:
 #     - 1.1.1.1
 
+webUI:
+  enabled: true
+  apiurl: "127.0.0.1:4000"
+
 blocky:
-  enableWebUI: true
   enablePrometheus: true
 
 probes:
