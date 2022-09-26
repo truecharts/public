@@ -33,4 +33,9 @@ startupProbe:
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+env:
+  - name: NODE_ENV
+    value: "production"
+  - name: API_URL 
+    value: "{{ .Values.webUI.apiURL }}"
 {{- end -}}
