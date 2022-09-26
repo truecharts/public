@@ -1,0 +1,21 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{- range $index, $middlewareData := .Values.middlewares.realIP }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  plugin:
+    traefik-real-ip:
+      excludednets:
+        {{- range $middlewareData.excludedNetworks }}
+        - {{ . | quote }}
+        {{- end }}
+{{- end }}

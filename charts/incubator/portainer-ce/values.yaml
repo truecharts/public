@@ -1,0 +1,79 @@
+image:
+  repository: tccr.io/truecharts/portainer-ce
+  tag: 2.15.1@sha256:239a69bc4b5d0af1c67422cc353ec4971c95d19718a83628e3c3340a2d47ad2e
+  pullPolicy: IfNotPresent
+
+portainer:
+  # Logo URL
+  logo: ""
+  # Templates URL
+  templates: ""
+  # Enables Edge Compute Features
+  edge_compute: false
+  # Sets Snapshot interval
+  snapshot_interval: 5m
+  hide_labels:
+    # - label1=value1
+    # - label2=value2
+
+serviceAccount:
+  main:
+    enabled: true
+
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - "*"
+        resources:
+          - "*"
+        verbs:
+          - "*"
+
+probes:
+  liveness:
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 9443
+        scheme: HTTPS
+  readiness:
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 9443
+        scheme: HTTPS
+  startup:
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 9443
+        scheme: HTTPS
+
+service:
+  main:
+    ports:
+      main:
+        port: 10400
+        protocol: HTTPS
+        targetPort: 9443
+  edge:
+    enabled: true
+    ports:
+      edge:
+        enabled: true
+        port: 10401
+        protocol:
+        targetPort: 10401
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

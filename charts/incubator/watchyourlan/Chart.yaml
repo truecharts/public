@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "0.7.5"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.10
+description: Lightweight network IP scanner with web GUI
+home: https://truecharts.org/docs/charts/incubator/watchyourlan
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/watchyourlan.png
+keywords:
+  - network
+  - monitor
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: watchyourlan
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/watchyourlan
+  - https://github.com/aceberg/WatchYourLAN
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

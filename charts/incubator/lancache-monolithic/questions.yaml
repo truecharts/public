@@ -90,6 +90,35 @@ questions:
                                   schema:
                                     type: int
                                     default: 80
+        - variable: https
+          label: "HTTPS"
+          description: "HTTPS Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorSimple}
+# Include{serviceSelectorExtras}
+                    - variable: https
+                      label: "HTTPS"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10280
+                              required: true
+# Include{advancedPortHTTPS}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 443
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

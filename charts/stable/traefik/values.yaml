@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: 2.8.5@sha256:886113b038caea4d31bf1f5c0e96fd883c700f509a9d918754c7f32000b90201
+  tag: 2.8.7@sha256:6aed036bb4faf8fa769f94b5eff931b73885043f870509344620098b9220f13c
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -11,14 +11,6 @@ ingressClass:
   isDefaultClass: false
   # Use to force a networking.k8s.io API Version for certain CI/CD applications. E.g. "v1beta1"
   fallbackApiVersion: ""
-
-# -- Deprecated (will be removed later)
-# -- Activate Pilot integration
-pilot:
-  enabled: false
-  token: ""
-  # Toggle Pilot Dashboard
-  # dashboard: false
 
 # -- Create an IngressRoute for the dashboard
 ingressRoute:
@@ -359,8 +351,7 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
-  # -- Currently requires to enable Traefik Pilot.
-  # -- Until it's deprecated.
+  themeParkVersion: v1.2.2
   themePark: []
   # - name: themeParkName
   # -- Supported apps, lower case name
@@ -372,7 +363,19 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  themeParkVersion: v1.2.1
+  realIPVersion: v1.0.3
+  # Sets X-Real-Ip with an IP from the X-Forwarded-For or
+  # Cf-Connecting-Ip (If from Cloudflare)
+  # Evaluation of those headers will go from last to first
+  realIP: []
+  # - name: realIPName
+  # -- The real IP will be the first one that is
+  # -- not included in any of the CIDRs passed here
+  #   excludedNetworks:
+  #     - 1.1.1.1/24
+  addPrefix: []
+  # - name: addPrefixName
+  #   prefix: "/foo"
 
 portalhook:
   enabled: true

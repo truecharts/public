@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/lancache-dns
-  tag: latest@sha256:0d04cbb893f0b1da8154e2d0a9911b5e9c71f6b2dbb2e66d62e8763b4fe2a17f
   pullPolicy: IfNotPresent
+  tag: latest@sha256:0d04cbb893f0b1da8154e2d0a9911b5e9c71f6b2dbb2e66d62e8763b4fe2a17f
 
 env:
   CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
@@ -27,6 +27,14 @@ service:
   main:
     ports:
       main:
+        port: 53
+        targetPort: 53
+
+  dns:
+    enabled: true
+    ports:
+      dns:
+        enabled: true
         protocol: UDP
         port: 53
         targetPort: 53
