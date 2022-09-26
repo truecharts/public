@@ -2,6 +2,19 @@
 
 
 
+## [mosquitto-6.1.2](https://github.com/truecharts/charts/compare/mosquitto-6.1.1...mosquitto-6.1.2) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- add second ingress question for websockets service ([#3916](https://github.com/truecharts/charts/issues/3916))
+
+
+
+
 ## [mosquitto-6.1.1](https://github.com/truecharts/charts/compare/mosquitto-6.1.0...mosquitto-6.1.1) (2022-09-26)
 
 ### Chore
