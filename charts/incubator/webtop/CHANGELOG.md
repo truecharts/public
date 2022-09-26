@@ -2,6 +2,16 @@
 
 
 
+## [webtop-0.0.33](https://github.com/truecharts/charts/compare/webtop-0.0.32...webtop-0.0.33) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - remove docker sock from everywhere ([#3910](https://github.com/truecharts/charts/issues/3910))
+
+
+
+
 ## [webtop-0.0.32](https://github.com/truecharts/charts/compare/webtop-0.0.31...webtop-0.0.32) (2022-09-26)
 
 ### Chore

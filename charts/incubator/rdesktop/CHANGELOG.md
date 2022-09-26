@@ -2,6 +2,16 @@
 
 
 
+## [rdesktop-0.0.34](https://github.com/truecharts/charts/compare/rdesktop-0.0.32...rdesktop-0.0.34) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - remove docker sock from everywhere ([#3910](https://github.com/truecharts/charts/issues/3910))
+
+
+
+
 ## [rdesktop-0.0.32](https://github.com/truecharts/charts/compare/rdesktop-0.0.31...rdesktop-0.0.32) (2022-09-25)
 
 ### Chore

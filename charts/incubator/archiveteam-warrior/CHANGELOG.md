@@ -2,6 +2,16 @@
 
 
 
+## [archiveteam-warrior-0.0.26](https://github.com/truecharts/charts/compare/archiveteam-warrior-0.0.25...archiveteam-warrior-0.0.26) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - remove docker sock from everywhere ([#3910](https://github.com/truecharts/charts/issues/3910))
+
+
+
+
 ## [archiveteam-warrior-0.0.25](https://github.com/truecharts/charts/compare/archiveteam-warrior-0.0.24...archiveteam-warrior-0.0.25) (2022-09-25)
 
 ### Chore

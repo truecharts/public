@@ -2,6 +2,19 @@
 
 
 
+## [mosquitto-6.1.1](https://github.com/truecharts/charts/compare/mosquitto-6.1.0...mosquitto-6.1.1) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- use targetPort in mosquitto.conf ([#3911](https://github.com/truecharts/charts/issues/3911))
+
+
+
+
 ## [mosquitto-6.1.0](https://github.com/truecharts/charts/compare/mosquitto-6.0.38...mosquitto-6.1.0) (2022-09-26)
 
 ### Chore
