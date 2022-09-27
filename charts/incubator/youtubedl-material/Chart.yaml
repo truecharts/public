@@ -3,7 +3,7 @@ appVersion: "4.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.1
+    version: 10.6.4
   - condition: mongodb.enabled
     name: mongodb
     repository: https://charts.truecharts.org
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/youtubedl-material
   - https://hub.docker.com/r/tzahi12345/youtubedl-material
   - https://github.com/Tzahi12345/YoutubeDL-Material
-version: 1.0.9
+version: 1.0.10
 annotations:
   truecharts.org/catagories: |
     - media

@@ -3,11 +3,11 @@ appVersion: "1.1.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.10
+    version: 10.6.4
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.78
+    version: 8.0.87
 description: Lenpaste is a web service that allows you to share notes anonymously
 home: https://truecharts.org/docs/charts/incubator/lenpaste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lenpaste.png
@@ -22,7 +22,7 @@ name: lenpaste
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/lenpaste
   - https://git.lcomrade.su/root/lenpaste
-version: 0.0.1
+version: 0.0.2
 annotations:
   truecharts.org/catagories: |
     - productivity

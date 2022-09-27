@@ -3,7 +3,7 @@ appVersion: "0.9.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.1
+    version: 10.6.4
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -32,7 +32,7 @@ sources:
   - https://github.com/victor-rds/docker-etebase
   - https://hub.docker.com/r/victorrds/etesync
 type: application
-version: 0.0.35
+version: 0.0.36
 annotations:
   truecharts.org/catagories: |
     - productivity
