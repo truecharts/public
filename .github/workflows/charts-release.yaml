@@ -109,6 +109,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@6c32682a4040e023c054b2fc60a7cf65cc77f7ad # tag=v4
         with:
           file_pattern: charts/**/
+          disable_globbing: true
           commit_message: "chore: Auto-update chart README [skip ci]"
           commit_user_name: truecharts-bot
           commit_user_email: bot@truecharts.org
