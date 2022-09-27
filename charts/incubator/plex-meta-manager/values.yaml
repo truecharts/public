@@ -19,11 +19,10 @@ env:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 10281
-        targetPort: 10281
-        protocol: HTTP
+        enabled: false
 
 probes:
   liveness:
@@ -36,7 +35,7 @@ probes:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 initContainers:
   1-create-init-config-file:
