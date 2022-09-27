@@ -105,7 +105,7 @@ if [[ -d "charts/${1}" ]]; then
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
     sync_helmignore "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Syncing HelmIgnore file failed..."
-    helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
+    helm dependency build "charts/${1}" --skip-refresh || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh)
     sync_tag "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
     create_changelog "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
     generate_docs "charts/${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
