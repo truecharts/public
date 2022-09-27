@@ -2,6 +2,16 @@
 
 
 
+## [apache-musicindex-4.0.33](https://github.com/truecharts/charts/compare/apache-musicindex-4.0.32...apache-musicindex-4.0.33) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [apache-musicindex-4.0.32](https://github.com/truecharts/charts/compare/apache-musicindex-4.0.31...apache-musicindex-4.0.32) (2022-09-25)
 
 ### Chore

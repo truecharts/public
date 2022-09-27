@@ -2,6 +2,16 @@
 
 
 
+## [mosquitto-6.1.3](https://github.com/truecharts/charts/compare/mosquitto-6.1.2...mosquitto-6.1.3) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [mosquitto-6.1.2](https://github.com/truecharts/charts/compare/mosquitto-6.1.1...mosquitto-6.1.2) (2022-09-26)
 
 ### Chore

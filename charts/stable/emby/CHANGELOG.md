@@ -2,6 +2,16 @@
 
 
 
+## [emby-11.0.35](https://github.com/truecharts/charts/compare/emby-sync-0.0.25...emby-11.0.35) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [emby-11.0.34](https://github.com/truecharts/charts/compare/emby-11.0.33...emby-11.0.34) (2022-09-25)
 
 ### Chore

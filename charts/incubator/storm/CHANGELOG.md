@@ -2,6 +2,16 @@
 
 
 
+## [storm-0.0.26](https://github.com/truecharts/charts/compare/storm-0.0.25...storm-0.0.26) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [storm-0.0.25](https://github.com/truecharts/charts/compare/storm-0.0.24...storm-0.0.25) (2022-09-25)
 
 ### Chore

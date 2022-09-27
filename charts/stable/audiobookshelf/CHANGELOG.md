@@ -2,6 +2,16 @@
 
 
 
+## [audiobookshelf-2.0.40](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.39...audiobookshelf-2.0.40) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [audiobookshelf-2.0.39](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.38...audiobookshelf-2.0.39) (2022-09-25)
 
 ### Chore

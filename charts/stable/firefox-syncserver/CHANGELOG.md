@@ -2,6 +2,16 @@
 
 
 
+## [firefox-syncserver-9.0.39](https://github.com/truecharts/charts/compare/firefox-syncserver-9.0.38...firefox-syncserver-9.0.39) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [firefox-syncserver-9.0.38](https://github.com/truecharts/charts/compare/firefox-syncserver-9.0.37...firefox-syncserver-9.0.38) (2022-09-25)
 
 ### Chore

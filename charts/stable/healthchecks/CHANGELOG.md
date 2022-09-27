@@ -2,6 +2,16 @@
 
 
 
+## [healthchecks-7.0.34](https://github.com/truecharts/charts/compare/healthchecksdashboard-0.0.25...healthchecks-7.0.34) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [healthchecks-7.0.33](https://github.com/truecharts/charts/compare/healthchecksdashboard-0.0.24...healthchecks-7.0.33) (2022-09-25)
 
 ### Chore

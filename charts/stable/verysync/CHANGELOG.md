@@ -2,6 +2,16 @@
 
 
 
+## [verysync-2.0.36](https://github.com/truecharts/charts/compare/verysync-2.0.35...verysync-2.0.36) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [verysync-2.0.35](https://github.com/truecharts/charts/compare/verysync-2.0.34...verysync-2.0.35) (2022-09-25)
 
 ### Chore

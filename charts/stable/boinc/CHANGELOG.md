@@ -2,6 +2,16 @@
 
 
 
+## [boinc-2.0.52](https://github.com/truecharts/charts/compare/boinc-2.0.51...boinc-2.0.52) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [boinc-2.0.51](https://github.com/truecharts/charts/compare/boinc-2.0.50...boinc-2.0.51) (2022-09-25)
 
 ### Chore

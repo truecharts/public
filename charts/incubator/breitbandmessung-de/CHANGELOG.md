@@ -2,6 +2,16 @@
 
 
 
+## [breitbandmessung-de-0.0.28](https://github.com/truecharts/charts/compare/breitbandmessung-de-0.0.27...breitbandmessung-de-0.0.28) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [breitbandmessung-de-0.0.27](https://github.com/truecharts/charts/compare/breitbandmessung-de-0.0.26...breitbandmessung-de-0.0.27) (2022-09-25)
 
 ### Chore

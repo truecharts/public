@@ -2,6 +2,16 @@
 
 
 
+## [wikijs-7.0.43](https://github.com/truecharts/charts/compare/wikijs-7.0.42...wikijs-7.0.43) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [wikijs-7.0.42](https://github.com/truecharts/charts/compare/wikijs-7.0.41...wikijs-7.0.42) (2022-09-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [appdaemon-9.0.35](https://github.com/truecharts/charts/compare/appdaemon-9.0.34...appdaemon-9.0.35) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [appdaemon-9.0.34](https://github.com/truecharts/charts/compare/appdaemon-9.0.33...appdaemon-9.0.34) (2022-09-25)
 
 ### Chore

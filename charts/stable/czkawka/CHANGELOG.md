@@ -2,6 +2,16 @@
 
 
 
+## [czkawka-1.0.12](https://github.com/truecharts/charts/compare/czkawka-1.0.11...czkawka-1.0.12) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [czkawka-1.0.11](https://github.com/truecharts/charts/compare/czkawka-1.0.10...czkawka-1.0.11) (2022-09-25)
 
 ### Chore

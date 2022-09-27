@@ -2,6 +2,16 @@
 
 
 
+## [libreddit-1.0.27](https://github.com/truecharts/charts/compare/libreddit-1.0.26...libreddit-1.0.27) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [libreddit-1.0.26](https://github.com/truecharts/charts/compare/libreddit-1.0.25...libreddit-1.0.26) (2022-09-25)
 
 ### Chore
