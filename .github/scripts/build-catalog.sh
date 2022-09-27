@@ -121,7 +121,7 @@ if [[ -d "charts/${1}" ]]; then
     chartname=$(basename charts/${1})
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-    helm dependency update "charts/${1}" --skip-refresh || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency update "charts/${1}" --skip-refresh)
+    helm dependency build "charts/${1}" --skip-refresh || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh)
     if [[ "${SCALESUPPORT}" == "true" ]]; then
       clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
       copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
