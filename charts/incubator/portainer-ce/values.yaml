@@ -73,6 +73,10 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  cache:
+    enabled: true
+    mountPath: "/.cache"
+    type: emptyDir
 
 portal:
   enabled: true
