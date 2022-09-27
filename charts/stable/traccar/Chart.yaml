@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "5.3"
 description: Traccar is an open source GPS tracking system.
 name: traccar
-version: 7.0.42
+version: 7.0.43
 kubeVersion: ">=1.16.0-0"
 keywords:
   - traccar
@@ -20,7 +20,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.87
+    version: 8.0.88
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

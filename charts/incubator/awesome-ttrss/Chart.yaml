@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "2022"
 description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
 name: awesome-ttrss
-version: 0.0.45
+version: 0.0.46
 kubeVersion: ">=1.16.0-0"
 keywords:
   - tt-rss
@@ -19,7 +19,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.87
+    version: 8.0.88
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
