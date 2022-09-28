@@ -20,11 +20,11 @@ imageProxy:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
+  runAsUser: 0
+  runAsGroup: 0
 
 immich:
   public_login_page_message: Immich
