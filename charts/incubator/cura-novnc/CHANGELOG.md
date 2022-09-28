@@ -2,6 +2,16 @@
 
 
 
+## [cura-novnc-0.0.27](https://github.com/truecharts/charts/compare/cura-novnc-0.0.26...cura-novnc-0.0.27) (2022-09-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3938](https://github.com/truecharts/charts/issues/3938))
+
+
+
+
 ## [cura-novnc-0.0.26](https://github.com/truecharts/charts/compare/cura-novnc-0.0.25...cura-novnc-0.0.26) (2022-09-27)
 
 ### Chore
