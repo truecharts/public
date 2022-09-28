@@ -36,13 +36,42 @@ questions:
                               type: int
                               default: 8003
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
                                     default: 443
+        - variable: sub
+          label: "Sub Service"
+          description: "The Secondary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: sub
+                      label: "Sub Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8004
+                              required: true
+# Include{advancedPortHTTPS
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 80
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -61,6 +90,16 @@ questions:
 # Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: sub
+          label: "Sub Ingress"
           schema:
             additional_attrs: true
             type: dict
