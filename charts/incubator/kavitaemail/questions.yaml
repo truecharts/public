@@ -87,16 +87,6 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressList}
 # Include{ingressRoot}
@@ -152,7 +142,7 @@ questions:
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 568
+            default: 0
 # Include{podSecurityContextAdvanced}
 # Include{resources}
 # Include{advanced}
