@@ -21,7 +21,7 @@ imageProxy:
 command:
   - /bin/sh
   - -c
-  - chmod +x && ./start-server.sh
+  - chmod +x ./start-server.sh && ./start-server.sh
 
 securityContext:
   readOnlyRootFilesystem: false
