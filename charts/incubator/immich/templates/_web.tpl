@@ -10,7 +10,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - - chmod +x ./entrypoint.sh && ./entrypoint.sh
+  - chmod +x ./entrypoint.sh && ./entrypoint.sh
 envFrom:
   # TODO: Split configmaps and only mount what's needed
   - secretRef:
