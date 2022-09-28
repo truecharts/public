@@ -17,6 +17,8 @@ volumeMounts:
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
 #TODO: Add probes, probably checking if process is running?
 # readinessProbe:
 #   httpGet:
