@@ -8,11 +8,8 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
-  # TODO: Split configmaps and only mount what's needed
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-config'
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
 volumeMounts:
   - name: proxy-conf
     mountPath: /etc/nginx

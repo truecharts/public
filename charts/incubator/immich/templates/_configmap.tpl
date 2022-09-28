@@ -1,7 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "immich.config" -}}
 
-{{- $configName := printf "%s-immich-config" (include "tc.common.names.fullname" .) }}
+{{- $serverConfigName := printf "%s-server-config" (include "tc.common.names.fullname" .) }}
+{{- $commonConfigName := printf "%s-common-config" (include "tc.common.names.fullname" .) }}
 {{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
 
 ---
@@ -9,11 +10,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $configName }}
+  name: {{ $serverConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  NODE_ENV: production
   DB_HOSTNAME: {{ printf "%v-%v" .Release.Name "postgresql" }}
   DB_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
   DB_DATABASE_NAME: {{ .Values.postgresql.postgresqlDatabase }}
@@ -22,14 +22,26 @@ data:
   REDIS_PORT: "6379"
   REDIS_DBINDEX: "0"
   {{/* User Defined */}}
-  PUBLIC_LOGIN_PAGE_MESSAGE: {{ .Values.immich.public_login_page_message }}
   DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
   REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
-  LOG_LEVEL: {{ .Values.immich.log_level }}
   ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
   {{- with .Values.immich.mapbox_key }}
   MAPBOX_KEY: {{ . }}
   {{- end }}
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $commonConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  NODE_ENV: production
+  {{/* User Defined */}}
+  PUBLIC_LOGIN_PAGE_MESSAGE: {{ .Values.immich.public_login_page_message }}
+  LOG_LEVEL: {{ .Values.immich.log_level }}
 ---
 
 apiVersion: v1

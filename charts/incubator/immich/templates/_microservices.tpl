@@ -15,11 +15,12 @@ volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
 envFrom:
-  # TODO: Split configmaps and only mount what's needed
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-config'
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
 #TODO: Add probes, probably checking if process is running?
 # readinessProbe:
 #   httpGet:

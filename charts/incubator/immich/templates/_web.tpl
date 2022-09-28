@@ -12,11 +12,8 @@ command:
   - -c
   - chmod +x ./entrypoint.sh && ./entrypoint.sh
 envFrom:
-  # TODO: Split configmaps and only mount what's needed
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-config'
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
 readinessProbe:
   httpGet:
     path: /

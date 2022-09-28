@@ -41,10 +41,12 @@ immich:
   mapbox_key: ""
 
 envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-config'
 
 probes:
   liveness:
