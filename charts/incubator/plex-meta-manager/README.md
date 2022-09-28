@@ -12,7 +12,7 @@ For more information, please click here: [plex-meta-manager](https://truecharts.
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/plex-meta-manager>
-* <https://hub.docker.com/r/meisnate12/Plex-Meta-Manager>
+* <https://hub.docker.com/r/meisnate12/plex-meta-manager>
 * <https://github.com/meisnate12/Plex-Meta-Manager>
 
 ## Requirements
