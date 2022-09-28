@@ -5,13 +5,13 @@ Container management made easy
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [portainer-ce](https://truecharts.org/docs/charts/incubator/portainer-ce)
+For more information, please click here: [portainer-ce](https://truecharts.org/docs/charts/stable/portainer-ce)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/portainer-ce>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/portainer-ce>
 * <https://docs.portainer.io/v/ce-2.11/start/install/server/kubernetes/baremetal>
 * <https://hub.docker.com/r/portainer/portainer-ce>
 
