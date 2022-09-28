@@ -36,7 +36,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  nginx.conf:
+  nginx.conf: |
     worker_processes auto;
     error_log /var/log/nginx/error.log;
     pid /tmp/nginx.pid;

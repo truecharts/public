@@ -44,6 +44,7 @@ service:
     ports:
       main:
         port: 10323
+        protocol: HTTP
 
 persistence:
   uploads:
@@ -60,6 +61,7 @@ persistence:
         items:
           - key: nginx.conf
             path: nginx.conf
+
 postgresql:
   enabled: true
   existingSecret: dbcreds
