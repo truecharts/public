@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  # runAsNonRoot: false
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
+  runAsUser: 0
+  runAsGroup: 0
 
 noisedash:
   max_sample_size_in_bytes: 10737418240
