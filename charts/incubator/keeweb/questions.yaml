@@ -77,8 +77,8 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: storagenginx
-          label: storagenginx Storage
+        - variable: nginx
+          label: nginx Storage
           description: Place here your files dh.pem, cert.pem and key.pem.
           schema:
             additional_attrs: true
@@ -98,8 +98,8 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressExpert}
-        - variable: sub
-          label: Sub Ingress
+        - variable: http
+          label: HTTP Ingress
           schema:
             additional_attrs: true
             type: dict
