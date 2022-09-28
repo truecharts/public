@@ -2,6 +2,15 @@
 
 
 
+## [homepage-0.0.7](https://github.com/truecharts/charts/compare/homepage-0.0.6...homepage-0.0.7) (2022-09-27)
+
+### Feat
+
+- move to stable ([#3935](https://github.com/truecharts/charts/issues/3935))
+
+
+
+
 ## [homepage-0.0.6](https://github.com/truecharts/charts/compare/homepage-0.0.5...homepage-0.0.6) (2022-09-27)
 
 ### Chore
