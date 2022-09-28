@@ -21,8 +21,8 @@ data:
   REDIS_PORT: "6379"
   REDIS_DBINDEX: "0"
   {{/* User Defined */}}
-  LOG_LEVEL: {{ .Values.immich.log_level }}
-  DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding}}
-  REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
   PUBLIC_LOGIN_PAGE_MESSAGE: {{ .Values.immich.public_login_page_message }}
+  DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
+  REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
+  LOG_LEVEL: {{ .Values.immich.log_level }}
 {{- end -}}
