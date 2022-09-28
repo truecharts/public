@@ -25,9 +25,6 @@ data:
   DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
   REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
   ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
-  {{- with .Values.immich.mapbox_key }}
-  MAPBOX_KEY: {{ . }}
-  {{- end }}
 
 ---
 
