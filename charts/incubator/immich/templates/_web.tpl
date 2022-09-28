@@ -20,7 +20,7 @@ envFrom:
 # readinessProbe:
 #   httpGet:
 #     path: /
-#     port: {{ .Values.service.main.ports.main.targetPort }}
+#     port: {{ .Values.service.main.ports.main.port }}
 #   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
 #   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
 #   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -28,7 +28,7 @@ envFrom:
 # livenessProbe:
 #   httpGet:
 #     path: /
-#     port: {{ .Values.service.main.ports.main.targetPort }}
+#     port: {{ .Values.service.main.ports.main.port }}
 #   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
 #   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
 #   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -36,7 +36,7 @@ envFrom:
 # startupProbe:
 #   httpGet:
 #     path: /
-#     port: {{ .Values.service.main.ports.main.targetPort }}
+#     port: {{ .Values.service.main.ports.main.port }}
 #   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
 #   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
 #   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}

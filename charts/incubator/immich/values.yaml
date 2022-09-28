@@ -44,13 +44,22 @@ service:
     ports:
       main:
         port: 10323
-        targetPort: 8080
 
 persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
-
+  proxy-conf:
+    enabled: true
+    noMount: true
+    type: custom
+    mountPath: /etc/nginx/
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
+        items:
+          - key: nginx.conf
+            path: nginx.conf
 postgresql:
   enabled: true
   existingSecret: dbcreds
