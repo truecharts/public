@@ -5,9 +5,6 @@ args:
   {{- with .Values.portainer.logo }}
   - --logo={{ . }}
   {{- end }}
-  {{- with .Values.portainer.templates }}
-  - --templates={{ . }}
-  {{- end }}
   {{- if .Values.portainer.edge_compute }}
   - --edge-compute
   {{- end }}

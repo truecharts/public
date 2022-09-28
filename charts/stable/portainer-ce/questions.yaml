@@ -25,12 +25,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: templates
-          label: Templates URL
-          description: Specifies the URL to the templates (apps) definitions.
-          schema:
-            type: string
-            default: ""
         - variable: edge_compute
           label: Edge Compute
           description: Automatically enables Edge Compute features.
