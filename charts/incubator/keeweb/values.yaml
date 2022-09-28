@@ -18,23 +18,23 @@ service:
         port: 8003
         protocol: HTTPS
         targetPort: 443
-  sub:
+  http:
     enabled: true
     ports:
-      sub:
+      http:
         enabled: true
         port: 8004
         protocol: HTTP
         targetPort: 80
 
 ingress:
-  sub:
+  http:
     autoLink: true
 
 persistence:
   storagenginx:
     enabled: true
-    mountPath: /etc/nginx/external/
+    mountPath: /etc/nginx/external
 
 portal:
   enabled: true
