@@ -100,6 +100,7 @@ data:
 
           rewrite /api/(.*) /$1 break;
 
+          # Server Container
           proxy_pass http://localhost:3001;
         }
 
@@ -124,6 +125,7 @@ data:
           proxy_set_header Connection "upgrade";
           proxy_set_header Host $host;
 
+          # Web Container
           proxy_pass http://localhost:3000;
         }
       }

@@ -46,6 +46,20 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-immich-config'
 
+probes:
+  liveness:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+  readines:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+  startup:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+
 service:
   main:
     ports:
