@@ -2,6 +2,16 @@
 
 
 
+## [libreoffice-2.0.32](https://github.com/truecharts/charts/compare/libreoffice-2.0.31...libreoffice-2.0.32) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [libreoffice-2.0.31](https://github.com/truecharts/charts/compare/libreoffice-2.0.30...libreoffice-2.0.31) (2022-09-25)
 
 ### Chore

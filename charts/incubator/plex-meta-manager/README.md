@@ -12,7 +12,7 @@ For more information, please click here: [plex-meta-manager](https://truecharts.
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/plex-meta-manager>
-* <https://hub.docker.com/r/meisnate12/Plex-Meta-Manager>
+* <https://hub.docker.com/r/meisnate12/plex-meta-manager>
 * <https://github.com/meisnate12/Plex-Meta-Manager>
 
 ## Requirements
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.6.1 |
+| https://library-charts.truecharts.org | common | 10.6.4 |
 
 ## Installing the Chart
 

@@ -2,6 +2,29 @@
 
 
 
+## [traefik-13.4.3](https://github.com/truecharts/charts/compare/traefik-13.4.2...traefik-13.4.3) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [traefik-13.4.2](https://github.com/truecharts/charts/compare/traefik-13.4.1...traefik-13.4.2) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- make include replace simpler ([#3904](https://github.com/truecharts/charts/issues/3904))
+
+
+
+
 ## [traefik-13.4.1](https://github.com/truecharts/charts/compare/traefik-13.4.0...traefik-13.4.1) (2022-09-25)
 
 ### Chore

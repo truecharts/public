@@ -2,6 +2,16 @@
 
 
 
+## [fireflyiii-16.0.46](https://github.com/truecharts/charts/compare/fireflyiii-16.0.45...fireflyiii-16.0.46) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [fireflyiii-16.0.45](https://github.com/truecharts/charts/compare/fireflyiii-16.0.44...fireflyiii-16.0.45) (2022-09-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [ring-mqtt-1.0.6](https://github.com/truecharts/charts/compare/ring-mqtt-1.0.5...ring-mqtt-1.0.6) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [ring-mqtt-1.0.5](https://github.com/truecharts/charts/compare/ring-mqtt-1.0.4...ring-mqtt-1.0.5) (2022-09-25)
 
 ### Chore

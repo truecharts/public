@@ -2,6 +2,16 @@
 
 
 
+## [xwiki-3.0.47](https://github.com/truecharts/charts/compare/xwiki-3.0.46...xwiki-3.0.47) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [xwiki-3.0.46](https://github.com/truecharts/charts/compare/xwiki-3.0.45...xwiki-3.0.46) (2022-09-25)
 
 ### Chore

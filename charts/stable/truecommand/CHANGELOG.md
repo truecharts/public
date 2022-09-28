@@ -2,6 +2,16 @@
 
 
 
+## [truecommand-11.0.34](https://github.com/truecharts/charts/compare/truecommand-11.0.33...truecommand-11.0.34) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [truecommand-11.0.33](https://github.com/truecharts/charts/compare/truecommand-12.0.0...truecommand-11.0.33) (2022-09-25)
 
 ### Chore

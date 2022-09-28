@@ -31,8 +31,17 @@ blockyConfig: {}
 #   default:
 #     - 1.1.1.1
 
+# -- Configures blocky webUI
+# Requires apiURL or ingress
+webUI:
+  # -- Enable the WebUI
+  enabled: true
+  # -- url to the api, used by the WebUI. Only required when not using ingress
+  apiURL: "127.0.0.1:4000"
+
+# -- some general blocky settings
 blocky:
-  enableWebUI: true
+  # -- Enable prometheus annotations
   enablePrometheus: true
 
 probes:
@@ -337,6 +346,33 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 
 redis:
   enabled: true

@@ -2,6 +2,16 @@
 
 
 
+## [prowlarr-6.0.41](https://github.com/truecharts/charts/compare/prowlarr-6.0.40...prowlarr-6.0.41) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [prowlarr-6.0.40](https://github.com/truecharts/charts/compare/prowlarr-6.0.39...prowlarr-6.0.40) (2022-09-25)
 
 ### Chore

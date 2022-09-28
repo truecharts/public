@@ -2,6 +2,16 @@
 
 
 
+## [k8s-gateway-6.1.20](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.19...k8s-gateway-6.1.20) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [k8s-gateway-6.1.19](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.18...k8s-gateway-6.1.19) (2022-09-25)
 
 ### Chore

@@ -33,4 +33,16 @@ startupProbe:
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+env:
+  - name: NODE_ENV
+    value: "production"
+{{- $url := .Values.webUI.apiURL }}
+{{- if .Values.ingress.main.enabled }}
+  {{- with (first .Values.ingress.main.hosts) }}
+  {{- $url = (  printf "https://%s" .host ) }}
+  {{- end }}
+{{- else }}
+{{- end }}
+  - name: API_URL
+    value: "{{ $url }}"
 {{- end -}}

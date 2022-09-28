@@ -2,6 +2,16 @@
 
 
 
+## [xteve-6.0.34](https://github.com/truecharts/charts/compare/xteve-6.0.33...xteve-6.0.34) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [xteve-6.0.33](https://github.com/truecharts/charts/compare/xteve-6.0.32...xteve-6.0.33) (2022-09-25)
 
 ### Chore

@@ -67,13 +67,16 @@ service:
       edge:
         enabled: true
         port: 10401
-        protocol:
         targetPort: 10401
 
 persistence:
   data:
     enabled: true
     mountPath: "/data"
+  cache:
+    enabled: true
+    mountPath: "/.cache"
+    type: emptyDir
 
 portal:
   enabled: true

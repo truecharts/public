@@ -2,6 +2,16 @@
 
 
 
+## [external-ip-0.0.27](https://github.com/truecharts/charts/compare/external-ip-0.0.26...external-ip-0.0.27) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [external-ip-0.0.26](https://github.com/truecharts/charts/compare/external-ip-0.0.25...external-ip-0.0.26) (2022-09-25)
 
 ### Chore

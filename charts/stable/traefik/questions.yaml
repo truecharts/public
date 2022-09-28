@@ -176,17 +176,17 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{basicAuth}
-# Include{forwardAuth}
-# Include{chain}
-# Include{redirectScheme}
-# Include{rateLimit}
-# Include{redirectRegex}
-# Include{stripPrefixRegex}
-# Include{ipWhitelist}
-# Include{themePark}
-# Include{realIP}
-# Include{addPrefix}
+# Include{basicAuthMiddleware}
+# Include{forwardAuthMiddleware}
+# Include{chainMiddleware}
+# Include{redirectSchemeMiddleware}
+# Include{rateLimitMiddleware}
+# Include{redirectRegexMiddleware}
+# Include{stripPrefixRegexMiddleware}
+# Include{ipWhitelistMiddleware}
+# Include{themeParkMiddleware}
+# Include{realIPMiddleware}
+# Include{addPrefixMiddleware}
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"

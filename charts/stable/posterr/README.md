@@ -1,19 +1,19 @@
-# yacht
+# posterr
 
-A web interface for managing Chart Charts with an emphasis on templating to provide one-click deployments of Chartized applications. Think of it as a decentralized app store for servers that anyone can make packages for.
+Media display for Plex, sonarr and radarr
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [yacht](https://truecharts.org/docs/charts/incubator/yacht)
+For more information, please click here: [posterr](https://truecharts.org/docs/charts/incubator/posterr)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/yacht>
-* <https://github.com/SelfhostedPro/Yacht>
-* <https://hub.docker.com/r/selfhostedpro/yacht>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/posterr>
+* <https://github.com/petersem/posterr>
+* <https://hub.docker.com/r/petersem/posterr/>
 
 ## Requirements
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.6.1 |
+| https://library-charts.truecharts.org | common | 10.6.4 |
 
 ## Installing the Chart
 
@@ -33,12 +33,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `yacht`
+To install the chart with the release name `posterr`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install yacht TrueCharts/yacht
+helm install posterr TrueCharts/posterr
 ```
 
 ## Uninstall
@@ -51,10 +51,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `yacht` deployment
+To uninstall the `posterr` deployment
 
 ```console
-helm uninstall yacht
+helm uninstall posterr
 ```
 
 ## Configuration
@@ -71,9 +71,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install yacht \
+helm install posterr \
   --set env.TZ="America/New York" \
-    TrueCharts/yacht
+    TrueCharts/posterr
 ```
 
 #### Configure using a yaml file
@@ -81,7 +81,7 @@ helm install yacht \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install yacht TrueCharts/yacht -f values.yaml
+helm install posterr TrueCharts/posterr -f values.yaml
 ```
 
 #### Connecting to other charts

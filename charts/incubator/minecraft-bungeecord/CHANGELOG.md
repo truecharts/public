@@ -2,6 +2,16 @@
 
 
 
+## [minecraft-bungeecord-0.0.23](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.22...minecraft-bungeecord-0.0.23) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [minecraft-bungeecord-0.0.22](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.21...minecraft-bungeecord-0.0.22) (2022-09-25)
 
 ### Chore

@@ -1,6 +1,6 @@
 # lancache-dns
 
-DNS Chart service for a steamcache.
+DNS Chart service for a steam cache.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.6.1 |
+| https://library-charts.truecharts.org | common | 10.6.4 |
 
 ## Installing the Chart
 

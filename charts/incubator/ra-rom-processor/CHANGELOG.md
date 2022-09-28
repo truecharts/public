@@ -2,6 +2,16 @@
 
 
 
+## [ra-rom-processor-0.0.34](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.33...ra-rom-processor-0.0.34) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
 ## [ra-rom-processor-0.0.33](https://github.com/truecharts/charts/compare/ra-rom-processor-0.0.32...ra-rom-processor-0.0.33) (2022-09-25)
 
 ### Chore

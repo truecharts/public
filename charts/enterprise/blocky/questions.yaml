@@ -12,25 +12,25 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: blocky
+  - variable: webUI
     group: Container Configuration
-    label: Blocky Configuration
+    label: WebUI Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: enableWebUI
+        - variable: enabled
           label: Enable Web UI
           description: Enables Web UI
           schema:
             type: boolean
             default: true
-        - variable: enablePrometheus
-          label: Enable Prometheus Endpoint
-          description: Enables Prometheus Endpoint
+        - variable: apiURL
+          label: API URL
+          description: API URL for webUI, including port. Only used when not using ingress
           schema:
-            type: boolean
-            default: true
+            type: string
+            default: "http://127.0.0.1:4000"
   - variable: overrideDefaults
     group: Container Configuration
     label: Override Default Upstreams
@@ -829,6 +829,7 @@ questions:
             default: 568
 # Include{podSecurityContextAdvanced}
 # Include{resources}
+# Include{metrics}
 # Include{advanced}
 # Include{addons}
 # Include{documentation}

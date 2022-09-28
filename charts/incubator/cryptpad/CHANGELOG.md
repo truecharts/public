@@ -2,6 +2,26 @@
 
 
 
+## [cryptpad-0.0.61](https://github.com/truecharts/charts/compare/cryptpad-0.0.60...cryptpad-0.0.61) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [cryptpad-0.0.60](https://github.com/truecharts/charts/compare/cryptpad-0.0.59...cryptpad-0.0.60) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3906](https://github.com/truecharts/charts/issues/3906))
+
+
+
+
 ## [cryptpad-0.0.59](https://github.com/truecharts/charts/compare/cryptpad-0.0.58...cryptpad-0.0.59) (2022-09-25)
 
 ### Chore
