@@ -17,8 +17,8 @@ data:
         "listeningPort": {{ .Values.service.main.ports.main.port }},
         "sessionFileStorePath": "sessions",
         "sampleUploadPath": "/var/noisedash/samples",
-        "maxSampleSize": {{ int .Values.noisedash.max_sample_size_in_bytes }}
-        "logFile": "log/noisedash.log",
+        "maxSampleSize": {{ int .Values.noisedash.max_sample_size_in_bytes }},
+        "logFile": "/var/noisedash/log/log/noisedash.log",
         "tls": false,
         "tlsKey": "certs/key.pem",
         "tlsCert": "certs/cert.pem"
