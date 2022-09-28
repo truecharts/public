@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "1.29.5_44"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -13,8 +13,8 @@ dependencies:
     repository: https://charts.truecharts.org
     version: 3.0.85
 description: High performance self-hosted photo and video backup solution.
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/immich
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.png
 keywords:
   - photos
 kubeVersion: ">=1.16.0-0"
@@ -24,6 +24,7 @@ maintainers:
     url: https://truecharts.org
 name: immich
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/immich
   - https://github.com/immich-app/immich
 version: 0.0.1
 annotations:
