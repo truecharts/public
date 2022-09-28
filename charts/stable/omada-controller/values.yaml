@@ -54,6 +54,10 @@ service:
         port: 29810
         targetPort: 29810
 
+ingress:
+  comm:
+    autoLink: true
+
 persistence:
   data:
     enabled: true
