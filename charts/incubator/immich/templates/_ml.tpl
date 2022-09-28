@@ -10,9 +10,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - ls -la .
-  - cat ./entrypoint.sh
-  # - ./entrypoint.sh
+  - chmod +x ./entrypoint.sh && ./entrypoint.sh
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
