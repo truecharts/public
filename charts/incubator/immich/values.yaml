@@ -18,6 +18,11 @@ imageProxy:
   tag: 1.29.5_44@sha256:a4c24a70cc1e1bbbdecc3df371af08528430846709ef22ca16e2a923aa8da509
   pullPolicy: IfNotPresent
 
+command:
+  - /bin/sh
+  - -c
+  - chmod +x && ./start-server.sh
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
