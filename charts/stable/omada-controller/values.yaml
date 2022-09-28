@@ -61,10 +61,10 @@ ingress:
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/tplink/EAPController/data"
+    mountPath: /opt/tplink/EAPController/data
   work:
     enabled: true
-    mountPath: "/opt/tplink/EAPController/work"
+    mountPath: /opt/tplink/EAPController/work
 
 portal:
   enabled: true
