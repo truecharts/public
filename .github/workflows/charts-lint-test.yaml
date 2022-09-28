@@ -29,7 +29,7 @@ jobs:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
+      uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
 
     - name: Run chart-testing (list-changed)
       id: list-changed
@@ -86,7 +86,7 @@ jobs:
         python-version: 3.7
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@09ed88797198755e5031f25be13da255e7e33aad # tag=v2.3.0
+      uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
 
     - name: Create k3d cluster
       uses: nolar/setup-k3d-k3s@v1
