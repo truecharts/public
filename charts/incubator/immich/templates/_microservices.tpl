@@ -20,6 +20,7 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-immich-config'
+#TODO: Add probes, probably checking if process is running?
 # readinessProbe:
 #   httpGet:
 #     path: /

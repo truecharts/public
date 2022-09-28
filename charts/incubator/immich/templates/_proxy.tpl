@@ -20,28 +20,28 @@ volumeMounts:
 ports:
   - containerPort: {{ .Values.service.main.ports.main.port }}
     name: main
-# readinessProbe:
-#   httpGet:
-#     path: /
-#     port: {{ .Values.service.main.ports.main.port }}
-#   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-#   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-#   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-#   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-# livenessProbe:
-#   httpGet:
-#     path: /
-#     port: {{ .Values.service.main.ports.main.port }}
-#   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-#   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-#   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-#   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-# startupProbe:
-#   httpGet:
-#     path: /
-#     port: {{ .Values.service.main.ports.main.port }}
-#   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-#   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-#   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-#   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+readinessProbe:
+  httpGet:
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
+  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
+  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
+  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
+livenessProbe:
+  httpGet:
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
+  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
+  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
+  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
+startupProbe:
+  httpGet:
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
+  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
+  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
+  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
+  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
