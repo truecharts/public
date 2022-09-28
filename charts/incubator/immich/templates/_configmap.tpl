@@ -27,9 +27,9 @@ data:
   REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
   LOG_LEVEL: {{ .Values.immich.log_level }}
   ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
-  {{- with .Values.immich.mapbox_key -}}
+  {{- with .Values.immich.mapbox_key }}
   MAPBOX_KEY: {{ . }}
-  {{- end -}}
+  {{- end }}
 ---
 
 apiVersion: v1
