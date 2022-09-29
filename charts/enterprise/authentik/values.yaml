@@ -158,7 +158,7 @@ service:
         protocol: HTTP
         port: 10230
         targetPort: 9000
-# LDAP Outpost Services
+  # LDAP Outpost Services
   ldapldaps:
     enabled: true
     ports:
@@ -173,7 +173,7 @@ service:
         enabled: true
         port: 389
         targetPort: 3389
-# Proxy Outpost Services
+  # Proxy Outpost Services
   proxyhttps:
     enabled: true
     ports:
@@ -191,7 +191,7 @@ service:
         port: 10234
         protocol: HTTP
         targetPort: 9001
-# Metrics Services
+  # Metrics Services
   metrics:
     enabled: true
     type: ClusterIP
