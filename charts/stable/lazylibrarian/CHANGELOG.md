@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
+## [lazylibrarian-11.0.64](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.63...lazylibrarian-11.0.64) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
 
 

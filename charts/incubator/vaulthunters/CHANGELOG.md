@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
+## [vaulthunters-0.0.29](https://github.com/truecharts/charts/compare/vaulthunters-0.0.28...vaulthunters-0.0.29) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
 
 

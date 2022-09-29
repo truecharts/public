@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
+## [rimgo-0.0.67](https://github.com/truecharts/charts/compare/rimgo-0.0.66...rimgo-0.0.67) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
 
 
