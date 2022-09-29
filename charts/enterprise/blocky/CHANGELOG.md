@@ -2,6 +2,15 @@
 
 
 
+## [blocky-1.1.0](https://github.com/truecharts/charts/compare/blocky-1.0.11...blocky-1.1.0) (2022-09-29)
+
+### Feat
+
+- add DoH support on main ingress ([#3959](https://github.com/truecharts/charts/issues/3959))
+
+
+
+
 ## [blocky-1.0.10](https://github.com/truecharts/charts/compare/blocky-1.0.9...blocky-1.0.10) (2022-09-27)
 
 ### Chore
