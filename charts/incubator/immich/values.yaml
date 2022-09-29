@@ -62,6 +62,14 @@ probes:
     type: HTTP
     port: 3001
 
+# Due to https://github.com/immich-app/immich/issues/726
+hostAliases:
+  - ip: 127.0.0.1
+    hostnames:
+      - immich-web
+      - immich-server
+      - immich-machine-learning
+
 service:
   main:
     ports:
