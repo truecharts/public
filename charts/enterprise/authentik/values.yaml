@@ -113,17 +113,17 @@ envFrom:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/live/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   startup:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
 
 service:
   main:
@@ -134,23 +134,16 @@ service:
         targetPort: 9443
   http:
     enabled: true
+    type: ClusterIP
     ports:
       http:
         enabled: true
         protocol: HTTP
         port: 10230
         targetPort: 9000
-  metrics:
-    enabled: true
-    ports:
-      metrics:
-        enabled: true
-        protocol: HTTP
-        port: 10231
-        targetPort: 9301
+# LDAP Outpost Services
   ldapldaps:
     enabled: true
-    type: ClusterIP
     ports:
       ldapldaps:
         enabled: true
@@ -158,24 +151,14 @@ service:
         targetPort: 6636
   ldapldap:
     enabled: true
-    type: ClusterIP
     ports:
       ldapldap:
         enabled: true
         port: 389
         targetPort: 3389
-  ldapmetrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      ldapmetrics:
-        enabled: true
-        port: 10232
-        protocol: HTTP
-        targetPort: 9302
+# Proxy Outpost Services
   proxyhttps:
     enabled: true
-    type: ClusterIP
     ports:
       proxyhttps:
         enabled: true
@@ -191,6 +174,25 @@ service:
         port: 10234
         protocl: HTTP
         targetPort: 9001
+# Metrics Services
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        protocol: HTTP
+        port: 10231
+        targetPort: 9301
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9302
   proxymetrics:
     enabled: true
     type: ClusterIP
@@ -202,11 +204,7 @@ service:
         targetPort: 9303
 
 ingress:
-  http:
-    autoLink: true
   proxyhttps:
-    autoLink: true
-  proxyhttp:
     autoLink: true
 
 persistence:
