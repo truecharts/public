@@ -63,7 +63,7 @@ authentik:
   ldap:
     tls_ciphers: "null"
   metrics:
-    enabled: true
+    enabled: false
     # TODO: expose to GUI?
     serviceMonitor:
       interval: 1m
