@@ -2,6 +2,16 @@
 
 
 
+## [passwordpusherephemeral-0.0.43](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.42...passwordpusherephemeral-0.0.43) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
 ## [passwordpusherephemeral-0.0.42](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.41...passwordpusherephemeral-0.0.42) (2022-09-28)
 
 ### Chore

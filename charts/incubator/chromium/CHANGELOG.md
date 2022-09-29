@@ -2,6 +2,16 @@
 
 
 
+## [chromium-0.0.32](https://github.com/truecharts/charts/compare/chromium-0.0.31...chromium-0.0.32) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
 ## [chromium-0.0.31](https://github.com/truecharts/charts/compare/chromium-desktop-g3-0.0.28...chromium-0.0.31) (2022-09-27)
 
 ### Chore
