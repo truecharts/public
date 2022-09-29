@@ -1,0 +1,46 @@
+{{- if or .Values.authentik.metrics.enabled .Values.outposts.ldap.metrics.enabled .Values.outposts.proxy.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "tc.common.names.fullname" . }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- with .Values.authentik.metrics.serviceMonitor.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "tc.common.labels.selectorLabels" . | nindent 6 }}
+  endpoints:
+    {{- if .Values.authentik.metrics.enabled }}
+    - port: http
+      {{- with .Values.authentik.metrics.serviceMonitor.interval }}
+      interval: {{ . }}
+      {{- end }}
+      {{- with .Values.authentik.metrics.serviceMonitor.scrapeTimeout }}
+      scrapeTimeout: {{ . }}
+      {{- end }}
+      path: /metrics
+    {{- end }}
+    {{- if .Values.outposts.ldap.metrics.enabled }}
+    - port: ldap
+      {{- with .Values.outposts.ldap.metrics.serviceMonitor.interval }}
+      interval: {{ . }}
+      {{- end }}
+      {{- with .Values.outposts.ldap.metrics.serviceMonitor.scrapeTimeout }}
+      scrapeTimeout: {{ . }}
+      {{- end }}
+      path: /metrics
+    {{- end }}
+    {{- if .Values.outposts.proxy.metrics.enabled }}
+    - port: proxyhttp
+      {{- with .Values.outposts.proxy.metrics.serviceMonitor.interval }}
+      interval: {{ . }}
+      {{- end }}
+      {{- with .Values.outposts.proxy.metrics.serviceMonitor.scrapeTimeout }}
+      scrapeTimeout: {{ . }}
+      {{- end }}
+      path: /metrics
+    {{- end }}
+{{- end }}

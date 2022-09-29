@@ -300,10 +300,16 @@ questions:
                             default: ""
                     - variable: metrics
                       label: Metrics Endpoint
-                      description: Enables metric endpoint in LDAP Outpost
                       schema:
-                        type: boolean
-                        default: false
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: Enable Metrics
+                            description: Enables metric endpoint in LDAP Outpost
+                            schema:
+                              type: boolean
+                              default: false
         - variable: proxy
           label: Proxy
           schema:
@@ -370,10 +376,16 @@ questions:
                             default: ""
                     - variable: metrics
                       label: Metrics Endpoint
-                      description: Enables metric endpoint in Proxy Outpost
                       schema:
-                        type: boolean
-                        default: false
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: Enable Metrics
+                            description: Enables metric endpoint in Proxy Outpost
+                            schema:
+                              type: boolean
+                              default: false
   - variable: geoip
     group: Container Configuration
     label: GeoIP Configuration
