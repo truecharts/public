@@ -2,6 +2,15 @@
 
 
 
+## [portainer-ce-1.0.0](https://github.com/truecharts/charts/compare/portainer-ce-0.0.8...portainer-ce-1.0.0) (2022-09-28)
+
+### Feat
+
+- move to stable ([#3945](https://github.com/truecharts/charts/issues/3945))
+
+
+
+
 ## [portainer-ce-0.0.6](https://github.com/truecharts/charts/compare/portainer-ce-0.0.5...portainer-ce-0.0.6) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [omada-controller-6.0.68](https://github.com/truecharts/charts/compare/omada-controller-6.0.67...omada-controller-6.0.68) (2022-09-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add ingress for portal ([#3944](https://github.com/truecharts/charts/issues/3944))
+
+
+
+
 ## [omada-controller-6.0.67](https://github.com/truecharts/charts/compare/omada-controller-6.0.66...omada-controller-6.0.67) (2022-09-27)
 
 ### Chore

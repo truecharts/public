@@ -1,19 +1,18 @@
-# portainer-ce
+# noisedash
 
-Container management made easy
+Self-hosted web tool for generating ambient noises
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [portainer-ce](https://truecharts.org/docs/charts/incubator/portainer-ce)
+For more information, please click here: [noisedash](https://truecharts.org/docs/charts/incubator/noisedash)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/portainer-ce>
-* <https://docs.portainer.io/v/ce-2.11/start/install/server/kubernetes/baremetal>
-* <https://hub.docker.com/r/portainer/portainer-ce>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/noisedash>
+* <https://github.com/kaythomas0/noisedash>
 
 ## Requirements
 
@@ -33,12 +32,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `portainer-ce`
+To install the chart with the release name `noisedash`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install portainer-ce TrueCharts/portainer-ce
+helm install noisedash TrueCharts/noisedash
 ```
 
 ## Uninstall
@@ -51,10 +50,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `portainer-ce` deployment
+To uninstall the `noisedash` deployment
 
 ```console
-helm uninstall portainer-ce
+helm uninstall noisedash
 ```
 
 ## Configuration
@@ -71,9 +70,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install portainer-ce \
+helm install noisedash \
   --set env.TZ="America/New York" \
-    TrueCharts/portainer-ce
+    TrueCharts/noisedash
 ```
 
 #### Configure using a yaml file
@@ -81,7 +80,7 @@ helm install portainer-ce \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install portainer-ce TrueCharts/portainer-ce -f values.yaml
+helm install noisedash TrueCharts/noisedash -f values.yaml
 ```
 
 #### Connecting to other charts

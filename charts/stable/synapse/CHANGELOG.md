@@ -2,6 +2,15 @@
 
 
 
+## [synapse-4.0.47](https://github.com/truecharts/charts/compare/synapse-4.0.46...synapse-4.0.47) (2022-09-28)
+
+### Chore
+
+- update docker general non-major ([#3938](https://github.com/truecharts/charts/issues/3938))
+
+
+
+
 ## [synapse-4.0.45](https://github.com/truecharts/charts/compare/synapse-4.0.44...synapse-4.0.45) (2022-09-27)
 
 ### Chore

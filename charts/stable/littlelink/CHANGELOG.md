@@ -2,6 +2,17 @@
 
 
 
+## [littlelink-6.0.68](https://github.com/truecharts/charts/compare/littlelink-6.0.67...littlelink-6.0.68) (2022-09-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3938](https://github.com/truecharts/charts/issues/3938))
+  - update docker general non-major ([#3920](https://github.com/truecharts/charts/issues/3920))
+
+
+
+
 ## [littlelink-6.0.67](https://github.com/truecharts/charts/compare/littlelink-6.0.66...littlelink-6.0.67) (2022-09-27)
 
 ### Chore
