@@ -134,17 +134,17 @@ envFrom:
 
 probes:
   liveness:
-    type: HTTPS
+    type: HTTP
     path: /-/health/live/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   readiness:
-    type: HTTPS
+    type: HTTP
     path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
   startup:
-    type: HTTPS
+    type: HTTP
     path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
+    port: "{{ .Values.service.http.ports.http.targetPort }}"
 
 service:
   main:
