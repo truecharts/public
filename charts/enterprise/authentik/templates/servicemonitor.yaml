@@ -14,7 +14,7 @@ spec:
       {{- include "tc.common.labels.selectorLabels" . | nindent 6 }}
   endpoints:
     {{- if .Values.authentik.metrics.enabled }}
-    - port: http
+    - port: metrics
       {{- with .Values.authentik.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
@@ -24,7 +24,7 @@ spec:
       path: /metrics
     {{- end }}
     {{- if .Values.outposts.ldap.metrics.enabled }}
-    - port: ldap
+    - port: ldapmetrics
       {{- with .Values.outposts.ldap.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
@@ -34,7 +34,7 @@ spec:
       path: /metrics
     {{- end }}
     {{- if .Values.outposts.proxy.metrics.enabled }}
-    - port: proxyhttp
+    - port: proxymetrics
       {{- with .Values.outposts.proxy.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
