@@ -63,13 +63,18 @@ authentik:
   ldap:
     tls_ciphers: "null"
   metrics:
-    enabled: true
+    enabled: false
     # TODO: expose to GUI?
     serviceMonitor:
       interval: 1m
       scrapeTimeout: 30s
       labels: {}
-
+    prometheusRule:
+      enabled: false
+      useDefault: true
+      labels: {}
+      rules:
+        []
 geoip:
   enabled: false
   account_id: ""
