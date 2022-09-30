@@ -55,7 +55,7 @@ spec:
           - {{ tpl ( $vct.accessMode | default "ReadWriteOnce" ) $ | quote }}
         resources:
           requests:
-            storage: {{ tpl ( $vct.size | default "256Gi" ) $ | quote }}
+            storage: {{ tpl ( $vct.size | default "999Gi" ) $ | quote }}
         {{ include "tc.common.storage.class" ( dict "persistence" $vct "global" $) }}
     {{- end }}
 {{- end }}
