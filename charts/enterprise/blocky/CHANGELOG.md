@@ -2,6 +2,19 @@
 
 
 
+## [blocky-1.1.1](https://github.com/truecharts/charts/compare/blocky-1.1.0...blocky-1.1.1) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- add blocky documentation links to descriptions ([#3964](https://github.com/truecharts/charts/issues/3964))
+
+
+
+
 ## [blocky-1.1.0](https://github.com/truecharts/charts/compare/blocky-1.0.11...blocky-1.1.0) (2022-09-29)
 
 ### Feat
