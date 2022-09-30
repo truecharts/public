@@ -1,3 +1,4 @@
+{{- if hasKey .Values "metrics" }}
 {{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
@@ -155,4 +156,5 @@ spec:
           labels:
             severity: critical
     {{- end }}
+{{- end }}
 {{- end }}

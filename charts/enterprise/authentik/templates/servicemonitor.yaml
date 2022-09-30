@@ -1,3 +1,4 @@
+{{- if hasKey .Values "metrics" }}
 {{- if .Values.metrics.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -39,4 +40,5 @@ spec:
       scrapeTimeout: {{ . }}
       {{- end }}
       path: /metrics
+{{- end }}
 {{- end }}
