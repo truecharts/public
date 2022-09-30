@@ -2,6 +2,16 @@
 
 
 
+## [portainer-ce-1.0.1](https://github.com/truecharts/charts/compare/portainer-ce-1.0.0...portainer-ce-1.0.1) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - add docs ([#3968](https://github.com/truecharts/charts/issues/3968))
+
+
+
+
 ## [portainer-ce-1.0.0](https://github.com/truecharts/charts/compare/portainer-ce-0.0.8...portainer-ce-1.0.0) (2022-09-28)
 
 ### Feat
