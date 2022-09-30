@@ -7,7 +7,7 @@
 {{/* Render config */}}
 {{- include "authentik.config" . }}
 
-{{- if .Values.authentik.metrics.enabled -}}
+{{- if .Values.metrics.enabled -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | default 9301 | quote) -}}
@@ -23,7 +23,7 @@
 
 {{- if .Values.outposts.ldap.enabled -}}
 {{- $_ := set .Values.additionalContainers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
-{{/* - if .Values.outposts.ldap.metrics - */}}
+{{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
 {{/* We can't define multiple ports/endpoints with annotations */}}
@@ -32,7 +32,7 @@
 
 {{- if .Values.outposts.proxy.enabled -}}
 {{- $_ := set .Values.additionalContainers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
-{{/* - if .Values.outposts.proxy.metrics - */}}
+{{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
 {{/* We can't define multiple ports/endpoints with annotations */}}

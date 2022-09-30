@@ -62,18 +62,6 @@ authentik:
     log_level: "info"
   ldap:
     tls_ciphers: "null"
-  metrics:
-    enabled: false
-    # TODO: expose to GUI?
-    serviceMonitor:
-      interval: 1m
-      scrapeTimeout: 30s
-      labels: {}
-    prometheusRule:
-      enabled: false
-      useDefault: true
-      labels: {}
-      rules: []
 geoip:
   enabled: false
   account_id: ""
@@ -98,13 +86,6 @@ outposts:
     # insecure: false
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-    metrics:
-      enabled: false
-      # TODO: expose to GUI?
-      serviceMonitor:
-        interval: 1m
-        scrapeTimeout: 30s
-        labels: {}
   proxy:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
@@ -116,13 +97,34 @@ outposts:
     # host: ""
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-    metrics:
-      enabled: false
-      # TODO: expose to GUI?
-      serviceMonitor:
-        interval: 1m
-        scrapeTimeout: 30s
-        labels: {}
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    useDefault: true
+    labels: {}
+    # -- Configure additional rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 
 envFrom:
   - secretRef:
@@ -134,17 +136,17 @@ envFrom:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/live/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   startup:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
 
 service:
   main:

@@ -1,21 +1,21 @@
-{{- if and .Values.authentik.metrics.enabled .Values.authentik.metrics.prometheusRule.enabled }}
+{{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: {{ include "tc.common.names.fullname" . }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-    {{- with .Values.authentik.metrics.prometheusRule.labels }}
+    {{- with .Values.metrics.prometheusRule.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
 spec:
   groups:
     - name: {{ include "tc.common.names.fullname" . }}
       rules:
-        {{- with .Values.authentik.metrics.prometheusRule.rules }}
+        {{- with .Values.metrics.prometheusRule.rules }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-    {{- if .Values.authentik.metrics.prometheusRule.useDefault }}
+    {{- if .Values.metrics.prometheusRule.useDefault }}
     - name: authentik Aggregate request counters
       rules:
         - record: job:django_http_requests_before_middlewares_total:sum_rate30s
