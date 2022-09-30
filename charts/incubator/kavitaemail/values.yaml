@@ -3,14 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.1.6@sha256:7351f641681c852209ca7f47706c06522007030d8827540de1c2f01ac7741f7a
 
-env:
-  DISP_NAME: "kavita"
-  SMTP_HOST: ""
-  SMTP_PORT: ""
-  SMTP_USER: ""
-  SMTP_PASS: ""
-  SEND_ADDR: ""
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -19,21 +11,23 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  SMTP_USER: ""
+  SMTP_PASS: ""
+
+env:
+  DISP_NAME: kavita
+  SMTP_HOST: ""
+  SMTP_PORT: 587
+  SEND_ADDR: ""
+
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetPort: 5003
         port: 15003
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+        targetPort: 5003
 
 portal:
   enabled: false
