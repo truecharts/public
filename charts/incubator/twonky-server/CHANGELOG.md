@@ -2,6 +2,16 @@
 
 
 
+## [twonky-server-0.0.33](https://github.com/truecharts/charts/compare/twonky-server-0.0.32...twonky-server-0.0.33) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
 ## [twonky-server-0.0.32](https://github.com/truecharts/charts/compare/twonky-server-0.0.31...twonky-server-0.0.32) (2022-09-27)
 
 ### Chore

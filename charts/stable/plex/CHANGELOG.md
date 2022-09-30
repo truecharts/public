@@ -2,6 +2,15 @@
 
 
 
+## [plex-10.2.12](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.26...plex-10.2.12) (2022-09-30)
+
+### Chore
+
+- update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
 ## [plex-10.2.11](https://github.com/truecharts/charts/compare/plexripper-0.0.25...plex-10.2.11) (2022-09-27)
 
 ### Chore

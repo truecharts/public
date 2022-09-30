@@ -2,6 +2,16 @@
 
 
 
+## [jupyter-0.0.14](https://github.com/truecharts/charts/compare/jupyter-0.0.13...jupyter-0.0.14) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
 ## [jupyter-0.0.13](https://github.com/truecharts/charts/compare/jupyter-0.0.12...jupyter-0.0.13) (2022-09-28)
 
 ### Chore

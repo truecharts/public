@@ -2,6 +2,17 @@
 
 
 
+## [grafana-4.0.66](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.27...grafana-4.0.66) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+  - update docker general non-major ([#3920](https://github.com/truecharts/charts/issues/3920))
+
+
+
+
 ## [grafana-4.0.65](https://github.com/truecharts/charts/compare/grafana-4.0.64...grafana-4.0.65) (2022-09-27)
 
 ### Chore

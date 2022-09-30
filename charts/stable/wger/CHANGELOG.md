@@ -2,6 +2,16 @@
 
 
 
+## [wger-1.1.12](https://github.com/truecharts/charts/compare/wger-1.1.11...wger-1.1.12) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
 ## [wger-1.1.11](https://github.com/truecharts/charts/compare/wger-1.1.10...wger-1.1.11) (2022-09-28)
 
 ### Chore
