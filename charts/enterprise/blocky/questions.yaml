@@ -55,7 +55,8 @@ questions:
   - variable: upstreams
     group: Container Configuration
     label: Upstreams Groups
-    description:
+    description: Refer to
+      <br /><a href="https://0xerr0r.github.io/blocky/configuration/#upstream-configuration" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#upstream-configuration</a>
     schema:
       type: list
       default: []
@@ -88,6 +89,8 @@ questions:
   - variable: bootstrapDns
     group: Container Configuration
     label: Bootstrap DNS
+    description: Used to resolve upstream DoH and DoT servers that are specified as hostnames.
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#bootstrap-dns-configuration" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#bootstrap-dns-configuration</a>
     schema:
       additional_attrs: true
       type: dict
@@ -112,6 +115,8 @@ questions:
   - variable: filtering
     group: Container Configuration
     label: Filtering
+    description: Define one or more DNS query types; all queries with these types will be dropped
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#filtering" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#filtering</a>
     schema:
       additional_attrs: true
       type: dict
@@ -131,6 +136,8 @@ questions:
   - variable: customDNS
     group: Container Configuration
     label: Custom DNS
+    description: Define your own domain name to IP mappings.
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#custom-dns" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#custom-dns</a>
     schema:
       additional_attrs: true
       type: dict
@@ -196,6 +203,8 @@ questions:
   - variable: clientLookup
     group: Container Configuration
     label: Client Lookup
+    description: Blocky can try to resolve a user-friendly client name from the IP address or server URL (DoT and DoH)
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#client-name-lookup" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#client-name-lookup</a>
     schema:
       additional_attrs: true
       type: dict
@@ -250,6 +259,8 @@ questions:
   - variable: caching
     group: Container Configuration
     label: Caching
+    description: Refer to
+      <br /><a href="https://0xerr0r.github.io/blocky/configuration/#caching" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#caching</a>
     schema:
       additional_attrs: true
       type: dict
@@ -297,6 +308,8 @@ questions:
   - variable: conditional
     group: Container Configuration
     label: Conditional
+    description: Define which DNS resolver(s) should be used for queries for the particular domain
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#conditional-dns-resolution" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#conditional-dns-resolution</a>
     schema:
       additional_attrs: true
       type: dict
@@ -352,6 +365,8 @@ questions:
   - variable: blocking
     group: Container Configuration
     label: Blocking
+    description: Each black or whitelist can be either a path to the local file or a URL to download. All Urls must be grouped to a group name.
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#blocking-and-whitelisting" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#blocking-and-whitelisting</a>
     schema:
       additional_attrs: true
       type: dict
@@ -503,6 +518,8 @@ questions:
   - variable: hostsFile
     group: Container Configuration
     label: Hosts File
+    description: You can enable resolving of entries, located in local hosts file.
+      <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#hosts-file" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#hosts-file</a>
     schema:
       additional_attrs: true
       type: dict

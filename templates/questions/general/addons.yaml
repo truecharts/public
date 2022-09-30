@@ -245,7 +245,7 @@
                             schema:
                               show_if: [["type", "=", "LoadBalancer"]]
                               type: string
-                              default: ""                                  
+                              default: ""
                           - variable: advancedsvcset
                             label: Show Advanced Service Settings
                             schema:
@@ -287,7 +287,7 @@
                                       - variable: ipFamily
                                         label: IP Family
                                         schema:
-                                          type: string                                          
+                                          type: string
                           - variable: ports
                             label: ""
                             schema:
