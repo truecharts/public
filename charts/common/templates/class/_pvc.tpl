@@ -42,7 +42,7 @@ spec:
     - {{ ( $values.accessMode | default "ReadWriteOnce" ) | quote }}
   resources:
     requests:
-      storage: {{ $values.size | default "999Gi" | quote }}
+      storage: {{ $values.size | default "256Gi" | quote }}
   {{- with $values.spec }}
   {{ tpl ( toYaml . ) $ | indent 2 }}
   {{- end }}
