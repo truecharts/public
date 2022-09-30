@@ -37,7 +37,9 @@ metadata:
 data:
   NODE_ENV: production
   {{/* User Defined */}}
-  PUBLIC_LOGIN_PAGE_MESSAGE: {{ .Values.immich.public_login_page_message }}
+  {{- with .Values.immich.public_login_page_message }}
+  PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
+  {{- end }}
   LOG_LEVEL: {{ .Values.immich.log_level }}
 ---
 
@@ -110,7 +112,7 @@ data:
           rewrite /api/(.*) /$1 break;
 
           # Server Container
-          proxy_pass http://localhost:3001;
+          proxy_pass http://immich-server:3001;
         }
 
         location / {
@@ -135,7 +137,7 @@ data:
           proxy_set_header Host $host;
 
           # Web Container
-          proxy_pass http://localhost:3000;
+          proxy_pass http://immich-web:3000;
         }
       }
     }

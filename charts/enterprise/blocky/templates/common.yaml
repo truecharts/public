@@ -73,5 +73,35 @@ service:
 {{/* inject api paths in ingress */}}
 {{- include "blocky.apiinjector" . }}
 
+
+
+{{/* Define path for DoH */}}
+{{- define "blocky.doh" -}}
+{{- $fullname := include "tc.common.names.fullname" . -}}
+path: "/dns-query"
+# -- Ignored if not kubeVersion >= 1.14-0
+pathType: Prefix
+service:
+  # -- Overrides the service name reference for this path
+  name: {{ printf "%s-http" $fullname }}
+  port: {{ .Values.service.http.ports.http.port }}
+{{- end -}}
+
+{{/* inject websocket path to all main ingress hosts*/}}
+{{- define "blocky.dohinjector" -}}
+{{- $path := list (include "blocky.doh" . | fromYaml) -}}
+{{- if .Values.ingress.main.enabled }}
+{{- range .Values.ingress.main.hosts }}
+{{- $newpaths := list }}
+{{- $newpaths := concat .paths $path }}
+{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/* inject api paths in ingress */}}
+{{- include "blocky.dohinjector" . }}
+
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
