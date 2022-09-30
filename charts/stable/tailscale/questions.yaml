@@ -29,7 +29,7 @@ questions:
           description: Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device.
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: accept_dns
           label: Accept DNS
           description: Accept DNS configuration from the admin console.

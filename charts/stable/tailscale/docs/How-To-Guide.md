@@ -38,7 +38,7 @@ Leave defaults here.
 ### Container Configuration
 
 - `Auth Key`: The key you received from tailscale in prerequisites above
-- `Userspace`: Keep checked (default) unless you wish to create your own tunnels.
+- `Userspace`: Now enabled by default, as it is *required* when using local routes and as an exit node (see below). However may need to be *unchecked* if you need give Tailscale full access to all the features inside scale (not just GUI/SMB, but Rsync, ping other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
 - `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
