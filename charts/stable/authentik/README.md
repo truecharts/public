@@ -5,13 +5,13 @@ authentik is an open-source Identity Provider focused on flexibility and versati
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [authentik](https://truecharts.org/docs/charts/enterprise/authentik)
+For more information, please click here: [authentik](https://truecharts.org/docs/charts/stable/authentik)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/enterprise/authentik>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/authentik>
 * <https://github.com/goauthentik/authentik>
 * <https://goauthentik.io/docs/>
 

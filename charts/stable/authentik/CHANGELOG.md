@@ -2,6 +2,15 @@
 
 
 
+## [authentik-7.1.1](https://github.com/truecharts/charts/compare/authentik-7.1.0...authentik-7.1.1) (2022-10-01)
+
+### Chore
+
+- move to stable ([#3978](https://github.com/truecharts/charts/issues/3978))
+
+
+
+
 ## [authentik-7.1.0](https://github.com/truecharts/charts/compare/authentik-7.0.2...authentik-7.1.0) (2022-10-01)
 
 ### Feat
