@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "0.20.2026"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.88
+deprecated: false
+description: Self-hosted bookmarking application.
+home: https://truecharts.org/docs/charts/stable/jackett
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.png
+keywords:
+  - bookmark
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: briefkasten
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+  - https://github.com/ndom91/briefkasten
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - web
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
