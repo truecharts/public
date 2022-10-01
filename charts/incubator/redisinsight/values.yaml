@@ -18,13 +18,13 @@ env:
   RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
   RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
 
-# podSecurityContext:
-#   runAsGroup: 0
-#   runAsUser: 0
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
 service:
   main:
