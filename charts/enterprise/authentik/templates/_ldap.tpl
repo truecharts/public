@@ -17,7 +17,7 @@ ports:
     name: ldapldaps
   - containerPort: {{ .Values.service.ldapldap.ports.ldapldap.targetPort }}
     name: ldapldap
-{{- if .Values.outposts.ldap.metrics }}
+{{- if .Values.metrics.enabled }}
   - containerPort: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
     name: ldapmetrics
 {{- end }}

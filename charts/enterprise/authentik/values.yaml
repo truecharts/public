@@ -62,9 +62,6 @@ authentik:
     log_level: "info"
   ldap:
     tls_ciphers: "null"
-  metrics:
-    enabled: true
-
 geoip:
   enabled: false
   account_id: ""
@@ -89,7 +86,6 @@ outposts:
     # insecure: false
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-    metrics: false
   proxy:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
@@ -101,7 +97,34 @@ outposts:
     # host: ""
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-    metrics: false
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    useDefault: true
+    labels: {}
+    # -- Configure additional rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 
 envFrom:
   - secretRef:
@@ -113,17 +136,17 @@ envFrom:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/live/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
   startup:
-    type: HTTP
+    type: HTTPS
     path: /-/health/ready/
-    port: "{{ .Values.service.http.ports.http.targetPort }}"
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
 
 service:
   main:
@@ -134,23 +157,16 @@ service:
         targetPort: 9443
   http:
     enabled: true
+    type: ClusterIP
     ports:
       http:
         enabled: true
         protocol: HTTP
         port: 10230
         targetPort: 9000
-  metrics:
-    enabled: true
-    ports:
-      metrics:
-        enabled: true
-        protocol: HTTP
-        port: 10231
-        targetPort: 9301
+  # LDAP Outpost Services
   ldapldaps:
     enabled: true
-    type: ClusterIP
     ports:
       ldapldaps:
         enabled: true
@@ -158,24 +174,14 @@ service:
         targetPort: 6636
   ldapldap:
     enabled: true
-    type: ClusterIP
     ports:
       ldapldap:
         enabled: true
         port: 389
         targetPort: 3389
-  ldapmetrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      ldapmetrics:
-        enabled: true
-        port: 10232
-        protocol: HTTP
-        targetPort: 9302
+  # Proxy Outpost Services
   proxyhttps:
     enabled: true
-    type: ClusterIP
     ports:
       proxyhttps:
         enabled: true
@@ -189,8 +195,27 @@ service:
       proxyhttp:
         enabled: true
         port: 10234
-        protocl: HTTP
+        protocol: HTTP
         targetPort: 9001
+  # Metrics Services
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        protocol: HTTP
+        port: 10231
+        targetPort: 9301
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9302
   proxymetrics:
     enabled: true
     type: ClusterIP
@@ -202,11 +227,7 @@ service:
         targetPort: 9303
 
 ingress:
-  http:
-    autoLink: true
   proxyhttps:
-    autoLink: true
-  proxyhttp:
     autoLink: true
 
 persistence:

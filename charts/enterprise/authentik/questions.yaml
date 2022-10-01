@@ -203,18 +203,6 @@ questions:
                       description: warning
                     - value: error
                       description: error
-        - variable: metrics
-          label: Metrics
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: Metrics Endpoint
-                description: Enables metrics endpoint for Authentik and embedded outpost
-                schema:
-                  type: boolean
-                  default: false
         - variable: ldap
           label: LDAP
           schema:
@@ -298,12 +286,6 @@ questions:
                             type: string
                             required: true
                             default: ""
-                    - variable: metrics
-                      label: Metrics Endpoint
-                      description: Enables metric endpoint in LDAP Outpost
-                      schema:
-                        type: boolean
-                        default: false
         - variable: proxy
           label: Proxy
           schema:
@@ -368,12 +350,6 @@ questions:
                             type: string
                             required: true
                             default: ""
-                    - variable: metrics
-                      label: Metrics Endpoint
-                      description: Enables metric endpoint in Proxy Outpost
-                      schema:
-                        type: boolean
-                        default: false
   - variable: geoip
     group: Container Configuration
     label: GeoIP Configuration
@@ -481,64 +457,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9443
-        - variable: http
-          label: http Service
-          description: The http service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: http
-                      label: http Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10230
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9000
-        - variable: metrics
-          label: metrics Service
-          description: The metrics service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: metrics
-                      label: metrics Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10231
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9301
         - variable: ldapldaps
           label: LDAPS Service
           description: The LDAPS service.
@@ -597,35 +515,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 3389
-        - variable: ldapmetrics
-          label: LDAP Metrics Service
-          description: The LDAP Metrics service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: ldapmetrics
-                      label: LDAP Metrics Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10232
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9302
         - variable: proxyhttps
           label: Proxy HTTPS Service
           description: The Proxy HTTPS service.
@@ -655,64 +544,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9444
-        - variable: proxyhttp
-          label: Proxy HTTP Service
-          description: The Proxy HTTP service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: proxyhttp
-                      label: Proxy HTTP Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10234
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9001
-        - variable: proxymetrics
-          label: Proxy Metrics Service
-          description: The Proxy HTTP service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: proxymetrics
-                      label: Proxy Metrics Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10235
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9303
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -766,28 +597,8 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressExpert}
-        - variable: http
-          label: HTTP Ingress
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressExpert}
         - variable: proxyhttps
           label: Proxy HTTPS Ingress
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressExpert}
-        - variable: proxyhttp
-          label: Proxy HTTP Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -841,6 +652,7 @@ questions:
             default: 568
 # Include{podSecurityContextAdvanced}
 # Include{resources}
+# Include{metrics}
 # Include{advanced}
 # Include{addons}
 # Include{documentation}

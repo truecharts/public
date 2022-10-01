@@ -17,7 +17,7 @@ ports:
     name: proxyhttps
   - containerPort: {{ .Values.service.proxyhttp.ports.proxyhttp.targetPort }}
     name: proxyhttp
-{{- if .Values.outposts.proxy.metrics }}
+{{- if .Values.metrics.enabled }}
   - containerPort: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
     name: proxymetrics
 {{- end }}
