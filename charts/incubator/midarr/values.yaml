@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/midarr-server
+  tag: v1.16.0@sha256:b2c433337beb328dafe3e6058c1a61ff5872f0ff2f2de1a883d521063ea6c943
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+midarr:
+  admin:
+    mail: admin@example.com
+    name: admin
+    pass: password
+  general:
+    app_url: http://localhost:4000
+    app_mailer_from: midarr@example.com
+    sendgrid_api_key: ""
+  radarr:
+    base_url: ""
+    api_key: ""
+  sonarr:
+    base_url: ""
+    api_key: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-config'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10347
+        protocol: HTTP
+        targetPort: 4000
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: midarr
+  postgresqlDatabase: midarr
+
+portal:
+  enabled: true
