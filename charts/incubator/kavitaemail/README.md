@@ -1,6 +1,6 @@
 # kavitaemail
 
-Simple email relay server for the kavita.
+Simple email relay server for kavita.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 

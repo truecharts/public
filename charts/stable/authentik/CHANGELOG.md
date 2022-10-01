@@ -2,6 +2,19 @@
 
 
 
+## [authentik-7.1.2](https://github.com/truecharts/charts/compare/authentik-7.1.1...authentik-7.1.2) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- move some files that left behind ([#3983](https://github.com/truecharts/charts/issues/3983))
+
+
+
+
 ## [authentik-7.1.1](https://github.com/truecharts/charts/compare/authentik-7.1.0...authentik-7.1.1) (2022-10-01)
 
 ### Chore
