@@ -1,29 +1,30 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 10.6.4
+kubeVersion: ">=1.16.0-0"
+name: redisinsight
+version: 0.0.28
+appVersion: "1.13.0"
+description: GUI for Redis.
+type: application
 deprecated: false
-description: RedisInsight - The GUI for Redis.
 home: https://truecharts.org/docs/charts/incubator/redisinsight
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redisinsight.png
 keywords:
   - redisinsight
   - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: redisinsight
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/redisinsight
   - https://redis.com/redis-enterprise/redis-insight/
   - https://hub.docker.com/r/redislabs/redisinsight
-type: application
-version: 0.0.27
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.4
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
